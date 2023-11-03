@@ -1,43 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class r84 extends yz3 {
+/* loaded from: classes8.dex */
+public class r84 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile q84 a;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public int errCode;
 
-    public r84(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.errCode = i;
-        this.errMsg = str;
-    }
-
-    public String toString() {
+    public static synchronized q84 a() {
         InterceptResult invokeV;
+        q84 q84Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "DesktopCommonResult{errCode=" + this.errCode + ", errMsg='" + this.errMsg + "'}";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (r84.class) {
+                if (a == null) {
+                    a = new q84();
+                }
+                q84Var = a;
+            }
+            return q84Var;
         }
-        return (String) invokeV.objValue;
+        return (q84) invokeV.objValue;
     }
 }

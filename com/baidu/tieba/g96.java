@@ -1,76 +1,108 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ala.frsgamelive.view.AlaGameFrsLiveNormalCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class g96 extends lh<j96, AlaGameFrsLiveNormalCardView.AlaGameFrsNormalViewHolder> {
+public class g96 extends yk6<c86> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public s56 b;
+    public t76 i;
+    public t76 j;
+    public ViewGroup k;
+
+    @Override // com.baidu.tieba.yk6
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d096b : invokeV.intValue;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g96(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public g96(TbPageContext<?> tbPageContext, ViewGroup viewGroup, int i, boolean z) {
+        super(tbPageContext, viewGroup);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {tbPageContext, viewGroup, Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        if (z) {
+            this.i = new i96(tbPageContext, i);
+            this.j = new i96(tbPageContext, i);
+            r();
+            return;
+        }
+        this.i = new h96(tbPageContext, i);
+        this.j = new h96(tbPageContext, i);
+        p();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
-    /* renamed from: s */
-    public AlaGameFrsLiveNormalCardView.AlaGameFrsNormalViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.yk6
+    /* renamed from: x */
+    public void k(c86 c86Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new AlaGameFrsLiveNormalCardView.AlaGameFrsNormalViewHolder(new AlaGameFrsLiveNormalCardView(this.a));
-        }
-        return (AlaGameFrsLiveNormalCardView.AlaGameFrsNormalViewHolder) invokeL.objValue;
-    }
-
-    public void u(s56 s56Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, s56Var) == null) {
-            this.b = s56Var;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, c86Var) == null) && c86Var != null) {
+            this.i.a(c86Var.a);
+            this.j.a(c86Var.b);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, j96 j96Var, AlaGameFrsLiveNormalCardView.AlaGameFrsNormalViewHolder alaGameFrsNormalViewHolder) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.yk6
+    public void l(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, j96Var, alaGameFrsNormalViewHolder})) == null) {
-            alaGameFrsNormalViewHolder.a.j(j96Var);
-            alaGameFrsNormalViewHolder.a.u(this.b);
-            return alaGameFrsNormalViewHolder.getView();
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            this.i.onChangeSkinType(tbPageContext, i);
+            this.j.onChangeSkinType(tbPageContext, i);
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public final void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.k = (ViewGroup) i();
+            View view2 = new View(c());
+            this.k.setPadding(h().getResources().getDimensionPixelSize(R.dimen.tbds44), h().getResources().getDimensionPixelSize(R.dimen.tbds12), h().getResources().getDimensionPixelSize(R.dimen.tbds44), 0);
+            this.k.addView(this.i.getView());
+            this.k.addView(view2, new LinearLayout.LayoutParams(h().getResources().getDimensionPixelSize(R.dimen.tbds12), -1));
+            this.k.addView(this.j.getView());
+        }
+    }
+
+    public final void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.k = (ViewGroup) i();
+            View view2 = new View(c());
+            this.k.setPadding(h().getResources().getDimensionPixelSize(R.dimen.tbds34), h().getResources().getDimensionPixelSize(R.dimen.tbds21), h().getResources().getDimensionPixelSize(R.dimen.tbds34), 0);
+            this.k.addView(this.i.getView());
+            this.k.addView(view2, new LinearLayout.LayoutParams(h().getResources().getDimensionPixelSize(R.dimen.tbds20), -1));
+            this.k.addView(this.j.getView());
+        }
     }
 }

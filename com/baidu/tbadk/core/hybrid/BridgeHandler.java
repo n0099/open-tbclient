@@ -6,12 +6,12 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.b35;
-import com.baidu.tieba.c35;
-import com.baidu.tieba.d35;
-import com.baidu.tieba.s25;
-import com.baidu.tieba.v25;
-import com.baidu.tieba.x25;
+import com.baidu.tieba.m35;
+import com.baidu.tieba.p35;
+import com.baidu.tieba.r35;
+import com.baidu.tieba.v35;
+import com.baidu.tieba.w35;
+import com.baidu.tieba.x35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,20 +23,20 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public abstract class BridgeHandler implements x25 {
+public abstract class BridgeHandler implements r35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final b35 bridge;
+    public final v35 bridge;
     public final HashMap<String, Method> methods;
 
     /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: com.baidu.tbadk.core.hybrid.BridgeHandler */
     /* JADX WARN: Multi-variable type inference failed */
-    public BridgeHandler(b35 b35Var) {
+    public BridgeHandler(v35 v35Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {b35Var};
+            Object[] objArr = {v35Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -46,7 +46,7 @@ public abstract class BridgeHandler implements x25 {
                 return;
             }
         }
-        this.bridge = b35Var;
+        this.bridge = v35Var;
         this.methods = new HashMap<>();
         loadMethods(getClass());
         if (!this.methods.isEmpty()) {
@@ -61,13 +61,13 @@ public abstract class BridgeHandler implements x25 {
         if (interceptable == null || interceptable.invokeL(65537, this, cls) == null) {
             for (Method method : cls.getDeclaredMethods()) {
                 String str = null;
-                d35 d35Var = (d35) method.getAnnotation(d35.class);
-                if (d35Var != null) {
-                    String value = d35Var.value();
+                x35 x35Var = (x35) method.getAnnotation(x35.class);
+                if (x35Var != null) {
+                    String value = x35Var.value();
                     if (!TextUtils.isEmpty(value)) {
                         str = value;
                     }
-                    if (d35Var.isAsync() && !Void.TYPE.equals(method.getReturnType())) {
+                    if (x35Var.isAsync() && !Void.TYPE.equals(method.getReturnType())) {
                         throw new IllegalArgumentException("Method with async flag should return void.");
                     }
                     if (TextUtils.isEmpty(str)) {
@@ -89,13 +89,13 @@ public abstract class BridgeHandler implements x25 {
         if (interceptable == null || interceptable.invokeLLLL(65538, this, str, jSONObject, str2, str3) == null) {
             String optString = jSONObject.optString(WBConstants.SHARE_CALLBACK_ID);
             if (TextUtils.isEmpty(optString)) {
-                v25.a("method " + str + " not found!");
+                p35.a("method " + str + " not found!");
                 return;
             }
             HashMap hashMap = new HashMap(4);
             hashMap.put("errNo", str2);
             hashMap.put(StatConstants.KEY_EXT_ERR_MSG, str3);
-            this.bridge.c(c35.k(optString, hashMap));
+            this.bridge.c(w35.k(optString, hashMap));
         }
     }
 
@@ -108,24 +108,24 @@ public abstract class BridgeHandler implements x25 {
         return (Context) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.x25
+    @Override // com.baidu.tieba.r35
     public void handle(String str, JSONObject jSONObject, JSONObject jSONObject2) {
         Object invoke;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject, jSONObject2) == null) {
             Method method = this.methods.get(str);
             if (method != null) {
-                d35 d35Var = (d35) method.getAnnotation(d35.class);
+                x35 x35Var = (x35) method.getAnnotation(x35.class);
                 String optString = jSONObject2.optString(WBConstants.SHARE_CALLBACK_ID);
                 try {
                     Class<?>[] parameterTypes = method.getParameterTypes();
-                    if (!d35Var.isAsync()) {
+                    if (!x35Var.isAsync()) {
                         if (parameterTypes.length == 2) {
                             invoke = method.invoke(this, optString, jSONObject);
                         } else if (parameterTypes.length == 1) {
                             invoke = method.invoke(this, jSONObject);
                         } else if (parameterTypes.length == 0) {
-                            v25.a("native method " + getClass().getSimpleName() + ":" + d35Var.value() + " ignored all parameters.");
+                            p35.a("native method " + getClass().getSimpleName() + ":" + x35Var.value() + " ignored all parameters.");
                             invoke = method.invoke(this, new Object[0]);
                         } else {
                             unknownMethod(str, jSONObject2, "500", "parameters too much!");
@@ -147,7 +147,7 @@ public abstract class BridgeHandler implements x25 {
                         }
                         return;
                     } else if (parameterTypes.length == 0) {
-                        v25.a("native method " + getClass().getSimpleName() + ":" + d35Var.value() + " ignored all parameters.");
+                        p35.a("native method " + getClass().getSimpleName() + ":" + x35Var.value() + " ignored all parameters.");
                         method.invoke(this, new Object[0]);
                         if (!TextUtils.isEmpty(optString)) {
                             sendResponseToJS(optString, null);
@@ -159,15 +159,15 @@ public abstract class BridgeHandler implements x25 {
                         return;
                     }
                 } catch (IllegalAccessException e) {
-                    v25.a("native method call error:" + e.getMessage());
+                    p35.a("native method call error:" + e.getMessage());
                     unknownMethod(str, jSONObject2, TbEnum.SystemMessage.EVENT_ID_UPLOAD_STAT, "IllegalAccessException:" + e.getMessage());
                     return;
                 } catch (InvocationTargetException e2) {
-                    v25.a("native method call error:" + e2.getMessage());
+                    p35.a("native method call error:" + e2.getMessage());
                     unknownMethod(str, jSONObject2, TbEnum.SystemMessage.EVENT_ID_PLUGIN_CONFIG_SYNC, "InvocationTargetException:" + e2.getMessage());
                     return;
                 } catch (Exception e3) {
-                    v25.a("native method call error:" + e3.getMessage());
+                    p35.a("native method call error:" + e3.getMessage());
                     unknownMethod(str, jSONObject2, TbEnum.SystemMessage.EVENT_ID_OFFLINE_DEBUG, "Native call exception:" + e3.getMessage());
                     return;
                 }
@@ -179,14 +179,14 @@ public abstract class BridgeHandler implements x25 {
     public void sendMessage(Message<?> message) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) {
-            s25.a(message);
+            m35.a(message);
         }
     }
 
     public void sendMessageAsync(Message<?> message) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, message) == null) {
-            s25.b(message);
+            m35.b(message);
         }
     }
 
@@ -194,7 +194,7 @@ public abstract class BridgeHandler implements x25 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, jSONObject) == null) {
             if (TextUtils.isEmpty(str)) {
-                v25.a("sendResponseToJS got empty callbackId.");
+                p35.a("sendResponseToJS got empty callbackId.");
                 return;
             }
             HashMap hashMap = new HashMap(4);
@@ -203,7 +203,7 @@ public abstract class BridgeHandler implements x25 {
             if (jSONObject != null) {
                 hashMap.put("data", jSONObject);
             }
-            this.bridge.c(c35.k(str, hashMap));
+            this.bridge.c(w35.k(str, hashMap));
         }
     }
 }

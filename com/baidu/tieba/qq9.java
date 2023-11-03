@@ -1,82 +1,79 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.CreationData;
-/* loaded from: classes7.dex */
-public class qq9 extends BaseCardInfo implements yh {
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public final class qq9 extends pq6<pq9> {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public CreationData a;
+    public final a b;
 
-    public void e(CreationData creationData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, creationData) == null) {
-        }
+    /* loaded from: classes8.dex */
+    public interface a {
+        void a(String str, String str2, String str3);
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948100624, "Lcom/baidu/tieba/qq9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948100624, "Lcom/baidu/tieba/qq9;");
-                return;
-            }
-        }
-        b = BdUniqueId.gen();
-    }
-
-    public qq9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qq9(a aVar) {
+        super(pq9.class);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Class) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = aVar;
     }
 
-    public CreationData c() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.pq6
+    public void onEvent(pq9 event) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (CreationData) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yh
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return b;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void d(CreationData creationData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, creationData) == null) {
-            this.a = creationData;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
+            Intrinsics.checkNotNullParameter(event, "event");
+            if (!TextUtils.isEmpty(event.a())) {
+                try {
+                    String a2 = event.a();
+                    if (a2 != null) {
+                        JSONObject optJSONObject = new JSONObject(a2).optJSONObject("robot_reply_info");
+                        if (optJSONObject != null) {
+                            String token = optJSONObject.optString("loading_post_token");
+                            String content = optJSONObject.optString("content");
+                            String postId = optJSONObject.optString("post_id");
+                            a aVar = this.b;
+                            if (aVar != null) {
+                                Intrinsics.checkNotNullExpressionValue(token, "token");
+                                Intrinsics.checkNotNullExpressionValue(content, "content");
+                                Intrinsics.checkNotNullExpressionValue(postId, "postId");
+                                aVar.a(token, content, postId);
+                                return;
+                            }
+                            return;
+                        }
+                        return;
+                    }
+                    throw new NullPointerException("null cannot be cast to non-null type kotlin.String");
+                } catch (JSONException e) {
+                    BdLog.e(e);
+                }
+            }
         }
     }
 }

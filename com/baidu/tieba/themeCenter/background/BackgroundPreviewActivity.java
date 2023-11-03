@@ -9,8 +9,8 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonalBackgroundPreviewActivityConfig;
 import com.baidu.tbadk.pageStayDuration.PageStayDurationItem;
-import com.baidu.tieba.bla;
-import com.baidu.tieba.cg5;
+import com.baidu.tieba.aya;
+import com.baidu.tieba.rh5;
 import com.baidu.tieba.themeCenter.background.BackgroundPreviewModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -22,7 +22,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BackgroundPreviewModel a;
-    public bla b;
+    public aya b;
     public int c;
     public int d;
     public int e;
@@ -137,7 +137,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         this.f = new a(this);
     }
 
-    public int N0() {
+    public int L0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -170,19 +170,19 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
             if (backgroundPreviewModel != null) {
                 backgroundPreviewModel.destroy();
             }
-            bla blaVar = this.b;
-            if (blaVar != null) {
-                blaVar.h();
+            aya ayaVar = this.b;
+            if (ayaVar != null) {
+                ayaVar.h();
             }
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        bla blaVar;
+        aya ayaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.a != null && (blaVar = this.b) != null) {
-            showLoadingView(blaVar.f());
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.a != null && (ayaVar = this.b) != null) {
+            showLoadingView(ayaVar.f());
             this.a.loadData();
         }
     }
@@ -192,9 +192,9 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            bla blaVar = this.b;
-            if (blaVar != null) {
-                blaVar.g();
+            aya ayaVar = this.b;
+            if (ayaVar != null) {
+                ayaVar.g();
             }
         }
     }
@@ -205,7 +205,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             super.onUserChanged(z);
             if (z) {
-                cg5.d().h();
+                rh5.d().h();
             }
         }
     }
@@ -224,10 +224,10 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
             }
             BackgroundPreviewModel backgroundPreviewModel = new BackgroundPreviewModel(this.c, this.d);
             this.a = backgroundPreviewModel;
-            backgroundPreviewModel.S(this.f);
-            bla blaVar = new bla(this);
-            this.b = blaVar;
-            showLoadingView(blaVar.f());
+            backgroundPreviewModel.T(this.f);
+            aya ayaVar = new aya(this);
+            this.b = ayaVar;
+            showLoadingView(ayaVar.f());
             this.b.j(new b(this));
             this.a.loadData();
         }

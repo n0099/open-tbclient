@@ -1,213 +1,134 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.widget.timepicker.pickerview.listener.OnTimeSelectListener;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.MediaData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Calendar;
+import java.util.List;
 /* loaded from: classes9.dex */
-public class yw5 {
+public class yw5 implements zw5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zw5 a;
 
-    public yw5(Context context, OnTimeSelectListener onTimeSelectListener) {
+    @Override // com.baidu.tieba.zw5
+    public int b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i < 4) {
+                return 1;
+            }
+            return (i < 4 || i >= 7) ? 3 : 2;
+        }
+        return invokeI.intValue;
+    }
+
+    public yw5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, onTimeSelectListener};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        zw5 zw5Var = new zw5(2);
-        this.a = zw5Var;
-        zw5Var.A = context;
-        zw5Var.a = onTimeSelectListener;
     }
 
-    public jx5 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.zw5
+    public int a(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i, int i2) {
+        InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new jx5(this.a);
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, constrainImageLayout, list, i, i2)) == null) {
+            if (ListUtils.getCount(list) <= 0) {
+                return i2;
+            }
+            if (i == 0) {
+                return e(constrainImageLayout, list, i2);
+            }
+            if (i == 1) {
+                return d(constrainImageLayout, list, i2);
+            }
+            if (i == 2) {
+                return c(constrainImageLayout, list, i2);
+            }
+            return i2;
         }
-        return (jx5) invokeV.objValue;
+        return invokeLLII.intValue;
     }
 
-    public yw5 b(boolean z) {
-        InterceptResult invokeZ;
+    public final int c(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-            this.a.f1186T = z;
-            return this;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, constrainImageLayout, list, i)) == null) {
+            if (constrainImageLayout != null && !ListUtils.isEmpty(list)) {
+                int count = ListUtils.getCount(list);
+                constrainImageLayout.setImageMaxChildCount(3);
+                int i2 = count - 9;
+                if (i2 > 0) {
+                    int i3 = i + 3;
+                    List<MediaData> subList = ListUtils.subList(list, i, i3);
+                    constrainImageLayout.setExtraCenterText(TbadkCoreApplication.getInst().getString(R.string.constrain_image_extra_text, new Object[]{Integer.valueOf(i2)}));
+                    constrainImageLayout.setUrls(subList, i, true);
+                    return i3;
+                }
+                constrainImageLayout.setUrls(ListUtils.subList(list, i, count), i);
+                constrainImageLayout.setExtraCenterText(null);
+                return count;
+            }
+            return i;
         }
-        return (yw5) invokeZ.objValue;
+        return invokeLLI.intValue;
     }
 
-    public yw5 c(boolean z) {
-        InterceptResult invokeZ;
+    public final int d(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            this.a.R = z;
-            return this;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048579, this, constrainImageLayout, list, i)) == null) {
+            if (constrainImageLayout != null && !ListUtils.isEmpty(list)) {
+                if (ListUtils.getCount(list) == 4) {
+                    int i2 = i + 2;
+                    constrainImageLayout.setUrls(ListUtils.subList(list, i, i2), i);
+                    return i2;
+                }
+                int i3 = i + 3;
+                constrainImageLayout.setUrls(ListUtils.subList(list, i, i3), i);
+                return i3;
+            }
+            return i;
         }
-        return (yw5) invokeZ.objValue;
+        return invokeLLI.intValue;
     }
 
-    public yw5 d(int i) {
-        InterceptResult invokeI;
+    public final int e(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            this.a.P = i;
-            return this;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, constrainImageLayout, list, i)) == null) {
+            if (constrainImageLayout != null && !ListUtils.isEmpty(list)) {
+                int count = ListUtils.getCount(list);
+                if (count == 1) {
+                    constrainImageLayout.setUrls(list, i);
+                    return 0;
+                } else if (count != 2 && count != 4 && count != 5) {
+                    int i2 = i + 3;
+                    constrainImageLayout.setUrls(ListUtils.subList(list, i, i2), i);
+                    return i2;
+                } else {
+                    int i3 = i + 2;
+                    constrainImageLayout.setUrls(ListUtils.subList(list, i, i3), i);
+                    return i3;
+                }
+            }
+            return i;
         }
-        return (yw5) invokeI.objValue;
-    }
-
-    public yw5 e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            this.a.H = i;
-            return this;
-        }
-        return (yw5) invokeI.objValue;
-    }
-
-    public yw5 f(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            this.a.L = i;
-            return this;
-        }
-        return (yw5) invokeI.objValue;
-    }
-
-    public yw5 g(Calendar calendar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, calendar)) == null) {
-            this.a.e = calendar;
-            return this;
-        }
-        return (yw5) invokeL.objValue;
-    }
-
-    public yw5 h(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, viewGroup)) == null) {
-            this.a.y = viewGroup;
-            return this;
-        }
-        return (yw5) invokeL.objValue;
-    }
-
-    public yw5 i(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            this.a.O = i;
-            return this;
-        }
-        return (yw5) invokeI.objValue;
-    }
-
-    public yw5 l(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048587, this, f)) == null) {
-            this.a.Q = f;
-            return this;
-        }
-        return (yw5) invokeF.objValue;
-    }
-
-    public yw5 m(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
-            this.a.N = i;
-            return this;
-        }
-        return (yw5) invokeI.objValue;
-    }
-
-    public yw5 n(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
-            this.a.M = i;
-            return this;
-        }
-        return (yw5) invokeI.objValue;
-    }
-
-    public yw5 p(boolean[] zArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, zArr)) == null) {
-            this.a.d = zArr;
-            return this;
-        }
-        return (yw5) invokeL.objValue;
-    }
-
-    public yw5 j(String str, String str2, String str3, String str4, String str5, String str6) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, str3, str4, str5, str6})) == null) {
-            zw5 zw5Var = this.a;
-            zw5Var.l = str;
-            zw5Var.m = str2;
-            zw5Var.n = str3;
-            zw5Var.o = str4;
-            zw5Var.p = str5;
-            zw5Var.q = str6;
-            return this;
-        }
-        return (yw5) invokeCommon.objValue;
-    }
-
-    public yw5 k(int i, ax5 ax5Var) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i, ax5Var)) == null) {
-            zw5 zw5Var = this.a;
-            zw5Var.x = i;
-            zw5Var.c = ax5Var;
-            return this;
-        }
-        return (yw5) invokeIL.objValue;
-    }
-
-    public yw5 o(int i, int i2, int i3, int i4, int i5, int i6) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
-            zw5 zw5Var = this.a;
-            zw5Var.r = i;
-            zw5Var.s = i2;
-            zw5Var.t = i3;
-            zw5Var.u = i4;
-            zw5Var.v = i5;
-            zw5Var.w = i6;
-            return this;
-        }
-        return (yw5) invokeCommon.objValue;
+        return invokeLLI.intValue;
     }
 }

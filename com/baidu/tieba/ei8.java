@@ -1,21 +1,16 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.base.core.uilist.BaseItem;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.Random;
 /* loaded from: classes5.dex */
-public class ei8 extends v98 {
+public final class ei8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int b;
+    public static final Random a;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final BaseItem a;
 
     static {
         InterceptResult invokeClinit;
@@ -30,26 +25,18 @@ public class ei8 extends v98 {
                 return;
             }
         }
-        b = BdUniqueId.gen().getId();
+        a = new Random();
     }
 
-    @Override // com.baidu.tieba.v98
-    public int a() {
-        InterceptResult invokeV;
+    public static int a(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
+            if (i >= i2) {
+                return i;
+            }
+            return (int) ((a.nextFloat() * (i2 - i)) + i);
         }
-        return invokeV.intValue;
-    }
-
-    @NonNull
-    public BaseItem b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (BaseItem) invokeV.objValue;
+        return invokeII.intValue;
     }
 }

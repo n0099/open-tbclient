@@ -1,40 +1,97 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.LiveLocationService;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.coreExtra.util.DialogUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmStatic;
 /* loaded from: classes7.dex */
-public class m39 extends kf1<LiveLocationService> {
+public final class m39 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public m39() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947921878, "Lcom/baidu/tieba/m39;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947921878, "Lcom/baidu/tieba/m39;");
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kf1
-    /* renamed from: a */
-    public LiveLocationService createService() throws ServiceNotFoundException {
+    @JvmStatic
+    public static final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new n39();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (TbSingleton.getInstance().getPushStrategyConfig().d()) {
+                return DialogUtil.showPushPermissionDialog(TbadkCoreApplication.getInst(), 4);
+            }
+            return gba.d.a().b("agree_message_bar");
         }
-        return (LiveLocationService) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    @JvmStatic
+    public static final boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (TbSingleton.getInstance().getPushStrategyConfig().d()) {
+                return DialogUtil.showPushPermissionDialog(TbadkCoreApplication.getInst(), 3);
+            }
+            return gba.d.a().b("at_message_bar");
+        }
+        return invokeV.booleanValue;
+    }
+
+    @JvmStatic
+    public static final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (TbSingleton.getInstance().getPushStrategyConfig().d()) {
+                return DialogUtil.showPushPermissionDialog(TbadkCoreApplication.getInst(), 5);
+            }
+            return gba.d.a().b("fan_message_bar");
+        }
+        return invokeV.booleanValue;
+    }
+
+    @JvmStatic
+    public static final boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (TbSingleton.getInstance().getPushStrategyConfig().d()) {
+                return DialogUtil.showPushPermissionDialog(TbadkCoreApplication.getInst(), 0);
+            }
+            return gba.d.a().b("im");
+        }
+        return invokeV.booleanValue;
+    }
+
+    @JvmStatic
+    public static final boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (TbSingleton.getInstance().getPushStrategyConfig().d()) {
+                return DialogUtil.showPushPermissionDialog(TbadkCoreApplication.getInst(), 6);
+            }
+            return gba.d.a().b("reply_message_bar");
+        }
+        return invokeV.booleanValue;
     }
 }

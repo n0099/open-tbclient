@@ -1,254 +1,55 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
-import android.app.Activity;
 import android.content.Context;
-import android.graphics.drawable.ColorDrawable;
-import android.os.Build;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.menu.BaseMenuView;
-import com.baidu.swan.menu.MainMenuView;
-import com.baidu.swan.menu.PopupWindow;
+import android.content.Intent;
+import android.net.Uri;
+import androidx.annotation.NonNull;
+import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.mapapi.model.LatLng;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes8.dex */
-public class yb4 extends PopupWindow implements View.OnClickListener {
+/* loaded from: classes9.dex */
+public class yb4 extends ac4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View Q;
-    public BaseMenuView R;
-    public Context S;
-
-    /* renamed from: T  reason: collision with root package name */
-    public View f1183T;
-    public MainMenuView U;
-    public FrameLayout V;
-    public qb4 W;
-    public boolean X;
-    public int Y;
-
-    /* loaded from: classes8.dex */
-    public class a extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yb4 a;
-
-        public a(yb4 yb4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yb4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = yb4Var;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                Context context = this.a.S;
-                if ((context instanceof Activity) && ((Activity) context).isFinishing()) {
-                    return;
-                }
-                yb4.super.q();
-                yb4 yb4Var = this.a;
-                BaseMenuView baseMenuView = yb4Var.R;
-                if (baseMenuView != yb4Var.U) {
-                    baseMenuView.setVisibility(8);
-                }
-            }
-        }
-    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yb4(Context context, View view2, @Nullable qb4 qb4Var) {
-        super(context);
+    public yb4(@NonNull Context context) {
+        super(BaiduMap.e, context.getString(R.string.obfuscated_res_0x7f0f0f35), "com.baidu.BaiduMap");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, view2, qb4Var};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.X = true;
-        this.Y = 0;
-        this.S = context;
-        this.f1183T = view2;
-        this.W = qb4Var;
-        E(false);
-        G(true);
-        K(true);
-        D(new ColorDrawable(0));
-        M(-1);
-        H(-1);
-        if (Build.VERSION.SDK_INT > 29) {
-            I(true);
-        }
-        W();
+        this.c = true;
     }
 
-    public void Z(int i) {
+    @Override // com.baidu.tieba.ac4
+    public void e(Context context, LatLng latLng, LatLng latLng2, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.Y = i;
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {
-            int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f09053b || id == R.id.obfuscated_res_0x7f091709) {
-                V(true);
-            }
-        }
-    }
-
-    public void U() {
-        qb4 qb4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (qb4Var = this.W) != null) {
-            qb4Var.a(this.U);
-        }
-    }
-
-    public void Y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.U.e();
-        }
-    }
-
-    @Override // com.baidu.swan.menu.PopupWindow
-    public void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            V(true);
-        }
-    }
-
-    public void V(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            if (!z) {
-                super.q();
-            } else if (!y()) {
-            } else {
-                ObjectAnimator c = sb4.c(this.Q);
-                ObjectAnimator e = sb4.e(this.R);
-                AnimatorSet animatorSet = new AnimatorSet();
-                animatorSet.addListener(new a(this));
-                animatorSet.playTogether(c, e);
-                animatorSet.start();
-            }
-        }
-    }
-
-    public final void W() {
-        int b;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(this.S).inflate(R.layout.obfuscated_res_0x7f0d0094, (ViewGroup) null);
-            this.V = frameLayout;
-            this.Q = frameLayout.findViewById(R.id.obfuscated_res_0x7f091709);
-            this.U = (MainMenuView) this.V.findViewById(R.id.obfuscated_res_0x7f09019d);
-            if (tl4.d() && (this.S instanceof Activity)) {
-                FrameLayout frameLayout2 = (FrameLayout) this.V.findViewById(R.id.obfuscated_res_0x7f091759);
-                if (tl4.e((Activity) this.S)) {
-                    b = tl4.a((Activity) this.S);
-                } else {
-                    b = (int) tl4.b((Activity) this.S);
-                }
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(b, -1);
-                layoutParams.gravity = 17;
-                if (frameLayout2 != null) {
-                    frameLayout2.setLayoutParams(layoutParams);
-                }
-            }
-            this.Q.setOnClickListener(this);
-            this.U.setClickListener(this);
-            this.U.setFitsSystemWindows(true);
-            this.V.measure(0, 0);
-            F(this.V);
-        }
-    }
-
-    public void a0(List<List<xb4>> list, View view2, boolean z, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{list, view2, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            this.U.g(list, view2, z, i);
-            c0();
-        }
-    }
-
-    public void b0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.Q.setAlpha(0.0f);
-            MainMenuView mainMenuView = this.U;
-            mainMenuView.setTranslationY(mainMenuView.getHeight());
-            ObjectAnimator d = sb4.d(this.Q, this.U);
-            ObjectAnimator b = sb4.b(this.U);
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(d);
-            arrayList.add(b);
-            AnimatorSet animatorSet = new AnimatorSet();
-            animatorSet.playTogether(arrayList);
-            animatorSet.start();
-        }
-    }
-
-    public final void c0() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || y()) {
-            return;
-        }
-        U();
-        this.U.f();
-        this.R = this.U;
-        if (this.X) {
-            G(false);
-        }
-        Activity activity = (Activity) this.S;
-        if (activity != null && !activity.isFinishing() && !activity.isDestroyed()) {
-            O(this.f1183T, 81, 0, 0);
-            if (this.X) {
-                u().setSystemUiVisibility(this.Y | 1024 | 4096);
-                G(true);
-                Q();
-            }
-            b0();
+        if ((interceptable == null || interceptable.invokeLLLLL(1048576, this, context, latLng, latLng2, str, str2) == null) && latLng != null && latLng2 != null) {
+            Intent intent = new Intent();
+            Uri.Builder buildUpon = Uri.parse("baidumap://map/direction?").buildUpon();
+            buildUpon.appendQueryParameter("origin", "name:" + str + "|latlng:" + latLng.latitude + "," + latLng.longitude);
+            buildUpon.appendQueryParameter("destination", "name:" + str2 + "|latlng:" + latLng2.latitude + "," + latLng2.longitude);
+            buildUpon.appendQueryParameter("mode", "driving");
+            buildUpon.appendQueryParameter("target", "1");
+            buildUpon.appendQueryParameter("src", context.getPackageName());
+            intent.setData(buildUpon.build());
+            context.startActivity(intent);
         }
     }
 }

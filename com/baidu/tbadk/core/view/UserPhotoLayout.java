@@ -14,8 +14,8 @@ import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ya;
-import com.baidu.tieba.za;
+import com.baidu.tieba.ob;
+import com.baidu.tieba.pb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,7 +35,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
     public int mNormalShowCount;
     public int mPadding;
     public e mTbRecyclerListener;
-    public ya<HeadImageView> mUserPhotoPool;
+    public ob<HeadImageView> mUserPhotoPool;
 
     /* loaded from: classes4.dex */
     public interface d {
@@ -44,7 +44,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
 
     /* loaded from: classes4.dex */
     public interface f {
-        ya<HeadImageView> a();
+        ob<HeadImageView> a();
 
         int b();
 
@@ -92,7 +92,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
     }
 
     /* loaded from: classes4.dex */
-    public class b implements za<HeadImageView> {
+    public class b implements pb<HeadImageView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -123,7 +123,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.za
+        @Override // com.baidu.tieba.pb
         public /* bridge */ /* synthetic */ HeadImageView a(HeadImageView headImageView) {
             HeadImageView headImageView2 = headImageView;
             e(headImageView2);
@@ -132,7 +132,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.za
+        @Override // com.baidu.tieba.pb
         public /* bridge */ /* synthetic */ HeadImageView c(HeadImageView headImageView) {
             HeadImageView headImageView2 = headImageView;
             h(headImageView2);
@@ -140,7 +140,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.za
+        @Override // com.baidu.tieba.pb
         /* renamed from: f */
         public void b(HeadImageView headImageView) {
             Interceptable interceptable = $ic;
@@ -166,7 +166,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.za
+        @Override // com.baidu.tieba.pb
         /* renamed from: g */
         public HeadImageView d() {
             InterceptResult invokeV;
@@ -335,9 +335,9 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         HeadImageView headImageView;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, context)) == null) {
-            ya<HeadImageView> yaVar = this.mUserPhotoPool;
-            if (yaVar != null) {
-                headImageView = yaVar.b();
+            ob<HeadImageView> obVar = this.mUserPhotoPool;
+            if (obVar != null) {
+                headImageView = obVar.b();
             } else {
                 headImageView = null;
             }
@@ -394,13 +394,13 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         }
     }
 
-    public static ya<HeadImageView> createUserPhotoPool(Context context, int i) {
+    public static ob<HeadImageView> createUserPhotoPool(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i)) == null) {
-            return new ya<>(new b(context), i, 0);
+            return new ob<>(new b(context), i, 0);
         }
-        return (ya) invokeLI.objValue;
+        return (ob) invokeLI.objValue;
     }
 
     @Override // android.view.ViewGroup

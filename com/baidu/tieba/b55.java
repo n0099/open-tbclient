@@ -1,26 +1,72 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
-import androidx.annotation.ColorInt;
-import androidx.annotation.ColorRes;
+import android.content.Context;
+import android.os.Handler;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class b55 extends TBSpecificationButtonConfig {
+public class b55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean v;
-    public int w;
-    public int x;
+    public long a;
+    public Context b;
+    public View c;
+    public TextView d;
+    public ImageView e;
+    public Toast f;
+    public Handler g;
+    public Runnable h;
+
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b55 a;
+
+        public a(b55 b55Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {b55Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = b55Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a.f != null) {
+                    this.a.f.cancel();
+                }
+                if (this.a.c != null && (this.a.c.getParent() instanceof ViewGroup)) {
+                    ((ViewGroup) this.a.c.getParent()).removeView(this.a.c);
+                }
+            }
+        }
+    }
 
     public b55() {
         Interceptable interceptable = $ic;
@@ -35,96 +81,59 @@ public class b55 extends TBSpecificationButtonConfig {
                 return;
             }
         }
-        this.w = R.dimen.tbds1;
-        this.x = R.string.A_X07;
-        this.b = R.color.CAM_X0302;
-        this.v = false;
+        this.a = 3000L;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.h = new a(this);
+        this.b = TbadkCoreApplication.getInst().getContext();
+        this.g = new Handler();
     }
 
-    @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
-    public Drawable a(float f) {
-        InterceptResult invokeF;
+    public void c(CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
-            return v(f);
+        if (interceptable == null || interceptable.invokeL(1048576, this, charSequence) == null) {
+            View inflate = LayoutInflater.from(this.b).inflate(R.layout.image_toast_view, (ViewGroup) null);
+            this.c = inflate;
+            this.d = (TextView) inflate.findViewById(R.id.tip_text);
+            this.e = (ImageView) this.c.findViewById(R.id.tip_iamge);
+            this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(BdUtilHelper.getDimens(this.b, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
+            this.d.setText(charSequence);
+            this.e.setImageResource(R.drawable.icon_toast_game_error);
+            e(this.c);
         }
-        return (Drawable) invokeF.objValue;
     }
 
-    public void r(@ColorRes int i) {
+    public void d(CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.b = i;
-            this.v = false;
-            this.r = true;
-            TBSpecificationButtonConfig.a aVar = this.u;
-            if (aVar != null) {
-                aVar.c();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence) == null) {
+            View inflate = LayoutInflater.from(this.b).inflate(R.layout.image_toast_view, (ViewGroup) null);
+            this.c = inflate;
+            this.d = (TextView) inflate.findViewById(R.id.tip_text);
+            this.e = (ImageView) this.c.findViewById(R.id.tip_iamge);
+            this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(BdUtilHelper.getDimens(this.b, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
+            this.d.setText(charSequence);
+            this.e.setImageResource(R.drawable.icon_toast_game_ok);
+            e(this.c);
+        }
+    }
+
+    public void e(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            this.g.removeCallbacks(this.h);
+            if (this.f == null) {
+                this.f = new Toast(this.b);
             }
+            this.g.postDelayed(this.h, this.a);
+            this.f.setView(view2);
+            this.f.setDuration(1);
+            this.f.setGravity(17, 0, 0);
+            GreyUtil.grey(this.f);
+            this.f.show();
         }
-    }
-
-    public void s(@ColorInt int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.b = i;
-            this.v = false;
-            this.r = false;
-            TBSpecificationButtonConfig.a aVar = this.u;
-            if (aVar != null) {
-                aVar.c();
-            }
-        }
-    }
-
-    public void t(@ColorRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.b = i;
-            this.c = R.color.CAM_X0902;
-            this.v = true;
-            this.r = true;
-            TBSpecificationButtonConfig.a aVar = this.u;
-            if (aVar != null) {
-                aVar.c();
-            }
-        }
-    }
-
-    public void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b = R.color.CAM_X0101;
-            this.v = false;
-            this.r = true;
-            TBSpecificationButtonConfig.a aVar = this.u;
-            if (aVar != null) {
-                aVar.c();
-            }
-        }
-    }
-
-    public final Drawable v(float f) {
-        InterceptResult invokeF;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
-            GradientDrawable gradientDrawable = new GradientDrawable();
-            if (this.v) {
-                gradientDrawable.setStroke(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), this.w), SkinManager.getColor(this.s, this.c));
-            } else {
-                int dimens = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), this.w);
-                if (this.r) {
-                    i = SkinManager.getColor(this.s, this.b);
-                } else {
-                    i = this.b;
-                }
-                gradientDrawable.setStroke(dimens, vca.a(i, x15.b(this.x)));
-            }
-            gradientDrawable.setShape(0);
-            gradientDrawable.setCornerRadius(f);
-            return gradientDrawable;
-        }
-        return (Drawable) invokeF.objValue;
     }
 }

@@ -1,85 +1,57 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.res.Resources;
-import android.media.MediaMetadataRetriever;
-import android.net.Uri;
-import android.os.Bundle;
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.AnimationUtils;
-import android.widget.BaseAdapter;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
+import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.media.chooser.model.ImageModel;
-import com.baidu.swan.apps.media.chooser.model.MediaModel;
-import com.baidu.swan.apps.media.chooser.model.VideoModel;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.PermissionRequest;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.controller.AbstractDraweeController;
-import com.facebook.drawee.generic.GenericDraweeHierarchy;
-import com.facebook.drawee.interfaces.DraweeHierarchy;
-import com.facebook.drawee.view.SimpleDraweeView;
-import com.facebook.imagepipeline.common.ImageDecodeOptions;
-import com.facebook.imagepipeline.common.ResizeOptions;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
-import com.google.android.exoplayer2.util.MimeTypes;
-import com.sina.weibo.sdk.utils.FileUtils;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Locale;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
+import org.json.JSONException;
+import org.json.JSONObject;
+@SuppressLint({"SwanCommentWar"})
 /* loaded from: classes5.dex */
-public class at2 extends BaseAdapter {
+public class at2 implements fw2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public ArrayList<MediaModel> b;
-    public mt2 c;
-    public int d;
-    public int e;
-    public FrameLayout.LayoutParams f;
+    public String a;
+    public zs2 b;
+    public String c;
+    public String d;
+    public double e;
+    public double f;
+    public int g;
+    public int h;
+    public b i;
+    public c j;
+    public a k;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? i2 : invokeI.longValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return 2;
-        }
-        return invokeV.intValue;
-    }
-
+    @SuppressLint({"SwanCommentWar"})
     /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
+    public static class a implements fw2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ at2 a;
+        public double a;
+        public double b;
 
-        public a(at2 at2Var) {
+        @Override // com.baidu.tieba.fw2
+        public boolean isValid() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {at2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -89,26 +61,48 @@ public class at2 extends BaseAdapter {
                     return;
                 }
             }
-            this.a = at2Var;
+            this.a = 0.5d;
+            this.b = 1.0d;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.tieba.fw2
+        public void a(JSONObject jSONObject) throws JSONException {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
                 return;
             }
-            this.a.m();
+            this.a = Math.abs(jSONObject.optDouble("x", 0.5d));
+            double d = 1.0d;
+            this.b = Math.abs(jSONObject.optDouble("y", 1.0d));
+            double d2 = this.a;
+            if (d2 < 0.0d) {
+                d2 = 0.0d;
+            } else if (d2 > 1.0d) {
+                d2 = 1.0d;
+            }
+            this.a = d2;
+            double d3 = this.b;
+            if (d3 < 0.0d) {
+                d = 0.0d;
+            } else if (d3 <= 1.0d) {
+                d = d3;
+            }
+            this.b = d;
         }
     }
 
+    @SuppressLint({"SwanCommentWar"})
     /* loaded from: classes5.dex */
-    public class b implements View.OnClickListener {
+    public static class b extends d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ at2 a;
+        public float f;
+        public String g;
+        public int h;
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(at2 at2Var) {
+            super(at2Var);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -118,38 +112,52 @@ public class at2 extends BaseAdapter {
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((at2) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = at2Var;
+            this.f = 0.0f;
+            this.g = "BYCLICK";
+            this.h = -1;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.tieba.at2.d, com.baidu.tieba.fw2
+        public void a(JSONObject jSONObject) throws JSONException {
+            String str;
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
                 return;
             }
-            this.a.k();
+            super.a(jSONObject);
+            this.f = (float) jSONObject.optDouble("borderRadius", 0.0d);
+            jSONObject.optDouble("borderWidth", 0.0d);
+            if (jSONObject.has(CriusAttrConstants.DISPLAY)) {
+                str = jSONObject.optString(CriusAttrConstants.DISPLAY);
+            } else {
+                str = "BYCLICK";
+            }
+            this.g = str;
+            this.h = ts2.a(jSONObject.optString("bgColor"), -1);
+            ts2.a(jSONObject.optString("borderColor"), this.h);
         }
     }
 
+    @SuppressLint({"SwanCommentWar"})
     /* loaded from: classes5.dex */
-    public class c implements s03 {
+    public static class c extends d implements fw2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ at2 a;
+        public float f;
+        public float g;
+        public float h;
+        public int i;
+        public float j;
 
-        @Override // com.baidu.tieba.s03
-        public void b(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-            }
-        }
-
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(at2 at2Var) {
+            super(at2Var);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -159,36 +167,49 @@ public class at2 extends BaseAdapter {
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((at2) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = at2Var;
+            this.f = 0.0f;
+            this.g = 0.0f;
+            this.h = 0.0f;
+            this.i = 0;
+            this.j = 0.0f;
         }
 
-        @Override // com.baidu.tieba.s03
-        public void a(String str) {
+        @Override // com.baidu.tieba.at2.d, com.baidu.tieba.fw2
+        public void a(JSONObject jSONObject) throws JSONException {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, str) != null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
                 return;
             }
-            this.a.u();
+            super.a(jSONObject);
+            this.f = ts2.b(jSONObject.optDouble("x", 0.0d));
+            float b = ts2.b(jSONObject.optDouble("y", 0.0d));
+            this.g = b;
+            if (this.f == 0.0f && b == 0.0f) {
+                this.f = ts2.b(jSONObject.optDouble("anchorX", 0.0d));
+                this.g = ts2.b(jSONObject.optDouble("anchorY", 0.0d));
+            }
+            this.h = (float) jSONObject.optDouble("borderWidth", 0.0d);
+            this.i = ts2.a(jSONObject.optString("borderColor"), 0);
+            this.j = (float) jSONObject.optDouble("borderRadius", 0.0d);
         }
     }
 
+    @SuppressLint({"SwanCommentWar"})
     /* loaded from: classes5.dex */
-    public class d implements jt2 {
+    public static class d implements fw2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ at2 a;
-
-        @Override // com.baidu.tieba.jt2
-        public void b(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            }
-        }
+        public String a;
+        public int b;
+        public float c;
+        public int d;
+        public float e;
 
         public d(at2 at2Var) {
             Interceptable interceptable = $ic;
@@ -205,684 +226,124 @@ public class at2 extends BaseAdapter {
                     return;
                 }
             }
-            this.a = at2Var;
+            this.a = "";
+            this.b = -16777216;
+            this.c = ts2.b(10.0d);
+            this.d = 0;
+            this.e = 0.0f;
         }
 
-        @Override // com.baidu.tieba.jt2
-        public void a(File file) {
+        @Override // com.baidu.tieba.fw2
+        public void a(JSONObject jSONObject) throws JSONException {
+            float b;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, file) == null) {
-                ImageModel imageModel = new ImageModel(file.getAbsolutePath());
-                imageModel.setSize(file.length());
-                gt2.i(imageModel);
-                Bundle bundle = new Bundle();
-                bundle.putBoolean("compressed", ft2.e);
-                bundle.putString("swanAppId", ft2.f);
-                bundle.putParcelableArrayList("mediaModels", gt2.e());
-                bundle.putString("swanTmpPath", ft2.j);
-                ft2.g(this.a.a, bundle);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class e implements s03 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ at2 a;
-
-        @Override // com.baidu.tieba.s03
-        public void b(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-            }
-        }
-
-        public e(at2 at2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {at2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = at2Var;
-        }
-
-        @Override // com.baidu.tieba.s03
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, str) != null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null || !jSONObject.has("content")) {
                 return;
             }
-            this.a.t();
+            this.a = jSONObject.optString("content");
+            this.b = ts2.a(jSONObject.optString("color"), -16777216);
+            if (jSONObject.has(TtmlNode.ATTR_TTS_FONT_SIZE)) {
+                b = Math.abs(ts2.b(jSONObject.optDouble(TtmlNode.ATTR_TTS_FONT_SIZE, 10.0d)));
+            } else {
+                b = ts2.b(10.0d);
+            }
+            this.c = b;
+            this.d = ts2.a(jSONObject.optString("bgColor"), 0);
+            this.e = ts2.b(jSONObject.optDouble(CriusAttrConstants.PADDING, 0.0d));
+            if (jSONObject.has(TtmlNode.ATTR_TTS_TEXT_ALIGN)) {
+                jSONObject.optString(TtmlNode.ATTR_TTS_TEXT_ALIGN);
+            }
+        }
+
+        @Override // com.baidu.tieba.fw2
+        public boolean isValid() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return !TextUtils.isEmpty(this.a);
+            }
+            return invokeV.booleanValue;
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class f implements jt2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ at2 a;
-
-        @Override // com.baidu.tieba.jt2
-        public void b(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            }
-        }
-
-        public f(at2 at2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {at2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = at2Var;
-        }
-
-        @Override // com.baidu.tieba.jt2
-        public void a(File file) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, file) == null) {
-                gt2.i(dt2.c(file));
-                Bundle bundle = new Bundle();
-                bundle.putBoolean("compressed", ft2.e);
-                bundle.putString("swanAppId", ft2.f);
-                bundle.putParcelableArrayList("mediaModels", gt2.e());
-                bundle.putString("swanTmpPath", ft2.j);
-                ft2.g(this.a.a, bundle);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class g implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ MediaModel a;
-        public final /* synthetic */ j b;
-        public final /* synthetic */ at2 c;
-
-        public g(at2 at2Var, MediaModel mediaModel, j jVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {at2Var, mediaModel, jVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = at2Var;
-            this.a = mediaModel;
-            this.b = jVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
-                return;
-            }
-            this.c.l(this.a, this.b);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class h implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ MediaModel a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ at2 c;
-
-        public h(at2 at2Var, MediaModel mediaModel, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {at2Var, mediaModel, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = at2Var;
-            this.a = mediaModel;
-            this.b = i;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
-                return;
-            }
-            this.c.j(this.a, this.b);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class i implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ VideoModel a;
-        public final /* synthetic */ MediaModel b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ at2 d;
-
-        public i(at2 at2Var, VideoModel videoModel, MediaModel mediaModel, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {at2Var, videoModel, mediaModel, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = at2Var;
-            this.a = videoModel;
-            this.b = mediaModel;
-            this.c = i;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !this.d.s(this.a.getPath()) || this.d.n(this.a.getDuration())) {
-                return;
-            }
-            this.d.j(this.b, this.c);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class j {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public SimpleDraweeView a;
-        public ImageView b;
-        public TextView c;
-        public ImageView d;
-        public View e;
-        public View f;
-        public TextView g;
-        public View h;
-
-        public j(at2 at2Var, View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {at2Var, view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090253);
-            this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090255);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090257);
-            this.f = view2.findViewById(R.id.obfuscated_res_0x7f090258);
-            this.e = view2.findViewById(R.id.obfuscated_res_0x7f090256);
-            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09025a);
-            this.h = view2.findViewById(R.id.obfuscated_res_0x7f090259);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090254);
-        }
-    }
-
-    public at2(Activity activity) {
+    public at2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = activity;
-        this.b = new ArrayList<>();
-        int o = gj3.o(this.a);
-        int n = gj3.n(this.a);
-        this.d = o / 4;
-        this.e = n / 4;
-        this.f = new FrameLayout.LayoutParams((o - gj3.f(this.a, 10.0f)) / 4, (o - gj3.f(this.a, 10.0f)) / 4);
+        this.a = "";
+        this.c = "";
+        this.d = "";
+        this.e = 0.0d;
+        this.f = 1.0d;
+        this.g = -1;
+        this.h = -1;
     }
 
-    public final String o(long j2) {
-        InterceptResult invokeJ;
+    @Override // com.baidu.tieba.fw2
+    public void a(JSONObject jSONObject) throws JSONException {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048588, this, j2)) == null) {
-            long j3 = j2 / 1000;
-            long j4 = j3 / 3600;
-            long j5 = j3 % 3600;
-            String format = String.format(Locale.getDefault(), "%02d", Long.valueOf(j5 / 60));
-            String format2 = String.format(Locale.getDefault(), "%02d", Long.valueOf(j5 % 60));
-            if (j4 == 0) {
-                return this.a.getString(R.string.obfuscated_res_0x7f0f15ba, new Object[]{format, format2});
-            }
-            return this.a.getString(R.string.obfuscated_res_0x7f0f15bb, new Object[]{String.format(Locale.getDefault(), "%02d", Long.valueOf(j4)), format, format2});
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return (String) invokeJ.objValue;
+        zs2 zs2Var = new zs2();
+        this.b = zs2Var;
+        zs2Var.a(jSONObject);
+        if (!this.b.isValid()) {
+            return;
+        }
+        String optString = jSONObject.optString("markerId");
+        this.a = optString;
+        if (TextUtils.isEmpty(optString)) {
+            this.a = jSONObject.optString("id");
+        }
+        this.c = jSONObject.optString("title");
+        this.d = jSONObject.optString("iconPath");
+        this.e = jSONObject.optDouble("rotate", 0.0d);
+        this.f = Math.abs(jSONObject.optDouble(Key.ALPHA, 1.0d));
+        int i2 = -1;
+        if (jSONObject.has("width")) {
+            i = Math.abs(xj3.g(jSONObject.optInt("width")));
+        } else {
+            i = -1;
+        }
+        this.g = i;
+        if (jSONObject.has("height")) {
+            i2 = Math.abs(xj3.g(jSONObject.optInt("height")));
+        }
+        this.h = i2;
+        jSONObject.optInt("zIndex", 0);
+        b bVar = new b(this);
+        this.i = bVar;
+        bVar.a(jSONObject.optJSONObject("callout"));
+        c cVar = new c(this);
+        this.j = cVar;
+        cVar.a(jSONObject.optJSONObject("label"));
+        a aVar = new a();
+        this.k = aVar;
+        aVar.a(jSONObject.optJSONObject("anchor"));
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:42:0x0024 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final boolean s(String str) {
-        InterceptResult invokeL;
-        String str2;
-        MediaMetadataRetriever mediaMetadataRetriever;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
-            MediaMetadataRetriever mediaMetadataRetriever2 = null;
-            try {
-                mediaMetadataRetriever = new MediaMetadataRetriever();
-            } catch (Exception e2) {
-                e = e2;
-            }
-            try {
-                mediaMetadataRetriever.setDataSource(str);
-                str2 = mediaMetadataRetriever.extractMetadata(12);
-            } catch (Exception e3) {
-                e = e3;
-                mediaMetadataRetriever2 = mediaMetadataRetriever;
-                if (et2.a) {
-                    e.printStackTrace();
-                }
-                str2 = "";
-                mediaMetadataRetriever = mediaMetadataRetriever2;
-                if (mediaMetadataRetriever != null) {
-                }
-                if (TextUtils.isEmpty(str2)) {
-                }
-                h53.g(AppRuntime.getAppContext(), this.a.getString(R.string.obfuscated_res_0x7f0f153b)).G();
-                return false;
-            }
-            if (mediaMetadataRetriever != null) {
-                try {
-                    mediaMetadataRetriever.release();
-                } catch (Exception e4) {
-                    if (et2.a) {
-                        e4.printStackTrace();
-                    }
-                }
-            }
-            if (TextUtils.isEmpty(str2) && str2.startsWith(FileUtils.VIDEO_FILE_START)) {
-                if (!TextUtils.equals("video/mp4", str2) && !TextUtils.equals("video/3gp", str2) && !TextUtils.equals(MimeTypes.VIDEO_WEBM, str2) && !TextUtils.equals("video/mkv", str2)) {
-                    return false;
-                }
-                return true;
-            }
-            h53.g(AppRuntime.getAppContext(), this.a.getString(R.string.obfuscated_res_0x7f0f153b)).G();
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            if (ft2.h) {
-                if (i2 == 0) {
-                    return null;
-                }
-                return this.b.get(i2 - 1);
-            }
-            return this.b.get(i2);
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            if (!ft2.h || i2 != 0) {
-                return 1;
-            }
-            return 0;
-        }
-        return invokeI.intValue;
-    }
-
-    public final void p(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, context) == null) {
-            r03.e(PermissionRequest.RESOURCE_VIDEO_CAPTURE, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 1, context, new e(this));
-        }
-    }
-
-    public final void q(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, context) == null) {
-            r03.e(PermissionRequest.RESOURCE_VIDEO_CAPTURE, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 1, context, new c(this));
-        }
-    }
-
-    public void x(ArrayList<MediaModel> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, arrayList) == null) {
-            if (this.b.size() > 0) {
-                this.b.clear();
-            }
-            this.b.addAll(arrayList);
-            ft2.i(this.b);
-            notifyDataSetChanged();
-        }
-    }
-
-    public void z(mt2 mt2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, mt2Var) == null) {
-            this.c = mt2Var;
-        }
-    }
-
-    public final void A(j jVar, View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, jVar, view2) == null) {
-            Resources resources = this.a.getResources();
-            view2.setBackgroundColor(-1);
-            jVar.a.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060afa));
-            jVar.c.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060b05));
-            jVar.h.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f08146b));
-            jVar.g.setTextColor(-1);
-            jVar.b.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060b08));
-            jVar.a.setLayoutParams(this.f);
-            jVar.b.setLayoutParams(this.f);
-            jVar.b.setVisibility(8);
-            jVar.c.setVisibility(8);
-            jVar.f.setVisibility(8);
-            jVar.h.setVisibility(8);
-            jVar.f.setVisibility(0);
-            jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f081479);
-            jVar.h.setVisibility(0);
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) jVar.h.getLayoutParams();
-            layoutParams.width = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070842);
-            layoutParams.height = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07083d);
-            jVar.h.setLayoutParams(layoutParams);
-        }
-    }
-
-    public final void l(MediaModel mediaModel, j jVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, mediaModel, jVar) == null) {
-            int d2 = gt2.d();
-            if (!gt2.f(mediaModel)) {
-                if (d2 >= ft2.c) {
-                    ft2.j(ft2.d);
-                    return;
-                } else if (d2 > 0 && TextUtils.equals(ft2.d, "single") && !TextUtils.equals(gt2.b(), mediaModel.getType())) {
-                    h53.f(this.a, R.string.obfuscated_res_0x7f0f1534).G();
-                    return;
-                } else if (mediaModel.getSize() > 52428800 && TextUtils.equals(mediaModel.getType(), "image")) {
-                    h53.f(this.a, R.string.obfuscated_res_0x7f0f1533).G();
-                    return;
-                } else {
-                    jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f081477);
-                    jVar.c.setVisibility(0);
-                    jVar.c.setText(String.valueOf(gt2.c(mediaModel) + 1));
-                    gt2.i(mediaModel);
-                    jVar.e.startAnimation(AnimationUtils.loadAnimation(this.a, R.anim.obfuscated_res_0x7f010172));
-                    mt2 mt2Var = this.c;
-                    if (mt2Var != null) {
-                        mt2Var.a(d2);
-                    }
-                    notifyDataSetChanged();
-                    return;
-                }
-            }
-            gt2.h(mediaModel);
-            jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f081479);
-            jVar.c.setVisibility(8);
-            mt2 mt2Var2 = this.c;
-            if (mt2Var2 != null) {
-                mt2Var2.a(d2);
-            }
-            notifyDataSetChanged();
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
+    @Override // com.baidu.tieba.fw2
+    public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (ft2.h) {
-                return this.b.size() + 1;
-            }
-            return this.b.size();
-        }
-        return invokeV.intValue;
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            if (gt2.d() >= ft2.c) {
-                ft2.j(ft2.d);
-            } else {
-                q(this.a);
-            }
-        }
-    }
-
-    public final void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            dt2.e(this.a, ft2.f, ft2.g, ft2.i, new f(this));
-        }
-    }
-
-    public final void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            dt2.f(this.a, ft2.f, new d(this));
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i2, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        j jVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i2, view2, viewGroup)) == null) {
-            if (getItemViewType(i2) == 0) {
-                View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d092b, (ViewGroup) null, false);
-                r(inflate);
-                return inflate;
-            }
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0931, (ViewGroup) null);
-                jVar = new j(this, view2);
-                view2.setTag(jVar);
-            } else {
-                jVar = (j) view2.getTag();
-            }
-            A(jVar, view2);
-            MediaModel mediaModel = (MediaModel) getItem(i2);
-            if (mediaModel == null) {
-                return view2;
-            }
-            y(mediaModel.getPath(), jVar);
-            v(mediaModel, jVar, i2);
-            w(mediaModel, jVar, i2);
-            return view2;
-        }
-        return (View) invokeILL.objValue;
-    }
-
-    public final void w(MediaModel mediaModel, j jVar, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(1048596, this, mediaModel, jVar, i2) == null) && (mediaModel instanceof VideoModel)) {
-            VideoModel videoModel = (VideoModel) mediaModel;
-            jVar.h.setVisibility(0);
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) jVar.h.getLayoutParams();
-            if ((videoModel.getDuration() / 3600) / 1000 > 0) {
-                layoutParams.width = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07083c);
-            } else {
-                layoutParams.width = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070840);
-            }
-            layoutParams.height = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07083d);
-            jVar.h.setLayoutParams(layoutParams);
-            jVar.g.setText(o(videoModel.getDuration()));
-            jVar.a.setOnClickListener(new i(this, videoModel, mediaModel, i2));
-        }
-    }
-
-    public final void j(MediaModel mediaModel, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048583, this, mediaModel, i2) != null) || ft2.f(ft2.d, mediaModel)) {
-            return;
-        }
-        if (ft2.h) {
-            i2--;
-        }
-        Bundle bundle = new Bundle();
-        bundle.putBoolean("compressed", ft2.e);
-        bundle.putString("swanAppId", ft2.f);
-        bundle.putString("mode", ft2.d);
-        bundle.putString("previewFrom", "clickItem");
-        bundle.putInt("previewPosition", i2);
-        ft2.k(this.a, bundle);
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (gt2.d() >= ft2.c) {
-                ft2.j(ft2.d);
-            } else if (dj3.c() < 52428800) {
-                h53.g(AppRuntime.getAppContext(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f152c)).G();
-            } else {
-                p(this.a);
-            }
-        }
-    }
-
-    public final boolean n(long j2) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j2)) == null) {
-            if (j2 < 3000) {
-                h53.g(AppRuntime.getAppContext(), this.a.getString(R.string.obfuscated_res_0x7f0f153a)).G();
+            zs2 zs2Var = this.b;
+            if (zs2Var != null && zs2Var.isValid()) {
                 return true;
-            } else if (j2 > 300000) {
-                h53.g(AppRuntime.getAppContext(), this.a.getString(R.string.obfuscated_res_0x7f0f1539)).G();
-                return true;
-            } else {
-                return false;
             }
+            return false;
         }
-        return invokeJ.booleanValue;
-    }
-
-    public final void r(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, view2) == null) {
-            view2.findViewById(R.id.obfuscated_res_0x7f09024c).setLayoutParams(this.f);
-            view2.setTag(null);
-            view2.setClickable(true);
-            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09024d);
-            if (TextUtils.equals(ft2.b, "Image")) {
-                imageView.setImageResource(R.drawable.obfuscated_res_0x7f081461);
-                view2.setOnClickListener(new a(this));
-                return;
-            }
-            imageView.setImageResource(R.drawable.obfuscated_res_0x7f081465);
-            view2.setOnClickListener(new b(this));
-        }
-    }
-
-    public final void v(MediaModel mediaModel, j jVar, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048595, this, mediaModel, jVar, i2) == null) {
-            if (gt2.f(mediaModel)) {
-                jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f081477);
-                jVar.c.setVisibility(0);
-                jVar.c.setText(String.valueOf(gt2.c(mediaModel) + 1));
-            }
-            if (ft2.f(ft2.d, mediaModel)) {
-                jVar.b.setVisibility(0);
-            } else {
-                jVar.b.setVisibility(8);
-            }
-            if (et2.d) {
-                if (ft2.d(mediaModel.getPath())) {
-                    jVar.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1530));
-                } else if (ft2.e(mediaModel.getPath())) {
-                    jVar.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1531));
-                } else {
-                    jVar.h.setVisibility(8);
-                }
-            } else {
-                jVar.h.setVisibility(8);
-            }
-            jVar.f.setOnClickListener(new g(this, mediaModel, jVar));
-            jVar.a.setOnClickListener(new h(this, mediaModel, i2));
-        }
-    }
-
-    public final void y(String str, j jVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048598, this, str, jVar) == null) {
-            ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(Uri.fromFile(new File(str)));
-            newBuilderWithSource.setResizeOptions(new ResizeOptions((int) (this.d / 2.0f), (int) (this.e / 2.0f)));
-            newBuilderWithSource.setLocalThumbnailPreviewsEnabled(true);
-            newBuilderWithSource.setImageDecodeOptions(ImageDecodeOptions.newBuilder().setForceStaticImage(true).build());
-            AbstractDraweeController build = Fresco.newDraweeControllerBuilder().setImageRequest(newBuilderWithSource.build()).setAutoPlayAnimations(false).setOldController(jVar.a.getController()).build();
-            jVar.a.setController(build);
-            DraweeHierarchy hierarchy = build.getHierarchy();
-            if (hierarchy instanceof GenericDraweeHierarchy) {
-                wo2.C().c((GenericDraweeHierarchy) hierarchy, false);
-            }
-        }
+        return invokeV.booleanValue;
     }
 }

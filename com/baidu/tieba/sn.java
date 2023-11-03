@@ -1,6 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.bdtask.framework.ui.mvvm.IViewData;
+import android.app.Activity;
+import android.content.Context;
 /* loaded from: classes8.dex */
-public interface sn<ViewData extends IViewData> {
+public interface sn {
+    Activity a();
+
+    void b(Activity activity);
+
+    boolean c();
+
+    Context getAppContext();
+
+    String getAppVersion();
+
+    tn getEnv();
+
+    String getSdkVersion();
 }

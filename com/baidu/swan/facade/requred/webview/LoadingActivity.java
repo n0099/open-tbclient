@@ -13,34 +13,34 @@ import android.widget.TextView;
 import com.airbnb.lottie.LottieAnimationView;
 import com.baidu.swan.apps.view.SwanAppActionBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ef2;
-import com.baidu.tieba.ff2;
-import com.baidu.tieba.gf2;
-import com.baidu.tieba.gj3;
-import com.baidu.tieba.ik3;
-import com.baidu.tieba.jj3;
-import com.baidu.tieba.ks3;
-import com.baidu.tieba.o53;
-import com.baidu.tieba.t53;
+import com.baidu.tieba.ak3;
+import com.baidu.tieba.bt3;
+import com.baidu.tieba.f63;
+import com.baidu.tieba.k63;
+import com.baidu.tieba.vf2;
+import com.baidu.tieba.wf2;
+import com.baidu.tieba.xf2;
+import com.baidu.tieba.xj3;
+import com.baidu.tieba.zk3;
 /* loaded from: classes4.dex */
-public class LoadingActivity extends Activity implements ik3<t53.a> {
+public class LoadingActivity extends Activity implements zk3<k63.a> {
     public SwanAppActionBar a;
     public LottieAnimationView b;
     public LottieAnimationView c;
     public ImageView d;
     public TextView e;
-    public gf2 f = null;
+    public xf2 f = null;
     public boolean g = false;
-    public final ik3<gf2> h = new a();
-    public final ik3<gf2> i = new b();
+    public final zk3<xf2> h = new a();
+    public final zk3<xf2> i = new b();
 
     /* loaded from: classes4.dex */
-    public class a implements ik3<gf2> {
+    public class a implements zk3<xf2> {
 
         /* renamed from: com.baidu.swan.facade.requred.webview.LoadingActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0208a implements Runnable {
-            public RunnableC0208a() {
+        public class RunnableC0209a implements Runnable {
+            public RunnableC0209a() {
             }
 
             @Override // java.lang.Runnable
@@ -53,22 +53,22 @@ public class LoadingActivity extends Activity implements ik3<t53.a> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ik3
+        @Override // com.baidu.tieba.zk3
         /* renamed from: b */
-        public void a(gf2 gf2Var) {
-            jj3.e0(new RunnableC0208a());
+        public void a(xf2 xf2Var) {
+            ak3.e0(new RunnableC0209a());
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b implements ik3<gf2> {
+    public class b implements zk3<xf2> {
         public b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ik3
+        @Override // com.baidu.tieba.zk3
         /* renamed from: b */
-        public void a(gf2 gf2Var) {
+        public void a(xf2 xf2Var) {
             LoadingActivity.this.finish();
         }
     }
@@ -97,14 +97,14 @@ public class LoadingActivity extends Activity implements ik3<t53.a> {
     }
 
     public final void d() {
-        SwanAppActionBar swanAppActionBar = (SwanAppActionBar) findViewById(R.id.obfuscated_res_0x7f09018f);
+        SwanAppActionBar swanAppActionBar = (SwanAppActionBar) findViewById(R.id.obfuscated_res_0x7f0901a2);
         this.a = swanAppActionBar;
         swanAppActionBar.f(-16777216, false);
         this.a.setRightExitOnClickListener(new d());
     }
 
     public final void g() {
-        o53.K().u(this);
+        f63.K().u(this);
     }
 
     public final void h() {
@@ -119,7 +119,7 @@ public class LoadingActivity extends Activity implements ik3<t53.a> {
     }
 
     public final void i() {
-        o53.K().o(this);
+        f63.K().o(this);
     }
 
     @Override // android.app.Activity
@@ -127,19 +127,19 @@ public class LoadingActivity extends Activity implements ik3<t53.a> {
         this.b.removeAllAnimatorListeners();
         this.b.cancelAnimation();
         this.c.cancelAnimation();
-        gf2 gf2Var = this.f;
-        if (gf2Var != null) {
-            gf2Var.g(this.i);
-            gf2Var.h(this.h);
+        xf2 xf2Var = this.f;
+        if (xf2Var != null) {
+            xf2Var.g(this.i);
+            xf2Var.h(this.h);
         }
         i();
         super.onDestroy();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ik3
+    @Override // com.baidu.tieba.zk3
     /* renamed from: f */
-    public void a(t53.a aVar) {
+    public void a(k63.a aVar) {
         if (TextUtils.equals(aVar.b, "loading_hide")) {
             finish();
         }
@@ -147,13 +147,13 @@ public class LoadingActivity extends Activity implements ik3<t53.a> {
 
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
-        int c0 = jj3.c0(this);
+        int c0 = ak3.c0(this);
         super.onCreate(bundle);
-        jj3.g(this, c0);
-        setContentView(R.layout.obfuscated_res_0x7f0d0045);
+        ak3.g(this, c0);
+        setContentView(R.layout.obfuscated_res_0x7f0d0047);
         e();
         d();
-        gj3.a(this);
+        xj3.a(this);
         g();
         c();
     }
@@ -162,9 +162,9 @@ public class LoadingActivity extends Activity implements ik3<t53.a> {
         String stringExtra;
         this.e.setText(getString(R.string.obfuscated_res_0x7f0f01cc, new Object[]{0}));
         Intent intent = getIntent();
-        Bitmap d2 = ks3.b().d();
+        Bitmap d2 = bt3.b().d();
         if (d2 == null) {
-            this.d.setImageResource(R.drawable.obfuscated_res_0x7f0801db);
+            this.d.setImageResource(R.drawable.obfuscated_res_0x7f0801de);
         } else {
             this.d.setImageBitmap(d2);
         }
@@ -174,11 +174,11 @@ public class LoadingActivity extends Activity implements ik3<t53.a> {
         } else {
             stringExtra = intent.getStringExtra("so_lib_name");
         }
-        ef2 ef2Var = ef2.d;
+        vf2 vf2Var = vf2.d;
         if (!TextUtils.isEmpty(stringExtra)) {
             str = stringExtra;
         }
-        gf2 j = ef2Var.j(str);
+        xf2 j = vf2Var.j(str);
         this.f = j;
         if (j != null && !j.n()) {
             this.f.v(this.h);
@@ -190,13 +190,13 @@ public class LoadingActivity extends Activity implements ik3<t53.a> {
     }
 
     public final void e() {
-        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0901ba);
-        this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901b7);
-        LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0901b8);
+        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0901cd);
+        this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901ca);
+        LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0901cb);
         this.b = lottieAnimationView;
         lottieAnimationView.setImageAssetsFolder("swan-loading/images/");
         this.b.setAnimation("swan-loading/aiapps_so_download_anim_first.json");
-        LottieAnimationView lottieAnimationView2 = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0901b9);
+        LottieAnimationView lottieAnimationView2 = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0901cc);
         this.c = lottieAnimationView2;
         lottieAnimationView2.setImageAssetsFolder("swan-loading/images/");
         this.c.setAnimation("swan-loading/aiapps_so_download_anim_second.json");
@@ -207,12 +207,12 @@ public class LoadingActivity extends Activity implements ik3<t53.a> {
     }
 
     public void j() {
-        ff2.b m;
-        gf2 gf2Var = this.f;
-        if (gf2Var == null) {
+        wf2.b m;
+        xf2 xf2Var = this.f;
+        if (xf2Var == null) {
             m = null;
         } else {
-            m = gf2Var.m();
+            m = xf2Var.m();
         }
         if (m != null && m.a()) {
             int min = (int) ((Math.min(Math.max(m.a, 0L), m.b) / m.b) * 100.0d);

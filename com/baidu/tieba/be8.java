@@ -1,164 +1,73 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.log.Logger;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.switchs.StrangeCleanSwitch;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class be8 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 1500;
-    public static int b = 500;
+public class be8 extends bi<tm6, CardViewHolder<ol6>> {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext<?> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947642196, "Lcom/baidu/tieba/be8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947642196, "Lcom/baidu/tieba/be8;");
-        }
-    }
-
-    public static void a() {
-        String d;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public be8(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity(), tm6.j);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            if (!StrangeCleanSwitch.isOn()) {
-                Logger.addLog("StrangeClean", -1L, -1, "cleanMessageCenter", -1, "witch is close", new Object[0]);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            try {
-                try {
-                    vd8.e().h();
-                    d = d();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                if (TextUtils.isEmpty(d)) {
-                    return;
-                }
-                boolean b2 = b(d);
-                Logger.addLog("StrangeClean", -1L, -1, "cleanMessageCenter", -1, "clean suc " + b2, new Object[0]);
-            } finally {
-                vd8.e().c();
-            }
         }
+        this.a = tbPageContext;
     }
 
-    public static boolean b(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: t */
+    public CardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            try {
-                vd8 e = vd8.e();
-                return e.d("DELETE FROM tb_message_center WHERE gid IN(" + str + ") AND custom_group_type= " + String.valueOf(2) + " AND is_friend!=" + String.valueOf(1));
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                TiebaStatic.printDBExceptionLog(e2, "ImMessageCenterDao.deleteStrange", new Object[0]);
-                return false;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            ol6 ol6Var = new ol6(this.a);
+            ol6Var.x("c10718", "c10719", "c10742");
+            return new CardViewHolder(ol6Var);
         }
-        return invokeL.booleanValue;
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    public static int c() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, tm6 tm6Var, CardViewHolder cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return SharedPrefHelper.getInstance().getInt("key_max_stranger", a);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, tm6Var, cardViewHolder})) == null) {
+            cardViewHolder.a().k(tm6Var);
+            cardViewHolder.a().l(this.a, TbadkCoreApplication.getInst().getSkinType());
+            pl6.b().a(new StatisticItem("c10718").param("obj_id", String.valueOf(tm6Var.a)));
+            return cardViewHolder.getView();
         }
-        return invokeV.intValue;
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        List<String> e;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            StringBuilder sb = new StringBuilder();
-            try {
-                e = e();
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                TiebaStatic.printDBExceptionLog(e2, "ImMessageCenterDao.getStrangeData", new Object[0]);
-            }
-            if (e != null && e.size() != 0) {
-                int c = c();
-                Logger.addLog("StrangeClean", -1L, -1, "getStrangeData", -1, "strange size is " + e.size() + " max is " + c, new Object[0]);
-                if (e.size() > c) {
-                    int i = 2000;
-                    if (2000 >= e.size() - c) {
-                        i = e.size() - c;
-                    }
-                    boolean z = true;
-                    for (String str : e.subList(0, i)) {
-                        if (!z) {
-                            sb.append(",");
-                        } else {
-                            z = false;
-                        }
-                        sb.append(str);
-                    }
-                }
-                return sb.toString();
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static List<String> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            ArrayList arrayList = new ArrayList();
-            Cursor cursor = null;
-            try {
-                try {
-                    cursor = vd8.e().g("SELECT * FROM tb_message_center WHERE  custom_group_type=? AND is_friend!=?  ORDER BY last_content_time ASC", new String[]{String.valueOf(2), String.valueOf(1)});
-                    if (cursor != null) {
-                        while (cursor.moveToNext()) {
-                            arrayList.add(cursor.getString(cursor.getColumnIndex(TbEnum.ParamKey.GID)));
-                        }
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.getStrangeDataFromDb", new Object[0]);
-                }
-                return arrayList;
-            } finally {
-                bd.a(cursor);
-            }
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public static void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65542, null, i) == null) {
-            int i2 = b;
-            if (i < i2) {
-                i = i2;
-            }
-            SharedPrefHelper.getInstance().putInt("key_max_stranger", i);
-        }
+        return (View) invokeCommon.objValue;
     }
 }

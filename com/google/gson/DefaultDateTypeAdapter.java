@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
     public static final String SIMPLE_NAME = "DefaultDateTypeAdapter";
     public final List<DateFormat> dateFormats;

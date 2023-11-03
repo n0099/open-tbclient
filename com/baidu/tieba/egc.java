@@ -1,96 +1,206 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.widget.BaseAdapter;
+import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.yy.transvod.player.core.TransVodProxy;
+import com.yy.transvod.player.log.TLog;
+import com.yy.transvod.preference.Preference;
+import java.util.HashMap;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class egc<T> extends BaseAdapter {
+public class egc extends cbc implements cgc, xfc, wfc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<T> a;
-    public Context b;
+    public final Gson b;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.cbc
+    public void f(Bundle bundle) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i : invokeI.longValue;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
+        }
     }
 
-    public egc(Context context) {
+    @Override // com.baidu.tieba.cbc
+    public boolean g(Bundle bundle) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bundle)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.cbc
+    public String h(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bundle)) == null) ? "" : (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.cbc
+    public boolean j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.cbc
+    public String k(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) ? "" : (String) invokeL.objValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class a extends TypeToken<HashMap<String, String>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(egc egcVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {egcVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.xfc
+    public void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            fbc.d(str, str2);
+        }
+    }
+
+    @Override // com.baidu.tieba.xfc
+    public void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            fbc.c(str, str2);
+        }
+    }
+
+    @Override // com.baidu.tieba.xfc
+    public void c(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
+            fbc.f(str, str2);
+        }
+    }
+
+    @Override // com.baidu.tieba.xfc
+    public void d(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+            fbc.e(str, str2);
+        }
+    }
+
+    @Override // com.baidu.tieba.wfc
+    public vfc e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            ybc ybcVar = new ybc();
+            ybcVar.a = "onDnsHostResolve";
+            ybcVar.b.put("hostName", str);
+            dbc<String> m = m(new Gson().toJson(ybcVar));
+            vfc vfcVar = new vfc();
+            if (m.a) {
+                String str2 = m.b;
+                if (str2 != null && !str2.isEmpty()) {
+                    vfc a2 = vfc.a(str2);
+                    TLog.h("[PreferenceServer]", "onDnsHostResolve get result from mainProcess，success:" + a2.e + ",dnsResolveType:" + a2.c + ",ipsV4 size:" + a2.a.length + ",ipsV6 size:" + a2.b.length);
+                    return a2;
+                }
+                return vfcVar;
+            }
+            TLog.d("[PreferenceServer]", "onDnsHostResolve send failed!");
+            return vfcVar;
+        }
+        return (vfc) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.cbc
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            try {
+                n(str);
+            } catch (Exception e) {
+                e.printStackTrace();
+                TLog.d("[PreferenceServer]", "(onDataFromClient) ex" + e.getMessage());
+            }
+        }
+    }
+
+    public final void n(String str) throws Exception {
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            JSONObject jSONObject = new JSONObject(str);
+            String optString = jSONObject.optString("cmd");
+            int hashCode = optString.hashCode();
+            if (hashCode != -544151029) {
+                if (hashCode != 1082990212) {
+                    if (hashCode == 1360518598 && optString.equals("testSubprocessCrash")) {
+                        c = 2;
+                    }
+                    c = 65535;
+                } else {
+                    if (optString.equals("setMediaConfig")) {
+                        c = 1;
+                    }
+                    c = 65535;
+                }
+            } else {
+                if (optString.equals("initPreference")) {
+                    c = 0;
+                }
+                c = 65535;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c == 2) {
+                        TLog.h("[PreferenceServer]", "testSubprocessCrash, crash immediately!!!");
+                        TransVodProxy.e();
+                        return;
+                    }
+                    return;
+                }
+                HashMap hashMap = (HashMap) this.b.fromJson(jSONObject.getJSONObject("data").optString("configs"), new a(this).getType());
+                if (hashMap != null) {
+                    TLog.h("[PreferenceServer]", "setMediaConfig");
+                    Preference.k(hashMap);
+                    return;
+                }
                 return;
             }
-        }
-        this.a = new ArrayList();
-        this.b = context;
-    }
-
-    public List<T> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.size();
-        }
-        return invokeV.intValue;
-    }
-
-    public void b(List<T> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            c(list, true);
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public T getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            if (this.a.size() == 0) {
-                return null;
-            }
-            List<T> list = this.a;
-            return list.get(i % list.size());
-        }
-        return (T) invokeI.objValue;
-    }
-
-    public final void c(List<T> list, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, list, z) == null) && list != null && list.size() != 0) {
-            if (z) {
-                this.a.clear();
-            }
-            this.a.addAll(list);
-            notifyDataSetChanged();
+            sfc.c(true);
+            Preference.l(this);
+            Preference.j(this);
+            Preference.i(this);
+            TLog.h("[PreferenceServer]", "initPreference");
         }
     }
 }

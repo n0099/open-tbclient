@@ -1,22 +1,58 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: OnWebScrollChangeListener.java */
-/* loaded from: classes7.dex */
-public final /* synthetic */ class rh6 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import org.xml.sax.Attributes;
+/* loaded from: classes8.dex */
+public class rh6 extends oh6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(sh6 sh6Var, int i, int i2, int i3, int i4) {
+    @Override // com.baidu.tieba.oh6
+    public void a(boolean z, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{sh6Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
         }
     }
 
-    public static void b(sh6 sh6Var, int i, int i2, int i3, int i4) {
+    public rh6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{sh6Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.oh6
+    public void b(boolean z, String str, Attributes attributes) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, attributes}) == null) {
+            String value = attributes.getValue("", "src");
+            if (!TextUtils.isEmpty(value)) {
+                String str2 = "http";
+                if (!value.startsWith("http")) {
+                    StringBuilder sb = new StringBuilder();
+                    if (z) {
+                        str2 = "https";
+                    }
+                    sb.append(str2);
+                    sb.append(":");
+                    sb.append(value);
+                    value = sb.toString();
+                }
+                sh6.g().b(value, value, new HashMap());
+            }
         }
     }
 }

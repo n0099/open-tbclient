@@ -64,7 +64,7 @@ public abstract class CloseableReference<T> implements Cloneable, Closeable {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // 
     /* renamed from: clone */
-    public abstract CloseableReference<T> mo168clone();
+    public abstract CloseableReference<T> mo172clone();
 
     public static boolean useGc() {
         if (sBitmapCloseableRefType == 3) {
@@ -76,7 +76,7 @@ public abstract class CloseableReference<T> implements Cloneable, Closeable {
     @Nullable
     public synchronized CloseableReference<T> cloneOrNull() {
         if (isValid()) {
-            return mo168clone();
+            return mo172clone();
         }
         return null;
     }

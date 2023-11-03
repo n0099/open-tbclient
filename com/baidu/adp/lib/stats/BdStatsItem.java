@@ -7,8 +7,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.kb;
-import com.baidu.tieba.ob;
+import com.baidu.tieba.ac;
+import com.baidu.tieba.ec;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +31,7 @@ public class BdStatsItem {
     public ArrayList<BasicNameValuePair> mKvLists;
     public long mStartTime;
     public StringBuilder mStringBuilder;
-    public ob mTrackLogInfo;
+    public ec mTrackLogInfo;
     public String mType;
     public String parentType;
     public long sequenceID;
@@ -188,13 +188,13 @@ public class BdStatsItem {
         this.mStringBuilder.append(str);
     }
 
-    public void generateTrackLogInfo(kb kbVar) {
+    public void generateTrackLogInfo(ac acVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, kbVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, acVar) == null) {
             if (this.mTrackLogInfo == null) {
-                this.mTrackLogInfo = new ob();
+                this.mTrackLogInfo = new ec();
             }
-            this.mTrackLogInfo.f(kbVar);
+            this.mTrackLogInfo.f(acVar);
             ArrayList<BasicNameValuePair> arrayList = this.mKvLists;
             if (arrayList != null && arrayList.size() > 0) {
                 Iterator<BasicNameValuePair> it = this.mKvLists.iterator();
@@ -238,13 +238,13 @@ public class BdStatsItem {
         return invokeV.longValue;
     }
 
-    public ob getTrackLogInfo() {
+    public ec getTrackLogInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.mTrackLogInfo;
         }
-        return (ob) invokeV.objValue;
+        return (ec) invokeV.objValue;
     }
 
     public String getType() {

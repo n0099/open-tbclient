@@ -72,9 +72,9 @@ public class MessageUtils {
                 if (i != 3) {
                     if (i != 4) {
                         if (i != 5) {
-                            return "" + context.getString(R.string.obfuscated_res_0x7f0f0bf9);
+                            return "" + context.getString(R.string.obfuscated_res_0x7f0f0c0a);
                         }
-                        return "" + context.getString(R.string.obfuscated_res_0x7f0f0bfc);
+                        return "" + context.getString(R.string.obfuscated_res_0x7f0f0c0d);
                     }
                 }
             }
@@ -82,7 +82,7 @@ public class MessageUtils {
             if (messageBody != null && (txt2 = messageBody.txt) != null && !TextUtils.isEmpty(txt2.word)) {
                 str = liveMessageBean.message_body.txt.word;
             }
-            return str + context.getString(R.string.obfuscated_res_0x7f0f0bfa);
+            return str + context.getString(R.string.obfuscated_res_0x7f0f0c0b);
         }
         LiveMessageBean.MessageBody messageBody2 = liveMessageBean.message_body;
         if (messageBody2 == null || (txt = messageBody2.txt) == null || TextUtils.isEmpty(txt.word)) {
@@ -105,7 +105,7 @@ public class MessageUtils {
 
     public static String getReplyNamePre(Context context, LiveMessageBean liveMessageBean) {
         if (liveMessageBean != null && !TextUtils.isEmpty(liveMessageBean.at_uid)) {
-            return context.getString(R.string.obfuscated_res_0x7f0f0bfb) + liveMessageBean.at_name + " ";
+            return context.getString(R.string.obfuscated_res_0x7f0f0c0c) + liveMessageBean.at_name + " ";
         }
         return "";
     }

@@ -1,99 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.NetMessageListener;
-import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BdToken.activeConfig.ActiveConfigHTTPResMsg;
-import com.baidu.tbadk.BdToken.activeConfig.ActiveConfigReqMsg;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class qo4 {
+public abstract class qo4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public oo4<po4> a;
-    public boolean b;
-    public BdUniqueId c;
-    public NetMessageListener d;
+    public ko4 a;
+    public volatile long b;
+    public volatile boolean c;
+    public int d;
 
-    /* loaded from: classes7.dex */
-    public class a extends NetMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qo4 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(qo4 qo4Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qo4Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qo4Var;
-        }
-
-        @Override // com.baidu.adp.framework.listener.NetMessageListener
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.a.b = false;
-                if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || this.a.d() != responsedMessage.getOrginalMessage().getTag()) {
-                    return;
-                }
-                if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
-                    po4 po4Var = null;
-                    if (responsedMessage instanceof ActiveConfigHTTPResMsg) {
-                        po4Var = ((ActiveConfigHTTPResMsg) responsedMessage).getData();
-                    }
-                    if ((responsedMessage.getOrginalMessage().getExtra() instanceof ActiveConfigReqMsg) && ((ActiveConfigReqMsg) responsedMessage.getOrginalMessage().getExtra()).launtchType == 0) {
-                        SharedPrefHelper.getInstance().putLong("pref_key_active_config_info", System.currentTimeMillis());
-                    }
-                    if (po4Var != null && po4Var.g != null && this.a.a != null) {
-                        this.a.a.a(po4Var);
-                    }
-                    if (po4Var != null && this.a.c()) {
-                        SharedPrefHelper.getInstance().putLong("pref_key_last_register_mission", System.currentTimeMillis());
-                        fo4.b().i(po4Var);
-                        if (this.a.a != null) {
-                            this.a.a.onSuccess(po4Var);
-                        }
-                    }
-                    v35.e().j(po4Var);
-                } else if (this.a.a != null) {
-                    this.a.a.onError(responsedMessage.getError(), responsedMessage.getErrorString());
-                }
-            }
-        }
-    }
-
-    public qo4(BdUniqueId bdUniqueId) {
+    public qo4(ko4 ko4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
+            Object[] objArr = {ko4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -103,63 +30,77 @@ public class qo4 {
                 return;
             }
         }
-        this.b = false;
-        this.d = new a(this, CmdConfigHttp.CMD_ACTIVE_CONFIG, 309637);
-        this.c = bdUniqueId;
-        e();
-        this.d.setTag(d());
-        MessageManager.getInstance().registerListener(this.d);
+        this.b = 0L;
+        this.c = false;
+        this.d = 0;
+        this.a = ko4Var;
     }
 
-    public void g(oo4<po4> oo4Var) {
+    public synchronized void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, oo4Var) == null) {
-            this.a = oo4Var;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            synchronized (this) {
+                this.b += i;
+            }
         }
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    public synchronized void f(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return !UtilHelper.isSameDay(SharedPrefHelper.getInstance().getLong("pref_key_last_register_mission", 0L), System.currentTimeMillis());
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            synchronized (this) {
+                this.c = z;
+            }
         }
-        return invokeV.booleanValue;
     }
 
-    public BdUniqueId d() {
+    public void g(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.b = j;
+        }
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.longValue;
+    }
+
+    public ko4 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (ko4) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.c;
         }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ACTIVE_CONFIG, xda.a(TbConfig.URL_ACTIVE_CONFIG, 309637));
-            tbHttpMessageTask.setResponsedClass(ActiveConfigHTTPResMsg.class);
-            tbHttpMessageTask.setIsNeedAddCommenParam(true);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public void f(boolean z, boolean z2, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)}) != null) || this.b) {
-            return;
-        }
-        if (!z) {
-            this.b = true;
-        }
-        SharedPrefHelper.getInstance().putLong("pref_key_last_active_config", System.currentTimeMillis());
-        ActiveConfigReqMsg activeConfigReqMsg = new ActiveConfigReqMsg();
-        activeConfigReqMsg.setFirstUp(z);
-        activeConfigReqMsg.setSchemaUp(z2);
-        activeConfigReqMsg.launtchType = i;
-        activeConfigReqMsg.setTag(d());
-        MessageManager.getInstance().sendMessage(activeConfigReqMsg);
+        return invokeV.booleanValue;
     }
 }

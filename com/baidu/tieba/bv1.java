@@ -1,108 +1,118 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.net.NetInfo;
-import com.baidu.searchbox.v8engine.net.NetRequestResult;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tieba.n53;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Observable;
-import java.util.Observer;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bv1 implements Observer {
+public class bv1 extends av1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public bv1() {
+    @Override // com.baidu.tieba.ku1
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "LoadingViewApi" : (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bv1(@NonNull iu1 iu1Var) {
+        super(iu1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {iu1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((iu1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public final String a(@NonNull NetInfo netInfo, @NonNull NetRequestResult netRequestResult, int i) {
-        InterceptResult invokeLLI;
-        Integer num;
+    public hy1 y() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, netInfo, netRequestResult, i)) == null) {
-            Object obj = "";
-            if (i == 200) {
-                return "";
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            r("#hideLoading", false);
+            Context i = i();
+            if (!(i instanceof SwanAppActivity)) {
+                return new hy1(1001, "context not support");
             }
-            String statusMsg = netRequestResult.getStatusMsg();
-            NetInfo.Response response = netInfo.getResponse();
-            NetInfo.Base base = netInfo.getBase();
-            StringBuilder sb = new StringBuilder();
-            sb.append(statusMsg);
-            sb.append("; code=");
-            if (response == null) {
-                num = "";
-            } else {
-                num = Integer.valueOf(response.mCode);
+            p52 Y = ((SwanAppActivity) i).Y();
+            if (Y == null) {
+                return new hy1(1001, "none fragmentManger");
             }
-            sb.append(num);
-            String sb2 = sb.toString();
-            StringBuilder sb3 = new StringBuilder();
-            sb3.append(sb2);
-            sb3.append("; status=");
-            if (base != null) {
-                obj = Integer.valueOf(base.mStatus);
+            m52 m = Y.m();
+            if (!(m instanceof n53.a)) {
+                return new hy1(1001, "fragment not support");
             }
-            sb3.append(obj);
-            return sb3.toString();
+            if (m.z() == null) {
+                return new hy1(1001, "fragment has detached");
+            }
+            o53.c(m);
+            g32.i("LoadingViewApi", "hide loading success");
+            return hy1.f();
         }
-        return (String) invokeLLI.objValue;
+        return (hy1) invokeV.objValue;
     }
 
-    @Override // java.util.Observer
-    @SuppressLint({"BDThrowableCheck"})
-    public void update(Observable observable, Object obj) {
+    public hy1 z(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, observable, obj) != null) || !(obj instanceof NetRequestResult)) {
-            return;
-        }
-        NetRequestResult netRequestResult = (NetRequestResult) obj;
-        String url = netRequestResult.getUrl();
-        String valueOf = String.valueOf(netRequestResult.getId());
-        int statusCode = netRequestResult.getStatusCode();
-        if (statusCode != 3) {
-            if (statusCode != 4) {
-                if (statusCode != 5) {
-                    if (statusCode == 6) {
-                        za2.D(valueOf, netRequestResult.getCreatedTime(), 0L, 0L);
-                    }
-                } else {
-                    za2.D(valueOf, 0L, 0L, netRequestResult.getCreatedTime());
-                }
-            } else if (url != null) {
-                za2.k().q(valueOf, url);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            r("#showLoading", false);
+            if (o()) {
+                g32.c("LoadingViewApi", "LoadingViewApi does not supported when app is invisible.");
+                return new hy1(1001, "LoadingViewApi does not supported when app is invisible.");
             }
-        } else {
-            za2.D(valueOf, 0L, netRequestResult.getCreatedTime(), 0L);
-        }
-        NetInfo netInfo = netRequestResult.getNetInfo();
-        int statusCode2 = netRequestResult.getStatusCode();
-        if (netRequestResult.getFromType() == 1 && url != null && netInfo != null) {
-            za2.k().B(valueOf, url, netInfo);
-            long l = za2.k().l(valueOf);
-            long currentTimeMillis = System.currentTimeMillis();
-            String e = jj3.n().e();
-            ic3.Q(statusCode2, netRequestResult.getUrl(), 0, a(netInfo, netRequestResult, statusCode2), ic3.l(), e, l, currentTimeMillis, valueOf);
-        } else if (netInfo != null) {
-            if (statusCode2 < 0 || statusCode2 >= 400) {
-                ic3.P(statusCode2, netRequestResult.getUrl(), 0, a(netInfo, netRequestResult, statusCode2), 0L, 0L, valueOf);
+            Pair<hy1, JSONObject> t = t(str);
+            hy1 hy1Var = (hy1) t.first;
+            if (!hy1Var.isSuccess()) {
+                return hy1Var;
             }
+            JSONObject jSONObject = (JSONObject) t.second;
+            g32.i("LoadingViewApi", "handleShowLoading : joParams = \n" + jSONObject);
+            String optString = jSONObject.optString("title");
+            if (TextUtils.isEmpty(optString)) {
+                return new hy1(202, "none title");
+            }
+            boolean optBoolean = jSONObject.optBoolean("mask", false);
+            Context i = i();
+            if (!(i instanceof SwanAppActivity)) {
+                return new hy1(1001, "context not support");
+            }
+            p52 Y = ((SwanAppActivity) i).Y();
+            if (Y == null) {
+                return new hy1(1001, "none fragment");
+            }
+            m52 m = Y.m();
+            if (!(m instanceof n53.a)) {
+                return new hy1(1001, "fragment not support");
+            }
+            n53 floatLayer = ((n53.a) m).getFloatLayer();
+            if (floatLayer == null) {
+                return new hy1(1001, "can't get floatLayer");
+            }
+            o53.f(floatLayer, i, optString, optBoolean);
+            g32.i("LoadingViewApi", "show loading success");
+            return hy1.f();
         }
+        return (hy1) invokeL.objValue;
     }
 }

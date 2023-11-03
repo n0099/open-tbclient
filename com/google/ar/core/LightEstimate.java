@@ -1,7 +1,7 @@
 package com.google.ar.core;
 
 import com.google.ar.core.exceptions.FatalException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class LightEstimate {
     public long a;
 
@@ -28,7 +28,7 @@ public class LightEstimate {
         super.finalize();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum State {
         NOT_VALID(0),
         VALID(1);

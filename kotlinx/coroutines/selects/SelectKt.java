@@ -66,8 +66,8 @@ public final class SelectKt {
     /* JADX WARN: Multi-variable type inference failed */
     @ExperimentalCoroutinesApi
     /* renamed from: onTimeout-8Mi8wO0  reason: not valid java name */
-    public static final <R> void m2360onTimeout8Mi8wO0(SelectBuilder<? super R> selectBuilder, long j, Function1<? super Continuation<? super R>, ? extends Object> function1) {
-        selectBuilder.onTimeout(DelayKt.m2285toDelayMillisLRDsOJo(j), function1);
+    public static final <R> void m2364onTimeout8Mi8wO0(SelectBuilder<? super R> selectBuilder, long j, Function1<? super Continuation<? super R>, ? extends Object> function1) {
+        selectBuilder.onTimeout(DelayKt.m2289toDelayMillisLRDsOJo(j), function1);
     }
 
     public static final <R> Object select(Function1<? super SelectBuilder<? super R>, Unit> function1, Continuation<? super R> continuation) {

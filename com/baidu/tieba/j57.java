@@ -1,173 +1,87 @@
 package com.baidu.tieba;
 
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsKt;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.Agree;
-import tbclient.FeedContentResource;
-import tbclient.FeedPostExpose;
-import tbclient.PostExposeHead;
 /* loaded from: classes6.dex */
 public final class j57 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public final String b;
 
-    /* JADX WARN: Removed duplicated region for block: B:17:0x0070  */
-    /* JADX WARN: Removed duplicated region for block: B:18:0x0073  */
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0078  */
-    /* JADX WARN: Removed duplicated region for block: B:22:0x007a  */
-    /* JADX WARN: Removed duplicated region for block: B:25:0x0084  */
-    /* JADX WARN: Removed duplicated region for block: B:26:0x0087  */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x008a  */
-    /* JADX WARN: Removed duplicated region for block: B:29:0x008c  */
-    /* JADX WARN: Removed duplicated region for block: B:32:0x0096  */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x0098  */
-    /* JADX WARN: Removed duplicated region for block: B:36:0x00a2  */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x00a5  */
-    /* JADX WARN: Removed duplicated region for block: B:40:0x00bf  */
-    /* JADX WARN: Removed duplicated region for block: B:41:0x00c2  */
-    /* JADX WARN: Removed duplicated region for block: B:43:0x00c5  */
-    /* JADX WARN: Removed duplicated region for block: B:44:0x00c8  */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x00d3  */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x00d6  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static final void a(FeedPostExpose feedPostExpose, List<h77<?>> dataList, k37 feedExtraData) {
-        boolean z;
-        PostExposeHead postExposeHead;
-        String str;
-        String str2;
-        PostExposeHead postExposeHead2;
-        String str3;
-        String str4;
-        String str5;
-        String str6;
-        String str7;
-        String str8;
-        PostExposeHead postExposeHead3;
-        String str9;
-        String str10;
-        String str11;
-        String str12;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, feedPostExpose, dataList, feedExtraData) == null) {
-            Intrinsics.checkNotNullParameter(feedPostExpose, "<this>");
-            Intrinsics.checkNotNullParameter(dataList, "dataList");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            List<FeedContentResource> list = feedPostExpose.floor;
-            if (list != null) {
-                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                k57.a(list, spannableStringBuilder, new k37(), new o27(null, null, 3, null));
-                long j = 0;
-                Agree head_agree = feedPostExpose.head_agree;
-                if (head_agree != null) {
-                    Intrinsics.checkNotNullExpressionValue(head_agree, "head_agree");
-                    Long l = head_agree.agree_num;
-                    Intrinsics.checkNotNullExpressionValue(l, "agree.agree_num");
-                    j = l.longValue();
-                    Integer num = head_agree.has_agree;
-                    if (num != null && num.intValue() == 1) {
-                        z = true;
-                        v27 v27Var = new v27();
-                        v27Var.b(m67.a.a(feedPostExpose.business_info));
-                        i37 i37Var = new i37(j, z, v27Var);
-                        postExposeHead = feedPostExpose.head_img;
-                        if (postExposeHead == null) {
-                            str = postExposeHead.img_url;
-                        } else {
-                            str = null;
-                        }
-                        if (str != null) {
-                            str2 = "";
-                        } else {
-                            Intrinsics.checkNotNullExpressionValue(str, "head_img?.img_url ?: \"\"");
-                            str2 = str;
-                        }
-                        postExposeHead2 = feedPostExpose.head_img;
-                        if (postExposeHead2 == null) {
-                            str3 = postExposeHead2.corner_url;
-                        } else {
-                            str3 = null;
-                        }
-                        if (str3 != null) {
-                            str4 = "";
-                        } else {
-                            Intrinsics.checkNotNullExpressionValue(str3, "head_img?.corner_url ?: \"\"");
-                            str4 = str3;
-                        }
-                        str5 = feedPostExpose.head_text;
-                        if (str5 != null) {
-                            str6 = "";
-                        } else {
-                            Intrinsics.checkNotNullExpressionValue(str5, "head_text ?: \"\"");
-                            str6 = str5;
-                        }
-                        str7 = feedPostExpose.stamp_url;
-                        if (str7 != null) {
-                            str8 = "";
-                        } else {
-                            Intrinsics.checkNotNullExpressionValue(str7, "stamp_url ?: \"\"");
-                            str8 = str7;
-                        }
-                        j47 j47Var = new j47(str2, str4, str6, str8, new SpannableString(spannableStringBuilder), i37Var);
-                        postExposeHead3 = feedPostExpose.head_img;
-                        if (postExposeHead3 == null) {
-                            str9 = postExposeHead3.schema;
-                        } else {
-                            str9 = null;
-                        }
-                        if (str9 != null) {
-                            str10 = "";
-                        } else {
-                            Intrinsics.checkNotNullExpressionValue(str9, "head_img?.schema ?: \"\"");
-                            str10 = str9;
-                        }
-                        str11 = feedPostExpose.schema;
-                        if (str11 != null) {
-                            str12 = "";
-                        } else {
-                            Intrinsics.checkNotNullExpressionValue(str11, "schema ?: \"\"");
-                            str12 = str11;
-                        }
-                        dataList.add(new i77(new b27(j47Var, str10, str12, CollectionsKt__CollectionsKt.listOf((Object[]) new n47[]{l37.d(feedExtraData, "reply_user_head_click1", null, 2, null), l37.d(feedExtraData, "reply_user_head_click2", null, 2, null)}), CollectionsKt__CollectionsKt.listOf((Object[]) new n47[]{l37.d(feedExtraData, "reply_user_name_click1", null, 2, null), l37.d(feedExtraData, "reply_user_name_click2", null, 2, null)}), CollectionsKt__CollectionsKt.listOf((Object[]) new n47[]{l37.d(feedExtraData, "reply_card_click1", null, 2, null), l37.d(feedExtraData, "reply_card_click2", null, 2, null)})), "reply"));
-                    }
-                }
-                z = false;
-                v27 v27Var2 = new v27();
-                v27Var2.b(m67.a.a(feedPostExpose.business_info));
-                i37 i37Var2 = new i37(j, z, v27Var2);
-                postExposeHead = feedPostExpose.head_img;
-                if (postExposeHead == null) {
-                }
-                if (str != null) {
-                }
-                postExposeHead2 = feedPostExpose.head_img;
-                if (postExposeHead2 == null) {
-                }
-                if (str3 != null) {
-                }
-                str5 = feedPostExpose.head_text;
-                if (str5 != null) {
-                }
-                str7 = feedPostExpose.stamp_url;
-                if (str7 != null) {
-                }
-                j47 j47Var2 = new j47(str2, str4, str6, str8, new SpannableString(spannableStringBuilder), i37Var2);
-                postExposeHead3 = feedPostExpose.head_img;
-                if (postExposeHead3 == null) {
-                }
-                if (str9 != null) {
-                }
-                str11 = feedPostExpose.schema;
-                if (str11 != null) {
-                }
-                dataList.add(new i77(new b27(j47Var2, str10, str12, CollectionsKt__CollectionsKt.listOf((Object[]) new n47[]{l37.d(feedExtraData, "reply_user_head_click1", null, 2, null), l37.d(feedExtraData, "reply_user_head_click2", null, 2, null)}), CollectionsKt__CollectionsKt.listOf((Object[]) new n47[]{l37.d(feedExtraData, "reply_user_name_click1", null, 2, null), l37.d(feedExtraData, "reply_user_name_click2", null, 2, null)}), CollectionsKt__CollectionsKt.listOf((Object[]) new n47[]{l37.d(feedExtraData, "reply_card_click1", null, 2, null), l37.d(feedExtraData, "reply_card_click2", null, 2, null)})), "reply"));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
+            if (obj instanceof j57) {
+                j57 j57Var = (j57) obj;
+                return this.a == j57Var.a && Intrinsics.areEqual(this.b, j57Var.b);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a * 31) + this.b.hashCode() : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "CardReadStatus(readStatus=" + this.a + ", tid=" + this.b + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public j57(int i, String tid) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), tid};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(tid, "tid");
+        this.a = i;
+        this.b = tid;
+    }
+
+    public final boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a == 2) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && this.a != 0 && z) {
+            this.a = 2;
+            il6.a(this.b);
         }
     }
 }

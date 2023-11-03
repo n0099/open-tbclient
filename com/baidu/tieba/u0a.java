@@ -1,19 +1,20 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes8.dex */
 public class u0a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
+    public ArrayList<y0a> a;
 
     public u0a() {
         Interceptable interceptable = $ic;
@@ -25,20 +26,70 @@ public class u0a {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList<>();
     }
 
-    public static u0a a(@NonNull JSONObject jSONObject) {
+    public ArrayList<y0a> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public final boolean b(ExcContent excContent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            u0a u0aVar = new u0a();
-            u0aVar.a = jSONObject.optString("lottie");
-            u0aVar.b = jSONObject.optString("text");
-            u0aVar.c = jSONObject.optString("cmd");
-            return u0aVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, excContent)) == null) {
+            long longValue = excContent.type.longValue();
+            if (longValue == 2 || longValue == 0 || longValue == 1) {
+                return true;
+            }
+            return false;
         }
-        return (u0a) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public void c(TbPageContext<?> tbPageContext, List<ExcContent> list) {
+        b1a b1aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, list) == null) && list != null && !list.isEmpty()) {
+            loop0: while (true) {
+                b1aVar = null;
+                for (ExcContent excContent : list) {
+                    if (excContent != null && excContent.type != null) {
+                        if (b(excContent)) {
+                            x0a a = a1a.a(tbPageContext, excContent);
+                            if (a == null) {
+                                continue;
+                            } else if (a.a()) {
+                                if (b1aVar != null) {
+                                    this.a.add(b1aVar);
+                                }
+                                this.a.add(a);
+                            } else {
+                                if (b1aVar == null) {
+                                    b1aVar = new b1a();
+                                }
+                                b1aVar.c(a.b());
+                            }
+                        } else {
+                            if (b1aVar != null) {
+                                this.a.add(b1aVar);
+                            }
+                            this.a.add(a1a.b(excContent));
+                        }
+                    }
+                }
+                break loop0;
+            }
+            if (b1aVar != null) {
+                this.a.add(b1aVar);
+            }
+        }
     }
 }

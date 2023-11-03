@@ -1,57 +1,30 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.content.Context;
+import android.graphics.Canvas;
+import android.util.AttributeSet;
+import android.view.MotionEvent;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 /* loaded from: classes7.dex */
-public abstract class pv5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public xv5 a;
+public interface pv5 {
+    void a();
 
-    public abstract qv5 b();
+    void b(Canvas canvas);
 
-    public abstract int c();
+    void c(ListView listView, Context context, AttributeSet attributeSet);
 
-    public abstract void e();
+    void onDraw(Canvas canvas);
 
-    public abstract void f(sv5 sv5Var);
+    boolean onInterceptTouchEvent(MotionEvent motionEvent);
 
-    public abstract void g(String str);
+    void onMeasure(int i, int i2);
 
-    public abstract void h(String str);
+    void onSizeChanged(int i, int i2, int i3, int i4);
 
-    public abstract void i(String str);
+    boolean onTouchEvent(MotionEvent motionEvent);
 
-    public pv5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void requestLayout();
 
-    public xv5 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return (xv5) invokeV.objValue;
-    }
-
-    public void a(xv5 xv5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, xv5Var) == null) {
-            this.a = xv5Var;
-        }
-    }
+    void setAdapter(ListAdapter listAdapter);
 }

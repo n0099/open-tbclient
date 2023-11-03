@@ -1,72 +1,32 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.pb.pb.main.PbFragment;
+import com.baidu.tieba.pb.pb.main.PbRecommendNovelHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes9.dex */
-public class yw9 {
+public class yw9 extends vv9<iy4, PbRecommendNovelHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public boolean b;
-    public int c;
-    public boolean d;
-    public List<mw9> e;
+    public ds9 g;
+    public PbRecommendNovelHolder.b h;
 
     /* loaded from: classes9.dex */
-    public class a extends BdAsyncTask<Void, Void, Void> {
+    public class a implements PbRecommendNovelHolder.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yw9 a;
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                c89.a(e89.b);
-                c89.a(e89.c);
-                c89.a(e89.d);
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class b extends BdAsyncTask<zw9, Void, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(yw9 yw9Var) {
+        public a(yw9 yw9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -78,255 +38,81 @@ public class yw9 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = yw9Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Void doInBackground(zw9... zw9VarArr) {
-            InterceptResult invokeL;
+        @Override // com.baidu.tieba.pb.pb.main.PbRecommendNovelHolder.b
+        public void a(iy4 iy4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, zw9VarArr)) == null) {
-                if (zw9VarArr == null || zw9VarArr.length != 1 || zw9VarArr[0] == null) {
-                    return null;
-                }
-                zw9 zw9Var = zw9VarArr[0];
-                synchronized ("debug") {
-                    File file = new File(e89.e + e89.a + zw9Var.b + e89.a + "debug");
-                    StringBuilder sb = new StringBuilder();
-                    sb.append(zw9Var.a.a().toString());
-                    sb.append("\n");
-                    c89.g(file, sb.toString(), true);
-                }
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class c extends BdAsyncTask<sw9, Void, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c(yw9 yw9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yw9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+            if ((interceptable == null || interceptable.invokeL(1048576, this, iy4Var) == null) && iy4Var != null) {
+                c1a.a(this.a.g, iy4Var, iy4Var.g0, 6);
             }
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Void doInBackground(sw9... sw9VarArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sw9VarArr)) == null) {
-                if (sw9VarArr == null || sw9VarArr.length != 1 || sw9VarArr[0] == null) {
-                    return null;
-                }
-                sw9 sw9Var = sw9VarArr[0];
-                synchronized ("kpi") {
-                    c89.g(new File(e89.e + e89.a + sw9Var.d + e89.a + "kpi"), yw9.e(sw9Var.a, sw9Var.b, sw9Var.c).toString(), false);
-                }
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948344718, "Lcom/baidu/tieba/yw9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948344718, "Lcom/baidu/tieba/yw9;");
-                return;
-            }
-        }
-        if (wc.c()) {
-            new a().execute(new Void[0]);
-        }
-    }
-
-    public JSONObject d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return e(this.b, this.c, this.d);
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.c++;
-        }
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.c > 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.b = false;
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.b = true;
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.d = true;
-        }
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || !wc.c()) {
-            return;
-        }
-        new c(this).execute(new sw9(this.b, this.c, this.d, this.a));
-    }
-
-    public yw9(String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yw9(PbFragment pbFragment, BdUniqueId bdUniqueId) {
+        super(pbFragment, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {pbFragment, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((g1a) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = true;
-        this.c = 0;
-        this.d = false;
-        this.a = str;
-        this.e = new ArrayList();
+        this.h = new a(this);
     }
 
-    public static final JSONObject e(boolean z, int i, boolean z2) {
+    public void s(ds9 ds9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ds9Var) == null) {
+            this.g = ds9Var;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: y */
+    public PbRecommendNovelHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            return new PbRecommendNovelHolder(this.b.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d07cc, viewGroup, false), this.h);
+        }
+        return (PbRecommendNovelHolder) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.vv9, com.baidu.tieba.bi
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        z(i, view2, viewGroup, (iy4) obj, (PbRecommendNovelHolder) viewHolder);
+        return view2;
+    }
+
+    public View z(int i, View view2, ViewGroup viewGroup, iy4 iy4Var, PbRecommendNovelHolder pbRecommendNovelHolder) {
         InterceptResult invokeCommon;
-        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)})) == null) {
-            JSONObject jSONObject = new JSONObject();
-            int i3 = 1;
-            if (z2 && z) {
-                i2 = 1;
-            } else {
-                i2 = 0;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, iy4Var, pbRecommendNovelHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) iy4Var, (iy4) pbRecommendNovelHolder);
+            if (iy4Var == null) {
+                return view2;
             }
-            try {
-                jSONObject.put("postSuccess", i2);
-                jSONObject.put("errorTimes", i);
-                if (!z2) {
-                    i3 = 0;
-                }
-                jSONObject.put("posted", i3);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
+            iy4Var.g0 = i + 1;
+            c1a.d(this.b.getUniqueId(), this.g, iy4Var, iy4Var.g0, 6);
+            pbRecommendNovelHolder.d(iy4Var);
+            return view2;
         }
-        return (JSONObject) invokeCommon.objValue;
-    }
-
-    public void a(mw9 mw9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, mw9Var) == null) {
-            this.e.add(mw9Var);
-            c();
-            m(mw9Var);
-            l();
-        }
-    }
-
-    public final void m(mw9 mw9Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048587, this, mw9Var) == null) && wc.c() && mw9Var != null) {
-            new b(this).execute(new zw9(mw9Var, this.a));
-        }
-    }
-
-    public JSONObject b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                JSONArray jSONArray = new JSONArray();
-                if (!ListUtils.isEmpty(this.e)) {
-                    int size = this.e.size();
-                    for (int i = 0; i < size; i++) {
-                        jSONArray.put(this.e.get(i).a());
-                    }
-                }
-                jSONObject.put("running", jSONArray);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || !wc.c()) {
-            return;
-        }
-        File file = new File(e89.e + e89.a + this.a + e89.a);
-        if (!file.exists()) {
-            file.mkdir();
-        }
+        return (View) invokeCommon.objValue;
     }
 }

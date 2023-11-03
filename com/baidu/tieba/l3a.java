@@ -1,86 +1,98 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public abstract class l3a implements l77 {
+public class l3a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BdTypeListView a;
+    public j3a b;
 
-    public l3a() {
+    public l3a(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdTypeListView, tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = bdTypeListView;
+        this.b = new j3a(bdTypeListView, tbPageContext, bdUniqueId);
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b.b();
         }
     }
 
-    @Override // com.baidu.tieba.l77
-    public Map<String, String> a(v27 businessInfo) {
-        InterceptResult invokeL;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            Map<String, String> a = businessInfo.a();
-            String str = a.get("live_type");
-            String str2 = "";
-            if (str == null) {
-                str = "";
-            }
-            hashMap.put("obj_type", str);
-            String str3 = a.get("live_app_id");
-            if (str3 == null) {
-                str3 = "";
-            }
-            hashMap.put(TiebaStatic.Params.OBJ_PARAM3, str3);
-            String str4 = a.get("abtest_tag");
-            if (str4 == null) {
-                str4 = "";
-            }
-            hashMap.put("ab_tag", str4);
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (currentAccount == null) {
-                currentAccount = "";
-            }
-            hashMap.put("uid", currentAccount);
-            String str5 = a.get("extra");
-            if (str5 == null) {
-                str5 = "";
-            }
-            hashMap.put("obj_param1", str5);
-            String str6 = a.get("source");
-            if (str6 == null) {
-                str6 = "";
-            }
-            hashMap.put("obj_source", str6);
-            String str7 = a.get("position_from_1");
-            if (str7 == null) {
-                str7 = "";
-            }
-            hashMap.put(TiebaStatic.Params.OBJ_FLOOR, str7);
-            hashMap.put(TiebaStatic.Params.OBJ_PARAM4, "0");
-            String cuid = TbadkCoreApplication.getInst().getCuid();
-            if (cuid != null) {
-                str2 = cuid;
-            }
-            hashMap.put("cuid", str2);
-            return hashMap;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.b();
         }
-        return (Map) invokeL.objValue;
+    }
+
+    public void c() {
+        j3a j3aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (j3aVar = this.b) != null) {
+            j3aVar.c();
+        }
+    }
+
+    public void d() {
+        j3a j3aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (j3aVar = this.b) != null) {
+            j3aVar.d();
+        }
+    }
+
+    public void f() {
+        j3a j3aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (j3aVar = this.b) != null) {
+            j3aVar.f();
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.b.g();
+        }
+    }
+
+    public void e(boolean z) {
+        j3a j3aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && (j3aVar = this.b) != null) {
+            j3aVar.e(z);
+        }
+    }
+
+    public void h(List<oi> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
+            this.a.setData(new ArrayList(list));
+        }
     }
 }

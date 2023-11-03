@@ -19,8 +19,8 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a5;
 import com.baidu.tieba.frs.gamerecommend.data.FeatureCardCompetitionSubNode;
-import com.baidu.tieba.k4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -73,7 +73,7 @@ public class CardFrsGameCompetitionItemView extends LinearLayout {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (view2.getTag() instanceof String)) {
                 TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 7).param("fid", this.a.m));
-                UrlManager.getInstance().dealOneLink((TbPageContext) k4.a(this.a.getContext()), new String[]{(String) view2.getTag()}, true);
+                UrlManager.getInstance().dealOneLink((TbPageContext) a5.a(this.a.getContext()), new String[]{(String) view2.getTag()}, true);
             }
         }
     }
@@ -183,19 +183,19 @@ public class CardFrsGameCompetitionItemView extends LinearLayout {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01b5, (ViewGroup) this, true);
-            this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090596);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090593);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09059d);
-            this.d = (ClickableHeaderImageView) findViewById(R.id.obfuscated_res_0x7f09059c);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09059b);
-            this.f = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090595);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09059e);
-            this.h = (ClickableHeaderImageView) findViewById(R.id.obfuscated_res_0x7f090597);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f090598);
-            this.j = (ClickableHeaderImageView) findViewById(R.id.obfuscated_res_0x7f090599);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f09059a);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f090594);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01b8, (ViewGroup) this, true);
+            this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0905b4);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0905b1);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0905bb);
+            this.d = (ClickableHeaderImageView) findViewById(R.id.obfuscated_res_0x7f0905ba);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0905b9);
+            this.f = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0905b3);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0905bc);
+            this.h = (ClickableHeaderImageView) findViewById(R.id.obfuscated_res_0x7f0905b5);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0905b6);
+            this.j = (ClickableHeaderImageView) findViewById(R.id.obfuscated_res_0x7f0905b7);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0905b8);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0905b2);
             int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.tbds170) * 2;
             int i = (dimensionPixelSize * 21) / 9;
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.b.getLayoutParams();
@@ -206,7 +206,7 @@ public class CardFrsGameCompetitionItemView extends LinearLayout {
             layoutParams2.height = dimensionPixelSize;
             layoutParams2.width = i;
             this.a.setLayoutParams(layoutParams2);
-            this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080a7a);
+            this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080a89);
             this.d.setDrawBorder(true);
             this.d.setDrawerType(1);
             this.d.setRadius(context.getResources().getDimensionPixelSize(R.dimen.tbds5));

@@ -13,11 +13,11 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.tieba.R;
-import com.baidu.tieba.am1;
-import com.baidu.tieba.gj3;
+import com.baidu.tieba.rm1;
+import com.baidu.tieba.xj3;
 /* loaded from: classes4.dex */
 public class FullScreenFloatView extends FrameLayout {
-    public static final boolean n = am1.a;
+    public static final boolean n = rm1.a;
     public View a;
     public int b;
     public int c;
@@ -189,7 +189,7 @@ public class FullScreenFloatView extends FrameLayout {
         if (this.a != null) {
             int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0707e7);
             int dimensionPixelOffset2 = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0707e8);
-            this.a.animate().x((gj3.o(getContext()) - dimensionPixelOffset) - this.b).y((gj3.n(getContext()) - dimensionPixelOffset2) - this.c).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
+            this.a.animate().x((xj3.o(getContext()) - dimensionPixelOffset) - this.b).y((xj3.n(getContext()) - dimensionPixelOffset2) - this.c).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
         }
     }
 

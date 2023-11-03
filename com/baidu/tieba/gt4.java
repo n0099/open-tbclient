@@ -1,150 +1,611 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.content.Intent;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.browser.newshare.ThreadAchievementShareInfo;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
+import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
+import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
+import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.ForumBroadcastHelper;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tbadk.vcode.VcodeTool;
+import com.baidu.tieba.browser.log.HybridLog;
+import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tieba.xqa;
+import com.baidu.tieba.zz4;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import java.util.ArrayList;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class gt4 {
+public final class gt4 extends be5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public final View b;
-    public final ThreadAchievementShareInfo.ParamBean c;
-    public TbRichTextView d;
-    public jw5 e;
-    public TbImageView f;
-    public TextView g;
-    public TextView h;
-    public TextView i;
-    public TextView j;
-    public TextView k;
+    public TbPageContext<?> b;
+    public ft4 c;
+    public NewWriteModel d;
+    public String e;
+    public SpanGroupManager f;
+    public String g;
+    public String h;
+    public String i;
+    public final NewWriteModel.d j;
+    public xqa.h k;
 
-    public gt4(Context context, ThreadAchievementShareInfo threadAchievementShareInfo) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947805442, "Lcom/baidu/tieba/gt4;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947805442, "Lcom/baidu/tieba/gt4;");
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gt4(final EditorTools editorTools) {
+        super(editorTools);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, threadAchievementShareInfo};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {editorTools};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((EditorTools) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = context;
-        this.b = LayoutInflater.from(context).inflate(R.layout.normal_interaction_achievement, (ViewGroup) null);
-        this.c = threadAchievementShareInfo.getParams();
-        c();
-        b();
-    }
+        Intrinsics.checkNotNullParameter(editorTools, "editorTools");
+        this.e = "";
+        this.g = "none";
+        this.h = "";
+        this.i = "";
+        this.j = new NewWriteModel.d() { // from class: com.baidu.tieba.dt4
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
-    public View a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.c.getContent() != null && this.c.getContent().size() != 0) {
-            JSONArray jSONArray = new JSONArray();
-            ThreadAchievementShareInfo.ContentBean contentBean = null;
-            for (ThreadAchievementShareInfo.ContentBean contentBean2 : this.c.getContent()) {
-                if (contentBean2.getType() == 0) {
-                    JSONObject jSONObject = new JSONObject();
-                    try {
-                        jSONObject.put("type", "0");
-                        jSONObject.put("text", contentBean2.getText());
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                    jSONArray.put(jSONObject);
-                } else if (contentBean2.getType() == 3) {
-                    contentBean = contentBean2;
+            @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
+            public final void callback(boolean z, PostWriteCallBackData postWriteCallBackData, g95 g95Var, WriteData writeData, AntiData antiData) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, g95Var, writeData, antiData}) == null) {
+                    gt4.j(gt4.this, z, postWriteCallBackData, g95Var, writeData, antiData);
                 }
             }
-            if (!TextUtils.isEmpty(this.c.getThread_title())) {
-                this.g.setText(this.c.getThread_title());
-                this.g.setVisibility(0);
-                this.d.setMaxLines(6);
+        };
+        this.k = new xqa.h() { // from class: com.baidu.tieba.at4
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // com.baidu.tieba.xqa.h
+            public final void d(WriteData writeData) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, writeData) == null) {
+                    gt4.b(gt4.this, editorTools, writeData);
+                }
+            }
+        };
+    }
+
+    public static final void b(gt4 this$0, EditorTools editorTools, WriteData writeData) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, this$0, editorTools, writeData) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            Intrinsics.checkNotNullParameter(editorTools, "$editorTools");
+            if (writeData != null) {
+                str = writeData.getContent();
             } else {
-                ((LinearLayout.LayoutParams) this.d.getLayoutParams()).topMargin = BdUtilHelper.getDimens(this.a, R.dimen.tbds20);
-                this.d.setMaxLines(8);
+                str = null;
             }
-            this.d.setTextEllipsize(TextUtils.TruncateAt.END);
-            this.d.setMinimumHeight(BdUtilHelper.getDimens(this.a, R.dimen.tbds516));
-            if (contentBean != null && !TextUtils.isEmpty(contentBean.getSrc()) && this.c.getThread_type().contains("pic")) {
-                this.f.setVisibility(0);
-                this.f.setDefaultBgResource(R.color.transparent);
-                this.f.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                this.f.setPlaceHolder(2);
-                this.f.startLoad(contentBean.getSrc(), 10, false);
-                if (!TextUtils.isEmpty(this.c.getThread_title())) {
-                    this.d.setVisibility(8);
+            if (!StringUtils.isNull(str)) {
+                String content = writeData.getContent();
+                Intrinsics.checkNotNullExpressionValue(content, "draftData.content");
+                this$0.e = content;
+                editorTools.K(new xd5(6, 40, writeData.getContent()));
+            }
+        }
+    }
+
+    public static final void j(gt4 this$0, boolean z, PostWriteCallBackData postWriteCallBackData, g95 g95Var, WriteData writeData, AntiData antiData) {
+        WriteData writeData2;
+        Integer num;
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        String str5;
+        String str6;
+        String str7;
+        String str8;
+        String str9;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{this$0, Boolean.valueOf(z), postWriteCallBackData, g95Var, writeData, antiData}) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            String str10 = null;
+            if (writeData == null) {
+                NewWriteModel newWriteModel = this$0.d;
+                if (newWriteModel == null) {
+                    Intrinsics.throwUninitializedPropertyAccessException("mWriteModel");
+                    newWriteModel = null;
+                }
+                writeData2 = newWriteModel.e0();
+            } else {
+                writeData2 = writeData;
+            }
+            if (writeData2 == null) {
+                return;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject();
+                if (postWriteCallBackData != null) {
+                    num = Integer.valueOf(postWriteCallBackData.getErrorCode());
                 } else {
-                    this.d.setMaxLines(2);
-                    this.d.setTextEllipsize(TextUtils.TruncateAt.END);
-                    this.d.setLayoutStrategy(this.e);
-                    this.d.setMinimumHeight(BdUtilHelper.getDimens(this.a, R.dimen.tbds0));
+                    num = null;
+                }
+                jSONObject.put(CloudStabilityUBCUtils.KEY_ERROR_CODE, num);
+                if (postWriteCallBackData != null) {
+                    str = postWriteCallBackData.getErrorString();
+                } else {
+                    str = null;
+                }
+                jSONObject.put("errorString", str);
+                if (postWriteCallBackData != null) {
+                    str2 = postWriteCallBackData.getPostId();
+                } else {
+                    str2 = null;
+                }
+                jSONObject.put("postId", str2);
+                if (postWriteCallBackData != null) {
+                    str3 = postWriteCallBackData.getThreadId();
+                } else {
+                    str3 = null;
+                }
+                jSONObject.put("threadId", str3);
+                if (writeData != null) {
+                    str4 = writeData.getContent();
+                } else {
+                    str4 = null;
+                }
+                jSONObject.put("content", str4);
+                if (writeData != null) {
+                    str5 = writeData.getFloor();
+                } else {
+                    str5 = null;
+                }
+                jSONObject.put("floor", str5);
+                if (writeData != null) {
+                    str6 = writeData.getForumId();
+                } else {
+                    str6 = null;
+                }
+                jSONObject.put("forumId", str6);
+                if (writeData != null) {
+                    str7 = writeData.getForumName();
+                } else {
+                    str7 = null;
+                }
+                jSONObject.put(ForumBroadcastHelper.KEY_PARMARS_FORUM_NAME, str7);
+                if (writeData != null) {
+                    str8 = writeData.getReplyId();
+                } else {
+                    str8 = null;
+                }
+                jSONObject.put("replyUId", str8);
+                if (writeData != null) {
+                    str9 = writeData.getRepostId();
+                } else {
+                    str9 = null;
+                }
+                jSONObject.put("repostId", str9);
+                ft4 ft4Var = this$0.c;
+                if (ft4Var == null) {
+                    Intrinsics.throwUninitializedPropertyAccessException("mConfig");
+                    ft4Var = null;
+                }
+                jSONObject.put("replyUName", ft4Var.a().get("replyUName"));
+                dj6.a().h("webviewPage.replyResult", jSONObject);
+            } catch (Exception unused) {
+            }
+            if (z) {
+                this$0.c();
+                this$0.p();
+                this$0.n();
+                return;
+            }
+            if (g95Var != null) {
+                str10 = g95Var.d();
+            }
+            if (!TextUtils.isEmpty(str10)) {
+                writeData2.setVcodeMD5(g95Var.b());
+                writeData2.setVcodeUrl(g95Var.c());
+                writeData2.setVcodeExtra(g95Var.a());
+                if (VcodeTool.needVcode(g95Var.d())) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this$0.e().getPageActivity(), 12006, writeData2, false, g95Var.d())));
+                } else {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this$0.e().getPageActivity(), writeData2, 12006)));
+                }
+            } else if (postWriteCallBackData == null) {
+            } else {
+                if (postWriteCallBackData.getErrorCode() == 227001) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this$0.e().getPageActivity(), 12006, writeData2, postWriteCallBackData.getAccessState())));
+                } else if (postWriteCallBackData.getErrorCode() == 220015) {
+                    this$0.v(postWriteCallBackData.getErrorString());
+                } else if (postWriteCallBackData.getErrorCode() != 230277 && postWriteCallBackData.getErrorCode() != 230278 && postWriteCallBackData.getErrorCode() != 340016 && postWriteCallBackData.getErrorCode() != 1990032 && !AntiHelper.l(postWriteCallBackData.getErrorCode())) {
+                    this$0.v(postWriteCallBackData.getErrorString());
+                } else {
+                    int errorCode = postWriteCallBackData.getErrorCode();
+                    String errorString = postWriteCallBackData.getErrorString();
+                    Intrinsics.checkNotNullExpressionValue(errorString, "data.errorString");
+                    this$0.t(errorCode, errorString);
                 }
             }
-            this.d.setText(TbRichTextView.Z(jSONArray, false));
-            this.k.setText(StringHelper.numFormatOverWanWithNegative(this.c.getAgree_num()));
-            this.h.setText(StringHelper.numFormatOverWanWithNegative(this.c.getPost_num()));
+        }
+    }
+
+    public static final void u(zz4 zz4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, zz4Var) == null) {
+            zz4Var.dismiss();
+        }
+    }
+
+    public final String h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            ft4 ft4Var = this.c;
+            if (ft4Var == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("mConfig");
+                ft4Var = null;
+            }
+            Object obj = ft4Var.a().get(str);
+            if (!(obj instanceof String)) {
+                return null;
+            }
+            return (String) obj;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final void i(TbPageContext<?> context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            q(context);
+            NewWriteModel newWriteModel = new NewWriteModel(context);
+            this.d = newWriteModel;
+            if (newWriteModel == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("mWriteModel");
+                newWriteModel = null;
+            }
+            newWriteModel.m0(this.j);
+        }
+    }
+
+    public final void q(TbPageContext<?> tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, tbPageContext) == null) {
+            Intrinsics.checkNotNullParameter(tbPageContext, "<set-?>");
+            this.b = tbPageContext;
+        }
+    }
+
+    public final void r(String content) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, content) == null) {
+            Intrinsics.checkNotNullParameter(content, "content");
+            this.e = content;
+        }
+    }
+
+    public final void s(SpanGroupManager spanGroupManager) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, spanGroupManager) == null) {
+            this.f = spanGroupManager;
+        }
+    }
+
+    public final void v(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048592, this, str) == null) && !StringUtils.isNull(str)) {
+            e().showToast(str);
         }
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (!TextUtils.isEmpty(this.h)) {
+                xqa.C(this.h, null);
+            } else if (!TextUtils.isEmpty(this.i)) {
+                xqa.E(this.i, null);
+            }
+        }
+    }
+
+    public final TbPageContext<?> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            TbPageContext<?> tbPageContext = this.b;
+            if (tbPageContext != null) {
+                return tbPageContext;
+            }
+            Intrinsics.throwUninitializedPropertyAccessException("context");
+            return null;
+        }
+        return (TbPageContext) invokeV.objValue;
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.h = (TextView) this.b.findViewById(R.id.comment_num);
-            this.i = (TextView) this.b.findViewById(R.id.comment_desc);
-            this.j = (TextView) this.b.findViewById(R.id.praise_desc);
-            this.k = (TextView) this.b.findViewById(R.id.praise_num);
-            this.g = (TextView) this.b.findViewById(R.id.thread_title);
-            this.f = (TbImageView) this.b.findViewById(R.id.main_img);
-            this.d = (TbRichTextView) this.b.findViewById(R.id.rich_text);
-            this.k.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
-            this.h.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
-            this.j.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            this.i.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            this.g.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            jw5 jw5Var = new jw5();
-            this.e = jw5Var;
-            jw5Var.u(BdUtilHelper.getDimens(this.a, R.dimen.tbds38));
-            this.e.x(BdUtilHelper.getDimens(this.a, R.dimen.tbds42));
-            this.e.k(BdUtilHelper.getDimens(this.a, R.dimen.tbds23));
-            this.e.p(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds12), 1.0f);
-            this.e.j(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48), BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48));
-            this.d.setLayoutStrategy(this.e);
-            this.d.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            if (!TextUtils.isEmpty(this.h)) {
+                xqa.r(this.h, this.k);
+            } else if (!TextUtils.isEmpty(this.i)) {
+                xqa.t(this.i, this.k);
+            }
+        }
+    }
+
+    public final SpanGroupManager g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.f;
+        }
+        return (SpanGroupManager) invokeV.objValue;
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            NewWriteModel newWriteModel = this.d;
+            if (newWriteModel == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("mWriteModel");
+                newWriteModel = null;
+            }
+            newWriteModel.cancelLoadData();
+            o();
+        }
+    }
+
+    public final void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            NewWriteModel newWriteModel = this.d;
+            NewWriteModel newWriteModel2 = null;
+            if (newWriteModel == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("mWriteModel");
+                newWriteModel = null;
+            }
+            newWriteModel.setWriteData(null);
+            NewWriteModel newWriteModel3 = this.d;
+            if (newWriteModel3 == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("mWriteModel");
+            } else {
+                newWriteModel2 = newWriteModel3;
+            }
+            newWriteModel2.k0(false);
+        }
+    }
+
+    public void k(int i, int i2, Intent intent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIIL(1048582, this, i, i2, intent) == null) && i2 == -1) {
+            if (i != 12004 && i != 12005) {
+                if (i == 25004 && intent != null) {
+                    String stringExtra = intent.getStringExtra(HotTopicActivityConfig.HOT_TOPIC_SELECT_STRING);
+                    if (a() != null) {
+                        a().K(new xd5(44, 40, stringExtra));
+                    }
+                }
+            } else if (intent != null) {
+                ArrayList parcelableArrayListExtra = intent.getParcelableArrayListExtra(IntentConfig.AT_SELECT_LIST_DATA);
+                if (a() != null) {
+                    a().K(new xd5(17, 40, parcelableArrayListExtra));
+                }
+            }
+        }
+    }
+
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            WriteData writeData = new WriteData();
+            writeData.setForumId(h("forumId"));
+            writeData.setForumName(h(ForumBroadcastHelper.KEY_PARMARS_FORUM_NAME));
+            writeData.setThreadId(h("threadId"));
+            if (!TextUtils.isEmpty(this.g) && !Intrinsics.areEqual("text", this.g)) {
+                if (Intrinsics.areEqual("reply", this.g)) {
+                    writeData.setType(1);
+                } else if (Intrinsics.areEqual("replyFloor", this.g)) {
+                    writeData.setType(2);
+                    String h = h("postId");
+                    writeData.setFloor(h);
+                    writeData.setFloorNum(0);
+                    writeData.setReplyId(h("replyUid"));
+                    writeData.setRepostId(h);
+                    writeData.setPortrait(h("portrait"));
+                    writeData.setName(h("name"));
+                    writeData.setReSubPostId(h("reSubPostId"));
+                    writeData.setSubPbReplyPrefix(h("subPbReplyPrefix"));
+                }
+            } else {
+                writeData.setType(9);
+            }
+            writeData.setContent(this.e);
+            writeData.onPostDataParse(this.f);
+            NewWriteModel newWriteModel = this.d;
+            NewWriteModel newWriteModel2 = null;
+            if (newWriteModel == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("mWriteModel");
+                newWriteModel = null;
+            }
+            newWriteModel.setWriteData(writeData);
+            NewWriteModel newWriteModel3 = this.d;
+            if (newWriteModel3 == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("mWriteModel");
+            } else {
+                newWriteModel2 = newWriteModel3;
+            }
+            newWriteModel2.p0();
+        }
+    }
+
+    public final void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            NewWriteModel newWriteModel = this.d;
+            if (newWriteModel == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("mWriteModel");
+                newWriteModel = null;
+            }
+            WriteData e0 = newWriteModel.e0();
+            if (e0 == null) {
+                e0 = new WriteData();
+            }
+            e0.setForumId(h("forumId"));
+            e0.setForumName(h(ForumBroadcastHelper.KEY_PARMARS_FORUM_NAME));
+            e0.setThreadId(this.h);
+            e0.setContent(this.e);
+            if (!TextUtils.isEmpty(this.h)) {
+                e0.setType(1);
+                xqa.C(this.h, e0);
+            } else if (!TextUtils.isEmpty(this.i)) {
+                e0.setType(2);
+                e0.setReplyId(h("replyUid"));
+                e0.setFloor(this.i);
+                e0.setPortrait(h("portrait"));
+                e0.setName(h("name"));
+                e0.setReSubPostId(h("reSubPostId"));
+                e0.setSubPbReplyPrefix(h("subPbReplyPrefix"));
+                xqa.E(this.i, e0);
+            }
+        }
+    }
+
+    public final void p() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && a() != null) {
+            a().K(new xd5(9, -1, Boolean.TRUE));
+            a().K(new xd5(4, -1, ""));
+            a().v();
+        }
+    }
+
+    public final void t(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048591, this, i, str) == null) {
+            if (AntiHelper.m(i, str)) {
+                AntiHelper.w(e().getPageActivity(), str, i, null);
+            } else if (i != 230277 && i != 230278) {
+                v(str);
+            } else {
+                zz4 zz4Var = new zz4(e().getPageActivity());
+                zz4Var.setMessage(str);
+                zz4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0b79, new zz4.e() { // from class: com.baidu.tieba.bt4
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // com.baidu.tieba.zz4.e
+                    public final void onClick(zz4 zz4Var2) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, zz4Var2) == null) {
+                            gt4.u(zz4Var2);
+                        }
+                    }
+                });
+                zz4Var.create(e()).show();
+            }
+        }
+    }
+
+    public final void w(ft4 config) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, config) == null) {
+            Intrinsics.checkNotNullParameter(config, "config");
+            this.c = config;
+            ke5 u = a().u(40);
+            Intrinsics.checkNotNullExpressionValue(u, "editorTools.findToolById…rToolsID.TOOL_ID_WEBVIEW)");
+            if (u instanceof it4) {
+                ((it4) u).j(config);
+                this.e = "";
+            }
+            String h = h("threadId");
+            String h2 = h("postId");
+            ft4 ft4Var = this.c;
+            if (ft4Var == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("mConfig");
+                ft4Var = null;
+            }
+            boolean z2 = true;
+            if (!Intrinsics.areEqual(ft4Var.a, this.g)) {
+                ft4 ft4Var2 = this.c;
+                if (ft4Var2 == null) {
+                    Intrinsics.throwUninitializedPropertyAccessException("mConfig");
+                    ft4Var2 = null;
+                }
+                String str = ft4Var2.a;
+                Intrinsics.checkNotNullExpressionValue(str, "mConfig.mPostType");
+                this.g = str;
+                z = true;
+            } else {
+                z = false;
+            }
+            if (Intrinsics.areEqual("reply", this.g) && !TextUtils.isEmpty(h)) {
+                if (!StringsKt__StringsJVMKt.equals$default(h, this.h, false, 2, null)) {
+                    Intrinsics.checkNotNull(h);
+                    this.h = h;
+                    this.i = "";
+                }
+                z2 = z;
+            } else {
+                if (Intrinsics.areEqual("replyFloor", this.g) && !TextUtils.isEmpty(h2) && !StringsKt__StringsJVMKt.equals$default(h2, this.i, false, 2, null)) {
+                    this.h = "";
+                    Intrinsics.checkNotNull(h2);
+                    this.i = h2;
+                }
+                z2 = z;
+            }
+            HybridLog.getInstance().i("WebViewEditor", "updateConfig " + z2 + WebvttCueParser.CHAR_SPACE + this.g + WebvttCueParser.CHAR_SPACE + h + WebvttCueParser.CHAR_SPACE + h2);
+            if (z2) {
+                this.e = "";
+                a().K(new xd5(6, 40, ""));
+                f();
+            }
         }
     }
 }

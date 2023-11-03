@@ -1,38 +1,31 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.k63;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class r83 extends m73 {
+/* loaded from: classes8.dex */
+public class r83 extends q83 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public r83(m63 m63Var) {
-        super(m63Var, "/swanAPI/setNavigationBarColor");
+    public r83(j63 j63Var) {
+        super(j63Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {m63Var};
+            Object[] objArr = {j63Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                super((j63) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -40,51 +33,52 @@ public class r83 extends m73 {
         }
     }
 
-    @Override // com.baidu.tieba.m73
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, p53 p53Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.baidu.tieba.q83
+    public void I(String str) {
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, p53Var)) == null) {
-            if (m73.b) {
-                Log.d("BarColorAction", "handle entity: " + unitedSchemeEntity.toString());
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && M() && (str2 = this.d) != null && str2.equals(str)) {
+            f63 K = f63.K();
+            if (!K.E()) {
+                return;
             }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            y42 W = cr2.V().W();
-            if (W == null) {
-                p22.c("navigationColor", "manager is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else if (optParamsAsJo == null) {
-                p22.c("navigationColor", "paramsJson is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else {
-                String optString = optParamsAsJo.optString("frontColor");
-                String optString2 = optParamsAsJo.optString(TtmlNode.ATTR_TTS_BACKGROUND_COLOR);
-                JSONObject optJSONObject = optParamsAsJo.optJSONObject("animation");
-                v42 m = W.m();
-                if (m == null) {
-                    p22.c("navigationColor", "slave container exception");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                } else if (!m.L2(optString, true)) {
-                    p22.c("navigationColor", "set title color fail");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                } else if (!m.B2(SwanAppConfigData.t(optString2), true)) {
-                    p22.c("navigationColor", "set title background fail");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                } else {
-                    if (optJSONObject != null) {
-                        m.z2(optJSONObject.optInt("duration"), optJSONObject.optString("timingFunc"));
-                        p22.i("navigationColor", "set action bar animator");
-                    }
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    return true;
-                }
+            if (K.q().o0()) {
+                K.n("flag_finish_activity", "flag_remove_task");
+                return;
+            }
+            zh3 zh3Var = new zh3();
+            zh3Var.k(10L);
+            zh3Var.i(2107L);
+            zh3Var.d("app forbidden");
+            m63.z0(de4.i().u(str), np2.c(), K.q().X(), false, null, zh3Var);
+        }
+    }
+
+    public boolean M() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (g63.c0() != null && this.b != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.zk3
+    /* renamed from: N */
+    public void a(k63.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            if (s23.J(aVar.D(), "swan_forbidden_kill_on_client")) {
+                this.b = aVar.i("ipc_forbidden_flag", 1);
+                this.d = aVar.o("mAppId", f63.K().getAppId());
+            }
+            if (s23.J(aVar.D(), "swan_kill_to_client")) {
+                f63.K().n("flag_finish_activity", "flag_remove_task");
             }
         }
-        return invokeLLLL.booleanValue;
     }
 }

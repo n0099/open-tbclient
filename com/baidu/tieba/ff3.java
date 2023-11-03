@@ -1,146 +1,275 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.hf3;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes5.dex */
-public class ff3 extends m73 {
+public class ff3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public ef3 a;
+    public boolean b;
 
-    /* loaded from: classes5.dex */
-    public class a implements hf3.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ UnitedSchemeEntity b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ ff3 d;
-
-        public a(ff3 ff3Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947762166, "Lcom/baidu/tieba/ff3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ff3Var, callbackHandler, unitedSchemeEntity, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.d = ff3Var;
-            this.a = callbackHandler;
-            this.b = unitedSchemeEntity;
-            this.c = str;
-        }
-
-        @Override // com.baidu.tieba.hf3.b
-        public void a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                this.d.k(i, this.a, this.b, this.c);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ff3(m63 m63Var) {
-        super(m63Var, "/swanAPI/startMediaVolumeListen");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {m63Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947762166, "Lcom/baidu/tieba/ff3;");
                 return;
             }
         }
+        c = rm1.a;
     }
 
-    @Override // com.baidu.tieba.m73
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, p53 p53Var) {
-        InterceptResult invokeLLLL;
+    public ff3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, p53Var)) == null) {
-            if (p53Var == null) {
-                p22.c("startMediaVolumeListen", "none swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal swanApp");
-                return false;
-            } else if (context == null) {
-                p22.c("startMediaVolumeListen", "none context");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal context");
-                return false;
-            } else {
-                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-                if (optParamsAsJo == null) {
-                    p22.c("startMediaVolumeListen", "none params");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                    return false;
-                }
-                String optString = optParamsAsJo.optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    p22.c("startMediaVolumeListen", "cb is empty");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                String optString2 = optParamsAsJo.optString("id");
-                if (TextUtils.isEmpty(optString2)) {
-                    p22.c("startMediaVolumeListen", "id is empty");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                hf3.e().d(optString2, new a(this, callbackHandler, unitedSchemeEntity, optString));
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return invokeLLLL.booleanValue;
+        this.a = null;
     }
 
-    public final void k(double d, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
+    public synchronized void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d), callbackHandler, unitedSchemeEntity, str}) == null) {
-            JSONObject jSONObject = new JSONObject();
-            int f = (int) ((d / hf3.e().f()) * 100.0d);
-            if (f < 0) {
-                f = 0;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            synchronized (this) {
+                f();
             }
-            if (f > 100) {
-                f = 100;
-            }
-            try {
-                jSONObject.put("volume", f);
-                if (m73.b) {
-                    Log.d("startMediaVolumeListen", "NewVolume: " + f);
+        }
+    }
+
+    public synchronized void a(bf3 bf3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bf3Var) == null) {
+            synchronized (this) {
+                if (bf3Var != null) {
+                    if (!TextUtils.isEmpty(bf3Var.a) && !TextUtils.isEmpty(bf3Var.c) && !TextUtils.isEmpty(bf3Var.b)) {
+                        if (bf3Var.e == -1) {
+                            return;
+                        }
+                        SQLiteDatabase f = f();
+                        if (f == null) {
+                            return;
+                        }
+                        if (c) {
+                            Log.d("SwanCookieDatabase", "addCookie cookie=" + bf3Var.toString());
+                        }
+                        ContentValues contentValues = new ContentValues();
+                        contentValues.put("domain", bf3Var.a);
+                        contentValues.put("path", bf3Var.b);
+                        contentValues.put("name", bf3Var.c);
+                        contentValues.put("value", bf3Var.d);
+                        contentValues.put("expires", Long.valueOf(bf3Var.e));
+                        contentValues.put(ClientCookie.SECURE_ATTR, Boolean.valueOf(bf3Var.f));
+                        f.insert("cookies", null, contentValues);
+                    }
                 }
-                UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
-            } catch (JSONException e) {
-                p22.c("startMediaVolumeListen", "handle volume json error，" + e.toString());
-                UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001, "Json error").toString(), str);
+            }
+        }
+    }
+
+    public synchronized void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                SQLiteDatabase f = f();
+                if (f == null) {
+                    return;
+                }
+                if (c) {
+                    Log.d("SwanCookieDatabase", "clearExpiredCookies");
+                }
+                f.delete("cookies", "expires <= ?", new String[]{Long.toString(System.currentTimeMillis())});
+            }
+        }
+    }
+
+    public synchronized void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                if (this.a == null) {
+                    return;
+                }
+                try {
+                    if (c) {
+                        Log.d("SwanCookieDatabase", "close");
+                    }
+                    this.a.close();
+                    this.a = null;
+                    this.b = true;
+                } catch (Exception e) {
+                    g32.k("SwanCookieDatabase", "close fail:" + Log.getStackTraceString(e));
+                }
+            }
+        }
+    }
+
+    public synchronized void d(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
+            synchronized (this) {
+                if (TextUtils.isEmpty(str)) {
+                    return;
+                }
+                SQLiteDatabase f = f();
+                if (f == null) {
+                    return;
+                }
+                if (c) {
+                    Log.d("SwanCookieDatabase", "deleteCookies domain=" + str + ";path=" + str2 + ";name=" + str3);
+                }
+                f.delete("cookies", "(domain == ?) AND (path == ?) AND (name == ?)", new String[]{str, str2, str3});
+            }
+        }
+    }
+
+    public synchronized ArrayList<bf3> e(String str) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            synchronized (this) {
+                if (c) {
+                    Log.d("SwanCookieDatabase", "getCookiesForDomain baseDomain=" + str);
+                }
+                ArrayList<bf3> arrayList = new ArrayList<>();
+                if (TextUtils.isEmpty(str)) {
+                    return arrayList;
+                }
+                SQLiteDatabase f = f();
+                if (f == null) {
+                    return arrayList;
+                }
+                Cursor query = f.query("cookies", new String[]{"_id", "domain", "path", "name", "value", "expires", ClientCookie.SECURE_ATTR}, "(domain GLOB '*' || ?)", new String[]{str}, null, null, null);
+                if (query == null) {
+                    return arrayList;
+                }
+                long currentTimeMillis = System.currentTimeMillis();
+                if (query.moveToFirst()) {
+                    int columnIndex = query.getColumnIndex("domain");
+                    int columnIndex2 = query.getColumnIndex("path");
+                    int columnIndex3 = query.getColumnIndex("name");
+                    int columnIndex4 = query.getColumnIndex("value");
+                    int columnIndex5 = query.getColumnIndex("expires");
+                    int columnIndex6 = query.getColumnIndex(ClientCookie.SECURE_ATTR);
+                    do {
+                        bf3 bf3Var = new bf3();
+                        bf3Var.a = query.getString(columnIndex);
+                        bf3Var.b = query.getString(columnIndex2);
+                        bf3Var.c = query.getString(columnIndex3);
+                        bf3Var.d = query.getString(columnIndex4);
+                        if (query.isNull(columnIndex5)) {
+                            bf3Var.e = -1L;
+                        } else {
+                            bf3Var.e = query.getLong(columnIndex5);
+                        }
+                        if (query.getShort(columnIndex6) != 0) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                        bf3Var.f = z;
+                        bf3Var.i = 1;
+                        if (bf3Var.e > currentTimeMillis) {
+                            arrayList.add(bf3Var);
+                            if (c) {
+                                Log.d("SwanCookieDatabase", "getCookiesForDomain cookie=" + bf3Var.toString());
+                            }
+                        }
+                    } while (query.moveToNext());
+                    iu2.a(query);
+                    return arrayList;
+                }
+                iu2.a(query);
+                return arrayList;
+            }
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    public final SQLiteDatabase f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.b) {
+                return null;
+            }
+            ef3 ef3Var = this.a;
+            if (ef3Var != null) {
+                return ef3Var.getWritableDatabase();
+            }
+            String appId = f63.K().getAppId();
+            if (!f63.K().E()) {
+                g32.k("SwanCookieDatabase", "getSQLiteDatabase currentAppId =" + appId);
+                return null;
+            }
+            String t = od3.t(f63.K().q());
+            g32.k("SwanCookieDatabase", "initDbHelper name =" + t);
+            ef3 ef3Var2 = new ef3(np2.c(), t);
+            this.a = ef3Var2;
+            return ef3Var2.getWritableDatabase();
+        }
+        return (SQLiteDatabase) invokeV.objValue;
+    }
+
+    public synchronized void g(Runnable runnable) {
+        String str;
+        String stackTraceString;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, runnable) == null) {
+            synchronized (this) {
+                SQLiteDatabase f = f();
+                if (f == null) {
+                    return;
+                }
+                try {
+                    f.beginTransaction();
+                    runnable.run();
+                    f.setTransactionSuccessful();
+                    try {
+                        f.endTransaction();
+                    } catch (Exception e) {
+                        str = "SwanCookieDatabase";
+                        stackTraceString = Log.getStackTraceString(e);
+                        g32.k(str, stackTraceString);
+                    }
+                } catch (Exception e2) {
+                    g32.k("SwanCookieDatabase", Log.getStackTraceString(e2));
+                    try {
+                        f.endTransaction();
+                    } catch (Exception e3) {
+                        str = "SwanCookieDatabase";
+                        stackTraceString = Log.getStackTraceString(e3);
+                        g32.k(str, stackTraceString);
+                    }
+                }
             }
         }
     }

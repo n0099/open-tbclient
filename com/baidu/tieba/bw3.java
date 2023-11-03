@@ -1,117 +1,111 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.os.Bundle;
-import android.os.SystemClock;
+import android.content.res.Resources;
+import android.media.AudioManager;
+import android.os.Build;
+import android.os.Handler;
 import android.text.TextUtils;
-import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.manage.Download;
-import com.baidu.down.manage.DownloadManager;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.downloads.DownloadConstants;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.swan.game.ad.downloader.model.DownloadState;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.swan.game.guide.install.GameNowInstallAntiBlockingActivity;
-import com.baidu.swan.game.guide.install.InstallActivity;
-import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
-import com.baidu.tieba.adnotify.receiver.NotInstallNotificationReceiver;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.game.ad.component.AdImageVIew;
+import com.baidu.swan.game.ad.entity.AdElementInfo;
+import com.baidu.swan.game.ad.view.InteractiveEndFrameView;
+import com.baidu.swan.game.ad.view.RewardLoadWebView;
+import com.baidu.swan.game.ad.view.RewardVideoView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.zip.ZipFile;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bw3 {
+public abstract class bw3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean k;
-    public static volatile bw3 l;
-    public static ExecutorService m;
     public transient /* synthetic */ FieldHolder $fh;
-    public aw3 a;
-    public aw3 b;
-    public aw3 c;
-    public DownloadManager d;
-    public yv3 e;
-    public fw3 f;
-    public BroadcastReceiver g;
-    public JSONObject h;
-    public int i;
-    public int j;
+    public gv3 A;
+    public boolean B;
+    public Runnable C;
+    public View.OnClickListener D;
+    public View.OnClickListener E;
+    public View.OnClickListener F;
+    public RelativeLayout a;
+    public View b;
+    public RewardVideoView c;
+    public bv3 d;
+    public int e;
+    public ProgressBar f;
+    public LinearLayout g;
+    public ImageView h;
+    public TextView i;
+    public TextView j;
+    public View k;
+    public TextView l;
+    public RelativeLayout m;
+    public int n;
+    public int o;
+    public Context p;
+    public AdElementInfo q;
+    public final Handler r;
+    public tu3 s;
+    public RewardLoadWebView t;
+    public RewardLoadWebView u;
+    public InteractiveEndFrameView v;
+    public Resources w;
+    public cv3 x;
+    public boolean y;
+    public uu3 z;
+
+    public abstract void C(RelativeLayout relativeLayout, AdElementInfo adElementInfo);
+
+    public abstract String q();
+
+    public abstract View u();
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public class a implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ bw3 e;
 
-        public a(bw3 bw3Var, String str, String str2, String str3, String str4) {
+        @Override // android.view.View.OnTouchListener
+        public boolean onTouch(View view2, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+                return true;
+            }
+            return invokeLL.booleanValue;
+        }
+
+        public a(bw3 bw3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bw3Var, str, str2, str3, str4};
+                Object[] objArr = {bw3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
-            }
-            this.e = bw3Var;
-            this.a = str;
-            this.b = str2;
-            this.c = str3;
-            this.d = str4;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                lw3.n().h(this.a, new kw3(this.e.h), this.b, this.c, this.d);
-                if (dr2.a().b()) {
-                    return;
-                }
-                if (bw3.k) {
-                    Log.d("GameNowAppManager", "start InstallAntiBlockingActivity");
-                }
-                Intent intent = new Intent(AppRuntime.getAppContext(), GameNowInstallAntiBlockingActivity.class);
-                intent.putExtra("type", this.a);
-                intent.putExtra("packageName", this.b);
-                if (this.e.h != null) {
-                    intent.putExtra("ubc_params", this.e.h.toString());
-                }
-                intent.setFlags(276824064);
-                yh3.g(AppRuntime.getAppContext(), intent);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements DownloadManager.OnProgressChangeListener {
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ bw3 a;
@@ -134,23 +128,25 @@ public class bw3 {
             this.a = bw3Var;
         }
 
-        @Override // com.baidu.down.manage.DownloadManager.OnProgressChangeListener
-        public void onProgressChanged(long j, int i, long j2) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2)}) == null) {
-                if (am1.a) {
-                    Log.d("GameNowAppManager", "onProgressChanged downloadId = " + j + ",percentage = " + i + ",speed = " + j2);
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.d != null) {
+                this.a.K();
+                int currentPosition = this.a.d.getCurrentPosition();
+                bw3 bw3Var = this.a;
+                bw3Var.J(bw3Var.e, currentPosition);
+                int min = Math.min(currentPosition + 1000, this.a.e);
+                this.a.f.setProgress(min / 1000);
+                if (min < this.a.e) {
+                    this.a.r.postDelayed(this.a.C, 100L);
                 }
-                if (!this.a.c.d(String.valueOf(j))) {
-                    return;
-                }
-                this.a.c.b(String.valueOf(j), new ew3(i));
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class c implements DownloadManager.OnStateChangeListener {
+    public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ bw3 a;
@@ -173,77 +169,27 @@ public class bw3 {
             this.a = bw3Var;
         }
 
-        @Override // com.baidu.down.manage.DownloadManager.OnStateChangeListener
-        public void onStateChanged(long j, Download download) {
-            String str;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJL(1048576, this, j, download) == null) && download != null && download.getId() != null) {
-                String valueOf = String.valueOf(download.getId());
-                download.getKeyByUser();
-                if (bw3.k) {
-                    Log.d("GameNowAppManager", "onStateChanged downloadId = " + j + ",eventType:" + valueOf + ",download = " + download);
-                }
-                if (download.getState() != Download.DownloadState.FINISH || !download.getMimetype().equals("application/zip")) {
-                    if (!this.a.a.d(valueOf)) {
-                        return;
-                    }
-                    this.a.a.b(valueOf, new ew3(download));
-                    xv3 xv3Var = new xv3(download);
-                    int i = f.a[download.getState().ordinal()];
-                    if (i != 1) {
-                        if (i != 2) {
-                            if (i == 3) {
-                                lw3.n().h("reallyDownloadFail", new kw3(this.a.h), xv3Var.m(), xv3Var.j(), xv3Var.l());
-                                this.a.F(valueOf);
-                                this.a.E(valueOf);
-                                return;
-                            }
-                            return;
-                        }
-                        String j2 = xv3Var.j();
-                        if (this.a.w(download)) {
-                            this.a.L(download.getUrl(), download.getKeyByUser(), j2);
-                            lw3.n().f("reallyDownloaded", new kw3(this.a.h), xv3Var.m(), xv3Var.j(), xv3Var.l());
-                            if (TextUtils.equals(xv3Var.m(), tv3.a)) {
-                                lw3.n().p(12, xv3Var.m(), xv3Var.h(), xv3Var.l());
-                            }
-                            this.a.F(valueOf);
-                            this.a.E(valueOf);
-                            return;
-                        }
-                        xv3Var.p("download_current_bytes", download.getCurrentbytes());
-                        xv3Var.p("download_total_bytes", download.getTotalbytes());
-                        lw3.n().h("analysisFailed", new kw3(this.a.h), xv3Var.m(), xv3Var.j(), xv3Var.l());
-                        String str2 = download.getRealDownloadDir() + File.separator + download.getFileName();
-                        if (!TextUtils.isEmpty(str2) && new File(str2).exists()) {
-                            str = ul4.b(new File(str2), true);
-                        } else {
-                            str = "";
-                        }
-                        lw3.n().q(1001, download.getKeyByUser(), download.getUrl(), this.a.j, str, download.getCurrentbytes().longValue(), download.getTotalbytes().longValue());
-                        h53.g(wo2.c(), wo2.c().getString(R.string.obfuscated_res_0x7f0f01b5)).G();
-                        this.a.s(download.getKeyByUser());
-                        if (this.a.i < 2) {
-                            this.a.J(download.getUrl(), download.getKeyByUser(), download.getFromParam());
-                            return;
-                        }
-                        this.a.F(valueOf);
-                        this.a.E(valueOf);
-                        return;
-                    }
-                    lw3.n().f("reallyPause", new kw3(this.a.h), xv3Var.m(), xv3Var.j(), xv3Var.l());
-                    return;
-                }
-                this.a.M(download);
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a.c == null) {
+                return;
             }
+            if (this.a.c.d()) {
+                this.a.h.setImageResource(R.drawable.obfuscated_res_0x7f081116);
+                this.a.c.e(false);
+                return;
+            }
+            this.a.h.setImageResource(R.drawable.obfuscated_res_0x7f081115);
+            this.a.c.e(true);
         }
     }
 
     /* loaded from: classes5.dex */
-    public class d extends BroadcastReceiver {
+    public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bw3 this$0;
+        public final /* synthetic */ bw3 a;
 
         public d(bw3 bw3Var) {
             Interceptable interceptable = $ic;
@@ -260,49 +206,30 @@ public class bw3 {
                     return;
                 }
             }
-            this.this$0 = bw3Var;
+            this.a = bw3Var;
         }
 
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && intent != null && intent.getData() != null) {
-                String schemeSpecificPart = intent.getData().getSchemeSpecificPart();
-                if (TextUtils.isEmpty(schemeSpecificPart)) {
-                    return;
-                }
-                if (bw3.k) {
-                    Log.d("GameNowAppManager", "AddPackageReceiver packageName = " + schemeSpecificPart);
-                }
-                if (this.this$0.b.d(schemeSpecificPart)) {
-                    this.this$0.b.b(schemeSpecificPart, new ew3(true));
-                    this.this$0.D(schemeSpecificPart, null);
-                }
-                Download g = this.this$0.e.g(schemeSpecificPart);
-                if (g != null) {
-                    xv3 xv3Var = new xv3(g);
-                    String h = xv3Var.h();
-                    if (TextUtils.equals(xv3Var.m(), tv3.a) || TextUtils.isEmpty(h)) {
-                        lw3.n().h("reallyInstalled", new kw3(this.this$0.h), xv3Var.m(), xv3Var.j(), xv3Var.l());
-                        this.this$0.n(g);
-                    }
-                }
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.s != null) {
+                this.a.s.e(view2);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class e implements Runnable {
+    public class e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Download a;
+        public final /* synthetic */ bw3 a;
 
-        public e(bw3 bw3Var, Download download) {
+        public e(bw3 bw3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bw3Var, download};
+                Object[] objArr = {bw3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -312,537 +239,482 @@ public class bw3 {
                     return;
                 }
             }
-            this.a = download;
+            this.a = bw3Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    sl4.M(this.a.getFromParam());
-                    String str = this.a.getFromParam() + File.separator + this.a.getFileName().replace(".zip", "");
-                    String str2 = xv3.n() + File.separator + this.a.getFileName();
-                    if (bw3.k) {
-                        Log.d("GameNowAppManager", "unzip: " + str + " zip:  " + str2);
-                    }
-                    sl4.U(str2, str);
-                    sl4.M(str2);
-                } catch (Exception e) {
-                    if (bw3.k) {
-                        e.printStackTrace();
-                    }
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.z != null) {
+                this.a.z.f(view2);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class f implements RewardVideoView.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ bw3 a;
+
+        public f(bw3 bw3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bw3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bw3Var;
+        }
+
+        @Override // com.baidu.swan.game.ad.view.RewardVideoView.a
+        public void onVolumeChanged(int i) {
+            int i2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                AudioManager audioManager = (AudioManager) this.a.p.getSystemService("audio");
+                if (Build.VERSION.SDK_INT >= 28) {
+                    i2 = audioManager.getStreamMinVolume(3);
+                } else {
+                    i2 = 0;
+                }
+                if (i > i2 && this.a.c.d()) {
+                    this.a.h.setImageResource(R.drawable.obfuscated_res_0x7f081116);
+                    this.a.c.e(false);
+                } else if (i <= i2 && !this.a.c.d()) {
+                    this.a.h.setImageResource(R.drawable.obfuscated_res_0x7f081115);
+                    this.a.c.e(true);
                 }
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class f {
+    public class g implements Runnable {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-905135159, "Lcom/baidu/tieba/bw3$f;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-905135159, "Lcom/baidu/tieba/bw3$f;");
+        public g(bw3 bw3Var, View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bw3Var, view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            int[] iArr = new int[Download.DownloadState.values().length];
-            a = iArr;
-            try {
-                iArr[Download.DownloadState.PAUSE.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[Download.DownloadState.FINISH.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[Download.DownloadState.FAILED.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
+            this.a = view2;
         }
-    }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947659339, "Lcom/baidu/tieba/bw3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947659339, "Lcom/baidu/tieba/bw3;");
-                return;
-            }
-        }
-        k = am1.a;
-        m = Executors.newSingleThreadExecutor();
-    }
-
-    public static bw3 t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            if (l == null) {
-                synchronized (bw3.class) {
-                    if (l == null) {
-                        l = new bw3();
-                    }
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int h = yu3.b().h();
+                if (yu3.b().o(this.a)) {
+                    RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.a.getLayoutParams();
+                    layoutParams.topMargin = this.a.getTop() + h;
+                    this.a.setLayoutParams(layoutParams);
                 }
             }
-            return l;
-        }
-        return (bw3) invokeV.objValue;
-    }
-
-    public final void B() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.d.registerOnProgressChangeListener(new b(this));
         }
     }
 
-    public final void C() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.d.registerOnStateChangeListener(new c(this));
-        }
-    }
-
-    public final boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return !ProcessUtils.isMainProcess();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public synchronized void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            synchronized (this) {
-                this.e.b();
-            }
-        }
-    }
-
-    public bw3() {
+    public bw3(Context context, AdElementInfo adElementInfo, cv3 cv3Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, adElementInfo, cv3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new aw3();
-        this.b = new aw3();
-        this.c = new aw3();
-        this.i = 0;
-        DownloadManager downloadManager = DownloadManager.getInstance(AppRuntime.getAppContext());
-        this.d = downloadManager;
-        this.e = new yv3(downloadManager);
-        B();
-        C();
-        A();
+        this.r = new Handler();
+        this.B = false;
+        this.C = new b(this);
+        this.D = new c(this);
+        this.E = new d(this);
+        this.F = new e(this);
+        this.p = context;
+        this.q = adElementInfo;
+        this.n = yu3.b().k();
+        this.o = yu3.b().j();
+        this.w = this.p.getResources();
+        this.x = cv3Var;
+        this.y = aw3.i();
+        w();
+        this.A = new gv3(this.p);
+        x(this.g);
     }
 
-    public void E(String str) {
+    public void E(tu3 tu3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.c.f(str);
+        if (interceptable == null || interceptable.invokeL(1048580, this, tu3Var) == null) {
+            this.s = tu3Var;
         }
     }
 
-    public final void F(String str) {
+    public void F(uu3 uu3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.a.f(str);
+        if (interceptable == null || interceptable.invokeL(1048581, this, uu3Var) == null) {
+            this.z = uu3Var;
         }
     }
 
-    public void H(fw3 fw3Var) {
+    public void G(String str) {
+        RewardVideoView rewardVideoView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, fw3Var) == null) {
-            this.f = fw3Var;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && (rewardVideoView = this.c) != null) {
+            rewardVideoView.f(str);
         }
     }
 
-    public void I(JSONObject jSONObject) {
+    public final void x(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) == null) && jSONObject != null) {
-            this.h = jSONObject;
+        if (interceptable == null || interceptable.invokeL(1048599, this, view2) == null) {
+            view2.post(new g(this, view2));
         }
     }
 
-    public final void M(Download download) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048588, this, download) == null) && download != null && !TextUtils.isEmpty(download.getFileName())) {
-            ji3.j(new e(this, download), "unzipRes");
-        }
-    }
-
-    public void D(String str, iw3 iw3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, iw3Var) == null) {
-            this.b.g(str, iw3Var);
-        }
-    }
-
-    public final synchronized void A() {
+    public void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                IntentFilter intentFilter = new IntentFilter();
-                intentFilter.addDataScheme("package");
-                intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
-                this.g = new d(this);
-                AppRuntime.getAppContext().registerReceiver(this.g, intentFilter);
+            m();
+            I();
+        }
+    }
+
+    public void B() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            m();
+            I();
+        }
+    }
+
+    public void D() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            H();
+        }
+    }
+
+    public final void H() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.f != null) {
+            this.r.removeCallbacksAndMessages(null);
+            this.r.postDelayed(this.C, 0L);
+        }
+    }
+
+    public final void I() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.f != null) {
+            this.r.removeCallbacksAndMessages(null);
+        }
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            I();
+            RewardLoadWebView rewardLoadWebView = this.t;
+            if (rewardLoadWebView != null) {
+                rewardLoadWebView.c();
+                this.t = null;
+            }
+            RewardLoadWebView rewardLoadWebView2 = this.u;
+            if (rewardLoadWebView2 != null) {
+                rewardLoadWebView2.c();
+                this.u = null;
+            }
+            InteractiveEndFrameView interactiveEndFrameView = this.v;
+            if (interactiveEndFrameView != null) {
+                interactiveEndFrameView.t();
+                this.v = null;
             }
         }
     }
 
-    public void G(String str, String str2, String str3) {
+    public RewardVideoView.a o() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048582, this, str, str2, str3) == null) && !o() && SwanAppNetworkUtils.i(null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            Download g = this.e.g(str2);
-            if (g == null) {
-                J(str, str2, str3);
-            } else if (g.getState() == Download.DownloadState.FINISH) {
-                lw3.n().h("resumeDownloadInstall", new kw3(this.h), str2, str3, str);
-                L(str, str2, str3);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return new f(this);
+        }
+        return (RewardVideoView.a) invokeV.objValue;
+    }
+
+    public View r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.b;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public bv3 s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            RewardVideoView rewardVideoView = this.c;
+            if (rewardVideoView != null) {
+                return rewardVideoView.getPlayer();
+            }
+            return null;
+        }
+        return (bv3) invokeV.objValue;
+    }
+
+    public boolean t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.B;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            this.a.setOnTouchListener(new a(this));
+            this.h.setOnClickListener(this.D);
+            this.i.setOnClickListener(this.E);
+        }
+    }
+
+    public void y() {
+        bv3 bv3Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && (bv3Var = this.d) != null) {
+            this.e = bv3Var.getDuration();
+        }
+    }
+
+    public void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+            I();
+        }
+    }
+
+    public final void J(long j, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) != null) || !this.y) {
+            return;
+        }
+        if (j > 15000 && i <= 15000) {
+            if (i < 5000) {
+                this.g.setVisibility(8);
+                this.j.setVisibility(8);
+                this.k.setVisibility(8);
+                this.i.setVisibility(8);
+                return;
+            } else if (i < 10000) {
+                this.g.setVisibility(0);
+                this.j.setVisibility(0);
+                this.k.setVisibility(8);
+                this.i.setVisibility(8);
+                return;
             } else {
-                this.a.a(String.valueOf(g.getId()), this.f);
-                this.c.a(String.valueOf(g.getId()), this.f);
-                this.d.resume(g.getId().longValue());
-            }
-        }
-    }
-
-    public void p(String str, String str2, long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{str, str2, Long.valueOf(j)}) == null) && !o() && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            Download h = this.e.h(str2);
-            if (h != null) {
-                xv3 xv3Var = new xv3(h);
-                long k2 = xv3Var.k();
-                xv3Var.p("download_status", h.getState());
-                String j2 = xv3Var.j();
-                if (k2 != 0 && System.currentTimeMillis() - k2 > j) {
-                    s(str2);
-                    lw3.n().h("package_expired", new kw3(this.h), str2, j2, str);
-                    return;
-                }
-                z(str2);
+                this.g.setVisibility(0);
+                this.j.setVisibility(0);
+                this.k.setVisibility(0);
+                this.i.setVisibility(0);
                 return;
             }
-            fw3 fw3Var = this.f;
-            if (fw3Var != null) {
-                fw3Var.a(new dw3(DownloadState.NOT_START.name()));
-            }
         }
+        this.j.setText(R.string.obfuscated_res_0x7f0f15e9);
+        this.i.setVisibility(0);
+        this.k.setVisibility(0);
+        this.j.setVisibility(0);
     }
 
-    public void J(String str, String str2, String str3) {
+    public final void K() {
+        bv3 bv3Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048585, this, str, str2, str3) == null) && !o() && SwanAppNetworkUtils.i(null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            if (hw3.g(AppRuntime.getAppContext(), str2)) {
-                fw3 fw3Var = this.f;
-                if (fw3Var != null) {
-                    fw3Var.a(new ew3(true));
-                    return;
-                }
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.q != null && (bv3Var = this.d) != null) {
+            this.e = bv3Var.getDuration();
+            int min = Math.min(this.q.getRewardTime(), this.e / 1000);
+            int skipTime = this.q.getSkipTime();
+            int currentPosition = this.d.getCurrentPosition() / 1000;
+            String string = this.p.getResources().getString(R.string.obfuscated_res_0x7f0f15eb);
+            String string2 = this.p.getResources().getString(R.string.obfuscated_res_0x7f0f15ec);
+            if (currentPosition <= min) {
+                this.j.setText(String.format(string, Integer.valueOf(min - currentPosition)));
+            } else {
+                this.j.setText(String.format(string2, Integer.valueOf((this.e / 1000) - currentPosition)));
+            }
+            if (currentPosition <= skipTime) {
+                this.i.setVisibility(8);
+                this.k.setVisibility(8);
                 return;
             }
-            this.e.c(str2);
-            de3.a().putLong("startDownloadPackageTime", SystemClock.elapsedRealtime());
-            JSONObject d2 = pi3.d(str3);
-            String optString = d2.optString("apk_id");
-            String optString2 = d2.optString("from_view");
-            String optString3 = d2.optString("from_value");
-            String optString4 = d2.optString(GameGuideConfigInfo.KEY_CONFIG_NAME);
-            xv3 xv3Var = new xv3();
-            xv3Var.r(str);
-            xv3Var.o(str2);
-            xv3Var.a(optString);
-            xv3Var.g(optString2);
-            xv3Var.f(optString3);
-            xv3Var.d(optString4);
-            Download b2 = xv3Var.b();
-            this.d.start(b2);
-            if (b2.getId() != null) {
-                this.a.a(String.valueOf(b2.getId()), this.f);
-                this.c.a(String.valueOf(b2.getId()), this.f);
+            this.i.setVisibility(0);
+            this.k.setVisibility(0);
+        }
+    }
+
+    public void p() {
+        AdElementInfo adElementInfo;
+        bv3 bv3Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            H();
+            ProgressBar progressBar = this.f;
+            if (progressBar != null && (bv3Var = this.d) != null) {
+                progressBar.setMax(bv3Var.getDuration() / 1000);
+                this.f.setVisibility(4);
             }
-            if (TextUtils.equals(str2, tv3.a)) {
-                lw3.n().p(11, str2, optString, str);
-            }
-            lw3.n().f("reallyBeginDownload", new kw3(this.h), str2, b2.getFromParam(), str);
-        }
-    }
-
-    public void K(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048586, this, str, str2, str3) == null) && !o() && SwanAppNetworkUtils.i(null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            this.e.c(str2);
-            xv3 xv3Var = new xv3();
-            xv3Var.r(str);
-            xv3Var.o(str2);
-            xv3Var.e(str2);
-            xv3Var.q(str3);
-            this.d.start(xv3Var.c());
-        }
-    }
-
-    public void L(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048587, this, str, str2, str3) == null) {
-            Bundle bundle = new Bundle();
-            String m2 = m(str3, "download_finish_time", Long.valueOf(SystemClock.elapsedRealtime()));
-            bundle.putString(NotInstallNotificationReceiver.INTENT_PARAMS_KEY_DOWNLOAD_URL, str);
-            bundle.putString("key_download_package_name", str2);
-            bundle.putString("ubc_params", new kw3(this.h).a());
-            bundle.putString(DownloadConstants.DOWNLOAD_PARAMS, m2);
-            Intent intent = new Intent(AppRuntime.getAppContext(), InstallActivity.class);
-            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-            intent.putExtras(bundle);
-            AppRuntime.getAppContext().startActivity(intent);
-        }
-    }
-
-    public final <T> String m(String str, String str2, T t) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048589, this, str, str2, t)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    jSONObject.put(str2, t);
-                    return jSONObject.toString();
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+            if (this.j != null && this.d != null && (adElementInfo = this.q) != null) {
+                this.j.setText(String.format(this.p.getResources().getString(R.string.obfuscated_res_0x7f0f15eb), Integer.valueOf(Math.max(this.q.getSkipTime(), Math.min(adElementInfo.getRewardTime(), this.d.getDuration())) / 1000)));
+                if (this.q.getSkipTime() >= 0) {
+                    this.i.setVisibility(8);
+                    this.k.setVisibility(8);
                 }
             }
-            return str;
-        }
-        return (String) invokeLLL.objValue;
-    }
-
-    public final void n(Download download) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, download) == null) {
-            String realDownloadDir = download.getRealDownloadDir();
-            String fileName = download.getFileName();
-            if (!TextUtils.isEmpty(realDownloadDir) && !TextUtils.isEmpty(fileName)) {
-                r(realDownloadDir + File.separator + fileName);
+            if (this.g.getVisibility() != 0) {
+                this.g.setVisibility(0);
             }
-            q();
-        }
-    }
-
-    public boolean r(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
+            if (this.m.getVisibility() != 0) {
+                this.m.setAnimation(AnimationUtils.loadAnimation(this.p, R.anim.obfuscated_res_0x7f0100f8));
+                this.m.setVisibility(0);
             }
-            File file = new File(str);
-            if (file.isFile() && file.exists()) {
-                try {
-                    return file.delete();
-                } catch (SecurityException e2) {
-                    if (k) {
-                        e2.printStackTrace();
-                    }
-                }
+            bv3 bv3Var2 = this.d;
+            if (bv3Var2 != null) {
+                J(bv3Var2.getDuration(), this.d.getCurrentPosition());
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void s(String str) {
-        Download g;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048595, this, str) != null) || o() || TextUtils.isEmpty(str) || (g = this.e.g(str)) == null) {
-            return;
-        }
-        this.e.c(str);
-        fw3 fw3Var = this.f;
-        if (fw3Var != null) {
-            fw3Var.a(new ew3(g, true));
         }
     }
 
-    public void z(String str) {
-        Download g;
-        fw3 fw3Var;
+    public final void l() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048601, this, str) == null) && !o() && !TextUtils.isEmpty(str) && (g = this.e.g(str)) != null && (fw3Var = this.f) != null) {
-            fw3Var.a(new ew3(g));
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            TextView textView = new TextView(this.p);
+            this.l = textView;
+            textView.setBackground(this.w.getDrawable(R.drawable.obfuscated_res_0x7f081112));
+            this.l.setTextColor(this.w.getColor(R.color.obfuscated_res_0x7f0604ed));
+            this.l.setText(this.w.getString(R.string.obfuscated_res_0x7f0f047a));
+            this.l.setTextSize(2, 16.0f);
+            this.l.setOnClickListener(this.E);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(zv3.a(96.0f), zv3.a(30.0f));
+            layoutParams.addRule(11);
+            layoutParams.addRule(10);
+            layoutParams.addRule(13);
+            this.l.setGravity(17);
+            layoutParams.setMargins(0, this.g.getTop(), this.w.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070483), 0);
+            this.a.addView(this.l, layoutParams);
+            x(this.l);
         }
     }
 
-    public boolean u(Activity activity, String str, String str2, String str3) {
-        InterceptResult invokeLLLL;
+    public final void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048596, this, activity, str, str2, str3)) == null) {
-            if (o()) {
-                lw3.n().h("checkIllegalProcess", new kw3(this.h), str2, str3, str);
-                return false;
-            } else if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str)) {
-                Download g = this.e.g(str2);
-                if (g == null) {
-                    lw3.n().h("nullDownload", new kw3(this.h), str2, str3, str);
-                    J(str, str2, str3);
-                    return false;
-                }
-                String realDownloadDir = g.getRealDownloadDir();
-                String fileName = g.getFileName();
-                if (k) {
-                    Log.d("GameNowAppManager", "installApp packageName:" + str2 + ",fileDir:" + realDownloadDir + ",fileName:" + fileName);
-                }
-                if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(realDownloadDir) || TextUtils.isEmpty(fileName)) {
-                    this.e.c(str2);
-                }
-                String str4 = realDownloadDir + File.separator + fileName;
-                if (hw3.g(AppRuntime.getAppContext(), str2)) {
-                    lw3.n().h("hasInstalled", new kw3(this.h), str2, str3, str);
-                    fw3 fw3Var = this.f;
-                    if (fw3Var != null) {
-                        fw3Var.a(new ew3(true));
-                    }
-                    r(str4);
-                    return false;
-                }
-                File file = new File(str4);
-                if (file.isFile() && file.exists()) {
-                    this.b.a(str2, this.f);
-                    if (hw3.i(activity, str4, false)) {
-                        new xv3(g).p("download_finish_time", Long.valueOf(SystemClock.elapsedRealtime()));
-                        lw3.n().h("showInstallView", new kw3(this.h), str2, str3, str);
-                        long length = ((file.length() / 104857600) + 1) * 1000;
-                        String c2 = hw3.c();
-                        if (hw3.j(c2)) {
-                            o53.M().postDelayed(new a(this, c2, str2, str3, str), length);
-                        }
-                        return true;
-                    }
-                    lw3.n().h("showInstallViewFailed", new kw3(this.h), str2, str3, str);
-                    D(str2, this.f);
-                    this.e.c(str2);
-                    return false;
-                }
-                lw3.n().h("nullGamenowFile", new kw3(this.h), str2, str3, str);
-                J(str, str2, str3);
-                return false;
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.a != null) {
+            this.B = true;
+            this.g.setVisibility(4);
+            this.m.setVisibility(4);
+            this.i.setVisibility(4);
+            if (!TextUtils.isEmpty(this.q.getEndFrameUrl())) {
+                InteractiveEndFrameView interactiveEndFrameView = new InteractiveEndFrameView(this.p);
+                this.v = interactiveEndFrameView;
+                interactiveEndFrameView.s(this.q, this.a);
+                this.a.addView(this.v, new RelativeLayout.LayoutParams(-1, -1));
+                pv3.i(this.q, this.A);
+            } else if (!TextUtils.isEmpty(this.q.getEndFrameHtml())) {
+                RewardLoadWebView rewardLoadWebView = new RewardLoadWebView(this.p);
+                this.u = rewardLoadWebView;
+                rewardLoadWebView.b("reward_end_frame_html", this.q, this.x);
+                this.a.addView(this.u, new RelativeLayout.LayoutParams(-1, -1));
+                pv3.i(this.q, this.A);
             } else {
-                lw3.n().h("nullPackagenameOrUrl", new kw3(this.h), str2, str3, str);
-                return false;
+                View inflate = LayoutInflater.from(this.p).inflate(R.layout.obfuscated_res_0x7f0d0740, (ViewGroup) null);
+                this.a.addView(inflate, new RelativeLayout.LayoutParams(-1, -1));
+                ((AdImageVIew) inflate.findViewById(R.id.obfuscated_res_0x7f091f7a)).setImageUrl(this.q.getIconUrl());
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0925fe)).setText(this.q.getTitle());
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0908b0)).setText(this.q.getDescription());
+                Button button = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f090962);
+                if (this.q.getActionType() == 1) {
+                    button.setText(this.p.getResources().getString(R.string.obfuscated_res_0x7f0f1379));
+                }
+                if (this.q.getActionType() == 2) {
+                    button.setText(this.p.getResources().getString(R.string.obfuscated_res_0x7f0f1530));
+                }
+                inflate.findViewById(R.id.obfuscated_res_0x7f0907fa).setOnClickListener(this.F);
+                button.setOnClickListener(this.F);
             }
+            l();
         }
-        return invokeLLLL.booleanValue;
     }
 
-    public boolean v(String str, long j) {
-        InterceptResult invokeLJ;
-        boolean z;
+    public final void w() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048597, this, str, j)) == null) {
-            if (new File(str).length() < j) {
-                this.j = 3;
-                return false;
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+            this.b = u();
+            this.b.setLayoutParams(new RelativeLayout.LayoutParams(this.n, this.o));
+            this.a = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091f7e);
+            RewardVideoView rewardVideoView = (RewardVideoView) this.b.findViewById(R.id.video_view);
+            this.c = rewardVideoView;
+            rewardVideoView.setVolumeChangeListener(o());
+            if (this.y) {
+                this.c.setOnClickListener(this.F);
             }
-            try {
-                ZipFile zipFile = new ZipFile(str);
-                if (zipFile.getEntry("AndroidManifest.xml") != null) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                zipFile.close();
-                return z;
-            } catch (Exception e2) {
-                if (k) {
-                    Log.e("GameNowAppManager", "解析APK出错:" + e2.getMessage());
-                }
-                this.j = 4;
-                return false;
+            this.f = (ProgressBar) this.b.findViewById(R.id.obfuscated_res_0x7f0923c2);
+            this.g = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f092a2c);
+            this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092a2d);
+            if (this.c.d()) {
+                this.h.setImageResource(R.drawable.obfuscated_res_0x7f081115);
             }
-        }
-        return invokeLJ.booleanValue;
-    }
-
-    public void x(String str, String str2) {
-        String str3;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048599, this, str, str2) == null) && !o() && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            Download g = this.e.g(str2);
-            if (g != null) {
-                str3 = g.getFromParam();
+            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09075c);
+            this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09075f);
+            this.k = this.b.findViewById(R.id.obfuscated_res_0x7f090760);
+            this.m = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09034b);
+            if (!TextUtils.isEmpty(this.q.getBannerHtml())) {
+                this.t = new RewardLoadWebView(this.p);
+                this.m.addView(this.t, new RelativeLayout.LayoutParams(-1, -1));
+                C(this.m, this.q);
+                this.t.b(q(), this.q, this.x);
             } else {
-                str3 = "";
-            }
-            String str4 = str3;
-            if (hw3.k(AppRuntime.getAppContext(), str2)) {
-                lw3.n().h("manualOpen", new kw3(this.h), str2, str4, str);
-            }
-        }
-    }
-
-    public final boolean w(Download download) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, download)) == null) {
-            this.i++;
-            long longValue = download.getTotalbytes().longValue();
-            String str = download.getRealDownloadDir() + File.separator + download.getFileName();
-            if (!TextUtils.isEmpty(str) && new File(str).exists()) {
-                if (((int) (longValue / 1024)) <= 10) {
-                    this.j = 2;
-                    return false;
+                View inflate = LayoutInflater.from(this.p).inflate(R.layout.obfuscated_res_0x7f0d073f, (ViewGroup) null);
+                this.m.addView(inflate);
+                ((AdImageVIew) inflate.findViewById(R.id.obfuscated_res_0x7f091f7a)).setImageUrl(this.q.getIconUrl());
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0925fe)).setText(this.q.getTitle());
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0908b0)).setText(this.q.getDescription());
+                Button button = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f090962);
+                if (this.q.getActionType() == 1) {
+                    button.setText(this.p.getResources().getString(R.string.obfuscated_res_0x7f0f1379));
                 }
-                return v(str, longValue);
+                if (this.q.getActionType() == 2) {
+                    button.setText(this.p.getResources().getString(R.string.obfuscated_res_0x7f0f1530));
+                }
+                this.m.setOnClickListener(this.F);
+                button.setOnClickListener(this.F);
             }
-            if (k) {
-                Log.e("GameNowAppManager", "apk文件找不到");
-            }
-            this.j = 1;
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void y(String str) {
-        Download g;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048600, this, str) != null) || o() || TextUtils.isEmpty(str) || (g = this.e.g(str)) == null) {
-            return;
-        }
-        if (g.getState() != Download.DownloadState.WAITING && g.getState() != Download.DownloadState.DOWNLOADING) {
-            return;
-        }
-        this.d.pause(g.getId().longValue());
-        fw3 fw3Var = this.f;
-        if (fw3Var != null) {
-            fw3Var.a(new ew3(g));
+            this.d = this.c.getPlayer();
+            v();
         }
     }
 }

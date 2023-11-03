@@ -1,33 +1,82 @@
 package com.baidu.tieba;
 
-import android.os.Build;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.util.DataExt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.gson.annotations.SerializedName;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class jfb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @SerializedName("n")
+    public String a;
+    @SerializedName("t")
+    public String b;
+    @SerializedName("c")
+    public String c;
+    @SerializedName("cs")
+    public List<a> d;
+    @SerializedName("e")
+    public List<String> e;
 
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return b();
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        @SerializedName("id")
+        public String a;
+        @SerializedName("ext")
+        public String b;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-        return invokeV.booleanValue;
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
+    public jfb() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            String str = Build.MODEL;
-            if (pfb.a(str)) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return str.equalsIgnoreCase("OPPO R9sk");
         }
-        return invokeV.booleanValue;
+    }
+
+    @Nullable
+    public static jfb a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
+            }
+            try {
+                return (jfb) DataExt.toEntity(str, jfb.class);
+            } catch (Exception unused) {
+                return null;
+            }
+        }
+        return (jfb) invokeL.objValue;
     }
 }

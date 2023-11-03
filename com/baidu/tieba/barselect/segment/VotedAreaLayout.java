@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.uc6;
-import com.baidu.tieba.wc6;
+import com.baidu.tieba.pe6;
+import com.baidu.tieba.re6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -45,10 +45,10 @@ public class VotedAreaLayout extends CardBasicLayout {
         }
     }
 
-    public void setMyRecordData(uc6 uc6Var) {
+    public void setMyRecordData(pe6 pe6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, uc6Var) == null) && uc6Var != null) {
-            this.c = uc6Var;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, pe6Var) == null) && pe6Var != null) {
+            this.c = pe6Var;
             TextView textView = this.e;
             textView.setText(StringHelper.numFormatOverWan(this.c.m()) + "票");
         }
@@ -95,7 +95,7 @@ public class VotedAreaLayout extends CardBasicLayout {
             setMinimumHeight(BdUtilHelper.getDimens(getContext(), R.dimen.tbds62));
             setMinimumWidth(BdUtilHelper.getDimens(getContext(), R.dimen.tbds172));
             setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0a18, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0a31, (ViewGroup) this, true);
             a();
         }
     }
@@ -109,10 +109,10 @@ public class VotedAreaLayout extends CardBasicLayout {
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
-    public void setData(int i, wc6 wc6Var) {
+    public void setData(int i, re6 re6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, wc6Var) == null) {
-            super.setData(i, wc6Var);
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, re6Var) == null) {
+            super.setData(i, re6Var);
             if (this.b != null && this.c != null && this.a >= 0) {
                 TextView textView = this.e;
                 textView.setText(StringHelper.numFormatOverWan(this.c.m()) + "票");

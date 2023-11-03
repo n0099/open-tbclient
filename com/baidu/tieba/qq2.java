@@ -1,398 +1,114 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.os.Parcelable;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.xb3;
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.browser.sailor.util.BdZeusUtil;
+import com.baidu.searchbox.unitedscheme.SchemeConfig;
+import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
+import com.baidu.swan.apps.core.container.NgWebView;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.apps.extcore.model.ExtensionCore;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ConcurrentModificationException;
+import com.tencent.connect.common.Constants;
+import java.util.Collection;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public interface qq2 {
-    public static final rq2<Boolean> a = new d(Boolean.FALSE);
-    public static final rq2<Integer> b = new e(0);
-    public static final rq2<Long> c = new f(0L);
-    public static final rq2<Float> d = new g(Float.valueOf(0.0f));
-    public static final rq2<String> e = new h();
-    public static final rq2<String[]> f = new a();
-    public static final rq2<Bundle> g = new b();
-    public static final rq2<Parcelable> h = new c();
+public class qq2 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static class a extends rq2<String[]> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948100407, "Lcom/baidu/tieba/qq2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948100407, "Lcom/baidu/tieba/qq2;");
+                return;
             }
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rq2
-        /* renamed from: f */
-        public String[] c(Bundle bundle, String str, String[] strArr) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bundle, str, strArr)) == null) {
-                return bundle.getStringArray(str);
-            }
-            return (String[]) invokeLLL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rq2
-        /* renamed from: g */
-        public void e(Bundle bundle, String str, String[] strArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, bundle, str, strArr) == null) {
-                bundle.putStringArray(str, strArr);
-            }
-        }
+        a = rm1.a;
     }
 
-    /* loaded from: classes7.dex */
-    public static class b extends rq2<Bundle> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rq2
-        /* renamed from: f */
-        public Bundle c(Bundle bundle, String str, Bundle bundle2) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bundle, str, bundle2)) == null) {
-                return bundle.getBundle(str);
-            }
-            return (Bundle) invokeLLL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rq2
-        /* renamed from: g */
-        public void e(Bundle bundle, String str, Bundle bundle2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, bundle, str, bundle2) == null) {
-                bundle.putBundle(str, bundle2);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class c extends rq2<Parcelable> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rq2
-        /* renamed from: f */
-        public Parcelable c(Bundle bundle, String str, Parcelable parcelable) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bundle, str, parcelable)) == null) {
-                return bundle.getParcelable(str);
-            }
-            return (Parcelable) invokeLLL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rq2
-        /* renamed from: g */
-        public void e(Bundle bundle, String str, Parcelable parcelable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, bundle, str, parcelable) == null) {
-                bundle.putParcelable(str, parcelable);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class d extends rq2<Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(Boolean bool) {
-            super(bool);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bool};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super(newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rq2
-        /* renamed from: f */
-        public Boolean c(Bundle bundle, String str, Boolean bool) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bundle, str, bool)) == null) {
-                return Boolean.valueOf(bundle.getBoolean(str, bool.booleanValue()));
-            }
-            return (Boolean) invokeLLL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rq2
-        /* renamed from: g */
-        public void e(Bundle bundle, String str, Boolean bool) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, bundle, str, bool) == null) {
-                bundle.putBoolean(str, bool.booleanValue());
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class e extends rq2<Integer> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(Integer num) {
-            super(num);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {num};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super(newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rq2
-        /* renamed from: f */
-        public Integer c(Bundle bundle, String str, Integer num) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bundle, str, num)) == null) {
-                return Integer.valueOf(bundle.getInt(str, num.intValue()));
-            }
-            return (Integer) invokeLLL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rq2
-        /* renamed from: g */
-        public void e(Bundle bundle, String str, Integer num) {
-            String P;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, bundle, str, num) == null) {
+    @NonNull
+    @SuppressLint({"BDThrowableCheck"})
+    public static String a(e52 e52Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, e52Var)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (e52Var != null) {
                 try {
-                    bundle.putInt(str, num.intValue());
-                } catch (ConcurrentModificationException e) {
-                    xb3.b bVar = new xb3.b(10011);
-                    if (p53.M() == null) {
-                        P = "null appKey";
+                    jSONObject.put("containerId", e52Var.getContainerId());
+                    jSONObject.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, BdZeusUtil.isWebkitLoaded());
+                } catch (JSONException e) {
+                    if (!a) {
+                        e.printStackTrace();
                     } else {
-                        P = p53.M().P();
+                        throw new RuntimeException(e);
                     }
-                    bVar.h(P);
-                    bVar.k(str);
-                    bVar.i(Log.getStackTraceString(e));
-                    bVar.m();
                 }
             }
+            jSONObject.put("scheme", SchemeConfig.getSchemeHead());
+            String b = b(ad2.V().U());
+            g32.k("SwanAppNativeSwanUtils", "getEnvVariables extensionAvailable:" + th2.r(b));
+            jSONObject.put("sdkExtension", b);
+            jSONObject.put("gameSdkExtension", b(op2.i().s()));
+            jSONObject.put("isDebugSdk", a);
+            if ((e52Var instanceof NgWebView) && ((NgWebView) e52Var).isSwanWebMode()) {
+                jSONObject.put("ctsEnabled", ue3.a().getInt("aiapps_web_mode_cts_use_key", 0));
+            }
+            String string = ue3.a().getString("ctsUrl", "");
+            if (!TextUtils.isEmpty(string) && f23.s()) {
+                jSONObject.put("ctsJsAddress", new JSONObject(string));
+            }
+            String i = np2.o().i();
+            if (!TextUtils.isEmpty(i)) {
+                jSONObject.put("hostName", i);
+            }
+            jSONObject.put(Constants.PARAM_PLATFORM, "android");
+            JSONObject a2 = mf3.a();
+            a2.put("swanswitch_common_sys_info_binding", true);
+            a2.put("swanswitch_ab_sync_auth", true);
+            jSONObject.put("abTestSwitch", a2);
+            jSONObject.put("userDataPath", di2.USER_DATA_PATH);
+            jSONObject.put("preloadId", ad2.V().b0());
+            jSONObject.put("isBaiduSeries", SwanAppAllianceLoginHelper.d.h());
+            jSONObject.put("ttsExtractJSUrl", pi4.b().a());
+            jSONObject.put("coreJSPath", ad2.V().d0());
+            if (rv1.d()) {
+                jSONObject.put("pendingList", new JSONArray((Collection) cy1.e()));
+            }
+            jSONObject.put("swanNativeVersion", sm1.a());
+            String jSONObject2 = jSONObject.toString();
+            if (TextUtils.isEmpty(jSONObject2)) {
+                return "";
+            }
+            return jSONObject2;
         }
+        return (String) invokeL.objValue;
     }
 
-    /* loaded from: classes7.dex */
-    public static class f extends rq2<Long> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public f(Long l) {
-            super(l);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super(newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static String b(ExtensionCore extensionCore) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, extensionCore)) == null) {
+            if (extensionCore != null && !TextUtils.isEmpty(extensionCore.extensionCorePath)) {
+                return extensionCore.extensionCorePath;
             }
+            return "";
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rq2
-        /* renamed from: f */
-        public Long c(Bundle bundle, String str, Long l) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bundle, str, l)) == null) {
-                return Long.valueOf(bundle.getLong(str, l.longValue()));
-            }
-            return (Long) invokeLLL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rq2
-        /* renamed from: g */
-        public void e(Bundle bundle, String str, Long l) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, bundle, str, l) == null) {
-                bundle.putLong(str, l.longValue());
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class g extends rq2<Float> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public g(Float f) {
-            super(f);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {f};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super(newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rq2
-        /* renamed from: f */
-        public Float c(Bundle bundle, String str, Float f) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bundle, str, f)) == null) {
-                return Float.valueOf(bundle.getFloat(str, f.floatValue()));
-            }
-            return (Float) invokeLLL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rq2
-        /* renamed from: g */
-        public void e(Bundle bundle, String str, Float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, bundle, str, f) == null) {
-                bundle.putFloat(str, f.floatValue());
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class h extends rq2<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public h() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rq2
-        /* renamed from: f */
-        public String c(Bundle bundle, String str, String str2) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bundle, str, str2)) == null) {
-                return bundle.getString(str, str2);
-            }
-            return (String) invokeLLL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rq2
-        /* renamed from: g */
-        public void e(Bundle bundle, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, bundle, str, str2) == null) {
-                bundle.putString(str, str2);
-            }
-        }
+        return (String) invokeL.objValue;
     }
 }

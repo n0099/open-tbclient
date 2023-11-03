@@ -1,61 +1,84 @@
 package com.baidu.tieba;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.text.TextUtils;
+import android.util.Base64;
+import android.util.Log;
+import com.airbnb.lottie.ImageAssetDelegate;
+import com.airbnb.lottie.LottieImageAsset;
+import com.baidu.searchbox.downloads.ImgDataURISchemeUtil;
+import com.baidu.searchbox.v8engine.WebGLImageLoader;
+import com.baidu.swan.apps.storage.PathType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.File;
 /* loaded from: classes9.dex */
-public final class z12 extends x02 {
+public class z12 implements ImageAssetDelegate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String L;
-    public boolean M;
-    public boolean N;
+    public String a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z12() {
-        super("input", "viewId");
+    public z12(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], (String) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        PathType s = od3.s(str);
+        if (s == PathType.BD_FILE || s == PathType.RELATIVE) {
+            this.a = new File(tr2.V().I().a(str)).getParent();
+        }
     }
 
-    @Override // com.baidu.tieba.x02, com.baidu.tieba.c12, com.baidu.tieba.e12, com.baidu.tieba.g12, com.baidu.tieba.ov2
-    public void a(JSONObject jSONObject) throws JSONException {
-        boolean z;
+    @Override // com.airbnb.lottie.ImageAssetDelegate
+    public Bitmap fetchBitmap(LottieImageAsset lottieImageAsset) {
+        InterceptResult invokeL;
+        File file;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, lottieImageAsset)) == null) {
+            if (lottieImageAsset == null) {
+                return null;
+            }
+            String fileName = lottieImageAsset.getFileName();
+            if (TextUtils.isEmpty(fileName)) {
+                return null;
+            }
+            if (fileName.startsWith(WebGLImageLoader.DATA_URL) && fileName.indexOf(ImgDataURISchemeUtil.DATA_URL_SCHEME_BASE64_FLAG) > 0) {
+                try {
+                    byte[] decode = Base64.decode(fileName.substring(fileName.indexOf(44) + 1), 0);
+                    BitmapFactory.Options options = new BitmapFactory.Options();
+                    options.inScaled = true;
+                    options.inDensity = 160;
+                    return BitmapFactory.decodeByteArray(decode, 0, decode.length, options);
+                } catch (IllegalArgumentException e) {
+                    Log.w("SwanAppAnimationViewAss", "data URL did not have correct base64 format.", e);
+                    return null;
+                }
+            } else if (TextUtils.isEmpty(this.a)) {
+                return null;
+            } else {
+                String dirName = lottieImageAsset.getDirName();
+                if (TextUtils.isEmpty(dirName)) {
+                    file = new File(this.a);
+                } else {
+                    file = new File(this.a, dirName);
+                }
+                return BitmapFactory.decodeFile(new File(file, lottieImageAsset.getFileName()).getAbsolutePath());
+            }
         }
-        super.a(jSONObject);
-        if (this.h == null) {
-            this.h = new vv2();
-        }
-        this.t = jSONObject.optString("value");
-        this.L = jSONObject.optString("type");
-        boolean z2 = false;
-        if (jSONObject.optInt("confirmHold") == 1) {
-            z = true;
-        } else {
-            z = false;
-        }
-        this.M = z;
-        if (jSONObject.optInt("adjustPosition", 1) == 1) {
-            z2 = true;
-        }
-        this.N = z2;
+        return (Bitmap) invokeL.objValue;
     }
 }

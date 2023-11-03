@@ -1,124 +1,113 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class w04 {
+public class w04 extends hg2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static long b;
-    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
+    public String d;
+    public String e;
+    public String f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948216750, "Lcom/baidu/tieba/w04;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948216750, "Lcom/baidu/tieba/w04;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public w04(@NonNull String str, String str2, String str3, String str4) {
+        super(str);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3, str4};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = am1.a;
-        b = 86400000L;
-        c = "duration_permission_list";
+        this.d = str2;
+        this.e = str3;
+        this.f = str4;
     }
 
-    public static void a(JsObject jsObject) {
-        x04 x04Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, jsObject) == null) {
-            p53 M = p53.M();
-            xx1 xx1Var = null;
-            if (jsObject != null && M != null && b(M)) {
-                if (a) {
-                    Log.e("SwanGameDurationApi", "params is " + jsObject.toString());
-                }
-                xx1 G = xx1.G(jsObject);
-                String C = G.C("swanGameId");
-                if (!TextUtils.isEmpty(C)) {
-                    xd3 a2 = de3.a();
-                    if (!c(Long.valueOf(a2.getLong(C + "_LastPause", 0L)), Long.valueOf(System.currentTimeMillis()))) {
-                        a2.putLong(C + "_Duration", 0L);
-                    }
-                    x04Var = new x04();
-                    x04Var.duration = a2.getLong(C + "_Duration", 0L);
-                } else {
-                    x04Var = null;
-                }
-                xx1Var = G;
-            } else {
-                x04Var = null;
-            }
-            b84.a(xx1Var, true, x04Var);
-        }
-    }
-
-    public static boolean b(p53 p53Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, p53Var)) == null) {
-            String string = de3.a().getString(c, "");
-            if (!TextUtils.isEmpty(string)) {
-                try {
-                    JSONArray jSONArray = new JSONArray(string);
-                    for (int i = 0; i < jSONArray.length(); i++) {
-                        if (p53.h0().contains(jSONArray.optString(i))) {
-                            return true;
-                        }
-                    }
-                } catch (Exception e) {
-                    if (a) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean c(Long l, Long l2) {
+    public static hg2 t(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, l, l2)) == null) {
-            if (l.longValue() / 86400000 == l2.longValue() / 86400000) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            return new w04("sconsole_console", "%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, str2);
         }
-        return invokeLL.booleanValue;
+        return (hg2) invokeLL.objValue;
     }
 
-    public static void d(long j, long j2) {
+    public static hg2 v(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) && j2 > j && p53.M() != null && !TextUtils.isEmpty(p53.h0())) {
-            String h0 = p53.h0();
-            xd3 a2 = de3.a();
-            long j3 = a2.getLong(h0 + "_LastPause", 0L);
-            long j4 = a2.getLong(h0 + "_Duration", 0L);
-            if (c(Long.valueOf(j), Long.valueOf(j2))) {
-                if (c(Long.valueOf(j3), Long.valueOf(j))) {
-                    a2.putLong(h0 + "_Duration", (j4 + j2) - j);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            return new w04("sconsole_system", "%s.message = { type:'log',logType:'%s',logs:[%s] };", str, str2);
+        }
+        return (hg2) invokeLL.objValue;
+    }
+
+    public static hg2 u(boolean z) {
+        InterceptResult invokeZ;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
+            if (z) {
+                str = "show";
+            } else {
+                str = "hide";
+            }
+            return new w04("sconsole_entirety", "%s.message = { type:'act',act:'%s' };", null, str);
+        }
+        return (hg2) invokeZ.objValue;
+    }
+
+    @Override // com.baidu.tieba.gg2
+    public String o(String str) {
+        InterceptResult invokeL;
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            String str2 = this.d;
+            int hashCode = str2.hashCode();
+            if (hashCode != -2011830027) {
+                if (hashCode != -774049378) {
+                    if (hashCode == 2080164540 && str2.equals("%s.message = { type:'log',logType:'%s',logs:[%s] };")) {
+                        c = 1;
+                    }
+                    c = 65535;
                 } else {
-                    a2.putLong(h0 + "_Duration", j2 - j);
+                    if (str2.equals("%s.message = { type:'log',logType:'%s',logs:[%s, %s] };")) {
+                        c = 0;
+                    }
+                    c = 65535;
                 }
             } else {
-                a2.putLong(h0 + "_Duration", j2 % b);
+                if (str2.equals("%s.message = { type:'act',act:'%s' };")) {
+                    c = 2;
+                }
+                c = 65535;
             }
-            a2.putLong(h0 + "_LastPause", System.currentTimeMillis());
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        return "";
+                    }
+                    return String.format("%s.message = { type:'act',act:'%s' };", str, this.f);
+                }
+                return String.format("%s.message = { type:'log',logType:'%s',logs:[%s] };", str, this.e, JSONObject.quote(this.f));
+            }
+            return String.format("%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, this.e, JSONObject.quote(ui3.b(ui3.a(), "yyyy-MM-dd HH:mm:ss")), JSONObject.quote(this.f));
         }
+        return (String) invokeL.objValue;
     }
 }

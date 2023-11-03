@@ -14,7 +14,7 @@ public class PbReplySwitch extends BaseNormalSwitch {
     public static PbReplySwitch mInstance;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.t9
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ja
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class PbReplySwitch extends BaseNormalSwitch {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.t9
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ja
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

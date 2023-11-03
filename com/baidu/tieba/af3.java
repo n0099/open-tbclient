@@ -1,106 +1,88 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.collection.ArrayMap;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.storage.swankv.AshmemFileDescriptor;
+import com.baidu.storage.swankv.SwanKV;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes5.dex */
 public class af3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final Map<String, ze3> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947613211, "Lcom/baidu/tieba/af3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947613211, "Lcom/baidu/tieba/af3;");
+                return;
+            }
+        }
+        a = rm1.a;
+        b = new ArrayMap();
     }
 
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public boolean b;
-        @Nullable
-        public nq2 c;
-        public String d;
+    @Nullable
+    public static AshmemFileDescriptor a(@NonNull String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
+            try {
+                if (ProcessUtils.isMainProcess()) {
+                    synchronized (b) {
+                        ze3 ze3Var = b.get(str);
+                        if (ze3Var != null && ze3Var.a() != null) {
+                            return ze3Var.a();
+                        }
+                        int ashmemFD = SwanKV.getAshmemFD(str, i);
+                        if (ashmemFD >= 0) {
+                            AshmemFileDescriptor ashmemFileDescriptor = new AshmemFileDescriptor(str, ashmemFD, i);
+                            we3.e(ashmemFileDescriptor);
+                            return ashmemFileDescriptor;
+                        }
+                        return null;
+                    }
+                }
+                return ve3.c(str, i);
+            } catch (Throwable th) {
+                if (a) {
+                    th.printStackTrace();
+                    return null;
+                }
+                return null;
+            }
+        }
+        return (AshmemFileDescriptor) invokeLI.objValue;
+    }
 
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public static synchronized void b(@NonNull AshmemFileDescriptor ashmemFileDescriptor) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, ashmemFileDescriptor) == null) {
+            synchronized (af3.class) {
+                if (ProcessUtils.isMainProcess()) {
                     return;
                 }
-            }
-            this.a = false;
-            this.b = false;
-            this.c = null;
-            this.d = "";
-        }
-
-        public static b b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                return new b();
-            }
-            return (b) invokeV.objValue;
-        }
-
-        public af3 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new af3(null);
-            }
-            return (af3) invokeV.objValue;
-        }
-
-        public b c(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-                this.a = z;
-                return this;
-            }
-            return (b) invokeZ.objValue;
-        }
-
-        public b d(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.d = str;
-                return this;
-            }
-            return (b) invokeL.objValue;
-        }
-    }
-
-    public af3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                ze3 ze3Var = b.get(ashmemFileDescriptor.getName());
+                if (ze3Var != null && ze3Var.a() != null && ze3Var.a().getAshmemFD() != ashmemFileDescriptor.getAshmemFD()) {
+                    SwanKV b2 = ze3Var.b();
+                    ze3Var.c(new SwanKV(ashmemFileDescriptor));
+                    b2.release();
+                }
             }
         }
-    }
-
-    public /* synthetic */ af3(a aVar) {
-        this();
     }
 }

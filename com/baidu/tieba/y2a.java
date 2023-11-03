@@ -1,94 +1,67 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.v67;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes8.dex */
-public final class y2a implements v67.b {
+/* loaded from: classes9.dex */
+public class y2a extends bi<r3a, CardViewHolder<h4a>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final l77 a;
-    public final BdUniqueId b;
+    public TbPageContext a;
 
-    public y2a(l77 statStrategy, BdUniqueId pageId) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public y2a(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {statStrategy, pageId};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(statStrategy, "statStrategy");
-        Intrinsics.checkNotNullParameter(pageId, "pageId");
-        this.a = statStrategy;
-        this.b = pageId;
+        this.a = tbPageContext;
     }
 
-    @Override // com.baidu.tieba.v67.b
-    public void a(h77<?> data, int i) {
-        Map<String, String> hashMap;
-        Map<String, String> a;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: t */
+    public CardViewHolder<h4a> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, data, i) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            r67 r67Var = (r67) data;
-            StatisticItem statisticItem = new StatisticItem(this.a.getKey());
-            int i2 = i + 1;
-            statisticItem.param(TiebaStatic.Params.OBJ_FLOOR, i2);
-            v27 v27Var = new v27();
-            v27 v27Var2 = r67Var.b;
-            if (v27Var2 != null) {
-                v27Var = v27Var2;
-            }
-            if (r67Var.b != null) {
-                for (Map.Entry<String, String> entry : this.a.a(v27Var).entrySet()) {
-                    statisticItem.param(entry.getKey(), entry.getValue());
-                }
-            }
-            c47 c47Var = r67Var.a;
-            if (c47Var != null && (a = c47Var.a()) != null) {
-                for (Map.Entry<String, String> entry2 : a.entrySet()) {
-                    statisticItem.param(entry2.getKey(), entry2.getValue());
-                }
-            }
-            rca.g().c(this.b, statisticItem);
-            c47 c47Var2 = r67Var.a;
-            if (c47Var2 == null || (hashMap = c47Var2.a()) == null) {
-                hashMap = new HashMap<>();
-            }
-            v27Var.a().put("position_from_1", String.valueOf(i2));
-            if (Intrinsics.areEqual(v27Var.a().get("is_video_card"), "1")) {
-                z3a z3aVar = new z3a();
-                n77.a.a(new n47(z3aVar.getKey(), z3aVar.a(v27Var), hashMap, null, null, 24, null));
-            } else if (Intrinsics.areEqual(v27Var.a().get("is_live_card"), "1")) {
-                g3a g3aVar = new g3a();
-                n77.a.a(new n47(g3aVar.getKey(), g3aVar.a(v27Var), hashMap, null, null, 24, null));
-            } else {
-                r3a r3aVar = new r3a();
-                n77.a.a(new n47(r3aVar.getKey(), r3aVar.a(v27Var), hashMap, null, null, 24, null));
-            }
-            u3a u3aVar = new u3a();
-            n77.a.a(new n47(u3aVar.getKey(), u3aVar.a(v27Var), hashMap, u3aVar.b(), u3aVar.d()));
-            if (Intrinsics.areEqual(v27Var.a().get("thread_type"), "74")) {
-                m3a m3aVar = new m3a();
-                m3aVar.b("0");
-                n77.a.a(new n47(m3aVar.getKey(), m3aVar.a(v27Var), hashMap, null, null, 24, null));
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new CardViewHolder<>(new h4a(this.a));
         }
+        return (CardViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, r3a r3aVar, CardViewHolder<h4a> cardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, r3aVar, cardViewHolder})) == null) {
+            cardViewHolder.a().k(r3aVar);
+            return cardViewHolder.getView();
+        }
+        return (View) invokeCommon.objValue;
     }
 }

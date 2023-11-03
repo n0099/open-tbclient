@@ -1,6 +1,12 @@
 package com.baidu.tieba;
 
+import android.os.Build;
+import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.so.SoLoader;
+import com.baidu.swan.apps.so.SoUtils;
+import com.baidu.tieba.oc3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,44 +14,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
-public final class yb3 {
+import java.io.File;
+import java.util.Arrays;
+import java.util.Locale;
+/* loaded from: classes9.dex */
+public class yb3 implements SoUtils.a {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes8.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rc3 a;
-
-        public a(rc3 rc3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rc3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rc3Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                wb3.k("934", this.a.f());
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -60,49 +36,60 @@ public final class yb3 {
                 return;
             }
         }
-        a = am1.a;
+        a = rm1.a;
     }
 
-    public static void a(rc3 rc3Var, mq2 mq2Var) {
+    public yb3() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, rc3Var, mq2Var) == null) && rc3Var != null && mq2Var != null) {
-            rc3Var.a = ic3.n(mq2Var.H());
-            rc3Var.f = mq2Var.I();
-            rc3Var.c = mq2Var.U();
-            rc3Var.a("swan", ue3.h(mq2Var.H()));
-            rc3Var.a("appversion", mq2Var.x1());
-            rc3Var.a("thirdversion", mq2Var.y1());
-            rc3Var.b(ic3.k(mq2Var.X()));
-            rc3Var.d(mq2Var.t0().getString("ubc"));
-        }
-    }
-
-    public static void b(sc3 sc3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, sc3Var) == null) {
-            if (sc3Var == null) {
-                if (a) {
-                    Log.w("SwanAppFuncUbc", "event is null");
-                    return;
-                }
-                return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            rc3 rc3Var = new rc3();
-            rc3Var.f = sc3Var.f;
-            rc3Var.a = sc3Var.a;
-            rc3Var.g = sc3Var.g;
-            rc3Var.c = sc3Var.c;
-            rc3Var.b = sc3Var.b;
-            rc3Var.e = sc3Var.e;
-            rc3Var.e(sc3Var.c());
-            c(rc3Var);
         }
     }
 
-    public static void c(rc3 rc3Var) {
+    public final String a(String str) {
+        InterceptResult invokeL;
+        String absolutePath;
+        long length;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, rc3Var) == null) {
-            ji3.j(new a(rc3Var), "SwanAppFuncClickUBC");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            File findSoFilesInLibrary = SoLoader.findSoFilesInLibrary(np2.c(), str);
+            if (findSoFilesInLibrary == null) {
+                absolutePath = null;
+            } else {
+                absolutePath = findSoFilesInLibrary.getAbsolutePath();
+            }
+            if (findSoFilesInLibrary == null) {
+                length = 0;
+            } else {
+                length = findSoFilesInLibrary.length();
+            }
+            return String.format(Locale.CHINA, "[%s:%s,size:%d]", str, absolutePath, Long.valueOf(length));
         }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.swan.apps.so.SoUtils.a
+    public void onEvent(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) != null) || TextUtils.isEmpty(str2)) {
+            return;
+        }
+        String[] strArr = {Build.CPU_ABI, Build.CPU_ABI2};
+        String str3 = Arrays.toString(strArr) + "\n" + sm1.a() + "\n" + a("v8.engine") + "\n" + a("zeusv8") + "\n" + str2;
+        if (a) {
+            Log.d("SoUbcDefaultImpl", "reportSoLoadInfo: " + str3);
+        }
+        oc3.b bVar = new oc3.b(10007);
+        bVar.j(str);
+        bVar.i(str3);
+        bVar.h(g63.h0());
+        bVar.m();
     }
 }

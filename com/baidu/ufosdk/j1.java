@@ -106,7 +106,7 @@ public class j1 extends Dialog {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j1(Context context, boolean z) {
-        super(context, com.baidu.tieba.R.style.obfuscated_res_0x7f100446);
+        super(context, com.baidu.tieba.R.style.obfuscated_res_0x7f100447);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -138,16 +138,16 @@ public class j1 extends Dialog {
             setCanceledOnTouchOutside(true);
             setCancelable(true);
             getWindow().setGravity(17);
-            setContentView(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d09b2);
-            LinearLayout linearLayout = (LinearLayout) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091f1d);
+            setContentView(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d09cb);
+            LinearLayout linearLayout = (LinearLayout) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091f64);
             this.a = linearLayout;
             if (z) {
-                i = com.baidu.tieba.R.drawable.obfuscated_res_0x7f0805ab;
+                i = com.baidu.tieba.R.drawable.obfuscated_res_0x7f0805b4;
             } else {
-                i = com.baidu.tieba.R.drawable.obfuscated_res_0x7f0805aa;
+                i = com.baidu.tieba.R.drawable.obfuscated_res_0x7f0805b3;
             }
             linearLayout.setBackgroundResource(i);
-            TextView textView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091f1e);
+            TextView textView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091f65);
             this.b = textView;
             int i5 = -13421773;
             if (z) {
@@ -156,9 +156,9 @@ public class j1 extends Dialog {
                 i2 = -13421773;
             }
             textView.setTextColor(i2);
-            TextView textView2 = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091f1c);
+            TextView textView2 = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091f63);
             this.c = textView2;
-            SpannableString spannableString = new SpannableString(this.f.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f05a7));
+            SpannableString spannableString = new SpannableString(this.f.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f05a9));
             spannableString.setSpan(new ForegroundColorSpan((int) BaseAnimatedElement.DEBUG_PAINT_COLOR), 51, 64, 33);
             spannableString.setSpan(new b(this.f, this.g), 51, 64, 33);
             textView2.setText(spannableString);
@@ -175,7 +175,7 @@ public class j1 extends Dialog {
             if (text instanceof Spannable) {
                 ((Spannable) textView4.getText()).setSpan(new NoUnderlineSpan(), 0, text.length(), 17);
             }
-            View findViewById = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090918);
+            View findViewById = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090939);
             this.d = findViewById;
             if (z) {
                 i4 = -13619152;
@@ -183,7 +183,7 @@ public class j1 extends Dialog {
                 i4 = BdThumbSeekBarView.BUFFERING_PAINT_COLOR;
             }
             findViewById.setBackgroundColor(i4);
-            TextView textView5 = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091271);
+            TextView textView5 = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0912af);
             this.e = textView5;
             if (z) {
                 i5 = -11711155;

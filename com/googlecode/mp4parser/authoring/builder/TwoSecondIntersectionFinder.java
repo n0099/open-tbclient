@@ -3,7 +3,7 @@ package com.googlecode.mp4parser.authoring.builder;
 import com.googlecode.mp4parser.authoring.Movie;
 import com.googlecode.mp4parser.authoring.Track;
 import java.util.Arrays;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class TwoSecondIntersectionFinder implements FragmentIntersectionFinder {
     public int fragmentLength;
     public Movie movie;

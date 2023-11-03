@@ -1,8 +1,8 @@
 package com.baidu.tieba.feed.component.uistate;
 
 import android.content.Context;
-import com.baidu.tieba.n47;
-import com.baidu.tieba.n77;
+import com.baidu.tieba.ib7;
+import com.baidu.tieba.m77;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +16,7 @@ import kotlin.jvm.functions.Function2;
 /* loaded from: classes5.dex */
 public final class CardUiStateKt {
     public static /* synthetic */ Interceptable $ic;
-    public static final Function1<n47, Unit> a;
+    public static final Function1<m77, Unit> a;
     public static final Function2<Context, String, Unit> b;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -33,7 +33,7 @@ public final class CardUiStateKt {
                 return;
             }
         }
-        a = new CardUiStateKt$sendStatData$1(n77.a);
+        a = new CardUiStateKt$sendStatData$1(ib7.a);
         b = CardUiStateKt$handleClick$1.INSTANCE;
     }
 
@@ -46,7 +46,7 @@ public final class CardUiStateKt {
         return (Function2) invokeV.objValue;
     }
 
-    public static final Function1<n47, Unit> b() {
+    public static final Function1<m77, Unit> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {

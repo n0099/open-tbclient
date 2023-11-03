@@ -1,103 +1,151 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import androidx.annotation.NonNull;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.log.TbLog;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.zz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes9.dex */
-public class zo7 implements e15 {
+public class zo7 extends yk6<wo7> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ImageView i;
+    public final TextView j;
+    public int k;
 
-    public zo7() {
+    @Override // com.baidu.tieba.yk6
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0324 : invokeV.intValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.yk6
+    /* renamed from: p */
+    public void k(wo7 wo7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, wo7Var) == null) {
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class a implements zz4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(zo7 zo7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zo7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.zz4.e
+        public void onClick(zz4 zz4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, zz4Var) == null) {
+                vo7.a();
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921020));
+                zz4Var.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b implements zz4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(zo7 zo7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zo7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.zz4.e
+        public void onClick(zz4 zz4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, zz4Var) == null) {
+                zz4Var.dismiss();
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zo7(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.k = 3;
+        this.i = (ImageView) i().findViewById(R.id.obfuscated_res_0x7f090fa4);
+        this.j = (TextView) i().findViewById(R.id.obfuscated_res_0x7f090faa);
+        this.i.setOnClickListener(this);
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && view2 == this.i) {
+            zz4 zz4Var = new zz4(this.b.getPageActivity());
+            zz4Var.setTitle(R.string.obfuscated_res_0x7f0f04cd);
+            zz4Var.setCanceledOnTouchOutside(true);
+            zz4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f04ca, new a(this));
+            zz4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03d3, new b(this));
+            zz4Var.create(this.b);
+            zz4Var.show();
         }
     }
 
-    @Override // com.baidu.tieba.e15
-    @NonNull
-    public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.yk6
+    public void l(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogStrategiesData, map, map2)) == null) {
-            HashMap hashMap = new HashMap(map);
-            hashMap.put("dialogName", "frsForumManage");
-            hashMap.putAll(map);
-            hashMap.putAll(map2);
-            return hashMap;
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) != null) || this.k == i) {
+            return;
         }
-        return (Map) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.e15
-    public boolean b(@NonNull Map<String, Object> map) {
-        InterceptResult invokeL;
-        boolean z;
-        boolean z2;
-        boolean z3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            boolean z4 = false;
-            if (!(currentActivity instanceof FrsActivity)) {
-                YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "吧务管理弹窗策略校验失败：当前Activity非FrsActivity");
-                return false;
-            }
-            FrsFragment r1 = ((FrsActivity) currentActivity).r1();
-            if (r1 != null && !r1.H4() && TbSingleton.getInstance().getFrsResponseData() != null) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (!z) {
-                TbLog yunDialogLog = YunDialogLog.getInstance();
-                StringBuilder sb = new StringBuilder();
-                sb.append("吧务管理弹窗策略校验失败：FrsFragment为空->");
-                if (r1 == null) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                sb.append(z2);
-                sb.append("|Frs是否展示过弹窗->");
-                if (r1 != null && r1.H4()) {
-                    z3 = true;
-                } else {
-                    z3 = false;
-                }
-                sb.append(z3);
-                sb.append("|是否存在FRS数据->");
-                if (TbSingleton.getInstance().getFrsResponseData() != null) {
-                    z4 = true;
-                }
-                sb.append(z4);
-                yunDialogLog.e(YunDialogManager.LOG_KEY, sb.toString());
-            }
-            return z;
-        }
-        return invokeL.booleanValue;
+        SkinManager.setBackgroundResource(this.i, R.drawable.icon_search_history_del);
+        SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0110);
+        this.k = i;
     }
 }

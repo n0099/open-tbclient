@@ -1,117 +1,31 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.lib.lbs.BdLocationMananger;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AlaMasterLiveRoomActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tieba.card.holder.CardViewHolder;
-import com.baidu.tieba.hz4;
+import com.baidu.tieba.ala.frsgamelive.view.AlaFrsLiveListGatherRecommendTitleView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class va6 extends lh<lb6, CardViewHolder<ic6>> {
+public class va6 extends bi<db6, AlaFrsLiveListGatherRecommendTitleView.AlaFrsLiveListGatherRecommendTitleViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public xma b;
-    public boolean c;
-    public String d;
-    public String e;
-    public String f;
-    public TextView g;
-    public boolean h;
-
-    /* loaded from: classes8.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lb6 a;
-        public final /* synthetic */ va6 b;
-
-        public a(va6 va6Var, lb6 lb6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {va6Var, lb6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = va6Var;
-            this.a = lb6Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.b.u(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements hz4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(va6 va6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {va6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.hz4.e
-        public void onClick(hz4 hz4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, hz4Var) == null) {
-                hz4Var.dismiss();
-            }
-        }
-    }
+    public TbPageContext<?> a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public va6(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), lb6.b);
+    public va6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -123,176 +37,29 @@ public class va6 extends lh<lb6, CardViewHolder<ic6>> {
                 return;
             }
         }
-        this.c = false;
-        this.h = false;
         this.a = tbPageContext;
     }
 
-    public final void z(TbPageContext tbPageContext) {
-        String str;
-        String str2;
-        String str3;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048589, this, tbPageContext) != null) || tbPageContext == null) {
-            return;
-        }
-        if (this.c) {
-            str = this.d;
-        } else {
-            str = "0";
-        }
-        String str4 = str;
-        if (this.c) {
-            str2 = this.e;
-        } else {
-            str2 = null;
-        }
-        if (this.c) {
-            str3 = this.f;
-        } else {
-            str3 = null;
-        }
-        MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_ALA_VERIFY_STRATEGY));
-        BdLocationMananger.getInstance().getAddress(false);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaMasterLiveRoomActivityConfig(tbPageContext.getPageActivity(), str2, str4, TbadkCoreApplication.getCurrentAccount(), str3)));
-    }
-
-    public final void A() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (Build.VERSION.SDK_INT < 24) {
-                hz4 hz4Var = new hz4(this.a.getPageActivity());
-                hz4Var.setAutoNight(false);
-                hz4Var.setTitle(R.string.obfuscated_res_0x7f0f1194);
-                hz4Var.setMessage(this.a.getResources().getString(R.string.disallow_open_live_by_android_v7_0));
-                hz4Var.setTitleShowCenter(true);
-                hz4Var.setMessageShowCenter(true);
-                hz4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0b68, new b(this));
-                hz4Var.create(this.a).show();
-            } else if (ViewHelper.checkUpIsLogin(this.a.getPageActivity())) {
-                if (this.b == null) {
-                    this.b = new xma(this.a);
-                }
-                if (this.c) {
-                    if (this.b.c()) {
-                        return;
-                    }
-                } else if (this.b.d()) {
-                    return;
-                }
-                z(this.a);
-            }
-        }
-    }
-
-    public void B(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.d = str;
-        }
-    }
-
-    public void C(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f = str;
-        }
-    }
-
-    public void D(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.e = str;
-        }
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
-    /* renamed from: x */
-    public CardViewHolder<ic6> onCreateViewHolder(ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.bi
+    /* renamed from: t */
+    public AlaFrsLiveListGatherRecommendTitleView.AlaFrsLiveListGatherRecommendTitleViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, viewGroup)) == null) {
-            return new CardViewHolder<>(new ic6(this.a));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new AlaFrsLiveListGatherRecommendTitleView.AlaFrsLiveListGatherRecommendTitleViewHolder(new AlaFrsLiveListGatherRecommendTitleView(this.a));
         }
-        return (CardViewHolder) invokeL.objValue;
-    }
-
-    public final void E() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.h) {
-            return;
-        }
-        this.h = true;
-        if (!SharedPrefHelper.getInstance().getBoolean(SharedPrefHelper.getSharedPrefKeyWithAccount("live_publish_live_has_showed"), false)) {
-            SharedPrefHelper.getInstance().putBoolean(SharedPrefHelper.getSharedPrefKeyWithAccount("live_publish_live_has_showed"), true);
-            F(this.g, null, true);
-            return;
-        }
-        F(this.g, null, false);
-    }
-
-    public final void F(TextView textView, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(1048581, this, textView, str, z) == null) && textView != null && this.a != null) {
-            if (z) {
-                textView.setText("");
-                Drawable drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0801fe);
-                drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-                textView.setCompoundDrawables(null, null, drawable, null);
-                return;
-            }
-            if (str != null) {
-                textView.setText(str);
-            } else {
-                textView.setText("");
-            }
-            textView.setCompoundDrawables(null, null, null, null);
-        }
-    }
-
-    public final void t(lb6 lb6Var, ic6 ic6Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048585, this, lb6Var, ic6Var) != null) || lb6Var.c() == null) {
-            return;
-        }
-        this.g = ic6Var.o();
-        E();
-        ic6Var.z(8);
-        ic6Var.A(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f026c));
-        ic6Var.k(this.a, TbadkCoreApplication.getInst().getSkinType());
-    }
-
-    public final void u(lb6 lb6Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, lb6Var) == null) && lb6Var != null && lb6Var.c() != null) {
-            SharedPrefHelper.getInstance().putBoolean(SharedPrefHelper.getSharedPrefKeyWithAccount("live_publish_live_has_showed"), true);
-            F(this.g, null, false);
-            A();
-            TiebaStatic.log("c13618");
-        }
+        return (AlaFrsLiveListGatherRecommendTitleView.AlaFrsLiveListGatherRecommendTitleViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
-    /* renamed from: y */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, lb6 lb6Var, CardViewHolder<ic6> cardViewHolder) {
+    @Override // com.baidu.tieba.bi
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, db6 db6Var, AlaFrsLiveListGatherRecommendTitleView.AlaFrsLiveListGatherRecommendTitleViewHolder alaFrsLiveListGatherRecommendTitleViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i), view2, viewGroup, lb6Var, cardViewHolder})) == null) {
-            if (cardViewHolder.a() == null) {
-                return null;
-            }
-            t(lb6Var, cardViewHolder.a());
-            cardViewHolder.a().i().setOnClickListener(new a(this, lb6Var));
-            return cardViewHolder.a().i();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, db6Var, alaFrsLiveListGatherRecommendTitleViewHolder})) == null) {
+            return alaFrsLiveListGatherRecommendTitleViewHolder.getView();
         }
         return (View) invokeCommon.objValue;
     }

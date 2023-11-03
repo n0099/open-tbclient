@@ -35,9 +35,9 @@ public final class r extends a {
         this.rd.setVisibility(z2 ? 4 : 0);
         if (aY) {
             this.rf.setVisibility(8);
-            i = R.layout.obfuscated_res_0x7f0d04ca;
+            i = R.layout.obfuscated_res_0x7f0d04dd;
         } else {
-            i = R.layout.obfuscated_res_0x7f0d0483;
+            i = R.layout.obfuscated_res_0x7f0d0496;
         }
         P(i);
         if (!com.kwad.sdk.core.response.a.a.ay(bQ)) {
@@ -60,10 +60,10 @@ public final class r extends a {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.mj = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f091459);
-        this.rd = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09134e);
-        this.rf = (ImageView) findViewById(R.id.obfuscated_res_0x7f09134f);
-        this.re = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091350);
+        this.mj = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f091497);
+        this.rd = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09138c);
+        this.rf = (ImageView) findViewById(R.id.obfuscated_res_0x7f09138d);
+        this.re = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09138e);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

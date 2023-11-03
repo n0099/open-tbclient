@@ -3,7 +3,7 @@ package com.baidu.tieba.downloadmanager.net;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
-import com.baidu.tieba.qt6;
+import com.baidu.tieba.gv6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.ItemManage.ItemManageResIdl;
 /* loaded from: classes5.dex */
-public class DownloadManagerHttpResponseMessage extends MvcProtobufHttpResponsedMessage<qt6, ItemManageResIdl> {
+public class DownloadManagerHttpResponseMessage extends MvcProtobufHttpResponsedMessage<gv6, ItemManageResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -51,9 +51,9 @@ public class DownloadManagerHttpResponseMessage extends MvcProtobufHttpResponsed
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
-            qt6 qt6Var = new qt6();
+            gv6 gv6Var = new gv6();
             ItemManageResIdl itemManageResIdl = (ItemManageResIdl) new Wire(new Class[0]).parseFrom(bArr, ItemManageResIdl.class);
-            qt6Var.b(itemManageResIdl.data);
+            gv6Var.b(itemManageResIdl.data);
             Error error = itemManageResIdl.error;
             if (error != null) {
                 Integer num = error.errorno;
@@ -62,7 +62,7 @@ public class DownloadManagerHttpResponseMessage extends MvcProtobufHttpResponsed
                 }
                 setErrorString(itemManageResIdl.error.usermsg);
             }
-            setData(qt6Var);
+            setData(gv6Var);
         }
     }
 }

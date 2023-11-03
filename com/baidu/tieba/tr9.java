@@ -1,126 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tbadk.task.TbSocketMessageTask;
+import com.baidu.tieba.pb.chosen.PbChosenActivity;
+import com.baidu.tieba.pb.chosen.net.zan.ChosenPbZanHttpResponse;
+import com.baidu.tieba.pb.chosen.net.zan.ChosenPbZanSocketResponse;
+import com.baidu.tieba.pb.chosen.net.zan.ChosenZanNetMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class tr9 implements bt9 {
+public class tr9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bx9 a;
-    public TbPageContext b;
-    public BdUniqueId c;
-    public HttpMessageListener d;
-    public int e;
 
-    /* loaded from: classes8.dex */
-    public class a extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tr9 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(tr9 tr9Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tr9Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tr9Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getOrginalMessage().getTag() == this.a.c) {
-                if (httpResponsedMessage.isSuccess() && httpResponsedMessage.getError() == 0) {
-                    if (this.a.b != null) {
-                        this.a.b.showToast(R.string.obfuscated_res_0x7f0f1178);
-                    }
-                    this.a.e = 1;
-                    this.a.a.e();
-                } else if (this.a.b != null && !StringUtils.isNull(httpResponsedMessage.getErrorString())) {
-                    this.a.b.showToast(httpResponsedMessage.getErrorString());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tr9 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(tr9 tr9Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tr9Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tr9Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            int intValue;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2921065 || customResponsedMessage.getData() == null || this.a.e == (intValue = ((Integer) customResponsedMessage.getData()).intValue())) {
-                return;
-            }
-            this.a.e = intValue;
-            if (intValue == 1) {
-                this.a.a.e();
-            }
-        }
-    }
-
-    public tr9(TbPageContext tbPageContext, bx9 bx9Var, BdUniqueId bdUniqueId) {
+    public tr9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bx9Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -130,36 +32,40 @@ public class tr9 implements bt9 {
                 return;
             }
         }
-        this.e = 0;
-        this.b = tbPageContext;
-        this.a = bx9Var;
-        this.c = bdUniqueId;
-        this.d = new a(this, CmdConfigHttp.SET_PRIVATE_CMD);
-        b bVar = new b(this, 2921065);
-        this.d.setTag(this.c);
-        bVar.setTag(this.c);
-        MessageManager.getInstance().registerListener(this.d);
-        MessageManager.getInstance().registerListener(bVar);
+        a();
+        b();
     }
 
-    @Override // com.baidu.tieba.bt9
-    public void a() {
+    public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                TbPageContext tbPageContext = this.b;
-                if (tbPageContext != null) {
-                    tbPageContext.showToast(R.string.obfuscated_res_0x7f0f0e4f);
-                    return;
-                }
-                return;
-            }
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SET_PRIVATE_CMD);
-            httpMessage.addParam("opt", CommandUBCHelper.COMMAND_UBC_SOURCE_SEND);
-            httpMessage.addParam("val", String.valueOf(1));
-            httpMessage.setTag(this.c);
-            MessageManager.getInstance().sendMessage(httpMessage);
-            TiebaStatic.log(new StatisticItem("c12515").param("obj_locate", 1));
+            MessageManager messageManager = MessageManager.getInstance();
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHOSEN_PB_PRAISE, cra.a(TbConfig.FINE_PB_PRAISE, 309095));
+            tbHttpMessageTask.setResponsedClass(ChosenPbZanHttpResponse.class);
+            messageManager.registerTask(tbHttpMessageTask);
+        }
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            TbSocketMessageTask tbSocketMessageTask = new TbSocketMessageTask(309095);
+            tbSocketMessageTask.setResponsedClass(ChosenPbZanSocketResponse.class);
+            tbSocketMessageTask.setNeedAck(true);
+            tbSocketMessageTask.setNeedCompress(false);
+            MessageManager.getInstance().registerTask(tbSocketMessageTask);
+        }
+    }
+
+    public void c(PbChosenActivity pbChosenActivity, long j, long j2, long j3, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{pbChosenActivity, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i)}) == null) {
+            ChosenZanNetMessage chosenZanNetMessage = new ChosenZanNetMessage();
+            chosenZanNetMessage.setExcId(j);
+            chosenZanNetMessage.setAction(i);
+            chosenZanNetMessage.setThreadId(j2);
+            chosenZanNetMessage.setPostId(j3);
+            pbChosenActivity.sendMessage(chosenZanNetMessage);
         }
     }
 }

@@ -1,45 +1,102 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public abstract class wy8<T extends TypeAdapter.ViewHolder> extends lh<ICardInfo, T> implements ey8 {
+public class wy8 implements yy8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public RelativeLayout a;
+    public TextView b;
+    public ImageView c;
+    public RecyclerView d;
+    public wy8 e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wy8(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    public wy8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public void s(int i) {
+    @Override // com.baidu.tieba.yy8
+    public RelativeLayout a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.a = i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e.a;
+        }
+        return (RelativeLayout) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yy8
+    public RecyclerView c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e.d;
+        }
+        return (RecyclerView) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yy8
+    public ImageView d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e.c;
+        }
+        return (ImageView) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yy8
+    public TextView e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e.b;
+        }
+        return (TextView) invokeV.objValue;
+    }
+
+    public static wy8 f(@NonNull View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            wy8 wy8Var = new wy8();
+            wy8Var.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091926);
+            wy8Var.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ef6);
+            wy8Var.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f10);
+            wy8Var.d = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090f03);
+            wy8Var.e = wy8Var;
+            return wy8Var;
+        }
+        return (wy8) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.yy8
+    public void b(int i, @NonNull pz8 pz8Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, pz8Var) == null) && !pz8Var.e()) {
+            EMManager.from(this.e.b).setTextSize(R.dimen.T_X08).setTextStyle(R.string.F_X01).setTextColor(R.color.CAM_X0107);
         }
     }
 }

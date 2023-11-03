@@ -22,10 +22,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.log.Logger;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ad;
-import com.baidu.tieba.mg;
-import com.baidu.tieba.ng;
-import com.baidu.tieba.xa;
+import com.baidu.tieba.ch;
+import com.baidu.tieba.dh;
+import com.baidu.tieba.nb;
+import com.baidu.tieba.qd;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -51,7 +51,7 @@ public class ViewHelper {
     public static final int TYPE_DOWN = 2;
     public static final int TYPE_MIDDLE = 1;
     public static final int TYPE_UP = 0;
-    public static xa<Integer, Integer> cachedSkinInViews = null;
+    public static nb<Integer, Integer> cachedSkinInViews = null;
     public static Context mAppContext = null;
     public static boolean mIsNeedInit = false;
     public static int mMore_color = -1;
@@ -83,7 +83,7 @@ public class ViewHelper {
                 return;
             }
         }
-        cachedSkinInViews = new xa<>(500);
+        cachedSkinInViews = new nb<>(500);
         mAppContext = null;
     }
 
@@ -356,9 +356,9 @@ public class ViewHelper {
                                 TextView textView = (TextView) view2;
                                 Application app = TbadkCoreApplication.getInst().getApp();
                                 if (this.val$isNight) {
-                                    i2 = R.style.obfuscated_res_0x7f100422;
+                                    i2 = R.style.obfuscated_res_0x7f100423;
                                 } else {
-                                    i2 = R.style.obfuscated_res_0x7f100421;
+                                    i2 = R.style.obfuscated_res_0x7f100422;
                                 }
                                 textView.setTextAppearance(app, i2);
                                 return false;
@@ -463,14 +463,14 @@ public class ViewHelper {
             checkDownloadSo("libopencv_java3.so", "com.baidu.tieba.soloader.libopencv_java3", "opencv_java3");
             checkDownloadSo("libbd_pass_face_sdk.so", "com.baidu.tieba.soloader.libbdface", "bd_pass_face_sdk");
             LoginActivityConfig loginActivityConfig = new LoginActivityConfig(context, true);
-            if (!ad.isEmpty(str)) {
+            if (!qd.isEmpty(str)) {
                 loginActivityConfig.setFrom(str);
             }
             if (StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get("libmml_framework.so"))) {
                 RequestParams requestParams = new RequestParams();
-                requestParams.setRunType(ng.a);
+                requestParams.setRunType(dh.a);
                 requestParams.setRunNode("aps");
-                requestParams.addChannel(new mg("com.baidu.tieba.soloader.libmmlframework", (DefaultDownloadCallback) null));
+                requestParams.addChannel(new ch("com.baidu.tieba.soloader.libmmlframework", (DefaultDownloadCallback) null));
                 PmsManager.getInstance().execute(requestParams);
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, loginActivityConfig));

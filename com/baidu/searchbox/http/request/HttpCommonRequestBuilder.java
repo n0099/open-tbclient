@@ -3,7 +3,7 @@ package com.baidu.searchbox.http.request;
 import com.baidu.searchbox.http.AbstractHttpManager;
 import com.baidu.searchbox.http.request.HttpCommonRequestBuilder;
 import okhttp3.RequestBody;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class HttpCommonRequestBuilder<T extends HttpCommonRequestBuilder> extends HttpRequestBuilder<T> {
     public RequestBody requestBody;
 

@@ -1,43 +1,43 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
+import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
-import com.baidu.tieba.yg2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.ad2;
+import com.baidu.tieba.lb3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.Iterator;
-import java.util.concurrent.CopyOnWriteArrayList;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class bh2<T extends yg2> extends ag2<T> {
+public class bh2 extends d83 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public CopyOnWriteArrayList<ik3<Exception>> b;
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public static class a implements zk3<jb3<lb3.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bh2 a;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ UnitedSchemeEntity b;
+        public final /* synthetic */ Context c;
+        public final /* synthetic */ JSONObject d;
 
-        public a(bh2 bh2Var) {
+        public a(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, Context context, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bh2Var};
+                Object[] objArr = {callbackHandler, unitedSchemeEntity, context, jSONObject};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,271 +47,210 @@ public abstract class bh2<T extends yg2> extends ag2<T> {
                     return;
                 }
             }
-            this.a = bh2Var;
+            this.a = callbackHandler;
+            this.b = unitedSchemeEntity;
+            this.c = context;
+            this.d = jSONObject;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.zk3
+        /* renamed from: b */
+        public void a(jb3<lb3.e> jb3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                p22.k("ExtCore-PresetControl", "run: tryUpdateAsync start doUpdate");
-                ah2 b = ah2.b(this.a.a);
-                vg2 vg2Var = new vg2();
-                vg2Var.a = b.a;
-                vg2Var.b = b.b;
-                vg2Var.c = this.a.a.a();
-                bh2 bh2Var = this.a;
-                bh2Var.l(bh2Var.g(vg2Var));
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ik3 a;
-        public final /* synthetic */ Exception b;
-
-        public b(bh2 bh2Var, ik3 ik3Var, Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bh2Var, ik3Var, exc};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jb3Var) == null) {
+                if (eb3.h(jb3Var)) {
+                    try {
+                        bh2.l(this.c, this.d);
+                        UnitedSchemeUtility.callCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(this.d, 0));
+                        return;
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        this.b.result = UnitedSchemeUtility.wrapCallbackParams(1001, "json exception");
+                        return;
+                    }
                 }
-            }
-            this.a = ik3Var;
-            this.b = exc;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a(this.b);
+                eb3.p(jb3Var, this.a, this.b);
             }
         }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947644893, "Lcom/baidu/tieba/bh2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947644893, "Lcom/baidu/tieba/bh2;");
-                return;
-            }
-        }
-        c = am1.a;
-    }
-
-    @Override // com.baidu.tieba.ag2
-    public File a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new File(super.a(), "preset");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            o("0");
-            n(0L);
-        }
-    }
-
-    @NonNull
-    public ExtensionCore h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ExtensionCore extensionCore = new ExtensionCore();
-            long i = i();
-            extensionCore.extensionCoreVersionCode = i;
-            extensionCore.extensionCoreVersionName = j();
-            extensionCore.extensionCorePath = b(i).getPath();
-            extensionCore.extensionCoreType = 0;
-            return extensionCore;
-        }
-        return (ExtensionCore) invokeV.objValue;
-    }
-
-    public long i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return de3.a().getLong(this.a.b(), 0L);
-        }
-        return invokeV.longValue;
-    }
-
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return de3.a().getString(this.a.e(), "");
-        }
-        return (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bh2(@NonNull T t) {
-        super(t);
+    public bh2(d73 d73Var) {
+        super(d73Var, "/swanAPI/debug/getDebugConfig");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {d73Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((yg2) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new CopyOnWriteArrayList<>();
     }
 
-    @SuppressLint({"SwanNewThread"})
-    public void p(@Nullable ik3<Exception> ik3Var) {
+    public static JSONObject k(String str, Object obj) throws JSONException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, ik3Var) == null) {
-            p22.k("ExtCore-PresetControl", "tryUpdateAsync: start");
-            if (!k()) {
-                p22.k("ExtCore-PresetControl", "tryUpdateAsync: isNeedUpdate = false");
-                m(ik3Var, null);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, obj)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("name", str);
+            jSONObject.put("value", obj);
+            return jSONObject;
+        }
+        return (JSONObject) invokeLL.objValue;
+    }
+
+    /* JADX WARN: Type inference failed for: r1v14 */
+    /* JADX WARN: Type inference failed for: r1v15, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r1v51 */
+    public static void l(@NonNull Context context, @NonNull JSONObject jSONObject) throws JSONException {
+        ?? r1;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, context, jSONObject) == null) {
+            String string = context.getString(R.string.obfuscated_res_0x7f0f016f);
+            boolean s = f23.s();
+            ug2.a(s);
+            jSONObject.put("loadCts", k(string, Integer.valueOf(s ? 1 : 0)));
+            String string2 = context.getString(R.string.obfuscated_res_0x7f0f0152);
+            boolean r = f23.r();
+            ug2.a(r);
+            jSONObject.put("emitLive", k(string2, Integer.valueOf(r ? 1 : 0)));
+            String string3 = context.getString(R.string.obfuscated_res_0x7f0f0150);
+            boolean o = f23.o();
+            ug2.a(o);
+            jSONObject.put("emitHttps", k(string3, Integer.valueOf(o ? 1 : 0)));
+            String string4 = context.getString(R.string.obfuscated_res_0x7f0f0183);
+            boolean y = f23.y();
+            ug2.a(y);
+            jSONObject.put("useExtension", k(string4, Integer.valueOf(y ? 1 : 0)));
+            String string5 = context.getString(R.string.obfuscated_res_0x7f0f014e);
+            if (!f23.w() && !f23.A()) {
+                r1 = 1;
+            } else {
+                r1 = 0;
             }
-            if (this.b.isEmpty()) {
-                new Thread(new a(this), "updateExtensionCoreAsync").start();
-            }
-            if (ik3Var != null) {
-                this.b.add(ik3Var);
-            }
+            ug2.a(r1);
+            jSONObject.put("emitDomain", k(string5, Integer.valueOf((int) r1)));
+            String string6 = context.getString(R.string.obfuscated_res_0x7f0f0159);
+            boolean q = f23.q();
+            ug2.a(q);
+            jSONObject.put("emitWss", k(string6, Integer.valueOf(q ? 1 : 0)));
+            String string7 = context.getString(R.string.obfuscated_res_0x7f0f0151);
+            boolean x = f23.x();
+            ug2.a(x);
+            jSONObject.put("emitLaunchMode", k(string7, Integer.valueOf(x ? 1 : 0)));
+            jSONObject.put("debugEnvData", k(context.getString(R.string.obfuscated_res_0x7f0f0166), f23.g()));
+            String string8 = context.getString(R.string.obfuscated_res_0x7f0f0157);
+            boolean k = f23.k();
+            ug2.a(k);
+            jSONObject.put("emitReplaceSwanCore", k(string8, Integer.valueOf(k ? 1 : 0)));
+            String string9 = context.getString(R.string.obfuscated_res_0x7f0f0155);
+            boolean h = f23.h();
+            ug2.a(h);
+            jSONObject.put("emitReplaceGameCore", k(string9, Integer.valueOf(h ? 1 : 0)));
+            String string10 = context.getString(R.string.obfuscated_res_0x7f0f0156);
+            boolean p = f23.p();
+            ug2.a(p);
+            jSONObject.put("emitReplaceJsNative", k(string10, Integer.valueOf(p ? 1 : 0)));
+            boolean d = ad2.v.d();
+            String string11 = context.getString(R.string.obfuscated_res_0x7f0f0158);
+            ug2.a(d);
+            jSONObject.put("emitReplaceV8Core", k(string11, Integer.valueOf(d ? 1 : 0)));
+            String string12 = context.getString(R.string.obfuscated_res_0x7f0f0154);
+            boolean m = wg2.m();
+            ug2.a(m);
+            jSONObject.put("emitReplaceDynamicLib", k(string12, Integer.valueOf(m ? 1 : 0)));
+            jSONObject.put("emitHostEnv", k(context.getString(R.string.obfuscated_res_0x7f0f014f), Integer.valueOf(f23.t())));
+            String string13 = context.getString(R.string.obfuscated_res_0x7f0f0176);
+            boolean a2 = zg2.a();
+            ug2.a(a2);
+            jSONObject.put("openStabilityCollector", k(string13, Integer.valueOf(a2 ? 1 : 0)));
+            String string14 = context.getString(R.string.obfuscated_res_0x7f0f0175);
+            boolean a3 = yg2.a();
+            ug2.a(a3);
+            jSONObject.put("openPerformanceTesting", k(string14, Integer.valueOf(a3 ? 1 : 0)));
+            String string15 = context.getString(R.string.obfuscated_res_0x7f0f0153);
+            boolean k2 = vg2.k();
+            ug2.a(k2);
+            jSONObject.put("emitReplaceDependency", k(string15, Integer.valueOf(k2 ? 1 : 0)));
         }
     }
 
-    public final void l(Exception exc) {
+    public static boolean m(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g63 g63Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, exc) == null) {
-            Iterator<ik3<Exception>> it = this.b.iterator();
-            while (it.hasNext()) {
-                m(it.next(), exc);
-            }
-            this.b.clear();
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, unitedSchemeEntity, callbackHandler, g63Var)) == null) {
+            g63Var.f0().g(context, "mapp_cts_debug", new a(callbackHandler, unitedSchemeEntity, context, new JSONObject()));
+            return true;
         }
+        return invokeLLLL.booleanValue;
     }
 
-    public void n(long j) {
+    public static boolean n(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            de3.a().putLong(this.a.b(), j);
-        }
-    }
-
-    public void o(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            de3.a().putString(this.a.e(), str);
-        }
-    }
-
-    public final void m(@Nullable ik3<Exception> ik3Var, Exception exc) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ik3Var, exc) == null) && ik3Var != null) {
-            jj3.e0(new b(this, ik3Var, exc));
-        }
-    }
-
-    /* JADX WARN: Incorrect types in method signature: <T:Lcom/baidu/tieba/vg2;>(TT;)Ljava/lang/Exception; */
-    public Exception g(@NonNull vg2 vg2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vg2Var)) == null) {
-            if (c) {
-                Log.d("ExtCore-PresetControl", "doUpdate: preset");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, unitedSchemeEntity, callbackHandler)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            g32.i("getDebugConfig", "swangame getDebugConfig");
+            if (!d83.b) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302);
+                return false;
             }
-            if (TextUtils.isEmpty(vg2Var.c)) {
-                if (c) {
-                    Log.e("ExtCore-PresetControl", "doUpdate: preset with null coreFilePath");
-                }
-                return new IllegalStateException("ExtCore-PresetControl doUpdate: failed by updateInfo.coreFilePath is empty");
-            }
-            long j = vg2Var.b;
-            if (sl4.V(vg2Var.c, b(j).getPath())) {
-                gh2.b(a(), j);
-                n(j);
-                o(vg2Var.a);
-                gh2.i(this.a.c(), false);
-                return null;
-            }
-            Exception exc = new Exception("ExtCore-PresetControl doUpdate: failed by can not unzip coreFile = " + vg2Var.c);
-            if (c) {
-                Log.e("ExtCore-PresetControl", "doUpdate preset unzip failed: " + Log.getStackTraceString(exc));
-            }
-            return exc;
-        }
-        return (Exception) invokeL.objValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (!h().isAvailable()) {
-                if (c) {
-                    Log.d("ExtCore-PresetControl", "isNeedUpdate: true, getCurExtensionCore not available.");
-                }
-                return true;
-            } else if (!gh2.h(this.a.c())) {
-                if (c) {
-                    Log.d("ExtCore-PresetControl", "isNeedUpdate: false");
-                }
+            JSONObject a2 = d83.a(unitedSchemeEntity, "params");
+            if (a2 == null) {
+                g32.c("getDebugConfig", "params is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else if (!TextUtils.equals(a2.optString("category"), "swanGame")) {
+                g32.c("getDebugConfig", "params is not swangame");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             } else {
-                ah2 b2 = ah2.b(this.a);
-                long i = i();
-                long j = b2.b;
-                if (c) {
-                    Log.d("ExtCore-PresetControl", "isNeedUpdate curVer: " + i + " newVer: " + j);
-                }
-                if (i < j) {
+                try {
+                    boolean o = f23.o();
+                    ug2.a(o);
+                    jSONObject.put("emitHttps", o ? 1 : 0);
+                    boolean q = f23.q();
+                    ug2.a(q);
+                    jSONObject.put("emitWss", q ? 1 : 0);
+                    jSONObject.put("debugEnvData", f23.g());
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
                     return true;
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "json exception");
+                    return false;
                 }
-                return false;
             }
         }
-        return invokeV.booleanValue;
+        return invokeLL.booleanValue;
     }
 
-    public void q() {
+    @Override // com.baidu.tieba.d83
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g63 g63Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || !k()) {
-            return;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g63Var)) == null) {
+            g32.i("getDebugConfig", "swan getDebugConfig");
+            int k = f63.K().k();
+            if (k != 0) {
+                if (k != 1) {
+                    g32.c("getDebugConfig", "frame type error");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "frame type error");
+                    return false;
+                }
+                return n(unitedSchemeEntity, callbackHandler);
+            }
+            return m(context, unitedSchemeEntity, callbackHandler, g63Var);
         }
-        ah2 b2 = ah2.b(this.a);
-        vg2 vg2Var = new vg2();
-        vg2Var.a = b2.a;
-        vg2Var.b = b2.b;
-        vg2Var.c = this.a.a();
-        l(g(vg2Var));
+        return invokeLLLL.booleanValue;
     }
 }

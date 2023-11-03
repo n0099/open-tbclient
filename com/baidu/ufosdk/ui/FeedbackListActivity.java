@@ -459,7 +459,7 @@ public class FeedbackListActivity extends Activity {
                     RelativeLayout relativeLayout = new RelativeLayout(applicationContext);
                     RelativeLayout relativeLayout2 = new RelativeLayout(applicationContext);
                     relativeLayout2.setBackgroundDrawable(null);
-                    relativeLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f08154e);
+                    relativeLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f081567);
                     RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(p1.a(applicationContext, 19.0f), p1.a(applicationContext, 23.0f));
                     relativeLayout2.setLayoutParams(layoutParams);
                     ImageView imageView = new ImageView(applicationContext);
@@ -1024,7 +1024,7 @@ public class FeedbackListActivity extends Activity {
             button.setText(t1.a("22"));
             this.g.setTextSize(16.0f);
             this.g.setTextColor(-12814593);
-            this.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810e1);
+            this.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810f7);
             LinearLayout.LayoutParams layoutParams11 = new LinearLayout.LayoutParams(p1.a(getApplicationContext(), 122.0f), p1.a(getApplicationContext(), 40.0f));
             layoutParams11.setMargins(0, p1.a(getApplicationContext(), 15.0f), 0, 0);
             this.b.addView(this.g, layoutParams11);

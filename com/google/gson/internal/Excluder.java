@@ -16,7 +16,7 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class Excluder implements TypeAdapterFactory, Cloneable {
     public static final Excluder DEFAULT = new Excluder();
     public static final double IGNORE_VERSIONS = -1.0d;
@@ -29,7 +29,7 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public Excluder m169clone() {
+    public Excluder m173clone() {
         try {
             return (Excluder) super.clone();
         } catch (CloneNotSupportedException e) {
@@ -38,15 +38,15 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
     }
 
     public Excluder disableInnerClassSerialization() {
-        Excluder m169clone = m169clone();
-        m169clone.serializeInnerClasses = false;
-        return m169clone;
+        Excluder m173clone = m173clone();
+        m173clone.serializeInnerClasses = false;
+        return m173clone;
     }
 
     public Excluder excludeFieldsWithoutExposeAnnotation() {
-        Excluder m169clone = m169clone();
-        m169clone.requireExpose = true;
-        return m169clone;
+        Excluder m173clone = m173clone();
+        m173clone.requireExpose = true;
+        return m173clone;
     }
 
     private boolean excludeClassChecks(Class<?> cls) {
@@ -176,18 +176,18 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
     }
 
     public Excluder withModifiers(int... iArr) {
-        Excluder m169clone = m169clone();
-        m169clone.modifiers = 0;
+        Excluder m173clone = m173clone();
+        m173clone.modifiers = 0;
         for (int i : iArr) {
-            m169clone.modifiers = i | m169clone.modifiers;
+            m173clone.modifiers = i | m173clone.modifiers;
         }
-        return m169clone;
+        return m173clone;
     }
 
     public Excluder withVersion(double d) {
-        Excluder m169clone = m169clone();
-        m169clone.version = d;
-        return m169clone;
+        Excluder m173clone = m173clone();
+        m173clone.version = d;
+        return m173clone;
     }
 
     public boolean excludeField(Field field, boolean z) {
@@ -223,17 +223,17 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
     }
 
     public Excluder withExclusionStrategy(ExclusionStrategy exclusionStrategy, boolean z, boolean z2) {
-        Excluder m169clone = m169clone();
+        Excluder m173clone = m173clone();
         if (z) {
             ArrayList arrayList = new ArrayList(this.serializationStrategies);
-            m169clone.serializationStrategies = arrayList;
+            m173clone.serializationStrategies = arrayList;
             arrayList.add(exclusionStrategy);
         }
         if (z2) {
             ArrayList arrayList2 = new ArrayList(this.deserializationStrategies);
-            m169clone.deserializationStrategies = arrayList2;
+            m173clone.deserializationStrategies = arrayList2;
             arrayList2.add(exclusionStrategy);
         }
-        return m169clone;
+        return m173clone;
     }
 }

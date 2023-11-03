@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.v8engine.V8EngineConfiguration;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,167 +10,66 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public final class h42 {
+public class h42 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static int d;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public b b;
+    public c c;
 
-    public static int b(boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (z && z2) {
-                return 3;
-            }
-            if (z) {
-                return 1;
-            }
-            return z2 ? 2 : 0;
-        }
-        return invokeCommon.intValue;
+    /* loaded from: classes6.dex */
+    public interface b {
+        void onConnected();
     }
 
     /* loaded from: classes6.dex */
-    public static class a {
+    public interface c {
+        void start();
+
+        void stop();
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public long c;
+        public final /* synthetic */ h42 a;
 
-        public a() {
+        public a(h42 h42Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {h42Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final boolean a;
-        public static int b;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static long e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-                return 31457280L;
-            }
-            return invokeV.longValue;
-        }
-
-        public static int f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-                return 20;
-            }
-            return invokeV.intValue;
-        }
-
-        public static int g() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-                return 102400;
-            }
-            return invokeV.intValue;
-        }
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-795266075, "Lcom/baidu/tieba/h42$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-795266075, "Lcom/baidu/tieba/h42$b;");
                     return;
                 }
             }
-            a = am1.a;
-            b = -1;
+            this.a = h42Var;
         }
 
-        public static boolean a() {
-            InterceptResult invokeV;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                if ((h() & 255) == 1) {
-                    return true;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (!j32.e() && h42.e() == 0) {
+                    if (!j32.f()) {
+                        g32.c("V8Inspector", "Unknown inspect mode");
+                        return;
+                    }
+                    this.a.c = new k42(b42.e(), this.a.b);
+                } else {
+                    this.a.c = new l42(String.format("v8in%s_devtools_remote", this.a.a.getPackageName()), this.a.b);
                 }
-                return false;
+                this.a.c.start();
             }
-            return invokeV.booleanValue;
-        }
-
-        public static int b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-                int h = h();
-                if (h == 0) {
-                    return h;
-                }
-                return (h >> 16) & 255;
-            }
-            return invokeV.intValue;
-        }
-
-        public static int c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                int h = h();
-                if (h == 0) {
-                    return h;
-                }
-                return (h >> 8) & 255;
-            }
-            return invokeV.intValue;
-        }
-
-        public static int h() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-                if (b == -1) {
-                    wo2.g0().getSwitch("swan_custom_code_cache", 0);
-                    b = 0;
-                }
-                return b;
-            }
-            return invokeV.intValue;
-        }
-
-        public static a d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-                a aVar = new a();
-                aVar.a = f();
-                aVar.b = g();
-                aVar.c = e();
-                if (a) {
-                    Log.d("CodeCacheSwitcher", "getCodeCacheConfig() maxCount: " + aVar.a + " ,sizeLimit: " + aVar.b + " ,diskSizeThreshold: " + aVar.c);
-                }
-                return aVar;
-            }
-            return (a) invokeV.objValue;
         }
     }
 
@@ -188,41 +86,75 @@ public final class h42 {
                 return;
             }
         }
-        a = am1.a;
+        int i = 0;
+        if (ue3.a().getBoolean("Inspector", false)) {
+            i = 2;
+        }
+        d = i;
     }
 
-    @NonNull
-    public static V8EngineConfiguration.CodeCacheSetting a(String str, @NonNull String str2) {
-        InterceptResult invokeLL;
-        char c;
+    public static int e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            V8EngineConfiguration.CodeCacheSetting codeCacheSetting = new V8EngineConfiguration.CodeCacheSetting();
-            codeCacheSetting.id = str;
-            ArrayList<String> arrayList = new ArrayList<>();
-            codeCacheSetting.pathList = arrayList;
-            arrayList.add(str2);
-            if (str.hashCode() == 93029162 && str.equals("appjs")) {
-                c = 0;
-            } else {
-                c = 65535;
-            }
-            if (c != 0) {
-                codeCacheSetting.maxCount = 20;
-                codeCacheSetting.sizeLimit = 102400;
-            } else {
-                a d = b.d();
-                codeCacheSetting.maxCount = d.a;
-                codeCacheSetting.sizeLimit = d.b;
-                codeCacheSetting.diskCodeCacheSizeThreshold = d.c;
-            }
-            if (a) {
-                Log.d("V8CodeCacheHelper", "buildCacheSetting cacheType: " + str);
-                Log.d("V8CodeCacheHelper", "buildCacheSetting maxCount: " + codeCacheSetting.maxCount);
-                Log.d("V8CodeCacheHelper", "buildCacheSetting sizeLimit: " + codeCacheSetting.sizeLimit);
-            }
-            return codeCacheSetting;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return d;
         }
-        return (V8EngineConfiguration.CodeCacheSetting) invokeLL.objValue;
+        return invokeV.intValue;
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ExecutorUtilsExt.postOnSerial(new a(this), "V8Inspector");
+        }
+    }
+
+    public void i() {
+        c cVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (cVar = this.c) != null) {
+            cVar.stop();
+            this.c = null;
+        }
+    }
+
+    public h42(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = context;
+    }
+
+    public static void g(int i) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65543, null, i) == null) {
+            oe3 a2 = ue3.a();
+            if (i == 2) {
+                z = true;
+            } else {
+                z = false;
+            }
+            a2.putBoolean("Inspector", z);
+            d = i;
+        }
+    }
+
+    public void f(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+            this.b = bVar;
+        }
     }
 }

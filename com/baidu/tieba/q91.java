@@ -1,81 +1,80 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Looper;
-import android.os.Message;
-import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nps.interfa.IStatisticManager;
+import com.baidu.nps.interfa.IStatisticManager_StatisticManager_Provider;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.CountDownLatch;
 /* loaded from: classes7.dex */
 public class q91 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile q91 b;
+    public static q91 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    @Inject
+    public of1<IStatisticManager> a;
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            mf1 b2 = mf1.b();
+            this.a = b2;
+            b2.a(new IStatisticManager_StatisticManager_Provider());
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948046560, "Lcom/baidu/tieba/q91;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948046560, "Lcom/baidu/tieba/q91;");
+                return;
+            }
+        }
+        b = new q91();
+    }
 
     public q91() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = false;
+        c();
     }
 
     public static q91 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (q91.class) {
-                    if (b == null) {
-                        b = new q91();
-                    }
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             return b;
         }
         return (q91) invokeV.objValue;
     }
 
-    public void b(Context context) {
+    public IStatisticManager b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, context) != null) || this.a) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.get();
         }
-        if (Thread.currentThread() == Looper.getMainLooper().getThread()) {
-            c(context);
-            return;
-        }
-        CountDownLatch countDownLatch = new CountDownLatch(1);
-        new p91(context, countDownLatch).sendMessage(Message.obtain());
-        try {
-            countDownLatch.await();
-        } catch (Exception unused) {
-        }
-    }
-
-    public final void c(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            b91.a().c();
-            try {
-                new WebView(context);
-            } catch (Exception unused) {
-            }
-            this.a = true;
-        }
+        return (IStatisticManager) invokeV.objValue;
     }
 }

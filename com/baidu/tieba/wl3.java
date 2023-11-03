@@ -1,78 +1,45 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class wl3 extends p13 {
+public class wl3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public class a implements ik3<Bundle> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wl3 a;
-
-        public a(wl3 wl3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wl3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = wl3Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ik3
-        /* renamed from: b */
-        public void a(Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-                this.a.d.putBundle("key_result_stokent", bundle);
-                this.a.c();
-            }
-        }
-    }
-
-    public wl3() {
+    public static void a(@NonNull vl3 vl3Var, @NonNull mw2 mw2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.p13
-    public void b(@NonNull Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            String[] stringArray = bundle.getStringArray("key_param_tpl_list");
-            if (stringArray != null && stringArray.length >= 1) {
-                ql3.u(AppRuntime.getAppContext(), new a(this), stringArray);
+        if (interceptable == null || interceptable.invokeLL(65536, null, vl3Var, mw2Var) == null) {
+            vl3Var.f(mw2Var.d());
+            vl3Var.g(mw2Var.e());
+            if (mw2Var.g()) {
+                vl3Var.a(1);
             } else {
-                c();
+                vl3Var.e(1);
             }
         }
+    }
+
+    public static FrameLayout.LayoutParams b(@NonNull os1 os1Var, @NonNull mw2 mw2Var) {
+        InterceptResult invokeLL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, os1Var, mw2Var)) == null) {
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(mw2Var.f(), mw2Var.c());
+            int i2 = 0;
+            if (mw2Var.g()) {
+                i2 = os1Var.getWebViewScrollX();
+                i = os1Var.getWebViewScrollY();
+            } else {
+                i = 0;
+            }
+            layoutParams.leftMargin = mw2Var.d() + i2;
+            layoutParams.topMargin = mw2Var.e() + i;
+            return layoutParams;
+        }
+        return (FrameLayout.LayoutParams) invokeLL.objValue;
     }
 }

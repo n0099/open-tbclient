@@ -1,79 +1,80 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.Item;
+import tbclient.RecommendForumInfo;
+import tbclient.SearchSug.DataRes;
+import tbclient.SugLiveInfo;
+import tbclient.SugRankingInfo;
 /* loaded from: classes6.dex */
-public class if9 implements yh {
+public class if9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public boolean b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947851725, "Lcom/baidu/tieba/if9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static List<oi> a(DataRes dataRes, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, dataRes, str)) == null) {
+            if (dataRes == null) {
+                return null;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947851725, "Lcom/baidu/tieba/if9;");
-                return;
+            ArrayList arrayList = new ArrayList();
+            List<RecommendForumInfo> list = dataRes.forum_cards;
+            if (list != null && list.size() > 0) {
+                for (int i = 0; i < list.size(); i++) {
+                    if (list.get(i) != null) {
+                        ef9 ef9Var = new ef9();
+                        ef9Var.i(list.get(i));
+                        ef9Var.l(true);
+                        arrayList.add(ef9Var);
+                    }
+                }
+            } else {
+                RecommendForumInfo recommendForumInfo = dataRes.forum_card;
+                if (recommendForumInfo != null) {
+                    ef9 ef9Var2 = new ef9();
+                    ef9Var2.i(recommendForumInfo);
+                    ef9Var2.l(false);
+                    arrayList.add(ef9Var2);
+                }
             }
-        }
-        c = BdUniqueId.gen();
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.yh
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public if9(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+            Item item = dataRes.item_card;
+            if (item != null) {
+                ff9 ff9Var = new ff9();
+                ff9Var.g(item);
+                arrayList.add(ff9Var);
             }
+            for (SugLiveInfo sugLiveInfo : dataRes.live_card) {
+                gf9 gf9Var = new gf9();
+                gf9Var.n(str);
+                gf9Var.l(sugLiveInfo);
+                arrayList.add(gf9Var);
+            }
+            SugRankingInfo sugRankingInfo = dataRes.ranking_card;
+            if (sugRankingInfo != null) {
+                hf9 hf9Var = new hf9();
+                hf9Var.f(str);
+                hf9Var.e(sugRankingInfo);
+                arrayList.add(hf9Var);
+            }
+            int size = arrayList.size();
+            for (String str2 : dataRes.list) {
+                df9 df9Var = new df9();
+                df9Var.c(str);
+                df9Var.d(str2);
+                if (!StringUtils.isNull(str2) && !StringUtils.isNull(str) && str2.trim().equals(str.trim())) {
+                    arrayList.add(size, df9Var);
+                } else {
+                    arrayList.add(df9Var);
+                }
+            }
+            return arrayList;
         }
-        this.a = bdUniqueId;
-    }
-
-    public void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.b = z;
-        }
+        return (List) invokeLL.objValue;
     }
 }

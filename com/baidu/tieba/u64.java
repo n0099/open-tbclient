@@ -1,27 +1,41 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class u64 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile t64 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public JSONObject d;
+    public v64 e;
 
-    public static synchronized t64 a() {
-        InterceptResult invokeV;
-        t64 t64Var;
+    public u64() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (u64.class) {
-                if (a == null) {
-                    a = new t64();
-                }
-                t64Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return t64Var;
         }
-        return (t64) invokeV.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "{ videoPath=" + this.a + " , query=" + this.b + " , title=" + this.c + ", extra=" + this.d + ", videoEditorParams=" + this.e + " }";
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -8,7 +8,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.NegativeFeedBackData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.jv4;
+import com.baidu.tieba.bw4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +21,7 @@ import java.util.List;
 import tbclient.ActivityPage.SpecialColumn;
 import tbclient.ActivityPage.SpecialColumnList;
 /* loaded from: classes6.dex */
-public class SpecialColumnListData extends jv4 implements Parcelable {
+public class SpecialColumnListData extends bw4 implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<SpecialColumnListData> CREATOR;
     public static final int MAX_SIZE = 3;
@@ -41,7 +41,7 @@ public class SpecialColumnListData extends jv4 implements Parcelable {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.jv4
+    @Override // com.baidu.tieba.bw4
     public NegativeFeedBackData getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -51,7 +51,7 @@ public class SpecialColumnListData extends jv4 implements Parcelable {
         return (NegativeFeedBackData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.jv4
+    @Override // com.baidu.tieba.bw4
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -166,7 +166,7 @@ public class SpecialColumnListData extends jv4 implements Parcelable {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yh
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.oi
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

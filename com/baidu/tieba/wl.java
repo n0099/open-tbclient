@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.model.info.TaskInfo;
-import com.baidu.bdtask.utils.UniqueId;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,13 +10,36 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class wl extends rl {
+public final class wl extends cm {
     public static /* synthetic */ Interceptable $ic;
-    public static final UniqueId b;
-    public static final a c;
+    public static final a f;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String d;
+    public final String e;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448320888, "Lcom/baidu/tieba/wl;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448320888, "Lcom/baidu/tieba/wl;");
+                return;
+            }
+        }
+        f = new a(null);
+    }
+
+    @Override // com.baidu.tieba.qm
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TaskDuplicatedCacheAction" : (String) invokeV.objValue;
+    }
 
     /* loaded from: classes8.dex */
     public static final class a {
@@ -37,65 +60,86 @@ public final class wl extends rl {
             }
         }
 
-        public final UniqueId a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeV = interceptable.invokeV(1048576, this)) != null) {
-                return (UniqueId) invokeV.objValue;
-            }
-            return wl.b;
-        }
-
         public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
-    }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448320888, "Lcom/baidu/tieba/wl;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+        public final wl a(TaskInfo taskInfo, String str) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, taskInfo, str)) == null) {
+                return new wl(taskInfo, str, null, 0, null, null, 60, null);
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448320888, "Lcom/baidu/tieba/wl;");
-                return;
-            }
+            return (wl) invokeLL.objValue;
         }
-        c = new a(null);
-        UniqueId gen = UniqueId.gen("TaskBackFlowCancelEvent");
-        Intrinsics.checkExpressionValueIsNotNull(gen, "UniqueId.gen(\"TaskBackFlowCancelEvent\")");
-        b = gen;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "" + c.a().getAlias() + ':' + a().toJson();
-        }
-        return (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wl(TaskInfo taskInfo) {
-        super(taskInfo);
+    public wl(TaskInfo taskInfo, String str, String str2, int i, Integer num, String str3) {
+        super(str2, num, str3);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {taskInfo};
+            Object[] objArr = {taskInfo, str, str2, Integer.valueOf(i), num, str3};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((TaskInfo) newInitContext.callArgs[0]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (Integer) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.d = str;
+        this.e = str2;
+    }
+
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public /* synthetic */ wl(TaskInfo taskInfo, String str, String str2, int i, Integer num, String str3, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this(taskInfo, str, r3, r4, r5, r6);
+        int i3;
+        Integer num2;
+        String str4;
+        String singleKey = (i2 & 4) != 0 ? taskInfo.getSingleKey() : str2;
+        if ((i2 & 8) != 0) {
+            i3 = 8;
+        } else {
+            i3 = i;
+        }
+        if ((i2 & 16) != 0) {
+            num2 = null;
+        } else {
+            num2 = num;
+        }
+        if ((i2 & 32) != 0) {
+            str4 = null;
+        } else {
+            str4 = str3;
+        }
+    }
+
+    @Override // com.baidu.tieba.cm
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
     }
 }

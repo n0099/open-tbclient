@@ -1,5 +1,5 @@
 package com.google.zxing.pdf417;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class PDF417ResultMetadata {
     public String fileId;
     public boolean lastSegment;

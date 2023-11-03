@@ -1,63 +1,155 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import androidx.exifinterface.media.ExifInterface;
+import android.content.Context;
+import android.view.View;
+import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.view.BjhArticleLayout;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.ns;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.exoplayer2.text.cea.Cea608Decoder;
-import kotlin.jvm.internal.ByteCompanionObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class eu {
+public class eu extends us {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public LinearLayout h;
+    public BjhArticleLayout i;
+    public bw4 j;
+    public int k;
 
-    public static byte[] a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? new byte[]{-8, 55, 15, 115, 74, -108, -56, -37, -56, -80, -90, 107, 115, -78, 65, 82, ExifInterface.MARKER_SOF5, 2, -104, 65, 10, 21, 19, -71, -74, 114, -100, 1, 29, -66, 72, 72} : (byte[]) invokeV.objValue;
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ eu a;
+
+        public a(eu euVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {euVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = euVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            eu euVar;
+            ns.a aVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (aVar = (euVar = this.a).e) != null) {
+                aVar.a(euVar.j);
+            }
+        }
     }
 
-    public static byte[] b() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public eu(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new byte[]{-102, 65, ExifInterface.MARKER_SOF6, 79, -27, -122, 9, -80, 45, 79, 37, -12, 70, -80, -110, 30} : (byte[]) invokeV.objValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.k = 3;
     }
 
-    public static byte[] c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ns
+    public void n(xl6<bw4> xl6Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new byte[]{ExifInterface.MARKER_SOI, ExifInterface.MARKER_SOF5, -7, 54, -86, 73, -69, 120, 54, -124, -45, -125, 120, -95, 68, 70} : (byte[]) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xl6Var) == null) {
+            super.n(xl6Var);
+            BjhArticleLayout bjhArticleLayout = this.i;
+            if (bjhArticleLayout != null) {
+                bjhArticleLayout.setSubClickListener(xl6Var);
+            }
+        }
     }
 
-    public static byte[] d() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ht
+    /* renamed from: y */
+    public void onBindDataToView(bw4 bw4Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new byte[]{121, -75, ExifInterface.MARKER_SOF0, -117, -32, 4, -8, -19, -11, 84, -123, -65, -29, -73, 23, ByteCompanionObject.MAX_VALUE, 52, ExifInterface.MARKER_SOF10, 124, 29, 10, -105, -19, 73, 56, 100, ExifInterface.START_CODE, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, -13, 25, -76, -71} : (byte[]) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bw4Var) == null) {
+            this.j = bw4Var;
+            BjhArticleLayout bjhArticleLayout = this.i;
+            if (bjhArticleLayout != null) {
+                bjhArticleLayout.onBindDataToView(bw4Var);
+            }
+        }
     }
 
-    public static byte[] e() {
-        InterceptResult invokeV;
+    public void z(ns.a aVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new byte[]{10, 28, ExifInterface.MARKER_SOF11, -126, Constants.GZIP_CAST_TYPE, -111, 68, -11, -28, Constants.SHORT_PING_CMD_TYPE, 81, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 59, -1, 98, ExifInterface.MARKER_SOF6, -25, -60, ExifInterface.MARKER_SOF9, 70, 66, 51, ExifInterface.MARKER_SOF1, -79, -96, 37, 70, 7, 108, 59, -79, -65} : (byte[]) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
+            this.e = aVar;
+        }
     }
 
-    public static byte[] f() {
+    @Override // com.baidu.tieba.ns
+    public View g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? new byte[]{-14, -21, -20, -77, 32, 107, ExifInterface.MARKER_SOF1, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, -44, -86, 57, ExifInterface.MARKER_APP1, 102, 90, 4, 13, 91, 22, 84, 30, -86, 4, -106, ExifInterface.MARKER_SOF2, 49, 108, 61, 48, -101, 90, -110, 88} : (byte[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.h == null) {
+                LinearLayout linearLayout = new LinearLayout(this.b);
+                this.h = linearLayout;
+                SkinManager.setBackgroundColor(linearLayout, R.color.CAM_X0206);
+                this.h.setOrientation(1);
+                this.h.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+            }
+            this.h.removeAllViews();
+            if (this.i == null) {
+                BjhArticleLayout bjhArticleLayout = new BjhArticleLayout(this.b);
+                this.i = bjhArticleLayout;
+                bjhArticleLayout.setJumpToPbListener(new a(this));
+            }
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+            layoutParams.topMargin = this.b.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
+            layoutParams.leftMargin = this.b.getResources().getDimensionPixelSize(R.dimen.M_W_X007);
+            layoutParams.rightMargin = this.b.getResources().getDimensionPixelSize(R.dimen.M_W_X007);
+            layoutParams.bottomMargin = this.b.getResources().getDimensionPixelSize(R.dimen.M_H_X005);
+            this.h.addView(this.i, layoutParams);
+            return this.h;
+        }
+        return (View) invokeV.objValue;
     }
 
-    public static byte[] g() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.it
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? new byte[]{-71, 92, 64, -96, 123, 89, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 119, -7, 115, 0, 56, 80, 20, 16, ExifInterface.MARKER_SOF0, -23, -79, -32, ExifInterface.MARKER_SOF9, 2, 124, -48, -16, 14, -95, -96, -96, -56, -88, ExifInterface.MARKER_SOF9, 63} : (byte[]) invokeV.objValue;
-    }
-
-    public static byte[] h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? new byte[]{-101, -5, -82, -122, -10, 77, ExifInterface.MARKER_SOF14, -88, 27, -103, -100, 67, 98, 89, -44, -92, -125, 65, -82, -74, 1, 92, -103, -116, 74, -60, 73, 78, 77, -42, 107, -109} : (byte[]) invokeV.objValue;
+        if ((interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) && i != this.k) {
+            this.k = i;
+            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0206);
+            BjhArticleLayout bjhArticleLayout = this.i;
+            if (bjhArticleLayout != null) {
+                bjhArticleLayout.onChangeSkinType(tbPageContext, i);
+            }
+        }
     }
 }

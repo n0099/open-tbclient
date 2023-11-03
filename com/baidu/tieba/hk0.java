@@ -1,14 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import org.json.JSONObject;
+import android.graphics.Bitmap;
 /* loaded from: classes6.dex */
 public interface hk0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "rewardRequest");
+    void a();
 
-    /* loaded from: classes6.dex */
-    public interface a {
-    }
-
-    void a(JSONObject jSONObject, a aVar);
+    void b(Bitmap bitmap);
 }

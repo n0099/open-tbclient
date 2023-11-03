@@ -1,56 +1,69 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.atomic.AtomicReference;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
+import tbclient.PluginUser;
+import tbclient.TiebaPlusInfo;
 /* loaded from: classes8.dex */
-public final class ro6<T> {
+public final class ro6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicReference<T> a;
-    public final CountDownLatch b;
 
-    public ro6() {
+    public static final TiebaPlusInfo a(d57 businessInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            TiebaPlusInfo.Builder builder = new TiebaPlusInfo.Builder();
+            String str = businessInfo.a().get("tie_plus_info");
+            if (str != null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    builder.title = jSONObject.optString("title");
+                    builder.desc = jSONObject.optString("desc");
+                    builder.jump_url = jSONObject.optString(BigdayActivityConfig.JUMP_URL);
+                    builder.download_url = jSONObject.optString("download_url");
+                    builder.app_id = jSONObject.optString("app_id");
+                    builder.app_icon = jSONObject.optString("app_icon");
+                    builder.app_package = jSONObject.optString("app_package");
+                    builder.app_version = jSONObject.optString("app_version");
+                    builder.app_privacy = jSONObject.optString("app_privacy");
+                    builder.app_power = jSONObject.optString("app_power");
+                    builder.app_company = jSONObject.optString("app_company");
+                    builder.target_type = Integer.valueOf(jSONObject.optInt(GameGuideConfigInfo.KEY_TARGET_TYPE));
+                    builder.h5_jump_type = Integer.valueOf(jSONObject.optInt("h5_jump_type"));
+                    builder.h5_jump_number = jSONObject.optString("h5_jump_number");
+                    builder.h5_jump_param = jSONObject.optString("h5_jump_param");
+                    builder.jump_type = Integer.valueOf(jSONObject.optInt("jump_type"));
+                    builder.item_id = jSONObject.optString("item_id");
+                    builder.is_appoint = Integer.valueOf(jSONObject.optInt("is_appoint"));
+                    if (jSONObject.has("plugin_user")) {
+                        JSONObject jSONObject2 = new JSONObject(jSONObject.optString("plugin_user"));
+                        PluginUser.Builder builder2 = new PluginUser.Builder();
+                        builder2.user_id = Long.valueOf(jSONObject2.optLong("user_id"));
+                        builder2.user_name_show = jSONObject2.optString("user_name_show");
+                        builder2.user_type = Integer.valueOf(jSONObject2.optInt("user_type"));
+                        builder2.user_photo = jSONObject2.optString("user_photo");
+                        builder2.is_download_card_whiteuser = Integer.valueOf(jSONObject2.optInt("is_download_card_whiteuser"));
+                        builder.plugin_user = builder2.build(false);
+                    }
+                    builder.forum_name = jSONObject.optString("forum_name");
+                    builder.jump_setting = Integer.valueOf(jSONObject.optInt("jump_setting"));
+                    builder.wx_thumbnail = jSONObject.optString("wx_thumbnail");
+                    builder.button_desc = jSONObject.optString("button_desc");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
+            TiebaPlusInfo build = builder.build(true);
+            Intrinsics.checkNotNullExpressionValue(build, "builder.build(true)");
+            return build;
         }
-        this.a = new AtomicReference<>();
-        this.b = new CountDownLatch(1);
-    }
-
-    public final T a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                this.b.await();
-                return this.a.get();
-            } catch (InterruptedException unused) {
-                return null;
-            }
-        }
-        return (T) invokeV.objValue;
-    }
-
-    public final void b(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-            this.a.set(t);
-            this.b.countDown();
-        }
+        return (TiebaPlusInfo) invokeL.objValue;
     }
 }

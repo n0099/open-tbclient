@@ -6,7 +6,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.sdkcode.ISdkCodePlugin;
-import com.baidu.tieba.t4a;
+import com.baidu.tieba.yha;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -137,7 +137,7 @@ public final class TtsManager {
         TtsApi ttsApi;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ISdkCodePlugin h = t4a.a.h();
+            ISdkCodePlugin h = yha.a.h();
             if (h != null) {
                 ttsApi = h.createTtsApi();
             } else {

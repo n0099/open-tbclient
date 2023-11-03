@@ -13,16 +13,16 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.da8;
+import com.baidu.tieba.bn8;
 import com.baidu.tieba.im.base.core.tag.core.BaseTagItemViewHolder;
 import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
 import com.baidu.tieba.im.lib.socket.msg.data.BotsDTO;
 import com.baidu.tieba.im.under.common.tag.item.TagSugItemViewHolder;
+import com.baidu.tieba.jv8;
 import com.baidu.tieba.lego.card.utils.ColorUtils;
-import com.baidu.tieba.li8;
-import com.baidu.tieba.v98;
-import com.baidu.tieba.w98;
-import com.baidu.tieba.wi8;
+import com.baidu.tieba.tm8;
+import com.baidu.tieba.um8;
+import com.baidu.tieba.uv8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +33,7 @@ public class TagSugItemViewHolder extends BaseTagItemViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TextView c;
-    public li8 d;
+    public jv8 d;
     public String e;
     public long f;
     public long g;
@@ -43,7 +43,7 @@ public class TagSugItemViewHolder extends BaseTagItemViewHolder {
     public BotsDTO.BotListDTO.UserDTO i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TagSugItemViewHolder(@NonNull View view2, @NonNull final w98 w98Var, @Nullable da8 da8Var) {
+    public TagSugItemViewHolder(@NonNull View view2, @NonNull final um8 um8Var, @Nullable bn8 bn8Var) {
         super(view2);
         long j;
         String str;
@@ -51,7 +51,7 @@ public class TagSugItemViewHolder extends BaseTagItemViewHolder {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, w98Var, da8Var};
+            Object[] objArr = {view2, um8Var, bn8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -62,25 +62,25 @@ public class TagSugItemViewHolder extends BaseTagItemViewHolder {
                 return;
             }
         }
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923c8);
-        if (da8Var != null) {
-            da8Var.b();
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09241f);
+        if (bn8Var != null) {
+            bn8Var.b();
         }
-        if (da8Var != null) {
-            j = da8Var.a();
+        if (bn8Var != null) {
+            j = bn8Var.a();
         } else {
             j = 0;
         }
         this.f = j;
-        this.g = da8Var != null ? da8Var.c() : 0L;
-        if (da8Var != null) {
-            str = da8Var.d();
+        this.g = bn8Var != null ? bn8Var.c() : 0L;
+        if (bn8Var != null) {
+            str = bn8Var.d();
         } else {
             str = "";
         }
         this.e = str;
-        ((ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0923c7)).setVisibility(8);
-        view2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.bi8
+        ((ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09241e)).setVisibility(8);
+        view2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.zu8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -88,23 +88,23 @@ public class TagSugItemViewHolder extends BaseTagItemViewHolder {
             public final void onClick(View view3) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
-                    TagSugItemViewHolder.this.n(w98Var, view3);
+                    TagSugItemViewHolder.this.o(um8Var, view3);
                 }
             }
         });
     }
 
     @Override // com.baidu.tieba.im.base.core.tag.core.BaseTagItemViewHolder
-    public void f(v98 v98Var, Context context, int i) {
+    public void f(tm8 tm8Var, Context context, int i) {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, v98Var, context, i) == null) {
-            super.f(v98Var, context, i);
-            if (v98Var instanceof li8) {
-                li8 li8Var = (li8) v98Var;
-                this.d = li8Var;
-                this.c.setText(li8Var.c());
-                String b = wi8.b(this.d.b());
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, tm8Var, context, i) == null) {
+            super.f(tm8Var, context, i);
+            if (tm8Var instanceof jv8) {
+                jv8 jv8Var = (jv8) tm8Var;
+                this.d = jv8Var;
+                this.c.setText(jv8Var.c());
+                String b = uv8.b(this.d.b());
                 AbilityItem b2 = this.d.b();
                 String bdUidFromBdUK = BIMManager.getBdUidFromBdUK(this.d.b().getStyleConf().getToUk());
                 BotsDTO.BotListDTO.SkillDTO skillDTO = this.h;
@@ -113,8 +113,8 @@ public class TagSugItemViewHolder extends BaseTagItemViewHolder {
                 } else {
                     str = "";
                 }
-                wi8.f("c15300", 1, b2, bdUidFromBdUK, str, this.f, this.g, this.e, b);
-                o(TbadkCoreApplication.getInst().getSkinType());
+                uv8.f("c15300", 1, b2, bdUidFromBdUK, str, this.f, this.g, this.e, b);
+                p(TbadkCoreApplication.getInst().getSkinType());
             }
         }
     }
@@ -124,18 +124,18 @@ public class TagSugItemViewHolder extends BaseTagItemViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.h(i);
-            o(i);
+            p(i);
         }
     }
 
-    public void p(@Nullable BotsDTO.BotListDTO.SkillDTO skillDTO) {
+    public void q(@Nullable BotsDTO.BotListDTO.SkillDTO skillDTO) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, skillDTO) == null) {
             this.h = skillDTO;
         }
     }
 
-    public void s(@Nullable BotsDTO.BotListDTO.UserDTO userDTO) {
+    public void t(@Nullable BotsDTO.BotListDTO.UserDTO userDTO) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, userDTO) == null) {
             this.i = userDTO;
@@ -150,7 +150,7 @@ public class TagSugItemViewHolder extends BaseTagItemViewHolder {
         }
     }
 
-    public AbilityItem.Style m(@NonNull AbilityItem.StyleConf styleConf, int i) {
+    public AbilityItem.Style n(@NonNull AbilityItem.StyleConf styleConf, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, styleConf, i)) == null) {
@@ -162,13 +162,13 @@ public class TagSugItemViewHolder extends BaseTagItemViewHolder {
         return (AbilityItem.Style) invokeLI.objValue;
     }
 
-    public /* synthetic */ void n(w98 w98Var, View view2) {
+    public /* synthetic */ void o(um8 um8Var, View view2) {
         String str;
         String str2;
-        if (w98Var != null && this.d != null) {
-            w98Var.a(getAdapterPosition(), true, this.d.b());
-            o(TbadkCoreApplication.getInst().getSkinType());
-            String b = wi8.b(this.d.b());
+        if (um8Var != null && this.d != null) {
+            um8Var.a(getAdapterPosition(), true, this.d.b());
+            p(TbadkCoreApplication.getInst().getSkinType());
+            String b = uv8.b(this.d.b());
             BotsDTO.BotListDTO.UserDTO userDTO = this.i;
             if (userDTO == null) {
                 str = "";
@@ -182,27 +182,27 @@ public class TagSugItemViewHolder extends BaseTagItemViewHolder {
             } else {
                 str2 = skillDTO.getName();
             }
-            wi8.f("c15300", 2, b2, str, str2, this.f, this.g, this.e, b);
+            uv8.f("c15300", 2, b2, str, str2, this.f, this.g, this.e, b);
         }
     }
 
-    public final void o(int i) {
-        li8 li8Var;
-        AbilityItem.Style m;
+    public final void p(int i) {
+        jv8 jv8Var;
+        AbilityItem.Style n;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048581, this, i) != null) || (li8Var = this.d) == null || li8Var.b().getStyleConf() == null || (m = m(this.d.b().getStyleConf(), i)) == null) {
+        if ((interceptable != null && interceptable.invokeI(1048581, this, i) != null) || (jv8Var = this.d) == null || jv8Var.b().getStyleConf() == null || (n = n(this.d.b().getStyleConf(), i)) == null) {
             return;
         }
-        if (m.getContentColor() != null && m.getBackgroundColor() != null && !ColorUtils.isColorInvalid(ColorUtils.parseColor(m.getContentColor())) && !ColorUtils.isColorInvalid(ColorUtils.parseColor(m.getBackgroundColor()))) {
-            r(m.getBackgroundColor(), m.getContentColor());
+        if (n.getContentColor() != null && n.getBackgroundColor() != null && !ColorUtils.isColorInvalid(ColorUtils.parseColor(n.getContentColor())) && !ColorUtils.isColorInvalid(ColorUtils.parseColor(n.getBackgroundColor()))) {
+            s(n.getBackgroundColor(), n.getContentColor());
         } else {
-            q();
+            r();
         }
         this.c.setMaxLines(1);
         this.c.setSingleLine();
     }
 
-    public final void q() {
+    public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             EMManager.from(this.itemView).setCorner(R.string.deprecated_J_X19).setBackGroundSelectorColor(R.color.CAM_X0905);
@@ -210,7 +210,7 @@ public class TagSugItemViewHolder extends BaseTagItemViewHolder {
         }
     }
 
-    public final void r(@NonNull String str, @NonNull String str2) {
+    public final void s(@NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) {
             EMManager.from(this.itemView).setCorner(R.string.deprecated_J_X19).setAlpha(R.string.A_X11).setBackGroundColorString(str);

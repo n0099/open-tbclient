@@ -8,7 +8,7 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.homepage.topic.local.message.LocalChannelTopicListResponseMessage;
-import com.baidu.tieba.o48;
+import com.baidu.tieba.jh8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ public class LocalChannelTopicListModel extends BdBaseModel<LocalChannelTopicLis
 
     /* loaded from: classes6.dex */
     public interface b {
-        void a(o48 o48Var);
+        void a(jh8 jh8Var);
 
         void onFail(String str);
     }
@@ -79,9 +79,9 @@ public class LocalChannelTopicListModel extends BdBaseModel<LocalChannelTopicLis
                 }
                 return;
             }
-            o48 o48Var = ((LocalChannelTopicListResponseMessage) httpResponsedMessage).data;
+            jh8 jh8Var = ((LocalChannelTopicListResponseMessage) httpResponsedMessage).data;
             if (this.a.a != null) {
-                this.a.a.a(o48Var);
+                this.a.a.a(jh8Var);
             }
         }
     }
@@ -109,7 +109,7 @@ public class LocalChannelTopicListModel extends BdBaseModel<LocalChannelTopicLis
         registerListener(aVar);
     }
 
-    public void O(b bVar) {
+    public void P(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             this.a = bVar;

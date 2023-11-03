@@ -1,33 +1,80 @@
 package com.baidu.tieba;
 
-import androidx.core.app.NotificationCompat;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.stats.BdStatsItem;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ubc.UBCManager;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class fc extends qb {
+public class fc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fc(mc mcVar) {
-        super(mcVar);
+    public static boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mcVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((mc) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void a(BdStatsItem bdStatsItem) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65536, null, bdStatsItem) == null) && d() && bdStatsItem != null) {
+            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("ext", bdStatsItem.toJSONObject());
+                uBCManager.onEvent("3102", jSONObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
-        this.o = NotificationCompat.CATEGORY_ERROR;
+    }
+
+    public static void b(BdStatsItem bdStatsItem) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65537, null, bdStatsItem) == null) && d() && bdStatsItem != null) {
+            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("ext", bdStatsItem.toJSONObject());
+                uBCManager.onEvent("3052", jSONObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void c(BdStatsItem bdStatsItem) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65538, null, bdStatsItem) == null) && d() && bdStatsItem != null) {
+            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("ext", bdStatsItem.toJSONObject());
+                uBCManager.onEvent("3103", jSONObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void e(gc gcVar, BdStatsItem bdStatsItem) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, gcVar, bdStatsItem) == null) {
+            if (gcVar instanceof vc) {
+                c(bdStatsItem);
+            } else if (gcVar instanceof uc) {
+                b(bdStatsItem);
+            } else if (gcVar instanceof sc) {
+                a(bdStatsItem);
+            }
+        }
     }
 }

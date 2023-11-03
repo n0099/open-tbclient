@@ -178,7 +178,7 @@ public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk
                     }
                 }
                 if (adTemplate != null) {
-                    AdWebViewActivityProxy.launch(p.this.getContext(), new AdWebViewActivityProxy.a.C0626a().ao(bVar.title).ap(bVar.url).N(adTemplate).nx());
+                    AdWebViewActivityProxy.launch(p.this.getContext(), new AdWebViewActivityProxy.a.C0632a().ao(bVar.title).ap(bVar.url).N(adTemplate).nx());
                 }
             }
         }));
@@ -236,9 +236,9 @@ public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk
 
     private void hl() {
         SceneImpl sceneImpl = this.nM.mAdTemplate.mAdScene;
-        SceneImpl m177clone = sceneImpl != null ? sceneImpl.m177clone() : null;
-        if (m177clone != null) {
-            com.kwad.components.ad.reward.e.a(m177clone, this);
+        SceneImpl m181clone = sceneImpl != null ? sceneImpl.m181clone() : null;
+        if (m181clone != null) {
+            com.kwad.components.ad.reward.e.a(m181clone, this);
         }
     }
 
@@ -364,7 +364,7 @@ public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        KsRefluxView ksRefluxView = (KsRefluxView) findViewById(R.id.obfuscated_res_0x7f0913ed);
+        KsRefluxView ksRefluxView = (KsRefluxView) findViewById(R.id.obfuscated_res_0x7f09142b);
         this.qX = ksRefluxView;
         this.bF = ksRefluxView.getWebView();
         this.qX.setViewListener(this);

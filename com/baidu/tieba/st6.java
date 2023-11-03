@@ -1,81 +1,161 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tieba.downloadmanager.data.DownloadManageModeCardType;
-import com.baidu.tieba.downloadmanager.ui.adapter.ItemCardViewWrapperAdapter;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 /* loaded from: classes8.dex */
-public class st6 {
+public final class st6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a f;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseFragment a;
-    public BdTypeRecyclerView b;
-    public ItemCardViewWrapperAdapter c;
-    public List<lh> d;
-    public int e;
-    public int f;
+    public long a;
+    public float b;
+    public boolean c;
+    public float d;
+    public long e;
 
-    public st6(BaseFragment baseFragment, BdTypeRecyclerView bdTypeRecyclerView, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragment, bdTypeRecyclerView, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948162996, "Lcom/baidu/tieba/st6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948162996, "Lcom/baidu/tieba/st6;");
                 return;
             }
         }
-        this.d = new ArrayList();
-        this.a = baseFragment;
-        this.b = bdTypeRecyclerView;
-        this.e = i;
-        this.f = i2;
-        b();
+        f = new a(null);
     }
 
-    public void a(DownloadManageModeCardType downloadManageModeCardType) {
-        ItemCardViewWrapperAdapter itemCardViewWrapperAdapter;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, downloadManageModeCardType) == null) && (itemCardViewWrapperAdapter = this.c) != null) {
-            itemCardViewWrapperAdapter.E(downloadManageModeCardType);
+    /* loaded from: classes8.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public final long b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return System.nanoTime();
+            }
+            return invokeV.longValue;
         }
     }
 
-    public void d(ItemCardViewWrapperAdapter.b bVar) {
-        ItemCardViewWrapperAdapter itemCardViewWrapperAdapter;
+    public st6() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) && (itemCardViewWrapperAdapter = this.c) != null) {
-            itemCardViewWrapperAdapter.H(bVar);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = 1.0f;
+        this.c = true;
+    }
+
+    public final long a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e / 1000000;
+        }
+        return invokeV.longValue;
+    }
+
+    public final float b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return invokeV.floatValue;
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static /* synthetic */ void f(st6 st6Var, long j, float f2, int i, Object obj) {
+        if ((i & 1) != 0) {
+            j = st6Var.a();
+        }
+        if ((i & 2) != 0) {
+            f2 = st6Var.b;
+        }
+        st6Var.e(j, f2);
+    }
+
+    public final void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.c = z;
         }
     }
 
-    public final void b() {
+    public final void e(long j, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ItemCardViewWrapperAdapter itemCardViewWrapperAdapter = new ItemCardViewWrapperAdapter(this.a.getContext(), ht6.g, this.e, this.b, this.f);
-            this.c = itemCardViewWrapperAdapter;
-            this.d.add(itemCardViewWrapperAdapter);
-            this.b.addAdapters(this.d);
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Float.valueOf(f2)}) == null) {
+            this.c = false;
+            this.e = j * 1000000;
+            this.b = f2;
+            this.a = f.b();
         }
     }
 
-    public void c() {
-        ItemCardViewWrapperAdapter itemCardViewWrapperAdapter;
+    public final void g(Float f2) {
+        long j;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (itemCardViewWrapperAdapter = this.c) != null) {
-            itemCardViewWrapperAdapter.notifyDataSetChanged();
+        if (interceptable == null || interceptable.invokeL(1048581, this, f2) == null) {
+            long b = f.b();
+            if (this.c) {
+                j = 0;
+            } else if (f2 != null) {
+                j = f2.floatValue() * 1000000000;
+            } else {
+                j = b - this.a;
+            }
+            long j2 = ((float) j) * this.b;
+            this.e += j2;
+            this.d = ((float) j2) / 1.0E9f;
+            this.a = b;
         }
     }
 }

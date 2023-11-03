@@ -1,20 +1,31 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collection;
 /* loaded from: classes9.dex */
 public class yi4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public df4 a;
+    public df4 b;
+    public bf4 c;
+    public Collection<if4> d;
+    public Collection<hf4> e;
 
-    public static SharedPreferences a() {
-        InterceptResult invokeV;
+    public yi4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return new yl4("key_pms_sp_name");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        return (SharedPreferences) invokeV.objValue;
     }
 }

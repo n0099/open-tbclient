@@ -1,37 +1,30 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class e0b extends BaseAdapter {
+public class e0b {
     public static /* synthetic */ Interceptable $ic;
+    public static e0b a;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> a;
-    public d0b b;
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
 
     /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
+    public class a extends BdAsyncTask<Void, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ e0b a;
@@ -54,20 +47,26 @@ public class e0b extends BaseAdapter {
             this.a = e0bVar;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Void doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                TbImageView tbImageView = (TbImageView) view2;
-                if (this.a.b != null && tbImageView != null && tbImageView.getBdImage() != null && tbImageView.getBdImage().getRawBitmap() != null) {
-                    this.a.b.a(tbImageView.getBdImage().getRawBitmap(), false);
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
+                List a = e0b.a();
+                int size = a.size();
+                for (int i = 0; i < size; i++) {
+                    d0b d0bVar = (d0b) a.get(i);
+                    this.a.j(d0bVar.a, d0bVar.b);
                 }
+                return null;
             }
+            return (Void) invokeL.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements View.OnClickListener {
+    public class b extends BdAsyncTask<d0b, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ e0b a;
@@ -90,118 +89,228 @@ public class e0b extends BaseAdapter {
             this.a = e0bVar;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public Void doInBackground(d0b... d0bVarArr) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                TbImageView tbImageView = (TbImageView) view2;
-                if (this.a.b != null && tbImageView != null && tbImageView.getBdImage() != null && tbImageView.getBdImage().getRawBitmap() != null) {
-                    this.a.b.a(tbImageView.getBdImage().getRawBitmap(), true);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, d0bVarArr)) == null) {
+                if (d0bVarArr != null && d0bVarArr.length == 1 && d0bVarArr[0] != null) {
+                    this.a.c(d0bVarArr[0]);
                 }
+                return null;
             }
+            return (Void) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TbImageView a;
-        public TbImageView b;
-
-        public c() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947681938, "Lcom/baidu/tieba/e0b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947681938, "Lcom/baidu/tieba/e0b;");
+                return;
             }
         }
+        a = new e0b();
     }
 
     public e0b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public static /* synthetic */ List a() {
+        return h();
+    }
+
+    public static e0b d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (ListUtils.isEmpty(this.a)) {
-                return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return a;
+        }
+        return (e0b) invokeV.objValue;
+    }
+
+    public static File[] g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            File file = new File(jl9.e);
+            if (!file.exists()) {
+                return null;
             }
-            return (int) Math.ceil(this.a.size() / 2.0d);
+            return file.listFiles();
         }
-        return invokeV.intValue;
+        return (File[]) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: b */
-    public String getItem(int i) {
-        InterceptResult invokeI;
+    public void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return (String) ListUtils.getItem(this.a, i);
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public void c(List<String> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || ListUtils.isEmpty(list)) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || !md.c()) {
             return;
         }
-        this.a = list;
+        new a(this).execute(new Void[0]);
     }
 
-    public void d(d0b d0bVar) {
+    public void j(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d0bVar) == null) {
-            this.b = d0bVar;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) {
+            new b(this).execute(new d0b(str, jSONObject));
         }
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        c cVar;
+    public static JSONObject e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0808, (ViewGroup) null);
-                cVar = new c();
-                cVar.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f092652);
-                cVar.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090480);
-                view2.setTag(cVar);
-            } else {
-                cVar = (c) view2.getTag();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (StringUtils.isNull(str) || !new File(str).exists()) {
+                return null;
             }
-            cVar.a.setGifIconSupport(false);
-            cVar.b.setGifIconSupport(false);
-            int i2 = i * 2;
-            cVar.a.startLoad(this.a.get(i2), 10, true);
-            cVar.a.setOnClickListener(new a(this));
-            cVar.b.startLoad(this.a.get(i2 + 1), 10, true);
-            cVar.b.setOnClickListener(new b(this));
-            return view2;
+            try {
+                return new JSONObject().put("running", l(hl9.d(str)));
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
         }
-        return (View) invokeILL.objValue;
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static JSONObject f(String str) {
+        InterceptResult invokeL;
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            File file = new File(str);
+            if (!file.exists()) {
+                return null;
+            }
+            try {
+                jSONObject = new JSONObject(hl9.e(file));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            if (!m(jSONObject)) {
+                return null;
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static boolean m(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, jSONObject)) == null) {
+            int optInt = jSONObject.optInt("errorTimes", -1);
+            int optInt2 = jSONObject.optInt("postSuccess", -1);
+            int optInt3 = jSONObject.optInt("posted", -1);
+            if (optInt != -1 && optInt2 != -1 && optInt3 != -1 && (optInt3 == 1 || optInt > 0)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void c(d0b d0bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, d0bVar) == null) {
+            try {
+                byte[] b2 = f0b.b(d0bVar.b);
+                f0b.c(b2, TbConfig.SERVER_ADDRESS + TbConfig.URL_POST_VIDEO_MONITOR_REPORT);
+                hl9.b(d0bVar.a);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static List<d0b> h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            ArrayList arrayList = new ArrayList();
+            File[] g = g();
+            if (g == null) {
+                return arrayList;
+            }
+            for (File file : g) {
+                String name = file.getName();
+                JSONObject f = f(file.getAbsolutePath() + jl9.a + "kpi");
+                if (f == null) {
+                    hl9.b(name);
+                } else {
+                    JSONObject e = e(file.getAbsolutePath() + jl9.a + "debug");
+                    if (e == null) {
+                        hl9.b(name);
+                    } else {
+                        arrayList.add(new d0b(name, i(VideoPlatformStatic.c(), f, e)));
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public static JSONObject i(JSONObject jSONObject, JSONObject jSONObject2, JSONObject jSONObject3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, jSONObject, jSONObject2, jSONObject3)) == null) {
+            try {
+                JSONObject jSONObject4 = new JSONObject();
+                jSONObject4.put("kpiInfo", jSONObject2);
+                jSONObject4.put("baseInfo", jSONObject);
+                jSONObject4.put("debugInfo", jSONObject3);
+                return jSONObject4;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (JSONObject) invokeLLL.objValue;
+    }
+
+    public static JSONArray l(JSONArray jSONArray) {
+        InterceptResult invokeL;
+        int optInt;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, jSONArray)) == null) {
+            if (jSONArray == null) {
+                return null;
+            }
+            int length = jSONArray.length();
+            boolean z = false;
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                if (optJSONObject != null && ((optInt = optJSONObject.optInt("type")) == 501 || optInt == 503 || optInt == 502)) {
+                    z = true;
+                    break;
+                }
+            }
+            if (!z) {
+                jSONArray.put(new s9a(502, "unknown", -4399, "").a());
+            }
+            return jSONArray;
+        }
+        return (JSONArray) invokeL.objValue;
     }
 }

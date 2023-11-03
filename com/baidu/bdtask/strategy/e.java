@@ -6,9 +6,9 @@ import com.baidu.bdtask.TaskState;
 import com.baidu.bdtask.ctrl.SubTaskState;
 import com.baidu.bdtask.framework.utils.DebugTrace;
 import com.baidu.bdtask.model.info.TaskInfo;
-import com.baidu.tieba.bp;
-import com.baidu.tieba.cp;
-import com.baidu.tieba.qp;
+import com.baidu.tieba.hq;
+import com.baidu.tieba.sp;
+import com.baidu.tieba.tp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,9 +16,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0016\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\u0007\u0010\bJ\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0005\u0010\u0006¨\u0006\t"}, d2 = {"Lcom/baidu/bdtask/strategy/PassiveLifecycleStrategy;", "Lcom/baidu/tieba/qp;", "Lcom/baidu/bdtask/ctrl/SubTaskState;", TaskState.key, "", "onInterruptException", "(Lcom/baidu/bdtask/ctrl/SubTaskState;)V", "<init>", "()V", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0016\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\u0007\u0010\bJ\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0005\u0010\u0006¨\u0006\t"}, d2 = {"Lcom/baidu/bdtask/strategy/PassiveLifecycleStrategy;", "Lcom/baidu/tieba/hq;", "Lcom/baidu/bdtask/ctrl/SubTaskState;", TaskState.key, "", "onInterruptException", "(Lcom/baidu/bdtask/ctrl/SubTaskState;)V", "<init>", "()V", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes3.dex */
-public final class e implements qp {
+public final class e implements hq {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -36,13 +36,13 @@ public final class e implements qp {
         }
     }
 
-    @Override // com.baidu.tieba.qp
+    @Override // com.baidu.tieba.hq
     public void a(SubTaskState subTaskState) {
-        cp d;
-        cp d2;
+        tp d;
+        tp d2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subTaskState) == null) {
-            qp.a.c(this, subTaskState);
+            hq.a.c(this, subTaskState);
             final int curStatusCode = subTaskState.getTaskStatus().getCurStatusCode();
             DebugTrace.a.c(new Function0<String>(curStatusCode) { // from class: com.baidu.bdtask.strategy.PassiveLifecycleStrategy$onInterruptException$1
                 public static /* synthetic */ Interceptable $ic;
@@ -90,26 +90,26 @@ public final class e implements qp {
                     }
                     return;
                 }
-                bp v = BDPTask.m.v();
+                sp v = BDPTask.m.v();
                 if (v != null && (d2 = v.d()) != null) {
                     d2.c(subTaskState.getTaskInfo().getActionId(), "unregister by offline");
                     return;
                 }
                 return;
             }
-            bp v2 = BDPTask.m.v();
+            sp v2 = BDPTask.m.v();
             if (v2 != null && (d = v2.d()) != null) {
                 d.c(subTaskState.getTaskInfo().getActionId(), "task is expired");
             }
         }
     }
 
-    @Override // com.baidu.tieba.qp
+    @Override // com.baidu.tieba.hq
     public boolean b(TaskInfo taskInfo, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo, i)) == null) {
-            return qp.a.b(this, taskInfo, i);
+            return hq.a.b(this, taskInfo, i);
         }
         return invokeLI.booleanValue;
     }
@@ -117,7 +117,7 @@ public final class e implements qp {
     public void c(SubTaskState subTaskState) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, subTaskState) == null) {
-            qp.a.a(this, subTaskState);
+            hq.a.a(this, subTaskState);
         }
     }
 }

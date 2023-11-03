@@ -1,22 +1,20 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.util.Log;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.nps.interfa.IHostAppRuntime;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
+import android.graphics.drawable.BitmapDrawable;
+import com.baidu.adp.widget.ImageView.BdImage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
 /* loaded from: classes8.dex */
-public class tf implements IHostAppRuntime {
+public class tf {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BitmapDrawable a;
+    public BdImage b;
+    public volatile boolean c;
 
     public tf() {
         Interceptable interceptable = $ic;
@@ -28,18 +26,85 @@ public class tf implements IHostAppRuntime {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = true;
     }
 
-    @Override // com.baidu.nps.interfa.IHostAppRuntime
-    public Application getApplication() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Log.e("TAG", "" + BdBaseApplication.getInst());
-            return BdBaseApplication.getInst();
+            if (e()) {
+                return this.a.getIntrinsicHeight();
+            }
+            if (d()) {
+                return this.b.getHeight();
+            }
+            return 0;
         }
-        return (Application) invokeV.objValue;
+        return invokeV.intValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (e()) {
+                return this.a.getIntrinsicWidth();
+            }
+            if (d()) {
+                return this.b.getWidth();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!e() && !d()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            BdImage bdImage = this.b;
+            if (bdImage != null && bdImage.isValidNow()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            BitmapDrawable bitmapDrawable = this.a;
+            if (bitmapDrawable != null && bitmapDrawable.getBitmap() != null && !this.a.getBitmap().isRecycled()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.b = null;
+            this.a = null;
+        }
     }
 }

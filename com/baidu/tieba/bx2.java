@@ -1,124 +1,178 @@
 package com.baidu.tieba;
 
+import android.graphics.Bitmap;
+import android.graphics.Rect;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.websocket.WebSocketManager;
-import com.baidu.searchbox.websocket.WebSocketTask;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashSet;
-import java.util.Set;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class bx2 {
+public class bx2 extends ax2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile Set<String> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947660269, "Lcom/baidu/tieba/bx2;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947660269, "Lcom/baidu/tieba/bx2;");
-        }
-    }
-
-    public bx2() {
+    public bx2(double d) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Double.valueOf(d)};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = d;
     }
 
-    public final synchronized boolean a() {
-        InterceptResult invokeV;
-        boolean z;
+    @Override // com.baidu.tieba.ax2
+    public boolean a(Bitmap bitmap, Rect rect) {
+        InterceptResult invokeLL;
+        Rect rect2;
         int i;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                Set<String> set = this.a;
-                z = false;
-                if (set != null) {
-                    i = set.size();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bitmap, rect)) == null) {
+            if (ax2.c) {
+                Log.d("ErrorPageParser", "GridErrorPageParser: start error page parse");
+            }
+            if (bitmap == null) {
+                return false;
+            }
+            if (!b(bitmap, rect)) {
+                rect2 = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
+            } else {
+                rect2 = rect;
+            }
+            int width = rect2.width() - 2;
+            int height = rect2.height() - 2;
+            int i3 = width / 3;
+            int i4 = height / i3;
+            int ceil = (int) Math.ceil(i4 * 3 * this.a);
+            int i5 = 0;
+            int i6 = 0;
+            while (i6 < 3) {
+                int i7 = rect2.left;
+                int i8 = (i6 * i3) + 1 + i7;
+                if (i6 == 2) {
+                    i = width + 1;
                 } else {
-                    i = 0;
+                    i = ((i6 + 1) * i3) + i7;
                 }
-                if (i < 5) {
-                    z = true;
-                }
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final synchronized void b(WebSocketTask task) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, task) == null) {
-            synchronized (this) {
-                Intrinsics.checkNotNullParameter(task, "task");
-                if (this.a == null) {
-                    this.a = new LinkedHashSet();
-                }
-                Set<String> set = this.a;
-                if (set != null) {
-                    set.add(task.getTaskId());
-                }
-            }
-        }
-    }
-
-    public final synchronized void c(String taskId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, taskId) == null) {
-            synchronized (this) {
-                Intrinsics.checkNotNullParameter(taskId, "taskId");
-                Set<String> set = this.a;
-                if (set != null) {
-                    set.remove(taskId);
-                }
-            }
-        }
-    }
-
-    public final synchronized void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                Set<String> set = this.a;
-                if (set != null) {
-                    for (String str : set) {
-                        try {
-                            WebSocketManager.INSTANCE.close(str, 1001, "aiapp terminate");
-                        } catch (Exception e) {
-                            e.printStackTrace();
+                int i9 = i;
+                int i10 = i5;
+                int i11 = 0;
+                while (i11 < i4) {
+                    int i12 = rect2.top;
+                    int i13 = (i11 * i3) + 1 + i12;
+                    if (i11 == i4 - 1) {
+                        i2 = height + 1;
+                    } else {
+                        i2 = ((i11 + 1) * i3) + i12;
+                    }
+                    int i14 = i11;
+                    if (e(bitmap, i8, i13, i9, i2)) {
+                        int i15 = i10 + 1;
+                        if (i15 >= ceil) {
+                            return true;
                         }
+                        i10 = i15;
+                    }
+                    i11 = i14 + 1;
+                }
+                i6++;
+                i5 = i10;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public double d(Bitmap bitmap, Rect rect) {
+        InterceptResult invokeLL;
+        Rect rect2;
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, rect)) == null) {
+            if (ax2.c) {
+                Log.d("ErrorPageParser", "GridErrorPageParser: start error page parse");
+            }
+            if (bitmap == null) {
+                return 0.0d;
+            }
+            if (!b(bitmap, rect)) {
+                rect2 = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
+            } else {
+                rect2 = rect;
+            }
+            int width = rect2.width() - 2;
+            int height = rect2.height() - 2;
+            int i3 = width / 3;
+            if (i3 == 0) {
+                return 0.0d;
+            }
+            int i4 = height / i3;
+            int i5 = 0;
+            int i6 = 0;
+            while (i5 < 3) {
+                int i7 = rect2.left;
+                int i8 = (i5 * i3) + 1 + i7;
+                if (i5 == 2) {
+                    i = width + 1;
+                } else {
+                    i = ((i5 + 1) * i3) + i7;
+                }
+                int i9 = i;
+                int i10 = i6;
+                int i11 = 0;
+                while (i11 < i4) {
+                    int i12 = rect2.top;
+                    int i13 = (i11 * i3) + 1 + i12;
+                    if (i11 == i4 - 1) {
+                        i2 = height + 1;
+                    } else {
+                        i2 = ((i11 + 1) * i3) + i12;
+                    }
+                    int i14 = i11;
+                    if (e(bitmap, i8, i13, i9, i2)) {
+                        i10++;
+                    }
+                    i11 = i14 + 1;
+                }
+                i5++;
+                i6 = i10;
+            }
+            return i6 / (i4 * 3);
+        }
+        return invokeLL.doubleValue;
+    }
+
+    public final boolean e(Bitmap bitmap, int i, int i2, int i3, int i4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+            if (i < 0 || i3 < i || i2 < 0 || i4 < i2) {
+                return false;
+            }
+            int pixel = bitmap.getPixel(i, i2);
+            while (i <= i3) {
+                for (int i5 = i2; i5 <= i4; i5++) {
+                    if (pixel != bitmap.getPixel(i, i5)) {
+                        return false;
                     }
                 }
-                Set<String> set2 = this.a;
-                if (set2 != null) {
-                    set2.clear();
-                }
+                i++;
             }
+            return true;
         }
+        return invokeCommon.booleanValue;
     }
 }

@@ -1,33 +1,79 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import android.util.LongSparseArray;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import androidx.annotation.RequiresApi;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.VideoRecommentPlayActivityConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
+import com.baidu.tieba.im.chat.officialBar.OfficialBarFeedActivity;
+import com.baidu.tieba.im.chat.officialBar.OfficialBarFeedMsglistAdapter;
+import com.baidu.tieba.ws8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class up8 {
+public class up8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdTypeRecyclerView a;
-    public ArrayList<yh> b;
-    public List<lh> c;
-    public wp8 d;
-    public wp8 e;
-    public wp8 f;
+    public TbPageContext<OfficialBarFeedActivity> a;
+    public List<xs8> b;
+    public LongSparseArray<er8> c;
+    public OfficialBarFeedMsglistAdapter.c d;
+    public BdTypeListView e;
+    public boolean f;
 
-    public up8(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    /* loaded from: classes8.dex */
+    public class a extends MsgCommonItemAdapter.MsgViewHolder<rp8> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(up8 up8Var, View view2, rp8 rp8Var) {
+            super(view2, rp8Var);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {up8Var, view2, rp8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((View) objArr2[0], objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    public up8(TbPageContext<OfficialBarFeedActivity> tbPageContext, BdTypeListView bdTypeListView, OfficialBarFeedMsglistAdapter.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
+            Object[] objArr = {tbPageContext, bdTypeListView, cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,83 +83,138 @@ public class up8 {
                 return;
             }
         }
-        this.c = new LinkedList();
-        if (tbPageContext != null && bdTypeRecyclerView != null) {
-            this.a = bdTypeRecyclerView;
-            b(tbPageContext);
-        }
+        this.b = null;
+        this.c = null;
+        this.a = tbPageContext;
+        this.d = cVar;
+        this.e = bdTypeListView;
     }
 
-    public void a(int i) {
-        BdTypeRecyclerView bdTypeRecyclerView;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public xs8 getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (bdTypeRecyclerView = this.a) != null) {
-            bdTypeRecyclerView.removeItem(i);
-        }
-    }
-
-    public void d(ii iiVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, iiVar) == null) {
-            for (lh lhVar : this.c) {
-                if (lhVar != null) {
-                    lhVar.setOnAdapterItemClickListener(iiVar);
-                }
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            List<xs8> list = this.b;
+            if (list == null || list.size() == 0 || i < 0 || i >= getCount()) {
+                return null;
             }
+            return this.b.get(i);
         }
+        return (xs8) invokeI.objValue;
     }
 
-    public void e(ArrayList<yh> arrayList) {
+    public void c(List<xs8> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
-            this.a.setData(arrayList);
-            this.b = arrayList;
-        }
-    }
-
-    public void f(ji jiVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jiVar) == null) {
-            for (lh lhVar : this.c) {
-                if (lhVar != null) {
-                    lhVar.setOnAdapterItemLongClickListener(jiVar);
-                }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            if (this.b == null) {
+                this.b = new LinkedList();
             }
+            this.b.clear();
+            this.b.addAll(list);
+            notifyDataSetChanged();
         }
     }
 
-    public void g(bk6 bk6Var) {
+    public void d(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bk6Var) == null) {
-            this.f.x(bk6Var);
-            this.e.x(bk6Var);
-            this.d.x(bk6Var);
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.f = z;
         }
     }
 
-    public final void b(TbPageContext tbPageContext) {
+    public final View b(int i, View view2, ViewGroup viewGroup, xs8 xs8Var, MsgCommonItemAdapter.MsgViewHolder<rp8> msgViewHolder) {
+        InterceptResult invokeCommon;
+        er8 er8Var;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) {
-            wp8 wp8Var = new wp8(tbPageContext, vp8.I);
-            this.d = wp8Var;
-            wp8Var.u(VideoRecommentPlayActivityConfig.FROM_AT_PAGE);
-            wp8 wp8Var2 = new wp8(tbPageContext, vp8.H);
-            this.e = wp8Var2;
-            wp8Var2.u(VideoRecommentPlayActivityConfig.FROM_AT_PAGE);
-            wp8 wp8Var3 = new wp8(tbPageContext, vp8.G);
-            this.f = wp8Var3;
-            wp8Var3.u(VideoRecommentPlayActivityConfig.FROM_AT_PAGE);
-            this.c.add(this.f);
-            this.c.add(this.e);
-            this.c.add(this.d);
-            this.a.addAdapters(this.c);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, xs8Var, msgViewHolder})) == null) {
+            rp8 a2 = msgViewHolder.a();
+            ws8.a d = xs8Var.d();
+            d.m = xs8Var.b();
+            LongSparseArray<er8> longSparseArray = this.c;
+            if (longSparseArray == null) {
+                er8Var = null;
+            } else {
+                er8Var = longSparseArray.get(d.h);
+            }
+            a2.C(this.a.getPageActivity().getBaseContext(), d, xs8Var.c(), er8Var, xs8Var.e(), xs8Var.f(), i);
+            if (this.f) {
+                str = "c13865";
+            } else {
+                str = "c13863";
+            }
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            String str2 = d.n;
+            if (str2 == null) {
+                str2 = "";
+            }
+            statisticItem.param("tid", str2);
+            statisticItem.param("fid", d.e);
+            TiebaStatic.log(statisticItem);
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    @RequiresApi(api = 16)
+    public void e(LongSparseArray<er8> longSparseArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, longSparseArray) == null) {
+            if (this.c == null) {
+                this.c = new LongSparseArray<>();
+            }
+            this.c.clear();
+            for (int i = 0; i < longSparseArray.size(); i++) {
+                this.c.put(longSparseArray.keyAt(i), longSparseArray.valueAt(i));
+            }
+            notifyDataSetChanged();
         }
     }
 
-    public void c() {
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.getAdapter().notifyDataSetChanged();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            List<xs8> list = this.b;
+            if (list == null) {
+                return 0;
+            }
+            return list.size();
         }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        a aVar;
+        a aVar2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
+            if (view2 != null) {
+                aVar = (a) view2.getTag();
+            } else {
+                aVar = null;
+            }
+            if (aVar == null) {
+                rp8 rp8Var = new rp8(this.a, this.f);
+                rp8Var.D(this.d);
+                View x = rp8Var.x();
+                a aVar3 = new a(this, rp8Var.x(), rp8Var);
+                x.setTag(aVar3);
+                view2 = x;
+                aVar2 = aVar3;
+            } else {
+                aVar2 = aVar;
+            }
+            b(i, view2, viewGroup, getItem(i), aVar2);
+            return view2;
+        }
+        return (View) invokeILL.objValue;
     }
 }

@@ -201,7 +201,7 @@ public class DrawablePageIndicator extends View implements PageIndicator {
     }
 
     public DrawablePageIndicator(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f0407f4);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040875);
     }
 
     private float getMotionEventX(MotionEvent motionEvent, int i) {

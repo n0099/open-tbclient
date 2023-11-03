@@ -14,7 +14,7 @@ public class PbNormalLikeButtonSwitch extends BaseNormalSwitch {
     public transient /* synthetic */ FieldHolder $fh;
     public final String SWITCH_NAME;
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.t9
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ja
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

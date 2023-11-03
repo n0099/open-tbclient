@@ -323,7 +323,7 @@ public class BadgeView extends TextView {
         if (this.mIsNormalSize) {
             return R.drawable.badge_bg_small_text_normal_style;
         }
-        return R.drawable.obfuscated_res_0x7f080228;
+        return R.drawable.obfuscated_res_0x7f08022c;
     }
 
     private void updateBadgeLayout() {

@@ -4,7 +4,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor;
 import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaClass;
 import kotlin.reflect.jvm.internal.impl.resolve.jvm.JavaDescriptorResolver;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class SingleModuleClassResolver implements ModuleClassResolver {
     public JavaDescriptorResolver resolver;
 

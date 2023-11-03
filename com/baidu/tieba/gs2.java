@@ -1,22 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class gs2 implements ov2 {
+public class gs2 implements lf1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public is2 a;
-    public int b;
-    public int c;
-    public int d;
-    public float e;
 
     public gs2() {
         Interceptable interceptable = $ic;
@@ -28,53 +21,20 @@ public class gs2 implements ov2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = 0;
-        this.c = -16777216;
-        this.d = -1;
-        this.e = 0.0f;
     }
 
-    @Override // com.baidu.tieba.ov2
-    public boolean isValid() {
+    @Override // com.baidu.tieba.lf1
+    public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            is2 is2Var = this.a;
-            if (is2Var != null && is2Var.isValid() && this.d != -1) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new xe2());
+            arrayList.add(new ze2());
+            return arrayList;
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ov2
-    public void a(JSONObject jSONObject) throws JSONException {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null || !jSONObject.has("radius")) {
-            return;
-        }
-        is2 is2Var = new is2();
-        this.a = is2Var;
-        is2Var.a(jSONObject);
-        if (!this.a.isValid()) {
-            return;
-        }
-        this.b = cs2.a(jSONObject.optString("color"), 0);
-        this.c = cs2.a(jSONObject.optString("fillColor"), -16777216);
-        this.d = jSONObject.optInt("radius", -1);
-        this.e = Math.abs(cs2.b(jSONObject.optDouble("strokeWidth", 0.0d)));
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "coordinate ->" + this.a + "color ->" + this.b + "fillColor ->" + this.c + "radius ->" + this.d + "strokeWidth ->" + this.e;
-        }
-        return (String) invokeV.objValue;
+        return invokeV.objValue;
     }
 }

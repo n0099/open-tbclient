@@ -7,34 +7,34 @@ import com.baidu.tbadk.mvc.data.INetRequestData;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.mvc.model.NetAutoModel;
-import com.baidu.tieba.pp8;
-import com.baidu.tieba.qp8;
+import com.baidu.tieba.t29;
+import com.baidu.tieba.u29;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ReplyMeNetModel extends NetAutoModel<pp8, qp8, ReplyMessageFragment> {
+public class ReplyMeNetModel extends NetAutoModel<t29, u29, ReplyMessageFragment> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public int a0() {
+    public int b0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? CmdConfigHttp.REPLYME_HTTP_CMD : invokeV.intValue;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public String d0() {
+    public String e0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "c/u/feed/replyme" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public int e0() {
+    public int f0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -44,13 +44,13 @@ public class ReplyMeNetModel extends NetAutoModel<pp8, qp8, ReplyMessageFragment
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ReplyMeNetModel(TbPageContext tbPageContext, pp8 pp8Var) {
-        super(tbPageContext, pp8Var);
+    public ReplyMeNetModel(TbPageContext tbPageContext, t29 t29Var) {
+        super(tbPageContext, t29Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, pp8Var};
+            Object[] objArr = {tbPageContext, t29Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -65,7 +65,7 @@ public class ReplyMeNetModel extends NetAutoModel<pp8, qp8, ReplyMessageFragment
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<? extends MvcProtobufHttpResponsedMessage> c0() {
+    public Class<? extends MvcProtobufHttpResponsedMessage> d0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -75,7 +75,7 @@ public class ReplyMeNetModel extends NetAutoModel<pp8, qp8, ReplyMessageFragment
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<? extends MvcSocketResponsedMessage> f0() {
+    public Class<? extends MvcSocketResponsedMessage> g0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -85,11 +85,11 @@ public class ReplyMeNetModel extends NetAutoModel<pp8, qp8, ReplyMessageFragment
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<qp8> getResponseDataClass() {
+    public Class<u29> getResponseDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return qp8.class;
+            return u29.class;
         }
         return (Class) invokeV.objValue;
     }

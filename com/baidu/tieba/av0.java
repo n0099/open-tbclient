@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class av0 implements zu0 {
+public abstract class av0 extends er0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -24,13 +24,16 @@ public class av0 implements zu0 {
         }
     }
 
-    @Override // com.baidu.tieba.zu0
-    public yu0 createMessenger() {
+    public qp0 s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new xu0();
+            pp0 h = super.h();
+            if (h != null) {
+                return (qp0) h;
+            }
+            throw new NullPointerException("null cannot be cast to non-null type com.baidu.nadcore.player.BaseVideoPlayer");
         }
-        return (yu0) invokeV.objValue;
+        return (qp0) invokeV.objValue;
     }
 }

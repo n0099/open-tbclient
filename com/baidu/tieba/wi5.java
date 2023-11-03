@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.module.alalivesdk.imSdkPersonService.data.PersonFetchMsgResponse;
+import com.baidu.adp.widget.ImageView.BdImage;
 /* loaded from: classes8.dex */
 public interface wi5 {
-    void a(int i, String str, PersonFetchMsgResponse personFetchMsgResponse);
+    void a(BdImage bdImage, String str, boolean z);
 }

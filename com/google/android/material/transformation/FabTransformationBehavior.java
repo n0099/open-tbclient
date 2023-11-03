@@ -42,7 +42,7 @@ import com.google.android.material.math.MathUtils;
 import java.util.ArrayList;
 import java.util.List;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class FabTransformationBehavior extends ExpandableTransformationBehavior {
     public float dependencyOriginalTranslationX;
     public float dependencyOriginalTranslationY;
@@ -51,7 +51,7 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
     public final RectF tmpRectF1;
     public final RectF tmpRectF2;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class FabTransformationSpec {
         public Positioning positioning;
         @Nullable
@@ -90,7 +90,7 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
 
     @Nullable
     private ViewGroup calculateChildContentContainer(@NonNull View view2) {
-        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091841);
+        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091884);
         if (findViewById != null) {
             return toViewGroupOrNull(findViewById);
         }

@@ -1,14 +1,11 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface py0 {
-    void a();
+public abstract class py0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    <T extends py0> T b(String str, String str2);
-
-    boolean isValid();
-
-    @NonNull
-    String toString();
+    public abstract void a(oy0 oy0Var);
 }

@@ -1,19 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
 public interface nd6 {
+    void b(int i, String str, Object obj);
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        boolean a(int i);
-    }
-
-    int a();
-
-    void b(int i);
-
-    boolean c();
-
-    float getSpeed();
-
-    void reset();
+    void c(Object obj, int i);
 }

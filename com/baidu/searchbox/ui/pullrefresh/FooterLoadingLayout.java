@@ -22,8 +22,8 @@ public class FooterLoadingLayout extends LoadingLayout {
     }
 
     private void init(Context context) {
-        this.mLoadingView = (LoadingAnimView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091de0);
-        TextView textView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091ddf);
+        this.mLoadingView = (LoadingAnimView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091e27);
+        TextView textView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091e26);
         this.mHintView = textView;
         textView.setTextColor(getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060954));
         setState(ILoadingLayout.State.RESET);
@@ -31,7 +31,7 @@ public class FooterLoadingLayout extends LoadingLayout {
 
     public void showTopDivider(boolean z) {
         int i;
-        View findViewById = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092637);
+        View findViewById = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09268f);
         if (findViewById != null) {
             if (z) {
                 i = 0;
@@ -57,14 +57,14 @@ public class FooterLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.searchbox.ui.pullrefresh.LoadingLayout
     public View createLoadingView(Context context, ViewGroup viewGroup, AttributeSet attributeSet) {
-        View inflate = LayoutInflater.from(context).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0831, viewGroup, false);
+        View inflate = LayoutInflater.from(context).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0846, viewGroup, false);
         inflate.setBackgroundColor(context.getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f06096e));
         return inflate;
     }
 
     @Override // com.baidu.searchbox.ui.pullrefresh.LoadingLayout, com.baidu.searchbox.ui.pullrefresh.ILoadingLayout
     public int getContentSize() {
-        View findViewById = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091dde);
+        View findViewById = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091e25);
         if (findViewById != null) {
             return findViewById.getHeight();
         }
@@ -74,13 +74,13 @@ public class FooterLoadingLayout extends LoadingLayout {
     @Override // com.baidu.searchbox.ui.pullrefresh.LoadingLayout
     public void onNoMoreData() {
         this.mHintView.setVisibility(0);
-        this.mHintView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f11b1);
+        this.mHintView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f11c5);
     }
 
     @Override // com.baidu.searchbox.ui.pullrefresh.LoadingLayout
     public void onPullToRefresh() {
         this.mHintView.setVisibility(0);
-        this.mHintView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f11ae);
+        this.mHintView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f11c2);
     }
 
     @Override // com.baidu.searchbox.ui.pullrefresh.LoadingLayout
@@ -88,17 +88,17 @@ public class FooterLoadingLayout extends LoadingLayout {
         this.mLoadingView.setVisibility(0);
         this.mLoadingView.startAnim();
         this.mHintView.setVisibility(0);
-        this.mHintView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f11ad);
+        this.mHintView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f11c1);
     }
 
     @Override // com.baidu.searchbox.ui.pullrefresh.LoadingLayout
     public void onReleaseToRefresh() {
         this.mHintView.setVisibility(0);
-        this.mHintView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f11af);
+        this.mHintView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f11c3);
     }
 
     @Override // com.baidu.searchbox.ui.pullrefresh.LoadingLayout
     public void onReset() {
-        this.mHintView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f11ad);
+        this.mHintView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f11c1);
     }
 }

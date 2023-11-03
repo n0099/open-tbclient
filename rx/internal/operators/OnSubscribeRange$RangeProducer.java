@@ -1,44 +1,44 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.g7c;
-import com.baidu.tieba.j6c;
-import com.baidu.tieba.n6c;
+import com.baidu.tieba.hkc;
+import com.baidu.tieba.kjc;
+import com.baidu.tieba.ojc;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes2.dex */
-public final class OnSubscribeRange$RangeProducer extends AtomicLong implements j6c {
+public final class OnSubscribeRange$RangeProducer extends AtomicLong implements kjc {
     public static final long serialVersionUID = 4114392207069098388L;
-    public final n6c<? super Integer> childSubscriber;
+    public final ojc<? super Integer> childSubscriber;
     public long currentIndex;
     public final int endOfRange;
 
-    public OnSubscribeRange$RangeProducer(n6c<? super Integer> n6cVar, int i, int i2) {
-        this.childSubscriber = n6cVar;
+    public OnSubscribeRange$RangeProducer(ojc<? super Integer> ojcVar, int i, int i2) {
+        this.childSubscriber = ojcVar;
         this.currentIndex = i;
         this.endOfRange = i2;
     }
 
     public void fastPath() {
         long j = this.endOfRange + 1;
-        n6c<? super Integer> n6cVar = this.childSubscriber;
+        ojc<? super Integer> ojcVar = this.childSubscriber;
         for (long j2 = this.currentIndex; j2 != j; j2++) {
-            if (n6cVar.isUnsubscribed()) {
+            if (ojcVar.isUnsubscribed()) {
                 return;
             }
-            n6cVar.onNext(Integer.valueOf((int) j2));
+            ojcVar.onNext(Integer.valueOf((int) j2));
         }
-        if (!n6cVar.isUnsubscribed()) {
-            n6cVar.onCompleted();
+        if (!ojcVar.isUnsubscribed()) {
+            ojcVar.onCompleted();
         }
     }
 
-    @Override // com.baidu.tieba.j6c
+    @Override // com.baidu.tieba.kjc
     public void request(long j) {
         if (get() == Long.MAX_VALUE) {
             return;
         }
         if (j == Long.MAX_VALUE && compareAndSet(0L, Long.MAX_VALUE)) {
             fastPath();
-        } else if (j > 0 && g7c.b(this, j) == 0) {
+        } else if (j > 0 && hkc.b(this, j) == 0) {
             slowPath(j);
         }
     }
@@ -46,22 +46,22 @@ public final class OnSubscribeRange$RangeProducer extends AtomicLong implements 
     public void slowPath(long j) {
         long j2 = this.endOfRange + 1;
         long j3 = this.currentIndex;
-        n6c<? super Integer> n6cVar = this.childSubscriber;
+        ojc<? super Integer> ojcVar = this.childSubscriber;
         do {
             long j4 = 0;
             while (true) {
                 if (j4 != j && j3 != j2) {
-                    if (n6cVar.isUnsubscribed()) {
+                    if (ojcVar.isUnsubscribed()) {
                         return;
                     }
-                    n6cVar.onNext(Integer.valueOf((int) j3));
+                    ojcVar.onNext(Integer.valueOf((int) j3));
                     j3++;
                     j4++;
-                } else if (n6cVar.isUnsubscribed()) {
+                } else if (ojcVar.isUnsubscribed()) {
                     return;
                 } else {
                     if (j3 == j2) {
-                        n6cVar.onCompleted();
+                        ojcVar.onCompleted();
                         return;
                     }
                     j = get();

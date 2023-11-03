@@ -1,136 +1,254 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.content.Context;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.transvod.player.log.TLog;
-import java.lang.ref.WeakReference;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.concurrent.atomic.AtomicInteger;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.channel.ModuleConfigGdt;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.AdRipper;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.qq.e.ads.cfg.VideoOption;
+import com.qq.e.ads.interstitial2.UnifiedInterstitialAD;
+import com.qq.e.ads.interstitial2.UnifiedInterstitialADListener;
+import com.qq.e.comm.util.AdError;
 /* loaded from: classes5.dex */
-public class d0c {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "Lifecycle";
-    public static final HashSet<WeakReference<a>> b;
-    public static AtomicInteger c;
-    public static int d;
-    public static long e;
+public class d0c extends mzb<j0c> {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ModuleConfigGdt e;
 
     /* loaded from: classes5.dex */
-    public interface a {
-        void a(long j);
+    public class a implements UnifiedInterstitialADListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public boolean b;
+        public j0c c;
+        public final /* synthetic */ UnifiedInterstitialAD[] d;
+        public final /* synthetic */ d0c e;
 
-        void b(long j);
+        public a(d0c d0cVar, UnifiedInterstitialAD[] unifiedInterstitialADArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {d0cVar, unifiedInterstitialADArr};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = d0cVar;
+            this.d = unifiedInterstitialADArr;
+        }
+
+        @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
+        public void onADClicked() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                LogPrinter.d();
+                this.e.onAdClicked((d0c) this.c, this.b, new String[0]);
+                this.b = true;
+            }
+        }
+
+        @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
+        public void onADClosed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                LogPrinter.d();
+                this.e.onAdClose(this.c);
+            }
+        }
+
+        @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
+        public void onADExposure() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                LogPrinter.d();
+                this.e.onAdShow((d0c) this.c, this.a, new String[0]);
+                this.a = true;
+            }
+        }
+
+        @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
+        public void onADLeftApplication() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                LogPrinter.d();
+            }
+        }
+
+        @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
+        public void onADOpened() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                LogPrinter.d();
+            }
+        }
+
+        @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
+        public void onADReceive() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                LogPrinter.d("onADReceive", new Object[0]);
+            }
+        }
+
+        @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
+        public void onNoAD(AdError adError) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, adError) == null) {
+                LogPrinter.e("onNoAD code: " + adError.getErrorCode() + ", message: " + adError.getErrorMsg(), new Object[0]);
+                this.e.onError(adError.getErrorCode(), adError.getErrorMsg());
+            }
+        }
+
+        @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
+        public void onRenderFail() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+                this.e.onError(0, "renderFail");
+            }
+        }
+
+        @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
+        public void onRenderSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+                j0c j0cVar = new j0c(this.d[0]);
+                this.c = j0cVar;
+                this.e.onAdLoaded(j0cVar, new String[0]);
+            }
+        }
+
+        @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
+        public void onVideoCached() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+                LogPrinter.d();
+            }
+        }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947652178, "Lcom/baidu/tieba/d0c;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947652178, "Lcom/baidu/tieba/d0c;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d0c(FunAdType funAdType, Ssp.Pid pid, ModuleConfigGdt moduleConfigGdt) {
+        super(funAdType, pid, false);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {funAdType, pid, moduleConfigGdt};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b = new HashSet<>();
-        c = new AtomicInteger(0);
-        d = 0;
-        e = 0L;
+        this.e = moduleConfigGdt;
     }
 
-    public static void a(boolean z) {
-        int i;
-        long j;
-        boolean z2;
-        String str;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d0c(Ssp.Pid pid, ModuleConfigGdt moduleConfigGdt) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.INTERSTITIAL), pid, false);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
-            int i2 = d;
-            boolean z3 = true;
-            if (z) {
-                i = 1;
-            } else {
-                i = -1;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid, moduleConfigGdt};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            d = i + i2;
-            String str2 = a;
-            TLog.h(str2, " count:" + d);
-            HashSet hashSet = new HashSet();
-            synchronized (b) {
-                j = e + 1;
-                e = j;
-                z2 = false;
-                if (d == 1 && i2 == 0) {
-                    TLog.h(a, " onForeground");
-                    if (b.isEmpty()) {
-                        c.incrementAndGet();
-                    }
-                    Iterator<WeakReference<a>> it = b.iterator();
-                    while (it.hasNext()) {
-                        hashSet.add(it.next());
-                    }
-                    z2 = true;
-                } else if (d == 0 && i2 == 1) {
-                    TLog.h(a, " onBackground");
-                    if (b.isEmpty()) {
-                        c.decrementAndGet();
-                    }
-                    Iterator<WeakReference<a>> it2 = b.iterator();
-                    while (it2.hasNext()) {
-                        hashSet.add(it2.next());
-                    }
-                } else {
-                    z3 = false;
-                }
+        }
+        this.e = moduleConfigGdt;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public AdRipper createAdRipper(Ssp.Pid pid) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new wzb(pid) : (AdRipper) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.mzb
+    public void e(Context context, FunAdSlot funAdSlot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
+            if (!(context instanceof Activity)) {
+                onError(0, "NotActivity");
+                return;
             }
-            if (z3) {
-                Iterator it3 = hashSet.iterator();
-                while (it3.hasNext()) {
-                    a aVar = (a) ((WeakReference) it3.next()).get();
-                    if (aVar == null) {
-                        String str3 = a;
-                        if (z2) {
-                            str = "appFront";
-                        } else {
-                            str = "appBackgroundnull ref";
-                        }
-                        TLog.h(str3, str);
-                    } else if (z2) {
-                        aVar.b(j);
-                    } else {
-                        aVar.a(j);
-                    }
-                }
+            UnifiedInterstitialAD unifiedInterstitialAD = new UnifiedInterstitialAD((Activity) context, this.mPid.pid, new a(this, r1));
+            UnifiedInterstitialAD[] unifiedInterstitialADArr = {unifiedInterstitialAD};
+            unifiedInterstitialAD.setVideoOption(new VideoOption.Builder().setAutoPlayPolicy(FunAdSdk.getFunAdConfig().isVideoDataFlowAutoStart ? 1 : 0).setAutoPlayMuted(this.e.autoPlayMuted).setDetailPageMuted(false).setNeedCoverImage(true).setNeedProgressBar(true).setEnableDetailPage(false).setEnableUserControl(false).build());
+            unifiedInterstitialAD.setMinVideoDuration(0);
+            unifiedInterstitialAD.setMaxVideoDuration(0);
+            k(unifiedInterstitialAD);
+        }
+    }
+
+    public void f(Activity activity, UnifiedInterstitialAD unifiedInterstitialAD) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, activity, unifiedInterstitialAD) == null) {
+            unifiedInterstitialAD.show(activity);
+        }
+    }
+
+    public void k(UnifiedInterstitialAD unifiedInterstitialAD) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, unifiedInterstitialAD) == null) {
+            unifiedInterstitialAD.loadAD();
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
+        j0c j0cVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) && (j0cVar = (j0c) obj) != null) {
+            try {
+                ((UnifiedInterstitialAD) j0cVar.a).destroy();
+            } catch (Exception unused) {
             }
         }
     }
 
-    public static void b(a aVar) {
-        boolean z;
-        long j;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, aVar) == null) {
-            synchronized (b) {
-                b.add(new WeakReference<>(aVar));
-                if (c.get() > 0) {
-                    z = true;
-                    j = e;
-                } else {
-                    z = false;
-                    j = 0;
-                }
-            }
-            if (z) {
-                aVar.b(j);
-            }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, activity, viewGroup, str, obj)) == null) {
+            j0c j0cVar = (j0c) obj;
+            onShowStart(j0cVar);
+            f(activity, (UnifiedInterstitialAD) j0cVar.a);
+            return true;
         }
+        return invokeLLLL.booleanValue;
     }
 }

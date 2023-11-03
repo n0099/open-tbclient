@@ -8,36 +8,39 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.searchbox.performance.speed.SpeedStats;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
 import com.baidu.tbadk.core.growthFunnel.GrowthFunnelHelper;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.util.PriorityOrganizer;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a05;
-import com.baidu.tieba.bi;
-import com.baidu.tieba.dk9;
-import com.baidu.tieba.p25;
+import com.baidu.tieba.ds9;
+import com.baidu.tieba.ix9;
+import com.baidu.tieba.j35;
+import com.baidu.tieba.ko4;
+import com.baidu.tieba.lo4;
 import com.baidu.tieba.pb.fragment.VideoFragmentController;
-import com.baidu.tieba.rj9;
-import com.baidu.tieba.tn4;
-import com.baidu.tieba.un4;
-import com.baidu.tieba.ye9;
+import com.baidu.tieba.qza;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.s05;
+import com.baidu.tieba.so5;
+import com.baidu.tieba.ww9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.xiaomi.mipush.sdk.PushMessageHelper;
+import kotlin.Pair;
 /* loaded from: classes7.dex */
-public class PbActivity extends AbsPbActivity {
+public class PbActivity extends AbsPbActivity implements qza {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean u;
@@ -45,38 +48,52 @@ public class PbActivity extends AbsPbActivity {
     @NonNull
     public final PriorityOrganizer w;
     public final VideoFragmentController x;
-    public int y;
-    public String z;
 
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
-    public int F1() {
+    public int E1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d07a5 : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
-    public int I1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return 0;
         }
         return invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
-    public int K1() {
+    public int G1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return 4;
         }
         return invokeV.intValue;
     }
 
+    @Override // com.baidu.tieba.qza
+    @NonNull
+    public String Z1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "pb_landing_page" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.qza
+    @NonNull
+    public String n2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? "pb" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
+    public int z1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? R.layout.obfuscated_res_0x7f0d07ba : invokeV.intValue;
+    }
+
     /* loaded from: classes7.dex */
-    public class a implements bi {
+    public class a implements ri {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -103,7 +120,7 @@ public class PbActivity extends AbsPbActivity {
             this.b = i2;
         }
 
-        @Override // com.baidu.tieba.bi
+        @Override // com.baidu.tieba.ri
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -113,7 +130,7 @@ public class PbActivity extends AbsPbActivity {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements bi {
+    public class b implements ri {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -140,7 +157,7 @@ public class PbActivity extends AbsPbActivity {
             this.b = i2;
         }
 
-        @Override // com.baidu.tieba.bi
+        @Override // com.baidu.tieba.ri
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -166,33 +183,28 @@ public class PbActivity extends AbsPbActivity {
         this.v = false;
         this.w = PriorityOrganizer.create();
         this.x = new VideoFragmentController();
-        this.y = -1;
-        this.z = null;
     }
 
-    public void g2() {
+    @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            if (this.y >= 0) {
-                SharedPrefHelper.getInstance().putInt(SharedPrefHelper.getSharedPrefKeyWithAccount("key_reaction_guide_show_number_pb"), this.y);
-            }
-            if (this.z != null) {
-                SharedPrefHelper.getInstance().putString(SharedPrefHelper.getSharedPrefKeyWithAccount("key_reaction_guide_show_pb_strategy"), this.z);
-            }
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            super.onDestroy();
+            so5.a.a(getUniqueId(), new Pair<>(PushMessageHelper.ERROR_TYPE, "pb_page"), new Pair<>("error_info", "pb page unfinished destroy"));
         }
     }
 
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONRESUME_STAMP_KEY);
             super.onResume();
             this.v = true;
-            YunDialogManager.onShow(this, a05.p);
-            if (a2()) {
+            YunDialogManager.onShow(this, s05.p);
+            if (b2()) {
                 this.x.o(true);
-                un4.w().Q(tn4.c0, this.x.d().c());
+                lo4.w().Q(ko4.c0, this.x.d().c());
             }
         }
     }
@@ -200,60 +212,32 @@ public class PbActivity extends AbsPbActivity {
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity, com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048593, this, i, i2, intent) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048591, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
-            if (a2()) {
+            if (b2()) {
                 this.x.d().d(i, i2, intent);
             }
         }
     }
 
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
-    public Fragment B1(String str) {
+    public String D1(ds9 ds9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if ("video_pb_fragment_tag".equals(str)) {
-                registerListener(this.x.f());
-                this.x.i(this);
-                return this.x.d().b();
-            }
-            return super.B1(str);
-        }
-        return (Fragment) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
-    public void D1(ye9 ye9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ye9Var) == null) {
-            super.D1(ye9Var);
-            if (this.a != null && c2(ye9Var)) {
-                this.a.r3(ye9Var);
-                this.b.setArguments(this.x.g(ye9Var));
-                this.x.l();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
-    public String H1(ye9 ye9Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, ye9Var)) == null) {
-            if (ye9Var != null && ye9Var.x0()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ds9Var)) == null) {
+            if (ds9Var != null && ds9Var.x0()) {
                 return "video_pb_fragment_tag";
             }
-            return super.H1(ye9Var);
+            return super.D1(ds9Var);
         }
         return (String) invokeL.objValue;
     }
 
-    public final boolean c2(ye9 ye9Var) {
+    public final boolean c2(ds9 ds9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, ye9Var)) == null) {
-            return "video_pb_fragment_tag".equals(H1(ye9Var));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, ds9Var)) == null) {
+            return "video_pb_fragment_tag".equals(D1(ds9Var));
         }
         return invokeL.booleanValue;
     }
@@ -261,9 +245,9 @@ public class PbActivity extends AbsPbActivity {
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity, com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
             super.onChangeSkinType(i);
-            if (a2()) {
+            if (b2()) {
                 this.x.j(i);
             }
         }
@@ -272,118 +256,23 @@ public class PbActivity extends AbsPbActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, configuration) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, configuration) == null) {
             super.onConfigurationChanged(configuration);
-            if (a2()) {
+            if (b2()) {
                 this.x.k(configuration);
             }
         }
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
+    @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
+    public void x1(ds9 ds9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, bundle) == null) {
-            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONCREATE_START_STAMP_KEY);
-            super.onCreate(bundle);
-            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONCREATE_END_STAMP_KEY);
-            registerListener(new rj9(this));
-            X1();
-        }
-    }
-
-    public final void X1() {
-        boolean z;
-        String[] strArr;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (getIntent() != null && !getIntent().getBooleanExtra(PbActivityConfig.KEY_IS_CUSTOM_FIGURE_THREAD, false)) {
-                return;
-            }
-            if (getIntent() != null) {
-                z = getIntent().getBooleanExtra("key_jump_to_comment_area", false);
-            } else {
-                z = false;
-            }
-            String str2 = "";
-            String string = SharedPrefHelper.getInstance().getString(SharedPrefHelper.getSharedPrefKeyWithAccount("key_reaction_guide_show_pb_strategy"), "");
-            String[] split = string.split(",");
-            int length = split.length;
-            int i = 0;
-            int i2 = 0;
-            while (i < length) {
-                String str3 = split[i];
-                String str4 = string;
-                if ("1".equals(str3)) {
-                    strArr = split;
-                    str = str2;
-                    i2 = (int) (i2 + Math.pow(2.0d, 0.0d));
-                } else {
-                    strArr = split;
-                    str = str2;
-                }
-                if ("2".equals(str3)) {
-                    i2 = (int) (i2 + Math.pow(2.0d, 1.0d));
-                }
-                if ("3".equals(str3)) {
-                    i2 = (int) (i2 + Math.pow(2.0d, 2.0d));
-                }
-                if ("4".equals(str3)) {
-                    i2 = (int) (i2 + Math.pow(2.0d, 3.0d));
-                }
-                i++;
-                string = str4;
-                str2 = str;
-                split = strArr;
-            }
-            String str5 = string;
-            this.y = SharedPrefHelper.getInstance().getInt(SharedPrefHelper.getSharedPrefKeyWithAccount("key_reaction_guide_show_number_pb"), 0);
-            this.z = SharedPrefHelper.getInstance().getString(SharedPrefHelper.getSharedPrefKeyWithAccount("key_reaction_guide_show_pb_strategy"), str2);
-            if (i2 == 0) {
-                if (z) {
-                    SharedPrefHelper.getInstance().putInt(SharedPrefHelper.getSharedPrefKeyWithAccount("key_reaction_guide_show_number_pb"), 3);
-                    SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-                    String sharedPrefKeyWithAccount = SharedPrefHelper.getSharedPrefKeyWithAccount("key_reaction_guide_show_pb_strategy");
-                    sharedPrefHelper.putString(sharedPrefKeyWithAccount, str5 + "3,");
-                    return;
-                }
-                SharedPrefHelper.getInstance().putInt(SharedPrefHelper.getSharedPrefKeyWithAccount("key_reaction_guide_show_number_pb"), 1);
-                SharedPrefHelper sharedPrefHelper2 = SharedPrefHelper.getInstance();
-                String sharedPrefKeyWithAccount2 = SharedPrefHelper.getSharedPrefKeyWithAccount("key_reaction_guide_show_pb_strategy");
-                sharedPrefHelper2.putString(sharedPrefKeyWithAccount2, str5 + "1,");
-            } else if (i2 == 1) {
-                if (z) {
-                    SharedPrefHelper.getInstance().putInt(SharedPrefHelper.getSharedPrefKeyWithAccount("key_reaction_guide_show_number_pb"), 3);
-                    SharedPrefHelper sharedPrefHelper3 = SharedPrefHelper.getInstance();
-                    String sharedPrefKeyWithAccount3 = SharedPrefHelper.getSharedPrefKeyWithAccount("key_reaction_guide_show_pb_strategy");
-                    sharedPrefHelper3.putString(sharedPrefKeyWithAccount3, str5 + "3,");
-                    return;
-                }
-                SharedPrefHelper.getInstance().putInt(SharedPrefHelper.getSharedPrefKeyWithAccount("key_reaction_guide_show_number_pb"), 2);
-                SharedPrefHelper sharedPrefHelper4 = SharedPrefHelper.getInstance();
-                String sharedPrefKeyWithAccount4 = SharedPrefHelper.getSharedPrefKeyWithAccount("key_reaction_guide_show_pb_strategy");
-                sharedPrefHelper4.putString(sharedPrefKeyWithAccount4, str5 + "2,");
-            } else if (i2 == 4) {
-                SharedPrefHelper.getInstance().putInt(SharedPrefHelper.getSharedPrefKeyWithAccount("key_reaction_guide_show_number_pb"), 1);
-                SharedPrefHelper sharedPrefHelper5 = SharedPrefHelper.getInstance();
-                String sharedPrefKeyWithAccount5 = SharedPrefHelper.getSharedPrefKeyWithAccount("key_reaction_guide_show_pb_strategy");
-                sharedPrefHelper5.putString(sharedPrefKeyWithAccount5, str5 + "1,");
-            } else if (i2 == 5) {
-                SharedPrefHelper.getInstance().putInt(SharedPrefHelper.getSharedPrefKeyWithAccount("key_reaction_guide_show_number_pb"), 2);
-                SharedPrefHelper sharedPrefHelper6 = SharedPrefHelper.getInstance();
-                String sharedPrefKeyWithAccount6 = SharedPrefHelper.getSharedPrefKeyWithAccount("key_reaction_guide_show_pb_strategy");
-                sharedPrefHelper6.putString(sharedPrefKeyWithAccount6, str5 + "2,");
-            } else if (i2 == 3) {
-                SharedPrefHelper.getInstance().putInt(SharedPrefHelper.getSharedPrefKeyWithAccount("key_reaction_guide_show_number_pb"), 3);
-                SharedPrefHelper sharedPrefHelper7 = SharedPrefHelper.getInstance();
-                String sharedPrefKeyWithAccount7 = SharedPrefHelper.getSharedPrefKeyWithAccount("key_reaction_guide_show_pb_strategy");
-                sharedPrefHelper7.putString(sharedPrefKeyWithAccount7, str5 + "3,");
-            } else if (i2 == 7) {
-                SharedPrefHelper.getInstance().putInt(SharedPrefHelper.getSharedPrefKeyWithAccount("key_reaction_guide_show_number_pb"), 4);
-                SharedPrefHelper sharedPrefHelper8 = SharedPrefHelper.getInstance();
-                String sharedPrefKeyWithAccount8 = SharedPrefHelper.getSharedPrefKeyWithAccount("key_reaction_guide_show_pb_strategy");
-                sharedPrefHelper8.putString(sharedPrefKeyWithAccount8, str5 + "4");
+        if (interceptable == null || interceptable.invokeL(1048600, this, ds9Var) == null) {
+            super.x1(ds9Var);
+            if (this.a != null && c2(ds9Var)) {
+                this.a.s3(ds9Var);
+                this.b.setArguments(this.x.g(ds9Var));
+                this.x.l();
             }
         }
     }
@@ -392,7 +281,7 @@ public class PbActivity extends AbsPbActivity {
     public PbFragment Y1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             Fragment fragment = this.b;
             if (fragment instanceof PbFragment) {
                 return (PbFragment) fragment;
@@ -402,19 +291,19 @@ public class PbActivity extends AbsPbActivity {
         return (PbFragment) invokeV.objValue;
     }
 
-    public boolean Z1() {
+    public boolean a2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.v;
         }
         return invokeV.booleanValue;
     }
 
-    public final boolean a2() {
+    public final boolean b2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             PbModel pbModel = this.a;
             if (pbModel != null && c2(pbModel.G)) {
                 return true;
@@ -425,19 +314,33 @@ public class PbActivity extends AbsPbActivity {
     }
 
     @NonNull
-    public PriorityOrganizer e0() {
+    public PriorityOrganizer d0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.w;
         }
         return (PriorityOrganizer) invokeV.objValue;
     }
 
+    @Override // com.baidu.tieba.qza
+    @NonNull
+    public String getTraceId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if (getUniqueId() == null) {
+                return BdUniqueId.gen().toString();
+            }
+            return Integer.toString(getUniqueId().getId());
+        }
+        return (String) invokeV.objValue;
+    }
+
     @Override // com.baidu.adp.base.BdBaseFragmentActivity
     public void initUniqueId() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.initUniqueId();
             this.x.h(getUniqueId());
         }
@@ -446,11 +349,11 @@ public class PbActivity extends AbsPbActivity {
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             super.onPause();
             this.v = false;
-            YunDialogManager.onHidden(a05.p);
-            if (a2()) {
+            YunDialogManager.onHidden(s05.p);
+            if (b2()) {
                 this.x.o(false);
             }
         }
@@ -458,19 +361,19 @@ public class PbActivity extends AbsPbActivity {
 
     public final void d2(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048587, this, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
             if (i2 != 3) {
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_DRAW_DISPATCH_STAMP_KEY);
                 int i3 = -1;
-                if (p25.a().c == 1) {
+                if (j35.a().c == 1) {
                     i3 = 8;
                 }
-                if (p25.a().c == 2) {
+                if (j35.a().c == 2) {
                     i3 = 9;
                 }
-                SpeedStats.getInstance().onSchemeOrPushStatsEnd(this, i3, p25.a().d);
+                SpeedStats.getInstance().onSchemeOrPushStatsEnd(this, i3, j35.a().d);
             }
-            long currentTimeMillis = System.currentTimeMillis() - G1();
+            long currentTimeMillis = System.currentTimeMillis() - B1();
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_PB_OPTIMIZE_LOAD_DURATION);
             statisticItem.addParam("obj_type", i2).addParam("obj_locate", i).addParam("obj_param1", currentTimeMillis).addParam(TiebaStatic.Params.OBJ_PARAM2, GrowthFunnelHelper.getRealStartScheme());
             TiebaStatic.log(statisticItem);
@@ -480,11 +383,11 @@ public class PbActivity extends AbsPbActivity {
     public void e2(int i, BdTypeRecyclerView bdTypeRecyclerView) {
         int i2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048589, this, i, bdTypeRecyclerView) == null) && !this.u && J1() != null) {
+        if ((interceptable == null || interceptable.invokeIL(1048586, this, i, bdTypeRecyclerView) == null) && !this.u && F1() != null) {
             this.u = true;
-            if (J1() != null && J1().r1() == 7) {
+            if (F1() != null && F1().s1() == 7) {
                 i2 = 2;
-            } else if (J1() != null && J1().b2()) {
+            } else if (F1() != null && F1().c2()) {
                 i2 = 1;
             } else {
                 i2 = 3;
@@ -497,29 +400,57 @@ public class PbActivity extends AbsPbActivity {
         }
     }
 
-    public void f2(int i, dk9 dk9Var) {
+    public void f2(int i, ix9 ix9Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048590, this, i, dk9Var) == null) && !this.u && J1() != null) {
+        if ((interceptable == null || interceptable.invokeIL(1048587, this, i, ix9Var) == null) && !this.u && F1() != null) {
             int i2 = 1;
             this.u = true;
-            if (J1() != null && J1().r1() == 7) {
+            if (F1() != null && F1().s1() == 7) {
                 i2 = 2;
-            } else if (J1() == null || !J1().b2()) {
+            } else if (F1() == null || !F1().c2()) {
                 i2 = 3;
             }
             if (i2 != 3) {
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_DATABACK_STAMP_KEY);
             }
-            dk9Var.M2(new b(this, i, i2));
+            ix9Var.N2(new b(this, i, i2));
         }
+    }
+
+    @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, bundle) == null) {
+            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONCREATE_START_STAMP_KEY);
+            super.onCreate(bundle);
+            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONCREATE_END_STAMP_KEY);
+            registerListener(new ww9(this));
+            so5.a.e(getUniqueId(), this);
+            so5.a.g(getUniqueId());
+        }
+    }
+
+    @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
+    public Fragment w1(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) {
+            if ("video_pb_fragment_tag".equals(str)) {
+                registerListener(this.x.f());
+                this.x.i(this);
+                return this.x.d().b();
+            }
+            return super.w1(str);
+        }
+        return (Fragment) invokeL.objValue;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity, com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048597, this, i, keyEvent)) == null) {
-            if (a2() && i == 4) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048596, this, i, keyEvent)) == null) {
+            if (b2() && i == 4) {
                 if (this.x.d().e()) {
                     return false;
                 }

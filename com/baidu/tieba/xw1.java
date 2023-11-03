@@ -1,116 +1,175 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.net.Uri;
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.lb3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
-public class xw1 extends pw1 {
+/* loaded from: classes9.dex */
+public class xw1 extends nw1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
+    public int f;
 
-    @Override // com.baidu.tieba.tt1
+    @Override // com.baidu.tieba.ku1
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "LogApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "ShowSMSPanelApi" : (String) invokeV.objValue;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948314679, "Lcom/baidu/tieba/xw1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes9.dex */
+    public class a implements zk3<jb3<lb3.e>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ xw1 d;
+
+        public a(xw1 xw1Var, String str, String str2, String str3) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xw1Var, str, str2, str3};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948314679, "Lcom/baidu/tieba/xw1;");
-                return;
+            this.d = xw1Var;
+            this.a = str;
+            this.b = str2;
+            this.c = str3;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.zk3
+        /* renamed from: b */
+        public void a(jb3<lb3.e> jb3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jb3Var) == null) {
+                if (!eb3.h(jb3Var)) {
+                    int b = jb3Var.b();
+                    this.d.d(this.a, new hy1(b, eb3.f(b)));
+                    return;
+                }
+                this.d.A(this.b, this.c);
+                this.d.d(this.a, new hy1(0));
             }
         }
-        f = am1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xw1(@NonNull rt1 rt1Var) {
-        super(rt1Var);
+    public xw1(@NonNull iu1 iu1Var) {
+        super(iu1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {rt1Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {iu1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((rt1) newInitContext.callArgs[0]);
+                super((iu1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
     }
 
-    public static String A(Object obj) {
-        InterceptResult invokeL;
+    public void A(@NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, obj)) == null) {
-            if (obj instanceof String) {
-                String str = (String) obj;
-                if (!TextUtils.isEmpty(str)) {
-                    return str;
-                }
-                return "log info is invalid";
-            } else if (obj instanceof JSONObject) {
-                JSONObject jSONObject = (JSONObject) obj;
-                if (jSONObject.length() != 0) {
-                    return jSONObject.toString();
-                }
-                return "log info is invalid";
-            } else {
-                return "log info is invalid";
-            }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            Intent intent = new Intent();
+            intent.setAction("android.intent.action.SENDTO");
+            intent.setData(Uri.parse("smsto:" + str));
+            intent.putExtra("sms_body", str2);
+            i().startActivity(intent);
+            y();
         }
-        return (String) invokeL.objValue;
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public static void y(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, str) != null) || str == null || str.length() <= 3145728) {
-            return;
-        }
-        throw new IllegalArgumentException("params过大，len=" + str.length() + "\n" + str.substring(0, 204800));
-    }
-
-    public qx1 z(String str) {
+    public hy1 B(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (f) {
-                Log.d("LogApi", "start logToFile action, params = " + str);
-                y(str);
-            }
-            Pair<qx1, JSONObject> t = t(str);
-            if (!((qx1) t.first).isSuccess()) {
-                return (qx1) t.first;
+            r("#openSystemSMSPanel", false);
+            Pair<hy1, JSONObject> t = t(str);
+            hy1 hy1Var = (hy1) t.first;
+            if (!hy1Var.isSuccess()) {
+                return hy1Var;
             }
             JSONObject jSONObject = (JSONObject) t.second;
-            p22.k(jSONObject.optString("tag", "logToFile-swanjsLog"), A(jSONObject.opt("data")));
-            return qx1.f();
+            g32.b("ShowSMSPanelApi", "params: ", jSONObject);
+            String optString = jSONObject.optString("content");
+            JSONArray optJSONArray = jSONObject.optJSONArray("recipients");
+            if (optJSONArray == null) {
+                return new hy1(202);
+            }
+            String z = z(optJSONArray);
+            if (!TextUtils.isEmpty(z) && !TextUtils.isEmpty(optString)) {
+                String optString2 = jSONObject.optString("cb");
+                if (TextUtils.isEmpty(optString2)) {
+                    return new hy1(202);
+                }
+                f63.K().q().f0().g(i(), "scope_show_sms_panel", new a(this, optString2, z, optString));
+                return hy1.f();
+            }
+            return new hy1(202);
         }
-        return (qx1) invokeL.objValue;
+        return (hy1) invokeL.objValue;
+    }
+
+    public final void y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            jd3 jd3Var = new jd3();
+            jd3Var.b = "sms_panel";
+            jd3Var.e = String.valueOf(this.f);
+            jd3Var.a("appid", f63.K().getAppId());
+            zc3.x("1639", jd3Var);
+        }
+    }
+
+    public final String z(JSONArray jSONArray) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jSONArray)) == null) {
+            if (jSONArray == null || jSONArray.length() <= 0) {
+                return null;
+            }
+            StringBuilder sb = new StringBuilder();
+            this.f = jSONArray.length();
+            for (int i = 0; i < this.f; i++) {
+                String optString = jSONArray.optString(i);
+                if (TextUtils.isEmpty(optString)) {
+                    return null;
+                }
+                sb.append(optString);
+                if (i != this.f - 1) {
+                    sb.append(ParamableElem.DIVIDE_PARAM);
+                }
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
     }
 }

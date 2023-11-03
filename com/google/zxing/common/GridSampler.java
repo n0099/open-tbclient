@@ -1,7 +1,7 @@
 package com.google.zxing.common;
 
 import com.google.zxing.NotFoundException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class GridSampler {
     public static GridSampler gridSampler = new DefaultGridSampler();
 

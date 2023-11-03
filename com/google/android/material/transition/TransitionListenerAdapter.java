@@ -1,7 +1,7 @@
 package com.google.android.material.transition;
 
 import androidx.transition.Transition;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class TransitionListenerAdapter implements Transition.TransitionListener {
     @Override // androidx.transition.Transition.TransitionListener
     public void onTransitionCancel(Transition transition) {

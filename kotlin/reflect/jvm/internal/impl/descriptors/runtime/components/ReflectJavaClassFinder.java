@@ -11,7 +11,7 @@ import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaPackage;
 import kotlin.reflect.jvm.internal.impl.name.ClassId;
 import kotlin.reflect.jvm.internal.impl.name.FqName;
 import kotlin.text.StringsKt__StringsJVMKt;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class ReflectJavaClassFinder implements JavaClassFinder {
     public final ClassLoader classLoader;
 

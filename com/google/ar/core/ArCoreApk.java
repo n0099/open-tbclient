@@ -1,13 +1,13 @@
 package com.google.ar.core;
 
 import android.content.Context;
-import com.baidu.tieba.rqb;
-import com.baidu.tieba.sqb;
+import com.baidu.tieba.s3c;
+import com.baidu.tieba.t3c;
 import com.google.ar.core.exceptions.FatalException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ArCoreApk {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(Availability availability);
     }
@@ -16,7 +16,7 @@ public class ArCoreApk {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* JADX WARN: Unknown enum class pattern. Please report as an issue! */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Availability {
         public static final /* synthetic */ Availability[] $VALUES;
         public static final Availability SUPPORTED_INSTALLED;
@@ -54,7 +54,7 @@ public class ArCoreApk {
             this.nativeCode = i2;
         }
 
-        public /* synthetic */ Availability(String str, int i, int i2, rqb rqbVar) {
+        public /* synthetic */ Availability(String str, int i, int i2, s3c s3cVar) {
             this(str, i, i2);
         }
 
@@ -81,10 +81,10 @@ public class ArCoreApk {
     }
 
     public static ArCoreApk b() {
-        return sqb.d();
+        return t3c.d();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum InstallBehavior {
         REQUIRED(0),
         OPTIONAL(1);
@@ -109,7 +109,7 @@ public class ArCoreApk {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum InstallStatus {
         INSTALLED(0),
         INSTALL_REQUESTED(1);
@@ -134,7 +134,7 @@ public class ArCoreApk {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum UserMessageType {
         APPLICATION(0),
         FEATURE(1),

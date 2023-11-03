@@ -31,7 +31,7 @@ import kotlin.reflect.jvm.internal.impl.types.SimpleType;
 import kotlin.reflect.jvm.internal.impl.types.SpecialTypesKt;
 import kotlin.reflect.jvm.internal.impl.types.TypeSubstitutor;
 import kotlin.reflect.jvm.internal.impl.types.Variance;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class TypeAliasConstructorDescriptorImpl extends FunctionDescriptorImpl implements TypeAliasConstructorDescriptor {
     public static final /* synthetic */ KProperty[] $$delegatedProperties = {Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(TypeAliasConstructorDescriptorImpl.class), "withDispatchReceiver", "getWithDispatchReceiver()Lorg/jetbrains/kotlin/descriptors/impl/TypeAliasConstructorDescriptor;"))};
     public static final Companion Companion = new Companion(null);
@@ -40,7 +40,7 @@ public final class TypeAliasConstructorDescriptorImpl extends FunctionDescriptor
     public ClassConstructorDescriptor underlyingConstructorDescriptor;
     public final NullableLazyValue withDispatchReceiver$delegate;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Companion {
         public Companion() {
         }

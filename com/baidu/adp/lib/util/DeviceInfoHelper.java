@@ -15,7 +15,7 @@ import com.baidu.searchbox.common.security.CacheDeviceInfo;
 import com.baidu.searchbox.common.security.DeviceIdBag;
 import com.baidu.searchbox.common.security.DeviceInfoManager;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
-import com.baidu.tieba.ed;
+import com.baidu.tieba.ud;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +33,7 @@ public class DeviceInfoHelper {
     public static final String DEFAULT_IMEI = "000000000000000";
     public static final String PURPOSE = "定位问题，安全保障，个性化展示";
     public static final String SCENE = "初始化";
-    public static ed permissionUtil;
+    public static ud permissionUtil;
     @NonNull
     public static final Map<String, String> sCache;
     public static final Application sContext;
@@ -169,9 +169,9 @@ public class DeviceInfoHelper {
         TelephonyManager telephonyManager;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            ed edVar = permissionUtil;
+            ud udVar = permissionUtil;
             String str2 = "";
-            if (edVar != null && edVar.isBrowseMode()) {
+            if (udVar != null && udVar.isBrowseMode()) {
                 return "";
             }
             String str3 = sCache.get(str);
@@ -306,10 +306,10 @@ public class DeviceInfoHelper {
         return (String) invokeV.objValue;
     }
 
-    public static void setPermissionUtil(ed edVar) {
+    public static void setPermissionUtil(ud udVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65550, null, edVar) == null) {
-            permissionUtil = edVar;
+        if (interceptable == null || interceptable.invokeL(65550, null, udVar) == null) {
+            permissionUtil = udVar;
         }
     }
 }

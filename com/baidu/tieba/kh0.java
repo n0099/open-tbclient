@@ -1,193 +1,129 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
+import android.os.Handler;
+import android.os.Message;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.download.consts.AdDownloadAction;
+import com.baidu.nadcore.download.consts.AdDownloadStatus;
+import com.baidu.nadcore.net.util.NetUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.huawei.hms.framework.network.grs.GrsBaseInfo;
-import java.util.HashMap;
-/* loaded from: classes6.dex */
-public class kh0 {
+/* loaded from: classes7.dex */
+public class kh0 extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final vg0 a;
+    public float b;
+    public final float c;
+    public final float d;
+    public final float e;
+    public boolean f;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        void onResult(boolean z);
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class c {
-        public static /* synthetic */ Interceptable $ic;
-        public static final kh0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-661415081, "Lcom/baidu/tieba/kh0$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-661415081, "Lcom/baidu/tieba/kh0$c;");
-                    return;
-                }
-            }
-            a = new kh0(null);
-        }
-    }
-
-    public kh0() {
+    public kh0(@NonNull vg0 vg0Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vg0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = -1.0f;
+        this.f = false;
+        this.c = (float) hj0.b().a().b("nad_fake_progress", 0.5950000286102295d);
+        this.b = (float) hj0.b().a().b("nad_fake_max_progress_time", 0.0d);
+        this.d = (float) hj0.b().a().b("nad_fake_speed", 768000.0d);
+        this.e = (float) hj0.b().a().b("nad_fake_progress_step", 0.009999999776482582d);
+        this.a = vg0Var;
+    }
+
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, message) == null) {
+            super.handleMessage(message);
+            if (message.what != 1) {
+                d();
+            } else if (this.a.q.g == 1) {
+                this.f = false;
+            } else if (!NetUtil.a(gf0.b())) {
+                d();
+            } else {
+                vg0 vg0Var = this.a;
+                if (vg0Var.c != AdDownloadStatus.DOWNLOADING) {
+                    d();
+                    return;
+                }
+                float f = vg0Var.j;
+                if (f >= this.c) {
+                    d();
+                    return;
+                }
+                this.f = true;
+                vg0Var.j = Math.max(vg0Var.i, f) + this.e;
+                ig0.c().g(AdDownloadAction.PROGRESS_UPDATE, this.a);
+                c();
             }
         }
     }
 
-    public static kh0 b() {
-        InterceptResult invokeV;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return c.a;
-        }
-        return (kh0) invokeV.objValue;
-    }
-
-    public /* synthetic */ kh0(a aVar) {
-        this();
-    }
-
-    public final String a(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            return String.valueOf(j) + String.valueOf(((int) (Math.random() * 1.0E8d)) << 1);
-        }
-        return (String) invokeJ.objValue;
-    }
-
-    public boolean c(Context context, HashMap<String, String> hashMap, @Nullable b bVar) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, hashMap, bVar)) == null) {
-            return d(context, hashMap, bVar);
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public final void e(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) && !TextUtils.isEmpty(str2)) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.u(ClogBuilder.Page.SCHEDULED_DOWNLOAD);
-            clogBuilder.z(str);
-            clogBuilder.p(str2);
-            clogBuilder.j(str3);
-            jy0.e(clogBuilder);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            b(false);
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x00b7, code lost:
-        r14.onResult(false);
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final boolean d(Context context, HashMap<String, String> hashMap, @Nullable b bVar) {
-        InterceptResult invokeLLL;
-        String str;
-        String str2;
-        String str3;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, hashMap, bVar)) == null) {
-            String str4 = "";
-            try {
-                str = (String) vx0.b(hashMap, "pkgName");
-                str2 = (String) vx0.b(hashMap, "channelId");
-                str3 = (String) vx0.b(hashMap, "extraParams");
-            } catch (Exception unused) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            Message obtain = Message.obtain();
+            obtain.what = 1;
+            sendMessageDelayed(obtain, (this.b / (this.c / this.e)) * 1000.0f);
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            removeMessages(1);
+            this.f = false;
+        }
+    }
+
+    public void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            if (this.f && !z) {
+                return;
             }
-            try {
-                String str5 = (String) vx0.b(hashMap, "scheduledTime");
-                String str6 = (String) vx0.b(hashMap, "requestUrl");
-                String str7 = (String) vx0.b(hashMap, "business");
-                String str8 = (String) vx0.b(hashMap, "source");
-                String str9 = (String) vx0.b(hashMap, "convertUrl");
-                if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str5) && !TextUtils.isEmpty(str6) && !TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str)) {
-                    lh0 lh0Var = new lh0(str, str2, Long.valueOf(Long.parseLong(str5)), str3, str6);
-                    if (!TextUtils.isEmpty(str7)) {
-                        lh0Var.g = str7;
-                    }
-                    if (!TextUtils.isEmpty(str8)) {
-                        lh0Var.h = str8;
-                    }
-                    jh0.b().a(lh0Var);
-                    e(ClogBuilder.LogType.SCHEDULED_DOWNLOAD_SUCCESS.type, str3, GrsBaseInfo.CountryCodeSource.APP);
-                    if (!TextUtils.isEmpty(str9)) {
-                        f(str9);
-                    }
-                    ih0.d().e(lh0Var.b, lh0Var.c, context);
-                    if (bVar != null) {
-                        bVar.onResult(true);
-                    }
-                    return true;
+            d();
+            long j = this.a.q.e;
+            if (j > 0) {
+                float f = this.d;
+                if (f > 0.0f) {
+                    this.b = (((float) j) * this.c) / f;
                 }
-                if (!TextUtils.isEmpty(str3)) {
-                    e(ClogBuilder.LogType.SCHEDULED_DOWNLOAD_SUCCESS.type, str3, "PARAMS_ERROR");
-                }
-                return false;
-            } catch (Exception unused2) {
-                str4 = str3;
-                if (bVar != null) {
-                    bVar.onResult(false);
-                }
-                if (!TextUtils.isEmpty(str4)) {
-                    e(ClogBuilder.LogType.SCHEDULED_DOWNLOAD_SUCCESS.type, str4, "FORMAT_ERROR");
-                }
-                return false;
+            }
+            if (this.b <= 0.0f) {
+                this.f = false;
+            } else if (this.e <= 0.0f) {
+                this.f = false;
+            } else {
+                this.f = true;
+                Message obtain = Message.obtain();
+                obtain.what = 1;
+                sendMessage(obtain);
             }
         }
-        return invokeLLL.booleanValue;
-    }
-
-    public final void f(@NonNull String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        long currentTimeMillis = System.currentTimeMillis();
-        String replace = str.replace("__PVID__", a(currentTimeMillis)).replace("__MICRO_TIME__", String.valueOf(currentTimeMillis)).replace("__TIME_STAMP__", String.valueOf(currentTimeMillis / 1000));
-        qo0 qo0Var = new qo0();
-        qo0Var.l(replace);
-        qo0Var.a("Content-Type", "application/json");
-        qo0Var.a("Origin", "feedScheduledDownload");
-        qo0Var.j(10000);
-        qo0Var.g(10000);
-        qo0Var.c();
-        xn0.b().a().a(qo0Var, null);
     }
 }

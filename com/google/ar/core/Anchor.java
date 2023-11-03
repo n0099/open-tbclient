@@ -1,7 +1,7 @@
 package com.google.ar.core;
 
 import com.google.ar.core.exceptions.FatalException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Anchor {
     public long a = 0;
 
@@ -29,7 +29,7 @@ public class Anchor {
         return Long.valueOf(this.a).hashCode();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum CloudAnchorState {
         NONE(0),
         TASK_IN_PROGRESS(1),

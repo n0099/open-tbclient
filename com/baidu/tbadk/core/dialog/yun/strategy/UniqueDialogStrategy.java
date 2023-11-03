@@ -8,9 +8,9 @@ import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
 import com.baidu.tbadk.core.log.YunDialogLog;
 import com.baidu.tbadk.data.DialogStrategiesData;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.c;
-import com.baidu.tieba.e15;
+import com.baidu.tieba.d;
 import com.baidu.tieba.log.TbLog;
+import com.baidu.tieba.w15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 /* loaded from: classes4.dex */
-public class UniqueDialogStrategy implements e15 {
+public class UniqueDialogStrategy implements w15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -60,7 +60,7 @@ public class UniqueDialogStrategy implements e15 {
         }
     }
 
-    @Override // com.baidu.tieba.e15
+    @Override // com.baidu.tieba.w15
     @NonNull
     public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
         InterceptResult invokeLLL;
@@ -73,7 +73,7 @@ public class UniqueDialogStrategy implements e15 {
         return (Map) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.e15
+    @Override // com.baidu.tieba.w15
     public boolean b(@NonNull Map<String, Object> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -87,7 +87,7 @@ public class UniqueDialogStrategy implements e15 {
             if (!isEmpty) {
                 String obj = data.currentShowingDialogList.toString();
                 if (Build.VERSION.SDK_INT >= 26) {
-                    obj = c.a(",", data.currentShowingDialogList);
+                    obj = d.a(",", data.currentShowingDialogList);
                 }
                 TbLog yunDialogLog = YunDialogLog.getInstance();
                 yunDialogLog.i(YunDialogManager.LOG_KEY, "云弹窗命中唯一策略，当前正在显示弹窗：" + obj);

@@ -1,25 +1,27 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public abstract class sd5 implements Comparable<sd5> {
+public final class sd5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Inject
+    public of1<pd5> a;
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void a(vd5 vd5Var);
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            mf1 b = mf1.b();
+            this.a = b;
+            b.a(new qd5());
+        }
     }
-
-    public abstract void b(a aVar);
-
-    public abstract int c();
-
-    public abstract void d();
 
     public sd5() {
         Interceptable interceptable = $ic;
@@ -34,21 +36,15 @@ public abstract class sd5 implements Comparable<sd5> {
                 return;
             }
         }
-        d();
+        b();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(sd5 sd5Var) {
-        InterceptResult invokeL;
+    public final of1<pd5> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sd5Var)) == null) {
-            if (sd5Var == null) {
-                return 1;
-            }
-            return c() - sd5Var.c();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return invokeL.intValue;
+        return (of1) invokeV.objValue;
     }
 }

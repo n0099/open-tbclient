@@ -27,8 +27,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
-import com.baidu.tieba.dc6;
-import com.baidu.tieba.uc;
+import com.baidu.tieba.kd;
+import com.baidu.tieba.yd6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,7 +43,7 @@ public class AlaEffectPreviewView extends LinearLayout {
     public View c;
     public ImageView d;
     public TextView e;
-    public dc6.c f;
+    public yd6.c f;
     public ObjectAnimator g;
     public LinearLayout h;
     public ImageView i;
@@ -105,7 +105,7 @@ public class AlaEffectPreviewView extends LinearLayout {
                     return;
                 }
                 try {
-                    Bitmap f = uc.d().f(rawBitmap, BdUtilHelper.getEquipmentWidth(this.a.getContext()), this.a.getContext().getResources().getDimensionPixelSize(R.dimen.tbds42));
+                    Bitmap f = kd.d().f(rawBitmap, BdUtilHelper.getEquipmentWidth(this.a.getContext()), this.a.getContext().getResources().getDimensionPixelSize(R.dimen.tbds42));
                     if (f != rawBitmap) {
                         rawBitmap.recycle();
                     }
@@ -324,7 +324,7 @@ public class AlaEffectPreviewView extends LinearLayout {
         e();
     }
 
-    public void setAnimCompleteCallback(dc6.c cVar) {
+    public void setAnimCompleteCallback(yd6.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
             this.f = cVar;
@@ -334,11 +334,11 @@ public class AlaEffectPreviewView extends LinearLayout {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c = LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d00f7, this);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901fb);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0901fa);
-            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0901e1);
-            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901fc);
+            this.c = LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d00f9, this);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f09020e);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09020d);
+            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0901f4);
+            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f09020f);
         }
     }
 

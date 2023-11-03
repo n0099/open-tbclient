@@ -1,12 +1,16 @@
 package com.baidu.tieba;
 
-import android.os.SystemClock;
+import android.content.Context;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.view.View;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.request.PostBodyRequest;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.swan.game.guide.dialog.GamenowRecommendPopView;
+import com.baidu.swan.game.guide.view.GameGuideViewContainer;
+import com.baidu.swan.games.view.recommend.popview.GameCloseGuidePopView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,15 +18,48 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.AbstractBceClient;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
-import org.json.JSONObject;
+import java.util.ArrayList;
+@Singleton
+@Service
 /* loaded from: classes7.dex */
-public class lw3 {
+public class lw3 implements q34 {
     public static /* synthetic */ Interceptable $ic;
-    public static lw3 a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes7.dex */
+    public class a implements GamenowRecommendPopView.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ GameCloseGuidePopView.e a;
+
+        public a(lw3 lw3Var, GameCloseGuidePopView.e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lw3Var, eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = eVar;
+        }
+
+        @Override // com.baidu.swan.game.guide.dialog.GamenowRecommendPopView.e
+        public void a() {
+            GameCloseGuidePopView.e eVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (eVar = this.a) == null) {
+                return;
+            }
+            eVar.a();
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +74,7 @@ public class lw3 {
                 return;
             }
         }
-        a = new lw3();
+        boolean z = rm1.a;
     }
 
     public lw3() {
@@ -54,433 +91,65 @@ public class lw3 {
         }
     }
 
-    public static lw3 n() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.q34
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
-        }
-        return (lw3) invokeV.objValue;
-    }
-
-    public final void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            f42.f("T43rINkXjgPfdKNXTuhQER2KdACVdB00", "12", "swan");
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            qw3.n().t();
         }
     }
 
-    public void a(String str) {
+    @Override // com.baidu.tieba.q34
+    public void release() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            rc3 rc3Var = new rc3();
-            rc3Var.b = "beforeConfigRequest";
-            rc3Var.e = str;
-            ic3.g(rc3Var);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            qw3.n().u();
         }
     }
 
-    public void b(String str, String str2, String str3, String str4) {
-        String str5;
-        String str6;
+    @Override // com.baidu.tieba.q34
+    public View a(Context context, GameCloseGuidePopView.e eVar) {
+        InterceptResult invokeLL;
+        fw3 fw3Var;
+        GameGuideConfigInfo z;
+        GameGuideConfigInfo.CloseInfo closeInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, str4) == null) {
-            GameGuideConfigInfo z = ov3.o.z();
-            String str7 = "";
-            if (z == null) {
-                str5 = "";
-            } else {
-                str5 = z.configName;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, eVar)) == null) {
+            if (context == null || (fw3Var = fw3.o) == null) {
+                return null;
             }
-            if (z == null) {
-                str6 = "";
-            } else {
-                str6 = z.targetAppPackageId;
+            String I = fw3Var.I();
+            if ((!TextUtils.equals(I, kw3.a) && ak3.F(context, I)) || (z = fw3.o.z()) == null || (closeInfo = z.closeInfo) == null) {
+                return null;
             }
-            if (z != null) {
-                str7 = z.targetAppDownloadUrl;
+            int i = closeInfo.type;
+            ArrayList<GameGuideConfigInfo.RecommendGameInfo> arrayList = closeInfo.gameList;
+            if ((i != 0 || arrayList == null || arrayList.size() < 3) && ((i != 1 || arrayList == null || arrayList.size() < 6) && i != 2)) {
+                return null;
             }
-            rc3 rc3Var = new rc3();
-            rc3Var.b = str;
-            rc3Var.g = "gbview";
-            rc3Var.e = str2;
-            rc3Var.a("gameAppkey", str3);
-            rc3Var.a("gamePosition", str4);
-            rc3Var.a("configName", str5);
-            rc3Var.a("targetPackageName", str6);
-            rc3Var.a("targetDownloadUrl", str7);
-            ic3.g(rc3Var);
-        }
-    }
-
-    public void c(String str) {
-        String str2;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            GameGuideConfigInfo z = ov3.o.z();
-            String str4 = "";
-            if (z == null) {
-                str2 = "";
-            } else {
-                str2 = z.configName;
-            }
-            if (z == null) {
-                str3 = "";
-            } else {
-                str3 = z.targetAppPackageId;
-            }
-            if (z != null) {
-                str4 = z.targetAppDownloadUrl;
-            }
-            rc3 rc3Var = new rc3();
-            rc3Var.b = str;
-            rc3Var.g = "gbview";
-            rc3Var.a("configName", str2);
-            rc3Var.a("targetPackageName", str3);
-            rc3Var.a("targetDownloadUrl", str4);
-            if (str3.equals(tv3.a)) {
-                if (jj3.F(wo2.c(), str3)) {
-                    rc3Var.a("isGamenowInstalled", "1");
-                } else {
-                    rc3Var.a("isGamenowInstalled", "2");
+            if (i != 0 && i != 1) {
+                if (i == 2) {
+                    cx3.n().c("gbADialogShow");
                 }
+            } else {
+                cx3.n().c("gbBDialogShow");
             }
-            ic3.g(rc3Var);
+            GamenowRecommendPopView gamenowRecommendPopView = new GamenowRecommendPopView(context, closeInfo);
+            gamenowRecommendPopView.setOnClickListener(new a(this, eVar));
+            return gamenowRecommendPopView;
         }
+        return (View) invokeLL.objValue;
     }
 
-    public void i(int i) {
-        String str;
-        String str2;
+    @Override // com.baidu.tieba.q34
+    public void b(int i) {
+        fw3 fw3Var;
+        GameGuideViewContainer B;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            GameGuideConfigInfo z = ov3.o.z();
-            String str3 = "";
-            if (z == null) {
-                str = "";
-            } else {
-                str = z.configName;
-            }
-            if (z == null) {
-                str2 = "";
-            } else {
-                str2 = z.targetAppPackageId;
-            }
-            if (z != null) {
-                str3 = z.targetAppDownloadUrl;
-            }
-            rc3 rc3Var = new rc3();
-            rc3Var.b = "guideClick";
-            rc3Var.g = "wdview";
-            rc3Var.a("guideViewNum", String.valueOf(i));
-            rc3Var.a("configName", str);
-            rc3Var.a("targetPackageName", str2);
-            rc3Var.a("targetDownloadUrl", str3);
-            ic3.g(rc3Var);
-        }
-    }
-
-    public void d(String str, boolean z, String str2) {
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Boolean.valueOf(z), str2}) == null) {
-            rc3 rc3Var = new rc3();
-            rc3Var.b = "request";
-            rc3Var.g = "wdview";
-            rc3Var.a("requestStatus", str);
-            if (z) {
-                str3 = "0";
-            } else {
-                str3 = "1";
-            }
-            rc3Var.a("isFromNet", str3);
-            rc3Var.a(StatConstants.KEY_EXT_ERR_MSG, str2);
-            ic3.g(rc3Var);
-            if (TextUtils.equals(str, "fail") || (TextUtils.equals(str, "start") && !z)) {
-                o();
-            }
-        }
-    }
-
-    public void j(String str, int i, int i2) {
-        String str2;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048585, this, str, i, i2) == null) {
-            GameGuideConfigInfo z = ov3.o.z();
-            String str4 = "";
-            if (z == null) {
-                str2 = "";
-            } else {
-                str2 = z.configName;
-            }
-            if (z == null) {
-                str3 = "";
-            } else {
-                str3 = z.targetAppPackageId;
-            }
-            if (z != null) {
-                str4 = z.targetAppDownloadUrl;
-            }
-            rc3 rc3Var = new rc3();
-            rc3Var.b = "wdDialogClick";
-            rc3Var.g = "wdview";
-            rc3Var.e = str;
-            rc3Var.a("coinsThisTime", String.valueOf(i));
-            rc3Var.a("coinsTotal", String.valueOf(i2));
-            rc3Var.a("configName", str2);
-            rc3Var.a("targetPackageName", str3);
-            rc3Var.a("targetDownloadUrl", str4);
-            ic3.g(rc3Var);
-        }
-    }
-
-    public void m(String str, String str2, int i) {
-        String str3;
-        String str4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048588, this, str, str2, i) == null) {
-            GameGuideConfigInfo z = ov3.o.z();
-            String str5 = "";
-            if (z == null) {
-                str3 = "";
-            } else {
-                str3 = z.configName;
-            }
-            if (z == null) {
-                str4 = "";
-            } else {
-                str4 = z.targetAppPackageId;
-            }
-            if (z != null) {
-                str5 = z.targetAppDownloadUrl;
-            }
-            rc3 rc3Var = new rc3();
-            rc3Var.g = str;
-            rc3Var.e = str2;
-            rc3Var.a("configName", str3);
-            rc3Var.a("targetPackageName", str4);
-            rc3Var.a("targetDownloadUrl", str5);
-            rc3Var.a("GamenowDownloadStatus", Integer.valueOf(i));
-            ic3.g(rc3Var);
-        }
-    }
-
-    public void e(String str, String str2, String str3, String str4, String str5, String str6) {
-        String str7;
-        String str8;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, str3, str4, str5, str6}) == null) {
-            GameGuideConfigInfo z = ov3.o.z();
-            String str9 = "";
-            if (z == null) {
-                str7 = "";
-            } else {
-                str7 = z.configName;
-            }
-            if (z == null) {
-                str8 = "";
-            } else {
-                str8 = z.targetAppPackageId;
-            }
-            if (z != null) {
-                str9 = z.targetAppDownloadUrl;
-            }
-            if (!TextUtils.equals(str8, tv3.a)) {
-                str6 = str9;
-            }
-            rc3 rc3Var = new rc3();
-            rc3Var.b = str;
-            rc3Var.g = str2;
-            rc3Var.e = str3;
-            rc3Var.a("gameAppkey", str4);
-            rc3Var.a("gamePosition", str5);
-            rc3Var.a("configName", str7);
-            rc3Var.a("targetPackageName", str8);
-            rc3Var.a("targetDownloadUrl", str6);
-            ic3.g(rc3Var);
-        }
-    }
-
-    public void f(String str, kw3 kw3Var, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048581, this, str, kw3Var, str2, str3, str4) == null) {
-            JSONObject d = pi3.d(str3);
-            mw3 mw3Var = new mw3();
-            mw3Var.g(kw3Var);
-            mw3Var.b = str;
-            mw3Var.g = d.optString("from_view");
-            mw3Var.e = d.optString("from_value");
-            mw3Var.a("configName", d.optString(GameGuideConfigInfo.KEY_CONFIG_NAME));
-            mw3Var.a("targetPackageName", str2);
-            mw3Var.a("targetDownloadUrl", str4);
-            ic3.g(mw3Var);
-        }
-    }
-
-    public void g(String str, kw3 kw3Var, String str2, String str3, int i, String str4) {
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, kw3Var, str2, str3, Integer.valueOf(i), str4}) == null) {
-            JSONObject d = pi3.d(str3);
-            long optLong = d.optLong("download_finish_time");
-            if (optLong != 0) {
-                j = SystemClock.elapsedRealtime() - optLong;
-            } else {
-                j = 0;
-            }
-            mw3 mw3Var = new mw3();
-            mw3Var.g(kw3Var);
-            mw3Var.e = d.optString("from_value");
-            mw3Var.b = str;
-            mw3Var.g = d.optString("from_view");
-            mw3Var.a("error_code", Integer.valueOf(i));
-            mw3Var.a("configName", d.optString(GameGuideConfigInfo.KEY_CONFIG_NAME));
-            if (j != 0) {
-                mw3Var.a("timeAfterDownload", Long.valueOf(j));
-            }
-            mw3Var.a("targetPackageName", str2);
-            mw3Var.a("targetDownloadUrl", str4);
-            if (TextUtils.equals(str, "package_expired")) {
-                mw3Var.a("downloadStatus", d.optString("download_status"));
-            }
-            if (TextUtils.equals(str, "analysisFailed")) {
-                long optLong2 = d.optLong("download_current_bytes");
-                long optLong3 = d.optLong("download_total_bytes");
-                mw3Var.a("downloadCurrentBytes", Long.valueOf(optLong2));
-                mw3Var.a("downloadTotalBytes", Long.valueOf(optLong3));
-            }
-            ic3.x("936", mw3Var);
-        }
-    }
-
-    public void h(String str, kw3 kw3Var, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048583, this, str, kw3Var, str2, str3, str4) == null) {
-            g(str, kw3Var, str2, str3, 0, str4);
-        }
-    }
-
-    public void k(int i, int i2) {
-        String str;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048586, this, i, i2) == null) {
-            GameGuideConfigInfo z = ov3.o.z();
-            String str3 = "";
-            if (z == null) {
-                str = "";
-            } else {
-                str = z.configName;
-            }
-            if (z == null) {
-                str2 = "";
-            } else {
-                str2 = z.targetAppPackageId;
-            }
-            if (z != null) {
-                str3 = z.targetAppDownloadUrl;
-            }
-            rc3 rc3Var = new rc3();
-            rc3Var.b = "wdDialogShow";
-            rc3Var.g = "wdview";
-            rc3Var.a("coinsThisTime", String.valueOf(i));
-            rc3Var.a("coinsTotal", String.valueOf(i2));
-            rc3Var.a("configName", str);
-            rc3Var.a("targetPackageName", str2);
-            rc3Var.a("targetDownloadUrl", str3);
-            if (str2.equals(tv3.a)) {
-                if (jj3.F(wo2.c(), str2)) {
-                    rc3Var.a("isGamenowInstalled", "1");
-                } else {
-                    rc3Var.a("isGamenowInstalled", "2");
-                }
-            }
-            ic3.g(rc3Var);
-        }
-    }
-
-    public void l() {
-        String str;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            GameGuideConfigInfo z = ov3.o.z();
-            String str3 = "";
-            if (z == null) {
-                str = "";
-            } else {
-                str = z.configName;
-            }
-            if (z == null) {
-                str2 = "";
-            } else {
-                str2 = z.targetAppPackageId;
-            }
-            if (z != null) {
-                str3 = z.targetAppDownloadUrl;
-            }
-            rc3 rc3Var = new rc3();
-            rc3Var.b = "guideShow";
-            rc3Var.g = "wdview";
-            rc3Var.a("configName", str);
-            rc3Var.a("targetPackageName", str2);
-            rc3Var.a("targetDownloadUrl", str3);
-            ic3.g(rc3Var);
-        }
-    }
-
-    public void p(int i, String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), str, str2, str3}) == null) {
-            String d = g24.b().d();
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("cuid", wo2.h0().i(wo2.c()));
-                jSONObject.put("type", i);
-                jSONObject.put("time", System.currentTimeMillis() / 1000);
-                jSONObject.put("host", wo2.n().a());
-                jSONObject.put("version", jj3.D());
-                jSONObject.put("package", str);
-                jSONObject.put("appid", str2);
-                jSONObject.put("url", str3);
-                ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) tc4.h(wo2.c()).postRequest().cookieManager(wo2.q().a())).url(d)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(null);
-            } catch (Exception unused) {
-            }
-        }
-    }
-
-    public void q(int i, String str, String str2, int i2, String str3, long j, long j2) {
-        String str4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Integer.valueOf(i), str, str2, Integer.valueOf(i2), str3, Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            String d = g24.b().d();
-            JSONObject jSONObject = new JSONObject();
-            if (TextUtils.equals(str, tv3.a)) {
-                str4 = "2101000000";
-            } else {
-                str4 = "";
-            }
-            ov3 ov3Var = ov3.o;
-            if (ov3Var != null && ov3Var.z() != null && !TextUtils.isEmpty(ov3.o.z().gamenowChannel)) {
-                str4 = ov3.o.z().gamenowChannel;
-            }
-            try {
-                jSONObject.put("error_code", i);
-                jSONObject.put("time", System.currentTimeMillis() / 1000);
-                jSONObject.put("packagename", str);
-                jSONObject.put("downloadurl", str2);
-                jSONObject.put("channel", str4);
-                jSONObject.put("currentBytes", j);
-                jSONObject.put("totalBytes", j2);
-                jSONObject.put("errorReason", i2);
-                if (!TextUtils.isEmpty(str3)) {
-                    jSONObject.put("fileMd5", str3);
-                }
-                ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) tc4.h(wo2.c()).postRequest().cookieManager(wo2.q().a())).url(d)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(null);
-            } catch (Exception unused) {
-            }
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (fw3Var = fw3.o) != null && (B = fw3Var.B()) != null) {
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) B.getLayoutParams();
+            layoutParams.rightMargin = i;
+            B.setLayoutParams(layoutParams);
         }
     }
 }

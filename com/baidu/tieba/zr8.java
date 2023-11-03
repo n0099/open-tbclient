@@ -1,19 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AgreeMeActivityConfig;
-import com.baidu.tbadk.core.atomData.AtMeActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
-import com.baidu.tbadk.core.atomData.ReplyMeActivityConfig;
-import com.baidu.tieba.immessagecenter.msgtab.data.NotifyType;
-import com.baidu.tieba.redtip.PersonRedTipManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,37 +9,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
-public final class zr8 {
+public abstract class zr8 implements js8<ChatMsg> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes9.dex */
-    public /* synthetic */ class a {
-        public static final /* synthetic */ int[] $EnumSwitchMapping$0;
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-222504340, "Lcom/baidu/tieba/zr8$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-222504340, "Lcom/baidu/tieba/zr8$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[NotifyType.values().length];
-            iArr[NotifyType.AT_ME.ordinal()] = 1;
-            iArr[NotifyType.AGREE_ME.ordinal()] = 2;
-            iArr[NotifyType.REPLY_ME.ordinal()] = 3;
-            iArr[NotifyType.FANS.ordinal()] = 4;
-            $EnumSwitchMapping$0 = iArr;
-        }
-    }
 
     public zr8() {
         Interceptable interceptable = $ic;
@@ -67,103 +27,26 @@ public final class zr8 {
         }
     }
 
-    public final void a(sq8 sq8Var) {
-        NotifyType notifyType;
-        int i;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.js8
+    /* renamed from: d */
+    public int b(ChatMsg sdkMsg) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sq8Var) == null) {
-            if (sq8Var != null) {
-                notifyType = sq8Var.c();
-            } else {
-                notifyType = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sdkMsg)) == null) {
+            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
+            int status = sdkMsg.getStatus();
+            if (status == 0) {
+                return 0;
             }
-            if (notifyType == null) {
-                i = -1;
-            } else {
-                i = a.$EnumSwitchMapping$0[notifyType.ordinal()];
-            }
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i == 4) {
-                            pd8.b().g(4, 0);
-                            PersonRedTipManager.getInstance().updateRedTipState(2, false, true);
-                            d95.p0().l();
-                            d95.p0().j0(0);
-                            return;
-                        }
-                        return;
-                    }
-                    pd8.b().g(2, 0);
-                    d95.p0().o();
-                    d95.p0().m0(0);
-                    return;
+            if (status != 1) {
+                if (status != 2) {
+                    return 0;
                 }
-                pd8.b().g(1, 0);
-                d95.p0().h();
-                d95.p0().f0(0);
-                return;
+                return 3;
             }
-            pd8.b().g(3, 0);
-            d95.p0().j();
-            d95.p0().g0(0);
+            return 2;
         }
-    }
-
-    public final void b(BaseFragment frag, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frag, i) == null) {
-            Intrinsics.checkNotNullParameter(frag, "frag");
-            AgreeMeActivityConfig agreeMeActivityConfig = new AgreeMeActivityConfig(frag.getContext());
-            BdUniqueId uniqueId = frag.getUniqueId();
-            if (uniqueId != null) {
-                agreeMeActivityConfig.setLastUniqueId(uniqueId.getId());
-            }
-            agreeMeActivityConfig.setAgreeNumber(i);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, agreeMeActivityConfig));
-        }
-    }
-
-    public final void c(BaseFragment frag, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, frag, i) == null) {
-            Intrinsics.checkNotNullParameter(frag, "frag");
-            AtMeActivityConfig atMeActivityConfig = new AtMeActivityConfig(frag.getContext());
-            BdUniqueId uniqueId = frag.getUniqueId();
-            if (uniqueId != null) {
-                atMeActivityConfig.setLastUniqueId(uniqueId.getId());
-            }
-            atMeActivityConfig.setAtNumber(i);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, atMeActivityConfig));
-        }
-    }
-
-    public final void d(BaseFragment frag) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, frag) == null) {
-            Intrinsics.checkNotNullParameter(frag, "frag");
-            PersonListActivityConfig personListActivityConfig = new PersonListActivityConfig(frag.getContext(), false, TbadkCoreApplication.getCurrentAccount(), 0);
-            BdUniqueId uniqueId = frag.getUniqueId();
-            if (uniqueId != null) {
-                personListActivityConfig.setLastUniqueId(uniqueId.getId());
-            }
-            personListActivityConfig.setFansNumber(d95.p0().y());
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, personListActivityConfig));
-        }
-    }
-
-    public final void e(BaseFragment frag) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, frag) == null) {
-            Intrinsics.checkNotNullParameter(frag, "frag");
-            ReplyMeActivityConfig replyMeActivityConfig = new ReplyMeActivityConfig(frag.getContext());
-            replyMeActivityConfig.setFrom(1);
-            BdUniqueId uniqueId = frag.getUniqueId();
-            if (uniqueId != null) {
-                replyMeActivityConfig.setLastUniqueId(uniqueId.getId());
-            }
-            replyMeActivityConfig.setReplyNumber(d95.p0().B());
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, replyMeActivityConfig));
-        }
+        return invokeL.intValue;
     }
 }

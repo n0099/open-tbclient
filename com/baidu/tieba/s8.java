@@ -1,119 +1,85 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
 /* loaded from: classes8.dex */
-public class s8 {
+public class s8 implements u8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Double a;
 
-    public static final List<Object> a(u8 u8Var, int i) {
-        InterceptResult invokeLI;
+    public s8(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, u8Var, i)) == null) {
-            Class<?> a = u8Var.a();
-            if (a != List.class && a != ArrayList.class) {
-                if (a == LinkedList.class) {
-                    return new LinkedList();
-                }
-                Object h = b7.h(a, i);
-                if (h == null) {
-                    h = b7.g(a);
-                }
-                if (h instanceof List) {
-                    return (List) h;
-                }
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Double.valueOf(d)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return new ArrayList(i);
         }
-        return (List) invokeLI.objValue;
+        this.a = Double.valueOf(d);
     }
 
-    public static final Queue<Object> c(u8 u8Var, int i) {
-        InterceptResult invokeLI;
+    @Override // com.baidu.tieba.u8
+    public Object a(k9 k9Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, u8Var, i)) == null) {
-            Class<?> a = u8Var.a();
-            if (a == Queue.class) {
-                return new LinkedList();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k9Var)) == null) {
+            Class<?> a = k9Var.a();
+            if (a != Byte.class && a != Byte.TYPE) {
+                if (a != Short.class && a != Short.TYPE) {
+                    if (a != Integer.class && a != Integer.TYPE) {
+                        if (a != Long.class && a != Long.TYPE) {
+                            if (a != Float.class && a != Float.TYPE) {
+                                if (a != Double.class && a != Double.TYPE) {
+                                    if (a != Character.class && a != Character.TYPE) {
+                                        boolean z = false;
+                                        if (a != Boolean.class && a != Boolean.TYPE) {
+                                            if (a == String.class) {
+                                                return String.valueOf(this.a);
+                                            }
+                                            if (a == char[].class) {
+                                                return String.valueOf(this.a).toCharArray();
+                                            }
+                                            if (a == byte[].class) {
+                                                try {
+                                                    return jd.e(String.valueOf(this.a), 0);
+                                                } catch (IOException e) {
+                                                    e.printStackTrace();
+                                                    return null;
+                                                }
+                                            }
+                                            return null;
+                                        }
+                                        if (this.a.byteValue() == 0) {
+                                            z = true;
+                                        }
+                                        return Boolean.valueOf(z);
+                                    }
+                                    return Character.valueOf((char) this.a.intValue());
+                                }
+                                return Double.valueOf(this.a.doubleValue());
+                            }
+                            return Float.valueOf(this.a.floatValue());
+                        }
+                        return Long.valueOf(this.a.longValue());
+                    }
+                    return Integer.valueOf(this.a.intValue());
+                }
+                return Short.valueOf(this.a.shortValue());
             }
-            Object h = b7.h(a, i);
-            if (h == null) {
-                h = b7.g(a);
-            }
-            if (h instanceof Queue) {
-                return (Queue) h;
-            }
-            return null;
+            return Byte.valueOf(this.a.byteValue());
         }
-        return (Queue) invokeLI.objValue;
-    }
-
-    public static final Set<Object> d(u8 u8Var, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, u8Var, i)) == null) {
-            Class<?> a = u8Var.a();
-            if (a == Set.class) {
-                return new HashSet();
-            }
-            Object h = b7.h(a, i);
-            if (h == null) {
-                h = b7.g(a);
-            }
-            if (h instanceof Set) {
-                return (Set) h;
-            }
-            return null;
-        }
-        return (Set) invokeLI.objValue;
-    }
-
-    public static final Map<String, Object> b(u8 u8Var, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, u8Var, i)) == null) {
-            Class<?> a = u8Var.a();
-            Type[] b = u8Var.b();
-            if (!b7.e(a, Map.class)) {
-                return null;
-            }
-            if (b != null && b.length >= 2 && b[0] == String.class) {
-                if (a == Map.class) {
-                    return new HashMap(i);
-                }
-                Object h = b7.h(a, i);
-                if (h == null) {
-                    h = b7.g(a);
-                }
-                if (!(h instanceof Map)) {
-                    return null;
-                }
-                return (Map) h;
-            } else if (a == Map.class) {
-                return new HashMap(i);
-            } else {
-                Object h2 = b7.h(a, i);
-                if (h2 == null) {
-                    h2 = b7.g(a);
-                }
-                if (!(h2 instanceof Map)) {
-                    return null;
-                }
-                return (Map) h2;
-            }
-        }
-        return (Map) invokeLI.objValue;
+        return invokeL.objValue;
     }
 }

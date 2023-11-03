@@ -6,8 +6,8 @@ import android.content.Intent;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.tieba.ng0;
-import com.baidu.tieba.oh0;
+import com.baidu.tieba.eh0;
+import com.baidu.tieba.fi0;
 import java.io.File;
 import java.lang.reflect.Method;
 /* loaded from: classes3.dex */
@@ -39,8 +39,8 @@ public class NotificationReceiver extends BroadcastReceiver {
     }
 
     private void installApk(String str, String str2) {
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !oh0.c(str2)) {
-            oh0.d(new File(str));
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !fi0.c(str2)) {
+            fi0.d(new File(str));
         }
     }
 
@@ -50,11 +50,11 @@ public class NotificationReceiver extends BroadcastReceiver {
             installApk(str3, str2);
             str6 = ClogBuilder.LogType.DOWNLOAD_INSTALL.type;
         } else {
-            oh0.h(str2);
+            fi0.h(str2);
             str6 = ClogBuilder.LogType.OPEN_APP.type;
         }
         collapseStatusBar(context);
-        ng0.f().h(str6, str5, str4, str);
+        eh0.f().h(str6, str5, str4, str);
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -107,14 +107,14 @@ public class NotificationReceiver extends BroadcastReceiver {
             if (c != 1) {
                 if (c != 2) {
                     if (c == 3) {
-                        ng0.f().h(ClogBuilder.LogType.FREE_CLICK.type, ClogBuilder.Area.AD_NOTIFICATION_REMOVE.type, stringExtra4, stringExtra3);
+                        eh0.f().h(ClogBuilder.LogType.FREE_CLICK.type, ClogBuilder.Area.AD_NOTIFICATION_REMOVE.type, stringExtra4, stringExtra3);
                         return;
                     }
                     return;
                 }
                 onNotificationClick(context, stringExtra3, stringExtra, stringExtra2, stringExtra4, ClogBuilder.Area.AD_NOTIFICATION_BTN_CLICK.type);
                 if (intExtra != -1) {
-                    ng0.f().a(intExtra);
+                    eh0.f().a(intExtra);
                     return;
                 }
                 return;

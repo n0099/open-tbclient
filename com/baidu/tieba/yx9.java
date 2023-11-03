@@ -1,245 +1,271 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.messages.gfh.GfhKeyValue;
+import android.text.TextUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.BaijiahaoData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
+import com.baidu.tieba.pb.data.PbFloorAgreeResponseMessage;
+import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
+import com.baidu.tieba.rate.RateManager;
+import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes9.dex */
-public final class yx9 {
+public class yx9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public final List<zx9> b;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948345679, "Lcom/baidu/tieba/yx9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948345679, "Lcom/baidu/tieba/yx9;");
-                return;
-            }
-        }
-        c = new a(null);
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof yx9) {
-                yx9 yx9Var = (yx9) obj;
-                return Intrinsics.areEqual(this.a, yx9Var.a) && Intrinsics.areEqual(this.b, yx9Var.b);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (this.a.hashCode() * 31) + this.b.hashCode() : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return "PushSceneGroupRecord(date=" + this.a + ", groups=" + this.b + ')';
-        }
-        return (String) invokeV.objValue;
-    }
+    public final g1a a;
+    public final HttpMessageListener b;
+    public final HttpMessageListener c;
 
     /* loaded from: classes9.dex */
-    public static final class a {
+    public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yx9 a;
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(yx9 yx9Var, int i, boolean z) {
+            super(i, z);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yx9Var, Integer.valueOf(i), Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = yx9Var;
         }
 
-        public final List<zx9> a(JSONObject jSONObject) {
-            InterceptResult invokeL;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-                JSONArray optJSONArray = jSONObject.optJSONArray("groups");
-                if (optJSONArray == null) {
-                    return new ArrayList();
-                }
-                ArrayList arrayList = new ArrayList();
-                int length = optJSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    zx9 a = zx9.c.a(optJSONArray.optJSONObject(i));
-                    if (a != null) {
-                        arrayList.add(a);
-                    }
-                }
-                return arrayList;
+            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
+                this.a.e(httpResponsedMessage, CmdConfigHttp.CMD_PB_FLOOR_AGREE);
             }
-            return (List) invokeL.objValue;
-        }
-
-        @JvmStatic
-        public final yx9 b(String str) {
-            InterceptResult invokeL;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                if (str != null && str.length() != 0) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                if (z) {
-                    return null;
-                }
-                JSONObject jSONObject = new JSONObject(str);
-                String optString = jSONObject.optString(GfhKeyValue.TYPE_DATE);
-                Intrinsics.checkNotNullExpressionValue(optString, "jsonObj.optString(\"date\")");
-                return new yx9(optString, a(jSONObject));
-            }
-            return (yx9) invokeL.objValue;
         }
     }
 
-    public yx9(String date, List<zx9> groups) {
+    /* loaded from: classes9.dex */
+    public class b extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yx9 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(yx9 yx9Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yx9Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = yx9Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
+                this.a.e(httpResponsedMessage, CmdConfigHttp.CMD_CHANGE_FLOOR_AGREE);
+            }
+        }
+    }
+
+    public yx9(g1a g1aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {date, groups};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {g1aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(date, "date");
-        Intrinsics.checkNotNullParameter(groups, "groups");
-        this.a = date;
-        this.b = groups;
-    }
-
-    public final String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        this.b = new a(this, CmdConfigHttp.CMD_PB_FLOOR_AGREE, true);
+        this.c = new b(this, CmdConfigHttp.CMD_CHANGE_FLOOR_AGREE);
+        if (g1aVar != null) {
+            this.a = g1aVar;
+            f();
+            return;
         }
-        return (String) invokeV.objValue;
+        throw new NullPointerException("PbActivity is NullPointerException");
     }
 
-    public final List<zx9> b() {
+    /* JADX WARN: Removed duplicated region for block: B:16:0x0072  */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x0096  */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x00a7  */
+    /* JADX WARN: Removed duplicated region for block: B:25:0x00b2  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void b(AgreeData agreeData) {
+        ko5 currentVisiblePageExtra;
+        BaijiahaoData baijiahaoData;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, agreeData) != null) || agreeData == null) {
+            return;
+        }
+        int i = 1;
+        if (agreeData.hasAgree) {
+            if (agreeData.agreeType == 2) {
+                agreeData.agreeType = 2;
+                agreeData.hasAgree = false;
+                agreeData.agreeNum--;
+                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
+                httpMessage.addParam("z_id", TbadkCoreApplication.getInst().getZid());
+                httpMessage.addParam("thread_id", agreeData.threadId);
+                httpMessage.addParam("op_type", i);
+                if (agreeData.objType == 0) {
+                    agreeData.objType = 3;
+                }
+                httpMessage.addParam("obj_type", agreeData.objType);
+                httpMessage.addParam("agree_type", agreeData.agreeType);
+                httpMessage.addParam("forum_id", agreeData.forumId);
+                currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(this.a.r0());
+                if (currentVisiblePageExtra != null) {
+                    httpMessage.addParam("obj_source", currentVisiblePageExtra.a());
+                }
+                if (!TextUtils.isEmpty(agreeData.postId)) {
+                    httpMessage.addParam("post_id", agreeData.postId);
+                }
+                baijiahaoData = agreeData.baijiahaoData;
+                if (baijiahaoData != null) {
+                    httpMessage.addParam("ori_ugc_tid", baijiahaoData.oriUgcTid);
+                    httpMessage.addParam("ori_ugc_nid", agreeData.baijiahaoData.oriUgcNid);
+                    httpMessage.addParam("ori_ugc_vid", agreeData.baijiahaoData.oriUgcVid);
+                    httpMessage.addParam(TiebaStatic.Params.UGC_TYPE, agreeData.baijiahaoData.oriUgcType);
+                }
+                httpMessage.setTag(c());
+                httpMessage.setExtra(Integer.valueOf(i));
+                httpMessage.addHeader("needSig", "1");
+                MessageManager.getInstance().sendMessage(httpMessage);
+            }
+            agreeData.agreeType = 2;
+            agreeData.hasAgree = true;
+            agreeData.agreeNum++;
+            RateManager.getInstance().notifyLike(this.a.getPageContext());
+        } else {
+            agreeData.agreeType = 2;
+            agreeData.hasAgree = true;
+            agreeData.agreeNum++;
+            RateManager.getInstance().notifyLike(this.a.getPageContext());
+        }
+        i = 0;
+        HttpMessage httpMessage2 = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
+        httpMessage2.addParam("z_id", TbadkCoreApplication.getInst().getZid());
+        httpMessage2.addParam("thread_id", agreeData.threadId);
+        httpMessage2.addParam("op_type", i);
+        if (agreeData.objType == 0) {
+        }
+        httpMessage2.addParam("obj_type", agreeData.objType);
+        httpMessage2.addParam("agree_type", agreeData.agreeType);
+        httpMessage2.addParam("forum_id", agreeData.forumId);
+        currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(this.a.r0());
+        if (currentVisiblePageExtra != null) {
+        }
+        if (!TextUtils.isEmpty(agreeData.postId)) {
+        }
+        baijiahaoData = agreeData.baijiahaoData;
+        if (baijiahaoData != null) {
+        }
+        httpMessage2.setTag(c());
+        httpMessage2.setExtra(Integer.valueOf(i));
+        httpMessage2.addHeader("needSig", "1");
+        MessageManager.getInstance().sendMessage(httpMessage2);
+    }
+
+    public BdUniqueId c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+            TbPageContext pageContext = this.a.getPageContext();
+            if (pageContext != null) {
+                return pageContext.getUniqueId();
+            }
+            return null;
         }
-        return (List) invokeV.objValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public final boolean c() {
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            g();
+        }
+    }
+
+    public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return Intrinsics.areEqual(this.a, ad.getDateStringDay(new Date()));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            g1a g1aVar = this.a;
+            if (g1aVar != null) {
+                g1aVar.registerListener(this.b);
+                this.a.registerListener(this.c);
+                return true;
+            }
+            return true;
         }
         return invokeV.booleanValue;
     }
 
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            String dateStringDay = ad.getDateStringDay(new Date());
-            if (dateStringDay == null) {
-                dateStringDay = "";
-            }
-            this.a = dateStringDay;
-            this.b.clear();
-        }
-    }
-
-    public final void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            zx9 zx9Var = null;
-            for (zx9 zx9Var2 : this.b) {
-                if (zx9Var2.a() == i) {
-                    zx9Var = zx9Var2;
-                }
-            }
-            if (zx9Var == null) {
-                this.b.add(new zx9(i, 1));
-                return;
-            }
-            zx9Var.c(zx9Var.b() + 1);
-        }
-    }
-
-    public final void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.a = str;
-        }
-    }
-
-    public final String g() {
+    public final boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            for (zx9 zx9Var : this.b) {
-                jSONArray.put(zx9Var.d());
-            }
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put(GfhKeyValue.TYPE_DATE, this.a);
-            jSONObject.put("groups", jSONArray);
-            String jSONObject2 = jSONObject.toString();
-            Intrinsics.checkNotNullExpressionValue(jSONObject2, "JSONObject().apply {\n   …ray)\n        }.toString()");
-            return jSONObject2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            MessageManager.getInstance().unRegisterListener(this.b);
+            MessageManager.getInstance().unRegisterListener(this.c);
+            return true;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public final void e(HttpResponsedMessage httpResponsedMessage, int i) {
+        PbFloorAgreeResponseMessage pbFloorAgreeResponseMessage;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(1048579, this, httpResponsedMessage, i) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == i && (httpResponsedMessage instanceof PbFloorAgreeResponseMessage) && (pbFloorAgreeResponseMessage = (PbFloorAgreeResponseMessage) httpResponsedMessage) != null && !pbFloorAgreeResponseMessage.hasError() && this.a != null && pbFloorAgreeResponseMessage.getActivityDialogData() != null) {
+            CustomDialogData activityDialogData = pbFloorAgreeResponseMessage.getActivityDialogData();
+            activityDialogData.type = 0;
+            bu9.a(this.a.getPageContext(), activityDialogData).show();
+        }
     }
 }

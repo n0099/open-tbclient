@@ -65,9 +65,9 @@ public final class TypeAliasExpansion {
     }
 
     public final TypeProjection getReplacement(TypeConstructor typeConstructor) {
-        ClassifierDescriptor mo2106getDeclarationDescriptor = typeConstructor.mo2106getDeclarationDescriptor();
-        if (mo2106getDeclarationDescriptor instanceof TypeParameterDescriptor) {
-            return this.mapping.get(mo2106getDeclarationDescriptor);
+        ClassifierDescriptor mo2110getDeclarationDescriptor = typeConstructor.mo2110getDeclarationDescriptor();
+        if (mo2110getDeclarationDescriptor instanceof TypeParameterDescriptor) {
+            return this.mapping.get(mo2110getDeclarationDescriptor);
         }
         return null;
     }

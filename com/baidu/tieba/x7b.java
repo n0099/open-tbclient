@@ -1,330 +1,130 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.logsystem.basic.upload.Constant;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
+import com.baidu.ugc.editvideo.data.MultiMediaData;
+import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUtil;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class x7b {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean n;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public JSONObject c;
-    public JSONObject d;
-    public JSONObject e;
-    public String f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
-    public int k;
-    public int l;
-    public List<k7b> m;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948254694, "Lcom/baidu/tieba/x7b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static long[] a(int i, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            if (i < 0) {
+                i = 0;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948254694, "Lcom/baidu/tieba/x7b;");
-                return;
-            }
-        }
-        n = c8b.m();
-    }
-
-    public JSONObject a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public List<k7b> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.m;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.g;
-        }
-        return invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.j;
-        }
-        return invokeV.intValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.i;
-        }
-        return invokeV.intValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.h;
-        }
-        return invokeV.intValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.k;
-        }
-        return invokeV.intValue;
-    }
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.l;
-        }
-        return invokeV.intValue;
-    }
-
-    public x7b(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, jSONObject};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.m = new ArrayList();
-        this.c = jSONObject;
-    }
-
-    public x7b(List<k7b> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.m = new ArrayList();
-        if (list != null && list.size() > 0) {
-            this.m.addAll(list);
-        }
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        JSONObject optJSONObject;
-        boolean z;
-        boolean z2;
-        boolean z3;
-        boolean z4;
-        boolean z5;
-        boolean z6;
-        boolean z7;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            try {
-                if (this.c != null && this.c.length() != 0) {
-                    JSONObject jSONObject = this.c;
-                    this.d = jSONObject.optJSONObject("set");
-                    this.a = jSONObject.optInt("threshold", 10000);
-                    this.b = jSONObject.optInt("timeup", 604800000);
-                    this.f = jSONObject.optString("step");
-                    jSONObject.optString(StickerDataChangeType.REPLACE);
-                    this.e = jSONObject.optJSONObject("del");
-                    this.g = jSONObject.optInt("all_size", 614400);
-                    this.h = jSONObject.optInt("single_size", 153600);
-                    this.i = jSONObject.optInt("real_size", 614400);
-                    this.j = jSONObject.optInt("non_real_size", 614400);
-                    this.k = jSONObject.optInt("trigger_number", 100);
-                    this.l = jSONObject.optInt("trigger_interval", 180);
-                    int i = 1;
-                    if (this.d != null) {
-                        Iterator<String> keys = this.d.keys();
-                        while (keys.hasNext()) {
-                            String next = keys.next();
-                            if (!TextUtils.isEmpty(next) && (optJSONObject = this.d.optJSONObject(next)) != null && optJSONObject.length() != 0) {
-                                JSONObject optJSONObject2 = optJSONObject.optJSONObject("data");
-                                String optString = optJSONObject.optString("version");
-                                if (optJSONObject2 != null && !TextUtils.isEmpty(optString)) {
-                                    if (optJSONObject2.optInt("switch", i) != 0) {
-                                        z = true;
-                                    } else {
-                                        z = false;
-                                    }
-                                    if (optJSONObject2.optInt(Constant.IS_REAL, 0) == 1) {
-                                        z2 = true;
-                                    } else {
-                                        z2 = false;
-                                    }
-                                    if (optJSONObject2.optInt("isAbtest", 0) == 1) {
-                                        z3 = true;
-                                    } else {
-                                        z3 = false;
-                                    }
-                                    Iterator<String> it = keys;
-                                    k7b k7bVar = new k7b(next, z, z2, optJSONObject2.optInt("timeout", 60), optJSONObject2.optInt("type", 0), z3);
-                                    if (n7b.a(next)) {
-                                        if (optJSONObject2.optInt("isSend", 1) == 1) {
-                                            z7 = true;
-                                        } else {
-                                            z7 = false;
-                                        }
-                                        k7bVar.z(z7);
-                                    }
-                                    if (optJSONObject2.has("rate")) {
-                                        k7bVar.E(optJSONObject2.getInt("rate"));
-                                    }
-                                    if (optJSONObject2.has("c")) {
-                                        k7bVar.v(optJSONObject2.getString("c"));
-                                    }
-                                    if (optJSONObject2.has("limitUnit")) {
-                                        k7bVar.B(optJSONObject2.getInt("limitUnit"));
-                                    }
-                                    if (optJSONObject2.has("limitCnt")) {
-                                        k7bVar.A(optJSONObject2.getInt("limitCnt"));
-                                    }
-                                    if (optJSONObject2.has(Constant.ID_TYPE)) {
-                                        k7bVar.x(optJSONObject2.getInt(Constant.ID_TYPE));
-                                    }
-                                    if (optJSONObject2.optInt("ch", 0) == 1) {
-                                        z4 = true;
-                                    } else {
-                                        z4 = false;
-                                    }
-                                    k7bVar.D(z4);
-                                    if (optJSONObject2.has("dfc")) {
-                                        if (optJSONObject2.getInt("dfc") == 1) {
-                                            z6 = true;
-                                        } else {
-                                            z6 = false;
-                                        }
-                                        k7bVar.y(z6);
-                                    }
-                                    if (optJSONObject2.has("reallog")) {
-                                        if (optJSONObject2.getInt("reallog") == 1) {
-                                            z5 = true;
-                                        } else {
-                                            z5 = false;
-                                        }
-                                        k7bVar.F(z5);
-                                    }
-                                    if (optJSONObject2.has("gflow")) {
-                                        k7bVar.w(optJSONObject2.getInt("gflow"));
-                                    }
-                                    if (optJSONObject2.has("uploadType")) {
-                                        k7bVar.G(optJSONObject2.optInt("uploadType", -1));
-                                    }
-                                    int optInt = optJSONObject2.optInt("lcache", 2);
-                                    if (optInt == 1 || optInt == 0) {
-                                        k7bVar.C(optInt);
-                                    }
-                                    k7bVar.H(optString);
-                                    this.m.add(k7bVar);
-                                    keys = it;
-                                    i = 1;
-                                }
-                            }
-                        }
-                        return true;
+            float[] fArr = new float[i];
+            if (i > 1) {
+                float f = 1.0f / i;
+                int i2 = 0;
+                while (i2 < i) {
+                    int i3 = i2 + 1;
+                    if (i3 == i) {
+                        int i4 = i2 - 1;
+                        fArr[i2] = fArr[i4] + ((1.0f - fArr[i4]) / 2.0f);
+                    } else {
+                        fArr[i2] = i3 * f;
                     }
-                    return true;
+                    i2 = i3;
                 }
-                return false;
-            } catch (JSONException e) {
-                if (n) {
-                    e.printStackTrace();
-                }
-                return false;
+            } else if (i == 1) {
+                fArr[0] = 0.5f;
             }
+            long[] jArr = new long[i];
+            for (int i5 = 0; i5 < i; i5++) {
+                jArr[i5] = fArr[i5] * ((float) j) * 1000.0f;
+            }
+            return jArr;
         }
-        return invokeV.booleanValue;
+        return (long[]) invokeCommon.objValue;
     }
 
-    public void m(List<k7b> list) {
+    public static a8b b(c8b c8bVar, s7b s7bVar) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
-            this.m = list;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, c8bVar, s7bVar)) == null) {
+            if (c8bVar == null || s7bVar == null || c8bVar.e == null) {
+                return null;
+            }
+            long[] a = a(c8bVar.b, c8bVar.a);
+            MultiMediaData multiMediaData = c8bVar.e;
+            a8b a8bVar = new a8b();
+            a8bVar.e = new ArrayList();
+            a8bVar.a = multiMediaData.path;
+            a8bVar.c = c8bVar.c;
+            a8bVar.d = c8bVar.d;
+            a8bVar.b = multiMediaData.rotation;
+            for (int i = 0; i < c8bVar.b; i++) {
+                long j = multiMediaData.start + a[i];
+                u7b u7bVar = new u7b();
+                u7bVar.a = n7b.b(multiMediaData.path, j, multiMediaData.type);
+                u7bVar.b = multiMediaData.path;
+                u7bVar.f = i;
+                u7bVar.g = multiMediaData.type;
+                u7bVar.h = c8bVar.c;
+                u7bVar.i = c8bVar.d;
+                u7bVar.j = s7bVar;
+                u7bVar.d = j;
+                u7bVar.c = multiMediaData.rotation;
+                a8bVar.e.add(u7bVar);
+            }
+            return a8bVar;
         }
+        return (a8b) invokeLL.objValue;
+    }
+
+    public static List<a8b> c(b8b b8bVar, s7b s7bVar) {
+        InterceptResult invokeLL;
+        List<u7b> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, b8bVar, s7bVar)) == null) {
+            MultiMediaData multiMediaData = null;
+            if (b8bVar == null || s7bVar == null || b8bVar.b <= 0 || bsb.e(b8bVar.e) || bsb.e(b8bVar.f)) {
+                return null;
+            }
+            long[] a = a(b8bVar.b, b8bVar.a);
+            ArrayList arrayList = new ArrayList();
+            a8b a8bVar = null;
+            for (int i = 0; i < b8bVar.b; i++) {
+                long j = ((float) a[i]) / 1000.0f;
+                int findInputIndexInSegments = MultiDataSourceUtil.findInputIndexInSegments(b8bVar.e, j);
+                MultiMediaData multiMediaData2 = (MultiMediaData) bsb.c(b8bVar.f, findInputIndexInSegments);
+                if (multiMediaData2 != null) {
+                    if (multiMediaData2 != multiMediaData) {
+                        a8bVar = new a8b();
+                        a8bVar.e = new ArrayList();
+                        a8bVar.a = multiMediaData2.path;
+                        a8bVar.c = b8bVar.c;
+                        a8bVar.d = b8bVar.d;
+                        a8bVar.b = multiMediaData2.rotation;
+                        arrayList.add(a8bVar);
+                    }
+                    long multiMediaDataSeekTime = MultiDataSourceUtil.getMultiMediaDataSeekTime(multiMediaData2, (MediaSegment) bsb.c(b8bVar.e, findInputIndexInSegments), j) * 1000;
+                    u7b u7bVar = new u7b();
+                    u7bVar.a = n7b.b(multiMediaData2.path, multiMediaDataSeekTime, multiMediaData2.type);
+                    u7bVar.b = multiMediaData2.path;
+                    u7bVar.f = i;
+                    u7bVar.g = multiMediaData2.type;
+                    u7bVar.h = b8bVar.c;
+                    u7bVar.i = b8bVar.d;
+                    u7bVar.d = multiMediaDataSeekTime;
+                    u7bVar.j = s7bVar;
+                    u7bVar.c = multiMediaData2.rotation;
+                    if (a8bVar != null && (list = a8bVar.e) != null) {
+                        list.add(u7bVar);
+                    }
+                    multiMediaData = multiMediaData2;
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeLL.objValue;
     }
 }

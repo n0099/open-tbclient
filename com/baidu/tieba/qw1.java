@@ -1,42 +1,43 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.charset.StandardCharsets;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class qw1 extends pw1 {
+/* loaded from: classes8.dex */
+public class qw1 extends nw1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.tt1
+    @Override // com.baidu.tieba.ku1
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "CalcMD5Api" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ClipboardApi" : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ qw1 c;
+        public final /* synthetic */ Context a;
 
-        public a(qw1 qw1Var, String str, String str2) {
+        public a(qw1 qw1Var, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {qw1Var, str, str2};
+                Object[] objArr = {qw1Var, context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,45 +47,31 @@ public class qw1 extends pw1 {
                     return;
                 }
             }
-            this.c = qw1Var;
-            this.a = str;
-            this.b = str2;
+            this.a = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                byte[] bytes = this.a.getBytes(StandardCharsets.UTF_8);
-                if (bytes.length > 3145728) {
-                    this.c.d(this.b, new qx1(202, "Data Too Large."));
-                    return;
-                }
-                String d = ul4.d(bytes, false);
-                if (TextUtils.isEmpty(d)) {
-                    this.c.d(this.b, new qx1(1001, "Execute Fail."));
-                    return;
-                }
-                qx1 qx1Var = new qx1(0);
-                qx1Var.g("result", d);
-                this.c.d(this.b, qx1Var);
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !y53.d()) {
+                y53.f(this.a, R.string.obfuscated_res_0x7f0f0477).G();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qw1(@NonNull rt1 rt1Var) {
-        super(rt1Var);
+    public qw1(@NonNull iu1 iu1Var) {
+        super(iu1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {rt1Var};
+            Object[] objArr = {iu1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((rt1) newInitContext.callArgs[0]);
+                super((iu1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -92,24 +79,50 @@ public class qw1 extends pw1 {
         }
     }
 
-    public qx1 y(String str) {
-        InterceptResult invokeL;
+    @SuppressLint({"KotlinPropertyAccess"})
+    public hy1 y() {
+        InterceptResult invokeV;
+        String charSequence;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            r("#calcMD5", false);
-            Pair<qx1, JSONObject> t = t(str);
-            qx1 qx1Var = (qx1) t.first;
-            if (!qx1Var.isSuccess()) {
-                return qx1Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            r("#getClipboardData", false);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                CharSequence a2 = bk3.b(i()).a();
+                if (TextUtils.isEmpty(a2)) {
+                    charSequence = "";
+                } else {
+                    charSequence = a2.toString();
+                }
+                jSONObject.put("data", charSequence);
+                return new hy1(0, jSONObject);
+            } catch (JSONException e) {
+                q("#getClipboardData json put data fail", e, false);
+                return new hy1(1001, "JSONException");
             }
-            JSONObject jSONObject = (JSONObject) t.second;
-            String optString = jSONObject.optString("data");
-            if (TextUtils.isEmpty(optString)) {
-                return new qx1(202, "Empty Data.");
-            }
-            ji3.k(new a(this, optString, jSONObject.optString("cb")), "CalcMD5Api");
-            return qx1.f();
         }
-        return (qx1) invokeL.objValue;
+        return (hy1) invokeV.objValue;
+    }
+
+    @SuppressLint({"KotlinPropertyAccess"})
+    public hy1 z(String str) {
+        InterceptResult invokeL;
+        SwanAppActivity w;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            r("#setClipboardData", false);
+            Pair<hy1, JSONObject> t = t(str);
+            hy1 hy1Var = (hy1) t.first;
+            if (!hy1Var.isSuccess()) {
+                return hy1Var;
+            }
+            bk3.b(i()).c(((JSONObject) t.second).optString("data"));
+            g63 q = f63.K().q();
+            if (q != null && (w = q.w()) != null) {
+                ak3.f0(new a(this, w), 200L);
+            }
+            return hy1.f();
+        }
+        return (hy1) invokeL.objValue;
     }
 }

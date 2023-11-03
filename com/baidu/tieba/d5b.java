@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
-import java.util.List;
-import tbclient.GetRecommendTopic.TopicList;
+import android.view.View;
 /* loaded from: classes5.dex */
 public interface d5b {
-    List<TopicList> getTopicList();
+    void a(View view2, oz6 oz6Var);
 }

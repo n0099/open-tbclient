@@ -1,46 +1,63 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Arrays;
-import kotlin.jvm.JvmName;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.jvm.internal.StringCompanionObject;
-@JvmName(name = "TbBaseMsgExt")
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.Hottopic.UserInfo;
 /* loaded from: classes5.dex */
-public final class aj8 {
+public class aj8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
 
-    public static final long a(TbBaseMsg tbBaseMsg) {
-        InterceptResult invokeL;
+    public aj8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbBaseMsg)) == null) {
-            Intrinsics.checkNotNullParameter(tbBaseMsg, "<this>");
-            TbBaseMsg.c forumExt = tbBaseMsg.getForumExt();
-            if (forumExt != null) {
-                return forumExt.a();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return 0L;
         }
-        return invokeL.longValue;
     }
 
-    public static final CharSequence b(TbBaseMsg tbBaseMsg) {
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            long j = this.a;
+            return (int) (j ^ (j >>> 32));
+        }
+        return invokeV.intValue;
+    }
+
+    public void a(UserInfo userInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, userInfo) == null) {
+            this.a = userInfo.user_id.longValue();
+            String str = userInfo.user_name;
+            String str2 = userInfo.portrait;
+        }
+    }
+
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, tbBaseMsg)) == null) {
-            Intrinsics.checkNotNullParameter(tbBaseMsg, "<this>");
-            String string = TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0422);
-            Intrinsics.checkNotNullExpressionValue(string, "getInst().getString(R.st…_reply_msg_prefix_format)");
-            StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
-            String format = String.format(string, Arrays.copyOf(new Object[]{tbBaseMsg.getUserName()}, 1));
-            Intrinsics.checkNotNullExpressionValue(format, "format(format, *args)");
-            return format;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj != null && aj8.class == obj.getClass() && this.a == ((aj8) obj).a) {
+                return true;
+            }
+            return false;
         }
-        return (CharSequence) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

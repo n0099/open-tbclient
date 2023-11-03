@@ -1,198 +1,43 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.agc;
-import com.baidu.tieba.yfc;
+import android.content.Context;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
-import com.yy.mobile.framework.revenuesdk.baseapi.PurchaseStatus;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.PayType;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import tv.athena.revenue.api.MiddleRevenueConfig;
-import tv.athena.revenue.api.pay.params.AppCustomExpand;
-import tv.athena.revenue.api.pay.params.PayFlowType;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes5.dex */
-public class aec implements tcc {
+public class aec {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public scc b;
-    public PayUIKitConfig c;
-    public PayFlowType d;
-    public rcc e;
-    public int f;
-    public int g;
-    public long h;
 
-    /* loaded from: classes5.dex */
-    public class a implements IPayCallback<CurrencyChargeMessage> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ IPayCallback a;
-        public final /* synthetic */ nec b;
-        public final /* synthetic */ Activity c;
-        public final /* synthetic */ jec d;
-        public final /* synthetic */ Dialog e;
-        public final /* synthetic */ tfc f;
-        public final /* synthetic */ AppCustomExpand g;
-        public final /* synthetic */ agc.b h;
-        public final /* synthetic */ aec i;
-
-        public a(aec aecVar, IPayCallback iPayCallback, nec necVar, Activity activity, jec jecVar, Dialog dialog, tfc tfcVar, AppCustomExpand appCustomExpand, agc.b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aecVar, iPayCallback, necVar, activity, jecVar, dialog, tfcVar, appCustomExpand, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.i = aecVar;
-            this.a = iPayCallback;
-            this.b = necVar;
-            this.c = activity;
-            this.d = jecVar;
-            this.e = dialog;
-            this.f = tfcVar;
-            this.g = appCustomExpand;
-            this.h = bVar;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947613738, "Lcom/baidu/tieba/aec;")) == null) {
+            return;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
-        /* renamed from: a */
-        public void onSuccess(CurrencyChargeMessage currencyChargeMessage, PayCallBackBean payCallBackBean) {
-            IPayCallback iPayCallback;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, currencyChargeMessage, payCallBackBean) == null) && (iPayCallback = this.a) != null) {
-                iPayCallback.onSuccess(currencyChargeMessage, payCallBackBean);
-            }
-        }
-
-        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
-        public void onFail(int i, String str, PayCallBackBean payCallBackBean) {
-            IPayCallback iPayCallback;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, payCallBackBean) == null) && (iPayCallback = this.a) != null) {
-                iPayCallback.onFail(i, str, payCallBackBean);
-            }
-        }
-
-        @Override // com.yy.mobile.framework.revenuesdk.payapi.IPayCallback
-        public void onPayStart() {
-            IPayCallback iPayCallback;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (iPayCallback = this.a) != null) {
-                iPayCallback.onPayStart();
-            }
-        }
-
-        @Override // com.yy.mobile.framework.revenuesdk.payapi.IPayCallback
-        public void onPayStatus(PurchaseStatus purchaseStatus, PayCallBackBean payCallBackBean) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048579, this, purchaseStatus, payCallBackBean) == null) {
-                if (purchaseStatus == PurchaseStatus.ORDER_FAIL && this.b.a == PayType.ALI_PAY_SIGN) {
-                    RLog.info(this.i.a, "prepareShowPaySignDialog onPayStatus ORDER_FAIL, payWay.payType=PayType.ALI_PAY_SIGN");
-                    nec necVar = this.b;
-                    necVar.a = PayType.ALI_PAY;
-                    this.i.e(this.c, this.d, necVar, this.e, this.f, this.g, this.h, this.a);
-                    return;
-                }
-                IPayCallback iPayCallback = this.a;
-                if (iPayCallback != null) {
-                    iPayCallback.onPayStatus(purchaseStatus, payCallBackBean);
-                }
-            }
-        }
-    }
-
-    public aec(int i, int i2, scc sccVar, PayUIKitConfig payUIKitConfig, PayFlowType payFlowType, rcc rccVar) {
-        MiddleRevenueConfig middleRevenueConfig;
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), sccVar, payUIKitConfig, payFlowType, rccVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.a = "PaySignManager";
-        this.h = 0L;
-        RLog.info("PaySignManager", "create PaySignManager:" + this);
-        this.f = i;
-        this.g = i2;
-        this.b = sccVar;
-        this.c = payUIKitConfig;
-        this.d = payFlowType;
-        this.e = rccVar;
-        if (payUIKitConfig != null && (middleRevenueConfig = payUIKitConfig.revenueConfig) != null) {
-            this.h = middleRevenueConfig.getUid();
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947613738, "Lcom/baidu/tieba/aec;");
         }
     }
 
-    @Override // com.baidu.tieba.tcc
-    public void a(Activity activity, jec jecVar, nec necVar, Dialog dialog, tfc tfcVar, AppCustomExpand appCustomExpand, agc.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback) {
+    public static synchronized void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{activity, jecVar, necVar, dialog, tfcVar, appCustomExpand, bVar, iPayCallback}) == null) {
-            String str = this.a;
-            RLog.info(str, "prepareShowPaySignDialog:" + this);
-            a aVar = new a(this, iPayCallback, necVar, activity, jecVar, dialog, tfcVar, appCustomExpand, bVar);
-            boolean z = false;
-            if (!necVar.g) {
-                z = ifc.b(activity, this.h + "").a("pay_sp_key_sign_pay_skip_remind", false);
+        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
+            synchronized (aec.class) {
+                if (a) {
+                    return;
+                }
+                a = true;
+                Log.i("[cronet]", "cronet_lib load");
             }
-            String str2 = this.a;
-            RLog.info(str2, "prepareShowPaySignDialog, isSkipShowSignDialog=" + z);
-            if (z) {
-                e(activity, jecVar, necVar, dialog, tfcVar, appCustomExpand, bVar, aVar);
-                return;
-            }
-            yfc.b bVar2 = new yfc.b();
-            bVar2.a = necVar.g;
-            bVar2.b = jecVar;
-            bVar2.c = bVar.f;
-            yfc f = this.b.f(activity, bVar2, this.c);
-            f.setCallback(new pdc(activity, d(activity, f, bVar2), this.e, jecVar, necVar, dialog, tfcVar, appCustomExpand, bVar, aVar));
-        }
-    }
-
-    public final Dialog d(Activity activity, yfc yfcVar, yfc.b bVar) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, yfcVar, bVar)) == null) {
-            return jgc.b.e(activity, "title", yfcVar.getContentView(), new odc(this.f, this.g), bVar.c, PayDialogType.PAY_SIGN_DIALOG, this.d);
-        }
-        return (Dialog) invokeLLL.objValue;
-    }
-
-    public final void e(Activity activity, jec jecVar, nec necVar, Dialog dialog, tfc tfcVar, AppCustomExpand appCustomExpand, agc.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, jecVar, necVar, dialog, tfcVar, appCustomExpand, bVar, iPayCallback}) == null) {
-            String str = this.a;
-            RLog.info(str, "prepareShowPaySignDialog startPay payType=" + necVar.a);
-            this.e.k(activity, necVar, jecVar, dialog, tfcVar, appCustomExpand, bVar, iPayCallback);
         }
     }
 }

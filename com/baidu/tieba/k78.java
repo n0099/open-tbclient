@@ -1,201 +1,246 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.BIMManager;
-import com.baidu.android.imsdk.chatmessage.IGenBosObjectUrlListener;
-import com.baidu.android.imsdk.chatmessage.ISendMessageListener;
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-import com.baidu.android.imsdk.group.BIMValueCallBack;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.upload.AsyncChatTask;
-import com.baidu.android.imsdk.upload.AsyncUploadTask;
-import com.baidu.android.imsdk.upload.IUploadTransferListener;
-import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.CreateBarActivityConfig;
+import com.baidu.tbadk.core.atomData.CreateForumActivityConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.NoDataView;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.home.CreateBarGuideActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.inner.util.cipher.Base64Util;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.util.Map;
-/* loaded from: classes6.dex */
-public class k78 implements IGenBosObjectUrlListener, IUploadTransferListener, BIMValueCallBack<String>, ISendMessageListener {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String d = "k78";
+import tbclient.UserBfbInfo;
+/* loaded from: classes7.dex */
+public class k78 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public String b;
-    public q78 c;
+    public CreateBarGuideActivity a;
+    public View b;
+    public View c;
+    public NoNetworkView d;
+    public NoDataView e;
+    public NavigationBar f;
+    public TextView g;
+    public TextView h;
+    public TextView i;
+    public LinearLayout j;
+    public TbImageView k;
+    public UserBfbInfo l;
+    public String m;
+    public CustomMessageListener n;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947866109, "Lcom/baidu/tieba/k78;")) == null) {
-            return;
+    /* loaded from: classes7.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ k78 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(k78 k78Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k78Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = k78Var;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947866109, "Lcom/baidu/tieba/k78;");
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.l != null) {
+                if (this.a.l.res_no.intValue() == 9528) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CreateForumActivityConfig(this.a.a.getActivity(), this.a.m, true)));
+                } else {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CreateBarActivityConfig(this.a.a.getActivity(), this.a.m, true)));
+                }
+            }
         }
     }
 
-    @Override // com.baidu.android.imsdk.upload.IUploadTransferListener
-    public void onProgress(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+    /* loaded from: classes7.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ k78 a;
+
+        public b(k78 k78Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k78Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = k78Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.a.l != null) {
+                    if (this.a.l.res_no.intValue() == 9528) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CreateForumActivityConfig(this.a.a.getActivity(), this.a.m, true)));
+                    } else {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CreateBarActivityConfig(this.a.a.getActivity(), this.a.m, true)));
+                    }
+                } else {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CreateBarActivityConfig(this.a.a.getActivity(), this.a.m, true)));
+                }
+                TiebaStatic.log("c11223");
+                this.a.a.finish();
+            }
         }
     }
 
-    @Override // com.baidu.android.imsdk.chatmessage.ISendMessageListener
-    public void onSendMessageResult(int i, ChatMsg chatMsg) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048583, this, i, chatMsg) == null) {
-        }
-    }
-
-    public k78(Context context, String str, String str2) {
+    public k78(CreateBarGuideActivity createBarGuideActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, str2};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {createBarGuideActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context;
-        this.b = str;
+        this.n = new a(this, 2016458);
+        this.a = createBarGuideActivity;
+        View inflate = LayoutInflater.from(createBarGuideActivity.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d023e, (ViewGroup) null);
+        this.b = inflate;
+        this.a.setContentView(inflate);
+        this.c = this.b.findViewById(R.id.obfuscated_res_0x7f09042f);
+        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.view_navigation_bar);
+        this.f = navigationBar;
+        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.f.setTitleText(R.string.create_bar);
+        this.d = (NoNetworkView) this.b.findViewById(R.id.view_no_network);
+        this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092514);
+        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092513);
+        this.k = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09234b);
+        this.g.setOnClickListener(new b(this));
+        this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09250e);
+        this.j = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091987);
+        MessageManager.getInstance().registerListener(this.n);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x0079 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    @Override // com.baidu.android.imsdk.group.BIMValueCallBack
-    /* renamed from: a */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void onResult(int i, String str, String str2) {
-        FileOutputStream fileOutputStream;
-        Throwable th;
-        Exception e;
+    public View d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, str2) == null) {
-            if (i == 0 && !TextUtils.isEmpty(str2)) {
-                FileOutputStream fileOutputStream2 = null;
-                try {
-                    try {
-                        byte[] decode = Base64Util.decode(str2);
-                        File file = new File(this.b);
-                        if (file.exists()) {
-                            fileOutputStream = new FileOutputStream(file);
-                            try {
-                                try {
-                                    fileOutputStream.write(decode);
-                                    fileOutputStream.flush();
-                                    fileOutputStream2 = fileOutputStream;
-                                } catch (Exception e2) {
-                                    e = e2;
-                                    if (this.c != null) {
-                                        this.c.isFailed();
-                                    }
-                                    LogUtils.e(d, e.getMessage());
-                                    if (fileOutputStream != null) {
-                                        fileOutputStream.close();
-                                    }
-                                    BIMManager.genBosObjectUrl(this.a, this.b, "mp3", "mp3", 12, 0, 0, this);
-                                    return;
-                                }
-                            } catch (Throwable th2) {
-                                th = th2;
-                                if (fileOutputStream != null) {
-                                    try {
-                                        fileOutputStream.close();
-                                    } catch (Exception e3) {
-                                        LogUtils.e(d, e3.getMessage());
-                                    }
-                                }
-                                throw th;
-                            }
-                        } else if (this.c != null) {
-                            this.c.isFailed();
-                        }
-                    } catch (Exception e4) {
-                        LogUtils.e(d, e4.getMessage());
-                    }
-                } catch (Exception e5) {
-                    fileOutputStream = null;
-                    e = e5;
-                } catch (Throwable th3) {
-                    fileOutputStream = null;
-                    th = th3;
-                    if (fileOutputStream != null) {
-                    }
-                    throw th;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c.setVisibility(8);
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.n);
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.c.setVisibility(0);
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            wp5.a(this.a.getPageContext(), this.b);
+            NavigationBar navigationBar = this.f;
+            if (navigationBar != null) {
+                navigationBar.onChangeSkinType(this.a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+            }
+            NoNetworkView noNetworkView = this.d;
+            if (noNetworkView != null) {
+                noNetworkView.onChangeSkinType(this.a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+            }
+            NoDataView noDataView = this.e;
+            if (noDataView != null) {
+                noDataView.f(this.a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+            }
+        }
+    }
+
+    public void i(String str, UserBfbInfo userBfbInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, userBfbInfo) == null) {
+            this.m = str;
+            this.l = userBfbInfo;
+            if (this.e == null) {
+                int dimens = BdUtilHelper.getDimens(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07019a);
+                NoDataView a2 = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0909f7), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.CREATE, dimens), null, null);
+                this.e = a2;
+                a2.setVisibility(0);
+                f();
+            }
+            TextView textView = this.h;
+            textView.setText(this.m + "吧");
+            UserBfbInfo userBfbInfo2 = this.l;
+            if (userBfbInfo2 != null && userBfbInfo2.res_no.intValue() == 9528) {
+                if (this.l.activity_status.intValue() == 0) {
+                    this.k.setImageResource(R.drawable.icon_create_attention_n);
+                } else {
+                    this.k.setImageResource(R.drawable.icon_create_complete_n);
                 }
-                if (fileOutputStream2 != null) {
-                    fileOutputStream2.close();
-                }
-                BIMManager.genBosObjectUrl(this.a, this.b, "mp3", "mp3", 12, 0, 0, this);
-                return;
+            } else {
+                this.i.setVisibility(4);
+                this.j.setVisibility(4);
             }
-            q78 q78Var = this.c;
-            if (q78Var != null) {
-                q78Var.isFailed();
-            }
-        }
-    }
-
-    public void b(@NonNull q78 q78Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q78Var) == null) {
-            this.c = q78Var;
-        }
-    }
-
-    @Override // com.baidu.android.imsdk.upload.IUploadTransferListener
-    public void onFailed(int i, int i2, String str) {
-        q78 q78Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, str) == null) && (q78Var = this.c) != null) {
-            q78Var.isFailed();
-        }
-    }
-
-    @Override // com.baidu.android.imsdk.upload.IUploadTransferListener
-    public void onFinished(int i, String str) {
-        q78 q78Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) && (q78Var = this.c) != null) {
-            q78Var.a(str);
-        }
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.IGenBosObjectUrlListener
-    public void onGenBosObjectUrlListener(int i, String str, String str2, String str3, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), str, str2, str3, map}) == null) {
-            if (i == 0) {
-                new AsyncUploadTask(this.a, 2, map.get(AsyncChatTask.PUT_URL), map.get(AsyncChatTask.GET_URL), this.b, "mp3", str2, str3, this).execute(new Void[0]);
-                return;
-            }
-            q78 q78Var = this.c;
-            if (q78Var != null) {
-                q78Var.isFailed();
-            }
+            this.i.setVisibility(8);
+            this.j.setVisibility(8);
         }
     }
 }

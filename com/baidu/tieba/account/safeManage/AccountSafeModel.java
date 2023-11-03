@@ -5,7 +5,7 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.base.BdPageContext;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.e5a;
+import com.baidu.tieba.jia;
 import com.baidu.tieba.setting.im.more.PrivateInfoNetMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,7 +18,7 @@ public class AccountSafeModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public e5a b;
+    public jia b;
     public String c;
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -52,7 +52,7 @@ public class AccountSafeModel extends BdBaseModel {
         this.a = false;
     }
 
-    public final PrivateInfoNetMessage N() {
+    public final PrivateInfoNetMessage O() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -61,21 +61,21 @@ public class AccountSafeModel extends BdBaseModel {
         return (PrivateInfoNetMessage) invokeV.objValue;
     }
 
-    public e5a O() {
+    public jia P() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.b;
         }
-        return (e5a) invokeV.objValue;
+        return (jia) invokeV.objValue;
     }
 
-    public final SimpleUser P() {
+    public final SimpleUser Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            e5a e5aVar = this.b;
-            if (e5aVar != null && e5aVar.f() != null) {
+            jia jiaVar = this.b;
+            if (jiaVar != null && jiaVar.f() != null) {
                 return this.b.f();
             }
             return null;
@@ -83,7 +83,7 @@ public class AccountSafeModel extends BdBaseModel {
         return (SimpleUser) invokeV.objValue;
     }
 
-    public boolean Q() {
+    public boolean R() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -92,17 +92,17 @@ public class AccountSafeModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public final void R() {
-        SimpleUser P;
+    public final void S() {
+        SimpleUser Q;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (P = P()) != null) {
-            String str = P.secureemail;
-            String str2 = P.securemobil;
-            this.c = P.ahead_url;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (Q = Q()) != null) {
+            String str = Q.secureemail;
+            String str2 = Q.securemobil;
+            this.c = Q.ahead_url;
         }
     }
 
-    public boolean S() {
+    public boolean T() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -110,7 +110,7 @@ public class AccountSafeModel extends BdBaseModel {
                 return false;
             }
             this.a = true;
-            sendMessage(N());
+            sendMessage(O());
             return true;
         }
         return invokeV.booleanValue;
@@ -136,15 +136,15 @@ public class AccountSafeModel extends BdBaseModel {
         return (String) invokeV.objValue;
     }
 
-    public void T(e5a e5aVar) {
+    public void U(jia jiaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, e5aVar) == null) {
-            this.b = e5aVar;
-            R();
+        if (interceptable == null || interceptable.invokeL(1048582, this, jiaVar) == null) {
+            this.b = jiaVar;
+            S();
         }
     }
 
-    public void U(boolean z) {
+    public void V(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             this.a = z;

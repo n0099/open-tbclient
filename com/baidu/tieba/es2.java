@@ -1,67 +1,94 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.optimization.quotasaver.QuotaSaver;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import kotlin.Unit;
 /* loaded from: classes5.dex */
-public class es2 extends bs2 {
+public final class es2 implements ds2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final es2 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public is2 A;
-    public double B;
-    public int C;
-    public String z;
+    public final /* synthetic */ ds2 a;
+
+    @Override // com.baidu.tieba.ds2
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.a() : invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.ds2
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.b() : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ds2
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.c() : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ds2
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.d() : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ds2
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.e() : invokeV.booleanValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947744837, "Lcom/baidu/tieba/es2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947744837, "Lcom/baidu/tieba/es2;");
+                return;
+            }
+        }
+        b = new es2();
+    }
 
     public es2() {
+        ds2 cs2Var;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.z = "";
-        this.C = 1000;
-    }
-
-    @Override // com.baidu.tieba.bs2, com.baidu.tieba.g12, com.baidu.tieba.ov2
-    public void a(JSONObject jSONObject) throws JSONException {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (QuotaSaver.l.c()) {
+            cs2Var = QuotaSaver.l.e();
+        } else {
+            cs2Var = new cs2();
         }
-        super.a(jSONObject);
-        this.z = jSONObject.optString("markerId");
-        is2 is2Var = new is2();
-        this.A = is2Var;
-        is2Var.a(jSONObject.optJSONObject("destination"));
-        jSONObject.optBoolean("autoRotate");
-        this.B = jSONObject.optDouble("rotate");
-        this.C = Math.abs(jSONObject.optInt("duration", this.C));
-    }
-
-    @Override // com.baidu.tieba.g12, com.baidu.tieba.ov2
-    public boolean isValid() {
-        InterceptResult invokeV;
-        is2 is2Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.b) && !TextUtils.isEmpty(this.z) && (is2Var = this.A) != null && is2Var.isValid()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
+        g32.i("OptSwitcher", "by " + cs2Var);
+        Unit unit = Unit.INSTANCE;
+        this.a = cs2Var;
     }
 }

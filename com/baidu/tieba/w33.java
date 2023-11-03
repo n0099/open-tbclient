@@ -1,45 +1,17 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import android.content.Context;
+import android.content.SharedPreferences;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class w33 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile SharedPreferences a;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<a> a;
-    public String b;
-
-    /* loaded from: classes8.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
 
     public w33() {
         Interceptable interceptable = $ic;
@@ -55,36 +27,37 @@ public class w33 {
         }
     }
 
-    @Nullable
-    public static w33 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        int length;
+    public static int a(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            w33 w33Var = new w33();
-            w33Var.b = jSONObject.optString("more");
-            JSONArray optJSONArray = jSONObject.optJSONArray("bind_app_list");
-            if (optJSONArray == null || (length = optJSONArray.length()) <= 0) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < length; i++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    a aVar = new a();
-                    optJSONObject.optString(GameGuideConfigInfo.KEY_APP_KEY);
-                    aVar.b = optJSONObject.optString("app_name");
-                    aVar.a = optJSONObject.optString("photo_addr");
-                    aVar.c = optJSONObject.optString("scheme");
-                    arrayList.add(aVar);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
+            return c(context).getInt("softinput.height", i);
+        }
+        return invokeLI.intValue;
+    }
+
+    public static boolean b(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, context, i)) == null) {
+            return c(context).edit().putInt("softinput.height", i).commit();
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static SharedPreferences c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            if (a == null) {
+                synchronized (w33.class) {
+                    if (a == null) {
+                        a = new te3("swan.publisher", false);
+                    }
                 }
             }
-            w33Var.a = arrayList;
-            return w33Var;
+            return a;
         }
-        return (w33) invokeL.objValue;
+        return (SharedPreferences) invokeL.objValue;
     }
 }

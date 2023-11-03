@@ -1,38 +1,31 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.MotionEvent;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.PraiseData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.tbadkCore.FrsViewData;
-import com.baidu.tieba.tbadkCore.PraiseModel;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import com.baidu.tieba.forum.widget.TbLinkageScrollView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Iterator;
-/* loaded from: classes7.dex */
-public class rm7 extends tm7 {
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes8.dex */
+public final class rm7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThreadData h;
-    public boolean i;
-    public String j;
-    public PraiseModel k;
-    public final CustomMessageListener l;
+    public final View a;
+    public final View b;
+    public TbLinkageScrollView c;
+    public float d;
+    public float e;
+    public int f;
+    public final ArrayList<sm7> g;
+    public final a h;
 
-    /* loaded from: classes7.dex */
-    public class a implements PraiseModel.b {
+    /* loaded from: classes8.dex */
+    public static final class a implements pm7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ rm7 a;
@@ -55,187 +48,167 @@ public class rm7 extends tm7 {
             this.a = rm7Var;
         }
 
-        @Override // com.baidu.tieba.tbadkCore.PraiseModel.b
-        public void a(int i, String str) {
-            FrsFragment frsFragment;
+        @Override // com.baidu.tieba.pm7
+        public Boolean a(MotionEvent e) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) && (frsFragment = this.a.b) != null && frsFragment.getPageContext() != null && this.a.i && !TextUtils.isEmpty(str)) {
-                if (AntiHelper.m(i, str)) {
-                    AntiHelper.u(this.a.b.getPageContext().getPageActivity(), str);
-                } else {
-                    this.a.b.showToast(str);
-                }
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e)) == null) {
+                Intrinsics.checkNotNullParameter(e, "e");
+                return this.a.c(e);
             }
-        }
-
-        @Override // com.baidu.tieba.tbadkCore.PraiseModel.b
-        public void h(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                if (this.a.i) {
-                    int i = 1;
-                    if (this.a.h != null && this.a.h.getPraise().getIsLike() == 1) {
-                        i = 0;
-                    }
-                    this.a.h(i);
-                }
-                MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2004006));
-            }
+            return (Boolean) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rm7 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(rm7 rm7Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rm7Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rm7Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ThreadData)) {
-                ThreadData threadData = (ThreadData) customResponsedMessage.getData();
-                this.a.j = threadData.getId();
-                if (!TextUtils.isEmpty(this.a.j) && threadData.getPraise() != null) {
-                    this.a.h(threadData.getPraise().getIsLike());
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rm7(FrsFragment frsFragment) {
-        super(frsFragment);
+    public rm7(View scrollTarget, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsFragment};
+            Object[] objArr = {scrollTarget, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((FrsFragment) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b bVar = new b(this, 2004004);
-        this.l = bVar;
-        this.b.registerListener(bVar);
-        this.k = e();
+        Intrinsics.checkNotNullParameter(scrollTarget, "scrollTarget");
+        this.a = scrollTarget;
+        this.b = view2;
+        this.g = new ArrayList<>();
+        this.h = new a(this);
     }
 
-    public void f(boolean z) {
+    public final rm7 b(sm7 listener) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.i = z;
-        }
-    }
-
-    public final PraiseModel e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.k == null) {
-                this.k = new PraiseModel(this.b.getPageContext(), new a(this));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, listener)) == null) {
+            Intrinsics.checkNotNullParameter(listener, "listener");
+            if (!this.g.contains(listener)) {
+                this.g.add(listener);
             }
-            return this.k;
+            return this;
         }
-        return (PraiseModel) invokeV.objValue;
+        return (rm7) invokeL.objValue;
     }
 
-    public void g(ThreadData threadData, int i) {
+    public final void d(TbLinkageScrollView linkageScrollView) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, threadData, i) != null) || threadData == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, linkageScrollView) == null) {
+            Intrinsics.checkNotNullParameter(linkageScrollView, "linkageScrollView");
+            this.c = linkageScrollView;
+            linkageScrollView.H(this.h);
         }
-        if (i == 1) {
-            PraiseData praise = threadData.getPraise();
-            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-            if (currentAccountObj != null) {
-                MetaData metaData = new MetaData();
-                metaData.setName_show(currentAccountObj.getAccount());
-                metaData.setPortrait(currentAccountObj.getPortrait());
-                metaData.setUserId(currentAccountObj.getID());
-                if (praise == null) {
-                    PraiseData praiseData = new PraiseData();
-                    praiseData.setIsLike(i);
-                    praiseData.setNum(1L);
-                    praiseData.getUser().add(0, metaData);
-                    threadData.setPraise(praiseData);
-                    return;
-                }
-                threadData.getPraise().getUser().add(0, metaData);
-                threadData.getPraise().setNum(threadData.getPraise().getNum() + 1);
-                threadData.getPraise().setIsLike(i);
-            }
-        } else if (threadData.getPraise() != null) {
-            threadData.getPraise().setIsLike(i);
-            threadData.getPraise().setNum(threadData.getPraise().getNum() - 1);
-            ArrayList<MetaData> user = threadData.getPraise().getUser();
-            if (user != null) {
-                Iterator<MetaData> it = user.iterator();
-                while (it.hasNext()) {
-                    MetaData next = it.next();
-                    if (next.getUserId().equals(TbadkCoreApplication.getCurrentAccountObj().getID())) {
-                        threadData.getPraise().getUser().remove(next);
-                        return;
+    }
+
+    public final void f(sm7 listener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, listener) == null) {
+            Intrinsics.checkNotNullParameter(listener, "listener");
+            this.g.remove(listener);
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x0064, code lost:
+        if (r7 == false) goto L29;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x006b  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final Boolean c(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        boolean z;
+        int i;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
+            int action = motionEvent.getAction();
+            if (action != 0) {
+                boolean z3 = true;
+                if (action != 1) {
+                    if (action != 2) {
+                        if (action != 3) {
+                            return null;
+                        }
+                    } else {
+                        int rawX = (int) (this.d - motionEvent.getRawX());
+                        int rawY = (int) (this.e - motionEvent.getRawY());
+                        this.d = motionEvent.getRawX();
+                        this.e = motionEvent.getRawY();
+                        if (this.f != 1) {
+                            if (this.a.getScrollY() == 0) {
+                                View view2 = this.b;
+                                if (view2 != null) {
+                                    i = view2.getScrollY();
+                                } else {
+                                    i = 0;
+                                }
+                                if (i == 0 && Math.abs(rawX) < Math.abs(rawY)) {
+                                    if (rawY >= 0) {
+                                        if (this.a.getTranslationY() == 0.0f) {
+                                            z2 = true;
+                                        } else {
+                                            z2 = false;
+                                        }
+                                    }
+                                    z = true;
+                                    if (z) {
+                                        this.f = 1;
+                                        for (sm7 sm7Var : this.g) {
+                                            sm7Var.c();
+                                        }
+                                    }
+                                }
+                            }
+                            z = false;
+                            if (z) {
+                            }
+                        }
+                        if (this.f == 1) {
+                            if ((this.a.getTranslationY() > 0.0f || rawY <= 0) ? false : false) {
+                                this.a.setTranslationY(0.0f);
+                                this.f = 0;
+                                return Boolean.TRUE;
+                            }
+                            View view3 = this.a;
+                            view3.setTranslationY(view3.getTranslationY() - rawY);
+                            for (sm7 sm7Var2 : this.g) {
+                                sm7Var2.a(this.a.getTranslationY());
+                            }
+                            return Boolean.TRUE;
+                        }
+                        return null;
                     }
                 }
+                if (this.f == 1) {
+                    for (sm7 sm7Var3 : this.g) {
+                        sm7Var3.b(this.a.getTranslationY());
+                    }
+                    this.a.setTranslationY(0.0f);
+                    this.f = 0;
+                    return Boolean.TRUE;
+                }
+                return null;
             }
+            this.d = motionEvent.getRawX();
+            this.e = motionEvent.getRawY();
+            return null;
         }
+        return (Boolean) invokeL.objValue;
     }
 
-    public void h(int i) {
-        FrsViewData s1;
-        ArrayList<yh> threadList;
+    public final void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && (s1 = this.b.s1()) != null && this.a != null && (threadList = s1.getThreadList()) != null) {
-            Iterator<yh> it = threadList.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
-                }
-                yh next = it.next();
-                if (next instanceof py4) {
-                    ThreadData threadData = ((py4) next).t;
-                    if (threadData == this.h) {
-                        g(threadData, i);
-                        this.h = null;
-                        break;
-                    } else if (threadData.getId() != null && threadData.getId().equals(this.j)) {
-                        g(threadData, i);
-                        this.j = null;
-                        break;
-                    }
-                }
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.g.clear();
+            TbLinkageScrollView tbLinkageScrollView = this.c;
+            if (tbLinkageScrollView != null) {
+                tbLinkageScrollView.K(this.h);
             }
-            this.a.b0().g(threadList, s1);
-            this.a.b0().notifyDataSetChanged();
         }
     }
 }

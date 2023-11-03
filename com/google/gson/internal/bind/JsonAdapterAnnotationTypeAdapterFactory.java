@@ -8,7 +8,7 @@ import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.internal.ConstructorConstructor;
 import com.google.gson.reflect.TypeToken;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class JsonAdapterAnnotationTypeAdapterFactory implements TypeAdapterFactory {
     public final ConstructorConstructor constructorConstructor;
 

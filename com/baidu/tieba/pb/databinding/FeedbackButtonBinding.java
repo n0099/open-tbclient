@@ -51,11 +51,11 @@ public final class FeedbackButtonBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            int i = R.id.obfuscated_res_0x7f090b19;
-            TbImage tbImage = (TbImage) view2.findViewById(R.id.obfuscated_res_0x7f090b19);
+            int i = R.id.obfuscated_res_0x7f090b3b;
+            TbImage tbImage = (TbImage) view2.findViewById(R.id.obfuscated_res_0x7f090b3b);
             if (tbImage != null) {
-                i = R.id.obfuscated_res_0x7f090b1a;
-                EMTextView eMTextView = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090b1a);
+                i = R.id.obfuscated_res_0x7f090b3c;
+                EMTextView eMTextView = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090b3c);
                 if (eMTextView != null) {
                     return new FeedbackButtonBinding((RelativeLayout) view2, tbImage, eMTextView);
                 }
@@ -70,7 +70,7 @@ public final class FeedbackButtonBinding implements ViewBinding {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, layoutInflater, viewGroup, z)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d02db, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d02e1, viewGroup, false);
             if (z) {
                 viewGroup.addView(inflate);
             }

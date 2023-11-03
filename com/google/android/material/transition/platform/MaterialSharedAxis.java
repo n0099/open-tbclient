@@ -12,7 +12,7 @@ import androidx.core.view.GravityCompat;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 @RequiresApi(21)
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class MaterialSharedAxis extends MaterialVisibility<VisibilityAnimatorProvider> {
     public static final int X = 0;
     public static final int Y = 1;
@@ -22,7 +22,7 @@ public final class MaterialSharedAxis extends MaterialVisibility<VisibilityAnima
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public @interface Axis {
     }
 

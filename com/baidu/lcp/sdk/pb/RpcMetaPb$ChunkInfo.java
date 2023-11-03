@@ -2,7 +2,7 @@ package com.baidu.lcp.sdk.pb;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.n40;
+import com.baidu.tieba.e50;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -167,7 +167,7 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
         /* renamed from: o */
-        public b mo43clone() {
+        public b mo44clone() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
@@ -227,7 +227,7 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-                RpcMetaPb$ChunkInfo rpcMetaPb$ChunkInfo = new RpcMetaPb$ChunkInfo(this, (n40) null);
+                RpcMetaPb$ChunkInfo rpcMetaPb$ChunkInfo = new RpcMetaPb$ChunkInfo(this, (e50) null);
                 int i = this.a;
                 int i2 = 1;
                 if ((i & 1) != 1) {
@@ -560,7 +560,7 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
         }
     }
 
-    public /* synthetic */ RpcMetaPb$ChunkInfo(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, n40 n40Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ RpcMetaPb$ChunkInfo(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, e50 e50Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -586,7 +586,7 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
         this.memoizedSerializedSize = -1;
     }
 
-    public /* synthetic */ RpcMetaPb$ChunkInfo(GeneratedMessageLite.Builder builder, n40 n40Var) {
+    public /* synthetic */ RpcMetaPb$ChunkInfo(GeneratedMessageLite.Builder builder, e50 e50Var) {
         this(builder);
     }
 

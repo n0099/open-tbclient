@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.EmojiDetailUserInfo;
-import java.util.List;
+import com.baidu.tieba.im.biz.aibot.data.AibotChatDetail;
 /* loaded from: classes8.dex */
 public interface tn8 {
-    void a(boolean z, @Nullable List<EmojiDetailUserInfo> list);
+    void N(AibotChatDetail aibotChatDetail);
 
-    void onFailure(int i, String str);
+    void S1(int i, boolean z);
 }

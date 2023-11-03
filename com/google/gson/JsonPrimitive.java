@@ -4,7 +4,7 @@ import com.google.gson.internal.C$Gson$Preconditions;
 import com.google.gson.internal.LazilyParsedNumber;
 import java.math.BigDecimal;
 import java.math.BigInteger;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class JsonPrimitive extends JsonElement {
     public final Object value;
 

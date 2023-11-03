@@ -1,95 +1,188 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.minivideo.arface.utils.ThreadPool;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayOutputStream;
-import java.util.concurrent.Callable;
-import java.util.zip.DataFormatException;
-import java.util.zip.Inflater;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class rrb implements Callable<qrb> {
+public class rrb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Intent a;
+    public int a;
+    public int b;
+    public int c;
+    public boolean d;
+    public b e;
 
-    public rrb(Intent intent) {
+    /* loaded from: classes8.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rrb a;
+
+        public a(rrb rrbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rrbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = rrbVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.i();
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public interface b {
+        void a(int i);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948132647, "Lcom/baidu/tieba/rrb;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948132647, "Lcom/baidu/tieba/rrb;");
+        }
+    }
+
+    public rrb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {intent};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = intent;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.Object, com.baidu.tieba.qrb] */
-    @Override // java.util.concurrent.Callable
-    public qrb call() throws Exception {
+    public int a() {
         InterceptResult invokeV;
-        byte[] bArr;
-        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Intent intent = this.a;
-            if (intent == null) {
-                return null;
+            int i = this.c;
+            if (i != 0) {
+                return i;
             }
-            long j = 0;
-            try {
-                j = intent.getLongExtra("msg_id", 0L);
-            } catch (Exception e) {
-                urb.b("PassByMsgIntentParser", "parserMsgId", e);
-            }
-            try {
-                bArr = this.a.getByteArrayExtra("msg_content");
-            } catch (Exception e2) {
-                urb.b("PassByMsgIntentParser", "parseMsgContent", e2);
-                bArr = null;
-            }
-            Inflater inflater = new Inflater();
-            inflater.setInput(bArr);
-            byte[] bArr2 = new byte[256];
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(256);
-            while (!inflater.finished()) {
-                try {
-                    byteArrayOutputStream.write(bArr2, 0, inflater.inflate(bArr2));
-                } catch (DataFormatException unused) {
-                    inflater.end();
-                    str = null;
-                } catch (Throwable th) {
-                    inflater.end();
-                    throw th;
-                }
-            }
-            inflater.end();
-            str = byteArrayOutputStream.toString("utf-8");
-            if (str == null) {
-                return null;
-            }
-            String optString = new JSONObject(str).optString("data");
-            if (TextUtils.isEmpty(optString)) {
-                return null;
-            }
-            qrb qrbVar = new qrb();
-            qrbVar.d(j);
-            qrbVar.c(optString);
-            return qrbVar;
+            int i2 = this.b;
+            return i2 != 0 ? i2 : this.a;
         }
-        return invokeV.objValue;
+        return invokeV.intValue;
+    }
+
+    public synchronized void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            synchronized (this) {
+                if (i == this.c) {
+                    return;
+                }
+                if ((this.b == 0 || i != this.b) && (this.b != 0 || i != this.a)) {
+                    this.c = i;
+                    if (i != 0 && !this.d) {
+                        this.d = true;
+                        g();
+                    }
+                }
+                this.c = 0;
+            }
+        }
+    }
+
+    public void c(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.e = bVar;
+        }
+    }
+
+    public final synchronized void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                if (this.c != this.a) {
+                    this.b = this.c;
+                }
+                this.c = 0;
+            }
+        }
+    }
+
+    public final synchronized void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                if (this.b != 0) {
+                    this.a = this.b;
+                }
+                this.b = 0;
+            }
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            ThreadPool.b().e(new a(this));
+        }
+    }
+
+    public final synchronized void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            synchronized (this) {
+                this.d = false;
+            }
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(1048583, this) != null) {
+            return;
+        }
+        while (true) {
+            e();
+            int i = this.b;
+            if (i == 0) {
+                h();
+                return;
+            }
+            b bVar = this.e;
+            if (bVar != null) {
+                bVar.a(i);
+            }
+            f();
+        }
     }
 }

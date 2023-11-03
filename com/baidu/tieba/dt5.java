@@ -1,9 +1,51 @@
 package com.baidu.tieba;
 
-import java.util.List;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface dt5 {
-    List<String> a();
+public class dt5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    ft5 b(String str, String str2);
+    @NonNull
+    public static Fragment a(@NonNull FragmentManager fragmentManager, int i, @NonNull Fragment fragment) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65536, null, fragmentManager, i, fragment)) == null) {
+            FragmentTransaction beginTransaction = fragmentManager.beginTransaction();
+            beginTransaction.add(i, fragment, fragment.getClass().getCanonicalName());
+            beginTransaction.commitAllowingStateLoss();
+            return fragment;
+        }
+        return (Fragment) invokeLIL.objValue;
+    }
+
+    @NonNull
+    public static Fragment c(@NonNull FragmentManager fragmentManager, int i, @NonNull Fragment fragment) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65538, null, fragmentManager, i, fragment)) == null) {
+            FragmentTransaction beginTransaction = fragmentManager.beginTransaction();
+            beginTransaction.replace(i, fragment, fragment.getClass().getCanonicalName());
+            beginTransaction.commitAllowingStateLoss();
+            return fragment;
+        }
+        return (Fragment) invokeLIL.objValue;
+    }
+
+    @Nullable
+    public static <T extends Fragment> T b(@NonNull FragmentManager fragmentManager, @NonNull Class<T> cls) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, fragmentManager, cls)) == null) {
+            return (T) fragmentManager.findFragmentByTag(cls.getCanonicalName());
+        }
+        return (T) invokeLL.objValue;
+    }
 }

@@ -1,96 +1,183 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.text.style.ImageSpan;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class s45 extends ImageSpan {
+public class s45<T> extends Thread implements w45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<Drawable> a;
+    @NonNull
+    public final List<r45<T>> a;
+    @Nullable
+    public u45<T> b;
+    @NonNull
+    public final v45<T> c;
+    public volatile boolean d;
+    public volatile boolean e;
+    @Nullable
+    public t45<T> f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s45(Drawable drawable) {
-        super(drawable);
+    public s45(@NonNull v45<T> v45Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {drawable};
+            Object[] objArr = {v45Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Drawable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = Collections.synchronizedList(new ArrayList());
+        this.d = false;
+        this.e = false;
+        this.c = v45Var;
+        e();
     }
 
-    public final Drawable a() {
-        InterceptResult invokeV;
-        Drawable drawable;
+    @Override // com.baidu.tieba.w45
+    public void a(@Nullable Object... objArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            WeakReference<Drawable> weakReference = this.a;
-            if (weakReference != null) {
-                drawable = weakReference.get();
-            } else {
-                drawable = null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, objArr) == null) {
+            synchronized (this.a) {
+                for (r45<T> r45Var : this.a) {
+                    r45Var.a(objArr);
+                }
+                this.e = false;
+                this.d = true;
+                this.a.notifyAll();
             }
-            if (drawable == null) {
-                Drawable drawable2 = getDrawable();
-                this.a = new WeakReference<>(drawable2);
-                return drawable2;
-            }
-            return drawable;
-        }
-        return (Drawable) invokeV.objValue;
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-            Drawable a = a();
-            canvas.save();
-            canvas.translate(f, ((i5 - a.getBounds().bottom) - paint.getFontMetricsInt().descent) / 2);
-            a.draw(canvas);
-            canvas.restore();
         }
     }
 
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        InterceptResult invokeCommon;
+    public final void b(@NonNull r45<T> r45Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-            Rect bounds = a().getBounds();
-            if (fontMetricsInt != null) {
-                Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
-                int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
-                int i4 = (bounds.bottom - bounds.top) / 2;
-                int i5 = i3 / 4;
-                int i6 = i4 - i5;
-                int i7 = -(i4 + i5);
-                fontMetricsInt.ascent = i7;
-                fontMetricsInt.top = i7;
-                fontMetricsInt.bottom = i6;
-                fontMetricsInt.descent = i6;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r45Var) == null) {
+            synchronized (this.a) {
+                Collections.addAll(this.a, r45Var);
             }
-            return bounds.right;
         }
-        return invokeCommon.intValue;
+    }
+
+    public void d(T t) {
+        t45<T> t45Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, t) == null) && (t45Var = this.f) != null) {
+            t45Var.a(t);
+        }
+    }
+
+    public void f(@NonNull u45<T> u45Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, u45Var) == null) {
+            synchronized (this.a) {
+                this.b = u45Var;
+                this.a.notifyAll();
+            }
+        }
+    }
+
+    public void g(@NonNull t45<T> t45Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, t45Var) == null) {
+            this.f = t45Var;
+        }
+    }
+
+    @WorkerThread
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            for (r45<T> r45Var : this.a) {
+                r45Var.onDestroy();
+            }
+            this.a.clear();
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            start();
+        }
+    }
+
+    @Override // com.baidu.tieba.w45
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.d = false;
+            this.e = true;
+            interrupt();
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x0051, code lost:
+        r4 = false;
+     */
+    @Override // java.lang.Thread, java.lang.Runnable
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void run() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            synchronized (this.a) {
+                while (true) {
+                    if (isInterrupted()) {
+                        c();
+                        break;
+                    } else if (this.e) {
+                        c();
+                        break;
+                    } else {
+                        if (this.a.size() == 0 || !this.d) {
+                            try {
+                                this.a.wait();
+                            } catch (InterruptedException unused) {
+                                c();
+                            }
+                        }
+                        int i = 0;
+                        while (true) {
+                            z = true;
+                            if (i >= this.a.size() || this.a.get(i).a == null) {
+                                break;
+                            } else if (i == this.a.size() - 1) {
+                                break;
+                            } else {
+                                i++;
+                            }
+                        }
+                        if (z) {
+                            if (this.b != null) {
+                                this.b.a(this.c.a(this.a));
+                            }
+                            for (r45<T> r45Var : this.a) {
+                                r45Var.a = null;
+                                r45Var.onDestroy();
+                            }
+                            this.a.clear();
+                            this.d = false;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

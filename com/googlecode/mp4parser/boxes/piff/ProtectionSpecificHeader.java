@@ -6,7 +6,7 @@ import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class ProtectionSpecificHeader {
     public static Map<UUID, Class<? extends ProtectionSpecificHeader>> uuidRegistry = new HashMap();
 

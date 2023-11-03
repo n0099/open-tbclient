@@ -15,7 +15,7 @@ import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
 import com.baidu.tbadk.data.ShareFromPBMsgData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ad;
+import com.baidu.tieba.qd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -103,7 +103,7 @@ public class Game2GroupShareDialogView extends LinearLayout {
             if (editText == null) {
                 return null;
             }
-            return ad.charSequence2String(editText.getText(), null);
+            return qd.charSequence2String(editText.getText(), null);
         }
         return (String) invokeV.objValue;
     }

@@ -64,10 +64,10 @@ public class a extends j {
                 synchronized (this.sy) {
                     this.rA.multiplyByQuat(this.sB, this.sB);
                 }
-                Quaternion m45clone = this.sB.m45clone();
-                m45clone.w(-m45clone.w());
+                Quaternion m46clone = this.sB.m46clone();
+                m46clone.w(-m46clone.w());
                 synchronized (this.sy) {
-                    SensorManager.getRotationMatrixFromVector(this.sA.matrix, m45clone.toArray());
+                    SensorManager.getRotationMatrixFromVector(this.sA.matrix, m46clone.toArray());
                 }
             }
             this.timestamp = sensorEvent.timestamp;

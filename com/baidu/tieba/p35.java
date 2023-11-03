@@ -1,25 +1,111 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.util.Log;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.LinkedList;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class p35 {
     public static /* synthetic */ Interceptable $ic;
-    public static final LinkedList<String> a;
-    public static final LinkedList<String> b;
+    public static final c a;
+    public static final c b;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public interface c {
+        void a(String str, String str2, String str3);
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class b implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        @Override // com.baidu.tieba.p35.c
+        public void a(String str, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
+                if (str2 != null) {
+                    str3 = "code:" + str2 + " message:" + str3;
+                }
+                Log.e("BridgeLogger", str3);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class d implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ d(a aVar) {
+            this();
+        }
+
+        @Override // com.baidu.tieba.p35.c
+        public void a(String str, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
+                StatisticItem statisticItem = new StatisticItem("c10729");
+                statisticItem.param("obj_param1", str);
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str2);
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, str3);
+                if (BdBaseApplication.getInst() != null) {
+                    TiebaStatic.log(statisticItem);
+                }
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
+        boolean z;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
         if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948011127, "Lcom/baidu/tieba/p35;")) != null) {
             Interceptable interceptable = invokeClinit.interceptor;
@@ -31,65 +117,37 @@ public class p35 {
                 return;
             }
         }
-        a = new LinkedList<>();
-        b = new LinkedList<>();
-    }
-
-    public static JSONObject a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            b(jSONObject, "uid", TbadkCoreApplication.getCurrentAccount());
-            b(jSONObject, "latest_related_tid", TbadkCoreApplication.getInst().getLatestRelatedTid());
-            b(jSONObject, "latest_related_fid", TbadkCoreApplication.getInst().getLatestRelatedFid());
-            b(jSONObject, "continuous_crash_times", String.valueOf(u35.q().o()));
-            b(jSONObject, "trigger_safe_mode_status", String.valueOf(u35.q().s()));
-            b(jSONObject, "fid_info", String.valueOf(a));
-            b(jSONObject, "tid_info", String.valueOf(b));
-            return jSONObject;
+        a = new b(null);
+        b = new d(null);
+        if (BdBaseApplication.getInst() != null && !BdBaseApplication.getInst().isDebugMode()) {
+            z = false;
+        } else {
+            z = true;
         }
-        return (JSONObject) invokeL.objValue;
+        c = z;
     }
 
-    public static JSONObject b(JSONObject jSONObject, String str, String str2) {
-        InterceptResult invokeLLL;
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, jSONObject, str, str2)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            if (str != null && str2 != null) {
-                try {
-                    jSONObject.put(str, str2);
-                } catch (JSONException e) {
-                    BdLog.e(e);
-                }
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeLLL.objValue;
-    }
-
-    public static void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            a.offer(str);
-            if (a.size() > 10) {
-                a.poll();
-            }
+        if ((interceptable == null || interceptable.invokeL(65537, null, str) == null) && c) {
+            a.a(null, null, str);
         }
     }
 
-    public static void d(String str) {
+    public static void b(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            b.offer(str);
-            if (b.size() > 10) {
-                b.poll();
+        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
+            a(str3);
+        }
+    }
+
+    public static void c(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, str3) == null) {
+            if (c) {
+                a.a(str, str2, str3);
             }
+            b.a(str, str2, str3);
         }
     }
 }

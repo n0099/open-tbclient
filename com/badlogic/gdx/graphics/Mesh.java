@@ -1,12 +1,12 @@
 package com.badlogic.gdx.graphics;
 
 import com.badlogic.gdx.Application;
-import com.baidu.tieba.l2;
-import com.baidu.tieba.m2;
-import com.baidu.tieba.p2;
-import com.baidu.tieba.r2;
-import com.baidu.tieba.v2;
-import com.baidu.tieba.y0;
+import com.baidu.tieba.b3;
+import com.baidu.tieba.c3;
+import com.baidu.tieba.f3;
+import com.baidu.tieba.h3;
+import com.baidu.tieba.l3;
+import com.baidu.tieba.o1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,13 +17,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class Mesh implements v2 {
+public class Mesh implements l3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<Application, r2<Mesh>> d;
+    public static final Map<Application, h3<Mesh>> d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final p2 a;
-    public final l2 b;
-    public m2 c;
+    public final f3 a;
+    public final b3 b;
+    public c3 c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
@@ -135,28 +135,28 @@ public class Mesh implements v2 {
     }
 
     public static void d(Application application) {
-        r2<Mesh> r2Var;
+        h3<Mesh> h3Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, application) != null) || (r2Var = d.get(application)) == null) {
+        if ((interceptable != null && interceptable.invokeL(65539, null, application) != null) || (h3Var = d.get(application)) == null) {
             return;
         }
-        for (int i = 0; i < r2Var.b; i++) {
-            r2Var.get(i).a.invalidate();
-            r2Var.get(i).b.invalidate();
+        for (int i = 0; i < h3Var.b; i++) {
+            h3Var.get(i).a.invalidate();
+            h3Var.get(i).b.invalidate();
         }
     }
 
-    @Override // com.baidu.tieba.v2
+    @Override // com.baidu.tieba.l3
     public void dispose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (d.get(y0.a) != null) {
-                d.get(y0.a).g(this, true);
+            if (d.get(o1.a) != null) {
+                d.get(o1.a).g(this, true);
             }
             this.a.dispose();
-            m2 m2Var = this.c;
-            if (m2Var != null) {
-                m2Var.dispose();
+            c3 c3Var = this.c;
+            if (c3Var != null) {
+                c3Var.dispose();
             }
             this.b.dispose();
         }

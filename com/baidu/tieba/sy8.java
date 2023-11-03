@@ -1,75 +1,83 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.lego.card.exception.CardParseException;
-import com.baidu.tieba.lego.card.model.ICardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.NoDataView;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.tbadk.loading.LoadingView;
+import com.baidu.tieba.immessagecenter.chatgroup.chatbox.chatdialog.GroupChatDialogFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class sy8 extends uy8 {
+public class sy8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<uy8> c;
+    public xy8 a;
+    public TbPageContext b;
+    public GroupChatDialogFragment c;
+    @Nullable
+    public fy8 d;
+    public vj5 e;
+    public LoadingView f;
+    public NoDataView g;
+    public String h;
+    public final View.OnClickListener i;
 
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ sy8 a;
 
-    @Override // com.baidu.tieba.uy8
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.uy8
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "lego_main" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final sy8 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-416443719, "Lcom/baidu/tieba/sy8$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-416443719, "Lcom/baidu/tieba/sy8$b;");
+        public a(sy8 sy8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sy8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new sy8(null);
+            this.a = sy8Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && BdNetTypeUtil.isNetworkAvailableForImmediately()) {
+                if (this.a.e != null) {
+                    this.a.e.dettachView(this.a.a.m());
+                    this.a.e = null;
+                }
+                if (this.a.d != null) {
+                    this.a.i();
+                    this.a.c.m2();
+                }
+            }
         }
     }
 
-    public sy8() {
+    public sy8(@NonNull GroupChatDialogFragment groupChatDialogFragment, @NonNull TbPageContext tbPageContext, @NonNull fy8 fy8Var, xy8 xy8Var, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {groupChatDialogFragment, tbPageContext, fy8Var, xy8Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -79,134 +87,107 @@ public class sy8 extends uy8 {
                 return;
             }
         }
-        this.c = new ArrayList(4);
+        this.i = new a(this);
+        this.c = groupChatDialogFragment;
+        this.b = tbPageContext;
+        this.d = fy8Var;
+        this.a = xy8Var;
+        this.h = str;
     }
 
-    public static sy8 h() {
-        InterceptResult invokeV;
+    public void h(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (sy8) invokeV.objValue;
-    }
-
-    public /* synthetic */ sy8(a aVar) {
-        this();
-    }
-
-    public static ICardInfo j(JSONObject jSONObject) throws CardParseException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
-            return h().b(jSONObject, jSONObject.optInt("card_type"));
-        }
-        return (ICardInfo) invokeL.objValue;
-    }
-
-    public synchronized void g(uy8 uy8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, uy8Var) == null) {
-            synchronized (this) {
-                this.c.add(uy8Var);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            LoadingView loadingView = this.f;
+            if (loadingView != null) {
+                loadingView.onChangeSkinType(i);
+            }
+            vj5 vj5Var = this.e;
+            if (vj5Var != null) {
+                vj5Var.onChangeSkinType();
+            }
+            NoDataView noDataView = this.g;
+            if (noDataView != null) {
+                noDataView.f(this.b, i);
             }
         }
     }
 
-    public static ICardInfo i(String str) {
-        InterceptResult invokeL;
+    public void e() {
+        LoadingView loadingView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            try {
-                ICardInfo j = j(new JSONObject(str));
-                if (j != null) {
-                    if (j.isValid()) {
-                        return j;
-                    }
-                }
-                return null;
-            } catch (CardParseException e) {
-                BdLog.detailException("CardFactory.getPageCardInfo", e);
-                return null;
-            } catch (JSONException e2) {
-                BdLog.detailException("CardFactory.getPageCardInfo", e2);
-                return null;
-            }
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (loadingView = this.f) != null) {
+            loadingView.dettachView(this.a.m());
         }
-        return (ICardInfo) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.uy8
-    public <T> mz8 a(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
-        InterceptResult invokeLLI;
+    public void f() {
+        vj5 vj5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, tbPageContext, iCardInfo, i)) == null) {
-            mz8 e = e(tbPageContext, iCardInfo, i);
-            if (e != null) {
-                e.setBusinessType(i);
-            }
-            return e;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (vj5Var = this.e) != null) {
+            vj5Var.dettachView(this.a.m());
+            this.e = null;
         }
-        return (mz8) invokeLLI.objValue;
     }
 
-    @Override // com.baidu.tieba.uy8
-    public ICardInfo b(JSONObject jSONObject, int i) throws CardParseException {
-        InterceptResult invokeLI;
+    public void g() {
+        NoDataView noDataView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, i)) == null) {
-            return f(jSONObject, i);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (noDataView = this.g) != null) {
+            noDataView.setVisibility(8);
         }
-        return (ICardInfo) invokeLI.objValue;
     }
 
-    public final <T> mz8 e(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
-        InterceptResult invokeLLI;
-        int cardType;
-        mz8 a2;
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, tbPageContext, iCardInfo, i)) == null) {
-            for (uy8 uy8Var : this.c) {
-                try {
-                    a2 = uy8Var.a(tbPageContext, iCardInfo, i);
-                } catch (Throwable th) {
-                    BdLog.detailException("factory <" + uy8Var.d() + "> respond exception", th);
-                }
-                if (a2 != null) {
-                    return a2;
-                }
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.a.n() != null) {
+                this.a.n().setVisibility(8);
             }
-            StringBuilder sb = new StringBuilder();
-            sb.append("No card factory for card type ");
-            if (iCardInfo == null) {
-                cardType = -1;
-            } else {
-                cardType = iCardInfo.getCardType();
+            if (this.f == null) {
+                LoadingView loadingView = new LoadingView(ri6.b());
+                this.f = loadingView;
+                loadingView.onChangeSkinType();
             }
-            sb.append(cardType);
-            BdLog.e(sb.toString());
-            return null;
+            this.f.attachView(this.a.m());
         }
-        return (mz8) invokeLLI.objValue;
     }
 
-    public final ICardInfo f(JSONObject jSONObject, int i) throws CardParseException {
-        InterceptResult invokeLI;
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, jSONObject, i)) == null) {
-            for (uy8 uy8Var : this.c) {
-                try {
-                    ICardInfo b2 = uy8Var.b(jSONObject, i);
-                    if (b2 != null) {
-                        return b2;
-                    }
-                } catch (Throwable th) {
-                    throw new CardParseException("Card type " + i + ", factory <" + uy8Var.d() + "> respond exception", th);
-                }
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (this.a.n() != null) {
+                this.a.n().setVisibility(8);
             }
-            BdLog.e("No card factory for card type " + i);
-            return null;
+            e();
+            if (this.e == null) {
+                this.e = new vj5(ri6.b(), this.i);
+            }
+            this.e.j(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds300));
+            this.e.attachView(this.a.m(), true);
+            this.e.o();
+            this.e.onChangeSkinType();
+            this.e.e(R.color.transparent);
         }
-        return (ICardInfo) invokeLI.objValue;
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            NoDataViewFactory.ImgType imgType = NoDataViewFactory.ImgType.WEBVIEW;
+            String string = ri6.b().getResources().getString(R.string.obfuscated_res_0x7f0f097d);
+            if (this.h.equals("message_tab")) {
+                imgType = NoDataViewFactory.ImgType.CREATE;
+                string = ri6.b().getResources().getString(R.string.obfuscated_res_0x7f0f0cf1);
+            }
+            if (this.a.n() != null) {
+                this.a.n().setVisibility(8);
+            }
+            if (this.g == null) {
+                this.g = NoDataViewFactory.b(ri6.b(), this.a.r(), NoDataViewFactory.d.b(imgType, 400), NoDataViewFactory.e.d(null, string), null, true);
+            }
+            this.g.f(this.b, TbadkApplication.getInst().getSkinType());
+            this.g.setVisibility(0);
+        }
     }
 }

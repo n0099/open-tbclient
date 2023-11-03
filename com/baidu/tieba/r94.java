@@ -1,156 +1,108 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.http.callback.StringResponseCallback;
+import com.baidu.searchbox.http.request.PostFormRequest;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import java.lang.reflect.Method;
-/* loaded from: classes7.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import java.util.TreeMap;
+/* loaded from: classes8.dex */
 public class r94 {
     public static /* synthetic */ Interceptable $ic;
-    public static Object a;
-    public static Method b;
-    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948076444, "Lcom/baidu/tieba/r94;")) == null) {
+    /* loaded from: classes8.dex */
+    public static class a extends StringResponseCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public static Map<String, String> a(@NonNull g63 g63Var, int i, String str) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65536, null, g63Var, i, str)) == null) {
+            TreeMap treeMap = new TreeMap();
+            treeMap.put(GameGuideConfigInfo.KEY_APP_KEY, g63Var.P());
+            treeMap.put("to_app_key", str);
+            treeMap.put("source", String.valueOf(i));
+            treeMap.put("timestamp", c());
+            StringBuilder sb = new StringBuilder();
+            for (String str2 : treeMap.keySet()) {
+                sb.append(str2);
+                sb.append("=");
+                sb.append((String) treeMap.get(str2));
+                sb.append("&");
+            }
+            sb.append("dsb9Ao44");
+            treeMap.put("sign", lm4.d(sb.toString().getBytes(), false));
+            return treeMap;
+        }
+        return (Map) invokeLIL.objValue;
+    }
+
+    public static void b(int i, @NonNull ResponseCallback responseCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65537, null, i, responseCallback) == null) {
+            g63 M = g63.M();
+            if (M == null) {
+                responseCallback.onFail(new Exception("framework error: swan app is null."));
+                return;
+            }
+            M.j0().getRequest().cookieManager(np2.q().a()).url(x24.b().p()).addUrlParam(GameGuideConfigInfo.KEY_APP_KEY, M.P()).addUrlParam(Constants.EXTRA_CONFIG_LIMIT, String.valueOf(5)).addUrlParam("source", String.valueOf(i)).requestFrom(16).requestFrom(1607).build().executeAsync(responseCallback);
+        }
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return String.valueOf(System.currentTimeMillis() / 1000);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void d(int i, String str) {
+        g63 M;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeIL(65539, null, i, str) != null) || (M = g63.M()) == null) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948076444, "Lcom/baidu/tieba/r94;");
-        }
-    }
-
-    public static boolean a(String... strArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, strArr)) == null) {
-            if (!c) {
-                e();
-            }
-            Method method = b;
-            if (method == null) {
-                return false;
-            }
-            try {
-                method.invoke(a, strArr);
-                return true;
-            } catch (Throwable unused) {
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean c(Class<?> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) {
-            if (!f()) {
-                return true;
-            }
-            if (cls == null) {
-                return false;
-            }
-            return a(b(cls.getName()));
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean d(String... strArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, strArr)) == null) {
-            if (!f()) {
-                return true;
-            }
-            if (strArr != null && strArr.length > 0) {
-                return a(strArr);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            String replaceAll = str.replaceAll("\\.", "/");
-            if (!replaceAll.startsWith(PreferencesUtil.LEFT_MOUNT)) {
-                return "L" + replaceAll + ParamableElem.DIVIDE_PARAM;
-            }
-            return replaceAll;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static synchronized void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            synchronized (r94.class) {
-                if (c) {
-                    return;
-                }
-                try {
-                    c = true;
-                    Class<?> cls = Class.forName("dalvik.system.VMRuntime");
-                    Method b2 = s94.b(cls, "getRuntime", new Class[0]);
-                    if (b2 != null) {
-                        b2.setAccessible(true);
-                        Object invoke = b2.invoke(null, new Object[0]);
-                        a = invoke;
-                        if (invoke != null) {
-                            Method b3 = s94.b(cls, "setHiddenApiExemptions", String[].class);
-                            b = b3;
-                            if (b3 != null) {
-                                b3.setAccessible(true);
-                            }
-                        }
-                    }
-                } catch (Throwable unused) {
-                }
-            }
-        }
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 28) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (Build.VERSION.SDK_INT > 29) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
+        ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) M.j0().postFormRequest().cookieManager(np2.q().a())).url(x24.b().g())).addParams(a(M, i, str)).requestFrom(16)).requestFrom(1607)).build().executeAsync(new a());
     }
 }

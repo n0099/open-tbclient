@@ -1,45 +1,19 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import com.baidu.tieba.zqb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
+import com.baidu.ugc.editvideo.record.source.IDataSourceView;
 /* loaded from: classes5.dex */
-public final class erb implements Runnable {
+public class erb implements IDataSourceView.IPlayerDataSourceView, zqb.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ AtomicBoolean a;
-    public final /* synthetic */ drb b;
 
-    public erb(drb drbVar, AtomicBoolean atomicBoolean) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {drbVar, atomicBoolean};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = drbVar;
-        this.a = atomicBoolean;
-    }
+    public abstract void c();
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.a.getAndSet(true)) {
-            Log.w("ARCore-InstallService", "requestInstall timed out, launching fullscreen.");
-            drb drbVar = this.b;
-            yqb yqbVar = drbVar.c;
-            yqb.n(drbVar.a, drbVar.b);
-        }
-    }
+    public abstract void d(float f);
+
+    public abstract void e(int i);
+
+    public abstract void f();
 }

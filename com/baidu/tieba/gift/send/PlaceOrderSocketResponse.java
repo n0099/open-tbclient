@@ -3,7 +3,7 @@ package com.baidu.tieba.gift.send;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
-import com.baidu.tieba.hu7;
+import com.baidu.tieba.c78;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.PlaceOrder.PlaceOrderResIdl;
 public class PlaceOrderSocketResponse extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hu7 orderInfo;
+    public c78 orderInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PlaceOrderSocketResponse() {
@@ -36,13 +36,13 @@ public class PlaceOrderSocketResponse extends TbSocketReponsedMessage {
         }
     }
 
-    public hu7 getOrderInfo() {
+    public c78 getOrderInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.orderInfo;
         }
-        return (hu7) invokeV.objValue;
+        return (c78) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -61,9 +61,9 @@ public class PlaceOrderSocketResponse extends TbSocketReponsedMessage {
                 setErrorString(placeOrderResIdl.error.usermsg);
             }
             if (placeOrderResIdl.data != null) {
-                hu7 hu7Var = new hu7();
-                this.orderInfo = hu7Var;
-                hu7Var.c(placeOrderResIdl.data);
+                c78 c78Var = new c78();
+                this.orderInfo = c78Var;
+                c78Var.c(placeOrderResIdl.data);
             }
             return placeOrderResIdl;
         }

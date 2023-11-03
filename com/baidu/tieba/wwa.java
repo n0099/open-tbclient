@@ -1,38 +1,55 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class wwa {
+public class wwa extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public String k;
-    public String l;
-    public String m;
+    public final MainTabActivity a;
+    public final zua b;
 
-    public wwa() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wwa(MainTabActivity mainTabActivity, lua luaVar) {
+        super(2921579);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, luaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = mainTabActivity;
+        this.b = mainTabActivity.e;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        zua zuaVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (zuaVar = this.b) != null && zuaVar.g() != null) {
+            Runnable runnable = this.b.g().c;
+            SafeHandler.getInst().removeCallbacks(runnable);
+            int i = 0;
+            if (customResponsedMessage.getData() instanceof Integer) {
+                i = ((Integer) customResponsedMessage.getData()).intValue();
+            }
+            SafeHandler.getInst().postDelayed(runnable, i * 1000);
         }
     }
 }

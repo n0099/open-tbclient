@@ -1,181 +1,115 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
+import android.app.Application;
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
+import android.os.Build;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.AdRipper;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.qq.e.ads.banner2.UnifiedBannerADListener;
-import com.qq.e.ads.banner2.UnifiedBannerView;
-import com.qq.e.comm.util.AdError;
+import java.util.LinkedHashSet;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public class bnb extends lmb<hnb> {
+public final class bnb {
     public static /* synthetic */ Interceptable $ic;
+    public static final bnb c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Set<a> a;
+    public boolean b;
 
     /* loaded from: classes5.dex */
-    public class a implements UnifiedBannerADListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public boolean b;
-        public hnb c;
-        public final /* synthetic */ UnifiedBannerView[] d;
-        public final /* synthetic */ bnb e;
+    public interface a {
+        void U();
 
-        public a(bnb bnbVar, UnifiedBannerView[] unifiedBannerViewArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bnbVar, unifiedBannerViewArr};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = bnbVar;
-            this.d = unifiedBannerViewArr;
-        }
+        void a(Activity activity);
 
-        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
-        public void onADClicked() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                LogPrinter.d();
-                this.e.onAdClicked((bnb) this.c, this.b, new String[0]);
-                this.b = true;
-            }
-        }
+        void b();
 
-        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
-        public void onADClosed() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                LogPrinter.e();
-                this.e.onAdClose(this.c);
-            }
-        }
-
-        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
-        public void onADExposure() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                LogPrinter.d();
-                this.e.onAdShow((bnb) this.c, this.a, new String[0]);
-                this.a = true;
-            }
-        }
-
-        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
-        public void onADLeftApplication() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                LogPrinter.d();
-            }
-        }
-
-        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
-        public void onADReceive() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                LogPrinter.d();
-                hnb hnbVar = new hnb(this.d[0]);
-                this.c = hnbVar;
-                this.e.onAdLoaded(hnbVar, new String[0]);
-            }
-        }
-
-        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
-        public void onNoAD(AdError adError) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, adError) == null) {
-                this.e.onError(adError.getErrorCode(), adError.getErrorMsg());
-            }
-        }
+        void onActivityDestroyed(Activity activity);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bnb(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.BANNER), pid, false);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947652147, "Lcom/baidu/tieba/bnb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947652147, "Lcom/baidu/tieba/bnb;");
+                return;
+            }
+        }
+        c = new bnb();
+    }
+
+    public bnb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = new LinkedHashSet();
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public AdRipper createAdRipper(Ssp.Pid pid) {
-        InterceptResult invokeL;
+    public static bnb a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new smb(pid) : (AdRipper) invokeL.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return c;
+        }
+        return (bnb) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lmb
-    public void e(Context context, FunAdSlot funAdSlot) {
+    public final Set<a> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
-            if (!(context instanceof Activity)) {
-                onError(0, "NoA");
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (Set) invokeV.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this.a) {
+                this.a.clear();
             }
-            UnifiedBannerView unifiedBannerView = new UnifiedBannerView((Activity) context, this.mPid.pid, new a(this, r6));
-            unifiedBannerView.setRefresh(0);
-            unifiedBannerView.loadAD();
-            UnifiedBannerView[] unifiedBannerViewArr = {unifiedBannerView};
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
-        hnb hnbVar;
+    public final void d(a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) && (hnbVar = (hnb) obj) != null) {
-            ((UnifiedBannerView) hnbVar.a).destroy();
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
-            hnb hnbVar = (hnb) obj;
-            onShowStart(hnbVar);
-            if (((UnifiedBannerView) hnbVar.a).getParent() != null) {
-                ((ViewGroup) ((UnifiedBannerView) hnbVar.a).getParent()).removeView((View) hnbVar.a);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            synchronized (this.a) {
+                this.a.add(aVar);
             }
-            viewGroup.removeAllViews();
-            int width = viewGroup.getWidth();
-            viewGroup.addView((View) hnbVar.a, new ViewGroup.LayoutParams(width, Math.round(width / 6.4f)));
-            return true;
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    public final void e(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, context) == null) && !this.b && Build.VERSION.SDK_INT >= 14) {
+            try {
+                ((Application) context.getApplicationContext()).registerActivityLifecycleCallbacks(new inb(this));
+            } catch (Exception unused) {
+                wnb.b("registerActivityLifecycleCallbacks encounter exception");
+            }
+            this.b = true;
+        }
     }
 }

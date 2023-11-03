@@ -6,10 +6,10 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tieba.ifa;
-import com.baidu.tieba.kj;
+import com.baidu.tieba.bk;
+import com.baidu.tieba.nsa;
 import com.baidu.tieba.quickWebView.data.QuickWebViewBridgeData;
-import com.baidu.tieba.qy9;
+import com.baidu.tieba.vba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,15 +18,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Iterator;
 import org.json.JSONObject;
-@kj
-/* loaded from: classes7.dex */
+@bk
+/* loaded from: classes8.dex */
 public class QuickWebViewBridge extends CommonTbJsBridge {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String REQUEST_BY_NATIVE;
-    public qy9 mProxy;
+    public vba mProxy;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -56,21 +56,21 @@ public class QuickWebViewBridge extends CommonTbJsBridge {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                qy9 qy9Var = this.b.mProxy;
+                vba vbaVar = this.b.mProxy;
                 QuickWebViewBridgeData quickWebViewBridgeData = this.a;
-                qy9Var.k(quickWebViewBridgeData, quickWebViewBridgeData.callBack, true);
+                vbaVar.k(quickWebViewBridgeData, quickWebViewBridgeData.callBack, true);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public QuickWebViewBridge(Context context, qy9 qy9Var) {
+    public QuickWebViewBridge(Context context, vba vbaVar) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, qy9Var};
+            Object[] objArr = {context, vbaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -82,10 +82,10 @@ public class QuickWebViewBridge extends CommonTbJsBridge {
             }
         }
         this.REQUEST_BY_NATIVE = "requestByNative";
-        this.mProxy = qy9Var;
+        this.mProxy = vbaVar;
     }
 
-    @Override // com.baidu.tbadk.browser.CommonTbJsBridge, com.baidu.tieba.efa
+    @Override // com.baidu.tbadk.browser.CommonTbJsBridge, com.baidu.tieba.jsa
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -109,11 +109,11 @@ public class QuickWebViewBridge extends CommonTbJsBridge {
         return invokeLLLL.booleanValue;
     }
 
-    public ifa requestByNative(String str, String str2, String str3, JSONObject jSONObject) {
+    public nsa requestByNative(String str, String str2, String str3, JSONObject jSONObject) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, jSONObject)) == null) {
-            ifa ifaVar = new ifa();
+            nsa nsaVar = new nsa();
             QuickWebViewBridgeData quickWebViewBridgeData = new QuickWebViewBridgeData();
             quickWebViewBridgeData.url = str;
             quickWebViewBridgeData.type = str2;
@@ -131,24 +131,24 @@ public class QuickWebViewBridge extends CommonTbJsBridge {
             if (this.mProxy != null) {
                 SafeHandler.getInst().post(new a(this, quickWebViewBridgeData));
             }
-            ifaVar.x(str);
-            return ifaVar;
+            nsaVar.x(str);
+            return nsaVar;
         }
-        return (ifa) invokeLLLL.objValue;
+        return (nsa) invokeLLLL.objValue;
     }
 
-    public ifa requestByNativeToH5(HashMap<String, String> hashMap) {
+    public nsa requestByNativeToH5(HashMap<String, String> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap)) == null) {
-            ifa ifaVar = new ifa();
+            nsa nsaVar = new nsa();
             if (hashMap != null && hashMap.get("result") != null) {
-                ifaVar.o(hashMap.get("result"));
-                ifaVar.x(hashMap.get("NotificationKey"));
+                nsaVar.o(hashMap.get("result"));
+                nsaVar.x(hashMap.get("NotificationKey"));
             }
-            ifaVar.A(true);
-            return ifaVar;
+            nsaVar.A(true);
+            return nsaVar;
         }
-        return (ifa) invokeL.objValue;
+        return (nsa) invokeL.objValue;
     }
 }

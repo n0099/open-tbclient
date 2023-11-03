@@ -1,32 +1,33 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.view.View;
+import android.view.ViewGroup;
+import android.webkit.JsPromptResult;
+import android.webkit.JsResult;
+import android.webkit.WebChromeClient;
+import android.webkit.WebStorage;
+import android.webkit.WebView;
+import android.widget.FrameLayout;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public class nx7 {
+public class nx7 extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public final List<w75> c;
-    public final List<w75> d;
+    public BdPageContext a;
+    public ksa b;
 
-    public nx7() {
+    public nx7(BdPageContext bdPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,186 +37,91 @@ public class nx7 {
                 return;
             }
         }
-        this.a = 1;
-        this.b = "https://boxnovel.baidu.com/boxnovel/haokan";
-        this.c = new ArrayList();
-        this.d = new ArrayList();
-        j();
+        this.a = bdPageContext;
     }
 
-    public boolean c() {
+    public void a(ksa ksaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ksaVar) == null) {
+            this.b = ksaVar;
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public View getVideoLoadingProgressView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<w75> i = i();
-            int size = i.size();
-            if (size != this.c.size()) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            FrameLayout frameLayout = new FrameLayout(this.a.getPageActivity());
+            frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+            return frameLayout;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
+            super.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
+            quotaUpdater.updateQuota(j2 * 2);
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, webView, str, str2, jsResult)) == null) {
+            BdPageContext bdPageContext = this.a;
+            if (bdPageContext != null && xb.f(bdPageContext)) {
+                return super.onJsAlert(webView, str, str2, jsResult);
+            }
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, webView, str, str2, jsResult)) == null) {
+            BdPageContext bdPageContext = this.a;
+            if (bdPageContext != null && xb.f(bdPageContext)) {
+                return super.onJsBeforeUnload(webView, str, str2, jsResult);
+            }
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, webView, str, str2, jsResult)) == null) {
+            BdPageContext bdPageContext = this.a;
+            if (bdPageContext != null && xb.f(bdPageContext)) {
+                return super.onJsConfirm(webView, str, str2, jsResult);
+            }
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
+        BdPageContext bdPageContext;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            ksa ksaVar = this.b;
+            if ((ksaVar != null && ksaVar.onJsPrompt(str2, jsPromptResult)) || (bdPageContext = this.a) == null || !xb.f(bdPageContext)) {
                 return true;
             }
-            for (int i2 = 0; i2 < size; i2++) {
-                if (i.get(i2) != null && !i.get(i2).equals(this.c.get(i2))) {
-                    return true;
-                }
-            }
-            return false;
+            return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
         }
-        return invokeV.booleanValue;
-    }
-
-    public w75 a(int i, String str, String str2, String str3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, str2, str3})) == null) {
-            w75 w75Var = new w75();
-            w75Var.a = i;
-            w75Var.b = str;
-            w75Var.c = str2;
-            w75Var.d = str3;
-            return w75Var;
-        }
-        return (w75) invokeCommon.objValue;
-    }
-
-    public w75 b(int i, String str, String str2) {
-        InterceptResult invokeILL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, str2)) == null) {
-            w75 w75Var = new w75();
-            w75Var.a = i;
-            w75Var.b = str;
-            w75Var.c = str2;
-            if (i == 5) {
-                z = true;
-            } else {
-                z = false;
-            }
-            w75Var.k(z);
-            return w75Var;
-        }
-        return (w75) invokeILL.objValue;
-    }
-
-    public final List<w75> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(b(5, g(R.string.tab_name_topic_rank), ""));
-            arrayList.add(b(6, g(R.string.obfuscated_res_0x7f0f15f3), ""));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f15f2), "game"));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f15ef), "digital"));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f15f0), "entertainment"));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f15f1), "films"));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f15ed), "campus"));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f15ec), "animes"));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f15f6), "sports"));
-            arrayList.add(a(202, g(R.string.obfuscated_res_0x7f0f15f4), "novel", this.b));
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    @NonNull
-    public List<w75> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.d;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public List<w75> h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.c;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            List<w75> i = i();
-            if (!ListUtils.isEmpty(i)) {
-                this.c.addAll(i);
-            }
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            List<w75> list = this.c;
-            if (list != null) {
-                list.clear();
-            }
-            j();
-        }
-    }
-
-    public final String g(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            return TbadkCoreApplication.getInst().getString(i);
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public final List<w75> i() {
-        InterceptResult invokeV;
-        boolean z;
-        int length;
-        w75 w75Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            try {
-                JSONArray jSONArray = new JSONArray(SharedPrefHelper.getInstance().getString("key_index_tab_info_list", "[]"));
-                List<w75> arrayList2 = new ArrayList<>();
-                if (jSONArray.length() == 0) {
-                    arrayList2 = d();
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (z) {
-                    length = arrayList2.size();
-                } else {
-                    length = jSONArray.length();
-                }
-                for (int i = 0; i < length; i++) {
-                    if (z) {
-                        w75Var = arrayList2.get(i);
-                    } else {
-                        w75Var = new w75();
-                        w75Var.i(jSONArray.getJSONObject(i));
-                    }
-                    if (!w75Var.f()) {
-                        if (w75Var.g() && arrayList.size() < 2) {
-                            arrayList.add(w75Var);
-                        } else {
-                            this.d.add(w75Var);
-                        }
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
+        return invokeLLLLL.booleanValue;
     }
 }

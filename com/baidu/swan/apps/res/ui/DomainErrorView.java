@@ -5,16 +5,16 @@ import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cr2;
-import com.baidu.tieba.gj3;
-import com.baidu.tieba.hj3;
-import com.baidu.tieba.ic3;
-import com.baidu.tieba.ih3;
-import com.baidu.tieba.jj3;
-import com.baidu.tieba.p53;
-import com.baidu.tieba.qc3;
-import com.baidu.tieba.ue3;
-import com.baidu.tieba.wo2;
+import com.baidu.tieba.ak3;
+import com.baidu.tieba.g63;
+import com.baidu.tieba.hd3;
+import com.baidu.tieba.lf3;
+import com.baidu.tieba.np2;
+import com.baidu.tieba.tr2;
+import com.baidu.tieba.xj3;
+import com.baidu.tieba.yj3;
+import com.baidu.tieba.zc3;
+import com.baidu.tieba.zh3;
 /* loaded from: classes4.dex */
 public class DomainErrorView extends CommonEmptyView {
 
@@ -22,17 +22,17 @@ public class DomainErrorView extends CommonEmptyView {
     public class a implements View.OnClickListener {
         public final /* synthetic */ String a;
         public final /* synthetic */ String b;
-        public final /* synthetic */ p53 c;
+        public final /* synthetic */ g63 c;
 
-        public a(String str, String str2, p53 p53Var) {
+        public a(String str, String str2, g63 g63Var) {
             this.a = str;
             this.b = str2;
-            this.c = p53Var;
+            this.c = g63Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            wo2.u().b(this.c.w(), this.c.P(), this.c.a0(), hj3.u(this.a, this.b));
+            np2.u().b(this.c.w(), this.c.P(), this.c.a0(), yj3.u(this.a, this.b));
         }
     }
 
@@ -51,17 +51,17 @@ public class DomainErrorView extends CommonEmptyView {
     public void b(String str) {
         String str2;
         StringBuffer stringBuffer = new StringBuffer();
-        boolean d = hj3.d(str, stringBuffer);
+        boolean d = yj3.d(str, stringBuffer);
         String stringBuffer2 = stringBuffer.toString();
-        setIcon(R.drawable.obfuscated_res_0x7f081488);
+        setIcon(R.drawable.obfuscated_res_0x7f08149f);
         setTitle(R.string.obfuscated_res_0x7f0f0188);
-        ih3 ih3Var = new ih3();
-        ih3Var.k(5L);
-        ih3Var.i(41L);
-        ih3Var.f("domain not in white list--" + stringBuffer2);
-        p53 c0 = p53.c0();
+        zh3 zh3Var = new zh3();
+        zh3Var.k(5L);
+        zh3Var.i(41L);
+        zh3Var.f("domain not in white list--" + stringBuffer2);
+        g63 c0 = g63.c0();
         if (c0 != null) {
-            String format = String.format(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f01d4), jj3.D(), ue3.i(cr2.V().getCoreVersion(), c0.Z().H()), String.valueOf(ih3Var.a()));
+            String format = String.format(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f01d4), ak3.D(), lf3.i(tr2.V().getCoreVersion(), c0.Z().H()), String.valueOf(zh3Var.a()));
             StringBuilder sb = new StringBuilder();
             sb.append("(");
             if (d) {
@@ -75,18 +75,18 @@ public class DomainErrorView extends CommonEmptyView {
             this.g.setVisibility(0);
             this.g.setOnClickListener(new a(format, stringBuffer2, c0));
         }
-        this.b.setText(getResources().getText(R.string.obfuscated_res_0x7f0f154b));
-        this.c.setPadding(gj3.g(70.0f), 0, gj3.g(70.0f), 0);
-        String e = jj3.n().e();
-        String a2 = jj3.v().a();
-        qc3 qc3Var = new qc3();
-        qc3Var.p(ih3Var);
-        qc3Var.q(ic3.n(0));
-        qc3Var.m(p53.h0());
-        qc3Var.l("errorDomain", stringBuffer2);
-        qc3Var.l("path", e);
-        qc3Var.l("prePath", a2);
-        qc3Var.l("curPath", jj3.n().a());
-        ic3.R(qc3Var);
+        this.b.setText(getResources().getText(R.string.obfuscated_res_0x7f0f1562));
+        this.c.setPadding(xj3.g(70.0f), 0, xj3.g(70.0f), 0);
+        String e = ak3.n().e();
+        String a2 = ak3.v().a();
+        hd3 hd3Var = new hd3();
+        hd3Var.p(zh3Var);
+        hd3Var.q(zc3.n(0));
+        hd3Var.m(g63.h0());
+        hd3Var.l("errorDomain", stringBuffer2);
+        hd3Var.l("path", e);
+        hd3Var.l("prePath", a2);
+        hd3Var.l("curPath", ak3.n().a());
+        zc3.R(hd3Var);
     }
 }

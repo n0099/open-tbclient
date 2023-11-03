@@ -1,88 +1,63 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
-import com.baidu.searchbox.pms.init.PmsManager;
-import com.baidu.searchbox.pms.init.RequestParams;
-import com.baidu.tbadk.data.IconStampData;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class ta5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public long b;
+    public int c;
 
-    public static String c(int i) {
-        InterceptResult invokeI;
+    public ta5(String str, long j, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            return null;
-                        }
-                        return "reply_7_times.mp4";
-                    }
-                    return "post_7_times.mp4";
-                }
-                return "reply_1_times.mp4";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Long.valueOf(j), Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return "post_1_times.mp4";
         }
-        return (String) invokeI.objValue;
+        this.a = str;
+        this.b = j;
+        this.c = i;
     }
 
-    public static boolean a(IconStampData iconStampData) {
-        InterceptResult invokeL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, iconStampData)) == null) {
-            if (iconStampData == null) {
-                return false;
-            }
-            String c = c(iconStampData.stampType);
-            if (TextUtils.isEmpty(c)) {
-                return false;
-            }
-            File file = new File(rg.b(c));
-            if (StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get(c)) || !file.exists()) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return invokeL.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public static void b(boolean z) {
-        String c;
-        String c2;
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
-            if (z) {
-                c = c(1);
-                c2 = c(3);
-            } else {
-                c = c(2);
-                c2 = c(4);
-            }
-            if (!TextUtils.isEmpty(c) && !TextUtils.isEmpty(c2)) {
-                String str = BdBaseApplication.getInst().getResHashMap().get(c2);
-                if (StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get(c)) || StringUtils.isNull(str)) {
-                    RequestParams requestParams = new RequestParams();
-                    requestParams.setRunType(ng.a);
-                    requestParams.setRunNode("aps");
-                    ArrayList arrayList = new ArrayList();
-                    arrayList.add("com.baidu.tieba.resloader." + c);
-                    arrayList.add("com.baidu.tieba.resloader." + c2);
-                    requestParams.addChannel(new mg(arrayList, (DefaultDownloadCallback) null));
-                    PmsManager.getInstance().execute(requestParams);
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
+        return invokeV.intValue;
+    }
+
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return invokeV.longValue;
     }
 }

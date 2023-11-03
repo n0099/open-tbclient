@@ -1,41 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public interface sj0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "loadVideo");
-    public static final sj0 b = new a();
+    float getLaunchSpeedScore();
 
-    void a(String str, int i);
+    float getStaticDeviceScore();
 
+    @Autowired
     /* loaded from: classes8.dex */
-    public class a implements sj0 {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.tieba.sj0
-        public void a(String str, int i) {
+        @Singleton
+        @Inject(force = false)
+        public static sj0 a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+                return cu0.a();
             }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+            return (sj0) invokeV.objValue;
         }
     }
 }

@@ -5,7 +5,7 @@ import com.baidu.pyramid.annotation.Inject;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 @Autowired
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MultiPathRuntime {
     public static final String BIND_MOBILE = "1";
     public static final String BIND_MOBILE_SUCCESS = "1";
@@ -15,7 +15,7 @@ public class MultiPathRuntime {
     public static IMultiPath sMultiPath = getMultiPath();
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public @interface BindMobilePolicy {
     }
 

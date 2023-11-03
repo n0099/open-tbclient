@@ -16,7 +16,7 @@ import com.baidu.tieba.R;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 @RequiresApi(21)
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class SlideDistanceProvider implements VisibilityAnimatorProvider {
     public static final int DEFAULT_DISTANCE = -1;
     @Px
@@ -25,7 +25,7 @@ public final class SlideDistanceProvider implements VisibilityAnimatorProvider {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public @interface GravityFlag {
     }
 

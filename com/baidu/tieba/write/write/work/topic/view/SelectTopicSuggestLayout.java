@@ -12,8 +12,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ki;
-import com.baidu.tieba.s68;
+import com.baidu.tieba.aj;
+import com.baidu.tieba.nj8;
 import com.baidu.tieba.write.write.work.topic.adapter.VideoHotTopicSearchAdapter;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -30,7 +30,7 @@ public class SelectTopicSuggestLayout extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public RecyclerView a;
     public VideoHotTopicSearchAdapter b;
-    public ki c;
+    public aj c;
 
     public void e() {
         Interceptable interceptable = $ic;
@@ -63,10 +63,10 @@ public class SelectTopicSuggestLayout extends LinearLayout {
         }
 
         @Override // com.baidu.tieba.write.write.work.topic.adapter.VideoHotTopicSearchAdapter.a
-        public void a(s68 s68Var) {
+        public void a(nj8 nj8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, s68Var) == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921633, s68Var));
+            if (interceptable == null || interceptable.invokeL(1048576, this, nj8Var) == null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921633, nj8Var));
             }
         }
     }
@@ -158,10 +158,10 @@ public class SelectTopicSuggestLayout extends LinearLayout {
     }
 
     public void d() {
-        ki kiVar;
+        aj ajVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (kiVar = this.c) != null) {
-            kiVar.e(new b(this));
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (ajVar = this.c) != null) {
+            ajVar.e(new b(this));
         }
     }
 
@@ -230,11 +230,11 @@ public class SelectTopicSuggestLayout extends LinearLayout {
         c();
     }
 
-    public void b(String str, List<s68> list) {
-        ki kiVar;
+    public void b(String str, List<nj8> list) {
+        aj ajVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, list) == null) && (kiVar = this.c) != null) {
-            kiVar.e(new c(this, str, list));
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, list) == null) && (ajVar = this.c) != null) {
+            ajVar.e(new c(this, str, list));
         }
     }
 
@@ -253,7 +253,7 @@ public class SelectTopicSuggestLayout extends LinearLayout {
             this.b.m(new a(this));
             this.a.setAdapter(this.b);
             addView(this.a, new LinearLayout.LayoutParams(-1, -1));
-            this.c = new ki(this.a);
+            this.c = new aj(this.a);
         }
     }
 }

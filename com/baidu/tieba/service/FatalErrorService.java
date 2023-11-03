@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.bd;
-import com.baidu.tieba.xc;
+import com.baidu.tieba.nd;
+import com.baidu.tieba.rd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -126,16 +126,16 @@ public class FatalErrorService extends BdBaseService {
                     b(fileWriter, "imei", TbadkCoreApplication.getInst().getImei());
                     b(fileWriter, "uname", this.a.getStringExtra("uname"));
                     fileWriter.append("\n##TIEBA_NATIVE_END##\n");
-                    bd.h(fileWriter);
+                    rd.h(fileWriter);
                 } catch (Exception e2) {
                     e = e2;
                     fileWriter2 = fileWriter;
                     e.printStackTrace();
-                    bd.h(fileWriter2);
+                    rd.h(fileWriter2);
                 } catch (Throwable th2) {
                     th = th2;
                     fileWriter2 = fileWriter;
-                    bd.h(fileWriter2);
+                    rd.h(fileWriter2);
                     throw th;
                 }
             }
@@ -290,7 +290,7 @@ public class FatalErrorService extends BdBaseService {
                                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
                                     try {
                                         if (z) {
-                                            xc.a(fileInputStream, byteArrayOutputStream);
+                                            nd.a(fileInputStream, byteArrayOutputStream);
                                         } else {
                                             byte[] bArr = new byte[1024];
                                             while (true) {

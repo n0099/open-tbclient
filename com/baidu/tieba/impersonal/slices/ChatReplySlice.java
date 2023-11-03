@@ -23,20 +23,20 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.net.FastRequest;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ad;
-import com.baidu.tieba.av8;
-import com.baidu.tieba.bv8;
-import com.baidu.tieba.ev8;
-import com.baidu.tieba.hu8;
+import com.baidu.tieba.bk5;
+import com.baidu.tieba.e89;
+import com.baidu.tieba.f89;
+import com.baidu.tieba.i89;
 import com.baidu.tieba.im.base.core.slice.Slice;
 import com.baidu.tieba.impersonal.data.QuickReplyData;
 import com.baidu.tieba.impersonal.databinding.SlicePersonalReplyBinding;
 import com.baidu.tieba.impersonal.reply.ChatReplyAdapter;
 import com.baidu.tieba.impersonal.sprite.SpriteMsgProcessor;
-import com.baidu.tieba.jw8;
+import com.baidu.tieba.l79;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.mi5;
-import com.baidu.tieba.vu8;
+import com.baidu.tieba.n99;
+import com.baidu.tieba.qd;
+import com.baidu.tieba.z79;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -52,7 +52,7 @@ import kotlin.jvm.internal.Intrinsics;
 public final class ChatReplySlice extends Slice {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final jw8 j;
+    public final n99 j;
     public final String k;
     public final String l;
     public final String m;
@@ -81,7 +81,7 @@ public final class ChatReplySlice extends Slice {
     }
 
     /* loaded from: classes6.dex */
-    public static final class a extends jw8.a {
+    public static final class a extends n99.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatReplySlice a;
@@ -104,15 +104,15 @@ public final class ChatReplySlice extends Slice {
             this.a = chatReplySlice;
         }
 
-        @Override // com.baidu.tieba.jw8.b
-        public void a(List<? extends vu8> list) {
+        @Override // com.baidu.tieba.n99.b
+        public void a(List<? extends z79> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
                 Intrinsics.checkNotNullParameter(list, "list");
-                for (vu8 vu8Var : list) {
+                for (z79 z79Var : list) {
                     TbLog defaultLog = DefaultLog.getInstance();
-                    defaultLog.i("sendSpriteMsg", "新消息返回：" + vu8Var.b());
-                    if (ad.isEquals(vu8Var.b(), mi5.d())) {
+                    defaultLog.i("sendSpriteMsg", "新消息返回：" + z79Var.b());
+                    if (qd.isEquals(z79Var.b(), bk5.d())) {
                         DefaultLog.getInstance().i("sendSpriteMsg", "命中匹配，是通过sendSpriteMsg发送的");
                         return;
                     }
@@ -170,7 +170,7 @@ public final class ChatReplySlice extends Slice {
                         currentAccount = "";
                     }
                     Intrinsics.checkNotNullExpressionValue(currentAccount, "TbadkApplication.getCurrentAccount() ?: \"\"");
-                    hu8.a("c15230", currentAccount, questionData.getQuestion());
+                    l79.a("c15230", currentAccount, questionData.getQuestion());
                 }
             }
         }
@@ -237,7 +237,7 @@ public final class ChatReplySlice extends Slice {
         }
     }
 
-    public ChatReplySlice(jw8 repo, String talkType, String talkPrologue, String str) {
+    public ChatReplySlice(n99 repo, String talkType, String talkPrologue, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -267,7 +267,7 @@ public final class ChatReplySlice extends Slice {
     public final void n0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            av8<bv8> a2 = ev8.a(str);
+            e89<f89> a2 = i89.a(str);
             Intrinsics.checkNotNullExpressionValue(a2, "genTextMsg(text)");
             this.j.t(a2);
         }
@@ -307,7 +307,7 @@ public final class ChatReplySlice extends Slice {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, bundle) == null) {
             super.a0(view2, bundle);
-            Context context = M().getContext();
+            Context context = K().getContext();
             SlicePersonalReplyBinding slicePersonalReplyBinding = null;
             if (context != null) {
                 chatReplyAdapter = new ChatReplyAdapter(context);
@@ -327,7 +327,7 @@ public final class ChatReplySlice extends Slice {
                 slicePersonalReplyBinding3 = null;
             }
             slicePersonalReplyBinding3.c.setFadingEdgeLength(UtilHelper.getDimenPixelSize(R.dimen.tbds60));
-            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(M().getContext(), 0, false);
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(K().getContext(), 0, false);
             SlicePersonalReplyBinding slicePersonalReplyBinding4 = this.n;
             if (slicePersonalReplyBinding4 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
@@ -384,28 +384,28 @@ public final class ChatReplySlice extends Slice {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             if (this.q == null) {
-                this.q = new FastRequest(M().getPageContext(), CmdConfigHttp.CMD_REQUEST_SPRITE_QUESTION_REPLY, TbConfig.REQUEST_SPRITE_QUESTION_REPLY);
+                this.q = new FastRequest(K().getPageContext(), CmdConfigHttp.CMD_REQUEST_SPRITE_QUESTION_REPLY, TbConfig.REQUEST_SPRITE_QUESTION_REPLY);
             }
             FastRequest fastRequest = this.q;
             Intrinsics.checkNotNull(fastRequest);
-            fastRequest.T(HttpMessageTask.HTTP_METHOD.POST);
-            fastRequest.O("rn", 5);
-            fastRequest.O("uk", BIMManager.getBdUKFromBdUid(String.valueOf(SpriteMsgProcessor.m.a())));
-            fastRequest.Q(this.t);
+            fastRequest.U(HttpMessageTask.HTTP_METHOD.POST);
+            fastRequest.P("rn", 5);
+            fastRequest.P("uk", BIMManager.getBdUKFromBdUid(String.valueOf(SpriteMsgProcessor.m.a())));
+            fastRequest.R(this.t);
             String str = this.m;
             if (str != null && StringUtils.isNotNull(str)) {
                 FastRequest fastRequest2 = this.q;
                 Intrinsics.checkNotNull(fastRequest2);
-                fastRequest2.O("forum_id", this.m);
+                fastRequest2.P("forum_id", this.m);
             }
             if (!this.r && !TextUtils.isEmpty(this.l) && (TextUtils.equals(this.k, "2") || TextUtils.equals(this.k, "1"))) {
                 FastRequest fastRequest3 = this.q;
                 Intrinsics.checkNotNull(fastRequest3);
-                fastRequest3.O("query", this.l);
+                fastRequest3.P("query", this.l);
             }
             FastRequest fastRequest4 = this.q;
             Intrinsics.checkNotNull(fastRequest4);
-            fastRequest4.P();
+            fastRequest4.Q();
         }
     }
 }

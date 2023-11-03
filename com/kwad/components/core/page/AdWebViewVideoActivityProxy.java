@@ -42,20 +42,20 @@ public class AdWebViewVideoActivityProxy extends com.kwad.components.core.i.b {
     public ViewGroup mWebDownloadContainer;
 
     private com.kwad.components.core.page.widget.a buildDialog() {
-        return new com.kwad.components.core.page.widget.a(getActivity(), new a.InterfaceC0628a() { // from class: com.kwad.components.core.page.AdWebViewVideoActivityProxy.4
-            @Override // com.kwad.components.core.page.widget.a.InterfaceC0628a
+        return new com.kwad.components.core.page.widget.a(getActivity(), new a.InterfaceC0634a() { // from class: com.kwad.components.core.page.AdWebViewVideoActivityProxy.4
+            @Override // com.kwad.components.core.page.widget.a.InterfaceC0634a
             public final void a(DialogInterface dialogInterface) {
                 com.kwad.sdk.core.report.a.r(AdWebViewVideoActivityProxy.this.mAdTemplate, 104);
                 dialogInterface.dismiss();
             }
 
-            @Override // com.kwad.components.core.page.widget.a.InterfaceC0628a
+            @Override // com.kwad.components.core.page.widget.a.InterfaceC0634a
             public final void b(DialogInterface dialogInterface) {
                 AdWebViewVideoActivityProxy.super.onBackPressed();
                 com.kwad.sdk.core.report.a.r(AdWebViewVideoActivityProxy.this.mAdTemplate, 105);
             }
 
-            @Override // com.kwad.components.core.page.widget.a.InterfaceC0628a
+            @Override // com.kwad.components.core.page.widget.a.InterfaceC0634a
             public final void c(DialogInterface dialogInterface) {
                 com.kwad.sdk.core.report.a.r(AdWebViewVideoActivityProxy.this.mAdTemplate, 106);
                 dialogInterface.dismiss();
@@ -64,13 +64,13 @@ public class AdWebViewVideoActivityProxy extends com.kwad.components.core.i.b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public a.C0619a getAdClickConfig(boolean z) {
-        return new a.C0619a(getActivity()).aj(z).ak(false).L(this.mAdTemplate).am(false);
+    public a.C0625a getAdClickConfig(boolean z) {
+        return new a.C0625a(getActivity()).aj(z).ak(false).L(this.mAdTemplate).am(false);
     }
 
     private void initView() {
-        this.mProgressbar = (DownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f09146e);
-        this.mWebDownloadContainer = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09146d);
+        this.mProgressbar = (DownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f0914ac);
+        this.mWebDownloadContainer = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0914ab);
         final AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(this.mAdTemplate);
         if (com.kwad.sdk.core.response.a.a.am(bQ)) {
             this.mWebDownloadContainer.setVisibility(0);
@@ -122,15 +122,15 @@ public class AdWebViewVideoActivityProxy extends com.kwad.components.core.i.b {
         }
         List<AdInfo> list = this.mAdTemplate.adInfoList;
         String bl = (list == null || list.size() <= 0 || this.mAdTemplate.adInfoList.get(0) == null) ? "详情页面" : com.kwad.sdk.core.response.a.a.bl(com.kwad.sdk.core.response.a.d.bQ(this.mAdTemplate));
-        com.kwad.components.core.kwai.a aVar = new com.kwad.components.core.kwai.a((ViewGroup) findViewById(R.id.obfuscated_res_0x7f091318));
+        com.kwad.components.core.kwai.a aVar = new com.kwad.components.core.kwai.a((ViewGroup) findViewById(R.id.obfuscated_res_0x7f091356));
         this.mTitleBarHelper = aVar;
-        aVar.a(new a.InterfaceC0625a() { // from class: com.kwad.components.core.page.AdWebViewVideoActivityProxy.3
-            @Override // com.kwad.components.core.kwai.a.InterfaceC0625a
+        aVar.a(new a.InterfaceC0631a() { // from class: com.kwad.components.core.page.AdWebViewVideoActivityProxy.3
+            @Override // com.kwad.components.core.kwai.a.InterfaceC0631a
             public final void r(View view2) {
                 AdWebViewVideoActivityProxy.this.onBackPressed();
             }
 
-            @Override // com.kwad.components.core.kwai.a.InterfaceC0625a
+            @Override // com.kwad.components.core.kwai.a.InterfaceC0631a
             public final void s(View view2) {
                 AdWebViewVideoActivityProxy.this.finish();
             }
@@ -141,7 +141,7 @@ public class AdWebViewVideoActivityProxy extends com.kwad.components.core.i.b {
         b M = b.M(this.mAdTemplate);
         this.mFragment = M;
         M.setApkDownloadHelper(this.mApkDownloadHelper);
-        getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f09136c, this.mFragment).commitAllowingStateLoss();
+        getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f0913aa, this.mFragment).commitAllowingStateLoss();
     }
 
     private boolean isFormAdExitInterceptEnable() {
@@ -205,7 +205,7 @@ public class AdWebViewVideoActivityProxy extends com.kwad.components.core.i.b {
     @Override // com.kwad.components.core.i.b, com.kwad.sdk.api.proxy.IActivityProxy
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(R.layout.obfuscated_res_0x7f0d0481);
+        setContentView(R.layout.obfuscated_res_0x7f0d0494);
         Serializable serializableExtra = getIntent().getSerializableExtra(KEY_TEMPLATE);
         showingAdWebViewVideoActivity = true;
         if (!(serializableExtra instanceof AdTemplate)) {

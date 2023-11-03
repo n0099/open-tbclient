@@ -1,64 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.module.frs.FrsService;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import tbclient.PeiwanInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class m28 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
+    public int b;
+    public int c;
 
-    public static void a(ThreadData threadData) {
-        String str;
+    public m28() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, threadData) == null) && threadData != null && threadData.getPeiwanInfo() != null) {
-            PeiwanInfo peiwanInfo = threadData.getPeiwanInfo();
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_HOME_PEI_WAN_CARD_CLICK);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("obj_locate", String.valueOf(threadData.floorPosition));
-            statisticItem.addParam(TiebaStatic.Params.OBJ_TO, peiwanInfo.room_id.longValue());
-            if (threadData.isFromNet) {
-                str = "1";
-            } else {
-                str = "0";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            statisticItem.addParam("obj_param1", str);
-            statisticItem.eventStat();
         }
-    }
-
-    public static boolean b(TbPageContext<?> tbPageContext, yh yhVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, tbPageContext, yhVar)) == null) {
-            if (yhVar instanceof jk6) {
-                jk6 jk6Var = (jk6) yhVar;
-                ThreadData threadData = jk6Var.a;
-                if (threadData != null && threadData.getVoiceRoomData() != null && !StringUtils.isNull(jk6Var.a.getVoiceRoomData().room_name) && jk6Var.a.getVoiceRoomData().room_id.longValue() > 0) {
-                    ((FrsService) ServiceManager.getService(FrsService.Companion.getServiceReference())).navToVoiceRoom(tbPageContext, jk6Var.a.getVoiceRoomData().room_id.longValue());
-                    return true;
-                }
-                ThreadData threadData2 = jk6Var.a;
-                if (threadData2 != null && threadData2.getPeiwanInfo() != null && !StringUtils.isNull(jk6Var.a.getPeiwanInfo().scheme)) {
-                    UrlManager.getInstance().dealOneLink(jk6Var.a.getPeiwanInfo().scheme);
-                    a(jk6Var.a);
-                    return true;
-                }
-                return false;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
     }
 }

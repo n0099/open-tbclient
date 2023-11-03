@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,27 +8,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes8.dex */
 public class wy0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<Class<? extends cz0>, cz0> a;
+    public static ty0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948286779, "Lcom/baidu/tieba/wy0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948286779, "Lcom/baidu/tieba/wy0;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948286779, "Lcom/baidu/tieba/wy0;")) == null) {
+            return;
         }
-        a = new HashMap<>();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948286779, "Lcom/baidu/tieba/wy0;");
+        }
     }
 
     public wy0() {
@@ -44,31 +43,22 @@ public class wy0 {
         }
     }
 
-    public static <T extends cz0> T a(Class<T> cls) {
-        InterceptResult invokeL;
+    public static ty0 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cls)) == null) {
-            T t = (T) a.get(cls);
-            if (t == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
                 synchronized (wy0.class) {
-                    t = (T) a.get(cls);
-                    if (t == null) {
-                        t = (T) xy0.a(cls);
-                        a.put(cls, t);
+                    if (a == null) {
+                        a = (ty0) ServiceManager.getService(ty0.a);
+                    }
+                    if (a == null) {
+                        a = ty0.b;
                     }
                 }
             }
-            return t;
+            return a;
         }
-        return (T) invokeL.objValue;
-    }
-
-    public static <T extends cz0> bz0 b(Class<T> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) {
-            return a(cls).b();
-        }
-        return (bz0) invokeL.objValue;
+        return (ty0) invokeV.objValue;
     }
 }

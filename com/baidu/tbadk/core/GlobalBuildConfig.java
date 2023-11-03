@@ -3,7 +3,7 @@ package com.baidu.tbadk.core;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tieba.vla;
+import com.baidu.tieba.uya;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -49,7 +49,7 @@ public class GlobalBuildConfig {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return vla.c(AppRuntime.getAppContext(), "BUILD_PARAMS_CONFIG");
+            return uya.c(AppRuntime.getAppContext(), "BUILD_PARAMS_CONFIG");
         }
         return (String) invokeV.objValue;
     }
@@ -58,7 +58,7 @@ public class GlobalBuildConfig {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return vla.b(AppRuntime.getAppContext(), "HOMEPAGE_TEST_BTN_TYPE");
+            return uya.b(AppRuntime.getAppContext(), "HOMEPAGE_TEST_BTN_TYPE");
         }
         return invokeV.intValue;
     }
@@ -68,7 +68,7 @@ public class GlobalBuildConfig {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return vla.c(AppRuntime.getAppContext(), "TIEBA_NPS_PLUGIN_MODE");
+            return uya.c(AppRuntime.getAppContext(), "TIEBA_NPS_PLUGIN_MODE");
         }
         return (String) invokeV.objValue;
     }
@@ -96,7 +96,7 @@ public class GlobalBuildConfig {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return vla.a(AppRuntime.getAppContext(), "FLUTTER_PERF_TOOL");
+            return uya.a(AppRuntime.getAppContext(), "FLUTTER_PERF_TOOL");
         }
         return invokeV.booleanValue;
     }
@@ -105,7 +105,7 @@ public class GlobalBuildConfig {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return vla.a(AppRuntime.getAppContext(), "FUN_AD_TEST_TEST");
+            return uya.a(AppRuntime.getAppContext(), "FUN_AD_TEST_TEST");
         }
         return invokeV.booleanValue;
     }
@@ -114,7 +114,7 @@ public class GlobalBuildConfig {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return vla.a(AppRuntime.getAppContext(), "TIEBA_MODIFY_ENABLE");
+            return uya.a(AppRuntime.getAppContext(), "TIEBA_MODIFY_ENABLE");
         }
         return invokeV.booleanValue;
     }

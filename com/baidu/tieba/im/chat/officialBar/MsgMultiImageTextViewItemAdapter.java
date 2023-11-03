@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ih8;
+import com.baidu.tieba.gu8;
 import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.chat.ChatMessage;
@@ -68,42 +68,42 @@ public class MsgMultiImageTextViewItemAdapter extends MsgCommonItemAdapter<MsgMu
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
-    /* renamed from: G */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: H */
     public MsgCommonItemAdapter.MsgViewHolder<MsgMultiImageTextView> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             MsgMultiImageTextView msgMultiImageTextView = new MsgMultiImageTextView(this.a);
-            return new a(this, msgMultiImageTextView.g(), msgMultiImageTextView);
+            return new a(this, msgMultiImageTextView.x(), msgMultiImageTextView);
         }
         return (MsgCommonItemAdapter.MsgViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.tieba.lh
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.tieba.bi
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
-        x(i, view2, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
+        y(i, view2, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view2;
     }
 
     @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter
-    public View x(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<MsgMultiImageTextView> msgViewHolder) {
+    public View y(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<MsgMultiImageTextView> msgViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
             super.onFillViewHolder(i, view2, viewGroup, chatMessage, msgViewHolder);
             MsgMultiImageTextView a2 = msgViewHolder.a();
-            a2.Q(this.c);
-            a2.R(i);
-            a2.H(this.d);
-            a2.N(chatMessage.getCacheData().getLastMsgTime());
-            a2.k0(this.a, chatMessage, viewGroup);
+            a2.U(this.c);
+            a2.V(i);
+            a2.L(this.d);
+            a2.R(chatMessage.getCacheData().getLastMsgTime());
+            a2.n0(this.a, chatMessage, viewGroup);
             this.a.getLayoutMode().setNightMode(false);
             this.a.getLayoutMode().onModeChanged(view2);
-            ih8.c().e(chatMessage, this.a.getPageActivity());
-            ih8.c().f(chatMessage, this.a.getPageActivity());
-            ih8.c().d(chatMessage);
+            gu8.c().e(chatMessage, this.a.getPageActivity());
+            gu8.c().f(chatMessage, this.a.getPageActivity());
+            gu8.c().d(chatMessage);
             return view2;
         }
         return (View) invokeCommon.objValue;

@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.module.pb.BarManageResultListener;
-import com.baidu.tieba.zw4;
+import com.baidu.tieba.rx4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -56,6 +56,7 @@ public class ForumManageModel extends BdBaseModel {
     public int g;
     public int h;
     public String i;
+    public int isNewFrs;
     public String j;
     public int k;
 
@@ -124,7 +125,7 @@ public class ForumManageModel extends BdBaseModel {
             this.f = i;
             this.g = i2;
             this.h = z;
-            this.i = forumManageModel.f0();
+            this.i = forumManageModel.g0();
             this.j = baijiahaoData;
             this.k = z2;
         }
@@ -243,6 +244,7 @@ public class ForumManageModel extends BdBaseModel {
                     bVar.c = this.a.getServerErrorCode();
                     bVar.a = bool.booleanValue();
                     bVar.h = this.k;
+                    bVar.i = this.d;
                     this.l.mLoadDataCallBack.c(bVar);
                     return;
                 }
@@ -263,6 +265,7 @@ public class ForumManageModel extends BdBaseModel {
         public boolean f;
         public String g;
         public boolean h;
+        public String i;
 
         public b(ForumManageModel forumManageModel) {
             Interceptable interceptable = $ic;
@@ -314,9 +317,12 @@ public class ForumManageModel extends BdBaseModel {
         public String c;
         public String d;
         public int e;
-        public ArrayList<zw4> f;
+        public ArrayList<rx4> f;
         public String g;
-        public final /* synthetic */ ForumManageModel h;
+        public int h;
+        public String i;
+        public int j;
+        public final /* synthetic */ ForumManageModel k;
 
         public f(ForumManageModel forumManageModel, String str, String str2, String str3, int i, String str4) {
             Interceptable interceptable = $ic;
@@ -333,10 +339,11 @@ public class ForumManageModel extends BdBaseModel {
                     return;
                 }
             }
-            this.h = forumManageModel;
+            this.k = forumManageModel;
             this.a = null;
             this.f = null;
             this.g = null;
+            this.j = 0;
             this.b = str;
             this.c = str2;
             this.d = str3;
@@ -359,11 +366,15 @@ public class ForumManageModel extends BdBaseModel {
                     this.a.addPostData("fid", this.b);
                     this.a.addPostData("z", this.d);
                     int i = this.e;
-                    if (i == 4) {
+                    if (i == 4 || i == 5) {
+                        this.a.addPostData("is_newfrs", String.valueOf(this.j));
+                    }
+                    int i2 = this.e;
+                    if (i2 == 4) {
                         this.a.addPostData("ntn", "set");
-                    } else if (i == 5) {
+                    } else if (i2 == 5) {
                         this.a.addPostData("ntn", "");
-                    } else if (i == 2) {
+                    } else if (i2 == 2) {
                         this.a.addPostData("ntn", "set");
                         this.a.addPostData("cid", this.g);
                     } else {
@@ -374,16 +385,28 @@ public class ForumManageModel extends BdBaseModel {
                 this.a.getNetContext().getRequest().mIsNeedTbs = true;
                 String postNetData = this.a.postNetData();
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    if (this.e == 6) {
+                    int i3 = this.e;
+                    if (i3 == 6) {
                         try {
                             JSONArray optJSONArray = new JSONObject(postNetData).optJSONArray("cates");
-                            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                                zw4 zw4Var = new zw4();
-                                zw4Var.c(optJSONArray.optJSONObject(i2));
-                                this.f.add(zw4Var);
+                            for (int i4 = 0; i4 < optJSONArray.length(); i4++) {
+                                rx4 rx4Var = new rx4();
+                                rx4Var.c(optJSONArray.optJSONObject(i4));
+                                this.f.add(rx4Var);
                             }
                         } catch (Exception e) {
                             BdLog.e(e.getMessage());
+                            return Boolean.FALSE;
+                        }
+                    } else if (i3 == 4) {
+                        try {
+                            JSONObject optJSONObject = new JSONObject(postNetData).optJSONObject("info");
+                            if (optJSONObject != null) {
+                                this.h = optJSONObject.optInt("left_times", -1);
+                                this.i = optJSONObject.optString("scheme");
+                            }
+                        } catch (Exception e2) {
+                            BdLog.e(e2.getMessage());
                             return Boolean.FALSE;
                         }
                     }
@@ -402,9 +425,9 @@ public class ForumManageModel extends BdBaseModel {
                 if (netWork != null) {
                     netWork.cancelNetConnect();
                 }
-                this.h.c = null;
+                this.k.c = null;
                 super.cancel(true);
-                this.h.mLoadDataCallBack.c(null);
+                this.k.mLoadDataCallBack.c(null);
             }
         }
 
@@ -414,21 +437,28 @@ public class ForumManageModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, bool) == null) {
                 super.onPostExecute((f) bool);
-                this.h.c = null;
+                this.k.c = null;
                 if (this.a == null) {
-                    this.h.mLoadDataCallBack.c(null);
+                    this.k.mLoadDataCallBack.c(null);
                     return;
                 }
-                g gVar = new g(this.h);
+                g gVar = new g(this.k);
+                gVar.d = this.b;
+                gVar.e = this.c;
+                gVar.f = this.d;
                 gVar.a = bool.booleanValue();
                 if (bool.booleanValue()) {
-                    if (this.e == 6) {
+                    int i = this.e;
+                    if (i == 6) {
                         gVar.c = this.f;
+                    } else if (i == 4) {
+                        gVar.g = this.h;
+                        gVar.h = this.i;
                     }
                 } else {
                     gVar.b = this.a.getErrorString();
                 }
-                this.h.mLoadDataCallBack.c(gVar);
+                this.k.mLoadDataCallBack.c(gVar);
             }
         }
     }
@@ -439,7 +469,12 @@ public class ForumManageModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
         public String b;
-        public ArrayList<zw4> c;
+        public ArrayList<rx4> c;
+        public String d;
+        public String e;
+        public String f;
+        public int g;
+        public String h;
 
         public g(ForumManageModel forumManageModel) {
             Interceptable interceptable = $ic;
@@ -479,13 +514,13 @@ public class ForumManageModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            d0();
+            e0();
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    public void d0() {
+    public void e0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             a aVar = this.a;
@@ -506,7 +541,7 @@ public class ForumManageModel extends BdBaseModel {
         }
     }
 
-    public String f0() {
+    public String g0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -515,7 +550,7 @@ public class ForumManageModel extends BdBaseModel {
         return (String) invokeV.objValue;
     }
 
-    public boolean g0() {
+    public boolean h0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -549,6 +584,7 @@ public class ForumManageModel extends BdBaseModel {
         this.b = null;
         this.c = null;
         this.e = false;
+        this.isNewFrs = 0;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -573,9 +609,10 @@ public class ForumManageModel extends BdBaseModel {
         this.b = null;
         this.c = null;
         this.e = false;
+        this.isNewFrs = 0;
     }
 
-    public void i0(String str) {
+    public void j0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             this.d = str;
@@ -583,7 +620,7 @@ public class ForumManageModel extends BdBaseModel {
     }
 
     @NonNull
-    public BarManageResultListener.a e0(int i, g gVar) {
+    public BarManageResultListener.a f0(int i, g gVar) {
         InterceptResult invokeIL;
         BarManageResultListener.OptType optType;
         Interceptable interceptable = $ic;
@@ -610,7 +647,7 @@ public class ForumManageModel extends BdBaseModel {
         return (BarManageResultListener.a) invokeIL.objValue;
     }
 
-    public void h0(ThreadData threadData) {
+    public void i0(ThreadData threadData) {
         int i;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, threadData) == null) && threadData != null && threadData.getBaijiahaoData() != null) {
@@ -629,7 +666,7 @@ public class ForumManageModel extends BdBaseModel {
         }
     }
 
-    public void j0(String str, String str2, String str3, String str4, int i, int i2, boolean z, BaijiahaoData baijiahaoData, boolean z2) {
+    public void k0(String str, String str2, String str3, String str4, int i, int i2, boolean z, BaijiahaoData baijiahaoData, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{str, str2, str3, str4, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), baijiahaoData, Boolean.valueOf(z2)}) == null) {
             a aVar = this.a;
@@ -646,7 +683,7 @@ public class ForumManageModel extends BdBaseModel {
         }
     }
 
-    public void k0(String str, String str2, String str3, int i, String str4) {
+    public void l0(String str, String str2, String str3, int i, String str4) {
         String str5;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, str3, Integer.valueOf(i), str4}) == null) {
@@ -666,6 +703,9 @@ public class ForumManageModel extends BdBaseModel {
                 str5 = str6 + TbConfig.COMMIT_TOP_ADDRESS;
             } else {
                 str5 = str6 + TbConfig.COMMIT_GOOD_ADDRESS;
+            }
+            if (i == 4 || i == 5) {
+                this.c.j = this.isNewFrs;
             }
             this.c.execute(str5);
         }

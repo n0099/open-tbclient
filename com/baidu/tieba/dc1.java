@@ -1,108 +1,127 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 /* loaded from: classes5.dex */
 public class dc1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public long b;
-    public String c;
-    public String d;
-    public JSONObject e;
 
-    public dc1(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.e = new JSONObject();
-        this.a = str;
-        this.b = System.currentTimeMillis();
-        this.c = rc1.c();
-    }
-
-    public dc1 a(String str, Object obj) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, obj)) == null) {
-            try {
-                this.e.put(str, obj);
-            } catch (JSONException unused) {
-            }
-            return this;
-        }
-        return (dc1) invokeLL.objValue;
-    }
-
-    public dc1 b(String str) {
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:? */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:8:0x0029 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r2v2, types: [java.io.Closeable[]] */
+    /* JADX WARN: Type inference failed for: r3v1 */
+    /* JADX WARN: Type inference failed for: r3v2 */
+    /* JADX WARN: Type inference failed for: r3v3 */
+    /* JADX WARN: Type inference failed for: r3v5, types: [java.io.BufferedInputStream, java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r5v11, types: [java.io.Closeable[]] */
+    /* JADX WARN: Type inference failed for: r5v6, types: [java.io.Closeable[]] */
+    public static Bitmap a(String str) {
         InterceptResult invokeL;
+        ?? r3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            this.d = str;
-            return this;
-        }
-        return (dc1) invokeL.objValue;
-    }
-
-    public dc1 c(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
-            this.e = jSONObject;
-            return this;
-        }
-        return (dc1) invokeL.objValue;
-    }
-
-    public JSONObject d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TextUtils.isEmpty(this.a)) {
-                pc1.d("statistics action can not null");
-                return null;
-            }
-            JSONObject jSONObject = new JSONObject();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            Bitmap bitmap = null;
             try {
-                jSONObject.put("a", this.a);
-                jSONObject.put("t", this.b);
-                jSONObject.put(Config.EXCEPTION_CRASH_TYPE, this.c);
-                if (this.e != null) {
-                    jSONObject.put("cn", this.e);
-                } else if (!TextUtils.isEmpty(this.d)) {
+                r3 = new BufferedInputStream(((HttpURLConnection) new URL(str).openConnection()).getInputStream(), 8192);
+                try {
                     try {
-                        jSONObject.put("cn", new JSONObject(this.d));
-                    } catch (JSONException unused) {
-                        jSONObject.put("cn", this.d);
+                        bitmap = BitmapFactory.decodeStream(r3);
+                        ed1.a(new Closeable[]{r3});
+                    } catch (Exception e) {
+                        e = e;
+                        e.printStackTrace();
+                        ed1.a(new Closeable[]{r3});
+                        return bitmap;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    bitmap = r3;
+                    ed1.a(new Closeable[]{bitmap});
+                    throw th;
+                }
+            } catch (Exception e2) {
+                e = e2;
+                r3 = 0;
+            } catch (Throwable th2) {
+                th = th2;
+                ed1.a(new Closeable[]{bitmap});
+                throw th;
+            }
+            return bitmap;
+        }
+        return (Bitmap) invokeL.objValue;
+    }
+
+    public static boolean b(String str, OutputStream outputStream) {
+        InterceptResult invokeLL;
+        Throwable th;
+        BufferedOutputStream bufferedOutputStream;
+        IOException e;
+        BufferedInputStream bufferedInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, outputStream)) == null) {
+            BufferedInputStream bufferedInputStream2 = null;
+            try {
+                bufferedInputStream = new BufferedInputStream(((HttpURLConnection) new URL(str).openConnection()).getInputStream());
+                try {
+                    bufferedOutputStream = new BufferedOutputStream(outputStream);
+                } catch (IOException e2) {
+                    e = e2;
+                    bufferedOutputStream = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    bufferedOutputStream = null;
+                }
+            } catch (IOException e3) {
+                e = e3;
+                bufferedOutputStream = null;
+            } catch (Throwable th3) {
+                th = th3;
+                bufferedOutputStream = null;
+            }
+            try {
+                byte[] bArr = new byte[8192];
+                while (true) {
+                    int read = bufferedInputStream.read(bArr);
+                    if (read != -1) {
+                        bufferedOutputStream.write(bArr, 0, read);
+                    } else {
+                        ed1.a(bufferedInputStream, bufferedOutputStream);
+                        return true;
                     }
                 }
-            } catch (JSONException e) {
-                if (pc1.d) {
+            } catch (IOException e4) {
+                e = e4;
+                bufferedInputStream2 = bufferedInputStream;
+                try {
                     e.printStackTrace();
+                    ed1.a(bufferedInputStream2, bufferedOutputStream);
+                    return false;
+                } catch (Throwable th4) {
+                    th = th4;
+                    ed1.a(bufferedInputStream2, bufferedOutputStream);
+                    throw th;
                 }
+            } catch (Throwable th5) {
+                th = th5;
+                bufferedInputStream2 = bufferedInputStream;
+                ed1.a(bufferedInputStream2, bufferedOutputStream);
+                throw th;
             }
-            return jSONObject;
+        } else {
+            return invokeLL.booleanValue;
         }
-        return (JSONObject) invokeV.objValue;
     }
 }

@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gy0;
+import com.baidu.tieba.xy0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -116,7 +116,7 @@ public class SplashStyleRecorder {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            String string = gy0.a().b("splash_sp_name").getString("splash_style", "");
+            String string = xy0.a().b("splash_sp_name").getString("splash_style", "");
             if (TextUtils.isEmpty(string)) {
                 return null;
             }
@@ -132,10 +132,10 @@ public class SplashStyleRecorder {
     public static void b(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65537, null, jSONObject) == null) && jSONObject != null) {
-            String string = gy0.a().b("splash_sp_name").getString("splash_style", "");
+            String string = xy0.a().b("splash_sp_name").getString("splash_style", "");
             String jSONObject2 = jSONObject.toString();
             if (!TextUtils.equals(string, jSONObject2)) {
-                gy0.a().b("splash_sp_name").i("splash_style", jSONObject2, false);
+                xy0.a().b("splash_sp_name").i("splash_style", jSONObject2, false);
             }
         }
     }

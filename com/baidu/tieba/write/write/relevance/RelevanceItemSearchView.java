@@ -29,8 +29,8 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eo5;
 import com.baidu.tieba.write.write.relevance.list.RelevanceItemListFragment;
+import com.baidu.tieba.yp5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +40,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class RelevanceItemSearchView implements eo5, ViewPager.OnPageChangeListener {
+public class RelevanceItemSearchView implements yp5, ViewPager.OnPageChangeListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String[] a;
@@ -56,8 +56,8 @@ public class RelevanceItemSearchView implements eo5, ViewPager.OnPageChangeListe
     public List<c> k;
     public CustomMessageListener l;
 
-    @Override // com.baidu.tieba.eo5
-    public boolean M() {
+    @Override // com.baidu.tieba.yp5
+    public boolean Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -66,21 +66,11 @@ public class RelevanceItemSearchView implements eo5, ViewPager.OnPageChangeListe
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.eo5
-    public boolean g1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.eo5
+    @Override // com.baidu.tieba.yp5
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return null;
         }
         return (Intent) invokeV.objValue;
@@ -89,22 +79,32 @@ public class RelevanceItemSearchView implements eo5, ViewPager.OnPageChangeListe
     @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
     public void onPageScrollStateChanged(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
         }
     }
 
     @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
     public void onPageScrolled(int i, float f, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) {
         }
     }
 
     @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
         }
+    }
+
+    @Override // com.baidu.tieba.yp5
+    public boolean s1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     /* loaded from: classes8.dex */
@@ -341,8 +341,8 @@ public class RelevanceItemSearchView implements eo5, ViewPager.OnPageChangeListe
         i();
     }
 
-    @Override // com.baidu.tieba.eo5
-    public void A(int i) {
+    @Override // com.baidu.tieba.yp5
+    public void D(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.j, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
@@ -371,7 +371,7 @@ public class RelevanceItemSearchView implements eo5, ViewPager.OnPageChangeListe
     public EditText h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.i;
         }
         return (EditText) invokeV.objValue;
@@ -379,14 +379,14 @@ public class RelevanceItemSearchView implements eo5, ViewPager.OnPageChangeListe
 
     public final void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             MessageManager.getInstance().registerListener(this.l);
         }
     }
 
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             MessageManager.getInstance().unRegisterListener(this.l);
         }
     }
@@ -394,7 +394,7 @@ public class RelevanceItemSearchView implements eo5, ViewPager.OnPageChangeListe
     public final void i() {
         String[] strArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.k.clear();
             this.e.B();
             for (String str : this.a) {
@@ -402,7 +402,7 @@ public class RelevanceItemSearchView implements eo5, ViewPager.OnPageChangeListe
                 c cVar = new c(this);
                 RelevanceItemListFragment relevanceItemListFragment = new RelevanceItemListFragment();
                 cVar.a = relevanceItemListFragment;
-                relevanceItemListFragment.i2(str);
+                relevanceItemListFragment.A2(str);
                 cVar.b = str;
                 this.k.add(cVar);
             }
@@ -412,8 +412,8 @@ public class RelevanceItemSearchView implements eo5, ViewPager.OnPageChangeListe
 
     public final void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.c.setCenterTextTitle(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f1239));
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.c.setCenterTextTitle(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f124d));
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.c.getLayoutParams();
             layoutParams.height = BdUtilHelper.getDimens(this.b.getContext(), R.dimen.tbds60);
             layoutParams.topMargin = BdUtilHelper.getDimens(this.b.getContext(), R.dimen.tbds15);
@@ -422,10 +422,10 @@ public class RelevanceItemSearchView implements eo5, ViewPager.OnPageChangeListe
 
     public final void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.h = this.b.findViewById(R.id.obfuscated_res_0x7f09212a);
-            this.j = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09213c);
-            EditText editText = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f092156);
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.h = this.b.findViewById(R.id.obfuscated_res_0x7f092173);
+            this.j = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092185);
+            EditText editText = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f09219f);
             this.i = editText;
             editText.addTextChangedListener(new b(this));
         }
@@ -433,8 +433,8 @@ public class RelevanceItemSearchView implements eo5, ViewPager.OnPageChangeListe
 
     public final void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            TbTabLayout tbTabLayout = (TbTabLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0923ac);
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            TbTabLayout tbTabLayout = (TbTabLayout) this.b.findViewById(R.id.obfuscated_res_0x7f092403);
             this.e = tbTabLayout;
             tbTabLayout.setTabTextSize(BdUtilHelper.getDimens(this.d, R.dimen.tbds46));
             this.e.setSelectedTabTextSize(BdUtilHelper.getDimens(this.d, R.dimen.tbds52));
@@ -444,8 +444,8 @@ public class RelevanceItemSearchView implements eo5, ViewPager.OnPageChangeListe
 
     public final void n() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            LayoutInflater.from(this.b.getContext()).inflate(R.layout.obfuscated_res_0x7f0d086d, (ViewGroup) this.b, true);
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            LayoutInflater.from(this.b.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0882, (ViewGroup) this.b, true);
             this.d.showLoadingView(this.b);
             l();
             k();
@@ -456,8 +456,8 @@ public class RelevanceItemSearchView implements eo5, ViewPager.OnPageChangeListe
 
     public final void o() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            CustomViewPager customViewPager = (CustomViewPager) this.b.findViewById(R.id.obfuscated_res_0x7f09298b);
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            CustomViewPager customViewPager = (CustomViewPager) this.b.findViewById(R.id.obfuscated_res_0x7f0929ea);
             this.f = customViewPager;
             customViewPager.addOnPageChangeListener(this);
             FragmentAdapter fragmentAdapter = new FragmentAdapter(this.d.getSupportFragmentManager());

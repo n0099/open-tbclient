@@ -11,7 +11,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gj3;
+import com.baidu.tieba.xj3;
 /* loaded from: classes4.dex */
 public class LoadingAnimView extends View {
     public float a;
@@ -106,7 +106,7 @@ public class LoadingAnimView extends View {
         if (this.c != null && this.d != null) {
             int measuredWidth = getMeasuredWidth();
             int measuredHeight = getMeasuredHeight();
-            int f = gj3.f(getContext(), 6.0f);
+            int f = xj3.f(getContext(), 6.0f);
             this.c.eraseColor(0);
             this.g.setStyle(Paint.Style.FILL);
             this.g.setColor(getResources().getColor(R.color.obfuscated_res_0x7f06045a));

@@ -25,10 +25,10 @@ import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.tieba.frs.SerializableItemInfo;
-import com.baidu.tieba.nga;
-import com.baidu.tieba.oga;
-import com.baidu.tieba.pga;
-import com.baidu.tieba.yva;
+import com.baidu.tieba.sta;
+import com.baidu.tieba.tta;
+import com.baidu.tieba.uta;
+import com.baidu.tieba.z8b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -139,8 +139,8 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
         Activity currentActivity;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65539, null, z)) == null) {
-            boolean o = nga.l().o();
-            oga.a("发帖阻拦状态 = " + o);
+            boolean o = sta.l().o();
+            tta.a("发帖阻拦状态 = " + o);
             if (o && z && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null) {
                 BdUtilHelper.showToast(currentActivity, "正在发布，请稍后");
             }
@@ -175,7 +175,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public void send() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            pga.h = new Intent(getIntent());
+            uta.h = new Intent(getIntent());
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this));
         }
     }
@@ -366,7 +366,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
             getIntent().putExtra(IS_ARTICLE, str);
-            if (yva.m.equals(str)) {
+            if (z8b.m.equals(str)) {
                 setType(11);
             }
             return this;

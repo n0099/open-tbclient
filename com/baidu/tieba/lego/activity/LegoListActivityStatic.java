@@ -6,17 +6,17 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
-import com.baidu.tieba.a09;
-import com.baidu.tieba.ky8;
-import com.baidu.tieba.ly8;
-import com.baidu.tieba.my8;
-import com.baidu.tieba.ny8;
-import com.baidu.tieba.oy8;
-import com.baidu.tieba.pp4;
-import com.baidu.tieba.py8;
-import com.baidu.tieba.qp4;
-import com.baidu.tieba.sy8;
-import com.baidu.tieba.ty8;
+import com.baidu.tieba.ed9;
+import com.baidu.tieba.gq4;
+import com.baidu.tieba.hq4;
+import com.baidu.tieba.ob9;
+import com.baidu.tieba.pb9;
+import com.baidu.tieba.qb9;
+import com.baidu.tieba.rb9;
+import com.baidu.tieba.sb9;
+import com.baidu.tieba.tb9;
+import com.baidu.tieba.wb9;
+import com.baidu.tieba.xb9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -75,19 +75,19 @@ public class LegoListActivityStatic {
                 return;
             }
         }
-        a09.a.set(new ky8());
+        ed9.a.set(new ob9());
         TbConfig.setLegoLibVersion("3.0.0");
-        sy8.h().g(ty8.f());
+        wb9.h().g(xb9.f());
         CustomMessageTask customMessageTask = new CustomMessageTask(2016447, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
         MessageManager.getInstance().registerStickyMode(2016470);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016470, Boolean.TRUE));
-        my8.a().b(new py8());
-        ly8.a().b(new ny8());
-        ly8.a().b(new oy8());
-        qp4.a.set(my8.a());
-        pp4.a.set(ly8.a());
+        qb9.a().b(new tb9());
+        pb9.a().b(new rb9());
+        pb9.a().b(new sb9());
+        hq4.a.set(qb9.a());
+        gq4.a.set(pb9.a());
     }
 
     public LegoListActivityStatic() {

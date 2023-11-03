@@ -1,27 +1,25 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.sdk.api.NativeResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.channel.model.baidu.CustomProgressButton;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes7.dex */
-public final class qkb implements NativeResponse.AdInteractionListener {
+public class qkb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ skb a;
-    public final /* synthetic */ CustomProgressButton b;
-    public final /* synthetic */ NativeResponse c;
+    public String a;
+    public String b;
+    public boolean c;
 
-    public qkb(skb skbVar, CustomProgressButton customProgressButton, NativeResponse nativeResponse) {
+    public qkb(String str, String str2, String str3, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {skbVar, customProgressButton, nativeResponse};
+            Object[] objArr = {str, str2, str3, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,52 +29,36 @@ public final class qkb implements NativeResponse.AdInteractionListener {
                 return;
             }
         }
-        this.a = skbVar;
-        this.b = customProgressButton;
-        this.c = nativeResponse;
+        this.c = false;
+        this.a = str;
+        this.b = str2;
+        this.c = z;
     }
 
-    @Override // com.baidu.mobads.sdk.api.NativeResponse.AdInteractionListener
-    public void onADExposed() {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.onADExposed();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.mobads.sdk.api.NativeResponse.AdInteractionListener
-    public void onADExposureFailed(int i) {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a.onADExposureFailed(i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.mobads.sdk.api.NativeResponse.AdInteractionListener
-    public void onADStatusChanged() {
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LogPrinter.d();
-            CustomProgressButton customProgressButton = this.b;
-            if (customProgressButton != null) {
-                customProgressButton.a(this.c);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
-    }
-
-    @Override // com.baidu.mobads.sdk.api.NativeResponse.AdInteractionListener
-    public void onAdClick() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.onAdClick();
-        }
-    }
-
-    @Override // com.baidu.mobads.sdk.api.NativeResponse.AdInteractionListener
-    public void onAdUnionClick() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            LogPrinter.d();
-        }
+        return invokeV.booleanValue;
     }
 }

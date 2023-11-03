@@ -636,9 +636,9 @@ public class TabLayout extends HorizontalScrollView {
             BadgeView valueAt = this.mBadgeViewMap.valueAt(i2);
             if (valueAt != null) {
                 if (TextUtils.isEmpty(valueAt.getText())) {
-                    valueAt.setBackground(getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f08050d));
+                    valueAt.setBackground(getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080516));
                 } else {
-                    valueAt.setBackground(getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f08050e));
+                    valueAt.setBackground(getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080517));
                 }
             }
         }

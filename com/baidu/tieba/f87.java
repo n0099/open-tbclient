@@ -1,61 +1,64 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardTitleView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class f87 extends q67<CardTitleView, d27> {
+public class f87 extends c87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f87(String str) {
-        super(str);
+    public f87() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.q67, com.baidu.tieba.g77
-    @NonNull
-    public View a(@NonNull ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.c87
+    @Nullable
+    public Object e(@NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLL;
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            View a = super.a(viewGroup);
-            v87.l(a, null, Integer.valueOf(BdUtilHelper.getDimens(q07.a, R.dimen.M_H_X001)));
-            return a;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (str.hashCode() == 155229553 && str.equals("click_back_card")) {
+                c = 0;
+            } else {
+                c = 65535;
+            }
+            if (c != 0) {
+                return super.e(str, str2);
+            }
+            return wz4.b(str2);
         }
-        return (View) invokeL.objValue;
+        return invokeLL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.g77
-    /* renamed from: e */
-    public void b(@NonNull CardTitleView cardTitleView, @NonNull d27 d27Var) {
+    @Override // com.baidu.tieba.c87
+    @NonNull
+    public za7<?> h(@NonNull e57<?> e57Var, @NonNull z57 z57Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardTitleView, d27Var) == null) {
-            cardTitleView.f(d27Var);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e57Var, z57Var)) == null) {
+            n57 n57Var = new n57();
+            n57Var.c = e57Var;
+            n57Var.b = z57Var.a();
+            n57Var.a = z57Var.c();
+            return n57Var;
         }
+        return (za7) invokeLL.objValue;
     }
 }

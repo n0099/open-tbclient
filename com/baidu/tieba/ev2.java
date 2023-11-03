@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ev2 extends cv2 {
+public class ev2 extends iv2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,7 +30,7 @@ public class ev2 extends cv2 {
                 return;
             }
         }
-        boolean z = am1.a;
+        boolean z = rm1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -53,22 +53,22 @@ public class ev2 extends cv2 {
         }
     }
 
-    @Override // com.baidu.tieba.cv2
-    public boolean a(xu2 xu2Var, zu2 zu2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, p53 p53Var) {
+    @Override // com.baidu.tieba.iv2
+    public boolean a(yu2 yu2Var, av2 av2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g63 g63Var) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{xu2Var, zu2Var, context, unitedSchemeEntity, callbackHandler, p53Var})) == null) {
-            p22.b("vrvideo", "update, video id:" + zu2Var.j + " slave id: " + zu2Var.c);
-            d(xu2Var, zu2Var, unitedSchemeEntity, callbackHandler);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{yu2Var, av2Var, context, unitedSchemeEntity, callbackHandler, g63Var})) == null) {
+            g32.i("video", "pause, video id:" + av2Var.j + " slave id: " + av2Var.c);
+            d(yu2Var, unitedSchemeEntity, callbackHandler);
             return true;
         }
         return invokeCommon.booleanValue;
     }
 
-    public final void d(xu2 xu2Var, zu2 zu2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+    public final void d(yu2 yu2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xu2Var, zu2Var, unitedSchemeEntity, callbackHandler) == null) {
-            xu2Var.h(zu2Var);
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yu2Var, unitedSchemeEntity, callbackHandler) == null) {
+            yu2Var.p();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
     }

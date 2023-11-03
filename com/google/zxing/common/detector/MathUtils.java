@@ -1,5 +1,5 @@
 package com.google.zxing.common.detector;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class MathUtils {
     public static int round(float f) {
         return (int) (f + (f < 0.0f ? -0.5f : 0.5f));

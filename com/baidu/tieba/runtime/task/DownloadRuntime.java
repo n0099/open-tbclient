@@ -8,13 +8,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.ad;
+import com.baidu.tieba.dj6;
 import com.baidu.tieba.filedownloader.TbDownloadManager;
-import com.baidu.tieba.hh6;
-import com.baidu.tieba.ht6;
-import com.baidu.tieba.xn4;
-import com.baidu.tieba.yh5;
-import com.baidu.tieba.z97;
+import com.baidu.tieba.nj5;
+import com.baidu.tieba.oo4;
+import com.baidu.tieba.qd;
+import com.baidu.tieba.wd7;
+import com.baidu.tieba.xu6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,7 +39,7 @@ public final class DownloadRuntime {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static final class a implements z97 {
+    public static final class a implements wd7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -57,7 +57,7 @@ public final class DownloadRuntime {
             }
         }
 
-        @Override // com.baidu.tieba.z97
+        @Override // com.baidu.tieba.wd7
         public void a(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
@@ -66,7 +66,7 @@ public final class DownloadRuntime {
             }
         }
 
-        @Override // com.baidu.tieba.z97
+        @Override // com.baidu.tieba.wd7
         public void b(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data) == null) {
@@ -76,7 +76,7 @@ public final class DownloadRuntime {
             }
         }
 
-        @Override // com.baidu.tieba.z97
+        @Override // com.baidu.tieba.wd7
         public void c(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, data) == null) {
@@ -85,7 +85,7 @@ public final class DownloadRuntime {
             }
         }
 
-        @Override // com.baidu.tieba.z97
+        @Override // com.baidu.tieba.wd7
         public void d(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, data) == null) {
@@ -94,7 +94,7 @@ public final class DownloadRuntime {
             }
         }
 
-        @Override // com.baidu.tieba.z97
+        @Override // com.baidu.tieba.wd7
         public void e(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, data) == null) {
@@ -103,7 +103,7 @@ public final class DownloadRuntime {
             }
         }
 
-        @Override // com.baidu.tieba.z97
+        @Override // com.baidu.tieba.wd7
         public void f(DownloadData data, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048581, this, data, i) == null) {
@@ -145,12 +145,12 @@ public final class DownloadRuntime {
             }
             Object data = customResponsedMessage.getData();
             if (data instanceof Intent) {
-                String packageName = yh5.g((Intent) data);
+                String packageName = nj5.g((Intent) data);
                 LinkedHashMap linkedHashMap = new LinkedHashMap();
                 linkedHashMap.put("resultCode", 1);
                 Intrinsics.checkNotNullExpressionValue(packageName, "packageName");
                 linkedHashMap.put("pkgName", packageName);
-                hh6.a().b(CommonTbJsBridge.INSTALL_APK_RESULT, linkedHashMap);
+                dj6.a().b(CommonTbJsBridge.INSTALL_APK_RESULT, linkedHashMap);
             }
         }
     }
@@ -219,17 +219,17 @@ public final class DownloadRuntime {
 
     public final void d(@NonNull DownloadData downloadData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) && !ad.isEmpty(downloadData.getUniqueId()) && !ad.isEmpty(downloadData.getName())) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) && !qd.isEmpty(downloadData.getUniqueId()) && !qd.isEmpty(downloadData.getName())) {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("item_name", downloadData.getName());
             jSONObject.put("item_id", downloadData.getUniqueId());
-            xn4.d().c("download_game", jSONObject.toString());
+            oo4.d().c("download_game", jSONObject.toString());
         }
     }
 
     public final void g(DownloadData downloadData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, downloadData) == null) && downloadData != null && ht6.e(downloadData.getSource())) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, downloadData) == null) && downloadData != null && xu6.e(downloadData.getSource())) {
             LinkedHashMap linkedHashMap = new LinkedHashMap();
             linkedHashMap.put("status", Integer.valueOf(downloadData.getStatus()));
             linkedHashMap.put("source", Integer.valueOf(downloadData.getSource()));
@@ -238,7 +238,7 @@ public final class DownloadRuntime {
             linkedHashMap.put(CommonTbJsBridge.FILE_DOWNLOAD_TOTAL_SIZE, Long.valueOf(downloadData.getSize()));
             linkedHashMap.put(CommonTbJsBridge.FILE_DOWNLOAD_URL, downloadData.getUrl());
             linkedHashMap.put("fileName", downloadData.getName());
-            hh6.a().b(CommonTbJsBridge.FILE_DOWNLOAD_STATUS_RESULT, linkedHashMap);
+            dj6.a().b(CommonTbJsBridge.FILE_DOWNLOAD_STATUS_RESULT, linkedHashMap);
         }
     }
 }

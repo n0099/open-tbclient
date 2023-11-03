@@ -30,9 +30,9 @@ import com.baidu.searchbox.config.ext.FontSizeTextViewExtKt;
 import com.baidu.searchbox.config.ext.FontSizeViewExtKt;
 import com.baidu.searchbox.skin.NightModeHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h6c;
-import com.baidu.tieba.r6c;
-import com.baidu.tieba.v6c;
+import com.baidu.tieba.ijc;
+import com.baidu.tieba.sjc;
+import com.baidu.tieba.wjc;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -163,11 +163,11 @@ public final class SingleToast {
         if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{context, charSequence, Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2), Boolean.valueOf(z2)}) == null) {
             Context applicationContext = context.getApplicationContext();
             Resources resources = context.getResources();
-            RelativeLayout relativeLayout = (RelativeLayout) View.inflate(applicationContext, R.layout.obfuscated_res_0x7f0d0736, null);
-            relativeLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081106));
+            RelativeLayout relativeLayout = (RelativeLayout) View.inflate(applicationContext, R.layout.obfuscated_res_0x7f0d074b, null);
+            relativeLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f08111c));
             boolean z4 = true;
             relativeLayout.setClickable(true);
-            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f0919d3)) != null) {
+            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f091a1a)) != null) {
                 textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060bae));
                 textView.setText(charSequence);
                 FontSizeTextViewExtKt.setScaledSizeRes(textView, 0, R.dimen.obfuscated_res_0x7f0702e5);
@@ -216,14 +216,14 @@ public final class SingleToast {
                             Toast toast = new Toast(this.val$appContext);
                             toast.setView(this.val$container);
                             toast.setGravity(17, 0, 0);
-                            ToastUtils.setToastAnimation(toast, R.style.obfuscated_res_0x7f100443);
+                            ToastUtils.setToastAnimation(toast, R.style.obfuscated_res_0x7f100444);
                             if (toast.getDuration() == 1) {
                                 i3 = 3500;
                             } else {
                                 i3 = 2000;
                             }
                             UniversalToast.OnDismissListener unused = SingleToast.onDismissListener = null;
-                            h6c.M(i3, TimeUnit.MILLISECONDS).J(Schedulers.io()).s(r6c.b()).H(new v6c<Long>(this) { // from class: com.baidu.android.ext.widget.toast.SingleToast.1.1
+                            ijc.M(i3, TimeUnit.MILLISECONDS).J(Schedulers.io()).s(sjc.b()).H(new wjc<Long>(this) { // from class: com.baidu.android.ext.widget.toast.SingleToast.1.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ AnonymousClass1 this$0;
@@ -247,7 +247,7 @@ public final class SingleToast {
                                 }
 
                                 /* JADX DEBUG: Method merged with bridge method */
-                                @Override // com.baidu.tieba.v6c
+                                @Override // com.baidu.tieba.wjc
                                 public void call(Long l) {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeL(1048576, this, l) == null) {
@@ -271,7 +271,7 @@ public final class SingleToast {
             toastCustom.setMask(z2);
             toastCustom.setGravity(17, 0, 0);
             toastCustom.setDuration(i);
-            toastCustom.setWindowAnimation(R.style.obfuscated_res_0x7f100443);
+            toastCustom.setWindowAnimation(R.style.obfuscated_res_0x7f100444);
             toastCustom.setOnDissmissListener(onDismissListener);
             onDismissListener = null;
             toastCustom.show();
@@ -283,19 +283,19 @@ public final class SingleToast {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65551, null, new Object[]{context, charSequence, Integer.valueOf(i), charSequence2, Integer.valueOf(i2), toastCallback}) == null) {
             Resources resources = context.getResources();
-            LinearLayout linearLayout = (LinearLayout) View.inflate(context, R.layout.obfuscated_res_0x7f0d020c, null);
-            linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f0804fd));
+            LinearLayout linearLayout = (LinearLayout) View.inflate(context, R.layout.obfuscated_res_0x7f0d0211, null);
+            linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f080506));
             linearLayout.setClickable(true);
-            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090736)) != null) {
+            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090755)) != null) {
                 textView.setText(charSequence);
                 textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060bae));
                 textView.setTextSize(1, i);
             }
-            View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f090737);
+            View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f090756);
             if (findViewById != null) {
                 findViewById.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060bae));
             }
-            TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090733);
+            TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090752);
             if (textView2 != null) {
                 textView2.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060bae));
                 if (!TextUtils.isEmpty(charSequence2)) {
@@ -303,9 +303,9 @@ public final class SingleToast {
                     textView2.setTextSize(1, i);
                 }
             }
-            ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090735);
+            ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090754);
             if (imageView != null) {
-                imageView.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f0804fc));
+                imageView.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f080505));
             }
             ToastCustom toastCustom = new ToastCustom(context);
             setToastRef(toastCustom);
@@ -314,7 +314,7 @@ public final class SingleToast {
             toastCustom.setGravity(81, 0, (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070239));
             toastCustom.setDuration(i2);
             toastCustom.setOnClick(toastCallback);
-            toastCustom.setWindowAnimation(R.style.obfuscated_res_0x7f100443);
+            toastCustom.setWindowAnimation(R.style.obfuscated_res_0x7f100444);
             toastCustom.setOnDissmissListener(onDismissListener);
             onDismissListener = null;
             toastCustom.show();
@@ -327,37 +327,37 @@ public final class SingleToast {
         if (interceptable == null || interceptable.invokeCommon(65554, null, new Object[]{context, charSequence, drawable, charSequence2, Integer.valueOf(i), toastCallback}) == null) {
             Context applicationContext = context.getApplicationContext();
             Resources resources = context.getResources();
-            LinearLayout linearLayout = (LinearLayout) View.inflate(applicationContext, R.layout.obfuscated_res_0x7f0d05a8, null);
-            linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f0804fd));
+            LinearLayout linearLayout = (LinearLayout) View.inflate(applicationContext, R.layout.obfuscated_res_0x7f0d05bd, null);
+            linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f080506));
             linearLayout.setClickable(true);
-            SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e48);
+            SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e7f);
             if (simpleDraweeView != null) {
                 simpleDraweeView.setImageDrawable(drawable);
             }
-            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e47)) != null) {
+            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e7e)) != null) {
                 textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060bae));
                 textView.setText(charSequence);
             }
-            View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f090e49);
+            View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f090e80);
             if (findViewById != null) {
                 findViewById.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060bae));
             }
-            TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e43);
+            TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e7a);
             if (textView2 != null) {
                 textView2.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060bae));
                 if (!TextUtils.isEmpty(charSequence2)) {
                     textView2.setText(charSequence2);
                 }
             }
-            ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e46);
+            ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e7d);
             if (imageView != null) {
-                imageView.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f0804fc));
+                imageView.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f080505));
             }
             if (ToastUtils.shouldShowSystemToast(applicationContext)) {
                 if (findViewById != null) {
                     findViewById.setVisibility(8);
                 }
-                linearLayout.findViewById(R.id.obfuscated_res_0x7f090e44).setVisibility(8);
+                linearLayout.findViewById(R.id.obfuscated_res_0x7f090e7b).setVisibility(8);
                 mHandler.post(new Runnable(applicationContext, linearLayout, context, toastCallback) { // from class: com.baidu.android.ext.widget.toast.SingleToast.11
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -394,7 +394,7 @@ public final class SingleToast {
                             Toast unused = SingleToast.mSystemToast = new Toast(this.val$appContext);
                             SingleToast.mSystemToast.setView(this.val$container);
                             SingleToast.mSystemToast.setGravity(81, 0, (int) this.val$context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070239));
-                            ToastUtils.setToastAnimation(SingleToast.mSystemToast, R.style.obfuscated_res_0x7f100443);
+                            ToastUtils.setToastAnimation(SingleToast.mSystemToast, R.style.obfuscated_res_0x7f100444);
                             this.val$container.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.android.ext.widget.toast.SingleToast.11.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
@@ -445,7 +445,7 @@ public final class SingleToast {
             toastCustom.setGravity(81, 0, (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070239));
             toastCustom.setDuration(i);
             toastCustom.setOnClick(toastCallback);
-            toastCustom.setWindowAnimation(R.style.obfuscated_res_0x7f100443);
+            toastCustom.setWindowAnimation(R.style.obfuscated_res_0x7f100444);
             toastCustom.show();
         }
     }
@@ -455,30 +455,30 @@ public final class SingleToast {
         if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{context, uri, charSequence, uri2, charSequence2, Integer.valueOf(i), toastCallback}) == null) {
             Context applicationContext = context.getApplicationContext();
             Resources resources = context.getResources();
-            LinearLayout linearLayout = (LinearLayout) View.inflate(context, R.layout.obfuscated_res_0x7f0d027a, null);
-            linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f08150d));
+            LinearLayout linearLayout = (LinearLayout) View.inflate(context, R.layout.obfuscated_res_0x7f0d027f, null);
+            linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081526));
             linearLayout.setClickable(true);
-            SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e48);
+            SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e7f);
             if (uri != null) {
                 simpleDraweeView.setImageURI(uri);
             } else {
                 simpleDraweeView.setVisibility(8);
             }
-            ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e46);
+            ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e7d);
             if (uri2 != null) {
                 imageView.setImageURI(uri2);
             } else {
                 imageView.setVisibility(8);
             }
-            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e47);
+            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e7e);
             textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060bae));
             textView.setText(charSequence);
-            TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e43);
+            TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e7a);
             textView2.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060bae));
             textView2.setText(charSequence2);
-            View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f090e45);
-            View findViewById2 = linearLayout.findViewById(R.id.obfuscated_res_0x7f090e44);
-            View findViewById3 = linearLayout.findViewById(R.id.obfuscated_res_0x7f090e49);
+            View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f090e7c);
+            View findViewById2 = linearLayout.findViewById(R.id.obfuscated_res_0x7f090e7b);
+            View findViewById3 = linearLayout.findViewById(R.id.obfuscated_res_0x7f090e80);
             if (findViewById2 != null && findViewById3 != null) {
                 if (TextUtils.isEmpty(charSequence2)) {
                     findViewById2.setVisibility(8);
@@ -577,7 +577,7 @@ public final class SingleToast {
                             Toast unused = SingleToast.mSystemToast = new Toast(this.val$appContext);
                             SingleToast.mSystemToast.setView(this.val$container);
                             SingleToast.mSystemToast.setGravity(81, 0, (int) this.val$resources.getDimension(R.dimen.obfuscated_res_0x7f070239));
-                            ToastUtils.setToastAnimation(SingleToast.mSystemToast, R.style.obfuscated_res_0x7f100443);
+                            ToastUtils.setToastAnimation(SingleToast.mSystemToast, R.style.obfuscated_res_0x7f100444);
                             SingleToast.mSystemToast.show();
                         }
                     }
@@ -595,7 +595,7 @@ public final class SingleToast {
             toastCustom.setView(linearLayout);
             toastCustom.setGravity(81, 0, (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070239));
             toastCustom.setDuration(i);
-            toastCustom.setWindowAnimation(R.style.obfuscated_res_0x7f100443);
+            toastCustom.setWindowAnimation(R.style.obfuscated_res_0x7f100444);
             toastCustom.show();
         }
     }
@@ -608,10 +608,10 @@ public final class SingleToast {
             Context applicationContext = context.getApplicationContext();
             Resources resources = context.getResources();
             if (ToastUtils.shouldShowSystemToast(context)) {
-                RelativeLayout relativeLayout = (RelativeLayout) View.inflate(applicationContext, R.layout.obfuscated_res_0x7f0d0736, null);
-                relativeLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081106));
+                RelativeLayout relativeLayout = (RelativeLayout) View.inflate(applicationContext, R.layout.obfuscated_res_0x7f0d074b, null);
+                relativeLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f08111c));
                 relativeLayout.setClickable(true);
-                if (!TextUtils.isEmpty(charSequence) && (textView2 = (TextView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f0919d3)) != null) {
+                if (!TextUtils.isEmpty(charSequence) && (textView2 = (TextView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f091a1a)) != null) {
                     textView2.setText(charSequence);
                     textView2.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060bae));
                     textView2.setTextSize(1, i);
@@ -650,7 +650,7 @@ public final class SingleToast {
                             Toast unused = SingleToast.mSystemToast = new Toast(this.val$appContext);
                             SingleToast.mSystemToast.setView(this.val$container);
                             SingleToast.mSystemToast.setGravity(81, 0, (int) this.val$appContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070208));
-                            ToastUtils.setToastAnimation(SingleToast.mSystemToast, R.style.obfuscated_res_0x7f100443);
+                            ToastUtils.setToastAnimation(SingleToast.mSystemToast, R.style.obfuscated_res_0x7f100444);
                             this.val$container.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.android.ext.widget.toast.SingleToast.12.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
@@ -689,17 +689,17 @@ public final class SingleToast {
                 });
                 return;
             }
-            LinearLayout linearLayout = (LinearLayout) View.inflate(applicationContext, R.layout.obfuscated_res_0x7f0d0877, null);
-            linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f0812b2));
+            LinearLayout linearLayout = (LinearLayout) View.inflate(applicationContext, R.layout.obfuscated_res_0x7f0d088c, null);
+            linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f0812ca));
             linearLayout.setClickable(true);
-            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091f52)) != null) {
+            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091f99)) != null) {
                 textView.setText(charSequence);
                 textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060bae));
                 textView.setTextSize(1, i);
             }
-            Button button = (Button) linearLayout.findViewById(R.id.obfuscated_res_0x7f091f51);
+            Button button = (Button) linearLayout.findViewById(R.id.obfuscated_res_0x7f091f98);
             if (button != null) {
-                button.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f08150e));
+                button.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081527));
                 if (!TextUtils.isEmpty(charSequence2)) {
                     button.setText(charSequence2);
                     button.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060bae));
@@ -752,7 +752,7 @@ public final class SingleToast {
             toastCustom.setView(linearLayout);
             toastCustom.setGravity(81, 0, (int) applicationContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070208));
             toastCustom.setDuration(i3);
-            toastCustom.setWindowAnimation(R.style.obfuscated_res_0x7f100443);
+            toastCustom.setWindowAnimation(R.style.obfuscated_res_0x7f100444);
             toastCustom.show();
         }
     }
@@ -766,22 +766,22 @@ public final class SingleToast {
             if (ToastUtils.shouldShowSystemToast(context)) {
                 return;
             }
-            View inflate = View.inflate(applicationContext, R.layout.obfuscated_res_0x7f0d0178, null);
+            View inflate = View.inflate(applicationContext, R.layout.obfuscated_res_0x7f0d017a, null);
             inflate.setClickable(true);
             if (drawable != null) {
-                ((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091502)).setImageDrawable(drawable);
+                ((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091541)).setImageDrawable(drawable);
             }
             if (drawable2 != null) {
-                ((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091f5b)).setImageDrawable(drawable2);
+                ((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091fa2)).setImageDrawable(drawable2);
             }
-            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0924d8)) != null) {
+            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09252f)) != null) {
                 textView.setText(charSequence);
             }
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0903f1);
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f09040a);
             if (findViewById != null) {
                 findViewById.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f0604a9));
             }
-            inflate.findViewById(R.id.obfuscated_res_0x7f0904be).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.android.ext.widget.toast.SingleToast.19
+            inflate.findViewById(R.id.obfuscated_res_0x7f0904da).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.android.ext.widget.toast.SingleToast.19
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -807,7 +807,7 @@ public final class SingleToast {
                     }
                 }
             });
-            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0904e1);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0904fd);
             if (textView2 != null) {
                 textView2.setOnClickListener(new View.OnClickListener(toastCallback) { // from class: com.baidu.android.ext.widget.toast.SingleToast.20
                     public static /* synthetic */ Interceptable $ic;
@@ -870,17 +870,17 @@ public final class SingleToast {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65559, null, new Object[]{context, charSequence, Integer.valueOf(i), charSequence2, Integer.valueOf(i2), Integer.valueOf(i3), toastCallback}) == null) {
             Resources resources = context.getResources();
-            LinearLayout linearLayout = (LinearLayout) View.inflate(context, R.layout.obfuscated_res_0x7f0d0877, null);
-            linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f0812b2));
+            LinearLayout linearLayout = (LinearLayout) View.inflate(context, R.layout.obfuscated_res_0x7f0d088c, null);
+            linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f0812ca));
             linearLayout.setClickable(true);
-            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091f52)) != null) {
+            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091f99)) != null) {
                 textView.setText(charSequence);
                 textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060bae));
                 textView.setTextSize(1, i);
             }
-            Button button = (Button) linearLayout.findViewById(R.id.obfuscated_res_0x7f091f51);
+            Button button = (Button) linearLayout.findViewById(R.id.obfuscated_res_0x7f091f98);
             if (button != null) {
-                button.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f08150e));
+                button.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081527));
                 if (!TextUtils.isEmpty(charSequence2)) {
                     button.setText(charSequence2);
                     button.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060bae));
@@ -928,7 +928,7 @@ public final class SingleToast {
             toastCustom.setView(linearLayout);
             toastCustom.setGravity(81, 0, (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070208));
             toastCustom.setDuration(i3);
-            toastCustom.setWindowAnimation(R.style.obfuscated_res_0x7f100443);
+            toastCustom.setWindowAnimation(R.style.obfuscated_res_0x7f100444);
             toastCustom.show();
         }
     }
@@ -941,10 +941,10 @@ public final class SingleToast {
             Context applicationContext = context.getApplicationContext();
             Resources resources = context.getResources();
             if (ToastUtils.shouldShowSystemToast(context)) {
-                RelativeLayout relativeLayout = (RelativeLayout) View.inflate(applicationContext, R.layout.obfuscated_res_0x7f0d0736, null);
-                relativeLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081106));
+                RelativeLayout relativeLayout = (RelativeLayout) View.inflate(applicationContext, R.layout.obfuscated_res_0x7f0d074b, null);
+                relativeLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f08111c));
                 relativeLayout.setClickable(true);
-                if (!TextUtils.isEmpty(charSequence) && (textView2 = (TextView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f0919d3)) != null) {
+                if (!TextUtils.isEmpty(charSequence) && (textView2 = (TextView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f091a1a)) != null) {
                     textView2.setText(charSequence);
                     textView2.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060bae));
                     textView2.setTextSize(1, i);
@@ -984,7 +984,7 @@ public final class SingleToast {
                             Toast unused = SingleToast.mSystemToast = new Toast(this.val$appContext);
                             SingleToast.mSystemToast.setView(this.val$container);
                             SingleToast.mSystemToast.setGravity(81, 0, (int) this.val$appContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070239));
-                            ToastUtils.setToastAnimation(SingleToast.mSystemToast, R.style.obfuscated_res_0x7f100443);
+                            ToastUtils.setToastAnimation(SingleToast.mSystemToast, R.style.obfuscated_res_0x7f100444);
                             this.val$container.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.android.ext.widget.toast.SingleToast.9.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
@@ -1023,7 +1023,7 @@ public final class SingleToast {
                                 i3 = 2000;
                             }
                             UniversalToast.OnDismissListener unused2 = SingleToast.onDismissListener = null;
-                            h6c.M(i3, TimeUnit.MILLISECONDS).J(Schedulers.io()).s(r6c.b()).H(new v6c<Long>(this) { // from class: com.baidu.android.ext.widget.toast.SingleToast.9.2
+                            ijc.M(i3, TimeUnit.MILLISECONDS).J(Schedulers.io()).s(sjc.b()).H(new wjc<Long>(this) { // from class: com.baidu.android.ext.widget.toast.SingleToast.9.2
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ AnonymousClass9 this$0;
@@ -1047,7 +1047,7 @@ public final class SingleToast {
                                 }
 
                                 /* JADX DEBUG: Method merged with bridge method */
-                                @Override // com.baidu.tieba.v6c
+                                @Override // com.baidu.tieba.wjc
                                 public void call(Long l) {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeL(1048576, this, l) == null) {
@@ -1061,19 +1061,19 @@ public final class SingleToast {
                 });
                 return;
             }
-            LinearLayout linearLayout = (LinearLayout) View.inflate(applicationContext, R.layout.obfuscated_res_0x7f0d020c, null);
-            linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f0804fd));
+            LinearLayout linearLayout = (LinearLayout) View.inflate(applicationContext, R.layout.obfuscated_res_0x7f0d0211, null);
+            linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f080506));
             linearLayout.setClickable(true);
-            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090736)) != null) {
+            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090755)) != null) {
                 textView.setText(charSequence);
                 textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060bae));
                 textView.setTextSize(1, i);
             }
-            View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f090737);
+            View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f090756);
             if (findViewById != null) {
                 findViewById.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060bae));
             }
-            TextView textView3 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090733);
+            TextView textView3 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090752);
             if (textView3 != null) {
                 textView3.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060bae));
                 if (!TextUtils.isEmpty(charSequence2)) {
@@ -1081,9 +1081,9 @@ public final class SingleToast {
                     textView3.setTextSize(1, i);
                 }
             }
-            ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090735);
+            ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090754);
             if (imageView != null) {
-                imageView.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f0804fc));
+                imageView.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f080505));
             }
             ToastCustom toastCustom = new ToastCustom(applicationContext);
             setToastRef(toastCustom);
@@ -1097,7 +1097,7 @@ public final class SingleToast {
             toastCustom.setGravity(81, 0, (int) applicationContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070239));
             toastCustom.setDuration(i2);
             toastCustom.setOnClick(toastCallback);
-            toastCustom.setWindowAnimation(R.style.obfuscated_res_0x7f100443);
+            toastCustom.setWindowAnimation(R.style.obfuscated_res_0x7f100444);
             toastCustom.setOnDissmissListener(onDismissListener);
             onDismissListener = null;
             toastCustom.show();
@@ -1110,34 +1110,34 @@ public final class SingleToast {
         if (interceptable == null || interceptable.invokeCommon(65553, null, new Object[]{context, charSequence, uri, charSequence2, Integer.valueOf(i), toastCallback}) == null) {
             Context applicationContext = context.getApplicationContext();
             Resources resources = context.getResources();
-            LinearLayout linearLayout = (LinearLayout) View.inflate(applicationContext, R.layout.obfuscated_res_0x7f0d05a8, null);
-            linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f0804fd));
+            LinearLayout linearLayout = (LinearLayout) View.inflate(applicationContext, R.layout.obfuscated_res_0x7f0d05bd, null);
+            linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f080506));
             linearLayout.setClickable(true);
-            ((SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e48)).setController(Fresco.newDraweeControllerBuilder().setAutoPlayAnimations(true).setUri(uri).build());
-            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e47)) != null) {
+            ((SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e7f)).setController(Fresco.newDraweeControllerBuilder().setAutoPlayAnimations(true).setUri(uri).build());
+            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e7e)) != null) {
                 textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060bae));
                 textView.setText(charSequence);
             }
-            View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f090e49);
+            View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f090e80);
             if (findViewById != null) {
                 findViewById.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060bae));
             }
-            TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e43);
+            TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e7a);
             if (textView2 != null) {
                 textView2.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060bae));
                 if (!TextUtils.isEmpty(charSequence2)) {
                     textView2.setText(charSequence2);
                 }
             }
-            ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e46);
+            ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e7d);
             if (imageView != null) {
-                imageView.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f0804fc));
+                imageView.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f080505));
             }
             if (ToastUtils.shouldShowSystemToast(applicationContext)) {
                 if (findViewById != null) {
                     findViewById.setVisibility(8);
                 }
-                linearLayout.findViewById(R.id.obfuscated_res_0x7f090e44).setVisibility(8);
+                linearLayout.findViewById(R.id.obfuscated_res_0x7f090e7b).setVisibility(8);
                 mHandler.post(new Runnable(applicationContext, linearLayout, context, toastCallback) { // from class: com.baidu.android.ext.widget.toast.SingleToast.10
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -1174,7 +1174,7 @@ public final class SingleToast {
                             Toast unused = SingleToast.mSystemToast = new Toast(this.val$appContext);
                             SingleToast.mSystemToast.setView(this.val$container);
                             SingleToast.mSystemToast.setGravity(81, 0, (int) this.val$context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070239));
-                            ToastUtils.setToastAnimation(SingleToast.mSystemToast, R.style.obfuscated_res_0x7f100443);
+                            ToastUtils.setToastAnimation(SingleToast.mSystemToast, R.style.obfuscated_res_0x7f100444);
                             this.val$container.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.android.ext.widget.toast.SingleToast.10.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
@@ -1225,7 +1225,7 @@ public final class SingleToast {
             toastCustom.setGravity(81, 0, (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070239));
             toastCustom.setDuration(i);
             toastCustom.setOnClick(toastCallback);
-            toastCustom.setWindowAnimation(R.style.obfuscated_res_0x7f100443);
+            toastCustom.setWindowAnimation(R.style.obfuscated_res_0x7f100444);
             toastCustom.show();
         }
     }
@@ -1267,7 +1267,7 @@ public final class SingleToast {
                         Toast unused = SingleToast.mSystemToast = new Toast(this.val$appContext);
                         SingleToast.mSystemToast.setView(this.val$customView);
                         SingleToast.mSystemToast.setGravity(81, 0, this.val$marginBottom);
-                        ToastUtils.setToastAnimation(SingleToast.mSystemToast, R.style.obfuscated_res_0x7f100443);
+                        ToastUtils.setToastAnimation(SingleToast.mSystemToast, R.style.obfuscated_res_0x7f100444);
                         SingleToast.mSystemToast.show();
                     }
                 }
@@ -1280,15 +1280,15 @@ public final class SingleToast {
         if (interceptable == null || interceptable.invokeCommon(65556, null, new Object[]{context, charSequence, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             Context applicationContext = context.getApplicationContext();
             Resources resources = context.getResources();
-            LinearLayout linearLayout = (LinearLayout) View.inflate(applicationContext, R.layout.obfuscated_res_0x7f0d09a2, null);
-            linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f08150d));
-            linearLayout.findViewById(R.id.obfuscated_res_0x7f090f62).setVisibility(8);
-            ProgressBar progressBar = (ProgressBar) linearLayout.findViewById(R.id.obfuscated_res_0x7f090f63);
+            LinearLayout linearLayout = (LinearLayout) View.inflate(applicationContext, R.layout.obfuscated_res_0x7f0d09ba, null);
+            linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081526));
+            linearLayout.findViewById(R.id.obfuscated_res_0x7f090f9a).setVisibility(8);
+            ProgressBar progressBar = (ProgressBar) linearLayout.findViewById(R.id.obfuscated_res_0x7f090f9b);
             progressBar.setVisibility(0);
-            progressBar.setIndeterminateDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f081512));
+            progressBar.setIndeterminateDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f08152b));
             setAdapterHighlightTopView(progressBar);
             linearLayout.setClickable(true);
-            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090f64);
+            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090f9c);
             if (!TextUtils.isEmpty(charSequence) && textView != null) {
                 textView.setText(charSequence);
                 setAdapterHighlightTitle(resources, textView);
@@ -1326,7 +1326,7 @@ public final class SingleToast {
                             Toast toast = new Toast(this.val$context);
                             toast.setView(this.val$container);
                             toast.setGravity(17, 0, 0);
-                            ToastUtils.setToastAnimation(toast, R.style.obfuscated_res_0x7f1003d9);
+                            ToastUtils.setToastAnimation(toast, R.style.obfuscated_res_0x7f1003da);
                             toast.show();
                             WeakReference unused = SingleToast.mSystemToastRef = new WeakReference(toast);
                         }
@@ -1340,7 +1340,7 @@ public final class SingleToast {
             toastCustom.setMask(z);
             toastCustom.setGravity(17, 0, 0);
             toastCustom.setDuration(i);
-            toastCustom.setWindowAnimation(R.style.obfuscated_res_0x7f1003d9);
+            toastCustom.setWindowAnimation(R.style.obfuscated_res_0x7f1003da);
             toastCustom.show();
         }
     }
@@ -1353,21 +1353,21 @@ public final class SingleToast {
         }
         Context applicationContext = context.getApplicationContext();
         Resources resources = context.getResources();
-        LinearLayout linearLayout = (LinearLayout) View.inflate(applicationContext, R.layout.obfuscated_res_0x7f0d09a2, null);
-        linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f08150d));
+        LinearLayout linearLayout = (LinearLayout) View.inflate(applicationContext, R.layout.obfuscated_res_0x7f0d09ba, null);
+        linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081526));
         linearLayout.setClickable(true);
-        if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090f64)) != null) {
+        if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090f9c)) != null) {
             textView.setText(charSequence);
             setAdapterHighlightTitle(resources, textView);
         }
-        ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090f62);
+        ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090f9a);
         if (imageView != null) {
             setAdapterHighlightTopView(imageView);
             if (view2 != null) {
                 new ReplaceViewHelper(applicationContext).toReplaceView(imageView, view2);
             } else {
                 if (drawable == null) {
-                    drawable = resources.getDrawable(R.drawable.obfuscated_res_0x7f08072d);
+                    drawable = resources.getDrawable(R.drawable.obfuscated_res_0x7f080737);
                 }
                 ToastUtils.setColorFilter(drawable);
                 imageView.setImageDrawable(drawable);
@@ -1406,7 +1406,7 @@ public final class SingleToast {
                         Toast toast = new Toast(this.val$context);
                         toast.setView(this.val$container);
                         toast.setGravity(17, 0, 0);
-                        ToastUtils.setToastAnimation(toast, R.style.obfuscated_res_0x7f1003d9);
+                        ToastUtils.setToastAnimation(toast, R.style.obfuscated_res_0x7f1003da);
                         toast.show();
                         WeakReference unused = SingleToast.mSystemToastRef = new WeakReference(toast);
                     }
@@ -1420,7 +1420,7 @@ public final class SingleToast {
         toastCustom.setMask(z);
         toastCustom.setGravity(17, 0, 0);
         toastCustom.setDuration(i);
-        toastCustom.setWindowAnimation(R.style.obfuscated_res_0x7f1003d9);
+        toastCustom.setWindowAnimation(R.style.obfuscated_res_0x7f1003da);
         toastCustom.show();
     }
 
@@ -1432,10 +1432,10 @@ public final class SingleToast {
         if (interceptable == null || interceptable.invokeCommon(65558, null, new Object[]{context, uri, Integer.valueOf(i), charSequence, charSequence2, charSequence3, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), toastCallback}) == null) {
             Context applicationContext = context.getApplicationContext();
             Resources resources = context.getResources();
-            LinearLayout linearLayout = (LinearLayout) View.inflate(applicationContext, R.layout.obfuscated_res_0x7f0d0429, null);
-            linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f0804fd));
+            LinearLayout linearLayout = (LinearLayout) View.inflate(applicationContext, R.layout.obfuscated_res_0x7f0d043c, null);
+            linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f080506));
             linearLayout.setClickable(true);
-            SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0914ff);
+            SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09153e);
             if (uri != null) {
                 simpleDraweeView.setImageURI(uri);
                 if (i != 1) {
@@ -1444,8 +1444,8 @@ public final class SingleToast {
             } else {
                 simpleDraweeView.setVisibility(8);
             }
-            TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0925d4);
-            TextView textView3 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09177d);
+            TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09262b);
+            TextView textView3 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0917bf);
             textView2.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060bae));
             textView3.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060bae));
             if (!TextUtils.isEmpty(charSequence) && !TextUtils.isEmpty(charSequence2)) {
@@ -1467,23 +1467,23 @@ public final class SingleToast {
             }
             if (uri == null && !z) {
                 int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070236);
-                ((ViewGroup.MarginLayoutParams) linearLayout.findViewById(R.id.obfuscated_res_0x7f0924a8).getLayoutParams()).setMargins(0, dimensionPixelSize, 0, dimensionPixelSize);
+                ((ViewGroup.MarginLayoutParams) linearLayout.findViewById(R.id.obfuscated_res_0x7f0924ff).getLayoutParams()).setMargins(0, dimensionPixelSize, 0, dimensionPixelSize);
             }
-            View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f090734);
+            View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f090753);
             if (!TextUtils.isEmpty(charSequence3)) {
                 if (i2 != 1) {
-                    linearLayout.findViewById(R.id.obfuscated_res_0x7f091544).setVisibility(8);
-                    textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0903e0);
-                    textView.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f08150e));
+                    linearLayout.findViewById(R.id.obfuscated_res_0x7f091583).setVisibility(8);
+                    textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0903f9);
+                    textView.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081527));
                     textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060bae));
                     textView.setText(charSequence3);
                 } else {
-                    linearLayout.findViewById(R.id.obfuscated_res_0x7f0903e0).setVisibility(8);
-                    linearLayout.findViewById(R.id.obfuscated_res_0x7f090737).setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060bae));
-                    textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090733);
+                    linearLayout.findViewById(R.id.obfuscated_res_0x7f0903f9).setVisibility(8);
+                    linearLayout.findViewById(R.id.obfuscated_res_0x7f090756).setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060bae));
+                    textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090752);
                     textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060bae));
                     textView.setText(charSequence3);
-                    ((ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090735)).setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f0804fc));
+                    ((ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090754)).setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f080505));
                 }
                 findViewById.setOnTouchListener(new View.OnTouchListener(textView) { // from class: com.baidu.android.ext.widget.toast.SingleToast.15
                     public static /* synthetic */ Interceptable $ic;
@@ -1575,7 +1575,7 @@ public final class SingleToast {
                             Toast unused = SingleToast.mSystemToast = new Toast(this.val$appContext);
                             SingleToast.mSystemToast.setView(this.val$container);
                             SingleToast.mSystemToast.setGravity(81, 0, (int) this.val$context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070239));
-                            ToastUtils.setToastAnimation(SingleToast.mSystemToast, R.style.obfuscated_res_0x7f100443);
+                            ToastUtils.setToastAnimation(SingleToast.mSystemToast, R.style.obfuscated_res_0x7f100444);
                             SingleToast.mSystemToast.show();
                         }
                     }
@@ -1599,7 +1599,7 @@ public final class SingleToast {
             toastCustom.setGravity(81, 0, i5);
             toastCustom.setDuration(i3);
             toastCustom.setOnClick(toastCallback);
-            toastCustom.setWindowAnimation(R.style.obfuscated_res_0x7f100443);
+            toastCustom.setWindowAnimation(R.style.obfuscated_res_0x7f100444);
             toastCustom.show();
         }
     }
@@ -1627,18 +1627,18 @@ public final class SingleToast {
         Resources resources = context.getResources();
         LinearLayout linearLayout = null;
         try {
-            linearLayout = (LinearLayout) View.inflate(context, R.layout.obfuscated_res_0x7f0d09a0, null);
+            linearLayout = (LinearLayout) View.inflate(context, R.layout.obfuscated_res_0x7f0d09b8, null);
         } catch (Exception unused) {
         }
         if (linearLayout == null) {
             return;
         }
-        linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f08150d));
-        SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091500);
-        TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09150d);
-        LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f091f65);
-        TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091f66);
-        View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f091f67);
+        linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081526));
+        SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09153f);
+        TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09154c);
+        LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f091fac);
+        TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091fae);
+        View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f091faf);
         if (!TextUtils.isEmpty(charSequence)) {
             FontSizeTextViewExtKt.setScaledSizeRes(textView, 0, R.dimen.obfuscated_res_0x7f0702e5);
             if (textColorHolder != null) {
@@ -1678,9 +1678,9 @@ public final class SingleToast {
                     } else {
                         toastLocation2 = ToastLocation.BOTTOM;
                         linearLayout2.setVisibility(0);
-                        ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091f5c);
+                        ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091fa3);
                         FontSizeViewExtKt.setScaledSizeRes(imageView, 0, R.dimen.obfuscated_res_0x7f0702e7, R.dimen.obfuscated_res_0x7f0702e7);
-                        imageView.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f081515));
+                        imageView.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f08152e));
                         textView2.setText(charSequence2);
                         FontSizeTextViewExtKt.setScaledSizeRes(textView2, 0, R.dimen.obfuscated_res_0x7f0702e5);
                         if (textColorHolder2 != null) {
@@ -1777,7 +1777,7 @@ public final class SingleToast {
                                         WeakReference unused2 = SingleToast.mSystemToastRef = new WeakReference(toast);
                                         toast.setView(this.val$finalContainer);
                                         toast.setGravity(i4, 0, i5);
-                                        ToastUtils.setToastAnimation(toast, R.style.obfuscated_res_0x7f1003d9);
+                                        ToastUtils.setToastAnimation(toast, R.style.obfuscated_res_0x7f1003da);
                                         toast.show();
                                     }
                                 }
@@ -1790,7 +1790,7 @@ public final class SingleToast {
                         toastCustom.setMask(z);
                         toastCustom.setGravity(17, 0, 0);
                         toastCustom.setDuration(i);
-                        toastCustom.setWindowAnimation(R.style.obfuscated_res_0x7f1003d9);
+                        toastCustom.setWindowAnimation(R.style.obfuscated_res_0x7f1003da);
                         toastCustom.show();
                         return;
                     }
@@ -1839,11 +1839,11 @@ public final class SingleToast {
         }
         Context applicationContext = context.getApplicationContext();
         Resources resources = context.getResources();
-        LinearLayout linearLayout = (LinearLayout) View.inflate(applicationContext, R.layout.obfuscated_res_0x7f0d09a1, null);
-        linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f08150d));
+        LinearLayout linearLayout = (LinearLayout) View.inflate(applicationContext, R.layout.obfuscated_res_0x7f0d09b9, null);
+        linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081526));
         linearLayout.setClickable(true);
-        LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f0924a8);
-        SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0914ff);
+        LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f0924ff);
+        SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09153e);
         simpleDraweeView.setVisibility(0);
         if (view2 != null) {
             new ReplaceViewHelper(applicationContext).toReplaceView(simpleDraweeView, view2);
@@ -1858,9 +1858,9 @@ public final class SingleToast {
             layoutParams.setMargins(DeviceUtils.ScreenInfo.dp2px(applicationContext, 15.0f), 0, 0, 0);
             linearLayout2.setLayoutParams(layoutParams);
             z2 = true;
-            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0925a7);
-            TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092311);
-            TextView textView3 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091a20);
+            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0925fe);
+            TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092368);
+            TextView textView3 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091a67);
             if (TextUtils.isEmpty(charSequence)) {
                 if (!TextUtils.isEmpty(charSequence2)) {
                     if (z2) {
@@ -1898,12 +1898,12 @@ public final class SingleToast {
                         textView3.setTextColor(i2);
                     }
                 }
-                LinearLayout linearLayout3 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f0904b7);
-                LinearLayout linearLayout4 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f091259);
-                TextView textView4 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0904f9);
-                TextView textView5 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09125f);
-                ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091265);
-                View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f091f67);
+                LinearLayout linearLayout3 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f0904d3);
+                LinearLayout linearLayout4 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f091297);
+                TextView textView4 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090515);
+                TextView textView5 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09129d);
+                ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0912a3);
+                View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f091faf);
                 if (!TextUtils.isEmpty(charSequence3)) {
                     if (toastRightAreaStyle == ToastRightAreaStyle.BUTTON) {
                         linearLayout3.setVisibility(0);
@@ -1924,7 +1924,7 @@ public final class SingleToast {
                             }
                             textView5.setTextColor(i3);
                         }
-                        imageView.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f081515));
+                        imageView.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f08152e));
                         findViewById.setBackground(resources.getDrawable(R.color.obfuscated_res_0x7f0601c9));
                         linearLayout3 = linearLayout4;
                     }
@@ -2007,7 +2007,7 @@ public final class SingleToast {
                                 Toast unused = SingleToast.mSystemToast = new Toast(this.val$context);
                                 SingleToast.mSystemToast.setView(this.val$container);
                                 SingleToast.mSystemToast.setGravity(81, 0, dimension);
-                                ToastUtils.setToastAnimation(SingleToast.mSystemToast, R.style.obfuscated_res_0x7f1003d9);
+                                ToastUtils.setToastAnimation(SingleToast.mSystemToast, R.style.obfuscated_res_0x7f1003da);
                                 SingleToast.mSystemToast.show();
                             }
                         }
@@ -2020,7 +2020,7 @@ public final class SingleToast {
                 toastCustom.setMask(z);
                 toastCustom.setGravity(81, 0, (int) resources.getDimension(R.dimen.obfuscated_res_0x7f070239));
                 toastCustom.setDuration(i);
-                toastCustom.setWindowAnimation(R.style.obfuscated_res_0x7f1003d9);
+                toastCustom.setWindowAnimation(R.style.obfuscated_res_0x7f1003da);
                 toastCustom.show();
                 return;
             }
@@ -2028,9 +2028,9 @@ public final class SingleToast {
             return;
         }
         z2 = false;
-        TextView textView6 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0925a7);
-        TextView textView22 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092311);
-        TextView textView32 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091a20);
+        TextView textView6 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0925fe);
+        TextView textView22 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092368);
+        TextView textView32 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091a67);
         if (TextUtils.isEmpty(charSequence)) {
         }
     }
@@ -2040,9 +2040,9 @@ public final class SingleToast {
         if (interceptable == null || interceptable.invokeLLI(65563, null, context, charSequence, i) == null) {
             Context applicationContext = context.getApplicationContext();
             Resources resources = context.getResources();
-            RelativeLayout relativeLayout = (RelativeLayout) View.inflate(applicationContext, R.layout.obfuscated_res_0x7f0d0736, null);
-            relativeLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081106));
-            TextView textView = (TextView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f0919d3);
+            RelativeLayout relativeLayout = (RelativeLayout) View.inflate(applicationContext, R.layout.obfuscated_res_0x7f0d074b, null);
+            relativeLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f08111c));
+            TextView textView = (TextView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f091a1a);
             if (textView != null) {
                 textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060bae));
                 textView.setText(charSequence);
@@ -2083,7 +2083,7 @@ public final class SingleToast {
                             Toast unused = SingleToast.mSystemToast = new Toast(this.val$appContext);
                             SingleToast.mSystemToast.setView(this.val$container);
                             SingleToast.mSystemToast.setGravity(81, 0, (int) this.val$context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070239));
-                            ToastUtils.setToastAnimation(SingleToast.mSystemToast, R.style.obfuscated_res_0x7f100443);
+                            ToastUtils.setToastAnimation(SingleToast.mSystemToast, R.style.obfuscated_res_0x7f100444);
                             SingleToast.mSystemToast.show();
                             if (SingleToast.sDebug) {
                                 Log.d(SingleToast.TAG, "mSystemToast.show() invoked in showToastBottom");
@@ -2098,7 +2098,7 @@ public final class SingleToast {
             toastCustom.setView(relativeLayout);
             toastCustom.setGravity(81, 0, (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070239));
             toastCustom.setDuration(i);
-            toastCustom.setWindowAnimation(R.style.obfuscated_res_0x7f100443);
+            toastCustom.setWindowAnimation(R.style.obfuscated_res_0x7f100444);
             toastCustom.show();
         }
     }

@@ -1,73 +1,149 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import androidx.lifecycle.SavedStateHandle;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.live.interfaces.DI;
+import com.baidu.searchbox.live.ubc.FlowInfoHelper;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class d03 implements h03 {
+public class d03 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final File b;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
 
-    @Override // com.baidu.tieba.h03
-    public String getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "PageInitRender" : (String) invokeV.objValue;
-    }
-
-    public d03() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947650690, "Lcom/baidu/tieba/d03;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947650690, "Lcom/baidu/tieba/d03;");
                 return;
             }
         }
-        this.a = -1L;
-        this.b = -1L;
+        a = rm1.a;
+        b = AppRuntime.getAppContext().getExternalCacheDir();
     }
 
-    @Override // com.baidu.tieba.h03
-    public long a() {
+    public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            long j = this.a;
-            if (j >= 0) {
-                long j2 = this.b;
-                if (j2 >= 0) {
-                    return j2 - j;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b + File.separator + "swan_perf";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static JSONObject a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            JSONObject C = np2.g0().C();
+            String k = np2.g0().k();
+            try {
+                jSONObject.put("switch", C);
+                JSONArray jSONArray = null;
+                if (!TextUtils.isEmpty(k)) {
+                    jSONArray = new JSONArray();
+                    for (String str : k.split("-")) {
+                        jSONArray.put(str);
+                    }
                 }
-                return -1L;
+                jSONObject.put("sid", jSONArray);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            return -1L;
+            return jSONObject;
         }
-        return invokeV.longValue;
+        return (JSONObject) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.h03
-    public void b(long j) {
+    public static JSONObject c(List<UbcFlowEvent> list, JSONObject jSONObject) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.b = j;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, list, jSONObject)) == null) {
+            JSONObject jSONObject2 = new JSONObject();
+            JSONArray jSONArray = new JSONArray();
+            for (UbcFlowEvent ubcFlowEvent : list) {
+                if (!ubcFlowEvent.b()) {
+                    try {
+                        JSONObject jSONObject3 = new JSONObject();
+                        jSONObject3.put("id", ubcFlowEvent.a);
+                        jSONObject3.put("time", ubcFlowEvent.g());
+                        jSONObject3.put("value", ubcFlowEvent.j());
+                        jSONArray.put(jSONObject3);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            try {
+                jSONObject2.put(FlowInfoHelper.KEY_EVENTLIST, jSONArray);
+                jSONObject2.put(SavedStateHandle.VALUES, jSONObject);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            return jSONObject2;
+        }
+        return (JSONObject) invokeLL.objValue;
+    }
+
+    public static void d(List<UbcFlowEvent> list, JSONObject jSONObject) {
+        g63 c0;
+        Map<String, String> t;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, list, jSONObject) == null) {
+            if (a) {
+                el4.b().f();
+            }
+            if (!f23.E() || (c0 = g63.c0()) == null || (t = yj3.t(yj3.o(c0.X().X()))) == null || !TextUtils.equals(t.get("_SwanStartupPerf_"), "1")) {
+                return;
+            }
+            ArrayList arrayList = new ArrayList(list);
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("670", c(arrayList, jSONObject));
+                jSONObject2.put(DI.AB_NAME, a());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            File file = new File(b, "swan_perf");
+            if (!file.exists() && !file.mkdirs()) {
+                return;
+            }
+            jm4.N(jSONObject2.toString(), new File(file, String.format(Locale.getDefault(), "perf_%s.json", Long.valueOf(System.currentTimeMillis() / 1000))));
         }
     }
 
-    @Override // com.baidu.tieba.h03
-    public void c(long j) {
+    public static void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.a = j;
+        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
+            File file = new File(b, "swan_stability");
+            if (!jm4.m(file)) {
+                g32.k("StartupPerf", "创建目录失败 path" + file);
+                return;
+            }
+            jm4.N(str, new File(file, String.format(Locale.getDefault(), "stability_%s.json", Long.valueOf(System.currentTimeMillis() / 1000))));
         }
     }
 }

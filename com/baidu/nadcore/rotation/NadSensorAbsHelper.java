@@ -6,8 +6,8 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import com.baidu.nadcore.rotation.NadSensorAbsHelper$sensorEventListener$2;
-import com.baidu.tieba.px0;
-import com.baidu.tieba.qx0;
+import com.baidu.tieba.gy0;
+import com.baidu.tieba.hy0;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import java.lang.ref.WeakReference;
 import kotlin.Lazy;
@@ -21,8 +21,8 @@ public abstract class NadSensorAbsHelper {
     public final WeakReference<Context> a;
     public final Lazy b;
     public long c;
-    public final px0 d;
-    public qx0 e;
+    public final gy0 d;
+    public hy0 e;
     public boolean f;
 
     public abstract int d();
@@ -35,7 +35,7 @@ public abstract class NadSensorAbsHelper {
 
     public abstract void i(SensorEvent sensorEvent);
 
-    public NadSensorAbsHelper(Context context, px0 listener) {
+    public NadSensorAbsHelper(Context context, gy0 listener) {
         Intrinsics.checkNotNullParameter(context, "context");
         Intrinsics.checkNotNullParameter(listener, "listener");
         this.a = new WeakReference<>(context);
@@ -75,19 +75,19 @@ public abstract class NadSensorAbsHelper {
         });
         this.c = -1L;
         this.d = listener;
-        this.e = new qx0(0, 0, 0, 0.0f, false, 0, 0.0f, 0, 255, null);
+        this.e = new hy0(0, 0, 0, 0.0f, false, 0, 0.0f, 0, 255, null);
     }
 
-    public final void m(qx0 qx0Var) {
-        Intrinsics.checkNotNullParameter(qx0Var, "<set-?>");
-        this.e = qx0Var;
+    public final void m(hy0 hy0Var) {
+        Intrinsics.checkNotNullParameter(hy0Var, "<set-?>");
+        this.e = hy0Var;
     }
 
-    public final px0 b() {
+    public final gy0 b() {
         return this.d;
     }
 
-    public final qx0 c() {
+    public final hy0 c() {
         return this.e;
     }
 

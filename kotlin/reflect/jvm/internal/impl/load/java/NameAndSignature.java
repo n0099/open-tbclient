@@ -3,7 +3,7 @@ package kotlin.reflect.jvm.internal.impl.load.java;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.name.Name;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class NameAndSignature {
     public final Name name;
     public final String signature;

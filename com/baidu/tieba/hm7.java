@@ -1,168 +1,173 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.LinearLayout;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.TiebaStaticHelper;
-import com.baidu.tbadk.core.util.YYLiveUtil;
-import com.baidu.tbadk.pageInfo.TbPageTag;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
+import com.baidu.tieba.forum.databinding.ForumBackFloatViewBinding;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class hm7 implements CustomMessageTask.CustomRunnable<ThreadData>, zj6 {
+public final class hm7 implements oh5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public go7 a;
-    public TbPageTag b;
-    public BdUniqueId c;
-    public int d;
+    public final String a;
+    public final int b;
+    public final int c;
+    public final int d;
+    public a e;
+    public boolean f;
+    public ForumBackFloatViewBinding g;
 
-    @Override // com.baidu.tieba.zj6
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-        }
+    /* loaded from: classes6.dex */
+    public interface a {
+        void onClick();
     }
 
-    @Override // com.baidu.tieba.zj6
-    public void r(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-        }
-    }
-
-    public hm7(go7 go7Var, TbPageTag tbPageTag, BdUniqueId bdUniqueId) {
+    public hm7(String tipText, int i, int i2, int i3, a aVar, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {go7Var, tbPageTag, bdUniqueId};
+            Object[] objArr = {tipText, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), aVar, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.a = go7Var;
-        this.b = tbPageTag;
-        this.c = bdUniqueId;
+        Intrinsics.checkNotNullParameter(tipText, "tipText");
+        this.a = tipText;
+        this.b = i;
+        this.c = i2;
+        this.d = i3;
+        this.e = aVar;
+        this.f = z;
     }
 
-    public final void b(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData) == null) && threadData != null && threadData.getAuthor() != null && threadData.getThreadAlaInfo() != null) {
-            TiebaStatic.log(d(threadData, "c13615"));
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public /* synthetic */ hm7(String str, int i, int i2, int i3, a aVar, boolean z, int i4, DefaultConstructorMarker defaultConstructorMarker) {
+        this(str, i, i2, r4, r5, r6);
+        int i5;
+        boolean z2;
+        if ((i4 & 8) != 0) {
+            i5 = R.color.CAM_X0101;
+        } else {
+            i5 = i3;
+        }
+        a aVar2 = (i4 & 16) != 0 ? null : aVar;
+        if ((i4 & 32) != 0) {
+            z2 = false;
+        } else {
+            z2 = z;
         }
     }
 
-    public final void c(ThreadData threadData) {
+    @Override // com.baidu.tieba.oh5
+    public void a() {
+        ForumBackFloatViewBinding forumBackFloatViewBinding;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData) == null) && threadData != null && threadData.getAuthor() != null && threadData.getThreadAlaInfo() != null) {
-            tj6.b().a(d(threadData, "c13614"));
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (forumBackFloatViewBinding = this.g) == null) {
+            return;
+        }
+        ForumBackFloatViewBinding forumBackFloatViewBinding2 = null;
+        if (forumBackFloatViewBinding == null) {
+            Intrinsics.throwUninitializedPropertyAccessException("binding");
+            forumBackFloatViewBinding = null;
+        }
+        forumBackFloatViewBinding.e.setText(this.a);
+        ForumBackFloatViewBinding forumBackFloatViewBinding3 = this.g;
+        if (forumBackFloatViewBinding3 == null) {
+            Intrinsics.throwUninitializedPropertyAccessException("binding");
+            forumBackFloatViewBinding3 = null;
+        }
+        SkinManager.setViewTextColor(forumBackFloatViewBinding3.e, this.d);
+        ForumBackFloatViewBinding forumBackFloatViewBinding4 = this.g;
+        if (forumBackFloatViewBinding4 == null) {
+            Intrinsics.throwUninitializedPropertyAccessException("binding");
+            forumBackFloatViewBinding4 = null;
+        }
+        SkinManager.setImageResource(forumBackFloatViewBinding4.c, this.c);
+        SvgManager svgManager = SvgManager.getInstance();
+        ForumBackFloatViewBinding forumBackFloatViewBinding5 = this.g;
+        if (forumBackFloatViewBinding5 == null) {
+            Intrinsics.throwUninitializedPropertyAccessException("binding");
+            forumBackFloatViewBinding5 = null;
+        }
+        svgManager.setPureDrawableWithDayNightModeAutoChange(forumBackFloatViewBinding5.b, R.drawable.ic_icon_mybar_pure_list_arrow16_right, this.d, SvgManager.SvgResourceStateType.NORMAL);
+        DrawableSelector blRadius = TBSelector.makeDrawableSelector().defaultColor(this.b).setShape(0).setAlpha(211).tlRadius(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).blRadius(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52));
+        ForumBackFloatViewBinding forumBackFloatViewBinding6 = this.g;
+        if (forumBackFloatViewBinding6 == null) {
+            Intrinsics.throwUninitializedPropertyAccessException("binding");
+        } else {
+            forumBackFloatViewBinding2 = forumBackFloatViewBinding6;
+        }
+        blRadius.into(forumBackFloatViewBinding2.d);
+    }
+
+    public final boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.f;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.oh5
+    public void onClick() {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (aVar = this.e) != null) {
+            aVar.onClick();
         }
     }
 
-    public void e(int i) {
+    public final void c(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.d = i;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.f = z;
         }
     }
 
-    @NonNull
-    public final StatisticItem d(@NonNull ThreadData threadData, String str) {
-        InterceptResult invokeLL;
-        long j;
-        int i;
-        String str2;
+    @Override // com.baidu.tieba.oh5
+    public View getView() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, threadData, str)) == null) {
-            if (threadData.getThreadAlaInfo().user_info != null) {
-                j = threadData.getThreadAlaInfo().user_info.ala_id;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ForumBackFloatViewBinding forumBackFloatViewBinding = null;
+            ForumBackFloatViewBinding c = ForumBackFloatViewBinding.c(LayoutInflater.from(TbadkApplication.getInst()), null, false);
+            Intrinsics.checkNotNullExpressionValue(c, "inflate(\n            Lay…          false\n        )");
+            this.g = c;
+            a();
+            ForumBackFloatViewBinding forumBackFloatViewBinding2 = this.g;
+            if (forumBackFloatViewBinding2 == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("binding");
             } else {
-                j = 0;
+                forumBackFloatViewBinding = forumBackFloatViewBinding2;
             }
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("fid", threadData.getFid());
-            statisticItem.param("ab_tag", threadData.mRecomAbTag);
-            if (threadData.getThreadAlaInfo().isChushou) {
-                i = 2;
-            } else {
-                i = 1;
-            }
-            statisticItem.param("obj_type", i);
-            statisticItem.param("tid", threadData.getTid());
-            statisticItem.param("liveid", threadData.getThreadAlaInfo().live_id);
-            statisticItem.param(TiebaStatic.Params.STAR_ID, j);
-            statisticItem.param("extra", threadData.mRecomExtra);
-            statisticItem.param("source_from", threadData.mRecomSource);
-            statisticItem.param("nid", threadData.getAuthor().getAlaInfo().mYyExtData.feedId);
-            statisticItem.param("cuid", TbadkCoreApplication.getInst().getCuid());
-            int i2 = this.d;
-            if (i2 == 14) {
-                statisticItem.param("obj_locate", 1);
-            } else if (i2 == 13) {
-                statisticItem.param("obj_locate", 2);
-            }
-            if (threadData.getAuthor() != null && threadData.getAuthor().getAlaInfo() != null) {
-                statisticItem.param("obj_param1", YYLiveUtil.calculateLiveType(threadData.getAuthor().getAlaInfo()));
-                if (threadData.getAuthor().getAlaInfo().mYyExtData != null) {
-                    TiebaStaticHelper.addYYParam(statisticItem, threadData.getAuthor().getAlaInfo().mYyExtData);
-                    str2 = TiebaStatic.YYValues.YY_LIVE;
-                } else {
-                    str2 = "";
-                }
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str2);
-            }
-            return statisticItem;
+            LinearLayout root = forumBackFloatViewBinding.getRoot();
+            Intrinsics.checkNotNullExpressionValue(root, "binding.root");
+            return root;
         }
-        return (StatisticItem) invokeLL.objValue;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<ThreadData> customMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, customMessage)) == null) {
-            if (customMessage != null && (customMessage.getData() instanceof ThreadData)) {
-                ThreadData data = customMessage.getData();
-                if (customMessage.getCmd() == 2921018) {
-                    b(data);
-                    ho7.k().h(this.a, data, 1);
-                    fo7.e(data, 1, this.c, this.a, this.b);
-                } else if (customMessage.getCmd() == 2921016) {
-                    b(data);
-                    ho7.k().h(this.a, data, 2);
-                    fo7.e(data, 2, this.c, this.a, this.b);
-                } else if (customMessage.getCmd() == 2921019) {
-                    b(data);
-                    ho7.k().h(this.a, data, 4);
-                    fo7.e(data, 1, this.c, this.a, this.b);
-                } else if (customMessage.getCmd() == 2921017) {
-                    c(data);
-                    ho7.k().c(this.a, data);
-                    fo7.p(data, this.c, this.a, this.b);
-                }
-            }
-            return null;
-        }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return (View) invokeV.objValue;
     }
 }

@@ -1,37 +1,46 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.text.TextUtils;
+import android.widget.BaseAdapter;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class q96 extends mh {
+public abstract class q96 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
     public Context b;
-    public View c;
-    public ImageView d;
-    public TextView e;
-    public View f;
-    public View g;
-    public View.OnClickListener h;
+    public List<u96> c;
+    public int d;
 
-    public q96(Context context) {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    public q96(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,66 +50,61 @@ public class q96 extends mh {
                 return;
             }
         }
-        this.b = context;
+        this.a = tbPageContext;
+        this.b = tbPageContext.getPageActivity();
+        this.c = new ArrayList();
     }
 
-    public void f(View.OnClickListener onClickListener) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public u96 getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.h = onClickListener;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return this.c.get(i);
+        }
+        return (u96) invokeI.objValue;
+    }
+
+    public void c(List<u96> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) != null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        this.c.clear();
+        this.c.addAll(list);
+        notifyDataSetChanged();
+    }
+
+    public void b(TbPageContext<?> tbPageContext, ThreadData threadData, String str) {
+        String str2;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, threadData, str) == null) && tbPageContext != null && threadData != null && threadData.getAuthor() != null && threadData.getThreadAlaInfo() != null) {
+            if (TbadkCoreApplication.getCurrentAccount() != null) {
+                String userId = threadData.getAuthor().getUserId();
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                z = TextUtils.equals(userId, currentAccount);
+                str2 = currentAccount;
+            } else {
+                str2 = "";
+                z = false;
+            }
+            AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
+            alaLiveInfoCoreData.fillWithInfoData(threadData.getThreadAlaInfo());
+            alaLiveInfoCoreData.userName = threadData.getAuthor().getUserName();
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(tbPageContext.getPageActivity(), alaLiveInfoCoreData, str, str2, z, "")));
         }
     }
 
-    @Override // com.baidu.tieba.mh
-    public View a() {
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d00fe, (ViewGroup) null);
-            this.c = inflate;
-            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0901f6);
-            this.d = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0901f5);
-            this.f = this.c.findViewById(R.id.obfuscated_res_0x7f0901f7);
-            this.g = this.c.findViewById(R.id.obfuscated_res_0x7f0901f4);
-            e(TbadkCoreApplication.getInst().getSkinType());
-            return this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c.size();
         }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.mh
-    public void d() {
-        View.OnClickListener onClickListener;
-        View view2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (onClickListener = this.h) != null && (view2 = this.c) != null) {
-            onClickListener.onClick(view2);
-        }
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            View view2 = this.c;
-            if (view2 != null) {
-                SkinManager.setBackgroundResource(view2, R.drawable.addresslist_item_bg);
-            }
-            TextView textView = this.e;
-            if (textView != null) {
-                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0304);
-            }
-            ImageView imageView = this.d;
-            if (imageView != null) {
-                SkinManager.setImageResource(imageView, R.drawable.icon_inf_arrowblue_n);
-            }
-            View view3 = this.f;
-            if (view3 != null) {
-                SkinManager.setBackgroundResource(view3, R.color.CAM_X0204);
-            }
-            View view4 = this.g;
-            if (view4 != null) {
-                SkinManager.setBackgroundResource(view4, R.color.CAM_X0204);
-            }
-        }
+        return invokeV.intValue;
     }
 }

@@ -1,20 +1,17 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class vz3 {
+public class vz3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public void a(xc2 xc2Var, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, xc2Var, context) == null) {
-        }
-    }
+    public int a;
+    public String b;
 
     public vz3() {
         Interceptable interceptable = $ic;
@@ -28,5 +25,26 @@ public final class vz3 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public static vz3 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            vz3 vz3Var = new vz3();
+            vz3Var.a = jSONObject.optInt("state");
+            vz3Var.b = jSONObject.optString("msg");
+            return vz3Var;
+        }
+        return (vz3) invokeL.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "CheckPayAuthModel{state=" + this.a + ", msg='" + this.b + "'}";
+        }
+        return (String) invokeV.objValue;
     }
 }

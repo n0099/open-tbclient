@@ -1,27 +1,32 @@
 package com.baidu.tieba;
 
-import android.os.MessageQueue;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mvc.message.MvcNetMessage;
-import com.baidu.tbadk.mvc.message.MvcSocketMessage;
-import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
-import com.baidu.tieba.frs.mc.FrsModelController;
-import com.baidu.tieba.tbadkCore.FrsRequestData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-/* loaded from: classes8.dex */
-public class xm7 implements MessageQueue.IdleHandler {
+import java.util.ArrayList;
+import tbclient.BawuRoleInfoPub;
+/* loaded from: classes9.dex */
+public class xm7 implements en7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<FrsModelController> a;
-    public MvcSocketResponsedMessage<fda, ?> b;
-    public MvcSocketMessage<FrsRequestData, fda> c;
-    public MvcNetMessage<FrsRequestData, fda> d;
-    public mda e;
+    public ArrayList<BawuRoleInfoPub> a;
+    public boolean b;
+    public boolean c;
+    public String d;
+
+    @Override // com.baidu.tieba.en7
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
+    }
 
     public xm7() {
         Interceptable interceptable = $ic;
@@ -33,61 +38,75 @@ public class xm7 implements MessageQueue.IdleHandler {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList<>();
+        this.b = false;
+        this.c = false;
     }
 
-    @Override // android.os.MessageQueue.IdleHandler
-    public boolean queueIdle() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            FrsModelController frsModelController = this.a.get();
-            if (frsModelController == null) {
-                return false;
-            }
-            frsModelController.T0(this.b, this.c, this.d);
-            mda mdaVar = this.e;
-            if (mdaVar != null) {
-                mdaVar.b();
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
         return invokeV.booleanValue;
     }
 
-    public void a(FrsModelController frsModelController) {
+    public ArrayList<BawuRoleInfoPub> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, frsModelController) == null) {
-            this.a = new WeakReference<>(frsModelController);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.c = z;
         }
     }
 
-    public void b(mda mdaVar) {
+    public void g(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mdaVar) == null) {
-            this.e = mdaVar;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.b = z;
         }
     }
 
-    public void c(MvcSocketMessage<FrsRequestData, fda> mvcSocketMessage) {
+    public void h(ArrayList<BawuRoleInfoPub> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mvcSocketMessage) == null) {
-            this.c = mvcSocketMessage;
+        if (interceptable == null || interceptable.invokeL(1048583, this, arrayList) == null) {
+            this.a = arrayList;
         }
     }
 
-    public void d(MvcNetMessage<FrsRequestData, fda> mvcNetMessage) {
+    public void i(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, mvcNetMessage) == null) {
-            this.d = mvcNetMessage;
-        }
-    }
-
-    public void e(MvcSocketResponsedMessage<fda, ?> mvcSocketResponsedMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, mvcSocketResponsedMessage) == null) {
-            this.b = mvcSocketResponsedMessage;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.d = str;
         }
     }
 }

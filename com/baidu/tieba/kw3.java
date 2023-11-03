@@ -1,116 +1,30 @@
 package com.baidu.tieba;
 
-import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.tieba.mq2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class kw3 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "com.baidu.gamenow";
+    public static String b = "file_name";
+    public static String c = "file_unzip_path";
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
 
-    public kw3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = "swan";
-        this.d = "";
-        this.e = "";
-        this.f = "";
-        this.g = "";
-        this.h = "";
-        if (p53.c0() == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947927458, "Lcom/baidu/tieba/kw3;")) == null) {
             return;
         }
-        mq2.a X = p53.c0().X();
-        this.a = ic3.n(X.H());
-        this.c = X.I();
-        this.b = X.U();
-        this.f = X.t0().getString("aiapp_extra_need_download", "");
-        this.g = X.X();
-        this.h = X.f0();
-        this.i = X.W();
-        this.d = X.x1();
-        this.e = X.y1();
-    }
-
-    public kw3(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.a = "swan";
-        this.d = "";
-        this.e = "";
-        this.f = "";
-        this.g = "";
-        this.h = "";
-        if (jSONObject != null && jSONObject.length() != 0) {
-            this.a = jSONObject.optString("from", "swan");
-            this.c = jSONObject.optString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
-            this.b = jSONObject.optString("source");
-            this.f = jSONObject.optString("needDown");
-            this.g = jSONObject.optString("scheme");
-            this.h = jSONObject.optString("extPage");
-            this.i = jSONObject.optString("launchId", null);
-            this.d = jSONObject.optString("appVersion");
-            this.e = jSONObject.optString("thirdVersion");
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947927458, "Lcom/baidu/tieba/kw3;");
         }
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("from", this.a);
-                jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.c);
-                jSONObject.put("source", this.b);
-                jSONObject.put("needDown", this.f);
-                jSONObject.put("scheme", this.g);
-                jSONObject.put("extPage", this.h);
-                jSONObject.put("launchId", this.i);
-                jSONObject.put("appVersion", this.d);
-                jSONObject.put("thirdVersion", this.e);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeV.objValue;
     }
 }

@@ -7,8 +7,8 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.lka;
-import com.baidu.tieba.xda;
+import com.baidu.tieba.cra;
+import com.baidu.tieba.kxa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,13 +18,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public lka a;
+    public kxa a;
     public b b;
     public NetMessageListener c;
 
     /* loaded from: classes8.dex */
     public interface b {
-        void a(int i, String str, lka lkaVar);
+        void a(int i, String str, kxa kxaVar);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -110,12 +110,12 @@ public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActiv
             }
         }
         this.c = new a(this, CmdConfigHttp.CMD_GET_CARD_DETAIL, 309333);
-        xda.h(309333, PersonalCardDetailSocketReponse.class, false, false);
-        xda.c(309333, CmdConfigHttp.CMD_GET_CARD_DETAIL, TbConfig.GET_CARD_DETAIL, PersonalCardDetailHttpReponse.class, false, false, false, false);
+        cra.h(309333, PersonalCardDetailSocketReponse.class, false, false);
+        cra.c(309333, CmdConfigHttp.CMD_GET_CARD_DETAIL, TbConfig.GET_CARD_DETAIL, PersonalCardDetailHttpReponse.class, false, false, false, false);
         registerListener(this.c);
     }
 
-    public void Q(long j) {
+    public void R(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
             PersonalCardDetailRequest personalCardDetailRequest = new PersonalCardDetailRequest();
@@ -124,7 +124,7 @@ public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActiv
         }
     }
 
-    public void R(b bVar) {
+    public void S(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             this.b = bVar;

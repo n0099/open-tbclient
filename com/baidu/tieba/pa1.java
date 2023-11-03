@@ -1,27 +1,23 @@
 package com.baidu.tieba;
 
+import android.os.Build;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
 public class pa1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile oa1 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized oa1 a() {
+    public static int a() {
         InterceptResult invokeV;
-        oa1 oa1Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (pa1.class) {
-                if (a == null) {
-                    a = new oa1();
-                }
-                oa1Var = a;
+            if ("arm64-v8a".equalsIgnoreCase(Build.CPU_ABI)) {
+                return 2;
             }
-            return oa1Var;
+            return 1;
         }
-        return (oa1) invokeV.objValue;
+        return invokeV.intValue;
     }
 }

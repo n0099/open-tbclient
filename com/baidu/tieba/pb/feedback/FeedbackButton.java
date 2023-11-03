@@ -8,9 +8,9 @@ import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kg9;
 import com.baidu.tieba.pb.databinding.FeedbackButtonBinding;
 import com.baidu.tieba.pb.feedback.FeedbackButton;
+import com.baidu.tieba.pt9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -140,7 +140,7 @@ public final class FeedbackButton extends RelativeLayout {
         this(context, (i2 & 2) != 0 ? null : attributeSet, (i2 & 4) != 0 ? 0 : i);
     }
 
-    public static final void b(kg9 state, View view2) {
+    public static final void b(pt9 state, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, state, view2) == null) {
             Intrinsics.checkNotNullParameter(state, "$state");
@@ -160,11 +160,11 @@ public final class FeedbackButton extends RelativeLayout {
         return (FeedbackButtonBinding) invokeV.objValue;
     }
 
-    public final void a(final kg9 state) {
+    public final void a(final pt9 state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, state) == null) {
             Intrinsics.checkNotNullParameter(state, "state");
-            getBinding().getRoot().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.eg9
+            getBinding().getRoot().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.jt9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -172,7 +172,7 @@ public final class FeedbackButton extends RelativeLayout {
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        FeedbackButton.b(kg9.this, view2);
+                        FeedbackButton.b(pt9.this, view2);
                     }
                 }
             });

@@ -1,186 +1,138 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c8c;
-import com.baidu.tieba.k6c;
+import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.TimeUnit;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import org.bouncycastle.crypto.engines.AESEngine;
+import org.bouncycastle.crypto.prng.SP800SecureRandomBuilder;
 /* loaded from: classes5.dex */
-public final class b8c<T> extends c8c<T> {
-    public static /* synthetic */ Interceptable $ic;
+public class b8c {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = false;
+    public static boolean b = true;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public class a implements c8c.a<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
-        public final /* synthetic */ TimeUnit b;
-
-        /* renamed from: com.baidu.tieba.b8c$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class C0239a implements u6c {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ c8c.c a;
-            public final /* synthetic */ Long b;
-
-            public C0239a(a aVar, c8c.c cVar, Long l) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, cVar, l};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = cVar;
-                this.b = l;
-            }
-
-            @Override // com.baidu.tieba.u6c
-            public void call() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.g(this.b.longValue());
-                }
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947600284, "Lcom/baidu/tieba/b8c;")) == null) {
+            return;
         }
-
-        public a(long j, TimeUnit timeUnit) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), timeUnit};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = j;
-            this.b = timeUnit;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.c7c
-        /* renamed from: b */
-        public o6c a(c8c.c<T> cVar, Long l, k6c.a aVar) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, l, aVar)) == null) {
-                return aVar.c(new C0239a(this, cVar, l), this.a, this.b);
-            }
-            return (o6c) invokeLLL.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements c8c.b<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
-        public final /* synthetic */ TimeUnit b;
-
-        /* loaded from: classes5.dex */
-        public class a implements u6c {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ c8c.c a;
-            public final /* synthetic */ Long b;
-
-            public a(b bVar, c8c.c cVar, Long l) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, cVar, l};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = cVar;
-                this.b = l;
-            }
-
-            @Override // com.baidu.tieba.u6c
-            public void call() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.g(this.b.longValue());
-                }
-            }
-        }
-
-        public b(long j, TimeUnit timeUnit) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), timeUnit};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = j;
-            this.b = timeUnit;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.d7c
-        /* renamed from: a */
-        public o6c b(c8c.c<T> cVar, Long l, T t, k6c.a aVar) {
-            InterceptResult invokeLLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, cVar, l, t, aVar)) == null) {
-                return aVar.c(new a(this, cVar, l), this.a, this.b);
-            }
-            return (o6c) invokeLLLL.objValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b8c(long j, TimeUnit timeUnit, h6c<? extends T> h6cVar, k6c k6cVar) {
-        super(new a(j, timeUnit), new b(j, timeUnit), h6cVar, k6cVar);
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), timeUnit, h6cVar, k6cVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((c8c.a) objArr2[0], (c8c.b) objArr2[1], (h6c) objArr2[2], (k6c) objArr2[3]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947600284, "Lcom/baidu/tieba/b8c;");
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:29:0x001f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static SecureRandom a() {
+        InterceptResult invokeV;
+        SecureRandom secureRandom;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            f8c.b("EncryptUtil", "generateSecureRandomNew ");
+            try {
+            } catch (NoSuchAlgorithmException unused) {
+                f8c.c("EncryptUtil", "getSecureRandomBytes: NoSuchAlgorithmException");
+            }
+            if (Build.VERSION.SDK_INT >= 26) {
+                secureRandom = SecureRandom.getInstanceStrong();
+                if (secureRandom == null) {
+                    try {
+                        secureRandom = SecureRandom.getInstance("SHA1PRNG");
+                    } catch (NoSuchAlgorithmException unused2) {
+                        f8c.c("EncryptUtil", "NoSuchAlgorithmException");
+                        return secureRandom;
+                    } catch (Throwable th) {
+                        if (b) {
+                            f8c.c("EncryptUtil", "exception : " + th.getMessage() + " , you should implementation bcprov-jdk15on library");
+                            b = false;
+                        }
+                        return secureRandom;
+                    }
+                }
+                AESEngine aESEngine = new AESEngine();
+                byte[] bArr = new byte[32];
+                secureRandom.nextBytes(bArr);
+                return new SP800SecureRandomBuilder(secureRandom, true).setEntropyBitsRequired(384).buildCTR(aESEngine, 256, bArr, false);
+            }
+            secureRandom = null;
+            if (secureRandom == null) {
+            }
+            AESEngine aESEngine2 = new AESEngine();
+            byte[] bArr2 = new byte[32];
+            secureRandom.nextBytes(bArr2);
+            return new SP800SecureRandomBuilder(secureRandom, true).setEntropyBitsRequired(384).buildCTR(aESEngine2, 256, bArr2, false);
+        }
+        return (SecureRandom) invokeV.objValue;
+    }
+
+    public static byte[] b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            SecureRandom a2 = a();
+            if (a2 == null) {
+                return new byte[0];
+            }
+            byte[] bArr = new byte[i];
+            a2.nextBytes(bArr);
+            return bArr;
+        }
+        return (byte[]) invokeI.objValue;
+    }
+
+    public static String d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            return c8c.a(c(i));
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public static byte[] c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            if (!a) {
+                byte[] bArr = new byte[i];
+                SecureRandom secureRandom = null;
+                try {
+                    if (Build.VERSION.SDK_INT >= 26) {
+                        secureRandom = SecureRandom.getInstanceStrong();
+                    }
+                } catch (NoSuchAlgorithmException unused) {
+                    f8c.c("EncryptUtil", "getSecureRandomBytes: NoSuchAlgorithmException");
+                }
+                if (secureRandom == null) {
+                    try {
+                        secureRandom = SecureRandom.getInstance("SHA1PRNG");
+                    } catch (NoSuchAlgorithmException unused2) {
+                        f8c.c("EncryptUtil", "getSecureRandomBytes getInstance: NoSuchAlgorithmException");
+                        return new byte[0];
+                    } catch (Exception e) {
+                        f8c.c("EncryptUtil", "getSecureRandomBytes getInstance: exception : " + e.getMessage());
+                        return new byte[0];
+                    }
+                }
+                secureRandom.nextBytes(bArr);
+                return bArr;
+            }
+            return b(i);
+        }
+        return (byte[]) invokeI.objValue;
     }
 }

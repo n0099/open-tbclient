@@ -15,7 +15,7 @@ import com.google.zxing.aztec.detector.Detector;
 import com.google.zxing.common.DecoderResult;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class AztecReader implements Reader {
     @Override // com.google.zxing.Reader
     public void reset() {

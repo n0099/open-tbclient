@@ -1,72 +1,68 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import kotlin.jvm.JvmName;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import tbclient.ClickBackCard;
+import tbclient.ClickBackCardItem;
+@JvmName(name = "ClickBackCardBuilder")
 /* loaded from: classes8.dex */
-public abstract class wz4 implements Comparable<wz4> {
+public final class wz4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public Activity b;
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void callback(boolean z);
-    }
-
-    public abstract void b();
-
-    public abstract void d(a aVar);
-
-    public abstract void e();
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-        }
-    }
-
-    public wz4(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = Integer.MIN_VALUE;
-        this.b = activity;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(wz4 wz4Var) {
+    public static final ClickBackCard a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, wz4Var)) == null) {
-            return this.a - wz4Var.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
+            if (jSONObject != null) {
+                ClickBackCard.Builder builder = new ClickBackCard.Builder();
+                builder.card_name = jSONObject.optString("card_name");
+                JSONArray optJSONArray = jSONObject.optJSONArray("card_list");
+                ArrayList arrayList = new ArrayList();
+                if (optJSONArray != null) {
+                    int length = optJSONArray.length();
+                    for (int i = 0; i < length; i++) {
+                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                        ClickBackCardItem.Builder builder2 = new ClickBackCardItem.Builder();
+                        builder2.text = optJSONObject.optString("text");
+                        builder2.jump_url = optJSONObject.optString(BigdayActivityConfig.JUMP_URL);
+                        builder2.business_id = Long.valueOf(optJSONObject.optLong("business_id"));
+                        builder2.business_type = optJSONObject.optString("business_type");
+                        ClickBackCardItem build = builder2.build(true);
+                        Intrinsics.checkNotNullExpressionValue(build, "builder1.build(true)");
+                        arrayList.add(build);
+                    }
+                    builder.card_list = arrayList;
+                }
+                return builder.build(true);
+            }
+            return null;
         }
-        return invokeL.intValue;
+        return (ClickBackCard) invokeL.objValue;
     }
 
-    public final void c() {
+    public static final ClickBackCard b(String str) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            xz4.j();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (str != null && str.length() != 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
+                return null;
+            }
+            return a(new JSONObject(str));
         }
+        return (ClickBackCard) invokeL.objValue;
     }
 }

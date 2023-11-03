@@ -303,7 +303,7 @@ public final class CountDownView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             EMManager.from(this).setCorner(R.string.J_X01).setBackGroundColor(R.color.CAM_X0607);
-            this.b.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080b43, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
+            this.b.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080b52, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
             EMManager.from(this.a).setTextColor(R.color.CAM_X0101);
         }
     }
@@ -363,7 +363,7 @@ public final class CountDownView extends LinearLayout {
             setGravity(16);
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X003);
             setPadding(dimenPixelSize, 0, dimenPixelSize, 0);
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.iu6
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yv6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

@@ -1,28 +1,156 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
-import android.os.Build;
-import androidx.annotation.ColorRes;
-import androidx.annotation.DrawableRes;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.graphics.Rect;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
+import android.widget.FrameLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@SuppressLint({"ResourceAsColor"})
 /* loaded from: classes5.dex */
-public class c55 extends TBSpecificationButtonConfig {
+public class c55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean v;
+    public int a;
+    public boolean b;
+    public View c;
+    public int d;
+    public ViewGroup.LayoutParams e;
+    public int f;
+    public Runnable g;
+    public FrameLayout h;
+    public int i;
+    public boolean j;
+    public ViewTreeObserver.OnGlobalLayoutListener k;
+    public int l;
+    public CustomMessageListener m;
 
-    public c55() {
+    /* loaded from: classes5.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c55 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(c55 c55Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c55Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = c55Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) {
+                return;
+            }
+            this.a.b = true;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements ViewTreeObserver.OnGlobalLayoutListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c55 a;
+
+        public b(c55 c55Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c55Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = c55Var;
+        }
+
+        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+        public void onGlobalLayout() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            this.a.m();
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c55 a;
+
+        public c(c55 c55Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c55Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = c55Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            this.a.n();
+        }
+    }
+
+    public c55(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,111 +160,225 @@ public class c55 extends TBSpecificationButtonConfig {
                 return;
             }
         }
-        this.j = true;
-        this.b = R.color.CAM_X0101;
-        this.d = R.color.CAM_X0302;
-        this.v = false;
-        this.o = this.p;
-        this.n = this.m;
+        this.a = 3;
+        this.i = R.color.CAM_X0201;
+        this.j = false;
+        this.k = null;
+        this.l = 0;
+        this.m = new a(this, 2921414);
+        j(activity, R.color.CAM_X0201, true);
     }
 
-    @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
-    public Drawable a(float f) {
-        InterceptResult invokeF;
+    public c55(Activity activity, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
-            return t(f);
-        }
-        return (Drawable) invokeF.objValue;
-    }
-
-    public void r(@ColorRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.b = i;
-            this.d = R.color.CAM_X0904;
-            this.v = false;
-            TBSpecificationButtonConfig.a aVar = this.u;
-            if (aVar != null) {
-                aVar.c();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, Integer.valueOf(i), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = 3;
+        this.i = R.color.CAM_X0201;
+        this.j = false;
+        this.k = null;
+        this.l = 0;
+        this.m = new a(this, 2921414);
+        j(activity, i, z);
     }
 
-    public void s(@ColorRes int i) {
+    public c55(Activity activity, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.b = R.color.CAM_X0101;
-            this.d = i;
-            this.v = false;
-            TBSpecificationButtonConfig.a aVar = this.u;
-            if (aVar != null) {
-                aVar.c();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
         }
+        this.a = 3;
+        this.i = R.color.CAM_X0201;
+        this.j = false;
+        this.k = null;
+        this.l = 0;
+        this.m = new a(this, 2921414);
+        j(activity, R.color.CAM_X0201, z);
     }
 
-    public final Drawable t(float f) {
-        InterceptResult invokeF;
+    public static c55 f(Activity activity, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048580, this, f)) == null) {
-            if (this.v) {
-                return u(f);
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65544, null, activity, z)) == null) {
+            return new c55(activity, z);
+        }
+        return (c55) invokeLZ.objValue;
+    }
+
+    public static c55 d(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, activity)) == null) {
+            return new c55(activity);
+        }
+        return (c55) invokeL.objValue;
+    }
+
+    public final void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            if (this.g != null) {
+                SafeHandler.getInst().removeCallbacks(this.g);
+                this.g = null;
             }
-            return v(f);
-        }
-        return (Drawable) invokeF.objValue;
-    }
-
-    public final Drawable v(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048582, this, f)) == null) {
-            GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setColor(SkinManager.getColor(this.s, this.d));
-            gradientDrawable.setShape(0);
-            gradientDrawable.setCornerRadius(f);
-            return gradientDrawable;
-        }
-        return (Drawable) invokeF.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
-    @Deprecated
-    public void j(int i, int i2, TBSpecificationButtonConfig.IconType iconType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, iconType) == null) {
-            w(i, iconType);
+            this.g = new c(this);
+            SafeHandler.getInst().postDelayed(this.g, i);
         }
     }
 
-    public final Drawable u(float f) {
-        InterceptResult invokeF;
-        GradientDrawable gradientDrawable;
+    public final boolean i(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
-            int color = SkinManager.getColor(this.s, this.d);
-            int[] iArr = {vca.c(color), color};
-            if (Build.VERSION.SDK_INT >= 16) {
-                gradientDrawable = new GradientDrawable();
-                gradientDrawable.setOrientation(this.t);
-                gradientDrawable.setColors(iArr);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            if (this.b && Math.abs(i) > 150) {
+                return true;
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void l(int i) {
+        FrameLayout frameLayout;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048581, this, i) != null) || !this.j) {
+            return;
+        }
+        if (i != this.a && (frameLayout = this.h) != null) {
+            SkinManager.setBackgroundColor(frameLayout, this.i);
+        }
+        this.a = i;
+    }
+
+    public void o(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.l = i;
+        }
+    }
+
+    public static c55 e(Activity activity, int i, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{activity, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            return new c55(activity, i, z);
+        }
+        return (c55) invokeCommon.objValue;
+    }
+
+    public final int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Rect rect = new Rect();
+            this.c.getWindowVisibleDisplayFrame(rect);
+            return rect.bottom;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.c.requestLayout();
+        }
+    }
+
+    public final void j(Activity activity, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{activity, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            this.i = i;
+            this.j = z;
+            FrameLayout frameLayout = (FrameLayout) activity.findViewById(16908290);
+            this.h = frameLayout;
+            if (z) {
+                SkinManager.setBackgroundColor(frameLayout, i);
             } else {
-                gradientDrawable = new GradientDrawable(this.t, iArr);
+                SkinManager.setBackgroundColor(frameLayout, i, 0);
             }
-            gradientDrawable.setGradientType(0);
-            gradientDrawable.setShape(0);
-            gradientDrawable.setCornerRadius(f);
-            return gradientDrawable;
+            View childAt = this.h.getChildAt(0);
+            this.c = childAt;
+            if (childAt == null) {
+                return;
+            }
+            this.k = new b(this);
+            this.c.getViewTreeObserver().addOnGlobalLayoutListener(this.k);
+            this.e = this.c.getLayoutParams();
+            MessageManager.getInstance().registerListener(this.m);
         }
-        return (Drawable) invokeF.objValue;
     }
 
-    public void w(@DrawableRes int i, TBSpecificationButtonConfig.IconType iconType) {
+    public void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048583, this, i, iconType) == null) {
-            this.e[0] = i;
-            this.f = iconType;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.g != null) {
+                SafeHandler.getInst().removeCallbacks(this.g);
+                this.g = null;
+            }
+            View view2 = this.c;
+            if (view2 != null) {
+                view2.getViewTreeObserver().removeGlobalOnLayoutListener(this.k);
+                this.k = null;
+            }
+            MessageManager.getInstance().unRegisterListener(this.m);
+            this.c = null;
+            this.h = null;
+        }
+    }
+
+    public final void m() {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || (view2 = this.c) == null) {
+            return;
+        }
+        int height = view2.getHeight();
+        if (height > this.f) {
+            this.f = height;
+        }
+        int g = g();
+        int i = this.l;
+        if (i > 0 && i <= this.e.height) {
+            g -= i;
+        }
+        if (g != this.d) {
+            int i2 = this.f;
+            int i3 = i2 - g;
+            if (i3 == 0) {
+                this.e.height = i2;
+                n();
+            } else if (i3 > 200) {
+                this.e.height = i2 - i3;
+                h(200);
+                if (TbadkCoreApplication.getInst().isKeyboardHeightCanSet(i3) && i3 < (this.f * 2) / 3 && TbadkCoreApplication.getInst().getKeyboardHeight() != i3) {
+                    TbadkCoreApplication.getInst().setKeyboardHeight(i3);
+                }
+            } else if (i(i3)) {
+                this.e.height = i2 - i3;
+                h(200);
+            }
+            this.d = g;
         }
     }
 }

@@ -1,27 +1,53 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import androidx.annotation.NonNull;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.log.TbLog;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import tbclient.BawuThrones;
 /* loaded from: classes6.dex */
-public class hp7 implements e15 {
+public class hp7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public bq7 a;
+    public BawuThrones b;
+
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static hp7 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-739705860, "Lcom/baidu/tieba/hp7$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-739705860, "Lcom/baidu/tieba/hp7$b;");
+                    return;
+                }
+            }
+            a = new hp7(null);
+        }
+    }
 
     public hp7() {
         Interceptable interceptable = $ic;
@@ -37,67 +63,64 @@ public class hp7 implements e15 {
         }
     }
 
-    @Override // com.baidu.tieba.e15
-    @NonNull
-    public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
-        InterceptResult invokeLLL;
+    public static hp7 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogStrategiesData, map, map2)) == null) {
-            HashMap hashMap = new HashMap(map);
-            hashMap.put("dialogName", "frsShield");
-            hashMap.putAll(map);
-            hashMap.putAll(map2);
-            return hashMap;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
         }
-        return (Map) invokeLLL.objValue;
+        return (hp7) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.e15
-    public boolean b(@NonNull Map<String, Object> map) {
-        InterceptResult invokeL;
-        boolean z;
-        boolean z2;
-        boolean z3;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            boolean z4 = false;
-            if (!(currentActivity instanceof FrsActivity)) {
-                YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "吧内屏蔽弹窗策略校验失败：当前Activity非FrsActivity");
-                return false;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b = null;
+            bq7 bq7Var = this.a;
+            if (bq7Var != null) {
+                bq7Var.g();
             }
-            FrsFragment r1 = ((FrsActivity) currentActivity).r1();
-            if (r1 != null && !r1.H4() && TbSingleton.getInstance().getFrsResponseData() != null) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (!z) {
-                TbLog yunDialogLog = YunDialogLog.getInstance();
-                StringBuilder sb = new StringBuilder();
-                sb.append("吧内屏蔽弹窗策略校验失败：FrsFragment为空->");
-                if (r1 == null) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                sb.append(z2);
-                sb.append("|Frs是否展示过弹窗->");
-                if (r1 != null && r1.H4()) {
-                    z3 = true;
-                } else {
-                    z3 = false;
-                }
-                sb.append(z3);
-                sb.append("|是否存在FRS数据->");
-                if (TbSingleton.getInstance().getFrsResponseData() != null) {
-                    z4 = true;
-                }
-                sb.append(z4);
-                yunDialogLog.e(YunDialogManager.LOG_KEY, sb.toString());
-            }
-            return z;
+            this.a = null;
         }
-        return invokeL.booleanValue;
+    }
+
+    public BawuThrones b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (BawuThrones) invokeV.objValue;
+    }
+
+    public /* synthetic */ hp7(a aVar) {
+        this();
+    }
+
+    public void e(BawuThrones bawuThrones) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bawuThrones) == null) {
+            this.b = bawuThrones;
+        }
+    }
+
+    public void d(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_RECOMMEND);
+            httpMessage.addParam("forum_id", str);
+            httpMessage.addParam("thread_id", str2);
+            MessageManager.getInstance().sendMessage(httpMessage);
+        }
+    }
+
+    public void f(TbPageContext tbPageContext, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, tbPageContext, str, str2) == null) {
+            if (this.a == null) {
+                this.a = new bq7();
+            }
+            this.a.i(tbPageContext, str, str2);
+        }
     }
 }

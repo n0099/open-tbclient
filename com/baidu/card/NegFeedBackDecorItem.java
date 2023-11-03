@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.data.NegativeFeedBackData;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jv4;
-import com.baidu.tieba.kt;
-import com.baidu.tieba.qs;
-import com.baidu.tieba.rs;
-import com.baidu.tieba.yr;
+import com.baidu.tieba.bu;
+import com.baidu.tieba.bw4;
+import com.baidu.tieba.ht;
+import com.baidu.tieba.it;
+import com.baidu.tieba.ps;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class NegFeedBackDecorItem extends yr implements qs<NegativeFeedBackData>, rs {
+public class NegFeedBackDecorItem extends ps implements ht<NegativeFeedBackData>, it {
     public static /* synthetic */ Interceptable $ic;
     public static final int VIEW_WH;
     public transient /* synthetic */ FieldHolder $fh;
@@ -138,7 +138,7 @@ public class NegFeedBackDecorItem extends yr implements qs<NegativeFeedBackData>
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qs
+    @Override // com.baidu.tieba.ht
     public void onBindDataToView(NegativeFeedBackData negativeFeedBackData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, negativeFeedBackData) == null) {
@@ -180,10 +180,10 @@ public class NegFeedBackDecorItem extends yr implements qs<NegativeFeedBackData>
         }
     }
 
-    private void setAlignTop(jv4 jv4Var) {
+    private void setAlignTop(bw4 bw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, this, jv4Var) == null) {
-            if (jv4Var.showCardBottomOpWeight()) {
+        if (interceptable == null || interceptable.invokeL(65541, this, bw4Var) == null) {
+            if (bw4Var.showCardBottomOpWeight()) {
                 int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds80);
                 int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.tbds88);
                 int dimenPixelSize3 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
@@ -236,18 +236,18 @@ public class NegFeedBackDecorItem extends yr implements qs<NegativeFeedBackData>
         }
     }
 
-    public void autoAlignParent(jv4 jv4Var) {
+    public void autoAlignParent(bw4 bw4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jv4Var) == null) && jv4Var != null && jv4Var.getNegFeedBackData() != null) {
-            if (jv4Var.getNegFeedBackData().getTopicID() <= 0 && jv4Var.getThreadData() != null) {
-                if (!jv4Var.showCardBottomOpWeight() && !jv4Var.isFromFrs()) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bw4Var) == null) && bw4Var != null && bw4Var.getNegFeedBackData() != null) {
+            if (bw4Var.getNegFeedBackData().getTopicID() <= 0 && bw4Var.getThreadData() != null) {
+                if (!bw4Var.showCardBottomOpWeight() && !bw4Var.isFromFrs()) {
                     autoAlignParent(Align.ALIGN_RIGHT_BOTTOM);
-                } else if (jv4Var.isSupportTop()) {
+                } else if (bw4Var.isSupportTop()) {
                     setTopMarginParentAlignTop(UtilHelper.getDimenPixelSize(R.dimen.tbds50));
-                } else if (jv4Var.isSupportBottom()) {
-                    kt ktVar = this.threadCard;
-                    if (ktVar != null) {
-                        ktVar.p(this);
+                } else if (bw4Var.isSupportBottom()) {
+                    bu buVar = this.threadCard;
+                    if (buVar != null) {
+                        buVar.p(this);
                     }
                 } else {
                     autoAlignParent(Align.ALIGN_RIGHT_TOP);
@@ -255,7 +255,7 @@ public class NegFeedBackDecorItem extends yr implements qs<NegativeFeedBackData>
             } else if (this.isConcernRecommend) {
                 adjustForConcernRecommend();
             } else {
-                setAlignTop(jv4Var);
+                setAlignTop(bw4Var);
             }
         }
     }
@@ -309,7 +309,7 @@ public class NegFeedBackDecorItem extends yr implements qs<NegativeFeedBackData>
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yr
+    @Override // com.baidu.tieba.ps
     public NEGFeedBackView getDecorView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -319,7 +319,7 @@ public class NegFeedBackDecorItem extends yr implements qs<NegativeFeedBackData>
         return (NEGFeedBackView) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.rs
+    @Override // com.baidu.tieba.it
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048583, this, tbPageContext, i) == null) {

@@ -4,7 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.task.UpgradeInfo;
-import com.baidu.tieba.zv4;
+import com.baidu.tieba.rw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class FunAdSidConfigData extends zv4 implements Serializable {
+public class FunAdSidConfigData extends rw4 implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<String> mBearSidList;
@@ -97,7 +97,7 @@ public class FunAdSidConfigData extends zv4 implements Serializable {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.zv4
+    @Override // com.baidu.tieba.rw4
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048582, this, jSONObject) != null) || jSONObject == null) {

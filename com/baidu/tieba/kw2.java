@@ -1,178 +1,199 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Rect;
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class kw2 extends jw2 {
+import java.io.File;
+import java.io.FileFilter;
+import java.util.List;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class kw2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public kw2(double d) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Double.valueOf(d)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes7.dex */
+    public static class a implements FileFilter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.io.FileFilter
+        public boolean accept(File file) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
+                if (file.isDirectory() && TextUtils.isDigitsOnly(file.getName())) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947927427, "Lcom/baidu/tieba/kw2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947927427, "Lcom/baidu/tieba/kw2;");
                 return;
             }
         }
-        this.a = d;
+        a = rm1.a;
     }
 
-    @Override // com.baidu.tieba.jw2
-    public boolean a(Bitmap bitmap, Rect rect) {
+    public static void a(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65537, null, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        File file = new File(cp2.g(), str);
+        if (!file.exists()) {
+            return;
+        }
+        if (a) {
+            Log.d("PkgInfoExt", "clear all pkg info's ext ,appId - " + str);
+        }
+        File[] listFiles = file.listFiles(new a());
+        if (listFiles != null && listFiles.length > 0) {
+            for (File file2 : listFiles) {
+                b(str, file2.getName());
+            }
+        }
+    }
+
+    public static String f(PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, pMSAppInfo)) == null) {
+            if (pMSAppInfo == null) {
+                return "";
+            }
+            String c = c(pMSAppInfo);
+            if (TextUtils.isEmpty(c)) {
+                return "";
+            }
+            String string = ue3.a().getString(c, "");
+            if (a) {
+                Log.d("PkgInfoExt", "appId - " + pMSAppInfo.appId + ", get pkg info' ext - " + string);
+            }
+            return string;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            String e = e(str, str2);
+            if (TextUtils.isEmpty(e)) {
+                return;
+            }
+            ue3.a().edit().remove(e).apply();
+            if (a) {
+                Log.d("PkgInfoExt", "clear pkg info's ext , appId - " + str + ", version code - " + str2);
+            }
+        }
+    }
+
+    public static String c(PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, pMSAppInfo)) == null) {
+            return d(pMSAppInfo.appId, pMSAppInfo.versionCode);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String d(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j)) == null) {
+            return e(str, String.valueOf(j));
+        }
+        return (String) invokeLJ.objValue;
+    }
+
+    public static String e(String str, String str2) {
         InterceptResult invokeLL;
-        Rect rect2;
-        int i;
-        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bitmap, rect)) == null) {
-            if (jw2.c) {
-                Log.d("ErrorPageParser", "GridErrorPageParser: start error page parse");
-            }
-            if (bitmap == null) {
-                return false;
-            }
-            if (!b(bitmap, rect)) {
-                rect2 = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                return str + "_" + str2 + "_pkg_info_ext";
+            } else if (a) {
+                Log.e("PkgInfoExt", "#getExtKey appId or version code is empty");
+                Log.d("PkgInfoExt", "#getExtKey appId=" + str + " version=" + str2);
+                return null;
             } else {
-                rect2 = rect;
+                return null;
             }
-            int width = rect2.width() - 2;
-            int height = rect2.height() - 2;
-            int i3 = width / 3;
-            int i4 = height / i3;
-            int ceil = (int) Math.ceil(i4 * 3 * this.a);
-            int i5 = 0;
-            int i6 = 0;
-            while (i6 < 3) {
-                int i7 = rect2.left;
-                int i8 = (i6 * i3) + 1 + i7;
-                if (i6 == 2) {
-                    i = width + 1;
-                } else {
-                    i = ((i6 + 1) * i3) + i7;
-                }
-                int i9 = i;
-                int i10 = i5;
-                int i11 = 0;
-                while (i11 < i4) {
-                    int i12 = rect2.top;
-                    int i13 = (i11 * i3) + 1 + i12;
-                    if (i11 == i4 - 1) {
-                        i2 = height + 1;
-                    } else {
-                        i2 = ((i11 + 1) * i3) + i12;
-                    }
-                    int i14 = i11;
-                    if (e(bitmap, i8, i13, i9, i2)) {
-                        int i15 = i10 + 1;
-                        if (i15 >= ceil) {
-                            return true;
-                        }
-                        i10 = i15;
-                    }
-                    i11 = i14 + 1;
-                }
-                i6++;
-                i5 = i10;
-            }
-            return false;
         }
-        return invokeLL.booleanValue;
+        return (String) invokeLL.objValue;
     }
 
-    public double d(Bitmap bitmap, Rect rect) {
-        InterceptResult invokeLL;
-        Rect rect2;
-        int i;
-        int i2;
+    public static void g(String str, JSONObject jSONObject, ff4 ff4Var, List<gf4> list) {
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, rect)) == null) {
-            if (jw2.c) {
-                Log.d("ErrorPageParser", "GridErrorPageParser: start error page parse");
-            }
-            if (bitmap == null) {
-                return 0.0d;
-            }
-            if (!b(bitmap, rect)) {
-                rect2 = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
+        if (interceptable == null || interceptable.invokeLLLL(65543, null, str, jSONObject, ff4Var, list) == null) {
+            if (jSONObject == null) {
+                if (a) {
+                    Log.d("PkgInfoExt", "pkgObject from pms is null");
+                }
+            } else if (ff4Var == null && list == null) {
+                if (a) {
+                    Log.d("PkgInfoExt", "pkg info's ext must has at lest one main or sub pkg");
+                }
             } else {
-                rect2 = rect;
-            }
-            int width = rect2.width() - 2;
-            int height = rect2.height() - 2;
-            int i3 = width / 3;
-            if (i3 == 0) {
-                return 0.0d;
-            }
-            int i4 = height / i3;
-            int i5 = 0;
-            int i6 = 0;
-            while (i5 < 3) {
-                int i7 = rect2.left;
-                int i8 = (i5 * i3) + 1 + i7;
-                if (i5 == 2) {
-                    i = width + 1;
+                String str2 = null;
+                if (ff4Var != null) {
+                    str = ff4Var.g;
+                    j = ff4Var.i;
+                    str2 = ff4Var.p;
+                } else if (list.size() > 0) {
+                    gf4 gf4Var = list.get(0);
+                    j = gf4Var.i;
+                    str2 = gf4Var.s;
                 } else {
-                    i = ((i5 + 1) * i3) + i7;
+                    j = -1;
                 }
-                int i9 = i;
-                int i10 = i6;
-                int i11 = 0;
-                while (i11 < i4) {
-                    int i12 = rect2.top;
-                    int i13 = (i11 * i3) + 1 + i12;
-                    if (i11 == i4 - 1) {
-                        i2 = height + 1;
-                    } else {
-                        i2 = ((i11 + 1) * i3) + i12;
+                if (str2 == null) {
+                    if (a) {
+                        Log.e("PkgInfoExt", "can not get ext from pkg ");
                     }
-                    int i14 = i11;
-                    if (e(bitmap, i8, i13, i9, i2)) {
-                        i10++;
-                    }
-                    i11 = i14 + 1;
+                } else if (!TextUtils.isEmpty(str) && j != -1) {
+                    ue3.a().edit().putString(d(str, j), str2).apply();
+                } else if (a) {
+                    Log.e("PkgInfoExt", "can not get appId and version code from pkg ");
                 }
-                i5++;
-                i6 = i10;
             }
-            return i6 / (i4 * 3);
         }
-        return invokeLL.doubleValue;
-    }
-
-    public final boolean e(Bitmap bitmap, int i, int i2, int i3, int i4) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-            if (i < 0 || i3 < i || i2 < 0 || i4 < i2) {
-                return false;
-            }
-            int pixel = bitmap.getPixel(i, i2);
-            while (i <= i3) {
-                for (int i5 = i2; i5 <= i4; i5++) {
-                    if (pixel != bitmap.getPixel(i, i5)) {
-                        return false;
-                    }
-                }
-                i++;
-            }
-            return true;
-        }
-        return invokeCommon.booleanValue;
     }
 }

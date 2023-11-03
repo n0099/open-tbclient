@@ -1,134 +1,98 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class h8a {
+public class h8a extends yk6<a7a> {
     public static /* synthetic */ Interceptable $ic;
-    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public NetWork b;
+    public View i;
+    public TbImageView j;
+    public TextView k;
+    public ImageView l;
+    public a7a m;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947778968, "Lcom/baidu/tieba/h8a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947778968, "Lcom/baidu/tieba/h8a;");
-                return;
-            }
-        }
-        c = TbConfig.SERVER_ADDRESS + "c/c/forum/msign";
+    @Override // com.baidu.tieba.yk6
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d080d : invokeV.intValue;
     }
 
-    public h8a() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public h8a(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = null;
+        View i3 = i();
+        this.i = i3;
+        this.j = (TbImageView) i3.findViewById(R.id.obfuscated_res_0x7f091d5a);
+        this.k = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f091d59);
+        this.l = (ImageView) this.i.findViewById(R.id.obfuscated_res_0x7f091d5b);
+        this.i.setOnClickListener(this);
     }
 
-    public void a() {
-        NetWork netWork;
+    @Override // com.baidu.tieba.yk6
+    public void l(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (netWork = this.b) != null) {
-            netWork.cancelNetConnect();
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) != null) || this.a == i) {
+            return;
+        }
+        this.a = i;
+        SkinManager.setBackgroundColor(this.i, R.color.CAM_X0201);
+        SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1);
+        SkinManager.setImageResource(this.l, R.drawable.icon_play_video, i);
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && this.i == view2) {
+            MessageManager messageManager = MessageManager.getInstance();
+            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.c);
+            a7a a7aVar = this.m;
+            messageManager.sendMessage(new CustomMessage(2004001, pbActivityConfig.createNormalCfg(a7aVar.c, a7aVar.d, "person_page")));
         }
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.yk6
+    /* renamed from: p */
+    public void k(a7a a7aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            NetWork netWork = this.b;
-            if (netWork != null) {
-                return netWork.getErrorString();
-            }
-            return null;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, a7aVar) != null) || a7aVar == null) {
+            return;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            NetWork netWork = this.b;
-            if (netWork != null) {
-                return netWork.getNetContext().getResponse().isRequestSuccess();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public String e(String str) {
-        InterceptResult invokeL;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-            if (currentAccountObj != null) {
-                str2 = currentAccountObj.getID();
-            } else {
-                str2 = null;
-            }
-            NetWork netWork = new NetWork(c);
-            this.b = netWork;
-            netWork.addPostData("user_id", str2);
-            this.b.addPostData("forum_ids", str);
-            this.b.addPostData("authsid", this.a);
-            this.b.getNetContext().getRequest().mNeedBackgroundLogin = true;
-            this.b.getNetContext().getRequest().mIsNeedTbs = true;
-            this.b.setNeedSig(true);
-            return this.b.postNetData();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            NetWork netWork = new NetWork(c);
-            this.b = netWork;
-            netWork.addPostData("authsid", this.a);
-            this.b.getNetContext().getRequest().mNeedBackgroundLogin = true;
-            this.b.getNetContext().getRequest().mIsNeedTbs = true;
-            this.b.setNeedSig(true);
-            return this.b.postNetData();
-        }
-        return (String) invokeV.objValue;
+        this.m = a7aVar;
+        this.j.startLoad(a7aVar.a, 10, false);
+        this.k.setText(a7aVar.b);
+        l(this.b, TbadkCoreApplication.getInst().getSkinType());
     }
 }

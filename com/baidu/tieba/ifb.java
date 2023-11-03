@@ -1,34 +1,43 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.renderscript.Allocation;
-import android.renderscript.Element;
-import android.renderscript.RenderScript;
-import android.renderscript.ScriptIntrinsicYuvToRGB;
-import android.renderscript.Type;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tieba.jfb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class ifb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RenderScript a;
-    public ScriptIntrinsicYuvToRGB b;
-    public Type.Builder c;
-    public Type.Builder d;
-    public Allocation e;
-    public Allocation f;
+    @NonNull
+    public final TbPageContext<?> a;
+    @NonNull
+    public final jeb b;
+    @NonNull
+    public final EditorTools c;
+    @NonNull
+    public final cdb d;
+    @NonNull
+    public final ufb e;
+    @NonNull
+    public final yfb f;
+    @NonNull
+    public final WriteData g;
 
-    public ifb(Context context) {
+    public ifb(@NonNull TbPageContext<?> tbPageContext, @NonNull jeb jebVar, @NonNull EditorTools editorTools, @NonNull cdb cdbVar, @NonNull ufb ufbVar, @NonNull yfb yfbVar, @NonNull WriteData writeData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {tbPageContext, jebVar, editorTools, cdbVar, ufbVar, yfbVar, writeData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,32 +47,180 @@ public class ifb {
                 return;
             }
         }
-        RenderScript create = RenderScript.create(context);
-        this.a = create;
-        this.b = ScriptIntrinsicYuvToRGB.create(create, Element.U8_4(create));
+        this.a = tbPageContext;
+        this.b = jebVar;
+        this.c = editorTools;
+        this.d = cdbVar;
+        this.e = ufbVar;
+        this.f = yfbVar;
+        this.g = writeData;
     }
 
-    public Bitmap a(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
+    public List<neb<?>> a(List<jfb.a> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
-            if (this.c == null) {
-                RenderScript renderScript = this.a;
-                Type.Builder x = new Type.Builder(renderScript, Element.U8(renderScript)).setX(bArr.length);
-                this.c = x;
-                this.e = Allocation.createTyped(this.a, x.create(), 1);
-                RenderScript renderScript2 = this.a;
-                Type.Builder y = new Type.Builder(renderScript2, Element.RGBA_8888(renderScript2)).setX(i).setY(i2);
-                this.d = y;
-                this.f = Allocation.createTyped(this.a, y.create(), 1);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (jfb.a aVar : list) {
+                neb<?> b = b(aVar);
+                if (b != null) {
+                    b.h(aVar.b, this.g);
+                    arrayList.add(b);
+                }
             }
-            this.e.copyFrom(bArr);
-            this.b.setInput(this.e);
-            this.b.forEach(this.f);
-            Bitmap createBitmap = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
-            this.f.copyTo(createBitmap);
-            return createBitmap;
+            return arrayList;
         }
-        return (Bitmap) invokeLII.objValue;
+        return (List) invokeL.objValue;
+    }
+
+    public neb<?> b(jfb.a aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
+            if (aVar == null) {
+                return null;
+            }
+            String str = aVar.a;
+            char c = 65535;
+            int hashCode = str.hashCode();
+            switch (hashCode) {
+                case 3118:
+                    if (str.equals("c1")) {
+                        c = 7;
+                        break;
+                    }
+                    break;
+                case 3119:
+                    if (str.equals("c2")) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case 3120:
+                    if (str.equals("c3")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+                case 3121:
+                    if (str.equals("c4")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 3122:
+                    if (str.equals("c5")) {
+                        c = '\r';
+                        break;
+                    }
+                    break;
+                case 3123:
+                    if (str.equals("c6")) {
+                        c = '\f';
+                        break;
+                    }
+                    break;
+                case 3124:
+                    if (str.equals("c7")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 3125:
+                    if (str.equals("c8")) {
+                        c = 11;
+                        break;
+                    }
+                    break;
+                case 3126:
+                    if (str.equals("c9")) {
+                        c = 14;
+                        break;
+                    }
+                    break;
+                default:
+                    switch (hashCode) {
+                        case 96706:
+                            if (str.equals("c10")) {
+                                c = 15;
+                                break;
+                            }
+                            break;
+                        case 96707:
+                            if (str.equals("c11")) {
+                                c = 6;
+                                break;
+                            }
+                            break;
+                        case 96708:
+                            if (str.equals("c12")) {
+                                c = '\t';
+                                break;
+                            }
+                            break;
+                        case 96709:
+                            if (str.equals("c13")) {
+                                c = '\n';
+                                break;
+                            }
+                            break;
+                        case 96710:
+                            if (str.equals("c14")) {
+                                c = 0;
+                                break;
+                            }
+                            break;
+                        case 96711:
+                            if (str.equals("c15")) {
+                                c = 1;
+                                break;
+                            }
+                            break;
+                        case 96712:
+                            if (str.equals("c16")) {
+                                c = '\b';
+                                break;
+                            }
+                            break;
+                    }
+            }
+            switch (c) {
+                case 0:
+                    return qfb.a(this.a);
+                case 1:
+                    return qfb.b(this.a);
+                case 2:
+                    return qfb.c(this.a, this.b, this.c, this.d, this.e);
+                case 3:
+                    return qfb.e(this.a);
+                case 4:
+                    return qfb.f(this.a);
+                case 5:
+                    return qfb.g(this.a);
+                case 6:
+                    return qfb.h(this.a, this.f);
+                case 7:
+                    return qfb.i(this.a);
+                case '\b':
+                    return qfb.j(this.a);
+                case '\t':
+                    return qfb.k(this.a);
+                case '\n':
+                    return qfb.l(this.a);
+                case 11:
+                    return qfb.m(this.a, this.b, this.c, this.f, this.d, this.e);
+                case '\f':
+                    return qfb.n(this.a, this.b, this.d, this.e);
+                case '\r':
+                    return qfb.o(this.a);
+                case 14:
+                    return qfb.p(this.a);
+                case 15:
+                    return qfb.q(this.a);
+                default:
+                    return null;
+            }
+        }
+        return (neb) invokeL.objValue;
     }
 }

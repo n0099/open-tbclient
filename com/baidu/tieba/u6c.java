@@ -1,5 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes8.dex */
 public interface u6c {
-    void call();
+    String a(String str, String str2);
 }

@@ -1,159 +1,351 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import androidx.annotation.NonNull;
-import com.baidu.adp.log.DefaultLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.data.HotEventData;
-import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.no6;
-import com.baidu.tieba.statemachine.animationtip.SpriteAnimationTipManager;
-import com.baidu.tieba.wz4;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.idlehelp.IdleHandlerManager;
+import com.baidu.adp.lib.cache.BdCacheService;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes9.dex */
-public class yz4 extends wz4 {
+public class yz4 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
+    public static yz4 a;
+    public static ConcurrentHashMap<String, Integer> b;
+    public static ArrayList<String> c;
+    public static ConcurrentHashMap<String, ca<byte[]>> d;
+    public static ConcurrentHashMap<String, ca<String>> e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HotEventData c;
-    public ja5 d;
-    public SpriteAnimationTipManager e;
 
     /* loaded from: classes9.dex */
-    public class a implements no6.e {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yz4 a;
 
-        public a(yz4 yz4Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yz4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = yz4Var;
         }
 
-        @Override // com.baidu.tieba.no6.e
-        public void onDismiss() {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.c();
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001012));
             }
         }
     }
 
-    /* loaded from: classes9.dex */
-    public class b implements no6.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yz4 a;
-
-        public b(yz4 yz4Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948347446, "Lcom/baidu/tieba/yz4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yz4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = yz4Var;
-        }
-
-        @Override // com.baidu.tieba.no6.e
-        public void onDismiss() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.c();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948347446, "Lcom/baidu/tieba/yz4;");
+                return;
             }
         }
+        ConcurrentHashMap<String, Integer> concurrentHashMap = new ConcurrentHashMap<>();
+        b = concurrentHashMap;
+        concurrentHashMap.put("tb.pb_mark", 50);
+        b.put("tb.pb_history", 300);
+        b.put("tb.pb_pendant", 300);
+        b.put("tb.pb_normal", 1);
+        b.put("tb.pb_editor", 50);
+        b.put("tb.live_hotlist", 20);
+        b.put("tb.live_hotlist", 20);
+        b.put("tb.my_pages", 5);
+        b.put("tb.my_forums", 3);
+        b.put("tb.my_bookmarks", 3);
+        b.put("tb.my_posts", 3);
+        b.put("tb.eva_posts", 50);
+        b.put("tb.im_frsgroup", 50);
+        b.put("tb.im_hotgroup", 30);
+        b.put("tb.im_groupinfo", 50);
+        b.put("tb.im_groupactivity", 50);
+        b.put("tb.im_entergroup", 10);
+        b.put("tb.im_enterforum_groupinfo", 10);
+        b.put("tb.im_group_setting", 3);
+        b.put("tb.im_personal_chat_setting", 3);
+        b.put("tb.im_official_chat_setting", 3);
+        b.put("tb.im_official_history", 50);
+        b.put("tb.im_recommend_detail", 10);
+        b.put("tb.square", 1);
+        b.put("tb.first_dir", 1);
+        b.put("tb.forum_rank", 20);
+        b.put("tb.pic_gif", 50);
+        b.put("tb.official_bar_menu", 1000);
+        b.put("tb.friend_feed", 20);
+        b.put("net_err_record", 30);
+        b.put("tb_face_package", 30);
+        b.put("tb.recommend_friend", 10);
+        b.put("tb.searchperson_history", 5);
+        b.put("tb.game_center_home", 20);
+        b.put("tb.game_center_list", 20);
+        b.put("tb.person_wallet_new", 10);
+        b.put("tb.frs_hottopic", 100);
+        ArrayList<String> arrayList = new ArrayList<>();
+        c = arrayList;
+        arrayList.add("tb.dialog_strategies_data");
+        c.add("tb.ala.gift_list");
+        c.add("tb.square");
+        c.add("tb.first_dir");
+        c.add("tb.forum_rank");
+        c.add("tb.im_group_setting");
+        c.add("tb.im_personal_chat_setting");
+        c.add("tb.im_official_chat_setting");
+        c.add("net_err_record");
+        c.add("tb_user_profile");
+        c.add("tb_forum_recommend");
+        c.add("tb.ad_killer_tags");
+        c.add("tb.manga.settings");
+        c.add("tb.share_add_experienced");
+        c.add("tb.write_privacy_state_space");
+        c.add("tb.concern_page_all");
+        c.add("tb.im_group_chat_http");
+        e = new ConcurrentHashMap<>();
+        d = new ConcurrentHashMap<>();
+        IdleHandlerManager.getInstance().addOrRunTask("cmd2001012", new a());
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yz4(Activity activity, HotEventData hotEventData) {
-        super(activity);
+    public yz4() {
+        super(2000998);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, hotEventData};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Activity) newInitContext.callArgs[0]);
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = hotEventData;
+        MessageManager.getInstance().registerListenerFromBackground(this);
     }
 
-    @Override // com.baidu.tieba.wz4
-    public void b() {
+    public static synchronized void g(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ja5 ja5Var = this.d;
-            if (ja5Var != null) {
-                ja5Var.n();
-            }
-            SpriteAnimationTipManager spriteAnimationTipManager = this.e;
-            if (spriteAnimationTipManager != null) {
-                spriteAnimationTipManager.q();
-            }
-            pa5.s(false);
-            wo6.b().c(new dca(null, 1));
-        }
-    }
-
-    @Override // com.baidu.tieba.wz4
-    public void d(@NonNull wz4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            if (YunDialogManager.isShowingDialog()) {
-                aVar.callback(false);
-                TbLog defaultLog = DefaultLog.getInstance();
-                defaultLog.e("HotEventTip", "S级事件弹窗无法展示，云弹窗正在展示：" + YunDialogManager.getShowingDialog());
-            } else if (2 == bka.a().b().a().c && 1 == bka.a().b().b().c && 6 == bka.a().b().c().c) {
-                DefaultLog.getInstance().e("HotEventTip", "直播tab不展示S级事件");
-                aVar.callback(false);
-            } else {
-                aVar.callback(true);
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            synchronized (yz4.class) {
+                if (str == null) {
+                    return;
+                }
+                if (str2 != null) {
+                    str = str + str2;
+                }
+                ca<byte[]> caVar = d.get(str);
+                if (caVar != null) {
+                    BdCacheService.o().l(caVar, true);
+                    d.remove(str);
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.wz4
-    public void e() {
+    public static synchronized void h(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (oj5.a().a()) {
-                DefaultLog.getInstance().e("HotEventTip", "展示精灵动画提示控件形式的S级事件弹窗");
-                this.e = pa5.t(this.c, new a(this));
-                return;
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
+            synchronized (yz4.class) {
+                if (str == null) {
+                    return;
+                }
+                if (str2 != null) {
+                    str = str + str2;
+                }
+                ca<String> caVar = e.get(str);
+                if (caVar != null) {
+                    try {
+                        BdCacheService.o().m(caVar);
+                        e.remove(str);
+                    } catch (Exception e2) {
+                        BdLog.detailException(e2);
+                    }
+                }
             }
-            DefaultLog.getInstance().e("HotEventTip", "展示页面顶部提示控件形式的S级事件弹窗");
-            this.d = pa5.p(this.c, new b(this));
         }
+    }
+
+    public static synchronized ca<byte[]> i(String str) {
+        InterceptResult invokeL;
+        ca<byte[]> k;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            synchronized (yz4.class) {
+                k = k(str, null);
+            }
+            return k;
+        }
+        return (ca) invokeL.objValue;
+    }
+
+    public static synchronized ca<String> m(String str) {
+        InterceptResult invokeL;
+        ca<String> n;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            synchronized (yz4.class) {
+                n = n(str, null);
+            }
+            return n;
+        }
+        return (ca) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+            synchronized (yz4.class) {
+                d.clear();
+                e.clear();
+            }
+        }
+    }
+
+    public static synchronized ca<byte[]> k(String str, String str2) {
+        InterceptResult invokeLL;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
+            synchronized (yz4.class) {
+                if (str == null) {
+                    return null;
+                }
+                if (str2 != null) {
+                    str3 = str + str2;
+                } else {
+                    str3 = str;
+                }
+                ca<byte[]> caVar = d.get(str3);
+                if (caVar != null && (caVar instanceof ca)) {
+                    return caVar;
+                }
+                BdCacheService o = BdCacheService.o();
+                Integer num = b.get(str);
+                num = (num == null || num.intValue() == 0) ? 20 : 20;
+                BdCacheService.CacheEvictPolicy cacheEvictPolicy = BdCacheService.CacheEvictPolicy.LRU_ON_INSERT;
+                if (c.contains(str)) {
+                    cacheEvictPolicy = BdCacheService.CacheEvictPolicy.NO_EVICT;
+                }
+                try {
+                    caVar = o.b(str3, BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, cacheEvictPolicy, num.intValue());
+                } catch (Exception e2) {
+                    BdLog.detailException(e2);
+                }
+                d.put(str3, caVar);
+                return caVar;
+            }
+        }
+        return (ca) invokeLL.objValue;
+    }
+
+    public static synchronized ca<String> n(String str, String str2) {
+        InterceptResult invokeLL;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, str2)) == null) {
+            synchronized (yz4.class) {
+                if (str == null) {
+                    return null;
+                }
+                if (str2 != null) {
+                    str3 = str + str2;
+                } else {
+                    str3 = str;
+                }
+                ca<String> caVar = e.get(str3);
+                BdCacheService o = BdCacheService.o();
+                Integer num = b.get(str);
+                num = (num == null || num.intValue() == 0) ? 20 : 20;
+                BdCacheService.CacheEvictPolicy cacheEvictPolicy = BdCacheService.CacheEvictPolicy.LRU_ON_INSERT;
+                if (c.contains(str)) {
+                    cacheEvictPolicy = BdCacheService.CacheEvictPolicy.NO_EVICT;
+                }
+                try {
+                    caVar = o.d(str3, BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, cacheEvictPolicy, num.intValue());
+                } catch (Exception e2) {
+                    BdLog.detailException(e2);
+                }
+                return caVar;
+            }
+        }
+        return (ca) invokeLL.objValue;
+    }
+
+    @Deprecated
+    public static synchronized yz4 l() {
+        InterceptResult invokeV;
+        yz4 yz4Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            synchronized (yz4.class) {
+                if (a == null) {
+                    a = new yz4();
+                }
+                yz4Var = a;
+            }
+            return yz4Var;
+        }
+        return (yz4) invokeV.objValue;
+    }
+
+    public static synchronized ca<String> o(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        String str4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, str, str2, str3)) == null) {
+            synchronized (yz4.class) {
+                if (str != null && str3 != null) {
+                    if (str2 != null) {
+                        str4 = str + str2;
+                    } else {
+                        str4 = str;
+                    }
+                    ca<String> caVar = e.get(str4);
+                    BdCacheService k = BdCacheService.k(str3);
+                    Integer num = b.get(str);
+                    num = (num == null || num.intValue() == 0) ? 20 : 20;
+                    BdCacheService.CacheEvictPolicy cacheEvictPolicy = BdCacheService.CacheEvictPolicy.LRU_ON_INSERT;
+                    if (c.contains(str)) {
+                        cacheEvictPolicy = BdCacheService.CacheEvictPolicy.NO_EVICT;
+                    }
+                    try {
+                        caVar = k.d(str4, BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, cacheEvictPolicy, num.intValue());
+                    } catch (Exception e2) {
+                        BdLog.detailException(e2);
+                    }
+                    return caVar;
+                }
+                return null;
+            }
+        }
+        return (ca) invokeLLL.objValue;
     }
 }

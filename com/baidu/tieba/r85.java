@@ -1,52 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes7.dex */
-public final class r85 extends xo6 {
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public class r85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final UpdateAttentionMessage.UpdateAttentionData a;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            return (obj instanceof r85) && Intrinsics.areEqual(this.a, ((r85) obj).a);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.hashCode() : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "AttentionEvent(attentionModel=" + this.a + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public r85(UpdateAttentionMessage.UpdateAttentionData attentionModel) {
+    public r85() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {attentionModel};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -56,16 +27,20 @@ public final class r85 extends xo6 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(attentionModel, "attentionModel");
-        this.a = attentionModel;
+        this.a = 0;
+        this.b = 0;
+        this.c = 0;
+        this.d = 0;
     }
 
-    public final UpdateAttentionMessage.UpdateAttentionData a() {
-        InterceptResult invokeV;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return (UpdateAttentionMessage.UpdateAttentionData) invokeV.objValue;
+        this.a = jSONObject.optInt("days_new_user", 0);
+        this.b = jSONObject.optInt("days_low_active", 0);
+        this.c = jSONObject.optInt("limit_day", 0);
+        this.d = jSONObject.optInt("limit_count", 0);
     }
 }

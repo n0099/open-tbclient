@@ -1,8 +1,6 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,33 +8,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 /* loaded from: classes8.dex */
-public class v66 extends BaseCardInfo {
+public class v66 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId g;
+    public static volatile v66 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
+    public IWXAPI a;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948192787, "Lcom/baidu/tieba/v66;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948192787, "Lcom/baidu/tieba/v66;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948192787, "Lcom/baidu/tieba/v66;")) == null) {
+            return;
         }
-        g = BdUniqueId.gen();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948192787, "Lcom/baidu/tieba/v66;");
+        }
     }
 
     public v66() {
@@ -53,27 +46,28 @@ public class v66 extends BaseCardInfo {
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yh
-    public BdUniqueId getType() {
+    public static v66 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (v66.class) {
+                    if (b == null) {
+                        b = new v66();
+                    }
+                }
+            }
+            return b;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (v66) invokeV.objValue;
     }
 
-    public void c(JSONObject jSONObject) {
+    public void b(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            IWXAPI createWXAPI = WXAPIFactory.createWXAPI(context, "wx7088ea0f777314d2", true);
+            this.a = createWXAPI;
+            createWXAPI.registerApp("wx7088ea0f777314d2");
         }
-        this.a = jSONObject.optString("user_id");
-        this.b = jSONObject.optString("user_name");
-        this.c = jSONObject.optString("user_nickname");
-        this.d = jSONObject.optString("portrait");
-        this.e = jSONObject.optString("user_brief");
-        jSONObject.optLong("start_time");
-        this.f = jSONObject.optString("remark");
     }
 }

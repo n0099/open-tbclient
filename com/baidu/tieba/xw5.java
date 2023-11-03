@@ -1,57 +1,94 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.MediaData;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
-public class xw5 implements mx5 {
+import java.util.List;
+/* loaded from: classes9.dex */
+public class xw5 extends cx5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+    public ConstrainImageLayout.c e;
 
-    public xw5(int i, int i2) {
+    /* loaded from: classes9.dex */
+    public class a implements ConstrainImageLayout.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(xw5 xw5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xw5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tbadk.widget.layout.ConstrainImageLayout.c
+        public void a(TbImageView tbImageView, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048576, this, tbImageView, i, i2) == null) {
+                tbImageView.setRadiusById(R.string.J_X05);
+                tbImageView.clearCornerFlag();
+                tbImageView.setDrawCorner(true);
+                tbImageView.setConrers(0);
+                if (i2 == 1) {
+                    tbImageView.setConrers(15);
+                } else if (i2 > 1) {
+                    if (i == 0) {
+                        tbImageView.setConrers(5);
+                    } else if (i == i2 - 1) {
+                        tbImageView.setConrers(10);
+                    }
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xw5(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.b = i2;
+        this.e = new a(this);
     }
 
-    @Override // com.baidu.tieba.mx5
-    public Object getItem(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.cx5, com.baidu.tieba.zw5
+    public int a(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i, int i2) {
+        InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i >= 0 && i < getItemsCount()) {
-                return Integer.valueOf(this.a + i);
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, constrainImageLayout, list, i, i2)) == null) {
+            if (list.size() < this.b) {
+                list.size();
             }
-            return 0;
+            constrainImageLayout.setTbImageViewConfiguration(this.e);
+            return super.a(constrainImageLayout, list, i, i2);
         }
-        return invokeI.objValue;
-    }
-
-    @Override // com.baidu.tieba.mx5
-    public int getItemsCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return (this.b - this.a) + 1;
-        }
-        return invokeV.intValue;
+        return invokeLLII.intValue;
     }
 }

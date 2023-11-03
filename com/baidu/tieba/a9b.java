@@ -1,77 +1,95 @@
 package com.baidu.tieba;
 
-import android.util.Base64InputStream;
+import android.content.Context;
+import android.content.MutableContextWrapper;
+import android.view.ContextThemeWrapper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.browser.TbWebView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.cea.Cea708Decoder;
-import java.io.IOException;
-import java.io.InputStream;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class a9b extends Base64InputStream {
+public final class a9b {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a9b(InputStream inputStream, int i) {
-        super(inputStream, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((InputStream) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947571423, "Lcom/baidu/tieba/a9b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947571423, "Lcom/baidu/tieba/a9b;");
                 return;
             }
         }
-        this.a = false;
-        this.b = false;
+        a = new a(null);
     }
 
-    @Override // android.util.Base64InputStream, java.io.FilterInputStream, java.io.InputStream
-    public int read() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int read = super.read();
-            if (!this.a && read == 117) {
-                this.a = true;
-                return 31;
-            } else if (!this.b && read == 123) {
-                this.b = true;
-                return Cea708Decoder.COMMAND_TGW;
-            } else {
-                return read;
-            }
-        }
-        return invokeV.intValue;
-    }
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // android.util.Base64InputStream, java.io.FilterInputStream, java.io.InputStream
-    public int read(byte[] bArr, int i, int i2) throws IOException {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i, i2)) == null) {
-            int read = super.read(bArr, i, i2);
-            if (!this.a && read >= 2) {
-                bArr[i] = 31;
-                bArr[i + 1] = -117;
-                this.a = true;
-            }
-            return read;
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
         }
-        return invokeLII.intValue;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @JvmStatic
+        public final TbWebView a(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
+                if (context instanceof MutableContextWrapper) {
+                    MutableContextWrapper mutableContextWrapper = (MutableContextWrapper) context;
+                    mutableContextWrapper.setBaseContext(new ContextThemeWrapper(mutableContextWrapper.getBaseContext(), (int) R.style.obfuscated_res_0x7f10044d));
+                    return new TbWebView(context);
+                }
+                return new TbWebView(new ContextThemeWrapper(context, (int) R.style.obfuscated_res_0x7f10044d));
+            }
+            return (TbWebView) invokeL.objValue;
+        }
+
+        @JvmStatic
+        public final Context b(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
+                if (context instanceof MutableContextWrapper) {
+                    MutableContextWrapper mutableContextWrapper = (MutableContextWrapper) context;
+                    mutableContextWrapper.setBaseContext(new ContextThemeWrapper(mutableContextWrapper.getBaseContext(), (int) R.style.obfuscated_res_0x7f10044d));
+                    return context;
+                }
+                return new ContextThemeWrapper(context, (int) R.style.obfuscated_res_0x7f10044d);
+            }
+            return (Context) invokeL.objValue;
+        }
     }
 }

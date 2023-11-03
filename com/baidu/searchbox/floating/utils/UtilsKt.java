@@ -133,7 +133,7 @@ public final class UtilsKt {
         Intrinsics.checkNotNullParameter(endSize, "endSize");
         Intrinsics.checkNotNullParameter(updateListener, "updateListener");
         final ValueAnimator ofPropertyValuesHolder = ValueAnimator.ofPropertyValuesHolder(PropertyValuesHolder.ofInt("width", startSize.getFirst().intValue(), endSize.getFirst().intValue()), PropertyValuesHolder.ofInt("height", startSize.getSecond().intValue(), endSize.getSecond().intValue()));
-        ofPropertyValuesHolder.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.hi1
+        ofPropertyValuesHolder.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.yi1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -141,7 +141,7 @@ public final class UtilsKt {
             public final void onAnimationUpdate(ValueAnimator valueAnimator) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                    UtilsKt.m92doubleTapAnimator$lambda1$lambda0(ofPropertyValuesHolder, updateListener, valueAnimator);
+                    UtilsKt.m93doubleTapAnimator$lambda1$lambda0(ofPropertyValuesHolder, updateListener, valueAnimator);
                 }
             }
         });
@@ -151,7 +151,7 @@ public final class UtilsKt {
     }
 
     /* renamed from: doubleTapAnimator$lambda-1$lambda-0  reason: not valid java name */
-    public static final void m92doubleTapAnimator$lambda1$lambda0(ValueAnimator valueAnimator, Function2 updateListener, ValueAnimator valueAnimator2) {
+    public static final void m93doubleTapAnimator$lambda1$lambda0(ValueAnimator valueAnimator, Function2 updateListener, ValueAnimator valueAnimator2) {
         Intrinsics.checkNotNullParameter(updateListener, "$updateListener");
         Object animatedValue = valueAnimator.getAnimatedValue("width");
         if (animatedValue != null) {
@@ -219,24 +219,24 @@ public final class UtilsKt {
 
     public static /* synthetic */ Notification getDefaultNotification$default(Context context, int i, String str, String str2, String str3, String str4, int i2, Object obj) {
         if ((i2 & 2) != 0) {
-            i = R.drawable.obfuscated_res_0x7f080272;
+            i = R.drawable.obfuscated_res_0x7f080276;
         }
         if ((i2 & 4) != 0) {
             str = "floating_bd_video";
         }
         String str5 = str;
         if ((i2 & 8) != 0) {
-            str2 = context.getString(R.string.obfuscated_res_0x7f0f10ee);
+            str2 = context.getString(R.string.obfuscated_res_0x7f0f1100);
             Intrinsics.checkNotNullExpressionValue(str2, "context.getString(R.stri…ing_notification_channel)");
         }
         String str6 = str2;
         if ((i2 & 16) != 0) {
-            str3 = context.getString(R.string.obfuscated_res_0x7f0f10f0);
+            str3 = context.getString(R.string.obfuscated_res_0x7f0f1102);
             Intrinsics.checkNotNullExpressionValue(str3, "context.getString(R.stri…ating_notification_title)");
         }
         String str7 = str3;
         if ((i2 & 32) != 0) {
-            str4 = context.getString(R.string.obfuscated_res_0x7f0f10ef);
+            str4 = context.getString(R.string.obfuscated_res_0x7f0f1101);
             Intrinsics.checkNotNullExpressionValue(str4, "context.getString(R.stri…ing_notification_content)");
         }
         return getDefaultNotification(context, i, str5, str6, str7, str4);

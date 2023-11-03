@@ -2,12 +2,10 @@ package com.baidu.tieba.feed.component;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.View;
-import android.view.ViewTreeObserver;
 import android.widget.RelativeLayout;
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.p17;
+import com.baidu.tieba.s37;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -24,13 +22,14 @@ import kotlin.jvm.internal.Intrinsics;
     	at jadx.core.dex.visitors.ClassModifier.visit(ClassModifier.java:61)
     	at jadx.core.dex.visitors.ClassModifier.visit(ClassModifier.java:55)
     */
-@Metadata(d1 = {"\u0000.\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\t\b&\u0018\u0000*\u0004\b\u0000\u0010\u00012\u00020\u0002B%\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\b\b\u0002\u0010\u0007\u001a\u00020\b¢\u0006\u0002\u0010\tJ\u0015\u0010\r\u001a\u00020\u000e2\u0006\u0010\u000f\u001a\u00028\u0000H$¢\u0006\u0002\u0010\u0010J(\u0010\u0011\u001a\u00020\u000e2\u0006\u0010\u0012\u001a\u00020\b2\u0006\u0010\u0013\u001a\u00020\b2\u0006\u0010\u0014\u001a\u00020\b2\u0006\u0010\u0015\u001a\u00020\bH\u0014J\u0013\u0010\u0016\u001a\u00020\u000e2\u0006\u0010\u000f\u001a\u00028\u0000¢\u0006\u0002\u0010\u0010R\u000e\u0010\n\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u000b\u001a\u0004\u0018\u00010\fX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u0017"}, d2 = {"Lcom/baidu/tieba/feed/component/CardRelativeView;", ExifInterface.GPS_DIRECTION_TRUE, "Landroid/widget/RelativeLayout;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "oldWidth", "onWidthReadyListener", "Lcom/baidu/tieba/feed/component/OnWidthReadyListener;", "doUpdateState", "", "state", "(Ljava/lang/Object;)V", "onSizeChanged", "w", "h", "oldw", "oldh", "updateState", "lib-templates_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u00000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\u000b\b&\u0018\u0000*\u0004\b\u0000\u0010\u00012\u00020\u0002B%\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\b\b\u0002\u0010\u0007\u001a\u00020\b¢\u0006\u0002\u0010\tJ\u0015\u0010\u000f\u001a\u00020\u00102\u0006\u0010\r\u001a\u00028\u0000H$¢\u0006\u0002\u0010\u0011J\u0018\u0010\u0012\u001a\u00020\u00102\u0006\u0010\u0013\u001a\u00020\b2\u0006\u0010\u0014\u001a\u00020\bH\u0014J(\u0010\u0015\u001a\u00020\u00102\u0006\u0010\u0016\u001a\u00020\b2\u0006\u0010\u0017\u001a\u00020\b2\u0006\u0010\u0018\u001a\u00020\b2\u0006\u0010\u0019\u001a\u00020\bH\u0014J\u0013\u0010\u001a\u001a\u00020\u00102\u0006\u0010\r\u001a\u00028\u0000¢\u0006\u0002\u0010\u0011R\u000e\u0010\n\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u000b\u001a\u0004\u0018\u00010\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u0012\u0010\r\u001a\u0004\u0018\u00018\u0000X\u0082\u000e¢\u0006\u0004\n\u0002\u0010\u000e¨\u0006\u001b"}, d2 = {"Lcom/baidu/tieba/feed/component/CardRelativeView;", ExifInterface.GPS_DIRECTION_TRUE, "Landroid/widget/RelativeLayout;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "oldWidth", "onWidthReadyListener", "Lcom/baidu/tieba/feed/component/OnWidthReadyListener;", "state", "Ljava/lang/Object;", "doUpdateState", "", "(Ljava/lang/Object;)V", "onMeasure", "widthMeasureSpec", "heightMeasureSpec", "onSizeChanged", "w", "h", "oldw", "oldh", "updateState", "lib-templates_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
 public abstract class CardRelativeView<T> extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public p17 a;
+    public s37 a;
     public int b;
+    public T c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     @JvmOverloads
@@ -78,57 +77,16 @@ public abstract class CardRelativeView<T> extends RelativeLayout {
         Intrinsics.checkNotNullParameter(context, "context");
     }
 
-    public abstract void e(T t);
+    public abstract void a(T t);
 
     /* loaded from: classes5.dex */
-    public static final class a implements ViewTreeObserver.OnGlobalLayoutListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-
-        public a(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = view2;
-        }
-
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        public void onGlobalLayout() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                CardRelativeView cardRelativeView = (CardRelativeView) this.a;
-                if (cardRelativeView.getWidth() != cardRelativeView.b) {
-                    p17 p17Var = cardRelativeView.a;
-                    if (p17Var != null) {
-                        p17Var.a();
-                    }
-                    cardRelativeView.b = cardRelativeView.getWidth();
-                }
-                this.a.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class b implements p17 {
+    public static final class a implements s37 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CardRelativeView<T> a;
         public final /* synthetic */ T b;
 
-        public b(CardRelativeView<T> cardRelativeView, T t) {
+        public a(CardRelativeView<T> cardRelativeView, T t) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -147,11 +105,11 @@ public abstract class CardRelativeView<T> extends RelativeLayout {
             this.b = t;
         }
 
-        @Override // com.baidu.tieba.p17
+        @Override // com.baidu.tieba.s37
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.e(this.b);
+                this.a.a(this.b);
             }
         }
     }
@@ -177,33 +135,50 @@ public abstract class CardRelativeView<T> extends RelativeLayout {
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
-        getViewTreeObserver().addOnGlobalLayoutListener(new a(this));
     }
 
     public /* synthetic */ CardRelativeView(Context context, AttributeSet attributeSet, int i, int i2, DefaultConstructorMarker defaultConstructorMarker) {
         this(context, (i2 & 2) != 0 ? null : attributeSet, (i2 & 4) != 0 ? 0 : i);
     }
 
-    public final void f(T t) {
+    public final void b(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+            this.c = t;
             if (getWidth() > 0) {
                 this.b = getWidth();
-                e(t);
+                a(t);
             }
-            this.a = new b(this, t);
+            this.a = new a(this, t);
+        }
+    }
+
+    @Override // android.widget.RelativeLayout, android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            if (getMeasuredWidth() != this.b) {
+                T t = this.c;
+                if (t != null) {
+                    Intrinsics.checkNotNull(t);
+                    a(t);
+                }
+                this.b = getMeasuredWidth();
+                super.onMeasure(i, i2);
+            }
         }
     }
 
     @Override // android.view.View
     public void onSizeChanged(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4) == null) {
+        if (interceptable == null || interceptable.invokeIIII(1048579, this, i, i2, i3, i4) == null) {
             super.onSizeChanged(i, i2, i3, i4);
             if (i != this.b) {
-                p17 p17Var = this.a;
-                if (p17Var != null) {
-                    p17Var.a();
+                s37 s37Var = this.a;
+                if (s37Var != null) {
+                    s37Var.a();
                 }
                 this.b = i;
             }

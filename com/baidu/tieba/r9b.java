@@ -1,22 +1,27 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+import java.util.List;
+/* loaded from: classes8.dex */
 public final class r9b {
     public static /* synthetic */ Interceptable $ic;
-    public static r9b c;
-    public static SQLiteOpenHelper d;
     public transient /* synthetic */ FieldHolder $fh;
-    public AtomicInteger a;
-    public SQLiteDatabase b;
+    @Inject(force = false)
+    public final pf1<s9b> a;
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            nf1 b = nf1.b();
+            this.a = b;
+            b.a(new t9b());
+        }
+    }
 
     public r9b() {
         Interceptable interceptable = $ic;
@@ -31,50 +36,16 @@ public final class r9b {
                 return;
             }
         }
-        this.a = new AtomicInteger();
+        a();
     }
 
-    public static synchronized r9b a() {
-        InterceptResult invokeV;
-        r9b r9bVar;
+    public final void b() {
+        pf1<s9b> pf1Var;
+        List<s9b> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (r9b.class) {
-                if (c == null) {
-                    b(m9b.i().g());
-                }
-                r9bVar = c;
-            }
-            return r9bVar;
-        }
-        return (r9b) invokeV.objValue;
-    }
-
-    public final synchronized SQLiteDatabase c() {
-        InterceptResult invokeV;
-        SQLiteDatabase sQLiteDatabase;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                if (this.a.incrementAndGet() == 1) {
-                    nab.a("***************新建立了 一个数据库的实例****************");
-                    this.b = d.getWritableDatabase();
-                }
-                sQLiteDatabase = this.b;
-            }
-            return sQLiteDatabase;
-        }
-        return (SQLiteDatabase) invokeV.objValue;
-    }
-
-    public static synchronized void b(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
-            synchronized (r9b.class) {
-                if (c == null) {
-                    c = new r9b();
-                    d = new p9b(context);
-                }
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (pf1Var = this.a) != null && (list = pf1Var.getList()) != null) {
+            for (s9b s9bVar : list) {
+                s9bVar.a();
             }
         }
     }

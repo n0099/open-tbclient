@@ -1,110 +1,84 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class wm2 implements ZeusPluginFactory {
+public class wm2 extends xm2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-
-    @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
-    public String name() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "inline_video" : (String) invokeV.objValue;
-    }
 
     /* loaded from: classes8.dex */
-    public static class a implements Runnable {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ List a;
+        public final /* synthetic */ jn2 b;
 
-        public a() {
+        public a(wm2 wm2Var, List list, jn2 jn2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wm2Var, list, jn2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = list;
+            this.b = jn2Var;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                long currentTimeMillis = System.currentTimeMillis();
-                ao2 b = wo2.D().b(null, null);
-                b.m0();
-                b.T();
-                b.C();
-                hw1.e().t(b);
-                p22.i("【InlineFactory】", "pre-create video cost time ：" + (System.currentTimeMillis() - currentTimeMillis));
+                for (String str : this.a) {
+                    this.b.c(str);
+                }
             }
         }
     }
 
-    public wm2(@NonNull String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wm2(d73 d73Var) {
+        super(d73Var, "/swanAPI/addComponentToFullScreenSync");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {d73Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((d73) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
     }
 
-    public static void a() {
+    @Override // com.baidu.tieba.xm2
+    public boolean j(@NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull jn2 jn2Var, @NonNull List<String> list) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65537, null) != null) || wo2.D() == null) {
-            return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, unitedSchemeEntity, jn2Var, list)) == null) {
+            ak3.a0(new a(this, list, jn2Var));
+            return true;
         }
-        hw1.e().c();
-        ji3.k(new a(), "PreCreateVideo");
-    }
-
-    @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
-    public ZeusPlugin create(ZeusPluginFactory.Invoker invoker) {
-        InterceptResult invokeL;
-        ao2 b;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, invoker)) == null) {
-            if (wo2.D() == null) {
-                return null;
-            }
-            if (hw1.e().f()) {
-                p22.i("【InlineFactory】", "handleAppOnLaunch use cache inline video. ");
-                b = hw1.e().d();
-                hw1.e().s();
-                b.N(invoker);
-            } else {
-                p22.i("【InlineFactory】", "handleAppOnLaunch create cache inline video. ");
-                b = wo2.D().b(invoker, this.a);
-                b.H();
-            }
-            p22.i("【InlineFactory】", "Factory 「Hash:" + hashCode() + "」 is creating inline video「Hash:" + b.hashCode() + "」");
-            return new um2(b);
-        }
-        return (ZeusPlugin) invokeL.objValue;
+        return invokeLLL.booleanValue;
     }
 }

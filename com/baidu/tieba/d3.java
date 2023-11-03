@@ -1,5 +1,9 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
+import com.badlogic.gdx.Application;
+import com.badlogic.gdx.graphics.Pixmap;
+import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,47 +11,82 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class d3 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final a3<Class, c3> a;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = true;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448300862, "Lcom/baidu/tieba/d3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448300862, "Lcom/baidu/tieba/d3;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448300862, "Lcom/baidu/tieba/d3;");
+        }
+    }
+
+    public static void a(int i, Pixmap pixmap, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), pixmap, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            if (!a) {
+                b(i, pixmap, i2, i3);
+            } else if (o1.a.getType() != Application.ApplicationType.Android && o1.a.getType() != Application.ApplicationType.WebGL && o1.a.getType() != Application.ApplicationType.iOS) {
+                c(i, pixmap, i2, i3);
+            } else {
+                d(i, pixmap);
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448300862, "Lcom/baidu/tieba/d3;");
+        }
+    }
+
+    public static void b(int i, Pixmap pixmap, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), pixmap, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            o1.c.o(i, 0, pixmap.g(), pixmap.k(), pixmap.i(), 0, pixmap.f(), pixmap.h(), pixmap.j());
+            if (o1.d == null && i2 != i3) {
+                throw new GdxRuntimeException("texture width and height must be square when using mipmapping.");
+            }
+            int k = pixmap.k() / 2;
+            int i4 = pixmap.i() / 2;
+            int i5 = 1;
+            Pixmap pixmap2 = pixmap;
+            while (k > 0 && i4 > 0) {
+                Pixmap pixmap3 = new Pixmap(k, i4, pixmap2.e());
+                pixmap3.l(Pixmap.Blending.None);
+                pixmap3.c(pixmap2, 0, 0, pixmap2.k(), pixmap2.i(), 0, 0, k, i4);
+                if (i5 > 1) {
+                    pixmap2.dispose();
+                }
+                pixmap2 = pixmap3;
+                o1.c.o(i, i5, pixmap3.g(), pixmap3.k(), pixmap3.i(), 0, pixmap3.f(), pixmap3.h(), pixmap3.j());
+                k = pixmap2.k() / 2;
+                i4 = pixmap2.i() / 2;
+                i5++;
+            }
+        }
+    }
+
+    public static void c(int i, Pixmap pixmap, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), pixmap, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            if (!o1.b.a("GL_ARB_framebuffer_object") && !o1.b.a("GL_EXT_framebuffer_object") && o1.e == null) {
+                b(i, pixmap, i2, i3);
                 return;
             }
+            o1.c.o(i, 0, pixmap.g(), pixmap.k(), pixmap.i(), 0, pixmap.f(), pixmap.h(), pixmap.j());
+            o1.d.x(i);
         }
-        a = new a3<>();
     }
 
-    public static <T> c3<T> a(Class<T> cls) {
-        InterceptResult invokeL;
+    public static void d(int i, Pixmap pixmap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cls)) == null) {
-            return b(cls, 100);
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, pixmap) == null) {
+            o1.c.o(i, 0, pixmap.g(), pixmap.k(), pixmap.i(), 0, pixmap.f(), pixmap.h(), pixmap.j());
+            o1.d.x(i);
         }
-        return (c3) invokeL.objValue;
-    }
-
-    public static <T> c3<T> b(Class<T> cls, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, cls, i)) == null) {
-            c3<T> b = a.b(cls);
-            if (b == null) {
-                e3 e3Var = new e3(cls, 4, i);
-                a.h(cls, e3Var);
-                return e3Var;
-            }
-            return b;
-        }
-        return (c3) invokeLI.objValue;
     }
 }

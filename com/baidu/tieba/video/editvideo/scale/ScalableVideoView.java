@@ -13,9 +13,9 @@ import android.view.TextureView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.epa;
-import com.baidu.tieba.fpa;
-import com.baidu.tieba.mz5;
+import com.baidu.tieba.f2b;
+import com.baidu.tieba.g16;
+import com.baidu.tieba.g2b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -118,7 +118,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
             }
         }
         this.b = ScalableType.NONE;
-        if (attributeSet == null || (obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, mz5.videoScaleStyle, 0, 0)) == null) {
+        if (attributeSet == null || (obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, g16.videoScaleStyle, 0, 0)) == null) {
             return;
         }
         int i4 = obtainStyledAttributes.getInt(0, ScalableType.NONE.ordinal());
@@ -355,7 +355,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     public final void g(int i, int i2) {
         Matrix m;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) && i != 0 && i2 != 0 && (m = new epa(new fpa(getWidth(), getHeight()), new fpa(i, i2)).m(this.b)) != null) {
+        if ((interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) && i != 0 && i2 != 0 && (m = new f2b(new g2b(getWidth(), getHeight()), new g2b(i, i2)).m(this.b)) != null) {
             setTransform(m);
         }
     }

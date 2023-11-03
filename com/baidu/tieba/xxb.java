@@ -1,130 +1,90 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.mobads.sdk.api.IBasicCPUData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentHashMap;
-import kotlin.TypeCastException;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.TypeIntrinsics;
-/* loaded from: classes8.dex */
-public final class xxb {
+import com.fun.ad.sdk.ChannelNativeAds;
+import com.fun.ad.sdk.FunNativeAd;
+import com.fun.ad.sdk.FunNativeInfo;
+import java.util.List;
+/* loaded from: classes9.dex */
+public class xxb implements FunNativeInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static xxb b;
-    public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ConcurrentHashMap<String, gyb> a;
+    public final IBasicCPUData a;
 
-    /* loaded from: classes8.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final xxb a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return xxb.b;
-            }
-            return (xxb) invokeV.objValue;
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948317159, "Lcom/baidu/tieba/xxb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948317159, "Lcom/baidu/tieba/xxb;");
-                return;
-            }
-        }
-        c = new a(null);
-        b = new xxb();
-    }
-
-    public xxb() {
+    public xxb(IBasicCPUData iBasicCPUData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {iBasicCPUData};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ConcurrentHashMap<>();
+        this.a = iBasicCPUData;
     }
 
-    public final void b(String str, gyb gybVar) {
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public ChannelNativeAds getChannelNativeAds() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, gybVar) == null) && this.a.get(str) == null) {
-            this.a.put(str, gybVar);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ChannelNativeAds.createBdNaive(this.a) : (ChannelNativeAds) invokeV.objValue;
     }
 
-    public final gyb c(String str) {
-        InterceptResult invokeL;
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public String getDescription() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return this.a.get(str);
-        }
-        return (gyb) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.getDesc() : (String) invokeV.objValue;
     }
 
-    public final boolean d(String str) {
-        InterceptResult invokeL;
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public String getIconUrl() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (this.a.get(str) != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.getIconUrl() : (String) invokeV.objValue;
     }
 
-    public final void e(String str) {
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public List<String> getImageUrls() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.getImageUrls() : (List) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public FunNativeAd.InteractionType getInteractionType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.isNeedDownloadApp() ? FunNativeAd.InteractionType.TYPE_DOWNLOAD : FunNativeAd.InteractionType.TYPE_BROWSE : (FunNativeAd.InteractionType) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public String getTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.getTitle() : (String) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public View getVideoView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return null;
         }
-        ConcurrentHashMap<String, gyb> concurrentHashMap = this.a;
-        if (concurrentHashMap != null) {
-            TypeIntrinsics.asMutableMap(concurrentHashMap).remove(str);
-            return;
-        }
-        throw new TypeCastException("null cannot be cast to non-null type kotlin.collections.MutableMap<K, V>");
+        return (View) invokeV.objValue;
     }
 }

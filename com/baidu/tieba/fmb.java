@@ -1,25 +1,17 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.ViewGroup;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.channel.GdtHelper;
-import com.qq.e.ads.nativ.widget.NativeAdContainer;
-import java.lang.ref.WeakReference;
-import java.util.HashSet;
-import java.util.Set;
+import java.io.File;
 /* loaded from: classes5.dex */
-public class fmb implements GdtHelper.GdtNativeContainerCreator {
+public class fmb {
     public static /* synthetic */ Interceptable $ic;
-    public static final fmb b;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<WeakReference<NativeAdContainer>> a;
 
     static {
         InterceptResult invokeClinit;
@@ -34,34 +26,45 @@ public class fmb implements GdtHelper.GdtNativeContainerCreator {
                 return;
             }
         }
-        b = new fmb();
+        a = dlb.m();
     }
 
-    public fmb() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new HashSet();
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.channel.GdtHelper.GdtNativeContainerCreator
-    public ViewGroup generateGdtNativeContainer(Context context) {
+    public static boolean a(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            NativeAdContainer nativeAdContainer = new NativeAdContainer(context);
-            this.a.add(new WeakReference<>(nativeAdContainer));
-            return nativeAdContainer;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
+            if (a) {
+                Log.d("UBCFileUtils", "delete file:" + file);
+            }
+            if (file == null) {
+                return false;
+            }
+            boolean z = true;
+            if (file.exists()) {
+                if (file.isFile()) {
+                    return true & file.delete();
+                }
+                if (file.isDirectory()) {
+                    File[] listFiles = file.listFiles();
+                    if (listFiles != null) {
+                        for (File file2 : listFiles) {
+                            z &= a(file2);
+                        }
+                    }
+                    return z & file.delete();
+                } else if (!a) {
+                    return true;
+                } else {
+                    Log.d("UBCFileUtils", "a special file:" + file);
+                    return true;
+                }
+            } else if (!a) {
+                return true;
+            } else {
+                Log.d("UBCFileUtils", "not found the file to delete:" + file);
+                return true;
+            }
         }
-        return (ViewGroup) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

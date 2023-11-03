@@ -1,7 +1,5 @@
 package com.baidu.tieba;
 
-import android.media.MediaMetadataRetriever;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,151 +7,73 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
-import okio.BufferedSink;
-import okio.Okio;
-import okio.Source;
-/* loaded from: classes8.dex */
-public class xs1 extends RequestBody {
+/* loaded from: classes9.dex */
+public final class xs1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final File a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948310835, "Lcom/baidu/tieba/xs1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes9.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final xs1 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-279047627, "Lcom/baidu/tieba/xs1$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-279047627, "Lcom/baidu/tieba/xs1$b;");
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948310835, "Lcom/baidu/tieba/xs1;");
-                return;
-            }
+            a = new xs1(null);
         }
-        b = am1.a;
     }
 
-    @Override // okhttp3.RequestBody
-    public long contentLength() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.length();
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // okhttp3.RequestBody
-    public MediaType contentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return MediaType.parse(a(this.a.getPath()));
-        }
-        return (MediaType) invokeV.objValue;
-    }
-
-    public xs1(File file) {
+    public xs1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {file};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = file;
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public static xs1 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-            String str2 = "image/jpeg";
-            if (str != null) {
-                try {
-                    try {
-                        try {
-                            try {
-                                mediaMetadataRetriever.setDataSource(str);
-                                String extractMetadata = mediaMetadataRetriever.extractMetadata(12);
-                                if (extractMetadata != null) {
-                                    str2 = extractMetadata;
-                                }
-                                try {
-                                    mediaMetadataRetriever.release();
-                                } catch (Exception e) {
-                                    if (b) {
-                                        e.printStackTrace();
-                                    }
-                                }
-                            } catch (Exception e2) {
-                                if (b) {
-                                    e2.printStackTrace();
-                                }
-                                return "image/jpeg";
-                            }
-                        } catch (Exception e3) {
-                            if (b) {
-                                e3.printStackTrace();
-                            }
-                            return "image/jpeg";
-                        }
-                    } catch (Exception e4) {
-                        if (b) {
-                            e4.printStackTrace();
-                        }
-                    }
-                } catch (IllegalArgumentException unused) {
-                    mediaMetadataRetriever.release();
-                    return "image/jpeg";
-                } catch (IllegalStateException unused2) {
-                    mediaMetadataRetriever.release();
-                } catch (RuntimeException unused3) {
-                    mediaMetadataRetriever.release();
-                    return "image/jpeg";
-                } catch (Throwable th) {
-                    try {
-                        mediaMetadataRetriever.release();
-                    } catch (Exception e5) {
-                        if (b) {
-                            e5.printStackTrace();
-                        }
-                    }
-                    throw th;
-                }
-            }
-            return str2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
         }
-        return (String) invokeL.objValue;
+        return (xs1) invokeV.objValue;
     }
 
-    @Override // okhttp3.RequestBody
-    public void writeTo(BufferedSink bufferedSink) throws IOException {
+    public us1 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) == null) {
-            Source source = null;
-            try {
-                source = Okio.source(this.a);
-                while (source.read(bufferedSink.buffer(), 2048L) != -1) {
-                    bufferedSink.flush();
-                }
-            } finally {
-                sl4.d(source);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new vs1();
         }
+        return (us1) invokeV.objValue;
+    }
+
+    public /* synthetic */ xs1(a aVar) {
+        this();
     }
 }

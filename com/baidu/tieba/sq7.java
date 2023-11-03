@@ -1,28 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.TimeHelper;
+import com.baidu.tieba.frs.HorseRace.LiveHorseRaceData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetHorseRaceLampList.DataRes;
+import tbclient.GetHorseRaceLampList.LiveList;
 /* loaded from: classes8.dex */
 public class sq7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
+    public List<LiveHorseRaceData> a;
 
-    public sq7(String str, String str2) {
+    public sq7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,47 +30,31 @@ public class sq7 {
                 return;
             }
         }
-        this.a = str;
-        this.b = str2;
+        this.a = new ArrayList();
     }
 
-    public final boolean a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (!StringUtils.isNull(str) && !StringUtils.isNull(str2) && !"0".equals(str) && !"0".equals(str2)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final String b() {
+    public List<LiveHorseRaceData> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a + "_" + this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (String) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    public void b(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!a(this.a, this.b)) {
-                return false;
-            }
-            String b = b();
-            Date date = new Date(SharedPrefHelper.getInstance().getLong(b, 0L));
-            long currentTimeMillis = System.currentTimeMillis();
-            if (TimeHelper.getDayDifference(new Date(currentTimeMillis), date) < 2) {
-                return false;
-            }
-            SharedPrefHelper.getInstance().putLong(b, currentTimeMillis);
-            return true;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) != null) || dataRes == null) {
+            return;
         }
-        return invokeV.booleanValue;
+        new LiveHorseRaceData();
+        List<LiveList> list = dataRes.live_list;
+        if (list != null) {
+            for (int i = 0; i < list.size(); i++) {
+                LiveHorseRaceData liveHorseRaceData = new LiveHorseRaceData();
+                liveHorseRaceData.parserProtobuf(list.get(i));
+                this.a.add(liveHorseRaceData);
+            }
+        }
     }
 }

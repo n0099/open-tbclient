@@ -4,7 +4,7 @@ import com.google.zxing.NotFoundException;
 import com.google.zxing.ReaderException;
 import com.google.zxing.Result;
 import com.google.zxing.common.BitArray;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class UPCEANExtensionSupport {
     public static final int[] EXTENSION_START_PATTERN = {1, 1, 2};
     public final UPCEANExtension2Support twoSupport = new UPCEANExtension2Support();

@@ -1,71 +1,87 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.tw0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Calendar;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class sw0 {
+public abstract class sw0<T extends tw0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Object[] a;
+    public int b;
 
-    public static boolean a(@Nullable String str, @Nullable String str2) {
-        InterceptResult invokeLL;
+    public abstract T b();
+
+    public sw0(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                String[] split = str.split(":");
-                String[] split2 = str2.split(":");
-                if (split.length != 0 && split2.length != 0) {
-                    try {
-                        Calendar calendar = Calendar.getInstance();
-                        long timeInMillis = calendar.getTimeInMillis();
-                        calendar.set(11, nw0.c(split[0]));
-                        calendar.set(12, nw0.c(split[1]));
-                        long timeInMillis2 = calendar.getTimeInMillis();
-                        calendar.set(11, nw0.c(split2[0]));
-                        calendar.set(12, nw0.c(split2[1]));
-                        long timeInMillis3 = calendar.getTimeInMillis();
-                        if (timeInMillis < timeInMillis2 || timeInMillis > timeInMillis3) {
-                            return false;
-                        }
-                        return true;
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new Object[i <= 0 ? 2 : i];
+    }
+
+    @NonNull
+    public T a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int i = this.b;
+            if (i <= 0) {
+                T b = b();
+                b.onInit();
+                return b;
+            }
+            int i2 = i - 1;
+            Object[] objArr = this.a;
+            T t = (T) objArr[i2];
+            objArr[i2] = null;
+            this.b = i - 1;
+            t.onInit();
+            return t;
+        }
+        return (T) invokeV.objValue;
+    }
+
+    public final boolean c(T t) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
+            for (int i = 0; i < this.b; i++) {
+                if (this.a[i] == t) {
+                    return true;
                 }
             }
             return false;
         }
-        return invokeLL.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    @SuppressLint({"SourceLockedOrientationActivity"})
-    public static void b(Activity activity, boolean z) {
+    public void d(@NonNull T t) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65537, null, activity, z) == null) && activity != null) {
-            rw0.b("BdVideoSys", "SCREEN_ORIENTATION_LANDSCAPE");
-            if (z) {
-                activity.setRequestedOrientation(8);
-            } else {
-                activity.setRequestedOrientation(0);
-            }
-            activity.getWindow().setFlags(1024, 1024);
+        if ((interceptable != null && interceptable.invokeL(1048579, this, t) != null) || c(t)) {
+            return;
         }
-    }
-
-    public static void c(Activity activity, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65538, null, activity, z) == null) && activity != null) {
-            if (z) {
-                activity.getWindow().addFlags(128);
-            } else {
-                activity.getWindow().clearFlags(128);
-            }
+        int i = this.b;
+        Object[] objArr = this.a;
+        if (i < objArr.length) {
+            objArr[i] = t;
+            this.b = i + 1;
         }
+        t.onRelease();
     }
 }

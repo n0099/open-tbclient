@@ -1,30 +1,25 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class bs0 implements yr0 {
+public class bs0 extends ds0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    @NonNull
-    public zo0 b;
-    public ViewGroup c;
+    public final ArrayList<Integer> b;
 
-    public bs0(@NonNull zo0 zo0Var) {
+    public bs0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {zo0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,63 +29,162 @@ public class bs0 implements yr0 {
                 return;
             }
         }
-        this.a = -1;
-        this.b = zo0Var;
+        this.b = new ArrayList<>(13);
+        e();
     }
 
-    @SuppressLint({"SourceLockedOrientationActivity"})
-    public void b(@Nullable Activity activity) {
+    public void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) && activity != null) {
-            rw0.b("NormalSwitchHelper", "SCREEN_ORIENTATION_PORTRAIT ");
-            activity.setRequestedOrientation(1);
-            activity.getWindow().clearFlags(1024);
-            tw0.l(activity);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            c(as0.x(PlayerEvent.ACTION_ON_COMPLETE));
         }
     }
 
-    public void a(boolean z, @Nullable Activity activity) {
+    public void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048576, this, z, activity) == null) {
-            if (z) {
-                int i = this.a;
-                if (i != -1) {
-                    s11.d(activity, i);
-                    return;
-                }
-                return;
-            }
-            s11.f(activity);
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            c(as0.x(PlayerEvent.ACTION_PLAYER_ATTACH));
         }
     }
 
-    @Override // com.baidu.tieba.yr0
-    public void switchToFullStyle() {
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            c(as0.x(PlayerEvent.ACTION_PLAYER_DETACH));
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            c(as0.x(PlayerEvent.ACTION_ON_PREPARED));
+        }
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            c(as0.x(PlayerEvent.ACTION_SEEK_COMPLETE));
+        }
+    }
+
+    @Override // com.baidu.tieba.ds0
+    public void c(@NonNull js0 js0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, js0Var) == null) {
+            super.c(js0Var);
+        }
+    }
+
+    public final boolean d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return this.b.contains(Integer.valueOf(i));
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            js0 x = as0.x(PlayerEvent.ACTION_BUFFER_UPDATE);
+            x.o(2, Integer.valueOf(i));
+            x.s(1);
+            c(x);
+        }
+    }
+
+    public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.c = this.b.o();
-            this.b.T0(true);
-            Activity m = this.b.m();
-            a(true, m);
-            sw0.b(m, this.b.S0());
-            sw0.c(m, true);
-            tw0.b(m, this.b.w());
+            this.b.add(904);
+            this.b.add(701);
+            this.b.add(702);
+            this.b.add(11004);
+            this.b.add(11005);
+            this.b.add(946);
+            this.b.add(924);
+            this.b.add(5000);
+            this.b.add(937);
+            this.b.add(936);
+            this.b.add(955);
+            this.b.add(956);
+            this.b.add(910);
+            this.b.add(10103);
+            this.b.add(12005);
+            this.b.add(12006);
+            this.b.add(10009);
         }
     }
 
-    @Override // com.baidu.tieba.yr0
-    public void switchToNormalStyle() {
+    public boolean h(int i, int i2, Object obj) {
+        InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.c == null) {
-            return;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048581, this, i, i2, obj)) == null) {
+            js0 x = as0.x(PlayerEvent.ACTION_ON_ERROR);
+            x.o(1, Integer.valueOf(i));
+            x.o(2, Integer.valueOf(i2));
+            x.o(3, obj);
+            c(x);
+            return true;
         }
-        this.c = this.b.o();
-        this.b.T0(false);
-        Activity m = this.b.m();
-        a(false, m);
-        b(m);
-        tw0.k(this.b.w());
-        tw0.j(this.b.o());
-        tw0.c(this.b.w(), this.c);
+        return invokeIIL.booleanValue;
+    }
+
+    public void j(int i, int i2, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048583, this, i, i2, obj) == null) {
+            js0 x = as0.x(PlayerEvent.ACTION_MEDIA_SOURCE_CHANGED);
+            x.o(7, Integer.valueOf(i));
+            x.o(8, Integer.valueOf(i2));
+            x.o(3, obj);
+            c(x);
+        }
+    }
+
+    public boolean i(int i, int i2, Object obj) {
+        InterceptResult invokeIIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048582, this, i, i2, obj)) == null) {
+            ix0.h("player trigger on info what:" + i);
+            if (d(i)) {
+                js0 x = as0.x(PlayerEvent.ACTION_ON_INFO);
+                if (i == 910) {
+                    x.s(1);
+                }
+                x.o(1, Integer.valueOf(i));
+                x.o(2, Integer.valueOf(i2));
+                x.o(3, obj);
+                c(x);
+                return false;
+            }
+            return false;
+        }
+        return invokeIIL.booleanValue;
+    }
+
+    public void o(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048588, this, i, i2, i3, i4) == null) {
+            js0 x = as0.x(PlayerEvent.ACTION_VIDEO_SIZE_CHANGED);
+            x.o(5, Integer.valueOf(i));
+            x.o(6, Integer.valueOf(i2));
+            c(x);
+        }
+    }
+
+    public void p(String str, boolean z, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            js0 x = as0.x(PlayerEvent.ACTION_SET_DATA_SOURCE);
+            zv0 zv0Var = new zv0();
+            zv0Var.a = str;
+            zv0Var.c = z;
+            zv0Var.d = i;
+            x.o(3, zv0Var);
+            x.t(1);
+            c(x);
+        }
     }
 }

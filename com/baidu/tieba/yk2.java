@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.FileProvider;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,16 +10,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
-public class yk2 extends jj2<am2> {
+public class yk2 extends ak2<qm2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.jj2
+    @Override // com.baidu.tieba.ak2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "enterRoom" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "onFocus" : (String) invokeV.objValue;
     }
 
     public yk2() {
@@ -37,38 +36,19 @@ public class yk2 extends jj2<am2> {
         }
     }
 
-    @Override // com.baidu.tieba.jj2
-    public void c(@NonNull ZeusPlugin.Command command) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, command) == null) {
-            Object obj = command.obj;
-            if (obj instanceof JSONObject) {
-                JSONObject jSONObject = (JSONObject) obj;
-                command.ret = new dm2(jSONObject.optString("roomName"), jSONObject.optLong("userId", -1L), jSONObject.optString(FileProvider.DISPLAYNAME_FIELD), jSONObject.optString("rtcAppId"), jSONObject.optString("token")).a() ? 1 : 0;
-            }
-        }
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jj2
+    @Override // com.baidu.tieba.ak2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull am2 am2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull qm2 qm2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, command, am2Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, qm2Var) == null) {
             String str = command.what;
-            d(am2Var, str, "" + command.obj, true);
+            d(qm2Var, str, "" + command.obj, true);
             Object obj = command.obj;
             if (obj instanceof JSONObject) {
                 JSONObject jSONObject = (JSONObject) obj;
-                dm2 dm2Var = new dm2(jSONObject.optString("roomName"), jSONObject.optLong("userId", -1L), jSONObject.optString(FileProvider.DISPLAYNAME_FIELD), jSONObject.optString("rtcAppId"), jSONObject.optString("token"));
-                boolean a = dm2Var.a();
-                if (a) {
-                    am2Var.u(dm2Var);
-                }
-                command.ret = a ? 1 : 0;
+                qm2Var.s(jSONObject.optInt("focusWidth"), jSONObject.optInt("focusHeight"), jSONObject.optInt("focusX"), jSONObject.optInt("focusY"));
             }
-            String str2 = command.what;
-            d(am2Var, str2, "result: " + command.ret, true);
         }
     }
 }

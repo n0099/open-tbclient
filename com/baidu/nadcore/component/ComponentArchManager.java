@@ -13,8 +13,8 @@ import androidx.lifecycle.OnLifecycleEvent;
 import com.baidu.nadcore.component.api.IComponentPlugin;
 import com.baidu.nps.main.manager.Bundle;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.ne0;
-import com.baidu.tieba.oe0;
+import com.baidu.tieba.ef0;
+import com.baidu.tieba.ff0;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
 import kotlin.Metadata;
@@ -23,7 +23,7 @@ import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
 public class ComponentArchManager implements LifecycleObserver {
     public final CopyOnWriteArrayList<IComponentPlugin> a;
-    public final SimpleArrayMap<Class<? extends oe0>, oe0> b;
+    public final SimpleArrayMap<Class<? extends ff0>, ff0> b;
     public final Context c;
     public final Lifecycle d;
 
@@ -36,7 +36,7 @@ public class ComponentArchManager implements LifecycleObserver {
         this.b = new SimpleArrayMap<>();
     }
 
-    public final boolean n(int i, KeyEvent event) {
+    public final boolean m(int i, KeyEvent event) {
         Intrinsics.checkNotNullParameter(event, "event");
         Iterator<IComponentPlugin> it = this.a.iterator();
         while (it.hasNext()) {
@@ -47,17 +47,17 @@ public class ComponentArchManager implements LifecycleObserver {
         return false;
     }
 
-    public final void s(IComponentPlugin component, boolean z) {
+    public final void r(IComponentPlugin component, boolean z) {
         Intrinsics.checkNotNullParameter(component, "component");
         k(component);
-        c(component);
+        d(component);
         if (z) {
             this.d.addObserver(component);
         }
         this.a.add(component);
     }
 
-    public final void w(Class<? extends oe0> clazz, oe0 componentService) {
+    public final void w(Class<? extends ff0> clazz, ff0 componentService) {
         Intrinsics.checkNotNullParameter(clazz, "clazz");
         Intrinsics.checkNotNullParameter(componentService, "componentService");
         this.b.put(clazz, componentService);
@@ -68,7 +68,7 @@ public class ComponentArchManager implements LifecycleObserver {
             if ((i & 2) != 0) {
                 z = true;
             }
-            componentArchManager.s(iComponentPlugin, z);
+            componentArchManager.r(iComponentPlugin, z);
             return;
         }
         throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: registerComponent");
@@ -104,14 +104,14 @@ public class ComponentArchManager implements LifecycleObserver {
     public void b(ViewGroup parentView) {
         Intrinsics.checkNotNullParameter(parentView, "parentView");
         for (IComponentPlugin iComponentPlugin : this.a) {
-            iComponentPlugin.K(parentView);
+            iComponentPlugin.L(parentView);
         }
     }
 
-    public final void c(IComponentPlugin iComponentPlugin) {
+    public final void d(IComponentPlugin iComponentPlugin) {
         Context context = this.c;
         if (context != null) {
-            iComponentPlugin.x((Activity) context);
+            iComponentPlugin.t((Activity) context);
             iComponentPlugin.p(this.c);
             iComponentPlugin.z(this);
             iComponentPlugin.y();
@@ -123,13 +123,13 @@ public class ComponentArchManager implements LifecycleObserver {
 
     public final void g(IComponentPlugin iComponentPlugin) {
         this.d.removeObserver(iComponentPlugin);
-        iComponentPlugin.m();
+        iComponentPlugin.n();
     }
 
-    public final void j(ne0 event) {
+    public final void j(ef0 event) {
         Intrinsics.checkNotNullParameter(event, "event");
         for (IComponentPlugin iComponentPlugin : this.a) {
-            iComponentPlugin.t(event);
+            iComponentPlugin.s(event);
         }
     }
 
@@ -144,12 +144,12 @@ public class ComponentArchManager implements LifecycleObserver {
         }
     }
 
-    public <T extends oe0> T q(Class<T> clazz) {
+    public <T extends ff0> T q(Class<T> clazz) {
         Intrinsics.checkNotNullParameter(clazz, "clazz");
-        oe0 oe0Var = this.b.get(clazz);
-        if (!(oe0Var instanceof oe0)) {
-            oe0Var = null;
+        ff0 ff0Var = this.b.get(clazz);
+        if (!(ff0Var instanceof ff0)) {
+            ff0Var = null;
         }
-        return (T) oe0Var;
+        return (T) ff0Var;
     }
 }

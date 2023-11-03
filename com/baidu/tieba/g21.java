@@ -1,22 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.d21;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes6.dex */
-public class g21 {
+public final class g21 {
     public static /* synthetic */ Interceptable $ic;
-    public static final g21 b;
+    public static String a;
+    public static String b;
+    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<Integer, d21.b> a;
 
     static {
         InterceptResult invokeClinit;
@@ -31,58 +27,33 @@ public class g21 {
                 return;
             }
         }
-        b = new g21();
+        b = gf0.b().getApplicationInfo().processName;
+        String a2 = m11.a();
+        a = a2;
+        c = a(a2);
     }
 
-    public g21() {
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.equals(str, b)) {
+                return true;
             }
+            if (str.startsWith(b) && !str.contains(":")) {
+                return true;
+            }
+            return false;
         }
-        this.a = new HashMap();
+        return invokeL.booleanValue;
     }
 
-    public static g21 b() {
+    public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
+            return c;
         }
-        return (g21) invokeV.objValue;
-    }
-
-    public void a(int i, d21.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, bVar) == null) {
-            synchronized (g21.class) {
-                this.a.put(Integer.valueOf(i), bVar);
-            }
-        }
-    }
-
-    public d21.b c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            return this.a.get(Integer.valueOf(i));
-        }
-        return (d21.b) invokeI.objValue;
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            synchronized (g21.class) {
-                this.a.remove(Integer.valueOf(i));
-            }
-        }
+        return invokeV.booleanValue;
     }
 }

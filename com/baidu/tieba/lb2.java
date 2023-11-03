@@ -1,16 +1,18 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes7.dex */
-public class lb2 extends oe4 {
+public class lb2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String q;
+    public File a;
+    public boolean b;
+    public String c;
 
     public lb2() {
         Interceptable interceptable = $ic;
@@ -26,12 +28,11 @@ public class lb2 extends oe4 {
         }
     }
 
-    @Override // com.baidu.tieba.ne4
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (super.a() && !TextUtils.isEmpty(this.q)) {
+            if (this.a != null) {
                 return true;
             }
             return false;

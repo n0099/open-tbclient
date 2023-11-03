@@ -1,102 +1,159 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.text.DecimalFormat;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.ByteArrayInputStream;
+import java.io.CharArrayWriter;
+import java.io.Closeable;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 /* loaded from: classes9.dex */
 public class zm4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948364744, "Lcom/baidu/tieba/zm4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948364744, "Lcom/baidu/tieba/zm4;");
-                return;
+    public static void a(Closeable closeable) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65536, null, closeable) == null) && closeable != null) {
+            try {
+                closeable.close();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
-        a = am1.a;
     }
 
-    public static void a(String str, String str2, String str3, JSONObject jSONObject) {
+    public static long b(InputStream inputStream, OutputStream outputStream) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65537, null, str, str2, str3, jSONObject) == null) {
-            if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str)) {
-                JSONObject jSONObject2 = new JSONObject();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, inputStream, outputStream)) == null) {
+            if (inputStream != null && outputStream != null) {
                 try {
-                    jSONObject2.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, str2);
-                    jSONObject2.put("vtype", str3);
-                    jSONObject.putOpt("videoId", str);
-                    jSONObject2.put("data", jSONObject.toString());
-                } catch (JSONException e) {
-                    if (a) {
-                        e.printStackTrace();
+                    byte[] bArr = new byte[m61.a];
+                    long j = 0;
+                    while (true) {
+                        int read = inputStream.read(bArr);
+                        if (read > 0) {
+                            outputStream.write(bArr, 0, read);
+                            j += read;
+                        } else {
+                            outputStream.flush();
+                            return j;
+                        }
                     }
-                }
-                p22.b("VideoStatusEventHelper", "Video dispatch Params : " + jSONObject2.toString());
-                wk3.d(str2, str, "video", str3, jSONObject2);
-            } else if (a) {
-                Log.e("VideoStatusEventHelper", "dispatchNetStatusEvent failed slaveId: " + str2 + " ,videoId: " + str);
-            }
-        }
-    }
-
-    public static void b(String str, String str2, String str3, int i, int i2) {
-        String format;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
-            if (TextUtils.isEmpty(str3)) {
-                format = "0";
-            } else {
-                format = new DecimalFormat("#.###").format(Double.parseDouble(str3) / 1000.0d);
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.putOpt("duration", Float.valueOf(Float.parseFloat(format)));
-                jSONObject.putOpt("width", Integer.valueOf(gj3.O(i)));
-                jSONObject.putOpt("height", Integer.valueOf(gj3.O(i2)));
-            } catch (JSONException e) {
-                if (a) {
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
-            a(str, str2, "loadedmetadata", jSONObject);
+            return 0L;
+        }
+        return invokeLL.longValue;
+    }
+
+    public static boolean d(String str, File file) {
+        InterceptResult invokeLL;
+        File parentFile;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, file)) == null) {
+            if (TextUtils.isEmpty(str) || (parentFile = file.getParentFile()) == null || !parentFile.isDirectory()) {
+                return false;
+            }
+            if (!parentFile.exists()) {
+                parentFile.mkdirs();
+            }
+            e(str.getBytes(), file);
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static String c(File file) {
+        InterceptResult invokeL;
+        FileReader fileReader;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
+            FileReader fileReader2 = null;
+            if (file != null && file.exists()) {
+                try {
+                    fileReader = new FileReader(file);
+                } catch (Exception unused) {
+                    fileReader = null;
+                } catch (Throwable th) {
+                    th = th;
+                }
+                try {
+                    char[] cArr = new char[256];
+                    CharArrayWriter charArrayWriter = new CharArrayWriter();
+                    while (true) {
+                        int read = fileReader.read(cArr);
+                        if (read > 0) {
+                            charArrayWriter.write(cArr, 0, read);
+                        } else {
+                            String charArrayWriter2 = charArrayWriter.toString();
+                            a(fileReader);
+                            return charArrayWriter2;
+                        }
+                    }
+                } catch (Exception unused2) {
+                    a(fileReader);
+                    return null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileReader2 = fileReader;
+                    a(fileReader2);
+                    throw th;
+                }
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void e(byte[] bArr, File file) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, file) == null) {
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
+            f(byteArrayInputStream, file);
+            a(byteArrayInputStream);
         }
     }
 
-    public static void c(String str, String str2, boolean z) {
-        String str3;
+    public static void f(InputStream inputStream, File file) {
+        FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65539, null, str, str2, z) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (z) {
-                str3 = "1";
-            } else {
-                str3 = "0";
+        if (interceptable == null || interceptable.invokeLL(65541, null, inputStream, file) == null) {
+            FileOutputStream fileOutputStream2 = null;
+            try {
+                try {
+                    fileOutputStream = new FileOutputStream(file);
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (FileNotFoundException e) {
+                e = e;
             }
             try {
-                jSONObject.putOpt("fullscreen", str3);
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
+                b(inputStream, fileOutputStream);
+                a(fileOutputStream);
+            } catch (FileNotFoundException e2) {
+                e = e2;
+                fileOutputStream2 = fileOutputStream;
+                e.printStackTrace();
+                a(fileOutputStream2);
+            } catch (Throwable th2) {
+                th = th2;
+                fileOutputStream2 = fileOutputStream;
+                a(fileOutputStream2);
+                throw th;
             }
-            a(str, str2, "fullscreenchange", jSONObject);
         }
     }
 }

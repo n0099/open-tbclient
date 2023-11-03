@@ -1,81 +1,58 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.net.Uri;
+import android.text.TextUtils;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.ThreadCardViewHolder;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.AndroidUtils;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.kt;
-import com.baidu.tieba.vt;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tieba.frs.view.FrsPrivateShareDialogView;
+import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import tbclient.FrsPage.DataRes;
 /* loaded from: classes8.dex */
-public class w38 extends lh<py4, ThreadCardViewHolder<ThreadData>> {
+public class w38 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public TbPageContext<?> b;
-    public ei c;
-    public bk6<rk6> d;
 
     /* loaded from: classes8.dex */
-    public class a extends bk6<rk6> {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ShareItem a;
+        public final /* synthetic */ TbPageContext b;
+        public final /* synthetic */ FrsViewData c;
+        public final /* synthetic */ ShareDialogConfig d;
 
-        public a(w38 w38Var) {
+        public a(ShareItem shareItem, TbPageContext tbPageContext, FrsViewData frsViewData, ShareDialogConfig shareDialogConfig) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {w38Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.bk6
-        /* renamed from: d */
-        public void a(View view2, rk6 rk6Var) {
-            ThreadCardViewHolder threadCardViewHolder;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, rk6Var) == null) {
-                super.a(view2, rk6Var);
-                if (rk6Var != null && rk6Var.getThreadData() != null && (threadCardViewHolder = (ThreadCardViewHolder) view2.getTag()) != null) {
-                    ThreadCardUtils.jumpToPB((jv4) rk6Var.getThreadData(), view2.getContext(), 0, false);
-                    threadCardViewHolder.a().q(new vt.a(1));
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements ii {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ w38 a;
-
-        public b(w38 w38Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {w38Var};
+                Object[] objArr = {shareItem, tbPageContext, frsViewData, shareDialogConfig};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -85,89 +62,255 @@ public class w38 extends lh<py4, ThreadCardViewHolder<ThreadData>> {
                     return;
                 }
             }
-            this.a = w38Var;
+            this.a = shareItem;
+            this.b = tbPageContext;
+            this.c = frsViewData;
+            this.d = shareDialogConfig;
         }
 
-        @Override // com.baidu.tieba.ii
-        public void b(View view2, yh yhVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, yhVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (yhVar instanceof rk6) && (view2.getTag() instanceof ThreadCardViewHolder)) {
-                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-                rk6 rk6Var = (rk6) yhVar;
-                if (this.a.d != null) {
-                    this.a.d.a(threadCardViewHolder.getView(), rk6Var);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("fid", this.a.extData).param("obj_type", 18).param("obj_source", 10));
+                FrsPrivateShareDialogView frsPrivateShareDialogView = new FrsPrivateShareDialogView(this.b.getPageActivity());
+                zz4 zz4Var = new zz4(this.b.getPageActivity());
+                if (frsPrivateShareDialogView.d(this.c, this.b, zz4Var)) {
+                    zz4Var.setContentViewSize(2);
+                    zz4Var.setContentView(frsPrivateShareDialogView);
+                    zz4Var.create(this.b).show();
                 }
+                StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.THREAD_ACHIEVEMENT_DETAIL_SHARE);
+                statisticItem.param("obj_param1", this.d.experimentId);
+                statisticItem.param("obj_type", 7);
+                statisticItem.param("obj_source", 6);
+                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                statisticItem.param("fid", this.a.extData);
+                statisticItem.param("fname", this.a.fName);
+                TiebaStatic.log(statisticItem);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w38(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, String str) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes8.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ TbPageContext b;
+
+        public b(String str, TbPageContext tbPageContext) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, tbPageContext};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = tbPageContext;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                AndroidUtils.copyToClipboard(this.a);
+                BdUtilHelper.showToast(this.b.getPageActivity(), view2.getResources().getString(R.string.copy_pb_url_success));
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948219757, "Lcom/baidu/tieba/w38;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948219757, "Lcom/baidu/tieba/w38;");
                 return;
             }
         }
-        this.d = new a(this);
-        this.b = tbPageContext;
-        this.a = bdUniqueId2;
+        a = TbConfig.HTTPS_FRS_PREFIX;
     }
 
-    public void x(ei eiVar) {
+    public static ShareItem a(TbPageContext tbPageContext, FrsViewData frsViewData, String str, String str2, Uri uri, String str3) {
+        InterceptResult invokeCommon;
+        String str4;
+        String str5;
+        Uri parse;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, eiVar) == null) {
-            this.c = eiVar;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{tbPageContext, frsViewData, str, str2, uri, str3})) == null) {
+            if (frsViewData != null && frsViewData.getForum() != null) {
+                str4 = frsViewData.getForum().getName();
+                str5 = frsViewData.getForum().getfShareImage();
+            } else {
+                str4 = "";
+                str5 = null;
+            }
+            ShareItem shareItem = new ShareItem();
+            shareItem.title = str4 + tbPageContext.getString(R.string.obfuscated_res_0x7f0f0787);
+            shareItem.content = str3;
+            shareItem.linkUrl = str2;
+            shareItem.isFromShareFrs = true;
+            shareItem.objSource = 10;
+            shareItem.extData = str;
+            shareItem.fName = str4;
+            if (StringUtils.isNull(str5)) {
+                shareItem.typeShareToSmallApp = 4;
+                shareItem.fid = frsViewData.getForum().getId();
+                parse = uri;
+            } else {
+                parse = Uri.parse(str5);
+                shareItem.typeShareToSmallApp = 2;
+            }
+            if (parse != null) {
+                shareItem.imageUri = parse;
+            }
+            b(shareItem, tbPageContext, frsViewData, uri);
+            return shareItem;
+        }
+        return (ShareItem) invokeCommon.objValue;
+    }
+
+    public static void b(ShareItem shareItem, TbPageContext tbPageContext, FrsViewData frsViewData, Uri uri) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(65538, null, shareItem, tbPageContext, frsViewData, uri) == null) && shareItem != null && tbPageContext != null && frsViewData != null) {
+            StringBuilder sb = new StringBuilder();
+            String str2 = "";
+            if (frsViewData.getForum() == null) {
+                str = "";
+            } else {
+                str2 = frsViewData.getForum().getName();
+                str = frsViewData.getForum().getSlogan();
+            }
+            sb.append(tbPageContext.getString(R.string.frsgroup_recommend));
+            sb.append(str2);
+            sb.append(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0787));
+            shareItem.shareH5CardOptimizeTitle = sb.toString();
+            StringBuilder sb2 = new StringBuilder();
+            sb2.append(str);
+            if (sb2.length() > 0) {
+                if (sb2.length() > 20) {
+                    sb2.append(sb2.substring(0, 20));
+                    sb2.append("...");
+                }
+                sb2.append(StringUtils.lineSeparator);
+            }
+            if (frsViewData.getForum() != null && frsViewData.getForum().getMember_num() > 0) {
+                sb2.append(tbPageContext.getString(R.string.forum_friend_for_short));
+                sb2.append(" ");
+                sb2.append(StringHelper.numFormatOver10000(frsViewData.getForum().getMember_num()));
+                sb2.append(" ");
+                sb2.append(tbPageContext.getString(R.string.post_name));
+                sb2.append(" ");
+                sb2.append(StringHelper.numFormatOver10000(frsViewData.getForum().getPost_num()));
+            }
+            shareItem.shareH5CardOptimizeContent = sb2.toString();
+            if (uri == null) {
+                uri = Uri.parse("https://tb5.bdstatic.com/yunying/tieba_logo.jpg");
+            }
+            shareItem.shareH5CardOptimizeImageUri = uri;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
-    /* renamed from: t */
-    public ThreadCardViewHolder<ThreadData> onCreateViewHolder(ViewGroup viewGroup) {
+    public static String c(ForumData forumData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            kt.b bVar = new kt.b(this.b.getPageActivity(), false);
-            bVar.h(new gt(this.b.getPageActivity()));
-            kt k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.c);
-            k.t(2);
-            ThreadCardViewHolder<ThreadData> threadCardViewHolder = new ThreadCardViewHolder<>(k);
-            threadCardViewHolder.i(this.a);
-            setOnAdapterItemClickListener(new b(this));
-            return threadCardViewHolder;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, forumData)) == null) {
+            String str = null;
+            if (forumData == null || TextUtils.isEmpty(forumData.getName())) {
+                return null;
+            }
+            try {
+                str = URLEncoder.encode(forumData.getName(), "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+            if (!TextUtils.isEmpty(forumData.forum_share_link)) {
+                return forumData.forum_share_link + "?kw=" + str + "&fr=sharewise";
+            }
+            return a + str + "&fr=sharewise";
         }
-        return (ThreadCardViewHolder) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
-    /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, py4 py4Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
-        InterceptResult invokeCommon;
-        ThreadData threadData;
+    public static void d(Context context, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, py4Var, threadCardViewHolder})) == null) {
-            if (py4Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && (threadData = py4Var.t) != null) {
-                threadData.statFloor = getPositionByType(i) + 1;
-                threadCardViewHolder.a().s(i);
-                threadCardViewHolder.e(py4Var.t);
-                threadCardViewHolder.a().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
-                return threadCardViewHolder.getView();
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, obj) == null) && (context instanceof BaseFragmentActivity) && (obj instanceof DataRes)) {
+            TbPageContext<BaseFragmentActivity> pageContext = ((BaseFragmentActivity) context).getPageContext();
+            FrsViewData frsViewData = new FrsViewData();
+            frsViewData.parserData((DataRes) obj);
+            if (frsViewData.getForum() != null) {
+                e(pageContext, frsViewData, frsViewData.getForum().getId(), 0, false, null);
             }
-            return null;
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public static void f(TbPageContext tbPageContext, FrsViewData frsViewData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, tbPageContext, frsViewData) == null) {
+            FrsPrivateShareDialogView frsPrivateShareDialogView = new FrsPrivateShareDialogView(tbPageContext.getPageActivity());
+            zz4 zz4Var = new zz4(tbPageContext.getPageActivity());
+            if (frsPrivateShareDialogView.d(frsViewData, tbPageContext, zz4Var)) {
+                zz4Var.setContentViewSize(2);
+                zz4Var.setContentView(frsPrivateShareDialogView);
+                zz4Var.create(tbPageContext).show();
+            }
+        }
+    }
+
+    public static void e(TbPageContext tbPageContext, FrsViewData frsViewData, String str, int i, boolean z, View.OnClickListener onClickListener) {
+        Uri parse;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{tbPageContext, frsViewData, str, Integer.valueOf(i), Boolean.valueOf(z), onClickListener}) == null) && tbPageContext != null && frsViewData != null && frsViewData.getForum() != null) {
+            if (frsViewData.getForum().getName() != null && frsViewData.getForum().getId() != null) {
+                TiebaStatic.eventStat(tbPageContext.getPageActivity(), "frs_share", "frsclick", 1, new Object[0]);
+                String name = frsViewData.getForum().getName();
+                ForumData forum = frsViewData.getForum();
+                String c = c(forum);
+                if (frsViewData.getForum().getImage_url() == null) {
+                    parse = null;
+                } else {
+                    parse = Uri.parse(frsViewData.getForum().getImage_url());
+                }
+                Uri uri = parse;
+                String slogan = frsViewData.getForum().getSlogan();
+                ShareItem shareItem = new ShareItem();
+                shareItem.title = name + tbPageContext.getString(R.string.obfuscated_res_0x7f0f0787);
+                shareItem.content = slogan;
+                shareItem.linkUrl = c;
+                shareItem.isFromShareFrs = true;
+                shareItem.objSource = 10;
+                shareItem.extData = str;
+                shareItem.fName = name;
+                if (uri != null) {
+                    shareItem.imageUri = uri;
+                }
+                ShareDialogConfig shareDialogConfig = new ShareDialogConfig(tbPageContext.getPageActivity(), shareItem, true);
+                shareDialogConfig.setHasSpecialItem(true);
+                shareDialogConfig.shareItem.forumData = forum;
+                shareDialogConfig.setSpecialShareItems(3, a(tbPageContext, frsViewData, str, c, uri, slogan));
+                shareDialogConfig.setIsCopyLink(true);
+                shareDialogConfig.setCustomCopyTitle(R.string.copy_link);
+                shareDialogConfig.addOutsideTextView(R.string.poster_share, R.drawable.icon_pure_share_poster40, new a(shareItem, tbPageContext, frsViewData, shareDialogConfig));
+                shareDialogConfig.setCopyLinkListener(new b(c, tbPageContext));
+                shareDialogConfig.experimentId = g08.c();
+                tbPageContext.sendMessage(new CustomMessage(2001276, shareDialogConfig));
+                return;
+            }
+            tbPageContext.showToast(tbPageContext.getString(R.string.no_forum_data));
+        }
     }
 }

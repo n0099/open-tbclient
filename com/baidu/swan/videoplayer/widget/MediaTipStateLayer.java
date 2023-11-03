@@ -75,15 +75,15 @@ public class MediaTipStateLayer implements View.OnClickListener {
     }
 
     public final void e() {
-        View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d093f, (ViewGroup) null, false);
+        View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0957, (ViewGroup) null, false);
         this.c = inflate;
-        this.e = inflate.findViewById(R.id.obfuscated_res_0x7f09235e);
-        this.k = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f092357);
-        this.f = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092346);
-        this.g = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092347);
-        this.d = this.c.findViewById(R.id.obfuscated_res_0x7f092366);
-        this.i = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f092365);
-        this.j = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092367);
+        this.e = inflate.findViewById(R.id.obfuscated_res_0x7f0923b5);
+        this.k = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0923ae);
+        this.f = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09239d);
+        this.g = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09239e);
+        this.d = this.c.findViewById(R.id.obfuscated_res_0x7f0923bd);
+        this.i = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0923bc);
+        this.j = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0923be);
         h(TipState.NORMAL);
     }
 
@@ -91,8 +91,8 @@ public class MediaTipStateLayer implements View.OnClickListener {
         Resources resources = this.a.getResources();
         TipState tipState = this.h;
         if (tipState == TipState.ERROR) {
-            this.i.setImageResource(R.drawable.obfuscated_res_0x7f0814ce);
-            this.j.setText(this.a.getText(R.string.obfuscated_res_0x7f0f15c7));
+            this.i.setImageResource(R.drawable.obfuscated_res_0x7f0814e5);
+            this.j.setText(this.a.getText(R.string.obfuscated_res_0x7f0f15de));
             this.c.setVisibility(0);
             this.d.setVisibility(0);
             this.e.setVisibility(8);
@@ -101,19 +101,19 @@ public class MediaTipStateLayer implements View.OnClickListener {
             this.d.setVisibility(8);
             this.e.setVisibility(0);
             this.g.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060b2a));
-            this.g.setText(R.string.obfuscated_res_0x7f0f15bc);
-            this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f0814c5);
+            this.g.setText(R.string.obfuscated_res_0x7f0f15d3);
+            this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f0814dc);
         } else if (tipState == TipState.NO_NETWORK) {
             this.c.setVisibility(0);
             this.d.setVisibility(8);
             this.e.setVisibility(0);
             this.g.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060b29));
-            this.g.setText(R.string.obfuscated_res_0x7f0f15be);
-            this.f.setText(R.string.obfuscated_res_0x7f0f15b9);
-            this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f0814c4);
+            this.g.setText(R.string.obfuscated_res_0x7f0f15d5);
+            this.f.setText(R.string.obfuscated_res_0x7f0f15d0);
+            this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f0814db);
         } else if (tipState == TipState.END) {
-            this.i.setImageResource(R.drawable.obfuscated_res_0x7f0814cf);
-            this.j.setText(this.a.getText(R.string.obfuscated_res_0x7f0f15c8));
+            this.i.setImageResource(R.drawable.obfuscated_res_0x7f0814e6);
+            this.j.setText(this.a.getText(R.string.obfuscated_res_0x7f0f15df));
             this.c.setVisibility(0);
             this.d.setVisibility(0);
             this.e.setVisibility(8);
@@ -128,8 +128,8 @@ public class MediaTipStateLayer implements View.OnClickListener {
     public void onClick(View view2) {
         SwanVideoView swanVideoView;
         int id = view2.getId();
-        if (id != R.id.obfuscated_res_0x7f092346 && id != R.id.obfuscated_res_0x7f092366) {
-            if (id == R.id.obfuscated_res_0x7f092357 && (swanVideoView = this.b) != null && swanVideoView.getVideoPlayerCallback() != null) {
+        if (id != R.id.obfuscated_res_0x7f09239d && id != R.id.obfuscated_res_0x7f0923bd) {
+            if (id == R.id.obfuscated_res_0x7f0923ae && (swanVideoView = this.b) != null && swanVideoView.getVideoPlayerCallback() != null) {
                 this.b.getVideoPlayerCallback().d(!this.l);
                 return;
             }

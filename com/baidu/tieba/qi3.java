@@ -1,60 +1,121 @@
 package com.baidu.tieba;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ObjectAnimator;
 import android.content.Context;
-import android.os.IBinder;
-import android.view.inputmethod.InputMethodManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class qi3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948092750, "Lcom/baidu/tieba/qi3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948092750, "Lcom/baidu/tieba/qi3;");
-                return;
-            }
-        }
-        a = am1.a;
-    }
+    /* loaded from: classes7.dex */
+    public static class a extends AnimatorListenerAdapter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
 
-    public static void a(Context context, IBinder iBinder) {
-        InputMethodManager inputMethodManager;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, context, iBinder) == null) && (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) != null) {
-            try {
-                inputMethodManager.hideSoftInputFromWindow(iBinder, 0);
-            } catch (Exception e) {
-                if (a) {
-                    e.printStackTrace();
+        public a(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = view2;
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+                this.a.setTranslationX(0.0f);
+            }
         }
     }
 
-    public static void b(Context context, boolean z) {
-        InputMethodManager inputMethodManager;
-        int i;
+    public static void a(p52 p52Var, Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65538, null, context, z) == null) && (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) != null) {
-            if (z) {
-                i = 2;
-            } else {
-                i = 0;
-            }
-            inputMethodManager.toggleSoftInput(i, 2);
+        if (interceptable == null || interceptable.invokeLL(65536, null, p52Var, context) == null) {
+            b(p52Var, context, 2);
         }
+    }
+
+    public static void b(p52 p52Var, Context context, int i) {
+        View i0;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLI(65537, null, p52Var, context, i) == null) && p52Var != null && p52Var.k() >= i) {
+            m52 j = p52Var.j(p52Var.k() - i);
+            m52 m = p52Var.m();
+            if (m != null && m.E0) {
+                return;
+            }
+            float o = xj3.o(context) >> 2;
+            if (j != null && (i0 = j.i0()) != null) {
+                ObjectAnimator.ofFloat(i0, Key.TRANSLATION_X, -o, 0.0f).setDuration(300L).start();
+            }
+        }
+    }
+
+    public static void c(p52 p52Var, Context context) {
+        View i0;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, p52Var, context) == null) && p52Var != null && p52Var.k() >= 2) {
+            m52 j = p52Var.j(p52Var.k() - 2);
+            float o = xj3.o(context) >> 2;
+            if (j != null && (i0 = j.i0()) != null) {
+                ObjectAnimator ofFloat = ObjectAnimator.ofFloat(i0, Key.TRANSLATION_X, 0.0f, -o);
+                ofFloat.setDuration(300L).start();
+                ofFloat.addListener(new a(i0));
+            }
+        }
+    }
+
+    public static void d(@NonNull dk4 dk4Var, String str, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLII(65539, null, dk4Var, str, i, i2) != null) || dk4Var == null) {
+            return;
+        }
+        char c = 65535;
+        int hashCode = str.hashCode();
+        if (hashCode != -1876181062) {
+            if (hashCode != -983638536) {
+                if (hashCode == 1528366175 && str.equals("showModalPage")) {
+                    c = 1;
+                }
+            } else if (str.equals("navigateBack")) {
+                c = 0;
+            }
+        } else if (str.equals("hideModalPage")) {
+            c = 2;
+        }
+        if (c != 0) {
+            if (c != 1 && c != 2) {
+                dk4Var.i(i, i2);
+                return;
+            }
+            return;
+        }
+        p52 W = tr2.V().W();
+        m52 j = W.j(W.k() - 1);
+        if (j != null && j.E0) {
+            return;
+        }
+        dk4Var.i(i, i2);
     }
 }

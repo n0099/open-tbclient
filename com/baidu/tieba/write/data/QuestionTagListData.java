@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.yh;
+import com.baidu.tieba.oi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +25,7 @@ public class QuestionTagListData {
     public List<QuestionTag> b;
 
     /* loaded from: classes8.dex */
-    public static class QuestionTag implements Parcelable, yh {
+    public static class QuestionTag implements Parcelable, oi {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<QuestionTag> CREATOR;
         public static final BdUniqueId TYPE_TAG;
@@ -107,7 +107,7 @@ public class QuestionTagListData {
             CREATOR = new a();
         }
 
-        @Override // com.baidu.tieba.yh
+        @Override // com.baidu.tieba.oi
         public BdUniqueId getType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;

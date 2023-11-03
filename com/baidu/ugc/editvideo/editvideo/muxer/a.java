@@ -2,12 +2,12 @@ package com.baidu.ugc.editvideo.editvideo.muxer;
 
 import android.text.TextUtils;
 import android.util.Pair;
-import com.baidu.tieba.nfb;
-import com.baidu.tieba.pfb;
-import com.baidu.tieba.qfb;
-import com.baidu.tieba.rdb;
-import com.baidu.tieba.sdb;
-import com.baidu.tieba.yab;
+import com.baidu.tieba.osb;
+import com.baidu.tieba.qsb;
+import com.baidu.tieba.rsb;
+import com.baidu.tieba.sqb;
+import com.baidu.tieba.tqb;
+import com.baidu.tieba.znb;
 import com.baidu.ugc.editvideo.data.VideoMuxerData;
 import com.baidu.ugc.utils.FileUtils;
 import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
@@ -16,23 +16,23 @@ import java.util.LinkedList;
 /* loaded from: classes9.dex */
 public class a {
     public LinkedList<Pair<String, Object>> a = new LinkedList<>();
-    public InterfaceC0546a b;
+    public InterfaceC0552a b;
     public String c;
     public boolean d;
 
     /* renamed from: com.baidu.ugc.editvideo.editvideo.muxer.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public interface InterfaceC0546a {
+    public interface InterfaceC0552a {
         void onAudioVideoMuxerCancel();
 
-        void onAudioVideoMuxerFail(rdb rdbVar);
+        void onAudioVideoMuxerFail(sqb sqbVar);
 
         void onAudioVideoMuxerFinish(String str);
     }
 
     /* loaded from: classes9.dex */
     public static class b {
-        public rdb a;
+        public sqb a;
         public String b;
 
         public b() {
@@ -41,7 +41,7 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final b bVar) {
-        nfb.a().postDelayed(new Runnable() { // from class: com.baidu.ugc.editvideo.editvideo.muxer.a.2
+        osb.a().postDelayed(new Runnable() { // from class: com.baidu.ugc.editvideo.editvideo.muxer.a.2
             @Override // java.lang.Runnable
             public void run() {
                 if (a.this.d) {
@@ -49,7 +49,7 @@ public class a {
                 } else if (a.this.b != null) {
                     b bVar2 = bVar;
                     if (bVar2 != null) {
-                        if (pfb.a(bVar2.b) || !FileUtils.checkFile(bVar.b)) {
+                        if (qsb.a(bVar2.b) || !FileUtils.checkFile(bVar.b)) {
                             a.this.b.onAudioVideoMuxerFail(bVar.a);
                             return;
                         } else {
@@ -57,12 +57,12 @@ public class a {
                             return;
                         }
                     }
-                    rdb rdbVar = new rdb();
-                    rdbVar.b = true;
-                    rdbVar.a = 24;
-                    rdbVar.c = "error_mixtrue";
-                    rdbVar.e = "合成音乐失败 MuxerMusicResult is null";
-                    a.this.b.onAudioVideoMuxerFail(rdbVar);
+                    sqb sqbVar = new sqb();
+                    sqbVar.b = true;
+                    sqbVar.a = 24;
+                    sqbVar.c = "error_mixtrue";
+                    sqbVar.e = "合成音乐失败 MuxerMusicResult is null";
+                    a.this.b.onAudioVideoMuxerFail(sqbVar);
                 }
             }
         }, 200L);
@@ -70,9 +70,9 @@ public class a {
 
     public void a() {
         this.d = true;
-        InterfaceC0546a interfaceC0546a = this.b;
-        if (interfaceC0546a != null) {
-            interfaceC0546a.onAudioVideoMuxerCancel();
+        InterfaceC0552a interfaceC0552a = this.b;
+        if (interfaceC0552a != null) {
+            interfaceC0552a.onAudioVideoMuxerCancel();
         }
         try {
             File file = new File(this.c);
@@ -84,16 +84,16 @@ public class a {
     }
 
     public void a(final VideoMuxerData videoMuxerData) {
-        sdb.b("muxerAV2Mp4", "音视频混合 to mp4");
+        tqb.b("muxerAV2Mp4", "音视频混合 to mp4");
         this.d = false;
         if (videoMuxerData == null) {
             if (this.b != null) {
-                rdb rdbVar = new rdb();
-                rdbVar.b = true;
-                rdbVar.a = 24;
-                rdbVar.c = "error_mixtrue";
-                rdbVar.e = "音视频合成VideoMuxerData为空合成失败";
-                this.b.onAudioVideoMuxerFail(rdbVar);
+                sqb sqbVar = new sqb();
+                sqbVar.b = true;
+                sqbVar.a = 24;
+                sqbVar.c = "error_mixtrue";
+                sqbVar.e = "音视频合成VideoMuxerData为空合成失败";
+                this.b.onAudioVideoMuxerFail(sqbVar);
                 return;
             }
             return;
@@ -105,7 +105,7 @@ public class a {
                 @Override // java.lang.Runnable
                 public void run() {
                     StringBuilder sb = new StringBuilder();
-                    String g = yab.d().g();
+                    String g = znb.d().g();
                     if (TextUtils.isEmpty(g)) {
                         sb.append("getMixVideoAudioDir 是空");
                         return;
@@ -113,33 +113,33 @@ public class a {
                     FileUtils.mkdirs(g);
                     a aVar = a.this;
                     aVar.c = g + File.separator + "audio_video_" + System.currentTimeMillis() + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION;
-                    boolean j = qfb.j(sb, videoMuxerData.getFinalAudioPath(), videoMuxerData.getVideoPath(), a.this.c, 0L, -1L);
+                    boolean j = rsb.j(sb, videoMuxerData.getFinalAudioPath(), videoMuxerData.getVideoPath(), a.this.c, 0L, -1L);
                     b bVar = new b();
                     if (j) {
                         bVar.b = a.this.c;
                     } else {
-                        rdb rdbVar2 = new rdb();
-                        rdbVar2.b = true;
-                        rdbVar2.a = 24;
-                        rdbVar2.c = "error_mixtrue";
-                        rdbVar2.e = " 预处理音乐合成失败-4 musicPath" + videoMuxerData.getFinalAudioPath() + " ,videoPath" + videoMuxerData.getVideoPath() + " ,outputVideoPath" + a.this.c + " ,muxResult:" + j + ",errorMsg" + sb.toString() + " ,audio file size =" + fileSize;
-                        bVar.a = rdbVar2;
+                        sqb sqbVar2 = new sqb();
+                        sqbVar2.b = true;
+                        sqbVar2.a = 24;
+                        sqbVar2.c = "error_mixtrue";
+                        sqbVar2.e = " 预处理音乐合成失败-4 musicPath" + videoMuxerData.getFinalAudioPath() + " ,videoPath" + videoMuxerData.getVideoPath() + " ,outputVideoPath" + a.this.c + " ,muxResult:" + j + ",errorMsg" + sb.toString() + " ,audio file size =" + fileSize;
+                        bVar.a = sqbVar2;
                     }
-                    sdb.b("avMuxThead", "音视频混合:" + j);
+                    tqb.b("avMuxThead", "音视频混合:" + j);
                     a.this.a(bVar);
                 }
             }).start();
         } else if (this.b != null) {
-            rdb rdbVar2 = new rdb();
-            rdbVar2.b = true;
-            rdbVar2.a = 24;
-            rdbVar2.c = "error_mixtrue";
-            rdbVar2.e = "musicPath" + videoMuxerData.getFinalAudioPath() + "outputVideoPath" + this.c + "videoPath: " + videoMuxerData.getVideoPath() + "muxResult:false 合成音乐视频路径丢失";
-            this.b.onAudioVideoMuxerFail(rdbVar2);
+            sqb sqbVar2 = new sqb();
+            sqbVar2.b = true;
+            sqbVar2.a = 24;
+            sqbVar2.c = "error_mixtrue";
+            sqbVar2.e = "musicPath" + videoMuxerData.getFinalAudioPath() + "outputVideoPath" + this.c + "videoPath: " + videoMuxerData.getVideoPath() + "muxResult:false 合成音乐视频路径丢失";
+            this.b.onAudioVideoMuxerFail(sqbVar2);
         }
     }
 
-    public void a(InterfaceC0546a interfaceC0546a) {
-        this.b = interfaceC0546a;
+    public void a(InterfaceC0552a interfaceC0552a) {
+        this.b = interfaceC0552a;
     }
 }

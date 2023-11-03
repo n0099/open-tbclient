@@ -27,9 +27,9 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.mg;
-import com.baidu.tieba.ng;
-import com.baidu.tieba.rg;
+import com.baidu.tieba.ch;
+import com.baidu.tieba.dh;
+import com.baidu.tieba.hh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -109,7 +109,7 @@ public class TbAlphaVideo extends FrameLayout implements Animatable {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, packageInfo, errorInfo) == null) {
                 super.onDownloadSuccess(packageInfo, errorInfo);
-                File file = new File(rg.b(this.a));
+                File file = new File(hh.b(this.a));
                 if (!StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get(this.a)) && file.exists()) {
                     this.b.setSourceFile(file);
                     this.b.i();
@@ -497,16 +497,16 @@ public class TbAlphaVideo extends FrameLayout implements Animatable {
     public void k(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            File file = new File(rg.b(str));
+            File file = new File(hh.b(str));
             if (!StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get(str)) && file.exists()) {
                 setSourceFile(file);
                 i();
                 return;
             }
             RequestParams requestParams = new RequestParams();
-            requestParams.setRunType(ng.a);
+            requestParams.setRunType(dh.a);
             requestParams.setRunNode("aps");
-            requestParams.addChannel(new mg("com.baidu.tieba.resloader." + str, new a(this, str)));
+            requestParams.addChannel(new ch("com.baidu.tieba.resloader." + str, new a(this, str)));
             PmsManager.getInstance().execute(requestParams);
         }
     }

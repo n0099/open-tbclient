@@ -1,141 +1,114 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
-public class yj7 extends lh<js6, CardViewHolder<fj6>> {
+public final class yj7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public fj6 b;
-    public bk6 c;
-    public String d;
+    public ek7 a;
+    public dk7 b;
 
-    /* loaded from: classes9.dex */
-    public class a extends bk6<js6> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yj7 b;
-
-        public a(yj7 yj7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yj7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = yj7Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.bk6
-        /* renamed from: d */
-        public void a(View view2, js6 js6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, js6Var) == null) {
-                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 3).param("fid", this.b.d));
-                this.b.u(view2, js6Var);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yj7(TbPageContext tbPageContext, String str) {
-        super(tbPageContext.getPageActivity(), js6.b);
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public yj7() {
+        this(null, null, 3, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                Object[] objArr = newInitContext.callArgs;
+                this((ek7) objArr[0], (dk7) objArr[1], ((Integer) objArr[2]).intValue(), (DefaultConstructorMarker) objArr[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.d = str;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
-    /* renamed from: x */
-    public CardViewHolder<fj6> onCreateViewHolder(ViewGroup viewGroup) {
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            this.b = new fj6(this.a);
-            return new CardViewHolder<>(this.b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof yj7) {
+                yj7 yj7Var = (yj7) obj;
+                return Intrinsics.areEqual(this.a, yj7Var.a) && Intrinsics.areEqual(this.b, yj7Var.b);
+            }
+            return false;
         }
-        return (CardViewHolder) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public void z(bk6 bk6Var) {
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bk6Var) == null) {
-            this.c = bk6Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ek7 ek7Var = this.a;
+            int hashCode = (ek7Var == null ? 0 : ek7Var.hashCode()) * 31;
+            dk7 dk7Var = this.b;
+            return hashCode + (dk7Var != null ? dk7Var.hashCode() : 0);
         }
+        return invokeV.intValue;
     }
 
-    public final void u(View view2, js6 js6Var) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, js6Var) == null) {
-            PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.a.getPageActivity()).createFromThreadCfg(js6Var.getThreadData(), null, mj6.g(), 18003, true, false, false);
-            createFromThreadCfg.setForumId(String.valueOf(js6Var.getThreadData().getFid()));
-            createFromThreadCfg.setForumName(js6Var.getThreadData().getForum_name());
-            createFromThreadCfg.setStartFrom(0);
-            mj6.a(js6Var.getThreadData().getTid());
-            this.a.sendMessage(new CustomMessage(2004001, createFromThreadCfg));
-            bk6 bk6Var = this.c;
-            if (bk6Var != null) {
-                bk6Var.a(view2, js6Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "HeadData(subTabData=" + this.a + ", sortTabData=" + this.b + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public yj7(ek7 ek7Var, dk7 dk7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ek7Var, dk7Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = ek7Var;
+        this.b = dk7Var;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
-    /* renamed from: y */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, js6 js6Var, CardViewHolder<fj6> cardViewHolder) {
-        InterceptResult invokeCommon;
+    public /* synthetic */ yj7(ek7 ek7Var, dk7 dk7Var, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this((i & 1) != 0 ? null : ek7Var, (i & 2) != 0 ? null : dk7Var);
+    }
+
+    public final dk7 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, js6Var, cardViewHolder})) == null) {
-            if (cardViewHolder.a() == null) {
-                return null;
-            }
-            cardViewHolder.a().j(js6Var);
-            cardViewHolder.a().k(this.a, TbadkCoreApplication.getInst().getSkinType());
-            cardViewHolder.a().l(new a(this));
-            return cardViewHolder.a().i();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (View) invokeCommon.objValue;
+        return (dk7) invokeV.objValue;
+    }
+
+    public final ek7 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (ek7) invokeV.objValue;
     }
 }

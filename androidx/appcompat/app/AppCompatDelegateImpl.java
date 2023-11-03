@@ -729,7 +729,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             if (i != 0) {
                 newTheme.applyStyle(i, true);
             }
-            newTheme.resolveAttribute(R.attr.obfuscated_res_0x7f04055d, typedValue, true);
+            newTheme.resolveAttribute(R.attr.obfuscated_res_0x7f040568, typedValue, true);
             int i2 = typedValue.resourceId;
             if (i2 != 0) {
                 newTheme.applyStyle(i2, true);
@@ -1616,7 +1616,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                         context = this.mContext;
                     }
                     viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0017, (ViewGroup) null);
-                    DecorContentParent decorContentParent = (DecorContentParent) viewGroup.findViewById(R.id.obfuscated_res_0x7f090873);
+                    DecorContentParent decorContentParent = (DecorContentParent) viewGroup.findViewById(R.id.obfuscated_res_0x7f090894);
                     this.mDecorContentParent = decorContentParent;
                     decorContentParent.setWindowCallback(getWindowCallback());
                     if (this.mOverlayActionBar) {
@@ -1656,10 +1656,10 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                     });
                 }
                 if (this.mDecorContentParent == null) {
-                    this.mTitleView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0925a7);
+                    this.mTitleView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0925fe);
                 }
                 ViewUtils.makeOptionalFitsSystemWindows(viewGroup);
-                ContentFrameLayout contentFrameLayout = (ContentFrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f09006d);
+                ContentFrameLayout contentFrameLayout = (ContentFrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f090080);
                 ViewGroup viewGroup2 = (ViewGroup) this.mWindow.findViewById(16908290);
                 if (viewGroup2 != null) {
                     while (viewGroup2.getChildCount() > 0) {
@@ -2829,7 +2829,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                             }
                         };
                     } else {
-                        ViewStubCompat viewStubCompat = (ViewStubCompat) this.mSubDecor.findViewById(R.id.obfuscated_res_0x7f09007e);
+                        ViewStubCompat viewStubCompat = (ViewStubCompat) this.mSubDecor.findViewById(R.id.obfuscated_res_0x7f090091);
                         if (viewStubCompat != null) {
                             viewStubCompat.setLayoutInflater(LayoutInflater.from(getActionBarThemedContext()));
                             this.mActionModeView = (ActionBarContextView) viewStubCompat.inflate();

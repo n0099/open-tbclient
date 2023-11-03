@@ -1,40 +1,49 @@
 package com.baidu.tieba;
 
-import android.graphics.PointF;
-import android.graphics.RectF;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.IdRes;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.DeviceInfoHelper;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.ar.constants.HttpConstants;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class asa {
+public class asa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    @IdRes
-    public int b;
-    @IdRes
-    public int c;
-    public Object d;
-    public int e;
-    public int f;
 
     /* loaded from: classes5.dex */
-    public static final class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final asa a;
+    }
 
-        public a() {
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+        public final String b;
+        public final String c;
+        public final String d;
+        public final String e;
+        public final boolean f;
+        public final StatisticItem g;
+
+        public b(String str, String str2, String str3, String str4, String str5) {
+            boolean z;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2, str3, str4, str5};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,182 +53,171 @@ public final class asa {
                     return;
                 }
             }
-            this.a = new asa();
+            this.a = str;
+            this.b = str2;
+            this.c = str3;
+            this.d = str4;
+            this.e = str5;
+            if (!StringUtils.isNull(str) && !StringUtils.isNull(str2) && !StringUtils.isNull(str3) && !StringUtils.isNull(str4) && !StringUtils.isNull(str5)) {
+                z = false;
+            } else {
+                z = true;
+            }
+            this.f = !z;
+            this.g = b();
         }
 
-        public final asa a() {
+        public /* synthetic */ b(String str, String str2, String str3, String str4, String str5, a aVar) {
+            this(str, str2, str3, str4, str5);
+        }
+
+        public final StatisticItem b() {
             InterceptResult invokeV;
-            boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.a.a != null) {
-                    z = true;
-                } else {
-                    z = false;
+                StatisticItem statisticItem = new StatisticItem(this.a);
+                if (!StringUtils.isNull(this.b)) {
+                    statisticItem = statisticItem.param("line", this.b);
                 }
-                if (z) {
-                    return this.a;
+                if (!StringUtils.isNull(this.c)) {
+                    statisticItem = statisticItem.param("page", this.c);
                 }
-                throw new IllegalStateException("必须设置引导视图 GuideView".toString());
+                if (!StringUtils.isNull(this.d)) {
+                    statisticItem = statisticItem.param("locate", this.d);
+                }
+                if (!StringUtils.isNull(this.e)) {
+                    return statisticItem.param(DownloadStatisticConstants.UBC_VALUE_TASK, this.e);
+                }
+                return statisticItem;
             }
-            return (asa) invokeV.objValue;
+            return (StatisticItem) invokeV.objValue;
         }
 
-        public final a b(Object viewTag) {
-            InterceptResult invokeL;
+        public void c(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewTag)) == null) {
-                Intrinsics.checkNotNullParameter(viewTag, "viewTag");
-                this.a.c(viewTag);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                this.g.delete(str);
+            }
+        }
+
+        public final StatisticItem d(String str, String str2, String str3, String str4, String str5) {
+            InterceptResult invokeLLLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3, str4, str5)) == null) {
+                if (!StringUtils.isNull(str)) {
+                    this.g.param("action_type", str);
+                }
+                if (!StringUtils.isNull(str2)) {
+                    this.g.param("obj_id", str2);
+                }
+                if (!StringUtils.isNull(str3)) {
+                    this.g.param("fid", str3);
+                }
+                if (!StringUtils.isNull(str4)) {
+                    this.g.param("fname", str4);
+                }
+                if (!StringUtils.isNull(str5)) {
+                    this.g.param("tid", str5);
+                }
+                this.g.param("obj_cpid", 0).param("obj_good_id", 0).param("obj_throw_type", "BY_POST").param("client_type", "MOBILE_APP").param("user_timestamp", String.valueOf(System.currentTimeMillis())).param("os", "android").param(HttpConstants.OS_VERSION, DeviceInfoHelper.getOsVersion()).param("log_ver", "1.1");
+                return this.g;
+            }
+            return (StatisticItem) invokeLLLLL.objValue;
+        }
+
+        public b e(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+                if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
+                    this.g.param(str, str2);
+                }
                 return this;
             }
-            return (a) invokeL.objValue;
+            return (b) invokeLL.objValue;
         }
 
-        public final a c(@IdRes int i) {
-            InterceptResult invokeI;
+        public void f() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-                this.a.d(i);
-                return this;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                TiebaStatic.log(this.g);
+                if (!this.f) {
+                    if (!TbadkCoreApplication.getInst().isDebugMode()) {
+                        BdLog.e("Invalid parameter.");
+                        return;
+                    }
+                    throw new IllegalArgumentException();
+                }
             }
-            return (a) invokeI.objValue;
         }
+    }
 
-        public final a d(View view2) {
-            InterceptResult invokeL;
+    /* loaded from: classes5.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) {
-                Intrinsics.checkNotNullParameter(view2, "view");
-                this.a.e(view2);
-                return this;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            return (a) invokeL.objValue;
-        }
-
-        public final a e(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-                this.a.f(i);
-                return this;
-            }
-            return (a) invokeI.objValue;
-        }
-
-        public final a f(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-                this.a.g(i);
-                return this;
-            }
-            return (a) invokeI.objValue;
         }
     }
 
-    public asa() {
+    public static b a(String str, String str2, String str3, String str4, String str5, String str6) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{str, str2, str3, str4, str5, str6})) == null) {
+            b bVar = new b("ad_tpoint", "PT", str, str2, "tpoint", null);
+            bVar.d(null, null, str3, str4, str5);
+            if (!qd.isEmpty(str6)) {
+                bVar.e("obj_ref", str6);
             }
+            return bVar;
         }
-        this.b = -1;
-        this.c = -1;
+        return (b) invokeCommon.objValue;
     }
 
-    public final View b() {
-        InterceptResult invokeV;
+    public static b b(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            View view2 = this.a;
-            if (view2 != null) {
-                return view2;
-            }
-            Intrinsics.throwUninitializedPropertyAccessException("guideView");
-            return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, str9, str10})) == null) {
+            b bVar = new b(str, str2, str3, str4, str5, null);
+            bVar.d(str6, str7, str8, str9, str10);
+            return bVar;
         }
-        return (View) invokeV.objValue;
+        return (b) invokeCommon.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:9:0x001a, code lost:
-        r5 = com.baidu.tieba.zra.c(r5);
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final PointF a(ViewGroup rootView) {
-        InterceptResult invokeL;
-        View findViewById;
-        RectF rectF;
-        float f;
-        int i;
+    @Deprecated
+    public static void c(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, rootView)) == null) {
-            Intrinsics.checkNotNullParameter(rootView, "rootView");
-            Object obj = this.d;
-            if (obj != null) {
-                findViewById = rootView.findViewWithTag(obj);
-            } else {
-                findViewById = rootView.findViewById(this.c);
-            }
-            if (findViewById == null || rectF == null) {
-                rectF = new RectF();
-            }
-            View findViewById2 = b().findViewById(this.b);
-            float f2 = rectF.left + this.e;
-            if (findViewById2 != null) {
-                f = rectF.bottom - (findViewById2.getTop() + findViewById2.getHeight());
-                i = this.f;
-            } else {
-                f = rectF.bottom;
-                i = this.f;
-            }
-            return new PointF(f2, f + i);
-        }
-        return (PointF) invokeL.objValue;
-    }
-
-    public final void c(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-            this.d = obj;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, str2, str3, str4, str5, str6, str7}) == null) {
+            b bVar = new b("ad_tpoint", "PT", str, "c0122", "ad_plat", null);
+            bVar.d(str2, str7, str3, str4, str5);
+            bVar.e(TiebaStatic.Params.OBJ_URL, str6);
+            bVar.f();
         }
     }
 
-    public final void d(int i) {
+    @Deprecated
+    public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.b = i;
+        if ((interceptable != null && interceptable.invokeLL(65539, null, str, str2) != null) || qd.isEmpty(str)) {
+            return;
         }
-    }
-
-    public final void e(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            Intrinsics.checkNotNullParameter(view2, "<set-?>");
-            this.a = view2;
+        StatisticItem statisticItem = new StatisticItem(str);
+        if (str2 != null) {
+            statisticItem = statisticItem.param("obj_type", str2);
         }
-    }
-
-    public final void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public final void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.f = i;
-        }
+        TiebaStatic.log(statisticItem);
     }
 }

@@ -1,92 +1,78 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ti9;
-import com.baidu.tieba.wz4;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetVipInfo.VipSpecialItem;
+import tbclient.GetVipInfo.VipSpecialList;
 /* loaded from: classes8.dex */
-public final class wi9 extends wz4 {
+public class wi9 implements oi {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ti9 c;
+    public mi9 a;
+    public List<xi9> b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wi9(Activity activity, ti9 controller) {
-        super(activity);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948271682, "Lcom/baidu/tieba/wi9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948271682, "Lcom/baidu/tieba/wi9;");
+                return;
+            }
+        }
+        c = BdUniqueId.gen();
+    }
+
+    @Override // com.baidu.tieba.oi
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return c;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public wi9(VipSpecialList vipSpecialList) {
+        List<VipSpecialItem> list;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, controller};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {vipSpecialList};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(activity, "activity");
-        Intrinsics.checkNotNullParameter(controller, "controller");
-        this.c = controller;
-    }
-
-    public static final void g(wi9 this$0) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, this$0) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.c();
-        }
-    }
-
-    @Override // com.baidu.tieba.wz4
-    public void d(wz4.a shouldShowCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shouldShowCallback) == null) {
-            Intrinsics.checkNotNullParameter(shouldShowCallback, "shouldShowCallback");
-            shouldShowCallback.callback(this.c.d());
-        }
-    }
-
-    @Override // com.baidu.tieba.wz4
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c.g();
-        }
-    }
-
-    @Override // com.baidu.tieba.wz4
-    public void e() {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.c.p(new ti9.d() { // from class: com.baidu.tieba.di9
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // com.baidu.tieba.ti9.d
-                public final void onDismiss() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        wi9.g(wi9.this);
-                    }
-                }
-            });
-            if (mi5.f(true)) {
-                z = this.c.r();
-            } else {
-                z = false;
-            }
-            if (!z) {
-                c();
+        if (vipSpecialList != null && (list = vipSpecialList.item) != null && list.size() > 0) {
+            String str = vipSpecialList.card_id;
+            mi9 mi9Var = new mi9();
+            this.a = mi9Var;
+            mi9Var.e(1);
+            this.a.d(vipSpecialList.class_name);
+            this.a.f(vipSpecialList.class_url_name);
+            this.a.g(vipSpecialList.class_url);
+            this.b = new ArrayList();
+            for (VipSpecialItem vipSpecialItem : vipSpecialList.item) {
+                this.b.add(new xi9(vipSpecialItem));
             }
         }
     }

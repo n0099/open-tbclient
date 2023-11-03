@@ -10,16 +10,16 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kn9;
-import com.baidu.tieba.lh9;
-import com.baidu.tieba.on9;
+import com.baidu.tieba.p0a;
+import com.baidu.tieba.qu9;
+import com.baidu.tieba.t0a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class SubPbReplyAdapter extends kn9<on9, SubPbReplyViewHolder> {
+public class SubPbReplyAdapter extends p0a<t0a, SubPbReplyViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean c;
@@ -51,8 +51,8 @@ public class SubPbReplyAdapter extends kn9<on9, SubPbReplyViewHolder> {
                 }
             }
             this.c = 3;
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b8a);
-            this.b = view2.findViewById(R.id.obfuscated_res_0x7f090b8b);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090bac);
+            this.b = view2.findViewById(R.id.obfuscated_res_0x7f090bad);
         }
 
         public void b(boolean z) {
@@ -83,19 +83,19 @@ public class SubPbReplyAdapter extends kn9<on9, SubPbReplyViewHolder> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SubPbReplyAdapter(lh9 lh9Var, BdUniqueId bdUniqueId) {
-        super(lh9Var, bdUniqueId);
+    public SubPbReplyAdapter(qu9 qu9Var, BdUniqueId bdUniqueId) {
+        super(qu9Var, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {lh9Var, bdUniqueId};
+            Object[] objArr = {qu9Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((lh9) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((qu9) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -105,18 +105,18 @@ public class SubPbReplyAdapter extends kn9<on9, SubPbReplyViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
-    /* renamed from: s */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: t */
     public SubPbReplyViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new SubPbReplyViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d090e, viewGroup, false));
+            return new SubPbReplyViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0926, viewGroup, false));
         }
         return (SubPbReplyViewHolder) invokeL.objValue;
     }
 
-    public void u(boolean z) {
+    public void x(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             this.c = z;
@@ -124,19 +124,19 @@ public class SubPbReplyAdapter extends kn9<on9, SubPbReplyViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, on9 on9Var, SubPbReplyViewHolder subPbReplyViewHolder) {
+    @Override // com.baidu.tieba.bi
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, t0a t0aVar, SubPbReplyViewHolder subPbReplyViewHolder) {
         InterceptResult invokeCommon;
         int a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, on9Var, subPbReplyViewHolder})) == null) {
-            if (on9Var == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t0aVar, subPbReplyViewHolder})) == null) {
+            if (t0aVar == null) {
                 a = 0;
             } else {
-                a = on9Var.a();
+                a = t0aVar.a();
             }
-            String format = String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14b6), String.valueOf(a));
+            String format = String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14cd), String.valueOf(a));
             subPbReplyViewHolder.b(this.c);
             ((SubPbReplyViewHolder) this.viewholder).a.setText(format);
             ((SubPbReplyViewHolder) this.viewholder).onChangeSkinType();

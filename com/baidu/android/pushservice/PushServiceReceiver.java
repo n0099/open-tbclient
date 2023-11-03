@@ -21,60 +21,32 @@ import com.baidu.searchbox.IntentConstants;
 import com.baidu.searchbox.downloads.DownloadConstants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.core.atomData.ForbidActivityConfig;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.URISyntaxException;
 import org.json.JSONException;
 import org.json.JSONObject;
 @SuppressLint({"NewApi"})
 /* loaded from: classes.dex */
 public class PushServiceReceiver extends BroadcastReceiver {
-    public static /* synthetic */ Interceptable $ic;
     public static Handler a;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
     public class a extends com.baidu.android.pushservice.z.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context c;
         public final /* synthetic */ Intent d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(PushServiceReceiver pushServiceReceiver, String str, short s, Context context, Intent intent) {
             super(str, s);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pushServiceReceiver, str, Short.valueOf(s), context, intent};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], ((Short) objArr2[1]).shortValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.c = context;
             this.d = intent;
         }
 
         @Override // com.baidu.android.pushservice.z.c
         public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (Utility.E(this.c) || !m.a(this.c, (Intent) null)) {
-                    try {
-                        f.a(this.c).a(this.d);
-                    } catch (Exception unused) {
-                    }
+            if (Utility.E(this.c) || !m.a(this.c, (Intent) null)) {
+                try {
+                    f.a(this.c).a(this.d);
+                } catch (Exception unused) {
                 }
             }
         }
@@ -82,8 +54,6 @@ public class PushServiceReceiver extends BroadcastReceiver {
 
     /* loaded from: classes.dex */
     public class b extends com.baidu.android.pushservice.z.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context c;
         public final /* synthetic */ String d;
         public final /* synthetic */ String e;
@@ -102,22 +72,6 @@ public class PushServiceReceiver extends BroadcastReceiver {
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(PushServiceReceiver pushServiceReceiver, String str, short s, Context context, String str2, String str3, byte[] bArr, byte[] bArr2, String str4, String str5, int i, String str6, String str7, int i2, int i3, String str8, String str9) {
             super(str, s);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pushServiceReceiver, str, Short.valueOf(s), context, str2, str3, bArr, bArr2, str4, str5, Integer.valueOf(i), str6, str7, Integer.valueOf(i2), Integer.valueOf(i3), str8, str9};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], ((Short) objArr2[1]).shortValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.c = context;
             this.d = str2;
             this.e = str3;
@@ -136,9 +90,8 @@ public class PushServiceReceiver extends BroadcastReceiver {
 
         @Override // com.baidu.android.pushservice.z.c
         public void a() {
-            PublicMsg a;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (a = com.baidu.android.pushservice.w.m.e.a(this.c, this.d, this.e, this.f, this.g)) == null) {
+            PublicMsg a = com.baidu.android.pushservice.w.m.e.a(this.c, this.d, this.e, this.f, this.g);
+            if (a == null) {
                 return;
             }
             com.baidu.android.pushservice.x.h hVar = new com.baidu.android.pushservice.x.h(this.h, this.i, this.f, this.g, this.j, this.k, this.l, this.m, this.n, this.o);
@@ -150,27 +103,11 @@ public class PushServiceReceiver extends BroadcastReceiver {
 
     /* loaded from: classes.dex */
     public static class c extends com.baidu.android.pushservice.z.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context c;
         public final /* synthetic */ PublicMsg d;
         public final /* synthetic */ com.baidu.android.pushservice.x.h e;
 
         public c(Context context, PublicMsg publicMsg, com.baidu.android.pushservice.x.h hVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, publicMsg, hVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.c = context;
             this.d = publicMsg;
             this.e = hVar;
@@ -183,8 +120,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
             PublicMsg publicMsg2;
             com.baidu.android.pushservice.x.h hVar;
             boolean z;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.c == null || (publicMsg = this.d) == null || this.e == null) {
+            if (this.c == null || (publicMsg = this.d) == null || this.e == null) {
                 return;
             }
             Bitmap a = TextUtils.isEmpty(publicMsg.mImgUrl) ? null : com.baidu.android.pushservice.q.a.a().a(this.d.mImgUrl);
@@ -220,8 +156,6 @@ public class PushServiceReceiver extends BroadcastReceiver {
 
     /* loaded from: classes.dex */
     public static class d implements com.baidu.android.pushservice.ach.d.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
         public final /* synthetic */ com.baidu.android.pushservice.x.h b;
         public final /* synthetic */ PublicMsg c;
@@ -230,87 +164,29 @@ public class PushServiceReceiver extends BroadcastReceiver {
 
         /* loaded from: classes.dex */
         public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ d a;
-
-            public a(d dVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = dVar;
+            public a() {
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    d dVar = this.a;
-                    PushServiceReceiver.a(dVar.a, dVar.c, dVar.e, dVar.b, "com.baidu.android.pushservice.push.importance_HIGH");
-                }
+                d dVar = d.this;
+                PushServiceReceiver.a(dVar.a, dVar.c, dVar.e, dVar.b, "com.baidu.android.pushservice.push.importance_HIGH");
             }
         }
 
         /* loaded from: classes.dex */
         public class b implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ d a;
-
-            public b(d dVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = dVar;
+            public b() {
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    d dVar = this.a;
-                    PushServiceReceiver.a(dVar.a, dVar.c, dVar.e, dVar.b, "com.baidu.android.pushservice.push.importance_low");
-                }
+                d dVar = d.this;
+                PushServiceReceiver.a(dVar.a, dVar.c, dVar.e, dVar.b, "com.baidu.android.pushservice.push.importance_low");
             }
         }
 
         public d(Context context, com.baidu.android.pushservice.x.h hVar, PublicMsg publicMsg, boolean z, com.baidu.android.pushservice.ach.d.e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, hVar, publicMsg, Boolean.valueOf(z), eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.a = context;
             this.b = hVar;
             this.c = publicMsg;
@@ -320,17 +196,14 @@ public class PushServiceReceiver extends BroadcastReceiver {
 
         @Override // com.baidu.android.pushservice.ach.d.b
         public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                com.baidu.android.pushservice.x.h hVar = this.b;
-                Intent b2 = PushServiceReceiver.b(hVar.a, hVar.b, this.c, hVar.g);
-                if (b2 == null) {
-                    return;
-                }
-                try {
-                    this.a.startService(b2);
-                } catch (Exception unused) {
-                }
+            com.baidu.android.pushservice.x.h hVar = this.b;
+            Intent b2 = PushServiceReceiver.b(hVar.a, hVar.b, this.c, hVar.g);
+            if (b2 == null) {
+                return;
+            }
+            try {
+                this.a.startService(b2);
+            } catch (Exception unused) {
             }
         }
 
@@ -338,36 +211,32 @@ public class PushServiceReceiver extends BroadcastReceiver {
         public void a(int i) {
             Handler handler;
             Runnable bVar;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                long j = this.b.i * 1000;
-                if (j <= 0) {
-                    j = 5000;
-                }
-                if (PushServiceReceiver.a == null) {
-                    PushServiceReceiver.a = new Handler(this.a.getMainLooper());
-                }
-                if (!this.d) {
-                    if (com.baidu.android.pushservice.w.m.f.a(this.b.h) == 0) {
-                        handler = PushServiceReceiver.a;
-                        bVar = new a(this);
-                    } else if (com.baidu.android.pushservice.w.m.f.a(this.b.h) == 1) {
-                        handler = PushServiceReceiver.a;
-                        bVar = new b(this);
-                    }
-                    handler.postDelayed(bVar, j);
-                }
-                Context context = this.a;
-                PublicMsg publicMsg = this.c;
-                com.baidu.android.pushservice.x.h hVar = this.b;
-                PushServiceReceiver.b(context, publicMsg, hVar.c, hVar.d, hVar.f, i, hVar.g);
+            long j = this.b.i * 1000;
+            if (j <= 0) {
+                j = 5000;
             }
+            if (PushServiceReceiver.a == null) {
+                PushServiceReceiver.a = new Handler(this.a.getMainLooper());
+            }
+            if (!this.d) {
+                if (com.baidu.android.pushservice.w.m.f.a(this.b.h) == 0) {
+                    handler = PushServiceReceiver.a;
+                    bVar = new a();
+                } else if (com.baidu.android.pushservice.w.m.f.a(this.b.h) == 1) {
+                    handler = PushServiceReceiver.a;
+                    bVar = new b();
+                }
+                handler.postDelayed(bVar, j);
+            }
+            Context context = this.a;
+            PublicMsg publicMsg = this.c;
+            com.baidu.android.pushservice.x.h hVar = this.b;
+            PushServiceReceiver.b(context, publicMsg, hVar.c, hVar.d, hVar.f, i, hVar.g);
         }
 
         @Override // com.baidu.android.pushservice.ach.d.b
         public void b() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.d) {
+            if (this.d) {
                 return;
             }
             PushServiceReceiver.a(this.a, this.c, this.e, this.b, "com.baidu.android.pushservice.push.importance_HIGH");
@@ -375,269 +244,209 @@ public class PushServiceReceiver extends BroadcastReceiver {
 
         @Override // com.baidu.android.pushservice.ach.d.b
         public void b(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-                com.baidu.android.pushservice.a0.h.a(this.a, this.b.e);
-                com.baidu.android.pushservice.x.h hVar = this.b;
-                Intent b2 = PushServiceReceiver.b(hVar.a, this.c, hVar.c, hVar.d, hVar.g);
-                if (b2 == null) {
-                    return;
-                }
-                b2.putExtra("float_window_show_type", i);
-                b2.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                try {
-                    this.a.startActivity(b2);
-                } catch (Exception unused) {
-                }
+            com.baidu.android.pushservice.a0.h.a(this.a, this.b.e);
+            com.baidu.android.pushservice.x.h hVar = this.b;
+            Intent b2 = PushServiceReceiver.b(hVar.a, this.c, hVar.c, hVar.d, hVar.g);
+            if (b2 == null) {
+                return;
             }
-        }
-    }
-
-    public PushServiceReceiver() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            b2.putExtra("float_window_show_type", i);
+            b2.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+            try {
+                this.a.startActivity(b2);
+            } catch (Exception unused) {
             }
         }
     }
 
     public static Intent a(Context context, PublicMsg publicMsg) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, publicMsg)) == null) {
+        try {
+            Intent intent = new Intent();
             try {
-                Intent intent = new Intent();
-                try {
-                    intent.setClassName(context.getPackageName(), publicMsg.getLauncherActivityName(context, context.getPackageName()));
-                    intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-                    return intent;
-                } catch (Exception unused) {
-                    return intent;
-                }
-            } catch (Exception unused2) {
-                return null;
+                intent.setClassName(context.getPackageName(), publicMsg.getLauncherActivityName(context, context.getPackageName()));
+                intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+                return intent;
+            } catch (Exception unused) {
+                return intent;
             }
+        } catch (Exception unused2) {
+            return null;
         }
-        return (Intent) invokeLL.objValue;
     }
 
     public static Intent a(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
+        try {
+            Intent intent = new Intent();
             try {
-                Intent intent = new Intent();
-                try {
-                    intent.setAction(IntentConstants.ACTION_BOX_BROWSER);
-                    intent.setData(Uri.parse(str));
-                    intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-                    return intent;
-                } catch (Exception unused) {
-                    return intent;
-                }
-            } catch (Exception unused2) {
-                return null;
+                intent.setAction(IntentConstants.ACTION_BOX_BROWSER);
+                intent.setData(Uri.parse(str));
+                intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+                return intent;
+            } catch (Exception unused) {
+                return intent;
             }
+        } catch (Exception unused2) {
+            return null;
         }
-        return (Intent) invokeLL.objValue;
     }
 
     public static void a(Context context, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65544, null, context, z) == null) {
-            if (com.baidu.android.pushservice.y.c.b(context) > 0 && Utility.s(context) >= com.baidu.android.pushservice.y.c.c(context)) {
-                f.a(context).a(z, z ? com.baidu.android.pushservice.y.c.b(context) : 60);
-            } else if (z) {
-                f.a(context).c();
-            }
+        if (com.baidu.android.pushservice.y.c.b(context) > 0 && Utility.s(context) >= com.baidu.android.pushservice.y.c.c(context)) {
+            f.a(context).a(z, z ? com.baidu.android.pushservice.y.c.b(context) : 60);
+        } else if (z) {
+            f.a(context).c();
         }
     }
 
     public static boolean a(Context context, PublicMsg publicMsg, com.baidu.android.pushservice.ach.d.e eVar, com.baidu.android.pushservice.x.h hVar, String str) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65545, null, context, publicMsg, eVar, hVar, str)) == null) {
-            if (!com.baidu.android.pushservice.w.m.f.b(hVar.h) || com.baidu.android.pushservice.a0.h.b(context) == 0) {
-                return false;
-            }
-            NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
-            boolean o = Utility.o(context, publicMsg.mPkgName);
-            int i = publicMsg.mNotificationBuilder;
-            Notification a2 = i == 0 ? NotificationBuilderManager.a(context, i, publicMsg.mNotificationBasicStyle, publicMsg.mTitle, publicMsg.mDescription, o, eVar.c, publicMsg.mGroup, str) : NotificationBuilderManager.a(context, i, publicMsg.mTitle, publicMsg.mDescription, o, publicMsg.mBuilderRes, publicMsg.mImgUrl, publicMsg.mSummary, publicMsg.mGroup);
-            if (k.a && publicMsg.mNotificationBuilder >= 100) {
-                hVar.g = com.baidu.android.pushservice.w.m.e.a(hVar.g, "c_downgrade", 1);
-            }
-            PendingIntent activity = PendingIntent.getActivity(context, 0, b(hVar.a, publicMsg, hVar.c, hVar.d, hVar.g), Utility.a(0));
-            PendingIntent service = PendingIntent.getService(context, 0, b(hVar.a, hVar.b, publicMsg, hVar.g), Utility.a(0));
-            a2.contentIntent = activity;
-            a2.deleteIntent = service;
-            notificationManager.notify(hVar.e, a2);
-            NotificationBuilderManager.a(context, publicMsg, a2);
-            String str2 = publicMsg.mMsgId + " notified!";
-            b(context, publicMsg, hVar.c, hVar.d, hVar.f, 0, hVar.g);
-            return true;
+        if (!com.baidu.android.pushservice.w.m.f.b(hVar.h) || com.baidu.android.pushservice.a0.h.b(context) == 0) {
+            return false;
         }
-        return invokeLLLLL.booleanValue;
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
+        boolean o = Utility.o(context, publicMsg.mPkgName);
+        int i = publicMsg.mNotificationBuilder;
+        Notification a2 = i == 0 ? NotificationBuilderManager.a(context, i, publicMsg.mNotificationBasicStyle, publicMsg.mTitle, publicMsg.mDescription, o, eVar.c, publicMsg.mGroup, str) : NotificationBuilderManager.a(context, i, publicMsg.mTitle, publicMsg.mDescription, o, publicMsg.mBuilderRes, publicMsg.mImgUrl, publicMsg.mSummary, publicMsg.mGroup);
+        if (k.a && publicMsg.mNotificationBuilder >= 100) {
+            hVar.g = com.baidu.android.pushservice.w.m.e.a(hVar.g, "c_downgrade", 1);
+        }
+        PendingIntent activity = PendingIntent.getActivity(context, 0, b(hVar.a, publicMsg, hVar.c, hVar.d, hVar.g), Utility.a(0));
+        PendingIntent service = PendingIntent.getService(context, 0, b(hVar.a, hVar.b, publicMsg, hVar.g), Utility.a(0));
+        a2.contentIntent = activity;
+        a2.deleteIntent = service;
+        notificationManager.notify(hVar.e, a2);
+        NotificationBuilderManager.a(context, publicMsg, a2);
+        String str2 = publicMsg.mMsgId + " notified!";
+        b(context, publicMsg, hVar.c, hVar.d, hVar.f, 0, hVar.g);
+        return true;
     }
 
     public static Intent b(String str, PublicMsg publicMsg, byte[] bArr, byte[] bArr2, String str2) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65546, null, str, publicMsg, bArr, bArr2, str2)) == null) {
-            Intent intent = new Intent();
-            intent.setClassName(str, PushNotifyDispatchActivity.class.getName());
-            intent.setAction("com.baidu.android.pushservice.action.privatenotification.CLICK");
-            intent.setData(Uri.parse(DownloadConstants.LOCAL_DATA_URI_PREFIX + publicMsg.mMsgId));
-            intent.putExtra("public_msg", publicMsg);
-            intent.putExtra("app_id", publicMsg.mAppId);
-            intent.putExtra("msg_id", publicMsg.mMsgId);
-            intent.putExtra("baidu_message_secur_info", bArr);
-            intent.putExtra("baidu_message_body", bArr2);
-            intent.putExtra("notification_log_ext", str2);
-            return intent;
-        }
-        return (Intent) invokeLLLLL.objValue;
+        Intent intent = new Intent();
+        intent.setClassName(str, PushNotifyDispatchActivity.class.getName());
+        intent.setAction("com.baidu.android.pushservice.action.privatenotification.CLICK");
+        intent.setData(Uri.parse(DownloadConstants.LOCAL_DATA_URI_PREFIX + publicMsg.mMsgId));
+        intent.putExtra("public_msg", publicMsg);
+        intent.putExtra("app_id", publicMsg.mAppId);
+        intent.putExtra("msg_id", publicMsg.mMsgId);
+        intent.putExtra("baidu_message_secur_info", bArr);
+        intent.putExtra("baidu_message_body", bArr2);
+        intent.putExtra("notification_log_ext", str2);
+        return intent;
     }
 
     public static Intent b(String str, String str2, PublicMsg publicMsg, String str3) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65547, null, str, str2, publicMsg, str3)) == null) {
-            Intent intent = new Intent();
-            intent.setClassName(str, str2);
-            intent.setAction("com.baidu.android.pushservice.action.privatenotification.DELETE");
-            intent.setData(Uri.parse(DownloadConstants.LOCAL_DATA_URI_PREFIX + publicMsg.mMsgId));
-            intent.putExtra("public_msg", publicMsg);
-            intent.putExtra("app_id", publicMsg.mAppId);
-            intent.putExtra("msg_id", publicMsg.mMsgId);
-            intent.putExtra("notification_log_ext", str3);
-            return intent;
-        }
-        return (Intent) invokeLLLL.objValue;
+        Intent intent = new Intent();
+        intent.setClassName(str, str2);
+        intent.setAction("com.baidu.android.pushservice.action.privatenotification.DELETE");
+        intent.setData(Uri.parse(DownloadConstants.LOCAL_DATA_URI_PREFIX + publicMsg.mMsgId));
+        intent.putExtra("public_msg", publicMsg);
+        intent.putExtra("app_id", publicMsg.mAppId);
+        intent.putExtra("msg_id", publicMsg.mMsgId);
+        intent.putExtra("notification_log_ext", str3);
+        return intent;
     }
 
     public static void b(Context context, PublicMsg publicMsg) {
         Intent parseUri;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65548, null, context, publicMsg) == null) {
-            try {
-                NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
-                if (TextUtils.isEmpty(publicMsg.mPkgContent)) {
-                    if (!TextUtils.isEmpty(publicMsg.mUrl)) {
-                        parseUri = a(context, publicMsg.mUrl);
-                    }
-                    parseUri = a(context, publicMsg);
-                } else {
-                    try {
-                        parseUri = Intent.parseUri(publicMsg.mPkgContent, 1);
-                        parseUri.setPackage(context.getPackageName());
-                    } catch (URISyntaxException unused) {
-                    }
+        try {
+            NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
+            if (TextUtils.isEmpty(publicMsg.mPkgContent)) {
+                if (!TextUtils.isEmpty(publicMsg.mUrl)) {
+                    parseUri = a(context, publicMsg.mUrl);
                 }
-                if (parseUri != null) {
-                    PendingIntent activity = PendingIntent.getActivity(context, 0, parseUri, Utility.a(0));
-                    Notification a2 = NotificationBuilderManager.a(context, 0, 7, publicMsg.mTitle, publicMsg.mDescription, false, (Bitmap) null, publicMsg.mGroup, "");
-                    if (a2 != null) {
-                        a2.contentIntent = activity;
-                        long currentTimeMillis = System.currentTimeMillis();
-                        notificationManager.notify(currentTimeMillis + "", 0, a2);
-                    }
+                parseUri = a(context, publicMsg);
+            } else {
+                try {
+                    parseUri = Intent.parseUri(publicMsg.mPkgContent, 1);
+                    parseUri.setPackage(context.getPackageName());
+                } catch (URISyntaxException unused) {
                 }
-            } catch (Exception unused2) {
             }
+            if (parseUri != null) {
+                PendingIntent activity = PendingIntent.getActivity(context, 0, parseUri, Utility.a(0));
+                Notification a2 = NotificationBuilderManager.a(context, 0, 7, publicMsg.mTitle, publicMsg.mDescription, false, (Bitmap) null, publicMsg.mGroup, "");
+                if (a2 != null) {
+                    a2.contentIntent = activity;
+                    long currentTimeMillis = System.currentTimeMillis();
+                    notificationManager.notify(currentTimeMillis + "", 0, a2);
+                }
+            }
+        } catch (Exception unused2) {
         }
     }
 
     public static void b(Context context, PublicMsg publicMsg, com.baidu.android.pushservice.ach.d.e eVar, com.baidu.android.pushservice.x.h hVar, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{context, publicMsg, eVar, hVar, Boolean.valueOf(z)}) == null) {
-            com.baidu.android.pushservice.v.c.a().a(context, 1, eVar, hVar.i * 1000, new d(context, hVar, publicMsg, z, eVar));
-        }
+        com.baidu.android.pushservice.v.c.a().a(context, 1, eVar, hVar.i * 1000, new d(context, hVar, publicMsg, z, eVar));
     }
 
     public static void b(Context context, PublicMsg publicMsg, com.baidu.android.pushservice.x.h hVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65550, null, context, publicMsg, hVar) == null) {
-            com.baidu.android.pushservice.z.e.a().a(new c(context, publicMsg, hVar));
-        }
+        com.baidu.android.pushservice.z.e.a().a(new c(context, publicMsg, hVar));
     }
 
     public static void b(Context context, PublicMsg publicMsg, byte[] bArr, byte[] bArr2, String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65551, null, new Object[]{context, publicMsg, bArr, bArr2, str, Integer.valueOf(i), str2}) == null) {
-            Intent intent = new Intent();
-            intent.setPackage(publicMsg.mPkgName);
-            intent.putExtra("method", "com.baidu.android.pushservice.action.notification.ARRIVED");
-            intent.putExtra("msgid", publicMsg.mMsgId);
-            intent.putExtra("notification_title", publicMsg.mTitle);
-            intent.putExtra("notification_content", publicMsg.mDescription);
-            intent.putExtra("notification_log_ext", str2);
-            intent.putExtra("extra_extra_custom_content", publicMsg.mCustomContent);
-            intent.putExtra("com.baidu.pushservice.app_id", publicMsg.mAppId);
-            intent.putExtra("baidu_message_secur_info", bArr);
-            intent.putExtra("baidu_message_body", bArr2);
-            intent.putExtra("widget_badge_info", str);
-            if (i > 0) {
-                intent.putExtra("float_window_show_type", i);
-            }
-            Utility.c(context, intent, "com.baidu.android.pushservice.action.RECEIVE", publicMsg.mPkgName);
+        Intent intent = new Intent();
+        intent.setPackage(publicMsg.mPkgName);
+        intent.putExtra("method", "com.baidu.android.pushservice.action.notification.ARRIVED");
+        intent.putExtra("msgid", publicMsg.mMsgId);
+        intent.putExtra("notification_title", publicMsg.mTitle);
+        intent.putExtra("notification_content", publicMsg.mDescription);
+        intent.putExtra("notification_log_ext", str2);
+        intent.putExtra("extra_extra_custom_content", publicMsg.mCustomContent);
+        intent.putExtra("com.baidu.pushservice.app_id", publicMsg.mAppId);
+        intent.putExtra("baidu_message_secur_info", bArr);
+        intent.putExtra("baidu_message_body", bArr2);
+        intent.putExtra("widget_badge_info", str);
+        if (i > 0) {
+            intent.putExtra("float_window_show_type", i);
         }
+        Utility.c(context, intent, "com.baidu.android.pushservice.action.RECEIVE", publicMsg.mPkgName);
     }
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-            String action = intent.getAction();
-            if (!"com.baidu.android.pushservice.action.receiver.pullmsg".equals(action) && !"com.baidu.android.pushservice.action.receiver.SHOW_ASYNC_NOTIFICATION".equals(action) && !"com.baidu.android.pushservice.action.receiver.SAVE_PUSH_PROCESS_SP".equals(action)) {
-                com.baidu.android.pushservice.t.a.a(context.getApplicationContext()).a(0);
-            }
-            try {
-                intent.getByteArrayExtra("baidu_message_secur_info");
-                if ("com.baidu.android.pushservice.action.receiver.ALARM".equals(action)) {
-                    com.baidu.android.pushservice.z.e.a().a(new a(this, "PushServiceReceiver - keep alive", (short) 99, context, intent));
-                } else if (!"com.baidu.android.pushservice.action.notification.SHOW".equals(action)) {
-                    if ("com.baidu.android.pushservice.action.receiver.CANCEL_ALARM".equals(action)) {
-                        f.a(context).c();
-                    } else if ("com.baidu.android.pushservice.action.receiver.CHANGE_ALARM".equals(action)) {
-                        a(context, intent.getBooleanExtra("com.baidu.android.pushservice.action.receiver.ALARM_IS_BACK", true));
-                    } else if ("com.baidu.android.pushservice.action.receiver.pullmsg".equals(action)) {
-                        ClientEventInfo clientEventInfo = (ClientEventInfo) intent.getParcelableExtra("pull_msg_event_info");
-                        com.baidu.android.pushservice.t.a.a(context.getApplicationContext()).a(clientEventInfo != null ? clientEventInfo.getSource() : 0);
-                        com.baidu.android.pushservice.y.d.e(context, clientEventInfo);
-                    } else if ("com.baidu.android.pushservice.action.receiver.SHOW_ASYNC_NOTIFICATION".equals(action)) {
-                        com.baidu.android.pushservice.x.a.a().b(context, intent.getLongExtra("com.baidu.android.pushservice.SHOW_ASYNC_NOTIFICATION_KEY", 0L), intent.getIntExtra("com.baidu.android.pushservice.SHOW_ASYNC_NOTIFICATION_NOTIFY_ID", 0));
-                    } else if ("com.baidu.android.pushservice.action.receiver.SAVE_PUSH_PROCESS_SP".equals(action)) {
-                        com.baidu.android.pushservice.l.d.a(context, new JSONObject(intent.getStringExtra("com.baidu.android.pushservice.UPDATE_CONF_RESPONSE_DATA")));
-                    }
-                } else if (!com.baidu.android.pushservice.l.d.r(context) || com.baidu.android.pushservice.l.d.q(context)) {
-                    String stringExtra = intent.getStringExtra("pushService_package_name");
-                    String stringExtra2 = intent.getStringExtra("service_name");
-                    String stringExtra3 = intent.getStringExtra("notify_type");
-                    String stringExtra4 = intent.getStringExtra("app_id");
-                    int intExtra = intent.getIntExtra(Constants.EXTRA_NOTIFY_ID, 0);
-                    String stringExtra5 = intent.getStringExtra("widget_badge_info");
-                    byte[] byteArrayExtra = intent.getByteArrayExtra("baidu_message_body");
-                    byte[] byteArrayExtra2 = intent.getByteArrayExtra("baidu_message_secur_info");
-                    int intExtra2 = intent.getIntExtra("baidu_message_type", -1);
-                    String stringExtra6 = intent.getStringExtra(ForbidActivityConfig.CHAT_MSG_ID);
-                    int intExtra3 = intent.getIntExtra("extra_push_show_switch", -1);
-                    int intExtra4 = intent.getIntExtra("extra_float_window_duration", 5);
-                    String stringExtra7 = intent.getStringExtra("notification_log_ext");
-                    String stringExtra8 = intent.getStringExtra("extra_push_show_params");
-                    if (TextUtils.isEmpty(stringExtra) || TextUtils.isEmpty(stringExtra2) || byteArrayExtra == null || byteArrayExtra2 == null || intExtra2 == -1 || Utility.l(context, stringExtra6) || !com.baidu.android.pushservice.m.b.b(context, stringExtra6)) {
-                        return;
-                    }
-                    com.baidu.android.pushservice.z.e.a().a(new b(this, "showPrivateNotification", (short) 99, context, stringExtra4, stringExtra6, byteArrayExtra2, byteArrayExtra, stringExtra, stringExtra2, intExtra, stringExtra5, stringExtra7, intExtra3, intExtra4, stringExtra8, stringExtra3));
+        String action = intent.getAction();
+        if (!"com.baidu.android.pushservice.action.receiver.pullmsg".equals(action) && !"com.baidu.android.pushservice.action.receiver.SHOW_ASYNC_NOTIFICATION".equals(action) && !"com.baidu.android.pushservice.action.receiver.SAVE_PUSH_PROCESS_SP".equals(action)) {
+            com.baidu.android.pushservice.t.a.a(context.getApplicationContext()).a(0);
+        }
+        try {
+            intent.getByteArrayExtra("baidu_message_secur_info");
+            if ("com.baidu.android.pushservice.action.receiver.ALARM".equals(action)) {
+                com.baidu.android.pushservice.z.e.a().a(new a(this, "PushServiceReceiver - keep alive", (short) 99, context, intent));
+            } else if (!"com.baidu.android.pushservice.action.notification.SHOW".equals(action)) {
+                if ("com.baidu.android.pushservice.action.receiver.CANCEL_ALARM".equals(action)) {
+                    f.a(context).c();
+                } else if ("com.baidu.android.pushservice.action.receiver.CHANGE_ALARM".equals(action)) {
+                    a(context, intent.getBooleanExtra("com.baidu.android.pushservice.action.receiver.ALARM_IS_BACK", true));
+                } else if ("com.baidu.android.pushservice.action.receiver.pullmsg".equals(action)) {
+                    ClientEventInfo clientEventInfo = (ClientEventInfo) intent.getParcelableExtra("pull_msg_event_info");
+                    com.baidu.android.pushservice.t.a.a(context.getApplicationContext()).a(clientEventInfo != null ? clientEventInfo.getSource() : 0);
+                    com.baidu.android.pushservice.y.d.e(context, clientEventInfo);
+                } else if ("com.baidu.android.pushservice.action.receiver.SHOW_ASYNC_NOTIFICATION".equals(action)) {
+                    com.baidu.android.pushservice.x.a.a().b(context, intent.getLongExtra("com.baidu.android.pushservice.SHOW_ASYNC_NOTIFICATION_KEY", 0L), intent.getIntExtra("com.baidu.android.pushservice.SHOW_ASYNC_NOTIFICATION_NOTIFY_ID", 0));
+                } else if ("com.baidu.android.pushservice.action.receiver.SAVE_PUSH_PROCESS_SP".equals(action)) {
+                    com.baidu.android.pushservice.l.d.a(context, new JSONObject(intent.getStringExtra("com.baidu.android.pushservice.UPDATE_CONF_RESPONSE_DATA")));
                 }
-            } catch (JSONException | Exception unused) {
+            } else if (!com.baidu.android.pushservice.l.d.r(context) || com.baidu.android.pushservice.l.d.q(context)) {
+                String stringExtra = intent.getStringExtra("pushService_package_name");
+                String stringExtra2 = intent.getStringExtra("service_name");
+                String stringExtra3 = intent.getStringExtra("notify_type");
+                String stringExtra4 = intent.getStringExtra("app_id");
+                int intExtra = intent.getIntExtra(Constants.EXTRA_NOTIFY_ID, 0);
+                String stringExtra5 = intent.getStringExtra("widget_badge_info");
+                byte[] byteArrayExtra = intent.getByteArrayExtra("baidu_message_body");
+                byte[] byteArrayExtra2 = intent.getByteArrayExtra("baidu_message_secur_info");
+                int intExtra2 = intent.getIntExtra("baidu_message_type", -1);
+                String stringExtra6 = intent.getStringExtra(ForbidActivityConfig.CHAT_MSG_ID);
+                int intExtra3 = intent.getIntExtra("extra_push_show_switch", -1);
+                int intExtra4 = intent.getIntExtra("extra_float_window_duration", 5);
+                String stringExtra7 = intent.getStringExtra("notification_log_ext");
+                String stringExtra8 = intent.getStringExtra("extra_push_show_params");
+                if (TextUtils.isEmpty(stringExtra) || TextUtils.isEmpty(stringExtra2) || byteArrayExtra == null || byteArrayExtra2 == null || intExtra2 == -1 || Utility.l(context, stringExtra6) || !com.baidu.android.pushservice.m.b.b(context, stringExtra6)) {
+                    return;
+                }
+                com.baidu.android.pushservice.z.e.a().a(new b(this, "showPrivateNotification", (short) 99, context, stringExtra4, stringExtra6, byteArrayExtra2, byteArrayExtra, stringExtra, stringExtra2, intExtra, stringExtra5, stringExtra7, intExtra3, intExtra4, stringExtra8, stringExtra3));
             }
+        } catch (JSONException | Exception unused) {
         }
     }
 }

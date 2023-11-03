@@ -1,213 +1,78 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.badlogic.gdx.graphics.Pixmap;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.TextureData;
-import com.badlogic.gdx.utils.BufferUtils;
+import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.p2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.nio.FloatBuffer;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class h2 implements v2 {
+public class h2 {
     public static /* synthetic */ Interceptable $ic;
-    public static float h;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
+    public int a;
     public int b;
-    public Texture.TextureFilter c;
-    public Texture.TextureFilter d;
-    public Texture.TextureWrap e;
-    public Texture.TextureWrap f;
-    public float g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448304675, "Lcom/baidu/tieba/h2;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public h2() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448304675, "Lcom/baidu/tieba/h2;");
-        }
-    }
-
-    public static float d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            float f = h;
-            if (f > 0.0f) {
-                return f;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (y0.b.a("GL_EXT_texture_filter_anisotropic")) {
-                FloatBuffer a = BufferUtils.a(16);
-                a.position(0);
-                a.limit(a.capacity());
-                y0.d.h(34047, a);
-                float f2 = a.get(0);
-                h = f2;
-                return f2;
+        }
+        this.a = 0;
+        this.b = 0;
+    }
+
+    public boolean a(MotionEvent motionEvent, p2 p2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, motionEvent, p2Var)) == null) {
+            if ((motionEvent.getSource() & 2) == 0) {
+                return false;
             }
-            h = 1.0f;
-            return 1.0f;
-        }
-        return invokeV.floatValue;
-    }
-
-    public static void k(int i, TextureData textureData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65538, null, i, textureData) == null) {
-            l(i, textureData, 0);
-        }
-    }
-
-    public void f(Texture.TextureFilter textureFilter, Texture.TextureFilter textureFilter2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, textureFilter, textureFilter2) == null) {
-            this.c = textureFilter;
-            this.d = textureFilter2;
-            b();
-            y0.c.i(this.a, 10241, textureFilter.getGLEnum());
-            y0.c.i(this.a, 10240, textureFilter2.getGLEnum());
-        }
-    }
-
-    public void g(Texture.TextureWrap textureWrap, Texture.TextureWrap textureWrap2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, textureWrap, textureWrap2) == null) {
-            this.e = textureWrap;
-            this.f = textureWrap2;
-            b();
-            y0.c.i(this.a, 10242, textureWrap.getGLEnum());
-            y0.c.i(this.a, 10243, textureWrap2.getGLEnum());
-        }
-    }
-
-    public static void l(int i, TextureData textureData, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), textureData, Integer.valueOf(i2)}) != null) || textureData == null) {
-            return;
-        }
-        if (!textureData.isPrepared()) {
-            textureData.prepare();
-        }
-        if (textureData.getType() == TextureData.TextureDataType.Custom) {
-            textureData.b(i);
-            return;
-        }
-        Pixmap c = textureData.c();
-        boolean f = textureData.f();
-        if (textureData.d() != c.e()) {
-            Pixmap pixmap = new Pixmap(c.k(), c.i(), textureData.d());
-            pixmap.l(Pixmap.Blending.None);
-            pixmap.b(c, 0, 0, 0, 0, c.k(), c.i());
-            if (textureData.f()) {
-                c.dispose();
-            }
-            c = pixmap;
-            f = true;
-        }
-        y0.c.g(3317, 1);
-        if (textureData.e()) {
-            n2.a(i, c, c.k(), c.i());
-        } else {
-            y0.c.o(i, i2, c.g(), c.k(), c.i(), 0, c.f(), c.h(), c.j());
-        }
-        if (f) {
-            c.dispose();
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            y0.c.F(this.a, this.b);
-        }
-    }
-
-    public void c() {
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (i = this.b) != 0) {
-            y0.c.J(i);
-            this.b = 0;
-        }
-    }
-
-    @Override // com.baidu.tieba.v2
-    public void dispose() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c();
-        }
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public float h(float f, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Float.valueOf(f), Boolean.valueOf(z)})) == null) {
-            float d = d();
-            if (d == 1.0f) {
-                return 1.0f;
-            }
-            float min = Math.min(f, d);
-            if (!z && com.badlogic.gdx.math.b.f(min, this.g, 0.1f)) {
-                return this.g;
-            }
-            y0.d.s(3553, 34046, min);
-            this.g = min;
-            return min;
-        }
-        return invokeCommon.floatValue;
-    }
-
-    public void i(Texture.TextureFilter textureFilter, Texture.TextureFilter textureFilter2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048583, this, textureFilter, textureFilter2, z) == null) {
-            if (textureFilter != null && (z || this.c != textureFilter)) {
-                y0.c.i(this.a, 10241, textureFilter.getGLEnum());
-                this.c = textureFilter;
-            }
-            if (textureFilter2 != null) {
-                if (z || this.d != textureFilter2) {
-                    y0.c.i(this.a, 10240, textureFilter2.getGLEnum());
-                    this.d = textureFilter2;
+            int action = motionEvent.getAction() & 255;
+            long nanoTime = System.nanoTime();
+            synchronized (p2Var) {
+                if (action != 7) {
+                    if (action == 8) {
+                        b(p2Var, 3, 0, 0, (int) (-Math.signum(motionEvent.getAxisValue(10))), (int) (-Math.signum(motionEvent.getAxisValue(9))), nanoTime);
+                    }
+                } else {
+                    int x = (int) motionEvent.getX();
+                    int y = (int) motionEvent.getY();
+                    if (x != this.a || y != this.b) {
+                        b(p2Var, 4, x, y, 0, 0, nanoTime);
+                        this.a = x;
+                        this.b = y;
+                    }
                 }
             }
+            o1.a.getGraphics().c();
+            return true;
         }
+        return invokeLL.booleanValue;
     }
 
-    public void j(Texture.TextureWrap textureWrap, Texture.TextureWrap textureWrap2, boolean z) {
+    public final void b(p2 p2Var, int i, int i2, int i3, int i4, int i5, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, textureWrap, textureWrap2, z) == null) {
-            if (textureWrap != null && (z || this.e != textureWrap)) {
-                y0.c.i(this.a, 10242, textureWrap.getGLEnum());
-                this.e = textureWrap;
-            }
-            if (textureWrap2 != null) {
-                if (z || this.f != textureWrap2) {
-                    y0.c.i(this.a, 10243, textureWrap2.getGLEnum());
-                    this.f = textureWrap2;
-                }
-            }
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{p2Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Long.valueOf(j)}) == null) {
+            p2.f e = p2Var.g.e();
+            e.a = j;
+            e.c = i2;
+            e.d = i3;
+            e.b = i;
+            e.e = i4;
+            e.f = i5;
+            p2Var.j.add(e);
         }
     }
 }

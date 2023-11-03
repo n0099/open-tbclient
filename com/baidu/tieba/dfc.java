@@ -1,173 +1,140 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.opengl.GLES20;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import tv.athena.revenue.payui.model.PayFinishInfo;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.transvod.player.common.effectmp4.EffectInfo;
 /* loaded from: classes5.dex */
-public class dfc {
+public class dfc extends ffc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public EffectInfo l;
+    public int m;
+    public int n;
+    public int o;
+    public int p;
+    public int q;
+    public int r;
+    public int s;
+    public int t;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dfc(lfc lfcVar) {
+        super(lfcVar);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {lfcVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((lfc) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.l = null;
+        this.m = -1;
+        this.n = -1;
+        this.o = -1;
+        this.p = -1;
+        this.q = -1;
+        this.r = -1;
+        this.s = -1;
+        this.t = -1;
+    }
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-862146901, "Lcom/baidu/tieba/dfc$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-862146901, "Lcom/baidu/tieba/dfc$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[PayDialogType.values().length];
-            a = iArr;
-            try {
-                iArr[PayDialogType.PAY_AMOUNT_DIALOG.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[PayDialogType.PAY_INPUT_DIALOG.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[PayDialogType.PAY_WAY_DIALOG.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[PayDialogType.PAY_SPLIT_ORDER_DIALOG.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
+    @Override // com.baidu.tieba.ffc
+    public void a(String str, String str2, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLII(1048576, this, str, str2, i, i2) == null) {
+            super.a(str, str2, i, i2);
+            GLES20.glUseProgram(this.a);
+            this.m = GLES20.glGetUniformLocation(this.a, "bgRectRGB");
+            mfc.c("EffectMP4_uniform_bgRectRGB", this.j);
+            this.n = GLES20.glGetUniformLocation(this.a, "bgRectA");
+            mfc.c("EffectMP4_uniform_bRectA", this.j);
+            this.o = GLES20.glGetUniformLocation(this.a, "maskCount");
+            mfc.c("EffectMP4_uniform_maskCount", this.j);
+            this.p = GLES20.glGetUniformLocation(this.a, "srcImage");
+            mfc.c("EffectMP4_uniform_bRectA", this.j);
+            this.q = GLES20.glGetUniformLocation(this.a, "srcRgbRects");
+            mfc.c("EffectMP4_uniform_srcRgbRects", this.j);
+            this.r = GLES20.glGetUniformLocation(this.a, "maskFrameRects");
+            mfc.c("EffectMP4_uniform_maskFrameRects", this.j);
+            this.s = GLES20.glGetUniformLocation(this.a, "maskAlphaRects");
+            mfc.c("EffectMP4_uniform_maskAlphaRects", this.j);
+            this.t = GLES20.glGetUniformLocation(this.a, "rectOffset");
+            mfc.c("EffectMP4_uniform_rectOffset", this.j);
+            GLES20.glUseProgram(0);
         }
     }
 
-    public static PayFinishInfo a(PayDialogType payDialogType, int i, String str) {
-        InterceptResult invokeLIL;
+    @Override // com.baidu.tieba.ffc
+    public void e(float f, float f2) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65536, null, payDialogType, i, str)) == null) {
-            return b(payDialogType, i, str, false);
+        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) != null) || (i = this.t) == -1) {
+            return;
         }
-        return (PayFinishInfo) invokeLIL.objValue;
+        GLES20.glUniform2f(i, f, f2);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:37:0x00c5  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static PayFinishInfo b(PayDialogType payDialogType, int i, String str, boolean z) {
-        InterceptResult invokeCommon;
-        String str2;
+    public void k(float[] fArr, int i) {
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{payDialogType, Integer.valueOf(i), str, Boolean.valueOf(z)})) == null) {
-            PayFinishInfo payFinishInfo = new PayFinishInfo();
-            int i2 = a.a[payDialogType.ordinal()];
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 != 3) {
-                        if (i2 == 4) {
-                            payFinishInfo.step = lcc.h;
-                            if (TextUtils.isEmpty(str)) {
-                                str2 = "支付拆单选择面板";
-                            } else {
-                                str2 = "支付拆单选择面板," + str;
-                            }
-                        }
-                        if (TextUtils.isEmpty(str)) {
-                            str = "";
-                        }
-                        payFinishInfo.message = str;
-                        payFinishInfo.code = i;
-                        return payFinishInfo;
-                    } else if (z) {
-                        payFinishInfo.step = lcc.g;
-                        if (TextUtils.isEmpty(str)) {
-                            str2 = "支付渠道选择面板(快捷)";
-                        } else {
-                            str2 = "支付渠道选择面板(快捷)," + str;
-                        }
-                    } else {
-                        payFinishInfo.step = lcc.c;
-                        if (TextUtils.isEmpty(str)) {
-                            str2 = "支付渠道选择面板";
-                        } else {
-                            str2 = "支付渠道选择面板," + str;
-                        }
-                    }
-                } else {
-                    payFinishInfo.step = lcc.b;
-                    if (TextUtils.isEmpty(str)) {
-                        str2 = "支付金额输入面板";
-                    } else {
-                        str2 = "支付金额输入面板," + str;
-                    }
-                }
-            } else {
-                payFinishInfo.step = lcc.a;
-                if (TextUtils.isEmpty(str)) {
-                    str2 = "支付金额选择面板";
-                } else {
-                    str2 = "支付金额选择面板," + str;
-                }
-            }
-            str = str2;
-            if (TextUtils.isEmpty(str)) {
-            }
-            payFinishInfo.message = str;
-            payFinishInfo.code = i;
-            return payFinishInfo;
+        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, fArr, i) == null) && (i2 = this.s) != -1 && fArr != null && i > 0) {
+            GLES20.glUniform4fv(i2, i, fArr, 0);
         }
-        return (PayFinishInfo) invokeCommon.objValue;
     }
 
-    public static PayFinishInfo c(int i, String str) {
-        InterceptResult invokeIL;
+    public void m(float[] fArr, int i) {
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, str)) == null) {
-            PayFinishInfo payFinishInfo = new PayFinishInfo();
-            payFinishInfo.step = lcc.e;
-            payFinishInfo.code = i;
-            payFinishInfo.message = str;
-            return payFinishInfo;
+        if ((interceptable == null || interceptable.invokeLI(1048580, this, fArr, i) == null) && (i2 = this.r) != -1 && fArr != null && i > 0) {
+            GLES20.glUniform4fv(i2, i, fArr, 0);
         }
-        return (PayFinishInfo) invokeIL.objValue;
     }
 
-    public static PayFinishInfo d(int i, String str) {
-        InterceptResult invokeIL;
+    public void o(float[] fArr, int i) {
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, str)) == null) {
-            PayFinishInfo payFinishInfo = new PayFinishInfo();
-            payFinishInfo.step = lcc.d;
-            payFinishInfo.code = i;
-            payFinishInfo.message = str;
-            return payFinishInfo;
+        if ((interceptable == null || interceptable.invokeLI(1048582, this, fArr, i) == null) && (i2 = this.q) != -1 && fArr != null && i > 0) {
+            GLES20.glUniform4fv(i2, i, fArr, 0);
         }
-        return (PayFinishInfo) invokeIL.objValue;
     }
 
-    public static PayFinishInfo e(int i, String str) {
-        InterceptResult invokeIL;
+    public void l(int i) {
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, str)) == null) {
-            PayFinishInfo payFinishInfo = new PayFinishInfo();
-            payFinishInfo.step = lcc.f;
-            payFinishInfo.code = i;
-            payFinishInfo.message = str;
-            return payFinishInfo;
+        if ((interceptable != null && interceptable.invokeI(1048579, this, i) != null) || (i2 = this.o) == -1) {
+            return;
         }
-        return (PayFinishInfo) invokeIL.objValue;
+        GLES20.glUniform1i(i2, i);
+    }
+
+    public void n(int i) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048581, this, i) != null) || (i2 = this.p) == -1) {
+            return;
+        }
+        GLES20.glUniform1i(i2, i);
+    }
+
+    public void p(EffectInfo effectInfo) {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, effectInfo) == null) && effectInfo != null && this.n != -1 && (i = this.m) != -1 && this.l != effectInfo) {
+            this.l = effectInfo;
+            GLES20.glUniform4fv(i, 1, effectInfo.f, 0);
+            GLES20.glUniform4fv(this.n, 1, effectInfo.g, 0);
+        }
     }
 }

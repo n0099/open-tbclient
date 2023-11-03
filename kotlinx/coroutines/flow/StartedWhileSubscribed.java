@@ -1,6 +1,6 @@
 package kotlinx.coroutines.flow;
 
-import com.baidu.tieba.b;
+import com.baidu.tieba.c;
 import java.util.List;
 import kotlin.Metadata;
 import kotlin.collections.CollectionsKt__CollectionsJVMKt;
@@ -47,7 +47,7 @@ public final class StartedWhileSubscribed implements SharingStarted {
 
     @IgnoreJRERequirement
     public int hashCode() {
-        return (b.a(this.stopTimeout) * 31) + b.a(this.replayExpiration);
+        return (c.a(this.stopTimeout) * 31) + c.a(this.replayExpiration);
     }
 
     public String toString() {

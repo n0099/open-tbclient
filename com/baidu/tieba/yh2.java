@@ -1,49 +1,64 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import com.baidu.searchbox.config.QuickPersistConfigConst;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes9.dex */
-public class yh2 extends pd3 {
+public class yh2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.td3
-    public long getMaxSize() {
+    public static String a() {
         InterceptResult invokeV;
+        String optString;
+        int indexOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 52428800L;
-        }
-        return invokeV.longValue;
-    }
-
-    public yh2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            g63 c0 = g63.c0();
+            JSONObject jSONObject = new JSONObject();
+            if (c0 != null) {
+                jSONObject = c0.X().N();
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.pd3
-    @NonNull
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return zh2.p();
+            if (jSONObject != null && (optString = jSONObject.optString("keyfeed")) != null && (indexOf = optString.indexOf("_")) >= 0 && TextUtils.equals("miniapp", optString.substring(0, indexOf))) {
+                return optString.substring(indexOf + 1);
+            }
+            return "";
         }
         return (String) invokeV.objValue;
+    }
+
+    public static Map<String, Object> b(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put(GameGuideConfigInfo.KEY_APP_KEY, str);
+            hashMap.put("op_type", str2);
+            String a = a();
+            if (!TextUtils.isEmpty(a)) {
+                hashMap.put("nid", a);
+            }
+            return hashMap;
+        }
+        return (Map) invokeLL.objValue;
+    }
+
+    public static Map<String, Object> c(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put(GameGuideConfigInfo.KEY_APP_KEY, str);
+            hashMap.put(QuickPersistConfigConst.KEY_SPLASH_SORT, Integer.valueOf(i));
+            hashMap.put("op_type", "add");
+            return hashMap;
+        }
+        return (Map) invokeLI.objValue;
     }
 }

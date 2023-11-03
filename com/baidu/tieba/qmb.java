@@ -1,34 +1,39 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import java.lang.reflect.Field;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class qmb extends BaseAdRipper {
+public final class qmb extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public final void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qmb(Ssp.Pid pid) {
-        super(pid);
+    public qmb(Context context) {
+        super(context, "BaiDuAb.db", (SQLiteDatabase.CursorFactory) null, 1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Ssp.Pid) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -36,52 +41,20 @@ public class qmb extends BaseAdRipper {
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
-    public RippedAd getRippedAdInternal(Object obj) {
-        InterceptResult invokeL;
-        Object obj2;
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public final void onCreate(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
+            int i = 0;
+            while (true) {
+                String[] strArr = rmb.a;
+                if (i < strArr.length) {
+                    sQLiteDatabase.execSQL(strArr[i]);
+                    i++;
+                } else {
+                    return;
+                }
             }
-            try {
-                Object obj3 = ((gnb) obj).a;
-                Field declaredField = obj3.getClass().getSuperclass().getSuperclass().getDeclaredField("a");
-                declaredField.setAccessible(true);
-                obj2 = declaredField.get(obj3);
-            } catch (Exception e) {
-                LogPrinter.e(e);
-            }
-            if (obj2 == null) {
-                return null;
-            }
-            Field declaredField2 = obj2.getClass().getDeclaredField("c");
-            declaredField2.setAccessible(true);
-            Object obj4 = declaredField2.get(obj2);
-            if (obj4 == null) {
-                return null;
-            }
-            Field declaredField3 = obj4.getClass().getDeclaredField("c");
-            declaredField3.setAccessible(true);
-            Object obj5 = declaredField3.get(obj4);
-            if (obj5 == null) {
-                return null;
-            }
-            Field declaredField4 = obj5.getClass().getDeclaredField("v");
-            declaredField4.setAccessible(true);
-            Object obj6 = declaredField4.get(obj5);
-            if (obj6 == null) {
-                return null;
-            }
-            Field declaredField5 = obj6.getClass().getSuperclass().getDeclaredField("M");
-            declaredField5.setAccessible(true);
-            JSONObject jSONObject = (JSONObject) declaredField5.get(obj6);
-            if (jSONObject != null) {
-                return pmb.a(jSONObject);
-            }
-            return null;
         }
-        return (RippedAd) invokeL.objValue;
     }
 }

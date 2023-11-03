@@ -1,107 +1,90 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.SQLException;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.db.PackageTable;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.searchbox.http.cookie.CookieManager;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.tieba.jf4;
 import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public abstract class pd4<T> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface pd4 {
+    qg4 A();
 
-    public abstract ContentValues c(T t);
+    int B();
 
-    public abstract T d(Cursor cursor) throws SQLException;
+    void C();
 
-    public abstract List<T> e(Cursor cursor) throws SQLException;
+    void D(vh4 vh4Var);
 
-    public pd4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    String E();
 
-    public ContentValues a(ne4 ne4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ne4Var)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("bundle_id", ne4Var.g);
-            contentValues.put("category", Integer.valueOf(ne4Var.h));
-            contentValues.put(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, ne4Var.j);
-            contentValues.put("version_code", Long.valueOf(ne4Var.i));
-            contentValues.put("size", Long.valueOf(ne4Var.k));
-            contentValues.put(PackageTable.MD5, ne4Var.l);
-            contentValues.put("sign", ne4Var.m);
-            contentValues.put("downloadUrl", ne4Var.n);
-            contentValues.put(PackageTable.FILE_PATH, ne4Var.a);
-            contentValues.put(PackageTable.CURRENT_SIZE, Long.valueOf(ne4Var.b));
-            contentValues.put("create_time", Long.valueOf(ne4Var.c));
-            contentValues.put("update_time", Long.valueOf(ne4Var.d));
-            contentValues.put("state", Integer.valueOf(ne4Var.e));
-            return contentValues;
-        }
-        return (ContentValues) invokeL.objValue;
-    }
+    int F(String str, int i);
 
-    public boolean b(Cursor cursor, ne4 ne4Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cursor, ne4Var)) == null) {
-            if (cursor != null) {
-                int columnIndex = cursor.getColumnIndex("bundle_id");
-                int columnIndex2 = cursor.getColumnIndex("category");
-                int columnIndex3 = cursor.getColumnIndex(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME);
-                int columnIndex4 = cursor.getColumnIndex("version_code");
-                int columnIndex5 = cursor.getColumnIndex("size");
-                int columnIndex6 = cursor.getColumnIndex(PackageTable.MD5);
-                int columnIndex7 = cursor.getColumnIndex("sign");
-                int columnIndex8 = cursor.getColumnIndex("downloadUrl");
-                int columnIndex9 = cursor.getColumnIndex("_id");
-                int columnIndex10 = cursor.getColumnIndex(PackageTable.FILE_PATH);
-                int columnIndex11 = cursor.getColumnIndex(PackageTable.CURRENT_SIZE);
-                int columnIndex12 = cursor.getColumnIndex("create_time");
-                int columnIndex13 = cursor.getColumnIndex("update_time");
-                int columnIndex14 = cursor.getColumnIndex("state");
-                String string = cursor.getString(columnIndex);
-                if (TextUtils.isEmpty(string)) {
-                    return false;
-                }
-                ne4Var.g = string;
-                ne4Var.h = cursor.getInt(columnIndex2);
-                ne4Var.j = cursor.getString(columnIndex3);
-                ne4Var.i = cursor.getLong(columnIndex4);
-                ne4Var.k = cursor.getLong(columnIndex5);
-                ne4Var.l = cursor.getString(columnIndex6);
-                ne4Var.m = cursor.getString(columnIndex7);
-                ne4Var.n = cursor.getString(columnIndex8);
-                ne4Var.a = cursor.getString(columnIndex10);
-                ne4Var.b = cursor.getLong(columnIndex11);
-                ne4Var.c = cursor.getLong(columnIndex12);
-                ne4Var.d = cursor.getLong(columnIndex13);
-                ne4Var.f = cursor.getLong(columnIndex9);
-                ne4Var.e = cursor.getInt(columnIndex14);
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
+    void G(String str, String str2, Throwable th);
+
+    void H(ji4 ji4Var);
+
+    String I();
+
+    String J(int i);
+
+    void K(String str, String str2, String str3, int i, JSONObject jSONObject, boolean z);
+
+    void L(String str, String str2, String str3, @Nullable Throwable th, boolean z);
+
+    pf4 M();
+
+    float a();
+
+    String b();
+
+    String c();
+
+    void d(byte[] bArr);
+
+    String e();
+
+    CookieManager f();
+
+    String g();
+
+    String h();
+
+    hm4 i();
+
+    long j(int i);
+
+    void k(JSONArray jSONArray, String str, String str2);
+
+    List<ze4> l(String str, long j);
+
+    void m(String str, String str2, jf4.c cVar);
+
+    pf4 n();
+
+    boolean o(boolean z, @NonNull JSONArray jSONArray);
+
+    void p(String str, JSONObject jSONObject, ff4 ff4Var, List<gf4> list);
+
+    String q();
+
+    boolean r(@Nullable hf4 hf4Var);
+
+    void s(PMSAppInfo pMSAppInfo, JSONObject jSONObject, boolean z);
+
+    void t(yi4 yi4Var, oj4 oj4Var);
+
+    String u();
+
+    String v(int i);
+
+    long w(int i);
+
+    boolean x();
+
+    void y(String str, String str2);
+
+    void z(String str, String str2, String str3, boolean z);
 }

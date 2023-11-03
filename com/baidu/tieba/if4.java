@@ -1,55 +1,55 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.pms.utils.AbiType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.channels.ReadableByteChannel;
-import okhttp3.ResponseBody;
 /* loaded from: classes6.dex */
-public class if4 implements kf4 {
+public class if4 extends ef4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ResponseBody a;
+    public long o;
+    public String p;
+    public AbiType q;
 
-    public if4(@NonNull ResponseBody responseBody) {
+    public if4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {responseBody};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = responseBody;
     }
 
-    @Override // com.baidu.tieba.kf4
-    public ReadableByteChannel a() {
+    @Override // com.baidu.tieba.ef4
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.source();
+            if (!TextUtils.isEmpty(this.g) && this.i > 0 && this.k > 0 && !TextUtils.isEmpty(this.p) && !TextUtils.isEmpty(this.l) && !TextUtils.isEmpty(this.n) && this.q != null) {
+                return true;
+            }
+            return false;
         }
-        return (ReadableByteChannel) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.kf4
-    public long b() {
+    @Override // com.baidu.tieba.ef4
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.contentLength();
+            return "libName=" + this.p + ", abi=" + this.q + ", maxAge=" + this.o + " " + super.toString();
         }
-        return invokeV.longValue;
+        return (String) invokeV.objValue;
     }
 }

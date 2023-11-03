@@ -11,10 +11,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.au4;
-import com.baidu.tieba.by9;
-import com.baidu.tieba.f95;
+import com.baidu.tieba.gba;
+import com.baidu.tieba.ru4;
 import com.baidu.tieba.setting.model.MsgRemindModel;
+import com.baidu.tieba.z95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -70,14 +70,14 @@ public class PushPermissionController {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements au4 {
+    public class b implements ru4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ boolean a;
         public final /* synthetic */ boolean b;
         public final /* synthetic */ PushPermissionController c;
 
-        @Override // com.baidu.tieba.au4
+        @Override // com.baidu.tieba.ru4
         public void onCancelClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -104,12 +104,12 @@ public class PushPermissionController {
             this.b = z2;
         }
 
-        @Override // com.baidu.tieba.au4
+        @Override // com.baidu.tieba.ru4
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (!this.a) {
-                    new MsgRemindModel(this.c.mContext).S(34, true, null);
+                    new MsgRemindModel(this.c.mContext).T(34, true, null);
                 }
                 if (this.b) {
                     PushOpenUtil.showPushPermissionSucToast(this.c.mActivity);
@@ -157,7 +157,7 @@ public class PushPermissionController {
             if (TbSingleton.getInstance().getPushStrategyConfig().d()) {
                 return DialogUtil.showPushPermissionDialog(TbadkCoreApplication.getInst(), 7);
             }
-            return by9.e().b("user_follow");
+            return gba.e().b("user_follow");
         }
         return invokeV.booleanValue;
     }
@@ -167,7 +167,7 @@ public class PushPermissionController {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             boolean areNotificationsEnabled = NotificationManagerCompat.from(TbadkCoreApplication.getInst()).areNotificationsEnabled();
-            boolean n = f95.e().n();
+            boolean n = z95.e().n();
             if (areNotificationsEnabled && n) {
                 return false;
             }
@@ -197,14 +197,14 @@ public class PushPermissionController {
         if ((interceptable == null || interceptable.invokeI(65542, this, i) == null) && (activity = this.mActivity) != null && this.mContext != null) {
             boolean areNotificationsEnabled = NotificationManagerCompat.from(activity).areNotificationsEnabled();
             if (i == 10) {
-                boolean n = f95.e().n();
+                boolean n = z95.e().n();
                 if (areNotificationsEnabled && n) {
                     return;
                 }
                 b bVar = new b(this, n, areNotificationsEnabled);
                 if (checkShouldShowUserFollowPush()) {
                     PushOpenUtil.showPushPermissionDialogV2(this.mContext, this.mActivity, 10, bVar);
-                    by9.e().h("user_follow");
+                    gba.e().h("user_follow");
                 }
             }
         }

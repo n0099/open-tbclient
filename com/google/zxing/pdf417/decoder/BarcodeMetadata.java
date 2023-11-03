@@ -1,5 +1,5 @@
 package com.google.zxing.pdf417.decoder;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class BarcodeMetadata {
     public final int columnCount;
     public final int errorCorrectionLevel;

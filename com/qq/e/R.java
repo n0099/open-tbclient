@@ -34,31 +34,31 @@ public final class R {
     /* loaded from: classes10.dex */
     public static final class drawable {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int gdt_ic_back = 0x7f080703;
-        public static final int gdt_ic_browse = 0x7f080704;
-        public static final int gdt_ic_download = 0x7f080705;
-        public static final int gdt_ic_enter_fullscreen = 0x7f080706;
-        public static final int gdt_ic_exit_fullscreen = 0x7f080707;
-        public static final int gdt_ic_express_back_to_port = 0x7f080708;
-        public static final int gdt_ic_express_close = 0x7f080709;
-        public static final int gdt_ic_express_enter_fullscreen = 0x7f08070a;
-        public static final int gdt_ic_express_pause = 0x7f08070b;
-        public static final int gdt_ic_express_play = 0x7f08070c;
-        public static final int gdt_ic_express_volume_off = 0x7f08070d;
-        public static final int gdt_ic_express_volume_on = 0x7f08070e;
-        public static final int gdt_ic_native_back = 0x7f08070f;
-        public static final int gdt_ic_native_download = 0x7f080710;
-        public static final int gdt_ic_native_volume_off = 0x7f080711;
-        public static final int gdt_ic_native_volume_on = 0x7f080712;
-        public static final int gdt_ic_pause = 0x7f080713;
-        public static final int gdt_ic_play = 0x7f080714;
-        public static final int gdt_ic_progress_thumb_normal = 0x7f080715;
-        public static final int gdt_ic_replay = 0x7f080716;
-        public static final int gdt_ic_seekbar_background = 0x7f080717;
-        public static final int gdt_ic_seekbar_progress = 0x7f080718;
-        public static final int gdt_ic_video_detail_close = 0x7f080719;
-        public static final int gdt_ic_volume_off = 0x7f08071a;
-        public static final int gdt_ic_volume_on = 0x7f08071b;
+        public static final int gdt_ic_back = 0x7f08070d;
+        public static final int gdt_ic_browse = 0x7f08070e;
+        public static final int gdt_ic_download = 0x7f08070f;
+        public static final int gdt_ic_enter_fullscreen = 0x7f080710;
+        public static final int gdt_ic_exit_fullscreen = 0x7f080711;
+        public static final int gdt_ic_express_back_to_port = 0x7f080712;
+        public static final int gdt_ic_express_close = 0x7f080713;
+        public static final int gdt_ic_express_enter_fullscreen = 0x7f080714;
+        public static final int gdt_ic_express_pause = 0x7f080715;
+        public static final int gdt_ic_express_play = 0x7f080716;
+        public static final int gdt_ic_express_volume_off = 0x7f080717;
+        public static final int gdt_ic_express_volume_on = 0x7f080718;
+        public static final int gdt_ic_native_back = 0x7f080719;
+        public static final int gdt_ic_native_download = 0x7f08071a;
+        public static final int gdt_ic_native_volume_off = 0x7f08071b;
+        public static final int gdt_ic_native_volume_on = 0x7f08071c;
+        public static final int gdt_ic_pause = 0x7f08071d;
+        public static final int gdt_ic_play = 0x7f08071e;
+        public static final int gdt_ic_progress_thumb_normal = 0x7f08071f;
+        public static final int gdt_ic_replay = 0x7f080720;
+        public static final int gdt_ic_seekbar_background = 0x7f080721;
+        public static final int gdt_ic_seekbar_progress = 0x7f080722;
+        public static final int gdt_ic_video_detail_close = 0x7f080723;
+        public static final int gdt_ic_volume_off = 0x7f080724;
+        public static final int gdt_ic_volume_on = 0x7f080725;
         public transient /* synthetic */ FieldHolder $fh;
 
         public drawable() {

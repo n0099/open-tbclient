@@ -1,22 +1,18 @@
 package com.baidu.tieba;
 
+import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-@Singleton
-@Service
 /* loaded from: classes7.dex */
-public class p24 implements vm1 {
+public final class p24 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public od2 a;
 
     public p24() {
         Interceptable interceptable = $ic;
@@ -32,39 +28,51 @@ public class p24 implements vm1 {
         }
     }
 
-    @Override // com.baidu.tieba.vm1
-    public List<m73> a(m63 m63Var) {
+    public boolean a(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, m63Var)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new f14(m63Var));
-            arrayList.add(new g14(m63Var));
-            return arrayList;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+            od2 od2Var = this.a;
+            boolean z = false;
+            if (od2Var == null) {
+                return false;
+            }
+            boolean f = q24.f(od2Var.m());
+            boolean f2 = q24.f(this.a.v());
+            JSEvent jSEvent = null;
+            if (f || f2) {
+                jSEvent = q24.j(motionEvent);
+            }
+            if (f) {
+                z = this.a.dispatchEvent(jSEvent);
+            }
+            if (f2 && this.a.s0()) {
+                this.a.v().dispatchEvent(jSEvent);
+            }
+            q24.g(true);
+            return z;
         }
-        return (List) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.vm1
-    public List<m73> c(m63 m63Var) {
-        InterceptResult invokeL;
+    public void b(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, m63Var)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new y54(m63Var));
-            arrayList.add(new x54(m63Var));
-            return arrayList;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            q24.m(i, i2);
         }
-        return (List) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.vm1
-    public List<m73> b(m63 m63Var) {
-        InterceptResult invokeL;
+    public void d(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m63Var)) == null) {
-            return Arrays.asList(new s14(m63Var), new h04(m63Var), new q04(m63Var), new d14(m63Var));
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            q24.l(i, i2);
         }
-        return (List) invokeL.objValue;
+    }
+
+    public void c(od2 od2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, od2Var) == null) {
+            this.a = od2Var;
+        }
     }
 }

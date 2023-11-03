@@ -13,7 +13,6 @@ import com.baidu.ar.ihttp.HttpFactory;
 import com.baidu.ar.ihttp.IHttpRequest;
 import com.baidu.ar.ihttp.IHttpResponse;
 import com.baidu.mobstat.Config;
-import com.baidu.tieba.fr;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Arrays;
@@ -175,7 +174,7 @@ public class b implements k {
         a(sb, "brand", Build.BRAND);
         a(sb, Config.DEVICE_PART, Build.DEVICE);
         a(sb, "dumix_type", gx);
-        a(sb, fr.a, "-1");
+        a(sb, "fr", "-1");
         a(sb, HttpConstants.HTTP_MANUFACTURER, Build.MANUFACTURER);
         a(sb, "model", Build.MODEL);
         a(sb, "os_type", "android");

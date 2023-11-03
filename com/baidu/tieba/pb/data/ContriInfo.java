@@ -1,7 +1,8 @@
 package com.baidu.tieba.pb.data;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ad;
+import com.baidu.tieba.qd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -74,7 +75,7 @@ public class ContriInfo implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (!ad.isEmpty(this.colorMsg) && !ad.isEmpty(this.afterMsg)) {
+            if (!qd.isEmpty(this.colorMsg) && !qd.isEmpty(this.afterMsg)) {
                 return true;
             }
             return false;
@@ -91,7 +92,7 @@ public class ContriInfo implements Serializable {
         this.colorMsg = jSONObject.optString("color_msg");
         String optString = jSONObject.optString("after_msg");
         this.afterMsg = optString;
-        if (!ad.isEmpty(optString) && (indexOf = this.afterMsg.indexOf("，")) >= 0) {
+        if (!qd.isEmpty(optString) && (indexOf = this.afterMsg.indexOf("，")) >= 0) {
             StringBuilder sb = new StringBuilder();
             sb.append(this.afterMsg.substring(0, indexOf));
             sb.append("\n");
@@ -125,5 +126,27 @@ public class ContriInfo implements Serializable {
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             this.colorMsg = str;
         }
+    }
+
+    public JSONObject toJsonObject() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("color_msg", this.colorMsg);
+                jSONObject.put("after_msg", this.afterMsg);
+                JSONArray jSONArray = new JSONArray();
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("pre_color_msg", this.mPreColorMsg);
+                jSONObject2.put("toast_back_image", this.mToastBackImage);
+                jSONArray.put(jSONObject2);
+                jSONObject.put("toast_config", jSONArray);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

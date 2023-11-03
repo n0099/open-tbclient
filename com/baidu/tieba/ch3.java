@@ -1,9 +1,11 @@
 package com.baidu.tieba;
+
+import java.util.List;
 /* loaded from: classes5.dex */
 public interface ch3 {
-    void a(String str, int i);
+    boolean b(zk3<gh3<List<fh3>>> zk3Var);
 
-    void b(String str, int i);
+    void c(zk3<gh3<Void>> zk3Var);
 
-    void c(String str);
+    boolean d(zk3<gh3<List<fh3>>> zk3Var);
 }

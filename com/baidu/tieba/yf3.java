@@ -1,44 +1,49 @@
 package com.baidu.tieba;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.media.AudioManager;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.constraintlayout.motion.widget.Key;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.ui.TaskUIData;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.xf3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes9.dex */
-public class yf3 extends m73 {
+public class yf3 {
     public static /* synthetic */ Interceptable $ic;
+    public static yf3 e;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ConcurrentHashMap<String, b> a;
+    public AudioManager b;
+    public boolean c;
+    public BroadcastReceiver d;
 
     /* loaded from: classes9.dex */
-    public class a implements xf3.b {
+    public interface b {
+        void a(int i);
+    }
+
+    /* loaded from: classes9.dex */
+    public class a extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ UnitedSchemeEntity a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ iw1 c;
-        public final /* synthetic */ yf3 d;
+        public final /* synthetic */ yf3 this$0;
 
-        public a(yf3 yf3Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, iw1 iw1Var) {
+        public a(yf3 yf3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {yf3Var, unitedSchemeEntity, callbackHandler, iw1Var};
+                Object[] objArr = {yf3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -48,116 +53,158 @@ public class yf3 extends m73 {
                     return;
                 }
             }
-            this.d = yf3Var;
-            this.a = unitedSchemeEntity;
-            this.b = callbackHandler;
-            this.c = iw1Var;
+            this.this$0 = yf3Var;
         }
 
-        @Override // com.baidu.tieba.xf3.b
-        public void a(float[] fArr) {
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            int i;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, fArr) == null) && fArr != null && fArr.length == 3) {
-                this.d.k(this.a, this.b, this.c, fArr);
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && "android.media.VOLUME_CHANGED_ACTION".equals(intent.getAction()) && intent.getIntExtra("android.media.EXTRA_VOLUME_STREAM_TYPE", -1) == 3) {
+                if (this.this$0.b == null) {
+                    this.this$0.b = (AudioManager) np2.c().getSystemService("audio");
+                }
+                for (Map.Entry entry : this.this$0.a.entrySet()) {
+                    if (this.this$0.b != null) {
+                        i = this.this$0.b.getStreamVolume(3);
+                    } else {
+                        i = 0;
+                    }
+                    ((b) entry.getValue()).a(i);
+                }
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yf3(m63 m63Var) {
-        super(m63Var, "/swanAPI/startDeviceMotion");
+    public yf3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {m63Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new ConcurrentHashMap<>();
+        this.d = new a(this);
     }
 
-    @Override // com.baidu.tieba.m73
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, p53 p53Var) {
-        InterceptResult invokeLLLL;
-        int i;
+    public static yf3 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, p53Var)) == null) {
-            if (p53Var == null) {
-                p22.c("StartDeviceMotionAction", "none swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal swanApp");
-                return false;
-            } else if (context == null) {
-                p22.c("StartDeviceMotionAction", "none context");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal context");
-                return false;
-            } else {
-                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-                if (optParamsAsJo == null) {
-                    p22.c("StartDeviceMotionAction", "none params");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                    return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (e == null) {
+                synchronized (yf3.class) {
+                    if (e == null) {
+                        e = new yf3();
+                    }
                 }
-                String optString = optParamsAsJo.optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    p22.c("StartDeviceMotionAction", "cb is empty");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                String optString2 = optParamsAsJo.optString("interval");
-                if (TaskUIData.key.equals(optString2)) {
-                    i = 2;
-                } else if ("game".equals(optString2)) {
-                    i = 1;
-                } else {
-                    i = 3;
-                }
-                p22.i("StartDeviceMotionAction", "startSensor===");
-                iw1 iw1Var = new iw1("deviceMotionChange", optParamsAsJo, optString);
-                if (!xf3.h().l(i, new a(this, unitedSchemeEntity, callbackHandler, iw1Var))) {
-                    p22.c("StartDeviceMotionAction", "start system sensor fail");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "start system sensor fail");
-                    return false;
-                }
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                iw1Var.a(unitedSchemeEntity, callbackHandler);
-                return true;
             }
+            return e;
         }
-        return invokeLLLL.booleanValue;
+        return (yf3) invokeV.objValue;
     }
 
-    public final void k(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, iw1 iw1Var, float[] fArr) {
+    public static void i() {
+        yf3 yf3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity, callbackHandler, iw1Var, fArr) == null) {
-            JSONObject jSONObject = new JSONObject();
-            double[] dArr = new double[3];
-            double d = fArr[0] - 1.5707963267948966d;
-            if (d < 0.0d) {
-                d += 6.283185307179586d;
+        if ((interceptable == null || interceptable.invokeV(65541, null) == null) && (yf3Var = e) != null) {
+            yf3Var.g();
+        }
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.b == null) {
+                this.b = (AudioManager) np2.c().getSystemService("audio");
             }
-            dArr[0] = Math.toDegrees(d);
-            dArr[1] = Math.toDegrees(-fArr[2]);
-            dArr[2] = Math.toDegrees(-fArr[1]);
-            if (m73.b) {
-                Log.i("SwanAppAction", "deviceMotionChange: " + Arrays.toString(dArr));
+            AudioManager audioManager = this.b;
+            if (audioManager != null) {
+                return audioManager.getStreamMaxVolume(3);
             }
+            return 100;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                this.a.clear();
+                this.b = null;
+                this.c = false;
+            }
+            e = null;
+        }
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction("android.media.VOLUME_CHANGED_ACTION");
+            np2.c().registerReceiver(this.d, intentFilter);
+            this.c = true;
+        }
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             try {
-                jSONObject.put(Key.ALPHA, (float) dArr[0]);
-                jSONObject.put("beta", (float) dArr[1]);
-                jSONObject.put("gamma", (float) dArr[2]);
-                iw1Var.c(unitedSchemeEntity, callbackHandler, jSONObject);
-            } catch (JSONException e) {
-                p22.c("StartDeviceMotionAction", "handle orientation,json error，" + e.toString());
-                iw1Var.e(unitedSchemeEntity, callbackHandler, "Json error");
+                np2.c().unregisterReceiver(this.d);
+                this.c = false;
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
         }
+    }
+
+    public void d(@NonNull String str, @NonNull b bVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, bVar) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        synchronized (this) {
+            this.a.put(str, bVar);
+            if (!this.c) {
+                h();
+            }
+            if (rm1.a) {
+                Log.d("SystemVolumeManager", "Id = " + str + " listener added, listeners count: " + this.a.size());
+            }
+        }
+    }
+
+    public boolean j(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            boolean z = false;
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            synchronized (this) {
+                b remove = this.a.remove(str);
+                if (this.a.size() == 0 && this.c) {
+                    k();
+                }
+                if (rm1.a && remove != null) {
+                    Log.d("SystemVolumeManager", "Id = " + str + " listener removed, listeners count: " + this.a.size());
+                }
+                if (remove != null) {
+                    z = true;
+                }
+            }
+            return z;
+        }
+        return invokeL.booleanValue;
     }
 }

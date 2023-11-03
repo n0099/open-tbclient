@@ -35,11 +35,11 @@ import com.baidu.searchbox.live.nps.LiveMediaPluginManager;
 import com.baidu.searchbox.live.nps.LiveYYPluginManager;
 import com.baidu.searchbox.live.nps.yy.YYLiveNPSPluginManager;
 import com.baidu.searchbox.ui.state.StateManager;
-import com.baidu.tieba.c91;
-import com.baidu.tieba.e91;
-import com.baidu.tieba.f91;
-import com.baidu.tieba.h91;
-import com.baidu.tieba.x91;
+import com.baidu.tieba.oa1;
+import com.baidu.tieba.t91;
+import com.baidu.tieba.v91;
+import com.baidu.tieba.w91;
+import com.baidu.tieba.y91;
 import com.baidu.webkit.sdk.WebChromeClient;
 import java.io.File;
 import kotlin.Metadata;
@@ -136,8 +136,8 @@ public final class YYPluginManageServiceImpl implements YYPluginManageService {
 
     @Override // com.baidu.searchbox.live.interfaces.service.yy.YYPluginManageService
     public void downloadBundle(final String str, final YYPluginDownloadCallback yYPluginDownloadCallback) {
-        NPSPackageManager.getInstance().downloadUpdatePackage(str, new c91() { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.YYPluginManageServiceImpl$downloadBundle$1
-            @Override // com.baidu.tieba.c91
+        NPSPackageManager.getInstance().downloadUpdatePackage(str, new t91() { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.YYPluginManageServiceImpl$downloadBundle$1
+            @Override // com.baidu.tieba.t91
             public void onProgress(long j, long j2) {
                 YYPluginDownloadCallback yYPluginDownloadCallback2 = YYPluginDownloadCallback.this;
                 if (yYPluginDownloadCallback2 != null) {
@@ -145,7 +145,7 @@ public final class YYPluginManageServiceImpl implements YYPluginManageService {
                 }
             }
 
-            @Override // com.baidu.tieba.c91
+            @Override // com.baidu.tieba.t91
             public void onResult(int i, String str2) {
                 boolean z;
                 YYPluginDownloadCallback yYPluginDownloadCallback2 = YYPluginDownloadCallback.this;
@@ -159,10 +159,10 @@ public final class YYPluginManageServiceImpl implements YYPluginManageService {
                     yYPluginDownloadCallback2.onResult(str3, z, str2);
                 }
             }
-        }, new e91() { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.YYPluginManageServiceImpl$downloadBundle$2
-            @Override // com.baidu.tieba.e91
-            public final void checkAuthorization(IBundleInfo iBundleInfo, int i, f91 f91Var) {
-                f91Var.onResult(1);
+        }, new v91() { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.YYPluginManageServiceImpl$downloadBundle$2
+            @Override // com.baidu.tieba.v91
+            public final void checkAuthorization(IBundleInfo iBundleInfo, int i, w91 w91Var) {
+                w91Var.onResult(1);
             }
         }, 1);
     }
@@ -174,13 +174,13 @@ public final class YYPluginManageServiceImpl implements YYPluginManageService {
 
     @Override // com.baidu.searchbox.live.interfaces.service.yy.YYPluginManageService
     public void installBundle(final String str, final YYPluginInstallCallback yYPluginInstallCallback) {
-        NPSPackageManager.getInstance().downloadBundle(str, new c91() { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.YYPluginManageServiceImpl$installBundle$1
-            @Override // com.baidu.tieba.c91
+        NPSPackageManager.getInstance().downloadBundle(str, new t91() { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.YYPluginManageServiceImpl$installBundle$1
+            @Override // com.baidu.tieba.t91
             public void onProgress(long j, long j2) {
                 yYPluginInstallCallback.onProgress(str, j, j2);
             }
 
-            @Override // com.baidu.tieba.c91
+            @Override // com.baidu.tieba.t91
             public void onResult(int i, String str2) {
                 if (i == 2) {
                     YYPluginManageServiceImpl.dispatchDownloadSuccess$default(YYPluginManageServiceImpl.this, str, yYPluginInstallCallback, false, 4, null);
@@ -194,7 +194,7 @@ public final class YYPluginManageServiceImpl implements YYPluginManageService {
     @Override // com.baidu.searchbox.live.interfaces.service.yy.YYPluginManageService
     public void resetBundleType(String str, int i) {
         log("resetBundleType, packagename " + str + ", type = " + i);
-        h91.j().s(NPSPackageManager.getInstance().getBundleGroup(str).getBundleByType(i));
+        y91.j().s(NPSPackageManager.getInstance().getBundleGroup(str).getBundleByType(i));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -449,11 +449,11 @@ public final class YYPluginManageServiceImpl implements YYPluginManageService {
             }
             if (z) {
                 log("apk file not exist, try reset bundle status in db");
-                h91.j().s(NPSPackageManager.getInstance().getBundleGroup((String) objectRef4.element).getBundleByType(2));
+                y91.j().s(NPSPackageManager.getInstance().getBundleGroup((String) objectRef4.element).getBundleByType(2));
                 return false;
             }
         }
-        PackageInfo a = x91.a(str, 128);
+        PackageInfo a = oa1.a(str, 128);
         if (a == null) {
             return false;
         }
@@ -521,11 +521,11 @@ public final class YYPluginManageServiceImpl implements YYPluginManageService {
             }
             if (z) {
                 log("apk file not exist, try reset bundle status in db");
-                h91.j().s(NPSPackageManager.getInstance().getBundleGroup((String) objectRef4.element).getBundleByType(2));
+                y91.j().s(NPSPackageManager.getInstance().getBundleGroup((String) objectRef4.element).getBundleByType(2));
                 return TuplesKt.to(Boolean.FALSE, -1001);
             }
         }
-        PackageInfo a = x91.a(str, 128);
+        PackageInfo a = oa1.a(str, 128);
         if (a != null) {
             BundleInfo bundleInfo = new BundleInfo();
             bundleInfo.setName((String) objectRef.element);

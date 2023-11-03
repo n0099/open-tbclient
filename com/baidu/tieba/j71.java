@@ -1,95 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class j71 extends g71 {
+public class j71 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public m71 n;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public j71() {
-        this(new m71());
+    public static void a(View view2, View view3, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this((m71) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLLI(65536, null, view2, view3, i) == null) {
+            b(view2, view3, i, i, i, i);
+        }
+    }
+
+    public static void b(View view2, View view3, int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{view2, view3, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) && view3 != null && view2 != null) {
+            if (view2.getTouchDelegate() instanceof f71) {
+                ((f71) view2.getTouchDelegate()).a(view3, i, i2, i3, i4);
+            } else {
+                view2.setTouchDelegate(new f71(view3, i, i2, i3, i4));
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.g71
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            m71 m71Var = this.n;
-            CharSequence charSequence = m71Var.q;
-            int B = m71Var.B();
-            m71 m71Var2 = this.n;
-            m71Var.C(charSequence, B, m71Var2.r, m71Var2.s);
-        }
-    }
-
-    @Override // com.baidu.tieba.g71
-    public void p() {
-        m71 m71Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (m71Var = this.n) != null && m71Var.h()) {
-            super.p();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.g71
-    /* renamed from: r */
-    public m71 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.n;
-        }
-        return (m71) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j71(m71 m71Var) {
-        super(m71Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {m71Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((k71) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.n = m71Var;
-    }
-
-    public void s(int i, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
-            m71 m71Var = this.n;
-            m71Var.r = i;
-            m71Var.s = f;
         }
     }
 }

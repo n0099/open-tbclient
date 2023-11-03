@@ -90,7 +90,7 @@ public final class e extends b {
         cVar.mApkDownloadHelper = new com.kwad.components.core.c.a.c(adTemplate);
         cVar.cN = this.cN;
         cVar.dp = new com.kwad.sdk.core.video.videoview.a(this.mContext);
-        KSFrameLayout kSFrameLayout = (KSFrameLayout) this.iB.findViewById(R.id.obfuscated_res_0x7f0912b8);
+        KSFrameLayout kSFrameLayout = (KSFrameLayout) this.iB.findViewById(R.id.obfuscated_res_0x7f0912f6);
         cVar.gq = kSFrameLayout;
         com.kwad.components.ad.interstitial.c.b bVar = new com.kwad.components.ad.interstitial.c.b(kSFrameLayout, 100);
         cVar.gt = bVar;
@@ -173,7 +173,7 @@ public final class e extends b {
     }
 
     public final int getLayoutId() {
-        return R.layout.obfuscated_res_0x7f0d04b3;
+        return R.layout.obfuscated_res_0x7f0d04c6;
     }
 
     @Override // android.view.ViewGroup, android.view.View

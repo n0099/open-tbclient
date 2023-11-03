@@ -1,187 +1,141 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.os.Bundle;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.LowFlowsActivityConfig;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.Set;
-import org.json.JSONObject;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class ll6 {
+public class ll6 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Uri a;
-    public String b;
-    public Bundle c;
+    public Context a;
+    public View b;
+    public View c;
+    public ImageView d;
+    public View e;
+    public EMTextView f;
+    public ImageView g;
+    public int h;
+    public String i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947946771, "Lcom/baidu/tieba/ll6;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947946771, "Lcom/baidu/tieba/ll6;");
-        }
-    }
-
-    public ll6(String str) {
+    public ll6(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        g(str);
+        this.h = 3;
+        this.a = context;
+        c(context);
     }
 
-    public String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return c(str, null);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public Bundle a() {
+    public ImageView a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.c == null) {
-                this.c = new Bundle();
-            }
-            return this.c;
+            return this.g;
         }
-        return (Bundle) invokeV.objValue;
+        return (ImageView) invokeV.objValue;
     }
 
-    public Uri d() {
+    public View b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return (Uri) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
-    public String c(String str, String str2) {
-        InterceptResult invokeLL;
+    public final void c(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            Bundle bundle = this.c;
-            if (bundle != null) {
-                return bundle.getString(str, str2);
-            }
-            return str2;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01d3, (ViewGroup) null);
+            this.b = inflate;
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f09200a);
+            this.c = findViewById;
+            findViewById.setOnClickListener(this);
+            this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09115f);
+            this.e = this.b.findViewById(R.id.obfuscated_res_0x7f0929dc);
+            this.f = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f09260e);
+            ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09075a);
+            this.g = imageView;
+            imageView.setClickable(true);
+            d(TbadkCoreApplication.getInst().getSkinType());
         }
-        return (String) invokeLL.objValue;
     }
 
-    public final boolean e() {
-        InterceptResult invokeV;
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            try {
-                this.a.getScheme();
-                this.a.getHost();
-                String path = this.a.getPath();
-                this.b = path;
-                if (!TextUtils.isEmpty(path) && this.b.endsWith("/")) {
-                    this.b = this.b.substring(0, this.b.length() - 1);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            if (this.h != i) {
+                EMManager.from(this.c).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0201);
+                EMManager.from(this.e).setCorner(R.string.J_X03).setBackGroundColor(R.color.CAM_X0110);
+                EMManager.from(this.f).setTextColor(R.color.CAM_X0108);
+                this.g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_card_close22, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
+                if (i == 4) {
+                    WebPManager.setMaskDrawable(this.d, R.drawable.obfuscated_res_0x7f081268, WebPManager.ResourceStateType.NORMAL);
+                } else {
+                    WebPManager.setMaskDrawable(this.d, R.drawable.obfuscated_res_0x7f081267, WebPManager.ResourceStateType.NORMAL);
                 }
-                Set<String> queryParameterNames = this.a.getQueryParameterNames();
-                if (queryParameterNames == null || queryParameterNames.isEmpty()) {
-                    return true;
-                }
-                if (this.c == null) {
-                    this.c = new Bundle();
-                }
-                for (String str : queryParameterNames) {
-                    String queryParameter = this.a.getQueryParameter(str);
-                    this.c.putString(str, queryParameter);
-                    if (TextUtils.equals(str, "params") && !TextUtils.isEmpty(queryParameter)) {
-                        try {
-                            JSONObject jSONObject = new JSONObject(queryParameter);
-                            Iterator<String> keys = jSONObject.keys();
-                            while (keys.hasNext()) {
-                                String next = keys.next();
-                                this.c.putString(next, jSONObject.optString(next, ""));
-                            }
-                        } catch (Exception e) {
-                            if (BdLog.isDebugMode()) {
-                                BdLog.e("builder parseUri e = " + e.toString());
-                            }
-                        }
-                    }
-                }
-                return true;
-            } catch (Throwable th) {
-                if (BdLog.isDebugMode()) {
-                    BdLog.e("builder parseUri te = " + th.toString());
-                }
-                return false;
             }
+            this.h = i;
         }
-        return invokeV.booleanValue;
     }
 
-    public ll6 f(Uri uri) {
-        InterceptResult invokeL;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, uri)) == null) {
-            this.a = uri;
-            if (uri != null) {
-                if (BdLog.isDebugMode()) {
-                    BdLog.i("builder uri = " + uri);
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            HashMap hashMap = new HashMap();
+            String str = "0";
+            if ("from_personaize".equals(this.i)) {
+                hashMap.put(LowFlowsActivityConfig.LF_USER, TbSingleton.getInstance().getLFUser());
+                hashMap.put(LowFlowsActivityConfig.LF_USER_TASKID, TbSingleton.getInstance().getLFUserTaskId());
+                if (!StringUtils.isNull(TbSingleton.getInstance().getLFUserTaskId())) {
+                    str = TbSingleton.getInstance().getLFUserTaskId();
                 }
-                e();
-            } else if (BdLog.isDebugMode()) {
-                BdLog.i("builder uri = null");
+                mc8.a("c14080", str, "1");
+            } else {
+                hashMap.put(LowFlowsActivityConfig.LF_USER, "1");
+                mc8.a("c14080", "0", "2");
             }
-            return this;
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.a, "TreasureTrovePage", hashMap)));
         }
-        return (ll6) invokeL.objValue;
     }
 
-    public ll6 g(String str) {
-        InterceptResult invokeL;
+    public void setFrom(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            Uri uri = null;
-            try {
-                if (!TextUtils.isEmpty(str)) {
-                    uri = Uri.parse(str);
-                }
-            } catch (Throwable th) {
-                if (BdLog.isDebugMode()) {
-                    BdLog.e("builder uri e = " + th.toString());
-                }
-            }
-            f(uri);
-            return this;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.i = str;
         }
-        return (ll6) invokeL.objValue;
     }
 }

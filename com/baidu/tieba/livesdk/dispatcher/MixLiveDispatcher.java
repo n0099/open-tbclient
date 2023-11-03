@@ -5,7 +5,7 @@ import com.baidu.android.common.others.url.UrlUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.l4a;
+import com.baidu.tieba.qha;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -14,7 +14,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class MixLiveDispatcher implements l4a {
+public class MixLiveDispatcher implements qha {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String URL_PREFIX = "com.baidu.tieba://unidispatch/mixlive";
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public class MixLiveDispatcher implements l4a {
         }
     }
 
-    @Override // com.baidu.tieba.l4a
+    @Override // com.baidu.tieba.qha
     public void dispatch(JSONObject jSONObject, Context context) {
         TbPageContext<?> currentPageContext;
         Interceptable interceptable = $ic;

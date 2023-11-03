@@ -1,67 +1,18 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.swan.apps.core.launchtips.monitor.network.NetworkStatus;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
-public class x52 {
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
+/* loaded from: classes9.dex */
+public class x52 implements w52 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes8.dex */
-    public interface b {
-        void a(NetworkStatus networkStatus);
-    }
-
-    /* loaded from: classes8.dex */
-    public class a implements SwanAppNetworkUtils.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
-
-        public a(x52 x52Var, b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x52Var, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bVar;
-        }
-
-        @Override // com.baidu.swan.apps.network.SwanAppNetworkUtils.b
-        public void onResult(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
-                            this.a.a(NetworkStatus.NETWORK_UNKNOWN);
-                            return;
-                        } else {
-                            this.a.a(NetworkStatus.NETWORK_OFFLINE);
-                            return;
-                        }
-                    }
-                    this.a.a(NetworkStatus.NETWORK_BAD);
-                    return;
-                }
-                this.a.a(NetworkStatus.NETWORK_GOOD);
-            }
-        }
-    }
+    public List<w52> a;
 
     public x52() {
         Interceptable interceptable = $ic;
@@ -73,15 +24,56 @@ public class x52 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new CopyOnWriteArrayList();
+    }
+
+    @Override // com.baidu.tieba.w52
+    public void a() {
+        List<w52> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (list = this.a) != null && list.size() > 0) {
+            for (w52 w52Var : this.a) {
+                w52Var.a();
             }
         }
     }
 
-    public void a(@NonNull b bVar) {
+    @Override // com.baidu.tieba.w52
+    public void b() {
+        List<w52> list;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, bVar) != null) || bVar == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (list = this.a) != null && list.size() > 0) {
+            for (w52 w52Var : this.a) {
+                w52Var.b();
+            }
         }
-        SwanAppNetworkUtils.b(new a(this, bVar));
+    }
+
+    @Override // com.baidu.tieba.w52
+    public void c() {
+        List<w52> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (list = this.a) != null && list.size() > 0) {
+            for (w52 w52Var : this.a) {
+                w52Var.c();
+            }
+        }
+    }
+
+    public void d(@NonNull w52 w52Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, w52Var) == null) {
+            this.a.add(w52Var);
+        }
+    }
+
+    public void e(@NonNull w52 w52Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, w52Var) == null) {
+            this.a.remove(w52Var);
+        }
     }
 }

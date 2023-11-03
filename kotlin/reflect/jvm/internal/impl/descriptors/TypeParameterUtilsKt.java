@@ -18,14 +18,14 @@ import kotlin.reflect.jvm.internal.impl.types.TypeConstructor;
 import kotlin.reflect.jvm.internal.impl.types.TypeProjection;
 import kotlin.sequences.Sequence;
 import kotlin.sequences.SequencesKt___SequencesKt;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class TypeParameterUtilsKt {
     public static final PossiblyInnerType buildPossiblyInnerType(KotlinType kotlinType) {
-        ClassifierDescriptor mo2106getDeclarationDescriptor = kotlinType.getConstructor().mo2106getDeclarationDescriptor();
-        if (!(mo2106getDeclarationDescriptor instanceof ClassifierDescriptorWithTypeParameters)) {
-            mo2106getDeclarationDescriptor = null;
+        ClassifierDescriptor mo2110getDeclarationDescriptor = kotlinType.getConstructor().mo2110getDeclarationDescriptor();
+        if (!(mo2110getDeclarationDescriptor instanceof ClassifierDescriptorWithTypeParameters)) {
+            mo2110getDeclarationDescriptor = null;
         }
-        return buildPossiblyInnerType(kotlinType, (ClassifierDescriptorWithTypeParameters) mo2106getDeclarationDescriptor, 0);
+        return buildPossiblyInnerType(kotlinType, (ClassifierDescriptorWithTypeParameters) mo2110getDeclarationDescriptor, 0);
     }
 
     public static final PossiblyInnerType buildPossiblyInnerType(KotlinType kotlinType, ClassifierDescriptorWithTypeParameters classifierDescriptorWithTypeParameters, int i) {

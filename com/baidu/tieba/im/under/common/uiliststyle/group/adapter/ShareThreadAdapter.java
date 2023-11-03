@@ -92,7 +92,7 @@ public class ShareThreadAdapter extends BaseStyleNormalAdapter<ShareThreadSysIte
     @Override // com.baidu.tieba.im.base.core.uilist.BaseNormalAdapter
     @NonNull
     /* renamed from: h0 */
-    public ViewHolder N(@NonNull ViewGroup viewGroup) {
+    public ViewHolder O(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
@@ -105,7 +105,7 @@ public class ShareThreadAdapter extends BaseStyleNormalAdapter<ShareThreadSysIte
     @Override // com.baidu.tieba.im.base.core.uilist.BaseNormalAdapter
     @NonNull
     /* renamed from: i0 */
-    public ViewHolder P(@NonNull ViewGroup viewGroup) {
+    public ViewHolder Q(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
@@ -142,7 +142,7 @@ public class ShareThreadAdapter extends BaseStyleNormalAdapter<ShareThreadSysIte
             ChatShareCard chatShareCard = new ChatShareCard(context);
             chatShareCard.V = 1;
             chatShareCard.setLayoutParams(new LinearLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.tbds666), -1));
-            chatShareCard.setId(R.id.obfuscated_res_0x7f090ecb);
+            chatShareCard.setId(R.id.obfuscated_res_0x7f090f02);
             chatShareCard.setChatRoomId(this.m);
             chatShareCard.setFid(this.n);
             chatShareCard.setFname(this.o);
@@ -155,7 +155,7 @@ public class ShareThreadAdapter extends BaseStyleNormalAdapter<ShareThreadSysIte
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.base.core.uilist.BaseNormalAdapter
     /* renamed from: j0 */
-    public void U(int i, @NonNull ViewGroup viewGroup, @NonNull ShareThreadSysItem shareThreadSysItem, @NonNull ViewHolder viewHolder, @NonNull List<Object> list, int i2) {
+    public void V(int i, @NonNull ViewGroup viewGroup, @NonNull ShareThreadSysItem shareThreadSysItem, @NonNull ViewHolder viewHolder, @NonNull List<Object> list, int i2) {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), viewGroup, shareThreadSysItem, viewHolder, list, Integer.valueOf(i2)}) == null) {
@@ -167,7 +167,7 @@ public class ShareThreadAdapter extends BaseStyleNormalAdapter<ShareThreadSysIte
             SkinManager.setBackgroundResource(viewGroup, i3);
             ChatShareCard chatShareCard = (ChatShareCard) viewHolder.getView();
             chatShareCard.a(shareThreadSysItem.getTbMsg().getShareThreadMsgData());
-            chatShareCard.u("");
+            chatShareCard.x("");
         }
     }
 }

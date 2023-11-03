@@ -1,135 +1,115 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Rect;
-import android.util.Log;
+import android.text.TextUtils;
+import android.util.Pair;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
+import org.json.JSONObject;
 /* loaded from: classes9.dex */
-public class zv2 {
+public class zv2 extends nw1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean j;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public boolean c;
-    public int d;
-    public long e;
-    public long f;
-    public int g;
-    public Rect h;
-    public boolean i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948373331, "Lcom/baidu/tieba/zv2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948373331, "Lcom/baidu/tieba/zv2;");
-                return;
-            }
-        }
-        j = p53.v;
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.d = 2;
-        }
-    }
-
-    public long b() {
+    @Override // com.baidu.tieba.ku1
+    public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long j2 = this.f;
-            if (j2 > 0) {
-                this.f = j2 - (System.currentTimeMillis() - this.e);
-            }
-            return this.f;
-        }
-        return invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "UpdateMenuStyleApi" : (String) invokeV.objValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.d == 2) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.e = System.currentTimeMillis();
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.d = 1;
-        }
-    }
-
-    public zv2(String str, String str2, long j2, boolean z) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zv2(@NonNull iu1 iu1Var) {
+        super(iu1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Long.valueOf(j2), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {iu1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((iu1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = 0;
-        this.a = str;
-        this.b = str2;
-        this.e = System.currentTimeMillis();
-        this.f = j2;
-        this.d = 0;
-        this.i = z;
     }
 
-    public void d() {
+    public final int z(String str) {
+        InterceptResult invokeL;
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            long j2 = this.f;
-            if (j2 > 0) {
-                this.f = j2 - (System.currentTimeMillis() - this.e);
-                if (j) {
-                    Log.d("SwanAppPageMonitor", "pause, left " + this.f + "ms");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            int hashCode = str.hashCode();
+            if (hashCode != -1866956286) {
+                if (hashCode == -838846263 && str.equals(StickerDataChangeType.UPDATE)) {
+                    c = 0;
                 }
+                c = 65535;
+            } else {
+                if (str.equals("webDegrade")) {
+                    c = 1;
+                }
+                c = 65535;
             }
+            if (c != 0) {
+                if (c != 1) {
+                    return 12;
+                }
+                return 20;
+            }
+            return 19;
         }
+        return invokeL.intValue;
     }
 
-    public void f(Bitmap bitmap) {
+    public hy1 y(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bitmap) == null) {
-            new WeakReference(bitmap);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            r("#changeMenuStyle", false);
+            Pair<hy1, JSONObject> t = t(str);
+            JSONObject jSONObject = (JSONObject) t.second;
+            if (((hy1) t.first).isSuccess() && jSONObject != null) {
+                String optString = jSONObject.optString("type");
+                if (TextUtils.isEmpty(optString)) {
+                    return new hy1(202);
+                }
+                int z = z(optString);
+                tr2 V = tr2.V();
+                if (V == null) {
+                    return new hy1(1001);
+                }
+                p52 W = V.W();
+                if (W == null) {
+                    return new hy1(1001);
+                }
+                m52 m = W.m();
+                if (m == null) {
+                    return new hy1(1001);
+                }
+                nc4 U1 = m.U1();
+                if (U1 == null) {
+                    if (m instanceof t52) {
+                        ((t52) m).q3(z);
+                        return hy1.f();
+                    }
+                    return new hy1(1001);
+                }
+                U1.e(z);
+                U1.x();
+                return hy1.f();
+            }
+            return new hy1(202);
         }
+        return (hy1) invokeL.objValue;
     }
 }

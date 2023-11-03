@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rs;
-import com.baidu.tieba.tta;
+import com.baidu.tieba.it;
+import com.baidu.tieba.u6b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes8.dex */
-public class RecommendCollectLayout extends RelativeLayout implements rs {
+public class RecommendCollectLayout extends RelativeLayout implements it {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TbPageContext a;
@@ -79,7 +79,7 @@ public class RecommendCollectLayout extends RelativeLayout implements rs {
         }
     }
 
-    @Override // com.baidu.tieba.rs
+    @Override // com.baidu.tieba.it
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) && this.d != i) {
@@ -91,16 +91,16 @@ public class RecommendCollectLayout extends RelativeLayout implements rs {
         }
     }
 
-    public void setData(tta ttaVar) {
+    public void setData(u6b u6bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ttaVar) == null) && ttaVar != null && !ListUtils.isEmpty(ttaVar.getDataList())) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, u6bVar) == null) && u6bVar != null && !ListUtils.isEmpty(u6bVar.getDataList())) {
             this.e.removeAllViews();
             this.f.clear();
-            this.b.t(ttaVar.getDataList());
-            this.b.y(this.c);
-            this.b.u(ttaVar.c());
-            this.b.x(ttaVar.d());
-            for (int i = 0; i < ttaVar.getDataList().size(); i++) {
+            this.b.u(u6bVar.getDataList());
+            this.b.z(this.c);
+            this.b.x(u6bVar.c());
+            this.b.y(u6bVar.d());
+            for (int i = 0; i < u6bVar.getDataList().size(); i++) {
                 ContentCollectListAdapter contentCollectListAdapter = this.b;
                 RecyclerView.ViewHolder onCreateViewHolder = contentCollectListAdapter.onCreateViewHolder(null, contentCollectListAdapter.getItemViewType(i));
                 this.e.addView(onCreateViewHolder.itemView);

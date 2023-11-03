@@ -23,10 +23,10 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a55;
-import com.baidu.tieba.em7;
-import com.baidu.tieba.h55;
+import com.baidu.tieba.b65;
+import com.baidu.tieba.u55;
 import com.baidu.tieba.view.BdTopToast;
+import com.baidu.tieba.yy7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -158,9 +158,9 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
                 this.b.setText(gameCodeList.label);
                 if (gameCodeList.claimed_status.intValue() == 1) {
                     this.c.setVisibility(8);
-                    a55 a55Var = new a55();
-                    a55Var.s(R.color.CAM_X0302, R.color.CAM_X0101);
-                    this.d.setConfig(a55Var);
+                    u55 u55Var = new u55();
+                    u55Var.s(R.color.CAM_X0302, R.color.CAM_X0101);
+                    this.d.setConfig(u55Var);
                     this.d.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.default_get_gift));
                     this.d.setClickState(true);
                     this.d.setClickable(true);
@@ -168,28 +168,28 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
                 } else if (gameCodeList.claimed_status.intValue() == 2) {
                     this.c.setVisibility(0);
                     this.c.setText(gameCodeList.claimed_value);
-                    a55 a55Var2 = new a55();
-                    a55Var2.s(R.color.CAM_X0302, R.color.CAM_X0101);
-                    a55Var2.j(R.drawable.obfuscated_res_0x7f080b47, 0, TBSpecificationButtonConfig.IconType.WEBP);
-                    this.d.setConfig(a55Var2);
-                    this.d.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f04eb));
+                    u55 u55Var2 = new u55();
+                    u55Var2.s(R.color.CAM_X0302, R.color.CAM_X0101);
+                    u55Var2.j(R.drawable.obfuscated_res_0x7f080b56, 0, TBSpecificationButtonConfig.IconType.WEBP);
+                    this.d.setConfig(u55Var2);
+                    this.d.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f04ed));
                     this.d.setClickState(true);
                     this.d.setClickable(true);
                     this.d.setOnClickListener(new b(this, gameCodeList));
                 } else if (gameCodeList.claimed_status.intValue() == 3) {
                     this.c.setVisibility(8);
-                    a55 a55Var3 = new a55();
-                    a55Var3.s(R.color.CAM_X0201, R.color.CAM_X0109);
-                    this.d.setConfig(a55Var3);
-                    this.d.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f08cf));
+                    u55 u55Var3 = new u55();
+                    u55Var3.s(R.color.CAM_X0201, R.color.CAM_X0109);
+                    this.d.setConfig(u55Var3);
+                    this.d.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f08db));
                     this.d.setClickState(false);
                     this.d.setClickable(false);
                     this.d.setOnClickListener(null);
                 }
                 if (gameCodeList.type.intValue() == 1) {
-                    WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f080b1d, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
+                    WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f080b2c, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
                 } else if (gameCodeList.type.intValue() == 2) {
-                    WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f080b65, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
+                    WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f080b76, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
                 }
             }
         }
@@ -197,10 +197,10 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
         public void c(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                h55 h55Var = new h55(16);
-                h55Var.p(this.e.list_id.intValue());
-                h55Var.r(i);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, h55Var));
+                b65 b65Var = new b65(16);
+                b65Var.p(this.e.list_id.intValue());
+                b65Var.r(i);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, b65Var));
             }
         }
 
@@ -208,9 +208,9 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 if (this.e.type.intValue() == 1) {
-                    WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f080b1d, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
+                    WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f080b2c, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
                 } else if (this.e.type.intValue() == 2) {
-                    WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f080b65, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
+                    WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f080b76, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
                 }
                 EMManager.from(this.b).setTextColor(R.color.CAM_X0105).setTextSize(R.dimen.T_X06);
                 EMManager.from(this.c).setTextColor(R.color.CAM_X0109).setTextSize(R.dimen.T_X09);
@@ -278,7 +278,7 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
     public void onBindViewHolder(@NonNull GameCodeViewHolder gameCodeViewHolder, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gameCodeViewHolder, i) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new h55(15, i + 1)));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new b65(15, i + 1)));
             gameCodeViewHolder.b(this.a.get(i));
             gameCodeViewHolder.d();
         }
@@ -354,21 +354,21 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
         }
     }
 
-    public void o(em7 em7Var) {
+    public void o(yy7 yy7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, em7Var) == null) {
-            GameCodeList gameCodeList = this.a.get(em7Var.a);
+        if (interceptable == null || interceptable.invokeL(1048580, this, yy7Var) == null) {
+            GameCodeList gameCodeList = this.a.get(yy7Var.a);
             GameCodeList.Builder builder = new GameCodeList.Builder();
             builder.claimed_status = 2;
-            builder.claimed_value = em7Var.b;
+            builder.claimed_value = yy7Var.b;
             builder.type = gameCodeList.type;
             builder.label = gameCodeList.label;
             builder.begin_time = gameCodeList.begin_time;
             builder.end_time = gameCodeList.end_time;
             builder.item_id = gameCodeList.item_id;
             builder.list_id = gameCodeList.list_id;
-            this.a.set(em7Var.a, builder.build(false));
-            notifyItemChanged(em7Var.a);
+            this.a.set(yy7Var.a, builder.build(false));
+            notifyItemChanged(yy7Var.a);
         }
     }
 }

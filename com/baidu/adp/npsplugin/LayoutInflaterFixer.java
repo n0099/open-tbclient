@@ -6,7 +6,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.aa1;
+import com.baidu.tieba.ra1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -79,8 +79,8 @@ public class LayoutInflaterFixer {
             ArrayList arrayList = new ArrayList();
             arrayList.add("androidx.recyclerview");
             try {
-                Field b = aa1.b(LayoutInflater.class, "sConstructorMap");
-                aa1.h(b);
+                Field b = ra1.b(LayoutInflater.class, "sConstructorMap");
+                ra1.h(b);
                 Object obj = b.get(null);
                 if (obj instanceof Map) {
                     b.set(null, new PrivateMap(arrayList, (Map) obj));

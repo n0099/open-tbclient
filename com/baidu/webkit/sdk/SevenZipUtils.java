@@ -398,44 +398,43 @@ public class SevenZipUtils {
             return false;
         }
         this.mContext = context.getApplicationContext();
-        if (tryLock(str2)) {
-            this.mTempPath = str2 + FILE_NAME_TEMP;
-            File file = new File(this.mTempPath);
-            FileInputStream fileInputStream2 = null;
-            if (file.exists()) {
-                FileUtils.deleteDir(file, null);
-            }
-            String downloadLibPath = UtilsBlink.getDownloadLibPath(WebKitFactory.getContext());
-            File file2 = new File(downloadLibPath + "libzeuswebviewchromium.so");
-            String checkTimestamp = checkTimestamp(this.mContext, str2);
-            this.mTimeStamp = checkTimestamp;
-            if (checkTimestamp == null && file2.exists() && !EngineManager.getInstance().isInstallBreak()) {
-                unLock();
-                LoadErrorCode.getInstance().trace(506);
-                return false;
-            }
-            String nativeLibraryDir = getNativeLibraryDir();
-            File file3 = new File(nativeLibraryDir);
-            if (!file3.exists()) {
-                LoadErrorCode.getInstance().trace(507);
-                file3.mkdir();
-                ZipUtils.getInstance().unZip(this.mContext, this.mContext.getApplicationInfo().sourceDir, nativeLibraryDir.toString(), nativeLibraryDir.contains("arm64") ? "lib/arm64-v8a/" : "lib/armeabi/", false);
-                ReflectUtils.expandPathList(nativeLibraryDir, SevenZipUtils.class);
-                System.loadLibrary(FILE_NAME_LZMA);
-                sLibraryLoaded = true;
-            }
-            if (new File(str).exists()) {
-                EngineManager.getInstance().resetZeus();
-                EngineManager.getInstance().removeUnusedFiles(context);
-                EngineManager.getInstance().removeOldStatisticsFiles(context);
-            }
-            this.mErrorCode = 0;
+        if (!tryLock(str2)) {
+            return false;
+        }
+        this.mTempPath = str2 + FILE_NAME_TEMP;
+        File file = new File(this.mTempPath);
+        FileInputStream fileInputStream2 = null;
+        if (file.exists()) {
+            FileUtils.deleteDir(file, null);
+        }
+        String downloadLibPath = UtilsBlink.getDownloadLibPath(WebKitFactory.getContext());
+        File file2 = new File(downloadLibPath + "libzeuswebviewchromium.so");
+        String checkTimestamp = checkTimestamp(this.mContext, str2);
+        this.mTimeStamp = checkTimestamp;
+        if (checkTimestamp == null && file2.exists() && !EngineManager.getInstance().isInstallBreak()) {
+            unLock();
+            LoadErrorCode.getInstance().trace(506);
+            return false;
+        }
+        String nativeLibraryDir = getNativeLibraryDir();
+        File file3 = new File(nativeLibraryDir);
+        if (!file3.exists()) {
+            LoadErrorCode.getInstance().trace(507);
+            file3.mkdir();
+            ZipUtils.getInstance().unZip(this.mContext, this.mContext.getApplicationInfo().sourceDir, nativeLibraryDir.toString(), nativeLibraryDir.contains("arm64") ? "lib/arm64-v8a/" : "lib/armeabi/", false);
+            ReflectUtils.expandPathList(nativeLibraryDir, SevenZipUtils.class);
+            System.loadLibrary(FILE_NAME_LZMA);
+            sLibraryLoaded = true;
+        }
+        if (new File(str).exists()) {
+            EngineManager.getInstance().resetZeus();
+            EngineManager.getInstance().removeUnusedFiles(context);
+            EngineManager.getInstance().removeOldStatisticsFiles(context);
+        }
+        this.mErrorCode = 0;
+        try {
             try {
-                try {
-                    fileInputStream = new FileInputStream(str);
-                } catch (Throwable th) {
-                    th = th;
-                }
+                fileInputStream = new FileInputStream(str);
             } catch (Exception e) {
                 e = e;
             }
@@ -488,8 +487,8 @@ public class SevenZipUtils {
                     }
                 }
                 return false;
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Throwable th) {
+                th = th;
                 fileInputStream2 = fileInputStream;
                 if (fileInputStream2 != null) {
                     try {
@@ -500,8 +499,9 @@ public class SevenZipUtils {
                 }
                 throw th;
             }
+        } catch (Throwable th2) {
+            th = th2;
         }
-        return false;
     }
 
     public void unzip(String str, String str2) {

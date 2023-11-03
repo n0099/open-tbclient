@@ -28,7 +28,7 @@ public class c {
     public ExecutorService a;
     public int b;
     public List<com.baidu.mapsdkplatform.comapi.commonutils.a.b> c;
-    public InterfaceC0107c d;
+    public InterfaceC0108c d;
 
     /* loaded from: classes3.dex */
     public interface b {
@@ -39,7 +39,7 @@ public class c {
 
     /* renamed from: com.baidu.mapsdkplatform.comapi.commonutils.a.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0107c {
+    public interface InterfaceC0108c {
         void a();
 
         void a(File file);
@@ -237,11 +237,11 @@ public class c {
         }
     }
 
-    public void a(String str, String str2, String str3, int i, InterfaceC0107c interfaceC0107c) {
+    public void a(String str, String str2, String str3, int i, InterfaceC0108c interfaceC0108c) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, Integer.valueOf(i), interfaceC0107c}) == null) && i > 0 && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
+        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, Integer.valueOf(i), interfaceC0108c}) == null) && i > 0 && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
             this.b = i;
-            this.d = interfaceC0107c;
+            this.d = interfaceC0108c;
             a(str, str2, str3);
         }
     }

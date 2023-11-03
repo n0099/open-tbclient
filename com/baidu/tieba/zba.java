@@ -1,27 +1,18 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import kotlin.Pair;
-import kotlin.collections.MapsKt__MapsKt;
 /* loaded from: classes9.dex */
-public final class zba implements kca {
+public class zba {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ica a;
-    public final fca b;
-    public final gca c;
-    public final hca d;
-    public final aca e;
-    public final bca f;
-    public final cca g;
-    public final HashMap<nca, HashMap<lca, nca>> h;
+    public String a;
+    public boolean b;
+    public boolean c;
 
     public zba() {
         Interceptable interceptable = $ic;
@@ -36,89 +27,55 @@ public final class zba implements kca {
                 return;
             }
         }
-        this.a = new ica();
-        this.b = new fca();
-        this.c = new gca();
-        this.d = new hca();
-        this.e = new aca();
-        this.f = new bca();
-        this.g = new cca();
-        this.h = MapsKt__MapsKt.hashMapOf(new Pair(a(), MapsKt__MapsKt.hashMapOf(new Pair(this.e, this.b))), new Pair(this.b, MapsKt__MapsKt.hashMapOf(new Pair(this.f, this.c))), new Pair(this.c, MapsKt__MapsKt.hashMapOf(new Pair(this.g, this.d))));
+        this.b = false;
+        this.c = false;
     }
 
-    public final aca b() {
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
+            return this.c;
         }
-        return (aca) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final fca c() {
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.b;
         }
-        return (fca) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final bca d() {
-        InterceptResult invokeV;
+    public void d(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.c = z;
         }
-        return (bca) invokeV.objValue;
     }
 
-    public final gca e() {
-        InterceptResult invokeV;
+    public void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.a = str;
         }
-        return (gca) invokeV.objValue;
     }
 
-    public final cca f() {
-        InterceptResult invokeV;
+    public void f(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.g;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.b = z;
         }
-        return (cca) invokeV.objValue;
-    }
-
-    public final hca g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.d;
-        }
-        return (hca) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.kca
-    public HashMap<nca, HashMap<lca, nca>> getMap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.h;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kca
-    /* renamed from: h */
-    public ica a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.a;
-        }
-        return (ica) invokeV.objValue;
     }
 }

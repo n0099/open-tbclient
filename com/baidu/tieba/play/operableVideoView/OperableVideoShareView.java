@@ -25,9 +25,9 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ad;
-import com.baidu.tieba.gr5;
-import com.baidu.tieba.iw9;
+import com.baidu.tieba.at5;
+import com.baidu.tieba.n9a;
+import com.baidu.tieba.qd;
 import com.baidu.tieba.share.ImplicitShareMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -40,7 +40,7 @@ import java.util.ArrayList;
 public class OperableVideoShareView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public iw9 a;
+    public n9a a;
     public View b;
     public ImageView c;
     public View d;
@@ -87,7 +87,7 @@ public class OperableVideoShareView extends LinearLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || gr5.a()) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || at5.a()) {
                 return;
             }
             if (view2 != this.a.b) {
@@ -222,11 +222,11 @@ public class OperableVideoShareView extends LinearLayout {
         }
     }
 
-    public void setVideoContainer(iw9 iw9Var) {
+    public void setVideoContainer(n9a n9aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iw9Var) == null) {
-            this.a = iw9Var;
-            this.i.setOnClickListener(iw9Var);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, n9aVar) == null) {
+            this.a = n9aVar;
+            this.i.setOnClickListener(n9aVar);
         }
     }
 
@@ -295,7 +295,7 @@ public class OperableVideoShareView extends LinearLayout {
             this.e = (ImageView) findViewById(R.id.share_weixin_timeline_img);
             this.f = findViewById(R.id.share_qq);
             this.g = (ImageView) findViewById(R.id.share_qq_img);
-            this.h = findViewById(R.id.obfuscated_res_0x7f090918);
+            this.h = findViewById(R.id.obfuscated_res_0x7f090939);
             this.i = findViewById(R.id.video_replay);
             this.j = (ImageView) findViewById(R.id.replay_img);
             this.b.setOnClickListener(this.m);
@@ -394,7 +394,7 @@ public class OperableVideoShareView extends LinearLayout {
         statisticItem.param("obj_locate", this.l);
         statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, shareItem.objParam3);
         statisticItem.param("nid", shareItem.nid);
-        if (!ad.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
+        if (!qd.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
             statisticItem.param("obj_source", TbadkCoreApplication.getInst().getTaskId());
         }
         TiebaStatic.log(statisticItem);

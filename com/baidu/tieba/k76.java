@@ -1,140 +1,218 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.ala.data.SdkLiveInfoData;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.TiebaStaticHelper;
-import com.baidu.tieba.ala.alasquare.live_tab.view.TabLiveStageLiveView;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class k76 extends cj6<i66> {
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class k76 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View i;
-    public TabLiveStageLiveView j;
-    public int k;
+    public JSONObject a;
+    public HttpMessageListener b;
+    public BdUniqueId c;
+    public BdUniqueId d;
+    public CustomMessageListener e;
+    public CustomMessageListener f;
 
-    @Override // com.baidu.tieba.cj6
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0950 : invokeV.intValue;
-    }
+    /* loaded from: classes7.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ k76 a;
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(k76 k76Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k76Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = k76Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003390 || httpResponsedMessage.getError() != 0) {
+                return;
+            }
+            this.a.a = null;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k76(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
-        super(tbPageContext, viewGroup);
+    /* loaded from: classes7.dex */
+    public class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ k76 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(k76 k76Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k76Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = k76Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && BdNetTypeUtil.isNetworkAvailableForImmediately() && this.a.a != null) {
+                k76 k76Var = this.a;
+                k76Var.h(k76Var.a, this.a.d);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ k76 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(k76 k76Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k76Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = k76Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject)) {
+                this.a.f((JSONObject) customResponsedMessage.getData());
+            }
+        }
+    }
+
+    public k76(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, viewGroup};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.k = 0;
-        o();
+        this.c = BdUniqueId.gen();
+        this.d = BdUniqueId.gen();
+        this.e = new b(this, 2000994);
+        this.f = new c(this, 2921324);
+        if (this.b == null) {
+            this.b = new a(this, CmdConfigHttp.CMD_FRS_STAGE_FEED_BACK);
+        }
+        MessageManager.getInstance().registerListener(this.b);
+        MessageManager.getInstance().registerListener(this.e);
+        this.f.setTag(tbPageContext.getUniqueId());
+        this.f.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.f);
     }
 
-    @Override // com.baidu.tieba.cj6
-    public void k(TbPageContext<?> tbPageContext, int i) {
+    public final void f(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            SkinManager.setBackgroundColor(i(), R.color.CAM_X0201);
-            TabLiveStageLiveView tabLiveStageLiveView = this.j;
-            if (tabLiveStageLiveView != null) {
-                tabLiveStageLiveView.c();
-            }
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        if (BdNetTypeUtil.isNetworkAvailableForImmediately()) {
+            h(jSONObject, this.c);
+        } else {
+            this.a = jSONObject;
         }
     }
 
-    public final void o() {
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.i = i();
-            int[] b = z56.b(c());
-            int i = b[0];
-            int i2 = b[1];
-            TabLiveStageLiveView tabLiveStageLiveView = (TabLiveStageLiveView) this.i.findViewById(R.id.obfuscated_res_0x7f0922d7);
-            this.j = tabLiveStageLiveView;
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) tabLiveStageLiveView.getLayoutParams();
-            if (layoutParams == null) {
-                layoutParams = (FrameLayout.LayoutParams) new ViewGroup.LayoutParams(i, i2);
-            } else {
-                layoutParams.width = i;
-                layoutParams.height = i2;
-            }
-            layoutParams.gravity = 1;
-            this.j.setLayoutParams(layoutParams);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.b);
+            MessageManager.getInstance().unRegisterListener(this.e);
+            MessageManager.getInstance().unRegisterListener(this.f);
+            this.a = null;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cj6
-    /* renamed from: t */
-    public void j(i66 i66Var) {
-        SdkLiveInfoData sdkLiveInfoData;
-        SdkLiveInfoData.AlaLiveInfo alaLiveInfo;
-        String str;
+    public final void h(JSONObject jSONObject, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, i66Var) == null) && i66Var != null && i66Var.a != null) {
-            int equipmentWidth = BdUtilHelper.getEquipmentWidth(this.c);
-            if (equipmentWidth != this.k) {
-                int[] b = z56.b(c());
-                int i = b[0];
-                int i2 = b[1];
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.j.getLayoutParams();
-                layoutParams.width = i;
-                layoutParams.height = i2;
-                this.j.setLayoutParams(layoutParams);
-                this.k = equipmentWidth;
-            }
-            this.j.setData(i66Var.a.a, 101);
-            StatisticItem statisticItem = new StatisticItem("c13551");
-            j66 j66Var = i66Var.a;
-            if (j66Var != null && (sdkLiveInfoData = j66Var.a) != null && (alaLiveInfo = sdkLiveInfoData.liveInfo) != null) {
-                int a = z56.a(alaLiveInfo);
-                SdkLiveInfoData sdkLiveInfoData2 = i66Var.a.a;
-                SdkLiveInfoData.YYExt yYExt = sdkLiveInfoData2.liveInfo.yyExt;
-                if (yYExt != null) {
-                    TiebaStaticHelper.addYYParam(statisticItem, z56.j(yYExt, sdkLiveInfoData2.roomId));
-                    str = TiebaStatic.YYValues.YY_LIVE;
-                } else {
-                    str = "";
-                }
-                statisticItem.param("obj_param1", a);
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str);
-            }
-            statisticItem.param(TiebaStatic.Params.ENTRY_NAME, "推荐");
-            statisticItem.param("nid", i66Var.a.a.nid);
-            statisticItem.param("log_id", i66Var.a.a.logid);
-            TiebaStatic.log(statisticItem);
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, bdUniqueId) != null) || jSONObject == null) {
+            return;
         }
+        String optString = jSONObject.optString("tid");
+        String optString2 = jSONObject.optString("fid");
+        String optString3 = jSONObject.optString("dislike_ids");
+        String optString4 = jSONObject.optString("type");
+        int i = 1;
+        if ("ala_frs_stage_live_feed_back_type".equals(optString4)) {
+            i = 2;
+        } else {
+            "ala_frs_demo_hell_live_feed_back_type".equals(optString4);
+        }
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_STAGE_FEED_BACK);
+        httpMessage.addParam("thread_id", optString);
+        httpMessage.addParam("forum_id", optString2);
+        httpMessage.addParam("dislike_reason_id", optString3);
+        httpMessage.addParam("reason_type", i);
+        httpMessage.setTag(bdUniqueId);
+        MessageManager.getInstance().sendMessage(httpMessage);
     }
 }

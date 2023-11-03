@@ -11,11 +11,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class s9 extends d9<String> {
+public class s9 extends t9<byte[]> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.d9
+    @Override // com.baidu.tieba.t9
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -25,7 +25,7 @@ public class s9 extends d9<String> {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.d9
+    @Override // com.baidu.tieba.t9
     public void k(String str, String str2, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLII(1048579, this, str, str2, i, i2) == null) {
@@ -33,18 +33,18 @@ public class s9 extends d9<String> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s9(m4 m4Var) {
-        super(m4Var);
+    public s9(c5 c5Var) {
+        super(c5Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {m4Var};
+            Object[] objArr = {c5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((m4) newInitContext.callArgs[0]);
+                super((c5) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -52,21 +52,21 @@ public class s9 extends d9<String> {
         }
     }
 
-    @Override // com.baidu.tieba.d9
+    @Override // com.baidu.tieba.t9
     public boolean d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            m4 m4Var = this.a;
-            m4Var.d("DROP TABLE IF EXISTS " + this.b);
+            c5 c5Var = this.a;
+            c5Var.d("DROP TABLE IF EXISTS " + this.b);
             return true;
         }
         return invokeL.booleanValue;
     }
 
-    /* JADX WARN: Type inference failed for: r0v12, types: [T, java.lang.String] */
-    @Override // com.baidu.tieba.d9
-    public h9<String> i(SQLiteDatabase sQLiteDatabase, String str) throws Throwable {
+    /* JADX WARN: Type inference failed for: r0v12, types: [T, byte[]] */
+    @Override // com.baidu.tieba.t9
+    public x9<byte[]> i(SQLiteDatabase sQLiteDatabase, String str) throws Throwable {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, str)) == null) {
@@ -75,14 +75,14 @@ public class s9 extends d9<String> {
                 Cursor rawQuery = sQLiteDatabase.rawQuery("SELECT m_key, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.b + " where m_key = ?", new String[]{str});
                 try {
                     if (rawQuery.moveToNext()) {
-                        h9<String> h9Var = new h9<>();
-                        h9Var.a = rawQuery.getString(0);
-                        h9Var.d = rawQuery.getLong(1);
-                        h9Var.e = rawQuery.getLong(2);
-                        h9Var.f = rawQuery.getLong(3);
-                        h9Var.b = rawQuery.getString(4);
+                        x9<byte[]> x9Var = new x9<>();
+                        x9Var.a = rawQuery.getString(0);
+                        x9Var.d = rawQuery.getLong(1);
+                        x9Var.e = rawQuery.getLong(2);
+                        x9Var.f = rawQuery.getLong(3);
+                        x9Var.b = rawQuery.getBlob(4);
                         BdCloseHelper.close(rawQuery);
-                        return h9Var;
+                        return x9Var;
                     }
                     BdCloseHelper.close(rawQuery);
                     return null;
@@ -96,11 +96,11 @@ public class s9 extends d9<String> {
                 th = th2;
             }
         } else {
-            return (h9) invokeLL.objValue;
+            return (x9) invokeLL.objValue;
         }
     }
 
-    @Override // com.baidu.tieba.d9
+    @Override // com.baidu.tieba.t9
     public String l(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -109,30 +109,30 @@ public class s9 extends d9<String> {
             if (hashCode < 0) {
                 hashCode *= -1;
             }
-            String str2 = "cache_kv_t" + hashCode;
-            this.a.d("CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
+            String str2 = "cache_kv_b" + hashCode;
+            this.a.d("CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value blob)");
             return str2;
         }
         return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.d9
-    public ContentValues p(h9<String> h9Var) {
+    @Override // com.baidu.tieba.t9
+    public ContentValues p(x9<byte[]> x9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, h9Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, x9Var)) == null) {
             ContentValues contentValues = new ContentValues();
-            contentValues.put("m_key", h9Var.a);
-            contentValues.put("m_value", h9Var.b);
-            contentValues.put("saveTime", Long.valueOf(h9Var.d));
-            contentValues.put("lastHitTime", Long.valueOf(h9Var.e));
-            contentValues.put("timeToExpire", Long.valueOf(h9Var.f));
+            contentValues.put("m_key", x9Var.a);
+            contentValues.put("m_value", x9Var.b);
+            contentValues.put("saveTime", Long.valueOf(x9Var.d));
+            contentValues.put("lastHitTime", Long.valueOf(x9Var.e));
+            contentValues.put("timeToExpire", Long.valueOf(x9Var.f));
             return contentValues;
         }
         return (ContentValues) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.d9
+    @Override // com.baidu.tieba.t9
     public Cursor q(SQLiteDatabase sQLiteDatabase, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

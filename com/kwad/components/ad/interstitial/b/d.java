@@ -300,7 +300,7 @@ public final class d extends b {
         float a = a(cB, av);
         com.kwad.sdk.core.e.b.d("InterstitialWebViewPresenter", "replaceNativeView cardRatio: " + a);
         this.gh.gj.setRatio(a);
-        final ViewGroup viewGroup = (ViewGroup) this.gS.findViewById(R.id.obfuscated_res_0x7f091307);
+        final ViewGroup viewGroup = (ViewGroup) this.gS.findViewById(R.id.obfuscated_res_0x7f091345);
         viewGroup.setVisibility(0);
         viewGroup.post(new Runnable() { // from class: com.kwad.components.ad.interstitial.b.d.22
             @Override // java.lang.Runnable
@@ -358,8 +358,8 @@ public final class d extends b {
         com.kwad.components.ad.f.kwai.kwai.b j = com.kwad.components.ad.f.kwai.kwai.b.j(this.mAdTemplate);
         this.gY = j;
         if (j != null) {
-            j.a(new b.InterfaceC0574b() { // from class: com.kwad.components.ad.interstitial.b.d.2
-                @Override // com.kwad.components.ad.f.kwai.kwai.b.InterfaceC0574b
+            j.a(new b.InterfaceC0580b() { // from class: com.kwad.components.ad.interstitial.b.d.2
+                @Override // com.kwad.components.ad.f.kwai.kwai.b.InterfaceC0580b
                 public final void C(int i) {
                     if (i == com.kwad.components.ad.f.kwai.kwai.b.kt) {
                         d.this.gh.b(d.this.getContext(), d.this.mAdTemplate);
@@ -374,8 +374,8 @@ public final class d extends b {
 
     private com.kwad.components.ad.f.kwai.kwai.a cP() {
         final com.kwad.components.ad.f.kwai.kwai.a aVar = new com.kwad.components.ad.f.kwai.kwai.a();
-        this.gh.gs.add(new c.InterfaceC0583c() { // from class: com.kwad.components.ad.interstitial.b.d.3
-            @Override // com.kwad.components.ad.interstitial.b.c.InterfaceC0583c
+        this.gh.gs.add(new c.InterfaceC0589c() { // from class: com.kwad.components.ad.interstitial.b.d.3
+            @Override // com.kwad.components.ad.interstitial.b.c.InterfaceC0589c
             public final void cH() {
                 aVar.ey();
             }
@@ -672,7 +672,7 @@ public final class d extends b {
         return new w.a() { // from class: com.kwad.components.ad.interstitial.b.d.10
             @Override // com.kwad.components.core.webview.jshandler.w.a
             public final void a(com.kwad.components.core.webview.a.b bVar) {
-                AdWebViewActivityProxy.launch(d.this.mContext, new AdWebViewActivityProxy.a.C0626a().ao(bVar.title).ap(bVar.url).N(d.this.mAdTemplate).nx());
+                AdWebViewActivityProxy.launch(d.this.mContext, new AdWebViewActivityProxy.a.C0632a().ao(bVar.title).ap(bVar.url).N(d.this.mAdTemplate).nx());
             }
         };
     }
@@ -801,15 +801,15 @@ public final class d extends b {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        KsAdWebView ksAdWebView = (KsAdWebView) getRootView().findViewById(R.id.obfuscated_res_0x7f09146b);
+        KsAdWebView ksAdWebView = (KsAdWebView) getRootView().findViewById(R.id.obfuscated_res_0x7f0914a9);
         this.gT = ksAdWebView;
         ksAdWebView.setBackgroundColor(0);
         this.gT.setVisibility(4);
         this.aM = new com.kwad.components.core.widget.kwai.b(this.gT, 100);
-        this.gS = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f0912b8);
-        this.dN = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f091442);
-        this.f6do = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f091452);
-        this.gU = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f09130f);
+        this.gS = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f0912f6);
+        this.dN = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f091480);
+        this.f6do = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f091490);
+        this.gU = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f09134d);
         Context context = getContext();
         this.mContext = context;
         if (context != null) {

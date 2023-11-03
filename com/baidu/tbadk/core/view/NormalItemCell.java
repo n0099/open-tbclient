@@ -128,7 +128,7 @@ public class NormalItemCell extends ConstraintLayout {
                 }
                 textView.setHint(charSequence);
             }
-            e();
+            d();
         }
     }
 
@@ -172,7 +172,7 @@ public class NormalItemCell extends ConstraintLayout {
                 return;
             }
         }
-        c(context);
+        b(context);
     }
 
     private void setupDivider(int i2) {
@@ -198,7 +198,7 @@ public class NormalItemCell extends ConstraintLayout {
         }
     }
 
-    public void f() {
+    public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.e.setVisibility(0);
@@ -214,19 +214,19 @@ public class NormalItemCell extends ConstraintLayout {
         return (String) invokeV.objValue;
     }
 
-    public final void c(Context context) {
+    public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.normal_item_cell_layout, this);
             this.a = findViewById(R.id.divider_top);
             this.b = findViewById(R.id.divider_bottom);
             this.c = (TextView) findViewById(R.id.main_title);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092311);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902cf);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092368);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902e2);
         }
     }
 
-    public void d() {
+    public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             SkinManager.setBackgroundResource(this, R.drawable.forum_selected_view_bg);
@@ -246,11 +246,11 @@ public class NormalItemCell extends ConstraintLayout {
             if (aVar2 != null && aVar2.a != -1) {
                 EMManager.from(this.d).setCorner(R.string.J_X06).setBackGroundColor(this.f.a);
             }
-            e();
+            d();
         }
     }
 
-    public final void e() {
+    public final void d() {
         int i2;
         Drawable pureDrawable;
         Interceptable interceptable = $ic;

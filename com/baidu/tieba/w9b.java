@@ -1,25 +1,81 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.write.share.CheckRequest;
+import com.baidu.tieba.write.share.CheckResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes8.dex */
-public final class w9b {
+public class w9b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SQLiteDatabase a;
+    public BdUniqueId a;
+    public v9b b;
+    public HttpMessageListener c;
 
-    public w9b() {
+    /* loaded from: classes8.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ w9b a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(w9b w9bVar, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w9bVar, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = w9bVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof CheckResponse)) {
+                return;
+            }
+            x9b checkResponseData = ((CheckResponse) httpResponsedMessage).getCheckResponseData();
+            if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
+                httpResponsedMessage.setErrorString(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f13f7));
+            }
+            if (this.a.b != null) {
+                this.a.b.a(checkResponseData, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+            }
+        }
+    }
+
+    public w9b(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,62 +85,58 @@ public final class w9b {
                 return;
             }
         }
-        this.a = r9b.a().c();
+        this.c = new a(this, CmdConfigHttp.CMD_CHECK_SHARE_SDK);
+        this.a = bdUniqueId;
+        b();
     }
 
-    public final void a(String str) {
+    public void e(v9b v9bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.a.execSQL("delete from tb_ab_sessionlog where not ( _sessionId = ? )", new String[]{str});
+        if (interceptable == null || interceptable.invokeL(1048579, this, v9bVar) == null) {
+            this.b = v9bVar;
         }
     }
 
-    public final boolean b(String str) {
-        InterceptResult invokeL;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            Cursor rawQuery = this.a.rawQuery("select * from tb_ab_sessionlog where _sessionId = ? ", new String[]{str});
-            int count = rawQuery.getCount();
-            rawQuery.close();
-            if (count > 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void d(com.baidu.ubs.analytics.a.n nVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, nVar) == null) {
-            this.a.execSQL("INSERT INTO tb_ab_sessionlog(_startTime,_keepTime,_endTime,_sessionId) VALUES (?,?,?,?);", new String[]{nVar.N(), nVar.P(), nVar.O(), nVar.I()});
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            MessageManager messageManager = MessageManager.getInstance();
+            messageManager.registerTask(c());
+            this.c.setTag(this.a);
+            messageManager.registerListener(this.c);
         }
     }
 
-    public final void e(com.baidu.ubs.analytics.a.n nVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, nVar) == null) {
-            this.a.execSQL("UPDATE tb_ab_sessionlog SET _keepTime= ? , _endTime = ? WHERE _sessionId= ?", new String[]{nVar.P(), nVar.O(), nVar.I()});
-        }
-    }
-
-    public final List<com.baidu.ubs.analytics.a.n> c() {
+    public final HttpMessageTask c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Cursor rawQuery = this.a.rawQuery("SELECT * FROM  tb_ab_sessionlog", null);
-            ArrayList arrayList = new ArrayList();
-            while (rawQuery.moveToNext()) {
-                com.baidu.ubs.analytics.a.n nVar = new com.baidu.ubs.analytics.a.n();
-                nVar.x(rawQuery.getString(rawQuery.getColumnIndex("_sessionId")));
-                nVar.setStartTime(rawQuery.getString(rawQuery.getColumnIndex("_startTime")));
-                nVar.A(rawQuery.getString(rawQuery.getColumnIndex("_keepTime")));
-                nVar.z(rawQuery.getString(rawQuery.getColumnIndex("_endTime")));
-                arrayList.add(nVar);
-            }
-            rawQuery.close();
-            return arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHECK_SHARE_SDK, TbConfig.CHECK_SHARE_SDK_URL);
+            tbHttpMessageTask.setIsNeedAddCommenParam(true);
+            tbHttpMessageTask.setRetry(3);
+            tbHttpMessageTask.setResponsedClass(CheckResponse.class);
+            return tbHttpMessageTask;
         }
-        return (List) invokeV.objValue;
+        return (HttpMessageTask) invokeV.objValue;
+    }
+
+    public void d(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
+            if (StringUtils.isNull(str)) {
+                v9b v9bVar = this.b;
+                if (v9bVar != null) {
+                    v9bVar.a(null, -2112, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0437));
+                    return;
+                }
+                return;
+            }
+            MessageManager.getInstance().removeHttpMessage(this.a);
+            CheckRequest checkRequest = new CheckRequest();
+            checkRequest.setTag(this.a);
+            checkRequest.setAppkey(str);
+            checkRequest.setAppletsKey(str2);
+            MessageManager.getInstance().sendMessage(checkRequest);
+        }
     }
 }

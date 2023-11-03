@@ -1,109 +1,449 @@
 package com.baidu.tieba;
 
-import android.graphics.PointF;
-import android.view.MotionEvent;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.util.io.Closeables;
+import com.baidu.android.util.io.FileUtils;
+import com.baidu.mobads.sdk.api.SplashAd;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.http.HttpManager;
+import com.baidu.tbadk.TbadkSettings;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.SignAllForumAdvertActivityConfig;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.switchs.BaiduBqtInitSwitch;
+import com.baidu.tbadk.switchs.GdtInitSwitch;
+import com.baidu.tieba.debugtool.annotation.Modify;
+import com.baidu.tieba.debugtool.annotation.ModifyClass;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.List;
+import okhttp3.Response;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+@ModifyClass
 /* loaded from: classes6.dex */
 public class js5 {
     public static /* synthetic */ Interceptable $ic;
+    public static js5 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static float a(float f, float f2, float f3, float f4) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
-            return (float) Math.sqrt(Math.pow(f - f3, 2.0d) + Math.pow(f2 - f4, 2.0d));
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947893885, "Lcom/baidu/tieba/js5;")) == null) {
+            return;
         }
-        return invokeCommon.floatValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947893885, "Lcom/baidu/tieba/js5;");
+        }
     }
 
-    public static PointF b(MotionEvent motionEvent) {
-        InterceptResult invokeL;
+    @Modify(description = "广告-热启动是否开启debug模式", type = 33)
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, motionEvent)) == null) {
-            if (motionEvent == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static double h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return 0.0d;
+        }
+        return invokeV.doubleValue;
+    }
+
+    public static String l(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65547, null, i)) == null) {
+            if (i != -1) {
+                return i != 0 ? i != 1 ? i != 2 ? i != 3 ? "PLG_Other" : "PLG_CPC" : "PLG_OperateHighly" : "PLG_OperateNormal" : "PLG_GD";
             }
-            PointF pointF = new PointF();
-            pointF.set((motionEvent.getX(0) + motionEvent.getX(1)) / 2.0f, (motionEvent.getY(0) + motionEvent.getY(1)) / 2.0f);
-            return pointF;
+            return null;
         }
-        return (PointF) invokeL.objValue;
+        return (String) invokeI.objValue;
     }
 
-    public static float c(MotionEvent motionEvent) {
-        InterceptResult invokeL;
+    public js5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, motionEvent)) == null) {
-            if (motionEvent == null) {
-                return 0.0f;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            return (float) Math.toDegrees(Math.atan2(motionEvent.getY(0) - motionEvent.getY(1), motionEvent.getX(0) - motionEvent.getX(1)));
         }
-        return invokeL.floatValue;
     }
 
-    public static float d(MotionEvent motionEvent) {
-        InterceptResult invokeL;
+    @Modify(description = "广告-禁止初始化百度百青藤", type = 33)
+    public static boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, motionEvent)) == null) {
-            if (motionEvent == null) {
-                return 0.0f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return !BaiduBqtInitSwitch.isOn();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Modify(description = "广告-禁止初始化广点通", type = 33)
+    public static boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return !GdtInitSwitch.isOn();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Modify(description = "广告-FRS页面混排广告条数", type = 33)
+    public static int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return SharedPrefHelper.getInstance().getInt("key_mix_frs_ad_count", 5);
+        }
+        return invokeV.intValue;
+    }
+
+    public static synchronized js5 i() {
+        InterceptResult invokeV;
+        js5 js5Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            synchronized (js5.class) {
+                if (a == null) {
+                    a = new js5();
+                }
+                js5Var = a;
             }
-            float x = motionEvent.getX(0) - motionEvent.getX(1);
-            float y = motionEvent.getY(0) - motionEvent.getY(1);
-            return (float) Math.sqrt((x * x) + (y * y));
+            return js5Var;
         }
-        return invokeL.floatValue;
+        return (js5) invokeV.objValue;
     }
 
-    public static boolean e(float[] fArr, float f, float f2) {
-        InterceptResult invokeCommon;
+    public static int j() {
+        InterceptResult invokeV;
+        int min;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{fArr, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            if (fArr != null && fArr.length == 8) {
-                float f3 = fArr[0];
-                float f4 = fArr[1];
-                float f5 = fArr[2];
-                float f6 = fArr[3];
-                float f7 = fArr[4];
-                float f8 = fArr[5];
-                float f9 = fArr[6];
-                float f10 = fArr[7];
-                float a = a(f3, f4, f5, f6);
-                float f11 = f(f3, f4, f5, f6, f, f2);
-                float a2 = a(f5, f6, f9, f10);
-                float f12 = f(f5, f6, f9, f10, f, f2);
-                float f13 = f(f9, f10, f7, f8, f, f2);
-                float f14 = f(f7, f8, f3, f4, f, f2);
-                if (a > 0.0f && a2 > 0.0f && f11 <= a2 && f13 <= a2 && f12 <= a && f14 <= a) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            int r = r();
+            int s = s();
+            if (r == s || (min = Math.min(r, s)) <= 0 || min >= 10000) {
+                return 1000;
+            }
+            return min;
+        }
+        return invokeV.intValue;
+    }
+
+    public static int k() {
+        InterceptResult invokeV;
+        int max;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            int r = r();
+            int s = s();
+            if (r == s || (max = Math.max(r, s)) <= 0 || max >= 10000) {
+                return 1400;
+            }
+            return max;
+        }
+        return invokeV.intValue;
+    }
+
+    public static boolean p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
+            if (v()) {
+                if (we1.b() && t()) {
                     return true;
                 }
+                return false;
+            }
+            return t();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Modify(description = "广告-开屏广告第一次超时时间(新)", type = 33)
+    public static int r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
+            return SharedPrefHelper.getInstance().getInt("key_splash_new_policy_first_timeout", 1000);
+        }
+        return invokeV.intValue;
+    }
+
+    @Modify(description = "广告-开屏广告第二次超时时间(新)", type = 33)
+    public static int s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
+            return SharedPrefHelper.getInstance().getInt("key_splash_new_policy_second_timeout", 1400);
+        }
+        return invokeV.intValue;
+    }
+
+    @Modify(description = "广告-开屏是否展示小熊开关(新)", type = 33)
+    public static boolean t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
+            if (SharedPrefHelper.getInstance().getInt("key_splash_new_policy_bear_enable", 0) != 1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Modify(description = "广告-开屏是否展示序章CPC开关(新)", type = 33)
+    public static boolean u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
+            if (SharedPrefHelper.getInstance().getInt("key_splash_new_policy_plg_cpc_enable", 0) != 1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Modify(description = "广告-开屏是否展示序章开关(新)", type = 33)
+    public static boolean v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) {
+            if (SharedPrefHelper.getInstance().getInt("key_splash_new_policy_plg_enable", 0) != 1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return TbadkSettings.getInst().loadString(SignAllForumAdvertActivityConfig.AD_URL, null);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void w() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            String g = g();
+            if (!TextUtils.isEmpty(g)) {
+                BdResourceLoader.getInstance().loadResource(g, 10, null, 0, 0, null, new Object[0]);
+            }
+        }
+    }
+
+    public static String f(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, str, i)) == null) {
+            List<p58> j = q58.m().j(str);
+            JSONArray jSONArray = new JSONArray();
+            for (p58 p58Var : j) {
+                for (int i2 = 0; i2 < p58Var.e && jSONArray.length() < i; i2++) {
+                    try {
+                        JSONObject jSONObject = new JSONObject();
+                        jSONObject.put("id", p58Var.d + i2);
+                        jSONObject.put(SplashAd.KEY_BIDFAIL_ECPM, String.valueOf(p58Var.f));
+                        jSONArray.put(jSONObject);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            return jd.j(jSONArray.toString().getBytes(StandardCharsets.UTF_8));
+        }
+        return (String) invokeLI.objValue;
+    }
+
+    public long b(File file, String str) {
+        InterceptResult invokeLL;
+        FileOutputStream fileOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, str)) == null) {
+            long j = 0;
+            if (TextUtils.isEmpty(str) || file == null) {
+                return 0L;
+            }
+            InputStream inputStream = null;
+            try {
+                Response executeSync = HttpManager.getDefault(AppRuntime.getAppContext()).getRequest().url(str).build().executeSync();
+                if (executeSync != null && executeSync.code() == 200) {
+                    InputStream byteStream = executeSync.body().byteStream();
+                    if (byteStream != null) {
+                        try {
+                            fileOutputStream = new FileOutputStream(file);
+                            try {
+                                j = FileUtils.copyStream(byteStream, fileOutputStream);
+                            } catch (Exception e) {
+                                e = e;
+                                inputStream = byteStream;
+                                try {
+                                    TiebaStatic.log(e.toString());
+                                    Closeables.closeSafely(inputStream);
+                                    Closeables.closeSafely(fileOutputStream);
+                                    return j;
+                                } catch (Throwable th) {
+                                    th = th;
+                                    Closeables.closeSafely(inputStream);
+                                    Closeables.closeSafely(fileOutputStream);
+                                    throw th;
+                                }
+                            } catch (Throwable th2) {
+                                th = th2;
+                                inputStream = byteStream;
+                                Closeables.closeSafely(inputStream);
+                                Closeables.closeSafely(fileOutputStream);
+                                throw th;
+                            }
+                        } catch (Exception e2) {
+                            e = e2;
+                            fileOutputStream = null;
+                        } catch (Throwable th3) {
+                            th = th3;
+                            fileOutputStream = null;
+                        }
+                    } else {
+                        fileOutputStream = null;
+                    }
+                    inputStream = byteStream;
+                } else {
+                    fileOutputStream = null;
+                }
+            } catch (Exception e3) {
+                e = e3;
+                fileOutputStream = null;
+            } catch (Throwable th4) {
+                th = th4;
+                fileOutputStream = null;
+            }
+            Closeables.closeSafely(inputStream);
+            Closeables.closeSafely(fileOutputStream);
+            return j;
+        }
+        return invokeLL.longValue;
+    }
+
+    public static boolean m(String str) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
+            if (!UbsABTestHelper.isFrsFunAdSdkTest()) {
+                return false;
+            }
+            if (TbadkCoreApplication.getCurrentAccountInfo() != null && TbadkCoreApplication.getCurrentAccountInfo().getMemberCloseAdVipClose() == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z || n(str) <= 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean o(Object obj) {
+        InterceptResult invokeL;
+        sra sraVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, obj)) == null) {
+            if (obj instanceof tx4) {
+                return true;
+            }
+            if (obj instanceof hz4) {
+                sraVar = ((hz4) obj).t.funAdData;
+            } else if (obj instanceof ThreadData) {
+                sraVar = ((ThreadData) obj).funAdData;
+            } else if (obj instanceof ura) {
+                sraVar = ((ura) obj).z0;
+            } else {
+                sraVar = null;
+            }
+            if (sraVar != null) {
+                return true;
             }
             return false;
         }
-        return invokeCommon.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public static float f(float f, float f2, float f3, float f4, float f5, float f6) {
-        InterceptResult invokeCommon;
+    public static int n(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)})) == null) {
-            float a = a(f, f2, f3, f4);
-            float a2 = a(f, f2, f5, f6);
-            float a3 = a(f3, f4, f5, f6);
-            if (a == 0.0f) {
-                return a2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
+            int i = 0;
+            for (p58 p58Var : q58.m().j(str)) {
+                i += p58Var.e;
             }
-            if (a2 == 0.0f || a3 == 0.0f) {
-                return 0.0f;
-            }
-            float f7 = ((a + a2) + a3) / 2.0f;
-            return (((float) Math.sqrt((((f7 - a) * f7) * (f7 - a2)) * (f7 - a3))) * 2.0f) / a;
+            return i;
         }
-        return invokeCommon.floatValue;
+        return invokeL.intValue;
+    }
+
+    @Modify(description = "广告-是否需要请求frs页面的小熊广告", type = 33)
+    public static boolean q() {
+        InterceptResult invokeV;
+        boolean z;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
+            if (SharedPrefHelper.getInstance().getInt("splash_origin_ad_strategy_key", 1) == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (TbadkCoreApplication.getCurrentAccountInfo() != null && TbadkCoreApplication.getCurrentAccountInfo().getMemberCloseAdVipClose() == 1) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            if (!z && !z2) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

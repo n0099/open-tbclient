@@ -238,13 +238,13 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
 
         /* JADX INFO: Access modifiers changed from: private */
         /* JADX WARN: Can't wrap try/catch for region: R(14:11|(1:13)(1:65)|14|(1:64)(1:18)|19|(1:21)(1:63)|22|23|(9:(13:27|(11:31|32|33|34|36|37|(1:39)|40|41|42|43)|58|32|33|34|36|37|(0)|40|41|42|43)|(11:31|32|33|34|36|37|(0)|40|41|42|43)|36|37|(0)|40|41|42|43)|59|58|32|33|34) */
-        /* JADX WARN: Code restructure failed: missing block: B:48:0x00f6, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:48:0x00f5, code lost:
             r0 = e;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:49:0x00f7, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:49:0x00f6, code lost:
             r2 = null;
          */
-        /* JADX WARN: Removed duplicated region for block: B:41:0x00d6  */
+        /* JADX WARN: Removed duplicated region for block: B:41:0x00d5  */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */

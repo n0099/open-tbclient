@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,22 +10,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
-import tbclient.PbPage.RecommendBook;
-/* loaded from: classes7.dex */
-public class qx4 extends pea {
+import tbclient.BannerImage;
+/* loaded from: classes8.dex */
+public class qx4 extends BaseCardInfo implements oi {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId p1;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String g1;
-    public String h1;
-    public String i1;
-    public String j1;
-    public String k1;
-    public String l1;
-    public List<String> m1;
-    public String n1;
-    public String o1;
+    public List<ow4> a;
 
     static {
         InterceptResult invokeClinit;
@@ -40,7 +33,7 @@ public class qx4 extends pea {
                 return;
             }
         }
-        p1 = BdUniqueId.gen();
+        b = BdUniqueId.gen();
     }
 
     public qx4() {
@@ -53,46 +46,33 @@ public class qx4 extends pea {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList();
     }
 
-    public boolean D1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!StringUtils.isNull(this.j1)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.pea, com.baidu.tieba.yh
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.oi
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return p1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return b;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public void E1(RecommendBook recommendBook) {
+    public void parserProtobuf(List<BannerImage> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recommendBook) != null) || recommendBook == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || list == null) {
             return;
         }
-        this.g1 = recommendBook.recommend_text;
-        this.h1 = recommendBook.suggest_text;
-        this.i1 = recommendBook.suggest_url;
-        this.j1 = recommendBook.book_id;
-        recommendBook.book_type.intValue();
-        this.k1 = recommendBook.book_cover;
-        this.l1 = recommendBook.book_title;
-        this.m1 = recommendBook.book_tips;
-        this.n1 = recommendBook.botton_text;
-        this.o1 = recommendBook.subscript_icon;
+        this.a.clear();
+        int min = Math.min(list.size(), 10);
+        for (int i = 0; i < min; i++) {
+            ow4 ow4Var = new ow4();
+            ow4Var.d(list.get(i));
+            this.a.add(ow4Var);
+        }
     }
 }

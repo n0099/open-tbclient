@@ -1,130 +1,146 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.util.Log;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.advert.sdk.data.AdInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tencent.connect.share.QzonePublish;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class o46 extends ActivityDelegation {
+public class o46 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public class a implements n46 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ o46 a;
-
-        public a(o46 o46Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o46Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = o46Var;
-        }
-
-        @Override // com.baidu.tieba.n46
-        public void a(Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-                this.a.mResult.putInt("status_code", bundle.getInt("result_code"));
-                this.a.mResult.putString("params", bundle.getString("result_msg"));
-                this.a.finish();
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947982328, "Lcom/baidu/tieba/o46;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947982328, "Lcom/baidu/tieba/o46;");
-                return;
-            }
-        }
-        a = am1.a;
-    }
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public int g;
+    public int h;
+    public int i;
+    public long j;
+    public long k;
 
     public o46() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.d = "";
+        this.c = "";
+        this.e = "";
+        this.f = "";
+        this.b = "";
+        this.a = "";
     }
 
-    public static Bundle d(String str) {
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return !TextUtils.isEmpty(this.d);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static o46 a(AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("order_info", str);
-            return bundle;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, adInfo)) == null) {
+            o46 o46Var = new o46();
+            if (adInfo == null) {
+                return o46Var;
+            }
+            o46Var.a = adInfo.adImgUrl;
+            o46Var.b = adInfo.redirectUrl;
+            o46Var.j = adInfo.startShowTime;
+            o46Var.k = adInfo.endShowTime;
+            o46Var.d = adInfo.videoLocalPath;
+            o46Var.e = adInfo.videoJumpUrl;
+            o46Var.f = adInfo.videoMd5;
+            o46Var.g = adInfo.videoDuration;
+            o46Var.h = adInfo.videoWidth;
+            o46Var.i = adInfo.videoHight;
+            o46Var.c = adInfo.adVideoUrl;
+            return o46Var;
         }
-        return (Bundle) invokeL.objValue;
+        return (o46) invokeL.objValue;
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public boolean onExec() {
+    public static o46 b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            o46 o46Var = new o46();
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                o46Var.a = jSONObject.optString("adImgUrl");
+                o46Var.b = jSONObject.optString("redirectUrl");
+                o46Var.d = jSONObject.optString("videoLocalPath");
+                o46Var.j = jSONObject.optLong("startShowTime");
+                o46Var.k = jSONObject.optLong("endShowTime");
+                o46Var.e = jSONObject.optString("videoJumpUrl");
+                o46Var.f = jSONObject.optString("videoMd5");
+                o46Var.g = jSONObject.optInt(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION);
+                o46Var.h = jSONObject.optInt("videoWidth");
+                o46Var.i = jSONObject.optInt("videoHeight");
+                o46Var.c = jSONObject.optString("adVideoUrl");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return o46Var;
+        }
+        return (o46) invokeL.objValue;
+    }
+
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.mParams.isEmpty()) {
-                if (a) {
-                    Log.d("BaiFuBaoPayDelegation", "onExec params is null.");
-                }
-                return false;
+            if ((System.currentTimeMillis() / 1000 >= this.j && System.currentTimeMillis() / 1000 <= this.k) || (this.j == 0 && this.k == 0)) {
+                return true;
             }
-            if (a) {
-                Log.d("BaiFuBaoPayDelegation", "PAYMENT onExec");
-            }
-            Log.d("BaiFuBaoPayDelegation", "PAYMENT onExec");
-            if (!dn5.c().d()) {
-                BdUtilHelper.showToast(TbadkCoreApplication.getInst(), (int) R.string.plugin_pay_wallet_not_found);
-                return false;
-            } else if (!(getAgent() instanceof Activity)) {
-                return false;
-            } else {
-                k46 k46Var = new k46();
-                k46Var.mParams.putInt("type", 1);
-                k46Var.mParams.putString("orderInfo", this.mParams.getString("order_info"));
-                k46Var.d(getAgent());
-                k46Var.e(new a(this));
-                k46Var.onExec();
-                return false;
-            }
+            return false;
         }
         return invokeV.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("adImgUrl", this.a);
+                jSONObject.put("redirectUrl", this.b);
+                jSONObject.put("videoLocalPath", this.d);
+                jSONObject.put("startShowTime", this.j);
+                jSONObject.put("endShowTime", this.k);
+                jSONObject.put("videoMd5", this.f);
+                jSONObject.put("videoJumpUrl", this.e);
+                jSONObject.put(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION, this.g);
+                jSONObject.put("videoWidth", this.h);
+                jSONObject.put("videoHeight", this.i);
+                jSONObject.put("adVideoUrl", this.c);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

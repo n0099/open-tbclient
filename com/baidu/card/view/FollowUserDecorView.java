@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.view.FollowUserButton;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a55;
-import com.baidu.tieba.c65;
+import com.baidu.tieba.u55;
+import com.baidu.tieba.w65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +26,7 @@ public class FollowUserDecorView extends FollowUserButton {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId r;
-    public c65 s;
+    public w65 s;
     public boolean t;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -97,15 +97,15 @@ public class FollowUserDecorView extends FollowUserButton {
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             super.q(z);
             if (!z) {
-                a55 a55Var = new a55();
+                u55 u55Var = new u55();
                 if (this.t) {
-                    a55Var.j(R.drawable.icon_pure_follow26, 0, TBSpecificationButtonConfig.IconType.WEBP);
-                    a55Var.i(R.color.CAM_X0304);
-                    a55Var.h(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26));
-                    a55Var.g(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));
+                    u55Var.j(R.drawable.icon_pure_follow26, 0, TBSpecificationButtonConfig.IconType.WEBP);
+                    u55Var.i(R.color.CAM_X0304);
+                    u55Var.h(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26));
+                    u55Var.g(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));
                 }
-                a55Var.u(R.color.CAM_X0304);
-                setConfig(a55Var);
+                u55Var.u(R.color.CAM_X0304);
+                setConfig(u55Var);
             }
         }
     }
@@ -115,14 +115,14 @@ public class FollowUserDecorView extends FollowUserButton {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData) == null) {
             if (threadData != null && threadData.getAuthor() != null) {
                 if (this.s == null) {
-                    c65 c65Var = new c65(r(getContext()), this);
-                    this.s = c65Var;
-                    c65Var.j(this.r);
+                    w65 w65Var = new w65(r(getContext()), this);
+                    this.s = w65Var;
+                    w65Var.k(this.r);
                 }
                 setVisibility(0);
-                this.s.o(true);
-                this.s.l(threadData.getAuthor());
-                this.s.n(threadData.tid);
+                this.s.p(true);
+                this.s.m(threadData.getAuthor());
+                this.s.o(threadData.tid);
                 return;
             }
             setVisibility(8);
@@ -155,9 +155,9 @@ public class FollowUserDecorView extends FollowUserButton {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
             this.r = bdUniqueId;
-            c65 c65Var = this.s;
-            if (c65Var != null) {
-                c65Var.j(bdUniqueId);
+            w65 w65Var = this.s;
+            if (w65Var != null) {
+                w65Var.k(bdUniqueId);
             }
         }
     }

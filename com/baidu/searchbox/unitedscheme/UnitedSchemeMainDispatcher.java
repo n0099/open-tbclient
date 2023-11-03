@@ -10,7 +10,7 @@ import com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor;
 import com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeInterceptChain;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.ye1;
+import com.baidu.tieba.pf1;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -48,13 +48,13 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
 
     static {
         UnitedSchemePriorRuntime unitedSchemePriorRuntime = new UnitedSchemePriorRuntime();
-        ye1<UnitedSchemeBasePriorDispatcher> ye1Var = unitedSchemePriorRuntime.sPriorSubDispatchersList;
-        if (ye1Var != null) {
-            injectPriorDispatcherList = ye1Var.getList();
+        pf1<UnitedSchemeBasePriorDispatcher> pf1Var = unitedSchemePriorRuntime.sPriorSubDispatchersList;
+        if (pf1Var != null) {
+            injectPriorDispatcherList = pf1Var.getList();
         }
-        ye1<UnitedSchemeBaseInterceptor> ye1Var2 = unitedSchemePriorRuntime.sInterceptChainList;
-        if (ye1Var2 != null) {
-            injectInterceptorList = ye1Var2.getList();
+        pf1<UnitedSchemeBaseInterceptor> pf1Var2 = unitedSchemePriorRuntime.sInterceptChainList;
+        if (pf1Var2 != null) {
+            injectInterceptorList = pf1Var2.getList();
         }
     }
 
@@ -246,10 +246,10 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
         UnitedSchemeEntity unitedSchemeEntity3 = null;
         if (unitedSchemeEntity2.getParam(UnitedSchemeConstants.UNITED_SCHEME_SENIOR) != null) {
             String param = unitedSchemeEntity2.getParam(UnitedSchemeConstants.UNITED_SCHEME_SENIOR);
-            UnitedSchemeEntity m113clone = unitedSchemeEntity.m113clone();
-            m113clone.removeParam(UnitedSchemeConstants.UNITED_SCHEME_SENIOR);
+            UnitedSchemeEntity m114clone = unitedSchemeEntity.m114clone();
+            m114clone.removeParam(UnitedSchemeConstants.UNITED_SCHEME_SENIOR);
             unitedSchemeEntity2 = new UnitedSchemeEntity(Uri.parse(param), unitedSchemeEntity.getSource());
-            unitedSchemeEntity3 = m113clone;
+            unitedSchemeEntity3 = m114clone;
         }
         String allPath = unitedSchemeEntity2.getAllPath();
         if (redirectSchemes.get(allPath) != null) {
@@ -266,19 +266,19 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
             }
             return true;
         }
-        UnitedSchemeEntity m113clone2 = unitedSchemeEntity2.m113clone();
-        String path = m113clone2.getPath(true);
+        UnitedSchemeEntity m114clone2 = unitedSchemeEntity2.m114clone();
+        String path = m114clone2.getPath(true);
         if (!TextUtils.isEmpty(path) && (unitedSchemeBaseDispatcher = this.mDynamicDispatchers.get(path)) != null) {
-            boolean dispatch = unitedSchemeBaseDispatcher.dispatch(context, m113clone2, callbackHandler);
-            JSONObject jSONObject2 = m113clone2.result;
+            boolean dispatch = unitedSchemeBaseDispatcher.dispatch(context, m114clone2, callbackHandler);
+            JSONObject jSONObject2 = m114clone2.result;
             if (jSONObject2 != null) {
                 int optInt = jSONObject2.optInt("status", -1);
                 if (optInt != 301 && optInt != 302) {
                     doUBCForOutsideAndInside(unitedSchemeEntity2, optInt, callbackHandler, externalTransferIoc);
                     if (optInt != 0) {
-                        UnitedSchemeUtility.callCallback(callbackHandler, m113clone2, m113clone2.result);
+                        UnitedSchemeUtility.callCallback(callbackHandler, m114clone2, m114clone2.result);
                     }
-                    unitedSchemeEntity2.result = m113clone2.result;
+                    unitedSchemeEntity2.result = m114clone2.result;
                     return dispatch;
                 }
             } else if (dispatch) {
@@ -291,11 +291,11 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
         }
         boolean dispatch2 = super.dispatch(context, unitedSchemeEntity2, callbackHandler);
         if (!dispatch2 && unitedSchemeEntity2.getParam("backup") != null) {
-            UnitedSchemeEntity unitedSchemeEntity4 = new UnitedSchemeEntity(Uri.parse(unitedSchemeEntity2.getParam("backup")), m113clone2.getSource());
+            UnitedSchemeEntity unitedSchemeEntity4 = new UnitedSchemeEntity(Uri.parse(unitedSchemeEntity2.getParam("backup")), m114clone2.getSource());
             dispatch2 = dispatch(context, unitedSchemeEntity4, callbackHandler);
             unitedSchemeEntity2 = unitedSchemeEntity4;
         }
-        JSONObject selectResult = selectResult(m113clone2, unitedSchemeEntity2);
+        JSONObject selectResult = selectResult(m114clone2, unitedSchemeEntity2);
         if (dispatch2 && unitedSchemeEntity2.result == null) {
             if (!dispatch2) {
                 i = -2;
@@ -309,7 +309,7 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
                 }
                 if (!hasLoadAllDispatchers) {
                     initAllSubDispatchersMap();
-                    return dispatch(context, unitedSchemeEntity2.m113clone(), callbackHandler);
+                    return dispatch(context, unitedSchemeEntity2.m114clone(), callbackHandler);
                 } else if (unitedSchemeEntity2.getParam("upgrade") != null && unitedSchemeEntity2.getParam("upgrade").equals("1")) {
                     showUpdateDialog(context, unitedSchemeEntity2);
                 }

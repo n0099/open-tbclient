@@ -1,63 +1,28 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.lego.card.model.BaseLegoCardInfo;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.tieba.by8;
+import com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class hy8 implements dy8 {
+public final class hy8 implements cg1<by8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final StatisticItem a;
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
+    public static final class a implements by8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public jy8 b;
 
-    /* loaded from: classes6.dex */
-    public static class b implements dy8 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.dy8
-        public void a(ICardInfo iCardInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, iCardInfo) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.dy8
-        public dy8 b(String str, int i) {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) ? this : (dy8) invokeLI.objValue;
-        }
-
-        @Override // com.baidu.tieba.dy8
-        public dy8 c(String str, long j) {
-            InterceptResult invokeLJ;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j)) == null) ? this : (dy8) invokeLJ.objValue;
-        }
-
-        @Override // com.baidu.tieba.dy8
-        public dy8 d(String str, String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) ? this : (dy8) invokeLL.objValue;
-        }
-
-        public b() {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -71,162 +36,88 @@ public class hy8 implements dy8 {
             }
         }
 
-        public /* synthetic */ b(a aVar) {
-            this();
+        @Override // com.baidu.tieba.by8
+        public void onDestroy() {
+            jy8 jy8Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (jy8Var = this.b) != null) {
+                jy8Var.p();
+            }
+        }
+
+        @Override // com.baidu.tieba.by8
+        public void a(qk5 callback) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, callback) == null) {
+                Intrinsics.checkNotNullParameter(callback, "callback");
+                jy8 jy8Var = this.b;
+                if (jy8Var != null) {
+                    jy8Var.s(callback);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.by8
+        public void d(by8.a callback) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, callback) == null) {
+                Intrinsics.checkNotNullParameter(callback, "callback");
+                jy8 jy8Var = this.b;
+                if (jy8Var != null) {
+                    jy8Var.z(callback);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.by8
+        public void b(Context context, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
+                this.b = new jy8(context, i);
+            }
+        }
+
+        @Override // com.baidu.tieba.by8
+        public void c(long j, List<ChatRoomInfo> roomInfoList) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, roomInfoList) == null) {
+                Intrinsics.checkNotNullParameter(roomInfoList, "roomInfoList");
+                jy8 jy8Var = this.b;
+                if (jy8Var != null) {
+                    jy8Var.A(j);
+                }
+                jy8 jy8Var2 = this.b;
+                if (jy8Var2 != null) {
+                    jy8Var2.o(roomInfoList);
+                }
+            }
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public hy8(BaseLegoCardInfo baseLegoCardInfo) {
-        this(baseLegoCardInfo.getStatistics(), baseLegoCardInfo.getStatTab(), baseLegoCardInfo.getCardType(), baseLegoCardInfo.getItemId());
+    public hy8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseLegoCardInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), (String) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public hy8(String str, int i, int i2, String str2) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.cg1
+    /* renamed from: a */
+    public by8 getService() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a();
         }
-        StatisticItem statisticItem = new StatisticItem(str);
-        this.a = statisticItem;
-        statisticItem.param("obj_source", i);
-        this.a.param("obj_type", i2);
-        if (!TextUtils.isEmpty(str2)) {
-            this.a.param("obj_card", str2);
-        }
-    }
-
-    public static dy8 e(BaseLegoCardInfo baseLegoCardInfo) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseLegoCardInfo)) == null) {
-            if (baseLegoCardInfo != null && !TextUtils.isEmpty(baseLegoCardInfo.getStatistics())) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                return new hy8(baseLegoCardInfo);
-            }
-            return new b(null);
-        }
-        return (dy8) invokeL.objValue;
-    }
-
-    public static dy8 f(String str, int i, int i2, String str2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2})) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                return new hy8(str, i, i2, str2);
-            }
-            return new b(null);
-        }
-        return (dy8) invokeCommon.objValue;
-    }
-
-    @Override // com.baidu.tieba.dy8
-    public void a(ICardInfo iCardInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, iCardInfo) == null) {
-            g(iCardInfo);
-            TiebaStatic.log(this.a);
-        }
-    }
-
-    @Override // com.baidu.tieba.dy8
-    public dy8 b(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                this.a.param(str, i);
-            }
-            return this;
-        }
-        return (dy8) invokeLI.objValue;
-    }
-
-    @Override // com.baidu.tieba.dy8
-    public dy8 c(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                this.a.param(str, String.valueOf(j));
-            }
-            return this;
-        }
-        return (dy8) invokeLJ.objValue;
-    }
-
-    @Override // com.baidu.tieba.dy8
-    public dy8 d(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                this.a.param(str, str2);
-            }
-            return this;
-        }
-        return (dy8) invokeLL.objValue;
-    }
-
-    public final void g(ICardInfo iCardInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, iCardInfo) == null) {
-            BaseLegoCardInfo baseLegoCardInfo = (BaseLegoCardInfo) iCardInfo;
-            if (!TextUtils.isEmpty(baseLegoCardInfo.getStatistics()) && !TextUtils.isEmpty(baseLegoCardInfo.getsExtras())) {
-                List<Object> params = this.a.getParams();
-                for (String str : baseLegoCardInfo.getsExtras().split("&")) {
-                    String[] split = str.split("=");
-                    if (split.length == 2) {
-                        String str2 = split[0];
-                        String str3 = split[1];
-                        boolean z = false;
-                        for (int i = 0; i < params.size() && !z; i += 2) {
-                            if (TextUtils.equals(str2, params.get(i).toString())) {
-                                int i2 = i + 1;
-                                if (i2 < params.size()) {
-                                    params.set(i2, str3);
-                                }
-                                z = true;
-                            }
-                        }
-                        if (!z) {
-                            this.a.param(str2, str3);
-                        }
-                    }
-                }
-                d(TiebaStatic.Params.OBJ_PARAM3, mj6.e());
-            }
-        }
+        return (by8) invokeV.objValue;
     }
 }

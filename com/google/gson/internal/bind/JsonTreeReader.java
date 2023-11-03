@@ -14,7 +14,7 @@ import java.io.Reader;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class JsonTreeReader extends JsonReader {
     public int[] pathIndices;
     public String[] pathNames;

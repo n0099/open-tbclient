@@ -116,7 +116,7 @@ public final class NoticeModifySysItem extends BaseItem<TbNoticeModifySysMsg> {
                 Intrinsics.checkNotNullParameter(op, "op");
                 Intrinsics.checkNotNullParameter(source, "source");
                 if (source.g() && baseItem != null && baseItem.getTbMsg() != null) {
-                    UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.si8
+                    UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.qv8
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -176,7 +176,7 @@ public final class NoticeModifySysItem extends BaseItem<TbNoticeModifySysMsg> {
         return invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.im.base.core.uilist.BaseItem, com.baidu.tieba.yh
+    @Override // com.baidu.tieba.im.base.core.uilist.BaseItem, com.baidu.tieba.oi
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

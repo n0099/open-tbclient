@@ -1,117 +1,105 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.adp.log.DefaultLog;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.wz4;
-import com.baidu.tieba.zj9;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BDLayoutMode;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class ak9 extends wz4 {
+public class ak9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final zj9 c;
+    public View a;
+    public String b;
+    public View c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947618202, "Lcom/baidu/tieba/ak9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947618202, "Lcom/baidu/tieba/ak9;");
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ak9(Activity activity, zj9 pbTopicRecommendTipController) {
-        super(activity);
+    public ak9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, pbTopicRecommendTipController};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        Intrinsics.checkNotNullParameter(activity, "activity");
-        Intrinsics.checkNotNullParameter(pbTopicRecommendTipController, "pbTopicRecommendTipController");
-        this.c = pbTopicRecommendTipController;
     }
 
-    public static final void g(ak9 this$0) {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, this$0) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.c();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public View a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d097d, (ViewGroup) null);
+            this.a = inflate;
+            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f092487);
+            this.a.setTag(this);
+            return this.a;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.b = str;
+            this.a.setBackgroundColor(uk9.a(str));
         }
     }
 
-    @Override // com.baidu.tieba.wz4
-    public void d(wz4.a shouldShowCallback) {
+    public void e(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shouldShowCallback) == null) {
-            Intrinsics.checkNotNullParameter(shouldShowCallback, "shouldShowCallback");
-            shouldShowCallback.callback(this.c.f());
+        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
+            this.a.setOnClickListener(onClickListener);
         }
     }
 
-    @Override // com.baidu.tieba.wz4
-    public void b() {
+    public void f(boolean z) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c.j();
-        }
-    }
-
-    @Override // com.baidu.tieba.wz4
-    public void e() {
-        boolean s;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.c.p(new zj9.f() { // from class: com.baidu.tieba.ci9
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // com.baidu.tieba.zj9.f
-                public final void onDismiss() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        ak9.g(ak9.this);
-                    }
-                }
-            });
-            if (mi5.g(false, 1, null)) {
-                DefaultLog.getInstance().i("PbTopicTip", "开始展示精灵动画提示控件");
-                s = this.c.t();
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            View view2 = this.c;
+            if (z) {
+                i = 0;
             } else {
-                DefaultLog.getInstance().i("PbTopicTip", "开始展示线上动画提示控件");
-                s = this.c.s();
+                i = 4;
             }
-            TbLog defaultLog = DefaultLog.getInstance();
-            defaultLog.i("PbTopicTip", "pb相关话题引导tip触发展示：" + s);
-            if (!s) {
-                c();
+            view2.setVisibility(i);
+        }
+    }
+
+    public void c(TbPageContext<?> tbPageContext) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext) == null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            BDLayoutMode layoutMode = tbPageContext.getLayoutMode();
+            if (skinType == 4) {
+                z = true;
+            } else {
+                z = false;
             }
+            layoutMode.setNightMode(z);
+            tbPageContext.getLayoutMode().onModeChanged(this.a);
+            this.a.setBackgroundColor(uk9.a(this.b));
         }
     }
 }

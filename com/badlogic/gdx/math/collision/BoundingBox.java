@@ -560,7 +560,7 @@ public class BoundingBox implements Serializable {
                 f11 = f12;
             }
             vector34.set(f7, f9, f11);
-            this.cnt.set(this.min).add(this.max).m22scl(0.5f);
+            this.cnt.set(this.min).add(this.max).m23scl(0.5f);
             this.dim.set(this.max).sub(this.min);
             return this;
         }

@@ -28,10 +28,10 @@ public final class CoroutineExceptionHandlerImplKt {
         try {
             Result.Companion companion = Result.Companion;
             ExceptionsKt__ExceptionsKt.addSuppressed(th, new DiagnosticCoroutineContextException(coroutineContext));
-            Result.m851constructorimpl(Unit.INSTANCE);
+            Result.m855constructorimpl(Unit.INSTANCE);
         } catch (Throwable th3) {
             Result.Companion companion2 = Result.Companion;
-            Result.m851constructorimpl(ResultKt.createFailure(th3));
+            Result.m855constructorimpl(ResultKt.createFailure(th3));
         }
         currentThread2.getUncaughtExceptionHandler().uncaughtException(currentThread2, th);
     }

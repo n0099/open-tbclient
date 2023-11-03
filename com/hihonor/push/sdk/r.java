@@ -4,9 +4,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.RemoteException;
 import android.util.Log;
-import com.baidu.tieba.ksb;
-import com.baidu.tieba.vsb;
-import com.baidu.tieba.ysb;
+import com.baidu.tieba.l5c;
+import com.baidu.tieba.w5c;
+import com.baidu.tieba.z5c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -23,14 +23,14 @@ public class r extends IPushCallback.Stub {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Object a;
-    public final ysb b;
+    public final z5c b;
 
-    public r(Object obj, ysb ysbVar) {
+    public r(Object obj, z5c z5cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {obj, ysbVar};
+            Object[] objArr = {obj, z5cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,7 +41,7 @@ public class r extends IPushCallback.Stub {
             }
         }
         this.a = obj;
-        this.b = ysbVar;
+        this.b = z5cVar;
     }
 
     @Override // com.hihonor.push.framework.aidl.IPushCallback
@@ -57,17 +57,17 @@ public class r extends IPushCallback.Stub {
             if (obj instanceof IMessageEntity) {
                 MessageCodec.parseMessageEntity(body, (IMessageEntity) obj);
             }
-            ysb ysbVar = this.b;
+            z5c z5cVar = this.b;
             ApiException apiException = new ApiException(responseHeader.getStatusCode(), responseHeader.getStatusMessage());
             Object obj2 = this.a;
-            ksb.b bVar = (ksb.b) ysbVar;
+            l5c.b bVar = (l5c.b) z5cVar;
             bVar.getClass();
-            ksb ksbVar = ksb.c;
-            vsb<?> vsbVar = bVar.a;
-            ksbVar.getClass();
+            l5c l5cVar = l5c.c;
+            w5c<?> w5cVar = bVar.a;
+            l5cVar.getClass();
             Log.i("HonorApiManager", "sendResolveResult start");
-            Handler handler = ksbVar.a;
-            handler.sendMessage(handler.obtainMessage(2, vsbVar));
+            Handler handler = l5cVar.a;
+            handler.sendMessage(handler.obtainMessage(2, w5cVar));
             bVar.a.b(apiException, obj2);
             Log.i(IPCCallback.TAG, "onResult parse end.");
         }

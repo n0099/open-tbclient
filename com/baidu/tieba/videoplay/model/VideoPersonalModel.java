@@ -8,11 +8,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.VideoRecommentPlayActivityConfig;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.gk5;
-import com.baidu.tieba.hk5;
-import com.baidu.tieba.qi5;
+import com.baidu.tieba.fk5;
 import com.baidu.tieba.video.UserItemData;
 import com.baidu.tieba.video.VideoItemData;
+import com.baidu.tieba.xl5;
+import com.baidu.tieba.yl5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,9 +30,9 @@ public class VideoPersonalModel extends BdBaseModel {
     @Nullable
     public b b;
     @NonNull
-    public gk5 c;
+    public xl5 c;
     @NonNull
-    public hk5 d;
+    public yl5 d;
     @Nullable
     public UserItemData e;
     @NonNull
@@ -66,7 +66,7 @@ public class VideoPersonalModel extends BdBaseModel {
     }
 
     /* loaded from: classes8.dex */
-    public class a implements hk5.a {
+    public class a implements yl5.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoRecommentPlayActivityConfig.PersonalPageParams a;
@@ -91,7 +91,7 @@ public class VideoPersonalModel extends BdBaseModel {
             this.a = personalPageParams;
         }
 
-        @Override // com.baidu.tieba.hk5.a
+        @Override // com.baidu.tieba.yl5.a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
@@ -100,7 +100,7 @@ public class VideoPersonalModel extends BdBaseModel {
             this.b.h = false;
         }
 
-        @Override // com.baidu.tieba.hk5.a
+        @Override // com.baidu.tieba.yl5.a
         public void b(@NonNull List<ThreadData> list, @Nullable Map<String, Object> map) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, map) == null) && this.b.b != null && !list.isEmpty()) {
@@ -140,16 +140,16 @@ public class VideoPersonalModel extends BdBaseModel {
                 return;
             }
         }
-        this.c = (gk5) qi5.c(gk5.b);
+        this.c = (xl5) fk5.c(xl5.b);
         this.f = new ArrayList();
         this.h = false;
         this.a = personalPageParams;
-        hk5 a2 = this.c.a(tbPageContext);
+        yl5 a2 = this.c.a(tbPageContext);
         this.d = a2;
         a2.a(new a(this, personalPageParams));
     }
 
-    public void T(@NonNull Long l, @NonNull UserItemData userItemData) {
+    public void U(@NonNull Long l, @NonNull UserItemData userItemData) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l, userItemData) != null) || this.h) {
             return;
@@ -160,7 +160,7 @@ public class VideoPersonalModel extends BdBaseModel {
         this.d.b(this.a.getPersonalPageUid(), null, Integer.valueOf(this.a.getWorkTabId()), 40, 0, Integer.valueOf(!this.a.isVideoTab()), l, Integer.valueOf(this.g));
     }
 
-    public void U(@Nullable b bVar) {
+    public void V(@Nullable b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
             this.b = bVar;
@@ -168,7 +168,7 @@ public class VideoPersonalModel extends BdBaseModel {
     }
 
     @NonNull
-    public List<Map<String, Object>> S() {
+    public List<Map<String, Object>> T() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

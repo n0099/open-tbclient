@@ -85,6 +85,7 @@ public class GamePlayCanSendCardModel {
                     this.a.cancelNetConnect();
                     this.a = null;
                 }
+                this.b = null;
                 super.cancel(true);
             }
         }
@@ -143,7 +144,9 @@ public class GamePlayCanSendCardModel {
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                aVar.a(3, "", null);
+                if (aVar != null) {
+                    aVar.a(3, "", null);
+                }
             }
         }
     }

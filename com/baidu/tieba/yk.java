@@ -1,26 +1,78 @@
 package com.baidu.tieba;
 
-import com.baidu.bdtask.framework.ui.toast.ToastViewData;
-import com.baidu.tieba.xn;
-import com.baidu.tieba.yn;
+import androidx.annotation.CallSuper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.component.buoy.TaskBuoyViewData;
+import com.baidu.bdtask.component.buoy.TaskBuoyViewModel;
+import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public final class yk<VD extends ToastViewData, VM extends xn<VD>, View extends yn<VM>> {
+public abstract class yk extends co<TaskBuoyViewData, TaskBuoyViewModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final View a;
-    public final VM b;
-    public final VD c;
+    public TaskBuoyViewModel a;
+    public final fo b;
 
-    public yk(View view2, VM vm, VD vd) {
+    /* loaded from: classes9.dex */
+    public static final class a implements fo {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yk a;
+
+        /* JADX DEBUG: Incorrect args count in method signature: ()V */
+        public a(yk ykVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ykVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ykVar;
+        }
+
+        @Override // com.baidu.tieba.fo
+        public void a() {
+            TaskBuoyViewModel taskBuoyViewModel;
+            TaskInfo c;
+            TaskBuoyViewModel taskBuoyViewModel2;
+            ko<TaskBuoyViewData> a;
+            TaskBuoyViewData k;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (taskBuoyViewModel = this.a.a) != null && (c = taskBuoyViewModel.c()) != null && (taskBuoyViewModel2 = this.a.a) != null && (a = taskBuoyViewModel2.a()) != null && (k = a.k()) != null) {
+                el.a.b(k.getUiConfig().h(), c, k.getTaskStatus());
+            }
+        }
+
+        @Override // com.baidu.tieba.fo
+        public void b() {
+            TaskBuoyViewModel taskBuoyViewModel;
+            TaskInfo c;
+            TaskBuoyViewModel taskBuoyViewModel2;
+            ko<TaskBuoyViewData> a;
+            TaskBuoyViewData k;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (taskBuoyViewModel = this.a.a) != null && (c = taskBuoyViewModel.c()) != null && (taskBuoyViewModel2 = this.a.a) != null && (a = taskBuoyViewModel2.a()) != null && (k = a.k()) != null) {
+                el.a.a(k.getUiConfig().h(), c, k.getTaskStatus());
+            }
+        }
+    }
+
+    public yk() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, vm, vd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,16 +82,23 @@ public final class yk<VD extends ToastViewData, VM extends xn<VD>, View extends 
                 return;
             }
         }
-        this.a = view2;
-        this.b = vm;
-        this.c = vd;
+        this.b = new a(this);
     }
 
-    public final void a() {
+    public fo c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.a(this.b);
-            this.b.b(this.c);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (fo) invokeV.objValue;
+    }
+
+    @CallSuper
+    public void d(TaskBuoyViewModel taskBuoyViewModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskBuoyViewModel) == null) {
+            this.a = taskBuoyViewModel;
         }
     }
 }

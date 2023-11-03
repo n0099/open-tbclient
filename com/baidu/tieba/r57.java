@@ -1,35 +1,31 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ThreadRecommendInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.ThreadRecommendInfo;
-/* loaded from: classes7.dex */
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
 public final class r57 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a(ThreadRecommendInfo threadRecommendInfo, List<h77<? extends Object>> mutableList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, threadRecommendInfo, mutableList) == null) {
-            Intrinsics.checkNotNullParameter(threadRecommendInfo, "<this>");
-            Intrinsics.checkNotNullParameter(mutableList, "mutableList");
-            mutableList.add(new a27(b(threadRecommendInfo)));
-        }
-    }
-
-    public static final ThreadRecommendInfoData b(ThreadRecommendInfo threadRecommendInfo) {
+    public static final q57 a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, threadRecommendInfo)) == null) {
-            Intrinsics.checkNotNullParameter(threadRecommendInfo, "<this>");
-            ThreadRecommendInfoData threadRecommendInfoData = new ThreadRecommendInfoData();
-            threadRecommendInfoData.parseProto(threadRecommendInfo);
-            return threadRecommendInfoData;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            boolean z = false;
+            int optInt = jSONObject.optInt("text_id", 0);
+            String info = jSONObject.optString("text_info");
+            if ((info == null || info.length() == 0) ? true : true) {
+                return null;
+            }
+            Intrinsics.checkNotNullExpressionValue(info, "info");
+            return new q57(optInt, info);
         }
-        return (ThreadRecommendInfoData) invokeL.objValue;
+        return (q57) invokeL.objValue;
     }
 }

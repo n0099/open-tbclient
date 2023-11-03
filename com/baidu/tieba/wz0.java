@@ -1,64 +1,68 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.nadcore.thread.executor.BaseExecutorCell;
-import com.baidu.nadcore.thread.task.ElasticTask;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.sweetsqlite.query.JoinType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class wz0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public BaseExecutorCell a;
-    @NonNull
-    public BaseExecutorCell b;
-    @NonNull
-    public BaseExecutorCell c;
+    public final JoinType a;
+    public final String b;
+    public final String c;
+    public final sz0 d;
+    public final kz0 e;
+    public final kz0 f;
+    public final StringBuilder g;
+    public boolean h;
+    public boolean i;
 
-    public wz0() {
+    public final void a(String str, String str2, kz0 kz0Var, kz0 kz0Var2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, kz0Var, kz0Var2) == null) {
+            this.g.append(str);
+            this.g.append(".");
+            this.g.append(kz0Var.b);
+            this.g.append(" = ");
+            this.g.append(str2);
+            this.g.append(".");
+            this.g.append(kz0Var2.b);
         }
-        this.a = BaseExecutorCell.b(jz0.d, BaseExecutorCell.ExecutorType.ARTERY);
-        this.b = BaseExecutorCell.b(jz0.e, BaseExecutorCell.ExecutorType.ARTERY);
-        this.c = BaseExecutorCell.b(jz0.f, BaseExecutorCell.ExecutorType.ARTERY);
     }
 
-    public boolean a(ElasticTask elasticTask) {
-        InterceptResult invokeL;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, elasticTask)) == null) {
-            int b = elasticTask.b();
-            if (b != 0 && b != 1) {
-                if (b == 2) {
-                    if (this.b.c(elasticTask)) {
-                        return true;
-                    }
-                    return this.c.c(elasticTask);
-                } else if (b == 3) {
-                    return this.c.c(elasticTask);
-                } else {
-                    return false;
-                }
-            } else if (this.a.c(elasticTask) || this.b.c(elasticTask)) {
-                return true;
-            } else {
-                return this.c.c(elasticTask);
-            }
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.h) {
+            return;
         }
-        return invokeL.booleanValue;
+        this.h = true;
+        this.g.append(" ");
+        this.g.append(this.a.toString());
+        this.g.append(" JOIN ");
+        this.g.append(this.d.g());
+        this.g.append(" AS ");
+        this.g.append(this.c);
+        this.g.append(" ON ");
+        if (this.i) {
+            this.g.append("(");
+        }
+        a(this.b, this.c, this.e, this.f);
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            b();
+            StringBuilder sb = new StringBuilder();
+            sb.append((CharSequence) this.g);
+            if (this.i) {
+                sb.append(") ");
+            }
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

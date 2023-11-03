@@ -1,84 +1,80 @@
 package com.baidu.tieba;
 
-import android.graphics.PointF;
-import android.view.animation.Interpolator;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mapapi.search.core.PoiInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class tb4 implements Interpolator {
+public class tb4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public final PointF b;
-    public final PointF c;
+    public PoiInfo a;
+    public boolean b;
+    public boolean c;
 
-    public final double a(double d, double d2, double d3, double d4, double d5) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d), Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), Double.valueOf(d5)})) == null) {
-            double d6 = 1.0d - d;
-            double d7 = d * d;
-            double d8 = d6 * d6;
-            return (d8 * d6 * d2) + (d8 * 3.0d * d * d3) + (d6 * 3.0d * d7 * d4) + (d7 * d * d5);
-        }
-        return invokeCommon.doubleValue;
-    }
-
-    public tb4(float f, float f2, float f3, float f4) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public tb4(PoiInfo poiInfo) {
+        this(poiInfo, false, false);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
+            Object[] objArr = {poiInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((PoiInfo) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0;
-        this.b = new PointF();
-        PointF pointF = new PointF();
-        this.c = pointF;
-        PointF pointF2 = this.b;
-        pointF2.x = f;
-        pointF2.y = f2;
-        pointF.x = f3;
-        pointF.y = f4;
     }
 
-    @Override // android.animation.TimeInterpolator
-    public float getInterpolation(float f) {
-        InterceptResult invokeF;
+    public static List<tb4> a(List<PoiInfo> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) {
-            int i = this.a;
-            float f2 = f;
-            while (true) {
-                if (i >= 4096) {
-                    break;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
+            if (list != null && list.size() > 0) {
+                ArrayList arrayList = new ArrayList(list.size());
+                for (PoiInfo poiInfo : list) {
+                    if (poiInfo.location != null) {
+                        arrayList.add(new tb4(poiInfo));
+                    }
                 }
-                f2 = (i * 1.0f) / 4096.0f;
-                if (a(f2, 0.0d, this.b.x, this.c.x, 1.0d) >= f) {
-                    this.a = i;
-                    break;
-                }
-                i++;
+                return arrayList;
             }
-            double a = a(f2, 0.0d, this.b.y, this.c.y, 1.0d);
-            if (a > 0.999d) {
-                a = 1.0d;
-                this.a = 0;
-            }
-            return (float) a;
+            return new ArrayList();
         }
-        return invokeF.floatValue;
+        return (List) invokeL.objValue;
+    }
+
+    public tb4(PoiInfo poiInfo, boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {poiInfo, Boolean.valueOf(z), Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        if (poiInfo == null) {
+            this.a = new PoiInfo();
+        }
+        this.a = poiInfo;
+        this.b = z;
+        this.c = z2;
     }
 }

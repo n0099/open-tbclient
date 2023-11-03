@@ -1,76 +1,183 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.kwad.sdk.core.response.model.AdInfo;
-import com.kwad.sdk.core.response.model.AdTemplate;
-import java.lang.reflect.Field;
+import com.baidu.ugc.utils.FileUtils;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class qob extends BaseAdRipper {
+public abstract class qob {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
+    public int b;
+    public qob c;
+    public nob d;
+    public volatile boolean e;
+    public volatile boolean f;
+    public String g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qob(Ssp.Pid pid) {
-        super(pid);
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a(qob qobVar);
+
+        void b(qob qobVar);
+
+        void c(int i, int i2);
+
+        void d(String str, qob qobVar);
+    }
+
+    public qob() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
-    public RippedAd getRippedAdInternal(Object obj) {
-        InterceptResult invokeL;
-        Object obj2;
-        List<AdInfo> list;
-        AdInfo adInfo;
+    public String a(String str, String str2) {
+        InterceptResult invokeLL;
+        String fileNameWithOutExtention;
+        StringBuilder sb;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            try {
-                gpb gpbVar = (gpb) obj;
-                if (gpbVar != null) {
-                    Object obj3 = gpbVar.a;
-                    String[] strArr = {"mAdTemplate"};
-                    Field field = null;
-                    for (int i = 0; i < 1; i++) {
-                        try {
-                            field = obj3.getClass().getDeclaredField(strArr[i]);
-                            field.setAccessible(true);
-                            break;
-                        } catch (NoSuchFieldException unused) {
-                        }
-                    }
-                    if (field == null || (obj2 = field.get(obj3)) == null || !(obj2 instanceof AdTemplate) || (list = ((AdTemplate) obj2).adInfoList) == null || list.isEmpty() || (adInfo = list.get(0)) == null) {
-                        return null;
-                    }
-                    return tob.a(adInfo);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            if (str2 == null) {
+                str2 = "";
+            }
+            if (TextUtils.isEmpty(this.g)) {
+                sb = new StringBuilder();
+                fileNameWithOutExtention = FileUtils.removeExtention(str);
+            } else {
+                fileNameWithOutExtention = FileUtils.getFileNameWithOutExtention(str);
+                sb = new StringBuilder();
+                sb.append(this.g);
+            }
+            sb.append(fileNameWithOutExtention);
+            sb.append(str2);
+            return sb.toString();
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public abstract void b();
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    public abstract void d(nob nobVar);
+
+    public void e(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            this.a = aVar;
+        }
+    }
+
+    public void f(qob qobVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, qobVar) == null) {
+            this.c = qobVar;
+        }
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || this.f) {
+            return;
+        }
+        this.e = true;
+        a aVar = this.a;
+        if (aVar != null) {
+            aVar.d(getClass().getName() + str, this);
+        }
+    }
+
+    public abstract void h();
+
+    public void i(int i) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) || (aVar = this.a) == null) {
+            return;
+        }
+        aVar.c(this.b, i);
+    }
+
+    public boolean j(nob nobVar) {
+        InterceptResult invokeL;
+        List<lob> a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, nobVar)) == null) {
+            if (nobVar != null && nobVar.c() != null && nobVar.c().size() == 1 && nobVar.c().get(0).a() != null && (a2 = nobVar.c().get(0).a()) != null && a2.size() == 1) {
+                lob lobVar = a2.get(0);
+                if (lobVar.b() != null && !lobVar.b().isNeedEdit()) {
+                    return false;
                 }
-                return null;
-            } catch (Exception e) {
-                LogPrinter.e(e);
-                return null;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public void l(nob nobVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, nobVar) == null) {
+            this.d = nobVar;
+            a aVar = this.a;
+            if (aVar != null) {
+                aVar.c(this.b, 100);
+                this.a.b(this);
+            }
+            qob qobVar = this.c;
+            if (qobVar != null) {
+                qobVar.d(nobVar);
             }
         }
-        return (RippedAd) invokeL.objValue;
+    }
+
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.c == null : invokeV.booleanValue;
+    }
+
+    public nob n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.d : (nob) invokeV.objValue;
+    }
+
+    public void o() {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (aVar = this.a) == null) {
+            return;
+        }
+        aVar.a(this);
     }
 }

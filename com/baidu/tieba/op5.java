@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
-public interface op5<T> {
-    void onError(int i, String str);
+public interface op5 {
+    void onFail();
 
-    void onSuccess(T t);
+    void onSuccess();
 }

@@ -1,56 +1,46 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.homepage.concern.data.RecommendBarCardModel;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.browser.BrowserHelper;
+import com.baidu.tbadk.core.BDLayoutMode;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.frs.gamepaltform.GameRankHorizontalLayout;
+import com.baidu.tieba.frs.gamepaltform.GameRankListViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ow7 implements yh {
+public class ow7 extends pp7<q68, GameRankListViewHolder> implements c18 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public boolean b;
-    public String c;
-    public boolean d;
-    public boolean e;
-    public boolean f;
-    public a[] g;
-    public RecommendBarCardModel.RecDataSource h;
+    public a18 l;
 
     /* loaded from: classes7.dex */
-    public static class a implements yh {
+    public class a implements GameRankHorizontalLayout.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-        public int d;
-        public int e;
-        public boolean f;
-        public long g;
-        public boolean h;
+        public final /* synthetic */ ow7 a;
 
-        public a r(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) ? this : (a) invokeL.objValue;
-        }
-
-        public a t(long j) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(1048592, this, j)) == null) ? this : (a) invokeJ.objValue;
-        }
-
-        public a() {
+        public a(ow7 ow7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ow7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -60,301 +50,136 @@ public class ow7 implements yh {
                     return;
                 }
             }
-            this.h = false;
+            this.a = ow7Var;
         }
 
-        public int a() {
-            InterceptResult invokeV;
+        @Override // com.baidu.tieba.frs.gamepaltform.GameRankHorizontalLayout.b
+        public void a(p68 p68Var, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.d;
+            if ((interceptable != null && interceptable.invokeLI(1048576, this, p68Var, i) != null) || p68Var == null) {
+                return;
             }
-            return invokeV.intValue;
-        }
-
-        public String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a;
+            if (this.a.l != null) {
+                TiebaStatic.log(new StatisticItem("c12105").param("fid", this.a.l.c).param("obj_locate", i + 1));
             }
-            return (String) invokeV.objValue;
-        }
-
-        public String c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.b;
+            if (!StringUtils.isNull(p68Var.c())) {
+                BrowserHelper.startWebActivity(this.a.c.getPageActivity(), p68Var.c());
             }
-            return (String) invokeV.objValue;
-        }
-
-        public int d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.e;
-            }
-            return invokeV.intValue;
-        }
-
-        public long e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return this.g;
-            }
-            return invokeV.longValue;
-        }
-
-        public String f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                return this.c;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public boolean g() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                return this.f;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.yh
-        public BdUniqueId getType() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                return rk6.z0;
-            }
-            return (BdUniqueId) invokeV.objValue;
-        }
-
-        public boolean h() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-                return this.h;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public a i(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
-                this.f = z;
-                return this;
-            }
-            return (a) invokeZ.objValue;
-        }
-
-        public a l(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-                this.d = i;
-                return this;
-            }
-            return (a) invokeI.objValue;
-        }
-
-        public a m(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-                this.a = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a o(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-                this.b = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a p(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
-                this.e = i;
-                return this;
-            }
-            return (a) invokeI.objValue;
-        }
-
-        public a q(Long l) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, l)) == null) {
-                if (l == null) {
-                    this.g = 0L;
-                    return this;
-                }
-                this.g = l.longValue();
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a u(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
-                this.c = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a v(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048594, this, z)) == null) {
-                this.h = z;
-                return this;
-            }
-            return (a) invokeZ.objValue;
         }
     }
 
-    public ow7() {
+    /* loaded from: classes7.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(ow7 ow7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ow7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
+                sharedPrefHelper.putString("game_rank_list_info", System.currentTimeMillis() + ",7");
+                SharedPrefHelper.getInstance().putInt("game_rank_list_show_times", 0);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921005));
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ow7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext, bdUniqueId, bdUniqueId2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = false;
-        this.g = new a[3];
-        this.h = RecommendBarCardModel.RecDataSource.OTHER;
+        this.l = new a18();
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: J */
+    public GameRankListViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int i = 0;
-            for (a aVar : this.g) {
-                if (aVar != null) {
-                    i++;
-                }
-            }
-            return i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            return new GameRankListViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d03e2, (ViewGroup) null));
         }
-        return invokeV.intValue;
+        return (GameRankListViewHolder) invokeL.objValue;
     }
 
-    public boolean c() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.pp7, com.baidu.tieba.bi
+    /* renamed from: K */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, q68 q68Var, GameRankListViewHolder gameRankListViewHolder) {
+        InterceptResult invokeCommon;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, q68Var, gameRankListViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) q68Var, (q68) gameRankListViewHolder);
+            if (q68Var == null) {
+                return null;
+            }
+            SkinManager.setBackgroundColor(view2, R.color.CAM_X0201);
+            if (this.l != null) {
+                TiebaStatic.log(new StatisticItem("c12104").param("fid", this.l.c));
+            }
+            GameRankHorizontalLayout gameRankHorizontalLayout = gameRankListViewHolder.a;
+            if (gameRankHorizontalLayout != null) {
+                gameRankHorizontalLayout.setData(q68Var);
+                gameRankListViewHolder.a.setOnCardClickListener(new a(this));
+            }
+            TextView textView = gameRankListViewHolder.b;
+            if (textView != null) {
+                textView.setOnClickListener(new b(this));
+            }
+            BDLayoutMode layoutMode = this.c.getLayoutMode();
+            if (this.f == 4) {
+                z = true;
+            } else {
+                z = false;
+            }
+            layoutMode.setNightMode(z);
+            this.c.getLayoutMode().onModeChanged(view2);
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.c18
+    public a18 i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.h == RecommendBarCardModel.RecDataSource.FORUMBACKCONCERN) {
-                return true;
-            }
-            return false;
+            return this.l;
         }
-        return invokeV.booleanValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.f;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.yh
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return rk6.z0;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        a[] aVarArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (a aVar : this.g) {
-                if (aVar != null) {
-                    sb.append(aVar.e());
-                    sb.append(',');
-                }
-            }
-            sb.delete(sb.length() - 1, sb.length());
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void g(RecommendBarCardModel.RecDataSource recDataSource) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, recDataSource) == null) {
-            this.h = recDataSource;
-        }
-    }
-
-    public void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    public void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.e = z;
-        }
-    }
-
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.f = z;
-        }
+        return (a18) invokeV.objValue;
     }
 }

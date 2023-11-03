@@ -1,13 +1,20 @@
 package com.baidu.tieba;
+
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 /* loaded from: classes5.dex */
 public interface b5 {
-    void a();
 
-    boolean b(boolean z, String str);
+    /* loaded from: classes5.dex */
+    public interface a {
+        void onDatabaseCreated(SQLiteDatabase sQLiteDatabase);
+    }
 
-    int c();
+    boolean dropDatabase(Context context);
 
-    void d(String str);
+    SQLiteDatabase getWritableDatabase();
 
-    void e();
+    void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2);
+
+    void setOnCreateCallback(a aVar);
 }

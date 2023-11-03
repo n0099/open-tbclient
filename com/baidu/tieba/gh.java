@@ -1,139 +1,256 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
-import android.text.style.ImageSpan;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.text.TextUtils;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.pms.bean.DegradeData;
+import com.baidu.searchbox.pms.bean.ErrorInfo;
+import com.baidu.searchbox.pms.bean.PackageInfo;
+import com.baidu.searchbox.pms.bean.ResultData;
+import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
+import com.baidu.searchbox.pms.callback.DefaultPackageCallback;
+import com.baidu.searchbox.pms.db.PackageManager;
+import com.baidu.searchbox.pms.download.DownloadOptions;
+import com.baidu.searchbox.pms.init.PmsManager;
+import com.baidu.searchbox.pms.utils.DebugUtils;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
-public class gh extends ImageSpan {
+public class gh extends DefaultPackageCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public WeakReference<Drawable> c;
-    public int d;
+    public DefaultDownloadCallback a;
+    public ih b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gh(Context context, int i) {
-        super(context, i);
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ List a;
+        public final /* synthetic */ gh b;
+
+        public a(gh ghVar, List list) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ghVar, list};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ghVar;
+            this.a = list;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                for (PackageInfo packageInfo : this.a) {
+                    if (packageInfo != null && !StringUtils.isNull(packageInfo.name)) {
+                        this.b.a.onDownloadSuccess(packageInfo, null);
+                    }
+                }
+            }
+        }
+    }
+
+    public gh(DefaultDownloadCallback defaultDownloadCallback) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
+            Object[] objArr = {defaultDownloadCallback};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = defaultDownloadCallback;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gh(Context context, Bitmap bitmap, int i) {
-        super(context, bitmap, i);
+    @Override // com.baidu.searchbox.pms.callback.DefaultPackageCallback, com.baidu.searchbox.pms.callback.PackageCallback
+    public void onDegradeData(DegradeData degradeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, degradeData) == null) {
+            super.onDegradeData(degradeData);
+        }
+    }
+
+    public gh(DefaultDownloadCallback defaultDownloadCallback, ih ihVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bitmap, Integer.valueOf(i)};
+            Object[] objArr = {defaultDownloadCallback, ihVar};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (Bitmap) objArr2[1], ((Integer) objArr2[2]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = defaultDownloadCallback;
+        this.b = ihVar;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gh(Drawable drawable, int i) {
-        super(drawable, i);
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {drawable, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Drawable) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            for (PackageInfo packageInfo : PackageManager.getFinishedPackageInfo("137", null).values()) {
+                if (packageInfo != null && !StringUtils.isNull(packageInfo.name)) {
+                    if (!packageInfo.name.contains(".so")) {
+                        ConcurrentHashMap<String, String> resHashMap = BdBaseApplication.getInst().getResHashMap();
+                        String str = packageInfo.name;
+                        resHashMap.put(str, hh.a(str));
+                    } else if (!new File(hh.b(packageInfo.name)).exists()) {
+                        DownloadOptions downloadOptions = new DownloadOptions();
+                        downloadOptions.fileDir = hh.a(packageInfo.name);
+                        zg.b(packageInfo.name, packageInfo.toString(), "re download start");
+                        PmsManager.getInstance().download(packageInfo, downloadOptions, new fh(this.a));
+                    } else if (jh.a(BdBaseApplication.getInst().getContext(), hh.a(packageInfo.name))) {
+                        zg.b(packageInfo.name, packageInfo.toString(), "load success1");
+                        ConcurrentHashMap<String, String> resHashMap2 = BdBaseApplication.getInst().getResHashMap();
+                        String str2 = packageInfo.name;
+                        resHashMap2.put(str2, hh.a(str2));
+                        ih ihVar = this.b;
+                        if (ihVar != null) {
+                            ihVar.onSoFileLoaded(packageInfo.name);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.searchbox.pms.callback.DefaultPackageCallback, com.baidu.searchbox.pms.callback.PackageCallback
+    public void onFetchError(ErrorInfo errorInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, errorInfo) != null) || errorInfo == null) {
+            return;
+        }
+        BdBaseApplication.getInst().getResHashMap().clear();
+        b();
+        TbLog defaultLog = DefaultLog.getInstance();
+        defaultLog.i("PMS", "onFetchError: " + BdBaseApplication.getInst().getResHashMap().toString());
+        BdLog.e(errorInfo.errorMsg);
+    }
+
+    @Override // com.baidu.searchbox.pms.callback.DefaultPackageCallback, com.baidu.searchbox.pms.callback.PackageCallback
+    public void onResultData(ResultData resultData) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, resultData) != null) || resultData == null) {
+            return;
+        }
+        DebugUtils.log(resultData);
+        ArrayList<PackageInfo> arrayList = new ArrayList();
+        arrayList.addAll(resultData.addList);
+        arrayList.addAll(resultData.updateList);
+        if (!arrayList.isEmpty()) {
+            z = false;
+            for (PackageInfo packageInfo : arrayList) {
+                if (packageInfo != null && !StringUtils.isNull(packageInfo.name)) {
+                    DownloadOptions downloadOptions = new DownloadOptions();
+                    downloadOptions.fileDir = hh.a(packageInfo.name);
+                    zg.b(packageInfo.name, packageInfo.toString(), "download start");
+                    PmsManager.getInstance().download(packageInfo, downloadOptions, new fh(this.a));
+                    z = true;
+                }
+            }
+        } else {
+            z = false;
+        }
+        arrayList.clear();
+        arrayList.addAll(resultData.configChangeList);
+        arrayList.addAll(resultData.filterList);
+        if (!arrayList.isEmpty()) {
+            for (PackageInfo packageInfo2 : arrayList) {
+                if (packageInfo2 != null && !StringUtils.isNull(packageInfo2.name)) {
+                    if (!packageInfo2.name.contains(".so")) {
+                        ConcurrentHashMap<String, String> resHashMap = BdBaseApplication.getInst().getResHashMap();
+                        String str = packageInfo2.name;
+                        resHashMap.put(str, hh.a(str));
+                    } else if (!new File(hh.b(packageInfo2.name)).exists()) {
+                        DownloadOptions downloadOptions2 = new DownloadOptions();
+                        downloadOptions2.fileDir = hh.a(packageInfo2.name);
+                        zg.b(packageInfo2.name, packageInfo2.toString(), "re download start");
+                        PmsManager.getInstance().download(packageInfo2, downloadOptions2, new fh(this.a));
+                    } else if (jh.a(BdBaseApplication.getInst().getContext(), hh.a(packageInfo2.name))) {
+                        zg.b(packageInfo2.name, packageInfo2.toString(), "load success1");
+                        ConcurrentHashMap<String, String> resHashMap2 = BdBaseApplication.getInst().getResHashMap();
+                        String str2 = packageInfo2.name;
+                        resHashMap2.put(str2, hh.a(str2));
+                        ih ihVar = this.b;
+                        if (ihVar != null) {
+                            ihVar.onSoFileLoaded(packageInfo2.name);
+                        }
+                    }
+                }
+            }
+            if (!z && this.b == null && this.a != null) {
+                SafeHandler.getInst().post(new a(this, arrayList));
+            }
+        }
+        TbLog defaultLog = DefaultLog.getInstance();
+        defaultLog.i("PMS", "检索数据库前Map：" + BdBaseApplication.getInst().getResHashMap().toString());
+        b();
+        TbLog defaultLog2 = DefaultLog.getInstance();
+        defaultLog2.i("PMS", "检索数据库后Map：" + BdBaseApplication.getInst().getResHashMap().toString());
+        if (!resultData.invalidList.isEmpty()) {
+            ArrayList arrayList2 = new ArrayList();
+            Map<String, PackageInfo> finishedPackageInfo = PackageManager.getFinishedPackageInfo("137", null);
+            for (PackageInfo packageInfo3 : resultData.invalidList) {
+                boolean z2 = true;
+                for (PackageInfo packageInfo4 : finishedPackageInfo.values()) {
+                    if (!TextUtils.isEmpty(packageInfo3.name) && !TextUtils.isEmpty(packageInfo4.name) && packageInfo4.name.equals(packageInfo3.name)) {
+                        TbLog defaultLog3 = DefaultLog.getInstance();
+                        defaultLog3.i("PMS", "本地数据库中已有资源：" + packageInfo3.name);
+                        if (packageInfo4.version == packageInfo3.version) {
+                            z2 = false;
+                        }
+                    }
+                }
+                if (z2) {
+                    arrayList2.add(packageInfo3);
+                }
+            }
+            if (arrayList2.isEmpty()) {
                 return;
             }
-        }
-    }
-
-    public final Drawable a() {
-        InterceptResult invokeV;
-        Drawable drawable;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            WeakReference<Drawable> weakReference = this.c;
-            if (weakReference != null) {
-                drawable = weakReference.get();
-            } else {
-                drawable = null;
+            TbLog defaultLog4 = DefaultLog.getInstance();
+            defaultLog4.i("PMS", "删除已经废弃资源:" + arrayList2.toString());
+            BdAsyncTask<?, ?, ?> searchTask = BdAsyncTask.searchTask("key_res_del");
+            if (searchTask == null || searchTask.getStatus() != BdAsyncTask.BdAsyncTaskStatus.PENDING) {
+                eh ehVar = new eh();
+                ehVar.setKey("key_res_del");
+                ehVar.execute(arrayList2);
             }
-            if (drawable == null) {
-                Drawable drawable2 = getDrawable();
-                this.c = new WeakReference<>(drawable2);
-                return drawable2;
-            }
-            return drawable;
         }
-        return (Drawable) invokeV.objValue;
-    }
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-            Drawable a = a();
-            canvas.save();
-            canvas.translate(f + this.b, ((i5 - a.getBounds().bottom) - (((paint.getFontMetricsInt().bottom - paint.getFontMetricsInt().top) / 2) - ((a.getBounds().top + a.getBounds().bottom) / 2))) + this.d);
-            a.draw(canvas);
-            canvas.restore();
-        }
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, @Nullable Paint.FontMetricsInt fontMetricsInt) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-            return super.getSize(paint, charSequence, i, i2, fontMetricsInt) + this.b + this.a;
-        }
-        return invokeCommon.intValue;
     }
 }

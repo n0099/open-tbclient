@@ -1,20 +1,19 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.ActHot;
-import tbclient.ActPost;
-import tbclient.LinkInfo;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class dea {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<bea> a;
-    public ArrayList<cea> b;
+    public String a;
+    public double b;
+    public double c;
 
     public dea() {
         Interceptable interceptable = $ic;
@@ -26,33 +25,34 @@ public class dea {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList<>();
-        this.b = new ArrayList<>();
     }
 
-    public void a(ActPost actPost) {
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, actPost) != null) || actPost == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return !TextUtils.isEmpty(this.a);
         }
-        String str = actPost.list_head;
-        for (ActHot actHot : actPost.act_hot) {
-            if (actHot != null) {
-                bea beaVar = new bea();
-                beaVar.a(actHot);
-                this.a.add(beaVar);
+        return invokeV.booleanValue;
+    }
+
+    public static dea b(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
+            dea deaVar = new dea();
+            deaVar.a = jSONObject.optString("bottom_picture", "");
+            jSONObject.optInt("cover_shadow_switch", 0);
+            deaVar.b = jSONObject.optDouble("player_width_ratio", 0.0d);
+            deaVar.c = jSONObject.optDouble("right_margin_ratio", 0.0d);
+            jSONObject.optDouble("player_height_clipping_ratio", 0.0d);
+            return deaVar;
         }
-        List<LinkInfo> list = actPost.link_info;
-        for (LinkInfo linkInfo : list) {
-            if (list != null) {
-                cea ceaVar = new cea();
-                ceaVar.a(linkInfo);
-                this.b.add(ceaVar);
-            }
-        }
+        return (dea) invokeL.objValue;
     }
 }

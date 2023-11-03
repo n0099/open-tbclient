@@ -1,8 +1,5 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
-import androidx.lifecycle.Lifecycle;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -11,9 +8,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class oy4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Application a;
-    public Activity b;
-    public Lifecycle.Event c;
+    public int a;
+    public String b;
+    public String c;
 
     public oy4() {
         Interceptable interceptable = $ic;

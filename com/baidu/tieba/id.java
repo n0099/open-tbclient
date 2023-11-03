@@ -1,91 +1,75 @@
 package com.baidu.tieba;
 
-import android.graphics.Paint;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class id {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(float f, Paint paint, String str, int i) {
-        InterceptResult invokeCommon;
+    public static Object a(Object obj, Field field) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Float.valueOf(f), paint, str, Integer.valueOf(i)})) == null) {
-            if (f == 0.0f || i == 0 || str == null || str.isEmpty()) {
-                return 0;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, obj, field)) == null) {
+            Object obj2 = null;
+            if (obj == null || field == null) {
+                return null;
             }
-            if (!str.contains("\n")) {
-                return Math.min((int) Math.ceil(paint.measureText(str) / f), i);
+            boolean isAccessible = field.isAccessible();
+            try {
+                field.setAccessible(true);
+                obj2 = field.get(obj);
+                field.setAccessible(isAccessible);
+                return obj2;
+            } catch (Throwable unused) {
+                return obj2;
             }
-            String[] split = str.split("\n");
-            if (split.length > i) {
-                return Math.min(split.length, i);
-            }
-            int i2 = 0;
-            for (int i3 = 0; i3 < i && split.length > i3; i3++) {
-                if (i3 < i - 1) {
-                    i2 += (int) Math.ceil(paint.measureText(split[i3]) / f);
-                } else {
-                    i2++;
-                }
-            }
-            return Math.min(i2, i);
         }
-        return invokeCommon.intValue;
+        return invokeLL.objValue;
     }
 
-    public static boolean b(float f, Paint paint, String str, int i) {
-        InterceptResult invokeCommon;
+    public static Field b(Class<?> cls, Class<?> cls2) {
+        InterceptResult invokeLL;
+        Field[] declaredFields;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f), paint, str, Integer.valueOf(i)})) == null) {
-            return c(f, paint, str, i, 5);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, cls2)) == null) {
+            if (cls == null) {
+                return null;
+            }
+            while (cls != Object.class) {
+                try {
+                    for (Field field : cls.getDeclaredFields()) {
+                        if (cls2.isAssignableFrom(field.getType())) {
+                            return field;
+                        }
+                    }
+                    continue;
+                } catch (Throwable unused) {
+                }
+                cls = cls.getSuperclass();
+            }
+            return null;
         }
-        return invokeCommon.booleanValue;
+        return (Field) invokeLL.objValue;
     }
 
-    public static boolean c(float f, Paint paint, String str, int i, int i2) {
-        InterceptResult invokeCommon;
-        float measureText;
+    public static List<Field> c(Object obj, Class<?> cls) {
+        InterceptResult invokeLL;
+        Field[] declaredFields;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f), paint, str, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            float f2 = 0.0f;
-            if (f != 0.0f && i != 0 && str != null && !str.isEmpty() && paint != null) {
-                if (!str.contains("\n")) {
-                    if (paint.measureText(str) < f * i) {
-                        return false;
-                    }
-                    return true;
-                }
-                String[] split = str.split("\n");
-                if (split.length > i) {
-                    return true;
-                }
-                int i3 = 0;
-                for (int i4 = 0; i4 < i && split.length > i4; i4++) {
-                    if (i4 < i - 1) {
-                        measureText = paint.measureText(split[i4]);
-                        int ceil = (int) Math.ceil(measureText / f);
-                        i3 += ceil;
-                        if (i3 < i2) {
-                            measureText = ceil * f;
-                        }
-                    } else {
-                        measureText = paint.measureText(split[i4]);
-                        i3++;
-                    }
-                    f2 += measureText;
-                    if (i3 >= 5) {
-                        if (f2 < f * i) {
-                            return false;
-                        }
-                        return true;
-                    }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, obj, cls)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (Field field : obj.getClass().getDeclaredFields()) {
+                if (field.getType().isAssignableFrom(cls)) {
+                    arrayList.add(field);
                 }
             }
-            return false;
+            return arrayList;
         }
-        return invokeCommon.booleanValue;
+        return (List) invokeLL.objValue;
     }
 }

@@ -1,192 +1,114 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.net.FastRequest;
-import com.baidu.tieba.view.headcard.data.QuizCardRespondedMessage;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes9.dex */
-public final class yta {
+public class yta {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<BaseFragmentActivity> a;
-    public FastRequest b;
-    public long c;
-    public long d;
-    public long e;
-    public long f;
-    public long g;
-    public xta<QuizCardRespondedMessage.a> h;
+    public boolean a;
+    public int b;
+    public String c;
+    public String d;
+    public JSONObject e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948343075, "Lcom/baidu/tieba/yta;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948343075, "Lcom/baidu/tieba/yta;");
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public static final class a extends FastRequest.b<QuizCardRespondedMessage.a> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yta d;
-
-        public a(yta ytaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ytaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = ytaVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tbadk.net.FastRequest.b
-        /* renamed from: m */
-        public void i(QuizCardRespondedMessage.a result) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, result) == null) {
-                Intrinsics.checkNotNullParameter(result, "result");
-                xta<QuizCardRespondedMessage.a> a = this.d.a();
-                if (a != null) {
-                    String errorMsg = a();
-                    Intrinsics.checkNotNullExpressionValue(errorMsg, "errorMsg");
-                    a.a(errorMsg);
-                }
-                super.i(result);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tbadk.net.FastRequest.b
-        /* renamed from: l */
-        public void e(int i, String errMsg, Exception exc, QuizCardRespondedMessage.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), errMsg, exc, aVar}) == null) {
-                Intrinsics.checkNotNullParameter(errMsg, "errMsg");
-                xta<QuizCardRespondedMessage.a> a = this.d.a();
-                if (a != null) {
-                    a.b(errMsg, i, aVar);
-                }
-                super.f(i, errMsg, aVar);
-            }
-        }
-    }
-
-    public yta(TbPageContext<BaseFragmentActivity> pageContext) {
+    public yta() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pageContext};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        Intrinsics.checkNotNullParameter(pageContext, "pageContext");
-        this.a = pageContext;
     }
 
-    public final xta<QuizCardRespondedMessage.a> a() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.h;
+            return this.b;
         }
-        return (xta) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public final void b() {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.b == null) {
-                this.b = new FastRequest(this.a, CmdConfigHttp.CMD_HTTP_APPLY_MATCH_GUESS, "c/c/matchActivity/applyMatchGuessing");
-            }
-            if (TbadkCoreApplication.getCurrentAccount() != null) {
-                FastRequest fastRequest = this.b;
-                Intrinsics.checkNotNull(fastRequest);
-                fastRequest.O("product", Long.valueOf(this.c));
-                fastRequest.O("user_id", Long.valueOf(this.d));
-                fastRequest.O("quiz_id", Long.valueOf(this.e));
-                fastRequest.O("pour_count", Long.valueOf(this.f));
-                fastRequest.O("option_id", Long.valueOf(this.g));
-                fastRequest.Q(new a(this));
-                fastRequest.P();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
         }
+        return (String) invokeV.objValue;
     }
 
-    public final void c(xta<QuizCardRespondedMessage.a> xtaVar) {
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xtaVar) == null) {
-            this.h = xtaVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
+        return (String) invokeV.objValue;
     }
 
-    public final void d(long j) {
+    public JSONObject d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.g = j;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
         }
+        return (JSONObject) invokeV.objValue;
     }
 
-    public final void e(long j) {
+    public boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.f = j;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
         }
+        return invokeV.booleanValue;
     }
 
-    public final void f(long j) {
+    public void f(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.c = j;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.b = i;
         }
     }
 
-    public final void g(long j) {
+    public void g(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.e = j;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.d = str;
         }
     }
 
-    public final void h(long j) {
+    public void h(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            this.d = j;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public void i(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.a = z;
+        }
+    }
+
+    public void j(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) {
+            this.e = jSONObject;
         }
     }
 }

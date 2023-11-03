@@ -1,23 +1,7 @@
 package com.baidu.tieba;
-
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
 /* loaded from: classes5.dex */
-public class d30 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface d30 {
+    void a(int i, byte[] bArr);
 
-    @Inject(force = false)
-    public static c30 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return c30.a;
-        }
-        return (c30) invokeV.objValue;
-    }
+    void onSuccess(int i, byte[] bArr);
 }

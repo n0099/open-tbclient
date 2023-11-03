@@ -40,6 +40,25 @@ public class StaticChunkOffsetBox extends ChunkOffsetBox {
         ajc$preClinit();
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public StaticChunkOffsetBox() {
+        super(TYPE);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.chunkOffsets = new long[0];
+    }
+
     @Override // com.coremedia.iso.boxes.ChunkOffsetBox
     public long[] getChunkOffsets() {
         InterceptResult invokeV;
@@ -59,25 +78,6 @@ public class StaticChunkOffsetBox extends ChunkOffsetBox {
             return (this.chunkOffsets.length * 4) + 8;
         }
         return invokeV.longValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public StaticChunkOffsetBox() {
-        super(TYPE);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.chunkOffsets = new long[0];
     }
 
     public static /* synthetic */ void ajc$preClinit() {

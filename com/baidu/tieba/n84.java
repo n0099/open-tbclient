@@ -1,61 +1,83 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.swan.apps.storage.PathType;
-import com.baidu.tieba.f24;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.JsFunction;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class n84 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public JsFunction a;
+    public JsFunction b;
+    public JsFunction c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947956319, "Lcom/baidu/tieba/n84;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947956319, "Lcom/baidu/tieba/n84;");
-                return;
+    public n84() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        boolean z = am1.a;
     }
 
-    public static PathType a(String str) {
+    public void b() {
+        JsFunction jsFunction;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (jsFunction = this.c) != null) {
+            jsFunction.call();
+        }
+    }
+
+    public void c() {
+        JsFunction jsFunction;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (jsFunction = this.b) != null) {
+            jsFunction.call();
+        }
+    }
+
+    public static n84 d(oy1 oy1Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return PathType.ERROR;
-            }
-            if (!str.startsWith("http://") && !str.startsWith("https://")) {
-                return PathType.RELATIVE;
-            }
-            return PathType.NETWORK;
-        }
-        return (PathType) invokeL.objValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        File h;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            p53 q = o53.K().q();
-            if (!q.I() || q.l0() == null || (h = f24.d.h(q.getAppId(), q.l0())) == null || !h.exists()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, oy1Var)) == null) {
+            if (oy1Var == null) {
                 return null;
             }
-            return "file://" + h.getAbsolutePath();
+            n84 n84Var = new n84();
+            JsFunction v = oy1Var.v("onCheckForUpdate");
+            n84Var.a = v;
+            if (v != null) {
+                v.setReleaseMode(false);
+            }
+            JsFunction v2 = oy1Var.v("onUpdateReady");
+            n84Var.b = v2;
+            if (v2 != null) {
+                v2.setReleaseMode(false);
+            }
+            JsFunction v3 = oy1Var.v("onUpdateFailed");
+            n84Var.c = v3;
+            if (v3 != null) {
+                v3.setReleaseMode(false);
+            }
+            return n84Var;
         }
-        return (String) invokeV.objValue;
+        return (n84) invokeL.objValue;
+    }
+
+    public void a(o84 o84Var) {
+        JsFunction jsFunction;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, o84Var) == null) && (jsFunction = this.a) != null) {
+            jsFunction.call(o84Var);
+        }
     }
 }

@@ -1,15 +1,15 @@
 package com.baidu.tieba;
 
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class g1 implements w0 {
+public class g1<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public w3<f1<T>> a;
 
     public g1() {
         Interceptable interceptable = $ic;
@@ -21,55 +21,42 @@ public class g1 implements w0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new w3<>();
     }
 
-    @Override // com.baidu.tieba.w0
-    public void a(String str, String str2, Throwable th) {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, th) == null) {
-            Log.i(str, str2, th);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.clear();
         }
     }
 
-    @Override // com.baidu.tieba.w0
-    public void b(String str, String str2, Throwable th) {
+    public void a(f1<T> f1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, th) == null) {
-            Log.d(str, str2, th);
+        if (interceptable == null || interceptable.invokeL(1048576, this, f1Var) == null) {
+            this.a.a(f1Var);
         }
     }
 
-    @Override // com.baidu.tieba.w0
-    public void error(String str, String str2, Throwable th) {
+    public void b(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, th) == null) {
-            Log.e(str, str2, th);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+            f1<T>[] i = this.a.i();
+            int i2 = this.a.b;
+            for (int i3 = 0; i3 < i2; i3++) {
+                i[i3].a(this, t);
+            }
+            this.a.j();
         }
     }
 
-    @Override // com.baidu.tieba.w0
-    public void debug(String str, String str2) {
+    public void c(f1<T> f1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            Log.d(str, str2);
-        }
-    }
-
-    @Override // com.baidu.tieba.w0
-    public void error(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            Log.e(str, str2);
-        }
-    }
-
-    @Override // com.baidu.tieba.w0
-    public void log(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
-            Log.i(str, str2);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, f1Var) == null) {
+            this.a.g(f1Var, true);
         }
     }
 }

@@ -2211,8 +2211,8 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         return (JSONObject) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:45:0x00c5 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00c6  */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x00c6 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x00c7  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

@@ -1,27 +1,47 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.swan.apps.canvas.view.CanvasView;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class q12 {
+public class q12 extends v12 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String t;
 
-    @Nullable
-    public static CanvasView a(n02 n02Var) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public q12(String str, @NonNull String str2) {
+        super(str, str2);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, n02Var)) == null) {
-            p12 p12Var = (p12) c22.a(n02Var);
-            if (p12Var == null) {
-                p22.c("Component-Canvas-Utils", "get canvas view fail: find a null component");
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return p12Var.i;
         }
-        return (CanvasView) invokeL.objValue;
+        this.t = "";
+    }
+
+    @Override // com.baidu.tieba.v12, com.baidu.tieba.x12, com.baidu.tieba.fw2
+    public void a(JSONObject jSONObject) throws JSONException {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        super.a(jSONObject);
+        this.t = jSONObject.optString("src");
     }
 }

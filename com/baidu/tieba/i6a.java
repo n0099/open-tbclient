@@ -1,91 +1,72 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.ActivityNotFoundException;
-import android.content.Context;
-import android.content.Intent;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tieba.personPolymeric.constant.PersonStatus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class i6a {
+public abstract class i6a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
-    public static boolean a(@NonNull String str, @NonNull ShareItem shareItem) {
-        InterceptResult invokeLL;
+    public i6a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, shareItem)) == null) {
-            Boolean checkOutsideForbidShare = shareItem.checkOutsideForbidShare(str);
-            if (checkOutsideForbidShare.booleanValue()) {
-                b(shareItem);
-            }
-            return checkOutsideForbidShare.booleanValue();
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean d(Context context, Intent intent) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, intent)) == null) {
-            try {
-                if (!(context instanceof Activity) && intent != null) {
-                    intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                }
-                context.startActivity(intent);
-                return true;
-            } catch (ActivityNotFoundException e) {
-                e.printStackTrace();
-                return false;
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeLL.booleanValue;
+        this.a = z;
     }
 
-    public static void b(@NonNull ShareItem shareItem) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, shareItem) == null) {
-            String forbidShareTplText = shareItem.getForbidShareTplText();
-            String forbidShareToast = shareItem.getForbidShareToast();
-            String shareToken = shareItem.getShareToken();
-            if (!TextUtils.isEmpty(shareToken) && !TextUtils.isEmpty(forbidShareTplText)) {
-                if (forbidShareTplText.contains("{{token}}")) {
-                    forbidShareTplText = forbidShareTplText.replace("{{token}}", shareToken);
-                }
-                UtilHelper.copyToClipBoard(forbidShareTplText);
-                if (!TextUtils.isEmpty(forbidShareToast)) {
-                    BdToast.makeText(TbadkApplication.getInst().getContext(), forbidShareToast).show();
-                }
-            }
-        }
-    }
-
-    public static synchronized String c(Context context) {
+    public PersonStatus g(UserData userData) {
         InterceptResult invokeL;
-        String string;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            synchronized (i6a.class) {
-                try {
-                    string = context.getResources().getString(context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.labelRes);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, userData)) == null) {
+            if (userData == null) {
+                if (this.a) {
+                    return PersonStatus.HOST_DEFAULT;
                 }
+                return PersonStatus.GUEST_DEFAULT;
+            } else if (userData.isBaijiahaoUser()) {
+                if (this.a) {
+                    return PersonStatus.HOST_BJH;
+                }
+                return PersonStatus.GUEST_BJH;
+            } else if (this.a) {
+                return PersonStatus.HOST_DEFAULT;
+            } else {
+                return PersonStatus.GUEST_DEFAULT;
             }
-            return string;
         }
-        return (String) invokeL.objValue;
+        return (PersonStatus) invokeL.objValue;
+    }
+
+    public PersonStatus h(p6a p6aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, p6aVar)) == null) {
+            if (p6aVar != null && p6aVar.j() != null) {
+                return g(p6aVar.j());
+            }
+            if (this.a) {
+                return PersonStatus.HOST_DEFAULT;
+            }
+            return PersonStatus.GUEST_DEFAULT;
+        }
+        return (PersonStatus) invokeL.objValue;
     }
 }

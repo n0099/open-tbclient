@@ -155,7 +155,7 @@ public final class FloatViewService extends Service {
         }
 
         /* renamed from: startService$lambda-0  reason: not valid java name */
-        public static final void m91startService$lambda0(Context context) {
+        public static final void m92startService$lambda0(Context context) {
             Intrinsics.checkNotNullParameter(context, "$context");
             context.startForegroundService(new Intent(context, FloatViewService.class));
         }
@@ -183,7 +183,7 @@ public final class FloatViewService extends Service {
             setConfig(cfg);
             if (cfg.isForeground() && Build.VERSION.SDK_INT >= 26) {
                 checkNotification(context, cfg);
-                getInnerHandler().post(new Runnable() { // from class: com.baidu.tieba.gi1
+                getInnerHandler().post(new Runnable() { // from class: com.baidu.tieba.xi1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -191,7 +191,7 @@ public final class FloatViewService extends Service {
                     public final void run() {
                         Interceptable interceptable = $ic;
                         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                            FloatViewService.Companion.m91startService$lambda0(context);
+                            FloatViewService.Companion.m92startService$lambda0(context);
                         }
                     }
                 });

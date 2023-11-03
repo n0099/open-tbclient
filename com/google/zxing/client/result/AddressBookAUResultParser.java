@@ -2,7 +2,7 @@ package com.google.zxing.client.result;
 
 import com.google.zxing.Result;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class AddressBookAUResultParser extends ResultParser {
     public static String[] matchMultipleValuePrefix(String str, int i, String str2, boolean z) {
         ArrayList arrayList = null;

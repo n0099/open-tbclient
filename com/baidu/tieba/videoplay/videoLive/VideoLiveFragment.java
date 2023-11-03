@@ -49,16 +49,16 @@ import com.baidu.tbadk.coreExtra.model.AttentionModel;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ad;
-import com.baidu.tieba.cr5;
-import com.baidu.tieba.eg5;
-import com.baidu.tieba.hra;
-import com.baidu.tieba.nv9;
+import com.baidu.tieba.i4b;
+import com.baidu.tieba.oz5;
 import com.baidu.tieba.play.OnStatusChangedListener;
 import com.baidu.tieba.play.TbVideoView;
-import com.baidu.tieba.pra;
-import com.baidu.tieba.qra;
-import com.baidu.tieba.ux5;
+import com.baidu.tieba.q4b;
+import com.baidu.tieba.qd;
+import com.baidu.tieba.r4b;
+import com.baidu.tieba.s8a;
+import com.baidu.tieba.t55;
+import com.baidu.tieba.th5;
 import com.baidu.tieba.video.LiveConfig;
 import com.baidu.tieba.video.UserItemData;
 import com.baidu.tieba.video.VideoItemData;
@@ -66,7 +66,7 @@ import com.baidu.tieba.video.VideoItemModel;
 import com.baidu.tieba.videoplay.VideoPlayFragment;
 import com.baidu.tieba.videoplay.view.EnterLiveRoomBtn;
 import com.baidu.tieba.view.expandable.ExpandableTextView;
-import com.baidu.tieba.z45;
+import com.baidu.tieba.ws5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -77,7 +77,7 @@ import com.bumptech.glide.RequestBuilder;
 import com.bumptech.glide.request.target.CustomTarget;
 import com.bumptech.glide.request.transition.Transition;
 /* loaded from: classes8.dex */
-public class VideoLiveFragment extends BaseFragment implements ux5.b, pra {
+public class VideoLiveFragment extends BaseFragment implements oz5.b, q4b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public VideoPlayFragment.g1 A;
@@ -92,7 +92,7 @@ public class VideoLiveFragment extends BaseFragment implements ux5.b, pra {
     public final View.OnTouchListener J;
     public final GestureDetectorCompat K;
     public View.OnClickListener L;
-    public final nv9 M;
+    public final s8a M;
     public LinearLayout a;
     public RelativeLayout b;
     public TbVideoView c;
@@ -116,49 +116,49 @@ public class VideoLiveFragment extends BaseFragment implements ux5.b, pra {
     public LiveConfig u;
     public AttentionModel v;
     public BdUniqueId w;
-    public qra x;
+    public r4b x;
     public String y;
     public int z;
 
-    @Override // com.baidu.tieba.pra
-    public int K() {
+    @Override // com.baidu.tieba.q4b
+    public int O() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return 0;
         }
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ux5.b
-    public void K0(float f2, float f3) {
+    @Override // com.baidu.tieba.oz5.b
+    public void S0(float f2, float f3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.pra
-    public void M0(int i2) {
+    @Override // com.baidu.tieba.q4b
+    public void V0(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.pra
-    public VideoItemModel e1() {
+    @Override // com.baidu.tieba.oz5.b
+    public void onViewClick() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.q4b
+    public VideoItemModel p1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
             return null;
         }
         return (VideoItemModel) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ux5.b
-    public void onViewClick() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-        }
     }
 
     /* loaded from: classes8.dex */
@@ -188,18 +188,22 @@ public class VideoLiveFragment extends BaseFragment implements ux5.b, pra {
         @Override // com.baidu.tieba.play.OnStatusChangedListener
         public void onStatusChange(OnStatusChangedListener.VideoStatus videoStatus) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, videoStatus) == null) {
-                this.a.E = videoStatus;
-                if (videoStatus == OnStatusChangedListener.VideoStatus.VIDEO_ERROR) {
-                    this.a.K2(0);
-                    this.a.B = false;
-                    if (this.a.C && !this.a.D && this.a.A != null) {
-                        this.a.A.a();
-                    }
-                } else if (videoStatus == OnStatusChangedListener.VideoStatus.VIDEO_PLAYING) {
-                    this.a.B = true;
-                    this.a.K2(1);
+            if (interceptable != null && interceptable.invokeL(1048576, this, videoStatus) != null) {
+                return;
+            }
+            this.a.E = videoStatus;
+            if (videoStatus != OnStatusChangedListener.VideoStatus.VIDEO_ERROR) {
+                if (videoStatus != OnStatusChangedListener.VideoStatus.VIDEO_PLAYING) {
+                    return;
                 }
+                this.a.B = true;
+                this.a.c3(1);
+                return;
+            }
+            this.a.c3(0);
+            this.a.B = false;
+            if (this.a.C && !this.a.D && this.a.A != null) {
+                this.a.A.a();
             }
         }
     }
@@ -392,22 +396,22 @@ public class VideoLiveFragment extends BaseFragment implements ux5.b, pra {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (view2 != this.a.g && view2 != this.a.h) {
-                    if (view2 != this.a.j) {
-                        this.a.F2("clk_into_live");
+                    if (view2 == this.a.j) {
+                        this.a.O2();
                         return;
                     } else {
-                        this.a.w2();
+                        this.a.X2("clk_into_live");
                         return;
                     }
                 }
                 this.a.x.d(this.a.z, this.a.y, 1, 2);
-                this.a.E2();
+                this.a.W2();
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public class g implements nv9 {
+    public class g implements s8a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoLiveFragment a;
@@ -430,7 +434,7 @@ public class VideoLiveFragment extends BaseFragment implements ux5.b, pra {
             this.a = videoLiveFragment;
         }
 
-        @Override // com.baidu.tieba.nv9
+        @Override // com.baidu.tieba.s8a
         public void onVideoSizeChanged(int i, int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && this.a.u != null && this.a.u.getCutList() != null) {
@@ -439,15 +443,15 @@ public class VideoLiveFragment extends BaseFragment implements ux5.b, pra {
                 if (i2 / i >= this.a.u.getVerticalHorizontalBoundary()) {
                     this.a.F = true;
                     if (UtilHelper.isOppoFoldLargeScreen(this.a.getContext())) {
-                        this.a.I2(2);
+                        this.a.a3(2);
                         return;
                     } else {
-                        this.a.I2(intValue);
+                        this.a.a3(intValue);
                         return;
                     }
                 }
                 this.a.F = false;
-                this.a.I2(intValue2);
+                this.a.a3(intValue2);
             }
         }
     }
@@ -482,10 +486,10 @@ public class VideoLiveFragment extends BaseFragment implements ux5.b, pra {
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
                 if (1 == i) {
                     this.a.x.d(this.a.z, this.a.y, 4, 2);
-                    this.a.F2("clk_into_live");
+                    this.a.X2("clk_into_live");
                 } else if (2 == i) {
                     this.a.x.c(this.a.z, this.a.y, 2);
-                    this.a.F2("auto_into_live");
+                    this.a.X2("auto_into_live");
                 }
             }
         }
@@ -533,7 +537,7 @@ public class VideoLiveFragment extends BaseFragment implements ux5.b, pra {
         public void onResourceReady(@NonNull Bitmap bitmap, @Nullable Transition<? super Bitmap> transition) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, transition) == null) {
-                this.a.s.setImageBitmap(cr5.a(bitmap, 15, false));
+                this.a.s.setImageBitmap(ws5.a(bitmap, 15, false));
             }
         }
 
@@ -571,13 +575,13 @@ public class VideoLiveFragment extends BaseFragment implements ux5.b, pra {
         this.M = new g(this);
     }
 
-    public final void E2() {
+    public final void W2() {
         VideoItemData videoItemData;
         UserItemData userItemData;
         boolean z;
         boolean z2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (videoItemData = this.f) != null && (userItemData = videoItemData.author_info) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (videoItemData = this.f) != null && (userItemData = videoItemData.author_info) != null) {
             long j = JavaTypesHelper.toLong(userItemData.user_id, 0L);
             long j2 = JavaTypesHelper.toLong(TbadkCoreApplication.getCurrentAccount(), 0L);
             if (j == j2) {
@@ -598,32 +602,24 @@ public class VideoLiveFragment extends BaseFragment implements ux5.b, pra {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onViewCreated(View view2, Bundle bundle) {
+    public void Z2(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048602, this, view2, bundle) == null) {
-            super.onViewCreated(view2, bundle);
-        }
-    }
-
-    public void H2(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
             this.D = z;
         }
     }
 
-    public final void I2(int i2) {
+    public final void a3(int i2) {
         TbVideoView tbVideoView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) && (tbVideoView = this.c) != null) {
+        if ((interceptable == null || interceptable.invokeI(1048591, this, i2) == null) && (tbVideoView = this.c) != null) {
             tbVideoView.setVideoScalingMode(i2);
         }
     }
 
-    public void J2(VideoPlayFragment.g1 g1Var) {
+    public void b3(VideoPlayFragment.g1 g1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, g1Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, g1Var) == null) {
             this.A = g1Var;
         }
     }
@@ -631,7 +627,7 @@ public class VideoLiveFragment extends BaseFragment implements ux5.b, pra {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, bundle) == null) {
             super.onActivityCreated(bundle);
         }
     }
@@ -639,16 +635,38 @@ public class VideoLiveFragment extends BaseFragment implements ux5.b, pra {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048597, this, bundle) == null) {
             super.onCreate(bundle);
             registerListener(this.I);
             registerListener(this.H);
         }
     }
 
-    public final void A2() {
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onViewCreated(View view2, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048605, this, view2, bundle) == null) {
+            super.onViewCreated(view2, bundle);
+        }
+    }
+
+    public final void O2() {
+        VideoItemData videoItemData;
+        UserItemData userItemData;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && ViewHelper.checkUpIsLogin(getActivity()) && this.j != null && (videoItemData = this.f) != null && (userItemData = videoItemData.author_info) != null && this.t != null) {
+            this.v.m(true, userItemData.portrait, userItemData.user_id, false, "6", this.w, videoItemData.forum_id, "0", videoItemData.thread_id);
+            this.x.d(this.z, this.y, 2, 2);
+            Q2();
+            X2("clk_into_live");
+            this.j.setVisibility(8);
+            Y2();
+        }
+    }
+
+    public final void S2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.c.setVideoStatusChangeListener(this.G);
             this.c.setOnClickListener(this.L);
             this.c.setVideoStatData(this.x.f(this.z, this.y));
@@ -656,19 +674,19 @@ public class VideoLiveFragment extends BaseFragment implements ux5.b, pra {
             VideoItemData videoItemData = this.f;
             if (videoItemData != null && videoItemData.getLivePageData() != null) {
                 if (UtilHelper.isOppoFoldLargeScreen(getContext())) {
-                    I2(2);
+                    a3(2);
                 } else {
-                    I2(this.f.getLivePageData().cutType);
+                    a3(this.f.getLivePageData().cutType);
                 }
             }
         }
     }
 
-    public final void D2() {
+    public final void V2() {
         Bundle arguments;
         VideoItemData videoItemData;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (arguments = getArguments()) != null && (arguments.get("video_data") instanceof VideoItemModel) && (arguments.get("live_config") instanceof LiveConfig)) {
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (arguments = getArguments()) != null && (arguments.get("video_data") instanceof VideoItemModel) && (arguments.get("live_config") instanceof LiveConfig)) {
             this.i = (VideoItemModel) arguments.get("video_data");
             this.u = (LiveConfig) arguments.get("live_config");
             VideoItemModel videoItemModel = this.i;
@@ -689,25 +707,109 @@ public class VideoLiveFragment extends BaseFragment implements ux5.b, pra {
         }
     }
 
-    public final void w2() {
+    public final void P2() {
         VideoItemData videoItemData;
-        UserItemData userItemData;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048605, this) == null) && ViewHelper.checkUpIsLogin(getActivity()) && this.j != null && (videoItemData = this.f) != null && (userItemData = videoItemData.author_info) != null && this.t != null) {
-            this.v.m(true, userItemData.portrait, userItemData.user_id, false, "6", this.w, videoItemData.forum_id, "0", videoItemData.thread_id);
-            this.x.d(this.z, this.y, 2, 2);
-            y2();
-            F2("clk_into_live");
-            this.j.setVisibility(8);
-            G2();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (videoItemData = this.f) != null && videoItemData.author_info != null) {
+            if (this.k != null) {
+                this.k.setData(videoItemData.getTitle(), true, null);
+                this.k.setOnClickListener(this.L);
+            }
+            TextView textView = this.h;
+            if (textView != null) {
+                textView.setText(StringHelper.cutChineseAndEnglishWithEmoji(this.f.author_info.getUserShowName(), 16, "..."));
+                this.h.setOnClickListener(this.L);
+            }
+            if (this.g != null) {
+                if (!StringUtils.isNull(this.f.author_info.portrait) && this.f.author_info.portrait.startsWith("http")) {
+                    this.g.startLoad(this.f.author_info.portrait, 10, false);
+                } else {
+                    this.g.startLoad(this.f.author_info.portrait, 12, false);
+                }
+                this.g.setOnClickListener(this.L);
+            }
+            EnterLiveRoomBtn enterLiveRoomBtn = this.l;
+            if (enterLiveRoomBtn != null) {
+                enterLiveRoomBtn.c(this.u);
+                this.l.setEnterLiveRoomCallback(new h(this));
+            }
+            if (this.q != null) {
+                if (this.f.getLivePageData() != null && !qd.isEmpty(this.f.getLivePageData().user_label_text)) {
+                    this.q.setVisibility(0);
+                    this.q.setText(this.f.getLivePageData().user_label_text);
+                } else {
+                    this.q.setVisibility(8);
+                }
+                this.q.setOnClickListener(this.L);
+            }
+            Q2();
         }
     }
 
-    public final void B2() {
+    public final void Q2() {
+        UserItemData userItemData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            VideoItemData videoItemData = this.f;
+            if (videoItemData != null && (userItemData = videoItemData.author_info) != null && (userItemData == null || !"1".equals(userItemData.is_follow))) {
+                this.j.setVisibility(0);
+                this.j.setClickable(true);
+                return;
+            }
+            this.j.setVisibility(4);
+            this.j.setClickable(false);
+        }
+    }
+
+    public final void Y2() {
+        TBLottieAnimationView tBLottieAnimationView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (tBLottieAnimationView = this.t) != null) {
+            tBLottieAnimationView.setVisibility(0);
+            SkinManager.setLottieAnimation(this.t, R.raw.video_tab_attention_animation);
+            if (!this.t.isAnimating()) {
+                this.t.setSpeed(1.1f);
+                this.t.playAnimation();
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+            super.onDestroy();
+            TbVideoView tbVideoView = this.c;
+            if (tbVideoView != null) {
+                tbVideoView.V();
+                this.c.O();
+            }
+            EnterLiveRoomBtn enterLiveRoomBtn = this.l;
+            if (enterLiveRoomBtn != null) {
+                enterLiveRoomBtn.f();
+            }
+            MessageManager.getInstance().unRegisterListener(this.I);
+            MessageManager.getInstance().unRegisterListener(this.H);
+        }
+    }
+
+    public final void R2(boolean z) {
+        VideoItemData videoItemData;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && (videoItemData = this.f) != null && videoItemData.author_info != null && videoItemData.getLivePageData() != null) {
+            BasicVideoSeries basicVideoSeries = BasicVideoSeriesKt.toBasicVideoSeries(this.f.getLivePageData().flv_url, true);
+            basicVideoSeries.setKernelType(YYVideoKernel.KERNEL_TYPE_YY);
+            YYUtil.setYYBufferSize(basicVideoSeries, 10);
+            basicVideoSeries.setPreRenderOptionState(OptionState.ENABLE);
+            this.c.setVideoSeries(basicVideoSeries, z);
+        }
+    }
+
+    public final void T2() {
         View view2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (view2 = this.e) != null) {
-            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090307);
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (view2 = this.e) != null) {
+            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f09031b);
             this.g = headImageView;
             headImageView.setDefaultResource(17170445);
             this.g.setPlaceHolder(2);
@@ -716,20 +818,20 @@ public class VideoLiveFragment extends BaseFragment implements ux5.b, pra {
             this.g.setBorderColor(R.color.CAM_X0622);
             this.g.setDrawBorder(true);
             this.g.setUseNightOrDarkMask(false);
-            this.h = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f0928bf);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.e.findViewById(R.id.obfuscated_res_0x7f09169e);
+            this.h = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f09291e);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.e.findViewById(R.id.obfuscated_res_0x7f0916de);
             this.j = tBSpecificationBtn;
             tBSpecificationBtn.setText(getString(R.string.obfuscated_res_0x7f0f02ec));
             this.j.setOnClickListener(this.L);
-            z45 z45Var = new z45();
-            UtilHelper.addFollowUserIconStyle(z45Var);
-            z45Var.i(R.color.CAM_X0101);
-            z45Var.o(0, 0);
-            z45Var.p(0);
-            z45Var.m(true);
-            z45Var.k(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds145), BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds60));
-            this.j.setConfig(z45Var);
-            ExpandableTextView expandableTextView = (ExpandableTextView) this.e.findViewById(R.id.obfuscated_res_0x7f091600);
+            t55 t55Var = new t55();
+            UtilHelper.addFollowUserIconStyle(t55Var);
+            t55Var.i(R.color.CAM_X0101);
+            t55Var.o(0, 0);
+            t55Var.p(0);
+            t55Var.m(true);
+            t55Var.k(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds145), BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds60));
+            this.j.setConfig(t55Var);
+            ExpandableTextView expandableTextView = (ExpandableTextView) this.e.findViewById(R.id.obfuscated_res_0x7f091640);
             this.k = expandableTextView;
             expandableTextView.setTextSize(BdUtilHelper.getDimens(getContext(), R.dimen.T_X07));
             this.k.setTextColor(R.color.CAM_X0621);
@@ -737,29 +839,29 @@ public class VideoLiveFragment extends BaseFragment implements ux5.b, pra {
             this.k.setExpandable(false);
             this.k.setTextMaxLine(3);
             this.k.setLimitLine(3);
-            this.o = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f091612);
-            this.p = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f0915e6);
-            this.l = (EnterLiveRoomBtn) this.e.findViewById(R.id.obfuscated_res_0x7f090a39);
-            this.m = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f0915e5);
-            this.n = (TbImageView) this.e.findViewById(R.id.obfuscated_res_0x7f091610);
-            this.q = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f091601);
-            this.r = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f0915e8);
-            this.s = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f09157c);
-            this.t = (TBLottieAnimationView) this.e.findViewById(R.id.obfuscated_res_0x7f0902f1);
+            this.o = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f091652);
+            this.p = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f091626);
+            this.l = (EnterLiveRoomBtn) this.e.findViewById(R.id.obfuscated_res_0x7f090a5a);
+            this.m = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f091625);
+            this.n = (TbImageView) this.e.findViewById(R.id.obfuscated_res_0x7f091650);
+            this.q = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f091641);
+            this.r = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f091628);
+            this.s = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f0915bc);
+            this.t = (TBLottieAnimationView) this.e.findViewById(R.id.obfuscated_res_0x7f090305);
         }
     }
 
-    public final void C2() {
+    public final void U2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.x = new qra(this.f, this.u);
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.x = new r4b(this.f, this.u);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroyView() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
             super.onDestroyView();
             HeadImageView headImageView = this.g;
             if (headImageView != null) {
@@ -771,7 +873,7 @@ public class VideoLiveFragment extends BaseFragment implements ux5.b, pra {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             super.onPause();
         }
     }
@@ -779,7 +881,7 @@ public class VideoLiveFragment extends BaseFragment implements ux5.b, pra {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
             super.onPrimary();
         }
     }
@@ -787,25 +889,25 @@ public class VideoLiveFragment extends BaseFragment implements ux5.b, pra {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
             super.onResume();
         }
     }
 
-    @Override // com.baidu.tieba.ux5.b
+    @Override // com.baidu.tieba.oz5.b
     public void onViewDragToRight() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
-            F2("clk_into_live");
+        if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
+            X2("clk_into_live");
         }
     }
 
-    public final void F2(String str) {
+    public final void X2(String str) {
         VideoItemData videoItemData;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && this.B && (videoItemData = this.f) != null && videoItemData.getLivePageData() != null && this.f.getLivePageData().mYyExtData != null) {
+        if ((interceptable == null || interceptable.invokeL(1048588, this, str) == null) && this.B && (videoItemData = this.f) != null && videoItemData.getLivePageData() != null && this.f.getLivePageData().mYyExtData != null) {
             YyExtData yyExtData = this.f.getLivePageData().mYyExtData;
-            hra.g("sp_live_into_id_", this.f.thread_id);
+            i4b.g("sp_live_into_id_", this.f.thread_id);
             YYLiveUtil.jumpToYYLiveRoom(getPageContext(), yyExtData.mSid, yyExtData.mSsid, yyExtData.mTemplateId, "", null, "video_immersion", str, false);
         }
     }
@@ -813,20 +915,20 @@ public class VideoLiveFragment extends BaseFragment implements ux5.b, pra {
     @Override // androidx.fragment.app.Fragment, android.content.ComponentCallbacks
     public void onConfigurationChanged(@NonNull Configuration configuration) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, configuration) == null) {
+        if (interceptable == null || interceptable.invokeL(1048596, this, configuration) == null) {
             super.onConfigurationChanged(configuration);
             LiveConfig liveConfig = this.u;
             if (liveConfig != null && liveConfig.getCutList() != null && UtilHelper.isFoldScreen()) {
                 if (this.F) {
                     if (UtilHelper.isOppoFoldLargeScreen(getContext())) {
-                        I2(2);
+                        a3(2);
                         return;
                     } else {
-                        I2(this.u.getCutList().get(LiveConfig.CUT_LIST_VERTICAL_KEY).intValue());
+                        a3(this.u.getCutList().get(LiveConfig.CUT_LIST_VERTICAL_KEY).intValue());
                         return;
                     }
                 }
-                I2(this.u.getCutList().get(LiveConfig.CUT_LIST_HORIZONTAL_KEY).intValue());
+                a3(this.u.getCutList().get(LiveConfig.CUT_LIST_HORIZONTAL_KEY).intValue());
             }
         }
     }
@@ -834,15 +936,15 @@ public class VideoLiveFragment extends BaseFragment implements ux5.b, pra {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void setUserVisibleHint(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048604, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048608, this, z) == null) {
             super.setUserVisibleHint(z);
             this.C = z;
             if (this.c != null) {
                 if (z) {
                     if (this.E == OnStatusChangedListener.VideoStatus.VIDEO_ERROR) {
-                        z2(false);
+                        R2(false);
                     }
-                    this.c.R(2);
+                    this.c.T(2);
                     this.c.setVolume(1.0f, 1.0f);
                     this.x.e(this.z, this.y, 2);
                     EnterLiveRoomBtn enterLiveRoomBtn = this.l;
@@ -863,56 +965,9 @@ public class VideoLiveFragment extends BaseFragment implements ux5.b, pra {
         }
     }
 
-    public final void G2() {
-        TBLottieAnimationView tBLottieAnimationView;
+    public final void c3(int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (tBLottieAnimationView = this.t) != null) {
-            tBLottieAnimationView.setVisibility(0);
-            SkinManager.setLottieAnimation(this.t, R.raw.video_tab_attention_animation);
-            if (!this.t.isAnimating()) {
-                this.t.setSpeed(1.1f);
-                this.t.playAnimation();
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            super.onDestroy();
-            TbVideoView tbVideoView = this.c;
-            if (tbVideoView != null) {
-                tbVideoView.T();
-                this.c.M();
-            }
-            EnterLiveRoomBtn enterLiveRoomBtn = this.l;
-            if (enterLiveRoomBtn != null) {
-                enterLiveRoomBtn.f();
-            }
-            MessageManager.getInstance().unRegisterListener(this.I);
-            MessageManager.getInstance().unRegisterListener(this.H);
-        }
-    }
-
-    public final void y2() {
-        UserItemData userItemData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
-            VideoItemData videoItemData = this.f;
-            if (videoItemData != null && (userItemData = videoItemData.author_info) != null && (userItemData == null || !"1".equals(userItemData.is_follow))) {
-                this.j.setVisibility(0);
-                this.j.setClickable(true);
-                return;
-            }
-            this.j.setVisibility(4);
-            this.j.setClickable(false);
-        }
-    }
-
-    public final void K2(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
             if (i2 == 0) {
                 EnterLiveRoomBtn enterLiveRoomBtn = this.l;
                 if (enterLiveRoomBtn != null) {
@@ -955,9 +1010,9 @@ public class VideoLiveFragment extends BaseFragment implements ux5.b, pra {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
             super.onChangeSkinType(i2);
-            eg5.a(this.n, "enter_live_room_animation.png");
+            th5.a(this.n, "enter_live_room_animation.png");
             SkinManager.setImageResource(this.r, R.drawable.icon_live_stop_play);
             EMManager.from(this.h).setTextSize(R.dimen.T_X06).setTextStyle(R.string.F_X02).setTextShadow(R.array.S_O_X001);
             EMManager.from(this.j).setCorner(R.string.J_X01).setTextSize(R.dimen.T_X09).setTextColor(R.color.CAM_X0101).setTextStyle(R.string.F_X02).setBackGroundColor(R.color.CAM_X0302);
@@ -971,77 +1026,26 @@ public class VideoLiveFragment extends BaseFragment implements ux5.b, pra {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048595, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d09de, (ViewGroup) null);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048598, this, layoutInflater, viewGroup, bundle)) == null) {
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d09f7, (ViewGroup) null);
             this.e = inflate;
             inflate.setOnTouchListener(this.J);
-            this.a = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f09045b);
-            this.b = (RelativeLayout) this.e.findViewById(R.id.obfuscated_res_0x7f092910);
+            this.a = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f090474);
+            this.b = (RelativeLayout) this.e.findViewById(R.id.obfuscated_res_0x7f09296f);
             this.c = new TbVideoView(getContext());
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
             this.d = layoutParams;
             layoutParams.bottomMargin = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds60);
             this.b.addView(this.c, 0, this.d);
             this.v = new AttentionModel(null);
-            B2();
-            D2();
-            C2();
-            x2();
-            z2(true);
-            A2();
+            T2();
+            V2();
+            U2();
+            P2();
+            R2(true);
+            S2();
             return this.e;
         }
         return (View) invokeLLL.objValue;
-    }
-
-    public final void x2() {
-        VideoItemData videoItemData;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048606, this) == null) && (videoItemData = this.f) != null && videoItemData.author_info != null) {
-            if (this.k != null) {
-                this.k.setData(videoItemData.getTitle(), true, null);
-                this.k.setOnClickListener(this.L);
-            }
-            TextView textView = this.h;
-            if (textView != null) {
-                textView.setText(StringHelper.cutChineseAndEnglishWithEmoji(this.f.author_info.getUserShowName(), 16, "..."));
-                this.h.setOnClickListener(this.L);
-            }
-            if (this.g != null) {
-                if (!StringUtils.isNull(this.f.author_info.portrait) && this.f.author_info.portrait.startsWith("http")) {
-                    this.g.startLoad(this.f.author_info.portrait, 10, false);
-                } else {
-                    this.g.startLoad(this.f.author_info.portrait, 12, false);
-                }
-                this.g.setOnClickListener(this.L);
-            }
-            EnterLiveRoomBtn enterLiveRoomBtn = this.l;
-            if (enterLiveRoomBtn != null) {
-                enterLiveRoomBtn.c(this.u);
-                this.l.setEnterLiveRoomCallback(new h(this));
-            }
-            if (this.q != null) {
-                if (this.f.getLivePageData() != null && !ad.isEmpty(this.f.getLivePageData().user_label_text)) {
-                    this.q.setVisibility(0);
-                    this.q.setText(this.f.getLivePageData().user_label_text);
-                } else {
-                    this.q.setVisibility(8);
-                }
-                this.q.setOnClickListener(this.L);
-            }
-            y2();
-        }
-    }
-
-    public final void z2(boolean z) {
-        VideoItemData videoItemData;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048608, this, z) == null) && (videoItemData = this.f) != null && videoItemData.author_info != null && videoItemData.getLivePageData() != null) {
-            BasicVideoSeries basicVideoSeries = BasicVideoSeriesKt.toBasicVideoSeries(this.f.getLivePageData().flv_url, true);
-            basicVideoSeries.setKernelType(YYVideoKernel.KERNEL_TYPE_YY);
-            YYUtil.setYYBufferSize(basicVideoSeries, 10);
-            basicVideoSeries.setPreRenderOptionState(OptionState.ENABLE);
-            this.c.setVideoSeries(basicVideoSeries, z);
-        }
     }
 }

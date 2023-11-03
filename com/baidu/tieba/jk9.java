@@ -1,37 +1,68 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.message.GameLaunchMessage;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.editortools.DLauncher;
+import com.baidu.tieba.fh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import java.util.LinkedList;
 /* loaded from: classes6.dex */
-public class jk9 {
+public class jk9 extends fh5 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile jk9 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public LinkedList<ge5> m;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947886321, "Lcom/baidu/tieba/jk9;")) == null) {
-            return;
+    @Override // com.baidu.tieba.yd5
+    public void S(xd5 xd5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xd5Var) == null) {
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements fh5.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jk9 a;
+
+        public a(jk9 jk9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jk9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jk9Var;
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947886321, "Lcom/baidu/tieba/jk9;");
+
+        @Override // com.baidu.tieba.fh5.a
+        public View getView(int i, View view2, ViewGroup viewGroup) {
+            InterceptResult invokeILL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, view2, viewGroup)) == null) {
+                DLauncher A = this.a.A(i);
+                if (A.getLayoutParams() == null) {
+                    A.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
+                }
+                return A;
+            }
+            return (View) invokeILL.objValue;
         }
     }
 
@@ -39,84 +70,70 @@ public class jk9 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static jk9 a() {
+    @Override // com.baidu.tieba.fh5
+    public void a() {
+        LinkedList<ge5> linkedList;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (linkedList = this.m) != null) {
+            linkedList.clear();
+            this.m = null;
+        }
+    }
+
+    @Override // com.baidu.tieba.fh5
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (jk9.class) {
-                    if (a == null) {
-                        a = new jk9();
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            LinkedList<ge5> linkedList = this.m;
+            if (linkedList != null) {
+                return linkedList.size();
             }
-            return a;
+            return 0;
         }
-        return (jk9) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public static boolean c(String str) {
-        InterceptResult invokeL;
+    public final DLauncher A(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (str != null && str.contains("bookcover:")) {
-                return true;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i >= 0 && i < c()) {
+                return (DLauncher) this.m.get(i);
             }
-            return false;
+            return null;
         }
-        return invokeL.booleanValue;
+        return (DLauncher) invokeI.objValue;
     }
 
-    public final boolean d(String str) {
-        InterceptResult invokeL;
+    public void z(LinkedList<ge5> linkedList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            return str.contains("xiaoying.tv");
+        if (interceptable == null || interceptable.invokeL(1048581, this, linkedList) == null) {
+            this.m = linkedList;
         }
-        return invokeL.booleanValue;
     }
 
-    public final boolean b(String str) {
-        InterceptResult invokeL;
-        Map<String, String> paramPair;
+    @Override // com.baidu.tieba.fh5
+    public void n(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || (paramPair = UrlManager.getParamPair(UrlManager.getParamStr(str))) == null) {
-                return false;
-            }
-            String str2 = paramPair.get("url");
-            if (!TextUtils.isEmpty(str2)) {
-                return b(ad.getUrlDecode(str2));
-            }
-            return "1".equals(paramPair.get("tbgametype"));
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void e(TbPageContext tbPageContext, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, str) != null) || tbPageContext == null || TextUtils.isEmpty(str)) {
-            return;
-        }
-        if (b(str)) {
-            MessageManager.getInstance().dispatchResponsedMessage(new GameLaunchMessage(tbPageContext.getPageActivity(), null, str, null));
-        } else if (d(str)) {
-            UrlManager.getInstance().dealOneLink((TbPageContext<?>) tbPageContext, new String[]{str}, true);
-        } else {
-            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
+        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
+            o(4);
+            v(2);
+            q(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X004));
+            t(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006));
+            u(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006));
+            x(new a(this));
+            h().b(this);
         }
     }
 }

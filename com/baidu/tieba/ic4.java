@@ -1,48 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.http.AbstractHttpManager;
-import com.baidu.tieba.vc4;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.app.Activity;
+import android.content.Context;
+import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ic4 extends vc4.a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ic4 {
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ic4(AbstractHttpManager abstractHttpManager) {
-        super(abstractHttpManager);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {abstractHttpManager};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((AbstractHttpManager) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(int i);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vc4.a, com.baidu.searchbox.http.request.HttpRequestBuilder
-    /* renamed from: a */
-    public vc4 build() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            hc4.b().j(this.httpUrl.toString(), this);
-            requestFrom(6);
-            return super.build();
-        }
-        return (vc4) invokeV.objValue;
-    }
+    boolean a();
+
+    void b(Activity activity, oc4 oc4Var);
+
+    void c(int i, List<oc4> list);
+
+    void d(int i, List<oc4> list);
+
+    void e(int i, List<oc4> list);
+
+    void f(int i, List<oc4> list, a aVar);
+
+    void g(Activity activity, oc4 oc4Var);
+
+    void h(Context context, JSONObject jSONObject);
+
+    void i(JSONObject jSONObject);
+
+    boolean j(oc4 oc4Var);
+
+    boolean k(boolean z, int i);
 }

@@ -1,24 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
+import tbclient.FrsPage.BrandForumInfo;
 /* loaded from: classes6.dex */
-public class ip7 implements g15 {
+public class ip7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.g15
-    public String name() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "NA_FRS_SHIELD_STRATEGY" : (String) invokeV.objValue;
-    }
 
     public ip7() {
         Interceptable interceptable = $ic;
@@ -34,13 +24,13 @@ public class ip7 implements g15 {
         }
     }
 
-    @Override // com.baidu.tieba.g15
-    public e15 a() {
-        InterceptResult invokeV;
+    public void a(BrandForumInfo brandForumInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new hp7();
+        if ((interceptable != null && interceptable.invokeL(1048576, this, brandForumInfo) != null) || brandForumInfo == null) {
+            return;
         }
-        return (e15) invokeV.objValue;
+        String str = brandForumInfo.brand_desc;
+        String str2 = brandForumInfo.jump_url;
+        String str3 = brandForumInfo.jump_desc;
     }
 }

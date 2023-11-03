@@ -1,10 +1,13 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.os.Build;
-import android.text.TextUtils;
-import android.webkit.WebSettings;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.network.outback.core.Call;
+import com.baidu.searchbox.network.outback.core.Request;
+import com.baidu.searchbox.network.outback.core.internal.Util;
+import com.baidu.searchbox.network.support.dns.Dns;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,53 +15,62 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-import okhttp3.Headers;
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-/* loaded from: classes6.dex */
-public class k20 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static volatile k20 c = null;
-    public static int d = 1;
+import java.net.Proxy;
+import java.net.ProxySelector;
+import java.util.ArrayList;
+import java.util.List;
+import javax.net.SocketFactory;
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.SSLSocketFactory;
+/* loaded from: classes7.dex */
+public class k20 implements Cloneable, Call.Factory {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final OkHttpClient a;
-    public Context b;
+    public final Context a;
+    public final e20 b;
+    @Nullable
+    public final Proxy c;
+    public final List<f20> d;
+    public final List<f20> e;
+    public final ProxySelector f;
+    public final SSLSocketFactory g;
+    public final HostnameVerifier h;
+    public final Dns i;
+    public final int j;
+    public final int k;
+    public final int l;
+    public q20 m;
+    public boolean n;
+    public boolean o;
+    public String p;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947861056, "Lcom/baidu/tieba/k20;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947861056, "Lcom/baidu/tieba/k20;");
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    /* loaded from: classes7.dex */
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ l20 a;
-        public final /* synthetic */ byte[] b;
-        public final /* synthetic */ m20 c;
-        public final /* synthetic */ k20 d;
+        public Context a;
+        public e20 b;
+        @Nullable
+        public Proxy c;
+        public final List<f20> d;
+        public final List<f20> e;
+        public ProxySelector f;
+        @Nullable
+        public SSLSocketFactory g;
+        public HostnameVerifier h;
+        public boolean i;
+        public boolean j;
+        public Dns k;
+        public int l;
+        public int m;
+        public int n;
+        public q20 o;
+        public String p;
 
-        public a(k20 k20Var, l20 l20Var, byte[] bArr, m20 m20Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {k20Var, l20Var, bArr, m20Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -68,27 +80,251 @@ public class k20 {
                     return;
                 }
             }
-            this.d = k20Var;
-            this.a = l20Var;
-            this.b = bArr;
-            this.c = m20Var;
+            this.d = new ArrayList();
+            this.e = new ArrayList();
+            this.b = new e20();
+            ProxySelector proxySelector = ProxySelector.getDefault();
+            this.f = proxySelector;
+            if (proxySelector == null) {
+                this.f = new i20();
+            }
+            SocketFactory.getDefault();
+            this.h = null;
+            this.k = Dns.SYSTEM;
+            this.l = 10000;
+            this.m = 10000;
+            this.n = 10000;
+            this.o = new o20();
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        public a(k20 k20Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.d.c(this.a.getMethod(), this.a.getHost(), this.a.getRequestParameter(), this.b, this.a.getHeaders(), this.a.getContentType(), this.c);
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k20Var};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
             }
+            this.d = new ArrayList();
+            this.e = new ArrayList();
+            this.b = k20Var.b;
+            this.c = k20Var.c;
+            this.d.addAll(k20Var.d);
+            this.e.addAll(k20Var.e);
+            this.f = k20Var.f;
+            this.k = k20Var.i;
+            this.l = k20Var.j;
+            this.m = k20Var.k;
+            this.n = k20Var.l;
+            this.o = k20Var.m;
+            this.i = k20Var.n;
+            this.j = k20Var.o;
+            this.p = k20Var.p;
+            this.h = k20Var.h;
+            this.g = k20Var.g;
+        }
+
+        public a a(f20 f20Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, f20Var)) == null) {
+                if (f20Var != null) {
+                    this.d.add(f20Var);
+                    return this;
+                }
+                throw new IllegalArgumentException("interceptor == null");
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a c(e20 e20Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e20Var)) == null) {
+                if (e20Var != null) {
+                    this.b = e20Var;
+                    return this;
+                }
+                throw new IllegalArgumentException("dispatcher == null");
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a d(q20 q20Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, q20Var)) == null) {
+                this.o = q20Var;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public k20 b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return new k20(this);
+            }
+            return (k20) invokeV.objValue;
         }
     }
 
-    public k20(Context context) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947861056, "Lcom/baidu/tieba/k20;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947861056, "Lcom/baidu/tieba/k20;");
+                return;
+            }
+        }
+        new ArrayList(2);
+    }
+
+    public SSLSocketFactory B() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.g;
+        }
+        return (SSLSocketFactory) invokeV.objValue;
+    }
+
+    public String C() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.p;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.j;
+        }
+        return invokeV.intValue;
+    }
+
+    public e20 p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b;
+        }
+        return (e20) invokeV.objValue;
+    }
+
+    public Dns q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.i;
+        }
+        return (Dns) invokeV.objValue;
+    }
+
+    public HostnameVerifier r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.h;
+        }
+        return (HostnameVerifier) invokeV.objValue;
+    }
+
+    public q20 s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.m;
+        }
+        return (q20) invokeV.objValue;
+    }
+
+    public List<f20> t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.d;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public boolean u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.o;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.n;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public List<f20> w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.e;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public a x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return new a(this);
+        }
+        return (a) invokeV.objValue;
+    }
+
+    public ProxySelector y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.f;
+        }
+        return (ProxySelector) invokeV.objValue;
+    }
+
+    public int z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.k;
+        }
+        return invokeV.intValue;
+    }
+
+    public k20(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -98,120 +334,49 @@ public class k20 {
                 return;
             }
         }
-        this.a = new OkHttpClient.Builder().connectTimeout(30L, TimeUnit.SECONDS).readTimeout(30L, TimeUnit.SECONDS).build();
-        this.b = context;
-    }
-
-    public final Headers d(Map<String, String> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map)) == null) {
-            try {
-                Headers.Builder builder = new Headers.Builder();
-                if (map != null && map.size() > 0) {
-                    for (String str : map.keySet()) {
-                        String str2 = str.toString();
-                        builder.add(str2, map.get(str2));
-                    }
-                }
-                return builder.build();
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
+        this.n = false;
+        this.o = false;
+        this.p = null;
+        this.a = aVar.a;
+        this.b = aVar.b;
+        this.c = aVar.c;
+        this.d = Util.immutableList(aVar.d);
+        this.e = Util.immutableList(aVar.e);
+        this.f = aVar.f;
+        this.g = aVar.g;
+        this.h = aVar.h;
+        this.i = aVar.k;
+        this.j = aVar.l;
+        this.k = aVar.m;
+        this.l = aVar.n;
+        if (!this.d.contains(null)) {
+            if (!this.e.contains(null)) {
+                this.m = aVar.o;
+                this.n = aVar.i;
+                this.o = aVar.j;
+                this.p = aVar.p;
+                return;
             }
+            throw new IllegalStateException("Null network interceptor: " + this.e);
         }
-        return (Headers) invokeL.objValue;
+        throw new IllegalStateException("Null interceptor: " + this.d);
     }
 
-    public static k20 e(Context context) {
-        InterceptResult invokeL;
+    public void A(q20 q20Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (c == null) {
-                synchronized (k20.class) {
-                    if (c == null) {
-                        c = new k20(context);
-                    }
-                }
-            }
-            return c;
-        }
-        return (k20) invokeL.objValue;
-    }
-
-    public void b(Context context, l20 l20Var, m20 m20Var, byte[] bArr, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{context, l20Var, m20Var, bArr, Boolean.valueOf(z)}) != null) || m20Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, q20Var) != null) || q20Var == null) {
             return;
         }
-        if (context != null && l20Var != null && !TextUtils.isEmpty(l20Var.getHost())) {
-            if (z) {
-                o20.a().b(new a(this, l20Var, bArr, m20Var));
-                return;
-            } else {
-                c(l20Var.getMethod(), l20Var.getHost(), l20Var.getRequestParameter(), bArr, l20Var.getHeaders(), l20Var.getContentType(), m20Var);
-                return;
-            }
-        }
-        m20Var.a(d, Constants.ERROR_MSG_PARAMETER_ERROR.getBytes());
+        this.m = q20Var;
     }
 
-    public final void c(String str, String str2, byte[] bArr, byte[] bArr2, Map<String, String> map, String str3, m20 m20Var) {
-        Request build;
+    @Override // com.baidu.searchbox.network.outback.core.Call.Factory
+    public Call newCall(Request request) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, bArr, bArr2, map, str3, m20Var}) == null) {
-            try {
-                if ("POST".equals(str)) {
-                    if (TextUtils.isEmpty(str3)) {
-                        str3 = "application/x-www-form-urlencoded";
-                    }
-                    build = new Request.Builder().url(str2).headers(d(map)).removeHeader("User-Agent").addHeader("User-Agent", f()).post(RequestBody.create(MediaType.parse(str3), bArr2)).build();
-                } else {
-                    if (bArr != null && bArr.length > 0) {
-                        str2 = str2 + "?" + new String(bArr);
-                    }
-                    build = new Request.Builder().url(str2).headers(d(map)).removeHeader("User-Agent").addHeader("User-Agent", f()).build();
-                }
-                Response execute = this.a.newCall(build).execute();
-                byte[] bytes = execute.body().bytes();
-                t20.c("HttpExecutor", "requestUrl:" + str2 + "\nrequest method: " + str + "\nrequest contentType: " + str3 + "\nresponse : " + new String(bytes));
-                m20Var.onSuccess(execute.code(), bytes);
-            } catch (Exception e) {
-                e.printStackTrace();
-                if (m20Var != null) {
-                    m20Var.a(d, "Http Unknown exception".getBytes());
-                }
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, request)) == null) {
+            return j20.c(request, this, false);
         }
-    }
-
-    public final String f() {
-        InterceptResult invokeV;
-        String property;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (Build.VERSION.SDK_INT >= 17) {
-                try {
-                    property = WebSettings.getDefaultUserAgent(this.b);
-                } catch (Exception unused) {
-                    property = System.getProperty("http.agent");
-                }
-            } else {
-                property = System.getProperty("http.agent");
-            }
-            StringBuffer stringBuffer = new StringBuffer();
-            int length = property.length();
-            for (int i = 0; i < length; i++) {
-                char charAt = property.charAt(i);
-                if (charAt > 31 && charAt < 127) {
-                    stringBuffer.append(charAt);
-                } else {
-                    stringBuffer.append(String.format("\\u%04x", Integer.valueOf(charAt)));
-                }
-            }
-            t20.a("HttpExecutor", "getUserAgent:" + stringBuffer.toString());
-            return stringBuffer.toString();
-        }
-        return (String) invokeV.objValue;
+        return (Call) invokeL.objValue;
     }
 }

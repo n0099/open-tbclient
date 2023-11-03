@@ -1,163 +1,135 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.safe.SafeHandler;
-import com.baidu.adp.log.DefaultLog;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.atomData.LogoActivityConfig;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.y85;
+import android.text.TextUtils;
+import androidx.collection.ArrayMap;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
 import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public class z85 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static WeakReference<y85> b;
+    public static final z85 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public final boolean a;
+    public Map<String, a95> b;
+    public int c;
 
-    /* loaded from: classes9.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y85 a;
-
-        public a(y85 y85Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948313842, "Lcom/baidu/tieba/z85;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y85Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = y85Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.B();
-                boolean unused = z85.a = true;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948313842, "Lcom/baidu/tieba/z85;");
+                return;
             }
         }
+        d = new z85(false);
     }
 
-    /* loaded from: classes9.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y85 a;
-
-        public b(y85 y85Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y85Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = y85Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.t();
-            }
-        }
-    }
-
-    public static y85 b() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            WeakReference<y85> weakReference = b;
-            if (weakReference != null) {
-                return weakReference.get();
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
-        return (y85) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public static boolean c() {
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
         }
         return invokeV.booleanValue;
     }
 
-    public static void e() {
+    public z85(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            SharedPrefHelper.getInstance().putLong("key_live_remind_float_view", System.currentTimeMillis());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
+        this.a = z;
     }
 
-    public static y85 d(View view2, TbPageContext<?> tbPageContext, Map<String, Object> map, long j, long j2, y85.h hVar) {
-        InterceptResult invokeCommon;
+    public static z85 e(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{view2, tbPageContext, map, Long.valueOf(j), Long.valueOf(j2), hVar})) == null) {
-            TbLog defaultLog = DefaultLog.getInstance();
-            defaultLog.i("PUSH_OPEN_FLOAT", "广告是否正在展示：" + TbSingleton.getInstance().isSplashShowing() + "  冷起广告是否正在展示：" + MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW + "  热起广告是否正在展示：" + LogoActivityConfig.IS_HOT_SPLASH_SHOW);
-            y85 y85Var = new y85(tbPageContext, map);
-            if (hVar != null) {
-                y85Var.y(hVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return d;
             }
-            if (view2 != null) {
-                y85Var.z(view2);
+            JSONObject optJSONObject = jSONObject.optJSONObject("push_strategy");
+            if (optJSONObject == null) {
+                return d;
             }
-            if (j <= 0) {
-                y85Var.B();
-                a = true;
-            } else {
-                SafeHandler.getInst().postDelayed(new a(y85Var), j);
-            }
-            if (j2 > 0) {
-                SafeHandler.getInst().postDelayed(new b(y85Var), j2);
-            }
-            b = new WeakReference<>(y85Var);
-            return y85Var;
+            z85 z85Var = new z85(true);
+            z85Var.a(optJSONObject);
+            return z85Var;
         }
-        return (y85) invokeCommon.objValue;
+        return (z85) invokeL.objValue;
     }
 
-    public static y85 f(View view2, TbPageContext<?> tbPageContext, Map<String, Object> map, long j, long j2) {
-        InterceptResult invokeCommon;
+    public a95 c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{view2, tbPageContext, map, Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            if (tbPageContext != null && !MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW && !pa5.j()) {
-                return d(view2, tbPageContext, map, j, j2, null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (this.b != null && !TextUtils.isEmpty(str)) {
+                return this.b.get(str);
             }
             return null;
         }
-        return (y85) invokeCommon.objValue;
+        return (a95) invokeL.objValue;
+    }
+
+    public final void a(JSONObject jSONObject) {
+        int length;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        JSONArray optJSONArray = jSONObject.optJSONArray("scene");
+        if (optJSONArray == null) {
+            length = 0;
+        } else {
+            length = optJSONArray.length();
+        }
+        this.b = new ArrayMap(length);
+        for (int i = 0; i < length; i++) {
+            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+            if (optJSONObject != null) {
+                a95 d2 = a95.d(optJSONObject);
+                if (!TextUtils.isEmpty(d2.a())) {
+                    this.b.put(d2.a(), d2);
+                }
+            }
+        }
+        try {
+            this.c = Integer.parseInt(jSONObject.optString("freq"));
+        } catch (Exception unused) {
+            this.c = 0;
+        }
     }
 }

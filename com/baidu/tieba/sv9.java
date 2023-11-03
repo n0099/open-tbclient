@@ -1,81 +1,134 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.database.ContentObserver;
-import android.os.Handler;
-import android.provider.Settings;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tieba.ca;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class sv9 extends ContentObserver {
+public class sv9 {
     public static /* synthetic */ Interceptable $ic;
+    public static sv9 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public a b;
+    public ca<byte[]> a;
+    public ca<byte[]> b;
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void onChange(boolean z);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sv9(Context context, Handler handler) {
-        super(handler);
+    public sv9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, handler};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Handler) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context;
+        this.a = null;
+        this.b = null;
+        c();
     }
 
-    public final void a() {
-        Context context;
+    public static synchronized sv9 b() {
+        InterceptResult invokeV;
+        sv9 sv9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (context = this.a) == null) {
-            return;
-        }
-        try {
-            int i = Settings.System.getInt(context.getContentResolver(), "accelerometer_rotation");
-            if (this.b != null) {
-                a aVar = this.b;
-                boolean z = true;
-                if (i != 1) {
-                    z = false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (sv9.class) {
+                if (c == null) {
+                    c = new sv9();
                 }
-                aVar.onChange(z);
+                sv9Var = c;
             }
-        } catch (Settings.SettingNotFoundException e) {
-            e.printStackTrace();
+            return sv9Var;
+        }
+        return (sv9) invokeV.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (this.a == null) {
+                yz4.l();
+                this.a = yz4.i("tb.pb_mark");
+            }
+            if (this.b == null) {
+                yz4.l();
+                this.b = yz4.i("tb.pb_normal");
+            }
         }
     }
 
-    public void b(a aVar) {
+    public byte[] a(String str, boolean z) {
+        InterceptResult invokeLZ;
+        ca.b<byte[]> h;
+        byte[] bArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.b = aVar;
-            a();
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
+            if (UbsABTestHelper.isNoCachePb()) {
+                return null;
+            }
+            if (z) {
+                ca<byte[]> caVar = this.a;
+                if (caVar != null && str != null) {
+                    h = caVar.h(str);
+                }
+                h = null;
+            } else {
+                ca<byte[]> caVar2 = this.b;
+                if (caVar2 != null && str != null) {
+                    h = caVar2.h(str);
+                }
+                h = null;
+            }
+            if (h == null || (bArr = h.b) == null) {
+                return null;
+            }
+            return bArr;
+        }
+        return (byte[]) invokeLZ.objValue;
+    }
+
+    public void d(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
+            if (z) {
+                ca<byte[]> caVar = this.a;
+                if (caVar != null && str != null) {
+                    caVar.i(str, new byte[0], 0L);
+                    return;
+                }
+                return;
+            }
+            ca<byte[]> caVar2 = this.b;
+            if (caVar2 != null && str != null) {
+                caVar2.i(str, new byte[0], 0L);
+            }
         }
     }
 
-    @Override // android.database.ContentObserver
-    public void onChange(boolean z) {
+    public void f(String str, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            a();
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, bArr) == null) && bArr != null && str != null) {
+            c();
+            this.a.e(str, bArr, 86400000L);
+        }
+    }
+
+    public void e(String str, boolean z, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Boolean.valueOf(z), bArr}) == null) && str != null) {
+            c();
+            if (z) {
+                this.a.e(str, bArr, 86400000L);
+            } else {
+                this.b.e(str, bArr, 86400000L);
+            }
         }
     }
 }

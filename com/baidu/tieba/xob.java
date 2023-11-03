@@ -1,26 +1,25 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-/* loaded from: classes8.dex */
-public class xob extends cpb {
+/* loaded from: classes9.dex */
+public class xob implements epb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public final /* synthetic */ iob b;
-    public final /* synthetic */ String c;
-    public final /* synthetic */ vob d;
+    public kob a;
+    public int b;
+    public int c;
+    public boolean d;
 
-    public xob(vob vobVar, iob iobVar, String str) {
+    public xob() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vobVar, iobVar, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,62 +29,127 @@ public class xob extends cpb {
                 return;
             }
         }
-        this.d = vobVar;
-        this.b = iobVar;
-        this.c = str;
+        this.d = true;
     }
 
-    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
-    public void onAdClicked() {
+    @Override // com.baidu.tieba.epb
+    public int a(byte[] bArr, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LogPrinter.d();
-            this.d.onAdClicked((vob) this.b, this.a, this.c);
-            this.a = true;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i)) == null) {
+            kob kobVar = this.a;
+            if (kobVar == null || bArr == null) {
+                return 0;
+            }
+            this.b += bArr.length;
+            kobVar.putBytes(bArr, i);
+            return this.b;
         }
+        return invokeLI.intValue;
     }
 
-    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
-    public void onPageDismiss() {
+    @Override // com.baidu.tieba.epb
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LogPrinter.d();
-            this.d.onAdClose((vob) this.b, this.c);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() && this.d && this.a.available() : invokeV.booleanValue;
     }
 
-    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
-    public void onRewardVerify() {
+    @Override // com.baidu.tieba.epb
+    public boolean a(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LogPrinter.d();
-            this.d.onRewardedVideo((vob) this.b, this.c);
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4)) == null) {
+            if (this.a == null) {
+                this.a = (kob) msb.a("com.baidu.ugc.audioedit.AudioChangeOperator");
+            }
+            kob kobVar = this.a;
+            if (kobVar != null) {
+                kobVar.initVoiceChanger(i, i2, i3, i4);
+            }
+            return this.a != null;
         }
+        return invokeIIII.booleanValue;
     }
 
-    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
-    public void onVideoPlayEnd() {
+    @Override // com.baidu.tieba.epb
+    public byte[] a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LogPrinter.d();
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            kob kobVar = this.a;
+            if (kobVar == null || kobVar.availableBytes() <= 0) {
+                return new byte[0];
+            }
+            byte[] bArr = new byte[4096];
+            int bytes = this.a.getBytes(bArr, 4096);
+            this.c += bytes;
+            if (bytes == 0) {
+                return null;
+            }
+            if (4096 == bytes) {
+                return bArr;
+            }
+            byte[] bArr2 = new byte[bytes];
+            System.arraycopy(bArr, 0, bArr2, 0, bytes);
+            return bArr2;
         }
+        return (byte[]) invokeI.objValue;
     }
 
-    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
-    public void onVideoPlayError(int i, int i2) {
+    public void b(int[] iArr) {
+        kob kobVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
-            LogPrinter.d();
-            this.d.onAdError(this.b, i, String.valueOf(i2), this.c);
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, iArr) == null) || (kobVar = this.a) == null) {
+            return;
         }
+        kobVar.setVoiceChangeType(iArr);
     }
 
-    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
-    public void onVideoPlayStart() {
+    @Override // com.baidu.tieba.epb
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            LogPrinter.d();
-            this.d.onAdShow((vob) this.b, false, this.c);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a != null : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.epb
+    public void c() {
+        kob kobVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (kobVar = this.a) == null) {
+            return;
         }
+        kobVar.flush();
+    }
+
+    public void c(int[] iArr, int[] iArr2, double[] dArr) {
+        kob kobVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048583, this, iArr, iArr2, dArr) == null) || (kobVar = this.a) == null) {
+            return;
+        }
+        kobVar.setVoiceChangeType(iArr, iArr2, dArr);
+    }
+
+    @Override // com.baidu.tieba.epb
+    public void d() {
+        kob kobVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (kobVar = this.a) == null) {
+            return;
+        }
+        kobVar.close();
+        this.a = null;
+    }
+
+    @Override // com.baidu.tieba.epb
+    public void e() {
+        kob kobVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (kobVar = this.a) == null) {
+            return;
+        }
+        kobVar.clearQueues();
     }
 }

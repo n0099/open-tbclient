@@ -26,8 +26,8 @@ import com.baidu.sapi2.SapiWebView;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.game.guide.view.GameGuideProgressView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.am1;
-import com.baidu.tieba.ov3;
+import com.baidu.tieba.fw3;
+import com.baidu.tieba.rm1;
 import com.sina.weibo.sdk.constant.WBConstants;
 import java.util.HashMap;
 import kotlin.Metadata;
@@ -109,7 +109,7 @@ public final class GameGuideView extends FrameLayout {
         @Override // com.baidu.swan.game.guide.view.GameGuideProgressView.a
         public void c() {
             if (GameGuideView.this.e && (GameGuideView.this.b == 0 || GameGuideView.this.b == 1)) {
-                ((GameGuideProgressView) GameGuideView.this.a(R.id.obfuscated_res_0x7f091db0)).i(0.0f);
+                ((GameGuideProgressView) GameGuideView.this.a(R.id.progress_view)).i(0.0f);
             }
             GameGuideView.this.t();
         }
@@ -126,13 +126,13 @@ public final class GameGuideView extends FrameLayout {
             Object animatedValue = it.getAnimatedValue();
             if (animatedValue != null) {
                 float floatValue = ((Float) animatedValue).floatValue();
-                LottieAnimationView tailing_view = (LottieAnimationView) GameGuideView.this.a(R.id.obfuscated_res_0x7f09245f);
+                LottieAnimationView tailing_view = (LottieAnimationView) GameGuideView.this.a(R.id.obfuscated_res_0x7f0924b6);
                 Intrinsics.checkNotNullExpressionValue(tailing_view, "tailing_view");
                 ViewGroup.LayoutParams layoutParams = tailing_view.getLayoutParams();
                 if (layoutParams != null) {
                     ConstraintLayout.LayoutParams layoutParams2 = (ConstraintLayout.LayoutParams) layoutParams;
                     ((ViewGroup.MarginLayoutParams) layoutParams2).rightMargin = (int) floatValue;
-                    LottieAnimationView tailing_view2 = (LottieAnimationView) GameGuideView.this.a(R.id.obfuscated_res_0x7f09245f);
+                    LottieAnimationView tailing_view2 = (LottieAnimationView) GameGuideView.this.a(R.id.obfuscated_res_0x7f0924b6);
                     Intrinsics.checkNotNullExpressionValue(tailing_view2, "tailing_view");
                     tailing_view2.setLayoutParams(layoutParams2);
                     return;
@@ -154,13 +154,13 @@ public final class GameGuideView extends FrameLayout {
             Object animatedValue = it.getAnimatedValue();
             if (animatedValue != null) {
                 float floatValue = ((Float) animatedValue).floatValue();
-                LottieAnimationView tailing_view = (LottieAnimationView) GameGuideView.this.a(R.id.obfuscated_res_0x7f09245f);
+                LottieAnimationView tailing_view = (LottieAnimationView) GameGuideView.this.a(R.id.obfuscated_res_0x7f0924b6);
                 Intrinsics.checkNotNullExpressionValue(tailing_view, "tailing_view");
                 ViewGroup.LayoutParams layoutParams = tailing_view.getLayoutParams();
                 if (layoutParams != null) {
                     ConstraintLayout.LayoutParams layoutParams2 = (ConstraintLayout.LayoutParams) layoutParams;
                     ((ViewGroup.MarginLayoutParams) layoutParams2).bottomMargin = (int) floatValue;
-                    LottieAnimationView tailing_view2 = (LottieAnimationView) GameGuideView.this.a(R.id.obfuscated_res_0x7f09245f);
+                    LottieAnimationView tailing_view2 = (LottieAnimationView) GameGuideView.this.a(R.id.obfuscated_res_0x7f0924b6);
                     Intrinsics.checkNotNullExpressionValue(tailing_view2, "tailing_view");
                     tailing_view2.setLayoutParams(layoutParams2);
                     return;
@@ -188,61 +188,61 @@ public final class GameGuideView extends FrameLayout {
                 Ref.BooleanRef booleanRef = this.b;
                 if (!booleanRef.element) {
                     booleanRef.element = true;
-                    LottieAnimationView tailing_view = (LottieAnimationView) GameGuideView.this.a(R.id.obfuscated_res_0x7f09245f);
+                    LottieAnimationView tailing_view = (LottieAnimationView) GameGuideView.this.a(R.id.obfuscated_res_0x7f0924b6);
                     Intrinsics.checkNotNullExpressionValue(tailing_view, "tailing_view");
                     tailing_view.setRotation(90 - ((float) this.c));
                     GameGuideView.this.m();
-                    LottieAnimationView tailing_view2 = (LottieAnimationView) GameGuideView.this.a(R.id.obfuscated_res_0x7f09245f);
+                    LottieAnimationView tailing_view2 = (LottieAnimationView) GameGuideView.this.a(R.id.obfuscated_res_0x7f0924b6);
                     Intrinsics.checkNotNullExpressionValue(tailing_view2, "tailing_view");
                     tailing_view2.setVisibility(8);
                     int i = GameGuideView.this.b;
                     if (i != 0) {
                         if (i != 1) {
                             if (i == 2) {
-                                LottieAnimationView done_coin_3 = (LottieAnimationView) GameGuideView.this.a(R.id.obfuscated_res_0x7f090937);
+                                LottieAnimationView done_coin_3 = (LottieAnimationView) GameGuideView.this.a(R.id.obfuscated_res_0x7f09095a);
                                 Intrinsics.checkNotNullExpressionValue(done_coin_3, "done_coin_3");
                                 done_coin_3.setVisibility(0);
-                                ImageView normal_coin_3 = (ImageView) GameGuideView.this.a(R.id.obfuscated_res_0x7f0919d0);
+                                ImageView normal_coin_3 = (ImageView) GameGuideView.this.a(R.id.obfuscated_res_0x7f091a17);
                                 Intrinsics.checkNotNullExpressionValue(normal_coin_3, "normal_coin_3");
                                 normal_coin_3.setVisibility(4);
-                                ((LottieAnimationView) GameGuideView.this.a(R.id.obfuscated_res_0x7f090937)).playAnimation();
+                                ((LottieAnimationView) GameGuideView.this.a(R.id.obfuscated_res_0x7f09095a)).playAnimation();
                                 GameGuideView.this.b = 3;
-                                ((LottieAnimationView) GameGuideView.this.a(R.id.obfuscated_res_0x7f092283)).cancelAnimation();
-                                LottieAnimationView spark_view = (LottieAnimationView) GameGuideView.this.a(R.id.obfuscated_res_0x7f092283);
+                                ((LottieAnimationView) GameGuideView.this.a(R.id.obfuscated_res_0x7f0922cf)).cancelAnimation();
+                                LottieAnimationView spark_view = (LottieAnimationView) GameGuideView.this.a(R.id.obfuscated_res_0x7f0922cf);
                                 Intrinsics.checkNotNullExpressionValue(spark_view, "spark_view");
                                 spark_view.setVisibility(8);
                                 GameGuideView gameGuideView = GameGuideView.this;
-                                LottieAnimationView done_coin_32 = (LottieAnimationView) gameGuideView.a(R.id.obfuscated_res_0x7f090937);
+                                LottieAnimationView done_coin_32 = (LottieAnimationView) gameGuideView.a(R.id.obfuscated_res_0x7f09095a);
                                 Intrinsics.checkNotNullExpressionValue(done_coin_32, "done_coin_3");
                                 gameGuideView.k(done_coin_32);
                                 return;
                             }
                             return;
                         }
-                        LottieAnimationView done_coin_2 = (LottieAnimationView) GameGuideView.this.a(R.id.obfuscated_res_0x7f090936);
+                        LottieAnimationView done_coin_2 = (LottieAnimationView) GameGuideView.this.a(R.id.obfuscated_res_0x7f090959);
                         Intrinsics.checkNotNullExpressionValue(done_coin_2, "done_coin_2");
                         done_coin_2.setVisibility(0);
-                        ImageView normal_coin_2 = (ImageView) GameGuideView.this.a(R.id.obfuscated_res_0x7f0919cf);
+                        ImageView normal_coin_2 = (ImageView) GameGuideView.this.a(R.id.obfuscated_res_0x7f091a16);
                         Intrinsics.checkNotNullExpressionValue(normal_coin_2, "normal_coin_2");
                         normal_coin_2.setVisibility(4);
-                        ((LottieAnimationView) GameGuideView.this.a(R.id.obfuscated_res_0x7f090936)).playAnimation();
+                        ((LottieAnimationView) GameGuideView.this.a(R.id.obfuscated_res_0x7f090959)).playAnimation();
                         GameGuideView.this.b = 2;
                         GameGuideView gameGuideView2 = GameGuideView.this;
-                        LottieAnimationView done_coin_22 = (LottieAnimationView) gameGuideView2.a(R.id.obfuscated_res_0x7f090936);
+                        LottieAnimationView done_coin_22 = (LottieAnimationView) gameGuideView2.a(R.id.obfuscated_res_0x7f090959);
                         Intrinsics.checkNotNullExpressionValue(done_coin_22, "done_coin_2");
                         gameGuideView2.k(done_coin_22);
                         return;
                     }
-                    LottieAnimationView done_coin_1 = (LottieAnimationView) GameGuideView.this.a(R.id.obfuscated_res_0x7f090935);
+                    LottieAnimationView done_coin_1 = (LottieAnimationView) GameGuideView.this.a(R.id.obfuscated_res_0x7f090958);
                     Intrinsics.checkNotNullExpressionValue(done_coin_1, "done_coin_1");
                     done_coin_1.setVisibility(0);
-                    ImageView normal_coin_1 = (ImageView) GameGuideView.this.a(R.id.obfuscated_res_0x7f0919ce);
+                    ImageView normal_coin_1 = (ImageView) GameGuideView.this.a(R.id.obfuscated_res_0x7f091a15);
                     Intrinsics.checkNotNullExpressionValue(normal_coin_1, "normal_coin_1");
                     normal_coin_1.setVisibility(4);
-                    ((LottieAnimationView) GameGuideView.this.a(R.id.obfuscated_res_0x7f090935)).playAnimation();
+                    ((LottieAnimationView) GameGuideView.this.a(R.id.obfuscated_res_0x7f090958)).playAnimation();
                     GameGuideView.this.b = 1;
                     GameGuideView gameGuideView3 = GameGuideView.this;
-                    LottieAnimationView done_coin_12 = (LottieAnimationView) gameGuideView3.a(R.id.obfuscated_res_0x7f090935);
+                    LottieAnimationView done_coin_12 = (LottieAnimationView) gameGuideView3.a(R.id.obfuscated_res_0x7f090958);
                     Intrinsics.checkNotNullExpressionValue(done_coin_12, "done_coin_1");
                     gameGuideView3.k(done_coin_12);
                     GameGuideView.this.j();
@@ -260,7 +260,7 @@ public final class GameGuideView extends FrameLayout {
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             super.onAnimationEnd(animator);
-            LottieAnimationView bomb_view = (LottieAnimationView) GameGuideView.this.a(R.id.obfuscated_res_0x7f090419);
+            LottieAnimationView bomb_view = (LottieAnimationView) GameGuideView.this.a(R.id.obfuscated_res_0x7f090432);
             Intrinsics.checkNotNullExpressionValue(bomb_view, "bomb_view");
             bomb_view.setVisibility(8);
         }
@@ -314,11 +314,11 @@ public final class GameGuideView extends FrameLayout {
 
     public final boolean i(long j) {
         if (j < 0) {
-            if (am1.a) {
+            if (rm1.a) {
                 Log.d("GameTimeView", "传入的时间不能小于0");
             }
             return false;
-        } else if (j > SapiWebView.DEFAULT_TIMEOUT_MILLIS && am1.a) {
+        } else if (j > SapiWebView.DEFAULT_TIMEOUT_MILLIS && rm1.a) {
             Log.d("GameTimeView", "传入的时间大于最大值 90000");
             return false;
         } else {
@@ -337,7 +337,7 @@ public final class GameGuideView extends FrameLayout {
 
     private final int getProgressViewWidth() {
         if (this.a == 0) {
-            GameGuideProgressView progress_view = (GameGuideProgressView) a(R.id.obfuscated_res_0x7f091db0);
+            GameGuideProgressView progress_view = (GameGuideProgressView) a(R.id.progress_view);
             Intrinsics.checkNotNullExpressionValue(progress_view, "progress_view");
             this.a = progress_view.getWidth();
         }
@@ -346,7 +346,7 @@ public final class GameGuideView extends FrameLayout {
 
     private final float getTailingViewOriginCenterX() {
         if (this.c == 0.0f) {
-            GameGuideProgressView progress_view = (GameGuideProgressView) a(R.id.obfuscated_res_0x7f091db0);
+            GameGuideProgressView progress_view = (GameGuideProgressView) a(R.id.progress_view);
             Intrinsics.checkNotNullExpressionValue(progress_view, "progress_view");
             this.c = progress_view.getX() + getProgressViewWidth();
         }
@@ -355,10 +355,10 @@ public final class GameGuideView extends FrameLayout {
 
     private final float getTailingViewOriginCenterY() {
         if (this.d == 0.0f) {
-            GameGuideProgressView progress_view = (GameGuideProgressView) a(R.id.obfuscated_res_0x7f091db0);
+            GameGuideProgressView progress_view = (GameGuideProgressView) a(R.id.progress_view);
             Intrinsics.checkNotNullExpressionValue(progress_view, "progress_view");
             float y = progress_view.getY();
-            GameGuideProgressView progress_view2 = (GameGuideProgressView) a(R.id.obfuscated_res_0x7f091db0);
+            GameGuideProgressView progress_view2 = (GameGuideProgressView) a(R.id.progress_view);
             Intrinsics.checkNotNullExpressionValue(progress_view2, "progress_view");
             this.d = y + (progress_view2.getHeight() / 2);
         }
@@ -370,14 +370,14 @@ public final class GameGuideView extends FrameLayout {
     }
 
     public final void m() {
-        LottieAnimationView tailing_view = (LottieAnimationView) a(R.id.obfuscated_res_0x7f09245f);
+        LottieAnimationView tailing_view = (LottieAnimationView) a(R.id.obfuscated_res_0x7f0924b6);
         Intrinsics.checkNotNullExpressionValue(tailing_view, "tailing_view");
         ViewGroup.LayoutParams layoutParams = tailing_view.getLayoutParams();
         if (layoutParams != null) {
             ConstraintLayout.LayoutParams layoutParams2 = (ConstraintLayout.LayoutParams) layoutParams;
             ((ViewGroup.MarginLayoutParams) layoutParams2).rightMargin = 0;
             ((ViewGroup.MarginLayoutParams) layoutParams2).bottomMargin = 0;
-            LottieAnimationView tailing_view2 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f09245f);
+            LottieAnimationView tailing_view2 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f0924b6);
             Intrinsics.checkNotNullExpressionValue(tailing_view2, "tailing_view");
             tailing_view2.setLayoutParams(layoutParams2);
             return;
@@ -386,30 +386,30 @@ public final class GameGuideView extends FrameLayout {
     }
 
     public final void t() {
-        LottieAnimationView bomb_view = (LottieAnimationView) a(R.id.obfuscated_res_0x7f090419);
+        LottieAnimationView bomb_view = (LottieAnimationView) a(R.id.obfuscated_res_0x7f090432);
         Intrinsics.checkNotNullExpressionValue(bomb_view, "bomb_view");
         bomb_view.setVisibility(0);
-        ((LottieAnimationView) a(R.id.obfuscated_res_0x7f090419)).playAnimation();
-        ((LottieAnimationView) a(R.id.obfuscated_res_0x7f090419)).addAnimatorListener(new f());
+        ((LottieAnimationView) a(R.id.obfuscated_res_0x7f090432)).playAnimation();
+        ((LottieAnimationView) a(R.id.obfuscated_res_0x7f090432)).addAnimatorListener(new f());
         q();
     }
 
     public final void j() {
         boolean z;
-        if (!ov3.o.L()) {
+        if (!fw3.o.L()) {
             if (this.h.length() > 0) {
                 z = true;
             } else {
                 z = false;
             }
             if (z) {
-                TextView tips = (TextView) a(R.id.obfuscated_res_0x7f0925a4);
+                TextView tips = (TextView) a(R.id.obfuscated_res_0x7f0925fb);
                 Intrinsics.checkNotNullExpressionValue(tips, "tips");
                 tips.setVisibility(0);
-                TextView tips2 = (TextView) a(R.id.obfuscated_res_0x7f0925a4);
+                TextView tips2 = (TextView) a(R.id.obfuscated_res_0x7f0925fb);
                 Intrinsics.checkNotNullExpressionValue(tips2, "tips");
                 tips2.setText(this.h);
-                ov3.o.b0();
+                fw3.o.b0();
             }
         }
     }
@@ -419,64 +419,64 @@ public final class GameGuideView extends FrameLayout {
         setSaveFromParentEnabled(false);
         setSaveEnabled(false);
         setLayerType(1, null);
-        LayoutInflater.from(AppRuntime.getAppContext()).inflate(R.layout.obfuscated_res_0x7f0d00b0, this);
+        LayoutInflater.from(AppRuntime.getAppContext()).inflate(R.layout.obfuscated_res_0x7f0d00b2, this);
         LottieComposition lottieComposition = this.f;
         if (lottieComposition != null) {
-            ((LottieAnimationView) a(R.id.obfuscated_res_0x7f090935)).setComposition(lottieComposition);
-            ((LottieAnimationView) a(R.id.obfuscated_res_0x7f090936)).setComposition(lottieComposition);
-            ((LottieAnimationView) a(R.id.obfuscated_res_0x7f090937)).setComposition(lottieComposition);
-            LottieAnimationView done_coin_1 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f090935);
+            ((LottieAnimationView) a(R.id.obfuscated_res_0x7f090958)).setComposition(lottieComposition);
+            ((LottieAnimationView) a(R.id.obfuscated_res_0x7f090959)).setComposition(lottieComposition);
+            ((LottieAnimationView) a(R.id.obfuscated_res_0x7f09095a)).setComposition(lottieComposition);
+            LottieAnimationView done_coin_1 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f090958);
             Intrinsics.checkNotNullExpressionValue(done_coin_1, "done_coin_1");
             done_coin_1.setRepeatCount(-1);
-            LottieAnimationView done_coin_2 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f090936);
+            LottieAnimationView done_coin_2 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f090959);
             Intrinsics.checkNotNullExpressionValue(done_coin_2, "done_coin_2");
             done_coin_2.setRepeatCount(-1);
-            LottieAnimationView done_coin_3 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f090937);
+            LottieAnimationView done_coin_3 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f09095a);
             Intrinsics.checkNotNullExpressionValue(done_coin_3, "done_coin_3");
             done_coin_3.setRepeatCount(-1);
         }
         Bitmap bitmap = this.i;
         if (bitmap != null) {
-            ((ImageView) a(R.id.obfuscated_res_0x7f0919ce)).setImageBitmap(bitmap);
-            ((ImageView) a(R.id.obfuscated_res_0x7f0919cf)).setImageBitmap(bitmap);
-            ((ImageView) a(R.id.obfuscated_res_0x7f0919d0)).setImageBitmap(bitmap);
+            ((ImageView) a(R.id.obfuscated_res_0x7f091a15)).setImageBitmap(bitmap);
+            ((ImageView) a(R.id.obfuscated_res_0x7f091a16)).setImageBitmap(bitmap);
+            ((ImageView) a(R.id.obfuscated_res_0x7f091a17)).setImageBitmap(bitmap);
         }
         if (this.g.length() > 0) {
             z = true;
         }
         if (z) {
             try {
-                ((GameGuideProgressView) a(R.id.obfuscated_res_0x7f091db0)).setProgressColor(Color.parseColor(this.g));
+                ((GameGuideProgressView) a(R.id.progress_view)).setProgressColor(Color.parseColor(this.g));
             } catch (Exception e2) {
-                if (am1.a) {
+                if (rm1.a) {
                     throw e2;
                 }
             }
         }
-        ((LottieAnimationView) a(R.id.obfuscated_res_0x7f092283)).setAnimation(R.raw.obfuscated_res_0x7f110003);
-        LottieAnimationView spark_view = (LottieAnimationView) a(R.id.obfuscated_res_0x7f092283);
+        ((LottieAnimationView) a(R.id.obfuscated_res_0x7f0922cf)).setAnimation(R.raw.obfuscated_res_0x7f110003);
+        LottieAnimationView spark_view = (LottieAnimationView) a(R.id.obfuscated_res_0x7f0922cf);
         Intrinsics.checkNotNullExpressionValue(spark_view, "spark_view");
         spark_view.setRepeatCount(-1);
-        ((LottieAnimationView) a(R.id.obfuscated_res_0x7f090419)).setAnimation(R.raw.obfuscated_res_0x7f110002);
-        ((LottieAnimationView) a(R.id.obfuscated_res_0x7f09245f)).setAnimation(R.raw.obfuscated_res_0x7f110004);
-        ((GameGuideProgressView) a(R.id.obfuscated_res_0x7f091db0)).setProgressListener(new b());
-        setSaveDisable((LottieAnimationView) a(R.id.obfuscated_res_0x7f090935));
-        setSaveDisable((LottieAnimationView) a(R.id.obfuscated_res_0x7f090936));
-        setSaveDisable((LottieAnimationView) a(R.id.obfuscated_res_0x7f090936));
-        setSaveDisable((LottieAnimationView) a(R.id.obfuscated_res_0x7f092283));
-        setSaveDisable((LottieAnimationView) a(R.id.obfuscated_res_0x7f090419));
-        setSaveDisable((LottieAnimationView) a(R.id.obfuscated_res_0x7f09245f));
+        ((LottieAnimationView) a(R.id.obfuscated_res_0x7f090432)).setAnimation(R.raw.obfuscated_res_0x7f110002);
+        ((LottieAnimationView) a(R.id.obfuscated_res_0x7f0924b6)).setAnimation(R.raw.obfuscated_res_0x7f110004);
+        ((GameGuideProgressView) a(R.id.progress_view)).setProgressListener(new b());
+        setSaveDisable((LottieAnimationView) a(R.id.obfuscated_res_0x7f090958));
+        setSaveDisable((LottieAnimationView) a(R.id.obfuscated_res_0x7f090959));
+        setSaveDisable((LottieAnimationView) a(R.id.obfuscated_res_0x7f090959));
+        setSaveDisable((LottieAnimationView) a(R.id.obfuscated_res_0x7f0922cf));
+        setSaveDisable((LottieAnimationView) a(R.id.obfuscated_res_0x7f090432));
+        setSaveDisable((LottieAnimationView) a(R.id.obfuscated_res_0x7f0924b6));
     }
 
     public final void n(float f2) {
         float progressViewWidth = getProgressViewWidth() * f2;
-        LottieAnimationView spark_view = (LottieAnimationView) a(R.id.obfuscated_res_0x7f092283);
+        LottieAnimationView spark_view = (LottieAnimationView) a(R.id.obfuscated_res_0x7f0922cf);
         Intrinsics.checkNotNullExpressionValue(spark_view, "spark_view");
         ViewGroup.LayoutParams layoutParams = spark_view.getLayoutParams();
         if (layoutParams != null) {
             ConstraintLayout.LayoutParams layoutParams2 = (ConstraintLayout.LayoutParams) layoutParams;
             layoutParams2.setMarginStart((int) progressViewWidth);
-            LottieAnimationView spark_view2 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f092283);
+            LottieAnimationView spark_view2 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f0922cf);
             Intrinsics.checkNotNullExpressionValue(spark_view2, "spark_view");
             spark_view2.setLayoutParams(layoutParams2);
             return;
@@ -489,7 +489,7 @@ public final class GameGuideView extends FrameLayout {
             return;
         }
         if (this.e) {
-            if (am1.a) {
+            if (rm1.a) {
                 Log.e("GameTimeView", "已经在计时当中");
                 return;
             }
@@ -497,29 +497,29 @@ public final class GameGuideView extends FrameLayout {
         }
         s(j);
         if (j >= SapiWebView.DEFAULT_TIMEOUT_MILLIS) {
-            if (am1.a) {
+            if (rm1.a) {
                 Log.d("GameTimeView", "已经达到了最大的计时");
             }
-            ((GameGuideProgressView) a(R.id.obfuscated_res_0x7f091db0)).i(1.0f);
+            ((GameGuideProgressView) a(R.id.progress_view)).i(1.0f);
             return;
         }
         this.e = true;
-        ((GameGuideProgressView) a(R.id.obfuscated_res_0x7f091db0)).i(((float) (j % 30000)) / ((float) 30000));
+        ((GameGuideProgressView) a(R.id.progress_view)).i(((float) (j % 30000)) / ((float) 30000));
     }
 
     public final void p() {
         this.e = false;
-        ((GameGuideProgressView) a(R.id.obfuscated_res_0x7f091db0)).j();
-        ((LottieAnimationView) a(R.id.obfuscated_res_0x7f090935)).cancelAnimation();
-        ((LottieAnimationView) a(R.id.obfuscated_res_0x7f090936)).cancelAnimation();
-        ((LottieAnimationView) a(R.id.obfuscated_res_0x7f090937)).cancelAnimation();
-        ((LottieAnimationView) a(R.id.obfuscated_res_0x7f092283)).cancelAnimation();
-        ((LottieAnimationView) a(R.id.obfuscated_res_0x7f09245f)).cancelAnimation();
-        ((LottieAnimationView) a(R.id.obfuscated_res_0x7f090419)).cancelAnimation();
-        LottieAnimationView tailing_view = (LottieAnimationView) a(R.id.obfuscated_res_0x7f09245f);
+        ((GameGuideProgressView) a(R.id.progress_view)).j();
+        ((LottieAnimationView) a(R.id.obfuscated_res_0x7f090958)).cancelAnimation();
+        ((LottieAnimationView) a(R.id.obfuscated_res_0x7f090959)).cancelAnimation();
+        ((LottieAnimationView) a(R.id.obfuscated_res_0x7f09095a)).cancelAnimation();
+        ((LottieAnimationView) a(R.id.obfuscated_res_0x7f0922cf)).cancelAnimation();
+        ((LottieAnimationView) a(R.id.obfuscated_res_0x7f0924b6)).cancelAnimation();
+        ((LottieAnimationView) a(R.id.obfuscated_res_0x7f090432)).cancelAnimation();
+        LottieAnimationView tailing_view = (LottieAnimationView) a(R.id.obfuscated_res_0x7f0924b6);
         Intrinsics.checkNotNullExpressionValue(tailing_view, "tailing_view");
         tailing_view.setVisibility(4);
-        LottieAnimationView bomb_view = (LottieAnimationView) a(R.id.obfuscated_res_0x7f090419);
+        LottieAnimationView bomb_view = (LottieAnimationView) a(R.id.obfuscated_res_0x7f090432);
         Intrinsics.checkNotNullExpressionValue(bomb_view, "bomb_view");
         bomb_view.setVisibility(8);
     }
@@ -535,64 +535,64 @@ public final class GameGuideView extends FrameLayout {
                 if (i != 2) {
                     return;
                 }
-                ImageView normal_coin_3 = (ImageView) a(R.id.obfuscated_res_0x7f0919d0);
+                ImageView normal_coin_3 = (ImageView) a(R.id.obfuscated_res_0x7f091a17);
                 Intrinsics.checkNotNullExpressionValue(normal_coin_3, "normal_coin_3");
                 float x = normal_coin_3.getX();
-                ImageView normal_coin_32 = (ImageView) a(R.id.obfuscated_res_0x7f0919d0);
+                ImageView normal_coin_32 = (ImageView) a(R.id.obfuscated_res_0x7f091a17);
                 Intrinsics.checkNotNullExpressionValue(normal_coin_32, "normal_coin_3");
                 width = x + (normal_coin_32.getWidth() / 2);
-                ImageView normal_coin_33 = (ImageView) a(R.id.obfuscated_res_0x7f0919d0);
+                ImageView normal_coin_33 = (ImageView) a(R.id.obfuscated_res_0x7f091a17);
                 Intrinsics.checkNotNullExpressionValue(normal_coin_33, "normal_coin_3");
                 float y = normal_coin_33.getY();
-                ImageView normal_coin_34 = (ImageView) a(R.id.obfuscated_res_0x7f0919d0);
+                ImageView normal_coin_34 = (ImageView) a(R.id.obfuscated_res_0x7f091a17);
                 Intrinsics.checkNotNullExpressionValue(normal_coin_34, "normal_coin_3");
                 height = y + (normal_coin_34.getHeight() / 2);
                 j = 300;
                 f2 = 0.33333334f;
             } else {
-                ImageView normal_coin_2 = (ImageView) a(R.id.obfuscated_res_0x7f0919cf);
+                ImageView normal_coin_2 = (ImageView) a(R.id.obfuscated_res_0x7f091a16);
                 Intrinsics.checkNotNullExpressionValue(normal_coin_2, "normal_coin_2");
                 float x2 = normal_coin_2.getX();
-                ImageView normal_coin_22 = (ImageView) a(R.id.obfuscated_res_0x7f0919cf);
+                ImageView normal_coin_22 = (ImageView) a(R.id.obfuscated_res_0x7f091a16);
                 Intrinsics.checkNotNullExpressionValue(normal_coin_22, "normal_coin_2");
                 width = x2 + (normal_coin_22.getWidth() / 2);
-                ImageView normal_coin_23 = (ImageView) a(R.id.obfuscated_res_0x7f0919cf);
+                ImageView normal_coin_23 = (ImageView) a(R.id.obfuscated_res_0x7f091a16);
                 Intrinsics.checkNotNullExpressionValue(normal_coin_23, "normal_coin_2");
                 float y2 = normal_coin_23.getY();
-                ImageView normal_coin_24 = (ImageView) a(R.id.obfuscated_res_0x7f0919cf);
+                ImageView normal_coin_24 = (ImageView) a(R.id.obfuscated_res_0x7f091a16);
                 Intrinsics.checkNotNullExpressionValue(normal_coin_24, "normal_coin_2");
                 height = y2 + (normal_coin_24.getHeight() / 2);
                 j = 500;
                 f2 = 1.4f;
             }
         } else {
-            ImageView normal_coin_1 = (ImageView) a(R.id.obfuscated_res_0x7f0919ce);
+            ImageView normal_coin_1 = (ImageView) a(R.id.obfuscated_res_0x7f091a15);
             Intrinsics.checkNotNullExpressionValue(normal_coin_1, "normal_coin_1");
             float x3 = normal_coin_1.getX();
-            ImageView normal_coin_12 = (ImageView) a(R.id.obfuscated_res_0x7f0919ce);
+            ImageView normal_coin_12 = (ImageView) a(R.id.obfuscated_res_0x7f091a15);
             Intrinsics.checkNotNullExpressionValue(normal_coin_12, "normal_coin_1");
             width = x3 + (normal_coin_12.getWidth() / 2);
-            ImageView normal_coin_13 = (ImageView) a(R.id.obfuscated_res_0x7f0919ce);
+            ImageView normal_coin_13 = (ImageView) a(R.id.obfuscated_res_0x7f091a15);
             Intrinsics.checkNotNullExpressionValue(normal_coin_13, "normal_coin_1");
             float y3 = normal_coin_13.getY();
-            ImageView normal_coin_14 = (ImageView) a(R.id.obfuscated_res_0x7f0919ce);
+            ImageView normal_coin_14 = (ImageView) a(R.id.obfuscated_res_0x7f091a15);
             Intrinsics.checkNotNullExpressionValue(normal_coin_14, "normal_coin_1");
             height = y3 + (normal_coin_14.getHeight() / 2);
             j = 700;
             f2 = 1.0f;
         }
         double atan2 = (180 * ((float) Math.atan2(getTailingViewOriginCenterY() - height, getTailingViewOriginCenterX() - width))) / 3.141592653589793d;
-        LottieAnimationView tailing_view = (LottieAnimationView) a(R.id.obfuscated_res_0x7f09245f);
+        LottieAnimationView tailing_view = (LottieAnimationView) a(R.id.obfuscated_res_0x7f0924b6);
         Intrinsics.checkNotNullExpressionValue(tailing_view, "tailing_view");
         tailing_view.setVisibility(0);
         m();
-        LottieAnimationView tailing_view2 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f09245f);
+        LottieAnimationView tailing_view2 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f0924b6);
         Intrinsics.checkNotNullExpressionValue(tailing_view2, "tailing_view");
         tailing_view2.setRotation(((float) atan2) - 90);
-        LottieAnimationView tailing_view3 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f09245f);
+        LottieAnimationView tailing_view3 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f0924b6);
         Intrinsics.checkNotNullExpressionValue(tailing_view3, "tailing_view");
         tailing_view3.setSpeed(f2);
-        ((LottieAnimationView) a(R.id.obfuscated_res_0x7f09245f)).playAnimation();
+        ((LottieAnimationView) a(R.id.obfuscated_res_0x7f0924b6)).playAnimation();
         Ref.BooleanRef booleanRef = new Ref.BooleanRef();
         booleanRef.element = false;
         ValueAnimator xValueAnimator = ValueAnimator.ofFloat(0.0f, getTailingViewOriginCenterX() - width);
@@ -611,139 +611,139 @@ public final class GameGuideView extends FrameLayout {
     }
 
     public final void r() {
-        TextView tips = (TextView) a(R.id.obfuscated_res_0x7f0925a4);
+        TextView tips = (TextView) a(R.id.obfuscated_res_0x7f0925fb);
         Intrinsics.checkNotNullExpressionValue(tips, "tips");
         if (tips.getVisibility() == 0) {
-            TextView tips2 = (TextView) a(R.id.obfuscated_res_0x7f0925a4);
+            TextView tips2 = (TextView) a(R.id.obfuscated_res_0x7f0925fb);
             Intrinsics.checkNotNullExpressionValue(tips2, "tips");
             tips2.setVisibility(8);
         }
         this.b = 0;
-        ((LottieAnimationView) a(R.id.obfuscated_res_0x7f090935)).cancelAnimation();
-        LottieAnimationView done_coin_1 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f090935);
+        ((LottieAnimationView) a(R.id.obfuscated_res_0x7f090958)).cancelAnimation();
+        LottieAnimationView done_coin_1 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f090958);
         Intrinsics.checkNotNullExpressionValue(done_coin_1, "done_coin_1");
         done_coin_1.setVisibility(8);
-        ImageView normal_coin_1 = (ImageView) a(R.id.obfuscated_res_0x7f0919ce);
+        ImageView normal_coin_1 = (ImageView) a(R.id.obfuscated_res_0x7f091a15);
         Intrinsics.checkNotNullExpressionValue(normal_coin_1, "normal_coin_1");
         normal_coin_1.setVisibility(0);
-        ((LottieAnimationView) a(R.id.obfuscated_res_0x7f090936)).cancelAnimation();
-        LottieAnimationView done_coin_2 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f090936);
+        ((LottieAnimationView) a(R.id.obfuscated_res_0x7f090959)).cancelAnimation();
+        LottieAnimationView done_coin_2 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f090959);
         Intrinsics.checkNotNullExpressionValue(done_coin_2, "done_coin_2");
         done_coin_2.setVisibility(8);
-        ImageView normal_coin_2 = (ImageView) a(R.id.obfuscated_res_0x7f0919cf);
+        ImageView normal_coin_2 = (ImageView) a(R.id.obfuscated_res_0x7f091a16);
         Intrinsics.checkNotNullExpressionValue(normal_coin_2, "normal_coin_2");
         normal_coin_2.setVisibility(0);
-        ((LottieAnimationView) a(R.id.obfuscated_res_0x7f090937)).cancelAnimation();
-        LottieAnimationView done_coin_3 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f090937);
+        ((LottieAnimationView) a(R.id.obfuscated_res_0x7f09095a)).cancelAnimation();
+        LottieAnimationView done_coin_3 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f09095a);
         Intrinsics.checkNotNullExpressionValue(done_coin_3, "done_coin_3");
         done_coin_3.setVisibility(8);
-        ImageView normal_coin_3 = (ImageView) a(R.id.obfuscated_res_0x7f0919d0);
+        ImageView normal_coin_3 = (ImageView) a(R.id.obfuscated_res_0x7f091a17);
         Intrinsics.checkNotNullExpressionValue(normal_coin_3, "normal_coin_3");
         normal_coin_3.setVisibility(0);
     }
 
     public final void s(long j) {
-        LottieAnimationView tailing_view = (LottieAnimationView) a(R.id.obfuscated_res_0x7f09245f);
+        LottieAnimationView tailing_view = (LottieAnimationView) a(R.id.obfuscated_res_0x7f0924b6);
         Intrinsics.checkNotNullExpressionValue(tailing_view, "tailing_view");
         tailing_view.setVisibility(8);
         if (0 <= j && 30000 > j) {
-            LottieAnimationView done_coin_1 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f090935);
+            LottieAnimationView done_coin_1 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f090958);
             Intrinsics.checkNotNullExpressionValue(done_coin_1, "done_coin_1");
             done_coin_1.setVisibility(8);
-            ImageView normal_coin_1 = (ImageView) a(R.id.obfuscated_res_0x7f0919ce);
+            ImageView normal_coin_1 = (ImageView) a(R.id.obfuscated_res_0x7f091a15);
             Intrinsics.checkNotNullExpressionValue(normal_coin_1, "normal_coin_1");
             normal_coin_1.setVisibility(0);
-            ((LottieAnimationView) a(R.id.obfuscated_res_0x7f090935)).cancelAnimation();
-            LottieAnimationView done_coin_2 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f090936);
+            ((LottieAnimationView) a(R.id.obfuscated_res_0x7f090958)).cancelAnimation();
+            LottieAnimationView done_coin_2 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f090959);
             Intrinsics.checkNotNullExpressionValue(done_coin_2, "done_coin_2");
             done_coin_2.setVisibility(8);
-            ImageView normal_coin_2 = (ImageView) a(R.id.obfuscated_res_0x7f0919cf);
+            ImageView normal_coin_2 = (ImageView) a(R.id.obfuscated_res_0x7f091a16);
             Intrinsics.checkNotNullExpressionValue(normal_coin_2, "normal_coin_2");
             normal_coin_2.setVisibility(0);
-            ((LottieAnimationView) a(R.id.obfuscated_res_0x7f090936)).cancelAnimation();
-            LottieAnimationView done_coin_3 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f090937);
+            ((LottieAnimationView) a(R.id.obfuscated_res_0x7f090959)).cancelAnimation();
+            LottieAnimationView done_coin_3 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f09095a);
             Intrinsics.checkNotNullExpressionValue(done_coin_3, "done_coin_3");
             done_coin_3.setVisibility(8);
-            ImageView normal_coin_3 = (ImageView) a(R.id.obfuscated_res_0x7f0919d0);
+            ImageView normal_coin_3 = (ImageView) a(R.id.obfuscated_res_0x7f091a17);
             Intrinsics.checkNotNullExpressionValue(normal_coin_3, "normal_coin_3");
             normal_coin_3.setVisibility(0);
-            ((LottieAnimationView) a(R.id.obfuscated_res_0x7f090937)).cancelAnimation();
-            LottieAnimationView spark_view = (LottieAnimationView) a(R.id.obfuscated_res_0x7f092283);
+            ((LottieAnimationView) a(R.id.obfuscated_res_0x7f09095a)).cancelAnimation();
+            LottieAnimationView spark_view = (LottieAnimationView) a(R.id.obfuscated_res_0x7f0922cf);
             Intrinsics.checkNotNullExpressionValue(spark_view, "spark_view");
             spark_view.setVisibility(0);
-            ((LottieAnimationView) a(R.id.obfuscated_res_0x7f092283)).playAnimation();
+            ((LottieAnimationView) a(R.id.obfuscated_res_0x7f0922cf)).playAnimation();
             this.b = 0;
         } else if (30000 <= j && 60000 > j) {
-            LottieAnimationView done_coin_12 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f090935);
+            LottieAnimationView done_coin_12 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f090958);
             Intrinsics.checkNotNullExpressionValue(done_coin_12, "done_coin_1");
             done_coin_12.setVisibility(0);
-            ImageView normal_coin_12 = (ImageView) a(R.id.obfuscated_res_0x7f0919ce);
+            ImageView normal_coin_12 = (ImageView) a(R.id.obfuscated_res_0x7f091a15);
             Intrinsics.checkNotNullExpressionValue(normal_coin_12, "normal_coin_1");
             normal_coin_12.setVisibility(4);
-            ((LottieAnimationView) a(R.id.obfuscated_res_0x7f090935)).playAnimation();
-            LottieAnimationView done_coin_22 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f090936);
+            ((LottieAnimationView) a(R.id.obfuscated_res_0x7f090958)).playAnimation();
+            LottieAnimationView done_coin_22 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f090959);
             Intrinsics.checkNotNullExpressionValue(done_coin_22, "done_coin_2");
             done_coin_22.setVisibility(8);
-            ((LottieAnimationView) a(R.id.obfuscated_res_0x7f090936)).cancelAnimation();
-            LottieAnimationView done_coin_32 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f090937);
+            ((LottieAnimationView) a(R.id.obfuscated_res_0x7f090959)).cancelAnimation();
+            LottieAnimationView done_coin_32 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f09095a);
             Intrinsics.checkNotNullExpressionValue(done_coin_32, "done_coin_3");
             done_coin_32.setVisibility(8);
-            ((LottieAnimationView) a(R.id.obfuscated_res_0x7f090937)).cancelAnimation();
-            LottieAnimationView spark_view2 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f092283);
+            ((LottieAnimationView) a(R.id.obfuscated_res_0x7f09095a)).cancelAnimation();
+            LottieAnimationView spark_view2 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f0922cf);
             Intrinsics.checkNotNullExpressionValue(spark_view2, "spark_view");
             spark_view2.setVisibility(0);
-            ((LottieAnimationView) a(R.id.obfuscated_res_0x7f092283)).playAnimation();
+            ((LottieAnimationView) a(R.id.obfuscated_res_0x7f0922cf)).playAnimation();
             this.b = 1;
         } else if (60000 <= j && SapiWebView.DEFAULT_TIMEOUT_MILLIS > j) {
-            LottieAnimationView done_coin_13 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f090935);
+            LottieAnimationView done_coin_13 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f090958);
             Intrinsics.checkNotNullExpressionValue(done_coin_13, "done_coin_1");
             done_coin_13.setVisibility(0);
-            ImageView normal_coin_13 = (ImageView) a(R.id.obfuscated_res_0x7f0919ce);
+            ImageView normal_coin_13 = (ImageView) a(R.id.obfuscated_res_0x7f091a15);
             Intrinsics.checkNotNullExpressionValue(normal_coin_13, "normal_coin_1");
             normal_coin_13.setVisibility(4);
-            ((LottieAnimationView) a(R.id.obfuscated_res_0x7f090935)).playAnimation();
-            LottieAnimationView done_coin_23 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f090936);
+            ((LottieAnimationView) a(R.id.obfuscated_res_0x7f090958)).playAnimation();
+            LottieAnimationView done_coin_23 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f090959);
             Intrinsics.checkNotNullExpressionValue(done_coin_23, "done_coin_2");
             done_coin_23.setVisibility(0);
-            ImageView normal_coin_22 = (ImageView) a(R.id.obfuscated_res_0x7f0919cf);
+            ImageView normal_coin_22 = (ImageView) a(R.id.obfuscated_res_0x7f091a16);
             Intrinsics.checkNotNullExpressionValue(normal_coin_22, "normal_coin_2");
             normal_coin_22.setVisibility(4);
-            ((LottieAnimationView) a(R.id.obfuscated_res_0x7f090936)).playAnimation();
-            LottieAnimationView done_coin_33 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f090937);
+            ((LottieAnimationView) a(R.id.obfuscated_res_0x7f090959)).playAnimation();
+            LottieAnimationView done_coin_33 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f09095a);
             Intrinsics.checkNotNullExpressionValue(done_coin_33, "done_coin_3");
             done_coin_33.setVisibility(8);
-            ((LottieAnimationView) a(R.id.obfuscated_res_0x7f090937)).cancelAnimation();
-            LottieAnimationView spark_view3 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f092283);
+            ((LottieAnimationView) a(R.id.obfuscated_res_0x7f09095a)).cancelAnimation();
+            LottieAnimationView spark_view3 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f0922cf);
             Intrinsics.checkNotNullExpressionValue(spark_view3, "spark_view");
             spark_view3.setVisibility(0);
-            ((LottieAnimationView) a(R.id.obfuscated_res_0x7f092283)).playAnimation();
+            ((LottieAnimationView) a(R.id.obfuscated_res_0x7f0922cf)).playAnimation();
             this.b = 2;
         } else {
-            LottieAnimationView done_coin_14 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f090935);
+            LottieAnimationView done_coin_14 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f090958);
             Intrinsics.checkNotNullExpressionValue(done_coin_14, "done_coin_1");
             done_coin_14.setVisibility(0);
-            ImageView normal_coin_14 = (ImageView) a(R.id.obfuscated_res_0x7f0919ce);
+            ImageView normal_coin_14 = (ImageView) a(R.id.obfuscated_res_0x7f091a15);
             Intrinsics.checkNotNullExpressionValue(normal_coin_14, "normal_coin_1");
             normal_coin_14.setVisibility(4);
-            ((LottieAnimationView) a(R.id.obfuscated_res_0x7f090935)).playAnimation();
-            LottieAnimationView done_coin_24 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f090936);
+            ((LottieAnimationView) a(R.id.obfuscated_res_0x7f090958)).playAnimation();
+            LottieAnimationView done_coin_24 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f090959);
             Intrinsics.checkNotNullExpressionValue(done_coin_24, "done_coin_2");
             done_coin_24.setVisibility(0);
-            ImageView normal_coin_23 = (ImageView) a(R.id.obfuscated_res_0x7f0919cf);
+            ImageView normal_coin_23 = (ImageView) a(R.id.obfuscated_res_0x7f091a16);
             Intrinsics.checkNotNullExpressionValue(normal_coin_23, "normal_coin_2");
             normal_coin_23.setVisibility(4);
-            ((LottieAnimationView) a(R.id.obfuscated_res_0x7f090936)).playAnimation();
-            LottieAnimationView done_coin_34 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f090937);
+            ((LottieAnimationView) a(R.id.obfuscated_res_0x7f090959)).playAnimation();
+            LottieAnimationView done_coin_34 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f09095a);
             Intrinsics.checkNotNullExpressionValue(done_coin_34, "done_coin_3");
             done_coin_34.setVisibility(0);
-            ImageView normal_coin_32 = (ImageView) a(R.id.obfuscated_res_0x7f0919d0);
+            ImageView normal_coin_32 = (ImageView) a(R.id.obfuscated_res_0x7f091a17);
             Intrinsics.checkNotNullExpressionValue(normal_coin_32, "normal_coin_3");
             normal_coin_32.setVisibility(4);
-            ((LottieAnimationView) a(R.id.obfuscated_res_0x7f090937)).playAnimation();
-            LottieAnimationView spark_view4 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f092283);
+            ((LottieAnimationView) a(R.id.obfuscated_res_0x7f09095a)).playAnimation();
+            LottieAnimationView spark_view4 = (LottieAnimationView) a(R.id.obfuscated_res_0x7f0922cf);
             Intrinsics.checkNotNullExpressionValue(spark_view4, "spark_view");
             spark_view4.setVisibility(8);
-            ((LottieAnimationView) a(R.id.obfuscated_res_0x7f092283)).cancelAnimation();
+            ((LottieAnimationView) a(R.id.obfuscated_res_0x7f0922cf)).cancelAnimation();
             this.b = 3;
         }
     }

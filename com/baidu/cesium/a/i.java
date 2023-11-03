@@ -1,7 +1,7 @@
 package com.baidu.cesium.a;
 
-import com.baidu.tieba.ru;
-import com.baidu.tieba.vu;
+import com.baidu.tieba.iv;
+import com.baidu.tieba.mv;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -84,8 +84,8 @@ public class i {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            byte[] a2 = vu.a();
-            return new String(ru.d(a2, a2, bArr));
+            byte[] a2 = mv.a();
+            return new String(iv.d(a2, a2, bArr));
         }
         return (String) invokeL.objValue;
     }

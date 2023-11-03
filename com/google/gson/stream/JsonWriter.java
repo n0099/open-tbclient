@@ -7,7 +7,7 @@ import java.io.Flushable;
 import java.io.IOException;
 import java.io.Writer;
 import java.util.Arrays;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class JsonWriter implements Closeable, Flushable {
     public static final String[] HTML_SAFE_REPLACEMENT_CHARS;
     public static final String[] REPLACEMENT_CHARS = new String[128];

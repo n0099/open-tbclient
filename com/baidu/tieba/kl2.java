@@ -8,17 +8,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes6.dex */
-public class kl2 extends jj2<am2> {
+/* loaded from: classes7.dex */
+public class kl2 extends ak2<rm2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.jj2
+    @Override // com.baidu.tieba.ak2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setBeautyWhite" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "enableCamera" : (String) invokeV.objValue;
     }
 
     public kl2() {
@@ -36,16 +36,16 @@ public class kl2 extends jj2<am2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jj2
+    @Override // com.baidu.tieba.ak2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull am2 am2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull rm2 rm2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, am2Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, rm2Var) == null) {
             String str = command.what;
-            d(am2Var, str, "" + command.obj, true);
+            d(rm2Var, str, "" + command.obj, true);
             Object obj = command.obj;
-            if (obj instanceof Integer) {
-                am2Var.I(((Integer) obj).intValue());
+            if (obj instanceof Boolean) {
+                rm2Var.g(((Boolean) obj).booleanValue());
             }
         }
     }

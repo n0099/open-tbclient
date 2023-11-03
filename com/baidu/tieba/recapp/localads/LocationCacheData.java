@@ -11,9 +11,9 @@ import com.baidu.tbadk.browser.SearchJsBridge;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.ad;
-import com.baidu.tieba.ofa;
+import com.baidu.tieba.qd;
 import com.baidu.tieba.tbadkCore.util.MercatorModel;
+import com.baidu.tieba.tsa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.AppPosInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class LocationCacheData {
     public static /* synthetic */ Interceptable $ic;
     public static LocationCacheData sInstance;
@@ -66,7 +66,7 @@ public class LocationCacheData {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (sInstance == null) {
-                synchronized (ofa.class) {
+                synchronized (tsa.class) {
                     if (sInstance == null) {
                         sInstance = new LocationCacheData();
                     }
@@ -98,11 +98,11 @@ public class LocationCacheData {
             builder.asp_shown_info = this.aspShowInfo;
             MercatorModel.MercatorData e = MercatorModel.d().e();
             if (e != null) {
-                builder.mercator_lat = e.Q();
-                builder.mercator_lon = e.R();
-                builder.mercator_city = Integer.valueOf(e.N());
-                builder.mercator_radius = e.T();
-                builder.mercator_time = Long.valueOf(e.U());
+                builder.mercator_lat = e.R();
+                builder.mercator_lon = e.S();
+                builder.mercator_city = Integer.valueOf(e.O());
+                builder.mercator_radius = e.U();
+                builder.mercator_time = Long.valueOf(e.V());
             }
             return builder.build(false);
         }
@@ -150,9 +150,9 @@ public class LocationCacheData {
             String str = this.latitude;
             builder.latitude = str;
             builder.longitude = this.longitude;
-            if (ad.isEmpty(str) || ad.isEmpty(this.longitude)) {
+            if (qd.isEmpty(str) || qd.isEmpty(this.longitude)) {
                 String string = SharedPrefHelper.getInstance().getString("key_last_receive_location_latitude_and_longitude", "");
-                if (!ad.isEmpty(string)) {
+                if (!qd.isEmpty(string)) {
                     String[] split = string.split(",");
                     if (split.length >= 2) {
                         builder.latitude = split[0];
@@ -165,14 +165,14 @@ public class LocationCacheData {
             builder.asp_shown_info = this.aspShowInfo;
             MercatorModel.MercatorData e = MercatorModel.d().e();
             if (e != null) {
-                builder.mercator_lat = e.Q();
-                builder.mercator_lon = e.R();
-                builder.mercator_city = Integer.valueOf(e.N());
-                builder.mercator_radius = e.T();
-                builder.mercator_time = Long.valueOf(e.U());
-                builder.mercator_province_name = e.S();
-                builder.mercator_city_name = e.O();
-                builder.mercator_district_name = e.P();
+                builder.mercator_lat = e.R();
+                builder.mercator_lon = e.S();
+                builder.mercator_city = Integer.valueOf(e.O());
+                builder.mercator_radius = e.U();
+                builder.mercator_time = Long.valueOf(e.V());
+                builder.mercator_province_name = e.T();
+                builder.mercator_city_name = e.P();
+                builder.mercator_district_name = e.Q();
             }
             return builder.build(false);
         }

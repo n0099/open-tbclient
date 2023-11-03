@@ -5,10 +5,10 @@ import android.opengl.GLES20;
 import android.opengl.GLUtils;
 import android.text.TextUtils;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
-import com.baidu.tieba.afb;
-import com.baidu.tieba.pb0;
-import com.baidu.tieba.veb;
-import com.baidu.tieba.web;
+import com.baidu.tieba.bsb;
+import com.baidu.tieba.gc0;
+import com.baidu.tieba.wrb;
+import com.baidu.tieba.xrb;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
 import com.baidu.ugc.editvideo.record.entity.GLViewPortLocation;
@@ -30,9 +30,9 @@ public class MultiMediaCoverStickerRenderer extends MultiMediaEditBaseRenderer {
         try {
             int type = GLUtils.getType(decodeBitmap);
             int internalFormat = GLUtils.getInternalFormat(decodeBitmap);
-            veb.b("type : " + type + " internalFormat : " + internalFormat);
+            wrb.b("type : " + type + " internalFormat : " + internalFormat);
         } catch (Exception unused) {
-            decodeBitmap = web.c(decodeBitmap, Bitmap.CompressFormat.PNG, 100);
+            decodeBitmap = xrb.c(decodeBitmap, Bitmap.CompressFormat.PNG, 100);
         }
         multiMediaData.textureId = MultiDataSourceUtil.initImageByBitmap(multiMediaData, decodeBitmap);
     }
@@ -65,14 +65,14 @@ public class MultiMediaCoverStickerRenderer extends MultiMediaEditBaseRenderer {
                 i2++;
             }
         }
-        afb.g(this.mCoverStickerDataList, i);
+        bsb.g(this.mCoverStickerDataList, i);
         deleteStickerData(multiMediaData, "cover_sticker");
     }
 
     @Override // com.baidu.ugc.editvideo.record.renderer.MultiMediaEditBaseRenderer
     public void deleteTexture() {
         super.deleteTexture();
-        if (afb.e(this.mCoverStickerDataList)) {
+        if (bsb.e(this.mCoverStickerDataList)) {
             return;
         }
         for (MultiMediaData multiMediaData : this.mCoverStickerDataList) {
@@ -85,8 +85,8 @@ public class MultiMediaCoverStickerRenderer extends MultiMediaEditBaseRenderer {
     }
 
     @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
-    public void onDrawFrame(pb0 pb0Var, int i, float[] fArr) {
-        if (pb0Var == null || this.mCoverStickerDataList == null || !TextUtils.equals(this.mEditTrackType, "cover_sticker")) {
+    public void onDrawFrame(gc0 gc0Var, int i, float[] fArr) {
+        if (gc0Var == null || this.mCoverStickerDataList == null || !TextUtils.equals(this.mEditTrackType, "cover_sticker")) {
             return;
         }
         GLViewPortLocation gLViewPortLocation = this.mGLViewPortLocation;
@@ -133,7 +133,7 @@ public class MultiMediaCoverStickerRenderer extends MultiMediaEditBaseRenderer {
 
     @Override // com.baidu.ugc.editvideo.record.renderer.MultiMediaEditBaseRenderer, com.baidu.ugc.editvideo.record.preview.OnMediaPreviewTouchEventListener
     public boolean onTouchDown(float f, float f2, float f3, float f4) {
-        if (afb.e(this.mCoverStickerDataList)) {
+        if (bsb.e(this.mCoverStickerDataList)) {
             return false;
         }
         this.mVisibleStickerItems.clear();
@@ -144,7 +144,7 @@ public class MultiMediaCoverStickerRenderer extends MultiMediaEditBaseRenderer {
     }
 
     public void reInitMultiMediaList() {
-        if (afb.e(this.mCoverStickerDataList)) {
+        if (bsb.e(this.mCoverStickerDataList)) {
             return;
         }
         for (int i = 0; i < this.mCoverStickerDataList.size(); i++) {
@@ -170,7 +170,7 @@ public class MultiMediaCoverStickerRenderer extends MultiMediaEditBaseRenderer {
         if (i == -1 || i >= this.mStickerItems.size()) {
             return;
         }
-        afb.g(this.mStickerItems, i);
+        bsb.g(this.mStickerItems, i);
         MultiDataSourceUtil.glDeleteTextures(multiMediaData);
         initStickerItem(i, multiMediaData);
     }
@@ -200,7 +200,7 @@ public class MultiMediaCoverStickerRenderer extends MultiMediaEditBaseRenderer {
 
     public void setCoverStickerDataList(List<MultiMediaData> list) {
         boolean z;
-        if (afb.e(list)) {
+        if (bsb.e(list)) {
             return;
         }
         this.mCoverStickerDataList = list;
@@ -233,10 +233,10 @@ public class MultiMediaCoverStickerRenderer extends MultiMediaEditBaseRenderer {
         super.setCurrentItem(aVar);
         List<a> list = this.mStickerItems;
         int indexOf = list.indexOf(aVar);
-        afb.h(list, indexOf, list.size() - 1);
-        if (!afb.e(this.mCoverStickerDataList)) {
+        bsb.h(list, indexOf, list.size() - 1);
+        if (!bsb.e(this.mCoverStickerDataList)) {
             List<MultiMediaData> list2 = this.mCoverStickerDataList;
-            afb.h(list2, indexOf, list2.size() - 1);
+            bsb.h(list2, indexOf, list2.size() - 1);
         }
         if (z) {
             notifyStickerDataChange(StickerDataChangeType.SWAP);

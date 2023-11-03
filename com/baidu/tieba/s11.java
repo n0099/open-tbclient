@@ -1,111 +1,100 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.provider.Settings;
-import android.view.Window;
-import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.Calendar;
+import java.util.HashSet;
+import java.util.Locale;
+import java.util.Set;
+import java.util.TimeZone;
 /* loaded from: classes8.dex */
-public class s11 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = -1;
+public final class s11 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final Set<Integer> a;
+    public static final Set<Integer> b;
+    public static final Set<Integer> c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948098454, "Lcom/baidu/tieba/s11;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948098454, "Lcom/baidu/tieba/s11;");
-        }
-    }
-
-    public static int c(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(65539, null, i, i2, i3)) == null) {
-            if (i < i2) {
-                i = i2;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948098454, "Lcom/baidu/tieba/s11;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return i > i3 ? i3 : i;
-        }
-        return invokeIII.intValue;
-    }
-
-    public static int a(Activity activity) {
-        InterceptResult invokeL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
-            if (activity != null) {
-                float f = activity.getWindow().getAttributes().screenBrightness;
-                if (f < 0.0f) {
-                    i = b(activity);
-                } else {
-                    i = (int) (f * 255.0f);
-                }
-                int i2 = a;
-                if (i2 >= 0 && i <= 50) {
-                    return i2;
-                }
-                return i;
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            try {
-                return Settings.System.getInt(context.getContentResolver(), "screen_brightness");
-            } catch (Exception e) {
-                e.printStackTrace();
-                return 0;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948098454, "Lcom/baidu/tieba/s11;");
+                return;
             }
         }
-        return invokeL.intValue;
+        a = new HashSet();
+        b = new HashSet();
+        c = new HashSet();
+        a.add(2);
+        a.add(3);
+        a.add(4);
+        a.add(5);
+        a.add(6);
+        b.add(7);
+        b.add(1);
+        c.addAll(a);
+        c.addAll(b);
     }
 
-    public static void f(Activity activity) {
+    public static int a(long j, long j2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, activity) == null) {
-            e(activity, -1);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            return (int) ((j2 - (j - ((TimeZone.getDefault().getRawOffset() + j) % 86400000))) / 86400000);
         }
+        return invokeCommon.intValue;
     }
 
-    public static void d(Activity activity, int i) {
+    public static String b(int i, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, i) == null) && activity != null) {
-            a = c(i, 0, 255);
-            int c = c(i, 50, 255);
-            WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
-            attributes.screenBrightness = Float.valueOf(c).floatValue() * 0.003921569f;
-            activity.getWindow().setAttributes(attributes);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (i < 0) {
+                return "";
+            }
+            int i2 = i / 3600;
+            int i3 = (i % 3600) / 60;
+            int i4 = i % 60;
+            if (i2 == 0 && !z) {
+                return String.format(Locale.US, "%02d:%02d", Integer.valueOf(i3), Integer.valueOf(i4));
+            }
+            return String.format(Locale.US, "%02d:%02d:%02d", Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4));
         }
+        return (String) invokeCommon.objValue;
     }
 
-    public static void e(Activity activity, int i) {
+    public static long c(long j, long j2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65541, null, activity, i) == null) && activity != null) {
-            Window window = activity.getWindow();
-            WindowManager.LayoutParams attributes = window.getAttributes();
-            attributes.screenBrightness = i;
-            window.setAttributes(attributes);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            return Math.abs((j2 - j) / 86400000);
         }
+        return invokeCommon.longValue;
+    }
+
+    public static boolean d(long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(j);
+            Calendar calendar2 = Calendar.getInstance();
+            calendar2.setTimeInMillis(j2);
+            if (calendar.get(1) == calendar2.get(1) && calendar.get(6) == calendar2.get(6)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeCommon.booleanValue;
     }
 }

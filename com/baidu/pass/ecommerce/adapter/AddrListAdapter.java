@@ -41,7 +41,7 @@ public class AddrListAdapter extends CommonAdapter<JSONObject> {
 
     @Override // com.baidu.pass.ecommerce.common.adapter.CommonAdapter
     public int getItemLayoutId() {
-        return R.layout.obfuscated_res_0x7f0d0572;
+        return R.layout.obfuscated_res_0x7f0d0587;
     }
 
     /* loaded from: classes3.dex */
@@ -61,16 +61,16 @@ public class AddrListAdapter extends CommonAdapter<JSONObject> {
             super(view2);
             Typeface defaultFromStyle;
             Typeface defaultFromStyle2;
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f09202d);
-            this.tvTagIcon = (TextView) findViewById(R.id.obfuscated_res_0x7f092049);
-            this.tvName = (TextView) findViewById(R.id.obfuscated_res_0x7f092038);
-            this.tvPhone = (TextView) findViewById(R.id.obfuscated_res_0x7f09203c);
-            this.tvDefaultTag = (TextView) findViewById(R.id.obfuscated_res_0x7f09201b);
-            this.tvTag = (TextView) findViewById(R.id.obfuscated_res_0x7f092045);
-            this.tvNuoMiTag = (TextView) findViewById(R.id.obfuscated_res_0x7f0920b1);
-            this.tvDetail = (TextView) findViewById(R.id.obfuscated_res_0x7f092024);
-            this.ivEdit = (ImageView) findViewById(R.id.obfuscated_res_0x7f091009);
-            this.darkShapeView = findViewById(R.id.obfuscated_res_0x7f09204a);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f092076);
+            this.tvTagIcon = (TextView) findViewById(R.id.obfuscated_res_0x7f092092);
+            this.tvName = (TextView) findViewById(R.id.obfuscated_res_0x7f092081);
+            this.tvPhone = (TextView) findViewById(R.id.obfuscated_res_0x7f092085);
+            this.tvDefaultTag = (TextView) findViewById(R.id.obfuscated_res_0x7f092064);
+            this.tvTag = (TextView) findViewById(R.id.obfuscated_res_0x7f09208e);
+            this.tvNuoMiTag = (TextView) findViewById(R.id.obfuscated_res_0x7f0920fa);
+            this.tvDetail = (TextView) findViewById(R.id.obfuscated_res_0x7f09206d);
+            this.ivEdit = (ImageView) findViewById(R.id.obfuscated_res_0x7f091041);
+            this.darkShapeView = findViewById(R.id.obfuscated_res_0x7f092093);
             if (AddrListAdapter.this.mAddrListColorMap != null) {
                 String str = (String) AddrListAdapter.this.mAddrListColorMap.get(PassAddrColorLocation.ADDRESS_ITEM_IC_TEXT_COLOR);
                 if (!TextUtils.isEmpty(str)) {
@@ -100,13 +100,13 @@ public class AddrListAdapter extends CommonAdapter<JSONObject> {
             }
             if (AddrListAdapter.this.isDarkMode) {
                 Resources resources = AddrListAdapter.this.mContext.getResources();
-                findViewById.setBackgroundResource(R.drawable.obfuscated_res_0x7f0812c5);
-                this.ivEdit.setImageDrawable(AddrListAdapter.this.mContext.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0812db));
+                findViewById.setBackgroundResource(R.drawable.obfuscated_res_0x7f0812dc);
+                this.ivEdit.setImageDrawable(AddrListAdapter.this.mContext.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0812f2));
                 this.tvName.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0609fd));
                 this.tvPhone.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0609fd));
-                this.tvDefaultTag.setBackgroundResource(R.drawable.obfuscated_res_0x7f0812cb);
+                this.tvDefaultTag.setBackgroundResource(R.drawable.obfuscated_res_0x7f0812e2);
                 this.tvDefaultTag.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0609fb));
-                this.tvTag.setBackgroundResource(R.drawable.obfuscated_res_0x7f0812cd);
+                this.tvTag.setBackgroundResource(R.drawable.obfuscated_res_0x7f0812e4);
                 this.tvTag.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0609f8));
                 this.tvDetail.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0609f3));
             }
@@ -221,7 +221,7 @@ public class AddrListAdapter extends CommonAdapter<JSONObject> {
                             str = trim.substring(0, 1);
                         }
                         this.tvTagIcon.setText(str);
-                        this.tvTagIcon.setBackgroundResource(R.drawable.obfuscated_res_0x7f0812ce);
+                        this.tvTagIcon.setBackgroundResource(R.drawable.obfuscated_res_0x7f0812e5);
                         if (AddrListAdapter.this.mAddrListColorMap != null) {
                             String str2 = (String) AddrListAdapter.this.mAddrListColorMap.get(PassAddrColorLocation.ADDRESS_ITEM_IC_BG_COLOR);
                             if (!TextUtils.isEmpty(str2)) {
@@ -231,13 +231,13 @@ public class AddrListAdapter extends CommonAdapter<JSONObject> {
                             }
                         }
                     } else {
-                        this.tvTagIcon.setBackgroundResource(R.drawable.obfuscated_res_0x7f0812f1);
+                        this.tvTagIcon.setBackgroundResource(R.drawable.obfuscated_res_0x7f081308);
                     }
                 } else {
-                    this.tvTagIcon.setBackgroundResource(R.drawable.obfuscated_res_0x7f0812f4);
+                    this.tvTagIcon.setBackgroundResource(R.drawable.obfuscated_res_0x7f08130b);
                 }
             } else {
-                this.tvTagIcon.setBackgroundResource(R.drawable.obfuscated_res_0x7f0812f3);
+                this.tvTagIcon.setBackgroundResource(R.drawable.obfuscated_res_0x7f08130a);
             }
             this.tvNuoMiTag.setVisibility(8);
             String trim2 = jSONObject.optString(AddressField.KEY_ADDR_ID).trim();

@@ -20,8 +20,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.BlueCircleProgressDialog;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h45;
-import com.baidu.tieba.hxa;
+import com.baidu.tieba.b55;
+import com.baidu.tieba.iab;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,12 +33,12 @@ public class NewVcodeView {
     public transient /* synthetic */ FieldHolder $fh;
     public BaseActivity a;
     public int b;
-    public hxa c;
+    public iab c;
     public BaseWebView d;
     public View e;
     public BlueCircleProgressDialog f;
     public TextView g;
-    public h45 h;
+    public b55 h;
     public boolean i;
     public Runnable j;
     public float k;
@@ -144,10 +144,10 @@ public class NewVcodeView {
         }
     }
 
-    public void setPresenter(hxa hxaVar) {
+    public void setPresenter(iab iabVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, hxaVar) == null) {
-            this.c = hxaVar;
+        if (interceptable == null || interceptable.invokeL(1048581, this, iabVar) == null) {
+            this.c = iabVar;
             this.i = false;
         }
     }
@@ -206,10 +206,10 @@ public class NewVcodeView {
             this.e = findViewById;
             TextView textView = (TextView) findViewById.findViewById(R.id.custom_loading_text);
             this.g = textView;
-            textView.setText(newVcodeActivity.getResources().getString(R.string.obfuscated_res_0x7f0f139b));
-            h45 h45Var = new h45();
-            this.h = h45Var;
-            h45Var.a = 1000L;
+            textView.setText(newVcodeActivity.getResources().getString(R.string.obfuscated_res_0x7f0f13af));
+            b55 b55Var = new b55();
+            this.h = b55Var;
+            b55Var.a = 1000L;
             if (this.d != null) {
                 return true;
             }
@@ -263,7 +263,7 @@ public class NewVcodeView {
                         if (interceptable2 == null || interceptable2.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, i, str, str2) == null) {
                             super.onReceivedError(webView, i, str, str2);
                             this.a.h(false);
-                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f0e4f);
+                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f0e61);
                             this.a.a.finish();
                         }
                     }

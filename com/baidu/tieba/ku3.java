@@ -1,33 +1,22 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.widget.FrameLayout;
+import android.net.Uri;
 import androidx.annotation.NonNull;
-/* loaded from: classes6.dex */
+import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
+import com.baidu.tieba.bu3;
+/* loaded from: classes7.dex */
 public interface ku3 {
-    void a(FrameLayout frameLayout);
+    void a(DownloadInfo downloadInfo);
 
-    void d(boolean z);
+    void b(DownloadInfo downloadInfo);
 
-    ku3 e(Context context, @NonNull gt3 gt3Var);
+    void c(DownloadInfo downloadInfo);
 
-    void g(eu3 eu3Var);
+    void d(DownloadInfo downloadInfo);
 
-    int getCurrentPosition();
+    void destroy();
 
-    int getDuration();
+    void f(@NonNull String str, @NonNull Uri uri, @NonNull bu3.d<Boolean> dVar);
 
-    void h(gt3 gt3Var);
-
-    boolean isEnd();
-
-    boolean isPlaying();
-
-    void mute(boolean z);
-
-    void pause();
-
-    void resume();
-
-    void stop();
+    DownloadInfo g(String str);
 }

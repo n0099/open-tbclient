@@ -23,6 +23,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.util.ForumBroadcastHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.UrlManager;
@@ -32,20 +33,20 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ad;
-import com.baidu.tieba.jta;
-import com.baidu.tieba.mta;
-import com.baidu.tieba.qta;
-import com.baidu.tieba.rta;
-import com.baidu.tieba.sta;
+import com.baidu.tieba.a7b;
+import com.baidu.tieba.k6b;
+import com.baidu.tieba.n6b;
+import com.baidu.tieba.qd;
+import com.baidu.tieba.r6b;
+import com.baidu.tieba.s6b;
+import com.baidu.tieba.t6b;
 import com.baidu.tieba.view.RoundRelativeLayout;
 import com.baidu.tieba.view.headcard.compete.CompeteCardView;
 import com.baidu.tieba.view.headcard.compete.CompeteCardView$dialogClickCallback$2;
 import com.baidu.tieba.view.headcard.data.QuizCardRespondedMessage;
 import com.baidu.tieba.view.headcard.utils.RaceGuessingDialogHelper;
-import com.baidu.tieba.xta;
-import com.baidu.tieba.yta;
-import com.baidu.tieba.zta;
+import com.baidu.tieba.y6b;
+import com.baidu.tieba.z6b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -71,7 +72,7 @@ import tbclient.QuizCardTopConf;
 import tbclient.QuizInfo;
 import tbclient.ThemeColorInfo;
 import tbclient.ThemeElement;
-@Metadata(d1 = {"\u0000Å\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u001f\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b%\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\t\n\u0002\b\u0010\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0010\u000b\n\u0002\b,*\u0003\u0016¥\u0001\u0018\u0000 â\u00012\u00020\u00012\u00020\u0002:\u0004á\u0001â\u0001B+\b\u0007\u0012\f\u0010\u0003\u001a\b\u0012\u0004\u0012\u00020\u00050\u0004\u0012\n\b\u0002\u0010\u0006\u001a\u0004\u0018\u00010\u0007\u0012\b\b\u0002\u0010\b\u001a\u00020\t¢\u0006\u0002\u0010\nJ\n\u0010±\u0001\u001a\u00030²\u0001H\u0002J\u0011\u0010³\u0001\u001a\u00030²\u00012\u0007\u0010´\u0001\u001a\u00020\u001bJ3\u0010µ\u0001\u001a\u00030²\u00012\u0007\u0010´\u0001\u001a\u00020\u001b2\b\u0010¶\u0001\u001a\u00030·\u00012\n\u0010¸\u0001\u001a\u0005\u0018\u00010\u0092\u00012\n\u0010¹\u0001\u001a\u0005\u0018\u00010\u0092\u0001J\u001e\u0010º\u0001\u001a\u00030²\u00012\t\u0010»\u0001\u001a\u0004\u0018\u00010$2\u0007\u0010¼\u0001\u001a\u00020\tH\u0002J\n\u0010½\u0001\u001a\u00030²\u0001H\u0002J\u0013\u0010¾\u0001\u001a\u00030\u0094\u00012\u0007\u0010¿\u0001\u001a\u000205H\u0002J\n\u0010À\u0001\u001a\u00030²\u0001H\u0002J\u0014\u0010Á\u0001\u001a\u00030²\u00012\b\u0010Â\u0001\u001a\u00030\u0094\u0001H\u0002J\n\u0010Ã\u0001\u001a\u00030²\u0001H\u0014J\u0015\u0010Ä\u0001\u001a\u00030²\u00012\t\u0010Å\u0001\u001a\u0004\u0018\u00010$H\u0016J\n\u0010Æ\u0001\u001a\u00030²\u0001H\u0014J8\u0010Ç\u0001\u001a\u00030²\u00012\b\u0010È\u0001\u001a\u00030·\u00012\u0007\u0010É\u0001\u001a\u00020\t2\u0007\u0010Ê\u0001\u001a\u00020\t2\u0007\u0010Ë\u0001\u001a\u00020\t2\u0007\u0010Ì\u0001\u001a\u00020\tH\u0014J\u001c\u0010Í\u0001\u001a\u00030²\u00012\u0007\u0010Î\u0001\u001a\u00020\t2\u0007\u0010Ï\u0001\u001a\u00020\tH\u0014J\u0011\u0010Ð\u0001\u001a\u00030²\u00012\u0007\u0010¼\u0001\u001a\u00020\tJ\b\u0010Ñ\u0001\u001a\u00030²\u0001J\b\u0010Ò\u0001\u001a\u00030²\u0001J%\u0010Ó\u0001\u001a\u00030²\u00012\u0007\u0010´\u0001\u001a\u00020\u001b2\b\u0010Ô\u0001\u001a\u00030·\u00012\b\u0010Õ\u0001\u001a\u00030·\u0001J\n\u0010Ö\u0001\u001a\u00030²\u0001H\u0002J\n\u0010×\u0001\u001a\u00030²\u0001H\u0002J\n\u0010Ø\u0001\u001a\u00030²\u0001H\u0002J\u001b\u0010Ù\u0001\u001a\u00030²\u00012\u0007\u0010¼\u0001\u001a\u00020\t2\b\u0010Ô\u0001\u001a\u00030·\u0001J\u001c\u0010Ú\u0001\u001a\u00030²\u00012\b\u0010Û\u0001\u001a\u00030\u0094\u00012\b\u0010Ü\u0001\u001a\u00030\u0094\u0001J\u0012\u0010Ý\u0001\u001a\u00030²\u00012\u0006\u0010\u0014\u001a\u00020\tH\u0002J\n\u0010Þ\u0001\u001a\u00030²\u0001H\u0002J\u0012\u0010ß\u0001\u001a\u00030²\u00012\u0006\u0010\u0014\u001a\u00020\tH\u0002J\n\u0010à\u0001\u001a\u00030²\u0001H\u0002R\u001b\u0010\u000b\u001a\u00020\f8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u000f\u0010\u0010\u001a\u0004\b\r\u0010\u000eR\u0014\u0010\u0011\u001a\b\u0012\u0004\u0012\u00020\u00130\u0012X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0014\u001a\u00020\tX\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010\u0015\u001a\u00020\u00168BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0019\u0010\u0010\u001a\u0004\b\u0017\u0010\u0018R\u0010\u0010\u001a\u001a\u0004\u0018\u00010\u001bX\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010\u001c\u001a\u00020\u001d8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b \u0010\u0010\u001a\u0004\b\u001e\u0010\u001fR\u000e\u0010!\u001a\u00020\"X\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010#\u001a\u00020$8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b'\u0010\u0010\u001a\u0004\b%\u0010&R\u001b\u0010(\u001a\u00020$8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b*\u0010\u0010\u001a\u0004\b)\u0010&R\u001b\u0010+\u001a\u00020\u00018BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b.\u0010\u0010\u001a\u0004\b,\u0010-R\u001b\u0010/\u001a\u0002008BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b3\u0010\u0010\u001a\u0004\b1\u00102R\u001b\u00104\u001a\u0002058BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b8\u0010\u0010\u001a\u0004\b6\u00107R\u001b\u00109\u001a\u0002058BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b;\u0010\u0010\u001a\u0004\b:\u00107R\u001b\u0010<\u001a\u00020$8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b>\u0010\u0010\u001a\u0004\b=\u0010&R\u001b\u0010?\u001a\u00020@8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\bC\u0010\u0010\u001a\u0004\bA\u0010BR\u001b\u0010D\u001a\u0002058BX\u0082\u0084\u0002¢\u0006\f\n\u0004\bF\u0010\u0010\u001a\u0004\bE\u00107R\u001b\u0010G\u001a\u0002058BX\u0082\u0084\u0002¢\u0006\f\n\u0004\bI\u0010\u0010\u001a\u0004\bH\u00107R\u001b\u0010J\u001a\u0002058BX\u0082\u0084\u0002¢\u0006\f\n\u0004\bL\u0010\u0010\u001a\u0004\bK\u00107R\u001b\u0010M\u001a\u00020$8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\bO\u0010\u0010\u001a\u0004\bN\u0010&R\u001b\u0010P\u001a\u00020@8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\bR\u0010\u0010\u001a\u0004\bQ\u0010BR\u001b\u0010S\u001a\u0002058BX\u0082\u0084\u0002¢\u0006\f\n\u0004\bU\u0010\u0010\u001a\u0004\bT\u00107R\u001b\u0010V\u001a\u0002058BX\u0082\u0084\u0002¢\u0006\f\n\u0004\bX\u0010\u0010\u001a\u0004\bW\u00107R\u001b\u0010Y\u001a\u0002058BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b[\u0010\u0010\u001a\u0004\bZ\u00107R\u001b\u0010\\\u001a\u00020@8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b^\u0010\u0010\u001a\u0004\b]\u0010BR\u000e\u0010_\u001a\u00020`X\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010a\u001a\u00020b8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\be\u0010\u0010\u001a\u0004\bc\u0010dR\u001b\u0010f\u001a\u00020g8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\bj\u0010\u0010\u001a\u0004\bh\u0010iR\u001b\u0010k\u001a\u00020l8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\bo\u0010\u0010\u001a\u0004\bm\u0010nR\u001b\u0010p\u001a\u0002058BX\u0082\u0084\u0002¢\u0006\f\n\u0004\br\u0010\u0010\u001a\u0004\bq\u00107R\u001b\u0010s\u001a\u00020\u00018BX\u0082\u0084\u0002¢\u0006\f\n\u0004\bu\u0010\u0010\u001a\u0004\bt\u0010-R\u001b\u0010v\u001a\u00020b8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\bx\u0010\u0010\u001a\u0004\bw\u0010dR\u001b\u0010y\u001a\u00020g8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b{\u0010\u0010\u001a\u0004\bz\u0010iR\u001b\u0010|\u001a\u00020l8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b~\u0010\u0010\u001a\u0004\b}\u0010nR\u001d\u0010\u007f\u001a\u0002058BX\u0082\u0084\u0002¢\u0006\u000e\n\u0005\b\u0081\u0001\u0010\u0010\u001a\u0005\b\u0080\u0001\u00107R\u001e\u0010\u0082\u0001\u001a\u00020$8BX\u0082\u0084\u0002¢\u0006\u000e\n\u0005\b\u0084\u0001\u0010\u0010\u001a\u0005\b\u0083\u0001\u0010&R\u001e\u0010\u0085\u0001\u001a\u00020@8BX\u0082\u0084\u0002¢\u0006\u000e\n\u0005\b\u0087\u0001\u0010\u0010\u001a\u0005\b\u0086\u0001\u0010BR\u001e\u0010\u0088\u0001\u001a\u0002058BX\u0082\u0084\u0002¢\u0006\u000e\n\u0005\b\u008a\u0001\u0010\u0010\u001a\u0005\b\u0089\u0001\u00107R\u001e\u0010\u008b\u0001\u001a\u0002058BX\u0082\u0084\u0002¢\u0006\u000e\n\u0005\b\u008d\u0001\u0010\u0010\u001a\u0005\b\u008c\u0001\u00107R\u001e\u0010\u008e\u0001\u001a\u0002058BX\u0082\u0084\u0002¢\u0006\u000e\n\u0005\b\u0090\u0001\u0010\u0010\u001a\u0005\b\u008f\u0001\u00107R\u0012\u0010\u0091\u0001\u001a\u0005\u0018\u00010\u0092\u0001X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0093\u0001\u001a\u00030\u0094\u0001X\u0082\u000e¢\u0006\u0002\n\u0000R\u001e\u0010\u0095\u0001\u001a\u00020@8BX\u0082\u0084\u0002¢\u0006\u000e\n\u0005\b\u0097\u0001\u0010\u0010\u001a\u0005\b\u0096\u0001\u0010BR\u001e\u0010\u0098\u0001\u001a\u0002058BX\u0082\u0084\u0002¢\u0006\u000e\n\u0005\b\u009a\u0001\u0010\u0010\u001a\u0005\b\u0099\u0001\u00107R\u001e\u0010\u009b\u0001\u001a\u0002058BX\u0082\u0084\u0002¢\u0006\u000e\n\u0005\b\u009d\u0001\u0010\u0010\u001a\u0005\b\u009c\u0001\u00107R\u0010\u0010\u009e\u0001\u001a\u00030\u0094\u0001X\u0082\u000e¢\u0006\u0002\n\u0000R\u000f\u0010\u009f\u0001\u001a\u00020$X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010 \u0001\u001a\u00030\u0094\u0001X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010¡\u0001\u001a\u00030\u0094\u0001X\u0082\u000e¢\u0006\u0002\n\u0000R\u0012\u0010¢\u0001\u001a\u0005\u0018\u00010\u0092\u0001X\u0082\u000e¢\u0006\u0002\n\u0000R\u0012\u0010£\u0001\u001a\u0005\u0018\u00010\u0092\u0001X\u0082\u000e¢\u0006\u0002\n\u0000R\u0013\u0010¤\u0001\u001a\u00030¥\u0001X\u0082\u0004¢\u0006\u0005\n\u0003\u0010¦\u0001R\u0010\u0010§\u0001\u001a\u00030¨\u0001X\u0082\u0004¢\u0006\u0002\n\u0000R \u0010©\u0001\u001a\u00030ª\u00018BX\u0082\u0084\u0002¢\u0006\u000f\n\u0005\b\u00ad\u0001\u0010\u0010\u001a\u0006\b«\u0001\u0010¬\u0001R\u001e\u0010®\u0001\u001a\u00020\u001d8BX\u0082\u0084\u0002¢\u0006\u000e\n\u0005\b°\u0001\u0010\u0010\u001a\u0005\b¯\u0001\u0010\u001f¨\u0006ã\u0001"}, d2 = {"Lcom/baidu/tieba/view/headcard/compete/CompeteCardView;", "Landroid/widget/RelativeLayout;", "Landroid/view/View$OnClickListener;", "context", "Lcom/baidu/tbadk/TbPageContext;", "Lcom/baidu/tbadk/core/BaseFragmentActivity;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Lcom/baidu/tbadk/TbPageContext;Landroid/util/AttributeSet;I)V", "animHandler", "Lcom/baidu/tieba/view/headcard/compete/CompeteCardView$AnimHandler;", "getAnimHandler", "()Lcom/baidu/tieba/view/headcard/compete/CompeteCardView$AnimHandler;", "animHandler$delegate", "Lkotlin/Lazy;", "applyCallBack", "Lcom/baidu/tieba/view/headcard/model/ApplyGuessCallBack;", "Lcom/baidu/tieba/view/headcard/data/QuizCardRespondedMessage$QuizErrorData;", PushConstants.CLICK_TYPE, "dialogClickCallback", "com/baidu/tieba/view/headcard/compete/CompeteCardView$dialogClickCallback$2$1", "getDialogClickCallback", "()Lcom/baidu/tieba/view/headcard/compete/CompeteCardView$dialogClickCallback$2$1;", "dialogClickCallback$delegate", "headQuizCardData", "Lcom/baidu/tieba/view/headcard/data/HeadQuizCardData;", "leftQuizBetLottie", "Lcom/baidu/tbadk/widget/lottie/TBLottieAnimationView;", "getLeftQuizBetLottie", "()Lcom/baidu/tbadk/widget/lottie/TBLottieAnimationView;", "leftQuizBetLottie$delegate", "mApplyGuessModel", "Lcom/baidu/tieba/view/headcard/model/ApplyGuessModel;", "mBodyContainer", "Landroid/view/View;", "getMBodyContainer", "()Landroid/view/View;", "mBodyContainer$delegate", "mBodyParticipate", "getMBodyParticipate", "mBodyParticipate$delegate", "mBottomJumpContainer", "getMBottomJumpContainer", "()Landroid/widget/RelativeLayout;", "mBottomJumpContainer$delegate", "mBottomJumpIcon", "Landroid/widget/ImageView;", "getMBottomJumpIcon", "()Landroid/widget/ImageView;", "mBottomJumpIcon$delegate", "mBottomJumpText", "Landroid/widget/TextView;", "getMBottomJumpText", "()Landroid/widget/TextView;", "mBottomJumpText$delegate", "mCardAbs", "getMCardAbs", "mCardAbs$delegate", "mCardLeftBottom", "getMCardLeftBottom", "mCardLeftBottom$delegate", "mCardLeftIcon", "Lcom/baidu/tbadk/widget/TbImageView;", "getMCardLeftIcon", "()Lcom/baidu/tbadk/widget/TbImageView;", "mCardLeftIcon$delegate", "mCardLeftPartTitle", "getMCardLeftPartTitle", "mCardLeftPartTitle$delegate", "mCardLeftText", "getMCardLeftText", "mCardLeftText$delegate", "mCardLeftTitle", "getMCardLeftTitle", "mCardLeftTitle$delegate", "mCardRightBottom", "getMCardRightBottom", "mCardRightBottom$delegate", "mCardRightIcon", "getMCardRightIcon", "mCardRightIcon$delegate", "mCardRightPartTitle", "getMCardRightPartTitle", "mCardRightPartTitle$delegate", "mCardRightText", "getMCardRightText", "mCardRightText$delegate", "mCardRightTitle", "getMCardRightTitle", "mCardRightTitle$delegate", "mCompeteBackground", "getMCompeteBackground", "mCompeteBackground$delegate", "mCompeteCardViewStaticHelper", "Lcom/baidu/tieba/view/headcard/compete/CompeteCardViewStaticHelper;", "mCompeteLeftHead", "Lcom/baidu/tbadk/core/view/HeadImageView;", "getMCompeteLeftHead", "()Lcom/baidu/tbadk/core/view/HeadImageView;", "mCompeteLeftHead$delegate", "mCompeteLeftHeadContainer", "Lcom/baidu/tieba/view/RoundRelativeLayout;", "getMCompeteLeftHeadContainer", "()Lcom/baidu/tieba/view/RoundRelativeLayout;", "mCompeteLeftHeadContainer$delegate", "mCompeteLeftProgressContainer", "Landroid/widget/LinearLayout;", "getMCompeteLeftProgressContainer", "()Landroid/widget/LinearLayout;", "mCompeteLeftProgressContainer$delegate", "mCompeteLeftProgressNum", "getMCompeteLeftProgressNum", "mCompeteLeftProgressNum$delegate", "mCompeteProgressContainer", "getMCompeteProgressContainer", "mCompeteProgressContainer$delegate", "mCompeteRightHead", "getMCompeteRightHead", "mCompeteRightHead$delegate", "mCompeteRightHeadContainer", "getMCompeteRightHeadContainer", "mCompeteRightHeadContainer$delegate", "mCompeteRightProgressContainer", "getMCompeteRightProgressContainer", "mCompeteRightProgressContainer$delegate", "mCompeteRightProgressNum", "getMCompeteRightProgressNum", "mCompeteRightProgressNum$delegate", "mHeaderContainer", "getMHeaderContainer", "mHeaderContainer$delegate", "mHeaderIcon", "getMHeaderIcon", "mHeaderIcon$delegate", "mHeaderTitle", "getMHeaderTitle", "mHeaderTitle$delegate", "mJoinNum", "getMJoinNum", "mJoinNum$delegate", "mJoinTitle", "getMJoinTitle", "mJoinTitle$delegate", "mJumpToMoreCompeteUrl", "", "mLeftPartNum", "", "mPrizeIcon", "getMPrizeIcon", "mPrizeIcon$delegate", "mPrizeNum", "getMPrizeNum", "mPrizeNum$delegate", "mPrizePrefix", "getMPrizePrefix", "mPrizePrefix$delegate", "mRightPartNum", "mRootView", "mUserAgreeID", "minPureCount", "mmCardLeftTextChangeText", "mmCardRightTextChangeText", "quizInfoCallback", "com/baidu/tieba/view/headcard/compete/CompeteCardView$quizInfoCallback$1", "Lcom/baidu/tieba/view/headcard/compete/CompeteCardView$quizInfoCallback$1;", "quizInfoModel", "Lcom/baidu/tieba/view/headcard/model/QuizInfoModel;", "raceGuessingDialogHelper", "Lcom/baidu/tieba/view/headcard/utils/RaceGuessingDialogHelper;", "getRaceGuessingDialogHelper", "()Lcom/baidu/tieba/view/headcard/utils/RaceGuessingDialogHelper;", "raceGuessingDialogHelper$delegate", "rightQuizBetLottie", "getRightQuizBetLottie", "rightQuizBetLottie$delegate", "addPrizeNum", "", "bindDataToModel", "data", "bindDataToView", "isFromFrs", "", "fid", "forumName", "buttonClickAnim", "view", "type", "doBet", "getTextNum", "textView", "iniQuizBetLottieView", "modifyTotalCount", "addNum", "onAttachedToWindow", "onClick", "v", "onDetachedFromWindow", "onLayout", "changed", "l", "t", "r", "b", "onMeasure", "widthMeasureSpec", "heightMeasureSpec", "onchangeSkinType", "refreshCardAgreeID", "refreshCardDataByLocal", "refreshCardStateData", "isNeedAnim", "refreshTotalCount", "refreshLeftByClick", "refreshProgress", "refreshRightByClick", "refreshViewState", "requestApplyGuess", "pourCount", "optionId", "showBetLottie", "showLeftLottie", "showPrizeNumAnim", "showRightLottie", "AnimHandler", "Companion", "tbadk_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000Å\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u001f\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b%\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\t\n\u0002\b\u0010\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0010\u000b\n\u0002\b,*\u0003\u0016¥\u0001\u0018\u0000 â\u00012\u00020\u00012\u00020\u0002:\u0004á\u0001â\u0001B+\b\u0007\u0012\f\u0010\u0003\u001a\b\u0012\u0004\u0012\u00020\u00050\u0004\u0012\n\b\u0002\u0010\u0006\u001a\u0004\u0018\u00010\u0007\u0012\b\b\u0002\u0010\b\u001a\u00020\t¢\u0006\u0002\u0010\nJ\n\u0010±\u0001\u001a\u00030²\u0001H\u0002J\u0011\u0010³\u0001\u001a\u00030²\u00012\u0007\u0010´\u0001\u001a\u00020\u001bJ3\u0010µ\u0001\u001a\u00030²\u00012\u0007\u0010´\u0001\u001a\u00020\u001b2\b\u0010¶\u0001\u001a\u00030·\u00012\n\u0010¸\u0001\u001a\u0005\u0018\u00010\u0092\u00012\n\u0010¹\u0001\u001a\u0005\u0018\u00010\u0092\u0001J\u001e\u0010º\u0001\u001a\u00030²\u00012\t\u0010»\u0001\u001a\u0004\u0018\u00010$2\u0007\u0010¼\u0001\u001a\u00020\tH\u0002J\n\u0010½\u0001\u001a\u00030²\u0001H\u0002J\u0013\u0010¾\u0001\u001a\u00030\u0094\u00012\u0007\u0010¿\u0001\u001a\u000205H\u0002J\n\u0010À\u0001\u001a\u00030²\u0001H\u0002J\u0014\u0010Á\u0001\u001a\u00030²\u00012\b\u0010Â\u0001\u001a\u00030\u0094\u0001H\u0002J\n\u0010Ã\u0001\u001a\u00030²\u0001H\u0014J\u0015\u0010Ä\u0001\u001a\u00030²\u00012\t\u0010Å\u0001\u001a\u0004\u0018\u00010$H\u0016J\n\u0010Æ\u0001\u001a\u00030²\u0001H\u0014J8\u0010Ç\u0001\u001a\u00030²\u00012\b\u0010È\u0001\u001a\u00030·\u00012\u0007\u0010É\u0001\u001a\u00020\t2\u0007\u0010Ê\u0001\u001a\u00020\t2\u0007\u0010Ë\u0001\u001a\u00020\t2\u0007\u0010Ì\u0001\u001a\u00020\tH\u0014J\u001c\u0010Í\u0001\u001a\u00030²\u00012\u0007\u0010Î\u0001\u001a\u00020\t2\u0007\u0010Ï\u0001\u001a\u00020\tH\u0014J\u0011\u0010Ð\u0001\u001a\u00030²\u00012\u0007\u0010¼\u0001\u001a\u00020\tJ\b\u0010Ñ\u0001\u001a\u00030²\u0001J\b\u0010Ò\u0001\u001a\u00030²\u0001J%\u0010Ó\u0001\u001a\u00030²\u00012\u0007\u0010´\u0001\u001a\u00020\u001b2\b\u0010Ô\u0001\u001a\u00030·\u00012\b\u0010Õ\u0001\u001a\u00030·\u0001J\n\u0010Ö\u0001\u001a\u00030²\u0001H\u0002J\n\u0010×\u0001\u001a\u00030²\u0001H\u0002J\n\u0010Ø\u0001\u001a\u00030²\u0001H\u0002J\u001b\u0010Ù\u0001\u001a\u00030²\u00012\u0007\u0010¼\u0001\u001a\u00020\t2\b\u0010Ô\u0001\u001a\u00030·\u0001J\u001c\u0010Ú\u0001\u001a\u00030²\u00012\b\u0010Û\u0001\u001a\u00030\u0094\u00012\b\u0010Ü\u0001\u001a\u00030\u0094\u0001J\u0012\u0010Ý\u0001\u001a\u00030²\u00012\u0006\u0010\u0014\u001a\u00020\tH\u0002J\n\u0010Þ\u0001\u001a\u00030²\u0001H\u0002J\u0012\u0010ß\u0001\u001a\u00030²\u00012\u0006\u0010\u0014\u001a\u00020\tH\u0002J\n\u0010à\u0001\u001a\u00030²\u0001H\u0002R\u001b\u0010\u000b\u001a\u00020\f8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u000f\u0010\u0010\u001a\u0004\b\r\u0010\u000eR\u0014\u0010\u0011\u001a\b\u0012\u0004\u0012\u00020\u00130\u0012X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0014\u001a\u00020\tX\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010\u0015\u001a\u00020\u00168BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0019\u0010\u0010\u001a\u0004\b\u0017\u0010\u0018R\u0010\u0010\u001a\u001a\u0004\u0018\u00010\u001bX\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010\u001c\u001a\u00020\u001d8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b \u0010\u0010\u001a\u0004\b\u001e\u0010\u001fR\u000e\u0010!\u001a\u00020\"X\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010#\u001a\u00020$8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b'\u0010\u0010\u001a\u0004\b%\u0010&R\u001b\u0010(\u001a\u00020$8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b*\u0010\u0010\u001a\u0004\b)\u0010&R\u001b\u0010+\u001a\u00020\u00018BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b.\u0010\u0010\u001a\u0004\b,\u0010-R\u001b\u0010/\u001a\u0002008BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b3\u0010\u0010\u001a\u0004\b1\u00102R\u001b\u00104\u001a\u0002058BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b8\u0010\u0010\u001a\u0004\b6\u00107R\u001b\u00109\u001a\u0002058BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b;\u0010\u0010\u001a\u0004\b:\u00107R\u001b\u0010<\u001a\u00020$8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b>\u0010\u0010\u001a\u0004\b=\u0010&R\u001b\u0010?\u001a\u00020@8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\bC\u0010\u0010\u001a\u0004\bA\u0010BR\u001b\u0010D\u001a\u0002058BX\u0082\u0084\u0002¢\u0006\f\n\u0004\bF\u0010\u0010\u001a\u0004\bE\u00107R\u001b\u0010G\u001a\u0002058BX\u0082\u0084\u0002¢\u0006\f\n\u0004\bI\u0010\u0010\u001a\u0004\bH\u00107R\u001b\u0010J\u001a\u0002058BX\u0082\u0084\u0002¢\u0006\f\n\u0004\bL\u0010\u0010\u001a\u0004\bK\u00107R\u001b\u0010M\u001a\u00020$8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\bO\u0010\u0010\u001a\u0004\bN\u0010&R\u001b\u0010P\u001a\u00020@8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\bR\u0010\u0010\u001a\u0004\bQ\u0010BR\u001b\u0010S\u001a\u0002058BX\u0082\u0084\u0002¢\u0006\f\n\u0004\bU\u0010\u0010\u001a\u0004\bT\u00107R\u001b\u0010V\u001a\u0002058BX\u0082\u0084\u0002¢\u0006\f\n\u0004\bX\u0010\u0010\u001a\u0004\bW\u00107R\u001b\u0010Y\u001a\u0002058BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b[\u0010\u0010\u001a\u0004\bZ\u00107R\u001b\u0010\\\u001a\u00020@8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b^\u0010\u0010\u001a\u0004\b]\u0010BR\u000e\u0010_\u001a\u00020`X\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010a\u001a\u00020b8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\be\u0010\u0010\u001a\u0004\bc\u0010dR\u001b\u0010f\u001a\u00020g8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\bj\u0010\u0010\u001a\u0004\bh\u0010iR\u001b\u0010k\u001a\u00020l8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\bo\u0010\u0010\u001a\u0004\bm\u0010nR\u001b\u0010p\u001a\u0002058BX\u0082\u0084\u0002¢\u0006\f\n\u0004\br\u0010\u0010\u001a\u0004\bq\u00107R\u001b\u0010s\u001a\u00020\u00018BX\u0082\u0084\u0002¢\u0006\f\n\u0004\bu\u0010\u0010\u001a\u0004\bt\u0010-R\u001b\u0010v\u001a\u00020b8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\bx\u0010\u0010\u001a\u0004\bw\u0010dR\u001b\u0010y\u001a\u00020g8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b{\u0010\u0010\u001a\u0004\bz\u0010iR\u001b\u0010|\u001a\u00020l8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b~\u0010\u0010\u001a\u0004\b}\u0010nR\u001d\u0010\u007f\u001a\u0002058BX\u0082\u0084\u0002¢\u0006\u000e\n\u0005\b\u0081\u0001\u0010\u0010\u001a\u0005\b\u0080\u0001\u00107R\u001e\u0010\u0082\u0001\u001a\u00020$8BX\u0082\u0084\u0002¢\u0006\u000e\n\u0005\b\u0084\u0001\u0010\u0010\u001a\u0005\b\u0083\u0001\u0010&R\u001e\u0010\u0085\u0001\u001a\u00020@8BX\u0082\u0084\u0002¢\u0006\u000e\n\u0005\b\u0087\u0001\u0010\u0010\u001a\u0005\b\u0086\u0001\u0010BR\u001e\u0010\u0088\u0001\u001a\u0002058BX\u0082\u0084\u0002¢\u0006\u000e\n\u0005\b\u008a\u0001\u0010\u0010\u001a\u0005\b\u0089\u0001\u00107R\u001e\u0010\u008b\u0001\u001a\u0002058BX\u0082\u0084\u0002¢\u0006\u000e\n\u0005\b\u008d\u0001\u0010\u0010\u001a\u0005\b\u008c\u0001\u00107R\u001e\u0010\u008e\u0001\u001a\u0002058BX\u0082\u0084\u0002¢\u0006\u000e\n\u0005\b\u0090\u0001\u0010\u0010\u001a\u0005\b\u008f\u0001\u00107R\u0012\u0010\u0091\u0001\u001a\u0005\u0018\u00010\u0092\u0001X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0093\u0001\u001a\u00030\u0094\u0001X\u0082\u000e¢\u0006\u0002\n\u0000R\u001e\u0010\u0095\u0001\u001a\u00020@8BX\u0082\u0084\u0002¢\u0006\u000e\n\u0005\b\u0097\u0001\u0010\u0010\u001a\u0005\b\u0096\u0001\u0010BR\u001e\u0010\u0098\u0001\u001a\u0002058BX\u0082\u0084\u0002¢\u0006\u000e\n\u0005\b\u009a\u0001\u0010\u0010\u001a\u0005\b\u0099\u0001\u00107R\u001e\u0010\u009b\u0001\u001a\u0002058BX\u0082\u0084\u0002¢\u0006\u000e\n\u0005\b\u009d\u0001\u0010\u0010\u001a\u0005\b\u009c\u0001\u00107R\u0010\u0010\u009e\u0001\u001a\u00030\u0094\u0001X\u0082\u000e¢\u0006\u0002\n\u0000R\u000f\u0010\u009f\u0001\u001a\u00020$X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010 \u0001\u001a\u00030\u0094\u0001X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010¡\u0001\u001a\u00030\u0094\u0001X\u0082\u000e¢\u0006\u0002\n\u0000R\u0012\u0010¢\u0001\u001a\u0005\u0018\u00010\u0092\u0001X\u0082\u000e¢\u0006\u0002\n\u0000R\u0012\u0010£\u0001\u001a\u0005\u0018\u00010\u0092\u0001X\u0082\u000e¢\u0006\u0002\n\u0000R\u0013\u0010¤\u0001\u001a\u00030¥\u0001X\u0082\u0004¢\u0006\u0005\n\u0003\u0010¦\u0001R\u0010\u0010§\u0001\u001a\u00030¨\u0001X\u0082\u0004¢\u0006\u0002\n\u0000R \u0010©\u0001\u001a\u00030ª\u00018BX\u0082\u0084\u0002¢\u0006\u000f\n\u0005\b\u00ad\u0001\u0010\u0010\u001a\u0006\b«\u0001\u0010¬\u0001R\u001e\u0010®\u0001\u001a\u00020\u001d8BX\u0082\u0084\u0002¢\u0006\u000e\n\u0005\b°\u0001\u0010\u0010\u001a\u0005\b¯\u0001\u0010\u001f¨\u0006ã\u0001"}, d2 = {"Lcom/baidu/tieba/view/headcard/compete/CompeteCardView;", "Landroid/widget/RelativeLayout;", "Landroid/view/View$OnClickListener;", "context", "Lcom/baidu/tbadk/TbPageContext;", "Lcom/baidu/tbadk/core/BaseFragmentActivity;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Lcom/baidu/tbadk/TbPageContext;Landroid/util/AttributeSet;I)V", "animHandler", "Lcom/baidu/tieba/view/headcard/compete/CompeteCardView$AnimHandler;", "getAnimHandler", "()Lcom/baidu/tieba/view/headcard/compete/CompeteCardView$AnimHandler;", "animHandler$delegate", "Lkotlin/Lazy;", "applyCallBack", "Lcom/baidu/tieba/view/headcard/model/ApplyGuessCallBack;", "Lcom/baidu/tieba/view/headcard/data/QuizCardRespondedMessage$QuizErrorData;", PushConstants.CLICK_TYPE, "dialogClickCallback", "com/baidu/tieba/view/headcard/compete/CompeteCardView$dialogClickCallback$2$1", "getDialogClickCallback", "()Lcom/baidu/tieba/view/headcard/compete/CompeteCardView$dialogClickCallback$2$1;", "dialogClickCallback$delegate", "headQuizCardData", "Lcom/baidu/tieba/view/headcard/data/HeadQuizCardData;", "leftQuizBetLottie", "Lcom/baidu/tbadk/widget/lottie/TBLottieAnimationView;", "getLeftQuizBetLottie", "()Lcom/baidu/tbadk/widget/lottie/TBLottieAnimationView;", "leftQuizBetLottie$delegate", "mApplyGuessModel", "Lcom/baidu/tieba/view/headcard/model/ApplyGuessModel;", "mBodyContainer", "Landroid/view/View;", "getMBodyContainer", "()Landroid/view/View;", "mBodyContainer$delegate", "mBodyParticipate", "getMBodyParticipate", "mBodyParticipate$delegate", "mBottomJumpContainer", "getMBottomJumpContainer", "()Landroid/widget/RelativeLayout;", "mBottomJumpContainer$delegate", "mBottomJumpIcon", "Landroid/widget/ImageView;", "getMBottomJumpIcon", "()Landroid/widget/ImageView;", "mBottomJumpIcon$delegate", "mBottomJumpText", "Landroid/widget/TextView;", "getMBottomJumpText", "()Landroid/widget/TextView;", "mBottomJumpText$delegate", "mCardAbs", "getMCardAbs", "mCardAbs$delegate", "mCardLeftBottom", "getMCardLeftBottom", "mCardLeftBottom$delegate", "mCardLeftIcon", "Lcom/baidu/tbadk/widget/TbImageView;", "getMCardLeftIcon", "()Lcom/baidu/tbadk/widget/TbImageView;", "mCardLeftIcon$delegate", "mCardLeftPartTitle", "getMCardLeftPartTitle", "mCardLeftPartTitle$delegate", "mCardLeftText", "getMCardLeftText", "mCardLeftText$delegate", "mCardLeftTitle", "getMCardLeftTitle", "mCardLeftTitle$delegate", "mCardRightBottom", "getMCardRightBottom", "mCardRightBottom$delegate", "mCardRightIcon", "getMCardRightIcon", "mCardRightIcon$delegate", "mCardRightPartTitle", "getMCardRightPartTitle", "mCardRightPartTitle$delegate", "mCardRightText", "getMCardRightText", "mCardRightText$delegate", "mCardRightTitle", "getMCardRightTitle", "mCardRightTitle$delegate", "mCompeteBackground", "getMCompeteBackground", "mCompeteBackground$delegate", "mCompeteCardViewStaticHelper", "Lcom/baidu/tieba/view/headcard/compete/CompeteCardViewStaticHelper;", "mCompeteLeftHead", "Lcom/baidu/tbadk/core/view/HeadImageView;", "getMCompeteLeftHead", "()Lcom/baidu/tbadk/core/view/HeadImageView;", "mCompeteLeftHead$delegate", "mCompeteLeftHeadContainer", "Lcom/baidu/tieba/view/RoundRelativeLayout;", "getMCompeteLeftHeadContainer", "()Lcom/baidu/tieba/view/RoundRelativeLayout;", "mCompeteLeftHeadContainer$delegate", "mCompeteLeftProgressContainer", "Landroid/widget/LinearLayout;", "getMCompeteLeftProgressContainer", "()Landroid/widget/LinearLayout;", "mCompeteLeftProgressContainer$delegate", "mCompeteLeftProgressNum", "getMCompeteLeftProgressNum", "mCompeteLeftProgressNum$delegate", "mCompeteProgressContainer", "getMCompeteProgressContainer", "mCompeteProgressContainer$delegate", "mCompeteRightHead", "getMCompeteRightHead", "mCompeteRightHead$delegate", "mCompeteRightHeadContainer", "getMCompeteRightHeadContainer", "mCompeteRightHeadContainer$delegate", "mCompeteRightProgressContainer", "getMCompeteRightProgressContainer", "mCompeteRightProgressContainer$delegate", "mCompeteRightProgressNum", "getMCompeteRightProgressNum", "mCompeteRightProgressNum$delegate", "mHeaderContainer", "getMHeaderContainer", "mHeaderContainer$delegate", "mHeaderIcon", "getMHeaderIcon", "mHeaderIcon$delegate", "mHeaderTitle", "getMHeaderTitle", "mHeaderTitle$delegate", "mJoinNum", "getMJoinNum", "mJoinNum$delegate", "mJoinTitle", "getMJoinTitle", "mJoinTitle$delegate", "mJumpToMoreCompeteUrl", "", "mLeftPartNum", "", "mPrizeIcon", "getMPrizeIcon", "mPrizeIcon$delegate", "mPrizeNum", "getMPrizeNum", "mPrizeNum$delegate", "mPrizePrefix", "getMPrizePrefix", "mPrizePrefix$delegate", "mRightPartNum", "mRootView", "mUserAgreeID", "minPureCount", "mmCardLeftTextChangeText", "mmCardRightTextChangeText", "quizInfoCallback", "com/baidu/tieba/view/headcard/compete/CompeteCardView$quizInfoCallback$1", "Lcom/baidu/tieba/view/headcard/compete/CompeteCardView$quizInfoCallback$1;", "quizInfoModel", "Lcom/baidu/tieba/view/headcard/model/QuizInfoModel;", "raceGuessingDialogHelper", "Lcom/baidu/tieba/view/headcard/utils/RaceGuessingDialogHelper;", "getRaceGuessingDialogHelper", "()Lcom/baidu/tieba/view/headcard/utils/RaceGuessingDialogHelper;", "raceGuessingDialogHelper$delegate", "rightQuizBetLottie", "getRightQuizBetLottie", "rightQuizBetLottie$delegate", "addPrizeNum", "", "bindDataToModel", "data", "bindDataToView", "isFromFrs", "", "fid", ForumBroadcastHelper.KEY_PARMARS_FORUM_NAME, "buttonClickAnim", "view", "type", "doBet", "getTextNum", "textView", "iniQuizBetLottieView", "modifyTotalCount", "addNum", "onAttachedToWindow", "onClick", "v", "onDetachedFromWindow", "onLayout", "changed", "l", "t", "r", "b", "onMeasure", "widthMeasureSpec", "heightMeasureSpec", "onchangeSkinType", "refreshCardAgreeID", "refreshCardDataByLocal", "refreshCardStateData", "isNeedAnim", "refreshTotalCount", "refreshLeftByClick", "refreshProgress", "refreshRightByClick", "refreshViewState", "requestApplyGuess", "pourCount", "optionId", "showBetLottie", "showLeftLottie", "showPrizeNumAnim", "showRightLottie", "AnimHandler", "Companion", "tbadk_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes8.dex */
 public final class CompeteCardView extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -85,24 +86,24 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
     public final Lazy G;
     public final Lazy H;
     public final Lazy I;
-    public yta J;
+    public z6b J;
     public String K;
     public String L;
     public String M;
     public long N;
     public long O;
     public long P;
-    public jta Q;
-    public final xta<QuizCardRespondedMessage.a> R;
+    public k6b Q;
+    public final y6b<QuizCardRespondedMessage.a> R;
     public final Lazy S;
 
     /* renamed from: T  reason: collision with root package name */
-    public final Lazy f1174T;
+    public final Lazy f1175T;
     public int U;
-    public final zta V;
+    public final a7b V;
     public final d W;
     public View a;
-    public mta a0;
+    public n6b a0;
     public final Lazy b;
     public final Lazy b0;
     public final Lazy c;
@@ -205,10 +206,10 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                 Intrinsics.checkNotNullParameter(msg, "msg");
                 super.handleMessage(msg);
                 CompeteCardView competeCardView = this.a.get();
-                if (competeCardView == null || competeCardView.x(competeCardView.getMPrizeNum()) >= this.b) {
+                if (competeCardView == null || competeCardView.y(competeCardView.getMPrizeNum()) >= this.b) {
                     return;
                 }
-                competeCardView.q();
+                competeCardView.r();
                 sendEmptyMessageDelayed(0, this.c);
             }
         }
@@ -229,7 +230,7 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
     }
 
     /* loaded from: classes8.dex */
-    public static final class b implements xta<QuizCardRespondedMessage.a> {
+    public static final class b implements y6b<QuizCardRespondedMessage.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CompeteCardView a;
@@ -252,45 +253,45 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
             this.a = competeCardView;
         }
 
-        @Override // com.baidu.tieba.xta
+        @Override // com.baidu.tieba.y6b
         public void a(String msg) {
-            qta d;
+            r6b d;
             Long c;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, msg) == null) {
                 Intrinsics.checkNotNullParameter(msg, "msg");
-                mta mtaVar = this.a.a0;
-                if (mtaVar != null) {
+                n6b n6bVar = this.a.a0;
+                if (n6bVar != null) {
                     CompeteCardView competeCardView = this.a;
-                    boolean f = mtaVar.f();
+                    boolean f = n6bVar.f();
                     if (!f) {
-                        mta mtaVar2 = competeCardView.a0;
-                        if (mtaVar2 != null && (d = mtaVar2.d()) != null && (c = d.c()) != null) {
-                            competeCardView.z(c.longValue());
+                        n6b n6bVar2 = competeCardView.a0;
+                        if (n6bVar2 != null && (d = n6bVar2.d()) != null && (c = d.c()) != null) {
+                            competeCardView.A(c.longValue());
                         }
                     } else {
-                        competeCardView.J(competeCardView.U);
-                        competeCardView.L(competeCardView.U);
+                        competeCardView.K(competeCardView.U);
+                        competeCardView.M(competeCardView.U);
                     }
-                    competeCardView.B();
                     competeCardView.C();
-                    mta mtaVar3 = competeCardView.a0;
-                    if (mtaVar3 != null) {
-                        competeCardView.D(mtaVar3, true, !f);
-                        competeCardView.F();
+                    competeCardView.D();
+                    n6b n6bVar3 = competeCardView.a0;
+                    if (n6bVar3 != null) {
+                        competeCardView.E(n6bVar3, true, !f);
+                        competeCardView.G();
                     }
                 }
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.xta
+        @Override // com.baidu.tieba.y6b
         /* renamed from: c */
         public void b(String msg, int i, QuizCardRespondedMessage.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, msg, i, aVar) == null) {
                 Intrinsics.checkNotNullParameter(msg, "msg");
-                if (i == 2530005 && aVar != null && !ad.isEmpty(aVar.a())) {
+                if (i == 2530005 && aVar != null && !qd.isEmpty(aVar.a())) {
                     UrlManager.getInstance().dealOneLink(aVar.a());
                 }
             }
@@ -353,24 +354,24 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
                 Intrinsics.checkNotNullParameter(animator, "animator");
                 if (this.a == 1) {
-                    this.b.G();
+                    this.b.H();
                 }
                 if (this.a != 2) {
                     return;
                 }
-                this.b.E();
+                this.b.F();
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class d implements zta.a {
+    public static final class d implements a7b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CompeteCardView a;
         public final /* synthetic */ TbPageContext<BaseFragmentActivity> b;
 
-        @Override // com.baidu.tieba.zta.a
+        @Override // com.baidu.tieba.a7b.a
         public void onError(int i, String errorMsg) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, errorMsg) == null) {
@@ -397,35 +398,36 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
             this.b = tbPageContext;
         }
 
-        @Override // com.baidu.tieba.zta.a
-        public void a(QuizInfo quizInfo, sta staVar) {
-            qta d;
+        @Override // com.baidu.tieba.a7b.a
+        public void a(QuizInfo quizInfo, t6b t6bVar) {
+            r6b d;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, quizInfo, staVar) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048576, this, quizInfo, t6bVar) == null) {
                 if (quizInfo != null) {
                     CompeteCardView competeCardView = this.a;
-                    mta mtaVar = competeCardView.a0;
-                    if (mtaVar != null && (d = mtaVar.d()) != null) {
+                    n6b n6bVar = competeCardView.a0;
+                    if (n6bVar != null && (d = n6bVar.d()) != null) {
                         d.k(quizInfo);
                     }
                     if (competeCardView.a0 != null) {
-                        mta mtaVar2 = competeCardView.a0;
-                        Intrinsics.checkNotNull(mtaVar2);
-                        competeCardView.D(mtaVar2, true, true);
-                        competeCardView.F();
+                        competeCardView.C();
+                        n6b n6bVar2 = competeCardView.a0;
+                        Intrinsics.checkNotNull(n6bVar2);
+                        competeCardView.E(n6bVar2, true, true);
+                        competeCardView.G();
                     }
                 }
-                mta mtaVar3 = this.a.a0;
-                if (mtaVar3 != null) {
+                n6b n6bVar3 = this.a.a0;
+                if (n6bVar3 != null) {
                     CompeteCardView competeCardView2 = this.a;
                     TbPageContext<BaseFragmentActivity> tbPageContext = this.b;
-                    if (!mtaVar3.f() || staVar == null) {
+                    if (!n6bVar3.f() || t6bVar == null) {
                         return;
                     }
                     RaceGuessingDialogHelper raceGuessingDialogHelper = competeCardView2.getRaceGuessingDialogHelper();
                     Activity pageActivity = tbPageContext.getPageActivity();
                     Intrinsics.checkNotNullExpressionValue(pageActivity, "context.pageActivity");
-                    raceGuessingDialogHelper.d(pageActivity, staVar, competeCardView2.getDialogClickCallback());
+                    raceGuessingDialogHelper.d(pageActivity, t6bVar, competeCardView2.getDialogClickCallback());
                 }
             }
         }
@@ -1744,10 +1746,10 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                 return (ImageView) invokeV.objValue;
             }
         });
-        this.Q = new jta();
+        this.Q = new k6b();
         this.R = new b(this);
         this.S = LazyKt__LazyJVMKt.lazy(CompeteCardView$raceGuessingDialogHelper$2.INSTANCE);
-        this.f1174T = LazyKt__LazyJVMKt.lazy(new Function0<CompeteCardView$dialogClickCallback$2.a>(this) { // from class: com.baidu.tieba.view.headcard.compete.CompeteCardView$dialogClickCallback$2
+        this.f1175T = LazyKt__LazyJVMKt.lazy(new Function0<CompeteCardView$dialogClickCallback$2.a>(this) { // from class: com.baidu.tieba.view.headcard.compete.CompeteCardView$dialogClickCallback$2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CompeteCardView this$0;
@@ -1808,12 +1810,12 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                             CompeteCardView competeCardView = this.a;
                             if (competeCardView.U == 1) {
                                 mCardRightText = competeCardView.getMCardRightText();
-                                competeCardView.x(mCardRightText);
+                                competeCardView.y(mCardRightText);
                             } else {
                                 mCardLeftText = competeCardView.getMCardLeftText();
-                                competeCardView.x(mCardLeftText);
+                                competeCardView.y(mCardLeftText);
                             }
-                            competeCardView.u();
+                            competeCardView.x();
                         }
                     }
                 }
@@ -2063,17 +2065,17 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
         View inflate = LayoutInflater.from(context.getPageActivity()).inflate(R.layout.card_compete_card_view, (ViewGroup) this, true);
         Intrinsics.checkNotNullExpressionValue(inflate, "from(context.pageActivit…te_card_view, this, true)");
         this.a = inflate;
-        A(SkinManager.getCurrentSkinType());
-        this.J = new yta(context);
-        zta ztaVar = new zta();
-        this.V = ztaVar;
-        ztaVar.g(this.W);
+        B(SkinManager.getCurrentSkinType());
+        this.J = new z6b(context);
+        a7b a7bVar = new a7b();
+        this.V = a7bVar;
+        a7bVar.g(this.W);
         this.V.h(context.getUniqueId());
         this.J.c(this.R);
         getMCardLeftBottom().setOnClickListener(this);
         getMCardRightBottom().setOnClickListener(this);
         getMBottomJumpContainer().setOnClickListener(this);
-        y();
+        z();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:101:0x01bd  */
@@ -2091,25 +2093,25 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void D(mta data, boolean z, boolean z2) {
+    public final void E(n6b data, boolean z, boolean z2) {
         String str;
         String str2;
         String str3;
         String str4;
         String str5;
         int i;
-        qta d2;
+        r6b d2;
         Long l;
         LinkConf a2;
         String str6;
         LinkConf a3;
         Long l2;
-        ArrayList<rta> arrayList;
-        ArrayList<rta> arrayList2;
+        ArrayList<s6b> arrayList;
+        ArrayList<s6b> arrayList2;
         boolean z3;
         Long g;
-        rta rtaVar;
-        qta d3;
+        s6b s6bVar;
+        r6b d3;
         boolean z4;
         Long g2;
         Long l3;
@@ -2131,7 +2133,7 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
         ThemeElement themeElement;
         ThemeElement themeElement2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{data, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{data, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
             TextView mHeaderTitle = getMHeaderTitle();
             QuizCardTopConf e2 = data.e();
@@ -2151,15 +2153,15 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
             }
             mCompeteBackground.startLoad(str2);
             TbImageView mHeaderIcon = getMHeaderIcon();
-            mta mtaVar = this.a0;
-            if (mtaVar != null && (e = mtaVar.e()) != null && (themeColorInfo = e.img) != null && (themeElement = themeColorInfo.day) != null) {
+            n6b n6bVar = this.a0;
+            if (n6bVar != null && (e = n6bVar.e()) != null && (themeColorInfo = e.img) != null && (themeElement = themeColorInfo.day) != null) {
                 str3 = themeElement.pattern_image;
             } else {
                 str3 = null;
             }
             mHeaderIcon.startLoad(str3);
             TextView mCardAbs = getMCardAbs();
-            qta d4 = data.d();
+            r6b d4 = data.d();
             if (d4 != null) {
                 str4 = d4.g();
             } else {
@@ -2167,20 +2169,20 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
             }
             mCardAbs.setText(str4);
             TbImageView mPrizeIcon = getMPrizeIcon();
-            qta d5 = data.d();
+            r6b d5 = data.d();
             if (d5 != null) {
                 str5 = d5.i();
             } else {
                 str5 = null;
             }
             mPrizeIcon.startLoad(str5);
-            qta d6 = data.d();
+            r6b d6 = data.d();
             if (d6 != null && (c4 = d6.c()) != null) {
                 c4.longValue();
             }
             if (z2) {
                 TextView mPrizeNum = getMPrizeNum();
-                qta d7 = data.d();
+                r6b d7 = data.d();
                 if (d7 != null) {
                     l9 = d7.h();
                 } else {
@@ -2189,14 +2191,14 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                 mPrizeNum.setText(String.valueOf(l9));
             }
             if (data.d() != null) {
-                qta d8 = data.d();
+                r6b d8 = data.d();
                 if (d8 != null) {
                     arrayList = d8.d();
                 } else {
                     arrayList = null;
                 }
                 if (arrayList != null) {
-                    qta d9 = data.d();
+                    r6b d9 = data.d();
                     if (d9 != null) {
                         arrayList2 = d9.d();
                     } else {
@@ -2204,17 +2206,17 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                     }
                     Intrinsics.checkNotNull(arrayList2);
                     if (arrayList2.size() > 1) {
-                        qta d10 = data.d();
+                        r6b d10 = data.d();
                         Intrinsics.checkNotNull(d10);
-                        rta rtaVar2 = d10.d().get(0);
-                        qta d11 = data.d();
+                        s6b s6bVar2 = d10.d().get(0);
+                        r6b d11 = data.d();
                         if (d11 != null && (c3 = d11.c()) != null && c3.longValue() == 0) {
                             z3 = true;
                         } else {
                             z3 = false;
                         }
                         if (!z3) {
-                            qta d12 = data.d();
+                            r6b d12 = data.d();
                             if (d12 != null && (a5 = d12.a()) != null && a5.longValue() == 2) {
                                 z6 = true;
                             } else {
@@ -2223,9 +2225,9 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                             if (!z6) {
                                 getMCardLeftIcon().setVisibility(0);
                                 getMCardLeftText().setVisibility(0);
-                                getMCardLeftIcon().startLoad(rtaVar2.a());
+                                getMCardLeftIcon().startLoad(s6bVar2.a());
                                 TextView mCardLeftText = getMCardLeftText();
-                                qta d13 = data.d();
+                                r6b d13 = data.d();
                                 if (d13 != null) {
                                     l8 = d13.c();
                                 } else {
@@ -2233,20 +2235,20 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                                 }
                                 mCardLeftText.setText(String.valueOf(l8));
                                 getMCompeteLeftHead().setIsRound(true);
-                                getMCompeteLeftHead().startLoad(rtaVar2.d());
-                                getMCardLeftPartTitle().setText(rtaVar2.e());
-                                getMCardLeftTitle().setText(rtaVar2.b());
-                                this.M = rtaVar2.c();
-                                if (rtaVar2.f() != null) {
-                                    qta d14 = data.d();
+                                getMCompeteLeftHead().startLoad(s6bVar2.d());
+                                getMCardLeftPartTitle().setText(s6bVar2.e());
+                                getMCardLeftTitle().setText(s6bVar2.b());
+                                this.M = s6bVar2.c();
+                                if (s6bVar2.f() != null) {
+                                    r6b d14 = data.d();
                                     if (d14 != null) {
                                         l6 = d14.b();
                                     } else {
                                         l6 = null;
                                     }
                                     if (l6 != null) {
-                                        Long f = rtaVar2.f();
-                                        qta d15 = data.d();
+                                        Long f = s6bVar2.f();
+                                        r6b d15 = data.d();
                                         if (d15 != null) {
                                             l7 = d15.b();
                                         } else {
@@ -2254,7 +2256,7 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                                         }
                                         if (Intrinsics.areEqual(f, l7)) {
                                             i = 2;
-                                            g = rtaVar2.g();
+                                            g = s6bVar2.g();
                                             if (g != null) {
                                                 this.N = g.longValue();
                                                 TextView mCompeteLeftProgressNum = getMCompeteLeftProgressNum();
@@ -2265,9 +2267,9 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                                                 Intrinsics.checkNotNullExpressionValue(format, "format(format, *args)");
                                                 mCompeteLeftProgressNum.setText(format);
                                             }
-                                            qta d16 = data.d();
+                                            r6b d16 = data.d();
                                             Intrinsics.checkNotNull(d16);
-                                            rtaVar = d16.d().get(1);
+                                            s6bVar = d16.d().get(1);
                                             d3 = data.d();
                                             if (d3 == null && (c2 = d3.c()) != null && c2.longValue() == 0) {
                                                 z4 = true;
@@ -2275,7 +2277,7 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                                                 z4 = false;
                                             }
                                             if (!z4) {
-                                                qta d17 = data.d();
+                                                r6b d17 = data.d();
                                                 if (d17 != null && (a4 = d17.a()) != null && a4.longValue() == 2) {
                                                     z5 = true;
                                                 } else {
@@ -2284,9 +2286,9 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                                                 if (!z5) {
                                                     getMCardRightIcon().setVisibility(0);
                                                     getMCardRightText().setVisibility(0);
-                                                    getMCardRightIcon().startLoad(rtaVar.a());
+                                                    getMCardRightIcon().startLoad(s6bVar.a());
                                                     TextView mCardRightText = getMCardRightText();
-                                                    qta d18 = data.d();
+                                                    r6b d18 = data.d();
                                                     if (d18 != null) {
                                                         l5 = d18.c();
                                                     } else {
@@ -2294,20 +2296,20 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                                                     }
                                                     mCardRightText.setText(String.valueOf(l5));
                                                     getMCompeteRightHead().setIsRound(true);
-                                                    getMCompeteRightHead().startLoad(rtaVar.d());
-                                                    getMCardRightPartTitle().setText(rtaVar.e());
-                                                    getMCardRightTitle().setText(rtaVar.b());
-                                                    this.L = rtaVar.c();
-                                                    if (rtaVar.f() != null) {
-                                                        qta d19 = data.d();
+                                                    getMCompeteRightHead().startLoad(s6bVar.d());
+                                                    getMCardRightPartTitle().setText(s6bVar.e());
+                                                    getMCardRightTitle().setText(s6bVar.b());
+                                                    this.L = s6bVar.c();
+                                                    if (s6bVar.f() != null) {
+                                                        r6b d19 = data.d();
                                                         if (d19 != null) {
                                                             l3 = d19.b();
                                                         } else {
                                                             l3 = null;
                                                         }
                                                         if (l3 != null) {
-                                                            Long f2 = rtaVar.f();
-                                                            qta d20 = data.d();
+                                                            Long f2 = s6bVar.f();
+                                                            r6b d20 = data.d();
                                                             if (d20 != null) {
                                                                 l4 = d20.b();
                                                             } else {
@@ -2318,7 +2320,7 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                                                             }
                                                         }
                                                     }
-                                                    g2 = rtaVar.g();
+                                                    g2 = s6bVar.g();
                                                     if (g2 != null) {
                                                         this.P = g2.longValue();
                                                         TextView mCompeteRightProgressNum = getMCompeteRightProgressNum();
@@ -2336,7 +2338,7 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                                                         l = null;
                                                     }
                                                     if (l != null) {
-                                                        qta d21 = data.d();
+                                                        r6b d21 = data.d();
                                                         if (d21 != null) {
                                                             l2 = d21.j();
                                                         } else {
@@ -2366,21 +2368,21 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                                                         str7 = a3.url;
                                                     }
                                                     this.K = str7;
-                                                    r(data);
-                                                    A(TbadkApplication.getInst().getSkinType());
-                                                    H(i, z);
+                                                    s(data);
+                                                    B(TbadkApplication.getInst().getSkinType());
+                                                    I(i, z);
                                                 }
                                             }
                                             getMCardRightIcon().setVisibility(8);
                                             getMCardRightText().setVisibility(8);
                                             getMCompeteRightHead().setIsRound(true);
-                                            getMCompeteRightHead().startLoad(rtaVar.d());
-                                            getMCardRightPartTitle().setText(rtaVar.e());
-                                            getMCardRightTitle().setText(rtaVar.b());
-                                            this.L = rtaVar.c();
-                                            if (rtaVar.f() != null) {
+                                            getMCompeteRightHead().startLoad(s6bVar.d());
+                                            getMCardRightPartTitle().setText(s6bVar.e());
+                                            getMCardRightTitle().setText(s6bVar.b());
+                                            this.L = s6bVar.c();
+                                            if (s6bVar.f() != null) {
                                             }
-                                            g2 = rtaVar.g();
+                                            g2 = s6bVar.g();
                                             if (g2 != null) {
                                             }
                                             d2 = data.d();
@@ -2397,19 +2399,19 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                                             if (a3 != null) {
                                             }
                                             this.K = str7;
-                                            r(data);
-                                            A(TbadkApplication.getInst().getSkinType());
-                                            H(i, z);
+                                            s(data);
+                                            B(TbadkApplication.getInst().getSkinType());
+                                            I(i, z);
                                         }
                                     }
                                 }
                                 i = 0;
-                                g = rtaVar2.g();
+                                g = s6bVar2.g();
                                 if (g != null) {
                                 }
-                                qta d162 = data.d();
+                                r6b d162 = data.d();
                                 Intrinsics.checkNotNull(d162);
-                                rtaVar = d162.d().get(1);
+                                s6bVar = d162.d().get(1);
                                 d3 = data.d();
                                 if (d3 == null) {
                                 }
@@ -2419,13 +2421,13 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                                 getMCardRightIcon().setVisibility(8);
                                 getMCardRightText().setVisibility(8);
                                 getMCompeteRightHead().setIsRound(true);
-                                getMCompeteRightHead().startLoad(rtaVar.d());
-                                getMCardRightPartTitle().setText(rtaVar.e());
-                                getMCardRightTitle().setText(rtaVar.b());
-                                this.L = rtaVar.c();
-                                if (rtaVar.f() != null) {
+                                getMCompeteRightHead().startLoad(s6bVar.d());
+                                getMCardRightPartTitle().setText(s6bVar.e());
+                                getMCardRightTitle().setText(s6bVar.b());
+                                this.L = s6bVar.c();
+                                if (s6bVar.f() != null) {
                                 }
-                                g2 = rtaVar.g();
+                                g2 = s6bVar.g();
                                 if (g2 != null) {
                                 }
                                 d2 = data.d();
@@ -2442,27 +2444,27 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                                 if (a3 != null) {
                                 }
                                 this.K = str7;
-                                r(data);
-                                A(TbadkApplication.getInst().getSkinType());
-                                H(i, z);
+                                s(data);
+                                B(TbadkApplication.getInst().getSkinType());
+                                I(i, z);
                             }
                         }
                         getMCardLeftIcon().setVisibility(8);
                         getMCardLeftText().setVisibility(8);
                         getMCompeteLeftHead().setIsRound(true);
-                        getMCompeteLeftHead().startLoad(rtaVar2.d());
-                        getMCardLeftPartTitle().setText(rtaVar2.e());
-                        getMCardLeftTitle().setText(rtaVar2.b());
-                        this.M = rtaVar2.c();
-                        if (rtaVar2.f() != null) {
+                        getMCompeteLeftHead().startLoad(s6bVar2.d());
+                        getMCardLeftPartTitle().setText(s6bVar2.e());
+                        getMCardLeftTitle().setText(s6bVar2.b());
+                        this.M = s6bVar2.c();
+                        if (s6bVar2.f() != null) {
                         }
                         i = 0;
-                        g = rtaVar2.g();
+                        g = s6bVar2.g();
                         if (g != null) {
                         }
-                        qta d1622 = data.d();
+                        r6b d1622 = data.d();
                         Intrinsics.checkNotNull(d1622);
-                        rtaVar = d1622.d().get(1);
+                        s6bVar = d1622.d().get(1);
                         d3 = data.d();
                         if (d3 == null) {
                         }
@@ -2472,13 +2474,13 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                         getMCardRightIcon().setVisibility(8);
                         getMCardRightText().setVisibility(8);
                         getMCompeteRightHead().setIsRound(true);
-                        getMCompeteRightHead().startLoad(rtaVar.d());
-                        getMCardRightPartTitle().setText(rtaVar.e());
-                        getMCardRightTitle().setText(rtaVar.b());
-                        this.L = rtaVar.c();
-                        if (rtaVar.f() != null) {
+                        getMCompeteRightHead().startLoad(s6bVar.d());
+                        getMCardRightPartTitle().setText(s6bVar.e());
+                        getMCardRightTitle().setText(s6bVar.b());
+                        this.L = s6bVar.c();
+                        if (s6bVar.f() != null) {
                         }
-                        g2 = rtaVar.g();
+                        g2 = s6bVar.g();
                         if (g2 != null) {
                         }
                         d2 = data.d();
@@ -2495,9 +2497,9 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                         if (a3 != null) {
                         }
                         this.K = str7;
-                        r(data);
-                        A(TbadkApplication.getInst().getSkinType());
-                        H(i, z);
+                        s(data);
+                        B(TbadkApplication.getInst().getSkinType());
+                        I(i, z);
                     }
                 }
             }
@@ -2516,9 +2518,9 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
             if (a3 != null) {
             }
             this.K = str7;
-            r(data);
-            A(TbadkApplication.getInst().getSkinType());
-            H(i, z);
+            s(data);
+            B(TbadkApplication.getInst().getSkinType());
+            I(i, z);
         }
     }
 
@@ -2526,22 +2528,22 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
         this(tbPageContext, (i2 & 2) != 0 ? null : attributeSet, (i2 & 4) != 0 ? 0 : i);
     }
 
-    public final void J(int i) {
+    public final void K(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
             if (i == 1) {
-                M();
+                N();
             }
             if (i == 2) {
-                K();
+                L();
             }
         }
     }
 
-    public final long x(TextView textView) {
+    public final long y(TextView textView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, textView)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, textView)) == null) {
             Long longOrNull = StringsKt__StringNumberConversionsKt.toLongOrNull(textView.getText().toString());
             if (longOrNull != null) {
                 return longOrNull.longValue();
@@ -2565,7 +2567,7 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
-            return (CompeteCardView$dialogClickCallback$2.a) this.f1174T.getValue();
+            return (CompeteCardView$dialogClickCallback$2.a) this.f1175T.getValue();
         }
         return (CompeteCardView$dialogClickCallback$2.a) invokeV.objValue;
     }
@@ -2975,18 +2977,18 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
         return (TBLottieAnimationView) invokeV.objValue;
     }
 
-    public final void B() {
-        mta mtaVar;
-        qta d2;
+    public final void C() {
+        n6b n6bVar;
+        r6b d2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (mtaVar = this.a0) != null && (d2 = mtaVar.d()) != null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (n6bVar = this.a0) != null && (d2 = n6bVar.d()) != null) {
             d2.l(Long.valueOf(this.O));
         }
     }
 
-    public final void K() {
+    public final void L() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             getRightQuizBetLottie().setVisibility(8);
             getLeftQuizBetLottie().setVisibility(0);
             getLeftQuizBetLottie().setAnimation(R.raw.quiz_bet_left_lottie);
@@ -2994,9 +2996,9 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
         }
     }
 
-    public final void M() {
+    public final void N() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             getLeftQuizBetLottie().setVisibility(8);
             getRightQuizBetLottie().setVisibility(0);
             getRightQuizBetLottie().setAnimation(R.raw.quiz_bet_right_lottie);
@@ -3007,7 +3009,7 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onAttachedToWindow();
             this.V.f();
         }
@@ -3016,7 +3018,7 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             super.onDetachedFromWindow();
             this.V.d();
             getRaceGuessingDialogHelper().c();
@@ -3024,16 +3026,16 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
         }
     }
 
-    public final void q() {
+    public final void r() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            getMPrizeNum().setText(String.valueOf(x(getMPrizeNum()) + 1));
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            getMPrizeNum().setText(String.valueOf(y(getMPrizeNum()) + 1));
         }
     }
 
-    public final void y() {
+    public final void z() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             addView(getRightQuizBetLottie(), new RelativeLayout.LayoutParams(-2, -2));
             addView(getLeftQuizBetLottie(), new RelativeLayout.LayoutParams(-2, -2));
         }
@@ -3042,15 +3044,15 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
     @Override // android.widget.RelativeLayout, android.view.View
     public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048593, this, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeII(1048594, this, i, i2) == null) {
             super.onMeasure(i, i2);
-            F();
+            G();
         }
     }
 
-    public final void t(View view2, int i) {
+    public final void u(View view2, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048597, this, view2, i) != null) || view2 == null) {
+        if ((interceptable != null && interceptable.invokeLI(1048598, this, view2, i) != null) || view2 == null) {
             return;
         }
         ViewPropertyAnimator animate = view2.animate();
@@ -3059,7 +3061,46 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
         animate.start();
     }
 
-    public final void A(int i) {
+    public final void A(long j) {
+        n6b n6bVar;
+        r6b d2;
+        Long h;
+        r6b r6bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeJ(1048576, this, j) == null) && (n6bVar = this.a0) != null && (d2 = n6bVar.d()) != null && (h = d2.h()) != null) {
+            long longValue = h.longValue();
+            n6b n6bVar2 = this.a0;
+            if (n6bVar2 != null) {
+                r6bVar = n6bVar2.d();
+            } else {
+                r6bVar = null;
+            }
+            if (r6bVar != null) {
+                r6bVar.m(Long.valueOf(longValue + j));
+            }
+        }
+    }
+
+    public final void s(n6b data) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, data) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            r6b d2 = data.d();
+            if (d2 != null) {
+                Long e = d2.e();
+                if (e != null) {
+                    this.J.f(e.longValue());
+                }
+                this.J.h(TbadkCoreApplication.getCurrentAccountId());
+                Long f = d2.f();
+                if (f != null) {
+                    this.J.g(f.longValue());
+                }
+            }
+        }
+    }
+
+    public final void B(int i) {
         String str;
         QuizCardTopConf e;
         ThemeColorInfo themeColorInfo;
@@ -3073,7 +3114,7 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
         ThemeColorInfo b3;
         ThemeElement themeElement4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             EMManager.from(getMCardLeftBottom()).setCorner(R.string.J_X18).setBackGroundColor(R.color.CAM_X0101);
             EMManager.from(getMCardRightBottom()).setCorner(R.string.J_X18).setBackGroundColor(R.color.CAM_X0101);
             EMManager.from(getMCardLeftTitle()).setTextSize(R.dimen.T_X12).setTextColor(R.color.CAM_X0610).setTextStyle(R.string.F_X02);
@@ -3101,47 +3142,47 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
             String str3 = null;
             if (TbadkApplication.getInst().getSkinType() == 0) {
                 TbImageView mCompeteBackground = getMCompeteBackground();
-                mta mtaVar = this.a0;
-                if (mtaVar != null && (b3 = mtaVar.b()) != null && (themeElement4 = b3.day) != null) {
+                n6b n6bVar = this.a0;
+                if (n6bVar != null && (b3 = n6bVar.b()) != null && (themeElement4 = b3.day) != null) {
                     str2 = themeElement4.pattern_image;
                 } else {
                     str2 = null;
                 }
                 mCompeteBackground.startLoad(str2);
                 TbImageView mHeaderIcon = getMHeaderIcon();
-                mta mtaVar2 = this.a0;
-                if (mtaVar2 != null && (e2 = mtaVar2.e()) != null && (themeColorInfo2 = e2.img) != null && (themeElement3 = themeColorInfo2.day) != null) {
+                n6b n6bVar2 = this.a0;
+                if (n6bVar2 != null && (e2 = n6bVar2.e()) != null && (themeColorInfo2 = e2.img) != null && (themeElement3 = themeColorInfo2.day) != null) {
                     str3 = themeElement3.pattern_image;
                 }
                 mHeaderIcon.startLoad(str3);
                 return;
             }
             TbImageView mCompeteBackground2 = getMCompeteBackground();
-            mta mtaVar3 = this.a0;
-            if (mtaVar3 != null && (b2 = mtaVar3.b()) != null && (themeElement2 = b2.night) != null) {
+            n6b n6bVar3 = this.a0;
+            if (n6bVar3 != null && (b2 = n6bVar3.b()) != null && (themeElement2 = b2.night) != null) {
                 str = themeElement2.pattern_image;
             } else {
                 str = null;
             }
             mCompeteBackground2.startLoad(str);
             TbImageView mHeaderIcon2 = getMHeaderIcon();
-            mta mtaVar4 = this.a0;
-            if (mtaVar4 != null && (e = mtaVar4.e()) != null && (themeColorInfo = e.img) != null && (themeElement = themeColorInfo.night) != null) {
+            n6b n6bVar4 = this.a0;
+            if (n6bVar4 != null && (e = n6bVar4.e()) != null && (themeColorInfo = e.img) != null && (themeElement = themeColorInfo.night) != null) {
                 str3 = themeElement.pattern_image;
             }
             mHeaderIcon2.startLoad(str3);
         }
     }
 
-    public final void C() {
-        qta d2;
+    public final void D() {
+        r6b d2;
         Long j;
-        qta qtaVar;
-        qta d3;
+        r6b r6bVar;
+        r6b d3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            mta mtaVar = this.a0;
-            if (mtaVar != null && (d3 = mtaVar.d()) != null && d3.d().size() > 1) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            n6b n6bVar = this.a0;
+            if (n6bVar != null && (d3 = n6bVar.d()) != null && d3.d().size() > 1) {
                 if (this.U == 2 && d3.d().get(0).g() != null) {
                     Long g = d3.d().get(0).g();
                     Intrinsics.checkNotNull(g);
@@ -3152,25 +3193,25 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                     d3.d().get(1).i(Long.valueOf(g2.longValue() + 1));
                 }
             }
-            mta mtaVar2 = this.a0;
-            if (mtaVar2 != null && (d2 = mtaVar2.d()) != null && (j = d2.j()) != null) {
+            n6b n6bVar2 = this.a0;
+            if (n6bVar2 != null && (d2 = n6bVar2.d()) != null && (j = d2.j()) != null) {
                 long longValue = j.longValue();
-                mta mtaVar3 = this.a0;
-                if (mtaVar3 != null) {
-                    qtaVar = mtaVar3.d();
+                n6b n6bVar3 = this.a0;
+                if (n6bVar3 != null) {
+                    r6bVar = n6bVar3.d();
                 } else {
-                    qtaVar = null;
+                    r6bVar = null;
                 }
-                if (qtaVar != null) {
-                    qtaVar.n(Long.valueOf(longValue + 1));
+                if (r6bVar != null) {
+                    r6bVar.n(Long.valueOf(longValue + 1));
                 }
             }
         }
     }
 
-    public final void E() {
+    public final void F() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             getMCardLeftBottom().setAlpha(1.0f);
             EMManager.from(getMCardLeftBottom()).setCorner(R.string.J_X18).setBorderWidth(R.dimen.L_X01).setBorderColor(R.color.CAM_X0101).setBackGroundColor(R.color.transparent);
             EMManager.from(getMCardLeftTitle()).setTextColor(R.color.CAM_X0101);
@@ -3183,10 +3224,10 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
         }
     }
 
-    public final void F() {
+    public final void G() {
         float f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             long j = this.P;
             long j2 = this.N;
             long j3 = j + j2;
@@ -3212,9 +3253,9 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
         }
     }
 
-    public final void G() {
+    public final void H() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             getMCardRightBottom().setAlpha(1.0f);
             EMManager.from(getMCardRightBottom()).setCorner(R.string.J_X18).setBorderWidth(R.dimen.L_X01).setBorderColor(R.color.CAM_X0101).setBackGroundColor(R.color.transparent);
             EMManager.from(getMCardRightTitle()).setTextColor(R.color.CAM_X0101);
@@ -3227,15 +3268,15 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
         }
     }
 
-    public final void u() {
-        mta mtaVar;
-        qta d2;
+    public final void x() {
+        n6b n6bVar;
+        r6b d2;
         boolean z;
         int i;
-        long x;
+        long y;
         Long f;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048598, this) == null) && (mtaVar = this.a0) != null && (d2 = mtaVar.d()) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048599, this) == null) && (n6bVar = this.a0) != null && (d2 = n6bVar.d()) != null) {
             if (d2.d().size() > 1) {
                 z = true;
             } else {
@@ -3248,9 +3289,9 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                 return;
             }
             if (i == 1) {
-                x = x(getMCardRightText());
+                y = y(getMCardRightText());
             } else {
-                x = x(getMCardLeftText());
+                y = y(getMCardLeftText());
             }
             if (this.U == 1) {
                 f = d2.d().get(1).f();
@@ -3258,66 +3299,66 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                 f = d2.d().get(0).f();
             }
             if (f != null) {
-                I(x, f.longValue());
+                J(y, f.longValue());
             }
         }
     }
 
-    public final void H(int i, boolean z) {
+    public final void I(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             if (i == 1) {
                 if (z) {
-                    t(getMCardRightBottom(), i);
+                    u(getMCardRightBottom(), i);
                 } else {
-                    G();
+                    H();
                 }
             }
             if (i == 2) {
                 if (z) {
-                    t(getMCardLeftBottom(), i);
+                    u(getMCardLeftBottom(), i);
                 } else {
-                    E();
+                    F();
                 }
             }
         }
     }
 
-    public final void I(long j, long j2) {
+    public final void J(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
             this.J.e(j);
             this.J.d(j2);
             this.J.b();
         }
     }
 
-    public final void L(int i) {
-        long x;
+    public final void M(int i) {
+        long y;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048587, this, i) != null) || i == 0) {
+        if ((interceptable != null && interceptable.invokeI(1048588, this, i) != null) || i == 0) {
             return;
         }
         long j = 0;
         if (i != 1) {
             if (i != 2) {
-                x = 0;
+                y = 0;
             } else {
-                x = x(getMCardLeftText());
+                y = y(getMCardLeftText());
             }
         } else {
-            x = x(getMCardRightText());
+            y = y(getMCardRightText());
         }
-        z(x);
-        if (x > 100) {
-            getMPrizeNum().setText(String.valueOf(x(getMPrizeNum()) + x));
+        A(y);
+        if (y > 100) {
+            getMPrizeNum().setText(String.valueOf(y(getMPrizeNum()) + y));
             return;
         }
-        if (x <= 10) {
+        if (y <= 10) {
             j = 100;
         }
         getAnimHandler().a(j);
-        getAnimHandler().b(x(getMPrizeNum()) + x);
+        getAnimHandler().b(y(getMPrizeNum()) + y);
         getAnimHandler().sendEmptyMessage(0);
     }
 
@@ -3325,7 +3366,7 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
     public void onClick(View view2) {
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048590, this, view2) != null) || view2 == null) {
+        if ((interceptable != null && interceptable.invokeL(1048591, this, view2) != null) || view2 == null) {
             return;
         }
         if (view2.getId() != R.id.card_compete_left_bottom && view2.getId() != R.id.card_compete_right_bottom) {
@@ -3339,10 +3380,10 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
             }
             return;
         }
-        mta mtaVar = this.a0;
-        if (mtaVar != null) {
-            boolean f = mtaVar.f();
-            qta d2 = mtaVar.d();
+        n6b n6bVar = this.a0;
+        if (n6bVar != null) {
+            boolean f = n6bVar.f();
+            r6b d2 = n6bVar.d();
             if (d2 != null) {
                 if (d2.d().size() > 1) {
                     z = true;
@@ -3375,7 +3416,7 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                     this.O = j;
                     this.V.c(String.valueOf(d2.f()), String.valueOf(d2.e()), String.valueOf(j));
                     if (!f) {
-                        u();
+                        x();
                     }
                 }
             }
@@ -3385,7 +3426,7 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             super.onLayout(z, i, i2, i3, i4);
             ViewParent parent = getMPrizeIcon().getParent();
             int left = getMPrizeIcon().getLeft();
@@ -3446,48 +3487,9 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
         }
     }
 
-    public final void r(mta data) {
+    public final void t(n6b data, boolean z, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, data) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            qta d2 = data.d();
-            if (d2 != null) {
-                Long e = d2.e();
-                if (e != null) {
-                    this.J.f(e.longValue());
-                }
-                this.J.h(TbadkCoreApplication.getCurrentAccountId());
-                Long f = d2.f();
-                if (f != null) {
-                    this.J.g(f.longValue());
-                }
-            }
-        }
-    }
-
-    public final void z(long j) {
-        mta mtaVar;
-        qta d2;
-        Long h;
-        qta qtaVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048601, this, j) == null) && (mtaVar = this.a0) != null && (d2 = mtaVar.d()) != null && (h = d2.h()) != null) {
-            long longValue = h.longValue();
-            mta mtaVar2 = this.a0;
-            if (mtaVar2 != null) {
-                qtaVar = mtaVar2.d();
-            } else {
-                qtaVar = null;
-            }
-            if (qtaVar != null) {
-                qtaVar.m(Long.valueOf(longValue + j));
-            }
-        }
-    }
-
-    public final void s(mta data, boolean z, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{data, Boolean.valueOf(z), str, str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{data, Boolean.valueOf(z), str, str2}) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
             this.a0 = data;
             this.Q.c(data);
@@ -3497,7 +3499,7 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                 this.Q.e();
                 data.i(true);
             }
-            D(data, false, true);
+            E(data, false, true);
         }
     }
 }

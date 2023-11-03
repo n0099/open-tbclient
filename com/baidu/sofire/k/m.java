@@ -2,13 +2,13 @@ package com.baidu.sofire.k;
 
 import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.mx;
+import com.baidu.tieba.dy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public final class m implements mx<String> {
+public final class m implements dy<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ String[] a;
@@ -33,7 +33,7 @@ public final class m implements mx<String> {
         this.b = zArr;
     }
 
-    @Override // com.baidu.tieba.mx
+    @Override // com.baidu.tieba.dy
     public void onError(int i, Throwable th, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048576, this, i, th, bundle) == null) {
@@ -50,7 +50,7 @@ public final class m implements mx<String> {
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, android.os.Bundle] */
-    @Override // com.baidu.tieba.mx
+    @Override // com.baidu.tieba.dy
     public void onResult(String str, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bundle) == null) {

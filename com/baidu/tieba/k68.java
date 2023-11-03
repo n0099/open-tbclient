@@ -1,59 +1,79 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.pageInfo.TbPageTag;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.yy.gameassist.interfaces.BZDxmRechargeService;
+import com.baidu.tieba.wallet.WalletPluginManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes6.dex */
-public class k68 {
+import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IDxmProxyCallback;
+/* loaded from: classes7.dex */
+public class k68 implements BZDxmRechargeService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<lh> a;
 
-    public k68(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
-        yc7 yc7Var;
+    /* loaded from: classes7.dex */
+    public class a implements IDxmProxyCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ BZDxmRechargeService.PluginDxmCallback a;
+
+        public a(k68 k68Var, BZDxmRechargeService.PluginDxmCallback pluginDxmCallback) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k68Var, pluginDxmCallback};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pluginDxmCallback;
+        }
+
+        @Override // com.yy.mobile.framework.revenuesdk.payapi.payproxy.IDxmProxyCallback
+        public void onFail(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                this.a.onFail(i, str);
+            }
+        }
+
+        @Override // com.yy.mobile.framework.revenuesdk.payapi.payproxy.IDxmProxyCallback
+        public void onSuccess(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                this.a.onSuccess(i, str);
+            }
+        }
+    }
+
+    public k68() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList();
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921336, yc7.class, tbPageContext);
-        if (runTask != null && (yc7Var = (yc7) runTask.getData()) != null) {
-            this.a.add(yc7Var);
-        }
-        this.a.add(new l68(tbPageContext, ThreadData.TYPE_FRS_HOTTOPIC));
-        this.a.add(new j68(tbPageContext, ThreadData.TYPE_FRS_HOTTOPIC_VIDEO));
-        bdTypeRecyclerView.addAdapters(this.a);
     }
 
-    public void a(TbPageTag tbPageTag) {
+    @Override // com.baidu.searchbox.yy.gameassist.interfaces.BZDxmRechargeService
+    public void doBZPay(@NonNull String str, @NonNull BZDxmRechargeService.PluginDxmCallback pluginDxmCallback) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, tbPageTag) != null) || ListUtils.isEmpty(this.a)) {
-            return;
-        }
-        for (lh lhVar : this.a) {
-            if (lhVar instanceof yc7) {
-                ((yc7) lhVar).E(tbPageTag);
-            }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, pluginDxmCallback) == null) {
+            WalletPluginManager.getInstance().doYYPay(str, new a(this, pluginDxmCallback));
         }
     }
 }

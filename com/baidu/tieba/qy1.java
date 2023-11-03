@@ -1,71 +1,310 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import android.util.Log;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.camera.view.CameraPreview;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class qy1 extends ny1 {
+import com.baidu.webkit.sdk.PermissionRequest;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.HashMap;
+import java.util.Timer;
+import java.util.TimerTask;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public class qy1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public Timer a;
+    public zy1 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qy1(m63 m63Var) {
-        super(m63Var, "/swanAPI/canvas/insert");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {m63Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((m63) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes8.dex */
+    public class a extends TimerTask {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zy1 a;
+        public final /* synthetic */ qy1 b;
+
+        public a(qy1 qy1Var, zy1 zy1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qy1Var, zy1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = qy1Var;
+            this.a = zy1Var;
+        }
+
+        @Override // java.util.TimerTask, java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                zy1 zy1Var = this.a;
+                if (zy1Var != null) {
+                    zy1Var.a();
+                }
+                this.b.j();
             }
         }
     }
 
-    @Override // com.baidu.tieba.m73
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, p53 p53Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, p53Var)) == null) {
-            n02 k = k(unitedSchemeEntity);
-            if (k == null) {
-                unitedSchemeEntity.result = l(201);
-                p22.c("SwanAppCanvas", "insert action parse model is null");
-                return false;
-            } else if (context == null) {
-                p22.c("SwanAppCanvas", "context is null");
-                unitedSchemeEntity.result = l(1001);
-                return false;
-            } else {
-                String str = k.b;
-                vv2 vv2Var = k.h;
-                if (!TextUtils.isEmpty(str) && vv2Var != null && vv2Var.h()) {
-                    h12 w = new p12(context, k).w();
-                    boolean a = w.a();
-                    if (!a) {
-                        p22.c("SwanAppCanvas", "insert canvas fail: " + w.b);
-                    }
-                    j(unitedSchemeEntity, callbackHandler, a);
-                    return a;
+    /* loaded from: classes8.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final qy1 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-473910558, "Lcom/baidu/tieba/qy1$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
                 }
-                p22.c("SwanAppCanvas", "canvas id is empty or position is null");
-                unitedSchemeEntity.result = l(202);
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-473910558, "Lcom/baidu/tieba/qy1$b;");
+                    return;
+                }
+            }
+            a = new qy1(null);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948108064, "Lcom/baidu/tieba/qy1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948108064, "Lcom/baidu/tieba/qy1;");
+                return;
+            }
+        }
+        c = rm1.a;
+    }
+
+    public qy1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static qy1 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
+        }
+        return (qy1) invokeV.objValue;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            zy1 zy1Var = this.b;
+            if (zy1Var != null) {
+                zy1Var.cancel();
+            }
+            j();
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            try {
+                CameraPreview.r();
+            } catch (Exception e) {
+                if (c) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.b = null;
+            Timer timer = this.a;
+            if (timer != null) {
+                timer.cancel();
+            }
+        }
+    }
+
+    public /* synthetic */ qy1(a aVar) {
+        this();
+    }
+
+    public boolean c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            if (Build.VERSION.SDK_INT < 23 || ContextCompat.checkSelfPermission(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE) == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            if (Build.VERSION.SDK_INT < 23 || ContextCompat.checkSelfPermission(context, PermissionRequest.RESOURCE_AUDIO_CAPTURE) == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && z) {
+            a();
+        }
+    }
+
+    public void e(String str, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048579, this, str, str2, z) == null) {
+            String str3 = "error";
+            if (vj3.f("1.13.0")) {
+                HashMap hashMap = new HashMap();
+                hashMap.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, str);
+                hashMap.put("cameraId", str2);
+                if (!z) {
+                    str3 = "stop";
+                }
+                hashMap.put("eType", str3);
+                tr2.V().v(new hg2("camera", hashMap));
+                return;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, str);
+                jSONObject.put("cameraId", str2);
+                if (!z) {
+                    str3 = "stop";
+                }
+                jSONObject.put("eType", str3);
+            } catch (JSONException e) {
+                if (c) {
+                    e.printStackTrace();
+                }
+            }
+            nl3.d(str, str2, "camera", jSONObject.optString("eType"), jSONObject);
+        }
+    }
+
+    public boolean h(byte[] bArr, String str, int i, int i2, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{bArr, str, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            if (bArr == null || bArr.length == 0 || TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                File file = new File(str);
+                if (file.exists()) {
+                    boolean delete = file.delete();
+                    if (c) {
+                        Log.d("SwanAppCameraManager", "delete = " + delete);
+                    }
+                }
+                if (file.getParentFile() != null) {
+                    boolean mkdirs = file.getParentFile().mkdirs();
+                    if (c) {
+                        Log.d("SwanAppCameraManager", "mkdirs = " + mkdirs);
+                    }
+                }
+                boolean createNewFile = file.createNewFile();
+                if (c) {
+                    Log.d("SwanAppCameraManager", "createNewFile = " + createNewFile);
+                }
+                Bitmap decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length);
+                if (i2 != 0 || z) {
+                    Matrix matrix = new Matrix();
+                    matrix.reset();
+                    if (i2 != 0) {
+                        matrix.postRotate(i2);
+                    }
+                    if (z) {
+                        matrix.postScale(-1.0f, 1.0f);
+                    }
+                    decodeByteArray = Bitmap.createBitmap(decodeByteArray, 0, 0, decodeByteArray.getWidth(), decodeByteArray.getHeight(), matrix, true);
+                }
+                BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file));
+                decodeByteArray.compress(Bitmap.CompressFormat.JPEG, i, bufferedOutputStream);
+                bufferedOutputStream.flush();
+                jm4.d(bufferedOutputStream);
+                return true;
+            } catch (Exception e) {
+                if (!c) {
+                    return false;
+                }
+                e.printStackTrace();
+                return false;
+            } catch (OutOfMemoryError e2) {
+                if (!c) {
+                    return false;
+                }
+                e2.printStackTrace();
                 return false;
             }
         }
-        return invokeLLLL.booleanValue;
+        return invokeCommon.booleanValue;
+    }
+
+    public void i(int i, zy1 zy1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048583, this, i, zy1Var) == null) {
+            this.b = zy1Var;
+            Timer timer = new Timer();
+            this.a = timer;
+            timer.schedule(new a(this, zy1Var), i);
+        }
     }
 }

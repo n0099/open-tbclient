@@ -24,7 +24,8 @@ import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cv8;
+import com.baidu.tieba.aqa;
+import com.baidu.tieba.g89;
 import com.baidu.tieba.impersonal.PersonalChatFragment;
 import com.baidu.tieba.impersonal.databinding.FragmentPersonalChatBinding;
 import com.baidu.tieba.impersonal.slices.AutoReleaseSliceFragment;
@@ -33,13 +34,12 @@ import com.baidu.tieba.impersonal.slices.ChatListSlice;
 import com.baidu.tieba.impersonal.slices.ChatNavSlice;
 import com.baidu.tieba.impersonal.slices.ChatReplySlice;
 import com.baidu.tieba.impersonal.slices.ChatSpriteSlice;
-import com.baidu.tieba.jw8;
-import com.baidu.tieba.s75;
-import com.baidu.tieba.vca;
-import com.baidu.tieba.vo6;
-import com.baidu.tieba.wo6;
-import com.baidu.tieba.yo6;
-import com.baidu.tieba.zo6;
+import com.baidu.tieba.lq6;
+import com.baidu.tieba.mq6;
+import com.baidu.tieba.n85;
+import com.baidu.tieba.n99;
+import com.baidu.tieba.oq6;
+import com.baidu.tieba.pq6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -72,13 +72,13 @@ public final class PersonalChatFragment extends AutoReleaseSliceFragment<Fragmen
     public final List<Integer> o;
 
     /* loaded from: classes6.dex */
-    public static final class a extends zo6<cv8> {
+    public static final class a extends pq6<g89> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalChatFragment b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(PersonalChatFragment personalChatFragment, Class<cv8> cls) {
+        public a(PersonalChatFragment personalChatFragment, Class<g89> cls) {
             super(cls);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -102,13 +102,13 @@ public final class PersonalChatFragment extends AutoReleaseSliceFragment<Fragmen
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(65537, null, this$0, view2) == null) {
                 Intrinsics.checkNotNullParameter(this$0, "this$0");
-                this$0.q2().l();
+                this$0.I2().l();
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zo6
-        public void onEvent(cv8 event) {
+        @Override // com.baidu.tieba.pq6
+        public void onEvent(g89 event) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, event) == null) {
                 Intrinsics.checkNotNullParameter(event, "event");
@@ -117,12 +117,12 @@ public final class PersonalChatFragment extends AutoReleaseSliceFragment<Fragmen
                     if (a != 1) {
                         if (a == 2) {
                             PersonalChatFragment personalChatFragment = this.b;
-                            personalChatFragment.hideLoadingView(PersonalChatFragment.h2(personalChatFragment).g);
+                            personalChatFragment.hideLoadingView(PersonalChatFragment.z2(personalChatFragment).g);
                             PersonalChatFragment personalChatFragment2 = this.b;
-                            FrameLayout frameLayout = PersonalChatFragment.h2(personalChatFragment2).g;
+                            FrameLayout frameLayout = PersonalChatFragment.z2(personalChatFragment2).g;
                             String string = this.b.getString(R.string.refresh_view_button_text);
                             final PersonalChatFragment personalChatFragment3 = this.b;
-                            personalChatFragment2.showNetRefreshView(frameLayout, null, null, string, false, new View.OnClickListener() { // from class: com.baidu.tieba.eu8
+                            personalChatFragment2.showNetRefreshView(frameLayout, null, null, string, false, new View.OnClickListener() { // from class: com.baidu.tieba.i79
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -134,23 +134,23 @@ public final class PersonalChatFragment extends AutoReleaseSliceFragment<Fragmen
                                     }
                                 }
                             });
-                            PersonalChatFragment.h2(this.b).h.setVisibility(8);
+                            PersonalChatFragment.z2(this.b).h.setVisibility(8);
                             return;
                         }
                         return;
                     }
                     PersonalChatFragment personalChatFragment4 = this.b;
-                    personalChatFragment4.hideLoadingView(PersonalChatFragment.h2(personalChatFragment4).g);
+                    personalChatFragment4.hideLoadingView(PersonalChatFragment.z2(personalChatFragment4).g);
                     PersonalChatFragment personalChatFragment5 = this.b;
-                    personalChatFragment5.hideNetRefreshView(PersonalChatFragment.h2(personalChatFragment5).g);
-                    PersonalChatFragment.h2(this.b).h.setVisibility(0);
+                    personalChatFragment5.hideNetRefreshView(PersonalChatFragment.z2(personalChatFragment5).g);
+                    PersonalChatFragment.z2(this.b).h.setVisibility(0);
                     return;
                 }
                 PersonalChatFragment personalChatFragment6 = this.b;
-                personalChatFragment6.showLoadingView(PersonalChatFragment.h2(personalChatFragment6).g);
+                personalChatFragment6.showLoadingView(PersonalChatFragment.z2(personalChatFragment6).g);
                 PersonalChatFragment personalChatFragment7 = this.b;
-                personalChatFragment7.hideNetRefreshView(PersonalChatFragment.h2(personalChatFragment7).g);
-                PersonalChatFragment.h2(this.b).h.setVisibility(8);
+                personalChatFragment7.hideNetRefreshView(PersonalChatFragment.z2(personalChatFragment7).g);
+                PersonalChatFragment.z2(this.b).h.setVisibility(8);
             }
         }
     }
@@ -168,7 +168,7 @@ public final class PersonalChatFragment extends AutoReleaseSliceFragment<Fragmen
                 return;
             }
         }
-        this.g = LazyKt__LazyJVMKt.lazy(new Function0<jw8>(this) { // from class: com.baidu.tieba.impersonal.PersonalChatFragment$repo$2
+        this.g = LazyKt__LazyJVMKt.lazy(new Function0<n99>(this) { // from class: com.baidu.tieba.impersonal.PersonalChatFragment$repo$2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ PersonalChatFragment this$0;
@@ -197,15 +197,15 @@ public final class PersonalChatFragment extends AutoReleaseSliceFragment<Fragmen
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
-            public final jw8 invoke() {
+            public final n99 invoke() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
                     Context requireContext = this.this$0.requireContext();
                     Intrinsics.checkNotNullExpressionValue(requireContext, "requireContext()");
-                    return new jw8(requireContext);
+                    return new n99(requireContext);
                 }
-                return (jw8) invokeV.objValue;
+                return (n99) invokeV.objValue;
             }
         });
         this.h = LazyKt__LazyJVMKt.lazy(PersonalChatFragment$wallRes$2.INSTANCE);
@@ -244,7 +244,7 @@ public final class PersonalChatFragment extends AutoReleaseSliceFragment<Fragmen
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return new ChatInputSlice(this.this$0.q2());
+                    return new ChatInputSlice(this.this$0.I2());
                 }
                 return (ChatInputSlice) invokeV.objValue;
             }
@@ -253,54 +253,54 @@ public final class PersonalChatFragment extends AutoReleaseSliceFragment<Fragmen
         this.m = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44);
         this.n = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X006);
         ArrayList arrayList = new ArrayList();
-        arrayList.add(Integer.valueOf(vca.a(ContextCompat.getColor(TbadkCoreApplication.getInst(), R.color.CAM_X0338), 0.0f)));
+        arrayList.add(Integer.valueOf(aqa.a(ContextCompat.getColor(TbadkCoreApplication.getInst(), R.color.CAM_X0338), 0.0f)));
         arrayList.add(Integer.valueOf(ContextCompat.getColor(TbadkCoreApplication.getInst(), R.color.CAM_X0338)));
         this.o = arrayList;
     }
 
-    public static final /* synthetic */ FragmentPersonalChatBinding h2(PersonalChatFragment personalChatFragment) {
-        return personalChatFragment.g2();
+    public static final /* synthetic */ FragmentPersonalChatBinding z2(PersonalChatFragment personalChatFragment) {
+        return personalChatFragment.y2();
     }
 
     @Override // com.baidu.tieba.im.base.core.slice.SliceFragment, com.baidu.tbadk.core.BaseFragment
     public void onKeyboardVisibilityChanged(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
             super.onKeyboardVisibilityChanged(z);
             this.f = z;
             if (z) {
-                v2();
+                N2();
             } else {
-                u2();
+                M2();
             }
         }
     }
 
-    public static final void t2(PersonalChatFragment this$0, View view2) {
+    public static final void L2(PersonalChatFragment this$0, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, this$0, view2) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.m2();
+            this$0.E2();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onViewCreated(View view2, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2, bundle) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048590, this, view2, bundle) == null) {
             Intrinsics.checkNotNullParameter(view2, "view");
             super.onViewCreated(view2, bundle);
-            w2();
+            O2();
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.impersonal.slices.AutoReleaseSliceFragment
-    /* renamed from: l2 */
-    public FragmentPersonalChatBinding f2(LayoutInflater inflater, ViewGroup viewGroup, Bundle bundle) {
+    /* renamed from: D2 */
+    public FragmentPersonalChatBinding x2(LayoutInflater inflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, inflater, viewGroup, bundle)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, inflater, viewGroup, bundle)) == null) {
             Intrinsics.checkNotNullParameter(inflater, "inflater");
             FragmentPersonalChatBinding c = FragmentPersonalChatBinding.c(inflater, viewGroup, false);
             Intrinsics.checkNotNullExpressionValue(c, "inflate(inflater, container, false)");
@@ -309,10 +309,10 @@ public final class PersonalChatFragment extends AutoReleaseSliceFragment<Fragmen
         return (FragmentPersonalChatBinding) invokeLLL.objValue;
     }
 
-    public final void m2() {
+    public final void E2() {
         View view2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f) {
             Context context = getContext();
             FragmentActivity activity = getActivity();
             if (activity != null) {
@@ -324,55 +324,55 @@ public final class PersonalChatFragment extends AutoReleaseSliceFragment<Fragmen
         }
     }
 
-    public final String n2() {
+    public final String F2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return (String) this.i.getValue();
         }
         return (String) invokeV.objValue;
     }
 
-    public final ChatInputSlice o2() {
+    public final ChatInputSlice G2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return (ChatInputSlice) this.k.getValue();
         }
         return (ChatInputSlice) invokeV.objValue;
     }
 
-    public final String p2() {
+    public final String H2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return (String) this.j.getValue();
         }
         return (String) invokeV.objValue;
     }
 
-    public final jw8 q2() {
+    public final n99 I2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return (jw8) this.g.getValue();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return (n99) this.g.getValue();
         }
-        return (jw8) invokeV.objValue;
+        return (n99) invokeV.objValue;
     }
 
-    public final String r2() {
+    public final String J2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return (String) this.h.getValue();
         }
         return (String) invokeV.objValue;
     }
 
-    public final void s2() {
+    public final void K2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            g2().n.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.fu8
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            y2().n.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.j79
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -380,20 +380,100 @@ public final class PersonalChatFragment extends AutoReleaseSliceFragment<Fragmen
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        PersonalChatFragment.t2(PersonalChatFragment.this, view2);
+                        PersonalChatFragment.L2(PersonalChatFragment.this, view2);
                     }
                 }
             });
         }
     }
 
-    public final void w2() {
+    public final void O2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            yo6 b = wo6.b();
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            oq6 b = mq6.b();
             TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
             Intrinsics.checkNotNullExpressionValue(pageContext, "pageContext");
-            b.b(new vo6(pageContext, this), new a(this, cv8.class));
+            b.b(new lq6(pageContext, this), new a(this, g89.class));
+        }
+    }
+
+    public final void M2() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || y2().e.getVisibility() != 0) {
+            return;
+        }
+        TextView textView = y2().c;
+        Intrinsics.checkNotNullExpressionValue(textView, "binding.copyright");
+        if (textView.getVisibility() == 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        if (z) {
+            y2().c.animate().alpha(1.0f).start();
+        }
+        y2().m.animate().alpha(1.0f).start();
+        y2().e.setBackground(null);
+        ConstraintSet constraintSet = new ConstraintSet();
+        constraintSet.clone(y2().getRoot());
+        constraintSet.connect(R.id.obfuscated_res_0x7f090ba4, 4, 0, 4, 0);
+        constraintSet.applyTo(y2().getRoot());
+        String F2 = F2();
+        if (F2 != null) {
+            y2().d.setImageURI(Uri.fromFile(new File(F2)), (Object) null);
+            y2().d.setBackgroundColor(ContextCompat.getColor(TbadkCoreApplication.getInst(), R.color.transparent));
+        }
+        y2().i.setPadding(0, this.m, 0, 0);
+        G2().d0(UtilHelper.getDimenPixelSize(R.dimen.tbds60));
+        ConstraintSet constraintSet2 = new ConstraintSet();
+        constraintSet2.clone(y2().getRoot());
+        constraintSet2.connect(R.id.obfuscated_res_0x7f0906e6, 4, R.id.obfuscated_res_0x7f0922cb, 3, 0);
+        constraintSet2.applyTo(y2().getRoot());
+        ConstraintSet constraintSet3 = new ConstraintSet();
+        constraintSet3.clone(y2().getRoot());
+        constraintSet3.connect(R.id.obfuscated_res_0x7f0922f7, 4, R.id.obfuscated_res_0x7f0922f8, 4);
+        constraintSet3.applyTo(y2().getRoot());
+        y2().l.setVisibility(0);
+    }
+
+    public final void N2() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            TextView textView = y2().c;
+            Intrinsics.checkNotNullExpressionValue(textView, "binding.copyright");
+            if (textView.getVisibility() == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                y2().c.animate().alpha(0.0f).start();
+            }
+            y2().m.animate().alpha(0.0f).start();
+            ConstraintSet constraintSet = new ConstraintSet();
+            constraintSet.clone(y2().getRoot());
+            constraintSet.connect(R.id.obfuscated_res_0x7f090ba4, 4, R.id.obfuscated_res_0x7f091184, 3, 0);
+            constraintSet.applyTo(y2().getRoot());
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            gradientDrawable.setOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
+            gradientDrawable.setColors(CollectionsKt___CollectionsKt.toIntArray(this.o));
+            y2().d.setBackground(gradientDrawable);
+            y2().d.setImageURI(Uri.EMPTY, (Object) null);
+            y2().i.setPadding(this.n, this.l, 0, 0);
+            y2().e.setBackgroundColor(getResources().getColor(R.color.CAM_X0338));
+            y2().e.setPadding(0, 0, 0, 0);
+            G2().d0(0);
+            ConstraintSet constraintSet2 = new ConstraintSet();
+            constraintSet2.clone(y2().getRoot());
+            constraintSet2.connect(R.id.obfuscated_res_0x7f0906e6, 4, R.id.obfuscated_res_0x7f091f4b, 3, 0);
+            constraintSet2.applyTo(y2().getRoot());
+            ConstraintSet constraintSet3 = new ConstraintSet();
+            constraintSet3.clone(y2().getRoot());
+            constraintSet3.connect(R.id.obfuscated_res_0x7f0922f7, 4, R.id.obfuscated_res_0x7f0922cc, 4);
+            constraintSet3.applyTo(y2().getRoot());
+            y2().l.setVisibility(8);
         }
     }
 
@@ -404,7 +484,7 @@ public final class PersonalChatFragment extends AutoReleaseSliceFragment<Fragmen
         Object obj3;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, bundle) == null) {
             super.onActivityCreated(bundle);
             Bundle arguments = getArguments();
             String str2 = null;
@@ -428,161 +508,81 @@ public final class PersonalChatFragment extends AutoReleaseSliceFragment<Fragmen
                 obj3 = null;
             }
             String valueOf3 = String.valueOf(obj3);
-            FrameLayout frameLayout = g2().f;
+            FrameLayout frameLayout = y2().f;
             Intrinsics.checkNotNullExpressionValue(frameLayout, "binding.navigationContainer");
-            c2(frameLayout, new ChatNavSlice());
-            FrameLayout frameLayout2 = g2().b;
+            u2(frameLayout, new ChatNavSlice());
+            FrameLayout frameLayout2 = y2().b;
             Intrinsics.checkNotNullExpressionValue(frameLayout2, "binding.chatContainer");
-            c2(frameLayout2, new ChatListSlice(q2(), valueOf, valueOf2));
-            FrameLayout frameLayout3 = g2().l;
+            u2(frameLayout2, new ChatListSlice(I2(), valueOf, valueOf2));
+            FrameLayout frameLayout3 = y2().l;
             Intrinsics.checkNotNullExpressionValue(frameLayout3, "binding.spriteContainer");
-            c2(frameLayout3, new ChatSpriteSlice());
-            FrameLayout frameLayout4 = g2().e;
+            u2(frameLayout3, new ChatSpriteSlice());
+            FrameLayout frameLayout4 = y2().e;
             Intrinsics.checkNotNullExpressionValue(frameLayout4, "binding.inputContainer");
-            c2(frameLayout4, o2());
-            FrameLayout frameLayout5 = g2().i;
+            u2(frameLayout4, G2());
+            FrameLayout frameLayout5 = y2().i;
             Intrinsics.checkNotNullExpressionValue(frameLayout5, "binding.replyContainer");
-            c2(frameLayout5, new ChatReplySlice(q2(), valueOf, valueOf2, valueOf3));
-            s2();
-            TbImage tbImage = g2().d;
+            u2(frameLayout5, new ChatReplySlice(I2(), valueOf, valueOf2, valueOf3));
+            K2();
+            TbImage tbImage = y2().d;
             ScalingUtils.ScaleType FIT_XY = ScalingUtils.ScaleType.FIT_XY;
             Intrinsics.checkNotNullExpressionValue(FIT_XY, "FIT_XY");
             tbImage.setScaleType(FIT_XY);
-            TbImage tbImage2 = g2().n;
+            TbImage tbImage2 = y2().n;
             ScalingUtils.ScaleType FIT_XY2 = ScalingUtils.ScaleType.FIT_XY;
             Intrinsics.checkNotNullExpressionValue(FIT_XY2, "FIT_XY");
             tbImage2.setScaleType(FIT_XY2);
-            TbImage tbImage3 = g2().m;
+            TbImage tbImage3 = y2().m;
             ScalingUtils.ScaleType FIT_XY3 = ScalingUtils.ScaleType.FIT_XY;
             Intrinsics.checkNotNullExpressionValue(FIT_XY3, "FIT_XY");
             tbImage3.setScaleType(FIT_XY3);
-            g2().b.setPadding(g2().b.getPaddingLeft(), UtilHelper.getStatusBarHeight() + BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X004), g2().b.getPaddingRight(), g2().b.getPaddingBottom());
-            s75 funnySpriteConfig = TbSingleton.getInstance().getFunnySpriteConfig();
+            y2().b.setPadding(y2().b.getPaddingLeft(), UtilHelper.getStatusBarHeight() + BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X004), y2().b.getPaddingRight(), y2().b.getPaddingBottom());
+            n85 funnySpriteConfig = TbSingleton.getInstance().getFunnySpriteConfig();
             if (funnySpriteConfig != null) {
                 str = funnySpriteConfig.c();
             } else {
                 str = null;
             }
             if (!TextUtils.isEmpty(str)) {
-                g2().c.setVisibility(0);
-                TextView textView = g2().c;
-                s75 funnySpriteConfig2 = TbSingleton.getInstance().getFunnySpriteConfig();
+                y2().c.setVisibility(0);
+                TextView textView = y2().c;
+                n85 funnySpriteConfig2 = TbSingleton.getInstance().getFunnySpriteConfig();
                 if (funnySpriteConfig2 != null) {
                     str2 = funnySpriteConfig2.c();
                 }
                 textView.setText(str2);
                 return;
             }
-            g2().c.setVisibility(4);
+            y2().c.setVisibility(4);
         }
     }
 
     @Override // com.baidu.tieba.im.base.core.slice.SliceFragment, com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
             super.onChangeSkinType(i);
-            String r2 = r2();
-            if (r2 != null) {
-                TbImage tbImage = g2().n;
-                String uri = Uri.fromFile(new File(r2)).toString();
+            String J2 = J2();
+            if (J2 != null) {
+                TbImage tbImage = y2().n;
+                String uri = Uri.fromFile(new File(J2)).toString();
                 Intrinsics.checkNotNullExpressionValue(uri, "fromFile(File(this)).toString()");
                 tbImage.l(uri);
             }
-            String n2 = n2();
-            if (n2 != null) {
-                TbImage tbImage2 = g2().d;
-                String uri2 = Uri.fromFile(new File(n2)).toString();
+            String F2 = F2();
+            if (F2 != null) {
+                TbImage tbImage2 = y2().d;
+                String uri2 = Uri.fromFile(new File(F2)).toString();
                 Intrinsics.checkNotNullExpressionValue(uri2, "fromFile(File(this)).toString()");
                 tbImage2.l(uri2);
             }
-            String p2 = p2();
-            if (p2 != null) {
-                TbImage tbImage3 = g2().m;
-                String uri3 = Uri.fromFile(new File(p2)).toString();
+            String H2 = H2();
+            if (H2 != null) {
+                TbImage tbImage3 = y2().m;
+                String uri3 = Uri.fromFile(new File(H2)).toString();
                 Intrinsics.checkNotNullExpressionValue(uri3, "fromFile(File(this)).toString()");
                 tbImage3.l(uri3);
             }
-        }
-    }
-
-    public final void u2() {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048589, this) != null) || g2().e.getVisibility() != 0) {
-            return;
-        }
-        TextView textView = g2().c;
-        Intrinsics.checkNotNullExpressionValue(textView, "binding.copyright");
-        if (textView.getVisibility() == 0) {
-            z = true;
-        } else {
-            z = false;
-        }
-        if (z) {
-            g2().c.animate().alpha(1.0f).start();
-        }
-        g2().m.animate().alpha(1.0f).start();
-        g2().e.setBackground(null);
-        ConstraintSet constraintSet = new ConstraintSet();
-        constraintSet.clone(g2().getRoot());
-        constraintSet.connect(R.id.obfuscated_res_0x7f090b82, 4, 0, 4, 0);
-        constraintSet.applyTo(g2().getRoot());
-        String n2 = n2();
-        if (n2 != null) {
-            g2().d.setImageURI(Uri.fromFile(new File(n2)), (Object) null);
-            g2().d.setBackgroundColor(ContextCompat.getColor(TbadkCoreApplication.getInst(), R.color.transparent));
-        }
-        g2().i.setPadding(0, this.m, 0, 0);
-        o2().d0(UtilHelper.getDimenPixelSize(R.dimen.tbds60));
-        ConstraintSet constraintSet2 = new ConstraintSet();
-        constraintSet2.clone(g2().getRoot());
-        constraintSet2.connect(R.id.obfuscated_res_0x7f0906c7, 4, R.id.obfuscated_res_0x7f09227f, 3, 0);
-        constraintSet2.applyTo(g2().getRoot());
-        ConstraintSet constraintSet3 = new ConstraintSet();
-        constraintSet3.clone(g2().getRoot());
-        constraintSet3.connect(R.id.obfuscated_res_0x7f0922a9, 4, R.id.obfuscated_res_0x7f0922aa, 4);
-        constraintSet3.applyTo(g2().getRoot());
-        g2().l.setVisibility(0);
-    }
-
-    public final void v2() {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            TextView textView = g2().c;
-            Intrinsics.checkNotNullExpressionValue(textView, "binding.copyright");
-            if (textView.getVisibility() == 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                g2().c.animate().alpha(0.0f).start();
-            }
-            g2().m.animate().alpha(0.0f).start();
-            ConstraintSet constraintSet = new ConstraintSet();
-            constraintSet.clone(g2().getRoot());
-            constraintSet.connect(R.id.obfuscated_res_0x7f090b82, 4, R.id.obfuscated_res_0x7f091147, 3, 0);
-            constraintSet.applyTo(g2().getRoot());
-            GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
-            gradientDrawable.setColors(CollectionsKt___CollectionsKt.toIntArray(this.o));
-            g2().d.setBackground(gradientDrawable);
-            g2().d.setImageURI(Uri.EMPTY, (Object) null);
-            g2().i.setPadding(this.n, this.l, 0, 0);
-            g2().e.setBackgroundColor(getResources().getColor(R.color.CAM_X0338));
-            g2().e.setPadding(0, 0, 0, 0);
-            o2().d0(0);
-            ConstraintSet constraintSet2 = new ConstraintSet();
-            constraintSet2.clone(g2().getRoot());
-            constraintSet2.connect(R.id.obfuscated_res_0x7f0906c7, 4, R.id.obfuscated_res_0x7f091f04, 3, 0);
-            constraintSet2.applyTo(g2().getRoot());
-            ConstraintSet constraintSet3 = new ConstraintSet();
-            constraintSet3.clone(g2().getRoot());
-            constraintSet3.connect(R.id.obfuscated_res_0x7f0922a9, 4, R.id.obfuscated_res_0x7f092280, 4);
-            constraintSet3.applyTo(g2().getRoot());
-            g2().l.setVisibility(8);
         }
     }
 }

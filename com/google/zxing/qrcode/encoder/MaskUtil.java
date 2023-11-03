@@ -1,5 +1,5 @@
 package com.google.zxing.qrcode.encoder;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class MaskUtil {
     public static final int N1 = 3;
     public static final int N2 = 3;

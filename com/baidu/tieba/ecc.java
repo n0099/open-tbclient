@@ -1,61 +1,43 @@
 package com.baidu.tieba;
 
-import android.database.ContentObserver;
-import android.view.View;
-import androidx.annotation.ColorInt;
-import androidx.annotation.FloatRange;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import tv.athena.revenue.payui.activity.immersion.BarHide;
+import com.yy.transvod.player.log.TLog;
+import com.yy.transvod.preference.Preference;
+import java.util.ArrayList;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ecc implements Cloneable {
+public class ecc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ContentObserver A;
-    @ColorInt
-    public int a;
-    @ColorInt
-    public int b;
-    @FloatRange(from = 0.0d, to = 1.0d)
-    public float c;
-    @FloatRange(from = 0.0d, to = 1.0d)
-    public float d;
-    public boolean e;
-    public boolean f;
-    public BarHide g;
+    public String a;
+    public long b;
+    public int c;
+    public int d;
+    public long e;
+    public int f;
+    public int g;
     public boolean h;
     public boolean i;
-    @ColorInt
-    public int j;
-    @ColorInt
-    public int k;
-    public Map<View, Map<Integer, Integer>> l;
-    @FloatRange(from = 0.0d, to = 1.0d)
-    public float m;
-    public boolean n;
-    public View o;
-    public View p;
-    public View q;
-    @ColorInt
-    public int r;
-    public boolean s;
-    public boolean t;
-    public int u;
-    public boolean v;
-    public boolean w;
-    public boolean x;
-    public hcc y;
-    public jcc z;
+    public ArrayList<String> j;
+    public String k;
+    public idc l;
 
-    public ecc() {
+    public ecc(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -65,41 +47,259 @@ public class ecc implements Cloneable {
                 return;
             }
         }
-        this.a = 0;
-        this.b = -16777216;
-        this.c = 0.0f;
-        this.d = 0.0f;
-        this.e = false;
-        this.f = false;
-        this.g = BarHide.FLAG_SHOW_BAR;
+        this.l = new idc();
+        this.a = str;
+        this.c = 0;
+        this.f = 1;
+        this.g = 1;
         this.h = false;
         this.i = true;
-        this.j = -16777216;
-        this.k = -16777216;
-        this.l = new HashMap();
-        this.m = 0.0f;
-        this.n = false;
-        this.s = false;
-        this.t = false;
-        this.u = 18;
-        this.v = true;
-        this.w = true;
-        this.x = false;
+        this.b = Preference.e();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: a */
-    public ecc clone() {
+    public ecc(String str, int i, int i2, int i3, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.l = new idc();
+        this.a = str;
+        this.c = i;
+        this.f = i2;
+        this.g = i3;
+        this.h = z;
+        this.i = true;
+        this.b = Preference.e();
+        TLog.g(this, "liveMode " + this.h + " fastAccess " + this.i + "taskId " + this.b);
+    }
+
+    public static ecc a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            ecc eccVar = new ecc("");
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                eccVar.a = jSONObject.optString("mUrl");
+                eccVar.c = jSONObject.optInt("mProtocol");
+                eccVar.f = jSONObject.optInt("mSourceFormat");
+                eccVar.g = jSONObject.optInt("mCachePolicy");
+                eccVar.h = jSONObject.optBoolean("mIsLiveMode");
+                eccVar.i = jSONObject.optBoolean("mIsFastAccess");
+                eccVar.d = jSONObject.optInt("mMaxPreloadBufferSize");
+                eccVar.b = jSONObject.optLong("mTaskId");
+                eccVar.e = jSONObject.optLong("mCurrentMs");
+                eccVar.k = jSONObject.optString("mPcdnManufacturer");
+                String optString = jSONObject.optString("mProperties");
+                if (!optString.isEmpty()) {
+                    eccVar.l.a(optString);
+                }
+                JSONArray optJSONArray = jSONObject.optJSONArray("mPcdnUrls");
+                if (optJSONArray != null) {
+                    eccVar.j = new ArrayList<>();
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        eccVar.j.add(optJSONArray.optString(i));
+                    }
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return eccVar;
+        }
+        return (ecc) invokeL.objValue;
+    }
+
+    public static String r(ecc eccVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, eccVar)) == null) {
+            if (eccVar == null) {
+                return null;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("mUrl", eccVar.a);
+                jSONObject.put("mProtocol", eccVar.c);
+                jSONObject.put("mSourceFormat", eccVar.f);
+                jSONObject.put("mCachePolicy", eccVar.g);
+                jSONObject.put("mIsLiveMode", eccVar.h);
+                jSONObject.put("mIsFastAccess", eccVar.i);
+                jSONObject.put("mMaxPreloadBufferSize", eccVar.d);
+                jSONObject.put("mProperties", eccVar.l.c());
+                jSONObject.put("mTaskId", eccVar.b);
+                jSONObject.put("mCurrentMs", eccVar.e);
+                jSONObject.put("mPcdnManufacturer", eccVar.k);
+                if (eccVar.j != null && !eccVar.j.isEmpty()) {
+                    JSONArray jSONArray = new JSONArray();
+                    Iterator<String> it = eccVar.j.iterator();
+                    while (it.hasNext()) {
+                        jSONArray.put(it.next());
+                    }
+                    jSONObject.put("mPcdnUrls", jSONArray);
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                return (ecc) super.clone();
-            } catch (CloneNotSupportedException e) {
-                e.printStackTrace();
-                return null;
-            }
+            return this.g;
         }
-        return (ecc) invokeV.objValue;
+        return invokeV.intValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.i;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.h;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.k;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public ArrayList<String> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.j;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public idc g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.l;
+        }
+        return (idc) invokeV.objValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public long i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.e;
+        }
+        return invokeV.longValue;
+    }
+
+    public long j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.b;
+        }
+        return invokeV.longValue;
+    }
+
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public void m(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.i = z;
+        }
+    }
+
+    public void n(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void p(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
+            this.e = j;
+        }
+    }
+
+    public void q(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+            this.b = j;
+        }
+    }
+
+    public boolean o(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, str, str2)) == null) {
+            if (this.l.a.put(str, str2) != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return "DataSource [mUrl=" + this.a + ", mProtocol=" + this.c + ", mSourceFormat=" + this.f + ", mCachePolicy=" + this.g + ", mIsLiveMode=" + this.h + ", mIsFastAccess=" + this.i + ", mMaxPreloadBufferSize=" + this.d + ", mProperties=" + this.l.c() + PreferencesUtil.RIGHT_MOUNT;
+        }
+        return (String) invokeV.objValue;
     }
 }

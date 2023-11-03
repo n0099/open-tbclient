@@ -1,51 +1,15 @@
 package com.baidu.tieba;
-
-import android.annotation.TargetApi;
-import android.opengl.GLES30;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.Buffer;
-import java.nio.IntBuffer;
-@TargetApi(18)
 /* loaded from: classes7.dex */
-public class m1 extends l1 implements g2 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface m1 {
+    void a(String str, String str2, Throwable th);
 
-    public m1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void b(String str, String str2, Throwable th);
 
-    @Override // com.baidu.tieba.g2
-    public void G(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, Buffer buffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9), buffer}) == null) {
-            if (buffer == null) {
-                GLES30.glTexImage3D(i, i2, i3, i4, i5, i6, i7, i8, i9, 0);
-            } else {
-                GLES30.glTexImage3D(i, i2, i3, i4, i5, i6, i7, i8, i9, buffer);
-            }
-        }
-    }
+    void debug(String str, String str2);
 
-    @Override // com.baidu.tieba.g2
-    public void c(int i, IntBuffer intBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, intBuffer) == null) {
-            GLES30.glDrawBuffers(i, intBuffer);
-        }
-    }
+    void error(String str, String str2);
+
+    void error(String str, String str2, Throwable th);
+
+    void log(String str, String str2);
 }

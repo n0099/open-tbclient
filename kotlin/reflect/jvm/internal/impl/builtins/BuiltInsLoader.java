@@ -13,11 +13,11 @@ import kotlin.reflect.jvm.internal.impl.descriptors.deserialization.AdditionalCl
 import kotlin.reflect.jvm.internal.impl.descriptors.deserialization.ClassDescriptorFactory;
 import kotlin.reflect.jvm.internal.impl.descriptors.deserialization.PlatformDependentDeclarationFilter;
 import kotlin.reflect.jvm.internal.impl.storage.StorageManager;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface BuiltInsLoader {
     public static final Companion Companion = Companion.$$INSTANCE;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Companion {
         public static final /* synthetic */ Companion $$INSTANCE = new Companion();
         public static final Lazy Instance$delegate = LazyKt__LazyJVMKt.lazy(LazyThreadSafetyMode.PUBLICATION, (Function0) new Function0<BuiltInsLoader>() { // from class: kotlin.reflect.jvm.internal.impl.builtins.BuiltInsLoader$Companion$Instance$2

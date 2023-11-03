@@ -1,74 +1,69 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.wh6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Collection;
-import java.util.Map;
-import org.json.JSONArray;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class zh6 {
+public class zh6 implements yh6 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile zh6 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public yh6 a;
 
-    public static <E> boolean a(Collection<E> collection) {
-        InterceptResult invokeL;
+    public zh6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, collection)) == null) {
-            if (collection != null && !collection.isEmpty()) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return true;
         }
-        return invokeL.booleanValue;
     }
 
-    public static <K, V> boolean b(Map<K, V> map) {
-        InterceptResult invokeL;
+    public static zh6 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, map)) == null) {
-            if (map != null && !map.isEmpty()) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (zh6.class) {
+                    if (b == null) {
+                        b = new zh6();
+                    }
+                }
             }
-            return true;
+            return b;
         }
-        return invokeL.booleanValue;
+        return (zh6) invokeV.objValue;
     }
 
-    public static boolean c(JSONArray jSONArray) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.yh6
+    public WebResourceResponse a(String str, WebResourceRequest webResourceRequest) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONArray)) == null) {
-            if (jSONArray != null && jSONArray.length() != 0) {
-                return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, webResourceRequest)) == null) {
+            yh6 yh6Var = this.a;
+            if (yh6Var == null) {
+                return null;
             }
-            return true;
+            return yh6Var.a(str, webResourceRequest);
         }
-        return invokeL.booleanValue;
+        return (WebResourceResponse) invokeLL.objValue;
     }
 
-    public static boolean d(byte[] bArr) {
-        InterceptResult invokeL;
+    public void c(wh6.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            if (bArr != null && bArr.length != 0) {
-                return false;
-            }
-            return true;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) && aVar != null) {
+            this.a = aVar.b();
         }
-        return invokeL.booleanValue;
-    }
-
-    public static <E> boolean e(E[] eArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, eArr)) == null) {
-            if (eArr != null && eArr.length != 0) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
     }
 }

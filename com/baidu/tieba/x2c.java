@@ -1,5 +1,7 @@
 package com.baidu.tieba;
-/* loaded from: classes8.dex */
-public interface x2c {
-    void a(int i, int i2, String str);
+
+import com.fun.ad.sdk.internal.api.PidLoader;
+/* loaded from: classes9.dex */
+public interface x2c<N> {
+    N a(PidLoader pidLoader, String str);
 }

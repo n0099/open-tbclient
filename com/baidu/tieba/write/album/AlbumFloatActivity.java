@@ -22,9 +22,9 @@ import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eo5;
-import com.baidu.tieba.gwa;
+import com.baidu.tieba.h9b;
 import com.baidu.tieba.view.BdTopToast;
+import com.baidu.tieba.yp5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,13 +35,13 @@ import java.util.HashMap;
 public class AlbumFloatActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gwa k;
+    public h9b k;
     public ViewGroup l;
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public void D1() {
+    public void x1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
         }
     }
 
@@ -59,10 +59,10 @@ public class AlbumFloatActivity extends SuspendedActivity {
         }
     }
 
-    public final boolean H1() {
+    public final boolean D1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
             permissionJudgePolicy.clearRequestPermissionList();
             permissionJudgePolicy.appendRequestPermission(this, "android.permission.WRITE_EXTERNAL_STORAGE");
@@ -76,9 +76,9 @@ public class AlbumFloatActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
-            gwa gwaVar = this.k;
-            if (gwaVar != null) {
-                gwaVar.onDestroy();
+            h9b h9bVar = this.k;
+            if (h9bVar != null) {
+                h9bVar.onDestroy();
             }
         }
     }
@@ -87,9 +87,9 @@ public class AlbumFloatActivity extends SuspendedActivity {
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            gwa gwaVar = this.k;
-            if (gwaVar != null) {
-                gwaVar.onPause();
+            h9b h9bVar = this.k;
+            if (h9bVar != null) {
+                h9bVar.onPause();
             }
             super.onPause();
         }
@@ -100,9 +100,9 @@ public class AlbumFloatActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onResume();
-            gwa gwaVar = this.k;
-            if (gwaVar != null) {
-                gwaVar.onResume();
+            h9b h9bVar = this.k;
+            if (h9bVar != null) {
+                h9bVar.onResume();
             }
         }
     }
@@ -112,9 +112,9 @@ public class AlbumFloatActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onStart();
-            gwa gwaVar = this.k;
-            if (gwaVar != null) {
-                gwaVar.H();
+            h9b h9bVar = this.k;
+            if (h9bVar != null) {
+                h9bVar.I();
             }
         }
     }
@@ -124,21 +124,21 @@ public class AlbumFloatActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onStop();
-            gwa gwaVar = this.k;
-            if (gwaVar != null) {
-                gwaVar.I();
+            h9b h9bVar = this.k;
+            if (h9bVar != null) {
+                h9bVar.J();
             }
         }
     }
 
-    public final void G1() {
+    public final void B1() {
         String str;
         String str2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && getIntent() != null) {
             String dataString = getIntent().getDataString();
             if (!TextUtils.isEmpty(dataString) && dataString.contains("/jumpToVideo")) {
-                if (H1()) {
+                if (D1()) {
                     finish();
                     return;
                 }
@@ -185,13 +185,42 @@ public class AlbumFloatActivity extends SuspendedActivity {
         }
     }
 
+    @Override // com.baidu.tbadk.suspended.SuspendedActivity
+    public yp5 n1(LinearLayout linearLayout, NavigationBar navigationBar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, linearLayout, navigationBar)) == null) {
+            if (this.k == null) {
+                h9b h9bVar = new h9b(this, null, linearLayout.getId(), R.id.root_stub);
+                this.k = h9bVar;
+                h9bVar.R(navigationBar);
+            }
+            return this.k;
+        }
+        return (yp5) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048583, this, i, keyEvent)) == null) {
+            if (i == 4) {
+                this.k.F();
+                return true;
+            }
+            return super.onKeyDown(i, keyEvent);
+        }
+        return invokeIL.booleanValue;
+    }
+
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
             if (i2 == -1) {
-                this.k.J(intent);
+                this.k.K(intent);
             }
         }
     }
@@ -201,19 +230,19 @@ public class AlbumFloatActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048585, this, i, strArr, iArr) == null) {
             super.onRequestPermissionsResult(i, strArr, iArr);
-            gwa gwaVar = this.k;
-            if (gwaVar != null) {
-                gwaVar.F(i, strArr, iArr);
+            h9b h9bVar = this.k;
+            if (h9bVar != null) {
+                h9bVar.G(i, strArr, iArr);
             }
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
-        gwa gwaVar;
+        h9b h9bVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && (gwaVar = this.k) != null) {
-            gwaVar.onClick(view2);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && (h9bVar = this.k) != null) {
+            h9bVar.onClick(view2);
         }
     }
 
@@ -221,7 +250,7 @@ public class AlbumFloatActivity extends SuspendedActivity {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
-            G1();
+            B1();
             super.onCreate(bundle);
             this.l = (ViewGroup) findViewById(R.id.suspend_root_view);
         }
@@ -230,37 +259,8 @@ public class AlbumFloatActivity extends SuspendedActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void showToast(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             new BdTopToast(this, 3000).setIcon(false).setContent(getResources().getString(i)).show(this.l);
         }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048583, this, i, keyEvent)) == null) {
-            if (i == 4) {
-                this.k.E();
-                return true;
-            }
-            return super.onKeyDown(i, keyEvent);
-        }
-        return invokeIL.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public eo5 q1(LinearLayout linearLayout, NavigationBar navigationBar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, linearLayout, navigationBar)) == null) {
-            if (this.k == null) {
-                gwa gwaVar = new gwa(this, null, linearLayout.getId(), R.id.root_stub);
-                this.k = gwaVar;
-                gwaVar.Q(navigationBar);
-            }
-            return this.k;
-        }
-        return (eo5) invokeLL.objValue;
     }
 }

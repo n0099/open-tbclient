@@ -132,7 +132,7 @@ public class FunAdButton extends View {
         this.a = R.color.CAM_X0101;
         this.b = R.color.CAM_X0304;
         this.c = R.color.CAM_X0302;
-        this.d = R.drawable.obfuscated_res_0x7f0800d9;
+        this.d = R.drawable.obfuscated_res_0x7f0800dc;
         this.e = getResources().getDimensionPixelSize(R.dimen.M_W_X006);
         this.f = getResources().getDimensionPixelSize(R.dimen.tbds198);
         this.g = 0;

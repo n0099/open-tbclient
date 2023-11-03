@@ -1,14 +1,17 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collection;
+import com.baidu.webkit.sdk.CookieManager;
+import com.baidu.webkit.sdk.CookieSyncManager;
 /* loaded from: classes6.dex */
-public final class hk3 {
+public class hk3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -16,77 +19,64 @@ public final class hk3 {
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ik3 a;
-        public final /* synthetic */ Object b;
 
-        public a(ik3 ik3Var, Object obj) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ik3Var, obj};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = ik3Var;
-            this.b = obj;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a(this.b);
+                CookieManager.getInstance().setCookie(".baidu.com", yj3.k(".baidu.com", "SP_FW_VER", lf3.h(0), 2937600L));
+                CookieManager.getInstance().setCookie(".baidu.com", yj3.k(".baidu.com", "SG_FW_VER", lf3.h(1), 2937600L));
+                hk3.b();
             }
         }
     }
 
-    public static <T> void a(Handler handler, ik3<T> ik3Var, Collection<T> collection) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65536, null, handler, ik3Var, collection) == null) && ik3Var != null && collection != null && !collection.isEmpty()) {
-            for (T t : collection) {
-                e(handler, ik3Var, t);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947826553, "Lcom/baidu/tieba/hk3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947826553, "Lcom/baidu/tieba/hk3;");
+                return;
             }
         }
+        np2.g0().getSwitch("swan_env_init_thread_pool_optimize", true);
     }
 
-    public static <T> void b(Handler handler, ik3<T> ik3Var, T... tArr) {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65537, null, handler, ik3Var, tArr) == null) && ik3Var != null && tArr != null && tArr.length >= 1) {
-            for (T t : tArr) {
-                e(handler, ik3Var, t);
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            f63.M().post(new a());
+        }
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            if (ni3.f()) {
+                CookieManager.getInstance().flush();
+                return;
             }
-        }
-    }
-
-    public static <T> void e(Handler handler, ik3<T> ik3Var, T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, handler, ik3Var, t) == null) {
-            if (handler == null) {
-                ik3Var.a(t);
-            } else {
-                handler.post(new a(ik3Var, t));
-            }
-        }
-    }
-
-    public static <T> void c(ik3<T> ik3Var, Collection<T> collection) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, ik3Var, collection) == null) {
-            a(null, ik3Var, collection);
-        }
-    }
-
-    public static <T> void d(ik3<T> ik3Var, T... tArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, ik3Var, tArr) == null) {
-            b(null, ik3Var, tArr);
+            CookieSyncManager.createInstance(AppRuntime.getAppContext());
+            CookieSyncManager.getInstance().sync();
         }
     }
 }

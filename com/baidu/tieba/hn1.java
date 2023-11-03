@@ -2,28 +2,175 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.view.narootview.SwanAppInlineFullScreenContainer;
+import com.baidu.tieba.p52;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public interface hn1 {
-    boolean a(View view2, vv2 vv2Var);
+public class hn1 implements wu3 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final ViewGroup.LayoutParams c;
+    public transient /* synthetic */ FieldHolder $fh;
+    public o52 a;
+    public FrameLayout b;
 
-    boolean b();
+    @Override // com.baidu.tieba.wu3
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
-    boolean c(View view2, vv2 vv2Var);
+    @Override // com.baidu.tieba.wu3
+    public boolean c(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
 
-    boolean d(View view2);
+    @Override // com.baidu.tieba.wu3
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
 
-    void e(ok3 ok3Var);
+    @Override // com.baidu.tieba.wu3
+    public boolean f(View view2, qt3 qt3Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, view2, qt3Var)) == null) {
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
 
-    void f(ok3 ok3Var);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947829374, "Lcom/baidu/tieba/hn1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947829374, "Lcom/baidu/tieba/hn1;");
+                return;
+            }
+        }
+        c = new FrameLayout.LayoutParams(-1, -1);
+    }
 
-    void g(boolean z);
+    public hn1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
-    Context getContext();
+    @Override // com.baidu.tieba.wu3
+    public void a(String str, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
+            p52 W = tr2.V().W();
+            Context appContext = AppRuntime.getAppContext();
+            if (W == null) {
+                if (appContext != null) {
+                    y53.f(appContext, R.string.obfuscated_res_0x7f0f01d5).G();
+                    return;
+                }
+                return;
+            }
+            gw2 d = gw2.d(str, str);
+            d.h(jSONObject.toString());
+            p52.b i = W.i("adLanding");
+            i.n(p52.g, p52.i);
+            i.k("adLanding", d).b();
+        }
+    }
 
-    FrameLayout getRootView();
+    @Override // com.baidu.tieba.wu3
+    public boolean d(View view2, qt3 qt3Var) {
+        InterceptResult invokeLL;
+        p52 W;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view2, qt3Var)) == null) {
+            tr2 V = tr2.V();
+            SwanAppActivity activity = V.getActivity();
+            if (activity == null || activity.isFinishing() || (W = V.W()) == null) {
+                return false;
+            }
+            o52 o = W.o();
+            this.a = o;
+            if (o.N3()) {
+                int t = xj3.t();
+                if (view2 instanceof ViewGroup) {
+                    ViewGroup viewGroup = (ViewGroup) view2;
+                    for (int i = 0; i < viewGroup.getChildCount(); i++) {
+                        View childAt = viewGroup.getChildAt(i);
+                        if (childAt.getTop() < t) {
+                            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) childAt.getLayoutParams();
+                            layoutParams.topMargin = childAt.getTop() + t;
+                            childAt.setLayoutParams(layoutParams);
+                        }
+                    }
+                }
+            }
+            SwanAppInlineFullScreenContainer swanAppInlineFullScreenContainer = new SwanAppInlineFullScreenContainer(activity);
+            this.b = swanAppInlineFullScreenContainer;
+            swanAppInlineFullScreenContainer.addView(view2, c);
+            n53 floatLayer = o.getFloatLayer();
+            if (floatLayer == null) {
+                return false;
+            }
+            floatLayer.n(true);
+            xj3.b(activity);
+            floatLayer.o(this.b);
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
 
-    boolean h();
-
-    boolean removeView(View view2);
+    @Override // com.baidu.tieba.wu3
+    public boolean removeView(View view2) {
+        InterceptResult invokeL;
+        n53 floatLayer;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, view2)) == null) {
+            this.b.removeAllViews();
+            o52 o52Var = this.a;
+            if (o52Var == null || (floatLayer = o52Var.getFloatLayer()) == null) {
+                return false;
+            }
+            floatLayer.n(false);
+            floatLayer.h();
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
 }

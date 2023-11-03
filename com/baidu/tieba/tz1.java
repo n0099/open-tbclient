@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
+import android.graphics.Region;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,10 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes8.dex */
-public class tz1 extends wy1 {
+public class tz1 extends nz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ez1 a;
+
+    @Override // com.baidu.tieba.nz1
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+        }
+    }
 
     public tz1() {
         Interceptable interceptable = $ic;
@@ -27,26 +34,12 @@ public class tz1 extends wy1 {
         }
     }
 
-    @Override // com.baidu.tieba.wy1
-    public void a(xy1 xy1Var, Canvas canvas) {
-        ez1 ez1Var;
+    @Override // com.baidu.tieba.nz1
+    public void a(oz1 oz1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, xy1Var, canvas) == null) && (ez1Var = this.a) != null && ez1Var.d()) {
-            if (this.a.c()) {
-                xy1Var.b.setShader(this.a.b());
-                return;
-            }
-            xy1Var.e.setColor(this.a.a());
-            xy1Var.b.setColor(this.a.a());
-            xy1Var.b.setShader(null);
-        }
-    }
-
-    @Override // com.baidu.tieba.wy1
-    public void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
-            this.a = new ez1(jSONArray);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, oz1Var, canvas) == null) {
+            oz1Var.g = true;
+            canvas.clipPath(oz1Var.f, Region.Op.INTERSECT);
         }
     }
 }

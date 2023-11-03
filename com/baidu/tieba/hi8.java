@@ -1,384 +1,123 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.safe.UiUtils;
+import android.annotation.TargetApi;
+import android.view.ActionMode;
+import android.view.Menu;
+import android.view.MenuItem;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.horizonalList.widget.AbsHListView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class hi8 {
+public class hi8 implements gi8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public gi8 a;
+    public AbsHListView b;
 
-    public static final void a(final String filePath, final int i, final int i2, final fi8 callback) {
+    public hi8(AbsHListView absHListView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{filePath, Integer.valueOf(i), Integer.valueOf(i2), callback}) == null) {
-            Intrinsics.checkNotNullParameter(filePath, "filePath");
-            Intrinsics.checkNotNullParameter(callback, "callback");
-            UiUtils.runOnBgThread(new Runnable() { // from class: com.baidu.tieba.ai8
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        hi8.b(filePath, i, i2, callback);
-                    }
-                }
-            });
-        }
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x00b8 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x00ba */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:80:0x014c */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:20:0x0073 A[Catch: all -> 0x0126, Exception -> 0x012a, TryCatch #12 {Exception -> 0x012a, all -> 0x0126, blocks: (B:7:0x0039, B:9:0x004f, B:20:0x0073, B:21:0x0079, B:24:0x0089, B:47:0x00d6, B:51:0x00e7, B:53:0x00ee, B:54:0x00f7, B:15:0x0059), top: B:89:0x0039 }] */
-    /* JADX WARN: Removed duplicated region for block: B:23:0x0087  */
-    /* JADX WARN: Removed duplicated region for block: B:50:0x00e5  */
-    /* JADX WARN: Type inference failed for: r7v0 */
-    /* JADX WARN: Type inference failed for: r7v12, types: [int] */
-    /* JADX WARN: Type inference failed for: r7v17 */
-    /* JADX WARN: Type inference failed for: r7v18 */
-    /* JADX WARN: Type inference failed for: r7v19 */
-    /* JADX WARN: Type inference failed for: r7v2 */
-    /* JADX WARN: Type inference failed for: r7v4, types: [java.io.ByteArrayInputStream] */
-    /* JADX WARN: Type inference failed for: r7v5, types: [java.io.ByteArrayInputStream] */
-    /* JADX WARN: Type inference failed for: r7v6 */
-    /* JADX WARN: Type inference failed for: r7v9 */
-    /* JADX WARN: Type inference failed for: r9v0 */
-    /* JADX WARN: Type inference failed for: r9v1 */
-    /* JADX WARN: Type inference failed for: r9v10 */
-    /* JADX WARN: Type inference failed for: r9v11 */
-    /* JADX WARN: Type inference failed for: r9v14, types: [android.graphics.Bitmap] */
-    /* JADX WARN: Type inference failed for: r9v15 */
-    /* JADX WARN: Type inference failed for: r9v2, types: [java.io.FileOutputStream] */
-    /* JADX WARN: Type inference failed for: r9v3, types: [java.io.FileOutputStream] */
-    /* JADX WARN: Type inference failed for: r9v5, types: [android.graphics.Bitmap] */
-    /* JADX WARN: Type inference failed for: r9v6 */
-    /* JADX WARN: Type inference failed for: r9v7 */
-    /* JADX WARN: Type inference failed for: r9v8 */
-    /* JADX WARN: Type inference failed for: r9v9 */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static final void b(final String filePath, int i, int i2, final fi8 callback) {
-        ByteArrayOutputStream byteArrayOutputStream;
-        ?? r7;
-        Object obj;
-        Bitmap bitmap;
-        BitmapFactory.Options options;
-        int i3;
-        int i4;
-        Bitmap.CompressFormat compressFormat;
-        int ceil;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{filePath, Integer.valueOf(i), Integer.valueOf(i2), callback}) == null) {
-            Intrinsics.checkNotNullParameter(filePath, "$filePath");
-            Intrinsics.checkNotNullParameter(callback, "$callback");
-            final String str = filePath + "_backup";
-            Bitmap bitmap2 = null;
-            try {
-                byteArrayOutputStream = new ByteArrayOutputStream();
-                try {
-                    options = new BitmapFactory.Options();
-                    options.inJustDecodeBounds = false;
-                    bitmap = BitmapFactory.decodeFile(filePath, options);
-                    try {
-                        i3 = options.outWidth;
-                        i4 = options.outHeight;
-                        compressFormat = Bitmap.CompressFormat.JPEG;
-                        String str2 = options.outMimeType;
-                        Intrinsics.checkNotNullExpressionValue(str2, "options.outMimeType");
-                        if (StringsKt__StringsJVMKt.endsWith$default(str2, "png", false, 2, null)) {
-                            compressFormat = Bitmap.CompressFormat.PNG;
-                        }
-                    } catch (Exception e) {
-                        e = e;
-                        obj = null;
-                        bitmap2 = bitmap;
-                        bitmap = obj;
-                        r7 = obj;
-                        try {
-                            e.printStackTrace();
-                            g(bitmap2, r7, byteArrayOutputStream, bitmap);
-                            UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.xh8
-                                public static /* synthetic */ Interceptable $ic;
-                                public transient /* synthetic */ FieldHolder $fh;
-
-                                @Override // java.lang.Runnable
-                                public final void run() {
-                                    Interceptable interceptable2 = $ic;
-                                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                        hi8.f(fi8.this, filePath);
-                                    }
-                                }
-                            });
-                            return;
-                        } catch (Throwable th) {
-                            th = th;
-                            g(bitmap2, r7, byteArrayOutputStream, bitmap);
-                            throw th;
-                        }
-                    } catch (Throwable th2) {
-                        th = th2;
-                        r7 = 0;
-                        bitmap2 = bitmap;
-                        bitmap = r7;
-                        g(bitmap2, r7, byteArrayOutputStream, bitmap);
-                        throw th;
-                    }
-                } catch (Exception e2) {
-                    e = e2;
-                    obj = null;
-                } catch (Throwable th3) {
-                    th = th3;
-                    r7 = 0;
-                }
-            } catch (Exception e3) {
-                e = e3;
-                byteArrayOutputStream = null;
-                obj = null;
-            } catch (Throwable th4) {
-                th = th4;
-                byteArrayOutputStream = null;
-                r7 = 0;
-            }
-            try {
-                try {
-                    try {
-                        if (i4 <= i && i4 <= i2) {
-                            ceil = 1;
-                            if (ceil > 1) {
-                                options.inSampleSize = ceil;
-                                bitmap = BitmapFactory.decodeFile(filePath, options);
-                            }
-                            bitmap.compress(compressFormat, 100, byteArrayOutputStream);
-                            r7 = byteArrayOutputStream.toByteArray().length;
-                            if (r7 > 5242880) {
-                                if (ceil > 1) {
-                                    ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
-                                    Bitmap decodeStream = BitmapFactory.decodeStream(byteArrayInputStream);
-                                    FileOutputStream fileOutputStream = new FileOutputStream(new File(str));
-                                    if (decodeStream.compress(compressFormat, 100, fileOutputStream)) {
-                                        fileOutputStream.flush();
-                                    }
-                                    UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.yh8
-                                        public static /* synthetic */ Interceptable $ic;
-                                        public transient /* synthetic */ FieldHolder $fh;
-
-                                        @Override // java.lang.Runnable
-                                        public final void run() {
-                                            Interceptable interceptable2 = $ic;
-                                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                                hi8.c(fi8.this, str);
-                                            }
-                                        }
-                                    });
-                                    g(decodeStream, byteArrayInputStream, byteArrayOutputStream, fileOutputStream);
-                                    g(decodeStream, byteArrayInputStream, byteArrayOutputStream, fileOutputStream);
-                                    return;
-                                }
-                                UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.zh8
-                                    public static /* synthetic */ Interceptable $ic;
-                                    public transient /* synthetic */ FieldHolder $fh;
-
-                                    @Override // java.lang.Runnable
-                                    public final void run() {
-                                        Interceptable interceptable2 = $ic;
-                                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                            hi8.d(fi8.this, filePath);
-                                        }
-                                    }
-                                });
-                                g(bitmap, null, byteArrayOutputStream, null);
-                                g(bitmap, null, byteArrayOutputStream, null);
-                                return;
-                            }
-                            int i5 = 90;
-                            while (byteArrayOutputStream.toByteArray().length > 5242880) {
-                                byteArrayOutputStream.reset();
-                                bitmap.compress(compressFormat, i5, byteArrayOutputStream);
-                                i5 -= 10;
-                            }
-                            ByteArrayInputStream byteArrayInputStream2 = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
-                            Bitmap decodeStream2 = BitmapFactory.decodeStream(byteArrayInputStream2);
-                            FileOutputStream fileOutputStream2 = new FileOutputStream(new File(str));
-                            if (decodeStream2.compress(compressFormat, 100, fileOutputStream2)) {
-                                fileOutputStream2.flush();
-                            }
-                            UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.ci8
-                                public static /* synthetic */ Interceptable $ic;
-                                public transient /* synthetic */ FieldHolder $fh;
-
-                                @Override // java.lang.Runnable
-                                public final void run() {
-                                    Interceptable interceptable2 = $ic;
-                                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                        hi8.e(fi8.this, str);
-                                    }
-                                }
-                            });
-                            g(decodeStream2, byteArrayInputStream2, byteArrayOutputStream, fileOutputStream2);
-                            g(decodeStream2, byteArrayInputStream2, byteArrayOutputStream, fileOutputStream2);
-                            return;
-                        }
-                        if (r7 > 5242880) {
-                        }
-                    } catch (Exception e4) {
-                        e = e4;
-                        Bitmap bitmap3 = bitmap;
-                        bitmap = 0;
-                        bitmap2 = bitmap3;
-                        r7 = r7;
-                        e.printStackTrace();
-                        g(bitmap2, r7, byteArrayOutputStream, bitmap);
-                        UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.xh8
-                            public static /* synthetic */ Interceptable $ic;
-                            public transient /* synthetic */ FieldHolder $fh;
-
-                            @Override // java.lang.Runnable
-                            public final void run() {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                    hi8.f(fi8.this, filePath);
-                                }
-                            }
-                        });
-                        return;
-                    } catch (Throwable th5) {
-                        th = th5;
-                        Bitmap bitmap4 = bitmap;
-                        bitmap = 0;
-                        bitmap2 = bitmap4;
-                        g(bitmap2, r7, byteArrayOutputStream, bitmap);
-                        throw th;
-                    }
-                } catch (Exception e5) {
-                    e = e5;
-                    bitmap2 = 1;
-                    r7 = r7;
-                    bitmap = bitmap;
-                    e.printStackTrace();
-                    g(bitmap2, r7, byteArrayOutputStream, bitmap);
-                    UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.xh8
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-
-                        @Override // java.lang.Runnable
-                        public final void run() {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                hi8.f(fi8.this, filePath);
-                            }
-                        }
-                    });
-                    return;
-                } catch (Throwable th6) {
-                    th = th6;
-                    bitmap2 = 1;
-                    g(bitmap2, r7, byteArrayOutputStream, bitmap);
-                    throw th;
-                }
-            } catch (Exception e6) {
-                e = e6;
-                bitmap = 0;
-                bitmap2 = 1;
-                r7 = r7;
-                bitmap = bitmap;
-                e.printStackTrace();
-                g(bitmap2, r7, byteArrayOutputStream, bitmap);
-                UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.xh8
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            hi8.f(fi8.this, filePath);
-                        }
-                    }
-                });
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {absHListView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
-            } catch (Throwable th7) {
-                th = th7;
-                bitmap = 0;
-                bitmap2 = 1;
-                g(bitmap2, r7, byteArrayOutputStream, bitmap);
-                throw th;
             }
-            ceil = (int) Math.ceil(i3 / i);
-            int ceil2 = (int) Math.ceil(i4 / i2);
-            if (ceil <= ceil2) {
-                ceil = ceil2;
-            }
-            if (ceil > 1) {
-            }
-            bitmap.compress(compressFormat, 100, byteArrayOutputStream);
-            r7 = byteArrayOutputStream.toByteArray().length;
+        }
+        this.b = absHListView;
+    }
+
+    public void c(gi8 gi8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gi8Var) == null) {
+            this.a = gi8Var;
         }
     }
 
-    public static final void c(fi8 callback, String toFilePath) {
+    @Override // android.view.ActionMode.Callback
+    @TargetApi(11)
+    public void onDestroyActionMode(ActionMode actionMode) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, callback, toFilePath) == null) {
-            Intrinsics.checkNotNullParameter(callback, "$callback");
-            Intrinsics.checkNotNullParameter(toFilePath, "$toFilePath");
-            callback.onFinish(toFilePath);
+        if (interceptable == null || interceptable.invokeL(1048581, this, actionMode) == null) {
+            this.a.onDestroyActionMode(actionMode);
+            AbsHListView absHListView = this.b;
+            absHListView.mChoiceActionMode = null;
+            absHListView.clearChoices();
+            AbsHListView absHListView2 = this.b;
+            absHListView2.mDataChanged = true;
+            absHListView2.rememberSyncState();
+            this.b.requestLayout();
+            this.b.setLongClickable(true);
         }
     }
 
-    public static final void d(fi8 callback, String filePath) {
+    @Override // com.baidu.tieba.gi8
+    @TargetApi(11)
+    public void a(ActionMode actionMode, int i, long j, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, callback, filePath) == null) {
-            Intrinsics.checkNotNullParameter(callback, "$callback");
-            Intrinsics.checkNotNullParameter(filePath, "$filePath");
-            callback.onFinish(filePath);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{actionMode, Integer.valueOf(i), Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+            this.a.a(actionMode, i, j, z);
+            if (this.b.getCheckedItemCount() == 0) {
+                actionMode.finish();
+            }
         }
     }
 
-    public static final void e(fi8 callback, String toFilePath) {
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, callback, toFilePath) == null) {
-            Intrinsics.checkNotNullParameter(callback, "$callback");
-            Intrinsics.checkNotNullParameter(toFilePath, "$toFilePath");
-            callback.onFinish(toFilePath);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.a != null) {
+                return true;
+            }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public static final void f(fi8 callback, String filePath) {
+    @Override // android.view.ActionMode.Callback
+    @TargetApi(11)
+    public boolean onActionItemClicked(ActionMode actionMode, MenuItem menuItem) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, callback, filePath) == null) {
-            Intrinsics.checkNotNullParameter(callback, "$callback");
-            Intrinsics.checkNotNullParameter(filePath, "$filePath");
-            callback.onFinish(filePath);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, actionMode, menuItem)) == null) {
+            return this.a.onActionItemClicked(actionMode, menuItem);
         }
+        return invokeLL.booleanValue;
     }
 
-    public static final void g(Bitmap bitmap, ByteArrayInputStream byteArrayInputStream, ByteArrayOutputStream byteArrayOutputStream, FileOutputStream fileOutputStream) {
+    @Override // android.view.ActionMode.Callback
+    @TargetApi(11)
+    public boolean onCreateActionMode(ActionMode actionMode, Menu menu) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65542, null, bitmap, byteArrayInputStream, byteArrayOutputStream, fileOutputStream) == null) {
-            if (bitmap != null && !bitmap.isRecycled()) {
-                bitmap.recycle();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, actionMode, menu)) == null) {
+            if (!this.a.onCreateActionMode(actionMode, menu)) {
+                return false;
             }
-            if (byteArrayOutputStream != null) {
-                byteArrayOutputStream.close();
-            }
-            if (byteArrayInputStream != null) {
-                byteArrayInputStream.close();
-            }
-            if (fileOutputStream != null) {
-                fileOutputStream.close();
-            }
+            this.b.setLongClickable(false);
+            return true;
         }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // android.view.ActionMode.Callback
+    @TargetApi(11)
+    public boolean onPrepareActionMode(ActionMode actionMode, Menu menu) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, actionMode, menu)) == null) {
+            return this.a.onPrepareActionMode(actionMode, menu);
+        }
+        return invokeLL.booleanValue;
     }
 }

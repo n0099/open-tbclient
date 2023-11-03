@@ -1,90 +1,146 @@
 package com.baidu.tieba;
 
+import android.preference.PreferenceManager;
 import android.util.Log;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class fc2 extends qf2 {
+public class fc2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<pf2> d;
+    public bc2 a;
+    public HashMap<String, cc2> b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fc2() {
-        super("combine");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final fc2 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-809118890, "Lcom/baidu/tieba/fc2$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-809118890, "Lcom/baidu/tieba/fc2$b;");
+                    return;
+                }
+            }
+            a = new fc2(null);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947759252, "Lcom/baidu/tieba/fc2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947759252, "Lcom/baidu/tieba/fc2;");
                 return;
             }
         }
-        this.d = new ArrayList();
+        c = rm1.a;
     }
 
-    @Override // com.baidu.tieba.pf2
-    public String c(n42 n42Var) {
+    public static fc2 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
+        }
+        return (fc2) invokeV.objValue;
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getBoolean("sp_swan_sdcard_preset", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final bc2 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (c && d()) {
+                return new ec2();
+            }
+            return new ac2();
+        }
+        return (bc2) invokeV.objValue;
+    }
+
+    public fc2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        long currentTimeMillis = System.currentTimeMillis();
+        bc2 a2 = a();
+        this.a = a2;
+        this.b = a2.h();
+        if (c) {
+            Log.d("SwanAppPresetManager", "构造PresetMap耗时：" + (System.currentTimeMillis() - currentTimeMillis));
+        }
+    }
+
+    public /* synthetic */ fc2(a aVar) {
+        this();
+    }
+
+    @Nullable
+    public cc2 c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, n42Var)) == null) {
-            if (n42Var != null && this.d.size() > 0) {
-                int i = 0;
-                StringBuilder sb = new StringBuilder();
-                for (pf2 pf2Var : this.d) {
-                    sb.append(pf2Var.d("event" + i, n42Var));
-                    i++;
-                }
-                if (pf2.b) {
-                    Log.d("JSEventDispatcher", "combine msg - " + sb.toString());
-                }
-                return sb.toString();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            HashMap<String, cc2> hashMap = this.b;
+            if (hashMap != null) {
+                return hashMap.get(str);
             }
             return null;
         }
-        return (String) invokeL.objValue;
+        return (cc2) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.pf2
-    public void h(n42 n42Var) {
+    public void e(cc2 cc2Var, dc2 dc2Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n42Var) == null) && n42Var != null && !n42Var.isWebView() && this.d.size() > 0) {
-            if (pf2.b) {
-                Log.d("JSEventDispatcher", "dispatch event - " + this.a + " on v8");
-            }
-            for (pf2 pf2Var : this.d) {
-                JSEvent e = pf2Var.e(n42Var);
-                if (e != null) {
-                    j(n42Var, e);
-                    if (pf2.b) {
-                        Log.d("JSEventDispatcher", "dispatchJSEvent action - " + e.type + " on v8 : " + e.data);
-                    }
-                }
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cc2Var, dc2Var) == null) {
+            this.a.k(cc2Var, dc2Var);
         }
-    }
-
-    public fc2 t(pf2 pf2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pf2Var)) == null) {
-            if (pf2Var != null && !this.d.contains(pf2Var)) {
-                this.d.add(pf2Var);
-            }
-            return this;
-        }
-        return (fc2) invokeL.objValue;
     }
 }

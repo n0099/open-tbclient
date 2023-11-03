@@ -13,11 +13,11 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.ela;
-import com.baidu.tieba.qla;
+import com.baidu.tieba.cra;
+import com.baidu.tieba.dya;
+import com.baidu.tieba.pya;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.tieba.themeCenter.bubble.all.BubbleSetResponseMessage;
-import com.baidu.tieba.xda;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,8 +29,8 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BubbleGroupActivity a;
-    public qla b;
-    public List<ela> c;
+    public pya b;
+    public List<dya> c;
     public c d;
     public boolean e;
     public NetMessageListener f;
@@ -38,7 +38,7 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
 
     /* loaded from: classes8.dex */
     public interface c {
-        void a(int i, String str, qla qlaVar, List<ela> list);
+        void a(int i, String str, pya pyaVar, List<dya> list);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -148,7 +148,7 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
                     this.a.a.showToast(bubbleSetResponseMessage.getErrorString());
                     return;
                 }
-                this.a.Y(((Integer) ((HttpMessage) httpResponsedMessage.getmOrginalMessage()).getExtra()).intValue());
+                this.a.Z(((Integer) ((HttpMessage) httpResponsedMessage.getmOrginalMessage()).getExtra()).intValue());
                 this.a.d.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.a.b, this.a.c);
             }
         }
@@ -176,20 +176,20 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
         this.g = new b(this, CmdConfigHttp.CMD_BUBBLE_SET);
         this.a = bubbleGroupActivity;
         this.e = bubbleGroupActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
-        V();
-        registerListener(this.f);
         W();
+        registerListener(this.f);
+        X();
         registerListener(this.g);
     }
 
-    public void X(c cVar) {
+    public void Y(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
             this.d = cVar;
         }
     }
 
-    public boolean U() {
+    public boolean V() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -198,11 +198,11 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
         return invokeV.booleanValue;
     }
 
-    public final void V() {
+    public final void W() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            xda.h(309030, BubbleGroupSocketResponseMessage.class, false, false);
-            xda.c(309030, CmdConfigHttp.CMD_BUBBLE_CATEGORY, TbConfig.BUBBLE_GROUP_PAGE, BubbleGroupHttpResponseMessage.class, false, false, true, false);
+            cra.h(309030, BubbleGroupSocketResponseMessage.class, false, false);
+            cra.c(309030, CmdConfigHttp.CMD_BUBBLE_CATEGORY, TbConfig.BUBBLE_GROUP_PAGE, BubbleGroupHttpResponseMessage.class, false, false, true, false);
         }
     }
 
@@ -217,7 +217,7 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
         return invokeV.booleanValue;
     }
 
-    public final void W() {
+    public final void X() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             MessageManager messageManager = MessageManager.getInstance();
@@ -227,13 +227,13 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
         }
     }
 
-    public final void Y(int i) {
-        List<ela> list;
+    public final void Z(int i) {
+        List<dya> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && (list = this.c) != null && list.size() > 0) {
-            for (ela elaVar : this.c) {
-                if (elaVar != null && elaVar.a() != null) {
-                    for (DressItemData dressItemData : elaVar.a()) {
+            for (dya dyaVar : this.c) {
+                if (dyaVar != null && dyaVar.a() != null) {
+                    for (DressItemData dressItemData : dyaVar.a()) {
                         if (dressItemData != null) {
                             if (dressItemData.getPropsId() == i) {
                                 dressItemData.setInUse(true);

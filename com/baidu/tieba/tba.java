@@ -1,51 +1,115 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.stamp.model.FetchStampModel;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BinaryBitmap;
+import com.google.zxing.DecodeHintType;
+import com.google.zxing.MultiFormatReader;
+import com.google.zxing.RGBLuminanceSource;
+import com.google.zxing.common.GlobalHistogramBinarizer;
+import com.google.zxing.common.HybridBinarizer;
+import java.util.ArrayList;
+import java.util.EnumMap;
+import java.util.Map;
 /* loaded from: classes8.dex */
 public class tba {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<DecodeHintType, Object> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public FetchStampModel a;
-    public qba b;
 
-    public tba(TbPageContext tbPageContext, qba<nba> qbaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, qbaVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948176822, "Lcom/baidu/tieba/tba;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948176822, "Lcom/baidu/tieba/tba;");
                 return;
             }
         }
-        this.b = qbaVar;
-        this.a = new FetchStampModel(tbPageContext, qbaVar);
+        a = new EnumMap(DecodeHintType.class);
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(BarcodeFormat.QR_CODE);
+        arrayList.add(BarcodeFormat.AZTEC);
+        arrayList.add(BarcodeFormat.DATA_MATRIX);
+        arrayList.add(BarcodeFormat.PDF_417);
+        a.put(DecodeHintType.TRY_HARDER, BarcodeFormat.QR_CODE);
+        a.put(DecodeHintType.POSSIBLE_FORMATS, arrayList);
+        a.put(DecodeHintType.CHARACTER_SET, "utf-8");
     }
 
-    public void a() {
-        FetchStampModel fetchStampModel;
+    public static Bitmap a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (fetchStampModel = this.a) != null) {
-            fetchStampModel.cancelLoadData();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            try {
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                int i = 1;
+                options.inJustDecodeBounds = true;
+                BitmapFactory.decodeFile(str, options);
+                int i2 = options.outHeight / 800;
+                if (i2 > 0) {
+                    i = i2;
+                }
+                options.inSampleSize = i;
+                options.inJustDecodeBounds = false;
+                return BitmapFactory.decodeFile(str, options);
+            } catch (Exception unused) {
+                return null;
+            }
         }
+        return (Bitmap) invokeL.objValue;
     }
 
-    public void b() {
-        FetchStampModel fetchStampModel;
+    public static String b(Bitmap bitmap) {
+        InterceptResult invokeL;
+        RGBLuminanceSource rGBLuminanceSource;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (fetchStampModel = this.a) != null) {
-            fetchStampModel.loadData();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bitmap)) == null) {
+            try {
+                int width = bitmap.getWidth();
+                int height = bitmap.getHeight();
+                int[] iArr = new int[width * height];
+                bitmap.getPixels(iArr, 0, width, 0, 0, width, height);
+                rGBLuminanceSource = new RGBLuminanceSource(width, height, iArr);
+            } catch (Exception e) {
+                e = e;
+                rGBLuminanceSource = null;
+            }
+            try {
+                return new MultiFormatReader().decode(new BinaryBitmap(new HybridBinarizer(rGBLuminanceSource)), a).getText();
+            } catch (Exception e2) {
+                e = e2;
+                e.printStackTrace();
+                if (rGBLuminanceSource != null) {
+                    try {
+                        return new MultiFormatReader().decode(new BinaryBitmap(new GlobalHistogramBinarizer(rGBLuminanceSource)), a).getText();
+                    } catch (Throwable th) {
+                        th.printStackTrace();
+                        return null;
+                    }
+                }
+                return null;
+            }
         }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return b(a(str));
+        }
+        return (String) invokeL.objValue;
     }
 }

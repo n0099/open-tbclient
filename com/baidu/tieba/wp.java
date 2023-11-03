@@ -1,16 +1,13 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.annotation.CallSuper;
-import com.baidu.bdtask.BDPTask;
-import com.baidu.bdtask.component.buoy.TaskBuoyViewData;
-import com.baidu.bdtask.model.info.TaskInfo;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class wp implements xp {
+public final class wp implements rn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,19 +25,25 @@ public class wp implements xp {
         }
     }
 
-    @Override // com.baidu.tieba.xp
-    @CallSuper
-    public void a(View view2, TaskInfo taskInfo, TaskBuoyViewData taskBuoyViewData) {
-        hn b;
+    @Override // com.baidu.tieba.rn
+    public String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048576, this, view2, taskInfo, taskBuoyViewData) == null) && taskBuoyViewData.getTaskStatus().isFinished()) {
-            if (view2.getParent() != null) {
-                view2.setVisibility(8);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            Object b = com.baidu.bdtask.service.cache.storage.c.i.a().b(str);
+            if (!(b instanceof String)) {
+                b = null;
             }
-            bp v = BDPTask.m.v();
-            if (v != null && (b = v.b()) != null) {
-                b.a(taskBuoyViewData.getScheme(), 3);
-            }
+            return (String) b;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.rn
+    public void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            com.baidu.bdtask.service.cache.storage.c.i.a().d(str2, str);
         }
     }
 }

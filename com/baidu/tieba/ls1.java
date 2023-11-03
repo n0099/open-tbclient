@@ -1,104 +1,101 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Bundle;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class ls1 {
+public final class ls1 extends jr2<ls1> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public int d;
-    public int e;
-    public int f;
-    public boolean g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947953343, "Lcom/baidu/tieba/ls1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947953343, "Lcom/baidu/tieba/ls1;");
-                return;
-            }
-        }
-        boolean z = am1.a;
+    /* loaded from: classes7.dex */
+    public interface a {
+        public static final String a = jr2.r("SwanFileFetcher.Params", "file_url");
+        public static final String b = jr2.r("SwanFileFetcher.Params", "file_save_path");
+        public static final String c = jr2.r("SwanFileFetcher.Params", "file_head_map");
+        public static final String d = jr2.r("SwanFileFetcher.Params", "image_save_gallery");
+        public static final String e = jr2.r("SwanFileFetcher.Params", "file_cancel_tag");
     }
 
-    public ls1(String str, String str2, String str3, int i, int i2, int i3, boolean z) {
+    public ls1 K() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this : (ls1) invokeV.objValue;
+    }
+
+    public ls1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
-        this.d = i;
-        this.e = i2;
-        this.f = i3;
-        this.g = z;
     }
 
-    public ju2 a() {
-        InterceptResult invokeV;
-        boolean z;
+    @Override // com.baidu.tieba.cl3
+    public /* bridge */ /* synthetic */ cl3 k() {
+        K();
+        return this;
+    }
+
+    public ls1 F(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("showMuteBtn", true);
-                jSONObject.put("showCenterPlayBtn", true);
-                ju2 ju2Var = new ju2();
-                ju2Var.j = "SwanAdPlayer";
-                ju2Var.b = "SwanAdPlayer";
-                ju2Var.o = true;
-                ju2Var.k = false;
-                if (!this.g) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                ju2Var.x = z;
-                ju2Var.I = false;
-                ju2Var.l = this.a;
-                ju2Var.y = this.b;
-                ju2Var.c = this.c;
-                vv2 vv2Var = new vv2(0, 0, this.d, this.e);
-                ju2Var.h = vv2Var;
-                vv2Var.i(true);
-                ju2Var.m = this.f;
-                if (this.g) {
-                    ju2Var.q = AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY;
-                }
-                return ju2.h(jSONObject, ju2Var);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return z(a.e, str);
         }
-        return (ju2) invokeV.objValue;
+        return (ls1) invokeL.objValue;
+    }
+
+    public ls1 H(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return z(a.b, str);
+        }
+        return (ls1) invokeL.objValue;
+    }
+
+    public ls1 I(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return z(a.a, str);
+        }
+        return (ls1) invokeL.objValue;
+    }
+
+    public ls1 J(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
+            return t(a.d, z);
+        }
+        return (ls1) invokeZ.objValue;
+    }
+
+    public ls1 G(Map<String, String> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
+            Bundle bundle = new Bundle();
+            if (map != null && !map.isEmpty()) {
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    bundle.putString(entry.getKey(), entry.getValue());
+                }
+            }
+            return u(a.c, bundle);
+        }
+        return (ls1) invokeL.objValue;
     }
 }

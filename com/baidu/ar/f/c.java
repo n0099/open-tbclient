@@ -11,7 +11,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class c implements com.baidu.ar.lua.c {
     public Context mContext;
-    public a.InterfaceC0059a wg;
+    public a.InterfaceC0060a wg;
 
     public c(Context context) {
         this.mContext = context.getApplicationContext();
@@ -41,15 +41,15 @@ public class c implements com.baidu.ar.lua.c {
     }
 
     public void b(com.baidu.ar.lua.b bVar) {
-        this.wg = new a.InterfaceC0059a() { // from class: com.baidu.ar.f.c.1
-            @Override // com.baidu.ar.f.a.InterfaceC0059a
+        this.wg = new a.InterfaceC0060a() { // from class: com.baidu.ar.f.c.1
+            @Override // com.baidu.ar.f.a.InterfaceC0060a
             public void b(float f, float f2, float f3, float f4) {
                 com.baidu.ar.h.b.aS("acc  x " + f + " , y : " + f2 + " , z " + f3);
                 StatisticApi.onEvent(StatisticConstants.MODEL_PHONE_SHAKE);
                 c.c(f, f2, f3, f4);
             }
 
-            @Override // com.baidu.ar.f.a.InterfaceC0059a
+            @Override // com.baidu.ar.f.a.InterfaceC0060a
             public void destroy() {
             }
         };

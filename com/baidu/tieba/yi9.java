@@ -1,76 +1,73 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pb.pb.main.PbFirstFloorEmptyHolder;
-import com.baidu.tieba.pb.pb.main.PbFragment;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import tbclient.GetVipInfo.VipRank;
+import tbclient.GetVipInfo.VipUser;
 /* loaded from: classes9.dex */
-public final class yi9 extends qi9<pea, PbFirstFloorEmptyHolder> {
+public class yi9 implements oi {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final PbFragment g;
+    public mi9 a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yi9(PbFragment pbFragment, BdUniqueId type) {
-        super(pbFragment, type);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948331264, "Lcom/baidu/tieba/yi9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948331264, "Lcom/baidu/tieba/yi9;");
+                return;
+            }
+        }
+        b = BdUniqueId.gen();
+    }
+
+    @Override // com.baidu.tieba.oi
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return b;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public yi9(VipRank vipRank, VipUser vipUser) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pbFragment, type};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {vipRank, vipUser};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((bo9) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(pbFragment, "pbFragment");
-        Intrinsics.checkNotNullParameter(type, "type");
-        this.g = pbFragment;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
-    /* renamed from: u */
-    public PbFirstFloorEmptyHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            View view2 = new View(this.g.getContext());
-            view2.setVisibility(8);
-            return new PbFirstFloorEmptyHolder(view2);
+        if (vipRank == null) {
+            return;
         }
-        return (PbFirstFloorEmptyHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qi9, com.baidu.tieba.lh
-    /* renamed from: x */
-    public View onFillViewHolder(int i, View convertView, ViewGroup parent, pea data, PbFirstFloorEmptyHolder viewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), convertView, parent, data, viewHolder})) == null) {
-            Intrinsics.checkNotNullParameter(convertView, "convertView");
-            Intrinsics.checkNotNullParameter(parent, "parent");
-            Intrinsics.checkNotNullParameter(data, "data");
-            Intrinsics.checkNotNullParameter(viewHolder, "viewHolder");
-            View view2 = viewHolder.getView();
-            Intrinsics.checkNotNullExpressionValue(view2, "viewHolder.view");
-            return view2;
-        }
-        return (View) invokeCommon.objValue;
+        String str = vipRank.card_id;
+        mi9 mi9Var = new mi9();
+        this.a = mi9Var;
+        mi9Var.d(vipRank.class_name);
+        this.a.f(vipRank.class_url_name);
+        this.a.g(vipRank.class_url);
+        vipRank.my_score_rank.intValue();
+        String str2 = vipUser.portrait;
     }
 }

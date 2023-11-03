@@ -1,60 +1,38 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
+import android.text.TextUtils;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.ForbidActivityConfig;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.pb.account.forbid.ForbidResultData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.lego.model.LegoPageModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import com.squareup.wire.Wire;
+import java.io.IOException;
+import tbclient.Lego.DataRes;
 /* loaded from: classes6.dex */
-public class hd9 {
+public class hd9 implements fd9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
+    public LegoPageModel a;
+    public gd9 b;
+    public LegoPageModel.b c;
 
     /* loaded from: classes6.dex */
-    public interface b {
-        void a(ForbidResultData forbidResultData);
-
-        void b(ForbidResultData forbidResultData);
-    }
-
-    /* loaded from: classes6.dex */
-    public static class a extends BdAsyncTask<String, Object, ForbidResultData> {
+    public class a implements LegoPageModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-        public String d;
-        public String e;
-        public String f;
-        public String g;
-        public String h;
-        public String i;
-        public String j;
-        public String k;
-        public String l;
-        public WeakReference<b> m;
+        public final /* synthetic */ hd9 a;
 
-        public a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, String str11, String str12, b bVar) {
+        public a(hd9 hd9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r3;
-                Object[] objArr = {str, str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, str12, bVar};
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hd9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -64,111 +42,189 @@ public class hd9 {
                     return;
                 }
             }
-            this.a = str;
-            this.b = str2;
-            this.c = str3;
-            this.d = str4;
-            this.g = str6;
-            this.e = str8;
-            this.f = str9;
-            this.h = str7;
-            this.i = str5;
-            this.j = str10;
-            this.k = str11;
-            this.l = str12;
-            this.m = new WeakReference<>(bVar);
-            setPriority(3);
+            this.a = hd9Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public ForbidResultData doInBackground(String... strArr) {
-            InterceptResult invokeL;
-            String str;
+        @Override // com.baidu.tieba.lego.model.LegoPageModel.b
+        public void a(long j, String str, DataRes dataRes, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                NetWork netWork = new NetWork(hd9.a);
-                netWork.addPostData("day", this.g);
-                netWork.addPostData("un", this.d);
-                netWork.addPostData("fid", this.a);
-                netWork.addPostData(DownloadStatisticConstants.UBC_VALUE_WORD, this.b);
-                netWork.addPostData("z", this.c);
-                netWork.addPostData("reason", this.h);
-                if (StringUtils.isNotNull(this.j)) {
-                    str = this.j;
-                } else {
-                    str = "banid";
-                }
-                netWork.addPostData("ntn", str);
-                netWork.addPostData("post_id", this.i);
-                netWork.addPostData("nick_name", this.e);
-                netWork.addPostData("portrait", this.f);
-                if (StringUtils.isNotNull(this.k)) {
-                    netWork.addPostData("chatroom_id", this.k);
-                }
-                if (StringUtils.isNotNull(this.l)) {
-                    netWork.addPostData(ForbidActivityConfig.CHAT_MSG_ID, this.l);
-                }
-                netWork.getNetContext().getRequest().mIsNeedTbs = true;
-                String postNetData = netWork.postNetData();
-                if (netWork.getNetContext().getResponse().isRequestSuccess()) {
-                    try {
-                        return (ForbidResultData) OrmObject.objectWithJsonStr(postNetData, ForbidResultData.class);
-                    } catch (Exception e) {
-                        BdLog.detailException(e);
-                        ForbidResultData forbidResultData = new ForbidResultData();
-                        forbidResultData.error_code = -1000;
-                        return forbidResultData;
-                    }
-                }
-                ForbidResultData forbidResultData2 = new ForbidResultData();
-                forbidResultData2.error_code = netWork.getServerErrorCode();
-                forbidResultData2.error_msg = netWork.getErrorString();
-                return forbidResultData2;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), str, dataRes, Boolean.valueOf(z)}) == null) && this.a.b != null) {
+                this.a.b.c(j, str, dataRes, z);
             }
-            return (ForbidResultData) invokeL.objValue;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(ForbidResultData forbidResultData) {
+        @Override // com.baidu.tieba.lego.model.LegoPageModel.b
+        public void b(long j, String str, int i, String str2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forbidResultData) == null) {
-                super.onPostExecute(forbidResultData);
-                b bVar = this.m.get();
-                if (bVar != null) {
-                    if (forbidResultData.error_code == 0 && ad.isEmpty(forbidResultData.error_msg)) {
-                        bVar.a(forbidResultData);
-                    } else {
-                        bVar.b(forbidResultData);
-                    }
-                }
+            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), str, Integer.valueOf(i), str2}) == null) && this.a.b != null) {
+                this.a.b.b(j, str, str2, i);
+            }
+        }
+
+        @Override // com.baidu.tieba.lego.model.LegoPageModel.b
+        public void c(long j, String str, DataRes dataRes, boolean z, int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), str, dataRes, Boolean.valueOf(z), Integer.valueOf(i)}) == null) && this.a.b != null) {
+                this.a.b.a(true, dataRes, !z, j, str, i);
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947820012, "Lcom/baidu/tieba/hd9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class b extends au5<DataRes> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ca a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ String c;
+
+        public b(hd9 hd9Var, ca caVar, long j, String str) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hd9Var, caVar, Long.valueOf(j), str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947820012, "Lcom/baidu/tieba/hd9;");
+            this.a = caVar;
+            this.b = j;
+            this.c = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.au5
+        /* renamed from: a */
+        public DataRes doInBackground() {
+            InterceptResult invokeV;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                ca caVar = this.a;
+                StringBuilder sb = new StringBuilder();
+                sb.append(this.b);
+                sb.append("_");
+                if (TextUtils.isEmpty(this.c)) {
+                    str = "";
+                } else {
+                    str = this.c;
+                }
+                sb.append(str);
+                byte[] bArr = (byte[]) caVar.get(sb.toString());
+                if (bArr != null && bArr.length != 0) {
+                    try {
+                        return (DataRes) new Wire(new Class[0]).parseFrom(bArr, DataRes.class);
+                    } catch (IOException unused) {
+                    }
+                }
+                return null;
+            }
+            return (DataRes) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements ft5<DataRes> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ long a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ hd9 c;
+
+        public c(hd9 hd9Var, long j, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hd9Var, Long.valueOf(j), str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = hd9Var;
+            this.a = j;
+            this.b = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ft5
+        /* renamed from: a */
+        public void onReturnDataInUI(DataRes dataRes) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) {
+                return;
+            }
+            this.c.f(this.a, this.b, dataRes);
+        }
+    }
+
+    public hd9(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
+        this.c = new a(this);
+        LegoPageModel legoPageModel = new LegoPageModel(tbPageContext, bdUniqueId);
+        this.a = legoPageModel;
+        legoPageModel.Q(this.c);
     }
 
-    public static void b(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, String str11, String str12, b bVar) {
+    @Override // com.baidu.tieba.fd9
+    public void b(gd9 gd9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, str12, bVar}) == null) {
-            new a(str, str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, str12, bVar).execute(new String[0]);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gd9Var) == null) {
+            this.b = gd9Var;
         }
+    }
+
+    @Override // com.baidu.tieba.fd9
+    public void a(long j, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJL(1048576, this, j, str) == null) {
+            yz4.l();
+            eu5.b(new b(this, yz4.i("tb.lego_update"), j, str), new c(this, j, str));
+        }
+    }
+
+    @Override // com.baidu.tieba.fd9
+    public void c(int i, long j, String str, int i2, String str2) {
+        LegoPageModel legoPageModel;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), str, Integer.valueOf(i2), str2}) == null) && (legoPageModel = this.a) != null) {
+            legoPageModel.P(i, j, str, i2, str2);
+        }
+    }
+
+    public final void f(long j, String str, DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), str, dataRes}) != null) || j < 0) {
+            return;
+        }
+        gd9 gd9Var = this.b;
+        if (gd9Var != null) {
+            gd9Var.a(false, dataRes, false, j, str, 1);
+        }
+        this.a.P(2, j, str, 1, "");
     }
 }

@@ -1,43 +1,18 @@
 package com.baidu.tieba;
 
-import android.graphics.Typeface;
-import android.widget.TextView;
-import com.baidu.nadcore.styles.Font;
+import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
-public class ry0 {
+public final /* synthetic */ class ry0 {
+    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (i >= 100 && i <= 900 && i % 100 == 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public static void b(TextView textView, Font font) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, textView, font) == null) && textView != null && font != null) {
-            c(textView, font.getFontWeight());
-        }
-    }
-
-    public static void c(TextView textView, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65538, null, textView, i) == null) && textView != null && a(i)) {
-            if (i >= 600) {
-                textView.setTypeface(Typeface.defaultFromStyle(1));
-            } else {
-                textView.setTypeface(Typeface.defaultFromStyle(0));
-            }
-        }
+    static {
+        int[] iArr = new int[AdDownloadStatus.values().length];
+        $EnumSwitchMapping$0 = iArr;
+        iArr[AdDownloadStatus.NONE.ordinal()] = 1;
+        $EnumSwitchMapping$0[AdDownloadStatus.DOWNLOADING.ordinal()] = 2;
     }
 }

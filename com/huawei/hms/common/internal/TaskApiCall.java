@@ -3,8 +3,8 @@ package com.huawei.hms.common.internal;
 import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gub;
-import com.baidu.tieba.mub;
+import com.baidu.tieba.h7c;
+import com.baidu.tieba.n7c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,10 +21,10 @@ public abstract class TaskApiCall<ClientT extends AnyClient, ResultT> {
     public final String mRequestJson;
     public final String mUri;
     public Parcelable parcelable;
-    public gub token;
+    public h7c token;
     public String transactionId;
 
-    public abstract void doExecute(ClientT clientt, ResponseErrorCode responseErrorCode, String str, mub<ResultT> mubVar);
+    public abstract void doExecute(ClientT clientt, ResponseErrorCode responseErrorCode, String str, n7c<ResultT> n7cVar);
 
     @Deprecated
     public int getMinApkVersion() {
@@ -131,13 +131,13 @@ public abstract class TaskApiCall<ClientT extends AnyClient, ResultT> {
         return (String) invokeV.objValue;
     }
 
-    public gub getToken() {
+    public h7c getToken() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.token;
         }
-        return (gub) invokeV.objValue;
+        return (h7c) invokeV.objValue;
     }
 
     public String getTransactionId() {
@@ -158,16 +158,16 @@ public abstract class TaskApiCall<ClientT extends AnyClient, ResultT> {
         return (String) invokeV.objValue;
     }
 
-    public final void onResponse(ClientT clientt, ResponseErrorCode responseErrorCode, String str, mub<ResultT> mubVar) {
+    public final void onResponse(ClientT clientt, ResponseErrorCode responseErrorCode, String str, n7c<ResultT> n7cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, clientt, responseErrorCode, str, mubVar) == null) {
-            gub gubVar = this.token;
-            if (gubVar != null && gubVar.a()) {
+        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, clientt, responseErrorCode, str, n7cVar) == null) {
+            h7c h7cVar = this.token;
+            if (h7cVar != null && h7cVar.a()) {
                 HMSLog.i(TAG, "This Task has been canceled, uri:" + this.mUri + ", transactionId:" + this.transactionId);
                 return;
             }
             HMSLog.i(TAG, "doExecute, uri:" + this.mUri + ", errorCode:" + responseErrorCode.getErrorCode() + ", transactionId:" + this.transactionId);
-            doExecute(clientt, responseErrorCode, str, mubVar);
+            doExecute(clientt, responseErrorCode, str, n7cVar);
         }
     }
 
@@ -185,10 +185,10 @@ public abstract class TaskApiCall<ClientT extends AnyClient, ResultT> {
         }
     }
 
-    public void setToken(gub gubVar) {
+    public void setToken(h7c h7cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, gubVar) == null) {
-            this.token = gubVar;
+        if (interceptable == null || interceptable.invokeL(1048587, this, h7cVar) == null) {
+            this.token = h7cVar;
         }
     }
 

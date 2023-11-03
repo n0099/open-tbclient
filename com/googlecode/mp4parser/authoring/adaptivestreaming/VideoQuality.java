@@ -1,5 +1,5 @@
 package com.googlecode.mp4parser.authoring.adaptivestreaming;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class VideoQuality {
     public long bitrate;
     public String codecPrivateData;

@@ -1,7 +1,7 @@
 package com.baidu.ar.stretch;
 
 import com.baidu.ar.d.b;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class a extends b {
     public float[] tS;
 

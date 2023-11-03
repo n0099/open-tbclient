@@ -1,10 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.searchbox.yy.gameassist.GameAssistNPSPluginManager;
+import com.baidu.searchbox.yy.gameassist.LiveYYNpsLoadingCallback;
+import com.baidu.searchbox.yy.gameassist.NPSPluginStateHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.hottopic.data.RelateForumItemData;
+import com.baidu.tieba.view.NpsPluginLoadingDialogActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,84 +21,245 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.Hottopic.RelateForum;
+import java.lang.ref.WeakReference;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class g68 extends hk6 {
+public class g68 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<yh> a;
+    public WeakReference<NpsPluginLoadingDialogActivity> a;
+    public int b;
+    public boolean c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947745984, "Lcom/baidu/tieba/g68;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements LiveYYNpsLoadingCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ g68 a;
+
+        public a(g68 g68Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g68Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947745984, "Lcom/baidu/tieba/g68;");
+            this.a = g68Var;
+        }
+
+        @Override // com.baidu.searchbox.yy.gameassist.LiveYYNpsLoadingCallback
+        public void onLoadingEnd(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeI(1048576, this, i) != null) {
                 return;
             }
+            this.a.c = false;
+            this.a.f();
         }
-        b = BdUniqueId.gen();
+
+        @Override // com.baidu.searchbox.yy.gameassist.LiveYYNpsLoadingCallback
+        public void onLoadingProgress(long j, long j2) {
+            float f;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+                BdLog.d("[onDownloadUpdate] package:, current:" + j + ",total:" + j2);
+                if (j2 <= 0) {
+                    f = 0.0f;
+                } else {
+                    f = (((float) j) * 100.0f) / ((float) j2);
+                }
+                this.a.b = (int) f;
+                g68 g68Var = this.a;
+                g68Var.q(g68Var.h());
+            }
+        }
+
+        @Override // com.baidu.searchbox.yy.gameassist.LiveYYNpsLoadingCallback
+        public void onLoadingStart() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.a.c = true;
+                this.a.n(TbadkCoreApplication.getInst());
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final g68 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-821869438, "Lcom/baidu/tieba/g68$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-821869438, "Lcom/baidu/tieba/g68$b;");
+                    return;
+                }
+            }
+            a = new g68(null);
+        }
     }
 
     public g68() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
+        this.b = 0;
+        this.c = false;
+        NPSPluginStateHelper.INSTANCE.setLoadingCallback(new a(this));
+        qd9.a(TbadkCoreApplication.getInst());
     }
 
-    public int getCount() {
+    public /* synthetic */ g68(a aVar) {
+        this();
+    }
+
+    public void e(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            GameAssistNPSPluginManager.INSTANCE.clearLiveResourceSize(context);
+        }
+    }
+
+    public long j(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
+            return GameAssistNPSPluginManager.INSTANCE.getLiveResourceSize(context);
+        }
+        return invokeL.longValue;
+    }
+
+    public void m(NpsPluginLoadingDialogActivity npsPluginLoadingDialogActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, npsPluginLoadingDialogActivity) == null) {
+            this.a = new WeakReference<>(npsPluginLoadingDialogActivity);
+            q(npsPluginLoadingDialogActivity);
+        }
+    }
+
+    public void q(NpsPluginLoadingDialogActivity npsPluginLoadingDialogActivity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, npsPluginLoadingDialogActivity) == null) && npsPluginLoadingDialogActivity != null) {
+            npsPluginLoadingDialogActivity.L0(this.b);
+        }
+    }
+
+    public void o(Activity activity, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, activity, map) == null) {
+            if (p()) {
+                BdUtilHelper.showToast(activity, "安卓系统版本不支持");
+            } else {
+                GameAssistNPSPluginManager.INSTANCE.startGameAssistActivity(activity, map);
+            }
+        }
+    }
+
+    public static g68 i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<yh> list = this.a;
-            if (list != null && list.size() != 0) {
-                return this.a.size();
-            }
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return b.a;
         }
-        return invokeV.intValue;
+        return (g68) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yh
-    public BdUniqueId getType() {
+    public final void f() {
+        NpsPluginLoadingDialogActivity h;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (h = h()) != null) {
+            h.finish();
+            this.a = null;
+        }
+    }
+
+    public final NpsPluginLoadingDialogActivity h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            WeakReference<NpsPluginLoadingDialogActivity> weakReference = this.a;
+            if (weakReference != null) {
+                return weakReference.get();
+            }
+            return null;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (NpsPluginLoadingDialogActivity) invokeV.objValue;
     }
 
-    public void parserProtobuf(List<RelateForum> list) {
+    public boolean k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && list != null && list.size() != 0) {
-            this.showTopDivider = true;
-            this.mGroupTitle = TbadkCoreApplication.getInst().getString(R.string.recommend_relative_forum);
-            this.a = new ArrayList();
-            for (RelateForum relateForum : list) {
-                if (!StringUtils.isNull(relateForum.forum_name)) {
-                    RelateForumItemData relateForumItemData = new RelateForumItemData();
-                    relateForumItemData.parserProtobuf(relateForum);
-                    this.a.add(relateForumItemData);
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.c;
         }
+        return invokeV.booleanValue;
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.a = null;
+            NPSPluginStateHelper.INSTANCE.cancelLoading();
+        }
+    }
+
+    public boolean p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (Build.VERSION.SDK_INT < 24) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void g(Context context, String str, HashMap<String, Object> hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, hashMap) == null) {
+            GameAssistNPSPluginManager.INSTANCE.dispatchHostEvent(context, str, hashMap);
+        }
+    }
+
+    public void n(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) != null) || h() != null) {
+            return;
+        }
+        long currentTimeMillis = System.currentTimeMillis();
+        Intent intent = new Intent(context, NpsPluginLoadingDialogActivity.class);
+        intent.putExtra("dialogId", currentTimeMillis);
+        intent.putExtra("tag", "gameAssistTag");
+        if (!(context instanceof Activity)) {
+            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+        }
+        context.startActivity(intent);
     }
 }

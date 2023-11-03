@@ -13,7 +13,7 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.model.ImBaseMessageCenterModel;
 import com.baidu.tieba.im.settingcache.OfficialSettingCache;
 import com.baidu.tieba.im.settingcache.OfficialSettingItemData;
-import com.baidu.tieba.qc8;
+import com.baidu.tieba.op8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -90,10 +90,10 @@ public class OfficialBarTipModel extends ImBaseMessageCenterModel {
         return invokeL.booleanValue;
     }
 
-    public void deleteSelectedDatas(qc8 qc8Var) {
+    public void deleteSelectedDatas(op8 op8Var) {
         List<ImMessageCenterShowItemData> list;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qc8Var) != null) || (list = this.mList) == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, op8Var) != null) || (list = this.mList) == null) {
             return;
         }
         ListIterator<ImMessageCenterShowItemData> listIterator = list.listIterator();
@@ -104,7 +104,7 @@ public class OfficialBarTipModel extends ImBaseMessageCenterModel {
                 arrayList.add(next);
             }
         }
-        asyncDeleteMsgList(arrayList, 4, qc8Var);
+        asyncDeleteMsgList(arrayList, 4, op8Var);
     }
 
     @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel

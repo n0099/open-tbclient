@@ -11,7 +11,7 @@ import java.nio.charset.Charset;
 import java.nio.charset.CharsetEncoder;
 import java.util.Arrays;
 import org.apache.commons.codec.net.QCodec;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class PDF417HighLevelEncoder {
     public static final int BYTE_COMPACTION = 1;
     public static final int ECI_CHARSET = 927;

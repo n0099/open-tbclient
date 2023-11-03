@@ -2,13 +2,18 @@ package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.LinkInfo;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class cea {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
+    public long d;
 
     public cea() {
         Interceptable interceptable = $ic;
@@ -24,13 +29,20 @@ public class cea {
         }
     }
 
-    public void a(LinkInfo linkInfo) {
+    public static cea a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, linkInfo) != null) || linkInfo == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            cea ceaVar = new cea();
+            ceaVar.a = jSONObject.optInt("agree_num", -1);
+            ceaVar.b = jSONObject.optInt("share_num", -1);
+            ceaVar.c = jSONObject.optInt("reply_num", -1);
+            ceaVar.d = jSONObject.optLong("time", System.currentTimeMillis());
+            return ceaVar;
         }
-        String str = linkInfo.desc;
-        String str2 = linkInfo.link;
-        String str3 = linkInfo.type;
+        return (cea) invokeL.objValue;
     }
 }

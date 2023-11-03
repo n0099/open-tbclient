@@ -1,5 +1,7 @@
 package com.baidu.tieba;
-/* loaded from: classes8.dex */
+
+import com.baidu.tbadk.core.data.GameData;
+/* loaded from: classes9.dex */
 public interface xz5 {
-    void b(String str);
+    GameData W0();
 }

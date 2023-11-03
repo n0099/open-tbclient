@@ -3,7 +3,7 @@ package com.google.zxing.datamatrix.decoder;
 import com.google.android.exoplayer2.extractor.mkv.MatroskaExtractor;
 import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import com.google.zxing.FormatException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class Version {
     public static final Version[] VERSIONS = buildVersions();
     public final int dataRegionSizeColumns;
@@ -14,7 +14,7 @@ public final class Version {
     public final int totalCodewords;
     public final int versionNumber;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class ECB {
         public final int count;
         public final int dataCodewords;
@@ -33,7 +33,7 @@ public final class Version {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class ECBlocks {
         public final ECB[] ecBlocks;
         public final int ecCodewords;

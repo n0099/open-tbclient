@@ -2,7 +2,7 @@ package com.google.zxing.client.result;
 
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.google.zxing.Result;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class WifiResultParser extends ResultParser {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.zxing.client.result.ResultParser

@@ -1,256 +1,202 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TiebaDatabase;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.util.EmotionUtil;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.img.UploadedImageInfo;
-import com.baidu.tieba.faceshop.MyEmotionGroupData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.atomData.HotUserRankActivityConfig;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.enterForum.tabfeed.view.HotUserRankImageOverlayView;
+import com.baidu.tieba.view.RoundRelativeLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.InputStream;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
+import tbclient.ShortUserInfo;
 /* loaded from: classes9.dex */
 public class zy6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final zy6 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public TbPageContext<?> b;
+    public View c;
+    public RoundRelativeLayout d;
+    public ImageView e;
+    public ImageView f;
+    public TbImageView g;
+    public ImageView h;
+    public TextView i;
+    public TextView j;
+    public ImageView k;
+    public HotUserRankImageOverlayView l;
+    public ImageView m;
+    public int n;
+    public String o;
+    public String p;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948376338, "Lcom/baidu/tieba/zy6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes9.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zy6 a;
+
+        public a(zy6 zy6Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zy6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948376338, "Lcom/baidu/tieba/zy6;");
-                return;
+            this.a = zy6Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                HotUserRankActivityConfig hotUserRankActivityConfig = new HotUserRankActivityConfig(this.a.b.getPageActivity());
+                hotUserRankActivityConfig.setCategory(this.a.o);
+                this.a.b.sendMessage(new CustomMessage(2002001, hotUserRankActivityConfig));
+                StatisticItem statisticItem = new StatisticItem("c13655");
+                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                statisticItem.param("resource_id", this.a.p);
+                TiebaStatic.log(statisticItem);
             }
         }
-        a = new zy6();
     }
 
-    public zy6() {
+    public zy6(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = 3;
+        this.b = tbPageContext;
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d01eb, (ViewGroup) null);
+        this.c = inflate;
+        this.d = (RoundRelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0929bc);
+        this.e = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f09103f);
+        this.f = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091040);
+        this.g = (TbImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091e8c);
+        this.h = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091e8d);
+        this.i = (TextView) this.c.findViewById(R.id.forum_text);
+        this.j = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0919e7);
+        this.l = (HotUserRankImageOverlayView) this.c.findViewById(R.id.obfuscated_res_0x7f0910eb);
+        this.k = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091264);
+        this.m = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091048);
+        int dimensionPixelOffset = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds114);
+        this.l.a(3, dimensionPixelOffset, dimensionPixelOffset, TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds2_6), R.color.CAM_X0501, TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds62));
+        this.l.setStrokeStyle(1);
+        this.l.setLoadImageType(12);
+        this.l.setFirstImageStrokeColor(R.color.CAM_X0314);
+        this.d.setOnClickListener(new a(this));
+        int dimens = BdUtilHelper.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds90);
+        this.n = dimens;
+        this.d.setRoundLayoutRadius(new float[]{dimens, dimens, dimens, dimens, dimens, dimens, dimens, dimens});
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.p = str;
         }
     }
 
-    public static zy6 c() {
+    public View d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return (zy6) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
-    public final boolean a(String str) {
-        InterceptResult invokeL;
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (new File(TbadkCoreApplication.getInst().getFilesDir(), str).exists()) {
-                return true;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a != TbadkCoreApplication.getInst().getSkinType()) {
+            this.a = TbadkCoreApplication.getInst().getSkinType();
+            SkinManager.setBackgroundColor(this.d, R.color.CAM_X0206);
+            if (this.h.getVisibility() == 0) {
+                SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.h, R.drawable.ic_icon_mask_red_default_crown24, SvgManager.SvgResourceStateType.NORMAL);
             }
-            return false;
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f0807f1, SvgManager.SvgResourceStateType.NORMAL);
+            SkinManager.setImageResource(this.f, R.drawable.obfuscated_res_0x7f08122b);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.m, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0311, SvgManager.SvgResourceStateType.NORMAL);
+            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0311);
+            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0311);
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.k, R.drawable.obfuscated_res_0x7f08078b, null);
+            this.l.d();
         }
-        return invokeL.booleanValue;
     }
 
-    public boolean b(MyEmotionGroupData myEmotionGroupData) {
-        InterceptResult invokeL;
+    public void f(xy6 xy6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, myEmotionGroupData)) == null) {
-            if (myEmotionGroupData == null) {
-                return false;
-            }
-            m4 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            try {
-                mainDBDatabaseManager.f().delete(EmotionUtil.TABLE_NAME_USER_EMOTIONS, "uid = ? and groupId = ?", new String[]{myEmotionGroupData.uid, myEmotionGroupData.groupId});
-                return true;
-            } catch (Throwable th) {
-                mainDBDatabaseManager.h(th, "EmotionsDBManager.deleteMyEmotion");
-                return false;
-            }
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xy6Var) != null) || xy6Var == null) {
+            return;
         }
-        return invokeL.booleanValue;
-    }
-
-    public MyEmotionGroupData d(String str, String str2) {
-        InterceptResult invokeLL;
-        Cursor cursor;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return null;
-            }
-            m4 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            try {
-                cursor = mainDBDatabaseManager.f().rawQuery("SELECT * FROM user_emotions where uid = ? and groupId = ? ", new String[]{str, str2});
-                try {
-                    if (cursor.moveToNext()) {
-                        return i(cursor);
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    try {
-                        mainDBDatabaseManager.h(th, "EmotionsDBManager.getMyEmotion");
-                        return null;
-                    } finally {
-                        bd.a(cursor);
-                    }
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                cursor = null;
-            }
-            return null;
+        String str = xy6Var.b;
+        this.o = str;
+        if (TextUtils.isEmpty(str)) {
+            this.o = "";
         }
-        return (MyEmotionGroupData) invokeLL.objValue;
-    }
-
-    public boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            m4 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            Cursor cursor = null;
-            try {
-                cursor = mainDBDatabaseManager.f().rawQuery("SELECT * FROM user_emotions where uid = ? and groupId = ? ", new String[]{TbadkCoreApplication.getCurrentAccount(), str});
-                if (!cursor.moveToNext()) {
-                    return false;
-                }
-                return true;
-            } catch (Throwable th) {
-                try {
-                    mainDBDatabaseManager.h(th, "EmotionsDBManager.hasEmotionByPckID");
-                    return false;
-                } finally {
-                    bd.a(cursor);
-                }
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, CONST_STR, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    public List<MyEmotionGroupData> h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            LinkedList linkedList = new LinkedList();
-            if (TextUtils.isEmpty(str)) {
-                return linkedList;
-            }
-            Cursor cursor = null;
-            try {
-                cursor = TiebaDatabase.getInstance().getMainDBDatabaseManager().f().rawQuery("SELECT * FROM user_emotions where uid = ? order by updateTime desc ", new String[]{str});
-                while (cursor.moveToNext()) {
-                    linkedList.add(i(cursor));
-                }
-            } finally {
-                try {
-                    return linkedList;
-                } finally {
-                }
-            }
-            return linkedList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public MyEmotionGroupData i(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, cursor)) == null) {
-            MyEmotionGroupData myEmotionGroupData = new MyEmotionGroupData();
-            myEmotionGroupData.id = cursor.getInt(cursor.getColumnIndex("id"));
-            myEmotionGroupData.uid = cursor.getString(cursor.getColumnIndex("uid"));
-            myEmotionGroupData.groupId = cursor.getString(cursor.getColumnIndex("groupId"));
-            myEmotionGroupData.updateTime = cursor.getLong(cursor.getColumnIndex("updateTime"));
-            return myEmotionGroupData;
-        }
-        return (MyEmotionGroupData) invokeL.objValue;
-    }
-
-    public int f(la9 la9Var) {
-        InterceptResult invokeL;
-        List<ma9> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, la9Var)) == null) {
-            if (la9Var == null || (list = la9Var.e) == null || list.size() == 0) {
-                return 0;
-            }
-            String str = ".emotions/" + la9Var.a;
-            hz6 o = hz6.o();
-            List<ma9> list2 = la9Var.e;
+        TextView textView = this.i;
+        textView.setText(this.o + "榜");
+        List<ShortUserInfo> list = xy6Var.a;
+        if (list != null && list.size() > 0) {
+            TextView textView2 = this.j;
+            textView2.setText("NO.1 " + xy6Var.a.get(0).user_name);
+            ArrayList arrayList = new ArrayList();
             int i = 0;
-            for (int i2 = 0; i2 < list2.size(); i2++) {
-                ma9 ma9Var = list2.get(i2);
-                if (a(str + "/" + ma9Var.c)) {
-                    if (a(str + "/" + ma9Var.d)) {
-                        StringBuilder sb = new StringBuilder(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX_SHORT);
-                        sb.append(la9Var.a + "_" + ma9Var.b);
-                        sb.append(",");
-                        sb.append(ma9Var.f);
-                        sb.append(",");
-                        sb.append(ma9Var.e);
-                        sb.append(",");
-                        String str2 = SmallTailInfo.EMOTION_PREFIX + sb.toString() + gd.c(sb.toString() + UploadedImageInfo.MD5_KEY).toLowerCase() + SmallTailInfo.EMOTION_SUFFIX;
-                        boolean isGifImage = FileHelper.isGifImage(nj5.b.e(la9Var.a, ma9Var.c));
-                        az6.g(la9Var.a, ma9Var.d, az6.c(str2, true, false));
-                        az6.g(la9Var.a, ma9Var.c, az6.c(str2, false, isGifImage));
-                        if (o.f(str2, la9Var.a, i2 + 1)) {
-                            i++;
-                        }
-                    }
+            for (ShortUserInfo shortUserInfo : xy6Var.a) {
+                if (i > 2) {
+                    break;
                 }
-            }
-            return i;
-        }
-        return invokeL.intValue;
-    }
-
-    public int g(String str, InputStream inputStream) throws Exception {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, inputStream)) == null) {
-            hz6 o = hz6.o();
-            List<String> a2 = az6.a(str, inputStream);
-            int i = 0;
-            int i2 = 0;
-            while (i < a2.size()) {
                 i++;
-                if (o.f(a2.get(i), str, i)) {
-                    i2++;
-                }
+                arrayList.add(shortUserInfo.portrait);
             }
-            return i2;
+            this.l.setData(arrayList);
+            if (!TextUtils.isEmpty(xy6Var.c)) {
+                this.g.setVisibility(0);
+                this.h.setVisibility(8);
+                this.g.startLoad(xy6Var.c, 12, false);
+            } else {
+                this.h.setVisibility(0);
+                this.g.setVisibility(8);
+                SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.h, R.drawable.ic_icon_mask_red_default_crown24, SvgManager.SvgResourceStateType.NORMAL);
+            }
         }
-        return invokeLL.intValue;
+        e();
     }
 }

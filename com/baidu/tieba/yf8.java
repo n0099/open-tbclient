@@ -1,149 +1,229 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.homepage.tabfeed.HomePageTabFeedFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public class yf8 {
     public static /* synthetic */ Interceptable $ic;
-    public static Pattern a;
     public transient /* synthetic */ FieldHolder $fh;
+    public HomePageTabFeedFragment a;
+    public BdTypeRecyclerView b;
+    public ug8 c;
+    public ng8 d;
+    public ig8 e;
+    public kg8 f;
+    public jg8 g;
+    public lg8 h;
+    public vg8 i;
+    public mg8 j;
+    public pg8 k;
+    public rg8 l;
+    public qg8 m;
+    public tg8 n;
+    public gg8 o;
+    public eg8 p;
+    public dg8 q;
+    public fg8 r;
+    public og8 s;
+    public sg8 t;
+    public hg8 u;
+    public wg8 v;
+    public List<bi> w;
 
     /* loaded from: classes9.dex */
-    public static class a {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-        public String d;
-        public String e;
-        public String f;
-        public int g;
-        public long h;
-        public String i;
-        public int j;
-        public long k;
-        public long l;
-        public long m;
-        public String n;
-        public int o;
+        public final /* synthetic */ yf8 a;
 
-        public a() {
+        public a(yf8 yf8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yf8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = yf8Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                TbSingleton.getInstance().setShouldShowHomeLocalCompleteInfoCard(false);
+                if (this.a.b.getCount() != 0 && (this.a.b.getItem(0) instanceof xg8)) {
+                    this.a.b.removeItem(0);
                 }
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948328350, "Lcom/baidu/tieba/yf8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948328350, "Lcom/baidu/tieba/yf8;");
+    public yf8(HomePageTabFeedFragment homePageTabFeedFragment, BdTypeRecyclerView bdTypeRecyclerView) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {homePageTabFeedFragment, bdTypeRecyclerView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = Pattern.compile(UrlSchemaHelper.PB_URL);
+        this.w = new LinkedList();
+        this.a = homePageTabFeedFragment;
+        this.b = bdTypeRecyclerView;
+        c();
     }
 
-    public static List<a> a(String str, String str2, long j, long j2) {
-        InterceptResult invokeCommon;
+    public void e(ArrayList<oi> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            return b(str, str2, null, 0L, j, j2);
+        if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
+            this.b.setData(arrayList);
         }
-        return (List) invokeCommon.objValue;
     }
 
-    public static List<a> b(String str, String str2, UserData userData, long j, long j2, long j3) {
-        InterceptResult invokeCommon;
-        int i;
+    public void f(boolean z) {
+        wg8 wg8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, str2, userData, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            int i2 = -1;
-            if (userData != null) {
-                i = userData.getUserType();
-            } else {
-                i = -1;
-            }
-            LinkedList linkedList = new LinkedList();
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                int length = jSONArray.length();
-                int i3 = 0;
-                while (i3 < length) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i3);
-                    String optString = optJSONObject.optString("title");
-                    String optString2 = optJSONObject.optString("url");
-                    String optString3 = optJSONObject.optString("src");
-                    String optString4 = optJSONObject.optString("text");
-                    optJSONObject.optLong("picId");
-                    String optString5 = optJSONObject.optString("msg_src");
-                    a aVar = new a();
-                    if (!TextUtils.isEmpty(optString2)) {
-                        optString2 = optString2.trim();
-                        Matcher matcher = a.matcher(optString2);
-                        if (matcher.find()) {
-                            aVar.n = matcher.group(1);
-                        }
-                    }
-                    aVar.d = optString2;
-                    aVar.a = optString;
-                    aVar.b = optString4;
-                    aVar.c = optString3;
-                    aVar.e = str2;
-                    aVar.k = j2;
-                    aVar.l = j3;
-                    aVar.f = optString5;
-                    if (i > i2) {
-                        aVar.g = i;
-                    }
-                    if (userData != null) {
-                        aVar.h = j;
-                        aVar.i = userData.getUserId();
-                        aVar.j = userData.getUserType();
-                    }
-                    linkedList.add(aVar);
-                    i3++;
-                    i2 = -1;
+        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && (wg8Var = this.v) != null) {
+            wg8Var.x(z);
+        }
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            for (bi biVar : this.w) {
+                if (biVar instanceof ag8) {
+                    ((ag8) biVar).h(str);
                 }
-                return linkedList;
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
             }
         }
-        return (List) invokeCommon.objValue;
+    }
+
+    public final View.OnClickListener b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
+        }
+        return (View.OnClickListener) invokeV.objValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b.getAdapter().notifyDataSetChanged();
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ug8 ug8Var = new ug8(this.a.getPageContext(), ThreadData.TYPE_USER_NORMAL, this.a.getUniqueId(), this.a.H2(), this.a.G2());
+            this.c = ug8Var;
+            ug8Var.z(this.b);
+            this.w.add(this.c);
+            ng8 ng8Var = new ng8(this.a.getPageContext());
+            this.d = ng8Var;
+            ng8Var.y(this.b);
+            this.w.add(this.d);
+            ig8 ig8Var = new ig8(this.a.getPageContext(), ThreadData.TYPE_CONTENT_FEED_PIC_NORMMAL, this.a.getUniqueId(), this.a.H2());
+            this.e = ig8Var;
+            ig8Var.A(this.b);
+            this.w.add(this.e);
+            kg8 kg8Var = new kg8(this.a.getPageContext(), ThreadData.TYPE_CONTENT_SINGLE_V_NORMAL, this.a.getUniqueId(), this.a.H2());
+            this.f = kg8Var;
+            kg8Var.z(this.b);
+            this.w.add(this.f);
+            jg8 jg8Var = new jg8(this.a.getPageContext(), ThreadData.TYPE_CONTENT_MULTI_PIC_NORMMAL, this.a.getUniqueId(), this.a.H2());
+            this.g = jg8Var;
+            jg8Var.z(this.b);
+            this.w.add(this.g);
+            lg8 lg8Var = new lg8(this.a.getPageContext(), ThreadData.TYPE_CONTENT_TEXT_NORMAL, this.a.getUniqueId(), this.a.H2());
+            this.h = lg8Var;
+            lg8Var.z(this.b);
+            this.w.add(this.h);
+            vg8 vg8Var = new vg8(this.a.getPageContext(), ThreadData.TYPE_VIDEO, this.a.getUniqueId(), this.a.H2());
+            this.i = vg8Var;
+            vg8Var.C(this.b);
+            this.w.add(this.i);
+            mg8 mg8Var = new mg8(this.a.getPageContext(), ThreadData.TYPE_ENTER_FORUM, this.a.getUniqueId(), this.a.H2());
+            this.j = mg8Var;
+            mg8Var.z(this.b);
+            if ("fashion".equals(this.a.G2()) || "local".equals(this.a.G2())) {
+                this.w.add(this.j);
+            }
+            pg8 pg8Var = new pg8(this.a.getPageContext(), ThreadData.TYPE_ITEM, this.a.getUniqueId(), this.a.H2());
+            this.k = pg8Var;
+            pg8Var.x(this.b);
+            this.w.add(this.k);
+            rg8 rg8Var = new rg8(this.a.getPageContext(), ThreadData.TYPE_SINGLE_LINK, this.a.getUniqueId(), this.a.H2());
+            this.l = rg8Var;
+            rg8Var.y(this.b);
+            this.w.add(this.l);
+            qg8 qg8Var = new qg8(this.a.getPageContext(), ThreadData.TYPE_MULTI_LINK, this.a.getUniqueId(), this.a.H2());
+            this.m = qg8Var;
+            qg8Var.x(this.b);
+            this.w.add(this.m);
+            tg8 tg8Var = new tg8(this.a.getPageContext(), ThreadData.TYPE_BOTTOM_NORMAL, this.a.getUniqueId(), this.a.H2());
+            this.n = tg8Var;
+            tg8Var.y(this.b);
+            this.w.add(this.n);
+            gg8 gg8Var = new gg8(this.a.getPageContext(), ThreadData.TYPE_ARTICLE, this.a.getUniqueId(), this.a.H2());
+            this.o = gg8Var;
+            gg8Var.A(this.b);
+            this.w.add(this.o);
+            fg8 fg8Var = new fg8(this.a.getPageContext(), mm6.S0, this.a.H2());
+            this.r = fg8Var;
+            this.w.add(fg8Var);
+            eg8 eg8Var = new eg8(this.a.getPageContext(), wy4.e);
+            this.p = eg8Var;
+            eg8Var.y(this.b);
+            this.w.add(this.p);
+            dg8 dg8Var = new dg8(this.a.getPageContext(), bx4.b);
+            this.q = dg8Var;
+            dg8Var.B(this.b);
+            this.w.add(this.q);
+            og8 og8Var = new og8(this.a.getPageContext());
+            this.s = og8Var;
+            og8Var.x(this.b);
+            this.w.add(this.s);
+            sg8 sg8Var = new sg8(this.a.getPageContext());
+            this.t = sg8Var;
+            sg8Var.x(this.b);
+            this.w.add(this.t);
+            hg8 hg8Var = new hg8(this.a.getPageContext(), b());
+            this.u = hg8Var;
+            this.w.add(hg8Var);
+            wg8 wg8Var = new wg8(this.a.getPageContext());
+            this.v = wg8Var;
+            this.w.add(wg8Var);
+            this.b.addAdapters(this.w);
+        }
     }
 }

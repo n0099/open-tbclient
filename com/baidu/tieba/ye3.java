@@ -1,6 +1,17 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.util.Log;
+import androidx.annotation.AnyThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.ActivityChooserModel;
+import androidx.core.util.Pair;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.storage.swankv.SwanKV;
+import com.baidu.tieba.oc3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,28 +19,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.io.File;
+import java.util.Set;
+import java.util.concurrent.Callable;
+import java.util.concurrent.CopyOnWriteArraySet;
 /* loaded from: classes9.dex */
-public final class ye3 {
+public class ye3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ye3 c;
+    public static final boolean a;
+    public static Set<String> b;
+    public static int c;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<ik3<Exception>> a;
-    public ArrayList<ik3<Exception>> b;
 
     /* loaded from: classes9.dex */
-    public class a implements Runnable {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ int b;
 
-        public a(ye3 ye3Var, int i) {
+        public a(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ye3Var, Integer.valueOf(i)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -39,72 +53,82 @@ public final class ye3 {
                     return;
                 }
             }
-            this.a = i;
+            this.a = str;
+            this.b = i;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                p22.k("PresetSwanCoreUpdater", "onPresetCheck start.");
-                xe3.s(this.a);
-                p22.k("PresetSwanCoreUpdater", "onPresetCheck end.");
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ ye3 b;
-
-        public b(ye3 ye3Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ye3Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                oc3.b bVar = new oc3.b(10010);
+                bVar.l(String.valueOf(ye3.c));
+                bVar.k(this.a);
+                bVar.j(String.valueOf(this.b));
+                bVar.h(g63.h0());
+                bVar.m();
+                if (this.b == 3) {
+                    int unused = ye3.c = 0;
                 }
             }
-            this.b = ye3Var;
-            this.a = i;
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b implements pq3<Pair<String, File>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(ye3 ye3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ye3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.pq3
+        /* renamed from: a */
+        public void run(@NonNull Pair<String, File> pair) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                p22.k("PresetSwanCoreUpdater", "onPresetUpdate start.");
-                ye3 ye3Var = this.b;
-                int i = this.a;
-                ye3Var.c(i, xe3.t(i));
-                p22.k("PresetSwanCoreUpdater", "onPresetUpdate end.");
+            if (interceptable == null || interceptable.invokeL(1048576, this, pair) == null) {
+                if (ye3.b != null && pair.first != null && ye3.b.contains(pair.first)) {
+                    new xe3(np2.c(), pair.first).clearAll();
+                    return;
+                }
+                File file = pair.second;
+                if (file != null) {
+                    jm4.L(file);
+                }
             }
         }
     }
 
     /* loaded from: classes9.dex */
-    public class c implements Runnable {
+    public class c implements Callable<SharedPreferences> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ik3 a;
-        public final /* synthetic */ Exception b;
+        public final /* synthetic */ xe3 a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ Context c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ ye3 e;
 
-        public c(ye3 ye3Var, ik3 ik3Var, Exception exc) {
+        public c(ye3 ye3Var, xe3 xe3Var, long j, Context context, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ye3Var, ik3Var, exc};
+                Object[] objArr = {ye3Var, xe3Var, Long.valueOf(j), context, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -114,16 +138,56 @@ public final class ye3 {
                     return;
                 }
             }
-            this.a = ik3Var;
-            this.b = exc;
+            this.e = ye3Var;
+            this.a = xe3Var;
+            this.b = j;
+            this.c = context;
+            this.d = str;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.concurrent.Callable
+        /* renamed from: a */
+        public SharedPreferences call() throws Exception {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a(this.b);
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (!this.a.setCustomMeta(this.b | 1)) {
+                    return null;
+                }
+                String l = this.e.l(this.c, this.d);
+                if (ye3.a) {
+                    Log.i("SwanExtensionApiImpl", String.format("customMeta=%d, name=%s, spName=%s", Long.valueOf(this.b), this.d, l));
+                }
+                if (l == null) {
+                    return null;
+                }
+                return this.c.getSharedPreferences(l, 0);
             }
+            return (SharedPreferences) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ye3 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-263288126, "Lcom/baidu/tieba/ye3$d;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-263288126, "Lcom/baidu/tieba/ye3$d;");
+                    return;
+                }
+            }
+            a = new ye3(null);
         }
     }
 
@@ -140,7 +204,9 @@ public final class ye3 {
                 return;
             }
         }
-        boolean z = am1.a;
+        a = rm1.a;
+        b = new CopyOnWriteArraySet();
+        c = 0;
     }
 
     public ye3() {
@@ -153,97 +219,117 @@ public final class ye3 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList<>();
-        this.b = new ArrayList<>();
     }
 
-    public static ye3 b() {
+    public static ye3 j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (c == null) {
-                synchronized (ye3.class) {
-                    if (c == null) {
-                        c = new ye3();
-                    }
-                }
-            }
-            return c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return d.a;
         }
         return (ye3) invokeV.objValue;
     }
 
-    public final void c(int i, Exception exc) {
+    public /* synthetic */ ye3(a aVar) {
+        this();
+    }
+
+    public final hm4 f(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, exc) == null) {
-            synchronized (ye3.class) {
-                try {
-                    if (i == 0) {
-                        Iterator<ik3<Exception>> it = this.a.iterator();
-                        while (it.hasNext()) {
-                            d(it.next(), exc);
-                        }
-                        this.a.clear();
-                    } else if (i == 1) {
-                        Iterator<ik3<Exception>> it2 = this.b.iterator();
-                        while (it2.hasNext()) {
-                            d(it2.next(), exc);
-                        }
-                        this.b.clear();
-                    }
-                } catch (Throwable th) {
-                    throw th;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return new pm4(str);
+        }
+        return (hm4) invokeL.objValue;
+    }
+
+    public void g(@NonNull String str, Set<String> set, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, set, z) == null) {
+            h(str, set, z);
+            re2.c(new File(xe3.c()), str, SwanKV.PREFS_SUFFIX, set, z, new b(this));
+        }
+    }
+
+    public void h(@NonNull String str, Set<String> set, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, str, set, z) == null) {
+            re2.b(new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs/"), str, ActivityChooserModel.HISTORY_FILE_EXTENSION, set, z);
+        }
+    }
+
+    public final void m(Context context, String str, @NonNull xe3 xe3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, context, str, xe3Var) == null) {
+            long customMeta = xe3Var.getCustomMeta();
+            if ((customMeta & 1) == 1) {
+                return;
             }
+            xe3Var.importFromSharedPreferences(new c(this, xe3Var, customMeta, context, str));
         }
     }
 
-    public final void d(ik3<Exception> ik3Var, Exception exc) {
+    @AnyThread
+    public static void i(int i, @NonNull String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ik3Var, exc) == null) && ik3Var != null) {
-            jj3.e0(new c(this, ik3Var, exc));
+        if (interceptable == null || interceptable.invokeIL(65544, null, i, str) == null) {
+            aj3.f().execute(new a(str, i));
         }
     }
 
-    public void e(ik3<Exception> ik3Var, int i) {
-        ArrayList<ik3<Exception>> arrayList;
+    @NonNull
+    @AnyThread
+    public hm4 k(Context context, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, ik3Var, i) == null) {
-            p22.k("PresetSwanCoreUpdater", "updateSwanCoreAsync start.");
-            synchronized (ye3.class) {
-                boolean q = xe3.q(i);
-                p22.k("PresetSwanCoreUpdater", "updateSwanCoreAsync isNeedUpdateStatus = " + q);
-                if (!q && i == 0 && !xe3.r(i)) {
-                    xe3.w(true, i);
-                    new Thread(new a(this, i), "onPresetCheck").start();
-                }
-                if (!q) {
-                    d(ik3Var, null);
-                    return;
-                }
-                if (i == 1) {
-                    arrayList = this.b;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048579, this, context, str, z)) == null) {
+            try {
+                if (z) {
+                    i = 2;
                 } else {
-                    arrayList = this.a;
+                    i = 1;
                 }
-                if (arrayList.isEmpty()) {
-                    new Thread(new b(this, i), "updateSwanCoreAsync").start();
+                xe3 xe3Var = new xe3(context, str, i);
+                b.add(str);
+                m(context, str, xe3Var);
+                if (c > 0) {
+                    i(3, str);
                 }
-                arrayList.add(ik3Var);
-                p22.k("PresetSwanCoreUpdater", "updateSwanCoreAsync end.");
+                return xe3Var;
+            } catch (NoClassDefFoundError | UnsatisfiedLinkError e) {
+                if (a) {
+                    Log.e("SwanExtensionApiImpl", "getSharedPrefsImpl", e);
+                }
+                c++;
+                i(2, str);
+                return f(str);
             }
         }
+        return (hm4) invokeLLZ.objValue;
     }
 
-    public void f(int i) {
+    @Nullable
+    public final String l(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            synchronized (ye3.class) {
-                c(i, xe3.t(i));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, context, str)) == null) {
+            if (str == null) {
+                str = context.getPackageName() + "_preferences";
             }
+            if ("default".equals(str)) {
+                if (pm4.d(context, str).exists()) {
+                    return str;
+                }
+                str = context.getPackageName() + "_preferences";
+            }
+            if (pm4.d(context, str).exists()) {
+                return str;
+            }
+            return null;
         }
+        return (String) invokeLL.objValue;
     }
 }

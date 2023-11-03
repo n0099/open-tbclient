@@ -1,5 +1,5 @@
 package com.google.ar.core;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AugmentedImage extends TrackableBase {
     private native Pose nativeGetCenterPose(long j, long j2);
 

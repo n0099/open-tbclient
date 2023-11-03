@@ -1,44 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import androidx.annotation.ColorRes;
+import androidx.annotation.DimenRes;
 /* loaded from: classes9.dex */
-public class yea {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public long c;
-    public long d;
+public interface yea {
+    void a();
 
-    public yea() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = 0L;
-        this.b = 0L;
-        this.c = 0L;
-        this.d = 0L;
-    }
+    void onChangeSkinType();
 
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = 0L;
-            this.b = 0L;
-            this.c = 0L;
-            this.d = 0L;
-        }
-    }
+    void setButtonText(String str, int i);
+
+    void setButtonTextColor(@ColorRes int i);
+
+    void setButtonTextNightColor(int i);
+
+    void setButtonTextSize(@DimenRes int i);
+
+    void setInitText(String str);
+
+    void setRatio(int i);
 }

@@ -92,7 +92,7 @@ public final class LiveFeedFollowView extends FrameLayout {
         if (interceptTouchRecyclerView != null) {
             LiveFeedPageConcernAdapter liveFeedPageConcernAdapter = new LiveFeedPageConcernAdapter(getContext(), str);
             this.b = liveFeedPageConcernAdapter;
-            liveFeedPageConcernAdapter.s(this.f);
+            liveFeedPageConcernAdapter.t(this.f);
             interceptTouchRecyclerView.setAdapter(liveFeedPageConcernAdapter);
         }
     }
@@ -118,7 +118,7 @@ public final class LiveFeedFollowView extends FrameLayout {
     public final void setUseNewStyle(boolean z) {
         LiveFeedPageConcernAdapter liveFeedPageConcernAdapter = this.b;
         if (liveFeedPageConcernAdapter != null) {
-            liveFeedPageConcernAdapter.t(z);
+            liveFeedPageConcernAdapter.u(z);
         }
     }
 
@@ -140,7 +140,7 @@ public final class LiveFeedFollowView extends FrameLayout {
         LiveFeedPageConcernAdapter liveFeedPageConcernAdapter = this.b;
         if (liveFeedPageConcernAdapter != null) {
             List<LiveFollowEntity> list = this.e;
-            liveFeedPageConcernAdapter.r(list, list.size());
+            liveFeedPageConcernAdapter.s(list, list.size());
         }
     }
 
@@ -164,14 +164,14 @@ public final class LiveFeedFollowView extends FrameLayout {
                 mutableList.add(liveFollowEntity);
                 LiveFeedPageConcernAdapter liveFeedPageConcernAdapter = this.b;
                 if (liveFeedPageConcernAdapter != null) {
-                    liveFeedPageConcernAdapter.r(mutableList, list.size());
+                    liveFeedPageConcernAdapter.s(mutableList, list.size());
                     return;
                 }
                 return;
             }
             LiveFeedPageConcernAdapter liveFeedPageConcernAdapter2 = this.b;
             if (liveFeedPageConcernAdapter2 != null) {
-                liveFeedPageConcernAdapter2.r(list, list.size());
+                liveFeedPageConcernAdapter2.s(list, list.size());
                 return;
             }
             return;
@@ -188,7 +188,7 @@ public final class LiveFeedFollowView extends FrameLayout {
         }
         LiveFeedPageConcernAdapter liveFeedPageConcernAdapter3 = this.b;
         if (liveFeedPageConcernAdapter3 != null) {
-            liveFeedPageConcernAdapter3.r(mutableList2, list.size());
+            liveFeedPageConcernAdapter3.s(mutableList2, list.size());
         }
     }
 }

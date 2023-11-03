@@ -1,15 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
+import android.content.Context;
+import java.io.File;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public interface lq1 {
-    am2 a(ZeusPluginFactory.Invoker invoker, String str);
+    void a(String str, String str2);
 
-    ao2 b(ZeusPluginFactory.Invoker invoker, String str);
+    File b(Context context, String str);
 
-    ao2 c(ZeusPluginFactory.Invoker invoker, String str);
+    JSONObject c(Context context, String str);
 
-    zl2 d(ZeusPluginFactory.Invoker invoker, String str);
-
-    xj2 e(ZeusPluginFactory.Invoker invoker, String str);
+    void d();
 }

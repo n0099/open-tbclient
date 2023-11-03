@@ -1,45 +1,89 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im.data.ShareIMCommonCardData;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.TopicList.MediaTopic;
+import tbclient.VideoInfo;
 /* loaded from: classes5.dex */
-public class cj8 {
+public class cj8 implements oi {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(@NonNull ShareIMCommonCardData shareIMCommonCardData, int i) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947676792, "Lcom/baidu/tieba/cj8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947676792, "Lcom/baidu/tieba/cj8;");
+                return;
+            }
+        }
+        a = BdUniqueId.gen();
+    }
+
+    public cj8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65536, null, shareIMCommonCardData, i) == null) {
-            if (ShareIMCommonCardData.isValidTopic(shareIMCommonCardData)) {
-                c(shareIMCommonCardData, i);
-            } else if (ShareIMCommonCardData.isValidAlbum(shareIMCommonCardData)) {
-                b(shareIMCommonCardData, i);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void b(@NonNull ShareIMCommonCardData shareIMCommonCardData, int i) {
+    @Override // com.baidu.tieba.oi
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(65537, null, shareIMCommonCardData, i) != null) || !ShareIMCommonCardData.isValidAlbum(shareIMCommonCardData)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return a;
         }
-        StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_ALBUM_SHARE_TYPE);
-        statisticItem.addParam("obj_type", i);
-        TiebaStatic.log(statisticItem);
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public static void c(@NonNull ShareIMCommonCardData shareIMCommonCardData, int i) {
+    public void a(MediaTopic mediaTopic) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(65538, null, shareIMCommonCardData, i) != null) || !ShareIMCommonCardData.isValidTopic(shareIMCommonCardData)) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, mediaTopic) != null) || mediaTopic == null) {
             return;
         }
-        StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_TOPIC_SHARE_TYPE);
-        statisticItem.addParam("obj_type", i);
-        TiebaStatic.log(statisticItem);
+        mediaTopic.topic_id.longValue();
+        String str = mediaTopic.topic_name;
+        String str2 = mediaTopic.pic_url;
+        VideoInfo videoInfo = mediaTopic.video_info;
+        if (videoInfo != null && videoInfo.video_duration.intValue() > 0) {
+            b(mediaTopic.video_info);
+        }
+    }
+
+    public void b(VideoInfo videoInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, videoInfo) == null) {
+            String str = videoInfo.video_md5;
+            String str2 = videoInfo.video_url;
+            videoInfo.video_duration.intValue();
+            videoInfo.video_width.intValue();
+            videoInfo.video_height.intValue();
+            String str3 = videoInfo.thumbnail_url;
+            videoInfo.thumbnail_width.intValue();
+            videoInfo.thumbnail_height.intValue();
+            videoInfo.video_length.intValue();
+            videoInfo.play_count.intValue();
+        }
     }
 }

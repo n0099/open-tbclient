@@ -1,81 +1,49 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Build;
-import android.os.Environment;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.sdk.api.MobadsPermissionSettings;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 /* loaded from: classes8.dex */
 public class u11 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public static String a(String str, byte[] bArr, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            return str + "/bddownload/";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            return e(context, "/mnt/sdcard");
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static File b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, str, bArr, z)) == null) {
             try {
-                if (Build.VERSION.SDK_INT > 28) {
-                    return context.getExternalFilesDir(null);
-                }
-                if ("mounted".equals(Environment.getExternalStorageState())) {
-                    if (n11.a(context, "android.permission.WRITE_EXTERNAL_STORAGE") && n11.b(MobadsPermissionSettings.PERMISSION_STORAGE)) {
-                        return c();
-                    }
-                    if (Build.VERSION.SDK_INT >= 19) {
-                        return context.getExternalFilesDir(null);
-                    }
-                    return context.getFilesDir();
-                }
-                return context.getFilesDir();
-            } catch (Exception unused) {
-                return null;
+                MessageDigest messageDigest = MessageDigest.getInstance(str);
+                messageDigest.reset();
+                messageDigest.update(bArr);
+                return b(messageDigest.digest(), "", z);
+            } catch (NoSuchAlgorithmException e) {
+                throw new RuntimeException(e);
             }
         }
-        return (File) invokeL.objValue;
+        return (String) invokeLLZ.objValue;
     }
 
-    public static File c() {
-        InterceptResult invokeV;
+    public static String b(byte[] bArr, String str, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return Environment.getExternalStorageDirectory();
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static String e(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
-            try {
-                return a(b(context).getPath());
-            } catch (Throwable unused) {
-                return a(str);
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, bArr, str, z)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
+                if (z) {
+                    hexString = hexString.toUpperCase();
+                }
+                if (hexString.length() == 1) {
+                    sb.append("0");
+                }
+                sb.append(hexString);
+                sb.append(str);
             }
+            return sb.toString();
         }
-        return (String) invokeLL.objValue;
+        return (String) invokeLLZ.objValue;
     }
 }

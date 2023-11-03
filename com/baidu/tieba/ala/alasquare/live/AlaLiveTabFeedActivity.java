@@ -21,8 +21,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.data.MemberBroadcastData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.o76;
-import com.baidu.tieba.q60;
+import com.baidu.tieba.h70;
+import com.baidu.tieba.j96;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -75,7 +75,7 @@ public class AlaLiveTabFeedActivity extends BaseFragmentActivity {
                 if (!this.a.isResumed || !memberBroadcastHelper.isMeetFrequency()) {
                     return;
                 }
-                this.a.r1(memberBroadcastData);
+                this.a.o1(memberBroadcastData);
             }
         }
     }
@@ -100,7 +100,7 @@ public class AlaLiveTabFeedActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
             ILiveFeedPageView iLiveFeedPageView = this.b;
             if (iLiveFeedPageView != null) {
@@ -112,7 +112,7 @@ public class AlaLiveTabFeedActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onPause();
             ILiveFeedPageView iLiveFeedPageView = this.b;
             if (iLiveFeedPageView != null) {
@@ -125,7 +125,7 @@ public class AlaLiveTabFeedActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onResume();
             ILiveFeedPageView iLiveFeedPageView = this.b;
             if (iLiveFeedPageView != null) {
@@ -138,7 +138,7 @@ public class AlaLiveTabFeedActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onStart();
             ILiveFeedPageView iLiveFeedPageView = this.b;
             if (iLiveFeedPageView != null) {
@@ -150,7 +150,7 @@ public class AlaLiveTabFeedActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onStop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onStop();
             ILiveFeedPageView iLiveFeedPageView = this.b;
             if (iLiveFeedPageView != null) {
@@ -159,11 +159,32 @@ public class AlaLiveTabFeedActivity extends BaseFragmentActivity {
         }
     }
 
+    public final void o1(MemberBroadcastData memberBroadcastData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, memberBroadcastData) != null) || memberBroadcastData == null) {
+            return;
+        }
+        if (this.d == null) {
+            this.d = new BottomCommonTipLayout(this);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
+            layoutParams.bottomMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X004);
+            layoutParams.leftMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X007);
+            layoutParams.rightMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X007);
+            layoutParams.gravity = 80;
+            this.d.setLayoutParams(layoutParams);
+            ViewGroup viewGroup = (ViewGroup) findViewById(16908290);
+            if (viewGroup != null) {
+                viewGroup.addView(this.d);
+            }
+        }
+        this.d.p(memberBroadcastData, "live_tab_vip_brd", 3, "");
+    }
+
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             this.a.onChangeSkinType(getPageContext(), i);
             if (i == 4) {
                 str = "dark";
@@ -185,21 +206,21 @@ public class AlaLiveTabFeedActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0106);
+            setContentView(R.layout.obfuscated_res_0x7f0d0108);
             if (getIntent() != null && !StringUtils.isNull(getIntent().getStringExtra(AlaTabFeedActivityConfig.KEY_PAGE_SOURCE))) {
                 this.c = getIntent().getStringExtra(AlaTabFeedActivityConfig.KEY_PAGE_SOURCE);
             }
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091fb3);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ffb);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
             this.a = navigationBar;
             navigationBar.setCenterTextTitle(getString(R.string.ala_live));
             this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            o76.a().c(TbadkCoreApplication.getInst());
-            q60 q60Var = new q60();
-            this.b = q60Var;
-            View onCreateView = q60Var.onCreateView(this, null, LiveFeedPageSdk.HOST_LIVE_TAB, this.c, null, null, false);
+            j96.a().c(TbadkCoreApplication.getInst());
+            h70 h70Var = new h70();
+            this.b = h70Var;
+            View onCreateView = h70Var.onCreateView(this, null, LiveFeedPageSdk.HOST_LIVE_TAB, this.c, null, null, false);
             if (onCreateView.getParent() instanceof ViewGroup) {
                 ((ViewGroup) onCreateView.getParent()).removeView(onCreateView);
             }
@@ -213,26 +234,5 @@ public class AlaLiveTabFeedActivity extends BaseFragmentActivity {
             this.e = pollingModel;
             pollingModel.getData(PollingModel.MEMBER_BROADCAST);
         }
-    }
-
-    public final void r1(MemberBroadcastData memberBroadcastData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, memberBroadcastData) != null) || memberBroadcastData == null) {
-            return;
-        }
-        if (this.d == null) {
-            this.d = new BottomCommonTipLayout(this);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
-            layoutParams.bottomMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X004);
-            layoutParams.leftMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X007);
-            layoutParams.rightMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X007);
-            layoutParams.gravity = 80;
-            this.d.setLayoutParams(layoutParams);
-            ViewGroup viewGroup = (ViewGroup) findViewById(16908290);
-            if (viewGroup != null) {
-                viewGroup.addView(this.d);
-            }
-        }
-        this.d.p(memberBroadcastData, "live_tab_vip_brd", 3, "");
     }
 }

@@ -1,17 +1,16 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.Bitmap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class t62 extends q62<JSONObject, qx1> {
+public class t62 extends q62 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Bitmap d;
 
     public t62() {
         Interceptable interceptable = $ic;
@@ -27,16 +26,30 @@ public class t62 extends q62<JSONObject, qx1> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.u62
-    @NonNull
-    /* renamed from: c */
-    public qx1 a(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public static t62 a(String str, Bitmap bitmap) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            return new qx1(101, "error type is not support");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, bitmap)) == null) {
+            t62 t62Var = new t62();
+            t62Var.a = 1;
+            t62Var.b = str;
+            t62Var.c = 0L;
+            t62Var.d = bitmap;
+            return t62Var;
         }
-        return (qx1) invokeL.objValue;
+        return (t62) invokeLL.objValue;
+    }
+
+    public static t62 b(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, str, j)) == null) {
+            t62 t62Var = new t62();
+            t62Var.a = 1;
+            t62Var.b = str;
+            t62Var.c = j;
+            return t62Var;
+        }
+        return (t62) invokeLJ.objValue;
     }
 }

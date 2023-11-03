@@ -10,15 +10,15 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tbadk.net.FastRequest;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.ef8;
-import com.baidu.tieba.ff8;
-import com.baidu.tieba.gf8;
+import com.baidu.tieba.cs8;
+import com.baidu.tieba.ds8;
+import com.baidu.tieba.es8;
+import com.baidu.tieba.hs8;
 import com.baidu.tieba.im.base.core.slice.Slice;
 import com.baidu.tieba.im.biz.aibot.data.AibotChatDetail;
 import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
 import com.baidu.tieba.im.lib.socket.msg.TbTextMsg;
-import com.baidu.tieba.jf8;
-import com.baidu.tieba.pe8;
+import com.baidu.tieba.nr8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -43,7 +43,7 @@ public final class AibotChatRepo extends Slice {
     public FastRequest m;
     public AibotChatDetail n;
     public long o;
-    public ff8 p;
+    public ds8 p;
     public a q;
     public final Map<Integer, Class<? extends TbBaseMsg>> r;
 
@@ -63,7 +63,7 @@ public final class AibotChatRepo extends Slice {
     }
 
     /* loaded from: classes6.dex */
-    public static final class a implements ff8 {
+    public static final class a implements ds8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AibotChatRepo a;
@@ -86,12 +86,12 @@ public final class AibotChatRepo extends Slice {
             this.a = aibotChatRepo;
         }
 
-        @Override // com.baidu.tieba.ff8
+        @Override // com.baidu.tieba.ds8
         public void a(int i, TreeSet<TbBaseMsg> msgSet) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, msgSet) == null) {
                 Intrinsics.checkNotNullParameter(msgSet, "msgSet");
-                ff8 g0 = this.a.g0();
+                ds8 g0 = this.a.g0();
                 if (g0 != null) {
                     g0.a(i, msgSet);
                 }
@@ -199,44 +199,44 @@ public final class AibotChatRepo extends Slice {
         this.r = linkedHashMap;
     }
 
-    public final void j0(String json, gf8 callback) {
+    public final void j0(String json, es8 callback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, json, callback) == null) {
             Intrinsics.checkNotNullParameter(json, "json");
             Intrinsics.checkNotNullParameter(callback, "callback");
-            Map<String, Object> b2 = jf8.b(DataExt.toMap(json));
+            Map<String, Object> b2 = hs8.b(DataExt.toMap(json));
             Object obj = b2.get("type");
             if (obj != null) {
                 Class<? extends TbBaseMsg> cls = this.r.get(Integer.valueOf((int) ((Long) obj).longValue()));
                 Intrinsics.checkNotNull(cls);
-                pe8.a.h((TbBaseMsg) DataExt.toEntity(b2, cls), callback);
+                nr8.a.h((TbBaseMsg) DataExt.toEntity(b2, cls), callback);
                 return;
             }
             throw new NullPointerException("null cannot be cast to non-null type kotlin.Long");
         }
     }
 
-    public final void f0(long j, long j2, int i, ef8 callback) {
+    public final void f0(long j, long j2, int i, cs8 callback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), callback}) == null) {
             Intrinsics.checkNotNullParameter(callback, "callback");
-            pe8.a.b(this.o, j, j2, i, callback);
+            nr8.a.b(this.o, j, j2, i, callback);
         }
     }
 
-    public final ff8 g0() {
+    public final ds8 g0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.p;
         }
-        return (ff8) invokeV.objValue;
+        return (ds8) invokeV.objValue;
     }
 
     public final void h0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            pe8.a.g(this.o, this.q);
+            nr8.a.g(this.o, this.q);
         }
     }
 
@@ -245,7 +245,7 @@ public final class AibotChatRepo extends Slice {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
-            pe8.a.k(this.o, this.q);
+            nr8.a.k(this.o, this.q);
         }
     }
 
@@ -258,16 +258,16 @@ public final class AibotChatRepo extends Slice {
             }
             FastRequest fastRequest = this.m;
             Intrinsics.checkNotNull(fastRequest);
-            fastRequest.O("chat_uk", this.k);
-            fastRequest.Q(new b(callback, this));
-            fastRequest.P();
+            fastRequest.P("chat_uk", this.k);
+            fastRequest.R(new b(callback, this));
+            fastRequest.Q();
         }
     }
 
-    public final void k0(ff8 ff8Var) {
+    public final void k0(ds8 ds8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ff8Var) == null) {
-            this.p = ff8Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, ds8Var) == null) {
+            this.p = ds8Var;
         }
     }
 }

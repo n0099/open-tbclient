@@ -3,7 +3,7 @@ package com.google.zxing.datamatrix.encoder;
 import com.google.android.exoplayer2.extractor.mkv.MatroskaExtractor;
 import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import com.google.zxing.Dimension;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SymbolInfo {
     public static final SymbolInfo[] PROD_SYMBOLS;
     public static SymbolInfo[] symbols;

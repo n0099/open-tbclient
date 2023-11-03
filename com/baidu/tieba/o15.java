@@ -1,21 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
+import android.app.Activity;
+import android.content.Context;
+import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tbadk.data.LevePopData;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tbadk.data.TopNotifyData;
+import com.baidu.tieba.dq6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class o15 implements e15 {
+public final class o15 extends g15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -33,39 +31,40 @@ public final class o15 implements e15 {
         }
     }
 
-    @Override // com.baidu.tieba.e15
-    public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, Object> strategyData, Map<String, Object> extraData) {
-        InterceptResult invokeLLL;
+    public static final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogData, strategyData, extraData)) == null) {
-            Intrinsics.checkNotNullParameter(dialogData, "dialogData");
-            Intrinsics.checkNotNullParameter(strategyData, "strategyData");
-            Intrinsics.checkNotNullParameter(extraData, "extraData");
-            HashMap hashMap = new HashMap();
-            hashMap.put("dialogName", "userGrowth");
-            hashMap.putAll(strategyData);
-            hashMap.putAll(extraData);
-            return hashMap;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            YunDialogManager.unMarkShowingDialogName("topNotify");
         }
-        return (Map) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.e15
-    public boolean b(Map<String, Object> map) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.g15
+    public void a(Context context, u05 data) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            Intrinsics.checkNotNullParameter(map, "map");
-            LevePopData levePopData = TbSingleton.getInstance().getLevePopData();
-            if (!levePopData.isHadShow() && !StringUtils.isNull(levePopData.getTitle()) && !StringUtils.isNull(levePopData.getDesc()) && !StringUtils.isNull(levePopData.getBtn_scheme()) && levePopData.getLevel() > 0 && levePopData.getLevel() <= 10) {
-                Long uid = levePopData.getUid();
-                long currentAccountId = TbadkCoreApplication.getCurrentAccountId();
-                if (uid != null && uid.longValue() == currentAccountId) {
-                    return true;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, data) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(data, "data");
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (currentActivity != null && (currentActivity instanceof TbPageContextSupport)) {
+                TopNotifyData a = TopNotifyData.Companion.a();
+                if (a != null) {
+                    rb5.a.i(a, new dq6.e() { // from class: com.baidu.tieba.v05
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+
+                        @Override // com.baidu.tieba.dq6.e
+                        public final void onDismiss() {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                o15.b();
+                            }
+                        }
+                    });
                 }
+                YunDialogManager.markShowingDialogName("topNotify");
+                return;
             }
-            return false;
+            YunDialogManager.unMarkShowingDialogName("topNotify");
         }
-        return invokeL.booleanValue;
     }
 }

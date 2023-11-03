@@ -1,57 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import com.baidu.tieba.dr2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class d43 implements e43 {
+public class d43 extends id3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
 
-    public d43(int i, int i2) {
+    public static void onEvent(@NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+            dr2.a X = f63.K().q().X();
+            jd3 jd3Var = new jd3();
+            jd3Var.b = str;
+            jd3Var.a = zc3.n(X.H());
+            jd3Var.f = X.I();
+            jd3Var.c = X.U();
+            zc3.x("1045", jd3Var);
         }
-        this.a = i;
-        this.b = i2;
-    }
-
-    @Override // com.baidu.tieba.e43
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i >= 0 && i < getItemsCount()) {
-                return Integer.valueOf(this.a + i);
-            }
-            return 0;
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // com.baidu.tieba.e43
-    public int getItemsCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return (this.b - this.a) + 1;
-        }
-        return invokeV.intValue;
     }
 }

@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.util.httpNet;
 import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.network.http.BdHttpStat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.sdk.internal.bx;
 import com.baidu.tbadk.TbConfig;
@@ -13,12 +14,11 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.switchs.UseHttpAutoRetrySwitch;
 import com.baidu.tieba.bb;
-import com.baidu.tieba.gd;
-import com.baidu.tieba.ja;
-import com.baidu.tieba.la;
-import com.baidu.tieba.ma;
-import com.baidu.tieba.na;
-import com.baidu.tieba.oa;
+import com.baidu.tieba.cb;
+import com.baidu.tieba.db;
+import com.baidu.tieba.rb;
+import com.baidu.tieba.wd;
+import com.baidu.tieba.za;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +32,7 @@ import java.util.List;
 import java.util.Map;
 @SuppressLint({"DefaultLocale"})
 /* loaded from: classes4.dex */
-public class WebClient implements bb.a {
+public class WebClient implements rb.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String IMAGEGIF = "image/gif";
     public static final String IMAGESECRET = "app:tiebaclient;type:0;";
@@ -50,12 +50,12 @@ public class WebClient implements bb.a {
     public boolean isCrackPic;
     public boolean isGif;
     public boolean isGzip;
-    public volatile ja mBdHttpManager2;
-    public ma mContext;
+    public volatile za mBdHttpManager2;
+    public bb mContext;
     public boolean mIsRequestSuccess;
     public HashMap<String, String> mPostList;
-    public oa mResponse;
-    public la mStat;
+    public db mResponse;
+    public BdHttpStat mStat;
     public boolean needCache;
     public int responseCode;
 
@@ -98,7 +98,7 @@ public class WebClient implements bb.a {
         }
         this.mBdHttpManager2 = null;
         this.mPostList = null;
-        this.mResponse = new oa();
+        this.mResponse = new db();
         this.isGzip = false;
         this.isGif = false;
         this.exception = "";
@@ -121,27 +121,27 @@ public class WebClient implements bb.a {
                 stringBuffer.append("thread_id:");
                 stringBuffer.append(Thread.currentThread().getId());
                 for (int i = 0; i < this.mContext.d().size(); i++) {
-                    la laVar = this.mContext.d().get(i);
+                    BdHttpStat bdHttpStat = this.mContext.d().get(i);
                     stringBuffer.append(" index: ");
                     stringBuffer.append(i);
                     stringBuffer.append("exception:");
-                    stringBuffer.append(laVar.h);
+                    stringBuffer.append(bdHttpStat.exception);
                     stringBuffer.append("retry:");
-                    stringBuffer.append(laVar.e);
+                    stringBuffer.append(bdHttpStat.retry);
                     stringBuffer.append("connectTime:");
-                    stringBuffer.append(laVar.c);
+                    stringBuffer.append(bdHttpStat.connectTime);
                     stringBuffer.append("downloadSize:");
-                    stringBuffer.append(laVar.b);
+                    stringBuffer.append(bdHttpStat.downloadSize);
                     stringBuffer.append("rspTime:");
-                    stringBuffer.append(laVar.d);
+                    stringBuffer.append(bdHttpStat.rspTime);
                     stringBuffer.append("dnsTime:");
-                    stringBuffer.append(laVar.g);
+                    stringBuffer.append(bdHttpStat.dnsTime);
                     stringBuffer.append("responsedCode:");
-                    stringBuffer.append(laVar.i);
+                    stringBuffer.append(bdHttpStat.responsedCode);
                     stringBuffer.append("allCostTime:");
-                    stringBuffer.append(laVar.f);
+                    stringBuffer.append(bdHttpStat.allCostTime);
                     stringBuffer.append("executeStatus:");
-                    stringBuffer.append(laVar.j);
+                    stringBuffer.append(bdHttpStat.executeStatus);
                 }
                 if (exc != null) {
                     stringBuffer.append("webclient exception");
@@ -192,20 +192,20 @@ public class WebClient implements bb.a {
                         cancel();
                         this.mBdHttpManager2 = null;
                     }
-                    ma maVar = new ma();
-                    this.mContext = maVar;
-                    maVar.b().s(str);
+                    bb bbVar = new bb();
+                    this.mContext = bbVar;
+                    bbVar.b().s(str);
                     this.mContext.b().n(UseHttpAutoRetrySwitch.isOn());
-                    na b = this.mContext.b();
+                    cb b = this.mContext.b();
                     b.a("User-Agent", "tieba image flow version : " + TbConfig.getVersion() + " cuid : " + TbadkCoreApplication.getInst().getCuidGalaxy2());
                     if (this.mPostList != null) {
                         for (Map.Entry<String, String> entry : this.mPostList.entrySet()) {
                             this.mContext.b().b(entry.getKey(), entry.getValue());
                         }
                     }
-                    this.mBdHttpManager2 = new ja(this.mContext);
+                    this.mBdHttpManager2 = new za(this.mContext);
                     this.mBdHttpManager2.d(RETRYCOUNT, 0, 0);
-                    oa c = this.mContext.c();
+                    db c = this.mContext.c();
                     this.mResponse = c;
                     if (c != null && c.h != null && (list = c.h.get(Headers.CACHE_CONTROL)) != null && list.size() > 0) {
                         if (!"no-cache".equals(list.get(0))) {
@@ -230,57 +230,57 @@ public class WebClient implements bb.a {
                     if (!this.mIsRequestSuccess) {
                         buildException(str, null);
                     }
-                    la a = this.mContext.a();
+                    BdHttpStat a = this.mContext.a();
                     this.mStat = a;
                     if (a != null) {
                         StringBuilder sb = new StringBuilder();
-                        la laVar = this.mStat;
-                        sb.append(laVar.h);
+                        BdHttpStat bdHttpStat = this.mStat;
+                        sb.append(bdHttpStat.exception);
                         sb.append(stringBuffer.toString());
-                        laVar.h = sb.toString();
+                        bdHttpStat.exception = sb.toString();
                         StringBuilder sb2 = new StringBuilder();
-                        la laVar2 = this.mStat;
-                        sb2.append(laVar2.h);
+                        BdHttpStat bdHttpStat2 = this.mStat;
+                        sb2.append(bdHttpStat2.exception);
                         sb2.append("_responseCode:");
                         sb2.append(this.responseCode);
-                        laVar2.h = sb2.toString();
+                        bdHttpStat2.exception = sb2.toString();
                     }
                     return bArr;
                 } catch (Exception e) {
                     stringBuffer.append("httpmanagererr_" + e.getClass() + "_" + e.getMessage());
-                    la a2 = this.mContext.a();
+                    BdHttpStat a2 = this.mContext.a();
                     this.mStat = a2;
                     if (a2 == null) {
                         return null;
                     }
                     StringBuilder sb3 = new StringBuilder();
-                    la laVar3 = this.mStat;
-                    sb3.append(laVar3.h);
+                    BdHttpStat bdHttpStat3 = this.mStat;
+                    sb3.append(bdHttpStat3.exception);
                     sb3.append(stringBuffer.toString());
-                    laVar3.h = sb3.toString();
+                    bdHttpStat3.exception = sb3.toString();
                     StringBuilder sb4 = new StringBuilder();
-                    la laVar4 = this.mStat;
-                    sb4.append(laVar4.h);
+                    BdHttpStat bdHttpStat4 = this.mStat;
+                    sb4.append(bdHttpStat4.exception);
                     sb4.append("_responseCode:");
                     sb4.append(this.responseCode);
-                    laVar4.h = sb4.toString();
+                    bdHttpStat4.exception = sb4.toString();
                     return null;
                 }
             } catch (Throwable th) {
-                la a3 = this.mContext.a();
+                BdHttpStat a3 = this.mContext.a();
                 this.mStat = a3;
                 if (a3 != null) {
                     StringBuilder sb5 = new StringBuilder();
-                    la laVar5 = this.mStat;
-                    sb5.append(laVar5.h);
+                    BdHttpStat bdHttpStat5 = this.mStat;
+                    sb5.append(bdHttpStat5.exception);
                     sb5.append(stringBuffer.toString());
-                    laVar5.h = sb5.toString();
+                    bdHttpStat5.exception = sb5.toString();
                     StringBuilder sb6 = new StringBuilder();
-                    la laVar6 = this.mStat;
-                    sb6.append(laVar6.h);
+                    BdHttpStat bdHttpStat6 = this.mStat;
+                    sb6.append(bdHttpStat6.exception);
                     sb6.append("_responseCode:");
                     sb6.append(this.responseCode);
-                    laVar6.h = sb6.toString();
+                    bdHttpStat6.exception = sb6.toString();
                 }
                 throw th;
             }
@@ -315,7 +315,7 @@ public class WebClient implements bb.a {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.bb.a
+    @Override // com.baidu.tieba.rb.a
     public void cancel() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.mBdHttpManager2 != null) {
@@ -323,13 +323,13 @@ public class WebClient implements bb.a {
         }
     }
 
-    public oa getResponse() {
+    public db getResponse() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.mResponse;
         }
-        return (oa) invokeV.objValue;
+        return (db) invokeV.objValue;
     }
 
     public boolean needCache() {
@@ -432,7 +432,7 @@ public class WebClient implements bb.a {
                 if (this.mIsRequestSuccess && ((z || z2) && new String(downloadBytesInternal, 0, 23).equalsIgnoreCase(IMAGESECRET))) {
                     downloadBytesInternal = copyOfRange(downloadBytesInternal, 23, downloadBytesInternal.length);
                 }
-                if (downloadBytesInternal.length == 4262 && "E9FA8E3AF5271BBFA7BDDBCAD1E8BE5B".equals(gd.d(downloadBytesInternal))) {
+                if (downloadBytesInternal.length == 4262 && "E9FA8E3AF5271BBFA7BDDBCAD1E8BE5B".equals(wd.d(downloadBytesInternal))) {
                     TiebaStatic.log(new StatisticItem("image_time_err").addParam("obj_source", str).addParam("obj_param1", TbadkCoreApplication.getInst().getCurrentActivity() + "").addParam(TiebaStatic.Params.OBJ_PARAM2, System.currentTimeMillis()));
                 }
                 return downloadBytesInternal;

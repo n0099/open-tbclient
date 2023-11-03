@@ -21,7 +21,7 @@ import com.baidu.tieba.R;
 import com.google.android.material.internal.ManufacturerUtils;
 import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class TextInputEditText extends AppCompatEditText {
     public final Rect parentRect;
     public boolean textInputLayoutFocusedRectEnabled;

@@ -1,58 +1,84 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.MotionEvent;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.player.helper.BdVideoGesture;
+import com.baidu.searchbox.player.event.ControlEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class wr0 extends BdVideoGesture {
+public class wr0 extends ds0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.nadcore.player.helper.BdVideoGesture
-    public void f(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wr0(Context context, @NonNull os0 os0Var) {
-        super(context, os0Var);
+    public wr0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, os0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (os0) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.nadcore.player.helper.BdVideoGesture
-    public boolean c(MotionEvent motionEvent) {
-        InterceptResult invokeL;
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            if (motionEvent.getPointerCount() >= 2 && bx0.j().getBoolean("player_shrink_switch", true)) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            c(vr0.x(ControlEvent.ACTION_RESUME));
         }
-        return invokeL.booleanValue;
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            c(vr0.x(ControlEvent.ACTION_SHOW_TIP));
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            c(vr0.x(ControlEvent.ACTION_START));
+        }
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            js0 x = vr0.x(ControlEvent.ACTION_PAUSE);
+            x.o(11, Integer.valueOf(i));
+            boolean z = true;
+            if (i != 1) {
+                z = false;
+            }
+            x.o(7, Boolean.valueOf(z));
+            c(x);
+        }
+    }
+
+    public void f(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            js0 x = vr0.x(ControlEvent.ACTION_SEEK_MS);
+            x.o(5, Integer.valueOf(i));
+            x.o(12, Integer.valueOf(i2));
+            c(x);
+        }
+    }
+
+    public void i(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(1048581, this, i, i2, i3) == null) {
+            js0 x = vr0.x(ControlEvent.ACTION_SYNC_PROGRESS);
+            x.o(1, Integer.valueOf(i));
+            x.o(2, Integer.valueOf(i2));
+            x.o(3, Integer.valueOf(i3));
+            x.s(1);
+            c(x);
+        }
     }
 }

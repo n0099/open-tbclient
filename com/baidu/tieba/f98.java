@@ -1,80 +1,138 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.ViewGroup;
-import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.data.AtSelectData;
-import com.baidu.tieba.im.lib.socket.msg.data.BotsDTO;
-import com.baidu.tieba.view.BdTopToast;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.NegativeFeedBackData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
+import tbclient.User;
+import tbclient.Userlike.ConcernData;
 /* loaded from: classes5.dex */
-public class f98 {
+public class f98 extends wy4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Integer h;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean f;
+    public List<MetaData> g;
 
-    public static boolean a(List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> list) {
+    @Override // com.baidu.tieba.wy4, com.baidu.tieba.bw4
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return null;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947719076, "Lcom/baidu/tieba/f98;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947719076, "Lcom/baidu/tieba/f98;");
+                return;
+            }
+        }
+        h = 6;
+    }
+
+    public f98() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.g = new ArrayList();
+    }
+
+    @Override // com.baidu.tieba.wy4
+    public List<MetaData> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.g;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.wy4, com.baidu.tieba.bw4
+    public NegativeFeedBackData getNegFeedBackData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return new NegativeFeedBackData();
+        }
+        return (NegativeFeedBackData) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.wy4, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.oi
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return wy4.e;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public static boolean f(ConcernData concernData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            for (BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO : list) {
-                if (itemsDTO != null && !ListUtils.isEmpty(itemsDTO.getOpts()) && ListUtils.getCount(itemsDTO.getOpts()) > 0 && ListUtils.getItem(itemsDTO.getOpts(), 0) != null) {
-                    BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext ext = ((BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO) ListUtils.getItem(itemsDTO.getOpts(), 0)).getExt();
-                    if (itemsDTO.getItemType() == 0) {
-                        continue;
-                    } else if (itemsDTO.getItemType() == 1 && (ext == null || StringUtils.isNull(ext.getPicPath()) || StringUtils.isNull(ext.getPicSize()))) {
-                        c(itemsDTO.getItemType());
-                        return false;
-                    } else if (!itemsDTO.isOptional() && itemsDTO.getItemType() == 2 && (ext == null || ListUtils.isEmpty(ext.getAtUserInfos()))) {
-                        c(itemsDTO.getItemType());
-                        return false;
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, concernData)) == null) {
+            if (concernData == null) {
+                return false;
             }
-            return true;
+            return concernData.recom_type.equals(h);
         }
         return invokeL.booleanValue;
     }
 
-    @Nullable
-    public static List<String> b(@Nullable List<AtSelectData> list) {
-        InterceptResult invokeL;
+    public void g(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            if (list != null && !ListUtils.isEmpty(list) && ListUtils.getCount(list) > 0) {
-                ArrayList arrayList = new ArrayList();
-                for (AtSelectData atSelectData : list) {
-                    if (atSelectData != null) {
-                        arrayList.add(atSelectData.getUid());
-                    }
-                }
-                return arrayList;
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.f = z;
         }
-        return (List) invokeL.objValue;
     }
 
-    public static void c(int i) {
-        String str;
+    @Override // com.baidu.tieba.wy4
+    public void d(List<User> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
-            if (i == 1) {
-                str = TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0987);
-            } else if (i == 2) {
-                str = TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0986);
-            } else {
-                str = "";
-            }
-            Activity currentActivity = TbadkApplication.getInst().getCurrentActivity();
-            if (currentActivity != null) {
-                new BdTopToast(currentActivity, 2000).setIcon(false).setContent(str).show((ViewGroup) currentActivity.findViewById(16908290));
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && list != null) {
+            int min = Math.min(list.size(), 10);
+            for (int i = 0; i < min; i++) {
+                MetaData metaData = new MetaData();
+                metaData.parserProtobuf(list.get(i));
+                this.g.add(metaData);
             }
         }
     }

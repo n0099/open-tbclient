@@ -9,7 +9,7 @@ import java.net.URLStreamHandlerFactory;
 import okhttp3.OkHttpClient;
 import okhttp3.internal.annotations.EverythingIsNonNull;
 @EverythingIsNonNull
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class OkUrlFactory implements URLStreamHandlerFactory, Cloneable {
     public OkHttpClient client;
     public URLFilter urlFilter;
@@ -66,7 +66,7 @@ public final class OkUrlFactory implements URLStreamHandlerFactory, Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public OkUrlFactory m93clone() {
+    public OkUrlFactory m94clone() {
         return new OkUrlFactory(this.client);
     }
 

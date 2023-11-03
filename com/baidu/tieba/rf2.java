@@ -1,84 +1,46 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-/* loaded from: classes7.dex */
-public class rf2 extends qf2 {
+import java.util.ArrayList;
+/* loaded from: classes8.dex */
+public class rf2 extends nf2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public ContentValues d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rf2(@NonNull ContentValues contentValues) {
-        super("lifecycle", null);
+    public rf2(@NonNull mf2 mf2Var) {
+        super(mf2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {contentValues};
+            Object[] objArr = {mf2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (Map) objArr2[1]);
+                super((mf2) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = contentValues;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rf2(@Nullable Map<String, String> map) {
-        super("lifecycle", map);
+    @Override // com.baidu.tieba.nf2
+    public void e() {
+        ArrayList<String> arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {map};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (Map) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.qf2, com.baidu.tieba.pf2
-    public void m(Map<String, Object> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            map.put("cuid", wo2.h0().i(wo2.c()));
-            map.put("mtjCuid", wo2.h0().i(wo2.c()));
-            ContentValues contentValues = this.d;
-            if (contentValues != null) {
-                for (String str : contentValues.keySet()) {
-                    Object obj = this.d.get(str);
-                    if (!(obj instanceof Number) && !(obj instanceof Boolean)) {
-                        map.put(str, String.valueOf(obj));
-                    } else {
-                        map.put(str, obj);
-                    }
-                }
-                return;
-            }
-            for (Map.Entry<String, String> entry : this.c.entrySet()) {
-                map.put(entry.getKey(), entry.getValue());
-            }
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (arrayList = this.d.b) != null && !arrayList.isEmpty()) {
+            qe2 d = se2.c().d();
+            ArrayList<String> arrayList2 = this.d.b;
+            bg2 l = bg2.l();
+            l.i(15);
+            d.g(arrayList2, true, false, l.k());
         }
     }
 }

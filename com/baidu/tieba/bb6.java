@@ -1,122 +1,76 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.ala.data.AlaLiveInfoData;
-import com.baidu.ala.data.AlaUserInfoData;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.unified.SourceConstant;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.ala.frsgamelive.view.AlaGameFrsLiveNormalCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bb6 {
+public class bb6 extends bi<eb6, AlaGameFrsLiveNormalCardView.AlaGameFrsNormalViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlaUserInfoData a;
-    public hb6 b;
-    public pb6 c;
-    public List<AlaLiveInfoData> d;
-    public List<ob6> e;
-    public boolean f;
-    public final za6 g;
-    public qb6 h;
+    public TbPageContext a;
+    public m76 b;
 
-    public bb6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bb6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = false;
-        this.a = new AlaUserInfoData();
-        this.b = new hb6();
-        this.c = new pb6();
-        this.g = new za6();
-        this.d = new ArrayList();
-        this.e = new ArrayList();
+        this.a = tbPageContext;
     }
 
-    public za6 a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: t */
+    public AlaGameFrsLiveNormalCardView.AlaGameFrsNormalViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.g;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new AlaGameFrsLiveNormalCardView.AlaGameFrsNormalViewHolder(new AlaGameFrsLiveNormalCardView(this.a));
         }
-        return (za6) invokeV.objValue;
+        return (AlaGameFrsLiveNormalCardView.AlaGameFrsNormalViewHolder) invokeL.objValue;
     }
 
-    public AlaUserInfoData b() {
-        InterceptResult invokeV;
+    public void x(m76 m76Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (AlaUserInfoData) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void d(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        try {
-            JSONObject jSONObject2 = jSONObject.getJSONObject("data");
-            JSONObject optJSONObject = jSONObject2.optJSONObject(SourceConstant.SOURCE_USER_INFO);
-            if (optJSONObject != null) {
-                this.a = (AlaUserInfoData) OrmObject.objectWithJson(optJSONObject, AlaUserInfoData.class);
-            }
-            JSONArray optJSONArray = jSONObject2.optJSONArray("watch_list");
-            for (int i = 0; optJSONArray != null && i < optJSONArray.length(); i++) {
-                ob6 ob6Var = new ob6();
-                ob6Var.a(optJSONArray.getJSONObject(i));
-                this.e.add(ob6Var);
-            }
-            JSONArray optJSONArray2 = jSONObject2.optJSONArray("live_list");
-            for (int i2 = 0; optJSONArray2 != null && optJSONArray2.length() < i2; i2++) {
-                AlaLiveInfoData alaLiveInfoData = new AlaLiveInfoData();
-                alaLiveInfoData.parserJson(optJSONArray2.getJSONObject(i2));
-                this.d.add(alaLiveInfoData);
-            }
-            this.b.a(jSONObject2.optJSONObject("media"));
-            this.c.parserJson(jSONObject2.optJSONObject("privacy_set"));
-            this.g.parserJson(jSONObject2.optJSONObject("authority_info"));
-            JSONObject optJSONObject2 = jSONObject2.optJSONObject("dating_room");
-            if (optJSONObject2 != null) {
-                qb6 qb6Var = new qb6();
-                this.h = qb6Var;
-                qb6Var.a(optJSONObject2);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (interceptable == null || interceptable.invokeL(1048580, this, m76Var) == null) {
+            this.b = m76Var;
         }
     }
 
-    public void e(boolean z) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, eb6 eb6Var, AlaGameFrsLiveNormalCardView.AlaGameFrsNormalViewHolder alaGameFrsNormalViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f = z;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, eb6Var, alaGameFrsNormalViewHolder})) == null) {
+            alaGameFrsNormalViewHolder.a.k(eb6Var);
+            alaGameFrsNormalViewHolder.a.x(this.b);
+            return alaGameFrsNormalViewHolder.getView();
         }
+        return (View) invokeCommon.objValue;
     }
 }

@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.bdtask.model.info.TaskInfo;
+import com.baidu.bdtask.utils.UniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,81 +13,54 @@ import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
 public final class lm {
     public static /* synthetic */ Interceptable $ic;
+    public static final lm a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public wm b;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof lm) {
-                    lm lmVar = (lm) obj;
-                    return Intrinsics.areEqual(this.a, lmVar.a) && Intrinsics.areEqual(this.b, lmVar.b);
-                }
-                return false;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448310348, "Lcom/baidu/tieba/lm;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return true;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448310348, "Lcom/baidu/tieba/lm;");
+                return;
+            }
         }
-        return invokeL.booleanValue;
+        a = new lm();
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String str = this.a;
-            int hashCode = (str != null ? str.hashCode() : 0) * 31;
-            wm wmVar = this.b;
-            return hashCode + (wmVar != null ? wmVar.hashCode() : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "BdtlsRequestParams(requestData=" + this.a + ", bdtlsRequest=" + this.b + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public lm(String str, wm wmVar) {
+    public lm() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, wmVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = str;
-        this.b = wmVar;
     }
 
-    public final String a() {
-        InterceptResult invokeV;
+    public final im a(TaskInfo taskInfo, UniqueId uniqueId) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, taskInfo, uniqueId)) == null) {
+            if (Intrinsics.areEqual(uniqueId, nm.c.a())) {
+                return new nm(taskInfo);
+            }
+            if (Intrinsics.areEqual(uniqueId, om.c.a())) {
+                return new om(taskInfo);
+            }
+            if (Intrinsics.areEqual(uniqueId, pm.c.a())) {
+                return new pm(taskInfo);
+            }
+            return null;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public final wm b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (wm) invokeV.objValue;
+        return (im) invokeLL.objValue;
     }
 }

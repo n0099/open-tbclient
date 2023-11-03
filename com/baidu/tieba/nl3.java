@@ -1,75 +1,76 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.swan.bdprivate.api.SwanApi$$ModulesProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-@Service
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class nl3 implements gr3 {
+public class nl3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public nl3() {
+    public static JSONObject a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("slaveId", str);
+                jSONObject.put("type", str2);
+            } catch (JSONException e) {
+                if (rm1.a) {
+                    e.printStackTrace();
+                }
             }
+            return jSONObject;
+        }
+        return (JSONObject) invokeLL.objValue;
+    }
+
+    public static JSONObject b(String str, String str2, String str3, String str4, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65537, null, str, str2, str3, str4, jSONObject)) == null) {
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                JSONObject jSONObject3 = new JSONObject();
+                jSONObject3.put("id", str2);
+                jSONObject3.put("action", str4);
+                jSONObject3.put("e", jSONObject);
+                JSONObject jSONObject4 = new JSONObject();
+                jSONObject4.put("type", str3);
+                jSONObject4.put("params", jSONObject3);
+                jSONObject2.put("slaveId", str);
+                jSONObject2.put("type", "abilityMessage");
+                jSONObject2.put("value", jSONObject4);
+            } catch (JSONException e) {
+                if (rm1.a) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject2;
+        }
+        return (JSONObject) invokeLLLLL.objValue;
+    }
+
+    /* JADX WARN: Type inference failed for: r4v1, types: [org.json.JSONObject, T] */
+    public static void c(String str, String str2, String str3, String str4, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(65538, null, str, str2, str3, str4, jSONObject) == null) {
+            mg2 mg2Var = new mg2();
+            mg2Var.c = b(str, str2, str3, str4, jSONObject);
+            tr2.V().v(mg2Var);
         }
     }
 
-    @Override // com.baidu.tieba.hr3
-    public void a(m63 m63Var) {
+    /* JADX WARN: Type inference failed for: r5v1, types: [org.json.JSONObject, T] */
+    public static void d(String str, String str2, String str3, String str4, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, m63Var) == null) {
-            m63Var.b(new fn3(m63Var));
-            m63Var.b(new jn3(m63Var));
-            m63Var.b(new do3(m63Var));
-            m63Var.b(new co3(m63Var));
-            m63Var.b(new sn3(m63Var));
-            m63Var.b(new kn3(m63Var));
-            m63Var.b(new hn3(m63Var));
-            m63Var.b(new qn3(m63Var));
-            m63Var.b(new gn3(m63Var));
-            m63Var.b(new en3(m63Var));
-            m63Var.b(new dn3(m63Var));
-            m63Var.b(new in3(m63Var));
-            m63Var.b(new ho3(m63Var));
+        if (interceptable == null || interceptable.invokeLLLLL(65539, null, str, str2, str3, str4, jSONObject) == null) {
+            mg2 mg2Var = new mg2();
+            mg2Var.c = b(str, str2, str3, str4, jSONObject);
+            tr2.V().n(str, mg2Var);
         }
-    }
-
-    @Override // com.baidu.tieba.hr3
-    @Nullable
-    public Map<String, Object> b(@NonNull rt1 rt1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rt1Var)) == null) {
-            return SwanApi$$ModulesProvider.getV8ApiModules(rt1Var);
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.hr3
-    @Nullable
-    public Map<String, Object> c(@NonNull rt1 rt1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rt1Var)) == null) {
-            return SwanApi$$ModulesProvider.getWebviewApiModules(rt1Var);
-        }
-        return (Map) invokeL.objValue;
     }
 }

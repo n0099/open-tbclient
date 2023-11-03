@@ -1,81 +1,88 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
 import android.util.SparseArray;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Type;
+import java.util.Iterator;
 import java.util.Map;
-import java.util.Queue;
-import java.util.Set;
-/* loaded from: classes8.dex */
-public class x8 {
+import org.json.JSONObject;
+/* loaded from: classes9.dex */
+public class x8 implements u8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public JSONObject a;
 
-    public static final l7 a(Object obj) {
+    public x8(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = jSONObject;
+    }
+
+    @Override // com.baidu.tieba.u8
+    public Object a(k9 k9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, obj)) == null) {
-            if (obj == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k9Var)) == null) {
+            Class<?> a = k9Var.a();
+            Type[] b = k9Var.b();
+            if (r7.e(a, Map.class)) {
+                Map<String, Object> b2 = i9.b(k9Var, this.a.length());
+                if (b2 != null) {
+                    Iterator<String> keys = this.a.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        if (next instanceof String) {
+                            String str = next;
+                            Object a2 = o9.a(this.a.opt(str)).a(new k9(b[1]));
+                            if (a2 != null) {
+                                b2.put(str, a2);
+                            }
+                        }
+                    }
+                }
+                return b2;
+            } else if (a == SparseArray.class) {
+                SparseArray sparseArray = new SparseArray(this.a.length());
+                Iterator<String> keys2 = this.a.keys();
+                while (keys2.hasNext()) {
+                    String next2 = keys2.next();
+                    if (next2 instanceof String) {
+                        String str2 = next2;
+                        try {
+                            int parseInt = Integer.parseInt(str2);
+                            Object a3 = o9.a(this.a.opt(String.valueOf(str2))).a(new k9(b[0]));
+                            if (a3 != null) {
+                                sparseArray.put(parseInt, a3);
+                            }
+                        } catch (NumberFormatException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+                return sparseArray;
+            } else if (r7.e(a, s7.class)) {
+                return OrmObject.objectWithJson(this.a, a);
+            } else {
                 return null;
             }
-            Class<?> cls = obj.getClass();
-            if (cls != Boolean.TYPE && cls != Boolean.class) {
-                if (cls == Bundle.class) {
-                    return new g7((Bundle) obj);
-                }
-                if (cls != Byte.TYPE && cls != Byte.class) {
-                    if (cls != Character.TYPE && cls != Character.class) {
-                        if (cls != Double.TYPE && cls != Double.class) {
-                            if (cls != Float.TYPE && cls != Float.class) {
-                                if (cls != Integer.TYPE && cls != Integer.class) {
-                                    if (cls != Long.TYPE && cls != Long.class) {
-                                        if (cls != Short.TYPE && cls != Short.class) {
-                                            if (cls == String.class) {
-                                                return new v7((String) obj);
-                                            }
-                                            if (cls.isArray()) {
-                                                return new e7(obj);
-                                            }
-                                            if (cls == SparseArray.class) {
-                                                return new u7((SparseArray) obj);
-                                            }
-                                            if (obj instanceof List) {
-                                                return new n7((List) obj);
-                                            }
-                                            if (obj instanceof Queue) {
-                                                return new r7((Queue) obj);
-                                            }
-                                            if (obj instanceof Map) {
-                                                return new p7((Map) obj);
-                                            }
-                                            if (obj instanceof Set) {
-                                                return new s7((Set) obj);
-                                            }
-                                            if (!b7.e(cls, OrmObject.class)) {
-                                                return null;
-                                            }
-                                            return new q7((OrmObject) obj);
-                                        }
-                                        return new t7(((Short) obj).shortValue());
-                                    }
-                                    return new o7(((Long) obj).longValue());
-                                }
-                                return new m7(((Integer) obj).intValue());
-                            }
-                            return new k7(((Float) obj).floatValue());
-                        }
-                        return new j7(((Double) obj).doubleValue());
-                    }
-                    return new i7(((Character) obj).charValue());
-                }
-                return new h7(((Byte) obj).byteValue());
-            }
-            return new f7(((Boolean) obj).booleanValue());
         }
-        return (l7) invokeL.objValue;
+        return invokeL.objValue;
     }
 }

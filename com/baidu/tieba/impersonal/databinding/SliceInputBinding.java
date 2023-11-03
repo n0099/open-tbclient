@@ -54,14 +54,14 @@ public final class SliceInputBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            int i = R.id.obfuscated_res_0x7f091147;
-            RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091147);
+            int i = R.id.obfuscated_res_0x7f091184;
+            RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091184);
             if (relativeLayout != null) {
-                i = R.id.obfuscated_res_0x7f091156;
-                SpanGroupEditText spanGroupEditText = (SpanGroupEditText) view2.findViewById(R.id.obfuscated_res_0x7f091156);
+                i = R.id.obfuscated_res_0x7f091193;
+                SpanGroupEditText spanGroupEditText = (SpanGroupEditText) view2.findViewById(R.id.obfuscated_res_0x7f091193);
                 if (spanGroupEditText != null) {
-                    i = R.id.obfuscated_res_0x7f0921a3;
-                    ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0921a3);
+                    i = R.id.obfuscated_res_0x7f0921ec;
+                    ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0921ec);
                     if (imageView != null) {
                         return new SliceInputBinding((RelativeLayout) view2, relativeLayout, spanGroupEditText, imageView);
                     }
@@ -77,7 +77,7 @@ public final class SliceInputBinding implements ViewBinding {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, layoutInflater, viewGroup, z)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d08cf, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d08e4, viewGroup, false);
             if (z) {
                 viewGroup.addView(inflate);
             }

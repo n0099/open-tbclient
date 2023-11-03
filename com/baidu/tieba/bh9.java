@@ -1,11 +1,40 @@
 package com.baidu.tieba;
 
-import android.widget.ImageView;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.live.interfaces.service.player.IDuMediaService;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface bh9 extends ch9 {
-    void setScaleType(ImageView.ScaleType scaleType);
+public class bh9 extends bg1<IDuMediaService> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void startLoad(String str);
+    public bh9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void startLoad(String str, int i, boolean z);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bg1
+    /* renamed from: a */
+    public IDuMediaService createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new ah9();
+        }
+        return (IDuMediaService) invokeV.objValue;
+    }
 }

@@ -1,24 +1,35 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import com.baidu.tieba.ek4;
+import android.os.Bundle;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class fk4 {
+public abstract class fk4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(LayoutInflater layoutInflater, gk4 gk4Var) {
-        ek4.a aVar;
+    /* loaded from: classes5.dex */
+    public interface a<D> {
+        void a(lk4<D> lk4Var);
+
+        void b(lk4<D> lk4Var, D d);
+
+        lk4<D> onCreateLoader(int i, Bundle bundle);
+    }
+
+    public fk4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, layoutInflater, gk4Var) == null) {
-            if (gk4Var != null) {
-                aVar = new ek4.a(gk4Var);
-            } else {
-                aVar = null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            layoutInflater.setFactory2(aVar);
         }
     }
 }

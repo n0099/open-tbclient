@@ -215,7 +215,7 @@ public class Utils {
         }
         String str = map.get("User-Agent");
         if (TextUtils.isEmpty(str)) {
-            str = "dumedia/7.41.94.23";
+            str = "dumedia/7.41.99.35";
         } else if (str.indexOf(YalogWrap.YALOG_SPACE) == -1) {
             str = str + " dumedia/" + SDKVersion.VERSION;
         }

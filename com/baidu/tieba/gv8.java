@@ -1,51 +1,56 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.log.DefaultLog;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.tieba.log.TbLog;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
-@Service
 /* loaded from: classes6.dex */
-public final class gv8 implements w95 {
+public class gv8 extends tm8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947807488, "Lcom/baidu/tieba/gv8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947807488, "Lcom/baidu/tieba/gv8;");
+                return;
+            }
+        }
+        a = BdUniqueId.gen().getId();
+    }
 
     public gv8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.w95
-    public void parseJson(JSONObject json) {
+    @Override // com.baidu.tieba.tm8
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, json) == null) {
-            Intrinsics.checkNotNullParameter(json, "json");
-            try {
-                JSONArray jSONArray = new JSONObject(json.optString("funny_sprite_config")).getJSONArray("funny_sprite_waiting_content");
-                hv8.a().clear();
-                int length = jSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    hv8.a().add(jSONArray.getString(i));
-                }
-            } catch (Exception e) {
-                TbLog defaultLog = DefaultLog.getInstance();
-                defaultLog.e("sendSpriteMsg", "情感词数据解析失败" + e.getMessage());
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return a;
         }
+        return invokeV.intValue;
     }
 }

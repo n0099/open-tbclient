@@ -3,7 +3,7 @@ package com.google.android.material.transition.platform;
 import android.transition.Transition;
 import androidx.annotation.RequiresApi;
 @RequiresApi(21)
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class TransitionListenerAdapter implements Transition.TransitionListener {
     @Override // android.transition.Transition.TransitionListener
     public void onTransitionCancel(Transition transition) {

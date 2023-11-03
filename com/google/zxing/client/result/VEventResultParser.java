@@ -3,7 +3,7 @@ package com.google.zxing.client.result;
 import com.baidu.browser.sailor.BdSailorConfig;
 import com.google.zxing.Result;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class VEventResultParser extends ResultParser {
     public static String matchSingleVCardPrefixedField(CharSequence charSequence, String str, boolean z) {
         List<String> matchSingleVCardPrefixedField = VCardResultParser.matchSingleVCardPrefixedField(charSequence, str, z, false);

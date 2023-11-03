@@ -22,8 +22,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jd;
-import com.baidu.tieba.vca;
+import com.baidu.tieba.aqa;
+import com.baidu.tieba.zd;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -162,7 +162,7 @@ public class BdToast {
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
             Toast toast = new Toast(this.mContext);
             this.mToast = toast;
-            jd.a(toast);
+            zd.a(toast);
             updateStaticToast();
             setToastIcon();
             if (this.mBackgroundColor != 0) {
@@ -231,7 +231,7 @@ public class BdToast {
             }
             this.mLeftIconView.l(this.mLeftIconUrl);
             this.mLeftIconView.setVisibility(0);
-            EMManager.from(this.mRootView).setCorner(R.string.J_X06).setBackGroundRealColor(vca.a(SkinManager.getColor(R.color.CAM_X0611), 0.8f));
+            EMManager.from(this.mRootView).setCorner(R.string.J_X06).setBackGroundRealColor(aqa.a(SkinManager.getColor(R.color.CAM_X0611), 0.8f));
             int dimens = BdUtilHelper.getDimens(this.mContext, R.dimen.tbds6);
             int dimens2 = BdUtilHelper.getDimens(this.mContext, R.dimen.tbds23);
             int dimens3 = BdUtilHelper.getDimens(this.mContext, R.dimen.M_W_X007);

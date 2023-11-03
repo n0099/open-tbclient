@@ -1,50 +1,35 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PersonalMsgImageActivityConfig;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.data.StatisticInfoField;
-import com.baidu.tieba.ih5;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.util.HashMap;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class dc8 extends BdAsyncTask<String, Integer, String> {
+public class dc8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public NetWork a;
-    public String b;
-    public String c;
-    public long d;
-    public long e;
-    public String f;
-    public Context g;
-    public boolean h;
-    public HashMap<String, Boolean> i;
+    public TbPageContext a;
+    public List<bi> b;
+    public ui c;
+    public cc8 d;
+    public hc8 e;
+    public bc8 f;
+    public fc8 g;
+    public ec8 h;
+    public gc8 i;
+    public ic8 j;
 
-    public dc8(@NonNull Context context, @NonNull String str, long j, @Nullable String str2, long j2, boolean z) {
+    public dc8(TbPageContext tbPageContext, ui uiVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Long.valueOf(j), str2, Long.valueOf(j2), Boolean.valueOf(z)};
+            Object[] objArr = {tbPageContext, uiVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -54,121 +39,81 @@ public class dc8 extends BdAsyncTask<String, Integer, String> {
                 return;
             }
         }
-        this.i = new HashMap<>();
-        this.g = context;
-        this.b = str;
-        this.e = j;
-        this.f = str2;
-        this.d = j2;
-        this.h = z;
+        this.a = tbPageContext;
+        this.c = uiVar;
+        a();
     }
 
-    public final void b() {
+    public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.i.containsKey(this.c) && this.i.get(this.c).booleanValue()) {
-                BdUtilHelper.showToast(TbadkCoreApplication.getInst(), (int) R.string.save_emotion_duplicate);
-            } else if (this.c == null) {
-            } else {
-                if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-                    ih5.b bVar = new ih5.b();
-                    bVar.c = this.c;
-                    String str = this.b;
-                    bVar.a = str;
-                    bVar.b = str;
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004610, bVar));
-                    return;
+            this.b = new ArrayList();
+            cc8 cc8Var = new cc8(this.a);
+            this.d = cc8Var;
+            cc8Var.y(this.c);
+            this.b.add(this.d);
+            hc8 hc8Var = new hc8(this.a);
+            this.e = hc8Var;
+            hc8Var.y(this.c);
+            this.b.add(this.e);
+            bc8 bc8Var = new bc8(this.a);
+            this.f = bc8Var;
+            bc8Var.y(this.c);
+            this.b.add(this.f);
+            fc8 fc8Var = new fc8(this.a);
+            this.g = fc8Var;
+            fc8Var.y(this.c);
+            this.b.add(this.g);
+            ec8 ec8Var = new ec8(this.a);
+            this.h = ec8Var;
+            ec8Var.y(this.c);
+            this.b.add(this.h);
+            gc8 gc8Var = new gc8(this.a);
+            this.i = gc8Var;
+            gc8Var.y(this.c);
+            this.b.add(this.i);
+            ic8 ic8Var = new ic8(this.a);
+            this.j = ic8Var;
+            ic8Var.y(this.c);
+            this.b.add(this.j);
+            this.c.addAdapters(this.b);
+        }
+    }
+
+    public void b() {
+        ui uiVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (uiVar = this.c) != null) {
+            uiVar.getListAdapter().notifyDataSetChanged();
+        }
+    }
+
+    public void c(List<oi> list) {
+        ui uiVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && (uiVar = this.c) != null) {
+            uiVar.setData(list);
+            b();
+        }
+    }
+
+    public void d(vu4 vu4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, vu4Var) == null) {
+            for (bi biVar : this.b) {
+                if (biVar instanceof ac8) {
+                    ((ac8) biVar).x(vu4Var);
                 }
-                Intent intent = new Intent(ih5.a);
-                intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
-                intent.putExtra(ih5.b, this.b);
-                intent.putExtra(ih5.c, this.b);
-                intent.putExtra(ih5.d, this.c);
-                TbadkCoreApplication.getInst().sendBroadcast(intent);
             }
         }
     }
 
-    public final void c(String str) {
+    public void e(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            try {
-                this.c = new JSONObject(str).getString("pid");
-            } catch (Exception e) {
-                BdLog.detailException(e);
+        if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
+            for (bi biVar : this.b) {
+                biVar.setPageId(bdUniqueId);
             }
-        }
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            NetWork netWork = this.a;
-            if (netWork != null) {
-                netWork.cancelNetConnect();
-            }
-            this.c = null;
-            super.cancel(true);
-        }
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPreExecute() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.onPreExecute();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public String doInBackground(String... strArr) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, strArr)) == null) {
-            NetWork netWork = new NetWork(TbConfig.URL_REQUEST_PID);
-            this.a = netWork;
-            String str = null;
-            try {
-                netWork.addPostData("pic_url", this.b);
-                str = this.a.postMultiNetData();
-                if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    c(str);
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPostExecute(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            super.onPostExecute((dc8) str);
-            if (this.h) {
-                b();
-                vb8.a(2, 1, this.e, this.d);
-                return;
-            }
-            PersonalMsgImageActivityConfig personalMsgImageActivityConfig = new PersonalMsgImageActivityConfig(this.g, this.b, TbadkCoreApplication.getCurrentAccountId(), "");
-            StatisticInfoField statisticInfoField = new StatisticInfoField();
-            String str2 = this.f;
-            if (str2 != null) {
-                statisticInfoField.setForumName(str2);
-            }
-            statisticInfoField.setForumId(String.valueOf(this.e));
-            statisticInfoField.setChatRoomId(String.valueOf(this.d));
-            personalMsgImageActivityConfig.setStatisticInfoFild(statisticInfoField);
-            personalMsgImageActivityConfig.setFrom(1);
-            personalMsgImageActivityConfig.setPid(this.c);
-            personalMsgImageActivityConfig.isFromGroupChat(true);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, personalMsgImageActivityConfig));
-            vb8.a(1, 2, this.e, this.d);
         }
     }
 }

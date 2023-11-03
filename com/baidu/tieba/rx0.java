@@ -1,104 +1,211 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.rotation.NadSensorAbsHelper;
+import android.os.Build;
+import android.text.TextUtils;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.t11;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
 /* loaded from: classes8.dex */
-public final class rx0 extends NadSensorAbsHelper {
+public class rx0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static int b;
+    public static final int c;
     public transient /* synthetic */ FieldHolder $fh;
-    public float g;
-    public int h;
 
-    @Override // com.baidu.nadcore.rotation.NadSensorAbsHelper
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rx0(Context context, px0 listener) {
-        super(context, listener);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, listener};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (px0) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948136863, "Lcom/baidu/tieba/rx0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948136863, "Lcom/baidu/tieba/rx0;");
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(context, "context");
-        Intrinsics.checkNotNullParameter(listener, "listener");
-        this.g = 1.0f;
+        a = op0.f();
+        b = -1;
+        c = h31.a(15.0f);
     }
 
-    @Override // com.baidu.nadcore.rotation.NadSensorAbsHelper
-    public int d() {
-        InterceptResult invokeV;
+    public static int a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int c = c().c();
-            if (c >= 0 && 66 >= c) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            String c2 = i21.c();
+            if (TextUtils.equals(c2, "EMUI") && b(context)) {
                 return 1;
             }
-            if ((67 <= c && 199 >= c) || c < 200) {
-                return 2;
+            if (TextUtils.equals(c2, "MIUI") && e(context)) {
+                return 1;
             }
-            return 3;
+            if (TextUtils.equals(c2, "OPPO") && c(context)) {
+                return 1;
+            }
+            if ((TextUtils.equals(c2, "VIVO") && d(context)) || "ONEPLUS A6000".equals(Build.MODEL)) {
+                return 1;
+            }
+            return 0;
         }
-        return invokeV.intValue;
+        return invokeL.intValue;
     }
 
-    @Override // com.baidu.nadcore.rotation.NadSensorAbsHelper
-    public void i(SensorEvent sensorEvent) {
-        Sensor sensor;
+    @SuppressLint({"PrivateApi"})
+    public static boolean d(@NonNull Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sensorEvent) == null) && sensorEvent != null && (sensor = sensorEvent.sensor) != null && sensor.getType() == 1) {
-            float[] fArr = sensorEvent.values;
-            float f = fArr[0];
-            if (Math.pow(f, 2.0d) + Math.pow(fArr[1], 2.0d) + Math.pow(fArr[2], 2.0d) < Math.pow(c().b(), 2.0d)) {
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            try {
+                Class<?> loadClass = context.getClassLoader().loadClass("android.util.FtFeature");
+                return ((Boolean) loadClass.getMethod("isFeatureSupport", Integer.TYPE).invoke(loadClass, 32)).booleanValue();
+            } catch (Exception e) {
+                if (!a) {
+                    return false;
+                }
+                e.printStackTrace();
+                return false;
             }
-            if (this.g * f >= 0) {
-                this.g = f;
-                return;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @SuppressLint({"PrivateApi"})
+    public static boolean e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            try {
+                Class<?> loadClass = context.getClassLoader().loadClass(CountryCodeBean.ANDRIOD_SYSTEMPROP);
+                if (((Integer) loadClass.getMethod("getInt", String.class, Integer.TYPE).invoke(loadClass, "ro.miui.notch", 0)).intValue() != 1) {
+                    return false;
+                }
+                return true;
+            } catch (Exception e) {
+                if (!a) {
+                    return false;
+                }
+                e.printStackTrace();
+                return false;
             }
-            this.g = f;
-            int i = this.h + 1;
-            this.h = i;
-            if (i >= c().a()) {
-                b().h();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean g(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            if (a) {
+                gg0.e("VideoNotchUtils", "isNotch start");
             }
+            if (b == -1) {
+                if (Build.VERSION.SDK_INT < 24) {
+                    b = 0;
+                } else if (b == -1) {
+                    b = a(context);
+                    gg0.e("VideoNotchUtils", "isNotch from getNotchState");
+                }
+            }
+            if (a) {
+                gg0.e("VideoNotchUtils", "isNotch end");
+            }
+            if (b != 1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean b(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            try {
+                Class<?> loadClass = context.getClassLoader().loadClass("com.huawei.android.util.HwNotchSizeUtil");
+                return ((Boolean) loadClass.getMethod("hasNotchInScreen", new Class[0]).invoke(loadClass, new Object[0])).booleanValue();
+            } catch (Exception e) {
+                if (!a) {
+                    return false;
+                }
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean c(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            return context.getPackageManager().hasSystemFeature("com.oppo.feature.screen.heteromorphism");
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void h(@NonNull iv0 iv0Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65544, null, iv0Var) == null) && iv0Var.getContentView() != null && (iv0Var.getContentView() instanceof ViewGroup)) {
+            ViewGroup viewGroup = (ViewGroup) iv0Var.getContentView();
+            viewGroup.setPadding(0, 0, 0, 0);
+            viewGroup.setLayoutParams(viewGroup.getLayoutParams());
         }
     }
 
-    @Override // com.baidu.nadcore.rotation.NadSensorAbsHelper
-    public void o() {
+    public static void i(@NonNull iv0 iv0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.o();
-            this.h = 0;
-            this.g = 1.0f;
+        if ((interceptable == null || interceptable.invokeL(65545, null, iv0Var) == null) && g(gf0.b())) {
+            h(iv0Var);
+        }
+    }
+
+    public static void k(@NonNull iv0 iv0Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65547, null, iv0Var) == null) && g(gf0.b())) {
+            j(iv0Var, t11.c.g(), t11.c.g());
+        }
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            String[] strArr = {"RLI-AN00", "RLI-N29", "TAH-AN00", "TAH-N29", "TAH-AN00m", "RHA-AN00m"};
+            if ("HUAWEI".equalsIgnoreCase(Build.MANUFACTURER)) {
+                for (int i = 0; i < 6; i++) {
+                    if (strArr[i].equalsIgnoreCase(Build.MODEL)) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void j(@NonNull iv0 iv0Var, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(65546, null, iv0Var, i, i2) == null) {
+            int max = Math.max(i, c);
+            int max2 = Math.max(i2, c);
+            if (iv0Var.getContentView() != null && (iv0Var.getContentView() instanceof ViewGroup)) {
+                ViewGroup viewGroup = (ViewGroup) iv0Var.getContentView();
+                viewGroup.setPadding(max, 0, max2, 0);
+                viewGroup.setLayoutParams(viewGroup.getLayoutParams());
+            }
         }
     }
 }

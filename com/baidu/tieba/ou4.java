@@ -1,72 +1,130 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
-import com.baidu.tbadk.core.util.resourceLoaderProc.BigImageLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.BigdayImageLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.EmotionShareLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.FixedNinePatchLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.FlutterLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.ImageLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.LocalFileDrawableLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.LocalFileImageLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.LocalFileImageLoaderProc2;
-import com.baidu.tbadk.core.util.resourceLoaderProc.LocalPicDrawableLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.LocalVideoThumbLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.MemeLoaderProc2;
-import com.baidu.tbadk.core.util.resourceLoaderProc.NinePatchLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.PortraitBlurLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.PortraitLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.SimpleBlurLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.SimpleForeverLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.SimpleForeverMemoryLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.SimpleLoaderProc;
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.webkit.WebView;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdActivityStack;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.HashMap;
+import java.util.Iterator;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class ou4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a() {
+    public static Context a(WebView webView) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            BdResourceLoader.getInstance().registerLoaderProc(10, new SimpleLoaderProc(true, true, false, 10));
-            BdResourceLoader.getInstance().registerLoaderProc(11, new SimpleLoaderProc(false, true, false, 10));
-            BdResourceLoader.getInstance().registerLoaderProc(42, new SimpleLoaderProc(true, false, false, 10));
-            BdResourceLoader.getInstance().registerLoaderProc(13, new SimpleLoaderProc(true, true, false, 13));
-            BdResourceLoader.getInstance().registerLoaderProc(14, new SimpleLoaderProc(false, true, false, 13));
-            BdResourceLoader.getInstance().registerLoaderProc(17, new SimpleLoaderProc(true, true, false, 17));
-            BdResourceLoader.getInstance().registerLoaderProc(18, new SimpleLoaderProc(false, true, false, 17));
-            BdResourceLoader.getInstance().registerLoaderProc(39, new SimpleBlurLoaderProc(true, 39));
-            BdResourceLoader.getInstance().registerLoaderProc(12, new PortraitLoaderProc(false, false, 12));
-            BdResourceLoader.getInstance().registerLoaderProc(26, new PortraitLoaderProc(true, false, 26));
-            BdResourceLoader.getInstance().registerLoaderProc(28, new PortraitLoaderProc(false, false, 26));
-            BdResourceLoader.getInstance().registerLoaderProc(40, new PortraitBlurLoaderProc(false, false, 40));
-            BdResourceLoader.getInstance().registerLoaderProc(19, new NinePatchLoaderProc(19));
-            BdResourceLoader.getInstance().registerLoaderProc(59, new FixedNinePatchLoaderProc(59));
-            BdResourceLoader.getInstance().registerLoaderProc(24, new LocalPicDrawableLoaderProc(24));
-            BdResourceLoader.getInstance().registerLoaderProc(25, new PortraitLoaderProc(false, true, 26));
-            BdResourceLoader.getInstance().registerLoaderProc(27, new BigImageLoaderProc(27));
-            BdResourceLoader.getInstance().registerLoaderProc(29, new SimpleForeverLoaderProc(true, 29));
-            BdResourceLoader.getInstance().registerLoaderProc(32, new LocalFileDrawableLoaderProc(32));
-            BdResourceLoader.getInstance().registerLoaderProc(23, new l65());
-            BdResourceLoader.getInstance().registerLoaderProc(33, new MemeLoaderProc2());
-            BdResourceLoader.getInstance().registerLoaderProc(34, new EmotionShareLoaderProc());
-            BdResourceLoader.getInstance().registerLoaderProc(35, new LocalFileImageLoaderProc(160, 160));
-            BdResourceLoader.getInstance().registerLoaderProc(36, new LocalFileImageLoaderProc());
-            BdResourceLoader.getInstance().registerLoaderProc(43, new LocalFileImageLoaderProc2());
-            BdResourceLoader.getInstance().registerLoaderProc(37, new LocalVideoThumbLoaderProc());
-            BdResourceLoader.getInstance().registerLoaderProc(38, new ImageLoaderProc());
-            BdResourceLoader.getInstance().registerLoaderProc(41, new BigdayImageLoaderProc());
-            BdResourceLoader.getInstance().registerLoaderProc(44, new FlutterLoaderProc(true, 44, false));
-            BdResourceLoader.getInstance().registerLoaderProc(15, new SimpleLoaderProc(false, true, true, 15));
-            BdResourceLoader.getInstance().registerLoaderProc(16, new SimpleLoaderProc(false, true, true, 16));
-            BdResourceLoader.getInstance().registerLoaderProc(21, new SimpleLoaderProc(false, true, true, 21));
-            BdResourceLoader.getInstance().registerLoaderProc(30, new SimpleLoaderProc(true, true, false, 30));
-            BdResourceLoader.getInstance().registerLoaderProc(31, new SimpleLoaderProc(false, true, false, 30));
-            BdResourceLoader.getInstance().registerLoaderProc(45, new SimpleForeverMemoryLoaderProc(true, true, true, 45));
-            BdResourceLoader.getInstance().registerLoaderProc(46, new SimpleLoaderProc(true, true, false, 46));
-            BdResourceLoader.getInstance().registerLoaderProc(47, new SimpleLoaderProc(false, true, false, 46));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, webView)) == null) {
+            if (webView == null) {
+                return BdActivityStack.getInst().currentActivity();
+            }
+            Activity a = ri6.a(webView.getContext());
+            if (a == null) {
+                a = TbadkCoreApplication.getInst().getCurrentActivity();
+            }
+            if (a == null) {
+                a = BdActivityStack.getInst().currentActivity();
+            }
+            if (a == null) {
+                return webView.getContext();
+            }
+            return a;
         }
+        return (Context) invokeL.objValue;
+    }
+
+    public static String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            try {
+                if (!TextUtils.isEmpty(str) && str.startsWith(yr4.a)) {
+                    Uri parse = Uri.parse(str);
+                    if (parse == null) {
+                        return str;
+                    }
+                    String queryParameter = parse.getQueryParameter("url");
+                    if (!TextUtils.isEmpty(queryParameter)) {
+                        return queryParameter;
+                    }
+                }
+            } catch (Exception unused) {
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static Bitmap b(Bitmap bitmap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bitmap)) == null) {
+            if (bitmap == null) {
+                return Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888);
+            }
+            return bitmap;
+        }
+        return (Bitmap) invokeL.objValue;
+    }
+
+    public static boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            try {
+                new JSONObject(str);
+                return true;
+            } catch (JSONException unused) {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    @NonNull
+    public static HashMap<String, Boolean> e(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
+            JSONObject optJSONObject = jSONObject.optJSONObject("blockList");
+            HashMap<String, Boolean> hashMap = new HashMap<>();
+            if (optJSONObject != null) {
+                Iterator<String> keys = optJSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    if (next != null) {
+                        Object opt = optJSONObject.opt(next);
+                        if (opt instanceof String) {
+                            hashMap.put(next, Boolean.valueOf("1".equals(opt)));
+                        } else {
+                            hashMap.put(next, Boolean.FALSE);
+                        }
+                    }
+                }
+            }
+            return hashMap;
+        }
+        return (HashMap) invokeL.objValue;
+    }
+
+    @NonNull
+    public static String f(@NonNull JSONObject jSONObject, @NonNull String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, jSONObject, str)) == null) {
+            return jSONObject.optString(str);
+        }
+        return (String) invokeLL.objValue;
     }
 }

@@ -2,7 +2,7 @@ package com.googlecode.mp4parser.h264.model;
 
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ScalingMatrix {
     public ScalingList[] ScalingList4x4;
     public ScalingList[] ScalingList8x8;

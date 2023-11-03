@@ -1,122 +1,97 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.PbGoodsData;
-import com.baidu.tbadk.core.data.PbLinkData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.data.CardLinkInfoData;
+import android.content.Context;
+import androidx.annotation.WorkerThread;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.List;
+import java.io.InputStream;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.Charsets;
 /* loaded from: classes7.dex */
-public class ps5 {
+public final class ps5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public List<kk6> b;
 
-    /* loaded from: classes7.dex */
-    public class a implements Comparator<kk6> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(ps5 ps5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ps5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948072631, "Lcom/baidu/tieba/ps5;")) == null) {
+            return;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(kk6 kk6Var, kk6 kk6Var2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, kk6Var, kk6Var2)) == null) {
-                return kk6Var.sort() - kk6Var2.sort();
-            }
-            return invokeLL.intValue;
-        }
-    }
-
-    public ps5() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.b = new LinkedList();
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948072631, "Lcom/baidu/tieba/ps5;");
+        }
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public List<kk6> a(List<PbLinkData> list, List<PbGoodsData> list2) {
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:12:0x0031 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:0x000f */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0042  */
+    /* JADX WARN: Type inference failed for: r4v0, types: [android.content.Context, java.lang.Object] */
+    /* JADX WARN: Type inference failed for: r4v1 */
+    /* JADX WARN: Type inference failed for: r4v2 */
+    /* JADX WARN: Type inference failed for: r4v3, types: [java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r4v5, types: [java.io.InputStream] */
+    @JvmStatic
+    @WorkerThread
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static final String a(Context context, String fileName) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, list, list2)) == null) {
-            return b(list, list2, null);
-        }
-        return (List) invokeLL.objValue;
-    }
-
-    public List<kk6> b(List<PbLinkData> list, List<PbGoodsData> list2, List<CardLinkInfoData> list3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, list2, list3)) == null) {
-            if (!ListUtils.isEmpty(list)) {
-                for (int i = 0; i < list.size(); i++) {
-                    PbLinkData pbLinkData = list.get(i);
-                    if (pbLinkData.urlType == 2 && !this.a) {
-                        this.a = true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, fileName)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(fileName, "fileName");
+            InputStream inputStream = null;
+            try {
+                try {
+                    context = context.getAssets().open(fileName);
+                    try {
+                        byte[] bArr = new byte[context.available()];
+                        context.read(bArr);
+                        String str = new String(bArr, Charsets.UTF_8);
+                        if (context != 0) {
+                            context.close();
+                        }
+                        return str;
+                    } catch (Exception e) {
+                        e = e;
+                        BdLog.e(e);
+                        if (context == 0) {
+                            return null;
+                        }
+                        context.close();
+                        return null;
                     }
-                    this.b.add(pbLinkData);
+                } catch (Throwable th) {
+                    th = th;
+                    inputStream = context;
+                    if (inputStream != null) {
+                        inputStream.close();
+                    }
+                    throw th;
                 }
-            }
-            if (!ListUtils.isEmpty(list2)) {
-                this.a = true;
-                for (int i2 = 0; i2 < list2.size(); i2++) {
-                    this.b.add(list2.get(i2));
+            } catch (Exception e2) {
+                e = e2;
+                context = 0;
+            } catch (Throwable th2) {
+                th = th2;
+                if (inputStream != null) {
                 }
+                throw th;
             }
-            if (!ListUtils.isEmpty(list3)) {
-                this.a = false;
-                for (int i3 = 0; i3 < list3.size(); i3++) {
-                    this.b.add(list3.get(i3));
-                }
-            }
-            Collections.sort(this.b, new a(this));
-            return this.b;
+        } else {
+            return (String) invokeLL.objValue;
         }
-        return (List) invokeLLL.objValue;
     }
 }

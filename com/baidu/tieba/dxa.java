@@ -1,108 +1,61 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.write.util.PhotoType;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.nio.BufferUnderflowException;
-import java.nio.MappedByteBuffer;
-import java.nio.channels.FileChannel;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedList;
 /* loaded from: classes5.dex */
-public class dxa {
+public class dxa implements rva {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public fxa a;
+    public exa b;
+    public MainTabActivity c;
+    public lua d;
 
-    /* JADX WARN: Not initialized variable reg: 1, insn: 0x0072: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r1 I:??[OBJECT, ARRAY]), block:B:47:0x0072 */
-    /* JADX WARN: Removed duplicated region for block: B:58:0x0075 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:19:0x0044 -> B:61:0x0070). Please submit an issue!!! */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static PhotoType a(String str) {
-        InterceptResult invokeL;
-        RandomAccessFile randomAccessFile;
-        RandomAccessFile randomAccessFile2;
+    public dxa(@NonNull MainTabActivity mainTabActivity, @NonNull lua luaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            PhotoType photoType = null;
-            photoType = null;
-            photoType = null;
-            photoType = null;
-            photoType = null;
-            photoType = null;
-            photoType = null;
-            photoType = null;
-            photoType = null;
-            photoType = null;
-            photoType = null;
-            RandomAccessFile randomAccessFile3 = null;
-            try {
-                try {
-                    try {
-                        randomAccessFile = new RandomAccessFile(str, "r");
-                        try {
-                            MappedByteBuffer map = randomAccessFile.getChannel().map(FileChannel.MapMode.READ_ONLY, 0L, randomAccessFile.length());
-                            if (map != null && map.getInt() == -1991225785 && map.getInt(4) == 218765834 && map.getInt(37) == 1633899596) {
-                                photoType = PhotoType.APNG;
-                            }
-                            randomAccessFile.close();
-                        } catch (FileNotFoundException e) {
-                            e = e;
-                            e.printStackTrace();
-                            if (randomAccessFile != null) {
-                                randomAccessFile.close();
-                            }
-                            return photoType;
-                        } catch (IOException e2) {
-                            e = e2;
-                            e.printStackTrace();
-                            if (randomAccessFile != null) {
-                                randomAccessFile.close();
-                            }
-                            return photoType;
-                        } catch (BufferUnderflowException e3) {
-                            e = e3;
-                            e.printStackTrace();
-                            if (randomAccessFile != null) {
-                                randomAccessFile.close();
-                            }
-                            return photoType;
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                        randomAccessFile3 = randomAccessFile2;
-                        if (randomAccessFile3 != null) {
-                            try {
-                                randomAccessFile3.close();
-                            } catch (IOException e4) {
-                                e4.printStackTrace();
-                            }
-                        }
-                        throw th;
-                    }
-                } catch (FileNotFoundException e5) {
-                    e = e5;
-                    randomAccessFile = null;
-                } catch (IOException e6) {
-                    e = e6;
-                    randomAccessFile = null;
-                } catch (BufferUnderflowException e7) {
-                    e = e7;
-                    randomAccessFile = null;
-                } catch (Throwable th2) {
-                    th = th2;
-                    if (randomAccessFile3 != null) {
-                    }
-                    throw th;
-                }
-            } catch (IOException e8) {
-                e8.printStackTrace();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, luaVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return photoType;
         }
-        return (PhotoType) invokeL.objValue;
+        this.c = mainTabActivity;
+        this.d = luaVar;
+        this.a = new fxa(mainTabActivity.getPageContext(), luaVar, mainTabActivity, false);
+    }
+
+    @Override // com.baidu.tieba.rva
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LinkedList linkedList = new LinkedList();
+            linkedList.add(this.a);
+            p05.g(linkedList);
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LinkedList linkedList = new LinkedList();
+            linkedList.add(this.a);
+            exa exaVar = new exa(this.c, this.d, "source_from_theme");
+            this.b = exaVar;
+            linkedList.add(exaVar);
+            p05.g(linkedList);
+        }
     }
 }

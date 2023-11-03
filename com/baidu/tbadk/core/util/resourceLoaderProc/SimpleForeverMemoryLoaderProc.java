@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util.resourceLoaderProc;
 import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
-import com.baidu.tieba.ab;
+import com.baidu.tieba.qb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,7 +37,7 @@ public class SimpleForeverMemoryLoaderProc extends SimpleLoaderProc {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.cb
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.sb
     public BdImage getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         boolean z2;
@@ -51,14 +51,14 @@ public class SimpleForeverMemoryLoaderProc extends SimpleLoaderProc {
                 } else {
                     z2 = false;
                 }
-                ab.i(z2, System.currentTimeMillis() - currentTimeMillis);
+                qb.i(z2, System.currentTimeMillis() - currentTimeMillis);
             }
             return F;
         }
         return (BdImage) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.cb
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.sb
     public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && (obj instanceof BdImage)) {
@@ -67,8 +67,8 @@ public class SimpleForeverMemoryLoaderProc extends SimpleLoaderProc {
                 long currentTimeMillis = System.currentTimeMillis();
                 bdImage.setRequestWidth(i);
                 bdImage.setRequestHeight(i2);
-                TbImageMemoryCache.B().n(str, bdImage);
-                ab.k(true, System.currentTimeMillis() - currentTimeMillis);
+                TbImageMemoryCache.B().m(str, bdImage);
+                qb.k(true, System.currentTimeMillis() - currentTimeMillis);
             }
         }
     }

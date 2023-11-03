@@ -1,52 +1,76 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.mvc.data.IResponseData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire.Message;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONObject;
+import tbclient.ItemManage.DataRes;
+import tbclient.ManageInfo;
 /* loaded from: classes6.dex */
-public class gv6 implements ul5 {
+public class gv6 implements IResponseData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
+    public List<xu6> a;
+    public List<xu6> b;
+    public Integer c;
 
-    public gv6(String str, int i) {
+    @Override // com.baidu.tbadk.mvc.data.IResponseData
+    public void initByJson(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+        }
+    }
+
+    @Override // com.baidu.tbadk.mvc.data.IResponseData
+    public void initByProtobuf(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, message) == null) {
+        }
+    }
+
+    public gv6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        this.b = i;
+        this.a = new ArrayList();
+        this.b = new ArrayList();
+        this.c = 0;
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public void a(gv6 gv6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeL(1048576, this, gv6Var) == null) {
+            this.a.addAll(gv6Var.a);
+            this.b = gv6Var.b;
+            this.c = gv6Var.c;
         }
-        return invokeV.intValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public void b(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) {
+            for (ManageInfo manageInfo : dataRes.manage_list) {
+                this.a.add(xu6.c(manageInfo));
+            }
+            for (ManageInfo manageInfo2 : dataRes.manage_recomm_list) {
+                this.b.add(xu6.c(manageInfo2));
+            }
+            this.c = dataRes.has_more;
         }
-        return (String) invokeV.objValue;
     }
 }

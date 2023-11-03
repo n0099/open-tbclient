@@ -62,7 +62,7 @@ public class UpdateInfoService extends BdBaseService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
                 BdLog.i("location_errorCode&errorCode=" + i + "&errorMsg" + str);
-                this.a.mModel.S(600000L);
+                this.a.mModel.T(600000L);
             }
         }
 
@@ -77,7 +77,7 @@ public class UpdateInfoService extends BdBaseService {
                 } else if (i >= 32400) {
                     i = 32400;
                 }
-                this.a.mModel.S(i * 1000);
+                this.a.mModel.T(i * 1000);
             }
         }
     }
@@ -115,9 +115,9 @@ public class UpdateInfoService extends BdBaseService {
                 LocationCacheData.getInstance().setLongitude(String.valueOf(longitude));
                 LocationCacheData.getInstance().setLatitude(String.valueOf(latitude));
                 LocationCacheData.getInstance().setSaveTime(System.currentTimeMillis());
-                if (this.a.mModel.O() && TbadkCoreApplication.getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                    this.a.mModel.Q(1, longitude, latitude);
-                    this.a.mModel.R();
+                if (this.a.mModel.P() && TbadkCoreApplication.getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                    this.a.mModel.R(1, longitude, latitude);
+                    this.a.mModel.S();
                 }
             }
         }
@@ -160,9 +160,9 @@ public class UpdateInfoService extends BdBaseService {
             super.onCreate();
             ReportUserInfoModel reportUserInfoModel = new ReportUserInfoModel(null);
             this.mModel = reportUserInfoModel;
-            reportUserInfoModel.P();
-            this.mModel.S(540000L);
-            this.mModel.T(new a(this));
+            reportUserInfoModel.Q();
+            this.mModel.T(540000L);
+            this.mModel.U(new a(this));
         }
     }
 
@@ -181,7 +181,7 @@ public class UpdateInfoService extends BdBaseService {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, intent, i) == null) {
             super.onStart(intent, i);
-            if (this.mModel.O()) {
+            if (this.mModel.P()) {
                 findLocationFromLocal();
             }
         }

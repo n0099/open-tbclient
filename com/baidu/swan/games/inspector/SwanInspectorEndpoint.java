@@ -9,9 +9,9 @@ import com.baidu.searchbox.websocket.WebSocketManager;
 import com.baidu.searchbox.websocket.WebSocketRequest;
 import com.baidu.searchbox.websocket.WebSocketTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.am1;
-import com.baidu.tieba.d24;
-import com.baidu.tieba.xc2;
+import com.baidu.tieba.od2;
+import com.baidu.tieba.rm1;
+import com.baidu.tieba.u24;
 import java.nio.ByteBuffer;
 import java.util.Map;
 import java.util.UUID;
@@ -20,17 +20,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class SwanInspectorEndpoint {
-    public static final boolean t = am1.a;
+    public static final boolean t = rm1.a;
     public static SwanInspectorEndpoint u = new SwanInspectorEndpoint();
     public String a;
     public String c;
     public String d;
-    public d24.a g;
+    public u24.a g;
     public Runnable i;
     public ConnectionState j;
     public ConnectionState k;
     public Throwable l;
-    public xc2 m;
+    public od2 m;
     public int n;
     public WebSocketTask o;
     public int p;
@@ -262,11 +262,11 @@ public class SwanInspectorEndpoint {
         p(false);
     }
 
-    public final void t(xc2 xc2Var) throws Exception {
+    public final void t(od2 od2Var) throws Exception {
         this.k = ConnectionState.CONNECTING;
-        if (this.n != xc2Var.hashCode()) {
-            this.m = xc2Var;
-            this.n = xc2Var.hashCode();
+        if (this.n != od2Var.hashCode()) {
+            this.m = od2Var;
+            this.n = od2Var.hashCode();
             c cVar = new c();
             this.s = cVar;
             this.r = this.m.p0(cVar);
@@ -276,7 +276,7 @@ public class SwanInspectorEndpoint {
         throw new Exception("Can not use the previous connected v8Engine.");
     }
 
-    public void w(d24.a aVar) {
+    public void w(u24.a aVar) {
         this.g = aVar;
     }
 
@@ -314,16 +314,16 @@ public class SwanInspectorEndpoint {
         }
     }
 
-    public void r(d24 d24Var, xc2 xc2Var, d24.a aVar, Runnable runnable) {
+    public void r(u24 u24Var, od2 od2Var, u24.a aVar, Runnable runnable) {
         p(false);
         w(aVar);
         try {
-            t(xc2Var);
-            if (d24Var.d()) {
+            t(od2Var);
+            if (u24Var.d()) {
                 this.i = runnable;
-                s(d24Var);
+                s(u24Var);
             } else {
-                s(d24Var);
+                s(u24Var);
                 runnable.run();
             }
         } catch (Exception e) {
@@ -334,11 +334,11 @@ public class SwanInspectorEndpoint {
         }
     }
 
-    public final void s(d24 d24Var) {
+    public final void s(u24 u24Var) {
         this.j = ConnectionState.CONNECTING;
-        this.c = d24Var.a();
-        this.f = d24Var.b();
-        this.e = d24Var.d();
+        this.c = u24Var.a();
+        this.f = u24Var.b();
+        this.e = u24Var.d();
         this.d = "ws://" + this.c + "/inspect/inspectorTarget/" + this.a;
         if (t) {
             Log.i("SwanInspector", "Starting inspector to " + this.d);
@@ -357,9 +357,9 @@ public class SwanInspectorEndpoint {
         String string3;
         StringBuilder sb = new StringBuilder();
         long currentTimeMillis = System.currentTimeMillis();
-        d24.a aVar = this.g;
+        u24.a aVar = this.g;
         if (aVar == null) {
-            aVar = d24.a.c();
+            aVar = u24.a.c();
         }
         sb.append(aVar.a());
         sb.append("\n");

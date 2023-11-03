@@ -9,7 +9,7 @@ import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaElement;
 import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaField;
 import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaMethod;
 import kotlin.reflect.jvm.internal.impl.name.FqName;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface JavaResolverCache {
     public static final JavaResolverCache EMPTY = new JavaResolverCache() { // from class: kotlin.reflect.jvm.internal.impl.load.java.components.JavaResolverCache.1
         public static /* synthetic */ void $$$reportNull$$$0(int i) {

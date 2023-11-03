@@ -1,13 +1,15 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.http.HttpManager;
-import com.baidu.searchbox.http.callback.StringResponseCallback;
-import com.baidu.searchbox.unitedscheme.SchemeConfig;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.core.container.NgWebView;
+import com.baidu.tieba.r53;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,29 +17,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.Response;
-import org.json.JSONException;
-import org.json.JSONObject;
+@Service
 /* loaded from: classes8.dex */
-public class rr3 {
+public class rr3 implements as1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
+    public tl3 a;
+
+    @Override // com.baidu.tieba.as1
+    public void d(String str, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, context) == null) {
+        }
+    }
 
     /* loaded from: classes8.dex */
-    public static class a extends StringResponseCallback {
+    public class a implements r53.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Response a;
+        public final /* synthetic */ SwanAppActivity a;
         public final /* synthetic */ String b;
 
-        public a(String str) {
+        public a(rr3 rr3Var, SwanAppActivity swanAppActivity, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str};
+                Object[] objArr = {rr3Var, swanAppActivity, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,55 +53,52 @@ public class rr3 {
                     return;
                 }
             }
+            this.a = swanAppActivity;
             this.b = str;
         }
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
+        @Override // com.baidu.tieba.r53.a
+        public void a(r53 r53Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                rr3.d("get launch scheme fail: network err with exception: " + exc.getMessage(), this.b, "", true);
+            if (interceptable == null || interceptable.invokeL(1048576, this, r53Var) == null) {
+                fu2.d(r53Var.c(), this.a, this.b);
             }
         }
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(String str, int i) {
+    /* loaded from: classes8.dex */
+    public class b extends dj2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SwanAppActivity a;
+        public final /* synthetic */ rr3 b;
+
+        public b(rr3 rr3Var, SwanAppActivity swanAppActivity) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
-                if (rr3.a) {
-                    Log.d("SwanAppExchanger", "startLaunchAction onSuccess result: " + str);
-                    Log.d("SwanAppExchanger", "startLaunchAction onSuccess status: " + i);
-                }
-                if (i == 200) {
-                    try {
-                        sr3.a(new JSONObject(str).optString("data"));
-                        return;
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                        rr3.d("get launch scheme fail: " + e.getMessage(), this.b, str, false);
-                        return;
-                    }
-                }
-                String f = rr3.f(this.a);
-                if (!TextUtils.isEmpty(f)) {
-                    sr3.a(f);
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rr3Var, swanAppActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                rr3.d("get launch scheme fail: request fail with code " + i, this.b, str, true);
             }
+            this.b = rr3Var;
+            this.a = swanAppActivity;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.StringResponseCallback, com.baidu.searchbox.http.callback.ResponseCallback
-        public String parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
+        @Override // com.baidu.tieba.dj2, com.baidu.tieba.ej2
+        public void b() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
-                this.a = response;
-                return super.parseResponse(response, i);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.a.j();
+                this.a.G0(this);
             }
-            return (String) invokeLI.objValue;
         }
     }
 
@@ -112,47 +115,113 @@ public class rr3 {
                 return;
             }
         }
-        a = am1.a;
-        b = SchemeConfig.getSchemeHead() + "://";
+        boolean z = rm1.a;
     }
 
-    public static void d(String str, String str2, String str3, boolean z) {
+    public rr3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, str3, Boolean.valueOf(z)}) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.as1
+    public void a(NgWebView ngWebView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ngWebView) == null) {
+            ngWebView.doSelectionCancel();
+        }
+    }
+
+    @Override // com.baidu.tieba.as1
+    public void b(NgWebView ngWebView, String str) {
+        SwanAppActivity w;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ngWebView, str) == null) && (w = f63.K().w()) != null && !TextUtils.isEmpty(str)) {
+            this.a = new tl3(ngWebView.covertToView());
+            int[] g = g(w);
+            int[] h = h(w);
+            for (int i = 0; i < g.length; i++) {
+                this.a.e(g[i], h[i]);
+            }
+            this.a.r(new a(this, w, str));
+            this.a.t();
+            w.u0(new b(this, w));
+        }
+    }
+
+    @Override // com.baidu.tieba.as1
+    public void c(NgWebView ngWebView, int i, int i2, int i3, int i4, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{ngWebView, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, Boolean.valueOf(z)}) == null) {
+            ngWebView.updateAndShowPopupWindow(i3, i4, i, i2, str, true);
             if (z) {
-                h53.g(AppRuntime.getAppContext(), "打开失败，请检查网络设置").G();
-            }
-            ih3 ih3Var = new ih3();
-            ih3Var.k(1L);
-            ih3Var.i(12L);
-            ih3Var.f(str);
-            mh3.a().f(ih3Var);
-            if (a) {
-                Log.w("SwanAppExchanger", "open aiapp fail, url : " + str2);
+                i("show", null, null);
             }
         }
     }
 
-    public static void e(String str) {
+    @Override // com.baidu.tieba.as1
+    public void e(String str, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            HttpManager.getDefault(AppRuntime.getAppContext()).getRequest().setHeader("Swan-Accept", "swan/json").userAgent(oh3.a()).url(str).build().executeAsyncOnUIBack(new a(str));
+        if ((interceptable != null && interceptable.invokeLL(1048580, this, str, context) != null) || TextUtils.isEmpty(str)) {
+            return;
         }
+        bk3.b(context).c(str);
+        i("click", CommandUBCHelper.COMMAND_UBC_TYPE_COPY, null);
     }
 
-    public static String f(Response response) {
+    public int[] g(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, response)) == null) {
-            if (response == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
+            int[] iArr = {7, 6, 8};
+            if (!ij3.a(context, "android.permission.SET_WALLPAPER")) {
+                int[] iArr2 = new int[2];
+                System.arraycopy(iArr, 0, iArr2, 0, 2);
+                return iArr2;
             }
-            String header = response.header("Location");
-            if (TextUtils.isEmpty(header) || !header.startsWith("baiduboxapp://")) {
-                return null;
-            }
-            return header.replace("baiduboxapp://", b);
+            return iArr;
         }
-        return (String) invokeL.objValue;
+        return (int[]) invokeL.objValue;
+    }
+
+    public int[] h(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
+            int[] iArr = {R.string.obfuscated_res_0x7f0f14f7, R.string.obfuscated_res_0x7f0f14f9, R.string.obfuscated_res_0x7f0f14fd};
+            if (!ij3.a(context, "android.permission.SET_WALLPAPER")) {
+                int[] iArr2 = new int[2];
+                System.arraycopy(iArr, 0, iArr2, 0, 2);
+                return iArr2;
+            }
+            return iArr;
+        }
+        return (int[]) invokeL.objValue;
+    }
+
+    public void i(@NonNull String str, @Nullable String str2, @Nullable String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048583, this, str, str2, str3) == null) {
+            id3 id3Var = new id3();
+            id3Var.a = "tool";
+            id3Var.f = f63.K().getAppId();
+            id3Var.c = "miniapp";
+            id3Var.g = "text";
+            id3Var.b = str;
+            id3Var.e = str2;
+            if (!TextUtils.isEmpty(str3)) {
+                id3Var.a("query", str3);
+            }
+            zc3.x("810", id3Var);
+        }
     }
 }

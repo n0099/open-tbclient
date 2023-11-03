@@ -1,161 +1,70 @@
 package com.baidu.tieba;
 
+import android.graphics.PointF;
+import android.graphics.RectF;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 /* loaded from: classes5.dex */
-public final class cs6 {
+public final class cs6 extends wr6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a f;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public float b;
-    public boolean c;
-    public float d;
-    public long e;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947685379, "Lcom/baidu/tieba/cs6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947685379, "Lcom/baidu/tieba/cs6;");
-                return;
-            }
-        }
-        f = new a(null);
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final long b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return System.nanoTime();
-            }
-            return invokeV.longValue;
-        }
-    }
+    public boolean b;
+    public PointF c;
 
     public cs6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = 1.0f;
-        this.c = true;
+        this.c = new PointF();
+        new RectF();
     }
 
-    public final long a() {
+    public final PointF c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e / 1000000;
+            return this.c;
         }
-        return invokeV.longValue;
+        return (PointF) invokeV.objValue;
     }
 
-    public final float b() {
+    public final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return invokeV.floatValue;
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+            return this.b;
         }
         return invokeV.booleanValue;
     }
 
-    public static /* synthetic */ void f(cs6 cs6Var, long j, float f2, int i, Object obj) {
-        if ((i & 1) != 0) {
-            j = cs6Var.a();
-        }
-        if ((i & 2) != 0) {
-            f2 = cs6Var.b;
-        }
-        cs6Var.e(j, f2);
-    }
-
-    public final void d(boolean z) {
+    @Override // com.baidu.tieba.wr6, com.baidu.tieba.s3.a
+    public void reset() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.c = z;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.reset();
+            this.b = false;
+            this.c = new PointF();
+            new RectF();
         }
     }
 
-    public final void e(long j, float f2) {
+    public final void e(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Float.valueOf(f2)}) == null) {
-            this.c = false;
-            this.e = j * 1000000;
-            this.b = f2;
-            this.a = f.b();
-        }
-    }
-
-    public final void g(Float f2) {
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, f2) == null) {
-            long b = f.b();
-            if (this.c) {
-                j = 0;
-            } else if (f2 != null) {
-                j = f2.floatValue() * 1000000000;
-            } else {
-                j = b - this.a;
-            }
-            long j2 = ((float) j) * this.b;
-            this.e += j2;
-            this.d = ((float) j2) / 1.0E9f;
-            this.a = b;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.b = z;
         }
     }
 }

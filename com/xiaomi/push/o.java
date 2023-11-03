@@ -72,7 +72,7 @@ public class o {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m723a(String str, String str2, String str3) {
+    public synchronized void m727a(String str, String str2, String str3) {
         b(str, str2, str3);
         this.f824a.post(new p(this, str, str2, str3));
     }

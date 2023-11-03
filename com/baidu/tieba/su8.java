@@ -1,107 +1,137 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
+import com.baidu.tieba.im.lib.socket.msg.TbTextGenImageMsg;
+import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
+import com.baidu.tieba.im.lib.socket.msg.data.BotsDTO;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public final class su8 extends pu8<bv8> implements h77<su8> {
+public class su8 extends xm8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String d;
     public boolean e;
 
-    public su8 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this : (su8) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public su8(av8<bv8> data, String templateName) {
-        super(data);
+    public su8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {data, templateName};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((av8) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(data, "data");
-        Intrinsics.checkNotNullParameter(templateName, "templateName");
-        this.d = templateName;
+        this.e = true;
     }
 
-    @Override // com.baidu.tieba.h77
-    public String a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.um8
+    public boolean a(int i, boolean z, Object obj) {
+        InterceptResult invokeCommon;
+        boolean z2;
+        boolean z3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), obj})) == null) {
+            um8 um8Var = this.c;
+            if (um8Var != null) {
+                z2 = um8Var.a(i, z, obj);
+            } else {
+                z2 = true;
+            }
+            for (int i2 = 0; i2 < this.a.size(); i2++) {
+                tm8 tm8Var = this.a.get(i2);
+                if (tm8Var instanceof iv8) {
+                    iv8 iv8Var = (iv8) tm8Var;
+                    if (iv8Var.d() && i != i2) {
+                        iv8Var.e(false);
+                        i(i2);
+                    } else {
+                        if (i == i2) {
+                            z3 = true;
+                        } else {
+                            z3 = false;
+                        }
+                        iv8Var.e(z3);
+                    }
+                }
+            }
+            return z2;
         }
-        return (String) invokeV.objValue;
+        return invokeCommon.booleanValue;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.h77
-    public /* bridge */ /* synthetic */ su8 b() {
-        i();
-        return this;
-    }
-
-    public final boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.pu8
-    public boolean f(pu8<?> other) {
+    @Override // com.baidu.tieba.xm8
+    public List<tm8> j(List list) {
         InterceptResult invokeL;
-        su8 su8Var;
-        boolean z;
+        List<BotsDTO.BotListDTO.SkillDTO> list2;
+        ym8 ym8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, other)) == null) {
-            Intrinsics.checkNotNullParameter(other, "other");
-            if (super.f(other)) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            int i = 0;
+            while (true) {
+                boolean z = true;
+                if (i < list.size()) {
+                    Object obj = list.get(i);
+                    if (obj instanceof BotsDTO.BotListDTO.SkillDTO.ItemsDTO) {
+                        BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO = (BotsDTO.BotListDTO.SkillDTO.ItemsDTO) obj;
+                        if (itemsDTO.getItemType() == 1) {
+                            ym8Var = new zm8(itemsDTO);
+                        } else {
+                            ym8 ym8Var2 = new ym8(itemsDTO);
+                            int i2 = this.d;
+                            if (i2 > -1) {
+                                if (i != i2) {
+                                    z = false;
+                                }
+                                ym8Var2.n(z);
+                            }
+                            ym8Var = ym8Var2;
+                        }
+                        arrayList.add(ym8Var);
+                    } else if (obj instanceof BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO) {
+                        iv8 iv8Var = new iv8((BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO) obj);
+                        int i3 = this.d;
+                        if (i3 > -1) {
+                            if (i != i3) {
+                                z = false;
+                            }
+                            iv8Var.e(z);
+                        }
+                        arrayList.add(iv8Var);
+                    } else if (obj instanceof TbBaseMsg) {
+                        TbTextGenImageMsg tbTextGenImageMsg = (TbTextGenImageMsg) obj;
+                        if (tbTextGenImageMsg.getSubSkillConfig() != null && (list2 = tbTextGenImageMsg.getSubSkillConfig().a) != null && !list2.isEmpty()) {
+                            if (this.e) {
+                                arrayList.add(new gv8());
+                                this.e = false;
+                            }
+                            for (BotsDTO.BotListDTO.SkillDTO skillDTO : list2) {
+                                hv8 hv8Var = new hv8(skillDTO);
+                                hv8Var.e(tbTextGenImageMsg);
+                                arrayList.add(hv8Var);
+                            }
+                        }
+                    } else if (obj instanceof AbilityItem) {
+                        arrayList.add(new jv8((AbilityItem) obj));
+                    }
+                    i++;
+                } else {
+                    this.e = true;
+                    return arrayList;
+                }
             }
-            if (other instanceof su8) {
-                su8Var = (su8) other;
-            } else {
-                su8Var = null;
-            }
-            if (su8Var != null && this.e == su8Var.e) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (!z) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.e = z;
+        } else {
+            return (List) invokeL.objValue;
         }
     }
 }

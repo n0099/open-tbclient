@@ -1,63 +1,60 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.SpannableStringBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes8.dex */
+import tbclient.FeedContentResource;
+import tbclient.TitleComponent;
+/* loaded from: classes9.dex */
 public final class y87 {
     public static /* synthetic */ Interceptable $ic;
-    public static final y87 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948284113, "Lcom/baidu/tieba/y87;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948284113, "Lcom/baidu/tieba/y87;");
-                return;
-            }
-        }
-        a = new y87();
-    }
-
-    public y87() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public final int a(String resName) {
+    public static final j57 a(d57 businessInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, resName)) == null) {
-            Intrinsics.checkNotNullParameter(resName, "resName");
-            try {
-                return q07.a.getResources().getIdentifier(resName, EMABTest.TYPE_STRING, q07.a.getPackageName());
-            } catch (Exception e) {
-                BdLog.e(e);
-                return 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            String str = "";
+            if (Intrinsics.areEqual(businessInfo.a().get("update_read_status"), "1")) {
+                String str2 = businessInfo.a().get("thread_id");
+                if (str2 != null) {
+                    str = str2;
+                }
+                if (il6.k(str)) {
+                    return new j57(2, str);
+                }
+                return new j57(1, str);
+            }
+            return new j57(0, "");
+        }
+        return (j57) invokeL.objValue;
+    }
+
+    public static final void b(TitleComponent titleComponent, List<za7<?>> dataList, SpannableStringBuilder titleBuilder, z57 feedExtraData, boolean z) {
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{titleComponent, dataList, titleBuilder, feedExtraData, Boolean.valueOf(z)}) == null) {
+            Intrinsics.checkNotNullParameter(titleComponent, "<this>");
+            Intrinsics.checkNotNullParameter(dataList, "dataList");
+            Intrinsics.checkNotNullParameter(titleBuilder, "titleBuilder");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            g47 g47Var = new g47(titleBuilder, z, a(feedExtraData.a()));
+            List<FeedContentResource> list = titleComponent.data;
+            if (list != null) {
+                x87.a(list, titleBuilder, feedExtraData, g47Var);
+            }
+            if (titleBuilder.length() > 0) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            if (z2) {
+                dataList.add(new ab7(g47Var, "title"));
             }
         }
-        return invokeL.intValue;
     }
 }

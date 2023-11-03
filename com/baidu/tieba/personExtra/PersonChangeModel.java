@@ -97,11 +97,11 @@ public class PersonChangeModel extends BdBaseModel {
                 }
                 if (z) {
                     ProfileSocketResponseMessage profileSocketResponseMessage = (ProfileSocketResponseMessage) responsedMessage;
-                    this.a.Q(profileSocketResponseMessage.getNicknameInfo(), profileSocketResponseMessage.GetUser());
+                    this.a.R(profileSocketResponseMessage.getNicknameInfo(), profileSocketResponseMessage.GetUser());
                 }
                 if (responsedMessage instanceof ProfileHttpResponseMessage) {
                     ProfileHttpResponseMessage profileHttpResponseMessage = (ProfileHttpResponseMessage) responsedMessage;
-                    this.a.Q(profileHttpResponseMessage.getNicknameInfo(), profileHttpResponseMessage.GetUser());
+                    this.a.R(profileHttpResponseMessage.getNicknameInfo(), profileHttpResponseMessage.GetUser());
                 }
                 if (this.a.b != null) {
                     this.a.b.b();
@@ -139,14 +139,14 @@ public class PersonChangeModel extends BdBaseModel {
         registerListener(this.c);
     }
 
-    public void S(b bVar) {
+    public void T(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
             this.b = bVar;
         }
     }
 
-    public boolean P() {
+    public boolean Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -162,7 +162,7 @@ public class PersonChangeModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public final void Q(NicknameInfo nicknameInfo, User user) {
+    public final void R(NicknameInfo nicknameInfo, User user) {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nicknameInfo, user) == null) {
@@ -217,7 +217,7 @@ public class PersonChangeModel extends BdBaseModel {
         }
     }
 
-    public PersonChangeData R() {
+    public PersonChangeData S() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -232,7 +232,7 @@ public class PersonChangeModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                this.b.a(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e4f));
+                this.b.a(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e61));
                 return false;
             } else if (TbadkCoreApplication.getCurrentAccount() == null) {
                 return false;

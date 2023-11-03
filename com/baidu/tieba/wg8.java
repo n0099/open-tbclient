@@ -1,61 +1,82 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.AdapterViewHolder;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.homepage.tabfeed.view.NearbyForumFriendCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class wg8 {
+public class wg8 extends bi<im9, AdapterViewHolder<NearbyForumFriendCardView>> {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile wg8 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public TbPageContext a;
+    public AdapterViewHolder<NearbyForumFriendCardView> b;
 
-    public wg8() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wg8(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), im9.d);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = tbPageContext;
     }
 
-    public static wg8 a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: t */
+    public AdapterViewHolder<NearbyForumFriendCardView> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (wg8.class) {
-                    if (b == null) {
-                        b = new wg8();
-                    }
-                }
-            }
-            return b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            AdapterViewHolder<NearbyForumFriendCardView> adapterViewHolder = new AdapterViewHolder<>(new NearbyForumFriendCardView(this.a.getPageActivity()));
+            this.b = adapterViewHolder;
+            return adapterViewHolder;
         }
-        return (wg8) invokeV.objValue;
+        return (AdapterViewHolder) invokeL.objValue;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public void x(boolean z) {
+        AdapterViewHolder<NearbyForumFriendCardView> adapterViewHolder;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && (adapterViewHolder = this.b) != null) {
+            adapterViewHolder.a().setNeedCompleteProfile(z);
         }
-        return invokeV.booleanValue;
     }
 
-    public void c(boolean z) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, im9 im9Var, AdapterViewHolder<NearbyForumFriendCardView> adapterViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.a = z;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, im9Var, adapterViewHolder})) == null) {
+            NearbyForumFriendCardView a = adapterViewHolder.a();
+            a.onBindDataToView(im9Var);
+            a.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
+            return adapterViewHolder.getView();
         }
+        return (View) invokeCommon.objValue;
     }
 }

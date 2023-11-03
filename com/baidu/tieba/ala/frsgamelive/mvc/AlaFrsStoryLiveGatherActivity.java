@@ -27,10 +27,10 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsStoryLiveGatherModel;
-import com.baidu.tieba.l45;
-import com.baidu.tieba.l96;
-import com.baidu.tieba.n96;
-import com.baidu.tieba.s56;
+import com.baidu.tieba.f55;
+import com.baidu.tieba.gb6;
+import com.baidu.tieba.ib6;
+import com.baidu.tieba.m76;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,15 +44,15 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
     public View a;
     public NavigationBar b;
     public TextView c;
-    public l96 d;
+    public gb6 d;
     public AlaFrsStoryLiveGatherModel e;
     public String f;
     public String g;
     public AlaFrsStoryLiveGatherModel.b h;
-    public s56 i;
-    public l45.g j;
+    public m76 i;
+    public f55.g j;
     public BdListView.p k;
-    public n96 l;
+    public ib6 l;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -154,7 +154,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
                     alaFrsStoryLiveGatherActivity.hideLoadingView(alaFrsStoryLiveGatherActivity.d.g());
                     this.a.d.e();
                 }
-                if (ListUtils.getCount(this.a.e.b0()) > 0 && this.a.d != null) {
+                if (ListUtils.getCount(this.a.e.c0()) > 0 && this.a.d != null) {
                     this.a.showToast(str);
                     return;
                 }
@@ -172,9 +172,9 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
                 AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity = this.a;
                 alaFrsStoryLiveGatherActivity.hideLoadingView(alaFrsStoryLiveGatherActivity.d.g());
                 this.a.d.e();
-                this.a.d.t(this.a.e.b0(), this.a.e.h0(), z);
-                this.a.d.o(this.a.e.c0());
-                if (ListUtils.getCount(this.a.e.b0()) == 0) {
+                this.a.d.t(this.a.e.c0(), this.a.e.i0(), z);
+                this.a.d.o(this.a.e.d0());
+                if (ListUtils.getCount(this.a.e.c0()) == 0) {
                     AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity2 = this.a;
                     alaFrsStoryLiveGatherActivity2.setNetRefreshViewTopMargin(alaFrsStoryLiveGatherActivity2.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07037a));
                     AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity3 = this.a;
@@ -188,7 +188,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
     }
 
     /* loaded from: classes5.dex */
-    public class d implements s56 {
+    public class d implements m76 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaFrsStoryLiveGatherActivity a;
@@ -211,18 +211,18 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             this.a = alaFrsStoryLiveGatherActivity;
         }
 
-        @Override // com.baidu.tieba.s56
+        @Override // com.baidu.tieba.m76
         public void a(ThreadData threadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) {
                 AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity = this.a;
-                alaFrsStoryLiveGatherActivity.R0(alaFrsStoryLiveGatherActivity.getPageContext(), threadData);
+                alaFrsStoryLiveGatherActivity.N0(alaFrsStoryLiveGatherActivity.getPageContext(), threadData);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class e implements l45.g {
+    public class e implements f55.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaFrsStoryLiveGatherActivity a;
@@ -245,11 +245,11 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             this.a = alaFrsStoryLiveGatherActivity;
         }
 
-        @Override // com.baidu.tieba.l45.g
+        @Override // com.baidu.tieba.f55.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && this.a.e != null) {
-                this.a.e.j0();
+                this.a.e.k0();
             }
         }
     }
@@ -284,7 +284,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (this.a.e != null) {
-                    z = this.a.e.i0();
+                    z = this.a.e.j0();
                 } else {
                     z = false;
                 }
@@ -300,7 +300,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
     }
 
     /* loaded from: classes5.dex */
-    public class g implements n96 {
+    public class g implements ib6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaFrsStoryLiveGatherActivity a;
@@ -323,10 +323,10 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             this.a = alaFrsStoryLiveGatherActivity;
         }
 
-        @Override // com.baidu.tieba.n96
+        @Override // com.baidu.tieba.ib6
         public void a(int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && this.a.e != null && this.a.e.e0() != i) {
+            if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && this.a.e != null && this.a.e.f0() != i) {
                 this.a.e.setSortType(i);
                 if (this.a.d != null) {
                     this.a.d.f().E();
@@ -355,7 +355,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
         this.l = new g(this);
     }
 
-    public final AlaLiveInfoCoreData T0(ThreadData threadData) {
+    public final AlaLiveInfoCoreData Q0(ThreadData threadData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, threadData)) == null) {
@@ -367,18 +367,18 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
         return (AlaLiveInfoCoreData) invokeL.objValue;
     }
 
-    public final void Q0() {
+    public final void M0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             AlaFrsStoryLiveGatherModel alaFrsStoryLiveGatherModel = new AlaFrsStoryLiveGatherModel(getPageContext());
             this.e = alaFrsStoryLiveGatherModel;
-            alaFrsStoryLiveGatherModel.k0(this.h);
+            alaFrsStoryLiveGatherModel.l0(this.h);
             this.e.setForumId(this.f);
-            this.e.j0();
+            this.e.k0();
         }
     }
 
-    public void R0(TbPageContext<?> tbPageContext, ThreadData threadData) {
+    public void N0(TbPageContext<?> tbPageContext, ThreadData threadData) {
         String str;
         boolean z;
         Interceptable interceptable = $ic;
@@ -397,14 +397,14 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             alaLiveInfoCoreData.fillWithInfoData(threadData.getThreadAlaInfo());
             AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
             alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
-            for (ThreadData threadData2 : this.e.d0()) {
-                alaLiveInfoListCoreData.mLiveInfoList.add(T0(threadData2));
+            for (ThreadData threadData2 : this.e.e0()) {
+                alaLiveInfoListCoreData.mLiveInfoList.add(Q0(threadData2));
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(tbPageContext.getPageActivity(), alaLiveInfoCoreData, alaLiveInfoListCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_SQUARE_SUB_LIVE, str, z, null, null)));
         }
     }
 
-    public final View S0() {
+    public final View O0() {
         InterceptResult invokeV;
         String string;
         Interceptable interceptable = $ic;
@@ -431,9 +431,9 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             this.b.setCenterTextTitle(string);
             linearLayout.addView(this.b, new LinearLayout.LayoutParams(-1, -2));
             SkinManager.setBackgroundColor(this.b.getBottomLine(), R.color.CAM_X0204);
-            l96 l96Var = new l96(getPageContext(), false, false, getUniqueId());
-            this.d = l96Var;
-            l96Var.j();
+            gb6 gb6Var = new gb6(getPageContext(), false, false, getUniqueId());
+            this.d = gb6Var;
+            gb6Var.j();
             this.d.p(1);
             this.d.q(this.i);
             this.d.s(this.j);
@@ -464,9 +464,9 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             if (textView != null) {
                 SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0106);
             }
-            l96 l96Var = this.d;
-            if (l96Var != null) {
-                l96Var.l(TbadkCoreApplication.getInst().getSkinType());
+            gb6 gb6Var = this.d;
+            if (gb6Var != null) {
+                gb6Var.l(TbadkCoreApplication.getInst().getSkinType());
             }
         }
     }
@@ -489,8 +489,8 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             if (StringUtils.isNull(this.f)) {
                 finish();
             }
-            setContentView(S0());
-            Q0();
+            setContentView(O0());
+            M0();
         }
     }
 }

@@ -1,133 +1,54 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class o22 {
+public final class o22 extends t12 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final Map<String, vr1> b;
     public transient /* synthetic */ FieldHolder $fh;
+    public int D;
+    public String E;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947980282, "Lcom/baidu/tieba/o22;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947980282, "Lcom/baidu/tieba/o22;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public o22() {
+        super("coverView", "viewId");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], (String) objArr[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = am1.a;
-        b = new HashMap(2);
+        this.E = "";
     }
 
-    public static void d() {
+    @Override // com.baidu.tieba.t12, com.baidu.tieba.v12, com.baidu.tieba.x12, com.baidu.tieba.fw2
+    public void a(JSONObject jSONObject) throws JSONException {
+        JSONObject jSONObject2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) && c()) {
-            b();
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-    }
-
-    public static vr1 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a) {
-                Log.d("ConsoleCache", "create new sConsole");
-            }
-            p22.n(true);
-            return jc2.V().g0().b(AppRuntime.getAppContext());
+        super.a(jSONObject);
+        this.D = jSONObject.optInt("scrollTop");
+        JSONObject jSONObject3 = this.j;
+        if (jSONObject3 != null) {
+            this.E = jSONObject3.optString("overflowY");
         }
-        return (vr1) invokeV.objValue;
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            p53 c0 = p53.c0();
-            if (c0 != null && !TextUtils.isEmpty(c0.b)) {
-                return n22.b(sx1.a(c0.b));
-            }
-            if (a) {
-                Log.w("ConsoleCache", "swanApp is null or appId is empty");
-                return false;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:15:0x002d A[Catch: all -> 0x006f, TryCatch #0 {, blocks: (B:6:0x0007, B:8:0x000d, B:11:0x0018, B:13:0x001f, B:15:0x002d, B:17:0x003d, B:18:0x0053, B:20:0x0057), top: B:30:0x0007 }] */
-    /* JADX WARN: Removed duplicated region for block: B:20:0x0057 A[Catch: all -> 0x006f, TRY_LEAVE, TryCatch #0 {, blocks: (B:6:0x0007, B:8:0x000d, B:11:0x0018, B:13:0x001f, B:15:0x002d, B:17:0x003d, B:18:0x0053, B:20:0x0057), top: B:30:0x0007 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static synchronized vr1 b() {
-        InterceptResult invokeV;
-        String str;
-        vr1 vr1Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (o22.class) {
-                p53 c0 = p53.c0();
-                if (c0 != null && !TextUtils.isEmpty(c0.getAppId())) {
-                    str = c0.getAppId();
-                    String a2 = sx1.a(str);
-                    vr1Var = b.get(a2);
-                    if (vr1Var == null) {
-                        e();
-                        vr1Var = a();
-                        b.put(a2, vr1Var);
-                        if (a) {
-                            Log.d("ConsoleCache", "can not find sconsole for appId - " + str);
-                        }
-                    }
-                    if (a) {
-                        Log.d("ConsoleCache", "get sconsole for appId - " + str);
-                    }
-                }
-                str = "_no_id_";
-                String a22 = sx1.a(str);
-                vr1Var = b.get(a22);
-                if (vr1Var == null) {
-                }
-                if (a) {
-                }
-            }
-            return vr1Var;
-        }
-        return (vr1) invokeV.objValue;
-    }
-
-    public static synchronized void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            synchronized (o22.class) {
-                if (b.size() > 0) {
-                    for (String str : b.keySet()) {
-                        vr1 vr1Var = b.get(str);
-                        if (vr1Var != null) {
-                            vr1Var.C();
-                        }
-                    }
-                    b.clear();
-                }
-            }
+        mw2 mw2Var = this.h;
+        if (mw2Var != null && (jSONObject2 = this.j) != null) {
+            mw2Var.i(jSONObject2.optBoolean("fixed", false));
         }
     }
 }

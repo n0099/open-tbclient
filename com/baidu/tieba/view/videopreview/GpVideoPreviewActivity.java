@@ -18,9 +18,9 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.play.VideoControllerView;
-import com.baidu.tieba.rv9;
 import com.baidu.tieba.video.CustomVideoView;
 import com.baidu.tieba.view.VideoFullscreenButton;
+import com.baidu.tieba.w8a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -37,7 +37,7 @@ public class GpVideoPreviewActivity extends BaseActivity<GpVideoPreviewActivity>
     public int e;
     public View.OnClickListener f;
     public boolean g;
-    public rv9 h;
+    public w8a h;
     public TbImageView i;
     public TBLottieAnimationView j;
 
@@ -117,7 +117,7 @@ public class GpVideoPreviewActivity extends BaseActivity<GpVideoPreviewActivity>
                 if (this.a.i != null) {
                     this.a.i.setVisibility(8);
                 }
-                this.a.U0();
+                this.a.S0();
             }
         }
     }
@@ -203,7 +203,7 @@ public class GpVideoPreviewActivity extends BaseActivity<GpVideoPreviewActivity>
         }
     }
 
-    public final void U0() {
+    public final void S0() {
         TBLottieAnimationView tBLottieAnimationView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (tBLottieAnimationView = this.j) != null) {
@@ -214,14 +214,14 @@ public class GpVideoPreviewActivity extends BaseActivity<GpVideoPreviewActivity>
         }
     }
 
-    public final void V0() {
+    public final void T0() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f == null) {
             this.f = new a(this);
         }
     }
 
-    public final void Z0() {
+    public final void U0() {
         TBLottieAnimationView tBLottieAnimationView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (tBLottieAnimationView = this.j) != null) {
@@ -285,9 +285,9 @@ public class GpVideoPreviewActivity extends BaseActivity<GpVideoPreviewActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d003b);
+            setContentView(R.layout.obfuscated_res_0x7f0d003d);
             initData();
-            V0();
+            T0();
             initView();
         }
     }
@@ -303,7 +303,7 @@ public class GpVideoPreviewActivity extends BaseActivity<GpVideoPreviewActivity>
             this.c = (VideoInfo) serializableExtra;
         }
         this.g = intent.getBooleanExtra(GpVideoPreviewActivityConfig.KEY_IS_SUPPORT_FULLSCREEN, false);
-        this.h = new rv9(this);
+        this.h = new w8a(this);
     }
 
     public final void initView() {
@@ -311,10 +311,10 @@ public class GpVideoPreviewActivity extends BaseActivity<GpVideoPreviewActivity>
         TbImageView tbImageView;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091d63);
-            this.i = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091212);
-            ((ImageView) this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.f).findViewById(R.id.widget_navi_back_button)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c37));
-            this.b = (CustomVideoView) findViewById(R.id.obfuscated_res_0x7f091d65);
+            this.a = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091daa);
+            this.i = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091250);
+            ((ImageView) this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.f).findViewById(R.id.widget_navi_back_button)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c4a));
+            this.b = (CustomVideoView) findViewById(R.id.obfuscated_res_0x7f091dac);
             if (!StringUtils.isNull(this.c.getVideoPath())) {
                 this.b.setVideoPath(this.c.getVideoPath());
             }
@@ -324,16 +324,16 @@ public class GpVideoPreviewActivity extends BaseActivity<GpVideoPreviewActivity>
                 this.i.setGifIconSupport(false);
                 this.i.startLoad(this.c.getThumbPath(), 10, false);
             }
-            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f09246d);
+            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0924c4);
             this.j = tBLottieAnimationView;
             SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.lotti_video_loading);
-            Z0();
+            U0();
             this.b.setOnPreparedListener(new b(this));
             this.b.setOnCompletionListener(new c(this));
-            VideoControllerView videoControllerView = (VideoControllerView) findViewById(R.id.obfuscated_res_0x7f091d61);
+            VideoControllerView videoControllerView = (VideoControllerView) findViewById(R.id.obfuscated_res_0x7f091da8);
             this.d = videoControllerView;
             videoControllerView.setPlayer(this.b);
-            VideoFullscreenButton videoFullscreenButton = (VideoFullscreenButton) findViewById(R.id.obfuscated_res_0x7f0928a6);
+            VideoFullscreenButton videoFullscreenButton = (VideoFullscreenButton) findViewById(R.id.obfuscated_res_0x7f092905);
             if (this.g && (videoInfo = this.c) != null && videoInfo.getVideoWidth() > this.c.getVideoHeight()) {
                 videoFullscreenButton.setVisibility(0);
             } else {

@@ -1,216 +1,98 @@
 package com.baidu.tieba;
 
+import android.graphics.Bitmap;
+import android.os.Build;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewParent;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.LinearInterpolator;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AlaInfoData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.card.ala.AlaVideoContainer;
-import com.baidu.tieba.mv9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Method;
 /* loaded from: classes5.dex */
-public class dk6 implements jv9 {
+public class dk6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlaVideoContainer a;
-    public ThreadData b;
-    public AlaInfoData c;
-    public boolean d;
-    public mv9 e;
-    public mv9.b f;
 
-    @Override // com.baidu.tieba.jv9
-    public boolean isFullScreen() {
-        InterceptResult invokeV;
+    public static void a(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.jv9
-    public boolean isPlaying() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.jv9
-    public void startPlay() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if ((interceptable == null || interceptable.invokeL(65536, null, view2) == null) && view2 != null) {
+            AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
+            alphaAnimation.setDuration(800L);
+            alphaAnimation.setInterpolator(new LinearInterpolator());
+            alphaAnimation.setRepeatCount(-1);
+            alphaAnimation.setRepeatMode(2);
+            view2.startAnimation(alphaAnimation);
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class a implements mv9.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dk6 a;
-
-        public a(dk6 dk6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dk6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dk6Var;
-        }
-
-        @Override // com.baidu.tieba.mv9.b
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.b();
+    public static void c(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, view2) == null) {
+            try {
+                ViewParent parent = view2.getRootView().getParent();
+                Method declaredMethod = parent.getClass().getDeclaredMethod("handleDispatchDoneAnimating", new Class[0]);
+                declaredMethod.setAccessible(true);
+                declaredMethod.invoke(parent, new Object[0]);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
 
-    public dk6(AlaVideoContainer alaVideoContainer) {
+    public static Bitmap b(Bitmap bitmap) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {alaVideoContainer};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bitmap)) == null) {
+            if (bitmap == null) {
+                return Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888);
             }
+            return bitmap;
         }
-        this.d = false;
-        this.f = new a(this);
-        this.a = alaVideoContainer;
-        if (alaVideoContainer != null) {
-            mv9 mv9Var = new mv9();
-            this.e = mv9Var;
-            mv9Var.l(this.a.getVideoView());
-            this.e.i(this.f);
-        }
+        return (Bitmap) invokeL.objValue;
     }
 
-    public final void b() {
-        ThreadData threadData;
+    public static void d(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (threadData = this.b) == null || threadData.getThreadVideoInfo() == null) {
-        }
-    }
-
-    public void c() {
-        AlaVideoContainer alaVideoContainer;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (alaVideoContainer = this.a) != null) {
-            alaVideoContainer.q();
-        }
-    }
-
-    @Override // com.baidu.tieba.jv9
-    public int getCurrentPosition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            AlaVideoContainer alaVideoContainer = this.a;
-            if (alaVideoContainer != null && alaVideoContainer.getVideoView() != null) {
-                return this.a.getVideoView().getCurrentPositionSync();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.jv9
-    public String getPlayUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ThreadData threadData = this.b;
-            if (threadData != null && threadData.getThreadVideoInfo() != null) {
-                return this.b.getThreadVideoInfo().video_url;
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.jv9
-    public View getVideoContainer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            AlaVideoContainer alaVideoContainer = this.a;
-            if (alaVideoContainer != null) {
-                return alaVideoContainer.getView();
-            }
-            return null;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.jv9
-    public boolean isPlayStarted() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.jv9
-    public void stopPlay() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            AlaVideoContainer alaVideoContainer = this.a;
-            if (alaVideoContainer != null && alaVideoContainer.getVideoView() != null) {
-                this.a.getVideoView().stopPlayback();
-                this.a.p();
-                mv9 mv9Var = this.e;
-                if (mv9Var != null) {
-                    mv9Var.n();
-                }
-            }
-            this.d = false;
-        }
-    }
-
-    public void d(ThreadData threadData, String str, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{threadData, str, str2, Boolean.valueOf(z)}) != null) || threadData == null) {
+        if ((interceptable != null && interceptable.invokeL(65539, null, view2) != null) || view2 == null) {
             return;
         }
-        this.b = threadData;
-        if (this.a != null && threadData.getThreadAlaInfo() != null) {
-            AlaInfoData threadAlaInfo = this.b.getThreadAlaInfo();
-            this.c = threadAlaInfo;
-            this.a.setVideoThumbnail(threadAlaInfo.cover);
-            if (z) {
-                this.a.setTitle(this.b.getTitle());
-            } else {
-                this.a.setTitle("");
+        try {
+            ViewParent parent = view2.getParent();
+            if (parent instanceof ViewGroup) {
+                ((ViewGroup) parent).removeView(view2);
             }
-            this.a.setPlayCount(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.ala_audience_count_prefix), StringHelper.numFormatOverWan(this.b.getThreadAlaInfo().audience_count)));
+        } catch (Exception unused) {
+        }
+    }
+
+    public static void e(View view2) {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2) == null) && (i = Build.VERSION.SDK_INT) <= 23 && i >= 17) {
+            if (i < 17) {
+                c(view2);
+                return;
+            }
+            try {
+                ViewParent parent = view2.getRootView().getParent();
+                Method declaredMethod = parent.getClass().getDeclaredMethod("setDrawDuringWindowsAnimating", Boolean.TYPE);
+                declaredMethod.setAccessible(true);
+                declaredMethod.invoke(parent, Boolean.TRUE);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void f(@NonNull View view2, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65541, null, view2, i) == null) && view2.getVisibility() != i) {
+            view2.setVisibility(i);
         }
     }
 }

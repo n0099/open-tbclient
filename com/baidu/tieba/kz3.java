@@ -1,113 +1,77 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.v8engine.event.EventTargetImpl;
-import com.baidu.searchbox.v8engine.event.JSEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes7.dex */
-public class kz3 extends vs2 {
+public class kz3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
+    public static volatile kz3 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public EventTargetImpl d;
-    public hz3 e;
+    public List<mz3> a;
 
-    @Override // com.baidu.tieba.vs2
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947930341, "Lcom/baidu/tieba/kz3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947930341, "Lcom/baidu/tieba/kz3;");
-                return;
-            }
-        }
-        f = am1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kz3(EventTargetImpl eventTargetImpl, JSONObject jSONObject) {
-        super(null, jSONObject);
+    public kz3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {eventTargetImpl, jSONObject};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((CallbackHandler) objArr2[0], (JSONObject) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = eventTargetImpl;
+        this.a = new CopyOnWriteArrayList();
     }
 
-    @Override // com.baidu.tieba.vs2
-    public void b(String str, JSONObject jSONObject) {
-        String str2;
+    public static kz3 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
-            String optString = this.b.optString(str);
-            hz3 hz3Var = this.e;
-            if (hz3Var != null) {
-                hz3Var.p(optString, jSONObject);
-            }
-            if (!this.d.hasEventListener(optString)) {
-                return;
-            }
-            JSEvent jSEvent = new JSEvent(optString);
-            if (jSONObject != null) {
-                jSEvent.data = jSONObject;
-            }
-            if (f && !"onTimeUpdate".equals(str)) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("type = ");
-                sb.append(str);
-                sb.append("  result = ");
-                if (jSONObject != null) {
-                    str2 = jSONObject.toString();
-                } else {
-                    str2 = StringUtil.NULL_STRING;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (kz3.class) {
+                    if (b == null) {
+                        b = new kz3();
+                    }
                 }
-                sb.append(str2);
-                Log.d("AudioCallbackForV8", sb.toString());
             }
-            this.d.dispatchEvent(jSEvent);
+            return b;
+        }
+        return (kz3) invokeV.objValue;
+    }
+
+    public void a(mz3 mz3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, mz3Var) == null) && mz3Var != null && !this.a.contains(mz3Var)) {
+            this.a.add(mz3Var);
         }
     }
 
-    public void e(hz3 hz3Var) {
+    public void d(mz3 mz3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hz3Var) == null) {
-            this.e = hz3Var;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mz3Var) == null) && this.a.contains(mz3Var)) {
+            this.a.remove(mz3Var);
+        }
+    }
+
+    public void c(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+            for (mz3 mz3Var : this.a) {
+                if (i == 16) {
+                    mz3Var.c();
+                } else if (i == 17) {
+                    mz3Var.b(str);
+                }
+                d(mz3Var);
+            }
         }
     }
 }

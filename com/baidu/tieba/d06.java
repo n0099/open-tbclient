@@ -1,63 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.WeakHashMap;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import java.util.List;
 /* loaded from: classes5.dex */
-public final class d06<K, V> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final WeakHashMap<K, V> a;
+public interface d06 extends g06<i06> {
+    void a(int i);
 
-    public d06() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new WeakHashMap<>();
-    }
+    List<Integer> d();
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.clear();
-        }
-    }
+    void e(List<c06> list, String str, String str2, String str3, String str4, boolean z, int i);
 
-    public final boolean b(K k) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k)) == null) {
-            return this.a.containsKey(k);
-        }
-        return invokeL.booleanValue;
-    }
+    TypeAdapter.ViewHolder g(ViewGroup viewGroup, Object obj);
 
-    public final V c(K k) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k)) == null) {
-            return this.a.get(k);
-        }
-        return (V) invokeL.objValue;
-    }
+    void i(List<c06> list, int i);
 
-    public final void d(K k, V v) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, k, v) == null) {
-            this.a.put(k, v);
-        }
-    }
+    void k(List<Object> list);
+
+    View m(int i, View view2, ViewGroup viewGroup, Object obj);
+
+    void n(int i, ViewGroup viewGroup, TypeAdapter.ViewHolder viewHolder, Object obj);
+
+    void o(List<c06> list, List<c06> list2, boolean z, int i);
+
+    void p(String str);
 }

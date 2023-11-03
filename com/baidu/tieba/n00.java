@@ -1,41 +1,81 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.tieba.p00;
+import android.database.Cursor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Method;
+import java.io.Closeable;
+import java.util.zip.ZipFile;
 /* loaded from: classes7.dex */
 public class n00 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(Context context, p00.a aVar) {
-        InterceptResult invokeLL;
+    public static boolean a(Cursor cursor) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, aVar)) == null) {
-            if (context == null) {
-                aVar.a(false, null);
-                return null;
-            }
-            try {
-                Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
-                if (cls != null) {
-                    Object newInstance = cls.newInstance();
-                    Method method = cls.getMethod("getOAID", Context.class);
-                    method.setAccessible(true);
-                    if (newInstance != null && method != null) {
-                        String str = (String) method.invoke(newInstance, context);
-                        aVar.a(true, str);
-                        return str;
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, cursor)) == null) {
+            if (cursor != null) {
+                try {
+                    cursor.close();
+                    return true;
+                } catch (Throwable unused) {
+                    return false;
                 }
-            } catch (Throwable unused) {
-                aVar.a(false, null);
             }
-            return null;
+            return false;
         }
-        return (String) invokeLL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public static boolean b(Closeable closeable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, closeable)) == null) {
+            if (closeable != null) {
+                try {
+                    closeable.close();
+                    return true;
+                } catch (Throwable unused) {
+                    return false;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean c(Closeable closeable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, closeable)) == null) {
+            if (closeable != null) {
+                try {
+                    closeable.close();
+                    return true;
+                } catch (Throwable unused) {
+                    return false;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean d(ZipFile zipFile) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, zipFile)) == null) {
+            if (zipFile != null) {
+                try {
+                    zipFile.close();
+                    return true;
+                } catch (Throwable unused) {
+                    return false;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

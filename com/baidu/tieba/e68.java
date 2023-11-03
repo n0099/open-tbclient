@@ -1,95 +1,120 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.widget.ad.VipAdFreeGuideLayout;
+import com.baidu.tieba.ad.AbsDataRecorder;
+import com.baidu.tieba.funad.adapter.FunAdNativeViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.TopicList.DataRes;
-import tbclient.TopicList.NewTopicList;
-import tbclient.TopicList.TabList;
-import tbclient.TopicList.TopicList;
-import tbclient.TopicList.TopicListModule;
 /* loaded from: classes5.dex */
 public class e68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<i68> b;
-    public h68 c;
-    public List<x58> d;
-    public List<w58> e;
-    public List<TopicList> f;
 
-    public e68() {
+    public static boolean a(String str, String str2, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, str, str2, i)) == null) {
+            if ("personalize".equals(str) && b26.k().s(AbsDataRecorder.Scene.RECOMMEND)) {
+                return true;
+            }
+            if ("frs_new_tab".equals(str2) && b26.k().s(AbsDataRecorder.Scene.FRS_NEW)) {
+                return true;
+            }
+            if ("frs_hot_tab".equals(str2) && b26.k().s(AbsDataRecorder.Scene.FRS_HOT)) {
+                return true;
+            }
+            if ("pb".equals(str) && b26.k().r(i, AbsDataRecorder.Scene.PB)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLLI.booleanValue;
+    }
+
+    public static void b(FunAdNativeViewHolder funAdNativeViewHolder, VipAdFreeGuideLayout vipAdFreeGuideLayout, String str, String str2, int i) {
+        ViewGroup c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{funAdNativeViewHolder, vipAdFreeGuideLayout, str, str2, Integer.valueOf(i)}) == null) {
+            if (!"personalize".equals(str) && !"frs_new_tab".equals(str2) && !"frs_hot_tab".equals(str2)) {
+                if ("pb".equals(str)) {
+                    if (b26.k().m() && i == 1) {
+                        vipAdFreeGuideLayout.setBottomCornerRound(false);
+                        vipAdFreeGuideLayout.setAllCornerRound(false);
+                        if (funAdNativeViewHolder != null && funAdNativeViewHolder.d() != null && (c = funAdNativeViewHolder.d().c(null)) != null) {
+                            c.setPadding(c.getPaddingLeft(), c.getPaddingTop(), c.getPaddingRight(), 0);
+                        }
+                    } else if (vipAdFreeGuideLayout != null) {
+                        vipAdFreeGuideLayout.setBottomCornerRound(false);
+                        vipAdFreeGuideLayout.setAllCornerRound(true);
+                    }
+                }
+            } else if (vipAdFreeGuideLayout != null) {
+                vipAdFreeGuideLayout.setBottomCornerRound(true);
             }
         }
     }
 
-    public List<TopicList> a() {
-        InterceptResult invokeV;
+    public static void c(VipAdFreeGuideLayout vipAdFreeGuideLayout, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
+        if (interceptable == null || interceptable.invokeLLLL(65538, null, vipAdFreeGuideLayout, str, str2, str3) == null) {
+            if ("personalize".equals(str2)) {
+                vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.RECOMMEND, str);
+            } else if ("frs_new_tab".equals(str3)) {
+                vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.FRS_NEW, str);
+            } else if ("frs_hot_tab".equals(str3)) {
+                vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.FRS_HOT, str);
+            } else if ("pb".equals(str2)) {
+                vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.PB, str);
+            }
         }
-        return (List) invokeV.objValue;
     }
 
-    public void b(DataRes dataRes) {
-        List<TopicList> list;
-        List<TopicList> list2;
+    public static void d(FunAdNativeViewHolder funAdNativeViewHolder, VipAdFreeGuideLayout vipAdFreeGuideLayout, String str, String str2, String str3, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) != null) || dataRes == null) {
+        if ((interceptable != null && interceptable.invokeCommon(65539, null, new Object[]{funAdNativeViewHolder, vipAdFreeGuideLayout, str, str2, str3, Integer.valueOf(i)}) != null) || vipAdFreeGuideLayout == null) {
             return;
         }
-        List<TabList> list3 = dataRes.tab_list;
-        if (list3 != null && !ListUtils.isEmpty(list3)) {
-            this.b = new ArrayList();
-            for (TabList tabList : dataRes.tab_list) {
-                i68 i68Var = new i68();
-                i68Var.a(tabList);
-                this.b.add(i68Var);
+        vipAdFreeGuideLayout.setVisibility(0);
+        b(funAdNativeViewHolder, vipAdFreeGuideLayout, str2, str3, i);
+        vipAdFreeGuideLayout.f();
+        c(vipAdFreeGuideLayout, str, str2, str3);
+    }
+
+    public static void e(sra sraVar, FunAdNativeViewHolder funAdNativeViewHolder, String str, String str2, String str3, int i) {
+        int f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{sraVar, funAdNativeViewHolder, str, str2, str3, Integer.valueOf(i)}) == null) {
+            VipAdFreeGuideLayout vipAdFreeGuideLayout = funAdNativeViewHolder.d().getVipAdFreeGuideLayout();
+            if (sraVar != null && vipAdFreeGuideLayout != null) {
+                if ("personalize".equals(str2)) {
+                    f = b26.k().j(sraVar.g());
+                } else {
+                    f = sraVar.f();
+                }
+                if (f == 1) {
+                    vipAdFreeGuideLayout.setVisibility(8);
+                } else if (f == 2) {
+                    d(funAdNativeViewHolder, vipAdFreeGuideLayout, str, str2, str3, i);
+                } else if (a(str2, str3, i)) {
+                    d(funAdNativeViewHolder, vipAdFreeGuideLayout, str, str2, str3, i);
+                    b26.k().c();
+                    if ("personalize".equals(str2)) {
+                        b26.k().p(sraVar.g(), 2);
+                    } else {
+                        sraVar.q(2);
+                    }
+                } else {
+                    vipAdFreeGuideLayout.setVisibility(8);
+                    if ("personalize".equals(str2)) {
+                        b26.k().p(sraVar.g(), 1);
+                    } else {
+                        sraVar.q(1);
+                    }
+                }
             }
         }
-        if (dataRes.media_topic != null) {
-            h68 h68Var = new h68();
-            this.c = h68Var;
-            h68Var.a(dataRes.media_topic);
-        }
-        TopicListModule topicListModule = dataRes.topic_manual;
-        if (topicListModule != null && (list2 = topicListModule.topic_list) != null && list2.size() > 0) {
-            this.e = new ArrayList();
-            for (int i = 0; i < dataRes.topic_manual.topic_list.size(); i++) {
-                w58 w58Var = new w58();
-                w58Var.b(dataRes.topic_manual);
-                w58Var.a(dataRes.topic_manual.topic_list.get(i));
-                this.e.add(w58Var);
-            }
-        }
-        TopicListModule topicListModule2 = dataRes.topic_bang;
-        if (topicListModule2 != null && (list = topicListModule2.topic_list) != null && list.size() > 0) {
-            this.d = new ArrayList();
-            for (int i2 = 0; i2 < dataRes.topic_bang.topic_list.size(); i2++) {
-                x58 x58Var = new x58();
-                x58Var.b(dataRes.topic_bang);
-                x58Var.a(dataRes.topic_bang.topic_list.get(i2));
-                this.d.add(x58Var);
-            }
-        }
-        this.f = dataRes.frs_tab_topic;
-        List<NewTopicList> list4 = dataRes.topic_list;
     }
 }

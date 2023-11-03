@@ -1,302 +1,64 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.text.TextUtils;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-import com.baidu.android.imrtc.BIMRtcClient;
-import com.baidu.android.imsdk.BIMManager;
-import com.baidu.android.imsdk.account.ILoginListener;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.net.FastRequest;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.ChatPage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class o09 implements ILoginListener {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static volatile o09 e = null;
-    public static boolean f = true;
+public class o09 extends FastRequest.b<Void> {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public b b;
     @Nullable
-    public String c;
-    public BroadcastReceiver d;
+    public final String d;
+    @NonNull
+    public final ChatPage e;
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(int i, String str);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947978577, "Lcom/baidu/tieba/o09;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947978577, "Lcom/baidu/tieba/o09;");
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.net.FastRequest.b
+    /* renamed from: m */
+    public void i(@NonNull Void r5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, r5) == null) {
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class a extends BroadcastReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ o09 this$0;
-
-        /* renamed from: com.baidu.tieba.o09$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class C0410a extends gs5<Object> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public C0410a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // com.baidu.tieba.gs5
-            public Object doInBackground() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.iConnectListener -> onReceive doInBackground");
-                    this.a.this$0.e(null);
-                    return null;
-                }
-                return invokeV.objValue;
-            }
-        }
-
-        public a(o09 o09Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o09Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = o09Var;
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-                Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.iConnectListener -> onReceive context=" + context + ", intent=" + intent);
-                if (intent != null && "com.baidu.lcp.sdk.broadcast".equals(intent.getAction())) {
-                    if (intent.getIntExtra("com.baidu.lcp.sdk.connect.state", -1) == 0) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.iConnectListener -> onReceive connect=" + z);
-                    Log.d("ImSdkManager", "registerConnectListener connect ：" + intent.getIntExtra("com.baidu.lcp.sdk.connect.state", -1));
-                    t09.l(z);
-                    if (z) {
-                        t09.m("login_lcp");
-                        t09.c("login_lcp");
-                        ks5.b(new C0410a(this), null);
-                    }
-                }
-            }
-        }
-    }
-
-    public o09() {
+    public o09(@Nullable String str, @NonNull ChatPage chatPage) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, chatPage};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = new a(this);
+        this.d = str;
+        this.e = chatPage;
     }
 
-    public static o09 b() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.net.FastRequest.b
+    /* renamed from: l */
+    public void f(int i, @NonNull String str, @Nullable Void r7) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (e == null) {
-                synchronized (o09.class) {
-                    if (e == null) {
-                        e = new o09();
-                    }
-                }
-            }
-            return e;
-        }
-        return (o09) invokeV.objValue;
-    }
-
-    public static boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return vla.a(AppRuntime.getAppContext(), "IM_SDK_RD_ENV");
-        }
-        return invokeV.booleanValue;
-    }
-
-    @NonNull
-    public final String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.c)) {
-                this.c = TbadkCoreApplication.getInst().getCuidGalaxy2();
-            }
-            String str = this.c;
-            if (str == null) {
-                return "";
-            }
-            return str;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void c(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            t09.c("login_lcp");
-            t09.c("login_im");
-            Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.init context=" + context);
-            int i = 0;
-            this.a = false;
-            String version = TbConfig.getVersion();
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction("com.baidu.lcp.sdk.broadcast");
-            LocalBroadcastManager.getInstance(context).registerReceiver(this.d, intentFilter);
-            String a2 = a();
-            if (d()) {
-                Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.init debug");
-                BIMManager.init(context, 10773430L, 1, a2);
-                BIMManager.enableDebugMode(true);
-                BIMRtcClient.setRtcDebugAndLogEnable(context, true, true);
-                v40.d(context, 1);
-                v40.c(context, true);
-                x40.O(context, "");
-                i = 1;
-            } else {
-                Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.init online");
-                BIMManager.init(context, 10773430L, 0, a2);
-                BIMRtcClient.setRtcDebugAndLogEnable(context, false, false);
-            }
-            BIMManager.setProductLine(context, 3, version);
-            LogUtils.d("imlog", "BIMManager init env:" + i);
-            f(context, a2);
-        }
-    }
-
-    public void e(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.loginToIM listener=" + bVar);
-            this.b = bVar;
-            String from = TbConfig.getFrom();
-            String currentFrom = TbConfig.getCurrentFrom();
-            if (TbadkCoreApplication.isLogin()) {
-                Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.loginToIM login");
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                String currentBduss = TbadkCoreApplication.getCurrentBduss();
-                BIMManager.login(currentAccount, currentBduss, 1, from, currentFrom, this);
-                LogUtils.d("imlog", "IMSdkManager PassIsLogin loginToIM uid = " + currentAccount + ", bduss = " + currentBduss + ", from = " + from + ", cfrom = " + currentFrom);
-                return;
-            }
-            Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.loginToIM cuid");
-            String a2 = a();
-            BIMManager.login(null, a2, 6, from, currentFrom, this);
-            LogUtils.d("imlog", "IMSdkManager 匿名使用cuid登录 loginToIM , cuid = " + a2 + ", from = " + from + ", cfrom = " + currentFrom);
-        }
-    }
-
-    public final void f(Context context, String str) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, context, str) == null) {
-            Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.loginToLCP context=" + context);
-            if (f) {
-                i = 1;
-            } else {
-                i = 2;
-            }
-            f = false;
-            s30.a(context, "10773430", str, i);
-            Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.loginToLCP connect end");
-        }
-    }
-
-    @Override // com.baidu.android.imsdk.account.ILoginListener
-    public void onLoginResult(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) {
-            t09.k(0L, i, str);
-            if (i == 0) {
-                t09.m("login_im");
-                t09.c("login_im");
-            }
-            Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.onLoginResult errno=" + i + ", errMsg=" + str);
-            b bVar = this.b;
-            if (bVar != null) {
-                bVar.a(i, str);
-                this.b = null;
-            }
-        }
-    }
-
-    @Override // com.baidu.android.imsdk.account.ILoginListener
-    public void onLogoutResult(int i, String str, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
-            Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.onLogoutResult errno=" + i + ", errMsg=" + str + ", type=" + i2);
-            if (!this.a) {
-                e(null);
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, r7) == null) {
+            super.f(i, str, r7);
+            BdLog.d("error: " + i + " " + str);
+            String str2 = this.d;
+            if (str2 != null && !StringUtils.isNull(str2)) {
+                this.e.x1(this.d, false);
             }
         }
     }

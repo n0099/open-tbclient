@@ -1,42 +1,69 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import com.baidu.searchbox.v8engine.console.DebugConsole;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class n24 implements e34 {
+public class n24 implements DebugConsole {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947950553, "Lcom/baidu/tieba/n24;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947950553, "Lcom/baidu/tieba/n24;");
+                return;
+            }
+        }
+        b = rm1.a;
+    }
 
     public n24() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.e34
-    public void a(d64 d64Var, c64 c64Var) {
+    @Override // com.baidu.searchbox.v8engine.console.DebugConsole
+    public void onReceiveInfo(int i, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, d64Var, c64Var) == null) && c64Var != null) {
-            c64Var.a(d64Var, "Method 'shareVideo' is not implemented.");
+        if ((interceptable != null && interceptable.invokeIL(1048576, this, i, str) != null) || !b || d74.d()) {
+            return;
         }
-    }
-
-    @Override // com.baidu.tieba.e34
-    public void b(u54 u54Var, t54 t54Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u54Var, t54Var) == null) && t54Var != null) {
-            t54Var.a(u54Var, "Method 'clipVideo' is not implemented.");
+        if (i != 0) {
+            if (i != 1) {
+                if (i == 2) {
+                    Log.d("arConsole", String.format("%s: %s %s", "run event end", Long.valueOf(System.currentTimeMillis() - this.a), str));
+                    return;
+                }
+                return;
+            }
+            this.a = System.currentTimeMillis();
+            Log.d("arConsole", String.format("%s: %s %s", "run event start", "", str));
+            return;
         }
+        Log.d("arConsole", String.format("%s: %s %s", "queue event", "", str));
     }
 }

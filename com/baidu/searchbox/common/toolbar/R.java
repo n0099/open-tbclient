@@ -63,109 +63,109 @@ public final class R {
         public static final int liveshow_button_pressed_alpha = 0x7f07056b;
         public static final int search_tool_bar_side_padding = 0x7f0707d2;
         public static final int search_tool_bar_voice_side_padding = 0x7f0707d3;
-        public static final int toolbar_comment_input_corner_radius = 0x7f070b32;
-        public static final int toolbar_comment_shortcut_view_padding = 0x7f070b33;
+        public static final int toolbar_comment_input_corner_radius = 0x7f070b33;
+        public static final int toolbar_comment_shortcut_view_padding = 0x7f070b34;
     }
 
     /* loaded from: classes3.dex */
     public static final class drawable {
-        public static final int comment_tool_bar_item_heart_praised = 0x7f08050b;
-        public static final int comment_tool_bar_item_heart_unpraised = 0x7f08050c;
-        public static final int common_tool_bar_bg_normal = 0x7f080521;
-        public static final int common_tool_bar_bg_photo = 0x7f080522;
-        public static final int common_tool_bar_item_back_normal = 0x7f080523;
-        public static final int common_tool_bar_item_back_normal_photos = 0x7f080524;
-        public static final int common_tool_bar_item_barrage_close = 0x7f080525;
-        public static final int common_tool_bar_item_barrage_open = 0x7f080526;
-        public static final int common_tool_bar_item_close_btn_normal = 0x7f080527;
-        public static final int common_tool_bar_item_comment_close = 0x7f080528;
-        public static final int common_tool_bar_item_comment_close_minvideo = 0x7f080529;
-        public static final int common_tool_bar_item_comment_close_photos = 0x7f08052a;
-        public static final int common_tool_bar_item_comment_emoji = 0x7f08052b;
-        public static final int common_tool_bar_item_comment_emotion = 0x7f08052c;
-        public static final int common_tool_bar_item_comment_image = 0x7f08052d;
-        public static final int common_tool_bar_item_comment_normal = 0x7f08052e;
-        public static final int common_tool_bar_item_comment_text = 0x7f08052f;
-        public static final int common_tool_bar_item_comments_normal_photos = 0x7f080530;
-        public static final int common_tool_bar_item_home_normal = 0x7f080531;
-        public static final int common_tool_bar_item_home_selector = 0x7f080532;
-        public static final int common_tool_bar_item_more_incognito = 0x7f080533;
-        public static final int common_tool_bar_item_more_normal = 0x7f080534;
-        public static final int common_tool_bar_item_praise_black_normal = 0x7f080535;
-        public static final int common_tool_bar_item_praise_white_normal = 0x7f080536;
-        public static final int common_tool_bar_item_praised = 0x7f080537;
-        public static final int common_tool_bar_item_recommend = 0x7f080538;
-        public static final int common_tool_bar_item_recommended = 0x7f080539;
-        public static final int common_tool_bar_item_share_arrow = 0x7f08053a;
-        public static final int common_tool_bar_item_share_arrow_photos = 0x7f08053b;
-        public static final int common_tool_bar_item_star_normal = 0x7f08053c;
-        public static final int common_tool_bar_item_star_normal_photos = 0x7f08053d;
-        public static final int common_tool_bar_item_stared = 0x7f08053e;
-        public static final int common_tool_bar_item_ugc_forwarding = 0x7f08053f;
-        public static final int common_toolbar_menu_new_dot = 0x7f080540;
-        public static final int common_toolbar_mini_red = 0x7f080541;
-        public static final int common_toolbar_red = 0x7f080542;
-        public static final int common_toolbar_red_photo = 0x7f080543;
-        public static final int searchbox_image_refresh_icon_close = 0x7f08138b;
-        public static final int searchbox_image_refresh_icon_refreshing = 0x7f08138c;
-        public static final int toolbar_comment_shortcut_view = 0x7f081518;
-        public static final int toolbar_item_comment_input_bg_close_comment = 0x7f081519;
-        public static final int toolbar_item_comment_input_bg_dark = 0x7f08151a;
-        public static final int toolbar_item_comment_input_bg_mini_video = 0x7f08151b;
-        public static final int toolbar_item_comment_input_bg_normal = 0x7f08151c;
-        public static final int toolbar_wenda_bottom_bar_edit_icon = 0x7f08151d;
-        public static final int toolbar_wenda_bottom_bar_result_icon = 0x7f08151e;
-        public static final int wenda_bottom_bar_split_line = 0x7f081594;
+        public static final int comment_tool_bar_item_heart_praised = 0x7f080514;
+        public static final int comment_tool_bar_item_heart_unpraised = 0x7f080515;
+        public static final int common_tool_bar_bg_normal = 0x7f08052a;
+        public static final int common_tool_bar_bg_photo = 0x7f08052b;
+        public static final int common_tool_bar_item_back_normal = 0x7f08052c;
+        public static final int common_tool_bar_item_back_normal_photos = 0x7f08052d;
+        public static final int common_tool_bar_item_barrage_close = 0x7f08052e;
+        public static final int common_tool_bar_item_barrage_open = 0x7f08052f;
+        public static final int common_tool_bar_item_close_btn_normal = 0x7f080530;
+        public static final int common_tool_bar_item_comment_close = 0x7f080531;
+        public static final int common_tool_bar_item_comment_close_minvideo = 0x7f080532;
+        public static final int common_tool_bar_item_comment_close_photos = 0x7f080533;
+        public static final int common_tool_bar_item_comment_emoji = 0x7f080534;
+        public static final int common_tool_bar_item_comment_emotion = 0x7f080535;
+        public static final int common_tool_bar_item_comment_image = 0x7f080536;
+        public static final int common_tool_bar_item_comment_normal = 0x7f080537;
+        public static final int common_tool_bar_item_comment_text = 0x7f080538;
+        public static final int common_tool_bar_item_comments_normal_photos = 0x7f080539;
+        public static final int common_tool_bar_item_home_normal = 0x7f08053a;
+        public static final int common_tool_bar_item_home_selector = 0x7f08053b;
+        public static final int common_tool_bar_item_more_incognito = 0x7f08053c;
+        public static final int common_tool_bar_item_more_normal = 0x7f08053d;
+        public static final int common_tool_bar_item_praise_black_normal = 0x7f08053e;
+        public static final int common_tool_bar_item_praise_white_normal = 0x7f08053f;
+        public static final int common_tool_bar_item_praised = 0x7f080540;
+        public static final int common_tool_bar_item_recommend = 0x7f080541;
+        public static final int common_tool_bar_item_recommended = 0x7f080542;
+        public static final int common_tool_bar_item_share_arrow = 0x7f080543;
+        public static final int common_tool_bar_item_share_arrow_photos = 0x7f080544;
+        public static final int common_tool_bar_item_star_normal = 0x7f080545;
+        public static final int common_tool_bar_item_star_normal_photos = 0x7f080546;
+        public static final int common_tool_bar_item_stared = 0x7f080547;
+        public static final int common_tool_bar_item_ugc_forwarding = 0x7f080548;
+        public static final int common_toolbar_menu_new_dot = 0x7f080549;
+        public static final int common_toolbar_mini_red = 0x7f08054a;
+        public static final int common_toolbar_red = 0x7f08054b;
+        public static final int common_toolbar_red_photo = 0x7f08054c;
+        public static final int searchbox_image_refresh_icon_close = 0x7f0813a2;
+        public static final int searchbox_image_refresh_icon_refreshing = 0x7f0813a3;
+        public static final int toolbar_comment_shortcut_view = 0x7f081531;
+        public static final int toolbar_item_comment_input_bg_close_comment = 0x7f081532;
+        public static final int toolbar_item_comment_input_bg_dark = 0x7f081533;
+        public static final int toolbar_item_comment_input_bg_mini_video = 0x7f081534;
+        public static final int toolbar_item_comment_input_bg_normal = 0x7f081535;
+        public static final int toolbar_wenda_bottom_bar_edit_icon = 0x7f081536;
+        public static final int toolbar_wenda_bottom_bar_result_icon = 0x7f081537;
+        public static final int wenda_bottom_bar_split_line = 0x7f0815ad;
     }
 
     /* loaded from: classes3.dex */
     public static final class id {
-        public static final int comments_hot_comment = 0x7f090775;
-        public static final int comments_hot_comment_icon = 0x7f090776;
-        public static final int comments_hot_cut_line = 0x7f090777;
-        public static final int comments_redtip_text = 0x7f090778;
-        public static final int common_tool_item_comments = 0x7f090790;
-        public static final int praise_view_id = 0x7f091d51;
-        public static final int redtip_dot = 0x7f091ec4;
-        public static final int redtip_dot_viewstub = 0x7f091ec5;
-        public static final int redtip_icon = 0x7f091ec6;
-        public static final int redtip_icon_copy = 0x7f091ec7;
-        public static final int redtip_text = 0x7f091ec8;
-        public static final int toolbar_comment_input_emoji = 0x7f09261a;
-        public static final int toolbar_comment_input_emoji_1 = 0x7f09261b;
-        public static final int toolbar_comment_input_emoji_2 = 0x7f09261c;
-        public static final int toolbar_comment_input_guide_view = 0x7f09261d;
-        public static final int toolbar_comment_input_view = 0x7f09261e;
-        public static final int toolbar_comment_shortcut_view = 0x7f09261f;
-        public static final int wenda_item_divid_line = 0x7f092a27;
-        public static final int wenda_item_img = 0x7f092a28;
-        public static final int wenda_item_title_tv = 0x7f092a29;
+        public static final int comments_hot_comment = 0x7f090794;
+        public static final int comments_hot_comment_icon = 0x7f090795;
+        public static final int comments_hot_cut_line = 0x7f090796;
+        public static final int comments_redtip_text = 0x7f090797;
+        public static final int common_tool_item_comments = 0x7f0907af;
+        public static final int praise_view_id = 0x7f091d98;
+        public static final int redtip_dot = 0x7f091f0b;
+        public static final int redtip_dot_viewstub = 0x7f091f0c;
+        public static final int redtip_icon = 0x7f091f0d;
+        public static final int redtip_icon_copy = 0x7f091f0e;
+        public static final int redtip_text = 0x7f091f0f;
+        public static final int toolbar_comment_input_emoji = 0x7f092671;
+        public static final int toolbar_comment_input_emoji_1 = 0x7f092672;
+        public static final int toolbar_comment_input_emoji_2 = 0x7f092673;
+        public static final int toolbar_comment_input_guide_view = 0x7f092674;
+        public static final int toolbar_comment_input_view = 0x7f092675;
+        public static final int toolbar_comment_shortcut_view = 0x7f092676;
+        public static final int wenda_item_divid_line = 0x7f092a86;
+        public static final int wenda_item_img = 0x7f092a87;
+        public static final int wenda_item_title_tv = 0x7f092a88;
     }
 
     /* loaded from: classes3.dex */
     public static final class layout {
-        public static final int common_comment_intput_layout = 0x7f0d0215;
-        public static final int common_comment_redtip_layout = 0x7f0d0216;
-        public static final int common_tool_bar_wenda_item_layout = 0x7f0d021f;
-        public static final int common_tool_item_redtip_dot_layout = 0x7f0d0220;
-        public static final int common_tool_item_redtip_layout = 0x7f0d0221;
+        public static final int common_comment_intput_layout = 0x7f0d021a;
+        public static final int common_comment_redtip_layout = 0x7f0d021b;
+        public static final int common_tool_bar_wenda_item_layout = 0x7f0d0224;
+        public static final int common_tool_item_redtip_dot_layout = 0x7f0d0225;
+        public static final int common_tool_item_redtip_layout = 0x7f0d0226;
     }
 
     /* loaded from: classes3.dex */
     public static final class string {
         public static final int app_name = 0x7f0f029e;
-        public static final int comment_sofa = 0x7f0f0490;
-        public static final int common_tool_bar_item_comment_input_text = 0x7f0f04a7;
-        public static final int common_tool_comment_extra_text = 0x7f0f04a8;
-        public static final int common_tool_item_back_text = 0x7f0f04a9;
-        public static final int common_tool_item_close_text = 0x7f0f04aa;
-        public static final int common_tool_item_home_text = 0x7f0f04ab;
-        public static final int common_tool_item_more_text = 0x7f0f04ac;
-        public static final int common_tool_item_share_text = 0x7f0f04ad;
-        public static final int common_tool_item_star_text = 0x7f0f04ae;
-        public static final int common_tool_item_voice = 0x7f0f04af;
-        public static final int common_toolbar_drafthead = 0x7f0f04b0;
-        public static final int feed_back_tip = 0x7f0f0725;
+        public static final int comment_sofa = 0x7f0f0492;
+        public static final int common_tool_bar_item_comment_input_text = 0x7f0f04a9;
+        public static final int common_tool_comment_extra_text = 0x7f0f04aa;
+        public static final int common_tool_item_back_text = 0x7f0f04ab;
+        public static final int common_tool_item_close_text = 0x7f0f04ac;
+        public static final int common_tool_item_home_text = 0x7f0f04ad;
+        public static final int common_tool_item_more_text = 0x7f0f04ae;
+        public static final int common_tool_item_share_text = 0x7f0f04af;
+        public static final int common_tool_item_star_text = 0x7f0f04b0;
+        public static final int common_tool_item_voice = 0x7f0f04b1;
+        public static final int common_toolbar_drafthead = 0x7f0f04b2;
+        public static final int feed_back_tip = 0x7f0f0727;
     }
 
     /* loaded from: classes3.dex */

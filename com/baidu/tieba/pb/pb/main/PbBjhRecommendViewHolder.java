@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ad;
-import com.baidu.tieba.aw4;
+import com.baidu.tieba.qd;
+import com.baidu.tieba.sw4;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -33,7 +33,7 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public AbsPbActivity b;
-    public aw4 c;
+    public sw4 c;
     public String d;
     public boolean e;
     public int f;
@@ -96,7 +96,7 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
                     return;
                 }
                 int i = 3;
-                if (id == R.id.obfuscated_res_0x7f092450) {
+                if (id == R.id.obfuscated_res_0x7f0924a7) {
                     VideoInfo threadVideoInfo = this.a.c.getThreadVideoInfo();
                     if (threadVideoInfo != null) {
                         if (threadVideoInfo.is_vertical.intValue() == 1) {
@@ -141,7 +141,7 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoPlayActivityConfig2));
                         }
                     }
-                } else if (id == R.id.main_view || id == R.id.obfuscated_res_0x7f0903fd || id == R.id.obfuscated_res_0x7f0903fc) {
+                } else if (id == R.id.main_view || id == R.id.obfuscated_res_0x7f090416 || id == R.id.obfuscated_res_0x7f090415) {
                     String tid = this.a.c.getTid();
                     if (this.a.f == 2) {
                         i = 1;
@@ -213,21 +213,21 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
         this.w = new a(this);
         this.b = absPbActivity;
         this.g = view2.findViewById(R.id.main_view);
-        this.h = view2.findViewById(R.id.obfuscated_res_0x7f090b32);
-        this.i = view2.findViewById(R.id.obfuscated_res_0x7f0903ff);
-        this.j = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0903fd);
-        this.k = view2.findViewById(R.id.obfuscated_res_0x7f0903fc);
+        this.h = view2.findViewById(R.id.obfuscated_res_0x7f090b54);
+        this.i = view2.findViewById(R.id.obfuscated_res_0x7f090418);
+        this.j = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090416);
+        this.k = view2.findViewById(R.id.obfuscated_res_0x7f090415);
         this.l = (TextView) view2.findViewById(R.id.bjh_content);
-        this.m = view2.findViewById(R.id.obfuscated_res_0x7f090401);
-        this.n = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090404);
-        this.o = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090402);
-        this.p = view2.findViewById(R.id.obfuscated_res_0x7f09148a);
-        this.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092450);
-        this.q = view2.findViewById(R.id.obfuscated_res_0x7f091488);
-        this.r = view2.findViewById(R.id.obfuscated_res_0x7f091489);
-        this.t = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090400);
-        this.u = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090403);
-        this.v = view2.findViewById(R.id.obfuscated_res_0x7f0903fe);
+        this.m = view2.findViewById(R.id.obfuscated_res_0x7f09041a);
+        this.n = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09041d);
+        this.o = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09041b);
+        this.p = view2.findViewById(R.id.obfuscated_res_0x7f0914c8);
+        this.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924a7);
+        this.q = view2.findViewById(R.id.obfuscated_res_0x7f0914c6);
+        this.r = view2.findViewById(R.id.obfuscated_res_0x7f0914c7);
+        this.t = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090419);
+        this.u = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09041c);
+        this.v = view2.findViewById(R.id.obfuscated_res_0x7f090417);
     }
 
     public void g(int i) {
@@ -244,44 +244,44 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void k(String str) {
+    public void l(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             this.d = str;
         }
     }
 
-    public void f(aw4 aw4Var) {
+    public void f(sw4 sw4Var) {
         int i;
         int i2;
         int i3;
         int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aw4Var) == null) {
-            this.c = aw4Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, sw4Var) == null) {
+            this.c = sw4Var;
             View view2 = this.h;
-            if (aw4Var.d()) {
+            if (sw4Var.d()) {
                 i = 0;
             } else {
                 i = 8;
             }
             view2.setVisibility(i);
             View view3 = this.r;
-            if (aw4Var.f()) {
+            if (sw4Var.f()) {
                 i2 = 0;
             } else {
                 i2 = 8;
             }
             view3.setVisibility(i2);
             View view4 = this.i;
-            if (aw4Var.e()) {
+            if (sw4Var.e()) {
                 i3 = 8;
             } else {
                 i3 = 0;
             }
             view4.setVisibility(i3);
             View view5 = this.p;
-            if (aw4Var.e()) {
+            if (sw4Var.e()) {
                 i4 = 0;
             } else {
                 i4 = 8;
@@ -294,16 +294,16 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
             this.j.setRadius(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds21));
             this.j.setDrawCorner(true);
             this.j.setPlaceHolder(2);
-            if (aw4Var.getThreadVideoInfo() != null) {
-                this.l.setText(aw4Var.getTitle());
-                this.j.startLoad(aw4Var.getThreadVideoInfo().thumbnail_url, 10, false);
+            if (sw4Var.getThreadVideoInfo() != null) {
+                this.l.setText(sw4Var.getTitle());
+                this.j.startLoad(sw4Var.getThreadVideoInfo().thumbnail_url, 10, false);
                 this.k.setVisibility(0);
                 this.k.setAlpha(0.5f);
                 this.m.setVisibility(0);
-                this.o.setText(StringUtils.translateSecondsToString(aw4Var.getThreadVideoInfo().video_duration.intValue()));
+                this.o.setText(StringUtils.translateSecondsToString(sw4Var.getThreadVideoInfo().video_duration.intValue()));
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.u.getLayoutParams();
-                if (aw4Var.getAuthor() != null && !ad.isEmpty(aw4Var.getAuthor().getName_show())) {
-                    this.t.setText(aw4Var.getAuthor().getName_show());
+                if (sw4Var.getAuthor() != null && !qd.isEmpty(sw4Var.getAuthor().getName_show())) {
+                    this.t.setText(sw4Var.getAuthor().getName_show());
                     this.t.setVisibility(0);
                     layoutParams.leftMargin = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X004);
                 } else {
@@ -311,12 +311,12 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
                     layoutParams.leftMargin = 0;
                 }
                 this.u.setLayoutParams(layoutParams);
-                this.u.setText(String.format(this.b.getResources().getString(R.string.bjh_pb_recommend_video_tip), StringHelper.numFormatOverWan(aw4Var.getThreadVideoInfo().play_count.intValue())));
+                this.u.setText(String.format(this.b.getResources().getString(R.string.bjh_pb_recommend_video_tip), StringHelper.numFormatOverWan(sw4Var.getThreadVideoInfo().play_count.intValue())));
             } else {
                 this.m.setVisibility(8);
                 this.k.setVisibility(8);
-                this.j.startLoad(aw4Var.getArticeCover(), 10, false);
-                this.l.setText(aw4Var.getTitle());
+                this.j.startLoad(sw4Var.getArticeCover(), 10, false);
+                this.l.setText(sw4Var.getTitle());
             }
             this.g.setOnClickListener(this.w);
         }

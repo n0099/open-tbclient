@@ -1,266 +1,162 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.os.Message;
+import android.os.RemoteException;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import androidx.core.content.ContextCompat;
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.publisher.view.PhotoChooseView;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.tieba.w23;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.view.SimpleDraweeView;
-import com.facebook.imagepipeline.common.ImageDecodeOptions;
-import com.facebook.imagepipeline.common.ResizeOptions;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
-import java.util.ArrayList;
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public class g33 extends BaseAdapter {
+public class g33 implements w23.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public List<String> d;
-    public Context e;
-    public PhotoChooseView.b f;
+    public final Map<String, Deque<Message>> a;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ g33 b;
-
-        public a(g33 g33Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g33Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = g33Var;
-            this.a = i;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.b.d.remove(this.a);
-                this.b.notifyDataSetChanged();
-                if (this.b.f != null) {
-                    this.b.f.a(this.b.d.size());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public SimpleDraweeView a;
-        public ImageView b;
-        public RelativeLayout c;
-        public TextView d;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public g33(Context context, int i, int i2) {
+    public g33() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = 9;
-        this.d = new ArrayList(0);
-        this.e = context;
-        this.a = i;
-        this.b = i2;
+        this.a = new HashMap();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: d */
-    public String getItem(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.w23.c
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i < this.d.size()) {
-                return this.d.get(i);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            for (String str : this.a.keySet()) {
+                c(str);
             }
-            return "more_option";
         }
-        return (String) invokeI.objValue;
     }
 
-    public boolean e(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.w23.c
+    public void b(@NonNull y23 y23Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            if (i == getCount() - 1 && this.d.size() < this.c) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, y23Var) == null) {
+            Message h = y23Var.h();
+            if (y23Var.m()) {
+                h(h);
+            }
+            Set<SwanAppProcessInfo> l = y23Var.l();
+            Set<String> k = y23Var.k();
+            if (y23Var.n()) {
+                Iterator<f33> it = h33.k().q().iterator();
+                while (it.hasNext()) {
+                    f33 next = it.next();
+                    boolean g = g(next, k);
+                    if (l.contains(next.b) || g) {
+                        next.g0(h);
+                        if (g) {
+                            k.remove(next.getAppId());
+                        }
+                    }
+                }
+                f(k, h);
+                return;
+            }
+            Iterator<f33> it2 = h33.k().q().iterator();
+            while (it2.hasNext()) {
+                f33 next2 = it2.next();
+                if (next2 != null && next2.T() && (l.contains(next2.b) || g(next2, k))) {
+                    next2.g0(h);
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.w23.c
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            Deque<Message> deque = this.a.get(str);
+            w23.f("flushMsg:: appid=" + str + " msgQueue=" + deque);
+            if (deque != null && !deque.isEmpty()) {
+                List<f33> j = h33.k().j(str);
+                w23.f("flushMsg:: msgQueue.size=" + deque.size() + " clients.size=" + j.size());
+                if (j.isEmpty()) {
+                    return;
+                }
+                for (f33 f33Var : j) {
+                    f33Var.i0(deque);
+                }
+                deque.clear();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.w23.c
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.a.remove(str);
+        }
+    }
+
+    public final void h(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, message) == null) {
+            try {
+                h33.k().e.send(message);
+            } catch (RemoteException e) {
+                w23.f(Log.getStackTraceString(e));
+            }
+        }
+    }
+
+    public final void e(String str, @NonNull Message message) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048580, this, str, message) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        Deque<Message> deque = this.a.get(str);
+        if (deque == null) {
+            deque = new ArrayDeque<>();
+            this.a.put(str, deque);
+        }
+        deque.offer(message);
+    }
+
+    public final void f(Set<String> set, @NonNull Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, set, message) == null) {
+            for (String str : set) {
+                e(str, message);
+            }
+        }
+    }
+
+    public boolean g(@NonNull f33 f33Var, @NonNull Set<String> set) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, f33Var, set)) == null) {
+            if (f33Var.E() && set.contains(f33Var.getAppId())) {
                 return true;
             }
             return false;
         }
-        return invokeI.booleanValue;
-    }
-
-    public void f(List<String> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && list != null) {
-            for (String str : list) {
-                if (!this.d.contains(str)) {
-                    this.d.add(str);
-                }
-            }
-        }
-    }
-
-    public void g(PhotoChooseView.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f = bVar;
-        }
-    }
-
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public List<String> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int size = this.d.size();
-            int i = this.c;
-            if (size < i) {
-                return size + 1;
-            }
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        View view3;
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                bVar = new b();
-                view3 = LayoutInflater.from(this.e).inflate(R.layout.obfuscated_res_0x7f0d0939, viewGroup, false);
-                bVar.a = (SimpleDraweeView) view3.findViewById(R.id.obfuscated_res_0x7f091dc6);
-                bVar.b = (ImageView) view3.findViewById(R.id.obfuscated_res_0x7f091dc3);
-                bVar.c = (RelativeLayout) view3.findViewById(R.id.obfuscated_res_0x7f091dcc);
-                bVar.d = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091dcd);
-                bVar.a.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                int o = gj3.o(this.e) - gj3.g(30.0f);
-                int i2 = this.a;
-                int i3 = this.b;
-                int i4 = (o - (i2 * (i3 - 1))) / i3;
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) bVar.a.getLayoutParams();
-                layoutParams.width = i4;
-                layoutParams.height = i4;
-                bVar.a.setLayoutParams(layoutParams);
-                bVar.a.setBackground(ContextCompat.getDrawable(this.e, R.drawable.obfuscated_res_0x7f0814af));
-                view3.setTag(bVar);
-            } else {
-                view3 = view2;
-                bVar = (b) view2.getTag();
-            }
-            int o2 = gj3.o(this.e) / 3;
-            int o3 = gj3.o(this.e) / 3;
-            bVar.b.setImageResource(R.drawable.obfuscated_res_0x7f0814ae);
-            bVar.b.setVisibility(8);
-            if (e(i)) {
-                bVar.c.setVisibility(8);
-                bVar.a.setBackground(ContextCompat.getDrawable(this.e, R.drawable.obfuscated_res_0x7f0814ab));
-                bVar.a.setImageResource(R.drawable.obfuscated_res_0x7f0814a9);
-            } else {
-                bVar.b.setVisibility(0);
-                String item = getItem(i);
-                if (!TextUtils.isEmpty(item)) {
-                    if (aj3.c(item)) {
-                        bVar.c.setVisibility(0);
-                        bVar.d.setText(this.e.getString(R.string.obfuscated_res_0x7f0f1530));
-                    } else if (aj3.f(item)) {
-                        bVar.c.setVisibility(0);
-                        bVar.d.setText(this.e.getString(R.string.obfuscated_res_0x7f0f1531));
-                    } else {
-                        bVar.c.setVisibility(8);
-                    }
-                    Fresco.getImagePipeline().evictFromCache(hj3.p(item));
-                    bVar.a.setController(Fresco.newDraweeControllerBuilder().setAutoPlayAnimations(false).setOldController(bVar.a.getController()).setImageRequest(ImageRequestBuilder.newBuilderWithSource(hj3.p(item)).setResizeOptions(new ResizeOptions((int) (o2 / 2.0f), (int) (o3 / 2.0f))).setImageDecodeOptions(ImageDecodeOptions.newBuilder().setForceStaticImage(true).build()).build()).build());
-                }
-            }
-            bVar.b.setOnClickListener(new a(this, i));
-            return view3;
-        }
-        return (View) invokeILL.objValue;
+        return invokeLL.booleanValue;
     }
 }

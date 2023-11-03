@@ -2,50 +2,22 @@ package com.baidu.android.pushservice.y;
 
 import android.content.Context;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.pushservice.a0.i;
 import com.baidu.android.pushservice.pull.ClientEventInfo;
 import com.baidu.android.pushservice.util.Utility;
 import com.baidu.android.pushservice.y.e.e;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-676423312, "Lcom/baidu/android/pushservice/y/c;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-676423312, "Lcom/baidu/android/pushservice/y/c;");
-        }
-    }
-
     public static void a(Context context, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65537, null, context, j) == null) {
-            i.b(context, "push_sdk_pull_config_last_pull_time", j);
-        }
+        i.b(context, "push_sdk_pull_config_last_pull_time", j);
     }
 
     public static void a(Context context, com.baidu.android.pushservice.y.e.b bVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, context, bVar) == null) || bVar == null) {
+        if (bVar == null) {
             return;
         }
         if (bVar.e()) {
@@ -57,8 +29,7 @@ public class c {
     }
 
     public static void a(Context context, e eVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, context, eVar) == null) || eVar == null) {
+        if (eVar == null) {
             return;
         }
         if (eVar.l()) {
@@ -82,8 +53,7 @@ public class c {
     }
 
     public static void a(Context context, List<com.baidu.android.pushservice.y.e.c> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, list) == null) || list == null || list.size() <= 0) {
+        if (list == null || list.size() <= 0) {
             return;
         }
         ArrayList arrayList = new ArrayList();
@@ -100,8 +70,7 @@ public class c {
     }
 
     public static void a(Context context, JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65541, null, context, jSONArray) == null) || jSONArray == null || jSONArray.length() <= 0) {
+        if (jSONArray == null || jSONArray.length() <= 0) {
             return;
         }
         ArrayList arrayList = new ArrayList();
@@ -123,8 +92,7 @@ public class c {
     }
 
     public static void a(Context context, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65542, null, context, jSONObject) == null) || jSONObject == null) {
+        if (jSONObject == null) {
             return;
         }
         if (jSONObject.has("interval")) {
@@ -136,50 +104,33 @@ public class c {
     }
 
     public static boolean a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) ? i.a(context, "push_sdk_pull_config_foreground_start", 0) == 1 : invokeL.booleanValue;
+        return i.a(context, "push_sdk_pull_config_foreground_start", 0) == 1;
     }
 
     public static boolean a(Context context, ClientEventInfo clientEventInfo) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, clientEventInfo)) == null) {
-            if (Utility.B(context) || a(context)) {
-                return (!i(context) || e(context).contains(clientEventInfo.getAction())) && (System.currentTimeMillis() / 1000) - d(context) > ((long) f(context)) && Utility.s(context) >= h(context);
-            }
-            return false;
+        if (Utility.B(context) || a(context)) {
+            return (!i(context) || e(context).contains(clientEventInfo.getAction())) && (System.currentTimeMillis() / 1000) - d(context) > ((long) f(context)) && Utility.s(context) >= h(context);
         }
-        return invokeLL.booleanValue;
+        return false;
     }
 
     public static boolean a(Context context, ClientEventInfo clientEventInfo, com.baidu.android.pushservice.m.a aVar) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, context, clientEventInfo, aVar)) == null) {
-            if (aVar.f() != 1) {
-                return false;
-            }
-            return (Utility.B(context) || aVar.b() == 1) && (System.currentTimeMillis() / 1000) - aVar.d() > ((long) aVar.c()) && Utility.s(context) >= aVar.e();
+        if (aVar.f() != 1) {
+            return false;
         }
-        return invokeLLL.booleanValue;
+        return (Utility.B(context) || aVar.b() == 1) && (System.currentTimeMillis() / 1000) - aVar.d() > ((long) aVar.c()) && Utility.s(context) >= aVar.e();
     }
 
     public static boolean a(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, context, str)) == null) ? com.baidu.android.pushservice.m.d.c(context, str).f() == 1 : invokeLL.booleanValue;
+        return com.baidu.android.pushservice.m.d.c(context, str).f() == 1;
     }
 
     public static int b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) ? i.a(context, "push_sdk_pull_config_am_interval", -1) : invokeL.intValue;
+        return i.a(context, "push_sdk_pull_config_am_interval", -1);
     }
 
     public static void b(Context context, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65548, null, context, jSONObject) == null) || jSONObject == null) {
+        if (jSONObject == null) {
             return;
         }
         if (jSONObject.has("mode")) {
@@ -206,69 +157,50 @@ public class c {
     }
 
     public static boolean b(Context context, ClientEventInfo clientEventInfo) {
-        InterceptResult invokeLL;
         boolean a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, context, clientEventInfo)) == null) {
-            if (clientEventInfo == null) {
-                clientEventInfo = new ClientEventInfo();
-            }
-            com.baidu.android.pushservice.m.a c = com.baidu.android.pushservice.m.d.c(context, clientEventInfo.getAction());
-            if (TextUtils.equals(clientEventInfo.getAction(), c.a())) {
-                a = a(context, clientEventInfo, c);
-                if (a) {
-                    com.baidu.android.pushservice.m.d.a(context, c, System.currentTimeMillis() / 1000);
-                }
-            } else {
-                a = a(context, clientEventInfo);
-                if (a) {
-                    a(context, System.currentTimeMillis() / 1000);
-                }
-            }
-            return a;
+        if (clientEventInfo == null) {
+            clientEventInfo = new ClientEventInfo();
         }
-        return invokeLL.booleanValue;
+        com.baidu.android.pushservice.m.a c = com.baidu.android.pushservice.m.d.c(context, clientEventInfo.getAction());
+        if (TextUtils.equals(clientEventInfo.getAction(), c.a())) {
+            a = a(context, clientEventInfo, c);
+            if (a) {
+                com.baidu.android.pushservice.m.d.a(context, c, System.currentTimeMillis() / 1000);
+            }
+        } else {
+            a = a(context, clientEventInfo);
+            if (a) {
+                a(context, System.currentTimeMillis() / 1000);
+            }
+        }
+        return a;
     }
 
     public static int c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) ? i.a(context, "push_sdk_pull_config_am_power_limit", 20) : invokeL.intValue;
+        return i.a(context, "push_sdk_pull_config_am_power_limit", 20);
     }
 
     public static long d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) ? i.a(context, "push_sdk_pull_config_last_pull_time", 0L) : invokeL.longValue;
+        return i.a(context, "push_sdk_pull_config_last_pull_time", 0L);
     }
 
     public static String e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) ? i.c(context, "push_sdk_pull_config_action_list") : (String) invokeL.objValue;
+        return i.c(context, "push_sdk_pull_config_action_list");
     }
 
     public static int f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65553, null, context)) == null) ? i.a(context, "push_sdk_pull_config_interval", 1800) : invokeL.intValue;
+        return i.a(context, "push_sdk_pull_config_interval", 1800);
     }
 
     public static int g(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65554, null, context)) == null) ? i.a(context, "push_sdk_pull_config_mode", 1) : invokeL.intValue;
+        return i.a(context, "push_sdk_pull_config_mode", 1);
     }
 
     public static int h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65555, null, context)) == null) ? i.a(context, "push_sdk_pull_config_power_limit", 20) : invokeL.intValue;
+        return i.a(context, "push_sdk_pull_config_power_limit", 20);
     }
 
     public static boolean i(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65556, null, context)) == null) ? i.a(context, "push_sdk_pull_config_use_condition", 0) == 1 : invokeL.booleanValue;
+        return i.a(context, "push_sdk_pull_config_use_condition", 0) == 1;
     }
 }

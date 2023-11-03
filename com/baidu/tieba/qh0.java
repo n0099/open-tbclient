@@ -1,25 +1,10 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.nadcore.download.proxy.IAdDownloader;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes7.dex */
-public class qh0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface qh0 {
+    public static final ServiceReference a = new ServiceReference("nad.core", "downloadCreator");
 
-    public static File a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            File externalCacheDir = context.getExternalCacheDir();
-            if (externalCacheDir == null) {
-                return context.getCacheDir();
-            }
-            return externalCacheDir;
-        }
-        return (File) invokeL.objValue;
-    }
+    IAdDownloader a();
 }

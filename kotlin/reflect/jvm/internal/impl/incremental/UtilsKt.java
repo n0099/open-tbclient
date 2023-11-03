@@ -10,7 +10,7 @@ import kotlin.reflect.jvm.internal.impl.incremental.components.Position;
 import kotlin.reflect.jvm.internal.impl.incremental.components.ScopeKind;
 import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.resolve.DescriptorUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class UtilsKt {
     public static final void record(LookupTracker lookupTracker, LookupLocation lookupLocation, ClassDescriptor classDescriptor, Name name) {
         LocationInfo location;

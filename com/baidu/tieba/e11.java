@@ -1,26 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class e11 {
-    public static /* synthetic */ Interceptable $ic;
-    public static long a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface e11 {
+    void a(JSONObject jSONObject);
 
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            long j = currentTimeMillis - a;
-            a = currentTimeMillis;
-            if (j > 0 && j < 1000) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
+    void b(y01 y01Var);
 }

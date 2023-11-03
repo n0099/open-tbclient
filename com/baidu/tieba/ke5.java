@@ -1,182 +1,164 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.safe.JavaTypesHelper;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tieba.im.data.MsgLocalData;
-import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.im.message.chat.PersonalChatMessage;
-import com.baidu.tieba.sda;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ke5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ie5 a;
+    public Context a;
+    public String b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
+    public boolean i;
+    public boolean j;
+    public boolean k;
+    public int l;
+    public le5 m;
+    public int n;
+    public boolean o;
+    public int[] p;
+    public boolean q;
+    public int r;
+    public boolean s;
 
-    /* loaded from: classes6.dex */
-    public class a extends gs5<Object> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ie5 a;
-
-        public a(ke5 ke5Var, ie5 ie5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ke5Var, ie5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ie5Var;
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return true;
         }
+        return invokeV.booleanValue;
+    }
 
-        @Override // com.baidu.tieba.gs5
-        public Object doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return Long.valueOf(ae8.w().j(this.a.a().a));
-            }
-            return invokeV.objValue;
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
         }
     }
 
-    public ke5(ie5 ie5Var) {
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        }
+    }
+
+    public ke5(Context context, String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ie5Var};
+            Object[] objArr = {context, str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = ie5Var;
+        this.k = true;
+        this.o = false;
+        this.s = true;
+        this.b = str;
+        this.c = i;
+        this.a = context;
     }
 
-    public void d(sda.i iVar) {
+    public ke5(Context context, String str, int i, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, iVar) != null) || iVar == null) {
-            return;
-        }
-        ie5 ie5Var = this.a;
-        if (ie5Var != null && ie5Var.a() != null) {
-            sda.p(this.a.a().a, iVar);
-        } else {
-            iVar.a(null);
-        }
-    }
-
-    public void e(String str) {
-        ie5 ie5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (ie5Var = this.a) != null && ie5Var.a() != null) {
-            sda.A(this.a.a().a, str);
-        }
-    }
-
-    public final ChatMessage a(String str, long j) {
-        InterceptResult invokeLJ;
-        long j2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, str, j)) == null) {
-            ChatMessage b = b();
-            if (b == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            b.setCustomGroupType(2);
-            b.setMsgType(1);
-            b.setContent(str);
-            long b2 = kj8.b(j);
-            b.setMsgId(b2);
-            b.setRecordId(b2);
-            b.setTime(System.currentTimeMillis() / 1000);
-            UserData userData = new UserData();
-            userData.setUserName(TbadkCoreApplication.getCurrentAccountName());
-            userData.setUserId(TbadkCoreApplication.getCurrentAccount());
-            userData.setName_show(TbadkCoreApplication.getCurrentAccountNameShow());
-            userData.setPortrait(TbadkCoreApplication.getCurrentPortrait());
-            b.setUserInfo(userData);
-            try {
-                j2 = JavaTypesHelper.toLong(TbadkCoreApplication.getCurrentAccount(), 0L);
-            } catch (Exception unused) {
-                j2 = 0;
-            }
-            b.setUserId(j2);
-            MsgLocalData msgLocalData = new MsgLocalData();
-            msgLocalData.setStatus((short) 1);
-            msgLocalData.setErrno(0L);
-            msgLocalData.setRetry(0L);
-            msgLocalData.setUpload_offset(null);
-            b.setLocalData(msgLocalData);
-            return b;
         }
-        return (ChatMessage) invokeLJ.objValue;
+        this.k = true;
+        this.o = false;
+        this.s = true;
+        this.b = str;
+        this.c = i;
+        this.a = context;
+        this.l = i2;
     }
 
-    public ChatMessage b() {
+    public ke5(String str, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.k = true;
+        this.o = false;
+        this.s = true;
+        this.b = str;
+        this.c = i;
+        this.l = i2;
+    }
+
+    public Context b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ie5 ie5Var = this.a;
-            if (ie5Var != null && ie5Var.a() != null) {
-                PersonalChatMessage personalChatMessage = new PersonalChatMessage();
-                personalChatMessage.setBornTime(System.currentTimeMillis());
-                personalChatMessage.setToUserId(Long.parseLong(this.a.a().a));
-                UserData userData = new UserData();
-                userData.setUserId(this.a.a().a);
-                userData.setPortrait(this.a.a().c);
-                userData.setName_show(this.a.a().b);
-                personalChatMessage.setToUserInfo(userData);
-                personalChatMessage.setIsFriend(this.a.a().j ? 1 : 0);
-                return personalChatMessage;
-            }
-            return null;
+            return this.a;
         }
-        return (ChatMessage) invokeV.objValue;
+        return (Context) invokeV.objValue;
     }
 
-    public /* synthetic */ void c(String str, Object obj) {
-        if (obj instanceof Long) {
-            ng8.k().t(a(str, ((Long) obj).longValue()));
-            e("");
-        }
-    }
-
-    public void f(ie5 ie5Var, final String str) {
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, ie5Var, str) == null) {
-            this.a = ie5Var;
-            ks5.c(new a(this, ie5Var), new lr5() { // from class: com.baidu.tieba.je5
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.s;
+        }
+        return invokeV.booleanValue;
+    }
 
-                @Override // com.baidu.tieba.lr5
-                public final void onReturnDataInUI(Object obj) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
-                        ke5.this.c(str, obj);
-                    }
-                }
-            });
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.s = z;
         }
     }
 }

@@ -1,45 +1,223 @@
 package com.baidu.tieba;
+
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.tieba.tblauncher.MainTabScheduleStrategy;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.PriorityQueue;
 /* loaded from: classes6.dex */
-public interface hua {
+public class hua {
+    public static /* synthetic */ Interceptable $ic;
+    public static int a;
+    public static MainTabScheduleStrategy b;
+    public static boolean c;
+    public static final PriorityQueue<nua> d;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public interface a {
-        void a(float f);
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-        float getSpeed();
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
 
-        void onFinish();
-
-        void onProgress(float f);
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                hua.d();
+            }
+        }
     }
 
-    void a();
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    boolean b();
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
 
-    int getMaxDuration();
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                hua.d();
+            }
+        }
+    }
 
-    float getProgress();
+    /* loaded from: classes6.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nua a;
 
-    int getSlideNum();
+        public c(nua nuaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nuaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = nuaVar;
+        }
 
-    void invalidate();
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.c();
+            }
+        }
+    }
 
-    void reset();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947837589, "Lcom/baidu/tieba/hua;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947837589, "Lcom/baidu/tieba/hua;");
+                return;
+            }
+        }
+        b = MainTabScheduleStrategy.FLUSHING;
+        c = false;
+        d = new PriorityQueue<>();
+    }
 
-    void setMaxDuration(int i);
+    public static void b(MainTabScheduleStrategy mainTabScheduleStrategy) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, mainTabScheduleStrategy) == null) {
+            fua.a("MainTabScheduler changeScheduleStrategy:" + mainTabScheduleStrategy);
+            b = mainTabScheduleStrategy;
+            if (mainTabScheduleStrategy != MainTabScheduleStrategy.UNSCHEDULE && !c) {
+                g(true);
+            }
+        }
+    }
 
-    void setMinDuration(int i);
+    public static void c(nua nuaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, nuaVar) == null) {
+            fua.a("MainTabScheduler execStep onStep:" + nuaVar.a);
+            System.nanoTime();
+            nuaVar.b();
+            SafeHandler.getInst().postAtFrontOfQueue(new c(nuaVar));
+        }
+    }
 
-    void setOnProgressListener(a aVar);
+    public static void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(65543, null, z) != null) || c) {
+            return;
+        }
+        c = true;
+        if (z) {
+            SafeHandler.getInst().postAtFrontOfQueue(new a());
+        } else {
+            SafeHandler.getInst().post(new b());
+        }
+    }
 
-    void setProgress(long j);
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            c = false;
+            if (d.isEmpty() || b == MainTabScheduleStrategy.UNSCHEDULE) {
+                return;
+            }
+            if (b == MainTabScheduleStrategy.FLUSHING) {
+                e();
+                return;
+            }
+            if (d.peek() != null && a >= d.peek().a) {
+                nua poll = d.poll();
+                if (poll == null) {
+                    return;
+                }
+                c(poll);
+            }
+            if (b == MainTabScheduleStrategy.SCHEDULE) {
+                g(false);
+            }
+        }
+    }
 
-    void setShowDeleteLastTip(boolean z);
+    public static void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            while (!d.isEmpty()) {
+                nua poll = d.poll();
+                if (poll != null) {
+                    fua.a("MainTabScheduler flushAllSteps onStep:" + poll.a);
+                    poll.b();
+                    poll.c();
+                }
+            }
+        }
+    }
 
-    void setVisibility(int i);
-
-    void start();
-
-    void stop();
+    public static void f(nua nuaVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65542, null, nuaVar) != null) || nuaVar == null) {
+            return;
+        }
+        if (b == MainTabScheduleStrategy.FLUSHING) {
+            if (!(nuaVar instanceof oua)) {
+                fua.a("MainTabScheduler registerNextStep onStep:" + nuaVar.a);
+                nuaVar.d();
+                nuaVar.b();
+            }
+            nuaVar.c();
+            return;
+        }
+        nuaVar.d();
+        fua.a("MainTabScheduler registerNextStep:" + nuaVar.a);
+        d.add(nuaVar);
+        if (b != MainTabScheduleStrategy.UNSCHEDULE && !c) {
+            g(false);
+        }
+    }
 }

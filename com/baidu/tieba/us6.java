@@ -1,107 +1,113 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
-import com.baidu.nadcore.sweetsqlite.Column;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.tieba.database.FrsVisitedInfoManager;
-import com.baidu.tieba.ss6;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.LinkedHashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-import java.util.Map;
-import kotlin.Unit;
-import kotlin.io.CloseableKt;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__IndentKt;
-import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes8.dex */
 public final class us6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final List<pr6> a;
+    public int b;
+    public int c;
+    public boolean d;
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW, INVOKE, MOVE_EXCEPTION, THROW, THROW, INVOKE, MOVE_EXCEPTION] complete} */
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public static final Map<String, Map<String, maa>> c(ss6.a aVar, List<String> list) {
-        InterceptResult invokeLL;
+    public us6(List<pr6> data, long j, long j2, int i, int i2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, aVar, list)) == null) {
-            LinkedHashMap linkedHashMap = new LinkedHashMap();
-            String replace$default = StringsKt__StringsJVMKt.replace$default(StringsKt__StringsJVMKt.replace$default(list.toString(), PreferencesUtil.LEFT_MOUNT, "(", false, 4, (Object) null), PreferencesUtil.RIGHT_MOUNT, SmallTailInfo.EMOTION_SUFFIX, false, 4, (Object) null);
-            Cursor g = aVar.g(StringsKt__IndentKt.trimIndent("\n            SELECT * FROM forum_visited_info \n            WHERE fid IN " + replace$default + " \n            ORDER BY fid, date \n            DESC"), new String[0]);
-            try {
-                if (g.moveToFirst()) {
-                    do {
-                        String fid = g.getString(0);
-                        String date = g.getString(1);
-                        long j = g.getLong(2);
-                        long j2 = g.getLong(3);
-                        maa maaVar = new maa();
-                        maaVar.g(fid);
-                        maaVar.f(date);
-                        maaVar.e(j);
-                        maaVar.h(j2);
-                        if (linkedHashMap.get(fid) == null) {
-                            Intrinsics.checkNotNullExpressionValue(fid, "fid");
-                            linkedHashMap.put(fid, new LinkedHashMap());
-                        }
-                        Map map = (Map) linkedHashMap.get(fid);
-                        if (map != null) {
-                            Intrinsics.checkNotNullExpressionValue(date, "date");
-                            map.put(date, maaVar);
-                        }
-                        zy0.f(g, new Column[]{ss6.a.d(0), ss6.a.d(1), ss6.a.c(2), ss6.a.c(3)});
-                    } while (g.moveToNext());
-                    Unit unit = Unit.INSTANCE;
-                    CloseableKt.closeFinally(g, null);
-                    return linkedHashMap;
-                }
-                Unit unit2 = Unit.INSTANCE;
-                CloseableKt.closeFinally(g, null);
-                return linkedHashMap;
-            } finally {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {data, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        Intrinsics.checkNotNullParameter(data, "data");
+        this.a = data;
+        this.b = i;
+        this.c = i2;
+        this.d = z;
+    }
+
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public /* synthetic */ us6(List list, long j, long j2, int i, int i2, boolean z, int i3, DefaultConstructorMarker defaultConstructorMarker) {
+        this(list, j, j2, i, i2, r9);
+        boolean z2;
+        if ((i3 & 32) != 0) {
+            z2 = false;
         } else {
-            return (Map) invokeLL.objValue;
+            z2 = z;
         }
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW, INVOKE, MOVE_EXCEPTION, THROW, THROW, INVOKE, MOVE_EXCEPTION] complete} */
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public static final List<String> d(ss6.a aVar, int i) {
-        InterceptResult invokeLI;
+    public final List<pr6> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, aVar, i)) == null) {
-            String curDate = FrsVisitedInfoManager.d.b().format(new Date());
-            String fifteenAgoDate = FrsVisitedInfoManager.d.b().format(TimeHelper.getNDaysAgoDate(-14));
-            Intrinsics.checkNotNullExpressionValue(fifteenAgoDate, "fifteenAgoDate");
-            Intrinsics.checkNotNullExpressionValue(curDate, "curDate");
-            Cursor g = aVar.g("SELECT fid, sum(custom_count) as sum_counts \nFROM forum_visited_info \nWHERE date BETWEEN ? AND ? \nGROUP BY fid \nORDER BY sum_counts \nDESC \nLIMIT ?", fifteenAgoDate, curDate, String.valueOf(i));
-            try {
-                ArrayList arrayList = new ArrayList();
-                if (g.moveToFirst()) {
-                    do {
-                        String fid = g.getString(0);
-                        Intrinsics.checkNotNullExpressionValue(fid, "fid");
-                        arrayList.add(fid);
-                        zy0.f(g, new Column[]{ss6.a.d(0), ss6.a.b(1)});
-                    } while (g.moveToNext());
-                    Unit unit = Unit.INSTANCE;
-                    CloseableKt.closeFinally(g, null);
-                    return arrayList;
-                }
-                Unit unit2 = Unit.INSTANCE;
-                CloseableKt.closeFinally(g, null);
-                return arrayList;
-            } finally {
-            }
-        } else {
-            return (List) invokeLI.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public final void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.d = z;
+        }
+    }
+
+    public final void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.b = i;
         }
     }
 }

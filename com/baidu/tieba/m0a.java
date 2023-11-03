@@ -1,132 +1,144 @@
 package com.baidu.tieba;
 
-import android.app.PendingIntent;
-import android.content.Intent;
-import android.widget.RemoteViews;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.resourceLoader.BdResourceCallback;
-import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
-import com.baidu.adp.widget.ImageView.BdImage;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.ui.SystemBarTintManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tbadk.download.DownloadReceiver;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
+import com.baidu.tieba.pb.pb.sub.adapter.SubPbReplyAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class m0a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final RemoteViews a;
+    public q0a a;
+    public SubPbReplyAdapter b;
+    public NewSubPbActivity c;
+    public BdTypeListView d;
+    public List<bi> e;
+    public View.OnClickListener f;
+    public boolean g;
+    public boolean h;
 
-    /* loaded from: classes7.dex */
-    public class a extends BdResourceCallback<BdImage> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m0a a;
-
-        public a(m0a m0aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m0aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = m0aVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.resourceLoader.BdResourceCallback
-        public void onLoaded(BdImage bdImage, String str, int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLI(1048576, this, bdImage, str, i) == null) && this.a.a != null && bdImage != null && bdImage.getRawBitmap() != null) {
-                this.a.a.setImageViewBitmap(R.id.app_icon, bdImage.getRawBitmap());
-            }
-        }
-    }
-
-    public m0a(DownloadData downloadData, int i) {
+    public m0a(NewSubPbActivity newSubPbActivity, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {downloadData, Integer.valueOf(i)};
+            Object[] objArr = {newSubPbActivity, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new RemoteViews(TbadkCoreApplication.getInst().getPackageName(), (int) R.layout.download_notify_view);
-        c(i);
-        this.a.setTextViewText(R.id.download_status_text, TbadkCoreApplication.getInst().getResources().getString(R.string.on_downloading));
-        this.a.setImageViewResource(R.id.download_btn, R.drawable.notify_pause_bg);
-        this.a.setImageViewResource(R.id.download_cancel, R.drawable.notify_cancel_bg);
-        this.a.setTextViewText(R.id.downapp_name, downloadData.getUser_name());
-        BdResourceLoader.getInstance().loadResource(downloadData.getApp_icon(), 17, new a(this), BdUniqueId.gen());
-        Intent intent = new Intent(TbadkCoreApplication.getInst().getContext(), DownloadReceiver.class);
-        intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
-        intent.setAction(DownloadReceiver.ACTION_PAUSE_DOWNLOAD);
-        intent.putExtra(DownloadReceiver.DOWNLOAD_DATA, downloadData);
-        this.a.setOnClickPendingIntent(R.id.download_btn, PendingIntent.getBroadcast(TbadkCoreApplication.getInst(), downloadData.getNotifyId(), intent, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION));
-        Intent intent2 = new Intent(TbadkCoreApplication.getInst().getContext(), DownloadReceiver.class);
-        intent2.setAction(DownloadReceiver.ACTION_CANCEL_DOWNLOAD);
-        intent2.putExtra(DownloadReceiver.DOWNLOAD_DATA, downloadData);
-        intent2.setPackage(TbadkCoreApplication.getInst().getPackageName());
-        this.a.setOnClickPendingIntent(R.id.download_cancel, PendingIntent.getBroadcast(TbadkCoreApplication.getInst(), downloadData.getNotifyId(), intent2, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION));
+        this.e = new ArrayList();
+        this.f = null;
+        this.g = false;
+        this.h = true;
+        this.c = newSubPbActivity;
+        this.d = bdTypeListView;
     }
 
-    public RemoteViews b() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return this.g;
         }
-        return (RemoteViews) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public void d() {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.setTextViewText(R.id.download_status_text, TbadkCoreApplication.getInst().getResources().getString(R.string.downloading_app_paused));
-            this.a.setImageViewResource(R.id.download_btn, R.drawable.notify_start_bg);
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.setTextViewText(R.id.download_status_text, TbadkCoreApplication.getInst().getResources().getString(R.string.on_downloading));
-            this.a.setImageViewResource(R.id.download_btn, R.drawable.notify_pause_bg);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.d.getAdapter2() != null) {
+            this.d.getAdapter2().notifyDataSetChanged();
         }
     }
 
-    public void c(int i) {
-        String str;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            if (i > 0) {
-                str = i + "%";
-            } else {
-                str = "0%";
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            q0a q0aVar = new q0a(this.c, ura.X0);
+            this.a = q0aVar;
+            q0aVar.e(this.f);
+            this.a.setFromCDN(this.h);
+            this.e.add(this.a);
+            SubPbReplyAdapter subPbReplyAdapter = new SubPbReplyAdapter(this.c, t0a.b);
+            this.b = subPbReplyAdapter;
+            this.e.add(subPbReplyAdapter);
+            this.e.add(new r0a(this.c, s0a.a));
+            this.d.addAdapters(this.e);
+        }
+    }
+
+    public void d(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
+            this.f = onClickListener;
+        }
+    }
+
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.h = z;
+        }
+    }
+
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.g = z;
+        }
+    }
+
+    public void h(View.OnLongClickListener onLongClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, onLongClickListener) == null) {
+            this.a.d(onLongClickListener);
+        }
+    }
+
+    public void i(boolean z) {
+        q0a q0aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && (q0aVar = this.a) != null) {
+            q0aVar.J(z);
+        }
+    }
+
+    public void j(TbRichTextView.z zVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, zVar) == null) {
+            this.a.o(zVar);
+        }
+    }
+
+    public void e(ThreadData threadData, List<oi> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, threadData, list) == null) {
+            this.a.L(threadData);
+            if (!qd.isEmpty(this.c.k3().F0())) {
+                this.a.K(this.c.k3().F0());
             }
-            this.a.setProgressBar(R.id.download_progress, 100, i, false);
-            this.a.setTextViewText(R.id.download_progress_text, str);
+            NewSubPbActivity newSubPbActivity = this.c;
+            if (newSubPbActivity != null && newSubPbActivity.k3() != null) {
+                this.a.I(this.c.k3().c1());
+            }
+            this.d.setData(list);
+            this.d.getAdapter2().notifyDataSetChanged();
         }
     }
 }

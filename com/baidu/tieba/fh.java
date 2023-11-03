@@ -1,78 +1,88 @@
 package com.baidu.tieba;
 
-import android.view.animation.Interpolator;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.pms.bean.ErrorInfo;
+import com.baidu.searchbox.pms.bean.PackageInfo;
+import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes5.dex */
-public final class fh {
+public class fh extends DefaultDownloadCallback {
     public static /* synthetic */ Interceptable $ic;
-    public static final Interpolator a;
     public transient /* synthetic */ FieldHolder $fh;
+    public DefaultDownloadCallback a;
 
-    /* loaded from: classes5.dex */
-    public class a implements Interpolator {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // android.animation.TimeInterpolator
-        public float getInterpolation(float f) {
-            InterceptResult invokeF;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
-                float f2 = f - 1.0f;
-                return (f2 * f2 * f2 * f2 * f2) + 1.0f;
-            }
-            return invokeF.floatValue;
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448304427, "Lcom/baidu/tieba/fh;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448304427, "Lcom/baidu/tieba/fh;");
+    public fh(DefaultDownloadCallback defaultDownloadCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {defaultDownloadCallback};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new a();
+        this.a = defaultDownloadCallback;
     }
 
-    public static int a(float f, float f2, boolean z) {
-        InterceptResult invokeCommon;
-        float interpolation;
+    @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
+    public void onDownloadError(PackageInfo packageInfo, ErrorInfo errorInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Boolean.valueOf(z)})) == null) {
-            if (z) {
-                interpolation = f - (a.getInterpolation(f2 / (f2 - f)) * f);
-            } else {
-                interpolation = f * a.getInterpolation(f2 / f);
-            }
-            return (int) interpolation;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, packageInfo, errorInfo) != null) || errorInfo == null) {
+            return;
         }
-        return invokeCommon.intValue;
+        BdLog.e(errorInfo.errorMsg);
+        DefaultDownloadCallback defaultDownloadCallback = this.a;
+        if (defaultDownloadCallback != null) {
+            defaultDownloadCallback.onDownloadError(packageInfo, errorInfo);
+        }
+    }
+
+    @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
+    public void onDownloadSuccess(PackageInfo packageInfo, ErrorInfo errorInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo, errorInfo) == null) && packageInfo != null && !StringUtils.isNull(packageInfo.filePath) && !StringUtils.isNull(packageInfo.name)) {
+            File file = new File(packageInfo.filePath);
+            if (file.exists() && file.isFile()) {
+                String b = hh.b(packageInfo.name);
+                File file2 = new File(b);
+                if (file2.exists() && !file2.delete()) {
+                    return;
+                }
+                zg.b(packageInfo.name, packageInfo.toString(), "download success");
+                if (file.renameTo(file2)) {
+                    if (b.contains(".so")) {
+                        if (jh.a(BdBaseApplication.getInst().getContext(), hh.a(packageInfo.name))) {
+                            zg.b(packageInfo.name, packageInfo.toString(), "load success2");
+                            ConcurrentHashMap<String, String> resHashMap = BdBaseApplication.getInst().getResHashMap();
+                            String str = packageInfo.name;
+                            resHashMap.put(str, hh.a(str));
+                        }
+                        ((yg) ServiceManager.getService(yg.a)).a(packageInfo.name);
+                    } else {
+                        ConcurrentHashMap<String, String> resHashMap2 = BdBaseApplication.getInst().getResHashMap();
+                        String str2 = packageInfo.name;
+                        resHashMap2.put(str2, hh.a(str2));
+                    }
+                    DefaultDownloadCallback defaultDownloadCallback = this.a;
+                    if (defaultDownloadCallback != null) {
+                        defaultDownloadCallback.onDownloadSuccess(packageInfo, errorInfo);
+                    }
+                }
+            }
+        }
     }
 }

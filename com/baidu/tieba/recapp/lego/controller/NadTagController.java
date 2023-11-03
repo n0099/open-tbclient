@@ -10,9 +10,9 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a1a;
-import com.baidu.tieba.p0a;
+import com.baidu.tieba.fea;
 import com.baidu.tieba.recapp.lego.model.AdCard;
+import com.baidu.tieba.uda;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,7 +28,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt__StringsJVMKt;
 import kotlin.text.StringsKt__StringsKt;
 @Metadata(d1 = {"\u0000>\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\r\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\b\u0010\u0019\u001a\u00020\u0006H\u0003J \u0010\u001a\u001a\u00020\u00062\u0006\u0010\u001b\u001a\u00020\u00062\u0006\u0010\u001c\u001a\u00020\u001d2\u0006\u0010\u001e\u001a\u00020\u001dH\u0002J\u0006\u0010\u001f\u001a\u00020 J&\u0010!\u001a\u00020 2\u0006\u0010\"\u001a\u00020#2\u0006\u0010\u001b\u001a\u00020\u00062\u0006\u0010\u001c\u001a\u00020\u001d2\u0006\u0010$\u001a\u00020%R\u001b\u0010\u0005\u001a\u00020\u00068BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\t\u0010\n\u001a\u0004\b\u0007\u0010\bR\u001b\u0010\u000b\u001a\u00020\u00068BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\r\u0010\n\u001a\u0004\b\f\u0010\bR\u001b\u0010\u000e\u001a\u00020\u000f8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0012\u0010\n\u001a\u0004\b\u0010\u0010\u0011R\u001b\u0010\u0013\u001a\u00020\u000f8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0015\u0010\n\u001a\u0004\b\u0014\u0010\u0011R\u001b\u0010\u0016\u001a\u00020\u00068BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0018\u0010\n\u001a\u0004\b\u0017\u0010\b¨\u0006&"}, d2 = {"Lcom/baidu/tieba/recapp/lego/controller/NadTagController;", "", "rootView", "Landroid/view/View;", "(Landroid/view/View;)V", "buttonWidth", "", "getButtonWidth", "()I", "buttonWidth$delegate", "Lkotlin/Lazy;", "closeViewWidth", "getCloseViewWidth", "closeViewWidth$delegate", "reasonNameSwitchTag", "Lcom/baidu/tbadk/core/elementsMaven/view/EMTextView;", "getReasonNameSwitchTag", "()Lcom/baidu/tbadk/core/elementsMaven/view/EMTextView;", "reasonNameSwitchTag$delegate", "recommendReasonTag", "getRecommendReasonTag", "recommendReasonTag$delegate", "tagTextMarginWidth", "getTagTextMarginWidth", "tagTextMarginWidth$delegate", "getNewReasonColor", "getTagMaxWidth", "maxWidth", "isPbBanner", "", "isUrlAd", "onChangeSkinType", "", StickerDataChangeType.UPDATE, "card", "Lcom/baidu/tieba/recapp/lego/model/AdCard;", "tagListener", "Landroid/view/View$OnClickListener;", "recApp_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class NadTagController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +87,7 @@ public final class NadTagController {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return (EMTextView) this.$rootView.findViewById(R.id.obfuscated_res_0x7f090158);
+                    return (EMTextView) this.$rootView.findViewById(R.id.obfuscated_res_0x7f09016b);
                 }
                 return (EMTextView) invokeV.objValue;
             }
@@ -125,7 +125,7 @@ public final class NadTagController {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return (EMTextView) this.$rootView.findViewById(R.id.obfuscated_res_0x7f091eab);
+                    return (EMTextView) this.$rootView.findViewById(R.id.obfuscated_res_0x7f091ef2);
                 }
                 return (EMTextView) invokeV.objValue;
             }
@@ -165,7 +165,7 @@ public final class NadTagController {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
                     Resources resources = this.$rootView.getResources();
-                    i3 = p0a.b;
+                    i3 = uda.b;
                     return Integer.valueOf((int) resources.getDimension(i3));
                 }
                 return (Integer) invokeV.objValue;
@@ -206,7 +206,7 @@ public final class NadTagController {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
                     Resources resources = this.$rootView.getResources();
-                    i3 = p0a.c;
+                    i3 = uda.c;
                     return Integer.valueOf((int) resources.getDimension(i3));
                 }
                 return (Integer) invokeV.objValue;
@@ -247,7 +247,7 @@ public final class NadTagController {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
                     Resources resources = this.$rootView.getResources();
-                    i3 = p0a.d;
+                    i3 = uda.d;
                     return Integer.valueOf((int) resources.getDimension(i3));
                 }
                 return (Integer) invokeV.objValue;
@@ -310,7 +310,7 @@ public final class NadTagController {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             SkinManager.setViewTextColor(e(), c());
             EMTextView d = d();
-            i = p0a.a;
+            i = uda.a;
             SkinManager.setViewTextColor(d, i);
         }
     }
@@ -330,12 +330,12 @@ public final class NadTagController {
                 adCard = null;
             }
             if (adCard == null || TextUtils.isEmpty(adCard.recommendReasonColor)) {
-                i = p0a.a;
+                i = uda.a;
                 return i;
             }
             Resources resources = e().getContext().getResources();
             if (resources == null) {
-                i2 = p0a.a;
+                i2 = uda.a;
                 return i2;
             }
             return resources.getIdentifier(adCard.recommendReasonColor, "color", e().getContext().getPackageName());
@@ -417,7 +417,7 @@ public final class NadTagController {
                 e().setVisibility(0);
             } else {
                 e().setVisibility(8);
-                d().setText(a1a.e(str2, StringsKt__StringsKt.trim((CharSequence) str).toString(), f, d().getPaint()));
+                d().setText(fea.e(str2, StringsKt__StringsKt.trim((CharSequence) str).toString(), f, d().getPaint()));
             }
             d().setOnClickListener(tagListener);
         }

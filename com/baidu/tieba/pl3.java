@@ -1,57 +1,70 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.swan.menu.BaseMenuView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class pl3 {
+public class pl3 implements hc4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
+    public FrameLayout a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948065842, "Lcom/baidu/tieba/pl3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948065842, "Lcom/baidu/tieba/pl3;");
+    public pl3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        j22.b();
-        a = j22.b();
+        this.a = null;
     }
 
-    public static String a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.hc4
+    public void a(BaseMenuView baseMenuView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return String.format("%s/smtapp/ad/auto", a);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, baseMenuView) != null) || baseMenuView == null || ProcessUtils.isMainProcess() || !SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
+            return;
         }
-        return (String) invokeV.objValue;
+        if (np2.M().a()) {
+            b(baseMenuView);
+        } else {
+            c(baseMenuView);
+        }
     }
 
-    public static String b() {
-        InterceptResult invokeV;
+    public final void b(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return String.format("%s/smtapp/ad/similar", a);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) != null) || viewGroup == null || !(viewGroup instanceof FrameLayout)) {
+            return;
         }
-        return (String) invokeV.objValue;
+        if (this.a == null) {
+            FrameLayout frameLayout = new FrameLayout(viewGroup.getContext());
+            this.a = frameLayout;
+            frameLayout.setBackgroundResource(R.color.obfuscated_res_0x7f060451);
+        }
+        viewGroup.removeView(this.a);
+        viewGroup.addView(this.a, new FrameLayout.LayoutParams(-1, -1));
     }
 
-    public static String c() {
-        InterceptResult invokeV;
+    public final void c(ViewGroup viewGroup) {
+        FrameLayout frameLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return String.format("%s/searchbox?action=userx&type=attribute", a);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) && viewGroup != null && (frameLayout = this.a) != null) {
+            viewGroup.removeView(frameLayout);
+            this.a = null;
         }
-        return (String) invokeV.objValue;
     }
 }

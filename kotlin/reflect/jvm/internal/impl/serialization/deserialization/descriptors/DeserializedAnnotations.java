@@ -27,7 +27,7 @@ public class DeserializedAnnotations implements Annotations {
 
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations
     /* renamed from: findAnnotation */
-    public AnnotationDescriptor mo2101findAnnotation(FqName fqName) {
+    public AnnotationDescriptor mo2105findAnnotation(FqName fqName) {
         return Annotations.DefaultImpls.findAnnotation(this, fqName);
     }
 

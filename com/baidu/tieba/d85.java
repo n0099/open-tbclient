@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbConfig;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
@@ -10,15 +11,11 @@ import org.json.JSONObject;
 public class d85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public int c;
-    public int d;
-    public String e;
-    public String f;
-    public String g;
-    public int h;
-    public String i;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public int e;
 
     public d85() {
         Interceptable interceptable = $ic;
@@ -34,29 +31,59 @@ public class d85 {
         }
     }
 
-    public void a(JSONObject jSONObject) {
-        boolean z;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        boolean z2 = true;
-        if (jSONObject.optInt("isShowDownloadNaniPanel", 2) == 1) {
-            z = true;
-        } else {
-            z = false;
+        return (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
-        this.a = z;
-        if (jSONObject.optInt("isActivateNaniApp", 1) != 1) {
-            z2 = false;
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
         }
-        this.b = z2;
-        this.c = jSONObject.optInt("downloadNaniShowPosition", 3);
-        this.d = jSONObject.optInt("downloadNaniShowRate", 2);
-        this.e = jSONObject.optString("downloadNaniLinkUrl", null);
-        this.f = jSONObject.optString("downloadNaniTxt", null);
-        this.g = jSONObject.optString("showNaniTailTxt", null);
-        this.h = jSONObject.optInt("showNaniTailVideoType", 0);
-        this.i = jSONObject.optString("preNaniShareUrl", TbConfig.NANI_DEFAULT_H5_PREFIX);
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public void f(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
+            this.a = jSONObject.optString("icon");
+            this.b = jSONObject.optString("tab_code");
+            this.c = jSONObject.optString("pop_text");
+            this.d = jSONObject.optString("thread_id");
+            this.e = jSONObject.optInt("version");
+        }
     }
 }

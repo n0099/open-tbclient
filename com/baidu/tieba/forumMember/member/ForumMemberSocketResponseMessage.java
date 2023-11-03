@@ -4,8 +4,9 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.kn7;
+import com.baidu.tieba.ln7;
 import com.baidu.tieba.tbadkCore.LikeReturnData;
-import com.baidu.tieba.ua7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,11 +21,12 @@ import tbclient.GetMemberInfo.ManagerApplyInfo;
 import tbclient.GetMemberInfo.MemberGodInfo;
 import tbclient.MemberGroupInfo;
 import tbclient.PriManagerApplyInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isNeedUpdateCache;
+    public kn7 mComplaintBarlordData;
     public boolean mIsBawuShow;
     public boolean mIsPrivateForum;
     public ManagerApplyInfo mManagerApplyInfo;
@@ -64,8 +66,8 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
             forumMemberRequestMessage = (ForumMemberRequestMessage) getOrginalMessage().getExtra();
         }
         if (forumMemberRequestMessage != null) {
-            ua7 ua7Var = new ua7();
-            ua7Var.c(forumMemberRequestMessage.getForumName() + "", bArr);
+            ln7 ln7Var = new ln7();
+            ln7Var.c(forumMemberRequestMessage.getForumName() + "", bArr);
         }
     }
 
@@ -112,7 +114,15 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
                         z2 = true;
                     }
                     this.mIsPrivateForum = z2;
-                    this.mPrivateMgrApplyInfo = getMemberInfoResIdl.data.primanager_apply_info;
+                    DataRes dataRes3 = getMemberInfoResIdl.data;
+                    this.mPrivateMgrApplyInfo = dataRes3.primanager_apply_info;
+                    if (dataRes3.manager_complain_info != null) {
+                        kn7 kn7Var = new kn7();
+                        this.mComplaintBarlordData = kn7Var;
+                        kn7Var.c(getMemberInfoResIdl.data.manager_complain_info);
+                    } else {
+                        this.mComplaintBarlordData = null;
+                    }
                     this.isNeedUpdateCache = true;
                 } else {
                     this.isNeedUpdateCache = false;
@@ -123,10 +133,19 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public ManagerApplyInfo getManagerApplyInfo() {
+    public kn7 getComplaintBarlordData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mComplaintBarlordData;
+        }
+        return (kn7) invokeV.objValue;
+    }
+
+    public ManagerApplyInfo getManagerApplyInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.mManagerApplyInfo;
         }
         return (ManagerApplyInfo) invokeV.objValue;
@@ -135,7 +154,7 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
     public MemberGodInfo getMemberGodInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.mMemberGodInfo;
         }
         return (MemberGodInfo) invokeV.objValue;
@@ -144,7 +163,7 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
     public List<MemberGroupInfo> getMemberGroupInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.mMemberGroupInfoList;
         }
         return (List) invokeV.objValue;
@@ -153,7 +172,7 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
     public PriManagerApplyInfo getPrivateMgrApplyInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.mPrivateMgrApplyInfo;
         }
         return (PriManagerApplyInfo) invokeV.objValue;
@@ -162,7 +181,7 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
     public LikeReturnData getUserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.mUserInfo;
         }
         return (LikeReturnData) invokeV.objValue;
@@ -171,7 +190,7 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
     public boolean isBawuShow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.mIsBawuShow;
         }
         return invokeV.booleanValue;
@@ -180,15 +199,22 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
     public boolean isPrivateForum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return this.mIsPrivateForum;
         }
         return invokeV.booleanValue;
     }
 
+    public void setComplaintBarlordData(kn7 kn7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, kn7Var) == null) {
+            this.mComplaintBarlordData = kn7Var;
+        }
+    }
+
     public void setManagerApplyInfo(ManagerApplyInfo managerApplyInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, managerApplyInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, managerApplyInfo) == null) {
             this.mManagerApplyInfo = managerApplyInfo;
         }
     }

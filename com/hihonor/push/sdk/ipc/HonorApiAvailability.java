@@ -7,8 +7,8 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.tieba.srb;
-import com.baidu.tieba.vrb;
+import com.baidu.tieba.t4c;
+import com.baidu.tieba.w4c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -94,11 +94,11 @@ public class HonorApiAvailability {
         }
     }
 
-    public static vrb a(Context context) {
+    public static w4c a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            vrb vrbVar = new vrb();
+            w4c w4cVar = new w4c();
             Intent intent = new Intent();
             intent.setComponent(new ComponentName("android", "com.hihonor.android.pushagentproxy.HiPushService"));
             List<ResolveInfo> queryIntentServices = context.getPackageManager().queryIntentServices(intent, 128);
@@ -107,15 +107,15 @@ public class HonorApiAvailability {
                 if (it.hasNext()) {
                     ResolveInfo next = it.next();
                     String str = next.serviceInfo.applicationInfo.packageName;
-                    String e = srb.e(context, str);
-                    vrbVar.f(str);
-                    vrbVar.g(next.serviceInfo.name);
-                    vrbVar.h(e);
+                    String e = t4c.e(context, str);
+                    w4cVar.f(str);
+                    w4cVar.g(next.serviceInfo.name);
+                    w4cVar.h(e);
                 }
             }
-            return vrbVar;
+            return w4cVar;
         }
-        return (vrb) invokeL.objValue;
+        return (w4c) invokeL.objValue;
     }
 
     public static int b(Context context) {
@@ -124,7 +124,7 @@ public class HonorApiAvailability {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             if (context != null) {
-                vrb a = a(context);
+                w4c a = a(context);
                 String c = a.c();
                 String str = "service package name is " + c;
                 if (TextUtils.isEmpty(c)) {

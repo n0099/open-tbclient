@@ -40,7 +40,7 @@ import com.baidu.tbadk.widget.RankStarView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.tiejia.TiePlusEventController;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nw5;
+import com.baidu.tieba.hy5;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -312,7 +312,7 @@ public class OriginalThreadCardView extends RelativeLayout {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, itemStarData)) == null) {
-            SpannableStringBuilder d = nw5.d(itemStarData);
+            SpannableStringBuilder d = hy5.d(itemStarData);
             d.append((CharSequence) str);
             return d;
         }
@@ -536,7 +536,7 @@ public class OriginalThreadCardView extends RelativeLayout {
                         textView.setText(charSequence);
                     }
                     if (c != null) {
-                        TiePlusEventController.s(originalThreadInfo.h());
+                        TiePlusEventController.r(originalThreadInfo.h());
                     }
                     l(originalThreadInfo.G, originalThreadInfo.f, originalThreadInfo.e);
                     setTag(originalThreadInfo);
@@ -606,7 +606,7 @@ public class OriginalThreadCardView extends RelativeLayout {
         layoutParams3.height = equipmentWidth;
         this.b.setLayoutParams(layoutParams3);
         this.f = (LinearLayout) findViewById(R.id.add_item);
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0911fd);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09123b);
         this.g = textView;
         textView.setMaxWidth(BdUtilHelper.getScreenDimensions(context)[0] / 2);
         this.h = (RankStarView) findViewById(R.id.item_star);

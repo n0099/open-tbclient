@@ -1,24 +1,20 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class ks2 implements ov2 {
+import java.util.List;
+/* loaded from: classes7.dex */
+public class ks2 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ks2 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<is2> a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
+    public final xe3 a;
 
     public ks2() {
         Interceptable interceptable = $ic;
@@ -33,58 +29,78 @@ public class ks2 implements ov2 {
                 return;
             }
         }
-        this.b = 1;
-        this.c = -16777216;
-        this.d = 0;
-        this.e = 0;
+        this.a = new xe3("swan_local_ab_data");
+        if (ProcessUtils.isMainProcess()) {
+            this.a.clear();
+        }
+        c();
     }
 
-    @Override // com.baidu.tieba.ov2
-    public boolean isValid() {
+    public static ks2 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<is2> arrayList = this.a;
-            if (arrayList != null && !arrayList.isEmpty()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ov2
-    public void a(JSONObject jSONObject) throws JSONException {
-        int length;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null || !jSONObject.has("points")) {
-            return;
-        }
-        JSONArray optJSONArray = jSONObject.optJSONArray("points");
-        if (optJSONArray == null) {
-            length = 0;
-        } else {
-            length = optJSONArray.length();
-        }
-        if (length > 0) {
-            this.a = new ArrayList<>(length);
-            for (int i = 0; i < length; i++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    is2 is2Var = new is2();
-                    is2Var.a(optJSONObject);
-                    if (is2Var.isValid()) {
-                        this.a.add(is2Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (ks2.class) {
+                    if (b == null) {
+                        b = new ks2();
                     }
                 }
             }
+            return b;
         }
-        ArrayList<is2> arrayList = this.a;
-        if (arrayList != null && arrayList.size() > 0) {
-            this.b = (int) Math.abs(cs2.b(jSONObject.optInt("strokeWidth", 1)));
-            this.c = cs2.a(jSONObject.optString("strokeColor"), -16777216);
-            this.d = cs2.a(jSONObject.optString("fillColor"), 0);
-            this.e = jSONObject.optInt("zIndex", 0);
+        return (ks2) invokeV.objValue;
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.getString(Config.SID, "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void c() {
+        String substring;
+        Object e;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && ProcessUtils.isMainProcess()) {
+            List<ls2> c = new js2().c();
+            for (ls2 ls2Var : c) {
+                ms2 b2 = ls2Var.b();
+                ns2 c2 = ls2Var.c();
+                if (b2 == null) {
+                    e = c2.d();
+                } else {
+                    e = b2.e();
+                }
+                if (e instanceof Boolean) {
+                    this.a.writeBool(c2.e(), ((Boolean) e).booleanValue());
+                } else if (e instanceof Double) {
+                    this.a.writeDouble(c2.e(), ((Double) e).doubleValue());
+                } else if (e instanceof Integer) {
+                    this.a.writeInt(c2.e(), ((Integer) e).intValue());
+                } else if (e instanceof Long) {
+                    this.a.writeLong(c2.e(), ((Long) e).longValue());
+                } else if (e instanceof String) {
+                    this.a.writeString(c2.e(), (String) e);
+                }
+            }
+            StringBuilder sb = new StringBuilder();
+            for (ls2 ls2Var2 : c) {
+                ms2 b3 = ls2Var2.b();
+                if (b3 != null) {
+                    sb.append(b3.d());
+                    sb.append("-");
+                }
+            }
+            if (sb.length() == 0) {
+                substring = "";
+            } else {
+                substring = sb.substring(0, sb.length() - 1);
+            }
+            this.a.writeString(Config.SID, substring);
         }
     }
 }

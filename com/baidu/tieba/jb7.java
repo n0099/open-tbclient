@@ -1,24 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.m9;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.na7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class jb7 {
+public final class jb7 implements na7.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public m9<byte[]> a;
+    public final gb7 a;
 
-    public jb7() {
+    public jb7(gb7 statStrategy) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {statStrategy};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,42 +30,35 @@ public class jb7 {
                 return;
             }
         }
-        b();
+        Intrinsics.checkNotNullParameter(statStrategy, "statStrategy");
+        this.a = statStrategy;
     }
 
-    public final void b() {
+    @Override // com.baidu.tieba.na7.b
+    public void a(za7<?> data, int i) {
+        Map<String, String> a;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a == null) {
-            gz4.k();
-            this.a = gz4.i("tb.tbtiel_level_info");
-        }
-    }
-
-    public byte[] a(String str) {
-        InterceptResult invokeL;
-        m9.b<byte[]> bVar;
-        byte[] bArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            m9<byte[]> m9Var = this.a;
-            if (m9Var != null && str != null) {
-                bVar = m9Var.h(str);
-            } else {
-                bVar = null;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, data, i) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            ja7 ja7Var = (ja7) data;
+            StatisticItem statisticItem = new StatisticItem(this.a.getKey());
+            d57 d57Var = new d57();
+            d57 d57Var2 = ja7Var.b;
+            if (d57Var2 != null) {
+                d57Var = d57Var2;
             }
-            if (bVar == null || (bArr = bVar.b) == null) {
-                return null;
+            if (ja7Var.b != null) {
+                for (Map.Entry<String, String> entry : this.a.a(d57Var).entrySet()) {
+                    statisticItem.param(entry.getKey(), entry.getValue());
+                }
             }
-            return bArr;
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public void c(String str, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr) == null) && !StringUtils.isNull(str)) {
-            b();
-            this.a.e(str, bArr, TbConfig.MILLS_7DAYS);
+            v67 v67Var = ja7Var.a;
+            if (v67Var != null && (a = v67Var.a()) != null) {
+                for (Map.Entry<String, String> entry2 : a.entrySet()) {
+                    statisticItem.param(entry2.getKey(), entry2.getValue());
+                }
+            }
+            TiebaStatic.log(statisticItem);
         }
     }
 }

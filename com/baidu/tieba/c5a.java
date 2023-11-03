@@ -1,110 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.NetMessageListener;
-import com.baidu.adp.framework.message.ResponsedMessage;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.setting.forbiddenforum.ForbiddenForumHttpResMsg;
-import com.baidu.tieba.setting.forbiddenforum.ForbiddenForumReqMsg;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
+import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
+import com.baidu.tieba.yl5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes5.dex */
-public class c5a {
+public class c5a implements yl5, PersonPostModel.d, PersonPostModel.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public int b;
-    public d5a c;
-    public b d;
-    public NetMessageListener e;
+    @NonNull
+    public PersonPostModel a;
+    @Nullable
+    public yl5.a b;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(d5a d5aVar);
-
-        void onError(int i, String str);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends NetMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c5a a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(c5a c5aVar, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c5aVar, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = c5aVar;
-        }
-
-        @Override // com.baidu.adp.framework.listener.NetMessageListener
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            d5a d5aVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
-                return;
-            }
-            if (responsedMessage.getOrginalMessage() != null && responsedMessage.getOrginalMessage().getTag() != this.a.a) {
-                return;
-            }
-            if (responsedMessage instanceof ForbiddenForumHttpResMsg) {
-                d5aVar = ((ForbiddenForumHttpResMsg) responsedMessage).getPageData();
-            } else {
-                d5aVar = null;
-            }
-            if (responsedMessage.getError() == 0) {
-                if (this.a.b == 1 && (d5aVar == null || ListUtils.isEmpty(d5aVar.a))) {
-                    if (this.a.d != null) {
-                        this.a.d.a(null);
-                    }
-                } else if (d5aVar != null) {
-                    this.a.c.a.addAll(d5aVar.a);
-                    if (!ListUtils.isEmpty(d5aVar.a)) {
-                        this.a.c.b = d5aVar.b;
-                        c5a.c(this.a);
-                    } else {
-                        this.a.c.b = false;
-                    }
-                    if (this.a.d != null) {
-                        this.a.d.a(d5aVar);
-                    }
-                }
-            } else if (this.a.d != null) {
-                this.a.d.onError(responsedMessage.getError(), responsedMessage.getErrorString());
-            }
-        }
-    }
-
-    public c5a(BdUniqueId bdUniqueId) {
+    public c5a(@NonNull TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -114,71 +40,51 @@ public class c5a {
                 return;
             }
         }
-        this.b = 1;
-        a aVar = new a(this, CmdConfigHttp.CMD_GET_FORBIDDEN_FORUM, 309692);
-        this.e = aVar;
-        this.a = bdUniqueId;
-        aVar.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.e);
-        h();
-        this.c = new d5a();
+        this.a = new PersonPostModel(tbPageContext, tbPageContext.getUniqueId(), this, false, 1);
     }
 
-    public static /* synthetic */ int c(c5a c5aVar) {
-        int i = c5aVar.b;
-        c5aVar.b = i + 1;
-        return i;
-    }
-
-    public void j(b bVar) {
+    @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.c
+    public void Q0(PersonPostModel personPostModel, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.d = bVar;
-        }
-    }
-
-    public void f(String str) {
-        d5a d5aVar;
-        String str2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (d5aVar = this.c) != null && !ListUtils.isEmpty(d5aVar.a)) {
-            for (b5a b5aVar : this.c.a) {
-                if (b5aVar != null && (str2 = b5aVar.c) != null && str2.equals(str)) {
-                    this.c.a.remove(b5aVar);
-                    return;
+        if ((interceptable == null || interceptable.invokeLZ(1048576, this, personPostModel, z) == null) && this.b != null) {
+            ArrayList arrayList = new ArrayList();
+            Iterator<oi> it = personPostModel.threadList.iterator();
+            while (it.hasNext()) {
+                oi next = it.next();
+                if (next instanceof CardPersonDynamicThreadData) {
+                    ThreadData threadData = ((CardPersonDynamicThreadData) next).getThreadData();
+                    if (!TextUtils.equals(threadData.getTid(), "0")) {
+                        arrayList.add(threadData);
+                    }
                 }
             }
+            this.b.b(arrayList, personPostModel.getDataResMap());
+            this.b.a();
         }
     }
 
-    public d5a g() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.yl5
+    public void a(@Nullable yl5.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (d5a) invokeV.objValue;
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ForbiddenForumReqMsg forbiddenForumReqMsg = new ForbiddenForumReqMsg();
-            forbiddenForumReqMsg.pageSize = 20;
-            forbiddenForumReqMsg.pageNum = this.b;
-            forbiddenForumReqMsg.setTag(this.a);
-            MessageManager.getInstance().sendMessage(forbiddenForumReqMsg);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.b = aVar;
         }
     }
 
-    public final void h() {
+    @Override // com.baidu.tieba.yl5
+    public void b(@NonNull String str, @Nullable MetaData metaData, @NonNull Integer num, @NonNull Integer num2, @NonNull Integer num3, @NonNull Integer num4, @NonNull Long l, @NonNull Integer num5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_FORBIDDEN_FORUM, xda.a(TbConfig.URL_GET_FORBIDDEN_FORUM, 309692));
-            tbHttpMessageTask.setIsNeedAddCommenParam(false);
-            tbHttpMessageTask.setResponsedClass(ForbiddenForumHttpResMsg.class);
-            tbHttpMessageTask.setPriority(4);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, metaData, num, num2, num3, num4, l, num5}) == null) {
+            this.a.fetchPostByBeginThreadId(str, this, metaData, num, num2, num3, num4, l, num5);
+        }
+    }
+
+    @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.d
+    public void b1(PersonPostModel personPostModel, boolean z) {
+        yl5.a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(1048579, this, personPostModel, z) == null) && (aVar = this.b) != null) {
+            aVar.a();
         }
     }
 }

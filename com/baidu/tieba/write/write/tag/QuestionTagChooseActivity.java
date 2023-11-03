@@ -7,8 +7,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.QuestionTagChooseActivityConfig;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
-import com.baidu.tieba.eo5;
-import com.baidu.tieba.r3b;
+import com.baidu.tieba.sgb;
+import com.baidu.tieba.yp5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,12 +18,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class QuestionTagChooseActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public r3b k;
+    public sgb k;
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public void D1() {
+    public void x1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
     }
 
@@ -79,30 +79,30 @@ public class QuestionTagChooseActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onDestroy();
-            r3b r3bVar = this.k;
-            if (r3bVar != null) {
-                r3bVar.onDestroy();
+            sgb sgbVar = this.k;
+            if (sgbVar != null) {
+                sgbVar.onDestroy();
             }
         }
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public View.OnClickListener s1() {
+    public View.OnClickListener p1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return new a(this);
         }
         return (View.OnClickListener) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public eo5 q1(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public yp5 n1(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         String str;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, linearLayout, navigationBar)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) {
             if (this.k == null) {
                 String str3 = null;
                 Intent intent = getIntent();
@@ -118,13 +118,13 @@ public class QuestionTagChooseActivity extends SuspendedActivity {
                 if (str3 != null) {
                     str4 = str3;
                 }
-                r3b r3bVar = new r3b(linearLayout, navigationBar, this, str4);
-                this.k = r3bVar;
-                r3bVar.G(str2);
+                sgb sgbVar = new sgb(linearLayout, navigationBar, this, str4);
+                this.k = sgbVar;
+                sgbVar.G(str2);
                 this.k.F(str);
             }
             return this.k;
         }
-        return (eo5) invokeLL.objValue;
+        return (yp5) invokeLL.objValue;
     }
 }

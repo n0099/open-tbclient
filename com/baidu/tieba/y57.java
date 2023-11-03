@@ -1,20 +1,21 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.SpannableString;
-import android.text.TextUtils;
-import android.text.style.ClickableSpan;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
-/* loaded from: classes8.dex */
-public final class y57 implements t57 {
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes9.dex */
+public class y57 implements w97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<za7<?>> a;
+    public int b;
+    public boolean c;
+    public int d;
+    public String e;
 
     public y57() {
         Interceptable interceptable = $ic;
@@ -26,33 +27,22 @@ public final class y57 implements t57 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList();
+        this.c = true;
     }
 
-    @Override // com.baidu.tieba.t57
-    public SpannableString b(Context context, k47 richTextData, ClickableSpan clickableSpan) {
-        InterceptResult invokeLLL;
-        c37 b;
+    @Override // com.baidu.tieba.w97
+    public void d(@NonNull Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, richTextData, clickableSpan)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(richTextData, "richTextData");
-            Intrinsics.checkNotNullParameter(clickableSpan, "clickableSpan");
-            p47 f = richTextData.f();
-            SpannableString spannableString = new SpannableString(f.c());
-            if (!TextUtils.isEmpty(richTextData.d()) && f.b() != null) {
-                if ((clickableSpan instanceof u57) && (b = f.b()) != null) {
-                    ((u57) clickableSpan).a(u87.a.a(b));
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+            for (za7<?> za7Var : this.a) {
+                if (za7Var instanceof w97) {
+                    ((w97) za7Var).d(obj);
                 }
-                int length = f.c().length();
-                if (StringsKt__StringsJVMKt.endsWith$default(f.c(), " ", false, 2, null)) {
-                    length = f.c().length() - 1;
-                }
-                spannableString.setSpan(clickableSpan, 0, length, 33);
             }
-            return spannableString;
         }
-        return (SpannableString) invokeLLL.objValue;
     }
 }

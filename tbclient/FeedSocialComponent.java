@@ -2,6 +2,8 @@ package tbclient;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
+import java.util.Collections;
+import java.util.List;
 /* loaded from: classes2.dex */
 public final class FeedSocialComponent extends Message {
     @ProtoField(tag = 1)
@@ -10,6 +12,8 @@ public final class FeedSocialComponent extends Message {
     public final Integer comment_num;
     @ProtoField(tag = 5, type = Message.Datatype.UINT64)
     public final Long fid;
+    @ProtoField(label = Message.Label.REPEATED, tag = 6)
+    public final List<LayoutManageInfo> manage_list;
     @ProtoField(tag = 3, type = Message.Datatype.INT32)
     public final Integer share_num;
     @ProtoField(tag = 4, type = Message.Datatype.UINT64)
@@ -18,12 +22,14 @@ public final class FeedSocialComponent extends Message {
     public static final Integer DEFAULT_SHARE_NUM = 0;
     public static final Long DEFAULT_TID = 0L;
     public static final Long DEFAULT_FID = 0L;
+    public static final List<LayoutManageInfo> DEFAULT_MANAGE_LIST = Collections.emptyList();
 
     /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<FeedSocialComponent> {
         public Agree agree;
         public Integer comment_num;
         public Long fid;
+        public List<LayoutManageInfo> manage_list;
         public Integer share_num;
         public Long tid;
 
@@ -40,6 +46,7 @@ public final class FeedSocialComponent extends Message {
             this.share_num = feedSocialComponent.share_num;
             this.tid = feedSocialComponent.tid;
             this.fid = feedSocialComponent.fid;
+            this.manage_list = Message.copyOf(feedSocialComponent.manage_list);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -74,9 +81,15 @@ public final class FeedSocialComponent extends Message {
             Long l2 = builder.fid;
             if (l2 == null) {
                 this.fid = DEFAULT_FID;
-                return;
             } else {
                 this.fid = l2;
+            }
+            List<LayoutManageInfo> list = builder.manage_list;
+            if (list == null) {
+                this.manage_list = DEFAULT_MANAGE_LIST;
+                return;
+            } else {
+                this.manage_list = Message.immutableCopyOf(list);
                 return;
             }
         }
@@ -85,5 +98,6 @@ public final class FeedSocialComponent extends Message {
         this.share_num = builder.share_num;
         this.tid = builder.tid;
         this.fid = builder.fid;
+        this.manage_list = Message.immutableCopyOf(builder.manage_list);
     }
 }

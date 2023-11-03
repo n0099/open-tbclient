@@ -31,9 +31,11 @@ import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.util.WebviewHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d59;
-import com.baidu.tieba.g79;
-import com.baidu.tieba.h79;
+import com.baidu.tieba.cra;
+import com.baidu.tieba.hi9;
+import com.baidu.tieba.ke5;
+import com.baidu.tieba.kk9;
+import com.baidu.tieba.lk9;
 import com.baidu.tieba.memberCenter.bubble.BubbleChooseActivity;
 import com.baidu.tieba.memberCenter.bubble.BubbleListData;
 import com.baidu.tieba.memberCenter.bubble.BubbleListModel;
@@ -55,9 +57,8 @@ import com.baidu.tieba.memberCenter.tail.message.SetTailHttpResponseMessage;
 import com.baidu.tieba.memberCenter.tail.message.SetTailSocketResponseMessage;
 import com.baidu.tieba.memberCenter.tail.message.UpdateTailHttpResponseMessage;
 import com.baidu.tieba.memberCenter.tail.message.UpdateTailSocketResponseMessage;
-import com.baidu.tieba.od5;
 import com.baidu.tieba.pay.panel.PayPanelUtils;
-import com.baidu.tieba.xda;
+import com.baidu.tieba.wk9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -93,12 +94,12 @@ public class MemberCenterStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<od5> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<ke5> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof Context)) {
-                    return new CustomResponsedMessage<>(2001342, new h79(customMessage.getData(), 1));
+                    return new CustomResponsedMessage<>(2001342, new lk9(customMessage.getData(), 1));
                 }
                 return null;
             }
@@ -126,12 +127,12 @@ public class MemberCenterStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<od5> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<ke5> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof Context)) {
-                    return new CustomResponsedMessage<>(2001343, new g79(customMessage.getData()));
+                    return new CustomResponsedMessage<>(2001343, new kk9(customMessage.getData()));
                 }
                 return null;
             }
@@ -140,11 +141,44 @@ public class MemberCenterStatic {
     }
 
     /* loaded from: classes7.dex */
-    public class c implements CustomMessageTask.CustomRunnable<TbPageContext> {
+    public class c implements CustomMessageTask.CustomRunnable<Context> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+        public CustomResponsedMessage<ke5> run(CustomMessage<Context> customMessage) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+                if (customMessage != null && customMessage.getData() != null) {
+                    return new CustomResponsedMessage<>(2921824, new wk9(customMessage.getData()));
+                }
+                return null;
+            }
+            return (CustomResponsedMessage) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class d implements CustomMessageTask.CustomRunnable<TbPageContext> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -165,8 +199,8 @@ public class MemberCenterStatic {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof TbPageContext)) {
                     BubbleListModel bubbleListModel = new BubbleListModel(customMessage.getData());
-                    bubbleListModel.T();
-                    bubbleListModel.W(0, BdUtilHelper.getEquipmentWidth(customMessage.getData().getPageActivity()), BdUtilHelper.getEquipmentHeight(customMessage.getData().getPageActivity()));
+                    bubbleListModel.U();
+                    bubbleListModel.X(0, BdUtilHelper.getEquipmentWidth(customMessage.getData().getPageActivity()), BdUtilHelper.getEquipmentHeight(customMessage.getData().getPageActivity()));
                 }
                 return null;
             }
@@ -175,11 +209,11 @@ public class MemberCenterStatic {
     }
 
     /* loaded from: classes7.dex */
-    public class d implements CustomMessageTask.CustomRunnable<HttpResponsedMessage> {
+    public class e implements CustomMessageTask.CustomRunnable<HttpResponsedMessage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public d() {
+        public e() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -223,11 +257,11 @@ public class MemberCenterStatic {
     }
 
     /* loaded from: classes7.dex */
-    public class e implements CustomMessageTask.CustomRunnable<Context> {
+    public class f implements CustomMessageTask.CustomRunnable<Context> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public e() {
+        public f() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -242,12 +276,12 @@ public class MemberCenterStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<od5> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<ke5> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof Context)) {
-                    return new CustomResponsedMessage<>(2001339, new d59(customMessage.getData()));
+                    return new CustomResponsedMessage<>(2001339, new hi9(customMessage.getData()));
                 }
                 return null;
             }
@@ -256,11 +290,11 @@ public class MemberCenterStatic {
     }
 
     /* loaded from: classes7.dex */
-    public class f implements UrlManager.UrlDealListener {
+    public class g implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public f() {
+        public g() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -290,11 +324,11 @@ public class MemberCenterStatic {
     }
 
     /* loaded from: classes7.dex */
-    public class g implements UrlManager.UrlDealListener {
+    public class h implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public g() {
+        public h() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -329,11 +363,11 @@ public class MemberCenterStatic {
     }
 
     /* loaded from: classes7.dex */
-    public class h implements UrlManager.UrlDealListener {
+    public class i implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public h() {
+        public i() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -383,11 +417,11 @@ public class MemberCenterStatic {
     }
 
     /* loaded from: classes7.dex */
-    public class i implements UrlManager.UrlDealListener {
+    public class j implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public i() {
+        public j() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -427,11 +461,11 @@ public class MemberCenterStatic {
     }
 
     /* loaded from: classes7.dex */
-    public class j implements UrlManager.UrlDealListener {
+    public class k implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public j() {
+        public k() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -466,11 +500,11 @@ public class MemberCenterStatic {
     }
 
     /* loaded from: classes7.dex */
-    public class k implements UrlManager.UrlDealListener {
+    public class l implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public k() {
+        public l() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -525,21 +559,22 @@ public class MemberCenterStatic {
         d();
         e();
         b();
-        CustomMessageTask customMessageTask = new CustomMessageTask(2001283, new c());
+        f();
+        CustomMessageTask customMessageTask = new CustomMessageTask(2001283, new d());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        CustomMessageTask customMessageTask2 = new CustomMessageTask(2001284, new d());
+        CustomMessageTask customMessageTask2 = new CustomMessageTask(2001284, new e());
         customMessageTask2.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask2);
-        CustomMessageTask customMessageTask3 = new CustomMessageTask(2001339, new e());
+        CustomMessageTask customMessageTask3 = new CustomMessageTask(2001339, new f());
         customMessageTask3.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask3);
-        UrlManager.getInstance().addListener(new f());
         UrlManager.getInstance().addListener(new g());
         UrlManager.getInstance().addListener(new h());
         UrlManager.getInstance().addListener(new i());
         UrlManager.getInstance().addListener(new j());
         UrlManager.getInstance().addListener(new k());
+        UrlManager.getInstance().addListener(new l());
     }
 
     public MemberCenterStatic() {
@@ -574,6 +609,15 @@ public class MemberCenterStatic {
         }
     }
 
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
+            CustomMessageTask customMessageTask = new CustomMessageTask(2921824, new c());
+            customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+            MessageManager.getInstance().registerTask(customMessageTask);
+        }
+    }
+
     public static void a(TbPageContext<?> tbPageContext, String[] strArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65538, null, tbPageContext, strArr) == null) && strArr != null && strArr.length != 0) {
@@ -585,7 +629,7 @@ public class MemberCenterStatic {
                         UrlManager.getInstance().dealOneLink(tbPageContext, strArr);
                         return;
                     } else {
-                        BdUtilHelper.showToast(tbPageContext.getPageActivity(), (int) R.string.obfuscated_res_0x7f0f112f);
+                        BdUtilHelper.showToast(tbPageContext.getPageActivity(), (int) R.string.obfuscated_res_0x7f0f1141);
                         return;
                     }
                 }
@@ -597,8 +641,8 @@ public class MemberCenterStatic {
     public static void c(int i2, int i3, String str, Class<? extends HttpResponsedMessage> cls, Class<? extends SocketResponsedMessage> cls2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, cls, cls2}) == null) {
-            xda.h(i3, cls2, false, false);
-            xda.c(i3, i2, str, cls, false, false, false, false);
+            cra.h(i3, cls2, false, false);
+            cra.c(i3, i2, str, cls, false, false, false, false);
         }
     }
 

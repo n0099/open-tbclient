@@ -1,10 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import android.view.View;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.pb.feedback.FeedbackButtonStateType;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,22 +10,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GiftInfo;
-import tbclient.User;
-/* loaded from: classes7.dex */
-public class qt9 extends BaseCardInfo {
+import kotlin.NoWhenBranchMatchedException;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function0;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes8.dex */
+public final class qt9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId h;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public String c;
-    public String d;
-    public String e;
-    public int f;
-    public List<yh> g;
 
     static {
         InterceptResult invokeClinit;
@@ -42,72 +34,99 @@ public class qt9 extends BaseCardInfo {
                 return;
             }
         }
-        h = BdUniqueId.gen();
+        a = new a(null);
     }
 
-    public qt9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+    /* loaded from: classes8.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: com.baidu.tieba.qt9$a$a */
+        /* loaded from: classes8.dex */
+        public /* synthetic */ class C0461a {
+            public static final /* synthetic */ int[] $EnumSwitchMapping$0;
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            static {
+                InterceptResult invokeClinit;
+                ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+                if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-75079591, "Lcom/baidu/tieba/qt9$a$a;")) != null) {
+                    Interceptable interceptable = invokeClinit.interceptor;
+                    if (interceptable != null) {
+                        $ic = interceptable;
+                    }
+                    if ((invokeClinit.flags & 1) != 0) {
+                        classClinitInterceptable.invokePostClinit(-75079591, "Lcom/baidu/tieba/qt9$a$a;");
+                        return;
+                    }
+                }
+                int[] iArr = new int[FeedbackButtonStateType.values().length];
+                iArr[FeedbackButtonStateType.UNSELECT_POSITIVE_STATE.ordinal()] = 1;
+                iArr[FeedbackButtonStateType.SELECT_POSITIVE_STATE.ordinal()] = 2;
+                iArr[FeedbackButtonStateType.SELECTING_POSITIVE_STATE.ordinal()] = 3;
+                iArr[FeedbackButtonStateType.UNSELECT_NEGATIVE_STATE.ordinal()] = 4;
+                iArr[FeedbackButtonStateType.SELECT_NEGATIVE_STATE.ordinal()] = 5;
+                $EnumSwitchMapping$0 = iArr;
             }
         }
-    }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yh
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return h;
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
         }
-        return (BdUniqueId) invokeV.objValue;
-    }
 
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return !ListUtils.isEmpty(this.g);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void c(User user) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, user) == null) && user != null && !ListUtils.isEmpty(user.gift_list)) {
-            this.c = String.valueOf(user.id);
-            this.d = user.name;
-            this.e = user.name_show;
-            this.f = user.sex.intValue();
-            String str = this.c;
-            if (str != null && str.equals(TbadkCoreApplication.getCurrentAccount())) {
-                this.a = true;
-            } else {
-                this.a = false;
-            }
-            if (user.sex.intValue() == 2) {
-                this.b = false;
-            } else {
-                this.b = true;
-            }
-            Integer num = user.gift_num;
-            if (num != null) {
-                num.intValue();
-            }
-            this.g = new ArrayList();
-            for (GiftInfo giftInfo : user.gift_list) {
-                if (giftInfo != null) {
-                    yt9 yt9Var = new yt9();
-                    yt9Var.c(giftInfo);
-                    this.g.add(yt9Var);
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
+        }
+
+        /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.tieba.qt9$a */
+        /* JADX WARN: Multi-variable type inference failed */
+        public static /* synthetic */ pt9 b(a aVar, FeedbackButtonStateType feedbackButtonStateType, String str, Function0 function0, View.OnClickListener onClickListener, int i, Object obj) {
+            if ((i & 4) != 0) {
+                function0 = null;
+            }
+            if ((i & 8) != 0) {
+                onClickListener = null;
+            }
+            return aVar.a(feedbackButtonStateType, str, function0, onClickListener);
+        }
+
+        public final pt9 a(FeedbackButtonStateType type, String text, Function0<Unit> function0, View.OnClickListener onClickListener) {
+            InterceptResult invokeLLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, type, text, function0, onClickListener)) == null) {
+                Intrinsics.checkNotNullParameter(type, "type");
+                Intrinsics.checkNotNullParameter(text, "text");
+                int i = C0461a.$EnumSwitchMapping$0[type.ordinal()];
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3) {
+                            if (i != 4) {
+                                if (i == 5) {
+                                    return new pt9(R.drawable.obfuscated_res_0x7f080ca7, text, SkinManager.getColor(R.color.CAM_X0601), aqa.a(SkinManager.getColor(R.color.CAM_X0107), 0.08f), R.color.CAM_X0107, false, false, null, onClickListener, 224, null);
+                                }
+                                throw new NoWhenBranchMatchedException();
+                            }
+                            return new pt9(R.drawable.obfuscated_res_0x7f080d43, text, aqa.a(SkinManager.getColor(R.color.CAM_X0109), 0.5f), SkinManager.getColor(R.color.CAM_X0601), R.color.CAM_X0109, false, false, null, onClickListener, 224, null);
+                        }
+                        return new pt9(R.drawable.obfuscated_res_0x7f0808b6, text, SkinManager.getColor(R.color.CAM_X0601), aqa.a(SkinManager.getColor(R.color.CAM_X0301), 0.08f), R.color.CAM_X0301, true, false, function0, onClickListener);
+                    }
+                    return new pt9(R.drawable.obfuscated_res_0x7f080ca8, text, SkinManager.getColor(R.color.CAM_X0601), aqa.a(SkinManager.getColor(R.color.CAM_X0301), 0.08f), R.color.CAM_X0301, false, false, null, onClickListener, 224, null);
+                }
+                return new pt9(R.drawable.obfuscated_res_0x7f080d44, text, aqa.a(SkinManager.getColor(R.color.CAM_X0109), 0.5f), SkinManager.getColor(R.color.CAM_X0601), R.color.CAM_X0109, false, false, null, onClickListener, 224, null);
+            }
+            return (pt9) invokeLLLL.objValue;
         }
     }
 }

@@ -6,7 +6,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.DeclarationDescriptor;
 import kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations;
 import kotlin.reflect.jvm.internal.impl.resolve.scopes.receivers.ImplicitClassReceiver;
 import kotlin.reflect.jvm.internal.impl.resolve.scopes.receivers.ReceiverValue;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class LazyClassReceiverParameterDescriptor extends AbstractReceiverParameterDescriptor {
     public final ClassDescriptor descriptor;
     public final ImplicitClassReceiver receiverValue;

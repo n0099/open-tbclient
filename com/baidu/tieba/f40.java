@@ -1,300 +1,292 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.net.SSLCertificateSocketFactory;
-import android.net.SSLSessionCache;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.upload.action.IMPushUploadManager;
+import com.baidu.android.imsdk.upload.action.IMPushUploadResponseListener;
+import com.baidu.android.imsdk.upload.utils.RequsetNetworkUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.DataInputStream;
-import java.io.EOFException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.lang.reflect.InvocationTargetException;
-import java.net.Inet4Address;
-import java.net.InetAddress;
-import java.net.Socket;
-import java.net.UnknownHostException;
-import java.security.KeyManagementException;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.cert.CertificateException;
-import java.util.concurrent.TimeoutException;
-import javax.net.ssl.SSLHandshakeException;
-import javax.net.ssl.SSLSocket;
-import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
-public class f40 extends c40 {
+public class f40 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile f40 c;
+    public static HashMap<String, AtomicBoolean> d;
     public transient /* synthetic */ FieldHolder $fh;
-    public Socket b;
-    public InputStream c;
-    public OutputStream d;
-    public String e;
-    public g40 f;
+    public d40 a;
+    public g40 b;
 
-    @Override // com.baidu.tieba.c40
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "tcp" : (String) invokeV.objValue;
+    /* loaded from: classes5.dex */
+    public class b implements IMPushUploadResponseListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ Context b;
+        public final /* synthetic */ List c;
+        public final /* synthetic */ int d;
+        public final /* synthetic */ f40 e;
+
+        /* loaded from: classes5.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    b bVar = this.a;
+                    bVar.e.g(bVar.b, bVar.a, bVar.c, bVar.d);
+                }
+            }
+        }
+
+        public b(f40 f40Var, String str, Context context, List list, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {f40Var, str, context, list, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = f40Var;
+            this.a = str;
+            this.b = context;
+            this.c = list;
+            this.d = i;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.IMPushUploadResponseListener
+        public void uploadResponse(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                ((AtomicBoolean) f40.d.get(this.a)).set(false);
+                if (i == 0) {
+                    this.e.a.f().execute(new a(this));
+                }
+            }
+        }
     }
 
-    public f40(String str) {
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ f40 d;
+
+        public a(f40 f40Var, Context context, String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {f40Var, context, str, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = f40Var;
+            this.a = context;
+            this.b = str;
+            this.c = i;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            this.d.j(this.a, this.b, this.c);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947714023, "Lcom/baidu/tieba/f40;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947714023, "Lcom/baidu/tieba/f40;");
+                return;
+            }
+        }
+        d = new HashMap<>(2);
+    }
+
+    public void f() {
+        d40 d40Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (d40Var = this.a) != null) {
+            d40Var.c();
+        }
+    }
+
+    public f40(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f = null;
-        this.e = str;
+        this.a = d40.h(context);
+        this.b = new g40();
     }
 
-    @Override // com.baidu.tieba.c40
-    public void f(d40 d40Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, d40Var) == null) && (d40Var instanceof g40)) {
-            g40 g40Var = (g40) d40Var;
-            this.f = g40Var;
-            if (g40Var != null) {
-                this.c = g40Var.d;
-                this.d = g40Var.e;
-                return;
-            }
-            this.c = null;
-            this.d = null;
-        }
-    }
-
-    @Override // com.baidu.tieba.c40
-    public void i(b40 b40Var) throws IOException {
-        OutputStream outputStream;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, b40Var) == null) && this.b != null && (outputStream = this.d) != null) {
-            outputStream.write(b40Var.a);
-            this.d.flush();
-        }
-    }
-
-    @Override // com.baidu.tieba.c40
-    public void a(d40 d40Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, d40Var) == null) {
-            if (d40Var != null) {
-                if (d40Var instanceof g40) {
-                    if (((g40) d40Var).c.hashCode() == this.f.c.hashCode()) {
-                        w40.e("TcpMessageHandler", "closeExistedConnection  state.socket.hashCode() is same to cur socket!!!");
-                        return;
-                    } else {
-                        g();
-                        return;
-                    }
-                }
-                return;
-            }
-            g();
-        }
-    }
-
-    @Override // com.baidu.tieba.c40
-    public d40 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
-        }
-        return (d40) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.c40
-    public boolean c() {
-        InterceptResult invokeV;
-        Socket socket;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            g40 g40Var = this.f;
-            if (g40Var != null && (socket = g40Var.c) != null && socket.isConnected()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.c40
-    public DataInputStream e() throws EOFException, IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return new DataInputStream(this.c);
-        }
-        return (DataInputStream) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.c40
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return n(this.f);
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.c40
-    public d40 h(String str, int i) throws KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IOException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, AssertionError {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, str, i)) == null) {
-            return j(str, i);
-        }
-        return (d40) invokeLI.objValue;
-    }
-
-    public final Socket k(String str, int i) throws UnknownHostException, IOException, KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, AssertionError {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048586, this, str, i)) == null) {
-            if (this.e.equals("tcp")) {
-                return m(str, i);
-            }
-            return l(str, i);
-        }
-        return (Socket) invokeLI.objValue;
-    }
-
-    public final Socket m(String str, int i) throws UnknownHostException, IOException {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048588, this, str, i)) == null) {
-            return new Socket(str, i);
-        }
-        return (Socket) invokeLI.objValue;
-    }
-
-    public final d40 j(String str, int i) throws KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IOException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, AssertionError {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, str, i)) == null) {
-            if (v40.a) {
-                w40.d("TcpMessageHandler", "---------------ip:" + str + "  port:" + i + "-----------------");
-            }
-            this.b = k(str, i);
-            g40 g40Var = new g40();
-            Socket socket = this.b;
-            if (socket == null) {
-                return g40Var;
-            }
-            g40Var.c = socket;
-            g40Var.d = socket.getInputStream();
-            g40Var.e = this.b.getOutputStream();
-            Boolean bool = Boolean.TRUE;
-            g40Var.a = bool;
-            g40Var.b = bool;
-            return g40Var;
-        }
-        return (d40) invokeLI.objValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x003c, code lost:
-        r9 = r6.getHostAddress();
-     */
-    @SuppressLint({"NewApi"})
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final Socket l(String str, int i) throws UnknownHostException, IOException, CertificateException, KeyStoreException, NoSuchAlgorithmException, NoSuchMethodException, IllegalArgumentException, IllegalAccessException, InvocationTargetException, KeyManagementException, TimeoutException, SSLHandshakeException, AssertionError {
-        InterceptResult invokeLI;
-        SSLSocket sSLSocket;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048587, this, str, i)) == null) {
-            SSLSessionCache sSLSessionCache = new SSLSessionCache(this.a);
-            if (str.contains(PublicSuffixDatabase.BAIDU_TLD_PLUS_ONE)) {
-                w40.a("TcpMessageHandler", "localdns begin...,domain:" + str);
-                try {
-                    InetAddress[] allByName = InetAddress.getAllByName(str);
-                    if (allByName != null && allByName.length > 0) {
-                        int length = allByName.length;
-                        int i2 = 0;
-                        while (true) {
-                            if (i2 >= length) {
-                                break;
-                            }
-                            InetAddress inetAddress = allByName[i2];
-                            if (inetAddress instanceof Inet4Address) {
-                                break;
-                            }
-                            i2++;
-                        }
-                    }
-                } catch (Exception e) {
-                    if (v40.a) {
-                        w40.c("TcpMessageHandler", "createSocketOnLine", e);
-                    }
-                }
-            }
-            SSLCertificateSocketFactory sSLCertificateSocketFactory = (SSLCertificateSocketFactory) SSLCertificateSocketFactory.getDefault(10000, sSLSessionCache);
-            if (sSLCertificateSocketFactory == null) {
-                return null;
-            }
-            if (str.contains(PublicSuffixDatabase.BAIDU_TLD_PLUS_ONE)) {
-                sSLSocket = (SSLSocket) sSLCertificateSocketFactory.createSocket(str, i);
-            } else {
-                sSLSocket = (SSLSocket) sSLCertificateSocketFactory.createSocket(InetAddress.getByName(str), i);
-            }
-            SSLSocket sSLSocket2 = sSLSocket;
-            sSLSocket2.setEnabledCipherSuites(sSLSocket2.getEnabledCipherSuites());
-            sSLSocket2.setEnabledProtocols(sSLSocket2.getEnabledProtocols());
-            sSLCertificateSocketFactory.setUseSessionTickets(sSLSocket2, true);
-            sSLSocket2.startHandshake();
-            return sSLSocket2;
-        }
-        return (Socket) invokeLI.objValue;
-    }
-
-    public boolean n(g40 g40Var) {
+    public static Boolean i(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, g40Var)) == null) {
-            if (g40Var == null || !g40Var.a.booleanValue()) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (d.get(str) == null) {
+                d.put(str, new AtomicBoolean(false));
+                return Boolean.FALSE;
             }
-            try {
-                if (g40Var.c != null) {
-                    g40Var.c.close();
-                    g40Var.c = null;
+            return Boolean.valueOf(d.get(str).get());
+        }
+        return (Boolean) invokeL.objValue;
+    }
+
+    public static f40 h(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            if (c == null) {
+                synchronized (f40.class) {
+                    if (c == null) {
+                        c = new f40(context);
+                    }
                 }
-                if (g40Var.d != null) {
-                    g40Var.d.close();
-                    g40Var.d = null;
+            }
+            return c;
+        }
+        return (f40) invokeL.objValue;
+    }
+
+    public synchronized void e(Context context, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, context, str, i) == null) {
+            synchronized (this) {
+                try {
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-                if (g40Var.e == null) {
-                    return true;
+                if (!TextUtils.isEmpty(str) && context != null && RequsetNetworkUtils.isConnected(context) && h40.f(context) && h40.e(context, Integer.parseInt(str))) {
+                    if (this.a != null) {
+                        this.a.f().execute(new a(this, context, str, i));
+                    }
+                    return;
                 }
-                g40Var.e.close();
-                g40Var.e = null;
-                return true;
-            } catch (IOException e) {
-                if (v40.a) {
-                    w40.c("TcpMessageHandler", "destroy:", e);
+                if (m50.a) {
+                    n50.a("FlowTrackManager", "flow 无网、参数不对、未命中小流量不上报");
                 }
-                return false;
             }
         }
-        return invokeL.booleanValue;
+    }
+
+    public final void g(Context context, String str, List<i40> list, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLI(Constants.METHOD_SEND_USER_MSG, this, context, str, list, i) == null) && list != null && list.size() > 0) {
+            ArrayList arrayList = new ArrayList();
+            for (i40 i40Var : list) {
+                if (i40Var != null) {
+                    arrayList.add(i40Var.b());
+                }
+            }
+            if (m50.a) {
+                n50.a("FlowTrackManager", "flow clear上报成功的数据");
+            }
+            z40.j(context).e(str, arrayList);
+            if (z40.j(context).i(str) > 0) {
+                j(context, str, i);
+            }
+        }
+    }
+
+    public final void j(Context context, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048579, this, context, str, i) == null) {
+            if (m50.a) {
+                n50.a("FlowTrackManager", "flow begin uplodFlow~~~ " + str);
+            }
+            if (d.get(str) == null) {
+                d.put(str, new AtomicBoolean(true));
+            } else {
+                d.get(str).set(true);
+            }
+            ArrayList arrayList = new ArrayList();
+            g40 g40Var = this.b;
+            if (g40Var != null) {
+                byte[] c2 = g40Var.c(context, str, arrayList, i);
+                if (c2 != null && arrayList.size() > 0) {
+                    if (c2.length >= 307200) {
+                        if (m50.a) {
+                            n50.a("FlowTrackManager", "flow 上报数据长度超过300k");
+                        }
+                        d.get(str).set(false);
+                        return;
+                    }
+                    IMPushUploadManager.getInstance(context).requestUpload(null, c2, "", new b(this, str, context, arrayList, i));
+                    return;
+                }
+                if (m50.a) {
+                    n50.a("FlowTrackManager", "flow 上报数据为空");
+                }
+                d.get(str).set(false);
+            }
+        }
     }
 }

@@ -1,258 +1,246 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.safe.SafeHandler;
-import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.lego.card.utils.ColorUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
+import tbclient.UniversalLabel;
 /* loaded from: classes7.dex */
-public class mz4 implements View.OnClickListener {
+public final class mz4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a h;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public View b;
-    public ViewGroup c;
-    public View d;
-    public TextView e;
-    public WindowManager f;
-    public WindowManager.LayoutParams g;
-    public int h;
-    public int i;
-    public float j;
-    public int k;
-    public int l;
-    public int m;
-    public int n;
-    public Drawable o;
-    public View.OnClickListener p;
-    public final Runnable q;
+    public final String a;
+    public final String b;
+    public final String c;
+    public final String d;
+    public final String e;
+    public final String f;
+    public final int g;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947989954, "Lcom/baidu/tieba/mz4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947989954, "Lcom/baidu/tieba/mz4;");
+                return;
+            }
+        }
+        h = new a(null);
+    }
+
+    @JvmStatic
+    public static final mz4 g(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) ? h.a(jSONObject) : (mz4) invokeL.objValue;
+    }
+
+    @JvmStatic
+    public static final mz4 h(UniversalLabel universalLabel) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, universalLabel)) == null) ? h.b(universalLabel) : (mz4) invokeL.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof mz4) {
+                mz4 mz4Var = (mz4) obj;
+                return Intrinsics.areEqual(this.a, mz4Var.a) && Intrinsics.areEqual(this.b, mz4Var.b) && Intrinsics.areEqual(this.c, mz4Var.c) && Intrinsics.areEqual(this.d, mz4Var.d) && Intrinsics.areEqual(this.e, mz4Var.e) && Intrinsics.areEqual(this.f, mz4Var.f) && this.g == mz4Var.g;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? (((((((((((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c.hashCode()) * 31) + this.d.hashCode()) * 31) + this.e.hashCode()) * 31) + this.f.hashCode()) * 31) + this.g : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return "UniversalLabelInfo(labelId=" + this.a + ", labelText=" + this.b + ", textColor=" + this.c + ", textColorBlack=" + this.d + ", backgroundColor=" + this.e + ", backgroundColorBlack=" + this.f + ", roundRadius=" + this.g + ')';
+        }
+        return (String) invokeV.objValue;
+    }
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mz4 a;
 
-        public a(mz4 mz4Var) {
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mz4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = mz4Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @JvmStatic
+        public final mz4 a(JSONObject label) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.e();
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, label)) == null) {
+                Intrinsics.checkNotNullParameter(label, "label");
+                String optString = label.optString("label_id");
+                Intrinsics.checkNotNullExpressionValue(optString, "label.optString(\"label_id\")");
+                String optString2 = label.optString("label_text");
+                Intrinsics.checkNotNullExpressionValue(optString2, "label.optString(\"label_text\")");
+                String optString3 = label.optString("text_color'");
+                Intrinsics.checkNotNullExpressionValue(optString3, "label.optString(\"text_color'\")");
+                String optString4 = label.optString("text_color_black");
+                Intrinsics.checkNotNullExpressionValue(optString4, "label.optString(\"text_color_black\")");
+                String optString5 = label.optString("background_color");
+                Intrinsics.checkNotNullExpressionValue(optString5, "label.optString(\"background_color\")");
+                String optString6 = label.optString("background_color_black");
+                Intrinsics.checkNotNullExpressionValue(optString6, "label.optString(\"background_color_black\")");
+                return new mz4(optString, optString2, optString3, optString4, optString5, optString6, label.optInt("round_radius"));
             }
+            return (mz4) invokeL.objValue;
+        }
+
+        @JvmStatic
+        public final mz4 b(UniversalLabel label) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, label)) == null) {
+                Intrinsics.checkNotNullParameter(label, "label");
+                String str = label.label_id;
+                Intrinsics.checkNotNullExpressionValue(str, "label.label_id");
+                String str2 = label.label_text;
+                Intrinsics.checkNotNullExpressionValue(str2, "label.label_text");
+                String str3 = label.text_color;
+                Intrinsics.checkNotNullExpressionValue(str3, "label.text_color");
+                String str4 = label.text_color_black;
+                Intrinsics.checkNotNullExpressionValue(str4, "label.text_color_black");
+                String str5 = label.background_color;
+                Intrinsics.checkNotNullExpressionValue(str5, "label.background_color");
+                String str6 = label.background_color_black;
+                Intrinsics.checkNotNullExpressionValue(str6, "label.background_color_black");
+                Integer num = label.round_radius;
+                Intrinsics.checkNotNullExpressionValue(num, "label.round_radius");
+                return new mz4(str, str2, str3, str4, str5, str6, num.intValue());
+            }
+            return (mz4) invokeL.objValue;
         }
     }
 
-    public mz4(Activity activity) {
+    public mz4(String labelId, String labelText, String textColor, String textColorBlack, String backgroundColor, String backgroundColorBlack, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            Object[] objArr = {labelId, labelText, textColor, textColorBlack, backgroundColor, backgroundColorBlack, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.j = 1.0f;
-        this.k = 5000;
-        this.q = new a(this);
-        if (activity == null) {
-            return;
-        }
-        this.a = activity;
-        this.n = BdUtilHelper.getDimens(activity, R.dimen.tbds114);
-        this.l = BdUtilHelper.getDimens(activity, R.dimen.tbds84);
-        this.m = BdUtilHelper.getDimens(activity, R.dimen.tbds44);
-        this.i = BdUtilHelper.getDimens(activity, R.dimen.tbds222);
-        this.h = BdUtilHelper.getDimens(activity, R.dimen.tbds29);
-        View inflate = LayoutInflater.from(activity).inflate(R.layout.text_toast_layout, (ViewGroup) null);
-        this.c = (ViewGroup) inflate.findViewById(R.id.layout_container);
-        this.d = inflate.findViewById(R.id.obfuscated_res_0x7f09032d);
-        this.e = (TextView) inflate.findViewById(R.id.toast_tv);
-        this.b = inflate;
-        this.d.setBackgroundDrawable(b());
-        this.e.setMaxLines(1);
-        this.e.setGravity(17);
-        this.e.setTextSize(0, BdUtilHelper.getDimens(activity, R.dimen.tbfontsize40));
-        this.e.setTextColor(this.a.getResources().getColor(R.color.CAM_X0101));
-        TextView textView = this.e;
-        int i3 = this.m;
-        textView.setPadding(i3, 0, i3, 0);
-        this.f = (WindowManager) this.a.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
-        WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-        this.g = layoutParams;
-        layoutParams.width = BdUtilHelper.getEquipmentWidth(this.a) - (this.h * 2);
-        WindowManager.LayoutParams layoutParams2 = this.g;
-        layoutParams2.height = this.n;
-        layoutParams2.type = 1000;
-        layoutParams2.format = -3;
-        layoutParams2.windowAnimations = R.style.obfuscated_res_0x7f1002cd;
-        layoutParams2.flags = 262152;
-        layoutParams2.gravity = 81;
-        layoutParams2.y = d();
-        this.g.alpha = this.j;
+        Intrinsics.checkNotNullParameter(labelId, "labelId");
+        Intrinsics.checkNotNullParameter(labelText, "labelText");
+        Intrinsics.checkNotNullParameter(textColor, "textColor");
+        Intrinsics.checkNotNullParameter(textColorBlack, "textColorBlack");
+        Intrinsics.checkNotNullParameter(backgroundColor, "backgroundColor");
+        Intrinsics.checkNotNullParameter(backgroundColorBlack, "backgroundColorBlack");
+        this.a = labelId;
+        this.b = labelText;
+        this.c = textColor;
+        this.d = textColorBlack;
+        this.e = backgroundColor;
+        this.f = backgroundColorBlack;
+        this.g = i;
     }
 
-    public static mz4 f(Activity activity, String str) {
-        InterceptResult invokeLL;
+    public final String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, activity, str)) == null) {
-            mz4 mz4Var = new mz4(activity);
-            mz4Var.a(str);
-            return mz4Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
         }
-        return (mz4) invokeLL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final mz4 a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (this.a != null && !TextUtils.isEmpty(str)) {
-                String f = ns5.f(str, 34);
-                int textWidth = BdUtilHelper.getTextWidth(this.e.getPaint(), f);
-                ViewGroup.LayoutParams layoutParams = this.c.getLayoutParams();
-                layoutParams.width = textWidth + (this.m * 2);
-                this.c.setLayoutParams(layoutParams);
-                this.e.setText(f);
-            }
-            return this;
-        }
-        return (mz4) invokeL.objValue;
-    }
-
-    public final Drawable b() {
+    public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.o == null) {
-                this.o = c();
-            }
-            return this.o;
+            return this.f;
         }
-        return (Drawable) invokeV.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.i + UtilHelper.getNavigationBarHeight(this.a);
+            return this.g;
         }
         return invokeV.intValue;
     }
 
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            SafeHandler.getInst().removeCallbacks(this.q);
-            if (this.b.getWindowToken() != null) {
-                this.f.removeView(this.b);
-            }
-        }
-    }
-
-    public final GradientDrawable c() {
+    public final String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.TL_BR, new int[]{ColorUtils.parseColor("#FF722B"), ColorUtils.parseColor("#FF2b5D")});
-            gradientDrawable.setCornerRadius(this.l);
-            return gradientDrawable;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
         }
-        return (GradientDrawable) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public mz4 j() {
+    public final String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            SafeHandler.getInst().removeCallbacks(this.q);
-            View view2 = this.b;
-            if (view2 != null && view2.getWindowToken() != null) {
-                this.f.removeView(this.b);
-            }
-            this.f.addView(this.b, this.g);
-            SafeHandler.getInst().postDelayed(this.q, this.k);
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.d;
         }
-        return (mz4) invokeV.objValue;
-    }
-
-    public mz4 g(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            if (i > 0) {
-                this.k = i * 1000;
-            }
-            return this;
-        }
-        return (mz4) invokeI.objValue;
-    }
-
-    public void h(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, onClickListener) == null) {
-            this.p = onClickListener;
-        }
-    }
-
-    public void i(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, obj) == null) {
-            this.c.setTag(obj);
-            this.c.setOnClickListener(this);
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
-            View.OnClickListener onClickListener = this.p;
-            if (onClickListener != null) {
-                onClickListener.onClick(view2);
-            }
-            e();
-        }
+        return (String) invokeV.objValue;
     }
 }

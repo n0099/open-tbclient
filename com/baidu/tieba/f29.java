@@ -1,44 +1,55 @@
 package com.baidu.tieba;
 
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageInfo;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.data.UserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
-import java.util.Map;
 /* loaded from: classes5.dex */
 public class f29 {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, String> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Map<String, String> a() {
-        InterceptResult invokeV;
+    public static String a(UserData userData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (a == null) {
-                try {
-                    Field declaredField = Class.forName("dalvik.system.VMRuntime").getDeclaredField("ABI_TO_INSTRUCTION_SET_MAP");
-                    declaredField.setAccessible(true);
-                    a = (Map) declaredField.get(null);
-                } catch (Exception e) {
-                    e.printStackTrace();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, userData)) == null) {
+            if (userData == null) {
+                return "";
+            }
+            if (UtilHelper.isFllowByPriorty(userData)) {
+                if (userData.getAuthType() == 1) {
+                    if (userData.isOfficial()) {
+                        return "";
+                    }
+                } else if (userData.getAuthType() == 2) {
+                    if (userData.isOriginal()) {
+                        return userData.getCreatorInfo().authDesc;
+                    }
+                } else if (userData.getAuthType() == 3) {
+                    if (userData.isNewGod()) {
+                        return userData.getNewGodData().getFieldName() + nu5.c(userData.isVideoGod());
+                    }
+                } else if (userData.getAuthType() == 4 && userData.showBazhuGrade()) {
+                    return StringHelper.cutChineseAndEnglishWithSuffix(userData.getBazhuGradeData().getDesc(), 16, "...");
                 }
             }
-            return a;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            try {
-                ApplicationInfo.class.getField("primaryCpuAbi").set(((PackageInfo) Class.forName("android.webkit.WebViewFactory").getMethod("getLoadedPackageInfo", new Class[0]).invoke(null, new Object[0])).applicationInfo, str);
-            } catch (Exception e) {
-                e.printStackTrace();
+            if (TextUtils.isEmpty("") && userData.isOfficial()) {
+                return "";
+            }
+            if (TextUtils.isEmpty("") && userData.isOriginal()) {
+                return userData.getCreatorInfo().authDesc;
+            }
+            if (TextUtils.isEmpty("") && userData.isNewGod()) {
+                return userData.getNewGodData().getFieldName() + nu5.c(userData.isVideoGod());
+            } else if (!TextUtils.isEmpty("") || !userData.showBazhuGrade()) {
+                return "";
+            } else {
+                return StringHelper.cutChineseAndEnglishWithSuffix(userData.getBazhuGradeData().getDesc(), 16, "...");
             }
         }
+        return (String) invokeL.objValue;
     }
 }

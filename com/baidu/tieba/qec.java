@@ -1,53 +1,233 @@
 package com.baidu.tieba;
 
+import android.os.Message;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tv.athena.revenue.api.pay.params.PayFlowType;
-import tv.athena.revenue.payui.YYPayUIKit;
-import tv.athena.revenue.payui.model.PayFlowModel;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.transvod.player.common.AVframe;
+import com.yy.transvod.player.common.AudioSendStamp;
+import com.yy.transvod.player.log.TLog;
+import com.yy.transvod.player.mediacodec.FrameInfo;
+import com.yy.transvod.player.mediacodec.MediaInfo;
+import com.yy.transvod.player.mediacodec.MediaSample;
+import com.yy.transvod.player.mediacodec.NativeFfmpeg;
+import java.nio.ByteBuffer;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.TreeMap;
 /* loaded from: classes7.dex */
-public class qec {
+public abstract class qec extends lec {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public NativeFfmpeg A;
+    public ByteBuffer B;
+    public ByteBuffer C;
+    public TreeMap<Integer, Object> D;
+    public int E;
+    public FrameInfo F;
+    public sdc G;
 
-    public static void a(int i, int i2, PayFlowType payFlowType, int i3) {
+    public qec() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), payFlowType, Integer.valueOf(i3)}) == null) {
-            b(i, i2, payFlowType, i3, null);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.A = new NativeFfmpeg();
+        this.B = null;
+        this.C = null;
+        this.D = new TreeMap<>();
+        this.E = 0;
+        this.F = new FrameInfo();
+        this.G = new sdc(200);
+    }
+
+    @Override // com.baidu.tieba.lec
+    public void B() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            while (!this.r.b() && K() == 1) {
+                TLog.g(this, "handleEndOfStream");
+                try {
+                    Thread.sleep(20L);
+                } catch (Exception unused) {
+                    TLog.g(this, "handleEndOfStream error");
+                }
+            }
         }
     }
 
-    public static void b(int i, int i2, PayFlowType payFlowType, int i3, Map<String, String> map) {
+    public void L() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), payFlowType, Integer.valueOf(i3), map}) == null) {
-            YYPayUIKit uIKit = YYPayUIKit.getUIKit(i, i2);
-            if (uIKit == null) {
-                RLog.error("PayBdLiveStatisticManager", "onPayInfo null yyPayUIKit", new Object[0]);
-                return;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            TLog.g(this, "NativeFfmpegFilter.stopCodec enter.");
+            this.A.k();
+            this.B = null;
+            this.C = null;
+            this.E = 0;
+            this.F.a = 0L;
+            this.v = 0L;
+            G();
+            TLog.g(this, "NativeFfmpegFilter.stopCodec leave.");
+        }
+    }
+
+    @Override // com.baidu.tieba.lec
+    public int D(MediaSample mediaSample) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaSample)) == null) {
+            K();
+            int J = J(mediaSample);
+            K();
+            return J;
+        }
+        return invokeL.intValue;
+    }
+
+    @Override // com.baidu.tieba.lec, com.baidu.tieba.uec, com.baidu.tieba.cdc.a
+    public void handleMessage(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, message) == null) {
+            if (message.what != 1002) {
+                super.handleMessage(message);
+            } else {
+                L();
             }
-            PayFlowModel payFlowModel = uIKit.getPayFlowModel(payFlowType);
-            if (payFlowModel != null && payFlowModel.viewEventListener != null) {
-                String str = "{}";
-                if (map != null) {
-                    try {
-                        JSONObject jSONObject = new JSONObject();
-                        for (Map.Entry<String, String> entry : map.entrySet()) {
-                            jSONObject.put(entry.getKey(), entry.getValue());
-                        }
-                        str = jSONObject.toString();
-                    } catch (JSONException e) {
-                        RLog.error("PayBdLiveStatisticManager", "onPayInfo JSONException" + e.getLocalizedMessage(), new Object[0]);
+        }
+    }
+
+    public final int J(MediaSample mediaSample) {
+        InterceptResult invokeL;
+        AVframe aVframe;
+        MediaInfo mediaInfo;
+        ByteBuffer byteBuffer;
+        byte[] bArr;
+        byte[] bArr2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mediaSample)) == null) {
+            if (mediaSample == null || (aVframe = mediaSample.g) == null || (mediaInfo = mediaSample.i) == null || (byteBuffer = this.B) == null || mediaInfo.k == null || mediaInfo.a == 0) {
+                return -1;
+            }
+            int i = aVframe.e;
+            int i2 = this.a;
+            if (i > i2) {
+                long j = this.v + 1;
+                this.v = j;
+                if (j < 10 || j % 1000 == 0) {
+                    TLog.c(this, String.format("ffmepg::sample.avFrame.playTaskID: %d > mPlayTaskID %d", Integer.valueOf(mediaSample.g.e), Integer.valueOf(this.a)));
+                }
+                return 0;
+            } else if (i < i2) {
+                long j2 = this.v + 1;
+                this.v = j2;
+                if (j2 < 10 || j2 % 1000 == 0) {
+                    TLog.c(this, String.format("ffmpeg::sample.avFrame.playTaskID: %d < mPlayTaskID %d", Integer.valueOf(mediaSample.g.e), Integer.valueOf(this.a)));
+                }
+                return -1;
+            } else {
+                byteBuffer.clear();
+                boolean z = mediaSample.g.c;
+                int capacity = mediaSample.i.k.capacity();
+                if (mediaSample.d && (bArr2 = mediaSample.g.q) != null) {
+                    capacity += bArr2.length + 7;
+                }
+                ByteBuffer byteBuffer2 = this.B;
+                if (byteBuffer2 == null || byteBuffer2.capacity() < capacity) {
+                    int i3 = (int) (capacity * 1.5d);
+                    if (i3 > 2000000 || i3 < capacity) {
+                        i3 = capacity;
+                    }
+                    this.B = ByteBuffer.allocateDirect(i3);
+                }
+                if (this.B.capacity() >= capacity) {
+                    if (mediaSample.d && (bArr = mediaSample.g.q) != null) {
+                        hec.d(bArr, this.B);
+                    }
+                    this.B.put(mediaSample.i.k).flip();
+                    if (this.A.o(this.B, mediaSample.d, mediaSample.l, mediaSample.k) < 0) {
+                        TLog.c(this, "mCodec.send_packet() failed.");
+                        m(51);
+                        return -1;
                     }
                 }
-                RLog.info("PayBdLiveStatisticManager", "onPayInfo type:" + i3 + " json:" + str + " listener:" + payFlowModel.viewEventListener + " content:" + map);
-                payFlowModel.viewEventListener.onPayInfo(i3, str);
-                return;
+                this.G.b(mediaSample.t);
+                this.r.a(mediaSample);
+                return 1;
             }
-            RLog.error("PayBdLiveStatisticManager", "onPayInfo error h5PayFlowModel null", new Object[0]);
         }
+        return invokeL.intValue;
+    }
+
+    public final int K() {
+        InterceptResult invokeV;
+        MediaInfo mediaInfo;
+        AVframe aVframe;
+        AVframe aVframe2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ByteBuffer byteBuffer = this.C;
+            if (byteBuffer != null) {
+                byteBuffer.clear();
+                this.D.clear();
+                FrameInfo frameInfo = this.F;
+                frameInfo.a = 0L;
+                frameInfo.b = 0L;
+                if (this.A.n(this.C, this.D, frameInfo) > 0) {
+                    MediaSample c = this.r.c();
+                    if (c != null && c.g != null && (mediaInfo = c.i) != null) {
+                        mediaInfo.c(this.q);
+                        c.i.k = this.C;
+                        FrameInfo frameInfo2 = this.F;
+                        c.l = frameInfo2.a;
+                        E(c, frameInfo2.b);
+                        this.u++;
+                        c.I = NativeFfmpeg.l(this.D);
+                        ArrayList<Long> m = NativeFfmpeg.m(this.D);
+                        if (m != null && !m.isEmpty()) {
+                            c.J = new ArrayList<>();
+                            Iterator<Long> it = m.iterator();
+                            while (it.hasNext()) {
+                                c.J.add(new AudioSendStamp(this.G.a(), it.next().longValue()));
+                            }
+                        }
+                        n(c);
+                        if (!c.c) {
+                            udc udcVar = this.s.get();
+                            if (udcVar != null && (aVframe2 = c.g) != null) {
+                                udcVar.t((int) aVframe2.l);
+                            }
+                        } else {
+                            udc udcVar2 = this.s.get();
+                            if (udcVar2 != null && (aVframe = c.g) != null) {
+                                udcVar2.s((int) aVframe.l);
+                            }
+                        }
+                        this.D.clear();
+                        ydc.c(c, 6);
+                        synchronized (this.k) {
+                            if (this.d != null) {
+                                this.d.f(c);
+                            }
+                        }
+                        return 1;
+                    }
+                    return -1;
+                }
+                return 0;
+            }
+            return 0;
+        }
+        return invokeV.intValue;
     }
 }

@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.res.Resources;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wo2;
+import com.baidu.tieba.np2;
 import kotlin.Lazy;
 import kotlin.LazyKt__LazyJVMKt;
 import kotlin.Metadata;
@@ -20,13 +20,13 @@ public final class SwanLoadingTips {
             Resources resources;
             Resources resources2;
             if (((int) (Math.random() * 2)) != 0) {
-                Application c = wo2.c();
+                Application c = np2.c();
                 if (c == null || (resources2 = c.getResources()) == null) {
                     return null;
                 }
                 return resources2.getStringArray(R.array.obfuscated_res_0x7f03000e);
             }
-            Application c2 = wo2.c();
+            Application c2 = np2.c();
             if (c2 == null || (resources = c2.getResources()) == null) {
                 return null;
             }

@@ -17,7 +17,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
-import com.baidu.tieba.zl1;
+import com.baidu.tieba.qm1;
 /* loaded from: classes4.dex */
 public class ShimmerFrameLayout extends FrameLayout {
     public static final PorterDuffXfermode r = new PorterDuffXfermode(PorterDuff.Mode.DST_IN);
@@ -506,7 +506,7 @@ public class ShimmerFrameLayout extends FrameLayout {
         this.b.setXfermode(r);
         t();
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, zl1.ShimmerFrameLayout, 0, 0);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, qm1.ShimmerFrameLayout, 0, 0);
             try {
                 if (obtainStyledAttributes.hasValue(1)) {
                     setAutoStart(obtainStyledAttributes.getBoolean(1, false));

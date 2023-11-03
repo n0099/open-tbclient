@@ -1,14 +1,15 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class j72 implements fd2 {
+public class j72 extends h72<JSONObject, hy1> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,23 +27,17 @@ public class j72 implements fd2 {
         }
     }
 
-    @Override // com.baidu.tieba.fd2
-    public String getUserAgent() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.l72
+    @NonNull
+    /* renamed from: c */
+    public hy1 a(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return oh3.a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
+            new c72().c();
+            return new hy1(0);
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.fd2
-    public xc2 a(String str, ud2 ud2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, ud2Var, v8ThreadDelegatePolicy)) == null) {
-            return new i72(str, ud2Var, v8ThreadDelegatePolicy);
-        }
-        return (xc2) invokeLLL.objValue;
+        return (hy1) invokeL.objValue;
     }
 }

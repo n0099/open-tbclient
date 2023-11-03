@@ -1,91 +1,132 @@
 package com.baidu.tieba;
 
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.swan.games.screenrecord.GameRecorderController;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-@Singleton
-@Service
 /* loaded from: classes6.dex */
-public class h64 implements bn1 {
+public class h64 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
+    public static volatile h64 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public GameRecorderController a;
+    public boolean b;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947775651, "Lcom/baidu/tieba/h64;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947775651, "Lcom/baidu/tieba/h64;");
+                return;
+            }
+        }
+        c = rm1.a;
+        d = null;
+    }
 
     public h64() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.bn1
-    public JSONObject a() {
+    public static h64 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (h64.class) {
+                    if (d == null) {
+                        d = new h64();
+                    }
+                }
+            }
+            return d;
+        }
+        return (h64) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (c) {
+                Log.i("GameRecorderManager", "isGamePause:" + this.b);
+            }
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b = true;
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b = false;
+        }
+    }
+
+    @NonNull
+    public GameRecorderController b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return g64.c().d();
+            if (c) {
+                Log.i("GameRecorderManager", "getRecorderController:" + this.a);
+            }
+            GameRecorderController gameRecorderController = this.a;
+            if (gameRecorderController == null) {
+                return GameRecorderController.j();
+            }
+            return gameRecorderController;
         }
-        return (JSONObject) invokeV.objValue;
+        return (GameRecorderController) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.bn1
-    public void b(String str) {
+    public void f(GameRecorderController gameRecorderController) {
+        GameRecorderController gameRecorderController2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            j64.d(str);
-        }
-    }
-
-    @Override // com.baidu.tieba.bn1
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            j64.f(str);
-        }
-    }
-
-    @Override // com.baidu.tieba.bn1
-    public void c(CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, callbackHandler, str) == null) {
-            j64.e(callbackHandler, str);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, gameRecorderController) == null) && (gameRecorderController2 = this.a) != null && gameRecorderController2 == gameRecorderController) {
+            gameRecorderController2.p();
+            this.a = null;
         }
     }
 
-    @Override // com.baidu.tieba.bn1
-    public void d(CallbackHandler callbackHandler, String str) {
+    public void g(GameRecorderController gameRecorderController) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, callbackHandler, str) == null) {
-            j64.a(callbackHandler, str);
-        }
-    }
-
-    @Override // com.baidu.tieba.bn1
-    public void f(CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, callbackHandler, str) == null) {
-            j64.g(callbackHandler, str);
-        }
-    }
-
-    @Override // com.baidu.tieba.bn1
-    public void g(CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, callbackHandler, str) == null) {
-            j64.b(callbackHandler, str);
+        if (interceptable == null || interceptable.invokeL(1048581, this, gameRecorderController) == null) {
+            GameRecorderController gameRecorderController2 = this.a;
+            if (gameRecorderController2 != null && gameRecorderController2 != gameRecorderController) {
+                gameRecorderController2.p();
+            }
+            this.a = gameRecorderController;
         }
     }
 }

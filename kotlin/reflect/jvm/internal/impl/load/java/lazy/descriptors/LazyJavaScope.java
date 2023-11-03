@@ -73,7 +73,7 @@ import kotlin.reflect.jvm.internal.impl.storage.StorageKt;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.types.TypeUtils;
 import kotlin.reflect.jvm.internal.impl.utils.CollectionsKt;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class LazyJavaScope extends MemberScopeImpl {
     public static final /* synthetic */ KProperty[] $$delegatedProperties = {Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(LazyJavaScope.class), "functionNamesLazy", "getFunctionNamesLazy()Ljava/util/Set;")), Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(LazyJavaScope.class), "propertyNamesLazy", "getPropertyNamesLazy()Ljava/util/Set;")), Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(LazyJavaScope.class), "classNamesLazy", "getClassNamesLazy()Ljava/util/Set;"))};
     public final NotNullLazyValue<Collection<DeclarationDescriptor>> allDescriptors;
@@ -118,7 +118,7 @@ public abstract class LazyJavaScope extends MemberScopeImpl {
 
     public abstract MethodSignatureData resolveMethodSignature(JavaMethod javaMethod, List<? extends TypeParameterDescriptor> list, KotlinType kotlinType, List<? extends ValueParameterDescriptor> list2);
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class MethodSignatureData {
         public final List<String> errors;
         public final boolean hasStableParameterNames;
@@ -200,7 +200,7 @@ public abstract class LazyJavaScope extends MemberScopeImpl {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class ResolvedValueParameters {
         public final List<ValueParameterDescriptor> descriptors;
         public final boolean hasSynthesizedNames;
@@ -372,7 +372,7 @@ public abstract class LazyJavaScope extends MemberScopeImpl {
         if (descriptorKindFilter.acceptsKinds(DescriptorKindFilter.Companion.getCLASSIFIERS_MASK())) {
             for (Name name : computeClassNames(descriptorKindFilter, function1)) {
                 if (function1.invoke(name).booleanValue()) {
-                    CollectionsKt.addIfNotNull(linkedHashSet, mo2108getContributedClassifier(name, noLookupLocation));
+                    CollectionsKt.addIfNotNull(linkedHashSet, mo2112getContributedClassifier(name, noLookupLocation));
                 }
             }
         }
@@ -573,8 +573,8 @@ public abstract class LazyJavaScope extends MemberScopeImpl {
             JavaTypeAttributes attributes$default = JavaTypeResolverKt.toAttributes$default(TypeUsage.COMMON, z2, null, 3, null);
             FqName fqName = JvmAnnotationNames.PARAMETER_NAME_FQ_NAME;
             Intrinsics.checkExpressionValueIsNotNull(fqName, "JvmAnnotationNames.PARAMETER_NAME_FQ_NAME");
-            AnnotationDescriptor mo2101findAnnotation = resolveAnnotations.mo2101findAnnotation(fqName);
-            if (mo2101findAnnotation != null && (firstArgument = DescriptorUtilsKt.firstArgument(mo2101findAnnotation)) != null) {
+            AnnotationDescriptor mo2105findAnnotation = resolveAnnotations.mo2105findAnnotation(fqName);
+            if (mo2105findAnnotation != null && (firstArgument = DescriptorUtilsKt.firstArgument(mo2105findAnnotation)) != null) {
                 if (!(firstArgument instanceof StringValue)) {
                     firstArgument = null;
                 }

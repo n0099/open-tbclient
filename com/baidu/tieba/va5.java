@@ -1,19 +1,22 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.app.Activity;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.data.IconStampData;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.view.NewUserRewardDialogView;
+import com.baidu.adp.lib.util.AndroidUtils;
+import com.baidu.searchbox.IntentConstants;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tieba.zz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
@@ -22,55 +25,19 @@ public class va5 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public class a implements View.OnClickListener {
+    public class a implements zz4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ NewUserRewardDialogView a;
-        public final /* synthetic */ hz4 b;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ Context b;
+        public final /* synthetic */ DialogInterface.OnCancelListener c;
 
-        public a(NewUserRewardDialogView newUserRewardDialogView, hz4 hz4Var) {
+        public a(int i, Context context, DialogInterface.OnCancelListener onCancelListener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {newUserRewardDialogView, hz4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = newUserRewardDialogView;
-            this.b = hz4Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.d();
-                this.b.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
-        public final /* synthetic */ hz4 b;
-        public final /* synthetic */ int c;
-
-        public b(TbPageContext tbPageContext, hz4 hz4Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tbPageContext, hz4Var, Integer.valueOf(i)};
+                Object[] objArr = {Integer.valueOf(i), context, onCancelListener};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -80,35 +47,37 @@ public class va5 {
                     return;
                 }
             }
-            this.a = tbPageContext;
-            this.b = hz4Var;
-            this.c = i;
+            this.a = i;
+            this.b = context;
+            this.c = onCancelListener;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.tieba.zz4.e
+        public void onClick(zz4 zz4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                UrlManager.getInstance().dealOneLink(this.a, new String[]{"https://tieba.baidu.com/mo/q/icon/panelIcon?opacity=0&user_id=" + TbadkCoreApplication.getCurrentAccount()});
-                this.b.dismiss();
-                va5.d(this.c);
+            if (interceptable == null || interceptable.invokeL(1048576, this, zz4Var) == null) {
+                va5.d(this.a, this.b);
+                zz4Var.dismiss();
+                DialogInterface.OnCancelListener onCancelListener = this.c;
+                if (onCancelListener != null) {
+                    onCancelListener.onCancel(zz4Var.getDialog());
+                }
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public class c implements View.OnClickListener {
+    public class b implements zz4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PostWriteCallBackData a;
-        public final /* synthetic */ TbPageContext b;
+        public final /* synthetic */ DialogInterface.OnCancelListener a;
 
-        public c(PostWriteCallBackData postWriteCallBackData, TbPageContext tbPageContext) {
+        public b(DialogInterface.OnCancelListener onCancelListener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {postWriteCallBackData, tbPageContext};
+                Object[] objArr = {onCancelListener};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -118,64 +87,128 @@ public class va5 {
                     return;
                 }
             }
-            this.a = postWriteCallBackData;
-            this.b = tbPageContext;
+            this.a = onCancelListener;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.tieba.zz4.e
+        public void onClick(zz4 zz4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                pba pbaVar = new pba();
-                PostWriteCallBackData postWriteCallBackData = this.a;
-                if (postWriteCallBackData != null) {
-                    IconStampData iconStampData = postWriteCallBackData.getIconStampData();
-                    pbaVar.f(iconStampData.stampType);
-                    pbaVar.h(iconStampData.stampTitle);
+            if (interceptable == null || interceptable.invokeL(1048576, this, zz4Var) == null) {
+                zz4Var.dismiss();
+                DialogInterface.OnCancelListener onCancelListener = this.a;
+                if (onCancelListener != null) {
+                    onCancelListener.onCancel(zz4Var.getDialog());
                 }
-                new oba(this.b.getPageActivity(), pbaVar).a();
-                va5.f();
             }
         }
     }
 
-    public static void d(int i) {
+    public static void e(int i, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_STAMP_SHARE_DIALOG).param("obj_type", 2).param("obj_source", 2).param("obj_locate", i));
-        }
-    }
-
-    public static void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) {
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_STAMP_SHARE_DIALOG).param("obj_type", 1).param("obj_source", 2).param("obj_locate", i));
-        }
-    }
-
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_CLICK).param("obj_locate", 31));
-        }
-    }
-
-    public static void c(TbPageContext tbPageContext, PostWriteCallBackData postWriteCallBackData, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLI(65538, null, tbPageContext, postWriteCallBackData, i) != null) || postWriteCallBackData == null || !ta5.a(postWriteCallBackData.getIconStampData())) {
+        if ((interceptable != null && interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, context) != null) || context == null) {
             return;
         }
-        NewUserRewardDialogView newUserRewardDialogView = new NewUserRewardDialogView(tbPageContext.getPageActivity());
-        newUserRewardDialogView.setData(postWriteCallBackData.getIconStampData());
-        hz4 hz4Var = new hz4(tbPageContext.getPageActivity());
-        hz4Var.setContentViewSize(5);
-        hz4Var.setContentView(newUserRewardDialogView);
-        hz4Var.setCanceledOnTouchOutside(false);
-        hz4Var.setAnimRes(R.style.obfuscated_res_0x7f1003fa);
-        hz4Var.create(tbPageContext).show();
-        newUserRewardDialogView.setCloseListener(new a(newUserRewardDialogView, hz4Var));
-        newUserRewardDialogView.getNewsUserDialogLookView().setOnClickListener(new b(tbPageContext, hz4Var, i));
-        newUserRewardDialogView.getNewUserDialogShareView().setOnClickListener(new c(postWriteCallBackData, tbPageContext));
-        e(i);
+        d(i, context);
+    }
+
+    public static boolean b(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
+            if (i != 3 && i != 2) {
+                if (i != 8 && i != 4) {
+                    if (i == 6) {
+                        return yqa.b(context, "com.sina.weibo");
+                    }
+                    return true;
+                }
+                return yqa.b(context, "com.tencent.mobileqq");
+            }
+            return yqa.b(context, "com.tencent.mm");
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static String c(int i, Context context) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, context)) == null) {
+            if (i != 3 && i != 2) {
+                if (i != 8 && i != 4) {
+                    if (i == 6) {
+                        return String.format(context.getString(R.string.command_share_paste), context.getString(R.string.obfuscated_res_0x7f0f1443));
+                    }
+                    return null;
+                }
+                return String.format(context.getString(R.string.command_share_paste), context.getString(R.string.obfuscated_res_0x7f0f11e6));
+            }
+            return String.format(context.getString(R.string.command_share_paste), context.getString(R.string.obfuscated_res_0x7f0f18a3));
+        }
+        return (String) invokeIL.objValue;
+    }
+
+    public static void d(int i, Context context) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65539, null, i, context) == null) {
+            if (i != 3 && i != 2) {
+                if (i != 8 && i != 4) {
+                    if (i == 6) {
+                        if (!b(context, i)) {
+                            BdToast.makeText(context.getApplicationContext(), context.getText(R.string.share_sina_weibo_not_install)).show();
+                            return;
+                        }
+                        intent = new Intent();
+                        intent.setAction(IntentConstants.ACTION_BOX_BROWSER);
+                        intent.addCategory("android.intent.category.DEFAULT");
+                        intent.setData(Uri.parse("sinaweibo://splash"));
+                        intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+                    } else {
+                        intent = null;
+                    }
+                } else if (!b(context, i)) {
+                    BdToast.makeText(context.getApplicationContext(), context.getText(R.string.share_qq_not_install)).show();
+                    return;
+                } else {
+                    intent = context.getPackageManager().getLaunchIntentForPackage("com.tencent.mobileqq");
+                    intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+                    context.startActivity(intent);
+                }
+            } else if (!b(context, i)) {
+                BdToast.makeText(context.getApplicationContext(), context.getText(R.string.share_wechat_not_install)).show();
+                return;
+            } else {
+                intent = new Intent("android.intent.action.MAIN");
+                ComponentName componentName = new ComponentName("com.tencent.mm", "com.tencent.mm.ui.LauncherUI");
+                intent.addCategory("android.intent.category.LAUNCHER");
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+                intent.setComponent(componentName);
+                context.startActivity(intent);
+            }
+            if (intent != null) {
+                context.startActivity(intent);
+            }
+        }
+    }
+
+    public static void f(ShareItem shareItem, Context context, int i, DialogInterface.OnCancelListener onCancelListener) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLIL(65541, null, shareItem, context, i, onCancelListener) != null) || shareItem == null || TextUtils.isEmpty(shareItem.content) || TextUtils.isEmpty(shareItem.title) || !(context instanceof Activity)) {
+            return;
+        }
+        AndroidUtils.copyToClipboard(shareItem.cmdContent);
+        Activity activity = (Activity) context;
+        zz4 zz4Var = new zz4(activity);
+        zz4Var.setTitle(context.getString(R.string.command_share_tips));
+        zz4Var.setMessage(shareItem.cmdContent);
+        zz4Var.setAutoNight(false);
+        zz4Var.setCancelable(true);
+        zz4Var.setTitleShowCenter(true);
+        zz4Var.setPositiveButton(c(i, context), new a(i, context, onCancelListener));
+        zz4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03d3, new b(onCancelListener)).create(a5.a(activity));
+        if (onCancelListener != null) {
+            zz4Var.setOnCalcelListener(onCancelListener);
+        }
+        zz4Var.show();
     }
 }

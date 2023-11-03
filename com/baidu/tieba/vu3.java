@@ -1,13 +1,15 @@
 package com.baidu.tieba;
 /* loaded from: classes8.dex */
 public interface vu3 {
-    void a(boolean z, String str);
+    void onCompletion();
 
-    void b(boolean z, String str);
+    boolean onError();
 
-    void c(boolean z, int i);
+    void onPause();
 
-    void onClick(int i);
+    void onPrepared();
 
-    void onError(String str);
+    void onResume();
+
+    void onStart();
 }

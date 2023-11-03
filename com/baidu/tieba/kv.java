@@ -1,269 +1,232 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
-import android.content.pm.Signature;
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class kv {
+import java.security.InvalidAlgorithmParameterException;
+import java.security.SecureRandom;
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.ShortBufferException;
+/* loaded from: classes7.dex */
+public final class kv {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gv a;
-    public List<jv> b;
+    public byte[] a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public ov f;
+    public lv g;
+    public int h;
+    public boolean i;
 
-    /* loaded from: classes6.dex */
-    public class a implements Comparator<jv> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(kv kvVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kvVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(jv jvVar, jv jvVar2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jvVar, jvVar2)) == null) {
-                int i = jvVar2.b - jvVar.b;
-                if (i == 0) {
-                    if (jvVar.d && jvVar2.d) {
-                        return 0;
-                    }
-                    if (jvVar.d) {
-                        return -1;
-                    }
-                    if (jvVar2.d) {
-                        return 1;
-                    }
-                }
-                return i;
-            }
-            return invokeLL.intValue;
-        }
-    }
-
-    public kv() {
+    public kv(hv hvVar, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {hvVar, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        c();
+        this.a = null;
+        this.b = 0;
+        this.c = 0;
+        this.d = 0;
+        this.e = 0;
+        this.f = null;
+        this.g = null;
+        this.h = 1;
+        this.i = false;
+        this.b = i;
+        this.c = i;
+        this.e = i;
+        this.a = new byte[i * 2];
+        this.g = new jv(hvVar);
+        this.f = new nv(this.b);
     }
 
-    public static String a(byte[] bArr) {
-        InterceptResult invokeL;
-        StringBuilder sb;
+    public int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            if (bArr != null) {
-                String str = "";
-                for (byte b : bArr) {
-                    String hexString = Integer.toHexString(b & 255);
-                    if (hexString.length() == 1) {
-                        sb = new StringBuilder();
-                        sb.append(str);
-                        str = "0";
-                    } else {
-                        sb = new StringBuilder();
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            int i2 = this.d + i;
+            ov ovVar = this.f;
+            if (ovVar == null || this.i) {
+                return i2;
+            }
+            int i3 = this.c;
+            int i4 = this.b;
+            if (i3 != i4) {
+                int i5 = this.e;
+                return i2 < i5 ? i5 : (i2 + i4) - ((i2 - i5) % i4);
+            }
+            return i2 + ovVar.a(i2);
+        }
+        return invokeI.intValue;
+    }
+
+    public final int b(byte[] bArr, int i, byte[] bArr2, int i2, int i3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, Integer.valueOf(i), bArr2, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            if (bArr == null || i3 == 0) {
+                return 0;
+            }
+            int i4 = this.h;
+            if (i4 == 2 || i4 == 3 || i3 % this.c == 0 || i4 == 6) {
+                if (this.i) {
+                    this.g.h(bArr, i, i3, bArr2, i2);
+                } else {
+                    this.g.f(bArr, i, i3, bArr2, i2);
+                }
+                return i3;
+            } else if (this.f != null) {
+                throw new IllegalBlockSizeException("Input length (with padding) not multiple of " + this.c + " bytes");
+            } else {
+                throw new IllegalBlockSizeException("Input length not multiple of " + this.c + " bytes");
+            }
+        }
+        return invokeCommon.intValue;
+    }
+
+    public void c(int i, byte[] bArr, byte[] bArr2, SecureRandom secureRandom) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), bArr, bArr2, secureRandom}) == null) {
+            boolean z = i == 2 || i == 4;
+            this.i = z;
+            if (this.h == 0) {
+                if (bArr2 != null) {
+                    throw new InvalidAlgorithmParameterException("ECB mode cannot use IV");
+                }
+            } else if (bArr2 == null) {
+                if (z) {
+                    throw new InvalidAlgorithmParameterException("Parameters missing");
+                }
+                if (secureRandom == null) {
+                    secureRandom = iv.b;
+                }
+                bArr2 = new byte[this.b];
+                secureRandom.nextBytes(bArr2);
+            }
+            this.d = 0;
+            this.e = this.b;
+            this.g.a(this.i, "", bArr, bArr2);
+        }
+    }
+
+    public int d(byte[] bArr, int i, int i2, byte[] bArr2, int i3) {
+        InterceptResult invokeCommon;
+        int a;
+        byte[] bArr3;
+        int i4;
+        ov ovVar;
+        int b;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), bArr2, Integer.valueOf(i3)})) == null) {
+            int i5 = this.d + i2;
+            int i6 = this.c;
+            int i7 = this.b;
+            if (i6 != i7) {
+                int i8 = this.e;
+                a = i5 < i8 ? i8 - i5 : i7 - ((i5 - i8) % i7);
+            } else {
+                ov ovVar2 = this.f;
+                a = ovVar2 != null ? ovVar2.a(i5) : 0;
+            }
+            if (a > 0 && a != this.b && this.f != null && this.i) {
+                throw new IllegalBlockSizeException("Input length must be multiple of " + this.b + " when decrypting with padded cipher");
+            }
+            int i9 = (this.i || this.f == null) ? i5 : i5 + a;
+            if (bArr2 != null) {
+                int length = bArr2.length - i3;
+                if (((!this.i || this.f == null) && length < i9) || (this.i && length < i9 - this.b)) {
+                    throw new ShortBufferException("Output buffer too short: " + length + " bytes given, " + i9 + " bytes needed");
+                }
+                if (this.d == 0 && (this.i || this.f == null)) {
+                    bArr3 = bArr;
+                    i4 = i;
+                } else {
+                    byte[] bArr4 = new byte[i9];
+                    int i10 = this.d;
+                    if (i10 != 0) {
+                        System.arraycopy(this.a, 0, bArr4, 0, i10);
                     }
-                    sb.append(str);
-                    sb.append(hexString);
-                    str = sb.toString();
-                }
-                return str.toLowerCase();
-            }
-            throw new IllegalArgumentException("Argument b ( byte array ) is null! ");
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static byte[] f(byte[] bArr, gv gvVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, gvVar)) == null) {
-            dv a2 = dv.a();
-            a2.b(2, gvVar);
-            return a2.c(bArr);
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public List<jv> b(Context context, Intent intent, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, context, intent, z)) == null) {
-            ArrayList arrayList = new ArrayList();
-            PackageManager packageManager = context.getPackageManager();
-            List<ResolveInfo> queryBroadcastReceivers = packageManager.queryBroadcastReceivers(intent, 0);
-            if (queryBroadcastReceivers != null) {
-                for (ResolveInfo resolveInfo : queryBroadcastReceivers) {
-                    ActivityInfo activityInfo = resolveInfo.activityInfo;
-                    if (activityInfo != null && activityInfo.applicationInfo != null) {
-                        try {
-                            Bundle bundle = packageManager.getReceiverInfo(new ComponentName(resolveInfo.activityInfo.packageName, resolveInfo.activityInfo.name), 128).metaData;
-                            if (bundle != null) {
-                                String string = bundle.getString("galaxy_data");
-                                if (!TextUtils.isEmpty(string)) {
-                                    byte[] b = lv.b(string.getBytes("utf-8"));
-                                    JSONObject jSONObject = new JSONObject(new String(b));
-                                    jv jvVar = new jv();
-                                    jvVar.b = jSONObject.getInt("priority");
-                                    jvVar.a = resolveInfo.activityInfo.applicationInfo;
-                                    if (context.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
-                                        jvVar.d = true;
-                                    }
-                                    if (z) {
-                                        String string2 = bundle.getString("galaxy_sf");
-                                        if (!TextUtils.isEmpty(string2)) {
-                                            PackageInfo packageInfo = packageManager.getPackageInfo(resolveInfo.activityInfo.applicationInfo.packageName, 64);
-                                            JSONArray jSONArray = jSONObject.getJSONArray("sigs");
-                                            int length = jSONArray.length();
-                                            String[] strArr = new String[length];
-                                            for (int i = 0; i < length; i++) {
-                                                strArr[i] = jSONArray.getString(i);
-                                            }
-                                            if (e(strArr, g(packageInfo.signatures))) {
-                                                byte[] f = f(lv.b(string2.getBytes()), this.a);
-                                                if (f != null && Arrays.equals(f, nv.a(b))) {
-                                                    jvVar.c = true;
-                                                }
-                                            }
-                                        }
-                                    }
-                                    arrayList.add(jvVar);
-                                }
-                            }
-                        } catch (Exception unused) {
-                        }
+                    if (i2 != 0) {
+                        System.arraycopy(bArr, i, bArr4, this.d, i2);
                     }
+                    if (!this.i && (ovVar = this.f) != null) {
+                        ovVar.a(bArr4, i5, a);
+                    }
+                    bArr3 = bArr4;
+                    i4 = 0;
                 }
-            }
-            Collections.sort(arrayList, new a(this));
-            return arrayList;
-        }
-        return (List) invokeLLZ.objValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = new hv(pv.a(), pv.b());
-        }
-    }
-
-    public boolean d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            List<jv> b = b(context, new Intent("com.baidu.intent.action.GALAXY").setPackage(context.getPackageName()), true);
-            if (b == null || b.size() == 0) {
-                for (int i = 0; i < 3; i++) {
-                    Log.w("CuidBuddyInfoManager", "galaxy lib host missing meta-data,make sure you know the right way to integrate galaxy");
+                if (this.i) {
+                    if (length < i9) {
+                        this.g.e();
+                    }
+                    byte[] bArr5 = new byte[i5];
+                    b = b(bArr3, i4, bArr5, 0, i5);
+                    ov ovVar3 = this.f;
+                    if (ovVar3 != null && (b = ovVar3.b(bArr5, 0, b)) < 0) {
+                        throw new BadPaddingException("Given final block not properly padded");
+                    }
+                    if (bArr2.length - i3 < b) {
+                        this.g.g();
+                        throw new ShortBufferException("Output buffer too short: " + (bArr2.length - i3) + " bytes given, " + b + " bytes needed");
+                    }
+                    for (int i11 = 0; i11 < b; i11++) {
+                        bArr2[i3 + i11] = bArr5[i11];
+                    }
+                } else {
+                    b = b(bArr3, i4, bArr2, i3, i9);
                 }
-                return false;
-            }
-            boolean z = b.get(0).c;
-            if (!z) {
-                for (int i2 = 0; i2 < 3; i2++) {
-                    Log.w("CuidBuddyInfoManager", "galaxy config err, In the release version of the signature should be matched");
+                this.d = 0;
+                this.e = this.b;
+                if (this.h != 0) {
+                    this.g.c();
                 }
+                return b;
             }
-            return z;
+            throw new ShortBufferException("Output buffer is null");
         }
-        return invokeL.booleanValue;
+        return invokeCommon.intValue;
     }
 
-    public final boolean e(String[] strArr, String[] strArr2) {
-        InterceptResult invokeLL;
+    public byte[] e(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
+        int a;
+        byte[] bArr2;
+        int d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, strArr, strArr2)) == null) {
-            if (strArr == null || strArr2 == null || strArr.length != strArr2.length) {
-                return false;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, bArr, i, i2)) == null) {
+            byte[] bArr3 = null;
+            try {
+                a = a(i2);
+                bArr2 = new byte[a];
+                d = d(bArr, i, i2, bArr2, 0);
+            } catch (ShortBufferException unused) {
             }
-            HashSet hashSet = new HashSet();
-            for (String str : strArr) {
-                hashSet.add(str);
+            if (d < a) {
+                bArr3 = new byte[d];
+                if (d != 0) {
+                    System.arraycopy(bArr2, 0, bArr3, 0, d);
+                }
+                return bArr3;
             }
-            HashSet hashSet2 = new HashSet();
-            for (String str2 : strArr2) {
-                hashSet2.add(str2);
-            }
-            return hashSet.equals(hashSet2);
+            return bArr2;
         }
-        return invokeLL.booleanValue;
-    }
-
-    public final String[] g(Signature[] signatureArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, signatureArr)) == null) {
-            int length = signatureArr.length;
-            String[] strArr = new String[length];
-            for (int i = 0; i < length; i++) {
-                strArr[i] = a(nv.a(signatureArr[i].toByteArray()));
-            }
-            return strArr;
-        }
-        return (String[]) invokeL.objValue;
-    }
-
-    public List<jv> h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
-            List<jv> list = this.b;
-            if (list != null) {
-                return list;
-            }
-            d(context);
-            List<jv> b = b(context, new Intent("com.baidu.intent.action.GALAXY"), true);
-            this.b = b;
-            return b;
-        }
-        return (List) invokeL.objValue;
+        return (byte[]) invokeLII.objValue;
     }
 }

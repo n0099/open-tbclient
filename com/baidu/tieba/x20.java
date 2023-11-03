@@ -1,30 +1,102 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.network.outback.core.Call;
+import com.baidu.searchbox.network.outback.core.CallFactory;
+import com.baidu.searchbox.network.outback.core.CallFactoryParams;
+import com.baidu.searchbox.network.outback.core.Request;
+import com.baidu.tieba.k20;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes8.dex */
-public abstract class x20 {
+/* loaded from: classes9.dex */
+public abstract class x20 implements CallFactory.CallFactoryProducer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public long c;
-    public long d;
-    public boolean e;
-    public boolean f;
+    public k20 a;
 
-    public abstract JSONObject b();
+    /* loaded from: classes9.dex */
+    public class a implements CallFactory {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ k20 a;
+        public final /* synthetic */ x20 b;
 
-    public x20() {
+        public a(x20 x20Var, k20 k20Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {x20Var, k20Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = x20Var;
+            this.a = k20Var;
+        }
+
+        @Override // com.baidu.searchbox.network.outback.core.CallFactory
+        public Call newCall(Request request, boolean z) {
+            InterceptResult invokeLZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, request, z)) == null) {
+                if (!this.b.isAvailable() && z) {
+                    return null;
+                }
+                return new j20(request, this.a, false);
+            }
+            return (Call) invokeLZ.objValue;
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public static abstract class b<T extends b, R extends x20> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public k20.a a;
+
+        public abstract R b(k20 k20Var);
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new k20.a();
+        }
+
+        public final R a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return b(this.a.b());
+            }
+            return (R) invokeV.objValue;
+        }
+    }
+
+    public x20(k20 k20Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {k20Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,56 +106,25 @@ public abstract class x20 {
                 return;
             }
         }
-        this.e = false;
-        this.f = false;
+        this.a = k20Var;
     }
 
-    public x20(String str, String str2) {
+    @Override // com.baidu.searchbox.network.outback.core.CallFactory.CallFactoryProducer
+    public CallFactory produceCallFactory(CallFactoryParams callFactoryParams) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, callFactoryParams)) == null) {
+            k20.a x = this.a.x();
+            a(x, callFactoryParams);
+            return new a(this, x.b());
         }
-        this.e = false;
-        this.f = false;
-        this.a = str;
-        this.b = str2;
+        return (CallFactory) invokeL.objValue;
     }
 
-    public JSONObject a() {
-        InterceptResult invokeV;
+    public final void a(k20.a aVar, CallFactoryParams callFactoryParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", this.a);
-                jSONObject.put("name", this.b);
-                jSONObject.put("start_time", String.valueOf(this.c));
-                jSONObject.put("end_time", String.valueOf(this.d));
-                jSONObject.put("domain", b());
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, aVar, callFactoryParams) == null) {
+            aVar.c(new e20(this.a.p().c()));
         }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "Event{type='" + this.a + "', name='" + this.b + "', startTime=" + this.c + ", endTime=" + this.d + ", waitTimeout=" + this.e + '}';
-        }
-        return (String) invokeV.objValue;
     }
 }

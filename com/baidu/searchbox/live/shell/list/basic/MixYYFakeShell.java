@@ -442,21 +442,6 @@ public final class MixYYFakeShell extends AbstractMixFakeShell implements Lifecy
         });
     }
 
-    @Override // com.baidu.searchbox.live.shell.list.basic.AbstractMixFakeShell, com.baidu.live.arch.api.IExtLifecycle
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
-        log("MixLiveShell onActivityResult " + i + " " + i2 + " " + intent);
-        checkImpl();
-        try {
-            MixLiveInterface mixLiveInterface = this.mixLiveImpl;
-            if (mixLiveInterface != null) {
-                mixLiveInterface.onActivityResult(i, i2, intent);
-            }
-        } catch (Throwable th) {
-            log("onActivityResult crash throwable th：" + th);
-        }
-    }
-
     private final void registerRoomInfoService() {
         ServiceLocator.Companion.registerGlobalServices(LiveMixRoomInfoService.class, new LiveMixRoomInfoService() { // from class: com.baidu.searchbox.live.shell.list.basic.MixYYFakeShell$registerRoomInfoService$1
             @Override // com.baidu.searchbox.live.service.LiveMixRoomInfoService
@@ -993,6 +978,21 @@ public final class MixYYFakeShell extends AbstractMixFakeShell implements Lifecy
             }
             log("MixLiveShell LoadYYPluginSuc isSelected: " + this.isSelected);
             syncActivityLifecycle();
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.shell.list.basic.AbstractMixFakeShell, com.baidu.live.arch.api.IExtLifecycle
+    public void onActivityResult(int i, int i2, Intent intent) {
+        super.onActivityResult(i, i2, intent);
+        log("MixLiveShell onActivityResult " + i + " " + i2 + " " + intent);
+        checkImpl();
+        try {
+            MixLiveInterface mixLiveInterface = this.mixLiveImpl;
+            if (mixLiveInterface != null) {
+                mixLiveInterface.onActivityResult(i, i2, intent);
+            }
+        } catch (Throwable th) {
+            log("onActivityResult crash throwable th：" + th);
         }
     }
 

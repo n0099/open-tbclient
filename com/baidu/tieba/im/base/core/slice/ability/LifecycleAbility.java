@@ -60,7 +60,7 @@ public abstract class LifecycleAbility implements LifecycleObserver {
     }
 
     @CallSuper
-    public void H() {
+    public void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
         }
@@ -151,7 +151,7 @@ public abstract class LifecycleAbility implements LifecycleObserver {
     public final void performDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            H();
+            G();
             onDestroy();
             D();
         }

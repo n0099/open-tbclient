@@ -5,8 +5,8 @@ import androidx.annotation.Nullable;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.live.business.model.data.LiveFeedData;
 import com.baidu.searchbox.live.interfaces.net.NetResponse;
-import com.baidu.tieba.h70;
-import com.baidu.tieba.i70;
+import com.baidu.tieba.y70;
+import com.baidu.tieba.z70;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -32,7 +32,7 @@ public class LiveFeedInterstModel {
         hashMap.put("session_id", str);
         hashMap.put("live_tag", str2);
         hashMap.put("feed_tag", str3);
-        i70.f(FEED_PAGE_INTEREST_URL, hashMap, new h70<LiveFeedData>() { // from class: com.baidu.live.business.model.LiveFeedInterstModel.1
+        z70.f(FEED_PAGE_INTEREST_URL, hashMap, new y70<LiveFeedData>() { // from class: com.baidu.live.business.model.LiveFeedInterstModel.1
             /* renamed from: onNetResponse  reason: avoid collision after fix types in other method */
             public void onNetResponse2(NetResponse netResponse, LiveFeedData liveFeedData, Map<String, String> map, List<String> list) {
                 if (netResponse != null) {
@@ -58,14 +58,14 @@ public class LiveFeedInterstModel {
             }
 
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.searchbox.live.interfaces.net.NetResponse, java.lang.Object, java.util.Map, java.util.List] */
-            @Override // com.baidu.tieba.h70
+            @Override // com.baidu.tieba.y70
             public /* bridge */ /* synthetic */ void onNetResponse(NetResponse netResponse, LiveFeedData liveFeedData, Map map, List list) {
                 onNetResponse2(netResponse, liveFeedData, (Map<String, String>) map, (List<String>) list);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // com.baidu.tieba.h70
+            @Override // com.baidu.tieba.y70
             public LiveFeedData onParseResponseInBackground(NetResponse netResponse) {
                 LiveFeedData liveFeedData = new LiveFeedData();
                 if (netResponse != null && !TextUtils.isEmpty(netResponse.decodedResponseStr)) {

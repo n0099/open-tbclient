@@ -1,23 +1,38 @@
 package com.baidu.tieba;
 
-import java.util.List;
-import tbclient.ExcPbPage.ExcellentPbThreadInfo;
-import tbclient.ExcPbPage.UserInfo;
-import tbclient.Post;
-import tbclient.User;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.HotForum.ForumInfo;
 /* loaded from: classes7.dex */
-public interface me9 {
-    int getErroCode();
+public class me9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    String getErrorText();
+    public me9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    List<Post> getPostList();
-
-    ExcellentPbThreadInfo getThreadInfo();
-
-    UserInfo getUserInfo();
-
-    List<User> getUserList();
-
-    boolean isEmpty();
+    public void a(ForumInfo forumInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, forumInfo) == null) && forumInfo != null) {
+            String str = forumInfo.avatar;
+            forumInfo.forum_id.longValue();
+            String str2 = forumInfo.forum_name;
+            forumInfo.time_out.longValue();
+            forumInfo.member_count.longValue();
+            forumInfo.thread_count.longValue();
+        }
+    }
 }

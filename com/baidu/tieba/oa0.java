@@ -1,165 +1,70 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.chatmessage.messages.NetDiskFileMsg;
-import com.baidu.searchbox.pms.db.PackageTable;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileInputStream;
-import java.util.ArrayList;
-import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class oa0 extends va0 {
-    public static /* synthetic */ Interceptable $ic;
+public class oa0 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948025387, "Lcom/baidu/tieba/oa0;")) == null) {
+            return;
         }
-
-        public static a a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-                if (TextUtils.isEmpty(str)) {
-                    return null;
-                }
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    a aVar = new a();
-                    aVar.a = jSONObject.optString("name");
-                    aVar.b = jSONObject.optString("path");
-                    aVar.c = jSONObject.optString(PackageTable.MD5);
-                    return aVar;
-                } catch (Exception unused) {
-                    return null;
-                }
-            }
-            return (a) invokeL.objValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public oa0(pa0 pa0Var) {
-        super(pa0Var.b, pa0Var.g);
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pa0Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (File) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948025387, "Lcom/baidu/tieba/oa0;");
         }
     }
 
-    public static boolean t(File file) {
-        InterceptResult invokeL;
-        File file2;
+    public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-            try {
-                file2 = new File(file, "files.json");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            if (!file2.exists()) {
-                return false;
-            }
-            FileInputStream fileInputStream = new FileInputStream(file2);
-            byte[] bArr = new byte[fileInputStream.available()];
-            fileInputStream.read(bArr);
-            String str = new String(bArr);
-            fileInputStream.close();
-            JSONArray optJSONArray = new JSONObject(str).optJSONArray(NetDiskFileMsg.JSON_KEY_FILES);
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                ArrayList arrayList = new ArrayList();
-                int length = optJSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    arrayList.add(a.a(optJSONArray.getString(i)));
-                }
-                return u(file, arrayList);
-            }
-            return false;
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) || 7 - a > 3) {
+            return;
         }
-        return invokeL.booleanValue;
+        Log.i("cyber-" + str, str2);
     }
 
-    public static boolean u(File file, ArrayList<a> arrayList) {
-        InterceptResult invokeLL;
-        File file2;
+    public static void b(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, file, arrayList)) == null) {
-            if (arrayList == null || arrayList.size() <= 0) {
-                return false;
-            }
-            try {
-                Iterator<a> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    a next = it.next();
-                    String str = next.b;
-                    if (TextUtils.isEmpty(str)) {
-                        file2 = new File(file, next.a);
-                    } else {
-                        file2 = new File(file, str + File.separator + next.a);
-                    }
-                    if (!file2.exists()) {
-                        return false;
-                    }
-                    String a2 = ra0.a(file2.getAbsolutePath());
-                    boolean equals = TextUtils.equals(a2, next.c);
-                    if (!equals) {
-                        va0.j(equals + " " + a2 + "!=" + next.c + StringUtil.ARRAY_ELEMENT_SEPARATOR + file2.getAbsolutePath());
-                        return false;
-                    }
-                }
-                return true;
-            } catch (Exception unused) {
-                return false;
-            }
+        if (!(interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) || 7 - a > 6) {
+            return;
         }
-        return invokeLL.booleanValue;
+        Log.e("cyber-" + str, str2, th);
     }
 
-    @Override // com.baidu.tieba.va0
-    public boolean i(File file) {
-        InterceptResult invokeL;
+    public static void c(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
-            return t(file);
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || 7 - a > 4) {
+            return;
         }
-        return invokeL.booleanValue;
+        Log.i("cyber-" + str, str2);
+    }
+
+    public static void d(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) || 7 - a > 5) {
+            return;
+        }
+        Log.w("cyber-" + str, str2);
+    }
+
+    public static void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) || 7 - a > 6) {
+            return;
+        }
+        Log.e("cyber-" + str, str2);
     }
 }

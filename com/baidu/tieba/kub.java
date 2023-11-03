@@ -1,5 +1,9 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
-public interface kub<TResult> {
-    void onSuccess(TResult tresult);
+
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public interface kub {
+    void onFailure(String str, JSONObject jSONObject);
+
+    void onSuccess(String str, JSONObject jSONObject);
 }

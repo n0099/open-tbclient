@@ -1,73 +1,168 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+@Autowired
 /* loaded from: classes8.dex */
-public abstract class w54 extends m73 {
+public final class w54 {
     public static /* synthetic */ Interceptable $ic;
+    public static final w54 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String c;
 
-    public abstract boolean k(@NonNull z54 z54Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler);
+    /* loaded from: classes8.dex */
+    public static final class a implements v54 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w54(m63 m63Var, String str, String str2) {
-        super(m63Var, str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {m63Var, str, str2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        @Override // com.baidu.tieba.v54
+        public void a(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+
+        @Override // com.baidu.tieba.v54
+        public void b(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+
+        @Override // com.baidu.tieba.v54
+        public void c(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+
+        @Override // com.baidu.tieba.v54
+        public void d(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+
+        @Override // com.baidu.tieba.v54
+        public void e(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+
+        @Override // com.baidu.tieba.v54
+        public void f() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.v54
+        public void g(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+
+        @Override // com.baidu.tieba.v54
+        public void h(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+
+        @Override // com.baidu.tieba.v54
+        public void i(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+
+        @Override // com.baidu.tieba.v54
+        public void j() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.v54
+        public void k(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048586, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948221555, "Lcom/baidu/tieba/w54;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948221555, "Lcom/baidu/tieba/w54;");
                 return;
             }
         }
-        this.c = str2;
+        a = new w54();
     }
 
-    @Override // com.baidu.tieba.m73
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, p53 p53Var) {
-        InterceptResult invokeLLLL;
+    public w54() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, p53Var)) == null) {
-            y42 W = cr2.V().W();
-            if (W == null) {
-                p22.c(this.c, "fragment manager is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            a64 a64Var = (a64) W.n(m14.class);
-            if (a64Var == null) {
-                p22.c(this.c, "fragment is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            }
-            return k(a64Var.b(), unitedSchemeEntity, callbackHandler);
         }
-        return invokeLLLL.booleanValue;
     }
 
-    public void j(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+    @Inject(force = false)
+    public final v54 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity, callbackHandler) == null) {
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a();
         }
+        return (v54) invokeV.objValue;
     }
 }

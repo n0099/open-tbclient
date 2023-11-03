@@ -24,7 +24,7 @@ public class PlayerPolicyDetailConfig implements Cloneable {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* renamed from: clone */
-        public CdnConfig m100clone() throws CloneNotSupportedException {
+        public CdnConfig m101clone() throws CloneNotSupportedException {
             CdnConfig cdnConfig = (CdnConfig) super.clone();
             cdnConfig.sle = this.sle;
             cdnConfig.slRate = this.slRate;
@@ -63,7 +63,7 @@ public class PlayerPolicyDetailConfig implements Cloneable {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* renamed from: clone */
-        public ClarityConfig m101clone() throws CloneNotSupportedException {
+        public ClarityConfig m102clone() throws CloneNotSupportedException {
             ClarityConfig clarityConfig = (ClarityConfig) super.clone();
             clarityConfig.cs480p = this.cs480p;
             clarityConfig.cs720p = this.cs720p;
@@ -83,7 +83,7 @@ public class PlayerPolicyDetailConfig implements Cloneable {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* renamed from: clone */
-        public PCDNConfig m102clone() throws CloneNotSupportedException {
+        public PCDNConfig m103clone() throws CloneNotSupportedException {
             PCDNConfig pCDNConfig = (PCDNConfig) super.clone();
             pCDNConfig.pcdnEnable = this.pcdnEnable;
             pCDNConfig.p2pEnable = this.p2pEnable;
@@ -101,7 +101,7 @@ public class PlayerPolicyDetailConfig implements Cloneable {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* renamed from: clone */
-        public PrebootConfig m103clone() throws CloneNotSupportedException {
+        public PrebootConfig m104clone() throws CloneNotSupportedException {
             PrebootConfig prebootConfig = (PrebootConfig) super.clone();
             prebootConfig.b = this.b;
             prebootConfig.level = this.level;
@@ -125,7 +125,7 @@ public class PlayerPolicyDetailConfig implements Cloneable {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* renamed from: clone */
-        public PrefetchConfig m104clone() throws CloneNotSupportedException {
+        public PrefetchConfig m105clone() throws CloneNotSupportedException {
             PrefetchConfig prefetchConfig = (PrefetchConfig) super.clone();
             prefetchConfig.duration = this.duration;
             prefetchConfig.pcdnEnable = this.pcdnEnable;
@@ -147,7 +147,7 @@ public class PlayerPolicyDetailConfig implements Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public PlayerPolicyDetailConfig m99clone() throws CloneNotSupportedException {
+    public PlayerPolicyDetailConfig m100clone() throws CloneNotSupportedException {
         String[] strArr;
         PlayerPolicyDetailConfig playerPolicyDetailConfig = (PlayerPolicyDetailConfig) super.clone();
         String[] strArr2 = this.hosts;
@@ -158,9 +158,9 @@ public class PlayerPolicyDetailConfig implements Cloneable {
         }
         playerPolicyDetailConfig.hosts = strArr;
         playerPolicyDetailConfig.cntlId = new String(this.cntlId);
-        playerPolicyDetailConfig.pcdnConfig = this.pcdnConfig.m102clone();
-        playerPolicyDetailConfig.cdnConfig = this.cdnConfig.m100clone();
-        playerPolicyDetailConfig.prefetchConfig = this.prefetchConfig.m104clone();
+        playerPolicyDetailConfig.pcdnConfig = this.pcdnConfig.m103clone();
+        playerPolicyDetailConfig.cdnConfig = this.cdnConfig.m101clone();
+        playerPolicyDetailConfig.prefetchConfig = this.prefetchConfig.m105clone();
         return playerPolicyDetailConfig;
     }
 

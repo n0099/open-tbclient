@@ -1,19 +1,72 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.File;
+import java.io.IOException;
+import java.nio.channels.ReadableByteChannel;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class ud4 extends pd4<pe4> {
+public abstract class ud4<T> implements xd4<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.xd4
+    public void a(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.xd4
+    public void c(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.xd4
+    public void e(T t, af4 af4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, t, af4Var) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.xd4
+    public void f(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+        }
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return 100;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.xd4
+    public void i(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.xd4
+    public void j(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
+        }
+    }
 
     public ud4() {
         Interceptable interceptable = $ic;
@@ -29,77 +82,25 @@ public class ud4 extends pd4<pe4> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pd4
-    /* renamed from: f */
-    public ContentValues c(pe4 pe4Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.xd4
+    public Map<String, Object> k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, pe4Var)) == null) {
-            ContentValues a = super.a(pe4Var);
-            a.put("independent", Integer.valueOf(pe4Var.r ? 1 : 0));
-            a.put("sub_pkg_name", pe4Var.p);
-            a.put("app_id", pe4Var.o);
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("queue_priority", Integer.valueOf(g()));
+            return hashMap;
         }
-        return (ContentValues) invokeL.objValue;
+        return (Map) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pd4
-    /* renamed from: g */
-    public pe4 d(Cursor cursor) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.xd4
+    public af4 h(T t, File file, long j, ReadableByteChannel readableByteChannel) throws IOException {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
-            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
-                return h(cursor);
-            }
-            return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{t, file, Long.valueOf(j), readableByteChannel})) == null) {
+            return new af4(2302, "业务层默认不处理下载流");
         }
-        return (pe4) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.pd4
-    public List<pe4> e(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
-                do {
-                    arrayList.add(h(cursor));
-                } while (cursor.moveToNext());
-                return arrayList;
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public final pe4 h(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cursor)) == null) {
-            if (cursor != null) {
-                int columnIndex = cursor.getColumnIndex("independent");
-                int columnIndex2 = cursor.getColumnIndex("sub_pkg_name");
-                int columnIndex3 = cursor.getColumnIndex("app_id");
-                pe4 pe4Var = new pe4();
-                if (b(cursor, pe4Var)) {
-                    boolean z = true;
-                    if (cursor.getInt(columnIndex) != 1) {
-                        z = false;
-                    }
-                    pe4Var.r = z;
-                    pe4Var.p = cursor.getString(columnIndex2);
-                    pe4Var.o = cursor.getString(columnIndex3);
-                    return pe4Var;
-                }
-                return null;
-            }
-            return null;
-        }
-        return (pe4) invokeL.objValue;
+        return (af4) invokeCommon.objValue;
     }
 }

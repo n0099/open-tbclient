@@ -1,15 +1,8 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
-import android.os.Bundle;
-import android.os.Debug;
-import android.os.Process;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,70 +10,34 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.DecimalFormat;
-import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class p32 {
+public abstract class p32 {
     public static /* synthetic */ Interceptable $ic;
-    public static ActivityManager c;
-    public static float d;
-    public static int e;
-    public static int f;
+    public static final boolean a;
+    public static volatile p32 b;
+    public static mc3 c;
+    public static Timer d;
     public transient /* synthetic */ FieldHolder $fh;
-    public DecimalFormat a;
-    public volatile d b;
+
+    public abstract void f(String str);
 
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
+    public class a extends TimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ p32 a;
 
-    /* loaded from: classes7.dex */
-    public static class b extends ProviderDelegation {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
+        public a(p32 p32Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-        public Bundle execCall(Bundle bundle) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-                Bundle bundle2 = new Bundle();
-                bundle2.putLong("key_get_host_pss", Debug.getPss());
-                return bundle2;
-            }
-            return (Bundle) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public float a;
-        public float b;
-        public float c;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p32Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -90,77 +47,161 @@ public class p32 {
                     return;
                 }
             }
-            this.a = 0.0f;
-            this.b = 0.0f;
-            this.c = 0.0f;
+            this.a = p32Var;
+        }
+
+        @Override // java.util.TimerTask, java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (p32.a) {
+                    Log.d("LocalDebugStatistic", "timer: send local debug ubc flow");
+                }
+                this.a.c();
+                this.a.h();
+            }
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class d {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static volatile String e = "0";
+    public static class b extends p32 {
+        public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-        public String d;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-567156326, "Lcom/baidu/tieba/p32$d;")) == null) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b() {
+            super(null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((a) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        @Override // com.baidu.tieba.p32
+        public void f(String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || TextUtils.isEmpty(str)) {
                 return;
             }
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+            if (p32.a) {
+                Log.d("LocalDebugStatistic", "local-debug statistic event name is : " + str);
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-567156326, "Lcom/baidu/tieba/p32$d;");
+            char c = 65535;
+            int hashCode = str.hashCode();
+            if (hashCode != 50335962) {
+                if (hashCode != 1109597094) {
+                    if (hashCode == 1158237819 && str.equals("downloadsuccess")) {
+                        c = 1;
+                    }
+                } else if (str.equals("downloadfail")) {
+                    c = 2;
+                }
+            } else if (str.equals("downloadstart")) {
+                c = 0;
             }
-        }
-
-        public d() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        if (p32.c != null) {
+                            nc3.d(p32.c, str, d());
+                            return;
+                        }
+                        return;
+                    }
+                    if (p32.c != null) {
+                        nc3.d(p32.c, "downloadfail", d());
+                    }
+                    c();
+                    h();
                     return;
                 }
+                if (p32.c != null) {
+                    nc3.d(p32.c, "downloadsuccess", d());
+                }
+                c();
+                h();
+                return;
             }
-            this.a = "0";
-            this.b = "0";
-            this.c = "0";
-            this.d = "0";
+            i();
+            nc3.d(p32.c, str, d());
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class e {
+    public static class c extends p32 {
         public static /* synthetic */ Interceptable $ic;
-        public static final p32 a;
         public transient /* synthetic */ FieldHolder $fh;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-567156295, "Lcom/baidu/tieba/p32$e;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-567156295, "Lcom/baidu/tieba/p32$e;");
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c() {
+            super(null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((a) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new p32(null);
+        }
+
+        public /* synthetic */ c(a aVar) {
+            this();
+        }
+
+        @Override // com.baidu.tieba.p32
+        public void f(String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !TextUtils.isEmpty(str) && !r32.k().m()) {
+                if (p32.a) {
+                    Log.d("LocalDebugStatistic", "local-debug statistic event name is : " + str);
+                }
+                char c = 65535;
+                int hashCode = str.hashCode();
+                if (hashCode != 900970612) {
+                    if (hashCode == 1415552890 && str.equals("unzipstart")) {
+                        c = 0;
+                    }
+                } else if (str.equals("pageready")) {
+                    c = 1;
+                }
+                if (c != 0) {
+                    if (c != 1) {
+                        if (p32.c != null) {
+                            nc3.d(p32.c, str, d());
+                            return;
+                        }
+                        return;
+                    } else if (p32.c != null) {
+                        nc3.d(p32.c, str, d());
+                        c();
+                        h();
+                        return;
+                    } else {
+                        return;
+                    }
+                }
+                i();
+                nc3.d(p32.c, str, d());
+            }
         }
     }
 
@@ -177,28 +218,7 @@ public class p32 {
                 return;
             }
         }
-        boolean z = am1.a;
-        c = (ActivityManager) wo2.c().getSystemService("activity");
-        d = -1.0f;
-        wo2.g0().getSwitch("swan_memory_sample", 0);
-        e = 0;
-        f = new Random().nextInt(100);
-    }
-
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (!m()) {
-                return "";
-            }
-            ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-            c.getMemoryInfo(memoryInfo);
-            String b2 = b(((float) memoryInfo.totalMem) / 1048576.0f);
-            p22.k("SwanMemoryProperty", "getMemoryInfo sysTotalMemory=" + b2);
-            return b2;
-        }
-        return (String) invokeV.objValue;
+        a = rm1.a;
     }
 
     public p32() {
@@ -211,77 +231,20 @@ public class p32 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = new DecimalFormat("#.###");
     }
 
-    public static p32 c() {
-        InterceptResult invokeV;
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return e.a;
-        }
-        return (p32) invokeV.objValue;
-    }
-
-    public static float d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (d < 0.0f) {
-                d = e().floatValue();
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            Timer timer = d;
+            if (timer != null) {
+                timer.cancel();
+                d = null;
             }
-            return d;
-        }
-        return invokeV.floatValue;
-    }
-
-    public static Float e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-            c.getMemoryInfo(memoryInfo);
-            return Float.valueOf(((float) memoryInfo.totalMem) / 1048576.0f);
-        }
-        return (Float) invokeV.objValue;
-    }
-
-    public static long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return c23.c(b.class, null).a.getLong("key_get_host_pss");
-        }
-        return invokeV.longValue;
-    }
-
-    @NonNull
-    public d g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.b != null) {
-                return this.b;
-            }
-            return new d();
-        }
-        return (d) invokeV.objValue;
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.b == null) {
-            this.b = j();
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.b = null;
+            b = null;
+            c = null;
         }
     }
 
@@ -289,145 +252,103 @@ public class p32 {
         this();
     }
 
-    public final String b(float f2) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2)) == null) {
-            return this.a.format(f2);
-        }
-        return (String) invokeF.objValue;
-    }
-
-    @NonNull
-    public static c i() {
+    public static p32 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            c cVar = new c();
-            Debug.MemoryInfo[] processMemoryInfo = c.getProcessMemoryInfo(new int[]{Process.myPid(), o53.K().q().X().i("main_pid", -1)});
-            ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-            c.getMemoryInfo(memoryInfo);
-            cVar.c = ((float) (memoryInfo.totalMem - memoryInfo.availMem)) / 1048576.0f;
-            if (processMemoryInfo != null && processMemoryInfo.length == 2) {
-                Debug.MemoryInfo memoryInfo2 = processMemoryInfo[0];
-                Debug.MemoryInfo memoryInfo3 = processMemoryInfo[1];
-                if (memoryInfo2 != null) {
-                    cVar.b = ((float) Debug.getPss()) / 1024.0f;
-                }
-                if (memoryInfo3 != null) {
-                    cVar.a = ((float) f()) / 1024.0f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (b == null) {
+                synchronized (tr2.class) {
+                    if (b == null) {
+                        if (qf1.g()) {
+                            b = new b(null);
+                        } else {
+                            b = new c(null);
+                        }
+                    }
                 }
             }
-            return cVar;
+            return b;
         }
-        return (c) invokeV.objValue;
+        return (p32) invokeV.objValue;
     }
 
-    public final void a(JSONObject jSONObject, ActivityManager.MemoryInfo memoryInfo) {
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, memoryInfo) == null) && jSONObject != null && memoryInfo != null) {
-            this.b = new d();
-            this.b.b = jSONObject.optString("host_used_mem");
-            this.b.a = jSONObject.optString("smart_app_used_mem");
-            this.b.d = jSONObject.optString("sys_free_mem");
-            this.b.c = b(((float) memoryInfo.totalMem) / 1048576.0f);
-        }
-    }
-
-    public String h(int i) {
-        InterceptResult invokeI;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            if (!m()) {
-                return "";
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                p22.k("SwanMemoryProperty", "getMemoryInfo mainPid: " + i);
-                Debug.MemoryInfo[] processMemoryInfo = c.getProcessMemoryInfo(new int[]{Process.myPid(), i});
-                if (processMemoryInfo != null && processMemoryInfo.length == 2) {
-                    Debug.MemoryInfo memoryInfo = processMemoryInfo[0];
-                    if (memoryInfo != null) {
-                        jSONObject.put("smart_app_used_mem", b(((float) Debug.getPss()) / 1024.0f));
-                        jSONObject.put("total_rss", b((((memoryInfo.getTotalPrivateClean() + memoryInfo.getTotalPrivateDirty()) + memoryInfo.getTotalSharedClean()) + memoryInfo.getTotalSharedDirty()) / 1024.0f));
-                        jSONObject.put("private_clean", b(memoryInfo.getTotalPrivateClean() / 1024.0f));
-                        jSONObject.put("private_dirty", b(memoryInfo.getTotalPrivateDirty() / 1024.0f));
-                        jSONObject.put("shared_clean", b(memoryInfo.getTotalSharedClean() / 1024.0f));
-                        jSONObject.put("shared_dirty", b(memoryInfo.getTotalSharedDirty() / 1024.0f));
-                    }
-                    Debug.MemoryInfo memoryInfo2 = processMemoryInfo[1];
-                    if (memoryInfo2 != null) {
-                        jSONObject.put("host_used_mem", b((((memoryInfo2.getTotalPrivateClean() + memoryInfo2.getTotalPrivateDirty()) + memoryInfo2.getTotalSharedClean()) + memoryInfo2.getTotalSharedDirty()) / 1024.0f));
-                    }
+                jSONObject.putOpt("timestamp", Long.valueOf(System.currentTimeMillis()));
+            } catch (JSONException e) {
+                if (a) {
+                    Log.d("LocalDebugStatistic", "add event content fail", e);
                 }
-                ActivityManager.MemoryInfo memoryInfo3 = new ActivityManager.MemoryInfo();
-                c.getMemoryInfo(memoryInfo3);
-                jSONObject.put("sys_free_mem", b(((float) memoryInfo3.availMem) / 1048576.0f));
-                if (memoryInfo3.lowMemory) {
-                    str = "1";
-                } else {
-                    str = "0";
-                }
-                jSONObject.put("sys_low_mem", str);
-                jSONObject.put("native_heap", b(((float) Debug.getNativeHeapSize()) / 1048576.0f));
-                jSONObject.put("native_heap_alloc", b(((float) Debug.getNativeHeapAllocatedSize()) / 1048576.0f));
-                jSONObject.put("vm_max_mem", b(((float) Runtime.getRuntime().maxMemory()) / 1048576.0f));
-                jSONObject.put("vm_total_mem", b(((float) Runtime.getRuntime().totalMemory()) / 1048576.0f));
-                jSONObject.put("vm_free_mem", b(((float) Runtime.getRuntime().freeMemory()) / 1048576.0f));
-                jSONObject.put("thread_count", Thread.activeCount());
-                a(jSONObject, memoryInfo3);
-            } catch (Exception e2) {
-                p22.k("SwanMemoryProperty", "getMemoryInfo: " + Log.getStackTraceString(e2));
             }
-            p22.k("SwanMemoryProperty", "getMemoryInfo result=" + jSONObject);
             return jSONObject.toString();
         }
-        return (String) invokeI.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public d j() {
-        InterceptResult invokeV;
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            d dVar = new d();
-            Debug.MemoryInfo[] processMemoryInfo = c.getProcessMemoryInfo(new int[]{Process.myPid(), o53.K().q().X().i("main_pid", -1)});
-            ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-            c.getMemoryInfo(memoryInfo);
-            if (processMemoryInfo != null && processMemoryInfo.length == 2) {
-                Debug.MemoryInfo memoryInfo2 = processMemoryInfo[0];
-                Debug.MemoryInfo memoryInfo3 = processMemoryInfo[1];
-                if (memoryInfo2 != null) {
-                    if (TextUtils.equals("0", d.e)) {
-                        String unused = d.e = b(((float) memoryInfo.totalMem) / 1048576.0f);
-                    }
-                    dVar.c = d.e;
-                    dVar.d = b(((float) memoryInfo.availMem) / 1048576.0f);
-                    dVar.a = b(((float) Debug.getPss()) / 1024.0f);
-                }
-                if (memoryInfo3 != null) {
-                    dVar.b = b((((memoryInfo3.getTotalPrivateClean() + memoryInfo3.getTotalPrivateDirty()) + memoryInfo3.getTotalSharedClean()) + memoryInfo3.getTotalSharedDirty()) / 1024.0f);
-                }
-            }
-            return dVar;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || c != null) {
+            return;
         }
-        return (d) invokeV.objValue;
+        c = zc3.c("1153");
+        a aVar = new a(this);
+        Timer timer = new Timer();
+        d = timer;
+        try {
+            timer.schedule(aVar, 40000L);
+        } catch (Exception e) {
+            if (a) {
+                e.printStackTrace();
+            }
+        }
     }
 
-    public final boolean m() {
-        InterceptResult invokeV;
+    public static void g(JSONArray jSONArray) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            p22.k("SwanMemoryProperty", "getMemoryInfo mMemSample =" + e + "; mRandomNum =" + f);
-            int i = e;
-            if (i <= 0) {
-                return false;
+        if ((interceptable == null || interceptable.invokeL(65542, null, jSONArray) == null) && jSONArray != null && jSONArray.length() > 0) {
+            JSONObject optJSONObject = jSONArray.optJSONObject(0);
+            if (optJSONObject != null) {
+                str = optJSONObject.optString("actionId");
+            } else {
+                str = "";
             }
-            if (i < 100 && f > i) {
-                return false;
+            if (!TextUtils.isEmpty(str) && b != null) {
+                b.f(str);
             }
-            return true;
         }
-        return invokeV.booleanValue;
+    }
+
+    public void c() {
+        String appId;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || c == null) {
+            return;
+        }
+        JSONObject jSONObject = new JSONObject();
+        JSONObject jSONObject2 = new JSONObject();
+        try {
+            g63 c0 = g63.c0();
+            if (c0 == null) {
+                appId = "";
+            } else {
+                appId = c0.getAppId();
+            }
+            jSONObject2.putOpt("appid", appId);
+            jSONObject2.putOpt("from", "local-debug");
+            yc3.a(jSONObject2);
+            jSONObject.putOpt("from", "swan");
+            jSONObject.putOpt("ext", jSONObject2);
+        } catch (JSONException unused) {
+            if (a) {
+                Log.d("LocalDebugStatistic", "page ready statistic value is invalid ");
+            }
+        }
+        nc3.f(c, jSONObject.toString());
+        nc3.c(c);
     }
 }

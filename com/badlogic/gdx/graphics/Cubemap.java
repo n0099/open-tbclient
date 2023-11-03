@@ -4,11 +4,11 @@ import com.badlogic.gdx.Application;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c1;
-import com.baidu.tieba.e2;
-import com.baidu.tieba.h2;
-import com.baidu.tieba.r2;
-import com.baidu.tieba.y0;
+import com.baidu.tieba.h3;
+import com.baidu.tieba.o1;
+import com.baidu.tieba.s1;
+import com.baidu.tieba.u2;
+import com.baidu.tieba.x2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,12 +19,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class Cubemap extends h2 {
+public class Cubemap extends x2 {
     public static /* synthetic */ Interceptable $ic;
-    public static c1 j;
-    public static final Map<Application, r2<Cubemap>> k;
+    public static s1 j;
+    public static final Map<Application, h3<Cubemap>> k;
     public transient /* synthetic */ FieldHolder $fh;
-    public e2 i;
+    public u2 i;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
@@ -165,7 +165,7 @@ public class Cubemap extends h2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (p()) {
-                this.b = y0.c.a();
+                this.b = o1.c.a();
                 q(this.i);
                 return;
             }
@@ -197,54 +197,54 @@ public class Cubemap extends h2 {
     }
 
     public static void o(Application application) {
-        r2<Cubemap> r2Var;
+        h3<Cubemap> h3Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, application) != null) || (r2Var = k.get(application)) == null) {
+        if ((interceptable != null && interceptable.invokeL(65539, null, application) != null) || (h3Var = k.get(application)) == null) {
             return;
         }
-        c1 c1Var = j;
-        if (c1Var == null) {
-            for (int i = 0; i < r2Var.b; i++) {
-                r2Var.get(i).r();
+        s1 s1Var = j;
+        if (s1Var == null) {
+            for (int i = 0; i < h3Var.b; i++) {
+                h3Var.get(i).r();
             }
             return;
         }
-        c1Var.b();
-        r2<? extends Cubemap> r2Var2 = new r2<>(r2Var);
-        r2.b<? extends Cubemap> it = r2Var2.iterator();
+        s1Var.b();
+        h3<? extends Cubemap> h3Var2 = new h3<>(h3Var);
+        h3.b<? extends Cubemap> it = h3Var2.iterator();
         if (!it.hasNext()) {
-            r2Var.clear();
-            r2Var.b(r2Var2);
+            h3Var.clear();
+            h3Var.b(h3Var2);
             return;
         }
         j.c(it.next());
         throw null;
     }
 
-    @Override // com.baidu.tieba.h2, com.baidu.tieba.v2
+    @Override // com.baidu.tieba.x2, com.baidu.tieba.l3
     public void dispose() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.b == 0) {
             return;
         }
         c();
-        if (this.i.a() && k.get(y0.a) != null) {
-            k.get(y0.a).g(this, true);
+        if (this.i.a() && k.get(o1.a) != null) {
+            k.get(o1.a).g(this, true);
         }
     }
 
-    public void q(e2 e2Var) {
+    public void q(u2 u2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e2Var) == null) {
-            if (!e2Var.isPrepared()) {
-                e2Var.prepare();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, u2Var) == null) {
+            if (!u2Var.isPrepared()) {
+                u2Var.prepare();
             }
             b();
             i(this.c, this.d, true);
             j(this.e, this.f, true);
             h(this.g, true);
-            e2Var.b();
-            y0.c.F(this.a, 0);
+            u2Var.b();
+            o1.c.F(this.a, 0);
         }
     }
 }

@@ -1,26 +1,79 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.request.HttpRequest;
+import com.baidu.swan.apps.statistic.interfacestability.SwanInterfaceType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class kb3 {
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class kb3 extends rb3<b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final boolean a;
-    public final boolean b;
-    public final boolean c;
+    public final String m;
+    public final Activity n;
+    public final boolean o;
 
-    public kb3(boolean z) {
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+        public final boolean b;
+        public final JSONObject c;
+
+        public b(boolean z, String str, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Boolean.valueOf(z), str, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str == null ? "" : str;
+            this.b = z;
+            this.c = jSONObject;
+        }
+
+        public /* synthetic */ b(boolean z, String str, JSONObject jSONObject, a aVar) {
+            this(z, str, jSONObject);
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return String.format("Result(%b):%s", Boolean.valueOf(this.b), this.a);
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    public kb3(Activity activity, boolean z, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
+            Object[] objArr = {activity, Boolean.valueOf(z), str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,82 +83,67 @@ public class kb3 {
                 return;
             }
         }
-        this.a = false;
-        this.b = true;
-        this.c = z;
+        this.n = activity;
+        this.m = str;
+        this.o = z;
     }
 
-    public kb3(boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = true;
-        this.b = z;
-        this.c = z2;
-    }
-
-    public static kb3 c(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            return new kb3(z);
-        }
-        return (kb3) invokeZ.objValue;
-    }
-
-    public static kb3 d(boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            return new kb3(z, z2);
-        }
-        return (kb3) invokeCommon.objValue;
-    }
-
-    public static kb3 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return new kb3(true, true);
-        }
-        return (kb3) invokeV.objValue;
-    }
-
-    public boolean a() {
+    @Override // com.baidu.tieba.rb3
+    public SwanInterfaceType A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a && this.b) {
-                return false;
-            }
-            return true;
+            return SwanInterfaceType.ACCREDIT_DATA;
         }
-        return invokeV.booleanValue;
+        return (SwanInterfaceType) invokeV.objValue;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.rb3
+    public void J() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.a) {
-                if (this.b && this.c) {
-                    return true;
-                }
-                return false;
-            }
-            return this.c;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.J();
+            ey2.f();
         }
-        return invokeV.booleanValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public b Q(JSONObject jSONObject) throws JSONException {
+        InterceptResult invokeL;
+        JSONObject jSONObject2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
+            JSONObject c = eb3.c(jSONObject);
+            int optInt = c.optInt("errno", 10001);
+            if (optInt != 0) {
+                if (11001 == optInt) {
+                    eb3.m(c);
+                    eb3.t("Accredit", c.toString());
+                }
+                if (db3.f) {
+                    throw new JSONException("Illegal errno=" + optInt + " errms=" + c.optString("errms"));
+                }
+            }
+            JSONObject jSONObject3 = c.getJSONObject("data");
+            String str = "";
+            if (jSONObject3 != null) {
+                str = jSONObject3.optString("code", "");
+                jSONObject2 = jSONObject3.optJSONObject("opendata");
+            } else {
+                jSONObject2 = null;
+            }
+            return new b(this.o, str, jSONObject2, null);
+        }
+        return (b) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.rb3
+    public HttpRequest x(rb3 rb3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, rb3Var)) == null) {
+            return np2.o().o(this.n, rb3Var.C());
+        }
+        return (HttpRequest) invokeL.objValue;
     }
 }

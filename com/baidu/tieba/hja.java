@@ -1,64 +1,72 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.browser.BrowserHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.data.UserData;
-import com.baidu.tieba.redtip.PersonRedTipManager;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import android.content.Intent;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.tieba.sharesdk.bean.ShareEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class hja extends CustomMessageListener {
+public class hja extends eja {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hja(MainTabActivity mainTabActivity, gha ghaVar) {
-        super(2001247);
+    public hja(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, ghaVar};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = mainTabActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    @Override // com.baidu.tieba.kja
+    public void a(ShareEntity shareEntity, lja ljaVar) {
+        String str;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
-            return;
-        }
-        UserData e = cg5.d().e();
-        if (TbadkCoreApplication.isLogin() && e != null && e.getUserId() != null && !e.getUserId().equals(this.a.t) && e.getIsGodInvited()) {
-            this.a.t = e.getUserId();
-            BrowserHelper.startWebActivity((Context) this.a.getPageContext().getPageActivity(), "", TbWebViewActivityConfig.GOD_INVITE_JUMP_URL + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE, true);
-        }
-        if (!SharedPrefHelper.getInstance().getBoolean("key_new_god_invited_my_tab_red_tip_showed", false) && TbadkCoreApplication.isLogin() && e != null && e.getUserId() != null && !e.getUserId().equals(this.a.t) && e.getNewGodData() != null && e.getNewGodData().isNewGodInvited()) {
-            PersonRedTipManager.getInstance().updateRedTipState(11, true, true);
-            TiebaStatic.log(new StatisticItem("c13688").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_locate", 0));
-            SharedPrefHelper.getInstance().putBoolean("key_new_god_invited_my_tab_red_tip_showed", true);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, shareEntity, ljaVar) == null) {
+            if (shareEntity != null && !TextUtils.isEmpty(shareEntity.getContent())) {
+                if (TextUtils.isEmpty(shareEntity.getContent())) {
+                    str = shareEntity.getTitle() + shareEntity.getLinkUrl();
+                } else {
+                    str = shareEntity.getContent() + shareEntity.getLinkUrl();
+                }
+                Intent intent = new Intent();
+                intent.setAction("android.intent.action.SEND");
+                intent.putExtra("android.intent.extra.TEXT", str);
+                intent.setType("text/plain");
+                Context context = this.b;
+                if (nja.d(context, Intent.createChooser(intent, context.getString(R.string.obfuscated_res_0x7f0f1403)))) {
+                    if (ljaVar != null) {
+                        ljaVar.j0(0, 1);
+                        return;
+                    }
+                    return;
+                } else if (ljaVar != null) {
+                    ljaVar.j0(0, 2);
+                    return;
+                } else {
+                    return;
+                }
+            }
+            BdUtilHelper.showToast(d(), (int) R.string.obfuscated_res_0x7f0f13d2);
+            if (ljaVar != null) {
+                ljaVar.j0(0, 2);
+            }
         }
     }
 }

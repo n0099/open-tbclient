@@ -1,40 +1,30 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.adp.base.BdBaseView;
-import com.baidu.adp.base.BdPageContext;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class mxa extends BdBaseView {
-    public static /* synthetic */ Interceptable $ic;
+public class mxa {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 0;
+    public static int b = 1;
+    public static int c = 235004;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdPageContext a;
-    public View b;
 
-    public abstract void f();
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mxa(BdPageContext bdPageContext) {
-        super(bdPageContext);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((BdPageContext) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947989427, "Lcom/baidu/tieba/mxa;")) == null) {
+            return;
         }
-        this.a = bdPageContext;
-        f();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947989427, "Lcom/baidu/tieba/mxa;");
+        }
     }
 }

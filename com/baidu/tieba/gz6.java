@@ -1,216 +1,124 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.adp.lib.util.BdLog;
+import android.view.View;
+import android.widget.AbsListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tbadk.download.DownloadMessage;
-import com.baidu.tieba.faceshop.MyEmotionGroupData;
-import com.baidu.tieba.faceshop.QueryDownloadMessage;
-import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class gz6 {
+public class gz6 implements AbsListView.OnScrollListener {
     public static /* synthetic */ Interceptable $ic;
-    public static gz6 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public c a;
-    public List<String> b;
-    public int c;
-    public CustomMessageListener d;
-    public CustomMessageListener e;
+    public b a;
+    public int b;
+    public c c;
 
     /* loaded from: classes6.dex */
-    public class a extends CustomMessageListener {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gz6 a;
+    }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(gz6 gz6Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gz6Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gz6Var;
-        }
+    /* loaded from: classes6.dex */
+    public interface c {
+        void a(AbsListView absListView, int i, int i2);
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2001140 && (customResponsedMessage instanceof CancelDownloadMessage)) {
-                this.a.d();
-            }
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, absListView, i) == null) {
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b extends CustomMessageListener {
+    public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gz6 a;
+        public List<d> a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(gz6 gz6Var, int i) {
-            super(i);
+        public b(gz6 gz6Var, AbsListView absListView, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gz6Var, Integer.valueOf(i)};
+                Object[] objArr = {gz6Var, absListView, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = gz6Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2001119 && (customResponsedMessage instanceof QueryDownloadMessage)) {
-                this.a.b = ((QueryDownloadMessage) customResponsedMessage).getData();
-                gz6 gz6Var = this.a;
-                gz6Var.g(gz6Var.b);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c extends BdAsyncTask<List<String>, List<DownloadData>, List<DownloadData>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gz6 a;
-
-        public c(gz6 gz6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gz6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            this.a = new ArrayList();
+            int childCount = absListView.getChildCount();
+            for (int i4 = 0; i4 < childCount; i4++) {
+                View childAt = absListView.getChildAt(i4);
+                if (childAt != null) {
+                    this.a.add(new d(gz6Var, childAt, i + i4, null));
                 }
             }
-            this.a = gz6Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public List<DownloadData> doInBackground(List<String>... listArr) {
+        public /* synthetic */ b(gz6 gz6Var, AbsListView absListView, int i, a aVar) {
+            this(gz6Var, absListView, i);
+        }
+
+        public final int b(b bVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, listArr)) == null) {
-                LinkedList linkedList = new LinkedList();
-                if (listArr[0] == null) {
-                    return linkedList;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) {
+                if (bVar == null) {
+                    return 0;
                 }
-                for (int i = 0; i < listArr[0].size(); i++) {
-                    MyEmotionGroupData d = zy6.c().d(TbadkCoreApplication.getCurrentAccount(), listArr[0].get(i));
-                    if (d != null && az6.d(d.getGroupId())) {
-                        DownloadData downloadData = new DownloadData(d.getGroupId());
-                        downloadData.setStatus(3);
-                        linkedList.add(downloadData);
-                    }
-                }
-                return linkedList;
-            }
-            return (List) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(List<DownloadData> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                super.onPostExecute(list);
-                if (list == null) {
-                    list = new LinkedList<>();
-                }
-                for (DownloadData downloadData : rc5.k().j()) {
-                    for (String str : this.a.b) {
-                        if (downloadData.getType() == 11 && downloadData.getId().equals(str)) {
-                            list.add(downloadData);
+                for (d dVar : this.a) {
+                    for (d dVar2 : bVar.a) {
+                        if (dVar.a == dVar2.a) {
+                            return dVar.b - dVar2.b;
                         }
                     }
                 }
-                this.a.h(list);
+                return 0;
             }
+            return invokeL.intValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947811270, "Lcom/baidu/tieba/gz6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+
+        public d(gz6 gz6Var, View view2, int i) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gz6Var, view2, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947811270, "Lcom/baidu/tieba/gz6;");
-                return;
-            }
+            this.a = i;
+            this.b = view2.getTop();
         }
-        f = new gz6();
-    }
 
-    public static gz6 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return f;
-        }
-        return (gz6) invokeV.objValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            rc5.k().i(11);
+        public /* synthetic */ d(gz6 gz6Var, View view2, int i, a aVar) {
+            this(gz6Var, view2, i);
         }
     }
 
@@ -218,98 +126,62 @@ public class gz6 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = 5;
-        this.d = new a(this, 2001140);
-        this.e = new b(this, 2001119);
-        MessageManager.getInstance().registerListener(this.e);
-        MessageManager.getInstance().registerListener(this.d);
+        this.b = 0;
     }
 
-    public void e(String str) {
+    public void a(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            rc5.k().f(str, 11);
+        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
+            this.c = cVar;
         }
     }
 
-    public final void g(List<String> list) {
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+        View childAt;
+        c cVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            c cVar = new c(this);
-            this.a = cVar;
-            cVar.execute(list);
+        if ((interceptable != null && interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i, i2, i3) != null) || absListView == null || i < 0 || absListView.getChildCount() <= 0 || (childAt = absListView.getChildAt(0)) == null) {
+            return;
         }
-    }
-
-    public void h(List<DownloadData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new DownloadMessage(list));
-        }
-    }
-
-    public void i(DownloadData downloadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, downloadData) == null) {
-            LinkedList linkedList = new LinkedList();
-            linkedList.add(downloadData);
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new DownloadMessage(linkedList));
-        }
-    }
-
-    public void j(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048581, this, str, str2, str3) == null) && !ad.isEmpty(str) && !ad.isEmpty(str3)) {
-            DownloadData downloadData = new DownloadData(str, str2, str3, new fz6());
-            downloadData.setStatusMsg(TbadkCoreApplication.getCurrentAccount());
-            downloadData.setType(11);
-            String[] split = str3.split("/");
-            if (split.length > 1) {
-                String[] split2 = split[split.length - 1].split("_");
-                if (split2 != null) {
-                    if (split2.length == 5) {
-                        downloadData.setDescription(split2[1]);
-                        downloadData.setCheck(split2[2]);
-                        downloadData.setWidth(JavaTypesHelper.toInt(split2[3], 200));
-                        downloadData.setHeight(JavaTypesHelper.toInt(split2[4].split(".png")[0], 200));
-                    } else if (split2.length == 3) {
-                        downloadData.setDescription(split2[1]);
-                        downloadData.setCheck(split2[2].split(".png")[0]);
-                        downloadData.setWidth(200);
-                        downloadData.setHeight(200);
-                    } else {
-                        downloadData.setStatusMsg(TbadkApplication.getInst().getApp().getString(R.string.download_fail));
-                        downloadData.setStatus(2);
-                    }
-                } else {
-                    downloadData.setStatusMsg(TbadkApplication.getInst().getApp().getString(R.string.download_fail));
-                    downloadData.setStatus(2);
-                }
-            } else {
-                downloadData.setStatusMsg(TbadkApplication.getInst().getApp().getString(R.string.download_fail));
-                downloadData.setStatus(2);
+        if (i == 0 && childAt.getTop() == absListView.getPaddingTop()) {
+            int i4 = this.b;
+            if (i4 != 0 && (cVar = this.c) != null) {
+                cVar.a(absListView, 0, -i4);
             }
-            StringBuilder sb = new StringBuilder();
-            sb.append(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath());
-            sb.append(FileHelper.getPrefixByType(2));
-            File file = new File(sb.toString());
-            if (!file.exists()) {
-                file.mkdirs();
+            this.b = 0;
+            this.a = null;
+            return;
+        }
+        b bVar = new b(this, absListView, i, null);
+        b bVar2 = this.a;
+        if (bVar2 != null) {
+            int b2 = bVar2.b(bVar);
+            this.a = bVar;
+            int i5 = this.b + b2;
+            this.b = i5;
+            c cVar2 = this.c;
+            if (cVar2 != null) {
+                cVar2.a(absListView, i5, b2);
+                return;
             }
-            sb.append("/");
-            sb.append(str);
-            downloadData.setPath(sb.toString());
-            BdLog.d("download:path:" + downloadData.getPath());
-            rc5.k().m(downloadData, this.c);
+            return;
+        }
+        this.a = bVar;
+        int paddingTop = absListView.getPaddingTop() - childAt.getTop();
+        this.b = paddingTop;
+        c cVar3 = this.c;
+        if (cVar3 != null) {
+            cVar3.a(absListView, paddingTop, 0);
         }
     }
 }

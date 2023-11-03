@@ -1,84 +1,101 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.PbGoodsData;
-import com.baidu.tbadk.core.data.PbLinkData;
-import com.baidu.tbadk.core.view.SingleLinkCardView;
-import com.baidu.tieba.s07;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class tm6 implements s07.n {
+public class tm6 extends BaseCardInfo implements um6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId j;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public long h;
+    public String i;
+
+    @Override // com.baidu.tieba.um6
+    public void K(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.um6
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.um6
+    public boolean r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948186060, "Lcom/baidu/tieba/tm6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948186060, "Lcom/baidu/tieba/tm6;");
+                return;
+            }
+        }
+        j = BdUniqueId.gen();
+    }
 
     public tm6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.s07.s
-    public void b(@NonNull ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.um6
+    public int getPosition() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) && (viewGroup instanceof SingleLinkCardView)) {
-            ((SingleLinkCardView) viewGroup).d();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return (int) this.h;
         }
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.s07.n
-    @NonNull
-    public ViewGroup create(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.oi
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            return new SingleLinkCardView(context);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return j;
         }
-        return (ViewGroup) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.s07.n
-    public void k(@NonNull ViewGroup viewGroup, @NonNull c27 c27Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, c27Var) == null) && (viewGroup instanceof SingleLinkCardView)) {
-            z37 d = c27Var.d();
-            if (d.i() == 6) {
-                PbGoodsData pbGoodsData = new PbGoodsData();
-                pbGoodsData.title = d.h();
-                pbGoodsData.picUrl = d.f();
-                pbGoodsData.price = d.c();
-                pbGoodsData.linkUrl = d.e();
-                pbGoodsData.sort = d.g();
-                pbGoodsData.linkFrom = d.d();
-                pbGoodsData.goodsUrlH5 = d.a();
-                ((SingleLinkCardView) viewGroup).a(pbGoodsData);
-                return;
-            }
-            PbLinkData pbLinkData = new PbLinkData();
-            pbLinkData.title = d.h();
-            pbLinkData.linkUrl = d.e();
-            pbLinkData.picUrl = d.f();
-            pbLinkData.linkFrom = d.d();
-            pbLinkData.extTxt = d.c();
-            pbLinkData.sort = d.g();
-            pbLinkData.urlType = d.i();
-            pbLinkData.content1 = d.a();
-            pbLinkData.content2 = d.b();
-            ((SingleLinkCardView) viewGroup).a(pbLinkData);
-        }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

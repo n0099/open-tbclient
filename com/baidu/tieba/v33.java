@@ -1,9 +1,18 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import android.app.Activity;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageView;
+import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.publisher.emoji.adapter.NoHorizontalScrollerVPAdapter;
+import com.baidu.swan.apps.publisher.emoji.view.EmojiBagLayout;
+import com.baidu.swan.apps.publisher.view.SPSwitchPanelLinearLayout;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,22 +20,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
+import java.io.File;
+import java.lang.ref.WeakReference;
+import java.util.ArrayList;
 /* loaded from: classes8.dex */
-public final class v33 {
+public class v33 {
     public static /* synthetic */ Interceptable $ic;
-    public static a a;
-    public static boolean b;
-    public static final v33 c;
+    public static final boolean b;
+    public static v33 c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes8.dex */
-    public interface a {
-        void a(String str, String str2, String str3);
-
-        void b(String str, String str2, String str3);
-    }
+    public WeakReference<Activity> a;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +44,7 @@ public final class v33 {
                 return;
             }
         }
-        c = new v33();
+        b = rm1.a;
     }
 
     public v33() {
@@ -58,210 +61,79 @@ public final class v33 {
         }
     }
 
-    public final a b() {
+    public static v33 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return a;
-        }
-        return (a) invokeV.objValue;
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* loaded from: classes8.dex */
-    public static final class b<MsgType> implements ik3<sa3<JSONObject>> {
-        public static /* synthetic */ Interceptable $ic;
-        public static final b a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-395351691, "Lcom/baidu/tieba/v33$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-395351691, "Lcom/baidu/tieba/v33$b;");
-                    return;
-                }
-            }
-            a = new b();
-        }
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ik3
-        /* renamed from: b */
-        public final void a(sa3<JSONObject> it) {
-            JSONObject jSONObject;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, it) == null) {
-                Intrinsics.checkNotNullExpressionValue(it, "it");
-                if (it.c()) {
-                    JSONObject jSONObject2 = it.a;
-                    if (jSONObject2 != null) {
-                        jSONObject = jSONObject2.optJSONObject("data");
-                    } else {
-                        jSONObject = null;
-                    }
-                    a b = v33.c.b();
-                    if (jSONObject != null) {
-                        String openId = jSONObject.optString("openid");
-                        if (b == null || !ProcessUtils.isMainProcess()) {
-                            v33.c.d(null, openId);
-                            return;
-                        }
-                        Intrinsics.checkNotNullExpressionValue(openId, "openId");
-                        o53 K = o53.K();
-                        Intrinsics.checkNotNullExpressionValue(K, "Swan.get()");
-                        String appId = K.getAppId();
-                        cr1 n = wo2.n();
-                        Intrinsics.checkNotNullExpressionValue(n, "SwanAppRuntime.getConfig()");
-                        b.a(openId, appId, n.a());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (v33.class) {
+                    if (c == null) {
+                        c = new v33();
                     }
                 }
             }
+            return c;
         }
+        return (v33) invokeV.objValue;
     }
 
-    /* loaded from: classes8.dex */
-    public static final class c<MsgType> implements ik3<sa3<JSONObject>> {
-        public static /* synthetic */ Interceptable $ic;
-        public static final c a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-395351660, "Lcom/baidu/tieba/v33$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-395351660, "Lcom/baidu/tieba/v33$c;");
-                    return;
-                }
-            }
-            a = new c();
+    public final View a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            EmojiBagLayout emojiBagLayout = new EmojiBagLayout(context);
+            emojiBagLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07013f)));
+            emojiBagLayout.setEmotionList(t33.c().b());
+            return emojiBagLayout;
         }
+        return (View) invokeL.objValue;
+    }
 
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
+    public boolean c(Activity activity, ViewGroup viewGroup, View view2, String str, String str2, String str3) {
+        InterceptResult invokeCommon;
+        IllegalArgumentException illegalArgumentException;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, viewGroup, view2, str, str2, str3})) == null) {
+            if (!(viewGroup instanceof SPSwitchPanelLinearLayout)) {
+                illegalArgumentException = new IllegalArgumentException("panelLayout must be SPSwitchLinearLayout");
+            } else {
+                illegalArgumentException = null;
             }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ik3
-        /* renamed from: b */
-        public final void a(sa3<JSONObject> it) {
-            JSONObject jSONObject;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, it) == null) {
-                Intrinsics.checkNotNullExpressionValue(it, "it");
-                if (it.c()) {
-                    JSONObject jSONObject2 = it.a;
-                    if (jSONObject2 != null) {
-                        jSONObject = jSONObject2.optJSONObject("data");
-                    } else {
-                        jSONObject = null;
+            if (!(view2 instanceof EditText)) {
+                illegalArgumentException = new IllegalArgumentException("focus view must be EditText");
+            }
+            if (illegalArgumentException != null) {
+                if (!b) {
+                    return false;
+                }
+                throw illegalArgumentException;
+            } else if (TextUtils.isEmpty(str)) {
+                return false;
+            } else {
+                if (b) {
+                    Log.d("EmojiPanelManager", "start loading emoji " + str);
+                }
+                this.a = new WeakReference<>(activity);
+                if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
+                    File v = cp2.v(str2, str3, false, null, null);
+                    t33.c().f(v.getAbsolutePath() + File.separator + str);
+                    ViewPager viewPager = (ViewPager) viewGroup.findViewById(R.id.obfuscated_res_0x7f0909d8);
+                    ImageView imageView = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0909d5);
+                    if (imageView != null) {
+                        imageView.setImageBitmap(t33.c().d());
                     }
-                    a b = v33.c.b();
-                    if (jSONObject != null) {
-                        String swanId = jSONObject.optString("swanid");
-                        if (b == null || !ProcessUtils.isMainProcess()) {
-                            v33.c.d(swanId, null);
-                            return;
-                        }
-                        Intrinsics.checkNotNullExpressionValue(swanId, "swanId");
-                        o53 K = o53.K();
-                        Intrinsics.checkNotNullExpressionValue(K, "Swan.get()");
-                        String appId = K.getAppId();
-                        cr1 n = wo2.n();
-                        Intrinsics.checkNotNullExpressionValue(n, "SwanAppRuntime.getConfig()");
-                        b.b(swanId, appId, n.a());
+                    ArrayList arrayList = new ArrayList();
+                    arrayList.add(a(activity.getApplicationContext()));
+                    viewPager.setAdapter(new NoHorizontalScrollerVPAdapter(arrayList));
+                    EditText editText = (EditText) view2;
+                    if (this.a.get() != null) {
+                        s33.g(this.a.get().getApplicationContext()).f(editText);
+                        return true;
                     }
                 }
+                return false;
             }
         }
-    }
-
-    public final void d(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            o53 K = o53.K();
-            Intrinsics.checkNotNullExpressionValue(K, "Swan.get()");
-            k23 y = K.y();
-            if (y != null) {
-                Bundle bundle = new Bundle();
-                bundle.putString("swanId", str);
-                bundle.putString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_OPEN_ID, str2);
-                o53 K2 = o53.K();
-                Intrinsics.checkNotNullExpressionValue(K2, "Swan.get()");
-                bundle.putString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, K2.getAppId());
-                cr1 n = wo2.n();
-                Intrinsics.checkNotNullExpressionValue(n, "SwanAppRuntime.getConfig()");
-                bundle.putString("hostName", n.a());
-                y.W(bundle, u33.class);
-            }
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            o53 K = o53.K();
-            Intrinsics.checkNotNullExpressionValue(K, "Swan.get()");
-            tm1 x = K.x();
-            Intrinsics.checkNotNullExpressionValue(x, "Swan.get().adaptationProducer");
-            wa3 f = x.a().b().f(o53.K());
-            f.p(b.a);
-            f.a();
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            o53 K = o53.K();
-            Intrinsics.checkNotNullExpressionValue(K, "Swan.get()");
-            tm1 x = K.x();
-            Intrinsics.checkNotNullExpressionValue(x, "Swan.get().adaptationProducer");
-            xa3 e = x.a().b().e(o53.K());
-            e.p(c.a);
-            e.a();
-        }
+        return invokeCommon.booleanValue;
     }
 }

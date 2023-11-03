@@ -1,30 +1,33 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.os.Environment;
-import android.os.Process;
-import android.os.StatFs;
-import android.text.TextUtils;
+import android.media.MediaCodec;
+import android.media.MediaFormat;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.cyberplayer.sdk.Utils;
-import com.baidu.mobstat.Config;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.nio.ByteBuffer;
 /* loaded from: classes5.dex */
-public class aa0 {
+public abstract class aa0 {
     public static /* synthetic */ Interceptable $ic = null;
-    public static volatile int a = -1;
-    public static volatile String b;
+    public static final String i = "aa0";
+    public static long j = 0;
+    public static int k = 10000;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public boolean b;
+    public da0 c;
+    public MediaCodec d;
+    public MediaCodec.BufferInfo e;
+    public ba0 f;
+    public boolean g;
+    public long h;
 
     static {
         InterceptResult invokeClinit;
@@ -41,194 +44,219 @@ public class aa0 {
         }
     }
 
-    public static long a() {
+    public abstract void j();
+
+    public aa0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = -1;
+        this.b = false;
+        this.h = 0L;
+        this.e = new MediaCodec.BufferInfo();
+    }
+
+    public void a(boolean z, ByteBuffer byteBuffer, int i2, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), byteBuffer, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+            if (this.b && this.a == -1) {
+                return;
+            }
+            int dequeueInputBuffer = this.d.dequeueInputBuffer(10000L);
+            if (dequeueInputBuffer >= 0) {
+                if (z) {
+                    Log.d(i, "drainBuffer sending EOS to drainBufferEncoder");
+                    this.d.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
+                } else if (!g(dequeueInputBuffer, byteBuffer, i2, j2)) {
+                    return;
+                } else {
+                    MediaCodec mediaCodec = this.d;
+                    MediaCodec.BufferInfo bufferInfo = this.e;
+                    mediaCodec.queueInputBuffer(dequeueInputBuffer, bufferInfo.offset, bufferInfo.size, bufferInfo.presentationTimeUs, 0);
+                }
+            } else {
+                Log.d(i, "drainBuffer encode input buffer not available");
+            }
+            b(z, k);
+        }
+    }
+
+    public final void b(boolean z, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+            ByteBuffer[] outputBuffers = this.d.getOutputBuffers();
+            while (true) {
+                try {
+                    int dequeueOutputBuffer = this.d.dequeueOutputBuffer(this.e, i2);
+                    if (dequeueOutputBuffer == -1) {
+                        if (z) {
+                            Log.d(i, "no output available, spinning to await EOS");
+                        } else {
+                            return;
+                        }
+                    } else if (dequeueOutputBuffer == -3) {
+                        outputBuffers = this.d.getOutputBuffers();
+                    } else if (dequeueOutputBuffer == -2) {
+                        if (this.c.c()) {
+                            Log.e(i, "format changed twice!!!!");
+                            return;
+                        }
+                        MediaFormat outputFormat = this.d.getOutputFormat();
+                        String str = i;
+                        Log.d(str, "encoder output format changed: " + outputFormat);
+                        this.a = this.c.a(outputFormat);
+                        this.b = true;
+                        ba0 ba0Var = this.f;
+                        if (ba0Var != null) {
+                            ba0Var.c(true);
+                        }
+                        if (this.g) {
+                            this.c.e();
+                        }
+                    } else if (dequeueOutputBuffer < 0) {
+                        String str2 = i;
+                        Log.w(str2, "unexpected result from encoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
+                    } else {
+                        ByteBuffer byteBuffer = outputBuffers[dequeueOutputBuffer];
+                        if (byteBuffer != null) {
+                            if ((this.e.flags & 2) != 0) {
+                                Log.d(i, "ignoring BUFFER_FLAG_CODEC_CONFIG");
+                                this.e.size = 0;
+                            }
+                            if (this.e.size != 0) {
+                                if (this.c.c()) {
+                                    byteBuffer.position(this.e.offset);
+                                    MediaCodec.BufferInfo bufferInfo = this.e;
+                                    byteBuffer.limit(bufferInfo.offset + bufferInfo.size);
+                                    j();
+                                    this.c.g(this.a, byteBuffer, this.e);
+                                } else {
+                                    Log.d(i, "drainEncoder wait for mMuxer start !!!");
+                                }
+                            }
+                            this.d.releaseOutputBuffer(dequeueOutputBuffer, false);
+                            if ((this.e.flags & 4) != 0) {
+                                if (z) {
+                                    if (this.g) {
+                                        this.c.f();
+                                    }
+                                    ba0 ba0Var2 = this.f;
+                                    if (ba0Var2 != null) {
+                                        ba0Var2.a(true);
+                                        return;
+                                    }
+                                    return;
+                                }
+                                Log.e(i, "reached end of stream unexpectedly");
+                                return;
+                            }
+                        } else {
+                            throw new RuntimeException("encoderOutputBuffer " + dequeueOutputBuffer + " was null");
+                        }
+                    }
+                } catch (IllegalStateException unused) {
+                    System.getProperty("ro.board.platform");
+                    String str3 = i;
+                    Log.i(str3, "mEncoder.dequeueOutputBuffer IllegalStateException error hard:" + System.getProperty("ro.board.platform"));
+                    return;
+                }
+            }
+        }
+    }
+
+    public void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            if (z) {
+                da0 da0Var = this.c;
+                if (da0Var != null && da0Var.c()) {
+                    this.d.signalEndOfInputStream();
+                } else {
+                    ba0 ba0Var = this.f;
+                    if (ba0Var != null) {
+                        ba0Var.a(true);
+                        return;
+                    }
+                    return;
+                }
+            }
+            b(z, 10000);
+        }
+    }
+
+    public void f(ba0 ba0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, ba0Var) == null) {
+            this.f = ba0Var;
+        }
+    }
+
+    public long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            try {
-                if ("mounted".equals(Environment.getExternalStorageState())) {
-                    String path = Environment.getExternalStorageDirectory().getPath();
-                    if (path == null || path.length() <= 0) {
-                        x90.d(Utils.TAG, "External path is null, so SDCard no free space");
-                        return -1L;
-                    }
-                    StatFs statFs = new StatFs(path);
-                    return statFs.getBlockSize() * statFs.getAvailableBlocks();
-                }
-                return -1L;
-            } catch (Exception unused) {
-                x90.d(Utils.TAG, "SDCard no free space");
-                return -1L;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.h * 1000;
         }
         return invokeV.longValue;
     }
 
-    public static String b(Context context) {
-        InterceptResult invokeL;
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            String str = null;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.d.release();
+            this.d = null;
+            this.c = null;
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.d.start();
+            ba0 ba0Var = this.f;
+            if (ba0Var != null) {
+                ba0Var.d(true);
+            }
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             try {
-                if (e(context)) {
-                    str = Environment.getExternalStorageDirectory().getAbsolutePath();
-                } else if ("mounted".equals(Environment.getExternalStorageState()) || !Environment.isExternalStorageRemovable()) {
-                    str = context.getExternalCacheDir().getPath();
-                }
+                this.d.stop();
             } catch (Exception unused) {
+                Log.e(i, "MediaCodec IllegalStateException Exception ");
             }
-            return str;
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String c(Context context) {
-        InterceptResult invokeL;
+    public final boolean g(int i2, ByteBuffer byteBuffer, int i3, long j2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            String str = null;
-            if (context == null) {
-                x90.e(Utils.TAG, "getVideoStatisticsPath ctx = null");
-                return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), byteBuffer, Integer.valueOf(i3), Long.valueOf(j2)})) == null) {
+            ByteBuffer byteBuffer2 = this.d.getInputBuffers()[i2];
+            if (byteBuffer2.capacity() < byteBuffer.capacity()) {
+                return false;
             }
-            String b2 = b(context);
-            if (!TextUtils.isEmpty(b2)) {
-                str = b2 + File.separator + "baidu" + File.separator + "flyflow" + File.separator + "video_statistic" + File.separator + "duplayer" + File.separator + context.getPackageName();
-            }
-            String str2 = context.getFilesDir().getAbsolutePath() + File.separator + ".video_statistic" + File.separator + "duplayer";
-            x90.c(Utils.TAG, "Utils.getExternalStorageSpace():" + a());
-            if (a() < Config.FULL_TRACE_LOG_LIMIT || str == null) {
-                str = str2;
-            }
-            new File(str).mkdirs();
-            if (!f()) {
-                str = str + File.separator + com.baidu.mobads.sdk.internal.cl.b;
-            }
-            x90.c(Utils.TAG, "getVideoStatisticsPath folder:" + str);
-            return str;
+            byteBuffer2.position(0);
+            byteBuffer2.put(byteBuffer);
+            byteBuffer2.flip();
+            MediaCodec.BufferInfo bufferInfo = this.e;
+            bufferInfo.offset = 0;
+            bufferInfo.size = i3;
+            bufferInfo.presentationTimeUs = j2 / 1000;
+            return true;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (TextUtils.isEmpty(b)) {
-                b = g();
-                if (TextUtils.isEmpty(b)) {
-                    b = h();
-                }
-                return b;
-            }
-            return b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean e(Context context) {
-        InterceptResult invokeL;
-        PackageManager packageManager;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            if (context != null && (packageManager = context.getPackageManager()) != null) {
-                try {
-                    if (packageManager.checkPermission(com.kuaishou.weapon.p0.h.i, context.getPackageName()) == 0) {
-                        return packageManager.checkPermission("android.permission.WRITE_EXTERNAL_STORAGE", context.getPackageName()) == 0;
-                    }
-                    return false;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (a < 0) {
-                Context a2 = v90.a();
-                if (a2 == null || a2.getPackageName().equals(d())) {
-                    a = 1;
-                } else {
-                    a = 0;
-                }
-            }
-            return a == 1;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            int myPid = Process.myPid();
-            try {
-                ActivityManager activityManager = (ActivityManager) v90.a().getSystemService("activity");
-                if (activityManager != null) {
-                    for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : activityManager.getRunningAppProcesses()) {
-                        if (runningAppProcessInfo.pid == myPid) {
-                            return runningAppProcessInfo.processName;
-                        }
-                    }
-                    return null;
-                }
-                return null;
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String h() {
-        InterceptResult invokeV;
-        BufferedReader bufferedReader;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(65544, null)) != null) {
-            return (String) invokeV.objValue;
-        }
-        BufferedReader bufferedReader2 = null;
-        try {
-            bufferedReader = new BufferedReader(new FileReader("/proc/" + Process.myPid() + "/cmdline"));
-            try {
-                String readLine = bufferedReader.readLine();
-                if (!TextUtils.isEmpty(readLine)) {
-                    readLine = readLine.trim();
-                }
-                try {
-                    bufferedReader.close();
-                } catch (IOException unused) {
-                }
-                return readLine;
-            } catch (Exception unused2) {
-                if (bufferedReader != null) {
-                    try {
-                        bufferedReader.close();
-                    } catch (IOException unused3) {
-                    }
-                }
-                return null;
-            } catch (Throwable th) {
-                th = th;
-                bufferedReader2 = bufferedReader;
-                if (bufferedReader2 != null) {
-                    try {
-                        bufferedReader2.close();
-                    } catch (IOException unused4) {
-                    }
-                }
-                throw th;
-            }
-        } catch (Exception unused5) {
-            bufferedReader = null;
-        } catch (Throwable th2) {
-            th = th2;
-        }
+        return invokeCommon.booleanValue;
     }
 }

@@ -1,18 +1,53 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.m77;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.UcCard;
+import tbclient.UcCardInfo;
 /* loaded from: classes6.dex */
-public final class i2a implements m77 {
+public class i2a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<a> a;
+
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public long b;
+        public boolean c;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public void a(UcCardInfo ucCardInfo) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, ucCardInfo) != null) || ucCardInfo == null) {
+                return;
+            }
+            this.a = ucCardInfo.title;
+            String str = ucCardInfo.pic;
+            String str2 = ucCardInfo.jmp;
+            String str3 = ucCardInfo.tip;
+            this.b = ucCardInfo.st.intValue();
+        }
+    }
 
     public i2a() {
         Interceptable interceptable = $ic;
@@ -28,37 +63,25 @@ public final class i2a implements m77 {
         }
     }
 
-    @Override // com.baidu.tieba.l77
-    public String getKey() {
-        InterceptResult invokeV;
+    public void a(UcCard ucCard) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return m77.a.b(this);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, ucCard) != null) || ucCard == null) {
+            return;
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.l77
-    public Map<String, String> a(v27 v27Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, v27Var)) == null) {
-            return m77.a.a(this, v27Var);
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.m77
-    public String c(v27 businessInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            if (!Intrinsics.areEqual(businessInfo.a().get("thread_type"), "74")) {
-                return "";
+        String str = ucCard.name;
+        String str2 = ucCard.icon;
+        String str3 = ucCard.doc;
+        String str4 = ucCard.jmp;
+        this.a = new ArrayList();
+        List<UcCardInfo> list = ucCard.uc_cards;
+        if (list != null) {
+            for (UcCardInfo ucCardInfo : list) {
+                if (ucCardInfo != null) {
+                    a aVar = new a();
+                    aVar.a(ucCardInfo);
+                    this.a.add(aVar);
+                }
             }
-            return "live_mix_card_agree_click";
         }
-        return (String) invokeL.objValue;
     }
 }

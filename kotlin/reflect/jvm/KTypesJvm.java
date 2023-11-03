@@ -18,7 +18,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor;
 import kotlin.reflect.jvm.internal.impl.descriptors.ClassKind;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0014\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\"\u001e\u0010\u0004\u001a\u0006\u0012\u0002\b\u00030\u0001*\u00020\u00008@@\u0000X\u0080\u0004¢\u0006\u0006\u001a\u0004\b\u0002\u0010\u0003\"$\u0010\u0004\u001a\u0006\u0012\u0002\b\u00030\u0001*\u00020\u00058F@\u0007X\u0087\u0004¢\u0006\f\u0012\u0004\b\u0007\u0010\b\u001a\u0004\b\u0002\u0010\u0006¨\u0006\t"}, d2 = {"Lkotlin/reflect/KClassifier;", "Lkotlin/reflect/KClass;", "getJvmErasure", "(Lkotlin/reflect/KClassifier;)Lkotlin/reflect/KClass;", "jvmErasure", "Lkotlin/reflect/KType;", "(Lkotlin/reflect/KType;)Lkotlin/reflect/KClass;", "jvmErasure$annotations", "(Lkotlin/reflect/KType;)V", "kotlin-reflection"}, k = 2, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 @JvmName(name = "KTypesJvm")
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class KTypesJvm {
     @SinceKotlin(version = "1.1")
     public static /* synthetic */ void jvmErasure$annotations(KType kType) {
@@ -42,9 +42,9 @@ public final class KTypesJvm {
                 Object next = it.next();
                 KType kType = (KType) next;
                 if (kType != null) {
-                    Object mo2106getDeclarationDescriptor = ((KTypeImpl) kType).getType().getConstructor().mo2106getDeclarationDescriptor();
-                    if (mo2106getDeclarationDescriptor instanceof ClassDescriptor) {
-                        obj = mo2106getDeclarationDescriptor;
+                    Object mo2110getDeclarationDescriptor = ((KTypeImpl) kType).getType().getConstructor().mo2110getDeclarationDescriptor();
+                    if (mo2110getDeclarationDescriptor instanceof ClassDescriptor) {
+                        obj = mo2110getDeclarationDescriptor;
                     }
                     ClassDescriptor classDescriptor = (ClassDescriptor) obj;
                     if (classDescriptor != null && classDescriptor.getKind() != ClassKind.INTERFACE && classDescriptor.getKind() != ClassKind.ANNOTATION_CLASS) {

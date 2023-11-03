@@ -1,15 +1,18 @@
 package com.baidu.tieba;
 
-import android.view.View;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public final class bn6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final View.OnClickListener a;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -25,24 +28,49 @@ public final class bn6 {
                 return;
             }
         }
-        a = new View.OnClickListener() { // from class: com.baidu.tieba.zm6
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            @Override // android.view.View.OnClickListener
-            public final void onClick(View view2) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                    bn6.a(view2);
-                }
-            }
-        };
+        a = new a(null);
     }
 
-    public static final void a(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, view2) == null) {
-            wo6.b().c(new u85("recommend_fun_ad", null));
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public final JSONObject a(String str) {
+            JSONObject jSONObject;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                try {
+                    if (str != null) {
+                        jSONObject = new JSONObject(str);
+                    } else {
+                        jSONObject = new JSONObject();
+                    }
+                    return jSONObject;
+                } catch (Exception unused) {
+                    return null;
+                }
+            }
+            return (JSONObject) invokeL.objValue;
         }
     }
 }

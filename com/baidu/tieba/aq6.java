@@ -1,338 +1,171 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.view.View;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.launch.SmartLaunchStats;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.growthFunnel.GrowthFunnelHelper;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.switchs.TbBrowseModeSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt___StringsKt;
 /* loaded from: classes5.dex */
-public final class aq6 implements Comparable<aq6> {
+public class aq6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a p;
-    public static final aq6 q;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
-    public final long b;
-    public final String c;
-    public CharSequence d;
-    public final int e;
-    public final int f;
-    public final int g;
-    public final int h;
-    public final int i;
-    public final int j;
-    public Long k;
-    public pea l;
-    public int m;
-    public float n;
-    public float o;
+    public final BaseFragmentActivity a;
+    public zz4 b;
+    public zz4 c;
+    public zz4 d;
+    public int e;
+    public View.OnClickListener f;
 
     /* loaded from: classes5.dex */
-    public static final class a {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ aq6 a;
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
+        public a(aq6 aq6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aq6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aq6Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                int id = view2.getId();
+                if (id == R.id.private_yes || id == R.id.obfuscated_res_0x7f092af3) {
+                    this.a.j();
+                } else if (id == R.id.private_no) {
+                    if (this.a.b.isShowing()) {
+                        this.a.b.dismiss();
+                        fma.a("1", "2");
+                    }
+                    if (this.a.c == null) {
+                        aq6 aq6Var = this.a;
+                        aq6Var.c = f16.a(aq6Var.a.getPageContext(), this.a.f, R.string.privacy_policy_guide_one, R.string.secret_hint_no_agree);
+                    }
+                    this.a.c.show();
+                    fma.b("2");
+                } else if (id == R.id.obfuscated_res_0x7f0904b4) {
+                    aq6.g(this.a);
+                    if (this.a.c.isShowing()) {
+                        this.a.c.dismiss();
+                        fma.a("2", "2");
+                        if (this.a.d == null) {
+                            aq6 aq6Var2 = this.a;
+                            TbPageContext<BaseFragmentActivity> pageContext = aq6Var2.a.getPageContext();
+                            View.OnClickListener onClickListener = this.a.f;
+                            if (TbBrowseModeSwitch.isOn()) {
+                                i = R.string.secret_hint_browser;
+                            } else {
+                                i = R.string.secret_hint_browser_exit;
+                            }
+                            aq6Var2.d = f16.a(pageContext, onClickListener, R.string.privacy_policy_guide_two, i);
+                            this.a.d.show();
+                            fma.b("3");
+                        }
+                    }
+                    if (this.a.d.isShowing() && this.a.e == 2) {
+                        this.a.d.dismiss();
+                        fma.a("3", "2");
+                        if (TbBrowseModeSwitch.isOn()) {
+                            PermissionUtil.doBrowseModeInit();
+                            PermissionUtil.starMainTabActivity(this.a.a, 2);
+                        }
+                        this.a.a.finish();
+                    }
                 }
             }
         }
-
-        public final aq6 c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
-                return (aq6) invokeV.objValue;
-            }
-            return aq6.q;
-        }
-
-        public final aq6 b(long j) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-                return new aq6(Long.MIN_VALUE, j, "", "", 0, 0, 0, 0, 0, 0, null, null, 0, 0.0f, 16256, null);
-            }
-            return (aq6) invokeJ.objValue;
-        }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947623875, "Lcom/baidu/tieba/aq6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947623875, "Lcom/baidu/tieba/aq6;");
-                return;
-            }
-        }
-        a aVar = new a(null);
-        p = aVar;
-        q = aVar.b(Long.MAX_VALUE);
-    }
-
-    public aq6(long j, long j2, String content, CharSequence contentSpan, int i, int i2, int i3, int i4, int i5, int i6, Long l, pea postData, int i7, float f) {
+    public aq6(@NonNull BaseFragmentActivity baseFragmentActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), content, contentSpan, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), l, postData, Integer.valueOf(i7), Float.valueOf(f)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i8 = newInitContext.flag;
-            if ((i8 & 1) != 0) {
-                int i9 = i8 & 2;
+            Object[] objArr = {baseFragmentActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(content, "content");
-        Intrinsics.checkNotNullParameter(contentSpan, "contentSpan");
-        Intrinsics.checkNotNullParameter(postData, "postData");
-        this.a = j;
-        this.b = j2;
-        this.c = content;
-        this.d = contentSpan;
-        this.e = i;
-        this.f = i2;
-        this.g = i3;
-        this.h = i4;
-        this.i = i5;
-        this.j = i6;
-        this.k = l;
-        this.l = postData;
-        this.m = i7;
-        this.n = f;
+        this.e = 0;
+        this.f = new a(this);
+        this.a = baseFragmentActivity;
     }
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public /* synthetic */ aq6(long j, long j2, String str, CharSequence charSequence, int i, int i2, int i3, int i4, int i5, int i6, Long l, pea peaVar, int i7, float f, int i8, DefaultConstructorMarker defaultConstructorMarker) {
-        this(j, j2, str, charSequence, i, i2, i3, r13, r14, r15, r16, r17, r18, r19);
-        int i9;
-        int i10;
-        int i11;
-        Long l2;
-        pea peaVar2;
-        int i12;
-        float f2;
-        if ((i8 & 128) != 0) {
-            i9 = 0;
-        } else {
-            i9 = i4;
-        }
-        if ((i8 & 256) != 0) {
-            i10 = 1;
-        } else {
-            i10 = i5;
-        }
-        if ((i8 & 512) != 0) {
-            i11 = 0;
-        } else {
-            i11 = i6;
-        }
-        if ((i8 & 1024) != 0) {
-            l2 = null;
-        } else {
-            l2 = l;
-        }
-        if ((i8 & 2048) != 0) {
-            peaVar2 = new pea();
-        } else {
-            peaVar2 = peaVar;
-        }
-        if ((i8 & 4096) != 0) {
-            i12 = 0;
-        } else {
-            i12 = i7;
-        }
-        if ((i8 & 8192) != 0) {
-            f2 = 0.0f;
-        } else {
-            f2 = f;
-        }
+    public static /* synthetic */ int g(aq6 aq6Var) {
+        int i = aq6Var.e;
+        aq6Var.e = i + 1;
+        return i;
     }
 
-    public final String c() {
-        InterceptResult invokeV;
+    public final void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final CharSequence d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return (CharSequence) invokeV.objValue;
-    }
-
-    public final float e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.o;
-        }
-        return invokeV.floatValue;
-    }
-
-    public final long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
-        }
-        return invokeV.longValue;
-    }
-
-    public final int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.i;
-        }
-        return invokeV.intValue;
-    }
-
-    public final float h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.n;
-        }
-        return invokeV.floatValue;
-    }
-
-    public final int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.m;
-        }
-        return invokeV.intValue;
-    }
-
-    public final int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public final long k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.b;
-        }
-        return invokeV.longValue;
-    }
-
-    public final pea m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.l;
-        }
-        return (pea) invokeV.objValue;
-    }
-
-    public final int n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.g;
-        }
-        return invokeV.intValue;
-    }
-
-    public final int o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public final Long p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.k;
-        }
-        return (Long) invokeV.objValue;
-    }
-
-    public final boolean q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            if (this.h > 0) {
-                return true;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            zz4 zz4Var = this.b;
+            if (zz4Var != null && zz4Var.isShowing()) {
+                this.b.dismiss();
+                SmartLaunchStats.onConfirmPrivacy();
+                fma.a("1", "1");
+                GrowthFunnelHelper.logClientDau("logoController", false);
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: b */
-    public int compareTo(aq6 other) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, other)) == null) {
-            Intrinsics.checkNotNullParameter(other, "other");
-            return (int) (this.b - other.b);
-        }
-        return invokeL.intValue;
-    }
-
-    public final void r(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048592, this, f) == null) {
-            this.o = f;
+            zz4 zz4Var2 = this.c;
+            if (zz4Var2 != null && zz4Var2.isShowing()) {
+                this.c.dismiss();
+                fma.a("2", "1");
+                GrowthFunnelHelper.logClientDau("logoController", false);
+            }
+            zz4 zz4Var3 = this.d;
+            if (zz4Var3 != null && zz4Var3.isShowing()) {
+                this.d.dismiss();
+                fma.a("3", "1");
+                GrowthFunnelHelper.logClientDau("logoController", false);
+            }
+            SharedPrefHelper.getInstance().putLong("key_first_enter_app_timestamp", System.currentTimeMillis());
+            PermissionUtil.doAgreePrivacyInit();
+            PermissionUtil.starMainTabActivity(this.a, 2);
+            this.a.finish();
         }
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return "Danmaku{id: " + this.a + ", content: " + StringsKt___StringsKt.take(this.c, 5) + ", position: " + this.b + ", mode: " + this.e + ", rank: " + this.j + '}';
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            zz4 b = f16.b(this.a.getPageContext(), this.f);
+            this.b = b;
+            b.show();
+            fma.b("1");
+            TbSingleton.setExceptInsertAdDiaShow(true);
+            SmartLaunchStats.onPrivacyDialogShow();
         }
-        return (String) invokeV.objValue;
     }
 }

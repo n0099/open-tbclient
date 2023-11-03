@@ -1,18 +1,26 @@
 package com.baidu.tieba;
 
-import android.view.Window;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
 public class v11 {
     public static /* synthetic */ Interceptable $ic;
+    public static long a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Window window) {
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65536, null, window) != null) || window == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            long j = currentTimeMillis - a;
+            a = currentTimeMillis;
+            if (j > 0 && j < 1000) {
+                return true;
+            }
+            return false;
         }
-        window.getDecorView().setSystemUiVisibility(3846);
+        return invokeV.booleanValue;
     }
 }

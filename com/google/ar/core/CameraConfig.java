@@ -1,7 +1,7 @@
 package com.google.ar.core;
 
 import com.google.ar.core.exceptions.FatalException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class CameraConfig {
     public long a = 0;
 
@@ -24,7 +24,7 @@ public class CameraConfig {
         super.finalize();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum FacingDirection {
         BACK(0),
         FRONT(1);

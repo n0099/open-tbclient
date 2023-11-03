@@ -1,31 +1,80 @@
 package com.baidu.tieba;
 
-import com.baidu.live.business.model.data.LiveRoomEntity;
-import com.baidu.live.business.model.data.LiveSearchResultInfo;
-import com.baidu.live.feed.search.model.data.LiveSearchSuggestion;
-import com.baidu.live.feed.search.model.data.SearchResultBean;
-import java.util.List;
+import android.graphics.Typeface;
+import android.text.TextUtils;
+import com.baidu.live.LiveFeedPageSdk;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
+import java.util.Hashtable;
 /* loaded from: classes5.dex */
-public interface e60 {
-    void Q(List<? extends LiveSearchResultInfo> list, List<? extends LiveSearchSuggestion> list2);
+public class e60 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final Hashtable<String, Typeface> a;
+    public static final String b;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void V0(List<String> list);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947686154, "Lcom/baidu/tieba/e60;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947686154, "Lcom/baidu/tieba/e60;");
+                return;
+            }
+        }
+        a = new Hashtable<>();
+        b = LiveFeedPageSdk.getInstance().getApplication().getFilesDir().getAbsolutePath() + File.separator + "font/";
+        new File(b).mkdirs();
+    }
 
-    void h(int i);
+    public static boolean a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                return new File(str).exists();
+            } catch (Exception unused) {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
 
-    void hideLoading();
-
-    void i();
-
-    void m(f60 f60Var);
-
-    void o(List<String> list);
-
-    void p(SearchResultBean searchResultBean);
-
-    void showToast(String str);
-
-    void u0(List<? extends LiveRoomEntity> list);
-
-    void y0();
+    public static Typeface b(String str) {
+        InterceptResult invokeL;
+        Typeface typeface;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            synchronized (a) {
+                if (!a.containsKey(str)) {
+                    String str2 = b + str;
+                    if (a(str2)) {
+                        try {
+                            a.put(str, Typeface.createFromFile(str2));
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+                if (a.get(str) == null) {
+                    typeface = Typeface.DEFAULT;
+                } else {
+                    typeface = a.get(str);
+                }
+            }
+            return typeface;
+        }
+        return (Typeface) invokeL.objValue;
+    }
 }

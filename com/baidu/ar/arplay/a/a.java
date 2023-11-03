@@ -26,7 +26,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public final class a {
     public static a cL;
-    public static ConcurrentHashMap<String, C0050a> cO;
+    public static ConcurrentHashMap<String, C0051a> cO;
     public static HandlerThread cP;
     public static b cR;
     public static Map<String, Integer> cT;
@@ -79,7 +79,7 @@ public final class a {
 
     /* renamed from: com.baidu.ar.arplay.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0050a {
+    public static class C0051a {
         public MediaPlayer df;
         public com.baidu.ar.arplay.a.a.b dg = new com.baidu.ar.arplay.a.a.b();
     }
@@ -151,12 +151,12 @@ public final class a {
         return num.intValue();
     }
 
-    private C0050a a(MediaPlayer.OnCompletionListener onCompletionListener, MediaPlayer.OnErrorListener onErrorListener) {
+    private C0051a a(MediaPlayer.OnCompletionListener onCompletionListener, MediaPlayer.OnErrorListener onErrorListener) {
         com.baidu.ar.arplay.c.b.b(TAG, "initMediaPlayerInMsg start()");
         try {
-            final C0050a c0050a = new C0050a();
+            final C0051a c0051a = new C0051a();
             MediaPlayer mediaPlayer = new MediaPlayer();
-            c0050a.df = mediaPlayer;
+            c0051a.df = mediaPlayer;
             mediaPlayer.setAudioStreamType(3);
             if (onCompletionListener == null) {
                 onCompletionListener = new MediaPlayer.OnCompletionListener() { // from class: com.baidu.ar.arplay.a.a.9
@@ -176,11 +176,11 @@ public final class a {
                     public boolean onError(MediaPlayer mediaPlayer2, int i, int i2) {
                         String str = a.TAG;
                         com.baidu.ar.arplay.c.b.b(str, "onError: " + i);
-                        C0050a c0050a2 = c0050a;
-                        com.baidu.ar.arplay.a.a.b bVar = c0050a2.dg;
+                        C0051a c0051a2 = c0051a;
+                        com.baidu.ar.arplay.a.a.b bVar = c0051a2.dg;
                         bVar.dX = bx.l;
                         bVar.dY = i;
-                        a.a(c0050a2);
+                        a.a(c0051a2);
                         a.this.b(new b() { // from class: com.baidu.ar.arplay.a.a.10.1
                             @Override // com.baidu.ar.arplay.a.a.b
                             public void a(Exception exc) {
@@ -190,28 +190,28 @@ public final class a {
                             @Override // com.baidu.ar.arplay.a.a.b
                             public void onResult(boolean z) {
                             }
-                        }, c0050a.dg.dW);
+                        }, c0051a.dg.dW);
                         return false;
                     }
                 };
             }
             mediaPlayer.setOnErrorListener(onErrorListener);
-            return c0050a;
+            return c0051a;
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    public static C0050a a(final C0050a c0050a, final String str, String str2, AssetFileDescriptor assetFileDescriptor, MediaPlayer.OnCompletionListener onCompletionListener, int i, String str3, final long j) {
-        if ((TextUtils.isEmpty(str2) && assetFileDescriptor == null) || c0050a == null) {
-            return c0050a;
+    public static C0051a a(final C0051a c0051a, final String str, String str2, AssetFileDescriptor assetFileDescriptor, MediaPlayer.OnCompletionListener onCompletionListener, int i, String str3, final long j) {
+        if ((TextUtils.isEmpty(str2) && assetFileDescriptor == null) || c0051a == null) {
+            return c0051a;
         }
-        c0050a.dg.dT = com.baidu.ar.arplay.c.c.a((Object) str, 0L);
-        com.baidu.ar.arplay.a.a.b bVar = c0050a.dg;
+        c0051a.dg.dT = com.baidu.ar.arplay.c.c.a((Object) str, 0L);
+        com.baidu.ar.arplay.a.a.b bVar = c0051a.dg;
         bVar.dW = str;
         bVar.dU = str3;
-        MediaPlayer mediaPlayer = c0050a.df;
+        MediaPlayer mediaPlayer = c0051a.df;
         if (onCompletionListener != null) {
             mediaPlayer.setOnCompletionListener(onCompletionListener);
         }
@@ -234,49 +234,49 @@ public final class a {
                 @Override // android.media.MediaPlayer.OnPreparedListener
                 public void onPrepared(MediaPlayer mediaPlayer2) {
                     com.baidu.ar.arplay.c.b.b(a.TAG, "mMediaPlayer onPrepared");
-                    C0050a c0050a2 = C0050a.this;
-                    com.baidu.ar.arplay.a.a.b bVar2 = c0050a2.dg;
+                    C0051a c0051a2 = C0051a.this;
+                    com.baidu.ar.arplay.a.a.b bVar2 = c0051a2.dg;
                     bVar2.dX = DownloadConstants.DownloadColumns.COLUMN_STATUS;
                     bVar2.dZ = DpStatConstants.KEY_PREPARED;
-                    a.a(c0050a2);
+                    a.a(c0051a2);
                     if (ARPEngine.getInstance().isPaused() || a.cT == null || a.cT.get(str) == null) {
                         return;
                     }
                     if (((Integer) a.cT.get(str)).intValue() == 3004 || ((Integer) a.cT.get(str)).intValue() == 3007) {
                         a.aC();
                         try {
-                            if (C0050a.this.df.getDuration() >= 0) {
-                                if (C0050a.this.df.getDuration() > j && j >= 0) {
-                                    C0050a.this.df.seekTo((int) j);
+                            if (C0051a.this.df.getDuration() >= 0) {
+                                if (C0051a.this.df.getDuration() > j && j >= 0) {
+                                    C0051a.this.df.seekTo((int) j);
                                 }
-                                C0050a.this.df.seekTo(0);
+                                C0051a.this.df.seekTo(0);
                             }
                             com.baidu.ar.arplay.c.b.b(a.TAG, "mMediaPlayer start");
-                            C0050a.this.df.start();
-                            C0050a.this.dg.dZ = "playing";
+                            C0051a.this.df.start();
+                            C0051a.this.dg.dZ = "playing";
                         } catch (Exception e) {
-                            a.a(C0050a.this.df);
+                            a.a(C0051a.this.df);
                             e.printStackTrace();
                         }
                     }
                 }
             });
-            c0050a.df.setOnBufferingUpdateListener(new MediaPlayer.OnBufferingUpdateListener() { // from class: com.baidu.ar.arplay.a.a.12
+            c0051a.df.setOnBufferingUpdateListener(new MediaPlayer.OnBufferingUpdateListener() { // from class: com.baidu.ar.arplay.a.a.12
                 @Override // android.media.MediaPlayer.OnBufferingUpdateListener
                 public void onBufferingUpdate(MediaPlayer mediaPlayer2, int i2) {
-                    C0050a c0050a2 = C0050a.this;
-                    com.baidu.ar.arplay.a.a.b bVar2 = c0050a2.dg;
+                    C0051a c0051a2 = C0051a.this;
+                    com.baidu.ar.arplay.a.a.b bVar2 = c0051a2.dg;
                     bVar2.dX = "INFO";
                     bVar2.eb = i2;
-                    a.a(c0050a2);
+                    a.a(c0051a2);
                 }
             });
-            c0050a.df.setOnInfoListener(new MediaPlayer.OnInfoListener() { // from class: com.baidu.ar.arplay.a.a.13
+            c0051a.df.setOnInfoListener(new MediaPlayer.OnInfoListener() { // from class: com.baidu.ar.arplay.a.a.13
                 @Override // android.media.MediaPlayer.OnInfoListener
                 public boolean onInfo(MediaPlayer mediaPlayer2, int i2, int i3) {
                     String str4;
-                    C0050a c0050a2 = C0050a.this;
-                    com.baidu.ar.arplay.a.a.b bVar2 = c0050a2.dg;
+                    C0051a c0051a2 = C0051a.this;
+                    com.baidu.ar.arplay.a.a.b bVar2 = c0051a2.dg;
                     bVar2.dX = "INFO";
                     if (i2 == 701) {
                         str4 = "buffer_start";
@@ -286,7 +286,7 @@ public final class a {
                         str4 = "buffer_end";
                     }
                     bVar2.ea = str4;
-                    a.a(c0050a2);
+                    a.a(c0051a2);
                     return false;
                 }
             });
@@ -299,7 +299,7 @@ public final class a {
         } catch (SecurityException e4) {
             e4.printStackTrace();
         }
-        return c0050a;
+        return c0051a;
     }
 
     public static void a(MediaPlayer mediaPlayer) {
@@ -315,13 +315,13 @@ public final class a {
         }
     }
 
-    public static void a(C0050a c0050a) {
-        if (c0050a == null) {
+    public static void a(C0051a c0051a) {
+        if (c0051a == null) {
             return;
         }
-        b(c0050a);
-        a(c0050a.dg);
-        com.baidu.ar.arplay.a.a.b bVar = c0050a.dg;
+        b(c0051a);
+        a(c0051a.dg);
+        com.baidu.ar.arplay.a.a.b bVar = c0051a.dg;
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("id", Integer.valueOf((int) ARPMessageType.MSG_TYPE_AUDIO));
         HashMap hashMap2 = new HashMap();
@@ -341,7 +341,7 @@ public final class a {
 
     private void a(b bVar, String str, String str2, AssetFileDescriptor assetFileDescriptor, MediaPlayer.OnCompletionListener onCompletionListener, MediaPlayer.OnErrorListener onErrorListener, int i, String str3, long j) {
         try {
-            C0050a a = a(str, onCompletionListener, onErrorListener);
+            C0051a a = a(str, onCompletionListener, onErrorListener);
             if (a != null) {
                 a(a, str, str2, assetFileDescriptor, onCompletionListener, i, str3, j);
             }
@@ -350,14 +350,14 @@ public final class a {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            C0050a z = z(str);
+            C0051a z = z(str);
             A(str);
             try {
                 if (z.df != null) {
                     z.df.release();
                 }
                 try {
-                    C0050a a2 = aA().a(str, onCompletionListener, onErrorListener);
+                    C0051a a2 = aA().a(str, onCompletionListener, onErrorListener);
                     if (a2 != null) {
                         a(a2, str, str2, assetFileDescriptor, onCompletionListener, i, str3, j);
                     }
@@ -414,12 +414,12 @@ public final class a {
                 TimerTask timerTask = new TimerTask() { // from class: com.baidu.ar.arplay.a.a.14
                     @Override // java.util.TimerTask, java.lang.Runnable
                     public void run() {
-                        C0050a c0050a;
+                        C0051a c0051a;
                         com.baidu.ar.arplay.a.a.b bVar;
                         if (a.cO != null) {
                             for (Map.Entry entry : a.cO.entrySet()) {
-                                if (entry != null && (c0050a = (C0050a) entry.getValue()) != null && (bVar = c0050a.dg) != null && bVar.dZ == "playing") {
-                                    a.a((C0050a) entry.getValue());
+                                if (entry != null && (c0051a = (C0051a) entry.getValue()) != null && (bVar = c0051a.dg) != null && bVar.dZ == "playing") {
+                                    a.a((C0051a) entry.getValue());
                                 }
                             }
                         }
@@ -432,20 +432,20 @@ public final class a {
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:20:0x003c -> B:28:0x003f). Please submit an issue!!! */
-    public static void b(C0050a c0050a) {
-        if (c0050a == null || c0050a.df == null) {
+    public static void b(C0051a c0051a) {
+        if (c0051a == null || c0051a.df == null) {
             return;
         }
-        com.baidu.ar.arplay.a.a.b bVar = c0050a.dg;
+        com.baidu.ar.arplay.a.a.b bVar = c0051a.dg;
         String str = bVar.dZ;
         if (str == "playing" || str == "paused") {
             try {
-                int duration = c0050a.df.getDuration();
+                int duration = c0051a.df.getDuration();
                 bVar.dV = duration;
                 if (duration <= 0) {
                     bVar.ec = 0.0f;
                 } else {
-                    bVar.ec = (c0050a.df.getCurrentPosition() * 1.0f) / bVar.dV;
+                    bVar.ec = (c0051a.df.getCurrentPosition() * 1.0f) / bVar.dV;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -462,7 +462,7 @@ public final class a {
     }
 
     private void b(b bVar, String str, String str2, MediaPlayer.OnCompletionListener onCompletionListener, int i, String str3, long j) {
-        C0050a z = z(str);
+        C0051a z = z(str);
         A(str);
         if (z != null) {
             try {
@@ -479,7 +479,7 @@ public final class a {
             }
         }
         try {
-            C0050a a = a(str, onCompletionListener, null);
+            C0051a a = a(str, onCompletionListener, null);
             if (a != null) {
                 a(a, str, str2, null, onCompletionListener, i, str3, j);
             }
@@ -501,13 +501,13 @@ public final class a {
         cO.remove(str);
     }
 
-    public C0050a a(String str, MediaPlayer.OnCompletionListener onCompletionListener, MediaPlayer.OnErrorListener onErrorListener) {
+    public C0051a a(String str, MediaPlayer.OnCompletionListener onCompletionListener, MediaPlayer.OnErrorListener onErrorListener) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        ConcurrentHashMap<String, C0050a> concurrentHashMap = cO;
+        ConcurrentHashMap<String, C0051a> concurrentHashMap = cO;
         if (concurrentHashMap == null || !concurrentHashMap.containsKey(str)) {
-            C0050a a = a(onCompletionListener, onErrorListener);
+            C0051a a = a(onCompletionListener, onErrorListener);
             if (a == null) {
                 return null;
             }
@@ -569,7 +569,7 @@ public final class a {
                 if (a.this.cS == null) {
                     return;
                 }
-                C0050a z = a.this.z(aVar.getId());
+                C0051a z = a.this.z(aVar.getId());
                 if (z == null || z.dg.dZ != "paused") {
                     if (z != null) {
                         com.baidu.ar.arplay.a.a.b bVar = z.dg;
@@ -611,18 +611,18 @@ public final class a {
         if (map != null) {
             map.clear();
         }
-        ConcurrentHashMap<String, C0050a> concurrentHashMap = cO;
+        ConcurrentHashMap<String, C0051a> concurrentHashMap = cO;
         if (concurrentHashMap != null) {
             try {
-                for (C0050a c0050a : concurrentHashMap.values()) {
-                    c0050a.dg.dX = DownloadConstants.DownloadColumns.COLUMN_STATUS;
-                    c0050a.dg.dZ = "unstarted";
-                    a(c0050a.df);
+                for (C0051a c0051a : concurrentHashMap.values()) {
+                    c0051a.dg.dX = DownloadConstants.DownloadColumns.COLUMN_STATUS;
+                    c0051a.dg.dZ = "unstarted";
+                    a(c0051a.df);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            ConcurrentHashMap<String, C0050a> concurrentHashMap2 = cO;
+            ConcurrentHashMap<String, C0051a> concurrentHashMap2 = cO;
             if (concurrentHashMap2 != null) {
                 concurrentHashMap2.clear();
             }
@@ -638,7 +638,7 @@ public final class a {
         b bVar = (b) objArr[0];
         String str = (String) objArr[1];
         cT.put(str, 3005);
-        C0050a z = z(str);
+        C0051a z = z(str);
         if (z != null) {
             try {
                 z.dg.dX = DownloadConstants.DownloadColumns.COLUMN_STATUS;
@@ -692,7 +692,7 @@ public final class a {
         String str = (String) objArr[1];
         cT.put(str, 3006);
         try {
-            C0050a z = z(str);
+            C0051a z = z(str);
             if (z.df != null && z.dg.dZ != "unstarted" && z.df.isPlaying()) {
                 z.dg.dX = DownloadConstants.DownloadColumns.COLUMN_STATUS;
                 z.dg.dZ = "paused";
@@ -735,7 +735,7 @@ public final class a {
                 if (a.this.cS == null) {
                     return;
                 }
-                C0050a z = a.this.z(aVar.getId());
+                C0051a z = a.this.z(aVar.getId());
                 if (z != null) {
                     com.baidu.ar.arplay.a.a.b bVar = z.dg;
                     bVar.dX = DownloadConstants.DownloadColumns.COLUMN_STATUS;
@@ -767,7 +767,7 @@ public final class a {
         String str = (String) objArr[1];
         cT.put(str, 3009);
         try {
-            C0050a z = z(str);
+            C0051a z = z(str);
             if (z == null || z.dg.dZ == "unstarted") {
                 return;
             }
@@ -818,7 +818,7 @@ public final class a {
         }
         cT.put(str2, 3007);
         try {
-            C0050a z = z(str2);
+            C0051a z = z(str2);
             if (z != null && !z.df.isPlaying() && z.dg.dZ != "unstarted") {
                 z.dg.dX = DownloadConstants.DownloadColumns.COLUMN_STATUS;
                 z.dg.dZ = "playing";
@@ -854,12 +854,12 @@ public final class a {
         b bVar = (b) ((Object[]) message.obj)[0];
         this.cN = false;
         this.cM = 0;
-        ConcurrentHashMap<String, C0050a> concurrentHashMap = cO;
+        ConcurrentHashMap<String, C0051a> concurrentHashMap = cO;
         if (concurrentHashMap != null) {
             try {
-                for (C0050a c0050a : concurrentHashMap.values()) {
-                    if (c0050a != null) {
-                        c0050a.df.release();
+                for (C0051a c0051a : concurrentHashMap.values()) {
+                    if (c0051a != null) {
+                        c0051a.df.release();
                     }
                 }
             } catch (Exception e) {
@@ -872,7 +872,7 @@ public final class a {
         }
     }
 
-    public C0050a z(String str) {
+    public C0051a z(String str) {
         if (cO == null || TextUtils.isEmpty(str)) {
             return null;
         }

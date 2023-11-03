@@ -1,29 +1,27 @@
 package com.baidu.tieba;
 
+import android.os.Build;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-/* loaded from: classes7.dex */
-public final class qx0 {
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.io.Writer;
+/* loaded from: classes8.dex */
+public abstract class qx0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public float d;
-    public boolean e;
-    public int f;
-    public float g;
-    public int h;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public abstract boolean c(int i, @Nullable String str);
+
     public qx0() {
-        this(0, 0, 0, 0.0f, false, 0, 0.0f, 0, 255, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -31,157 +29,91 @@ public final class qx0 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this(((Integer) objArr[0]).intValue(), ((Integer) objArr[1]).intValue(), ((Integer) objArr[2]).intValue(), ((Float) objArr[3]).floatValue(), ((Boolean) objArr[4]).booleanValue(), ((Integer) objArr[5]).intValue(), ((Float) objArr[6]).floatValue(), ((Integer) objArr[7]).intValue(), ((Integer) objArr[8]).intValue(), (DefaultConstructorMarker) objArr[9]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public boolean equals(Object obj) {
+    public void a(int i, @Nullable String str, @Nullable String str2, @Nullable Throwable th) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, str2, th}) != null) || !c(i, str)) {
+            return;
+        }
+        if (TextUtils.isEmpty(str2)) {
+            if (th == null) {
+                return;
+            }
+            str2 = b(th);
+        } else if (th != null) {
+            str2 = str2 + "\n" + b(th);
+        }
+        if (TextUtils.isEmpty(str)) {
+            d(i, null, str2);
+        } else if (str.length() > 23 && Build.VERSION.SDK_INT < 24) {
+            d(i, str.substring(0, 23), str2);
+        } else {
+            d(i, str, str2);
+        }
+    }
+
+    public final String b(@NonNull Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof qx0) {
-                    qx0 qx0Var = (qx0) obj;
-                    return this.a == qx0Var.a && this.b == qx0Var.b && this.c == qx0Var.c && Float.compare(this.d, qx0Var.d) == 0 && this.e == qx0Var.e && this.f == qx0Var.f && Float.compare(this.g, qx0Var.g) == 0 && this.h == qx0Var.h;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th)) == null) {
+            try {
+                StringWriter stringWriter = new StringWriter(256);
+                PrintWriter printWriter = new PrintWriter((Writer) stringWriter, false);
+                th.printStackTrace(printWriter);
+                printWriter.flush();
+                printWriter.close();
+                return stringWriter.toString();
+            } catch (Exception e) {
+                String message = e.getMessage();
+                if (TextUtils.isEmpty(message)) {
+                    return "unknown throwable by VideoLog.java";
                 }
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r1v5, resolved type: boolean */
-    /* JADX WARN: Multi-variable type inference failed */
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int floatToIntBits = ((((((this.a * 31) + this.b) * 31) + this.c) * 31) + Float.floatToIntBits(this.d)) * 31;
-            boolean z = this.e;
-            int i = z;
-            if (z != 0) {
-                i = 1;
-            }
-            return ((((((floatToIntBits + i) * 31) + this.f) * 31) + Float.floatToIntBits(this.g)) * 31) + this.h;
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "NadSensorHelperParams(planeType=" + this.a + ", leftThreshold=" + this.b + ", rightThreshold=" + this.c + ", thirdAxisLimit=" + this.d + ", isSaveStartAngle=" + this.e + ", updateInterval=" + this.f + ", shakeSensitivity=" + this.g + ", shakeCounts=" + this.h + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public qx0(int i, int i2, int i3, float f, boolean z, int i4, float f2, int i5) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f), Boolean.valueOf(z), Integer.valueOf(i4), Float.valueOf(f2), Integer.valueOf(i5)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i6 = newInitContext.flag;
-            if ((i6 & 1) != 0) {
-                int i7 = i6 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                return message;
             }
         }
-        this.a = i;
-        this.b = i2;
-        this.c = i3;
-        this.d = f;
-        this.e = z;
-        this.f = i4;
-        this.g = f2;
-        this.h = i5;
+        return (String) invokeL.objValue;
     }
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public /* synthetic */ qx0(int i, int i2, int i3, float f, boolean z, int i4, float f2, int i5, int i6, DefaultConstructorMarker defaultConstructorMarker) {
-        this(r1, r2, r3, r4, r5, r6, r7, r0);
-        int i7;
-        int i8;
-        float f3;
-        boolean z2;
-        int i9;
-        float f4;
-        int i10;
-        if ((i6 & 1) != 0) {
-            i7 = 0;
-        } else {
-            i7 = i;
-        }
-        if ((i6 & 2) != 0) {
-            i8 = 90;
-        } else {
-            i8 = i2;
-        }
-        int i11 = (i6 & 4) == 0 ? i3 : 90;
-        if ((i6 & 8) != 0) {
-            f3 = 0.5f;
-        } else {
-            f3 = f;
-        }
-        if ((i6 & 16) != 0) {
-            z2 = true;
-        } else {
-            z2 = z;
-        }
-        if ((i6 & 32) != 0) {
-            i9 = 67;
-        } else {
-            i9 = i4;
-        }
-        if ((i6 & 64) != 0) {
-            f4 = 12.0f;
-        } else {
-            f4 = f2;
-        }
-        if ((i6 & 128) != 0) {
-            i10 = 2;
-        } else {
-            i10 = i5;
-        }
-    }
-
-    public final int a() {
-        InterceptResult invokeV;
+    public void d(int i, @Nullable String str, @NonNull String str2) {
+        int min;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.h;
+        if (interceptable == null || interceptable.invokeILL(1048579, this, i, str, str2) == null) {
+            if (str2.length() < 4096) {
+                if (i == 7) {
+                    Log.wtf(str, str2);
+                    return;
+                } else {
+                    Log.println(i, str, str2);
+                    return;
+                }
+            }
+            int i2 = 0;
+            int length = str2.length();
+            while (i2 < length) {
+                int indexOf = str2.indexOf(10, i2);
+                if (indexOf == -1) {
+                    indexOf = length;
+                }
+                while (true) {
+                    min = Math.min(indexOf, i2 + 4096);
+                    String substring = str2.substring(i2, min);
+                    if (i == 7) {
+                        Log.wtf(str, substring);
+                    } else {
+                        Log.println(i, str, substring);
+                    }
+                    if (min >= indexOf) {
+                        break;
+                    }
+                    i2 = min;
+                }
+                i2 = min + 1;
+            }
         }
-        return invokeV.intValue;
-    }
-
-    public final float b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
-        }
-        return invokeV.floatValue;
-    }
-
-    public final int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
     }
 }

@@ -1,61 +1,41 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Bundle;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.common.others.url.UrlUtils;
+import android.webkit.WebView;
+import androidx.core.util.Pair;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
-import com.baidu.tbadk.browser.BaseWebViewActivity;
-import com.baidu.tbadk.browser.BrowserHelper;
-import com.baidu.tbadk.core.GlobalBuildConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
-import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.core.util.PvThread;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.switchs.WebViewTrackerEnableSwitch;
+import com.baidu.tieba.browser.TbWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.Serializable;
-import java.util.HashMap;
+import com.baidu.ubc.UBCManager;
+import com.facebook.common.util.UriUtil;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class tt4 {
+public class tt4 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean n;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public String b;
+    public final boolean a;
+    public volatile boolean b;
     public String c;
-    public boolean d;
-    public boolean e;
-    public boolean f;
-    public boolean g;
-    public boolean h;
-    public boolean i;
-    public boolean j;
-    public int k;
-    public Bundle l;
-    public HashMap<String, Serializable> m;
+    public Runnable d;
+    public vk6 e;
 
-    public tt4 i(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) ? this : (tt4) invokeZ.objValue;
-    }
-
-    public tt4(Context context, String str) {
+    public tt4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -65,255 +45,194 @@ public final class tt4 {
                 return;
             }
         }
-        this.c = "";
-        this.d = true;
-        this.e = true;
-        this.f = true;
-        this.g = true;
-        this.h = false;
-        this.i = false;
-        this.j = false;
-        this.l = null;
-        this.m = null;
-        this.a = context;
-        this.b = str;
+        this.a = WebViewTrackerEnableSwitch.isOn();
+        this.b = false;
+        this.e = null;
     }
 
-    public static tt4 j(Context context, String str) {
-        InterceptResult invokeLL;
+    public void e() {
+        Runnable runnable;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            return new tt4(context, str);
-        }
-        return (tt4) invokeLL.objValue;
-    }
-
-    public static void n() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65538, null) != null) || !PermissionUtil.isAgreePrivacyPolicy()) {
-            return;
-        }
-        new PvThread("open_webview", true).start();
-    }
-
-    public TbWebViewActivityConfig b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return e(this.a);
-        }
-        return (TbWebViewActivityConfig) invokeV.objValue;
-    }
-
-    public void p() {
-        TbWebViewActivityConfig e;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (e = e(this.a)) != null) {
-            e.start();
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (runnable = this.d) != null) {
+            runnable.run();
         }
     }
 
-    public void q() {
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            if (!TbadkCoreApplication.getInst().isDebugMode() && !GlobalBuildConfig.isTiebaDebugTool()) {
-                throw new RuntimeException("can't open debug page in release");
-            }
-            this.b = "http://bjhw-bac-orp-tieba-core-137287.bjhw.baidu.com:8899/na-h5-tool";
-            p();
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.d != null) {
+            ui6.a().e(this.d);
+            this.d = null;
         }
     }
 
-    public tt4 a(Bundle bundle) {
-        InterceptResult invokeL;
+    public final void a(final String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            this.l = bundle;
-            if (bundle != null) {
-                String string = bundle.getString(BdUniDispatchSchemeController.PARAM_INIT_DATA, "");
-                if (!TextUtils.isEmpty(string)) {
-                    if (this.m == null) {
-                        this.m = new HashMap<>();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !this.b && this.d == null) {
+            this.d = new Runnable() { // from class: com.baidu.tieba.pt4
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        tt4.this.d(str);
                     }
-                    this.m.put(BdUniDispatchSchemeController.PARAM_INIT_DATA, string);
                 }
-            }
-            return this;
+            };
+            ui6.a().d(this.d, 10000L);
         }
-        return (tt4) invokeL.objValue;
     }
 
-    public tt4 c(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            this.f = z;
-            return this;
-        }
-        return (tt4) invokeZ.objValue;
+    public /* synthetic */ void d(String str) {
+        g(str, 1);
     }
 
-    public tt4 d(boolean z) {
-        InterceptResult invokeZ;
+    public final void b(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            this.i = z;
-            return this;
-        }
-        return (tt4) invokeZ.objValue;
-    }
-
-    public tt4 f(HashMap<String, Serializable> hashMap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, hashMap)) == null) {
-            this.m = hashMap;
-            return this;
-        }
-        return (tt4) invokeL.objValue;
-    }
-
-    public tt4 g(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-            this.g = z;
-            return this;
-        }
-        return (tt4) invokeZ.objValue;
-    }
-
-    public tt4 h(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
-            this.j = z;
-            return this;
-        }
-        return (tt4) invokeZ.objValue;
-    }
-
-    public tt4 k(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
-            this.e = z;
-            return this;
-        }
-        return (tt4) invokeZ.objValue;
-    }
-
-    public tt4 l(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
-            this.h = z;
-            return this;
-        }
-        return (tt4) invokeZ.objValue;
-    }
-
-    public tt4 m(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048587, this, z)) == null) {
-            this.d = z;
-            return this;
-        }
-        return (tt4) invokeZ.objValue;
-    }
-
-    public tt4 o(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
-            this.k = i;
-            return this;
-        }
-        return (tt4) invokeI.objValue;
-    }
-
-    public tt4 r(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
-            this.c = str;
-            return this;
-        }
-        return (tt4) invokeL.objValue;
-    }
-
-    public final TbWebViewActivityConfig e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            n();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
             try {
-                if (StringUtils.isNull(this.b)) {
+                if (this.e != null && !vj6.a(this.e.f())) {
+                    Map<String, Pair<Long, Long>> g = this.e.g();
+                    JSONArray jSONArray = new JSONArray();
+                    for (Pair<String, Long> pair : this.e.f()) {
+                        JSONObject jSONObject2 = new JSONObject();
+                        jSONObject2.put("path", pair.first);
+                        jSONObject2.put("req", pair.second);
+                        Pair<Long, Long> pair2 = g.get(pair.first);
+                        if (pair2 != null) {
+                            jSONObject2.put(UriUtil.LOCAL_RESOURCE_SCHEME, pair2.first);
+                            jSONObject2.put("hit", pair2.second);
+                        } else {
+                            jSONObject2.put(UriUtil.LOCAL_RESOURCE_SCHEME, -1);
+                            jSONObject2.put("hit", -1);
+                        }
+                        jSONArray.put(jSONObject2);
+                    }
+                    if (!vj6.c(jSONArray)) {
+                        jSONObject.put(PrefetchEvent.MODULE, jSONArray);
+                    }
+                }
+            } catch (JSONException unused) {
+            }
+        }
+    }
+
+    public JSONObject c(WebView webView) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webView)) == null) {
+            if (webView != null) {
+                try {
+                    if (webView.getParent() instanceof TbWebView) {
+                        this.e = ((TbWebView) webView.getParent()).getPerfData();
+                    }
+                } catch (Exception unused) {
                     return null;
                 }
-                boolean z = this.g;
-                if (!UrlUtils.isBaiduDomain(this.b)) {
-                    z = false;
+            }
+            if (this.e != null && this.a && !this.b && vk6.l(this.e.h())) {
+                String h = this.e.h();
+                JSONObject jSONObject = new JSONObject();
+                String c = this.e.c();
+                this.c = c;
+                jSONObject.put("logId", c);
+                jSONObject.put("url", h);
+                if (!TextUtils.isEmpty(this.e.e())) {
+                    jSONObject.put("originUrl", this.e.e());
                 }
-                if (this.l != null && !this.l.getBoolean(BaseWebViewActivity.BUNDLE_NEED_EXTRA_PARAM, true)) {
-                    z = false;
-                }
-                if (z) {
-                    String appendCuidParam = BrowserHelper.appendCuidParam(this.b);
-                    this.b = appendCuidParam;
-                    String appendVersionCode = BrowserHelper.appendVersionCode(appendCuidParam);
-                    this.b = appendVersionCode;
-                    this.b = BrowserHelper.appendClientType(appendVersionCode);
-                }
-                TbWebViewActivityConfig activityConfig = BrowserHelper.getActivityConfig(context, this.c, this.b, this.d, this.e, this.f, !zh6.b(this.m));
-                activityConfig.setNeedImmerSiveSticky(this.h);
-                activityConfig.setFixTitle(this.i);
-                activityConfig.setAutoPlay(this.j);
-                if (this.k > 0) {
-                    activityConfig.setRequestCode(this.k);
-                    activityConfig.setIntentAction(IntentAction.ActivityForResult);
-                }
-                activityConfig.setBundle(this.l);
-                if (!zh6.b(this.m)) {
-                    activityConfig.setPageData(this.m);
-                }
-                if (this.l != null) {
-                    if (this.l.getBoolean(WebViewActivityConfig.TAG_TEXT_AUTO_SIZE, false)) {
-                        activityConfig.setTextAutoSize(true);
+                jSONObject.put("clientType", "Android");
+                jSONObject.put("isOfflinePackage", this.e.k());
+                jSONObject.put(com.kuaishou.weapon.p0.u.x, this.e.d());
+                jSONObject.put("wvst", this.e.j());
+                jSONObject.put("wvft", this.e.i());
+                jSONObject.put("lst", this.e.b());
+                a(jSONObject.toString());
+                return jSONObject;
+            }
+            return null;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public synchronized void g(String str, int i) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048582, this, str, i) == null) {
+            synchronized (this) {
+                f();
+                if (this.a && !this.b && !TextUtils.isEmpty(str)) {
+                    this.b = true;
+                    UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+                    if (uBCManager != null) {
+                        uBCManager.onEvent("5607", str);
                     }
-                    String string = this.l.getString(WebViewActivityConfig.TAG_PAGE_TRANSLUCENT, "");
-                    if (!TextUtils.isEmpty(string)) {
-                        activityConfig.setPageTranslucent(string);
-                    }
-                    if (this.l.getBoolean(WebViewActivityConfig.TAG_TRANSLUCENT_AUTO_CLOSE, false)) {
-                        activityConfig.setTranslucentAutoClose(true);
-                    }
-                    String string2 = this.l.getString(WebViewActivityConfig.TAG_WEB_DIALOG_NAME, "");
-                    if (!TextUtils.isEmpty(string2)) {
-                        activityConfig.setWebDialogName(string2);
-                    }
-                    if ("1".equals(this.l.getString(BdUniDispatchSchemeController.PARAM_OPEN_TYPE))) {
-                        activityConfig.setPageTranslucent(TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
-                        activityConfig.setLoadingSwitch(1);
-                        activityConfig.setLoadingStyle(1);
-                    } else if ("2".equals(this.l.getString(BdUniDispatchSchemeController.PARAM_OPEN_TYPE))) {
-                        activityConfig.setPageTranslucent(TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
+                    try {
+                        JSONObject jSONObject = new JSONObject(str);
+                        jSONObject.optString("logId", this.c);
+                        String optString = jSONObject.optString("url", "");
+                        String optString2 = jSONObject.optString("originUrl", "");
+                        boolean optBoolean = jSONObject.optBoolean("isOfflinePackage", false);
+                        long optLong = jSONObject.optLong(com.kuaishou.weapon.p0.u.x, -1L);
+                        long optLong2 = jSONObject.optLong("wvst", -1L);
+                        long optLong3 = jSONObject.optLong("wvft", -1L);
+                        long optLong4 = jSONObject.optLong("lst", -1L);
+                        long optLong5 = jSONObject.optLong("navigationStart", -1L);
+                        long optLong6 = jSONObject.optLong("fetchStart", -1L);
+                        long optLong7 = jSONObject.optLong("domainLookupStart", -1L);
+                        long optLong8 = jSONObject.optLong("domainLookupEnd", -1L);
+                        long optLong9 = jSONObject.optLong("connectStart", -1L);
+                        long optLong10 = jSONObject.optLong("connectEnd", -1L);
+                        long optLong11 = jSONObject.optLong("requestStart", -1L);
+                        long optLong12 = jSONObject.optLong("responseStart", -1L);
+                        long optLong13 = jSONObject.optLong("responseEnd", -1L);
+                        long optLong14 = jSONObject.optLong("ds", -1L);
+                        long optLong15 = jSONObject.optLong("df", -1L);
+                        long optLong16 = jSONObject.optLong("drt", -1L);
+                        long optLong17 = jSONObject.optLong("dt", -1L);
+                        long optLong18 = jSONObject.optLong("autoFMP", -1L);
+                        long optLong19 = jSONObject.optLong("autoFP", -1L);
+                        long optLong20 = jSONObject.optLong("autoFCP", -1L);
+                        int optInt = jSONObject.optInt("autoWVLCP", -1);
+                        int optInt2 = jSONObject.optInt("autoWVFCP", -1);
+                        long optLong21 = jSONObject.optLong("fp", -1L);
+                        long optLong22 = jSONObject.optLong("fmp", -1L);
+                        StringBuilder sb = new StringBuilder();
+                        sb.append("是否离线包：");
+                        sb.append(optBoolean);
+                        sb.append(",总耗时");
+                        long j = optLong22 - optLong;
+                        sb.append(j);
+                        sb.append("-初始化:");
+                        sb.append(optLong4 - optLong);
+                        sb.append(",加载:");
+                        sb.append(optLong14 - optLong4);
+                        sb.append(",解析:");
+                        sb.append(optLong15 - optLong14);
+                        sb.append("，渲染:");
+                        sb.append(optLong22 - optLong15);
+                        pj6.b("newHybrid", sb.toString());
+                        b(jSONObject);
+                        String str3 = TbadkCoreStatisticKey.WEBVIEW_PERF_DATA_KEY;
+                        if (this.e != null && this.e.i) {
+                            str3 = "c15454";
+                        }
+                        StatisticItem param = new StatisticItem(str3).param("obj_param1", jSONObject.toString()).param(TiebaStatic.Params.OBJ_PARAM2, jSONObject.toString());
+                        if (optBoolean) {
+                            str2 = "0";
+                        } else {
+                            str2 = "1";
+                        }
+                        StatisticItem param2 = param.param("obj_id", str2).param("obj_type", i).param("obj_locate", 1).param("obj_source", 1).param(TiebaStatic.Params.OBJ_PARAM3, j).param(com.kuaishou.weapon.p0.u.x, optLong).param("wvst", optLong2).param("wvft", optLong3).param("lst", optLong4).param("navigationStart", optLong5).param("fetchStart", optLong6).param("domainLookupStart", optLong7).param("domainLookupEnd", optLong8).param("connectStart", optLong9).param("connectEnd", optLong10).param("requestStart", optLong11).param("responseStart", optLong12).param("responseEnd", optLong13).param("ds", optLong14).param("df", optLong15).param("drt", optLong16).param("dt", optLong17).param("autoFMP", optLong18).param("autoFP", optLong19).param("autoFCP", optLong20).param("autoWVLCP", optInt).param("autoWVFCP", optInt2).param("fp", optLong21).param("fmp", optLong22).param("url", optString);
+                        if (!TextUtils.isEmpty(optString2)) {
+                            param2.param("originUrl", optString2);
+                        }
+                        TiebaStatic.log(param2);
+                    } catch (Exception unused) {
                     }
                 }
-                if (n) {
-                    activityConfig.setUseCustomHistoryStack(true);
-                    n = false;
-                }
-                if (this.l != null && this.l.getBoolean(WebViewActivityConfig.FROM_SCHEMA)) {
-                    activityConfig.setIsFromSchema(true);
-                }
-                return activityConfig;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return null;
             }
         }
-        return (TbWebViewActivityConfig) invokeL.objValue;
     }
 }

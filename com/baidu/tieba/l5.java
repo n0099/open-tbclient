@@ -1,29 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.message.Message;
+import com.baidu.adp.framework.task.MessageTask;
+import java.util.LinkedList;
 /* loaded from: classes7.dex */
-public class l5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public j5 a;
-    public byte[] b;
-    public int c;
-    public int d;
+public interface l5<M extends Message<?>, T extends MessageTask> {
+    LinkedList<M> e(int i, BdUniqueId bdUniqueId);
 
-    public l5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void f(M m, T t);
+
+    void h(int i, BdUniqueId bdUniqueId);
 }

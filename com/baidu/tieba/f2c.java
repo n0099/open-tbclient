@@ -1,21 +1,150 @@
 package com.baidu.tieba;
+
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.q1c;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.ChannelNativeAds;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunNativeAd;
+import com.fun.ad.sdk.internal.api.BaseFunNativeAd;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.kwad.sdk.api.KsAdVideoPlayConfig;
+import com.kwad.sdk.api.KsImage;
+import com.kwad.sdk.api.KsNativeAd;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public interface f2c {
-    void a();
+public class f2c extends BaseFunNativeAd {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final Context b;
+    public final f1c c;
+    public final q1c d;
 
-    boolean available();
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f2c(Context context, f1c f1cVar, String str, Ssp.Pid pid, q1c q1cVar) {
+        super(str, pid);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, f1cVar, str, pid, q1cVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (Ssp.Pid) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = context;
+        this.c = f1cVar;
+        this.d = q1cVar;
+    }
 
-    boolean b(int i, boolean z);
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public ChannelNativeAds getChannelNativeAds() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return ChannelNativeAds.createKs(this.c.a);
+        }
+        return (ChannelNativeAds) invokeV.objValue;
+    }
 
-    int c();
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public String getDescription() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return ((KsNativeAd) this.c.a).getAdDescription();
+        }
+        return (String) invokeV.objValue;
+    }
 
-    void d(boolean z);
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public String getIconUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return ((KsNativeAd) this.c.a).getAppIconUrl();
+        }
+        return (String) invokeV.objValue;
+    }
 
-    boolean e(Object obj);
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public FunNativeAd.InteractionType getInteractionType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int interactionType = ((KsNativeAd) this.c.a).getInteractionType();
+            if (interactionType != 1) {
+                if (interactionType != 2) {
+                    return FunNativeAd.InteractionType.TYPE_UNKNOW;
+                }
+                return FunNativeAd.InteractionType.TYPE_BROWSE;
+            }
+            return FunNativeAd.InteractionType.TYPE_DOWNLOAD;
+        }
+        return (FunNativeAd.InteractionType) invokeV.objValue;
+    }
 
-    int f();
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public String getTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return ((KsNativeAd) this.c.a).getAppName();
+        }
+        return (String) invokeV.objValue;
+    }
 
-    void release();
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public List<String> getImageUrls() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            List<KsImage> imageList = ((KsNativeAd) this.c.a).getImageList();
+            if (imageList == null) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            for (KsImage ksImage : imageList) {
+                arrayList.add(ksImage.getImageUrl());
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
 
-    boolean swapBuffer();
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public View getVideoView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return ((KsNativeAd) this.c.a).getVideoView(this.b, new KsAdVideoPlayConfig.Builder().videoSoundEnable(FunAdSdk.getFunAdConfig().isVideoSoundEnable).dataFlowAutoStart(FunAdSdk.getFunAdConfig().isVideoDataFlowAutoStart).build());
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BaseFunNativeAd
+    public void showInternal(Context context, ViewGroup viewGroup, List<View> list, List<View> list2, FunAdInteractionListener funAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048583, this, context, viewGroup, list, list2, funAdInteractionListener) == null) {
+            q1c q1cVar = this.d;
+            f1c f1cVar = this.c;
+            q1cVar.g(f1cVar, this.mSid, viewGroup, list, new q1c.b(q1cVar, f1cVar), funAdInteractionListener);
+        }
+    }
 }

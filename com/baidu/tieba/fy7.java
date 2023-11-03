@@ -1,103 +1,81 @@
 package com.baidu.tieba;
 
 import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.bu;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class fy7 {
+public class fy7 extends pp7<uy7, ThreadCardViewHolder<uy7>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(View view2, Object obj, int i, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fy7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext, bdUniqueId);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65536, null, view2, obj, i, str) == null) {
-            if (obj instanceof vy7) {
-                vy7 vy7Var = (vy7) obj;
-                if (vy7Var.e) {
-                    StatisticItem statisticItem = new StatisticItem("c13736");
-                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                    statisticItem.eventStat();
-                    return;
-                }
-                StatisticItem statisticItem2 = new StatisticItem("c13735");
-                statisticItem2.param("obj_locate", str);
-                statisticItem2.param("topic_id", vy7Var.a);
-                statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccount());
-                statisticItem2.eventStat();
-            } else if (obj instanceof xy7) {
-                ThreadData threadData = ((xy7) obj).f;
-                StatisticItem statisticItem3 = new StatisticItem("c13738");
-                statisticItem3.param("obj_type", str);
-                statisticItem3.param("uid", TbadkCoreApplication.getCurrentAccount());
-                if (threadData != null) {
-                    statisticItem3.param("tid", threadData.getTid());
-                    statisticItem3.param("fid", threadData.getFid());
-                }
-                statisticItem3.eventStat();
-            } else if (obj instanceof jv4) {
-                d(view2);
-                if (!c(view2)) {
-                    return;
-                }
-                ThreadData threadData2 = ((jv4) obj).getThreadData();
-                StatisticItem statisticItem4 = new StatisticItem("c13738");
-                statisticItem4.param("obj_type", str);
-                statisticItem4.param("uid", TbadkCoreApplication.getCurrentAccount());
-                if (threadData2 != null) {
-                    statisticItem4.param("tid", threadData2.getTid());
-                    statisticItem4.param("fid", threadData2.getFid());
-                }
-                statisticItem4.eventStat();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = tbPageContext;
+        this.mPageId = bdUniqueId2;
     }
 
-    public static void b(View view2, Object obj, String str) {
-        ThreadData threadData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, view2, obj, str) == null) {
-            StatisticItem statisticItem = new StatisticItem("c13825");
-            statisticItem.param("obj_type", str);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            if (obj instanceof xy7) {
-                threadData = ((xy7) obj).f;
-            } else if (obj instanceof jv4) {
-                threadData = ((jv4) obj).getThreadData();
-            } else {
-                threadData = null;
-            }
-            if (threadData != null) {
-                statisticItem.param("tid", threadData.getTid());
-                statisticItem.param("fid", threadData.getFid());
-            }
-            statisticItem.eventStat();
-        }
-    }
-
-    public static boolean c(View view2) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: H */
+    public ThreadCardViewHolder<uy7> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-            int id = view2.getId();
-            if (id != R.id.thread_card_root && id != R.id.thread_info_commont_container) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            bu.b bVar = new bu.b(this.c.getPageActivity(), true);
+            bVar.n(new ny7(this.c.getPageActivity()));
+            bVar.l().b(0);
+            bVar.l().c(0);
+            bVar.l().g(0);
+            bVar.l().f(0);
+            bVar.l().j(0);
+            bVar.l().i(0);
+            ThreadCardViewHolder<uy7> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.e));
+            threadCardViewHolder.i(this.mPageId);
+            return threadCardViewHolder;
         }
-        return invokeL.booleanValue;
+        return (ThreadCardViewHolder) invokeL.objValue;
     }
 
-    public static void d(View view2) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.pp7, com.baidu.tieba.bi
+    /* renamed from: I */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, uy7 uy7Var, ThreadCardViewHolder<uy7> threadCardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, view2) != null) || !(view2 instanceof TbImageView)) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, uy7Var, threadCardViewHolder})) == null) {
+            threadCardViewHolder.a().s(i);
+            threadCardViewHolder.e(uy7Var);
+            threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
+            return threadCardViewHolder.getView();
         }
-        new StatisticItem("c14675").addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam(TiebaStatic.Params.OBJ_TO, 2).eventStat();
+        return (View) invokeCommon.objValue;
     }
 }

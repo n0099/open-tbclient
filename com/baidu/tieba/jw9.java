@@ -1,134 +1,82 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.MotionEvent;
+import android.view.LayoutInflater;
 import android.view.View;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tieba.pb.pb.main.PbImageAlaRecommendVH;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class jw9 extends iw9 {
+public class jw9 extends vv9<kw9, PbImageAlaRecommendVH> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int U0;
-    public int V0;
+    public BdUniqueId g;
+    public ds9 h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jw9(Context context, View view2) {
-        super(context, view2);
+    public jw9(g1a g1aVar, BdUniqueId bdUniqueId) {
+        super(g1aVar, kw9.q);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, view2};
+            Object[] objArr = {g1aVar, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (View) objArr2[1]);
+                super((g1a) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        u0(false);
-        this.U0 = BdUtilHelper.getEquipmentWidth(this.S) / 10;
+        this.g = bdUniqueId;
     }
 
-    public void H0(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            this.Y = str2;
-            U();
-            V();
-            x0(this.b);
-            this.F.setPlayer(this.t.getControl());
-            this.B.setVisibility(8);
-            this.u.setPlaceHolder(3);
-            this.u.startLoad(str, 10, false);
-            this.H.setShareData(null);
-        }
-    }
-
-    @Override // com.baidu.tieba.iw9
-    public void b0(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            Context context = this.S;
-            if (context instanceof BaseFragmentActivity) {
-                ((BaseFragmentActivity) context).setSwipeBackEnabled(this.c0);
-            } else if (context instanceof BaseActivity) {
-                ((BaseActivity) context).setSwipeBackEnabled(this.c0);
-            }
-            super.b0(z);
-            if (this.c0) {
-                this.U.getLayoutParams().height = -1;
-                return;
-            }
-            this.U.getLayoutParams().height = this.V0;
-        }
-    }
-
-    @Override // com.baidu.tieba.iw9
-    public void j0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.t.getControl().setVolume(1.0f, 1.0f);
-        }
-    }
-
-    @Override // com.baidu.tieba.iw9
-    public boolean k0(MotionEvent motionEvent) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: x */
+    public PbImageAlaRecommendVH onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
-            if (!this.c0 && motionEvent.getX() <= this.U0) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new PbImageAlaRecommendVH(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d07b6, viewGroup, false), this.a.getPageContext(), this.g);
         }
-        return invokeL.booleanValue;
+        return (PbImageAlaRecommendVH) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.iw9
-    public void x0(int i) {
+    public void z(ds9 ds9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            super.x0(i);
-            this.J.setVisibility(8);
-            this.D.setVisibility(8);
+        if (interceptable == null || interceptable.invokeL(1048580, this, ds9Var) == null) {
+            this.h = ds9Var;
         }
     }
 
-    @Override // com.baidu.tieba.iw9, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
-    public void onPrepared() {
-        boolean z;
+    @Override // com.baidu.tieba.vv9, com.baidu.tieba.bi
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        y(i, view2, viewGroup, (kw9) obj, (PbImageAlaRecommendVH) viewHolder);
+        return view2;
+    }
+
+    public View y(int i, View view2, ViewGroup viewGroup, kw9 kw9Var, PbImageAlaRecommendVH pbImageAlaRecommendVH) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onPrepared();
-            if (this.t.getControl().getPlayerWidth() == 0) {
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, kw9Var, pbImageAlaRecommendVH})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) kw9Var, (kw9) pbImageAlaRecommendVH);
+            if (pbImageAlaRecommendVH != null) {
+                pbImageAlaRecommendVH.c(kw9Var);
+                pbImageAlaRecommendVH.h(this.h);
             }
-            if (this.t.getControl().getPlayerHeight() > this.t.getControl().getPlayerWidth()) {
-                z = true;
-            } else {
-                z = false;
-            }
-            this.X = z;
-            int playerHeight = (int) ((this.t.getControl().getPlayerHeight() / this.t.getControl().getPlayerWidth()) * BdUtilHelper.getEquipmentWidth(this.S));
-            this.V0 = playerHeight;
-            if (playerHeight > BdUtilHelper.getEquipmentHeight(this.S)) {
-                this.V0 = BdUtilHelper.getEquipmentHeight(this.S);
-            }
-            this.U.getLayoutParams().height = this.V0;
-            this.U.requestLayout();
+            return view2;
         }
+        return (View) invokeCommon.objValue;
     }
 }

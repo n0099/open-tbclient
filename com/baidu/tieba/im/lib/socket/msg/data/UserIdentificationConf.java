@@ -3,6 +3,7 @@ package com.baidu.tieba.im.lib.socket.msg.data;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import com.baidu.tbadk.core.atomData.EditHeadActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +19,7 @@ public final class UserIdentificationConf implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String content;
-    @SerializedName("image_url")
+    @SerializedName(EditHeadActivityConfig.IMAGE_URL)
     public final String imageUrl;
     @SerializedName("is_main_status")
     public final Integer isMainStatus;

@@ -1,32 +1,139 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.webkit.WebView;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.tieba.h5power.DescriptionTableInfo;
-import com.baidu.tieba.log.TbLog;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.TbImageHelper;
+import com.baidu.tieba.homepage.GetMyPostHttpResponseMessage;
+import com.baidu.tieba.homepage.RequestGetMyPostNetMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
+import tbclient.GetMyPost.DataRes;
+import tbclient.GetMyPost.GetMyPostResIdl;
 /* loaded from: classes7.dex */
 public class lfa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<gfa> a;
+    public final kfa a;
+    public final BdUniqueId b;
+    public final CustomMessageListener c;
+    public final HttpMessageListener d;
 
-    public lfa() {
+    /* loaded from: classes7.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ lfa a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(lfa lfaVar, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lfaVar, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = lfaVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            int i;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof oy4)) {
+                oy4 oy4Var = (oy4) customResponsedMessage.getData();
+                if (oy4Var.a != 1) {
+                    return;
+                }
+                int equipmentWidth = BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst());
+                int equipmentHeight = BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst());
+                float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
+                if (TbImageHelper.getInstance().isShowBigImage()) {
+                    i = 2;
+                } else {
+                    i = 1;
+                }
+                RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
+                requestGetMyPostNetMessage.setTag(this.a.b);
+                requestGetMyPostNetMessage.setParams(JavaTypesHelper.toLong(oy4Var.c, 0L), 0L, 0L, equipmentWidth, equipmentHeight, f, i);
+                requestGetMyPostNetMessage.setBFrom("push");
+                MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ lfa a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(lfa lfaVar, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lfaVar, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = lfaVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            DataRes dataRes;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || this.a.a == null) {
+                return;
+            }
+            GetMyPostResIdl getMyPostResIdl = null;
+            if (httpResponsedMessage instanceof GetMyPostHttpResponseMessage) {
+                getMyPostResIdl = ((GetMyPostHttpResponseMessage) httpResponsedMessage).getResponseData();
+            }
+            if (getMyPostResIdl != null && (dataRes = getMyPostResIdl.data) != null && dataRes.thread_info != null) {
+                this.a.a.E(getMyPostResIdl.data.thread_info);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921455));
+            }
+        }
+    }
+
+    public lfa(kfa kfaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {kfaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,108 +143,22 @@ public class lfa {
                 return;
             }
         }
-        this.a = new ArrayList<>();
+        this.b = BdUniqueId.gen();
+        this.c = new a(this, 2921453);
+        b bVar = new b(this, CmdConfigHttp.CMD_GET_MY_POST);
+        this.d = bVar;
+        this.a = kfaVar;
+        bVar.setTag(this.b);
+        this.d.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.d);
+        MessageManager.getInstance().registerListener(this.c);
     }
 
-    public void a(gfa gfaVar) {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, gfaVar) == null) {
-            this.a.add(gfaVar);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.d);
+            MessageManager.getInstance().unRegisterListener(this.c);
         }
-    }
-
-    public final void b(WebView webView, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2) == null) {
-            TbLog hybridLog = HybridLog.getInstance();
-            hybridLog.i("JsBridge", "callJsMethod methodName:" + str + " param:" + str2);
-            if (webView != null && !ad.isEmpty(str) && !ad.isEmpty(str2)) {
-                if (Build.VERSION.SDK_INT >= 19) {
-                    webView.evaluateJavascript("javascript:" + str + "&&" + str + "('" + str2 + "')", null);
-                    return;
-                }
-                webView.loadUrl("javascript:" + str + "&&" + str + "('" + str2 + "')");
-            }
-        }
-    }
-
-    public ifa c(kfa kfaVar, ifa ifaVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, kfaVar, ifaVar)) == null) {
-            if (ifaVar == null) {
-                ifaVar = new ifa();
-            }
-            if ("notification".equals(kfaVar.c()) && "addObserver".equals(kfaVar.a())) {
-                Iterator<gfa> it = this.a.iterator();
-                while (it.hasNext()) {
-                    ifaVar = it.next().addObserver(kfaVar.d(), ifaVar, true);
-                    if (ifaVar.j()) {
-                        return ifaVar;
-                    }
-                }
-                if (!ifaVar.j()) {
-                    ifaVar.z(202);
-                    ifaVar.v(TbadkCoreApplication.getInst().getString(R.string.can_find_notification_name));
-                }
-            } else {
-                String c = kfaVar.c();
-                if (!ad.isEmpty(c) && DescriptionTableInfo.getModuleSet() != null && !DescriptionTableInfo.getModuleSet().contains(c)) {
-                    ifaVar.z(201);
-                    return ifaVar;
-                }
-                Iterator<gfa> it2 = this.a.iterator();
-                while (it2.hasNext()) {
-                    ifaVar = it2.next().dispatch(kfaVar, ifaVar);
-                    if (ifaVar.i()) {
-                        return ifaVar;
-                    }
-                }
-                if (!ifaVar.i()) {
-                    ifaVar.z(202);
-                }
-            }
-            return ifaVar;
-        }
-        return (ifa) invokeLL.objValue;
-    }
-
-    public void d(WebView webView, ifa ifaVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048579, this, webView, ifaVar) != null) || webView == null || ifaVar == null || !ifaVar.k()) {
-            return;
-        }
-        b(webView, ifaVar.c(), ifaVar.d());
-    }
-
-    public void e(WebView webView, List<ifa> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, webView, list) == null) && webView != null && !ListUtils.isEmpty(list)) {
-            for (ifa ifaVar : list) {
-                if (ifaVar != null && ifaVar.k()) {
-                    b(webView, ifaVar.c(), ifaVar.d());
-                }
-            }
-        }
-    }
-
-    public List<ifa> f(WebView webView, String str, HashMap hashMap) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, webView, str, hashMap)) == null) {
-            List<ifa> list = null;
-            if (ad.isEmpty(str)) {
-                return null;
-            }
-            Iterator<gfa> it = this.a.iterator();
-            while (it.hasNext()) {
-                list = it.next().processNotification(webView, str, hashMap);
-                if (!ListUtils.isEmpty(list)) {
-                    break;
-                }
-            }
-            return list;
-        }
-        return (List) invokeLLL.objValue;
     }
 }

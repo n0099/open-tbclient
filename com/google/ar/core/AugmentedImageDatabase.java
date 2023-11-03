@@ -1,7 +1,7 @@
 package com.google.ar.core;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AugmentedImageDatabase {
     public long a;
 

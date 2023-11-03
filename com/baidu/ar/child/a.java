@@ -9,7 +9,7 @@ public class a {
     public CropAlgo lL;
     public HandlerThread lM;
     public Handler lN;
-    public InterfaceC0058a lO;
+    public InterfaceC0059a lO;
     public boolean lP = true;
     public boolean lQ;
     public d lR;
@@ -18,7 +18,7 @@ public class a {
 
     /* renamed from: com.baidu.ar.child.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0058a {
+    public interface InterfaceC0059a {
         void a(long j, byte[] bArr, int i);
     }
 
@@ -147,8 +147,8 @@ public class a {
         return this.lL.nativeWriteCameraDataToHandel(j, bArr, i, i2, f);
     }
 
-    public void a(InterfaceC0058a interfaceC0058a) {
-        this.lO = interfaceC0058a;
+    public void a(InterfaceC0059a interfaceC0059a) {
+        this.lO = interfaceC0059a;
     }
 
     public void a(com.baidu.ar.child.b bVar) {

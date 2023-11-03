@@ -3,7 +3,7 @@ package com.baidu.tbadk.coreExtra.apkabtest;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.y6;
+import com.baidu.tieba.o7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -55,11 +55,11 @@ public class ApkAbTestHelper {
         this.mIsTarget = false;
         this.mPubEnvValue = 0;
         try {
-            y6 y6Var = new y6("", APK_AB_TEST_FILE_NAME, DiskFileOperate.Action.READ);
-            y6Var.setSdCard(true);
-            y6Var.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
-            if (y6Var.call()) {
-                String a = y6Var.a();
+            o7 o7Var = new o7("", APK_AB_TEST_FILE_NAME, DiskFileOperate.Action.READ);
+            o7Var.setSdCard(true);
+            o7Var.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+            if (o7Var.call()) {
+                String a = o7Var.a();
                 if (a != null) {
                     this.mPubEnvValue = Integer.parseInt(a);
                 }
@@ -88,19 +88,6 @@ public class ApkAbTestHelper {
         return (ApkAbTestHelper) invokeV.objValue;
     }
 
-    public String getCookieStringIfAbTest() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str = "pub_env=" + this.mPubEnvValue + ParamableElem.DIVIDE_PARAM;
-            if (!this.mIsTarget) {
-                return "";
-            }
-            return str;
-        }
-        return (String) invokeV.objValue;
-    }
-
     public int getPubEnv() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -117,5 +104,18 @@ public class ApkAbTestHelper {
             return this.mIsTarget;
         }
         return invokeV.booleanValue;
+    }
+
+    public String getCookieStringIfAbTest() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String str = "pub_env=" + this.mPubEnvValue + ParamableElem.DIVIDE_PARAM;
+            if (!this.mIsTarget) {
+                return "";
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
     }
 }

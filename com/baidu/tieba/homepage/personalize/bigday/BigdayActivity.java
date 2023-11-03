@@ -102,11 +102,11 @@ public class BigdayActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0179);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0903f5);
+            setContentView(R.layout.obfuscated_res_0x7f0d017b);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09040e);
             this.a = tbImageView;
             tbImageView.setAutoChangeStyle(false);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0903f4);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09040d);
             if (UtilHelper.canUseStyleImmersiveSticky()) {
                 ((FrameLayout.LayoutParams) this.b.getLayoutParams()).topMargin = (int) (UtilHelper.getStatusBarHeight() + getResources().getDimension(R.dimen.obfuscated_res_0x7f0703a5));
             }

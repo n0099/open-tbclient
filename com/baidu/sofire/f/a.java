@@ -23,18 +23,18 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
     public static a d;
     public transient /* synthetic */ FieldHolder $fh;
-    public C0179a a;
+    public C0180a a;
     public SQLiteDatabase b;
     public Context c;
 
     /* renamed from: com.baidu.sofire.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0179a extends SQLiteOpenHelper {
+    public class C0180a extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0179a(a aVar, Context context) {
+        public C0180a(a aVar, Context context) {
             super(context, "d.db", (SQLiteDatabase.CursorFactory) null, 3);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -93,7 +93,7 @@ public class a {
             }
         }
         this.c = context;
-        this.a = new C0179a(this, context);
+        this.a = new C0180a(this, context);
         a();
     }
 

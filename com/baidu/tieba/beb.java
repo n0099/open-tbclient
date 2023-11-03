@@ -1,97 +1,333 @@
 package com.baidu.tieba;
 
-import android.graphics.SurfaceTexture;
-import android.opengl.GLES20;
-import android.view.MotionEvent;
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.QuestionTagChooseActivityConfig;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.tbadk.core.data.ForumTagInfo;
+import com.baidu.tbadk.core.view.NormalItemCell;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.data.SelectForumData;
+import com.baidu.tieba.write.data.QuestionTagListData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class beb extends ydb {
+public class beb extends ieb<bfb> implements keb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean B;
+    @Nullable
+    public ForumTagInfo g;
+    @Nullable
+    public String h;
+    @Nullable
+    public View i;
+    @Nullable
+    public NormalItemCell j;
+    @Nullable
+    public tgb k;
 
-    @Override // com.baidu.tieba.xdb, com.baidu.tieba.meb
-    public void a(geb gebVar, SurfaceTexture surfaceTexture) {
+    @Override // com.baidu.tieba.neb
+    public void a(WriteData writeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, gebVar, surfaceTexture) == null) {
-            gebVar.h(this.mFullScreen2D, this.t, GlUtil.IDENTITY_MATRIX);
-            gebVar.f(surfaceTexture);
+        if (interceptable == null || interceptable.invokeL(1048580, this, writeData) == null) {
         }
     }
 
-    public final void i(int i, float[] fArr, int i2, int i3, int i4, int i5, int i6, int i7, float[] fArr2, boolean z, boolean z2) {
+    @Override // com.baidu.tieba.neb
+    public void c(@NonNull WriteData writeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), fArr, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), fArr2, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            GLES20.glBindFramebuffer(36160, i2);
-            GLES20.glFramebufferTexture2D(36160, 36064, 3553, i3, 0);
-            GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-            GLES20.glClear(16640);
-            if (this.z) {
-                if (z) {
-                    int i8 = this.j;
-                    int i9 = this.k;
-                    if (i8 > i9) {
-                        int i10 = this.p;
-                        float f = (i10 * 1.0f) / i8;
-                        GLES20.glViewport(0, (this.q - ((int) (i9 * f))) / 2, i10, (int) (i9 * f));
-                    } else {
-                        GLES20.glViewport(0, 0, this.p, this.q);
-                    }
-                    this.o.drawFrame(this.l, fArr2);
-                }
-                if (z2) {
-                    GLES20.glViewport(0, 0, this.p, this.q);
-                } else {
-                    GLES20.glViewport(i4 + this.w, ((this.q - i7) - i5) - this.x, i6, i7);
-                }
-                this.mFullScreen2D.drawFrame(i, fArr);
-            } else {
-                GLES20.glViewport(0, 0, this.p, this.q);
-                this.mFullScreen2D.drawFrame(i, fArr);
-                if (z) {
-                    int i11 = i4 + this.w;
-                    int i12 = this.q;
-                    int i13 = this.k;
-                    GLES20.glViewport(i11, ((i12 - i13) - i5) - this.x, this.j, i13);
-                    this.o.drawFrame(this.l, fArr2);
+        if (interceptable == null || interceptable.invokeL(1048582, this, writeData) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.neb
+    public void d(@NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, writeData) == null) {
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ beb a;
+
+        public a(beb bebVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bebVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            GLES20.glBindFramebuffer(36160, 0);
+            this.a = bebVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.a.L()) {
+                    if (this.a.b != null) {
+                        this.a.b.a(this.a.a.getString(R.string.obfuscated_res_0x7f0f0443));
+                    }
+                } else if (this.a.g == null) {
+                    if (!TextUtils.isEmpty(this.a.h)) {
+                        this.a.N();
+                    } else {
+                        this.a.M();
+                    }
+                }
+            }
         }
     }
 
-    public boolean j(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) ? (this.z && d(motionEvent)) || (!this.z && e(motionEvent)) : invokeL.booleanValue;
+    /* loaded from: classes5.dex */
+    public class b implements qgb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ beb a;
+
+        public b(beb bebVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bebVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bebVar;
+        }
+
+        @Override // com.baidu.tieba.qgb
+        public void a(@NonNull QuestionTagListData.QuestionTag questionTag) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, questionTag) == null) {
+                if (this.a.e != null) {
+                    this.a.e.setQuestionTagId(questionTag.id);
+                    this.a.e.setQuestionTagManualCreated(true);
+                }
+                if (this.a.j != null) {
+                    this.a.j.setSubTitle(questionTag.tagName);
+                }
+            }
+        }
     }
 
-    public boolean k() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public beb(TbPageContext<?> tbPageContext) {
+        super(tbPageContext, bfb.class);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (Class) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.neb
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            NormalItemCell normalItemCell = this.j;
+            if (normalItemCell != null) {
+                normalItemCell.c();
+            }
+            tgb tgbVar = this.k;
+            if (tgbVar != null) {
+                tgbVar.r();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.keb
+    public void onUpdate(Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, obj) == null) && (obj instanceof SelectForumData)) {
+            SelectForumData selectForumData = (SelectForumData) obj;
+            this.g = selectForumData.forumTagInfo;
+            this.h = selectForumData.firstCategory;
+            O();
+        }
+    }
+
+    public final boolean L() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.B : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            WriteData writeData = this.e;
+            if (writeData == null || !"2".equals(writeData.getCallFrom()) || this.g != null || !TextUtils.isEmpty(this.e.getForumName())) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
-    public void onDrawFrame(pb0 pb0Var, int i, float[] fArr) {
+    public final void M() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIL(1048580, this, pb0Var, i, fArr) == null) && this.s && this.l != 0) {
-            try {
-                this.mTextureId = i;
-                this.m.updateTexImage();
-                this.m.getTransformMatrix(this.n);
-                f();
-                i(i, fArr, this.v, this.t, this.f, this.g, this.h, this.i, this.n, !this.B, false);
-                GLES20.glViewport(0, 0, this.p, this.q);
-                this.mFullScreen2D.drawFrame(this.t, GlUtil.IDENTITY_MATRIX);
-                i(i, fArr, this.v, this.t, this.f, this.g, this.h, this.i, this.n, false, true);
-            } catch (Throwable th) {
-                veb.c("followvideo", th.toString());
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.e != null && this.j != null && this.a.getPageActivity() != null && !this.a.getPageActivity().isFinishing()) {
+            if (this.k == null) {
+                this.k = new tgb();
+            }
+            String str = null;
+            if (this.g == null) {
+                str = this.j.getSubTitleContent();
+            }
+            this.k.u(this.a.getPageActivity(), str, this.e.getForumId(), new b(this));
+        }
+    }
+
+    public final void O() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.j == null) {
+            return;
+        }
+        ForumTagInfo forumTagInfo = this.g;
+        if (forumTagInfo != null) {
+            WriteData writeData = this.e;
+            if (writeData != null) {
+                writeData.setQuestionTagId(forumTagInfo.id);
+                this.e.setQuestionTagManualCreated(false);
+            }
+            this.j.setSubTitle(this.g.name);
+            this.j.a();
+            return;
+        }
+        WriteData writeData2 = this.e;
+        if (writeData2 != null) {
+            writeData2.setQuestionTagId(null);
+            this.e.setQuestionTagManualCreated(false);
+        }
+        this.j.setSubTitle(null);
+        this.j.e();
+    }
+
+    public final void N() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            QuestionTagChooseActivityConfig questionTagChooseActivityConfig = new QuestionTagChooseActivityConfig(this.a.getPageActivity());
+            questionTagChooseActivityConfig.setCategory(this.h);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, questionTagChooseActivityConfig));
+        }
+    }
+
+    @Override // com.baidu.tieba.ieb, com.baidu.tieba.neb
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.b();
+            tgb tgbVar = this.k;
+            if (tgbVar != null) {
+                tgbVar.s();
             }
         }
+    }
+
+    @Override // com.baidu.tieba.ieb, com.baidu.tieba.neb
+    public void m(Bundle bundle, Intent intent, @NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle, intent, writeData) == null) {
+            super.m(bundle, intent, writeData);
+            if (bundle != null) {
+                this.h = bundle.getString(WriteActivityConfig.FORUM_FIRST_CATEGORY);
+                this.g = (ForumTagInfo) bundle.getSerializable(WriteActivityConfig.FORUM_TAG_INFO);
+            } else if (intent != null) {
+                this.h = intent.getStringExtra(WriteActivityConfig.FORUM_FIRST_CATEGORY);
+                this.g = (ForumTagInfo) intent.getSerializableExtra(WriteActivityConfig.FORUM_TAG_INFO);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ieb, com.baidu.tieba.neb
+    public void onActivityResult(int i, int i2, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048585, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
+            if (i2 != -1 || i != 25072 || intent == null || this.e == null || this.j == null) {
+                return;
+            }
+            if (intent.getBooleanExtra(QuestionTagChooseActivityConfig.KEY_RESPONSE_CREATE_TAG, false)) {
+                M();
+                return;
+            }
+            QuestionTagListData.QuestionTag questionTag = (QuestionTagListData.QuestionTag) intent.getParcelableExtra(QuestionTagChooseActivityConfig.KEY_RESPONSE_TAG);
+            if (questionTag == null) {
+                return;
+            }
+            this.e.setQuestionTagId(questionTag.id);
+            this.e.setQuestionTagManualCreated(false);
+            this.j.setSubTitle(questionTag.tagName);
+        }
+    }
+
+    @Override // com.baidu.tieba.neb
+    public View s(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        ForumTagInfo forumTagInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d056a, viewGroup, false);
+            this.i = inflate;
+            this.j = (NormalItemCell) inflate.findViewById(R.id.obfuscated_res_0x7f091e71);
+            NormalItemCell.a aVar = new NormalItemCell.a();
+            aVar.b = 1;
+            aVar.f = this.a.getString(R.string.obfuscated_res_0x7f0f0451);
+            aVar.e = this.a.getString(R.string.obfuscated_res_0x7f0f0450);
+            NormalItemCell normalItemCell = this.j;
+            if (normalItemCell != null) {
+                normalItemCell.setConfig(aVar);
+                this.j.setOnClickListener(new a(this));
+                WriteData writeData = this.e;
+                if (writeData != null && "2".equals(writeData.getCallFrom()) && (forumTagInfo = this.g) != null && forumTagInfo.isValid()) {
+                    this.e.setQuestionTagId(this.g.id);
+                    this.e.setQuestionTagManualCreated(false);
+                    this.j.setSubTitle(this.g.name);
+                    this.j.setOnClickListener(null);
+                    this.j.a();
+                }
+            }
+            return this.i;
+        }
+        return (View) invokeL.objValue;
     }
 }

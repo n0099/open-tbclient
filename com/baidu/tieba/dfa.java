@@ -1,38 +1,119 @@
 package com.baidu.tieba;
 
-import android.webkit.JsPromptResult;
-import android.webkit.WebView;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.schemeaction.SchemeActionManager;
-import com.baidu.tieba.browser.log.HybridLog;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.log.TbLog;
+import com.baidu.tieba.recentforum.data.RecentForumRespondedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import org.json.JSONException;
-import org.json.JSONObject;
+import kotlin.Unit;
 /* loaded from: classes5.dex */
-public class dfa {
+public final class dfa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<efa> a;
-    public final lfa b;
+    public BdUniqueId a;
+    public boolean b;
+    public a c;
+    public boolean d;
+    public final b e;
 
-    public dfa() {
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(ne8 ne8Var);
+
+        void onFail();
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class b extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dfa a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(dfa dfaVar) {
+            super(CmdConfigHttp.CMD_RECENT_FORUM);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dfaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dfaVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003572 && (httpResponsedMessage instanceof RecentForumRespondedMessage)) {
+                    RecentForumRespondedMessage recentForumRespondedMessage = (RecentForumRespondedMessage) httpResponsedMessage;
+                    if (recentForumRespondedMessage.getError() != 0) {
+                        this.a.g(false);
+                        TbLog defaultLog = DefaultLog.getInstance();
+                        defaultLog.i("RecentForumLog", "请求结束，返回错误，错误码为：" + recentForumRespondedMessage.getError());
+                        a a = this.a.a();
+                        if (a != null) {
+                            a.onFail();
+                            return;
+                        }
+                        return;
+                    }
+                    this.a.g(false);
+                    ne8 data = recentForumRespondedMessage.getData();
+                    Unit unit = null;
+                    if (data != null) {
+                        dfa dfaVar = this.a;
+                        DefaultLog.getInstance().i("RecentForumLog", "请求结束，有返回数据");
+                        a a2 = dfaVar.a();
+                        if (a2 != null) {
+                            a2.a(data);
+                            unit = Unit.INSTANCE;
+                        }
+                    }
+                    if (unit == null) {
+                        DefaultLog.getInstance().i("RecentForumLog", "请求结束，返回数据为空");
+                        return;
+                    }
+                    return;
+                }
+                this.a.g(false);
+                DefaultLog.getInstance().i("RecentForumLog", "请求结束，数据不合法");
+                a a3 = this.a.a();
+                if (a3 != null) {
+                    a3.onFail();
+                }
+            }
+        }
+    }
+
+    public dfa(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,156 +123,88 @@ public class dfa {
                 return;
             }
         }
-        this.a = new ArrayList<>();
-        this.b = new lfa();
+        this.a = bdUniqueId;
+        this.e = new b(this);
+        e();
     }
 
-    public boolean b() {
+    public final a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.isEmpty();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return invokeV.booleanValue;
+        return (a) invokeV.objValue;
     }
 
-    public void h() {
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.a.clear();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_RECENT_FORUM);
+            MessageManager.getInstance().unRegisterListener(this.e);
+            this.d = true;
         }
     }
 
-    public void a(efa efaVar) {
+    public final void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, efaVar) != null) || efaVar == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            d();
+            this.e.setSelfListener(true);
+            this.e.setTag(this.a);
+            MessageManager.getInstance().registerListener(this.e);
         }
-        this.a.add(efaVar);
-        if (efaVar.getClass().getAnnotation(kj.class) != null) {
-            try {
-                this.b.a((gfa) Class.forName("com.baidu.tieba.h5power." + efaVar.getClass().getSimpleName() + gfa.PROXY_CLASS_NAME_SUFFIX).getConstructor(efaVar.getClass()).newInstance(efaVar));
-            } catch (Exception e) {
-                BdLog.e(e);
+    }
+
+    public final boolean b(r78 r78Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r78Var)) == null) {
+            if (this.d) {
+                e();
+                this.d = false;
+                DefaultLog.getInstance().i("RecentForumLog", "重新注册");
             }
-        }
-    }
-
-    public boolean c(WebView webView, String str, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, jsPromptResult)) == null) {
-            if (str.startsWith("tiebaapp")) {
-                f(webView, str);
+            if (this.b) {
+                DefaultLog.getInstance().i("RecentForumLog", "上一次请求正在执行，不请求");
                 return false;
             }
-            return d(str, jsPromptResult);
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public final boolean g(TbPageContext<?> tbPageContext, String str, ifa ifaVar) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, tbPageContext, str, ifaVar)) == null) {
-            if (ifaVar == null || ifaVar.i() || !SchemeActionManager.getInstance().doSchemeAction(tbPageContext, str)) {
-                return false;
+            this.b = true;
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_RECENT_FORUM);
+            String str = null;
+            if (r78Var != null) {
+                str = r78Var.a().toString();
+                httpMessage.addParam("forum_frscsm", str);
             }
-            ifaVar.s(true);
-            ifaVar.z(0);
+            httpMessage.setTag(this.a);
+            TbLog defaultLog = DefaultLog.getInstance();
+            defaultLog.i("RecentForumLog", "开始请求，请求参数：" + str);
+            MessageManager.getInstance().sendMessage(httpMessage);
             return true;
         }
-        return invokeLLL.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public void i(WebView webView, String str, @Nullable HashMap hashMap) {
-        lfa lfaVar;
+    public final void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView, str, hashMap) != null) || (lfaVar = this.b) == null) {
-            return;
-        }
-        this.b.e(webView, lfaVar.f(webView, str, hashMap));
-    }
-
-    public boolean d(String str, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, jsPromptResult)) == null) {
-            if (StringUtils.isNull(str)) {
-                return false;
-            }
-            try {
-                TbLog hybridLog = HybridLog.getInstance();
-                hybridLog.i("JsBridge", "processJSON json:" + str);
-                JSONObject jSONObject = new JSONObject(str);
-                String optString = jSONObject.optString("interfaceName");
-                String optString2 = jSONObject.optString("methodName");
-                String optString3 = jSONObject.optString("param");
-                if (!StringUtils.isNull(optString) && !StringUtils.isNull(optString2) && !StringUtils.isNull(optString3)) {
-                    return e(optString, optString2, optString3, jsPromptResult);
-                }
-                TbLog hybridLog2 = HybridLog.getInstance();
-                hybridLog2.e("JsBridge", "processJSON fail interfaceName:" + optString + " methodName:" + optString2 + " params:" + optString3);
-                return false;
-            } catch (JSONException e) {
-                TbLog hybridLog3 = HybridLog.getInstance();
-                hybridLog3.e("JsBridge", "processJSON JSONException:" + e);
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final void f(WebView webView, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048581, this, webView, str) != null) || this.b == null) {
-            return;
-        }
-        TbLog hybridLog = HybridLog.getInstance();
-        hybridLog.i("JsBridge", "processScheme scheme:" + str);
-        kfa kfaVar = new kfa();
-        ifa ifaVar = new ifa();
-        String a = mfa.a(str);
-        kfaVar.f(a);
-        String d = mfa.d(str);
-        kfaVar.h(d);
-        String b = mfa.b(str);
-        ifaVar.w(b);
-        if (ad.isEmpty(a) || ad.isEmpty(d) || ad.isEmpty(b)) {
-            ifaVar.z(101);
-        }
-        try {
-            kfaVar.j(mfa.f(str));
-        } catch (JSONException unused) {
-            kfaVar.j(new JSONObject());
-            ifaVar.z(101);
-        }
-        kfaVar.i(mfa.e(str));
-        kfaVar.g(mfa.c(str));
-        ifa c = this.b.c(kfaVar, ifaVar);
-        if (c.g()) {
-            this.b.d(webView, c);
-        } else {
-            g(tca.c(webView.getContext()), str, c);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RECENT_FORUM, TbConfig.SERVER_ADDRESS + "c/f/excellent/getRecentForum");
+            tbHttpMessageTask.setResponsedClass(RecentForumRespondedMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
     }
 
-    public final boolean e(String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLLL;
+    public final void f(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, str, str2, str3, jsPromptResult)) == null) {
-            if (ListUtils.getCount(this.a) > 0) {
-                Iterator<efa> it = this.a.iterator();
-                while (it.hasNext()) {
-                    efa next = it.next();
-                    if (next != null && next.dealJsInterface(str, str2, str3, jsPromptResult)) {
-                        return true;
-                    }
-                }
-                return false;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
+            this.c = aVar;
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    public final void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.b = z;
+        }
     }
 }

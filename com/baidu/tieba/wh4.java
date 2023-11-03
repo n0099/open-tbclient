@@ -1,53 +1,120 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class wh4 {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
+    public static volatile wh4 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948270566, "Lcom/baidu/tieba/wh4;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948270566, "Lcom/baidu/tieba/wh4;");
+    /* loaded from: classes8.dex */
+    public static class a extends pm4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a() {
+            super("updatecore_node_ceres");
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
         }
     }
 
-    public static String a() {
+    public wh4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new a();
+    }
+
+    public static wh4 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            yc4 b = ad4.b();
             if (b == null) {
-                return "0";
+                synchronized (wh4.class) {
+                    if (b == null) {
+                        b = new wh4();
+                    }
+                }
             }
-            return b.i().getString("key_online_description_fix_version", "0");
+            return b;
+        }
+        return (wh4) invokeV.objValue;
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.getString("ceres_info", "0");
         }
         return (String) invokeV.objValue;
     }
 
-    public static boolean b() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == 1) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.getString("global_info", "0");
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
+    }
+
+    public vh4 d(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            JSONObject optJSONObject = jSONObject.optJSONObject("ceres_info");
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("global_info");
+            if (optJSONObject == null || optJSONObject2 == null) {
+                return null;
+            }
+            String optString = optJSONObject.optString("version");
+            JSONArray optJSONArray = optJSONObject.optJSONArray("data");
+            if (TextUtils.isEmpty(optString) || optJSONArray == null) {
+                return null;
+            }
+            String optString2 = optJSONObject2.optString("version");
+            JSONObject optJSONObject3 = optJSONObject2.optJSONObject("data");
+            if (TextUtils.isEmpty(optString) || optJSONObject3 == null) {
+                return null;
+            }
+            this.a.edit().putString("ceres_info", optString).putString("global_info", optString2).apply();
+            return new vh4(optJSONArray, optJSONObject3);
+        }
+        return (vh4) invokeL.objValue;
     }
 }

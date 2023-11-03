@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.enterForum.data.HotSearchInfoData;
 import com.baidu.tieba.enterForum.model.EnterForumModel;
-import com.baidu.tieba.gz4;
+import com.baidu.tieba.yz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -154,8 +154,8 @@ public class forumRecommendHttpResponseMessage extends TbHttpResponsedMessage {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(1048580, this, i, bArr) == null) && bArr != null && bArr.length > 0 && getError() == 0) {
-            gz4.k();
-            gz4.j("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).a(EnterForumModel.FORUMRECOMMEND_CACHE_KEY, bArr);
+            yz4.l();
+            yz4.k("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).a(EnterForumModel.FORUMRECOMMEND_CACHE_KEY, bArr);
         }
     }
 
@@ -186,7 +186,7 @@ public class forumRecommendHttpResponseMessage extends TbHttpResponsedMessage {
             if (dataRes.hot_search != null) {
                 HotSearchInfoData hotSearchInfoData = new HotSearchInfoData();
                 this.hotSearchInfo = hotSearchInfoData;
-                hotSearchInfoData.O(forumRecommendResIdl.data.hot_search);
+                hotSearchInfoData.P(forumRecommendResIdl.data.hot_search);
             }
             DataRes dataRes2 = forumRecommendResIdl.data;
             this.recommend_concern_forums = dataRes2.tag_recommend_forum;

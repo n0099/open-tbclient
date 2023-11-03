@@ -18,21 +18,21 @@ import kotlin.reflect.jvm.internal.impl.descriptors.impl.ModuleDescriptorImpl;
 import kotlin.reflect.jvm.internal.impl.storage.NotNullLazyValue;
 import kotlin.reflect.jvm.internal.impl.storage.StorageKt;
 import kotlin.reflect.jvm.internal.impl.storage.StorageManager;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class JvmBuiltIns extends KotlinBuiltIns {
     public static final /* synthetic */ KProperty[] $$delegatedProperties = {Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(JvmBuiltIns.class), AccountConstants.LOGOUT_TYPE_NATIVE_SRC_SETTINGS, "getSettings()Lorg/jetbrains/kotlin/builtins/jvm/JvmBuiltInsSettings;"))};
     public boolean isAdditionalBuiltInsFeatureSupported;
     public ModuleDescriptor ownerModuleDescriptor;
     public final NotNullLazyValue settings$delegate;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public enum Kind {
         FROM_DEPENDENCIES,
         FROM_CLASS_LOADER,
         FALLBACK
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public final /* synthetic */ class WhenMappings {
         public static final /* synthetic */ int[] $EnumSwitchMapping$0;
 

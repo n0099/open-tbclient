@@ -1,272 +1,200 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.mainTab.FragmentDelegate;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collection;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
-import kotlin.collections.CollectionsKt___CollectionsKt;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
+import tbclient.FrsTabInfo;
 /* loaded from: classes7.dex */
-public final class pq7 {
+public class pq7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<FrsTabInfo> a;
+    public final List<FragmentDelegate> b;
+    public Context c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948070771, "Lcom/baidu/tieba/pq7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948070771, "Lcom/baidu/tieba/pq7;");
+    public pq7(Context context, List<FrsTabInfo> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, list};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new a(null);
+        this.a = list;
+        this.b = new LinkedList();
+        this.c = context;
     }
 
-    @JvmStatic
-    public static final boolean a(String str) {
-        InterceptResult invokeL;
+    public void a(FragmentDelegate fragmentDelegate) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? a.a(str) : invokeL.booleanValue;
-    }
-
-    @JvmStatic
-    public static final boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? a.b(str) : invokeL.booleanValue;
-    }
-
-    @JvmStatic
-    public static final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            a.c();
-        }
-    }
-
-    @JvmStatic
-    public static final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a.d() : invokeV.booleanValue;
-    }
-
-    @JvmStatic
-    public static final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            a.e();
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @JvmStatic
-        public final boolean d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return SharedPrefHelper.getInstance().getBoolean(SharedPrefHelper.getSharedPrefKeyWithAccount("forum_group_feed_card_has_show"), false);
-            }
-            return invokeV.booleanValue;
-        }
-
-        @JvmStatic
-        public final void e() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                SharedPrefHelper.getInstance().putBoolean(SharedPrefHelper.getSharedPrefKeyWithAccount("forum_group_feed_card_has_show"), true);
-            }
-        }
-
-        /* JADX WARN: Code restructure failed: missing block: B:13:0x0015, code lost:
-            r2 = com.baidu.tieba.qq7.j();
-         */
-        @JvmStatic
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public final boolean a(String str) {
-            InterceptResult invokeL;
-            boolean z;
-            int j;
-            String h;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                if (str != null && str.length() != 0) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                if (z || j <= 0) {
-                    return false;
-                }
-                String valueOf = String.valueOf(StringHelper.getyyyyMMddTimeForNow());
-                h = qq7.h();
-                Intrinsics.checkNotNullExpressionValue(h, "feedCardHasShowArrayStr()");
-                List<String> split$default = StringsKt__StringsKt.split$default((CharSequence) h, new String[]{"_"}, false, 0, 6, (Object) null);
-                if (split$default.size() > 1 && Intrinsics.areEqual(valueOf, split$default.get(0))) {
-                    int i = 0;
-                    for (String str2 : split$default) {
-                        if (Intrinsics.areEqual(str2, str)) {
-                            i++;
-                        }
-                    }
-                    if (i >= j) {
-                        return false;
-                    }
-                }
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        @JvmStatic
-        public final void f(String str) {
-            boolean z;
-            String h;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-                if (str != null && str.length() != 0) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                if (z) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, fragmentDelegate) == null) && fragmentDelegate != null && fragmentDelegate.getFragmentTabStructure() != null) {
+            for (FragmentDelegate fragmentDelegate2 : this.b) {
+                if (fragmentDelegate2 != null && fragmentDelegate2.getFragmentTabStructure() != null && fragmentDelegate2.getFragmentTabStructure().type == fragmentDelegate.getFragmentTabStructure().type) {
                     return;
                 }
-                String valueOf = String.valueOf(StringHelper.getyyyyMMddTimeForNow());
-                h = qq7.h();
-                Intrinsics.checkNotNullExpressionValue(h, "feedCardHasShowArrayStr()");
-                List mutableList = CollectionsKt___CollectionsKt.toMutableList((Collection) StringsKt__StringsKt.split$default((CharSequence) h, new String[]{"_"}, false, 0, 6, (Object) null));
-                if (mutableList.isEmpty()) {
-                    mutableList.add(valueOf);
-                } else if (mutableList.size() == 1) {
-                    mutableList.clear();
-                    mutableList.add(valueOf);
-                } else if (!Intrinsics.areEqual(valueOf, mutableList.get(0))) {
-                    mutableList.clear();
-                    mutableList.add(valueOf);
-                }
-                mutableList.add(str);
-                qq7.l(CollectionsKt___CollectionsKt.joinToString$default(mutableList, "_", null, null, 0, null, null, 62, null));
             }
+            this.b.add(fragmentDelegate);
         }
+    }
 
-        /* JADX WARN: Code restructure failed: missing block: B:13:0x0015, code lost:
-            r2 = com.baidu.tieba.qq7.i();
-         */
-        @JvmStatic
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public final boolean b(String str) {
-            InterceptResult invokeL;
-            boolean z;
-            int i;
-            String g;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                if (str != null && str.length() != 0) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                if (z || i <= 0) {
-                    return false;
-                }
-                String valueOf = String.valueOf(StringHelper.getyyyyMMddTimeForNow());
-                g = qq7.g();
-                Intrinsics.checkNotNullExpressionValue(g, "entranceGuideHasShowArrayStr()");
-                List mutableList = CollectionsKt___CollectionsKt.toMutableList((Collection) StringsKt__StringsKt.split$default((CharSequence) g, new String[]{"_"}, false, 0, 6, (Object) null));
-                if (mutableList.isEmpty()) {
-                    mutableList.add(valueOf);
-                    mutableList.add(str);
-                    qq7.k(CollectionsKt___CollectionsKt.joinToString$default(mutableList, "_", null, null, 0, null, null, 62, null));
+    public Context b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public List<FrsTabInfo> g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public List<FragmentDelegate> h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public boolean i(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            if (i >= 100 || ListUtils.isEmpty(this.a)) {
+                return false;
+            }
+            for (FrsTabInfo frsTabInfo : this.a) {
+                if (frsTabInfo.tab_id.intValue() == i) {
                     return true;
-                } else if (mutableList.size() == 1) {
-                    mutableList.clear();
-                    mutableList.add(valueOf);
-                    mutableList.add(str);
-                    qq7.k(CollectionsKt___CollectionsKt.joinToString$default(mutableList, "_", null, null, 0, null, null, 62, null));
-                    return true;
-                } else if (Intrinsics.areEqual(valueOf, mutableList.get(0))) {
-                    if (mutableList.contains(str) || mutableList.size() - 1 >= i) {
-                        return false;
+                }
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.f = str;
+        }
+    }
+
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.d = str;
+        }
+    }
+
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    public void m(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            this.g = str;
+        }
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            LinkedList linkedList = new LinkedList();
+            LinkedList linkedList2 = new LinkedList();
+            for (FrsTabInfo frsTabInfo : this.a) {
+                boolean z = false;
+                Iterator<FragmentDelegate> it = this.b.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
                     }
-                    mutableList.add(str);
-                    qq7.k(CollectionsKt___CollectionsKt.joinToString$default(mutableList, "_", null, null, 0, null, null, 62, null));
-                    return true;
-                } else {
-                    mutableList.clear();
-                    mutableList.add(valueOf);
-                    mutableList.add(str);
-                    qq7.k(CollectionsKt___CollectionsKt.joinToString$default(mutableList, "_", null, null, 0, null, null, 62, null));
-                    return true;
+                    FragmentDelegate next = it.next();
+                    if (next.getFragmentTabStructure() != null && frsTabInfo.tab_id.intValue() == next.getFragmentTabStructure().type) {
+                        linkedList.add(next);
+                        z = true;
+                        break;
+                    }
+                }
+                if (!z) {
+                    linkedList2.add(frsTabInfo);
                 }
             }
-            return invokeL.booleanValue;
-        }
-
-        @JvmStatic
-        public final void c() {
-            int i;
-            String g;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                String valueOf = String.valueOf(StringHelper.getyyyyMMddTimeForNow());
-                g = qq7.g();
-                Intrinsics.checkNotNullExpressionValue(g, "entranceGuideHasShowArrayStr()");
-                List mutableList = CollectionsKt___CollectionsKt.toMutableList((Collection) StringsKt__StringsKt.split$default((CharSequence) g, new String[]{"_"}, false, 0, 6, (Object) null));
-                if (mutableList.isEmpty()) {
-                    mutableList.add(valueOf);
-                } else if (mutableList.size() == 1) {
-                    mutableList.clear();
-                    mutableList.add(valueOf);
-                }
-                for (i = qq7.i(); -1 < i; i--) {
-                    mutableList.add(String.valueOf(i));
-                }
-                qq7.k(CollectionsKt___CollectionsKt.joinToString$default(mutableList, "_", null, null, 0, null, null, 62, null));
+            if (!ListUtils.isEmpty(linkedList2)) {
+                this.a.removeAll(linkedList2);
+            }
+            this.b.clear();
+            if (!ListUtils.isEmpty(linkedList)) {
+                this.b.addAll(linkedList);
             }
         }
     }

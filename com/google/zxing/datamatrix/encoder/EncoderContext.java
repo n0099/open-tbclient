@@ -2,7 +2,7 @@ package com.google.zxing.datamatrix.encoder;
 
 import com.google.zxing.Dimension;
 import java.nio.charset.Charset;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class EncoderContext {
     public final StringBuilder codewords;
     public Dimension maxSize;

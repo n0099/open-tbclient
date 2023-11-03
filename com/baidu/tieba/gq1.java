@@ -1,10 +1,11 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import androidx.annotation.Nullable;
-import java.util.List;
+import android.content.Context;
 /* loaded from: classes6.dex */
 public interface gq1 {
-    @Nullable
-    List<ContentValues> a();
+    boolean a(Context context, String str);
+
+    boolean b(Context context, String str);
+
+    boolean c(Context context, String str);
 }

@@ -4,8 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.live.LiveFeedPageSdk;
-import com.baidu.tieba.q50;
-import com.baidu.tieba.q70;
+import com.baidu.tieba.h60;
+import com.baidu.tieba.h80;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -108,7 +108,7 @@ public class LiveFeedWrapData implements Parcelable {
                 }
             }
         }
-        this.hasMore = (this.errCode == 0 && q70.c(this.roomInfoList)) ? true : true;
+        this.hasMore = (this.errCode == 0 && h80.c(this.roomInfoList)) ? true : true;
     }
 
     public void parserJson(JSONObject jSONObject, int i, boolean z) {
@@ -120,7 +120,7 @@ public class LiveFeedWrapData implements Parcelable {
             } catch (JSONException e) {
                 LiveFeedPageSdk.liveLog("Feed 缓存记录时间失败 " + e.getMessage());
             }
-            q50.f(getFeedCacheKey(this.tab, this.subTab), jSONObject.toString());
+            h60.f(getFeedCacheKey(this.tab, this.subTab), jSONObject.toString());
         }
     }
 

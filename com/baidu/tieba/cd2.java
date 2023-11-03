@@ -1,142 +1,73 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class cd2 {
+public class cd2 extends d83 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile cd2 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Lock a;
-    public ArrayList<gd2> b;
 
-    public cd2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cd2(d73 d73Var) {
+        super(d73Var, "/swanAPI/getRegionData");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {d73Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ReentrantLock();
-        this.b = new ArrayList<>();
     }
 
-    public static cd2 i() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.d83
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g63 g63Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (cd2.class) {
-                    if (c == null) {
-                        c = new cd2();
-                    }
-                }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g63Var)) == null) {
+            if (g63Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
+                return false;
             }
-            return c;
-        }
-        return (cd2) invokeV.objValue;
-    }
-
-    public final Object[] a() {
-        Object[] objArr;
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String b = ri3.b(context, "aiapps/pickerRegion.js");
+            if (TextUtils.isEmpty(b)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty regionData");
+                return false;
+            }
             try {
-                this.a.lock();
-                if (this.b.size() > 0) {
-                    objArr = this.b.toArray();
-                } else {
-                    objArr = null;
+                JSONArray jSONArray = new JSONArray(b);
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("content", jSONArray);
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+                return true;
+            } catch (JSONException e) {
+                if (d83.b) {
+                    e.printStackTrace();
                 }
-                return objArr;
-            } finally {
-                this.a.unlock();
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "exec fail");
+                return false;
             }
         }
-        return (Object[]) invokeV.objValue;
-    }
-
-    public void b(xc2 xc2Var) {
-        Object[] a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xc2Var) == null) && (a = a()) != null) {
-            for (Object obj : a) {
-                ((gd2) obj).d(xc2Var);
-            }
-        }
-    }
-
-    public void c(xc2 xc2Var) {
-        Object[] a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xc2Var) == null) && (a = a()) != null) {
-            for (Object obj : a) {
-                ((gd2) obj).b(xc2Var);
-            }
-        }
-    }
-
-    public void d(xc2 xc2Var) {
-        Object[] a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, xc2Var) == null) && (a = a()) != null) {
-            for (Object obj : a) {
-                ((gd2) obj).f(xc2Var);
-            }
-        }
-    }
-
-    public void e(xc2 xc2Var) {
-        Object[] a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, xc2Var) == null) && (a = a()) != null) {
-            for (Object obj : a) {
-                ((gd2) obj).c(xc2Var);
-            }
-        }
-    }
-
-    public void f(xc2 xc2Var) {
-        Object[] a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, xc2Var) == null) && (a = a()) != null) {
-            for (Object obj : a) {
-                ((gd2) obj).g(xc2Var);
-            }
-        }
-    }
-
-    public void g(xc2 xc2Var) {
-        Object[] a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, xc2Var) == null) && (a = a()) != null) {
-            for (Object obj : a) {
-                ((gd2) obj).a(xc2Var);
-            }
-        }
-    }
-
-    public void h(xc2 xc2Var) {
-        Object[] a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, xc2Var) == null) && (a = a()) != null) {
-            for (Object obj : a) {
-                ((gd2) obj).e(xc2Var);
-            }
-        }
+        return invokeLLLL.booleanValue;
     }
 }

@@ -1,125 +1,158 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
 public final class hr6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Bitmap a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public final int b;
+    public final String c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947833373, "Lcom/baidu/tieba/hr6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947833373, "Lcom/baidu/tieba/hr6;");
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public hr6() {
+        this(0, 0, null, 7, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                this(((Integer) objArr[0]).intValue(), ((Integer) objArr[1]).intValue(), (String) objArr[2], ((Integer) objArr[3]).intValue(), (DefaultConstructorMarker) objArr[4]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Bitmap createBitmap = Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888);
-        Intrinsics.checkNotNullExpressionValue(createBitmap, "createBitmap(1, 1, Bitmap.Config.ARGB_8888)");
-        a = createBitmap;
     }
 
-    public static final Bitmap b() {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof hr6) {
+                hr6 hr6Var = (hr6) obj;
+                return this.a == hr6Var.a && this.b == hr6Var.b && Intrinsics.areEqual(this.c, hr6Var.c);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
-        }
-        return (Bitmap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? (((this.a * 31) + this.b) * 31) + this.c.hashCode() : invokeV.intValue;
     }
 
-    public static final boolean a(zp6 zp6Var, zp6 zp6Var2, zr6 zr6Var, long j, long j2) {
-        InterceptResult invokeCommon;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{zp6Var, zp6Var2, zr6Var, Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            int width = zr6Var.getWidth();
-            float q = zp6Var.f().q();
-            float q2 = zp6Var2.f().q();
-            long j3 = j - zp6Var.j();
-            float f = width;
-            float f2 = (float) j2;
-            if (f - ((q2 + f) * (((float) (j - zp6Var2.j())) / f2)) < (f - ((f + q) * (((float) j3) / f2))) + q) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return "TbPatternImage(width=" + this.a + ", height=" + this.b + ", url=" + this.c + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public hr6(int i, int i2, String url) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), url};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeCommon.booleanValue;
+        Intrinsics.checkNotNullParameter(url, "url");
+        this.a = i;
+        this.b = i2;
+        this.c = url;
     }
 
-    public static final boolean c(zp6 zp6Var, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65539, null, zp6Var, j)) == null) {
-            Intrinsics.checkNotNullParameter(zp6Var, "<this>");
-            if (j - zp6Var.j() < 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLJ.booleanValue;
+    public /* synthetic */ hr6(int i, int i2, String str, int i3, DefaultConstructorMarker defaultConstructorMarker) {
+        this((i3 & 1) != 0 ? 0 : i, (i3 & 2) != 0 ? 0 : i2, (i3 & 4) != 0 ? "" : str);
     }
 
-    public static final boolean d(zp6 zp6Var, long j) {
-        InterceptResult invokeLJ;
+    public final int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, zp6Var, j)) == null) {
-            Intrinsics.checkNotNullParameter(zp6Var, "<this>");
-            if (!e(zp6Var, j) && !c(zp6Var, j)) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public final boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (!e() && !f()) {
                 return false;
             }
             return true;
         }
-        return invokeLJ.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public static final boolean e(zp6 zp6Var, long j) {
-        InterceptResult invokeLJ;
+    public final boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65541, null, zp6Var, j)) == null) {
-            Intrinsics.checkNotNullParameter(zp6Var, "<this>");
-            if (j - zp6Var.j() > zp6Var.g()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLJ.booleanValue;
-    }
-
-    public static final boolean f(zp6 zp6Var, zp6 danmaku, zr6 displayer, long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{zp6Var, danmaku, displayer, Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            Intrinsics.checkNotNullParameter(zp6Var, "<this>");
-            Intrinsics.checkNotNullParameter(danmaku, "danmaku");
-            Intrinsics.checkNotNullParameter(displayer, "displayer");
-            if (d(zp6Var, j)) {
-                return false;
-            }
-            long j3 = danmaku.j() - zp6Var.j();
-            if (j3 <= 0) {
-                return true;
-            }
-            if (Math.abs(j3) >= j2 || e(zp6Var, j) || e(danmaku, j)) {
-                return false;
-            }
-            if (zp6Var.e().j() != 5 && zp6Var.e().j() != 4 && !a(zp6Var, danmaku, displayer, j, j2) && !a(zp6Var, danmaku, displayer, j + j2, j2)) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.a > 0 && this.b > 0) {
                 return false;
             }
             return true;
         }
-        return invokeCommon.booleanValue;
+        return invokeV.booleanValue;
+    }
+
+    public final boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            String str = this.c;
+            if (str != null && str.length() != 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

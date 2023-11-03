@@ -2,7 +2,6 @@ package com.baidu.cyberplayer.sdk;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
-import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.cyberplayer.sdk.ab.CyberAbTestManager;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
@@ -839,11 +838,7 @@ public class CyberPlayerManager {
                             sInstallOpts.putAll(map);
                             parserGlobalInstallOptions(map);
                         }
-                        int i3 = i | 64;
-                        if (Build.VERSION.SDK_INT > 23) {
-                            i3 |= 128;
-                        }
-                        CyberCoreLoaderManager.getInstance().load(str2, i3, map, installListener2);
+                        CyberCoreLoaderManager.getInstance().load(str2, i, map, installListener2);
                     } else {
                         throw new NullPointerException("clienID is null");
                     }
@@ -902,11 +897,7 @@ public class CyberPlayerManager {
                             parserGlobalInstallOptions(map);
                         }
                         sPcdnType = i2;
-                        int i3 = i | 64;
-                        if (Build.VERSION.SDK_INT > 23) {
-                            i3 |= 128;
-                        }
-                        CyberCoreLoaderManager.getInstance().load(str2, i3, map, installListener);
+                        CyberCoreLoaderManager.getInstance().load(str2, i, map, installListener);
                     } else {
                         throw new NullPointerException("clienID is null");
                     }

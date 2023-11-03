@@ -42,24 +42,24 @@ public class b {
         this.nG = true;
     }
 
-    public a.C0060a a(a.b bVar) {
-        a.C0060a c0060a;
+    public a.C0061a a(a.b bVar) {
+        a.C0061a c0061a;
         int i = bVar.qg;
         if (i == 0) {
             this.nL = 1;
-            c0060a = bVar.qd;
+            c0061a = bVar.qd;
         } else if (i == 1) {
             this.nL = 1;
-            c0060a = bVar.qe;
+            c0061a = bVar.qe;
         } else if (i != 2) {
             com.baidu.ar.h.b.b(TAG, "createFaceParams() device not support!!!");
-            c0060a = null;
+            c0061a = null;
         } else {
             this.nL = 4;
-            c0060a = bVar.qf;
+            c0061a = bVar.qf;
         }
         this.nM = this.nL;
-        return c0060a;
+        return c0061a;
     }
 
     public void b(String str, int i) {

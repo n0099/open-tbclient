@@ -41,12 +41,12 @@ public final class AppCompatDrawableManager {
                 INSTANCE = appCompatDrawableManager;
                 appCompatDrawableManager.mResourceManager = ResourceManagerInternal.get();
                 INSTANCE.mResourceManager.setHooks(new ResourceManagerInternal.ResourceManagerHooks() { // from class: androidx.appcompat.widget.AppCompatDrawableManager.1
-                    public final int[] COLORFILTER_TINT_COLOR_CONTROL_NORMAL = {R.drawable.obfuscated_res_0x7f0800b3, R.drawable.obfuscated_res_0x7f0800b1, R.drawable.obfuscated_res_0x7f080060};
-                    public final int[] TINT_COLOR_CONTROL_NORMAL = {R.drawable.obfuscated_res_0x7f080078, R.drawable.obfuscated_res_0x7f0800a1, R.drawable.obfuscated_res_0x7f08007f, R.drawable.obfuscated_res_0x7f08007a, R.drawable.obfuscated_res_0x7f08007b, R.drawable.obfuscated_res_0x7f08007e, R.drawable.obfuscated_res_0x7f08007d};
-                    public final int[] COLORFILTER_COLOR_CONTROL_ACTIVATED = {R.drawable.obfuscated_res_0x7f0800b0, R.drawable.obfuscated_res_0x7f0800b2, R.drawable.obfuscated_res_0x7f080071, R.drawable.obfuscated_res_0x7f0800a9, R.drawable.obfuscated_res_0x7f0800aa, R.drawable.obfuscated_res_0x7f0800ac, R.drawable.obfuscated_res_0x7f0800ae, R.drawable.obfuscated_res_0x7f0800ab, R.drawable.obfuscated_res_0x7f0800ad, R.drawable.obfuscated_res_0x7f0800af};
-                    public final int[] COLORFILTER_COLOR_BACKGROUND_MULTIPLY = {R.drawable.obfuscated_res_0x7f080097, R.drawable.obfuscated_res_0x7f08006f, R.drawable.obfuscated_res_0x7f080096};
-                    public final int[] TINT_COLOR_CONTROL_STATE_LIST = {R.drawable.obfuscated_res_0x7f0800a7, R.drawable.obfuscated_res_0x7f0800b4};
-                    public final int[] TINT_CHECKABLE_BUTTON_LIST = {R.drawable.obfuscated_res_0x7f080063, R.drawable.obfuscated_res_0x7f080069, R.drawable.obfuscated_res_0x7f080064, R.drawable.obfuscated_res_0x7f08006a};
+                    public final int[] COLORFILTER_TINT_COLOR_CONTROL_NORMAL = {R.drawable.obfuscated_res_0x7f0800b6, R.drawable.obfuscated_res_0x7f0800b4, R.drawable.obfuscated_res_0x7f080063};
+                    public final int[] TINT_COLOR_CONTROL_NORMAL = {R.drawable.obfuscated_res_0x7f08007b, R.drawable.obfuscated_res_0x7f0800a4, R.drawable.obfuscated_res_0x7f080082, R.drawable.obfuscated_res_0x7f08007d, R.drawable.obfuscated_res_0x7f08007e, R.drawable.obfuscated_res_0x7f080081, R.drawable.obfuscated_res_0x7f080080};
+                    public final int[] COLORFILTER_COLOR_CONTROL_ACTIVATED = {R.drawable.obfuscated_res_0x7f0800b3, R.drawable.obfuscated_res_0x7f0800b5, R.drawable.obfuscated_res_0x7f080074, R.drawable.obfuscated_res_0x7f0800ac, R.drawable.obfuscated_res_0x7f0800ad, R.drawable.obfuscated_res_0x7f0800af, R.drawable.obfuscated_res_0x7f0800b1, R.drawable.obfuscated_res_0x7f0800ae, R.drawable.obfuscated_res_0x7f0800b0, R.drawable.obfuscated_res_0x7f0800b2};
+                    public final int[] COLORFILTER_COLOR_BACKGROUND_MULTIPLY = {R.drawable.obfuscated_res_0x7f08009a, R.drawable.obfuscated_res_0x7f080072, R.drawable.obfuscated_res_0x7f080099};
+                    public final int[] TINT_COLOR_CONTROL_STATE_LIST = {R.drawable.obfuscated_res_0x7f0800aa, R.drawable.obfuscated_res_0x7f0800b7};
+                    public final int[] TINT_CHECKABLE_BUTTON_LIST = {R.drawable.obfuscated_res_0x7f080066, R.drawable.obfuscated_res_0x7f08006c, R.drawable.obfuscated_res_0x7f080067, R.drawable.obfuscated_res_0x7f08006d};
 
                     private boolean arrayContains(int[] iArr, int i) {
                         for (int i2 : iArr) {
@@ -71,7 +71,7 @@ public final class AppCompatDrawableManager {
 
                     @Override // androidx.appcompat.widget.ResourceManagerInternal.ResourceManagerHooks
                     public PorterDuff.Mode getTintModeForDrawableRes(int i) {
-                        if (i == R.drawable.obfuscated_res_0x7f0800a5) {
+                        if (i == R.drawable.obfuscated_res_0x7f0800a8) {
                             return PorterDuff.Mode.MULTIPLY;
                         }
                         return null;
@@ -116,33 +116,33 @@ public final class AppCompatDrawableManager {
 
                     @Override // androidx.appcompat.widget.ResourceManagerInternal.ResourceManagerHooks
                     public Drawable createDrawableFor(@NonNull ResourceManagerInternal resourceManagerInternal, @NonNull Context context, int i) {
-                        if (i == R.drawable.obfuscated_res_0x7f080070) {
-                            return new LayerDrawable(new Drawable[]{resourceManagerInternal.getDrawable(context, R.drawable.obfuscated_res_0x7f08006f), resourceManagerInternal.getDrawable(context, R.drawable.obfuscated_res_0x7f080071)});
+                        if (i == R.drawable.obfuscated_res_0x7f080073) {
+                            return new LayerDrawable(new Drawable[]{resourceManagerInternal.getDrawable(context, R.drawable.obfuscated_res_0x7f080072), resourceManagerInternal.getDrawable(context, R.drawable.obfuscated_res_0x7f080074)});
                         }
                         return null;
                     }
 
                     @Override // androidx.appcompat.widget.ResourceManagerInternal.ResourceManagerHooks
                     public ColorStateList getTintListForDrawableRes(@NonNull Context context, int i) {
-                        if (i == R.drawable.obfuscated_res_0x7f080074) {
+                        if (i == R.drawable.obfuscated_res_0x7f080077) {
                             return AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0603d2);
                         }
-                        if (i == R.drawable.obfuscated_res_0x7f0800a6) {
+                        if (i == R.drawable.obfuscated_res_0x7f0800a9) {
                             return AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0603d5);
                         }
-                        if (i == R.drawable.obfuscated_res_0x7f0800a5) {
+                        if (i == R.drawable.obfuscated_res_0x7f0800a8) {
                             return createSwitchThumbColorStateList(context);
                         }
-                        if (i == R.drawable.obfuscated_res_0x7f080068) {
+                        if (i == R.drawable.obfuscated_res_0x7f08006b) {
                             return createDefaultButtonColorStateList(context);
                         }
-                        if (i == R.drawable.obfuscated_res_0x7f080062) {
+                        if (i == R.drawable.obfuscated_res_0x7f080065) {
                             return createBorderlessButtonColorStateList(context);
                         }
-                        if (i == R.drawable.obfuscated_res_0x7f080067) {
+                        if (i == R.drawable.obfuscated_res_0x7f08006a) {
                             return createColoredButtonColorStateList(context);
                         }
-                        if (i != R.drawable.obfuscated_res_0x7f0800a3 && i != R.drawable.obfuscated_res_0x7f0800a4) {
+                        if (i != R.drawable.obfuscated_res_0x7f0800a6 && i != R.drawable.obfuscated_res_0x7f0800a7) {
                             if (arrayContains(this.TINT_COLOR_CONTROL_NORMAL, i)) {
                                 return ThemeUtils.getThemeAttrColorStateList(context, R.attr.obfuscated_res_0x7f04017d);
                             }
@@ -152,7 +152,7 @@ public final class AppCompatDrawableManager {
                             if (arrayContains(this.TINT_CHECKABLE_BUTTON_LIST, i)) {
                                 return AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0603d0);
                             }
-                            if (i == R.drawable.obfuscated_res_0x7f0800a0) {
+                            if (i == R.drawable.obfuscated_res_0x7f0800a3) {
                                 return AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0603d3);
                             }
                             return null;
@@ -162,13 +162,13 @@ public final class AppCompatDrawableManager {
 
                     @Override // androidx.appcompat.widget.ResourceManagerInternal.ResourceManagerHooks
                     public boolean tintDrawable(@NonNull Context context, int i, @NonNull Drawable drawable) {
-                        if (i == R.drawable.obfuscated_res_0x7f0800a2) {
+                        if (i == R.drawable.obfuscated_res_0x7f0800a5) {
                             LayerDrawable layerDrawable = (LayerDrawable) drawable;
                             setPorterDuffColorFilter(layerDrawable.findDrawableByLayerId(16908288), ThemeUtils.getThemeAttrColor(context, R.attr.obfuscated_res_0x7f04017d), AppCompatDrawableManager.DEFAULT_MODE);
                             setPorterDuffColorFilter(layerDrawable.findDrawableByLayerId(16908303), ThemeUtils.getThemeAttrColor(context, R.attr.obfuscated_res_0x7f04017d), AppCompatDrawableManager.DEFAULT_MODE);
                             setPorterDuffColorFilter(layerDrawable.findDrawableByLayerId(16908301), ThemeUtils.getThemeAttrColor(context, R.attr.obfuscated_res_0x7f04017b), AppCompatDrawableManager.DEFAULT_MODE);
                             return true;
-                        } else if (i != R.drawable.obfuscated_res_0x7f080099 && i != R.drawable.obfuscated_res_0x7f080098 && i != R.drawable.obfuscated_res_0x7f08009a) {
+                        } else if (i != R.drawable.obfuscated_res_0x7f08009c && i != R.drawable.obfuscated_res_0x7f08009b && i != R.drawable.obfuscated_res_0x7f08009d) {
                             return false;
                         } else {
                             LayerDrawable layerDrawable2 = (LayerDrawable) drawable;
@@ -196,7 +196,7 @@ public final class AppCompatDrawableManager {
                             i3 = R.attr.obfuscated_res_0x7f04017b;
                         } else if (arrayContains(this.COLORFILTER_COLOR_BACKGROUND_MULTIPLY, i)) {
                             mode = PorterDuff.Mode.MULTIPLY;
-                        } else if (i == R.drawable.obfuscated_res_0x7f08008b) {
+                        } else if (i == R.drawable.obfuscated_res_0x7f08008e) {
                             i3 = 16842800;
                             i2 = Math.round(40.8f);
                             z = true;
@@ -211,7 +211,7 @@ public final class AppCompatDrawableManager {
                                 drawable.setAlpha(i2);
                             }
                             return true;
-                        } else if (i != R.drawable.obfuscated_res_0x7f080073) {
+                        } else if (i != R.drawable.obfuscated_res_0x7f080076) {
                             i2 = -1;
                             z = false;
                             i3 = 0;

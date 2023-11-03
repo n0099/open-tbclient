@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,12 +10,47 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class df8 extends bf8 {
+public class df8 extends BaseCardInfo implements um6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final df8 a;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public boolean b;
+
+    @Override // com.baidu.tieba.um6
+    public void K(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.um6
+    public int getPosition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.um6
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.um6
+    public boolean r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -30,7 +65,7 @@ public final class df8 extends bf8 {
                 return;
             }
         }
-        a = new df8();
+        c = BdUniqueId.gen();
     }
 
     public df8() {
@@ -43,38 +78,19 @@ public final class df8 extends bf8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.b = false;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lf8
-    /* renamed from: e */
-    public void a(ChatMsg sdkMsg, TbBaseMsg tbMsg, String extJson) {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.oi
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, sdkMsg, tbMsg, extJson) == null) {
-            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
-            Intrinsics.checkNotNullParameter(tbMsg, "tbMsg");
-            Intrinsics.checkNotNullParameter(extJson, "extJson");
-            sdkMsg.setCategory(0);
-            sdkMsg.setChatType(7);
-            sdkMsg.setContentExtra(extJson);
-            sdkMsg.setMsgContent(sdkMsg.getSendMsgContent());
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return c;
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lf8
-    /* renamed from: f */
-    public String c(ChatMsg sdkMsg) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, sdkMsg)) == null) {
-            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
-            String contentExtra = sdkMsg.getContentExtra();
-            Intrinsics.checkNotNullExpressionValue(contentExtra, "sdkMsg.contentExtra");
-            return contentExtra;
-        }
-        return (String) invokeL.objValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 }

@@ -1,19 +1,12 @@
 package com.baidu.tieba;
 
-import java.io.File;
+import android.content.Context;
+import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public interface pq1 extends gz2 {
-    File a();
+public interface pq1 {
+    long a(Context context);
 
-    void e(String str, String str2);
+    void b(Context context, String str, zk3<String> zk3Var);
 
-    void e(String str, String str2, Throwable th);
-
-    void flush(boolean z);
-
-    void i(String str, String str2);
-
-    void w(String str, String str2);
-
-    void w(String str, String str2, Throwable th);
+    void c(Context context, JSONArray jSONArray, zk3<String> zk3Var);
 }

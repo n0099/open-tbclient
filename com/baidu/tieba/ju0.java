@@ -2,13 +2,15 @@ package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class ju0 extends nq0 {
+public abstract class ju0 extends iu0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final lu0 f;
+
+    public abstract void T(lu0 lu0Var);
 
     public ju0() {
         Interceptable interceptable = $ic;
@@ -20,20 +22,18 @@ public abstract class ju0 extends nq0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.f = new lu0();
     }
 
-    public zo0 r() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.iu0
+    public void D(qu0 qu0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            yo0 h = super.h();
-            if (h != null) {
-                return (zo0) h;
-            }
-            throw new NullPointerException("null cannot be cast to non-null type com.baidu.nadcore.player.BaseVideoPlayer");
+        if (interceptable == null || interceptable.invokeL(1048576, this, qu0Var) == null) {
+            this.f.a(qu0Var);
+            T(this.f);
         }
-        return (zo0) invokeV.objValue;
     }
 }

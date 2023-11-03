@@ -1,56 +1,57 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.BdUniqueId;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.util.Pair;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.frs.sportspage.FrsSportsRecommendFragment;
+import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
+import com.baidu.tbadk.core.data.ErrorData;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.forumSquare.model.ForumSquareModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.SportScheduleInfo;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class do7 {
+public class do7 implements go7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public View b;
-    public TextView c;
-    public TbImageView d;
-    public TbImageView e;
-    public TextView f;
-    public TextView g;
-    public TextView h;
-    public TextView i;
-    public TextView j;
-    public String k;
-    public String l;
-    public final View.OnClickListener m;
+    public final TbPageContext a;
+    public final Context b;
+    public ForumSquareModel c;
+    public eo7 d;
+    public fo7 e;
+    public String f;
+    public CustomMessageListener g;
 
     /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ do7 a;
 
-        public a(do7 do7Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(do7 do7Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {do7Var};
+                Object[] objArr = {do7Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -59,22 +60,28 @@ public class do7 {
             this.a = do7Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !ad.isEmpty(this.a.k)) {
-                UrlManager.getInstance().dealOneLink(this.a.a, new String[]{this.a.k}, true);
-                TiebaStatic.log(new StatisticItem("c13418").param("fid", this.a.l));
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                do7 do7Var = this.a;
+                if (do7Var.d == null || do7Var.c == null) {
+                    return;
+                }
+                this.a.f = "推荐";
+                this.a.c.clearData();
+                this.a.m();
             }
         }
     }
 
-    public do7(FrsSportsRecommendFragment frsSportsRecommendFragment, View view2) {
+    public do7(Context context, TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsSportsRecommendFragment, view2};
+            Object[] objArr = {context, tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -84,67 +91,223 @@ public class do7 {
                 return;
             }
         }
-        this.m = new a(this);
-        if (frsSportsRecommendFragment != null && view2 != null) {
-            this.a = frsSportsRecommendFragment.getPageContext();
-            BdUniqueId uniqueId = frsSportsRecommendFragment.getUniqueId();
-            this.b = view2.findViewById(R.id.obfuscated_res_0x7f090d80);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d88);
-            this.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090d81);
-            this.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090d86);
-            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d82);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d87);
-            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d85);
-            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d84);
-            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d83);
-            this.d.setPageId(uniqueId);
-            this.e.setPageId(uniqueId);
+        this.f = "推荐";
+        this.g = new a(this, 2921589);
+        this.a = tbPageContext;
+        this.b = context;
+        this.c = new ForumSquareModel(context, this);
+        this.d = new eo7(context, this.a);
+        this.a.registerListener(this.g);
+    }
+
+    @Override // com.baidu.tieba.go7
+    public void onError(String str, ErrorData errorData) {
+        eo7 eo7Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048588, this, str, errorData) == null) && (eo7Var = this.d) != null && this.c != null) {
+            eo7Var.K();
+            ko7 d0 = this.c.d0(str);
+            if (d0 != null && (!d0.d || !ListUtils.isEmpty(d0.a()))) {
+                this.d.t(d0.a());
+                c(str, d0.a());
+                return;
+            }
+            this.d.g();
+            this.d.v();
+        }
+    }
+
+    public void j(String str) {
+        ForumSquareModel forumSquareModel;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && (forumSquareModel = this.c) != null && this.d != null && forumSquareModel.c0(str)) {
+            this.d.C(str);
+            i(str);
+        }
+    }
+
+    @Override // com.baidu.tieba.go7
+    public void onNoData(ErrorData errorData) {
+        eo7 eo7Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048589, this, errorData) == null) && (eo7Var = this.d) != null) {
+            eo7Var.J();
+        }
+    }
+
+    public final void c(String str, List<oi> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, list) == null) && this.d != null && this.c != null) {
+            if (ListUtils.isEmpty(list)) {
+                this.d.g();
+            } else if (ListUtils.getCount(list) < 10) {
+                this.d.o();
+            } else {
+                this.d.F(this.c.e0(str));
+            }
         }
     }
 
     public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SkinManager.setBackgroundResource(this.b, R.drawable.bg_sports_frs_schedule_card_shape);
-            SkinManager.setBackgroundResource(this.c, R.drawable.bg_sports_frs_schedule_card_shape);
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0108);
-            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0108);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.d.c();
         }
     }
 
-    public void e(SportScheduleInfo sportScheduleInfo, String str) {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sportScheduleInfo, str) == null) {
-            if (sportScheduleInfo == null) {
-                this.b.setVisibility(8);
-                this.c.setVisibility(0);
-                this.c.setText(R.string.obfuscated_res_0x7f0f0883);
-                return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.d.b();
+        }
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            eo7 eo7Var = this.d;
+            if (eo7Var != null) {
+                eo7Var.G();
             }
-            this.b.setVisibility(0);
-            this.c.setVisibility(8);
-            this.d.startLoad(sportScheduleInfo.home_team_icon, 10, false);
-            this.e.startLoad(sportScheduleInfo.guest_team_icon, 10, false);
-            String str2 = sportScheduleInfo.home_team_name;
-            if (StringHelper.getChineseAndEnglishLength(str2) > 14) {
-                str2 = StringHelper.cutForumNameWithSuffix(str2, 14, "...");
+            ForumSquareModel forumSquareModel = this.c;
+            if (forumSquareModel != null) {
+                forumSquareModel.g0(f());
             }
-            String str3 = sportScheduleInfo.guest_team_name;
-            if (StringHelper.getChineseAndEnglishLength(str3) > 14) {
-                str3 = StringHelper.cutForumNameWithSuffix(str3, 14, "...");
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            fo7 fo7Var = new fo7(this.b, this, this.d);
+            this.e = fo7Var;
+            fo7Var.e();
+            n();
+        }
+    }
+
+    public final void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.d.G();
+            this.c.g0(this.f);
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            String f = f();
+            ForumSquareModel forumSquareModel = this.c;
+            if (forumSquareModel != null && this.d != null) {
+                boolean f0 = forumSquareModel.f0();
+                boolean F = this.d.F(this.c.e0(f));
+                if (!f0 && F) {
+                    this.c.g0(f);
+                }
             }
-            this.f.setText(str2);
-            this.g.setText(str3);
-            this.h.setText(sportScheduleInfo.match_top_info);
-            this.i.setText(sportScheduleInfo.match_middle_info);
-            this.j.setText(sportScheduleInfo.match_bottom_info);
-            this.k = sportScheduleInfo.msg_url;
-            this.l = str;
-            this.b.setOnClickListener(this.m);
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            l(this.f);
+            this.f = str;
+            ForumSquareModel forumSquareModel = this.c;
+            if (forumSquareModel != null && this.d != null) {
+                ko7 d0 = forumSquareModel.d0(str);
+                if (d0 != null && (!d0.d || !ListUtils.isEmpty(d0.a()))) {
+                    this.d.K();
+                    c(str, d0.a());
+                    this.d.t(d0.a());
+                    this.d.r(d0.f, d0.g);
+                    return;
+                }
+                this.d.E();
+                c(str, null);
+                this.c.g0(str);
+                this.d.r(0, 0);
+            }
+        }
+    }
+
+    public void k(Intent intent) {
+        Uri uri;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, intent) == null) && intent != null) {
+            String stringExtra = intent.getStringExtra(ForumSquareActivityConfig.FORUM_CLASS_NAME);
+            this.f = stringExtra;
+            if (TextUtils.isEmpty(stringExtra) && (uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI)) != null) {
+                this.f = uri.getQueryParameter("tab_name");
+            }
+            boolean z = false;
+            int intExtra = intent.getIntExtra(ForumSquareActivityConfig.SHOW_CREATE_BAR, 0);
+            eo7 eo7Var = this.d;
+            if (intExtra == 0) {
+                z = true;
+            }
+            eo7Var.D(z);
+        }
+    }
+
+    public void l(String str) {
+        ko7 d0;
+        Pair<Integer, Integer> d;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048585, this, str) != null) || this.d == null || this.c == null || TextUtils.isEmpty(str) || (d0 = this.c.d0(str)) == null || (d = this.d.d()) == null) {
+            return;
+        }
+        d0.f = ((Integer) d.first).intValue();
+        d0.g = ((Integer) d.second).intValue();
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x002f, code lost:
+        if (r5.equals(r1) == false) goto L11;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x003c  */
+    @Override // com.baidu.tieba.go7
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void onSucc(String str, List<String> list, List<oi> list2) {
+        boolean isEmpty;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048590, this, str, list, list2) == null) && this.c != null && this.d != null) {
+            boolean z = false;
+            if (TextUtils.isEmpty(str) || str.equals(this.f)) {
+                String f = this.d.f();
+                if (!TextUtils.isEmpty(str)) {
+                }
+                isEmpty = TextUtils.isEmpty(this.f);
+                this.f = str;
+                if (isEmpty) {
+                    this.d.G();
+                    this.c.g0(this.f);
+                }
+                this.d.K();
+                this.d.s(str, list, z);
+                this.d.u(list2, this.c.j0(list2, 300));
+                c(str, list2);
+            }
+            z = true;
+            isEmpty = TextUtils.isEmpty(this.f);
+            this.f = str;
+            if (isEmpty) {
+            }
+            this.d.K();
+            this.d.s(str, list, z);
+            this.d.u(list2, this.c.j0(list2, 300));
+            c(str, list2);
         }
     }
 }

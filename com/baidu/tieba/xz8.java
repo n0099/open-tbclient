@@ -1,129 +1,170 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
+import android.graphics.drawable.GradientDrawable;
+import android.text.TextUtils;
+import android.widget.ImageView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.immessagecenter.chatgroup.floatentrance.ChatFloatEntranceFragment;
+import com.baidu.tieba.immessagecenter.chatgroup.floatentrance.CollapseState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes8.dex */
-public class xz8 extends BaseAdapter {
+import com.bumptech.glide.Glide;
+/* loaded from: classes9.dex */
+public class xz8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<vz8> a;
-    public Context b;
-    public int c;
+    public ChatFloatEntranceFragment.u a;
+    @NonNull
+    public uz8 b;
+    public String c;
     public int d;
-    public final int e;
+    @Nullable
+    public CollapseState e;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    public xz8(Context context, int i) {
+    public xz8(@NonNull ChatFloatEntranceFragment.u uVar, @NonNull uz8 uz8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
+            Object[] objArr = {uVar, uz8Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.c = 0;
         this.d = 0;
-        this.b = context;
-        this.c = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b5);
-        this.d = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701be);
-        this.e = i;
+        this.a = uVar;
+        this.b = uz8Var;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public vz8 getItem(int i) {
-        InterceptResult invokeI;
+    public void a(CollapseState collapseState) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i >= 0 && i < this.a.size()) {
-                return this.a.get(i);
-            }
-            return null;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, collapseState) != null) || collapseState == null) {
+            return;
         }
-        return (vz8) invokeI.objValue;
-    }
-
-    public void b(List<vz8> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.a.clear();
-            if (list != null && list.size() > 0) {
-                this.a.addAll(list);
-            }
-            notifyDataSetChanged();
+        if (collapseState.b == CollapseState.State.EXPAND) {
+            this.a.q.setVisibility(8);
+            this.a.s.setVisibility(8);
+            return;
         }
+        f(collapseState);
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
+    public void b(int i) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a.size();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
-            if (view2 instanceof TextView) {
-                textView = (TextView) view2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.d = i;
+            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
+            if (i == 0) {
+                str = "frs_loop_hot_chat_day_resource";
             } else {
-                textView = new TextView(this.b);
-                textView.setGravity(17);
-                textView.setTextSize(0, this.c);
-                int i2 = this.d;
-                textView.setPadding(0, i2, 0, i2);
+                str = "frs_loop_hot_chat_night_resource";
             }
-            vz8 vz8Var = (vz8) ListUtils.getItem(this.a, i);
-            if (vz8Var == null) {
-                return null;
+            this.c = sharedPrefHelper.getString(str, "");
+            SkinManager.setImageResource(this.a.m, R.drawable.icon_chat_group_collapse);
+            this.a.o.setRadius(R.dimen.tbds134);
+            this.a.o.setSkinType(i);
+            if (i == 0) {
+                this.a.k.setElevation(UtilHelper.getDimenPixelSize(R.dimen.tbds16));
             }
-            textView.setText(StringHelper.cutChineseAndEnglishWithSuffix(vz8Var.c, 8, (String) null));
-            SkinManager.setViewTextColor(textView, R.color.CAM_X0106, 1);
-            if (i == this.e) {
-                SkinManager.setBackgroundResource(textView, R.drawable.btn_label_white_s);
-            } else {
-                SkinManager.setBackgroundResource(textView, R.drawable.lego_btn_more_item);
-            }
-            return textView;
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0207));
+            gradientDrawable.setShape(1);
+            gradientDrawable.setUseLevel(false);
+            this.a.k.setBackground(gradientDrawable);
+            SkinManager.setImageResource(this.a.p, R.drawable.chat_collapse_at_me);
+            SkinManager.setImageResource(this.a.r, R.drawable.chat_collapse_three_exp);
+            e();
         }
-        return (View) invokeILL.objValue;
+    }
+
+    public void d(CollapseState collapseState) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, collapseState) != null) || collapseState == null) {
+            return;
+        }
+        if (collapseState.a == CollapseState.Icon.DEFAULT) {
+            Glide.with(this.a.o).load(Integer.valueOf((int) R.drawable.bg_chat_group_collapse_gradual)).into(this.a.o);
+            this.a.m.setVisibility(0);
+            this.a.n.setVisibility(8);
+            return;
+        }
+        Glide.with(this.a.o).load(collapseState.e).into(this.a.o);
+        this.a.m.setVisibility(8);
+        this.a.n.setVisibility(0);
+    }
+
+    public void c(CollapseState collapseState, CollapseState collapseState2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, collapseState, collapseState2) != null) || collapseState2 == null) {
+            return;
+        }
+        this.e = collapseState2;
+        if (collapseState.c != collapseState2.c) {
+            f(collapseState2);
+        }
+        if (collapseState.a != collapseState2.a) {
+            d(collapseState2);
+        }
+        if (collapseState.d != collapseState2.d) {
+            d(collapseState2);
+        }
+        if ((TextUtils.isEmpty(collapseState.e) && !TextUtils.isEmpty(collapseState2.e)) || (!TextUtils.isEmpty(collapseState.e) && !collapseState.e.equals(collapseState2.e))) {
+            d(collapseState2);
+        }
+        if (collapseState.b != collapseState2.b) {
+            a(collapseState2);
+        }
+    }
+
+    public final void e() {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.e != null && this.b.getViewContext() != null && this.e.c == CollapseState.Tip.AT_ME) {
+                Glide.with(this.b.getViewContext()).load(this.c).into(this.a.n);
+                return;
+            }
+            ImageView imageView = this.a.n;
+            if (this.d == 0) {
+                i = R.drawable.obfuscated_res_0x7f080771;
+            } else {
+                i = R.drawable.obfuscated_res_0x7f080772;
+            }
+            SkinManager.setImageResource(imageView, i);
+        }
+    }
+
+    public void f(CollapseState collapseState) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, collapseState) != null) || collapseState == null) {
+            return;
+        }
+        CollapseState.Tip tip = collapseState.c;
+        if (tip != CollapseState.Tip.DEFAULT && collapseState.b != CollapseState.State.EXPAND) {
+            if (tip == CollapseState.Tip.AT_ME) {
+                this.a.q.setVisibility(0);
+                this.a.s.setVisibility(8);
+            } else {
+                this.a.q.setVisibility(8);
+                this.a.s.setVisibility(0);
+            }
+        } else {
+            this.a.q.setVisibility(8);
+            this.a.s.setVisibility(8);
+        }
+        e();
     }
 }

@@ -27,12 +27,12 @@ import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bg7;
 import com.baidu.tieba.frs.FrsBountyTaskData;
 import com.baidu.tieba.frs.banner.view.FrsForumMountView;
 import com.baidu.tieba.frs.databinding.FrsHeaderForumMountViewBinding;
+import com.baidu.tieba.rs7;
 import com.baidu.tieba.view.TbImageAutoSwitch;
-import com.baidu.tieba.xf7;
+import com.baidu.tieba.vs7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -49,7 +49,7 @@ import kotlin.jvm.internal.Intrinsics;
 import tbclient.IconUrlInfo;
 @Metadata(d1 = {"\u0000V\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010!\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0002\b\u000b\n\u0002\u0010\u000b\n\u0002\b\u000b\u0018\u0000 02\u00020\u00012\u00020\u0002:\u00010B%\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\b\b\u0002\u0010\u0007\u001a\u00020\b¢\u0006\u0002\u0010\tJ\u000e\u0010\u0019\u001a\u00020\u001a2\u0006\u0010\u001b\u001a\u00020\rJ\u0012\u0010\u001c\u001a\u00020\u001a2\b\u0010\u001d\u001a\u0004\u0018\u00010\u0010H\u0002J\u0010\u0010\u001e\u001a\u00020\u001a2\u0006\u0010\u001f\u001a\u00020\bH\u0002J\u0010\u0010 \u001a\u00020\u001a2\u0006\u0010!\u001a\u00020\bH\u0016J\b\u0010\"\u001a\u00020\u001aH\u0016J\b\u0010#\u001a\u00020\u001aH\u0016J\u0010\u0010$\u001a\u00020\u001a2\u0006\u0010%\u001a\u00020&H\u0016J\b\u0010'\u001a\u00020\u001aH\u0016J\u001a\u0010(\u001a\u00020\u001a2\u0006\u0010)\u001a\u00020&2\b\u0010*\u001a\u0004\u0018\u00010\u0010H\u0002J4\u0010+\u001a\u00020\u001a2\u0006\u0010,\u001a\u00020&2\u0006\u0010-\u001a\u00020&2\u0010\u0010.\u001a\f\u0012\u0006\u0012\u0004\u0018\u00010\u0010\u0018\u00010\u000f2\b\u0010/\u001a\u0004\u0018\u00010\u0010H\u0002R\u000e\u0010\n\u001a\u00020\u000bX\u0082.¢\u0006\u0002\n\u0000R\u0010\u0010\f\u001a\u0004\u0018\u00010\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u0016\u0010\u000e\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\u00100\u000fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u0012X\u0082\u0004¢\u0006\u0002\n\u0000R\u001c\u0010\u0013\u001a\u0004\u0018\u00010\u0014X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0015\u0010\u0016\"\u0004\b\u0017\u0010\u0018¨\u00061"}, d2 = {"Lcom/baidu/tieba/frs/banner/view/FrsForumMountView;", "Landroid/widget/FrameLayout;", "Lcom/baidu/tieba/frs/banner/IFrsBannerInterface;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "binding", "Lcom/baidu/tieba/frs/databinding/FrsHeaderForumMountViewBinding;", "data", "Lcom/baidu/tieba/frs/FrsBountyTaskData;", "headUrls", "", "", "mAdapter", "Lcom/baidu/tieba/view/TbImageAutoSwitch$Adapter;", "viewClickListener", "Landroid/view/View$OnClickListener;", "getViewClickListener", "()Landroid/view/View$OnClickListener;", "setViewClickListener", "(Landroid/view/View$OnClickListener;)V", "bindData", "", "bountyTaskData", "jumpBountyTaskPage", "url", "loadDayNightImg", "currentSkinType", "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, MissionEvent.MESSAGE_DESTROY, MissionEvent.MESSAGE_PAUSE, "onPrimary", "isPrimary", "", "onResume", "setDescValueText", "withIcon", "desc", "setHeadersLayout", "showHead", "showJumpBtn", "urlList", "btnString", "Companion", "frs_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class FrsForumMountView extends FrameLayout implements xf7 {
+public final class FrsForumMountView extends FrameLayout implements rs7 {
     public static /* synthetic */ Interceptable $ic;
     public static final int f;
     public static final int g;
@@ -108,21 +108,21 @@ public final class FrsForumMountView extends FrameLayout implements xf7 {
         Intrinsics.checkNotNullParameter(context, "context");
     }
 
-    @Override // com.baidu.tieba.xf7
+    @Override // com.baidu.tieba.rs7
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.xf7
+    @Override // com.baidu.tieba.rs7
     public void onPrimary(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.xf7
+    @Override // com.baidu.tieba.rs7
     public void onResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
@@ -325,7 +325,7 @@ public final class FrsForumMountView extends FrameLayout implements xf7 {
         return (View.OnClickListener) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.xf7
+    @Override // com.baidu.tieba.rs7
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -357,7 +357,7 @@ public final class FrsForumMountView extends FrameLayout implements xf7 {
     }
 
     /* renamed from: setDescValueText$lambda-5  reason: not valid java name */
-    public static final void m136setDescValueText$lambda5(FrsForumMountView this$0) {
+    public static final void m139setDescValueText$lambda5(FrsForumMountView this$0) {
         Integer num;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, null, this$0) == null) {
@@ -407,7 +407,7 @@ public final class FrsForumMountView extends FrameLayout implements xf7 {
             }
             TextView textView = frsHeaderForumMountViewBinding.j;
             Intrinsics.checkNotNullExpressionValue(textView, "binding.mountTitle");
-            bg7.a(textView, bountyTaskData.getTitle());
+            vs7.a(textView, bountyTaskData.getTitle());
             FrsHeaderForumMountViewBinding frsHeaderForumMountViewBinding3 = this.a;
             if (frsHeaderForumMountViewBinding3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
@@ -415,7 +415,7 @@ public final class FrsForumMountView extends FrameLayout implements xf7 {
             }
             TextView textView2 = frsHeaderForumMountViewBinding3.c;
             Intrinsics.checkNotNullExpressionValue(textView2, "binding.mountDesc");
-            bg7.a(textView2, bountyTaskData.getSubTitle());
+            vs7.a(textView2, bountyTaskData.getSubTitle());
             String subTitleValue = bountyTaskData.getSubTitleValue();
             int awardType = bountyTaskData.getAwardType();
             FrsHeaderForumMountViewBinding frsHeaderForumMountViewBinding4 = this.a;
@@ -463,7 +463,7 @@ public final class FrsForumMountView extends FrameLayout implements xf7 {
                 j(true, false, bountyTaskData.getGiftImgs(), null);
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ag7
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.us7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -481,7 +481,7 @@ public final class FrsForumMountView extends FrameLayout implements xf7 {
             } else {
                 frsHeaderForumMountViewBinding2 = frsHeaderForumMountViewBinding9;
             }
-            frsHeaderForumMountViewBinding2.g.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.zf7
+            frsHeaderForumMountViewBinding2.g.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ts7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -496,7 +496,7 @@ public final class FrsForumMountView extends FrameLayout implements xf7 {
         }
     }
 
-    @Override // com.baidu.tieba.xf7
+    @Override // com.baidu.tieba.rs7
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
@@ -602,7 +602,7 @@ public final class FrsForumMountView extends FrameLayout implements xf7 {
                         Intrinsics.throwUninitializedPropertyAccessException("binding");
                         frsHeaderForumMountViewBinding2 = null;
                     }
-                    frsHeaderForumMountViewBinding2.f.p(iconUrlInfo.day, 38);
+                    frsHeaderForumMountViewBinding2.f.q(iconUrlInfo.day, 38);
                 }
             }
             if (iconUrlInfo2 != null) {
@@ -637,7 +637,7 @@ public final class FrsForumMountView extends FrameLayout implements xf7 {
                     Intrinsics.throwUninitializedPropertyAccessException("binding");
                     frsHeaderForumMountViewBinding4 = null;
                 }
-                frsHeaderForumMountViewBinding4.f.p(iconUrlInfo.dark, 38);
+                frsHeaderForumMountViewBinding4.f.q(iconUrlInfo.dark, 38);
             }
         }
         if (iconUrlInfo2 != null) {
@@ -685,7 +685,7 @@ public final class FrsForumMountView extends FrameLayout implements xf7 {
             frsHeaderForumMountViewBinding3.d.setText(str);
             if (z) {
                 try {
-                    Drawable drawable = getResources().getDrawable(R.drawable.obfuscated_res_0x7f0806d6);
+                    Drawable drawable = getResources().getDrawable(R.drawable.obfuscated_res_0x7f0806e0);
                     if (drawable == null) {
                         FrsHeaderForumMountViewBinding frsHeaderForumMountViewBinding4 = this.a;
                         if (frsHeaderForumMountViewBinding4 == null) {
@@ -727,7 +727,7 @@ public final class FrsForumMountView extends FrameLayout implements xf7 {
             } else {
                 frsHeaderForumMountViewBinding = frsHeaderForumMountViewBinding8;
             }
-            frsHeaderForumMountViewBinding.d.post(new Runnable() { // from class: com.baidu.tieba.yf7
+            frsHeaderForumMountViewBinding.d.post(new Runnable() { // from class: com.baidu.tieba.ss7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -735,7 +735,7 @@ public final class FrsForumMountView extends FrameLayout implements xf7 {
                 public final void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        FrsForumMountView.m136setDescValueText$lambda5(FrsForumMountView.this);
+                        FrsForumMountView.m139setDescValueText$lambda5(FrsForumMountView.this);
                     }
                 }
             });
@@ -793,7 +793,7 @@ public final class FrsForumMountView extends FrameLayout implements xf7 {
                 }
                 TextView textView = frsHeaderForumMountViewBinding.g;
                 Intrinsics.checkNotNullExpressionValue(textView, "binding.mountJumpBtn");
-                bg7.a(textView, str);
+                vs7.a(textView, str);
                 return;
             }
             FrsHeaderForumMountViewBinding frsHeaderForumMountViewBinding8 = this.a;

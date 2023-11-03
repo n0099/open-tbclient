@@ -1,105 +1,105 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.g7c;
-import com.baidu.tieba.h6c;
-import com.baidu.tieba.j6c;
-import com.baidu.tieba.n6c;
-import com.baidu.tieba.t6c;
+import com.baidu.tieba.hkc;
+import com.baidu.tieba.ijc;
+import com.baidu.tieba.kjc;
+import com.baidu.tieba.ojc;
+import com.baidu.tieba.ujc;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes2.dex */
-public final class OnSubscribeFromIterable<T> implements h6c.a<T> {
+public final class OnSubscribeFromIterable<T> implements ijc.a<T> {
     public final Iterable<? extends T> a;
 
     /* loaded from: classes2.dex */
-    public static final class IterableProducer<T> extends AtomicLong implements j6c {
+    public static final class IterableProducer<T> extends AtomicLong implements kjc {
         public static final long serialVersionUID = -8730475647105475802L;
         public final Iterator<? extends T> it;
-        public final n6c<? super T> o;
+        public final ojc<? super T> o;
 
-        public IterableProducer(n6c<? super T> n6cVar, Iterator<? extends T> it) {
-            this.o = n6cVar;
+        public IterableProducer(ojc<? super T> ojcVar, Iterator<? extends T> it) {
+            this.o = ojcVar;
             this.it = it;
         }
 
         /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
         public void fastPath() {
-            n6c<? super T> n6cVar = this.o;
+            ojc<? super T> ojcVar = this.o;
             Iterator<? extends T> it = this.it;
-            while (!n6cVar.isUnsubscribed()) {
+            while (!ojcVar.isUnsubscribed()) {
                 try {
-                    n6cVar.onNext((T) it.next());
-                    if (n6cVar.isUnsubscribed()) {
+                    ojcVar.onNext((T) it.next());
+                    if (ojcVar.isUnsubscribed()) {
                         return;
                     }
                     try {
                         if (!it.hasNext()) {
-                            if (!n6cVar.isUnsubscribed()) {
-                                n6cVar.onCompleted();
+                            if (!ojcVar.isUnsubscribed()) {
+                                ojcVar.onCompleted();
                                 return;
                             }
                             return;
                         }
                     } catch (Throwable th) {
-                        t6c.f(th, n6cVar);
+                        ujc.f(th, ojcVar);
                         return;
                     }
                 } catch (Throwable th2) {
-                    t6c.f(th2, n6cVar);
+                    ujc.f(th2, ojcVar);
                     return;
                 }
             }
         }
 
-        @Override // com.baidu.tieba.j6c
+        @Override // com.baidu.tieba.kjc
         public void request(long j) {
             if (get() == Long.MAX_VALUE) {
                 return;
             }
             if (j == Long.MAX_VALUE && compareAndSet(0L, Long.MAX_VALUE)) {
                 fastPath();
-            } else if (j > 0 && g7c.b(this, j) == 0) {
+            } else if (j > 0 && hkc.b(this, j) == 0) {
                 slowPath(j);
             }
         }
 
         /* JADX DEBUG: Type inference failed for r6v2. Raw type applied. Possible types: T, ? super T */
         public void slowPath(long j) {
-            n6c<? super T> n6cVar = this.o;
+            ojc<? super T> ojcVar = this.o;
             Iterator<? extends T> it = this.it;
             do {
                 long j2 = 0;
                 while (true) {
                     if (j2 != j) {
-                        if (n6cVar.isUnsubscribed()) {
+                        if (ojcVar.isUnsubscribed()) {
                             return;
                         }
                         try {
-                            n6cVar.onNext((T) it.next());
-                            if (n6cVar.isUnsubscribed()) {
+                            ojcVar.onNext((T) it.next());
+                            if (ojcVar.isUnsubscribed()) {
                                 return;
                             }
                             try {
                                 if (!it.hasNext()) {
-                                    if (!n6cVar.isUnsubscribed()) {
-                                        n6cVar.onCompleted();
+                                    if (!ojcVar.isUnsubscribed()) {
+                                        ojcVar.onCompleted();
                                         return;
                                     }
                                     return;
                                 }
                                 j2++;
                             } catch (Throwable th) {
-                                t6c.f(th, n6cVar);
+                                ujc.f(th, ojcVar);
                                 return;
                             }
                         } catch (Throwable th2) {
-                            t6c.f(th2, n6cVar);
+                            ujc.f(th2, ojcVar);
                             return;
                         }
                     } else {
                         j = get();
                         if (j2 == j) {
-                            j = g7c.g(this, j2);
+                            j = hkc.g(this, j2);
                         }
                     }
                 }
@@ -116,21 +116,21 @@ public final class OnSubscribeFromIterable<T> implements h6c.a<T> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.v6c
+    @Override // com.baidu.tieba.wjc
     /* renamed from: a */
-    public void call(n6c<? super T> n6cVar) {
+    public void call(ojc<? super T> ojcVar) {
         try {
             Iterator<? extends T> it = this.a.iterator();
             boolean hasNext = it.hasNext();
-            if (!n6cVar.isUnsubscribed()) {
+            if (!ojcVar.isUnsubscribed()) {
                 if (!hasNext) {
-                    n6cVar.onCompleted();
+                    ojcVar.onCompleted();
                 } else {
-                    n6cVar.f(new IterableProducer(n6cVar, it));
+                    ojcVar.f(new IterableProducer(ojcVar, it));
                 }
             }
         } catch (Throwable th) {
-            t6c.f(th, n6cVar);
+            ujc.f(th, ojcVar);
         }
     }
 }

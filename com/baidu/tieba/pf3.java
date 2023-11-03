@@ -1,43 +1,110 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.platform.comapi.map.MapController;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.of3;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes7.dex */
-public class pf3 extends m73 {
+public final class pf3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile pf3 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<zk3<Exception>> a;
+    public ArrayList<zk3<Exception>> b;
 
     /* loaded from: classes7.dex */
-    public class a implements of3.c {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ UnitedSchemeEntity a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ iw1 c;
-        public final /* synthetic */ pf3 d;
+        public final /* synthetic */ int a;
 
-        public a(pf3 pf3Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, iw1 iw1Var) {
+        public a(pf3 pf3Var, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pf3Var, unitedSchemeEntity, callbackHandler, iw1Var};
+                Object[] objArr = {pf3Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                g32.k("PresetSwanCoreUpdater", "onPresetCheck start.");
+                of3.s(this.a);
+                g32.k("PresetSwanCoreUpdater", "onPresetCheck end.");
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ pf3 b;
+
+        public b(pf3 pf3Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pf3Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = pf3Var;
+            this.a = i;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                g32.k("PresetSwanCoreUpdater", "onPresetUpdate start.");
+                pf3 pf3Var = this.b;
+                int i = this.a;
+                pf3Var.c(i, of3.t(i));
+                g32.k("PresetSwanCoreUpdater", "onPresetUpdate end.");
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zk3 a;
+        public final /* synthetic */ Exception b;
+
+        public c(pf3 pf3Var, zk3 zk3Var, Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pf3Var, zk3Var, exc};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,110 +114,135 @@ public class pf3 extends m73 {
                     return;
                 }
             }
-            this.d = pf3Var;
-            this.a = unitedSchemeEntity;
-            this.b = callbackHandler;
-            this.c = iw1Var;
+            this.a = zk3Var;
+            this.b = exc;
         }
 
-        @Override // com.baidu.tieba.of3.c
-        public void a(float f, int i) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Integer.valueOf(i)}) == null) {
-                p22.i(MapController.COMPASS_LAYER_TAG, "handle compass change, angle:" + f + ",accuracy: " + i);
-                this.d.k(this.a, this.b, this.c, f, i);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.a(this.b);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pf3(m63 m63Var) {
-        super(m63Var, "/swanAPI/startCompass");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {m63Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948060076, "Lcom/baidu/tieba/pf3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948060076, "Lcom/baidu/tieba/pf3;");
                 return;
             }
         }
+        boolean z = rm1.a;
     }
 
-    @Override // com.baidu.tieba.m73
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, p53 p53Var) {
-        InterceptResult invokeLLLL;
+    public pf3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, p53Var)) == null) {
-            if (p53Var == null) {
-                p22.c(MapController.COMPASS_LAYER_TAG, "none swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-                if (m73.b) {
-                    Log.d("SwanAppAction", "startCompass --- illegal swanApp");
-                }
-                return false;
-            } else if (context == null) {
-                p22.c(MapController.COMPASS_LAYER_TAG, "none context");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-                if (m73.b) {
-                    Log.d("SwanAppAction", "startCompass --- illegal context");
-                }
-                return false;
-            } else {
-                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-                if (optParamsAsJo == null) {
-                    if (m73.b) {
-                        Log.d("SwanAppAction", "startCompass --- params is empty");
-                    }
-                    p22.c(MapController.COMPASS_LAYER_TAG, "none params");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                    return false;
-                }
-                String optString = optParamsAsJo.optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    if (m73.b) {
-                        Log.d("SwanAppAction", "startCompass --- cb is empty");
-                    }
-                    p22.c(MapController.COMPASS_LAYER_TAG, "cb is empty");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                p22.i(MapController.COMPASS_LAYER_TAG, "init");
-                iw1 iw1Var = new iw1("compassChange", optParamsAsJo, optString);
-                of3 i = of3.i();
-                i.l(context);
-                i.o(new a(this, unitedSchemeEntity, callbackHandler, iw1Var));
-                p22.i(MapController.COMPASS_LAYER_TAG, "start listen compass");
-                i.p();
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                iw1Var.a(unitedSchemeEntity, callbackHandler);
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return invokeLLLL.booleanValue;
+        this.a = new ArrayList<>();
+        this.b = new ArrayList<>();
     }
 
-    public final void k(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, iw1 iw1Var, float f, int i) {
+    public static pf3 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{unitedSchemeEntity, callbackHandler, iw1Var, Float.valueOf(f), Integer.valueOf(i)}) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(HiAnalyticsConstant.HaKey.BI_KEY_DIRECTION, f);
-                jSONObject.put("accuracy", of3.h(i));
-                if (m73.b) {
-                    Log.d("SwanAppAction", "compassAngle : " + jSONObject.toString());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (c == null) {
+                synchronized (pf3.class) {
+                    if (c == null) {
+                        c = new pf3();
+                    }
                 }
-                iw1Var.c(unitedSchemeEntity, callbackHandler, jSONObject);
-            } catch (JSONException e) {
-                p22.c(MapController.COMPASS_LAYER_TAG, "handle compass,json error，" + e.toString());
-                iw1Var.e(unitedSchemeEntity, callbackHandler, "Json error");
+            }
+            return c;
+        }
+        return (pf3) invokeV.objValue;
+    }
+
+    public final void c(int i, Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, exc) == null) {
+            synchronized (pf3.class) {
+                try {
+                    if (i == 0) {
+                        Iterator<zk3<Exception>> it = this.a.iterator();
+                        while (it.hasNext()) {
+                            d(it.next(), exc);
+                        }
+                        this.a.clear();
+                    } else if (i == 1) {
+                        Iterator<zk3<Exception>> it2 = this.b.iterator();
+                        while (it2.hasNext()) {
+                            d(it2.next(), exc);
+                        }
+                        this.b.clear();
+                    }
+                } catch (Throwable th) {
+                    throw th;
+                }
+            }
+        }
+    }
+
+    public final void d(zk3<Exception> zk3Var, Exception exc) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zk3Var, exc) == null) && zk3Var != null) {
+            ak3.e0(new c(this, zk3Var, exc));
+        }
+    }
+
+    public void e(zk3<Exception> zk3Var, int i) {
+        ArrayList<zk3<Exception>> arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, zk3Var, i) == null) {
+            g32.k("PresetSwanCoreUpdater", "updateSwanCoreAsync start.");
+            synchronized (pf3.class) {
+                boolean q = of3.q(i);
+                g32.k("PresetSwanCoreUpdater", "updateSwanCoreAsync isNeedUpdateStatus = " + q);
+                if (!q && i == 0 && !of3.r(i)) {
+                    of3.w(true, i);
+                    new Thread(new a(this, i), "onPresetCheck").start();
+                }
+                if (!q) {
+                    d(zk3Var, null);
+                    return;
+                }
+                if (i == 1) {
+                    arrayList = this.b;
+                } else {
+                    arrayList = this.a;
+                }
+                if (arrayList.isEmpty()) {
+                    new Thread(new b(this, i), "updateSwanCoreAsync").start();
+                }
+                arrayList.add(zk3Var);
+                g32.k("PresetSwanCoreUpdater", "updateSwanCoreAsync end.");
+            }
+        }
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            synchronized (pf3.class) {
+                c(i, of3.t(i));
             }
         }
     }

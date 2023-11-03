@@ -3,12 +3,12 @@ package com.baidu.tieba.im.under.common.uiliststyle.group.item;
 import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hr5;
+import com.baidu.tieba.bt5;
 import com.baidu.tieba.im.base.core.uilist.Action;
 import com.baidu.tieba.im.base.core.uilist.BaseItem;
 import com.baidu.tieba.im.lib.socket.msg.TbTaskInfo;
 import com.baidu.tieba.im.lib.socket.msg.TbTextMsg;
-import com.baidu.tieba.zi8;
+import com.baidu.tieba.xv8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +30,7 @@ public final class TextItem extends BaseItem<TbTextMsg> {
     public static final BdUniqueId ADAPTER_TYPE;
     public static final a Companion;
     public transient /* synthetic */ FieldHolder $fh;
-    @hr5(serialize = false)
+    @bt5(serialize = false)
     public CharSequence cacheText;
 
     @JvmStatic
@@ -136,7 +136,7 @@ public final class TextItem extends BaseItem<TbTextMsg> {
         return (CharSequence) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.im.base.core.uilist.BaseItem, com.baidu.tieba.yh
+    @Override // com.baidu.tieba.im.base.core.uilist.BaseItem, com.baidu.tieba.oi
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -157,7 +157,7 @@ public final class TextItem extends BaseItem<TbTextMsg> {
                 return null;
             }
             String originMsgKey = taskInfo.getOriginMsgKey();
-            if (TextUtils.isEmpty(originMsgKey) || !taskInfo.isComplete() || !tbMsg.compareVersion() || !zi8.a.a(taskInfo.getTaskType())) {
+            if (TextUtils.isEmpty(originMsgKey) || !taskInfo.isComplete() || !tbMsg.compareVersion() || !xv8.a.a(taskInfo.getTaskType())) {
                 return null;
             }
             return Action.a(taskInfo.getOriginMsgId(), originMsgKey, Action.Op.DELETE, null);

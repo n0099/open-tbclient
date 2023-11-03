@@ -1,325 +1,364 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.os.Build;
-import android.telephony.TelephonyManager;
+import android.os.Message;
 import android.text.TextUtils;
+import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.util.DeviceId;
-import com.baidu.searchbox.account.contants.AccountConstants;
-import com.baidu.searchbox.common.security.DeviceIdBag;
-import com.baidu.searchbox.common.security.DeviceInfoManager;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.material.internal.ManufacturerUtils;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdSdk;
+import java.util.UUID;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class lk1 {
     public static /* synthetic */ Interceptable $ic = null;
-    public static String a = null;
-    public static String b = "";
+    public static String k = "";
+    public static String l = "";
+    public static String m = "";
+    public static String n = "";
+    public static String o = "";
+    public static String p = "";
+    public static String q;
+    public static String r;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public String b;
+    public int c;
+    public int d;
+    public String e;
+    public long f;
+    public String g;
+    public String h;
+    public long i;
+    public long j;
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static int a;
-        public transient /* synthetic */ FieldHolder $fh;
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
-        public static String g(Context context, String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
-                try {
-                    if (d()) {
-                        return b(DeviceInfoManager.INSTANCE.getAndroidId(context, AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO, str));
+    public boolean q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public lk1(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.j = 8000L;
+        this.a = context;
+    }
+
+    public static void k(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65537, null, str, str2, str3) == null) {
+            if (TextUtils.equals(str, FunAdSdk.PLATFORM_CM)) {
+                k = str2;
+                l = str3;
+            } else if (TextUtils.equals(str, Config.EXCEPTION_CRASH_TYPE)) {
+                m = str2;
+                n = str3;
+            } else if (TextUtils.equals(str, "cu")) {
+                o = str2;
+                p = str3;
+            }
+        }
+    }
+
+    public String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            try {
+                if (TextUtils.isEmpty(str)) {
+                    return str;
+                }
+                if (str.length() == 11 && str.contains("*") && str.charAt(3) == '*') {
+                    int i0 = ak1.g(this.a).i0();
+                    if (i0 <= 11 - str.replace("*", "").trim().length()) {
+                        return str;
                     }
-                } catch (Throwable unused) {
-                }
-                return "no_device_sdk";
-            }
-            return (String) invokeLL.objValue;
-        }
-
-        public static String i(Context context, String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, str)) == null) {
-                try {
-                    if (d()) {
-                        return b(DeviceInfoManager.INSTANCE.getOperator(context, AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO, str, true));
-                    }
-                } catch (Throwable unused) {
-                }
-                return "no_device_sdk";
-            }
-            return (String) invokeLL.objValue;
-        }
-
-        public static String b(DeviceIdBag deviceIdBag) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, deviceIdBag)) == null) {
-                if (deviceIdBag == null) {
-                    return "";
-                }
-                if (deviceIdBag.errorCode == 3) {
-                    return String.valueOf(-1004);
-                }
-                if (TextUtils.isEmpty(deviceIdBag.deviceId)) {
-                    return "";
-                }
-                return deviceIdBag.deviceId;
-            }
-            return (String) invokeL.objValue;
-        }
-
-        public static String j(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
-                try {
-                    if (d()) {
-                        return b(DeviceInfoManager.INSTANCE.getManufacturer(AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO, str));
-                    }
-                } catch (Throwable unused) {
-                }
-                return "no_device_sdk";
-            }
-            return (String) invokeL.objValue;
-        }
-
-        public static String k(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
-                try {
-                    if (d()) {
-                        return b(DeviceInfoManager.INSTANCE.getModel(AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO, str));
-                    }
-                } catch (Throwable unused) {
-                }
-                return "no_device_sdk";
-            }
-            return (String) invokeL.objValue;
-        }
-
-        public static String l(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
-                try {
-                    if (d()) {
-                        return b(DeviceInfoManager.INSTANCE.getOAID(AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO, str));
-                    }
-                } catch (Throwable unused) {
-                }
-                return "no_device_sdk";
-            }
-            return (String) invokeL.objValue;
-        }
-
-        public static boolean d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                if (a == 0) {
-                    try {
-                        if (DeviceInfoManager.INSTANCE == null) {
-                            a = 1;
+                    char[] charArray = str.toCharArray();
+                    StringBuilder sb = new StringBuilder();
+                    int i = i0 + 3;
+                    for (int i2 = 0; i2 < charArray.length; i2++) {
+                        if (i2 < 3) {
+                            sb.append(charArray[i2]);
+                        } else if (i2 < i) {
+                            sb.append("*");
                         } else {
-                            a = 2;
+                            sb.append(charArray[i2]);
                         }
-                    } catch (Throwable unused) {
-                        a = 1;
                     }
+                    return sb.toString();
                 }
-                if (a == 2) {
-                    return true;
+                return str;
+            } catch (Throwable th) {
+                ql1.d(th);
+                return str;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void b(int i) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            try {
+                if (!fk1.j().l(i)) {
+                    return;
                 }
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("0", this.c);
+                jSONObject.put("1", this.e);
+                jSONObject.put("3", this.b);
+                jSONObject.put("4", rl1.b(this.a));
+                if (!TextUtils.isEmpty(this.g)) {
+                    jSONObject.put("5", Base64.encodeToString(this.g.getBytes(), 0));
+                }
+                jSONObject.put("6", q);
+                String b = ck1.a(this.a).b(jSONObject, this.j);
+                if (!fk1.j().l(i)) {
+                    return;
+                }
+                if (!TextUtils.isEmpty(b)) {
+                    s();
+                    JSONObject jSONObject2 = new JSONObject(b);
+                    int optInt = jSONObject2.optInt("0", -1);
+                    ak1.g(this.a).G(System.currentTimeMillis());
+                    if (optInt == 0) {
+                        ak1.g(this.a).i(0);
+                        JSONObject optJSONObject = new JSONObject(jSONObject2.optString("1")).optJSONObject("data");
+                        if (optJSONObject != null) {
+                            str = optJSONObject.optString("uk");
+                        } else {
+                            str = "";
+                        }
+                        f(i, 0, 0, this.c, jSONObject2.optString("1"), optInt, str);
+                        return;
+                    }
+                    ak1.g(this.a).i(4);
+                    f(i, 4, nk1.a(optInt), this.c, jSONObject2.optString("1"), optInt, "");
+                    return;
+                }
+                f(i, 4, 2005, this.c, "server req empty.", -1, "");
+            } catch (Throwable th) {
+                ql1.d(th);
+                d(i, 3, 2009, this.c, "post token unknown error.");
+            }
+        }
+    }
+
+    public void c(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            Message message = new Message();
+            message.what = i;
+            message.arg1 = this.c;
+            message.arg2 = i2;
+            rk1.a().c(message, this.j);
+        }
+    }
+
+    public void h(Context context, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048583, this, context, i) == null) {
+            r = UUID.randomUUID().toString();
+            ck1.a(context).e(false);
+            t();
+        }
+    }
+
+    public void d(int i, int i2, int i3, int i4, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str}) == null) {
+            f(i, i2, i3, i4, str, -1, "");
+        }
+    }
+
+    public void n(int i, int i2, int i3, int i4, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str}) == null) {
+            o(i, i2, i3, i4, str, -1, "");
+        }
+    }
+
+    public synchronized void e(int i, int i2, int i3, int i4, String str, int i5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, Integer.valueOf(i5)}) == null) {
+            synchronized (this) {
+                ok1 ok1Var = new ok1();
+                ok1Var.a = i5;
+                pk1.m().d(i, i2, i3, i4, str, ok1Var, true);
+            }
+        }
+    }
+
+    public synchronized void f(int i, int i2, int i3, int i4, String str, int i5, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, Integer.valueOf(i5), str2}) == null) {
+            synchronized (this) {
+                ok1 ok1Var = new ok1();
+                ok1Var.a = 2;
+                ok1Var.c = i5;
+                ok1Var.d = str2;
+                pk1.m().d(i, i2, i3, i4, str, ok1Var, true);
+            }
+        }
+    }
+
+    public void o(int i, int i2, int i3, int i4, String str, int i5, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, Integer.valueOf(i5), str2}) == null) {
+            ok1 ok1Var = new ok1();
+            ok1Var.a = 4;
+            ok1Var.c = i5;
+            ok1Var.d = str2;
+            pk1.m().d(i, i2, i3, i4, str, ok1Var, true);
+        }
+    }
+
+    public void g(int i, int i2, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeIIL(1048582, this, i, i2, str) != null) || !fk1.j().l(i)) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("0", i2);
+            jSONObject.put("1", str);
+            String f = ck1.a(this.a).f(jSONObject, this.j);
+            if (!fk1.j().l(i)) {
+                return;
+            }
+            if (TextUtils.isEmpty(f)) {
+                n(i, 4, 2005, this.c, "server req empty.");
+            } else {
+                t();
+                JSONObject jSONObject2 = new JSONObject(f);
+                int optInt = jSONObject2.optInt("0", -1);
+                String optString = jSONObject2.optString("1");
+                ak1.g(this.a).P(System.currentTimeMillis());
+                if (optInt == 0) {
+                    ak1.g(this.a).r(0);
+                    o(i, 0, 0, this.c, optString, optInt, "");
+                } else {
+                    int a = nk1.a(optInt);
+                    ak1.g(this.a).r(4);
+                    o(i, 4, a, this.c, optString, optInt, "");
+                }
+            }
+        } catch (Throwable th) {
+            ql1.d(th);
+            n(i, 3, 2009, this.c, "post token unknown error.");
+        }
+    }
+
+    public void i(Context context, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, i, i2) == null) {
+            q = UUID.randomUUID().toString();
+            qk1.j().i();
+            ck1.a(context).e(false);
+            s();
+        }
+    }
+
+    public void j(Context context, int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{context, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            this.j = j;
+        }
+    }
+
+    public void p(Context context, int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{context, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            ck1.a(context).e(false);
+        }
+    }
+
+    public void m(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public boolean r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            int i = this.c;
+            if (i == 1) {
+                if (TextUtils.isEmpty(k) || TextUtils.isEmpty(l)) {
+                    return false;
+                }
+                return true;
+            } else if (i == 3) {
+                if (TextUtils.isEmpty(m) || TextUtils.isEmpty(n)) {
+                    return false;
+                }
+                return true;
+            } else if (i != 2 || TextUtils.isEmpty(o) || TextUtils.isEmpty(p)) {
                 return false;
+            } else {
+                return true;
             }
-            return invokeV.booleanValue;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            this.e = null;
+            this.f = 0L;
+            this.g = null;
         }
     }
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
+    public void t() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            try {
-                if (!jj1.g(context).e()) {
-                    return "";
-                }
-                return DeviceId.getCUID(context);
-            } catch (Throwable th) {
-                zk1.d(th);
-                return "";
-            }
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            this.h = null;
+            this.i = 0L;
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String b(Context context, String str) {
-        String g;
-        InterceptResult invokeLL;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            try {
-                g = a.g(context, str);
-            } catch (Throwable th) {
-                zk1.d(th);
-            }
-            if (!"no_device_sdk".equals(g)) {
-                return g;
-            }
-            if (!jj1.g(context).e()) {
-                return b;
-            }
-            if (!TextUtils.isEmpty(b)) {
-                return b;
-            }
-            if (!zk1.n(context)) {
-                return "";
-            }
-            String string = ApiReplaceUtil.Overload.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
-            b = string;
-            if (TextUtils.isEmpty(string)) {
-                b = "";
-            }
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return getClass().getSimpleName();
         }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String g(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
-            try {
-                String i = a.i(context, str);
-                if (!"no_device_sdk".equals(i)) {
-                    return i;
-                }
-                if (!jj1.g(context).e()) {
-                    return "";
-                }
-                TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-                if (telephonyManager != null) {
-                    return telephonyManager.getSimOperator();
-                }
-                return String.valueOf(-1003);
-            } catch (Throwable th) {
-                zk1.d(th);
-                return "";
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String c(Context context, boolean z, boolean z2, String str) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, Boolean.valueOf(z), Boolean.valueOf(z2), str})) == null) {
-            try {
-                String l = a.l(str);
-                if (!"no_device_sdk".equals(l)) {
-                    return l;
-                }
-                if (!jj1.g(context).e()) {
-                    return il1.b(String.valueOf(-1000), z2);
-                }
-                if (z && !TextUtils.isEmpty(a)) {
-                    return a;
-                }
-                if (!zk1.n(context)) {
-                    return il1.b(String.valueOf(-1002), z2);
-                }
-                String a2 = jl1.b().a();
-                if (TextUtils.isEmpty(a2)) {
-                    return il1.b(String.valueOf(-1003), z2);
-                }
-                a = a2;
-                return a2;
-            } catch (Throwable th) {
-                zk1.d(th);
-                return "";
-            }
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static String d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            String h0 = jj1.g(context).h0();
-            if (!TextUtils.isEmpty(h0)) {
-                return h0;
-            }
-            String str = "0";
-            if (!jj1.g(context).e()) {
-                return "0";
-            }
-            String str2 = Build.MANUFACTURER;
-            if (str2.equalsIgnoreCase("HUAWEI")) {
-                str = "1";
-            } else if (str2.equalsIgnoreCase("Xiaomi")) {
-                str = "2";
-            } else if (str2.equalsIgnoreCase("oppo")) {
-                str = "3";
-            } else if (str2.equalsIgnoreCase("vivo")) {
-                str = "4";
-            } else if (str2.equalsIgnoreCase("realme")) {
-                str = "5";
-            } else if (str2.equalsIgnoreCase("honor")) {
-                str = "6";
-            } else if (str2.equalsIgnoreCase("OnePlus")) {
-                str = "7";
-            } else if (str2.equalsIgnoreCase(ManufacturerUtils.SAMSUNG)) {
-                str = "8";
-            }
-            jj1.g(context).M(str);
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String e(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
-            try {
-                String j = a.j(str);
-                if (!"no_device_sdk".equals(j)) {
-                    return j;
-                }
-                return Build.MANUFACTURER;
-            } catch (Throwable th) {
-                zk1.d(th);
-                return "";
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String f(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
-            try {
-                String k = a.k(str);
-                if (!"no_device_sdk".equals(k)) {
-                    return k;
-                }
-                return Build.MODEL;
-            } catch (Throwable th) {
-                zk1.d(th);
-                return "";
-            }
-        }
-        return (String) invokeLL.objValue;
+        return (String) invokeV.objValue;
     }
 }

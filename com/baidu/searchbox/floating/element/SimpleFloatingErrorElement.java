@@ -35,7 +35,7 @@ public class SimpleFloatingErrorElement extends AbsElement {
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // kotlin.jvm.functions.Function0
         public final View invoke() {
-            View inflate = LayoutInflater.from(SimpleFloatingErrorElement.this.getContext()).inflate(R.layout.obfuscated_res_0x7f0d016f, (ViewGroup) null);
+            View inflate = LayoutInflater.from(SimpleFloatingErrorElement.this.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0171, (ViewGroup) null);
             Intrinsics.checkNotNull(inflate);
             return inflate;
         }
@@ -93,7 +93,7 @@ public class SimpleFloatingErrorElement extends AbsElement {
     @Override // com.baidu.searchbox.player.element.AbsElement
     public void initElement() {
         getView().setId(ViewCompat.generateViewId());
-        getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.bi1
+        getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.si1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -101,7 +101,7 @@ public class SimpleFloatingErrorElement extends AbsElement {
             public final void onClick(View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                    SimpleFloatingErrorElement.m88initElement$lambda0(SimpleFloatingErrorElement.this, view2);
+                    SimpleFloatingErrorElement.m89initElement$lambda0(SimpleFloatingErrorElement.this, view2);
                 }
             }
         });
@@ -109,7 +109,7 @@ public class SimpleFloatingErrorElement extends AbsElement {
     }
 
     /* renamed from: initElement$lambda-0  reason: not valid java name */
-    public static final void m88initElement$lambda0(SimpleFloatingErrorElement this$0, View view2) {
+    public static final void m89initElement$lambda0(SimpleFloatingErrorElement this$0, View view2) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         this$0.getVideoPlayer().setVideoUrl(this$0.getVideoPlayer().getVideoUrl());
         this$0.getVideoPlayer().start();
@@ -149,12 +149,12 @@ public class SimpleFloatingErrorElement extends AbsElement {
         }
         if (i != 1) {
             if (i == 2) {
-                Toast.makeText(getContext(), (int) R.string.obfuscated_res_0x7f0f10ec, 0).show();
+                Toast.makeText(getContext(), (int) R.string.obfuscated_res_0x7f0f10fe, 0).show();
                 return;
             }
             return;
         }
-        Toast.makeText(getContext(), (int) R.string.obfuscated_res_0x7f0f10ed, 0).show();
+        Toast.makeText(getContext(), (int) R.string.obfuscated_res_0x7f0f10ff, 0).show();
     }
 
     @Override // com.baidu.searchbox.player.element.AbsElement, com.baidu.searchbox.player.element.IElement

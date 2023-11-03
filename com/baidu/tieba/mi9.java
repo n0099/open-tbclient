@@ -1,161 +1,84 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.tbselector.TBSelector;
-import com.baidu.tieba.pb.pb.main.PbBjhRecommendViewHolder;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class mi9 extends qi9<aw4, PbBjhRecommendViewHolder> {
+public class mi9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ye9 g;
-    public int h;
+    public String a;
+    public String b;
+    public int c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mi9(bo9 bo9Var, BdUniqueId bdUniqueId) {
-        super(bo9Var, bdUniqueId);
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+        }
+    }
+
+    public mi9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bo9Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((bo9) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public void A(ye9 ye9Var) {
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ye9Var) == null) {
-            this.g = ye9Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.c = i;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
-    /* renamed from: x */
-    public PbBjhRecommendViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void f(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
-            PbBjhRecommendViewHolder pbBjhRecommendViewHolder = new PbBjhRecommendViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d017c, (ViewGroup) null), this.a.l0());
-            u(pbBjhRecommendViewHolder);
-            return pbBjhRecommendViewHolder;
-        }
-        return (PbBjhRecommendViewHolder) invokeL.objValue;
-    }
-
-    public void z(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.h = i;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.a = str;
         }
     }
 
-    public final void u(PbBjhRecommendViewHolder pbBjhRecommendViewHolder) {
+    public void g(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, pbBjhRecommendViewHolder) != null) || pbBjhRecommendViewHolder == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.b = str;
         }
-        int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (pbBjhRecommendViewHolder.a != skinType) {
-            SkinManager.setBackgroundColor(pbBjhRecommendViewHolder.h, R.color.CAM_X0204, skinType);
-            SkinManager.setBackgroundColor(pbBjhRecommendViewHolder.v, R.color.CAM_X0203, skinType);
-            SkinManager.setBackgroundColor(pbBjhRecommendViewHolder.q, R.color.CAM_X0204, skinType);
-            SkinManager.setViewTextColor(pbBjhRecommendViewHolder.s, R.color.CAM_X0302, 1, skinType);
-            SkinManager.setViewTextColor(pbBjhRecommendViewHolder.l, R.color.CAM_X0105, 1, skinType);
-            pbBjhRecommendViewHolder.n.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, null));
-            SkinManager.setViewTextColor(pbBjhRecommendViewHolder.o, R.color.CAM_X0101, 1, skinType);
-            SkinManager.setViewTextColor(pbBjhRecommendViewHolder.t, R.color.CAM_X0109, 1, skinType);
-            SkinManager.setViewTextColor(pbBjhRecommendViewHolder.u, R.color.CAM_X0109, 1, skinType);
-            SkinManager.setBackgroundSelector(pbBjhRecommendViewHolder.g, R.color.CAM_X0302, R.color.CAM_X0204, skinType);
-            EMManager.from(pbBjhRecommendViewHolder.g).setBackGroundSelectorColor(R.color.CAM_X0205, R.color.CAM_X0204);
-            TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.cp_bg_line_d_alpha0, R.color.CAM_X0105).cornerRadius(BdUtilHelper.getDimens(this.a.l0(), R.dimen.tbds10)).into(pbBjhRecommendViewHolder.k);
-        }
-        pbBjhRecommendViewHolder.a = skinType;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qi9, com.baidu.tieba.lh
-    /* renamed from: y */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, aw4 aw4Var, PbBjhRecommendViewHolder pbBjhRecommendViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, aw4Var, pbBjhRecommendViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) aw4Var, (aw4) pbBjhRecommendViewHolder);
-            if (aw4Var == null) {
-                return null;
-            }
-            u(pbBjhRecommendViewHolder);
-            pbBjhRecommendViewHolder.f(aw4Var);
-            pbBjhRecommendViewHolder.g(this.h);
-            ye9 ye9Var = this.g;
-            if (ye9Var != null) {
-                pbBjhRecommendViewHolder.k(ye9Var.Q());
-                pbBjhRecommendViewHolder.i(this.g.x0());
-                if (this.g.O() != null && this.g.O().getBaijiahaoData() != null) {
-                    pbBjhRecommendViewHolder.h(this.g.O().getBaijiahaoData().oriUgcNid);
-                }
-                int i2 = this.h;
-                int i3 = 3;
-                if (i2 == 2) {
-                    i3 = 1;
-                } else if (i2 == 1) {
-                    i3 = 2;
-                } else if (i2 != 3) {
-                    i3 = 4;
-                }
-                if (aw4Var.threadType == 40) {
-                    StatisticItem.make("c13536").param("tid", aw4Var.getTid()).param("fid", aw4Var.getFid()).param("obj_source", i3).param("obj_locate", aw4Var.c()).param("obj_id", this.g.Q()).param("obj_type", aw4Var.isBjhDynamicThread() ? 1 : 0).eventStat();
-                } else {
-                    StatisticItem.make("c13533").param("tid", aw4Var.getTid()).param("fid", aw4Var.getFid()).param("obj_source", i3).param("obj_locate", aw4Var.c()).param("obj_id", this.g.Q()).eventStat();
-                }
-                if (this.g.x0()) {
-                    StatisticItem statisticItem = new StatisticItem("c13588");
-                    if (aw4Var.getForumData() != null) {
-                        statisticItem.param("fid", aw4Var.getForumData().b());
-                    }
-                    statisticItem.param("tid", aw4Var.getTid());
-                    statisticItem.param("obj_param1", aw4Var.mRecomWeight);
-                    statisticItem.param("obj_source", aw4Var.mRecomSource);
-                    statisticItem.param("obj_locate", aw4Var.c());
-                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, System.currentTimeMillis());
-                    statisticItem.param("obj_id", this.g.Q());
-                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                    if (aw4Var.getThreadData().getBaijiahaoData() != null) {
-                        statisticItem.param(TiebaStatic.Params.OBJ_PARAM4, aw4Var.getThreadData().getBaijiahaoData().oriUgcNid);
-                        statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, aw4Var.getThreadData().getBaijiahaoData().oriUgcVid);
-                    }
-                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, aw4Var.getVideoRecStaticticType());
-                    statisticItem.param("ab_tag", aw4Var.mRecomAbTag);
-                    statisticItem.param("extra", aw4Var.mRecomExtra);
-                    TiebaStatic.log(statisticItem);
-                }
-            }
-            return view2;
-        }
-        return (View) invokeCommon.objValue;
     }
 }

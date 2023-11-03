@@ -1,183 +1,84 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.IntentConstants;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.searchbox.schemedispatch.monitor.OpenAppUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.MotionEvent;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.List;
 /* loaded from: classes7.dex */
 public class le0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int[] a;
+    public final int[] b;
+    public int c;
+    public long d;
+    public long e;
+    public long f;
+    public long g;
+    public long h;
 
-    /* loaded from: classes7.dex */
-    public class a implements je0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ WeakReference a;
-        public final /* synthetic */ Intent b;
-        public final /* synthetic */ je0 c;
-
-        public a(WeakReference weakReference, Intent intent, je0 je0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {weakReference, intent, je0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = weakReference;
-            this.b = intent;
-            this.c = je0Var;
-        }
-
-        @Override // com.baidu.tieba.je0
-        public void onResult(boolean z) {
-            Context context;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                if (z && (context = (Context) this.a.get()) != null) {
-                    u01.d(context, this.b);
-                }
-                je0 je0Var = this.c;
-                if (je0Var != null) {
-                    je0Var.onResult(z);
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947939858, "Lcom/baidu/tieba/le0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947939858, "Lcom/baidu/tieba/le0;");
+    public le0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = Boolean.FALSE;
+        this.a = new int[]{0, 0};
+        this.b = new int[]{0, 0};
+        this.c = 0;
+        this.h = 0L;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:23:0x0054  */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x006c  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void a(Context context, String str, String str2, je0 je0Var, boolean z) {
-        boolean z2;
+    public void a(MotionEvent motionEvent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, str, str2, je0Var, Boolean.valueOf(z)}) == null) {
-            WeakReference weakReference = new WeakReference(context);
-            try {
-                Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(str));
-                intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-                if (z && !ke0.a(context, str)) {
-                    z2 = false;
-                    if (!z2) {
-                        if (z) {
-                            ee0.a().b(str, str2, new a(weakReference, intent, je0Var));
-                            return;
-                        }
-                        u01.d(context, intent);
-                        if (je0Var != null) {
-                            je0Var.onResult(true);
-                            return;
-                        }
-                        return;
-                    } else if (je0Var != null) {
-                        je0Var.onResult(false);
-                        return;
-                    } else {
+        if (interceptable == null || interceptable.invokeL(1048576, this, motionEvent) == null) {
+            int action = motionEvent.getAction();
+            if (action != 0) {
+                if (action != 1) {
+                    if (action == 2) {
+                        this.c++;
                         return;
                     }
+                    return;
                 }
-                List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
-                int i = 0;
-                z2 = false;
-                while (true) {
-                    if (i >= queryIntentActivities.size()) {
-                        break;
-                    }
-                    ResolveInfo resolveInfo = (ResolveInfo) tx0.d(queryIntentActivities, i);
-                    if (resolveInfo != null) {
-                        String str3 = resolveInfo.activityInfo.packageName;
-                        if (TextUtils.equals(str3, str2)) {
-                            intent.setPackage(str3);
-                            z2 = true;
-                            break;
-                        }
-                        z2 = true;
-                    }
-                    i++;
+                this.c = 0;
+                this.e = System.currentTimeMillis();
+                this.b[0] = (int) motionEvent.getRawX();
+                this.b[1] = (int) motionEvent.getRawY();
+                if (Math.max(Math.abs(this.b[0] - this.a[0]), Math.abs(this.b[1] - this.a[1])) > 10) {
+                    this.g++;
+                    this.f += Math.max(0L, this.e - this.d);
+                    return;
                 }
-                if (!z2) {
-                }
-            } catch (Exception unused) {
-                if (je0Var != null) {
-                    je0Var.onResult(false);
-                }
+                return;
             }
+            long currentTimeMillis = System.currentTimeMillis();
+            this.d = currentTimeMillis;
+            if (this.h == 0) {
+                this.h = currentTimeMillis;
+            }
+            this.a[0] = (int) motionEvent.getRawX();
+            this.a[1] = (int) motionEvent.getRawY();
         }
     }
 
-    public static boolean b(@NonNull Context context, @NonNull String str) {
-        InterceptResult invokeLL;
-        ResolveInfo next;
+    public int[] b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            boolean z = false;
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            Intent intent = new Intent("android.intent.action.MAIN");
-            intent.addCategory("android.intent.category.LAUNCHER");
-            intent.setPackage(str);
-            List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
-            if (queryIntentActivities.size() > 0 && (next = queryIntentActivities.iterator().next()) != null) {
-                String str2 = next.activityInfo.name;
-                Intent intent2 = new Intent("android.intent.action.MAIN");
-                intent2.addCategory("android.intent.category.LAUNCHER");
-                intent2.setComponent(new ComponentName(str, str2));
-                intent2.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-                try {
-                    context.startActivity(intent2);
-                    z = true;
-                } catch (Exception unused) {
-                }
-            }
-            if (a.booleanValue() && !z) {
-                Log.e(OpenAppUtils.TAG, "openAppByPkgName: " + str + "  failed");
-            }
-            return z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int[] iArr = this.b;
+            return new int[]{iArr[0], iArr[1]};
         }
-        return invokeLL.booleanValue;
+        return (int[]) invokeV.objValue;
     }
 }

@@ -1,115 +1,107 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.BDLayoutMode;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetAddressList.DataRes;
-import tbclient.GetAddressList.listData;
-import tbclient.GetAddressList.robotsList;
+import tbclient.SimpleUser;
 /* loaded from: classes8.dex */
 public class w16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<a26> a;
-    public List<a26> b;
+    public final View.OnClickListener a;
+    public BaseActivity b;
+    public LinearLayout c;
+    public LinearLayout d;
+    public TbSettingTextTipView e;
+    public TbSettingTextTipView f;
+    public TextView g;
 
-    public w16() {
+    public w16(BaseActivity baseActivity, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseActivity, onClickListener};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = baseActivity;
+        this.a = onClickListener;
+        b();
     }
 
-    public List<a26> a() {
+    public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a == null) {
-                this.a = new ArrayList();
-            }
-            return this.a;
+            return this.c;
         }
-        return (List) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
-    public final boolean b(List<a26> list, y95 y95Var) {
-        InterceptResult invokeLL;
-        List<y95> a;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, y95Var)) == null) {
-            if (list != null && y95Var != null) {
-                for (a26 a26Var : list) {
-                    if (a26Var != null && (a = a26Var.a()) != null) {
-                        for (y95 y95Var2 : a) {
-                            if (y95Var2 != null && y95Var2.d() == y95Var.d()) {
-                                return true;
-                            }
-                        }
-                        continue;
-                    }
-                }
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.c.removeAllViews();
+            this.b = null;
         }
-        return invokeLL.booleanValue;
     }
 
-    public boolean c(DataRes dataRes) {
-        InterceptResult invokeL;
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0025, (ViewGroup) null);
+            this.c = linearLayout;
+            this.d = (LinearLayout) linearLayout.findViewById(R.id.content_container);
+            this.e = (TbSettingTextTipView) this.c.findViewById(R.id.obfuscated_res_0x7f090376);
+            this.g = (TextView) this.c.findViewById(R.id.tv_title);
+            this.f = (TbSettingTextTipView) this.c.findViewById(R.id.obfuscated_res_0x7f09007b);
+            this.e.a();
+            this.f.a();
+            this.e.setOnClickListener(this.a);
+            this.f.setOnClickListener(this.a);
+        }
+    }
+
+    public void d(SimpleUser simpleUser) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, simpleUser) != null) || simpleUser == null) {
+            return;
+        }
+        this.f.setTip(simpleUser.block_msg);
+    }
+
+    public void e(int i) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes)) == null) {
-            if (dataRes != null && dataRes.robots_list != null) {
-                this.b = new ArrayList();
-                z = false;
-                for (robotsList robotslist : dataRes.robots_list) {
-                    if (TextUtils.isEmpty(robotslist.key)) {
-                        z = true;
-                    } else {
-                        a26 a26Var = new a26();
-                        a26Var.d(robotslist);
-                        this.b.add(a26Var);
-                    }
-                }
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            BDLayoutMode layoutMode = this.b.getLayoutMode();
+            if (i == 4) {
+                z = true;
             } else {
                 z = false;
             }
-            if (dataRes != null && dataRes.address_list != null) {
-                this.a = new ArrayList();
-                for (listData listdata : dataRes.address_list) {
-                    if (TextUtils.isEmpty(listdata.key)) {
-                        z = true;
-                    } else {
-                        a26 a26Var2 = new a26();
-                        a26Var2.c(listdata);
-                        if (a26Var2.a() != null) {
-                            for (y95 y95Var : a26Var2.a()) {
-                                if (b(this.b, y95Var)) {
-                                    y95Var.q(1);
-                                } else {
-                                    y95Var.q(0);
-                                }
-                            }
-                        }
-                        this.a.add(a26Var2);
-                    }
-                }
-            }
-            return z;
+            layoutMode.setNightMode(z);
+            this.b.getLayoutMode().onModeChanged(this.c);
+            EMManager.from(this.g).setTextColor(R.color.CAM_X0109).setBackGroundColor(R.color.CAM_X0204);
         }
-        return invokeL.booleanValue;
     }
 }

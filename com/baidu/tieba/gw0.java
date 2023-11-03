@@ -1,35 +1,60 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.player.constants.PlayerStatus;
-import com.baidu.searchbox.player.event.PlayerEvent;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
 public final class gw0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public yu0 a;
-    public PlayerStatus b;
-    public StringBuilder c;
+    public final ArrayList<ew0> a;
 
-    public final void d() {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (this != obj) {
+                return (obj instanceof gw0) && Intrinsics.areEqual(this.a, ((gw0) obj).a);
+            }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    public gw0() {
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ArrayList<ew0> arrayList = this.a;
+            if (arrayList != null) {
+                return arrayList.hashCode();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "Interact(adaptationSetList=" + this.a + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public gw0(ArrayList<ew0> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {arrayList};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,149 +64,15 @@ public final class gw0 {
                 return;
             }
         }
-        this.b = PlayerStatus.IDLE;
-        d();
+        this.a = arrayList;
     }
 
-    @NonNull
-    public PlayerStatus c() {
+    public final ArrayList<ew0> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (PlayerStatus) invokeV.objValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            h();
-            this.b = PlayerStatus.IDLE;
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.a = null;
-        }
-    }
-
-    public void a(sr0 sr0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sr0Var) == null) {
-            if (sr0Var.m() != 4 && sr0Var.m() != 2) {
-                return;
-            }
-            String c = sr0Var.c();
-            char c2 = 65535;
-            switch (c.hashCode()) {
-                case -525235558:
-                    if (c.equals(PlayerEvent.ACTION_ON_PREPARED)) {
-                        c2 = 2;
-                        break;
-                    }
-                    break;
-                case -461848373:
-                    if (c.equals(PlayerEvent.ACTION_ON_ERROR)) {
-                        c2 = 3;
-                        break;
-                    }
-                    break;
-                case 154871702:
-                    if (c.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
-                        c2 = 1;
-                        break;
-                    }
-                    break;
-                case 1370689931:
-                    if (c.equals(PlayerEvent.ACTION_ON_INFO)) {
-                        c2 = 0;
-                        break;
-                    }
-                    break;
-            }
-            if (c2 != 0) {
-                if (c2 != 1) {
-                    if (c2 != 2) {
-                        if (c2 == 3) {
-                            g(PlayerStatus.ERROR);
-                            return;
-                        }
-                        return;
-                    }
-                    g(PlayerStatus.PREPARED);
-                    return;
-                }
-                g(PlayerStatus.COMPLETE);
-                return;
-            }
-            int g = sr0Var.g(1);
-            if (904 == g || 956 == g) {
-                g(PlayerStatus.PLAYING);
-            }
-        }
-    }
-
-    public void b(@NonNull yu0 yu0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yu0Var) == null) {
-            this.a = yu0Var;
-        }
-    }
-
-    public boolean e(@NonNull PlayerStatus... playerStatusArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, playerStatusArr)) == null) {
-            for (PlayerStatus playerStatus : playerStatusArr) {
-                if (playerStatus == c()) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void g(PlayerStatus playerStatus) {
-        PlayerStatus playerStatus2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, playerStatus) != null) || playerStatus == (playerStatus2 = this.b)) {
-            return;
-        }
-        this.b = playerStatus;
-        yu0 yu0Var = this.a;
-        if (yu0Var != null) {
-            yu0Var.d(nr0.x(playerStatus2, playerStatus));
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (xo0.f()) {
-                StringBuilder sb = this.c;
-                if (sb == null) {
-                    this.c = new StringBuilder();
-                } else if (sb.length() > 0) {
-                    StringBuilder sb2 = this.c;
-                    sb2.delete(0, sb2.length());
-                }
-                StringBuilder sb3 = this.c;
-                sb3.append("，Courier :");
-                sb3.append(this.a);
-                sb3.append("，status :");
-                sb3.append(this.b);
-                sb3.append("，hash :");
-                sb3.append(hashCode());
-                sb3.append("】");
-                return this.c.toString();
-            }
-            return super.toString();
-        }
-        return (String) invokeV.objValue;
+        return (ArrayList) invokeV.objValue;
     }
 }

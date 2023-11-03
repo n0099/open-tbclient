@@ -31,9 +31,9 @@ public class KernelErrorElement extends AbsElement {
 
     @Override // com.baidu.searchbox.player.element.AbsElement
     public void initElement() {
-        LinearLayout linearLayout = (LinearLayout) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0171, null);
+        LinearLayout linearLayout = (LinearLayout) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0173, null);
         this.mRootView = linearLayout;
-        TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091cd7);
+        TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091d1e);
         this.mTextNetError = textView;
         textView.setOnClickListener(this.mParent);
     }

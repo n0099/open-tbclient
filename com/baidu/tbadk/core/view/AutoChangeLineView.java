@@ -17,7 +17,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xga;
+import com.baidu.tieba.cua;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,8 +31,8 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class AutoChangeLineView extends ViewGroup implements View.OnClickListener, View.OnLongClickListener {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int D = 2131305437;
-    public static final int E = 2131305438;
+    public static final int D = 2131305524;
+    public static final int E = 2131305525;
     public transient /* synthetic */ FieldHolder $fh;
     public d A;
     public e B;
@@ -280,7 +280,7 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
                 if (i2 < childCount) {
                     TextView textView = (TextView) getChildAt(i2);
                     if (!arrayList.contains(textView)) {
-                        j(textView, false);
+                        k(textView, false);
                         arrayList.add(textView);
                     }
                     if (i > 0 && arrayList.size() == i) {
@@ -307,7 +307,7 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
                 if (i2 < childCount) {
                     TextView textView = (TextView) getChildAt(i2);
                     if (!arrayList.contains(textView)) {
-                        j(textView, true);
+                        k(textView, true);
                         arrayList.add(textView);
                     }
                     if (i > 0 && arrayList.size() == i) {
@@ -408,7 +408,7 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
         return invokeF.intValue;
     }
 
-    public final int k(float f2) {
+    public final int l(float f2) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048605, this, f2)) == null) {
@@ -645,7 +645,7 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
     public final void d(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048579, this, context, attributeSet) == null) && attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, xga.AutoChangeLineView);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, cua.AutoChangeLineView);
             this.n = SelectType.get(obtainStyledAttributes.getInt(18, 1));
             this.o = obtainStyledAttributes.getInteger(16, 0);
             this.p = obtainStyledAttributes.getInteger(17, 0);
@@ -660,7 +660,7 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
             } else {
                 this.b = ColorStateList.valueOf(-16777216);
             }
-            this.c = obtainStyledAttributes.getDimension(11, k(14.0f));
+            this.c = obtainStyledAttributes.getDimension(11, l(14.0f));
             if (obtainStyledAttributes.hasValue(6)) {
                 int dimensionPixelOffset = obtainStyledAttributes.getDimensionPixelOffset(6, 0);
                 this.k = dimensionPixelOffset;
@@ -696,7 +696,7 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             int childCount = getChildCount();
             for (int i = 0; i < childCount; i++) {
-                j((TextView) getChildAt(i), false);
+                k((TextView) getChildAt(i), false);
             }
             this.w.clear();
         }
@@ -953,7 +953,7 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
         }
     }
 
-    public final void j(TextView textView, boolean z) {
+    public final void k(TextView textView, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLZ(1048604, this, textView, z) == null) && textView.isSelected() != z) {
             textView.setSelected(z);
@@ -1076,17 +1076,17 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
                         z3 = false;
                     }
                     if (!z3 && !i(textView)) {
-                        j(textView, false);
+                        k(textView, false);
                     }
                 } else {
                     SelectType selectType = this.n;
                     if (selectType != SelectType.SINGLE && selectType != SelectType.SINGLE_IRREVOCABLY) {
                         if (selectType == SelectType.MULTI && (((i = this.o) <= 0 || i > this.w.size()) && !i(textView))) {
-                            j(textView, true);
+                            k(textView, true);
                         }
                     } else if (!i(textView)) {
                         e();
-                        j(textView, true);
+                        k(textView, true);
                     }
                 }
             }
@@ -1288,7 +1288,7 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
                 if (i2 < childCount) {
                     TextView textView = (TextView) getChildAt(i2);
                     if (!arrayList.contains(textView)) {
-                        j(textView, false);
+                        k(textView, false);
                         arrayList.add(textView);
                     }
                     if (i > 0 && arrayList.size() == i) {
@@ -1299,7 +1299,7 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
             for (int i3 = 0; i3 < childCount; i3++) {
                 TextView textView2 = (TextView) getChildAt(i3);
                 if (!arrayList.contains(textView2)) {
-                    j(textView2, false);
+                    k(textView2, false);
                 }
             }
         }

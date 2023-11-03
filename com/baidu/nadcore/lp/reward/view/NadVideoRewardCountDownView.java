@@ -21,11 +21,11 @@ import com.baidu.nadcore.utils.ExtensionsKt;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cc0;
-import com.baidu.tieba.fk0;
-import com.baidu.tieba.jk0;
-import com.baidu.tieba.jn0;
-import com.baidu.tieba.ok0;
+import com.baidu.tieba.al0;
+import com.baidu.tieba.ao0;
+import com.baidu.tieba.fl0;
+import com.baidu.tieba.tc0;
+import com.baidu.tieba.wk0;
 import java.util.concurrent.TimeUnit;
 import kotlin.Lazy;
 import kotlin.LazyKt__LazyJVMKt;
@@ -101,8 +101,8 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
 
             /* renamed from: com.baidu.nadcore.lp.reward.view.NadVideoRewardCountDownView$b$a$a  reason: collision with other inner class name */
             /* loaded from: classes3.dex */
-            public static final class C0116a implements ValueAnimator.AnimatorUpdateListener {
-                public C0116a() {
+            public static final class C0117a implements ValueAnimator.AnimatorUpdateListener {
+                public C0117a() {
                 }
 
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -126,7 +126,7 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
             public void onAnimationEnd(Animator a) {
                 Intrinsics.checkNotNullParameter(a, "a");
                 ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 0.5f);
-                ofFloat.addUpdateListener(new C0116a());
+                ofFloat.addUpdateListener(new C0117a());
                 ofFloat.setDuration(200L).start();
             }
         }
@@ -144,10 +144,10 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
 
     /* loaded from: classes3.dex */
     public static final class a implements ValueAnimator.AnimatorUpdateListener {
-        public final /* synthetic */ jn0 b;
+        public final /* synthetic */ ao0 b;
 
-        public a(jn0 jn0Var) {
-            this.b = jn0Var;
+        public a(ao0 ao0Var) {
+            this.b = ao0Var;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -183,16 +183,16 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
     }
 
     /* loaded from: classes3.dex */
-    public static final class d extends ok0 {
-        public final /* synthetic */ jn0 k;
+    public static final class d extends fl0 {
+        public final /* synthetic */ ao0 k;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(jn0 jn0Var, int i, long j, long j2) {
+        public d(ao0 ao0Var, int i, long j, long j2) {
             super(j, j2);
-            this.k = jn0Var;
+            this.k = ao0Var;
         }
 
-        @Override // com.baidu.tieba.ok0
+        @Override // com.baidu.tieba.fl0
         public void l() {
             Function0<Unit> countDownFinish = NadVideoRewardCountDownView.this.getCountDownFinish();
             if (countDownFinish != null) {
@@ -201,7 +201,7 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
             NadVideoRewardCountDownView.this.o(this.k);
         }
 
-        @Override // com.baidu.tieba.ok0
+        @Override // com.baidu.tieba.fl0
         public void m(long j) {
             Function0<Unit> bigCardShowCallback;
             Function0<Unit> suspendShowCallback;
@@ -224,7 +224,7 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
 
         @Override // java.lang.Runnable
         public final void run() {
-            ok0 countDownTime = NadVideoRewardCountDownView.this.getCountDownTime();
+            fl0 countDownTime = NadVideoRewardCountDownView.this.getCountDownTime();
             if (countDownTime != null) {
                 countDownTime.n();
             }
@@ -259,7 +259,7 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
             public final LinearLayout invoke() {
-                View findViewById = NadVideoRewardCountDownView.this.findViewById(R.id.obfuscated_res_0x7f09163e);
+                View findViewById = NadVideoRewardCountDownView.this.findViewById(R.id.obfuscated_res_0x7f09167e);
                 Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.ll_limit)");
                 return (LinearLayout) findViewById;
             }
@@ -335,10 +335,10 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
             }
         });
         LayoutInflater from = LayoutInflater.from(context);
-        fk0 a2 = jk0.a();
+        wk0 a2 = al0.a();
         Intrinsics.checkNotNullExpressionValue(a2, "NadRewardVideoLpRuntime.getUIProvider()");
         from.inflate(a2.m(), this);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, cc0.NadVideoRewardCountDownView);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, tc0.NadVideoRewardCountDownView);
         Intrinsics.checkNotNullExpressionValue(obtainStyledAttributes, "context.obtainStyledAttr…VideoRewardCountDownView)");
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setCornerRadius(obtainStyledAttributes.getDimension(0, ExtensionsKt.d(14, context)));
@@ -360,9 +360,9 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
         getTvDesc().setText(tips);
     }
 
-    public final void o(jn0 jn0Var) {
+    public final void o(ao0 ao0Var) {
         ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 0.0f, 1.0f);
-        ofFloat.addUpdateListener(new a(jn0Var));
+        ofFloat.addUpdateListener(new a(ao0Var));
         ofFloat.setDuration(400L).start();
     }
 
@@ -370,7 +370,7 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
     public long getMillisUntilFinished() {
         long j;
         long millis = TimeUnit.SECONDS.toMillis(this.o);
-        ok0 countDownTime = getCountDownTime();
+        fl0 countDownTime = getCountDownTime();
         if (countDownTime != null) {
             j = countDownTime.j();
         } else {
@@ -393,10 +393,10 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
         }
     }
 
-    public final void q(jn0 jn0Var) {
+    public final void q(ao0 ao0Var) {
         getTvCountDown().setVisibility(0);
         getIvIcon().setVisibility(0);
-        getTvDesc().setText(jn0Var.z());
+        getTvDesc().setText(ao0Var.z());
         getLlLimit().setVisibility(8);
         getLottieView().setVisibility(8);
         getLlCountDown().setAlpha(1.0f);
@@ -405,13 +405,13 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
 
     @Override // com.baidu.nadcore.lp.reward.view.AbsRewardCountDownView
     @SuppressLint({"SetTextI18n"})
-    public void setData(int i, jn0 rewardData, Function0<Unit> onFinish) {
+    public void setData(int i, ao0 rewardData, Function0<Unit> onFinish) {
         Intrinsics.checkNotNullParameter(rewardData, "rewardData");
         Intrinsics.checkNotNullParameter(onFinish, "onFinish");
         q(rewardData);
         setCountDownFinish(onFinish);
         this.o = i;
-        getIvIcon().s(rewardData.y());
+        getIvIcon().r(rewardData.y());
         getTvCountDown().setText(String.valueOf(i));
         setCountDownTime(new d(rewardData, i, TimeUnit.SECONDS.toMillis(i), 1000L));
         setDelayTimingTask(new e());

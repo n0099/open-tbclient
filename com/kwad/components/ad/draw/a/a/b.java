@@ -14,8 +14,8 @@ public final class b extends com.kwad.components.ad.draw.kwai.a {
     public DrawCardApp bC;
     public DrawCardH5 bD;
     public ViewGroup bh;
-    public a.InterfaceC0570a bz = new a.InterfaceC0570a() { // from class: com.kwad.components.ad.draw.a.a.b.1
-        @Override // com.kwad.components.ad.draw.a.a.a.InterfaceC0570a
+    public a.InterfaceC0576a bz = new a.InterfaceC0576a() { // from class: com.kwad.components.ad.draw.a.a.b.1
+        @Override // com.kwad.components.ad.draw.a.a.a.InterfaceC0576a
         public final void ax() {
             b.this.ax();
         }
@@ -89,9 +89,9 @@ public final class b extends com.kwad.components.ad.draw.kwai.a {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.bh = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091286);
-        this.bC = (DrawCardApp) findViewById(R.id.obfuscated_res_0x7f0912a5);
-        this.bD = (DrawCardH5) findViewById(R.id.obfuscated_res_0x7f0912ae);
+        this.bh = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0912c4);
+        this.bC = (DrawCardApp) findViewById(R.id.obfuscated_res_0x7f0912e3);
+        this.bD = (DrawCardH5) findViewById(R.id.obfuscated_res_0x7f0912ec);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
@@ -99,6 +99,6 @@ public final class b extends com.kwad.components.ad.draw.kwai.a {
         super.onUnbind();
         this.bC.release();
         this.bD.release();
-        this.aK.ba.a((a.InterfaceC0570a) null);
+        this.aK.ba.a((a.InterfaceC0576a) null);
     }
 }

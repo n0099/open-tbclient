@@ -1,7 +1,7 @@
 package com.baidu.tieba;
-/* loaded from: classes7.dex */
+
+import com.facebook.cache.common.CacheKey;
+/* loaded from: classes8.dex */
 public interface ra2 {
-    static {
-        boolean z = am1.a;
-    }
+    CacheKey a(String str);
 }

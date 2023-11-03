@@ -1,167 +1,154 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewStub;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.rz4;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
-import tbclient.SmartApp;
+import tbclient.Post;
+import tbclient.User;
 /* loaded from: classes8.dex */
 public class wr9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public Context b;
-    public pz4 c;
-    public rz4 d;
-    public List<nz4> e;
-    public nz4 f;
-    public b g;
-    public SmartApp h;
-    public rz4.e i;
+    public View a;
+    public View b;
+    public TextView c;
+    public vr9 d;
+    public vr9 e;
+    public vr9 f;
+    public View g;
 
     /* loaded from: classes8.dex */
-    public interface b {
+    public interface a {
         void a(String str);
     }
 
-    /* loaded from: classes8.dex */
-    public class a implements rz4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wr9 a;
-
-        public a(wr9 wr9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wr9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = wr9Var;
-        }
-
-        @Override // com.baidu.tieba.rz4.e
-        public void onClick() {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.h == null) {
-                return;
-            }
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SMART_APP_DEL_BROWSE_HISTORY);
-            httpMessage.addParam("swan_app_key", this.a.h.id);
-            MessageManager.getInstance().sendMessage(httpMessage);
-            if (this.a.g != null) {
-                this.a.g.a(this.a.h.id);
-            }
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SMART_APP_HISTORY_DELETE_CLICK);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("obj_id", this.a.h.naws_app_id.longValue());
-            statisticItem.param("obj_name", this.a.h.name);
-            TiebaStatic.log(statisticItem);
-            if (this.a.c != null) {
-                this.a.c.dismiss();
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948280331, "Lcom/baidu/tieba/wr9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948280331, "Lcom/baidu/tieba/wr9;");
-                return;
-            }
-        }
-        MessageManager.getInstance().registerTask(new TbHttpMessageTask(CmdConfigHttp.CMD_SMART_APP_DEL_BROWSE_HISTORY, TbConfig.SERVER_ADDRESS + TbConfig.URL_SMART_APP_DEL_BROWSE_HISTORY));
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.c != null) {
-            return;
-        }
-        nz4 nz4Var = new nz4(this.b.getString(R.string.obfuscated_res_0x7f0f0551), this.d);
-        this.f = nz4Var;
-        nz4Var.m(this.i);
-        this.e.add(this.f);
-        this.d.m(this.e);
-        this.c = new pz4(this.a, this.d);
-    }
-
-    public wr9(TbPageContext tbPageContext) {
+    public wr9(Context context, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {context, aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = new a(this);
-        this.a = tbPageContext;
-        Activity pageActivity = tbPageContext.getPageActivity();
-        this.b = pageActivity;
-        this.d = new rz4(pageActivity);
-        this.e = new ArrayList();
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0206, (ViewGroup) null);
+        this.b = inflate;
+        this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090730);
+        this.g = this.b.findViewById(R.id.obfuscated_res_0x7f09072d);
+        this.a = this.b.findViewById(R.id.obfuscated_res_0x7f090791);
+        this.d = new vr9((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f090731), aVar);
+        this.e = new vr9((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f090732), aVar);
+        this.f = new vr9((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f090733), aVar);
     }
 
-    public void d(SmartApp smartApp) {
+    public final User a(Post post, List<User> list) {
+        InterceptResult invokeLL;
+        Long l;
+        Long l2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, smartApp) == null) {
-            this.h = smartApp;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, post, list)) == null) {
+            if (post == null || list == null || list.isEmpty() || (l = post.author_id) == null) {
+                return null;
+            }
+            long longValue = l.longValue();
+            for (User user : list) {
+                if (user != null && (l2 = user.id) != null && l2.longValue() == longValue) {
+                    return user;
+                }
+            }
+            return null;
+        }
+        return (User) invokeLL.objValue;
+    }
+
+    public View b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            SkinManager.setBackgroundResource(this.b, R.color.common_color_10187);
+            SkinManager.setBackgroundColor(this.a, R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.c, R.color.CAM_X0106, 1);
+            SkinManager.setBackgroundColor(this.g, R.color.CAM_X0204);
+            this.d.c();
+            this.e.c();
+            this.f.c();
         }
     }
 
-    public void f(b bVar) {
+    public void d(List<Post> list, List<User> list2) {
+        boolean z;
+        boolean e;
+        boolean e2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.g = bVar;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, list, list2) == null) {
+            if (list != null && !list.isEmpty()) {
+                this.g.setVisibility(0);
+                int size = list.size();
+                if (size == 1) {
+                    z = this.d.e(list.get(0), a(list.get(0), list2));
+                    this.e.d(false);
+                    this.f.d(false);
+                } else {
+                    if (size == 2) {
+                        boolean e3 = this.d.e(list.get(0), a(list.get(0), list2));
+                        boolean e4 = this.e.e(list.get(1), a(list.get(1), list2));
+                        this.f.d(false);
+                        e = e4;
+                        z = e3;
+                        e2 = false;
+                    } else if (size >= 3) {
+                        boolean e5 = this.d.e(list.get(0), a(list.get(0), list2));
+                        e = this.e.e(list.get(1), a(list.get(1), list2));
+                        e2 = this.f.e(list.get(2), a(list.get(2), list2));
+                        z = e5;
+                    } else {
+                        z = false;
+                    }
+                    if (z && !e && !e2) {
+                        this.c.setVisibility(8);
+                        return;
+                    } else {
+                        this.c.setVisibility(0);
+                        return;
+                    }
+                }
+                e2 = false;
+                e = false;
+                if (z) {
+                }
+                this.c.setVisibility(0);
+                return;
+            }
+            this.c.setVisibility(8);
+            this.d.d(false);
+            this.e.d(false);
+            this.f.d(false);
+            this.g.setVisibility(8);
         }
-    }
-
-    public void g() {
-        pz4 pz4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (pz4Var = this.c) == null) {
-            return;
-        }
-        pz4Var.l();
     }
 }

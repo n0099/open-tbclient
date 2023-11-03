@@ -1,120 +1,173 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.transvod.player.log.TLog;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.win.opensdk.PBError;
+import com.win.opensdk.PBSplash;
+import com.win.opensdk.PBSplashListener;
 /* loaded from: classes8.dex */
-public class u0c {
+public class u0c extends ReporterPidLoader<PBSplash> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public int c;
-    public long d;
-    public long e;
 
-    public u0c() {
+    /* loaded from: classes8.dex */
+    public class a implements PBSplashListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public boolean b;
+        public final /* synthetic */ PBSplash c;
+        public final /* synthetic */ u0c d;
+
+        public a(u0c u0cVar, PBSplash pBSplash) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u0cVar, pBSplash};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = u0cVar;
+            this.c = pBSplash;
+        }
+
+        @Override // com.win.opensdk.PBListener
+        public void onClicked() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                LogPrinter.d();
+                this.d.onAdClicked((u0c) this.c, this.b, new String[0]);
+                this.b = true;
+            }
+        }
+
+        @Override // com.win.opensdk.PBSplashListener
+        public void onDisplayError(PBError pBError) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pBError) == null) {
+                LogPrinter.d();
+                this.d.onAdError(this.c, pBError.getCode(), pBError.getMsg());
+            }
+        }
+
+        @Override // com.win.opensdk.PBSplashListener
+        public void onDisplayed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                LogPrinter.d();
+                this.d.onAdShow((u0c) this.c, this.a, new String[0]);
+                this.a = true;
+            }
+        }
+
+        @Override // com.win.opensdk.PBListener
+        public void onFail(PBError pBError) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, pBError) == null) {
+                LogPrinter.e("JySplashAd onError code: " + pBError.getCode() + ", message: " + pBError.getMsg(), new Object[0]);
+                this.d.onError(pBError.getCode(), pBError.getMsg());
+            }
+        }
+
+        @Override // com.win.opensdk.PBListener
+        public void onLoaded() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                LogPrinter.d();
+                this.d.onAdLoaded(this.c, new String[0]);
+            }
+        }
+
+        @Override // com.win.opensdk.PBSplashListener
+        public void onSkip() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                LogPrinter.d();
+                this.d.onAdClose(this.c);
+            }
+        }
+
+        @Override // com.win.opensdk.PBSplashListener
+        public void onTimeOver() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+                LogPrinter.d();
+                this.d.onAdClose(this.c);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public u0c(Ssp.Pid pid) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.SPLASH), pid, true, false, true);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue(), ((Boolean) objArr2[4]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = false;
-        this.b = true;
-        this.c = 0;
-        this.d = 0L;
-        this.e = 0L;
     }
 
-    public synchronized boolean b() {
-        InterceptResult invokeV;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this) {
-                boolean z = false;
-                if (this.c < 2) {
-                    return false;
-                }
-                if (Math.abs(this.d - this.e) < 100) {
-                    z = true;
-                }
-                return z;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public synchronized boolean c() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                z = this.a;
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public synchronized void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                TLog.g(this, "[surface] surfaceCreated");
-                if (this.c > 0) {
-                    this.e = this.d;
-                }
-                this.c++;
-                this.d = System.currentTimeMillis();
-                this.b = true;
-                this.a = true;
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, funAdSlot) == null) {
+            onLoadStart(funAdSlot);
+            PBSplash pBSplash = new PBSplash(context.getApplicationContext(), this.mPid.pid);
+            pBSplash.setLoadTimeOut(5000L);
+            pBSplash.setSplashListener(new a(this, pBSplash));
+            pBSplash.load();
         }
     }
 
-    public synchronized void f() {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
+        PBSplash pBSplash;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            synchronized (this) {
-                TLog.g(this, "[surface] surfaceDestroy");
-                this.b = true;
-                this.a = false;
-            }
+        if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (pBSplash = (PBSplash) obj) != null) {
+            pBSplash.destroy();
         }
     }
 
-    public synchronized boolean a(boolean z, boolean z2) {
-        InterceptResult invokeCommon;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            synchronized (this) {
-                if (this.b == z) {
-                    this.b = z2;
-                    return true;
-                }
-                return false;
-            }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, activity, viewGroup, str, obj)) == null) {
+            PBSplash pBSplash = (PBSplash) obj;
+            onShowStart(pBSplash);
+            pBSplash.show(viewGroup);
+            return true;
         }
-        return invokeCommon.booleanValue;
-    }
-
-    public synchronized void d(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            synchronized (this) {
-            }
-        }
+        return invokeLLLL.booleanValue;
     }
 }

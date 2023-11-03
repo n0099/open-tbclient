@@ -1,25 +1,21 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.template.model.LoadType;
+import com.baidu.tieba.er5;
+import com.baidu.tieba.fr5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class cq5 implements hq5 {
+public class cq5<Q extends er5, P extends fr5> implements dq5<Q, P> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    public abstract View getView();
+    public int b;
+    public int c;
 
     public cq5() {
         Interceptable interceptable = $ic;
@@ -34,26 +30,65 @@ public abstract class cq5 implements hq5 {
                 return;
             }
         }
-        this.a = false;
-        new SparseArray();
+        this.a = true;
+        this.b = 1;
+        this.c = 1;
     }
 
-    public void a(View view2) {
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            b(view2, false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
+        return invokeV.booleanValue;
     }
 
-    public void b(View view2, boolean z) {
+    @Override // com.baidu.tieba.dq5
+    public void a(Q q, P p) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, z) == null) && view2 != null && getView() != null) {
-            View view3 = getView();
-            if (view3.getParent() != null) {
-                return;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, q, p) != null) || p == null) {
+            return;
+        }
+        if (p.getPageInfo() != null) {
+            zq5 pageInfo = p.getPageInfo();
+            this.c = pageInfo.a;
+            this.a = pageInfo.b;
+            if (q != null && q.c() != null) {
+                q.c().d = pageInfo.c;
             }
-            ei5.a(view2, this.a).a(view2, view3, z);
-            c();
+        }
+        if (this.c <= 0 && q != null && q.c() != null && q.c().c > 0) {
+            this.c = q.c().c;
+            this.a = true;
+        }
+        ur5.b("onResp--->pn=" + this.c + ",hasMore=" + this.a);
+    }
+
+    @Override // com.baidu.tieba.dq5
+    public void b(Q q, boolean z) {
+        LoadType loadType;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q, z) == null) && q != null && q.c() != null) {
+            yq5 c = q.c();
+            if (z) {
+                if (!c.a()) {
+                    this.c = this.b;
+                }
+                if (c.a()) {
+                    loadType = LoadType.PREPEND;
+                } else {
+                    loadType = LoadType.REFRESH;
+                }
+                c.b = loadType;
+                c.c = this.c;
+            } else {
+                int i = this.c + 1;
+                this.c = i;
+                c.b = LoadType.APPEND;
+                c.c = i;
+            }
+            ur5.b("onReq--->pn=" + this.c + ",hasMore=" + this.a + ",isPullRefresh=" + z + ",loadType=" + c.b);
         }
     }
 }

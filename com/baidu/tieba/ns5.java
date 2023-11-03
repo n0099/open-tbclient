@@ -1,263 +1,401 @@
 package com.baidu.tieba;
 
-import android.text.Editable;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.text.TextUtils;
-import android.util.Pair;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.util.Log;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.android.util.io.FileUtils;
+import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.concurrent.TimeUnit;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import rx.schedulers.Schedulers;
 /* loaded from: classes7.dex */
 public class ns5 {
     public static /* synthetic */ Interceptable $ic;
-    public static TextView a;
+    public static JSONObject a;
+    public static ArrayList<Long> b;
+    public static final Hashtable<String, ArrayList<c<Integer, Integer>>> c;
+    public static boolean d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean g(char c) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Character.valueOf(c)})) == null) {
-            if (c < 'a' || c > 'z') {
-                if (c < 'A' || c > 'Z') {
-                    return (c >= '0' && c <= '9') || c == ' ';
-                }
-                return true;
-            }
-            return true;
-        }
-        return invokeCommon.booleanValue;
-    }
+    /* loaded from: classes7.dex */
+    public class a implements wjc<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
 
-    public static boolean h(char c) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Character.valueOf(c)})) == null) ? c >= 55296 && c <= 56319 : invokeCommon.booleanValue;
-    }
-
-    public static int a(Editable editable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, editable)) == null) {
-            if (editable == null) {
-                return 0;
-            }
-            return c(editable.toString());
-        }
-        return invokeL.intValue;
-    }
-
-    public static int b(EditText editText) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, editText)) == null) {
-            if (editText == null) {
-                return 0;
-            }
-            return a(editText.getText());
-        }
-        return invokeL.intValue;
-    }
-
-    public static int c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return 0;
-            }
-            int i = 0;
-            for (int i2 = 0; i2 < str.length(); i2++) {
-                if (g(str.charAt(i2))) {
-                    i++;
-                } else {
-                    i += 2;
+        public a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return i;
+            this.a = str;
         }
-        return invokeL.intValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.wjc
+        /* renamed from: a */
+        public void call(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                String string = SharedPrefHelper.getInstance().getString("old_sniff_url", "");
+                if (TextUtils.isEmpty(this.a) || this.a.equals(string)) {
+                    ns5.p(false);
+                    return;
+                }
+                File file = new File(BdBaseApplication.getInst().getApp().getApplicationContext().getFilesDir(), "sniff");
+                if (!file.exists()) {
+                    file.mkdir();
+                }
+                if (js5.i().b(new File(file, "sniff.json"), this.a) > 0) {
+                    SharedPrefHelper.getInstance().putString("old_sniff_url", "");
+                }
+                ns5.p(true);
+            }
+        }
     }
 
-    public static int d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return 0;
-            }
-            int codePointCount = str.codePointCount(0, str.length());
-            int i = 0;
-            for (int i2 = 1; i2 <= codePointCount; i2++) {
-                str.substring(str.offsetByCodePoints(0, i2 - 1), str.offsetByCodePoints(0, i2)).length();
-                i++;
-            }
-            return i;
-        }
-        return invokeL.intValue;
-    }
+    /* loaded from: classes7.dex */
+    public class b implements wjc<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean a;
 
-    public static int j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
-            if (str == null || str.length() == 0) {
-                return 0;
-            }
-            int i = 0;
-            for (int i2 = 0; i2 < str.length(); i2++) {
-                if (' ' == str.charAt(i2)) {
-                    i++;
+        public b(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return i;
+            this.a = z;
         }
-        return invokeL.intValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.wjc
+        /* renamed from: a */
+        public void call(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                if (ns5.a == null || this.a) {
+                    ns5.g();
+                }
+                ns5.o();
+            }
+        }
     }
 
-    public static int e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return 0;
-            }
-            int codePointCount = str.codePointCount(0, str.length());
-            int i = 0;
-            for (int i2 = 1; i2 <= codePointCount; i2++) {
-                String substring = str.substring(str.offsetByCodePoints(0, i2 - 1), str.offsetByCodePoints(0, i2));
-                if (substring.length() >= 2) {
-                    i += 2;
-                } else {
-                    i += c(substring);
+    /* loaded from: classes7.dex */
+    public static class c<X, Y> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final X a;
+        public final Y b;
+
+        public c(X x, Y y) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {x, y};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return i;
+            this.a = x;
+            this.b = y;
         }
-        return invokeL.intValue;
     }
 
-    public static String f(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i)) == null) {
-            if (StringUtils.isNull(str)) {
-                return "";
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948013049, "Lcom/baidu/tieba/ns5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (c(str) > i) {
-                return k(str, 0, i - 2) + "...";
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948013049, "Lcom/baidu/tieba/ns5;");
+                return;
             }
-            return str;
         }
-        return (String) invokeLI.objValue;
+        b = new ArrayList<>();
+        c = new Hashtable<>();
+        d = true;
     }
 
-    public static String l(String str, int i) {
-        InterceptResult invokeLI;
+    public ns5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, str, i)) == null) {
-            int codePointCount = str.codePointCount(0, str.length());
-            int i2 = 1;
-            String str2 = str;
-            while (i2 <= codePointCount) {
-                String substring = str.substring(0, str.offsetByCodePoints(0, i2));
-                if (d(substring) > i) {
-                    break;
-                }
-                i2++;
-                str2 = substring;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            return str2;
         }
-        return (String) invokeLI.objValue;
     }
 
-    public static String m(String str, int i) {
-        InterceptResult invokeLI;
+    public static String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65548, null, str, i)) == null) {
-            int codePointCount = str.codePointCount(0, str.length());
-            int i2 = 1;
-            String str2 = str;
-            while (i2 <= codePointCount) {
-                String substring = str.substring(0, str.offsetByCodePoints(0, i2));
-                if (e(substring) > i) {
-                    break;
-                }
-                i2++;
-                str2 = substring;
-            }
-            return str2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return hd0.e();
         }
-        return (String) invokeLI.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static Pair<Integer, Integer> i(String str, int i, int i2) {
-        InterceptResult invokeLII;
+    public static void h(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65544, null, str, i, i2)) == null) {
+        if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
+            ijc.n("").s(Schedulers.io()).H(new a(str));
+        }
+    }
+
+    public static void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65549, null, i) == null) {
+            k(i, 0);
+        }
+    }
+
+    public static void m(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65550, null, i) == null) {
+            j(i, 0);
+        }
+    }
+
+    public static void p(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65553, null, z) == null) {
+            ijc.n("").s(Schedulers.io()).H(new b(z));
+        }
+    }
+
+    public static void f(PackageManager packageManager, String str, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLII(65543, null, packageManager, str, i, i2) == null) {
             try {
-                if (a == null) {
-                    a = new TextView(TbadkCoreApplication.getInst().getContext());
-                }
-                TextView textView = a;
-                if (textView.getLayoutParams() == null) {
-                    textView.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-                }
-                textView.setText(str);
-                textView.setTextSize(0, i);
-                textView.measure(View.MeasureSpec.makeMeasureSpec(i2, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(0, 0));
-                return new Pair<>(Integer.valueOf(textView.getMeasuredHeight()), Integer.valueOf(textView.getLineCount()));
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
+                packageManager.getApplicationInfo(str, 0);
+                j(i, i2);
+            } catch (PackageManager.NameNotFoundException unused) {
+                k(i, i2);
             }
         }
-        return (Pair) invokeLII.objValue;
     }
 
-    public static String k(String str, int i, int i2) {
-        InterceptResult invokeLII;
+    public static void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65546, null, str, i, i2)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (!TextUtils.isEmpty(str) && i <= i2) {
-                if (i >= 0 && i2 >= 0) {
-                    int i3 = 0;
-                    for (int i4 = 0; i4 < str.length(); i4++) {
-                        char charAt = str.charAt(i4);
-                        if (i3 >= i2) {
-                            if (i3 == i2) {
-                                if (h(sb.charAt(sb.length() - 1))) {
-                                    sb.append(charAt);
-                                    return sb.toString();
-                                }
-                                return sb.toString();
-                            } else if (sb.length() > 2 && h(sb.charAt(sb.length() - 2))) {
-                                return sb.toString();
-                            } else {
-                                return sb.deleteCharAt(sb.length() - 1).toString();
-                            }
-                        }
-                        if (i3 >= i) {
-                            sb.append(charAt);
-                        }
-                        if (g(charAt)) {
-                            i3++;
-                        } else {
-                            i3 += 2;
-                        }
+        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
+            File file = new File(BdBaseApplication.getInst().getApp().getApplicationContext().getFilesDir(), "sniff");
+            if (!file.exists()) {
+                return;
+            }
+            File file2 = new File(file, "sniff.json");
+            if (!file2.exists()) {
+                return;
+            }
+            String readFileData = FileUtils.readFileData(file2);
+            if (!TextUtils.isEmpty(readFileData)) {
+                synchronized (ns5.class) {
+                    try {
+                        a = new JSONObject(readFileData);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                 }
-                return sb.toString();
             }
-            return sb.toString();
         }
-        return (String) invokeLII.objValue;
+    }
+
+    public static String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            ArrayList<Long> arrayList = b;
+            if (arrayList != null && arrayList.size() != 0) {
+                ArrayList arrayList2 = new ArrayList();
+                Iterator<Long> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    arrayList2.add(String.valueOf(it.next()));
+                }
+                return TextUtils.join(",", arrayList2);
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void j(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65547, null, i, i2) == null) {
+            ArrayList<Long> arrayList = b;
+            if (i < arrayList.size()) {
+                arrayList.set(i, Long.valueOf(arrayList.get(i).longValue() | (1 << i2)));
+            }
+        }
+    }
+
+    public static void k(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65548, null, i, i2) == null) {
+            ArrayList<Long> arrayList = b;
+            if (i < arrayList.size()) {
+                arrayList.set(i, Long.valueOf(arrayList.get(i).longValue() & (~(1 << i2))));
+            }
+        }
+    }
+
+    public static void n(int i, JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65551, null, i, jSONArray) == null) {
+            if (i >= b.size()) {
+                Log.e("AD_SNIFF_RESULT_KEY", "group index should NOT greater or equal group size!!!");
+                return;
+            }
+            PackageManager packageManager = BdBaseApplication.getInst().getApp().getApplicationContext().getPackageManager();
+            l(i);
+            int i2 = 0;
+            while (i2 < jSONArray.length()) {
+                String optString = jSONArray.optString(i2);
+                i2++;
+                c<Integer, Integer> cVar = new c<>(Integer.valueOf(i), Integer.valueOf(i2));
+                ArrayList<c<Integer, Integer>> arrayList = c.get(optString);
+                if (arrayList == null) {
+                    arrayList = new ArrayList<>();
+                }
+                arrayList.add(cVar);
+                c.put(optString, arrayList);
+                f(packageManager, optString, i, i2);
+            }
+            m(i);
+            SharedPrefHelper.getInstance().putString("AD_SNIFF_RESULT_KEY", i());
+        }
+    }
+
+    public static void o() {
+        JSONObject jSONObject;
+        JSONArray optJSONArray;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65552, null) != null) || (jSONObject = a) == null || (optJSONArray = jSONObject.optJSONArray("data")) == null) {
+            return;
+        }
+        int length = optJSONArray.length();
+        int size = b.size();
+        ArrayList<Long> arrayList = new ArrayList<>();
+        for (int i = 0; i < length; i++) {
+            if (i < size) {
+                arrayList.add(b.get(i));
+            } else {
+                arrayList.add(0L);
+            }
+        }
+        b = arrayList;
+        for (int i2 = 0; i2 < length; i2++) {
+            JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
+            if (optJSONObject == null) {
+                return;
+            }
+            q(i2, optJSONObject.optString("name"), optJSONObject.optInt("interval"), optJSONObject.optJSONArray("list"), d);
+        }
+        if (d) {
+            d = false;
+        }
+    }
+
+    public static void q(int i, String str, int i2, JSONArray jSONArray, boolean z) {
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65554, null, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), jSONArray, Boolean.valueOf(z)}) == null) && i >= 0 && !TextUtils.isEmpty(str) && i2 >= 0 && jSONArray != null && jSONArray.length() != 0) {
+            long time = new Date().getTime();
+            String str2 = "AD_SNIFF_RESULT_KEY_" + str + "_TS";
+            long j = SharedPrefHelper.getInstance().getLong(str2, 0L);
+            long millis = TimeUnit.MINUTES.toMillis(i2);
+            boolean z3 = true;
+            int i3 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+            if (i3 == 0) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            z3 = (i3 <= 0 || time - j <= millis) ? false : false;
+            if (z || z2 || z3) {
+                SharedPrefHelper.getInstance().putLong(str2, time);
+                n(i, jSONArray);
+            }
+        }
+    }
+
+    public static void r(Intent intent) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65555, null, intent) != null) || TextUtils.isEmpty(intent.getDataString())) {
+            return;
+        }
+        if (intent.getDataString().length() > 8) {
+            str = intent.getDataString().substring(8);
+        } else {
+            str = "";
+        }
+        String action = intent.getAction();
+        ArrayList<c<Integer, Integer>> arrayList = c.get(str);
+        if (arrayList != null && arrayList.size() != 0) {
+            Iterator<c<Integer, Integer>> it = arrayList.iterator();
+            while (it.hasNext()) {
+                c<Integer, Integer> next = it.next();
+                if (next != null) {
+                    int intValue = next.a.intValue();
+                    int intValue2 = next.b.intValue();
+                    if (PackageChangedReceiver.ACTION_INSTALL.equals(action)) {
+                        j(intValue, intValue2);
+                    } else {
+                        k(intValue, intValue2);
+                    }
+                }
+            }
+        }
     }
 }

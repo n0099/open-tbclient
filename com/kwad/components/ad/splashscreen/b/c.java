@@ -89,7 +89,7 @@ public final class c extends e implements com.kwad.sdk.core.h.b {
     }
 
     private void q(AdInfo adInfo) {
-        TextView textView = (TextView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091427);
+        TextView textView = (TextView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091465);
         this.yx = textView;
         this.yz = adInfo.adPreloadInfo;
         textView.setVisibility(8);
@@ -103,7 +103,7 @@ public final class c extends e implements com.kwad.sdk.core.h.b {
     }
 
     private void r(AdInfo adInfo) {
-        this.yB = this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091416);
+        this.yB = this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091454);
         if (!com.kwad.sdk.core.response.a.a.by(adInfo)) {
             this.yB.setVisibility(8);
             return;
@@ -156,10 +156,10 @@ public final class c extends e implements com.kwad.sdk.core.h.b {
         q(bQ);
         if (p(this.py)) {
             adBaseFrameLayout = this.yF.mRootContainer;
-            i = R.id.obfuscated_res_0x7f091429;
+            i = R.id.obfuscated_res_0x7f091467;
         } else {
             adBaseFrameLayout = this.yF.mRootContainer;
-            i = R.id.obfuscated_res_0x7f091422;
+            i = R.id.obfuscated_res_0x7f091460;
         }
         this.yy = (com.kwad.components.ad.splashscreen.widget.a) adBaseFrameLayout.findViewById(i);
         this.yy.a(jW(), this.py);

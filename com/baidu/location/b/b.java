@@ -458,7 +458,7 @@ public class b {
 
     /* renamed from: com.baidu.location.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0097b {
+    public static class C0098b {
         public static /* synthetic */ Interceptable $ic;
         public static b a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -574,7 +574,7 @@ public class b {
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? C0097b.a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? C0098b.a : (b) invokeV.objValue;
     }
 
     private void a(a aVar) {

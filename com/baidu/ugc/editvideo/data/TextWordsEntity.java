@@ -3,9 +3,9 @@ package com.baidu.ugc.editvideo.data;
 import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.pass.ecommerce.bean.AddressField;
 import com.baidu.pass.face.platform.ConstPath;
-import com.baidu.tieba.efb;
-import com.baidu.tieba.pfb;
-import com.baidu.tieba.xeb;
+import com.baidu.tieba.fsb;
+import com.baidu.tieba.qsb;
+import com.baidu.tieba.yrb;
 import com.facebook.imagepipeline.producers.ProducerConstants;
 import com.google.gson.annotations.SerializedName;
 import java.io.File;
@@ -56,7 +56,7 @@ public class TextWordsEntity {
         }
 
         public boolean isNeedDown() {
-            return pfb.a(this.mBackgroudImageUrl);
+            return qsb.a(this.mBackgroudImageUrl);
         }
 
         public static StyleBackgroudInfoEntity parse(JSONObject jSONObject) {
@@ -145,13 +145,13 @@ public class TextWordsEntity {
         }
 
         public File getSourceFile() {
-            if (pfb.a(this.mBackgroudImageUrl)) {
+            if (qsb.a(this.mBackgroudImageUrl)) {
                 return new File("");
             }
             if (this.mSourceFile == null) {
                 String str = this.mLocalParentFile;
                 StringBuilder sb = new StringBuilder();
-                sb.append(efb.b(this.mBackgroudImageUrl));
+                sb.append(fsb.b(this.mBackgroudImageUrl));
                 String str2 = this.mBackgroudImageUrl;
                 sb.append(str2.substring(str2.lastIndexOf(".")));
                 this.mSourceFile = new File(str, sb.toString());
@@ -173,7 +173,7 @@ public class TextWordsEntity {
         public File getSourceFile() {
             if (this.mSourceFile == null) {
                 File file = this.mRootDir;
-                this.mSourceFile = new File(file, efb.b(this.mDownloadUrl) + getSuffix());
+                this.mSourceFile = new File(file, fsb.b(this.mDownloadUrl) + getSuffix());
             }
             return this.mSourceFile;
         }
@@ -383,7 +383,7 @@ public class TextWordsEntity {
                 textColorEntity.mColor = jSONObject.optString("color");
                 String optString = jSONObject.optString(Key.ALPHA);
                 textColorEntity.mAlpha = optString;
-                textColorEntity.mColorInfo = xeb.b(textColorEntity.mColor, optString);
+                textColorEntity.mColorInfo = yrb.b(textColorEntity.mColor, optString);
             } catch (Exception e) {
                 e.printStackTrace();
             }

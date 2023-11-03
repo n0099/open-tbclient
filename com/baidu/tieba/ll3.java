@@ -1,14 +1,11 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
+import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.livesdk.sdk.service.IMLikeRequest;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkCode;
-import com.baidu.tieba.mq2;
+import com.baidu.cyberplayer.sdk.task.UpgradeInfo;
+import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,31 +13,46 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class ll3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, Long> a;
-    public final HashMap<String, String> b;
-    public boolean c;
-    public boolean d;
+    public String a;
+    public long b;
+    public List<b> c;
+    public List<b> d;
+    public int[] e;
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mq2.a a;
-        public final /* synthetic */ ll3 b;
+    }
 
-        public a(ll3 ll3Var, mq2.a aVar) {
+    /* loaded from: classes7.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public float b;
+        public float c;
+        public float d;
+        public float e;
+        public float f;
+        public final /* synthetic */ ll3 g;
+
+        public b(ll3 ll3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ll3Var, aVar};
+                Object[] objArr = {ll3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -50,17 +62,33 @@ public class ll3 {
                     return;
                 }
             }
-            this.b = ll3Var;
-            this.a = aVar;
+            this.g = ll3Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        public /* synthetic */ b(ll3 ll3Var, a aVar) {
+            this(ll3Var);
+        }
+
+        public JSONObject i() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("x", xj3.P(this.b));
+                    jSONObject.put("y", xj3.P(this.c));
+                    jSONObject.put("clientX", xj3.P(this.d - this.g.e[0]));
+                    jSONObject.put("clientY", xj3.P(this.e - this.g.e[1]));
+                    jSONObject.put("identifier", this.a);
+                    jSONObject.put(UpgradeInfo.KEY_INT_FORCE_UPGRADE, this.f);
+                } catch (JSONException e) {
+                    if (ll3.f) {
+                        e.printStackTrace();
+                    }
+                }
+                return jSONObject;
             }
-            this.b.j(this.a);
+            return (JSONObject) invokeV.objValue;
         }
     }
 
@@ -77,58 +105,24 @@ public class ll3 {
                 return;
             }
         }
-        boolean z = am1.a;
+        f = rm1.a;
     }
 
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.clear();
-            this.b.clear();
-        }
-    }
-
-    public synchronized void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                this.d = true;
-            }
-        }
-    }
-
-    public synchronized boolean e() {
+    public String e() {
         InterceptResult invokeV;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this) {
-                z = this.d;
-            }
-            return z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.d = false;
-            this.c = false;
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            ji3.d(new a(this, o53.K().q().X()), "WebStaticRecorder", IMLikeRequest.TIME_INTERVAL, TimeUnit.MILLISECONDS);
-        }
-    }
-
-    public ll3() {
+    public ll3(MotionEvent motionEvent) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {motionEvent};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -138,96 +132,188 @@ public class ll3 {
                 return;
             }
         }
-        this.a = new HashMap<>();
-        this.b = new HashMap<>();
-        this.c = false;
-        this.d = false;
+        this.a = "error";
+        this.b = 0L;
+        this.c = new ArrayList();
+        this.d = new ArrayList();
+        this.e = new int[2];
+        h(motionEvent, "");
     }
 
-    public synchronized void f(String str, String str2) {
+    public final void g(MotionEvent motionEvent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-            synchronized (this) {
-                if (!this.d) {
-                    this.b.put(str, str2);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, motionEvent) == null) && !TextUtils.equals(this.a, "touchend") && !TextUtils.equals(this.a, "touchcancel")) {
+            try {
+                int pointerCount = motionEvent.getPointerCount();
+                for (int i = 0; i < pointerCount; i++) {
+                    if (motionEvent.getActionMasked() != 6 || motionEvent.getActionIndex() != i) {
+                        this.c.add(d(motionEvent, i));
+                    }
+                }
+            } catch (Exception e) {
+                if (f) {
+                    e.printStackTrace();
                 }
             }
         }
     }
 
-    public synchronized void h(@NonNull String str, long j) {
+    public ll3(MotionEvent motionEvent, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048582, this, str, j) == null) {
-            synchronized (this) {
-                if (!this.a.containsKey(str)) {
-                    this.a.put(str, Long.valueOf(j));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {motionEvent, str};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = "error";
+        this.b = 0L;
+        this.c = new ArrayList();
+        this.d = new ArrayList();
+        this.e = new int[2];
+        h(motionEvent, str);
+    }
+
+    public b d(MotionEvent motionEvent, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent, i)) == null) {
+            int pointerId = motionEvent.getPointerId(i);
+            b bVar = new b(this, null);
+            bVar.a = pointerId;
+            bVar.b = motionEvent.getX(i);
+            bVar.c = motionEvent.getY(i);
+            bVar.d = (motionEvent.getRawX() + bVar.b) - motionEvent.getX();
+            bVar.e = (motionEvent.getRawY() + bVar.c) - motionEvent.getY();
+            bVar.f = motionEvent.getPressure(i);
+            return bVar;
+        }
+        return (b) invokeLI.objValue;
+    }
+
+    public JSONObject c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                JSONArray jSONArray = new JSONArray();
+                if (!this.c.isEmpty()) {
+                    for (b bVar : this.c) {
+                        if (bVar != null) {
+                            jSONArray.put(bVar.i());
+                        }
+                    }
+                }
+                JSONArray jSONArray2 = new JSONArray();
+                if (!this.d.isEmpty()) {
+                    for (b bVar2 : this.d) {
+                        if (bVar2 != null) {
+                            jSONArray2.put(bVar2.i());
+                        }
+                    }
+                }
+                jSONObject.put(PmsConstant.Statistic.Key.REV_TIMESTAMP, this.b);
+                jSONObject.put("touches", jSONArray);
+                jSONObject.put("changedTouches", jSONArray2);
+            } catch (JSONException e) {
+                if (f) {
+                    e.printStackTrace();
                 }
             }
+            return jSONObject;
         }
+        return (JSONObject) invokeV.objValue;
     }
 
-    public synchronized boolean d(@NonNull String str) {
-        InterceptResult invokeL;
-        boolean containsKey;
+    public final void f(MotionEvent motionEvent) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            synchronized (this) {
-                containsKey = this.a.containsKey(str);
-            }
-            return containsKey;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public synchronized void g(@NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            synchronized (this) {
-                if (!this.d && !this.a.containsKey(str)) {
-                    this.a.put(str, Long.valueOf(System.currentTimeMillis()));
+        if (interceptable == null || interceptable.invokeL(1048579, this, motionEvent) == null) {
+            try {
+                if (motionEvent.getActionMasked() == 2) {
+                    z = true;
+                } else {
+                    z = false;
                 }
-            }
-        }
-    }
-
-    public final synchronized void j(mq2.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
-            synchronized (this) {
-                if (this.c) {
+                if (!z) {
+                    this.d.add(d(motionEvent, motionEvent.getActionIndex()));
                     return;
                 }
-                this.c = true;
-                uy2.r(DeepLinkCode.OpenAppSource.OPEN_SOURCE_WEB);
-                HybridUbcFlow p = uy2.p(DeepLinkCode.OpenAppSource.OPEN_SOURCE_WEB);
-                p.E("type", "naWebdegrade");
-                for (Map.Entry<String, Long> entry : this.a.entrySet()) {
-                    p22.i("WebStaticRecorder", "submit: event key: " + entry.getKey() + " value " + entry.getValue());
-                    UbcFlowEvent ubcFlowEvent = new UbcFlowEvent(entry.getKey());
-                    ubcFlowEvent.h(entry.getValue().longValue());
-                    p.F(ubcFlowEvent);
+                int pointerCount = motionEvent.getPointerCount();
+                for (int i = 0; i < pointerCount; i++) {
+                    this.d.add(d(motionEvent, i));
                 }
-                for (Map.Entry<String, String> entry2 : this.b.entrySet()) {
-                    p22.i("WebStaticRecorder", "submit: ext key: " + entry2.getKey() + " value " + entry2.getValue());
-                    p.D(entry2.getKey(), entry2.getValue());
+            } catch (Exception e) {
+                if (f) {
+                    e.printStackTrace();
                 }
-                String h = p.h("fmpArrived");
-                if (TextUtils.isEmpty(h)) {
-                    h = "0";
+            }
+        }
+    }
+
+    public void i(int[] iArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, iArr) == null) {
+            this.e = iArr;
+            if (f) {
+                Log.d("SwanAppTouchHelper", "setWebViewPosition y = " + iArr[1] + ";x = " + iArr[0]);
+            }
+        }
+    }
+
+    public final void h(MotionEvent motionEvent, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, motionEvent, str) == null) {
+            int actionMasked = motionEvent.getActionMasked();
+            if (actionMasked != 0) {
+                if (actionMasked != 1) {
+                    if (actionMasked != 2) {
+                        if (actionMasked != 3) {
+                            if (actionMasked != 5) {
+                                if (actionMasked != 6) {
+                                    this.a = "error";
+                                } else {
+                                    this.a = "touchpointerup";
+                                    f(motionEvent);
+                                }
+                            } else {
+                                this.a = "touchpointerdown";
+                                f(motionEvent);
+                            }
+                        } else {
+                            this.a = "touchcancel";
+                            f(motionEvent);
+                        }
+                    } else {
+                        this.a = "touchmove";
+                        f(motionEvent);
+                    }
+                } else {
+                    this.a = "touchend";
+                    f(motionEvent);
                 }
-                p.D("fmpArrived", h);
-                p.D("launchID", aVar.W());
-                p.D("scheme", aVar.X());
-                p.D("appid", aVar.I());
-                p.D("page", hl3.c().b());
-                long j = aVar.t0().getLong("click_time", 0L);
-                if (j > 0) {
-                    UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("user_action");
-                    ubcFlowEvent2.h(j);
-                    p.F(ubcFlowEvent2);
-                }
-                p.A();
-                b();
+            } else {
+                this.a = "touchstart";
+                f(motionEvent);
+            }
+            this.b = motionEvent.getEventTime();
+            if (!TextUtils.isEmpty(str)) {
+                this.a = str;
+            }
+            g(motionEvent);
+            if (TextUtils.equals(this.a, "touchpointerdown")) {
+                this.a = "touchstart";
+            }
+            if (TextUtils.equals(this.a, "touchpointerup")) {
+                this.a = "touchend";
             }
         }
     }

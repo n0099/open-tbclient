@@ -1,93 +1,116 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.zl2;
+import com.baidu.tieba.dk2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class ck2 extends kj2<zl2> {
+public final class ck2<W extends dk2> {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final HashMap<String, ak2<W>> a;
 
-    /* loaded from: classes5.dex */
-    public class a implements zl2.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(ck2 ck2Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947677567, "Lcom/baidu/tieba/ck2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ck2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947677567, "Lcom/baidu/tieba/ck2;");
+                return;
             }
         }
+        b = rm1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ck2(@NonNull zl2 zl2Var) {
-        super(zl2Var);
+    public ck2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {zl2Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((mj2) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        e();
-        this.a.a(new kk2());
-        this.a.a(new lk2());
-        this.a.a(new mk2());
-        this.a.a(new nk2());
-        this.a.a(new ok2());
-        this.a.a(new hk2());
-        this.a.a(new pk2());
-        this.a.a(new ik2());
-        this.a.a(new jk2());
+        this.a = new HashMap<>();
     }
 
-    public final void e() {
+    public void a(ak2<W> ak2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ((zl2) this.c).o(new a(this));
+        if (interceptable == null || interceptable.invokeL(1048576, this, ak2Var) == null) {
+            if (b) {
+                Log.v("CommandDispatcher", ak2Var.b() + " command added to supported command list");
+            }
+            this.a.put(ak2Var.b(), ak2Var);
         }
     }
 
-    @Override // com.baidu.tieba.kj2, com.baidu.webkit.sdk.plugin.ZeusPlugin
-    public void sendCommand(ZeusPlugin.Command command) {
-        String str;
+    public void b(@Nullable ZeusPlugin.Command command, @Nullable W w) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, command) == null) {
-            if (command == null) {
-                str = "";
-            } else {
-                str = command.what;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, command, w) == null) {
+            if (command != null && !TextUtils.isEmpty(command.what)) {
+                if (w == null) {
+                    if (b) {
+                        Log.e("CommandDispatcher", "inlineWidget is null, haven't dispatched");
+                        return;
+                    }
+                    return;
+                }
+                ak2<W> ak2Var = this.a.get(command.what);
+                if (ak2Var == null) {
+                    if (b) {
+                        Log.e("CommandDispatcher", command.what + " command is not supported, haven't dispatched");
+                        return;
+                    }
+                    return;
+                }
+                if (b) {
+                    Log.d("CommandDispatcher", command.what + " command dispatched");
+                }
+                ak2Var.a(command, w);
+            } else if (b) {
+                Log.e("CommandDispatcher", "command or command.what is null, haven't dispatched");
             }
-            if (((zl2) this.c).q()) {
-                p22.i("InlineRtcItemController", "isReleased command：" + str);
-                return;
+        }
+    }
+
+    public void c(@Nullable ZeusPlugin.Command command) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, command) == null) {
+            if (command != null && !TextUtils.isEmpty(command.what)) {
+                ak2<W> ak2Var = this.a.get(command.what);
+                if (ak2Var == null) {
+                    if (b) {
+                        Log.e("CommandDispatcher", command.what + " command is not supported, haven't mocked");
+                        return;
+                    }
+                    return;
+                }
+                if (b) {
+                    Log.d("CommandDispatcher", command.what + " cached command return value processed");
+                }
+                ak2Var.c(command);
+            } else if (b) {
+                Log.e("CommandDispatcher", "command or command.what is null, haven't mocked");
             }
-            p22.i("InlineRtcItemController", "authorize type：" + ((zl2) this.c).a() + " command：" + str);
-            super.sendCommand(command);
         }
     }
 }

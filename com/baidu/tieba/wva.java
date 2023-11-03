@@ -1,78 +1,127 @@
 package com.baidu.tieba;
 
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.idlehelp.IdleHandlerManager;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.wordscommand.WordCommandManager;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.youngster.utils.YoungsterVerifyUtils;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URLEncoder;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Calendar;
 /* loaded from: classes8.dex */
-public final class wva {
+public class wva extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final MainTabActivity a;
+    public final zua b;
 
-    public static final String a(ImageFileInfo imageFileInfo) {
-        InterceptResult invokeL;
-        String filePath;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, imageFileInfo)) == null) {
-            Intrinsics.checkNotNullParameter(imageFileInfo, "<this>");
-            int imageType = imageFileInfo.getImageType();
-            if (imageType != 0) {
-                if (imageType != 1) {
-                    if (!TbadkCoreApplication.getInst().isDebugMode()) {
-                        return "";
-                    }
-                    throw new IllegalStateException(" 暂时不支持的图片类型" + imageFileInfo.getImageType() + StringUtil.ARRAY_ELEMENT_SEPARATOR + imageFileInfo.toJson());
+    /* loaded from: classes8.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(wva wvaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wvaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                String d = nj5.b.d(imageFileInfo.getFilePath(), imageFileInfo.isGif());
-                Intrinsics.checkNotNullExpressionValue(d, "{\n        EmotionService…lePath, this.isGif)\n    }");
-                return d;
             }
-            if (imageFileInfo.hasActionsWithoutResize()) {
-                filePath = imageFileInfo.toCachedKey(true);
-            } else {
-                filePath = imageFileInfo.getFilePath();
-            }
-            Intrinsics.checkNotNullExpressionValue(filePath, "{\n        // 图片如果有缓存的动作，….filePath\n        }\n    }");
-            return filePath;
         }
-        return (String) invokeL.objValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
+                WordCommandManager.setOnInitialUIReadyState(true);
+                WordCommandManager.getInstance().handleClipboardData();
+            }
+        }
     }
 
-    public static final String b(ImageFileInfo imageFileInfo) {
-        InterceptResult invokeL;
-        Integer num;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wva(MainTabActivity mainTabActivity) {
+        super(2001011);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, imageFileInfo)) == null) {
-            Intrinsics.checkNotNullParameter(imageFileInfo, "<this>");
-            int imageType = imageFileInfo.getImageType();
-            if (imageType != 0) {
-                if (imageType != 1) {
-                    return "";
-                }
-                return "/write/emotion/" + URLEncoder.encode(imageFileInfo.getFilePath(), "UTF-8");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            StringBuilder sb = new StringBuilder();
-            sb.append("/write/image/");
-            sb.append(URLEncoder.encode(imageFileInfo.getFilePath(), "UTF-8"));
-            sb.append('_');
-            sb.append(ListUtils.getCount(imageFileInfo.getPageActionsList()));
-            sb.append('_');
-            sb.append(ListUtils.getCount(imageFileInfo.getPersistActionsList()));
-            sb.append('_');
-            String cachedKey = imageFileInfo.toCachedKey(true);
-            if (cachedKey != null) {
-                num = Integer.valueOf(cachedKey.hashCode());
-            } else {
-                num = null;
-            }
-            sb.append(num);
-            return sb.toString();
         }
-        return (String) invokeL.objValue;
+        this.a = mainTabActivity;
+        this.b = mainTabActivity.e;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            boolean z = false;
+            if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
+                fg.f();
+                fg.i();
+                this.a.V = UtilHelper.getCurrentDay();
+                SharedPrefHelper.getInstance().putLong("last_resume_time", TbSingleton.getInstance().getLastResumeTime());
+                MainTabActivity mainTabActivity = this.a;
+                if (!mainTabActivity.C) {
+                    zua zuaVar = this.b;
+                    if (zuaVar != null && zuaVar.j() != null) {
+                        this.b.j().b();
+                        return;
+                    }
+                    return;
+                }
+                mainTabActivity.C = false;
+                return;
+            }
+            IdleHandlerManager.getInstance().addOrRunTask("WORDCOMMAND", new a(this));
+            String currentDay = UtilHelper.getCurrentDay();
+            if (!StringUtils.isNull(currentDay) && !currentDay.equals(this.a.V)) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
+            }
+            MainTabActivity mainTabActivity2 = this.a;
+            if (mainTabActivity2.x == null) {
+                mainTabActivity2.x = new wza();
+            }
+            wza wzaVar = this.a.x;
+            wzaVar.c(wzaVar.c);
+            this.a.x.c = TbadkCoreStatisticKey.AntiLocateValue.LOCATE_HOT_BOOT;
+            if (YoungsterVerifyUtils.isYoungsterOpen()) {
+                int i = Calendar.getInstance().get(11);
+                YoungsterVerifyUtils.isNight = (i >= 23 || i < 7) ? true : true;
+                zua zuaVar2 = this.b;
+                if (zuaVar2 != null && zuaVar2.j() != null) {
+                    this.b.j().b();
+                    this.b.j().a();
+                }
+            }
+        }
     }
 }

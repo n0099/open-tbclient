@@ -1,61 +1,57 @@
 package com.baidu.tieba;
 
-import android.widget.ImageView;
+import com.baidu.android.util.soloader.SoLoader;
+import com.baidu.perf.signal.register.NativeSignalCapture;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class kb1 {
     public static /* synthetic */ Interceptable $ic;
-    public static kb1 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public lb1 a;
 
-    public kb1(lb1 lb1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {lb1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947907215, "Lcom/baidu/tieba/kb1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947907215, "Lcom/baidu/tieba/kb1;");
                 return;
             }
         }
-        this.a = lb1Var;
+        SoLoader.load(AppRuntime.getAppContext(), "signal-register");
     }
 
-    public static void c(lb1 lb1Var) {
+    public static void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, lb1Var) == null) && b == null) {
-            synchronized (kb1.class) {
-                if (b == null) {
-                    b = new kb1(lb1Var);
-                }
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            NativeSignalCapture.clearANRListener();
+            synchronized (NativeSignalCapture.sANRMutex) {
+                NativeSignalCapture.unRegisterANR();
             }
         }
     }
 
-    public static kb1 b() {
-        InterceptResult invokeV;
+    public static void a(ib1 ib1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return b;
+        if (interceptable == null || interceptable.invokeL(65537, null, ib1Var) == null) {
+            NativeSignalCapture.addANRListener(ib1Var);
         }
-        return (kb1) invokeV.objValue;
     }
 
-    public void a(ImageView imageView, String str) {
-        lb1 lb1Var;
+    public static void b(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, imageView, str) == null) && (lb1Var = this.a) != null) {
-            lb1Var.a(imageView, str);
+        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
+            synchronized (NativeSignalCapture.sANRMutex) {
+                NativeSignalCapture.registerANR(i);
+            }
         }
     }
 }

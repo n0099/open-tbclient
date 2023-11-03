@@ -1,19 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.data.DialogStrategiesData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public final class j15 implements e15 {
+public class j15 implements lf1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,41 +25,27 @@ public final class j15 implements e15 {
         }
     }
 
-    @Override // com.baidu.tieba.e15
-    public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, Object> strategyData, Map<String, Object> extraData) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.lf1
+    public Object get() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogData, strategyData, extraData)) == null) {
-            Intrinsics.checkNotNullParameter(dialogData, "dialogData");
-            Intrinsics.checkNotNullParameter(strategyData, "strategyData");
-            Intrinsics.checkNotNullParameter(extraData, "extraData");
-            HashMap hashMap = new HashMap();
-            hashMap.put("dialogName", "newGod");
-            hashMap.putAll(strategyData);
-            hashMap.putAll(extraData);
-            return hashMap;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new tv6());
+            arrayList.add(new h18());
+            arrayList.add(new l18());
+            arrayList.add(new p18());
+            arrayList.add(new t18());
+            arrayList.add(new x18());
+            arrayList.add(new b28());
+            arrayList.add(new f28());
+            arrayList.add(new j28());
+            arrayList.add(new tq9());
+            arrayList.add(new yq9());
+            arrayList.add(new dr9());
+            arrayList.add(new pva());
+            return arrayList;
         }
-        return (Map) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.e15
-    public boolean b(Map<String, Object> map) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            Intrinsics.checkNotNullParameter(map, "map");
-            boolean z2 = SharedPrefHelper.getInstance().getBoolean(SharedPrefHelper.getSharedPrefKeyWithAccount("key_new_god_pop_is_show"), false);
-            if (TbSingleton.getInstance().getNewGodData() != null) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (!z2 || !z) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
+        return invokeV.objValue;
     }
 }

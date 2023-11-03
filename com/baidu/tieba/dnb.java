@@ -1,81 +1,64 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.view.View;
-import android.view.ViewGroup;
+import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.bnb;
 import com.baidu.tieba.enb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.lang.ref.WeakReference;
 /* loaded from: classes5.dex */
-public class dnb implements Animator.AnimatorListener {
+public final class dnb implements bnb.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ enb.a a;
-    public final /* synthetic */ View b;
-    public final /* synthetic */ ViewGroup c;
-    public final /* synthetic */ float d;
-    public final /* synthetic */ float e;
-    public final /* synthetic */ int[] f;
-    public final /* synthetic */ ViewGroup g;
-    public final /* synthetic */ enb h;
 
-    public dnb(enb enbVar, enb.a aVar, View view2, ViewGroup viewGroup, float f, float f2, int[] iArr, ViewGroup viewGroup2) {
+    @Override // com.baidu.tieba.bnb.a
+    public final void U() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.bnb.a
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    public dnb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {enbVar, aVar, view2, viewGroup, Float.valueOf(f), Float.valueOf(f2), iArr, viewGroup2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.h = enbVar;
-        this.a = aVar;
-        this.b = view2;
-        this.c = viewGroup;
-        this.d = f;
-        this.e = f2;
-        this.f = iArr;
-        this.g = viewGroup2;
     }
 
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationCancel(Animator animator) {
+    @Override // com.baidu.tieba.bnb.a
+    public final void a(Activity activity) {
+        enb enbVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+            enbVar = enb.a.a;
+            enbVar.c(new WeakReference<>(activity));
         }
     }
 
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationRepeat(Animator animator) {
+    @Override // com.baidu.tieba.bnb.a
+    public final void onActivityDestroyed(Activity activity) {
+        enb enbVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-        }
-    }
-
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationEnd(Animator animator) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-            this.h.a(this.b, this.c, this.d, this.e, this.f, this.g, this.a);
-        }
-    }
-
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationStart(Animator animator) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-            LogPrinter.d("zoomOut onAnimationStart", new Object[0]);
-            this.h.getClass();
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            enbVar = enb.a.a;
+            enbVar.d(activity);
         }
     }
 }

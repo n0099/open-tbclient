@@ -1,57 +1,73 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import com.baidu.android.util.devices.StorageUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import java.io.IOException;
-import okhttp3.Interceptor;
-import okhttp3.Request;
-import okhttp3.Response;
+import java.io.File;
 /* loaded from: classes8.dex */
-public class vbc implements Interceptor {
+public class vbc {
     public static /* synthetic */ Interceptable $ic;
+    public static vbc a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
 
-    public vbc(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948236466, "Lcom/baidu/tieba/vbc;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948236466, "Lcom/baidu/tieba/vbc;");
                 return;
             }
         }
-        this.b = 0;
-        this.a = i;
+        a = new vbc();
     }
 
-    @Override // okhttp3.Interceptor
-    public Response intercept(Interceptor.Chain chain) throws IOException {
-        InterceptResult invokeL;
-        int i;
+    public vbc() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chain)) == null) {
-            Request request = chain.request();
-            Response proceed = chain.proceed(request);
-            while (!proceed.isSuccessful() && (i = this.b) < this.a) {
-                this.b = i + 1;
-                proceed.close();
-                proceed = chain.proceed(request);
-                RLog.info("RetryInterceptor", "RetryInterceptor maxRetry=%s, retryCount=%s", Integer.valueOf(this.a), Integer.valueOf(this.b));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            return proceed;
         }
-        return (Response) invokeL.objValue;
+    }
+
+    public static vbc b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
+        }
+        return (vbc) invokeV.objValue;
+    }
+
+    public File a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            if (context == null) {
+                obc.b(StorageUtils.TAG, "Context is null, need setting Context!");
+                return null;
+            } else if (context.getExternalCacheDir() != null && context.getExternalCacheDir().exists()) {
+                return context.getExternalCacheDir();
+            } else {
+                return context.getCacheDir();
+            }
+        }
+        return (File) invokeL.objValue;
     }
 }

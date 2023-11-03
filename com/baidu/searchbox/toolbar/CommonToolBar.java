@@ -148,7 +148,7 @@ public class CommonToolBar extends BaseToolBar {
                 createBadgeView.bindView(toolBarItemView);
             } else {
                 badgeView2.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06048a));
-                this.mMenuBadgeView.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f08050e, null));
+                this.mMenuBadgeView.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080517, null));
             }
             if (z) {
                 this.mMenuBadgeView.setBadgeMarginInPx(0, getSkinStyleBadgeTopMargin(), getSkinStyleBadgeRightMargin(), 0);
@@ -195,7 +195,7 @@ public class CommonToolBar extends BaseToolBar {
             CommentRedTipLayout commentRedTipLayout = (CommentRedTipLayout) toolBarItemView;
             commentRedTipLayout.getCommentsView().setEnabled(false);
             commentRedTipLayout.getCommentsView().setIconEnable(false);
-            commentRedTipLayout.getCommentsView().setIcon(R.drawable.obfuscated_res_0x7f08052a);
+            commentRedTipLayout.getCommentsView().setIcon(R.drawable.obfuscated_res_0x7f080533);
             commentRedTipLayout.setCommentsStatus(this, ToolBarNewType.NO_TIP, "");
         }
         CommentInputLayout commentInputLayout = (CommentInputLayout) getToolBarItemView(10);
@@ -213,7 +213,7 @@ public class CommonToolBar extends BaseToolBar {
             CommentRedTipLayout commentRedTipLayout = (CommentRedTipLayout) toolBarItemView;
             commentRedTipLayout.getCommentsView().setEnabled(false);
             commentRedTipLayout.getCommentsView().setIconEnable(false);
-            commentRedTipLayout.getCommentsView().setIcon(R.drawable.obfuscated_res_0x7f080529);
+            commentRedTipLayout.getCommentsView().setIcon(R.drawable.obfuscated_res_0x7f080532);
             commentRedTipLayout.setCommentsStatus(this, ToolBarNewType.NO_TIP, "");
         }
         CommentInputLayout commentInputLayout = (CommentInputLayout) getToolBarItemView(10);
@@ -238,13 +238,13 @@ public class CommonToolBar extends BaseToolBar {
             CommentRedTipLayout commentRedTipLayout = (CommentRedTipLayout) toolBarItemView;
             commentRedTipLayout.getCommentsView().setEnabled(false);
             commentRedTipLayout.getCommentsView().setIconEnable(false);
-            commentRedTipLayout.getCommentsView().setIcon(R.drawable.obfuscated_res_0x7f080528);
+            commentRedTipLayout.getCommentsView().setIcon(R.drawable.obfuscated_res_0x7f080531);
             commentRedTipLayout.setCommentsStatus(this, ToolBarNewType.NO_TIP, "");
         }
         CommentInputLayout commentInputLayout = (CommentInputLayout) getToolBarItemView(10);
         if (commentInputLayout != null) {
             commentInputLayout.setEnabled(false);
-            commentInputLayout.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f081519, null));
+            commentInputLayout.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f081532, null));
             SelectorTextView commentInputView = commentInputLayout.getCommentInputView();
             if (commentInputView != null) {
                 commentInputView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060b64));
@@ -381,7 +381,7 @@ public class CommonToolBar extends BaseToolBar {
         if (toolBarItemView != null) {
             Object tag = toolBarItemView.getTag();
             if (tag instanceof String) {
-                return getResources().getString(R.string.obfuscated_res_0x7f0f0725).equals((String) tag);
+                return getResources().getString(R.string.obfuscated_res_0x7f0f0727).equals((String) tag);
             }
             return false;
         }
@@ -416,7 +416,7 @@ public class CommonToolBar extends BaseToolBar {
     }
 
     public void setBackGuide() {
-        setBackStatus(getResources().getString(R.string.obfuscated_res_0x7f0f0725));
+        setBackStatus(getResources().getString(R.string.obfuscated_res_0x7f0f0727));
     }
 
     public void setBackGuideHidden() {
@@ -456,7 +456,7 @@ public class CommonToolBar extends BaseToolBar {
     public void updateMultiWindowAndMoreViewUI() {
         View toolBarItemView = getToolBarItemView(17);
         if ((toolBarItemView instanceof ImageView) && toolBarItemView.getVisibility() == 0) {
-            ((ImageView) toolBarItemView).setImageResource(R.drawable.obfuscated_res_0x7f080534);
+            ((ImageView) toolBarItemView).setImageResource(R.drawable.obfuscated_res_0x7f08053d);
         }
     }
 
@@ -480,12 +480,12 @@ public class CommonToolBar extends BaseToolBar {
             CoolPraiseView coolPraiseView = ((PraiseToolBarItemView) praiseToolBarItem.getItemView()).getCoolPraiseView();
             if (AnonymousClass5.$SwitchMap$com$baidu$searchbox$toolbar$PraiseToolBarItem$PraiseIconType[praiseToolBarItem.getType().ordinal()] != 1) {
                 if (this.mMode == ToolbarMode.DARK) {
-                    coolPraiseView.setPraiseStateIconRes(R.drawable.obfuscated_res_0x7f080536, R.drawable.obfuscated_res_0x7f080537);
+                    coolPraiseView.setPraiseStateIconRes(R.drawable.obfuscated_res_0x7f08053f, R.drawable.obfuscated_res_0x7f080540);
                 } else {
-                    coolPraiseView.setPraiseStateIconRes(R.drawable.obfuscated_res_0x7f080535, R.drawable.obfuscated_res_0x7f080537);
+                    coolPraiseView.setPraiseStateIconRes(R.drawable.obfuscated_res_0x7f08053e, R.drawable.obfuscated_res_0x7f080540);
                 }
             } else {
-                coolPraiseView.setPraiseStateIconRes(R.drawable.obfuscated_res_0x7f08050c, R.drawable.obfuscated_res_0x7f08050b);
+                coolPraiseView.setPraiseStateIconRes(R.drawable.obfuscated_res_0x7f080515, R.drawable.obfuscated_res_0x7f080514);
             }
             coolPraiseView.setPraise(false);
             coolPraiseView.setPraiseCount(0);
@@ -525,31 +525,31 @@ public class CommonToolBar extends BaseToolBar {
     private void setContentDescription() {
         View toolBarItemView = getToolBarItemView(1);
         if (toolBarItemView != null) {
-            toolBarItemView.setContentDescription(getResources().getString(R.string.obfuscated_res_0x7f0f04a9));
+            toolBarItemView.setContentDescription(getResources().getString(R.string.obfuscated_res_0x7f0f04ab));
         }
         View toolBarItemView2 = getToolBarItemView(4);
         if (toolBarItemView2 != null) {
-            toolBarItemView2.setContentDescription(getResources().getString(R.string.obfuscated_res_0x7f0f04af));
+            toolBarItemView2.setContentDescription(getResources().getString(R.string.obfuscated_res_0x7f0f04b1));
         }
         View toolBarItemView3 = getToolBarItemView(9);
         if (toolBarItemView3 != null) {
-            toolBarItemView3.setContentDescription(getResources().getString(R.string.obfuscated_res_0x7f0f04ad));
+            toolBarItemView3.setContentDescription(getResources().getString(R.string.obfuscated_res_0x7f0f04af));
         }
         View toolBarItemView4 = getToolBarItemView(2);
         if (toolBarItemView4 != null) {
-            toolBarItemView4.setContentDescription(getResources().getString(R.string.obfuscated_res_0x7f0f04ab));
+            toolBarItemView4.setContentDescription(getResources().getString(R.string.obfuscated_res_0x7f0f04ad));
         }
         View toolBarItemView5 = getToolBarItemView(17);
         if (toolBarItemView5 != null) {
-            toolBarItemView5.setContentDescription(getResources().getString(R.string.obfuscated_res_0x7f0f04ac));
+            toolBarItemView5.setContentDescription(getResources().getString(R.string.obfuscated_res_0x7f0f04ae));
         }
         View toolBarItemView6 = getToolBarItemView(8);
         if (toolBarItemView6 != null) {
-            toolBarItemView6.setContentDescription(getResources().getString(R.string.obfuscated_res_0x7f0f04ae));
+            toolBarItemView6.setContentDescription(getResources().getString(R.string.obfuscated_res_0x7f0f04b0));
         }
         View toolBarItemView7 = getToolBarItemView(18);
         if (toolBarItemView7 != null) {
-            toolBarItemView7.setContentDescription(getResources().getString(R.string.obfuscated_res_0x7f0f04aa));
+            toolBarItemView7.setContentDescription(getResources().getString(R.string.obfuscated_res_0x7f0f04ac));
         }
     }
 
@@ -570,11 +570,11 @@ public class CommonToolBar extends BaseToolBar {
             selectorTextView = null;
         }
         if (selectorTextView == null && (toolBarItemView = getToolBarItemView(22)) != null) {
-            selectorTextView = (SelectorTextView) toolBarItemView.findViewById(R.id.obfuscated_res_0x7f09261e);
+            selectorTextView = (SelectorTextView) toolBarItemView.findViewById(R.id.obfuscated_res_0x7f092675);
         }
         if (selectorTextView != null) {
             if (TextUtils.isEmpty(this.mDefaultInput)) {
-                selectorTextView.setText(getResources().getText(R.string.obfuscated_res_0x7f0f04a7));
+                selectorTextView.setText(getResources().getText(R.string.obfuscated_res_0x7f0f04a9));
             } else {
                 selectorTextView.setText(this.mDefaultInput);
             }
@@ -588,7 +588,7 @@ public class CommonToolBar extends BaseToolBar {
         if (toolBarItemView instanceof RedTipImageView) {
             RedTipImageView redTipImageView = (RedTipImageView) toolBarItemView;
             redTipImageView.getRedTip().setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06064f));
-            redTipImageView.getRedTip().setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080542, null));
+            redTipImageView.getRedTip().setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f08054b, null));
             redTipImageView.getRedTip().setTextSize(0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07024e));
             redTipImageView.getRedTip().setPadding(dp2px, 0, dp2px, 1);
         }
@@ -600,7 +600,7 @@ public class CommonToolBar extends BaseToolBar {
         if (toolBarItemView instanceof RedTipImageView) {
             RedTipImageView redTipImageView = (RedTipImageView) toolBarItemView;
             redTipImageView.getRedTip().setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06064f));
-            redTipImageView.getRedTip().setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080543, null));
+            redTipImageView.getRedTip().setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f08054c, null));
             redTipImageView.getRedTip().setTextSize(0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07024e));
             redTipImageView.getRedTip().setPadding(dp2px, 0, dp2px, 1);
         }
@@ -612,28 +612,28 @@ public class CommonToolBar extends BaseToolBar {
             setClickable(false);
             setBackgroundResource(R.color.transparent);
         } else {
-            setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080522, null));
+            setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f08052b, null));
         }
         View toolBarItemView = getToolBarItemView(1);
         if (toolBarItemView instanceof RedTipImageView) {
-            ((RedTipImageView) toolBarItemView).setIcon(R.drawable.obfuscated_res_0x7f080524);
+            ((RedTipImageView) toolBarItemView).setIcon(R.drawable.obfuscated_res_0x7f08052d);
         }
         View toolBarItemView2 = getToolBarItemView(7);
         if (toolBarItemView2 instanceof CommentRedTipLayout) {
-            ((CommentRedTipLayout) toolBarItemView2).setCommentViewIcon(R.drawable.obfuscated_res_0x7f080530);
+            ((CommentRedTipLayout) toolBarItemView2).setCommentViewIcon(R.drawable.obfuscated_res_0x7f080539);
         }
         updateStarViewMode();
         View toolBarItemView3 = getToolBarItemView(17);
         if (toolBarItemView3 instanceof ImageView) {
-            ((ImageView) toolBarItemView3).setImageResource(R.drawable.obfuscated_res_0x7f080534);
+            ((ImageView) toolBarItemView3).setImageResource(R.drawable.obfuscated_res_0x7f08053d);
         }
         View toolBarItemView4 = getToolBarItemView(9);
         if (toolBarItemView4 instanceof ImageView) {
-            ((ImageView) toolBarItemView4).setImageResource(R.drawable.obfuscated_res_0x7f08053b);
+            ((ImageView) toolBarItemView4).setImageResource(R.drawable.obfuscated_res_0x7f080544);
         }
         CommentInputLayout commentInputLayout = (CommentInputLayout) getToolBarItemView(10);
         if (commentInputLayout != null) {
-            commentInputLayout.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f08151a, null));
+            commentInputLayout.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f081533, null));
             SelectorTextView commentInputView = commentInputLayout.getCommentInputView();
             if (commentInputView != null) {
                 commentInputView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06064e));
@@ -643,11 +643,11 @@ public class CommonToolBar extends BaseToolBar {
         }
         View toolBarItemView5 = getToolBarItemView(22);
         if (toolBarItemView5 != null) {
-            View findViewById = toolBarItemView5.findViewById(R.id.obfuscated_res_0x7f09261e);
+            View findViewById = toolBarItemView5.findViewById(R.id.obfuscated_res_0x7f092675);
             if (findViewById instanceof SelectorTextView) {
                 SelectorTextView selectorTextView = (SelectorTextView) findViewById;
                 selectorTextView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06064e));
-                findViewById.setBackgroundDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f08151a, null));
+                findViewById.setBackgroundDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f081533, null));
                 findViewById.setPadding((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07025c), 0, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07025c), 0);
                 selectorTextView.setMode(true);
             }
@@ -662,12 +662,12 @@ public class CommonToolBar extends BaseToolBar {
             int i = AnonymousClass5.$SwitchMap$com$baidu$searchbox$toolbar$PraiseToolBarItem$PraiseIconType[praiseToolBarItem.getType().ordinal()];
             if (i != 1) {
                 if (i != 2) {
-                    coolPraiseView.setPraiseStateIconRes(R.drawable.obfuscated_res_0x7f080536, R.drawable.obfuscated_res_0x7f080537);
+                    coolPraiseView.setPraiseStateIconRes(R.drawable.obfuscated_res_0x7f08053f, R.drawable.obfuscated_res_0x7f080540);
                 } else {
                     praiseToolBarItem.updateCustomPraiseIcon(coolPraiseView);
                 }
             } else {
-                coolPraiseView.setPraiseStateIconRes(R.drawable.obfuscated_res_0x7f08050c, R.drawable.obfuscated_res_0x7f08050b);
+                coolPraiseView.setPraiseStateIconRes(R.drawable.obfuscated_res_0x7f080515, R.drawable.obfuscated_res_0x7f080514);
             }
         }
         View toolBarItemView6 = getToolBarItemView(25);
@@ -686,32 +686,32 @@ public class CommonToolBar extends BaseToolBar {
             setOnClickListener(null);
             setClickable(false);
         } else {
-            setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080521, null));
+            setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f08052a, null));
         }
         View toolBarItemView = getToolBarItemView(1);
         if (toolBarItemView instanceof RedTipImageView) {
-            ((RedTipImageView) toolBarItemView).setIcon(R.drawable.obfuscated_res_0x7f080523);
+            ((RedTipImageView) toolBarItemView).setIcon(R.drawable.obfuscated_res_0x7f08052c);
         }
         View toolBarItemView2 = getToolBarItemView(2);
         if (toolBarItemView2 instanceof ImageView) {
-            ((ImageView) toolBarItemView2).setImageResource(R.drawable.obfuscated_res_0x7f080531);
+            ((ImageView) toolBarItemView2).setImageResource(R.drawable.obfuscated_res_0x7f08053a);
         }
         View toolBarItemView3 = getToolBarItemView(7);
         if (toolBarItemView3 instanceof CommentRedTipLayout) {
-            ((CommentRedTipLayout) toolBarItemView3).setCommentViewIcon(R.drawable.obfuscated_res_0x7f08052e);
+            ((CommentRedTipLayout) toolBarItemView3).setCommentViewIcon(R.drawable.obfuscated_res_0x7f080537);
         }
         updateStarViewMode();
         View toolBarItemView4 = getToolBarItemView(17);
         if (toolBarItemView4 instanceof ImageView) {
-            ((ImageView) toolBarItemView4).setImageResource(R.drawable.obfuscated_res_0x7f080534);
+            ((ImageView) toolBarItemView4).setImageResource(R.drawable.obfuscated_res_0x7f08053d);
         }
         View toolBarItemView5 = getToolBarItemView(9);
         if (toolBarItemView5 instanceof ImageView) {
-            ((ImageView) toolBarItemView5).setImageResource(R.drawable.obfuscated_res_0x7f08053a);
+            ((ImageView) toolBarItemView5).setImageResource(R.drawable.obfuscated_res_0x7f080543);
         }
         CommentInputLayout commentInputLayout = (CommentInputLayout) getToolBarItemView(10);
         if (commentInputLayout != null) {
-            commentInputLayout.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f08151c, null));
+            commentInputLayout.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f081535, null));
             SelectorTextView commentInputView = commentInputLayout.getCommentInputView();
             if (commentInputView != null) {
                 commentInputView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06064a));
@@ -720,20 +720,20 @@ public class CommonToolBar extends BaseToolBar {
         }
         View toolBarItemView6 = getToolBarItemView(22);
         if (toolBarItemView6 != null) {
-            View findViewById = toolBarItemView6.findViewById(R.id.obfuscated_res_0x7f09261e);
+            View findViewById = toolBarItemView6.findViewById(R.id.obfuscated_res_0x7f092675);
             if (findViewById instanceof TextView) {
                 ((TextView) findViewById).setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06064a));
-                findViewById.setBackgroundDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f08151c, null));
+                findViewById.setBackgroundDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f081535, null));
                 findViewById.setPadding((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07025c), 0, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07025c), 0);
             }
         }
         View toolBarItemView7 = getToolBarItemView(21);
         if (toolBarItemView7 instanceof ImageView) {
-            ((ImageView) toolBarItemView7).setImageResource(R.drawable.obfuscated_res_0x7f08052c);
+            ((ImageView) toolBarItemView7).setImageResource(R.drawable.obfuscated_res_0x7f080535);
         }
         View toolBarItemView8 = getToolBarItemView(20);
         if (toolBarItemView8 instanceof ImageView) {
-            ((ImageView) toolBarItemView8).setImageResource(R.drawable.obfuscated_res_0x7f08052d);
+            ((ImageView) toolBarItemView8).setImageResource(R.drawable.obfuscated_res_0x7f080536);
         }
         PraiseToolBarItem praiseToolBarItem = getPraiseToolBarItem();
         if (praiseToolBarItem != null && (praiseToolBarItem.getItemView() instanceof PraiseToolBarItemView)) {
@@ -741,21 +741,21 @@ public class CommonToolBar extends BaseToolBar {
             int i = AnonymousClass5.$SwitchMap$com$baidu$searchbox$toolbar$PraiseToolBarItem$PraiseIconType[praiseToolBarItem.getType().ordinal()];
             if (i != 1) {
                 if (i != 2) {
-                    coolPraiseView.setPraiseStateIconRes(R.drawable.obfuscated_res_0x7f080535, R.drawable.obfuscated_res_0x7f080537);
+                    coolPraiseView.setPraiseStateIconRes(R.drawable.obfuscated_res_0x7f08053e, R.drawable.obfuscated_res_0x7f080540);
                 } else {
                     praiseToolBarItem.updateCustomPraiseIcon(coolPraiseView);
                 }
             } else {
-                coolPraiseView.setPraiseStateIconRes(R.drawable.obfuscated_res_0x7f08050c, R.drawable.obfuscated_res_0x7f08050b);
+                coolPraiseView.setPraiseStateIconRes(R.drawable.obfuscated_res_0x7f080515, R.drawable.obfuscated_res_0x7f080514);
             }
         }
         View toolBarItemView9 = getToolBarItemView(15);
         if (toolBarItemView9 instanceof ImageView) {
-            ((ImageView) toolBarItemView9).setImageResource(R.drawable.obfuscated_res_0x7f08053f);
+            ((ImageView) toolBarItemView9).setImageResource(R.drawable.obfuscated_res_0x7f080548);
         }
         View toolBarItemView10 = getToolBarItemView(18);
         if (toolBarItemView10 instanceof ImageView) {
-            ((ImageView) toolBarItemView10).setImageResource(R.drawable.obfuscated_res_0x7f080527);
+            ((ImageView) toolBarItemView10).setImageResource(R.drawable.obfuscated_res_0x7f080530);
         }
         setCommonBarNormalB();
         updateWendaUI();
@@ -765,9 +765,9 @@ public class CommonToolBar extends BaseToolBar {
         View toolBarItemView11 = getToolBarItemView(23);
         if (toolBarItemView11 instanceof ImageView) {
             if (this.mIsRecommended) {
-                ((ImageView) toolBarItemView11).setImageResource(R.drawable.obfuscated_res_0x7f080539);
+                ((ImageView) toolBarItemView11).setImageResource(R.drawable.obfuscated_res_0x7f080542);
             } else {
-                ((ImageView) toolBarItemView11).setImageResource(R.drawable.obfuscated_res_0x7f080538);
+                ((ImageView) toolBarItemView11).setImageResource(R.drawable.obfuscated_res_0x7f080541);
             }
         }
         View toolBarItemView12 = getToolBarItemView(25);
@@ -949,9 +949,9 @@ public class CommonToolBar extends BaseToolBar {
         }
         this.mIsRecommended = z;
         if (z) {
-            imageView.setImageResource(R.drawable.obfuscated_res_0x7f080539);
+            imageView.setImageResource(R.drawable.obfuscated_res_0x7f080542);
         } else {
-            imageView.setImageResource(R.drawable.obfuscated_res_0x7f080538);
+            imageView.setImageResource(R.drawable.obfuscated_res_0x7f080541);
         }
     }
 
@@ -974,15 +974,15 @@ public class CommonToolBar extends BaseToolBar {
             redTipImageView.setTag(Boolean.valueOf(z));
             ToolbarMode toolbarMode = this.mMode;
             ToolbarMode toolbarMode2 = ToolbarMode.DARK;
-            int i = R.drawable.obfuscated_res_0x7f08053e;
+            int i = R.drawable.obfuscated_res_0x7f080547;
             if (toolbarMode == toolbarMode2) {
                 if (!z) {
-                    i = R.drawable.obfuscated_res_0x7f08053d;
+                    i = R.drawable.obfuscated_res_0x7f080546;
                 }
                 redTipImageView.setIcon(i);
             } else {
                 if (!z) {
-                    i = R.drawable.obfuscated_res_0x7f08053c;
+                    i = R.drawable.obfuscated_res_0x7f080545;
                 }
                 redTipImageView.setIcon(i);
             }
@@ -1027,7 +1027,7 @@ public class CommonToolBar extends BaseToolBar {
                 RedTipImageView redTipImageView = new RedTipImageView(getContext());
                 redTipImageView.setIsIgnoreFontSizeParams(false);
                 redTipImageView.setIsResponseFontSize(getIsResponseFontSize(1));
-                redTipImageView.setIcon(R.drawable.obfuscated_res_0x7f080523);
+                redTipImageView.setIcon(R.drawable.obfuscated_res_0x7f08052c);
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(dimensionPixelOffset2, dimensionPixelOffset2);
                 layoutParams.leftMargin = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070263);
                 redTipImageView.setLayoutParams(layoutParams);
@@ -1035,7 +1035,7 @@ public class CommonToolBar extends BaseToolBar {
             case 2:
                 SelectorImageView selectorImageView = new SelectorImageView(getContext());
                 selectorImageView.setIsResponseFontSize(getIsResponseFontSize(2));
-                selectorImageView.setImageResource(R.drawable.obfuscated_res_0x7f080531);
+                selectorImageView.setImageResource(R.drawable.obfuscated_res_0x7f08053a);
                 selectorImageView.setScaleType(ImageView.ScaleType.CENTER);
                 LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(dimensionPixelOffset2, dimensionPixelOffset2);
                 layoutParams2.rightMargin = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070263);
@@ -1065,7 +1065,7 @@ public class CommonToolBar extends BaseToolBar {
             case 8:
                 RedTipImageView redTipImageView2 = new RedTipImageView(getContext());
                 redTipImageView2.setIsResponseFontSize(getIsResponseFontSize(8));
-                redTipImageView2.setIcon(R.drawable.obfuscated_res_0x7f08053c);
+                redTipImageView2.setIcon(R.drawable.obfuscated_res_0x7f080545);
                 LinearLayout.LayoutParams layoutParams4 = new LinearLayout.LayoutParams(dimensionPixelOffset2, dimensionPixelOffset2);
                 layoutParams4.leftMargin = dimensionPixelOffset;
                 layoutParams4.rightMargin = dimensionPixelOffset;
@@ -1074,7 +1074,7 @@ public class CommonToolBar extends BaseToolBar {
             case 9:
                 SelectorImageView selectorImageView2 = new SelectorImageView(getContext());
                 selectorImageView2.setIsResponseFontSize(getIsResponseFontSize(9));
-                selectorImageView2.setImageResource(R.drawable.obfuscated_res_0x7f08053a);
+                selectorImageView2.setImageResource(R.drawable.obfuscated_res_0x7f080543);
                 selectorImageView2.setScaleType(ImageView.ScaleType.CENTER);
                 LinearLayout.LayoutParams layoutParams5 = new LinearLayout.LayoutParams(dimensionPixelOffset2, dimensionPixelOffset2);
                 layoutParams5.rightMargin = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070263);
@@ -1105,7 +1105,7 @@ public class CommonToolBar extends BaseToolBar {
                 BdBaseImageView bdBaseImageView = new BdBaseImageView(getContext());
                 bdBaseImageView.setIsResponseFontSize(getIsResponseFontSize(15));
                 bdBaseImageView.setScaleType(ImageView.ScaleType.CENTER);
-                bdBaseImageView.setImageResource(R.drawable.obfuscated_res_0x7f08053f);
+                bdBaseImageView.setImageResource(R.drawable.obfuscated_res_0x7f080548);
                 bdBaseImageView.setVisibility(8);
                 LinearLayout.LayoutParams layoutParams7 = new LinearLayout.LayoutParams(dimensionPixelOffset2, dimensionPixelOffset2);
                 layoutParams7.leftMargin = dimensionPixelOffset;
@@ -1116,7 +1116,7 @@ public class CommonToolBar extends BaseToolBar {
                 SelectorImageView selectorImageView3 = new SelectorImageView(getContext());
                 selectorImageView3.setIsResponseFontSize(getIsResponseFontSize(17));
                 selectorImageView3.setScaleType(ImageView.ScaleType.CENTER);
-                selectorImageView3.setImageResource(R.drawable.obfuscated_res_0x7f080534);
+                selectorImageView3.setImageResource(R.drawable.obfuscated_res_0x7f08053d);
                 LinearLayout.LayoutParams layoutParams8 = new LinearLayout.LayoutParams(dimensionPixelOffset2, dimensionPixelOffset2);
                 layoutParams8.leftMargin = dimensionPixelOffset;
                 layoutParams8.rightMargin = dimensionPixelOffset;
@@ -1125,7 +1125,7 @@ public class CommonToolBar extends BaseToolBar {
             case 18:
                 BdBaseImageView bdBaseImageView2 = new BdBaseImageView(getContext());
                 bdBaseImageView2.setScaleType(ImageView.ScaleType.CENTER);
-                bdBaseImageView2.setImageResource(R.drawable.obfuscated_res_0x7f080523);
+                bdBaseImageView2.setImageResource(R.drawable.obfuscated_res_0x7f08052c);
                 bdBaseImageView2.setVisibility(8);
                 LinearLayout.LayoutParams layoutParams9 = new LinearLayout.LayoutParams(dimensionPixelOffset2, dimensionPixelOffset2);
                 layoutParams9.leftMargin = dimensionPixelOffset;
@@ -1134,7 +1134,7 @@ public class CommonToolBar extends BaseToolBar {
             case 20:
                 SelectorImageView selectorImageView4 = new SelectorImageView(getContext());
                 selectorImageView4.setIsResponseFontSize(getIsResponseFontSize(20));
-                selectorImageView4.setImageResource(R.drawable.obfuscated_res_0x7f08052d);
+                selectorImageView4.setImageResource(R.drawable.obfuscated_res_0x7f080536);
                 selectorImageView4.setScaleType(ImageView.ScaleType.CENTER);
                 LinearLayout.LayoutParams layoutParams10 = new LinearLayout.LayoutParams(dimensionPixelOffset2, dimensionPixelOffset2);
                 layoutParams10.rightMargin = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070263);
@@ -1143,7 +1143,7 @@ public class CommonToolBar extends BaseToolBar {
             case 21:
                 SelectorImageView selectorImageView5 = new SelectorImageView(getContext());
                 selectorImageView5.setIsResponseFontSize(getIsResponseFontSize(21));
-                selectorImageView5.setImageResource(R.drawable.obfuscated_res_0x7f08052c);
+                selectorImageView5.setImageResource(R.drawable.obfuscated_res_0x7f080535);
                 selectorImageView5.setScaleType(ImageView.ScaleType.CENTER);
                 LinearLayout.LayoutParams layoutParams11 = new LinearLayout.LayoutParams(dimensionPixelOffset2, dimensionPixelOffset2);
                 layoutParams11.leftMargin = dimensionPixelOffset;
@@ -1158,21 +1158,21 @@ public class CommonToolBar extends BaseToolBar {
                 layoutParams12.rightMargin = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07025d);
                 frameLayout.setLayoutParams(layoutParams12);
                 SelectorTextView selectorTextView = new SelectorTextView(getContext());
-                selectorTextView.setId(R.id.obfuscated_res_0x7f09261e);
+                selectorTextView.setId(R.id.obfuscated_res_0x7f092675);
                 selectorTextView.setPadding(getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07025c), 0, 0, 0);
                 selectorTextView.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070259));
-                selectorTextView.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f08151c, null));
-                selectorTextView.setText(R.string.obfuscated_res_0x7f0f04a7);
+                selectorTextView.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f081535, null));
+                selectorTextView.setText(R.string.obfuscated_res_0x7f0f04a9);
                 selectorTextView.setSingleLine(true);
                 selectorTextView.setEllipsize(TextUtils.TruncateAt.END);
                 selectorTextView.setGravity(16);
                 frameLayout.addView(selectorTextView, new FrameLayout.LayoutParams(-1, -1));
                 SelectorImageView selectorImageView6 = new SelectorImageView(getContext());
-                selectorImageView6.setId(R.id.obfuscated_res_0x7f09261f);
-                selectorImageView6.setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f081518, null));
+                selectorImageView6.setId(R.id.obfuscated_res_0x7f092676);
+                selectorImageView6.setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f081531, null));
                 selectorImageView6.setScaleType(ImageView.ScaleType.CENTER);
                 int dimensionPixelOffset3 = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070257);
-                int dimensionPixelOffset4 = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070b33);
+                int dimensionPixelOffset4 = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070b34);
                 selectorImageView6.setPadding(dimensionPixelOffset4, dimensionPixelOffset4, dimensionPixelOffset4, dimensionPixelOffset4);
                 selectorImageView6.setVisibility(8);
                 FrameLayout.LayoutParams layoutParams13 = new FrameLayout.LayoutParams(dimensionPixelOffset3, dimensionPixelOffset3);
@@ -1183,7 +1183,7 @@ public class CommonToolBar extends BaseToolBar {
                 FontSizeImageView fontSizeImageView = new FontSizeImageView(getContext());
                 fontSizeImageView.setIsResponseFontSize(getIsResponseFontSize(23));
                 fontSizeImageView.setScaleType(ImageView.ScaleType.CENTER);
-                fontSizeImageView.setImageResource(R.drawable.obfuscated_res_0x7f080538);
+                fontSizeImageView.setImageResource(R.drawable.obfuscated_res_0x7f080541);
                 fontSizeImageView.setVisibility(8);
                 LinearLayout.LayoutParams layoutParams14 = new LinearLayout.LayoutParams(dimensionPixelOffset2, dimensionPixelOffset2);
                 layoutParams14.leftMargin = dimensionPixelOffset;
@@ -1216,7 +1216,7 @@ public class CommonToolBar extends BaseToolBar {
             if (!TextUtils.isEmpty(str) && !"0".equals(str)) {
                 RedTipImageView redTipImageView = (RedTipImageView) toolBarItemView;
                 redTipImageView.setNewTip(ToolBarNewType.STRING_TIP, str);
-                redTipImageView.getRedTip().setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080542, null));
+                redTipImageView.getRedTip().setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f08054b, null));
                 toolBarItemView.setTag(str);
             } else {
                 ((RedTipImageView) toolBarItemView).setNewTip(null, "");
@@ -1250,11 +1250,11 @@ public class CommonToolBar extends BaseToolBar {
             selectorTextView = null;
         }
         if (selectorTextView == null && (toolBarItemView = getToolBarItemView(22)) != null) {
-            selectorTextView = (SelectorTextView) toolBarItemView.findViewById(R.id.obfuscated_res_0x7f09261e);
+            selectorTextView = (SelectorTextView) toolBarItemView.findViewById(R.id.obfuscated_res_0x7f092675);
         }
         if (selectorTextView != null) {
             if (spannableString != null && spannableString.length() != 0 && !this.mIsCloseComment) {
-                String string = getResources().getString(R.string.obfuscated_res_0x7f0f04b0);
+                String string = getResources().getString(R.string.obfuscated_res_0x7f0f04b2);
                 if (TextUtils.isEmpty(string)) {
                     return this;
                 }
@@ -1318,20 +1318,20 @@ public class CommonToolBar extends BaseToolBar {
         View toolBarItemView = getToolBarItemView(1);
         CommentInputLayout commentInputLayout = (CommentInputLayout) getToolBarItemView(10);
         if (commentInputLayout != null) {
-            commentInputLayout.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f08151b, null));
+            commentInputLayout.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f081534, null));
             selectorTextView = commentInputLayout.getCommentInputView();
         } else {
             selectorTextView = null;
         }
         if (this.mIsMiniVideoRightInteraction) {
             if (toolBarItemView instanceof RedTipImageView) {
-                ((RedTipImageView) toolBarItemView).setIcon(R.drawable.obfuscated_res_0x7f080524);
+                ((RedTipImageView) toolBarItemView).setIcon(R.drawable.obfuscated_res_0x7f08052d);
             }
             if (selectorTextView != null) {
                 selectorTextView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06064d));
                 selectorTextView.setPadding((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07025c), 0, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07025c), 0);
                 selectorTextView.setMode(true);
-                selectorTextView.setText(getResources().getText(R.string.obfuscated_res_0x7f0f04a7));
+                selectorTextView.setText(getResources().getText(R.string.obfuscated_res_0x7f0f04a9));
             }
             if (this.mIsCloseComment) {
                 setCloseCommentUIForMiniVideo();
@@ -1341,15 +1341,15 @@ public class CommonToolBar extends BaseToolBar {
         }
         boolean z = toolBarItemView instanceof RedTipImageView;
         if (z) {
-            ((RedTipImageView) toolBarItemView).setIcon(R.drawable.obfuscated_res_0x7f080524);
+            ((RedTipImageView) toolBarItemView).setIcon(R.drawable.obfuscated_res_0x7f08052d);
         }
         View toolBarItemView2 = getToolBarItemView(7);
         if (toolBarItemView2 instanceof CommentRedTipLayout) {
-            ((CommentRedTipLayout) toolBarItemView2).setCommentViewIcon(R.drawable.obfuscated_res_0x7f080530);
+            ((CommentRedTipLayout) toolBarItemView2).setCommentViewIcon(R.drawable.obfuscated_res_0x7f080539);
         }
         View toolBarItemView3 = getToolBarItemView(9);
         if (toolBarItemView3 instanceof ImageView) {
-            ((ImageView) toolBarItemView3).setImageResource(R.drawable.obfuscated_res_0x7f08053b);
+            ((ImageView) toolBarItemView3).setImageResource(R.drawable.obfuscated_res_0x7f080544);
         }
         View toolBarItemView4 = getToolBarItemView(13);
         if (toolBarItemView4 == null) {
@@ -1358,7 +1358,7 @@ public class CommonToolBar extends BaseToolBar {
         if (toolBarItemView4 instanceof PraiseToolBarItemView) {
             PraiseToolBarItemView praiseToolBarItemView = (PraiseToolBarItemView) toolBarItemView4;
             praiseToolBarItemView.getCoolPraiseView().setPraiseSource(PraiseSourceDef.NA_PRAISE_SRC_MINI_VIDEO_DETAIL_BAR).setUBC(PraiseUBCHelper.SOURCE_MINIVIDEO);
-            praiseToolBarItemView.getCoolPraiseView().setPraiseStateIconRes(R.drawable.obfuscated_res_0x7f080536, R.drawable.obfuscated_res_0x7f080537);
+            praiseToolBarItemView.getCoolPraiseView().setPraiseStateIconRes(R.drawable.obfuscated_res_0x7f08053f, R.drawable.obfuscated_res_0x7f080540);
             praiseToolBarItemView.updateToMiniVideoUI(toolBarItemView3);
         }
         if (selectorTextView instanceof SelectorTextView) {
@@ -1370,7 +1370,7 @@ public class CommonToolBar extends BaseToolBar {
         if (z) {
             RedTipImageView redTipImageView = (RedTipImageView) toolBarItemView;
             redTipImageView.getRedTip().setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06064f));
-            redTipImageView.getRedTip().setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080541, null));
+            redTipImageView.getRedTip().setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f08054a, null));
             redTipImageView.getRedTip().setTextSize(0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07024e));
             redTipImageView.getRedTip().setPadding(dp2px, 0, dp2px, 1);
         }

@@ -1,58 +1,49 @@
 package com.baidu.tieba;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public abstract class m6c<T> implements o6c {
+public final class m6c {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<String, a> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final b9c a;
 
-    public abstract void b(Throwable th);
+    /* loaded from: classes7.dex */
+    public interface a {
+        String a(k6c k6cVar);
+    }
 
-    public abstract void c(T t);
-
-    public m6c() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947926063, "Lcom/baidu/tieba/m6c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947926063, "Lcom/baidu/tieba/m6c;");
                 return;
             }
         }
-        this.a = new b9c();
+        a = new HashMap();
     }
 
-    @Override // com.baidu.tieba.o6c
-    public final boolean isUnsubscribed() {
+    public static Map<String, a> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.isUnsubscribed();
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a : (Map) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.o6c
-    public final void unsubscribe() {
+    public static void b(String str, a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a.unsubscribe();
-        }
-    }
-
-    public final void a(o6c o6cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, o6cVar) == null) {
-            this.a.a(o6cVar);
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, aVar) == null) {
+            a.put(str, aVar);
         }
     }
 }

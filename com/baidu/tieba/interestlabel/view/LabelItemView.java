@@ -16,7 +16,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nx8;
+import com.baidu.tieba.ra9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -101,7 +101,7 @@ public class LabelItemView extends LinearLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return (TextView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0509, (ViewGroup) this, false);
+            return (TextView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d051c, (ViewGroup) this, false);
         }
         return (TextView) invokeV.objValue;
     }
@@ -141,7 +141,7 @@ public class LabelItemView extends LinearLayout {
         }
     }
 
-    public void setData(List<nx8> list, boolean z) {
+    public void setData(List<ra9> list, boolean z) {
         int i;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLZ(1048579, this, list, z) != null) || ListUtils.isEmpty(list)) {
@@ -155,19 +155,19 @@ public class LabelItemView extends LinearLayout {
             if (i2 >= i) {
                 break;
             }
-            nx8 nx8Var = list.get(i2);
-            if (nx8Var != null && (getChildAt(i2) instanceof TextView)) {
+            ra9 ra9Var = list.get(i2);
+            if (ra9Var != null && (getChildAt(i2) instanceof TextView)) {
                 TextView textView = (TextView) getChildAt(i2);
                 textView.setVisibility(0);
-                String str = nx8Var.b;
-                if (!StringUtils.isNull(str) && nx8Var.b.length() > 4) {
-                    str = nx8Var.b.substring(0, 3) + "...";
+                String str = ra9Var.b;
+                if (!StringUtils.isNull(str) && ra9Var.b.length() > 4) {
+                    str = ra9Var.b.substring(0, 3) + "...";
                 }
                 textView.setText(str);
                 SkinManager.setViewTextColor(textView, (int) R.drawable.color_lable_selector);
                 textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_lable_selector), (Drawable) null);
-                textView.setSelected(nx8Var.c);
-                textView.setTag(nx8Var);
+                textView.setSelected(ra9Var.c);
+                textView.setTag(ra9Var);
             }
             i2++;
         }

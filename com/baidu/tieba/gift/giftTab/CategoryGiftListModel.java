@@ -7,8 +7,8 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.ww4;
-import com.baidu.tieba.xda;
+import com.baidu.tieba.cra;
+import com.baidu.tieba.ox4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,13 +19,13 @@ import java.util.ArrayList;
 public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<ww4> a;
+    public ArrayList<ox4> a;
     public b b;
     public NetMessageListener c;
 
     /* loaded from: classes6.dex */
     public interface b {
-        void a(int i, String str, int i2, ArrayList<ww4> arrayList);
+        void a(int i, String str, int i2, ArrayList<ox4> arrayList);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -125,7 +125,7 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
         registerListener();
     }
 
-    public void Q(int i) {
+    public void R(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             CategoryGiftListRequest categoryGiftListRequest = new CategoryGiftListRequest();
@@ -134,7 +134,7 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
         }
     }
 
-    public void R(b bVar) {
+    public void S(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             this.b = bVar;
@@ -151,8 +151,8 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            xda.h(309055, CategoryGiftListSocketResponseMessage.class, false, false);
-            xda.c(309055, CmdConfigHttp.CMD_GIFT_LIST_BY_CATEGORY, TbConfig.GET_GIFT_LIST_BY_CATEGORY, CategoryGiftListHttpResponseMessage.class, false, false, false, false);
+            cra.h(309055, CategoryGiftListSocketResponseMessage.class, false, false);
+            cra.c(309055, CmdConfigHttp.CMD_GIFT_LIST_BY_CATEGORY, TbConfig.GET_GIFT_LIST_BY_CATEGORY, CategoryGiftListHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

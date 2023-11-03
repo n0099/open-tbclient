@@ -1,7 +1,11 @@
 package com.baidu.tieba;
-
-import android.graphics.Bitmap;
 /* loaded from: classes7.dex */
 public interface leb {
-    void a(Bitmap bitmap);
+    void i(String str);
+
+    void k(String str);
+
+    void u(String str);
+
+    void v(String str);
 }

@@ -1,49 +1,19 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.TimeUnit;
+import java.lang.ref.WeakReference;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public class jh0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final long a;
+    public static final Map<String, WeakReference<kh0>> a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final jh0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-690044263, "Lcom/baidu/tieba/jh0$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-690044263, "Lcom/baidu/tieba/jh0$b;");
-                    return;
-                }
-            }
-            a = new jh0(null);
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -58,73 +28,30 @@ public class jh0 {
                 return;
             }
         }
-        a = TimeUnit.DAYS.toMillis(10L);
+        a = new HashMap();
     }
 
-    public jh0() {
+    public static kh0 a(@NonNull vg0 vg0Var) {
+        InterceptResult invokeL;
+        kh0 kh0Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, vg0Var)) == null) {
+            WeakReference<kh0> weakReference = a.get(vg0Var.e());
+            if (weakReference == null || (kh0Var = weakReference.get()) == null) {
+                kh0 kh0Var2 = new kh0(vg0Var);
+                a.put(vg0Var.e(), new WeakReference<>(kh0Var2));
+                return kh0Var2;
             }
+            return kh0Var;
         }
+        return (kh0) invokeL.objValue;
     }
 
-    public static jh0 b() {
-        InterceptResult invokeV;
+    public static void b(@NonNull vg0 vg0Var) {
+        WeakReference<kh0> remove;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b.a;
+        if ((interceptable == null || interceptable.invokeL(65538, null, vg0Var) == null) && (remove = a.remove(vg0Var.e())) != null) {
+            remove.clear();
         }
-        return (jh0) invokeV.objValue;
-    }
-
-    public /* synthetic */ jh0(a aVar) {
-        this();
-    }
-
-    public void a(lh0 lh0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, lh0Var) == null) {
-            eg0 eg0Var = new eg0();
-            eg0Var.g = "https://cover.baidu.com/cover/deeplink_android?downloadUrl=";
-            eg0Var.h(lh0Var.b);
-            ig0 ig0Var = eg0Var.p;
-            ig0Var.a = lh0Var.c;
-            eg0Var.d = lh0Var.a;
-            ig0Var.o = lh0Var.e;
-            ig0Var.p = lh0Var.f;
-            ig0Var.n = lh0Var.d;
-            eg0Var.q.a = "SCHEDULEDDOWNLOAD";
-            if (!TextUtils.isEmpty(lh0Var.g)) {
-                eg0Var.q.b = lh0Var.g;
-            } else {
-                eg0Var.q.b = "na_ads";
-            }
-            if (!TextUtils.isEmpty(lh0Var.h)) {
-                eg0Var.q.c = lh0Var.h;
-            } else {
-                eg0Var.q.c = "apk_yuansheng";
-            }
-            eg0Var.l = Long.MAX_VALUE - (a * 2);
-            vf0.b().g(eg0Var);
-            vf0.b().f(eg0Var);
-        }
-    }
-
-    public void c(String str, boolean z) {
-        eg0 eg0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) != null) || (eg0Var = (eg0) vx0.b(vf0.b().a(), str)) == null) {
-            return;
-        }
-        eg0Var.p.p = z;
-        vf0.b().g(eg0Var);
-        vf0.b().f(eg0Var);
     }
 }

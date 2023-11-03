@@ -1,10 +1,13 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.LotteryTheme;
+import org.json.JSONObject;
+import tbclient.FrsPage.MemberShowIcon;
 /* loaded from: classes6.dex */
 public class hx4 {
     public static /* synthetic */ Interceptable $ic;
@@ -24,12 +27,27 @@ public class hx4 {
         }
     }
 
-    public void a(LotteryTheme lotteryTheme) {
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, lotteryTheme) != null) || lotteryTheme == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        String str = lotteryTheme.bgcolor;
-        String str2 = lotteryTheme.bgimage;
+        try {
+            jSONObject.optString("icon");
+            jSONObject.optString("name");
+            jSONObject.optString("url");
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+    }
+
+    public void b(MemberShowIcon memberShowIcon) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, memberShowIcon) != null) || memberShowIcon == null) {
+            return;
+        }
+        String str = memberShowIcon.icon;
+        String str2 = memberShowIcon.name;
+        String str3 = memberShowIcon.url;
     }
 }

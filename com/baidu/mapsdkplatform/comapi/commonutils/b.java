@@ -121,16 +121,16 @@ public class b {
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.baidu.mapsdkplatform.comapi.commonutils.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static final class EnumC0108b {
+    public static final class EnumC0109b {
         public static /* synthetic */ Interceptable $ic;
-        public static final EnumC0108b a;
-        public static final EnumC0108b b;
-        public static final EnumC0108b c;
-        public static final EnumC0108b d;
-        public static final EnumC0108b e;
-        public static final EnumC0108b f;
-        public static final EnumC0108b g;
-        public static final /* synthetic */ EnumC0108b[] h;
+        public static final EnumC0109b a;
+        public static final EnumC0109b b;
+        public static final EnumC0109b c;
+        public static final EnumC0109b d;
+        public static final EnumC0109b e;
+        public static final EnumC0109b f;
+        public static final EnumC0109b g;
+        public static final /* synthetic */ EnumC0109b[] h;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -146,18 +146,18 @@ public class b {
                     return;
                 }
             }
-            a = new EnumC0108b("eNone", 0);
-            b = new EnumC0108b("eMonitorVerbose", 1);
-            c = new EnumC0108b("eMonitorDebug", 2);
-            d = new EnumC0108b("eMonitorInfo", 3);
-            e = new EnumC0108b("eMonitorWarn", 4);
-            f = new EnumC0108b("eMonitorError", 5);
-            EnumC0108b enumC0108b = new EnumC0108b("eMonitorRealTime", 6);
-            g = enumC0108b;
-            h = new EnumC0108b[]{a, b, c, d, e, f, enumC0108b};
+            a = new EnumC0109b("eNone", 0);
+            b = new EnumC0109b("eMonitorVerbose", 1);
+            c = new EnumC0109b("eMonitorDebug", 2);
+            d = new EnumC0109b("eMonitorInfo", 3);
+            e = new EnumC0109b("eMonitorWarn", 4);
+            f = new EnumC0109b("eMonitorError", 5);
+            EnumC0109b enumC0109b = new EnumC0109b("eMonitorRealTime", 6);
+            g = enumC0109b;
+            h = new EnumC0109b[]{a, b, c, d, e, f, enumC0109b};
         }
 
-        public EnumC0108b(String str, int i) {
+        public EnumC0109b(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -176,22 +176,22 @@ public class b {
             }
         }
 
-        public static EnumC0108b valueOf(String str) {
+        public static EnumC0109b valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-                return (EnumC0108b) Enum.valueOf(EnumC0108b.class, str);
+                return (EnumC0109b) Enum.valueOf(EnumC0109b.class, str);
             }
-            return (EnumC0108b) invokeL.objValue;
+            return (EnumC0109b) invokeL.objValue;
         }
 
-        public static EnumC0108b[] values() {
+        public static EnumC0109b[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                return (EnumC0108b[]) h.clone();
+                return (EnumC0109b[]) h.clone();
             }
-            return (EnumC0108b[]) invokeV.objValue;
+            return (EnumC0109b[]) invokeV.objValue;
         }
     }
 
@@ -332,16 +332,16 @@ public class b {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            a(EnumC0108b.g, d.a.name(), str);
+            a(EnumC0109b.g, d.a.name(), str);
         }
     }
 
-    private void a(EnumC0108b enumC0108b, String str, String str2) {
+    private void a(EnumC0109b enumC0109b, String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, enumC0108b, str, str2) != null) || !a) {
+        if ((interceptable != null && interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, enumC0109b, str, str2) != null) || !a) {
             return;
         }
-        j.a().submit(new com.baidu.mapsdkplatform.comapi.commonutils.c(this, enumC0108b, str, str2));
+        j.a().submit(new com.baidu.mapsdkplatform.comapi.commonutils.c(this, enumC0109b, str, str2));
     }
 
     public void b() {
@@ -357,7 +357,7 @@ public class b {
                 NAEngine.a(false);
                 NAEngine.a(mapLogFilePath);
                 NAEngine.a(a.b.a());
-                NAEngine.b(EnumC0108b.f.ordinal());
+                NAEngine.b(EnumC0109b.f.ordinal());
                 d();
                 NAEngine.a(true);
                 b = true;

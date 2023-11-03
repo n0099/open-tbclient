@@ -1,23 +1,58 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
+import android.os.Message;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.TreeMap;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes5.dex */
-public class b13 {
+public class b13 implements kr2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qf2 a;
+    public Map<Runnable, String> c;
 
-    public b13(String str, String str2, String str3) {
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final b13 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-969781753, "Lcom/baidu/tieba/b13$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-969781753, "Lcom/baidu/tieba/b13$b;");
+                    return;
+                }
+            }
+            a = new b13(null);
+        }
+    }
+
+    public b13() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,19 +62,60 @@ public class b13 {
                 return;
             }
         }
-        TreeMap treeMap = new TreeMap();
-        treeMap.put("functionPagePath", str);
-        treeMap.put("paymentArgs", str2);
-        treeMap.put("slaveId", str3);
-        this.a = new qf2("beforeRequestPayment", treeMap);
+        this.c = new ConcurrentHashMap();
     }
 
-    public qf2 a() {
+    public static b13 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
         }
-        return (qf2) invokeV.objValue;
+        return (b13) invokeV.objValue;
+    }
+
+    public /* synthetic */ b13(a aVar) {
+        this();
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (kr2.a) {
+                Log.e("SwanPerformance", "main process launch start，appId = " + str);
+            }
+            System.currentTimeMillis();
+        }
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.c.isEmpty()) {
+            return;
+        }
+        if (kr2.a) {
+            Log.d("SwanPerformance", "main process batch handle thread, size = " + this.c.size());
+        }
+        for (Map.Entry<Runnable, String> entry : this.c.entrySet()) {
+            if (entry != null) {
+                ExecutorUtilsExt.postOnElastic(entry.getKey(), entry.getValue(), 2);
+            }
+        }
+        this.c.clear();
+    }
+
+    public void c(Message message) {
+        Object obj;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) != null) || message == null || (obj = message.obj) == null || !(obj instanceof Bundle)) {
+            return;
+        }
+        Bundle bundle = (Bundle) obj;
+        boolean z = bundle.getBoolean("is_timeout", false);
+        String string = bundle.getString("app_id", null);
+        if (kr2.a) {
+            Log.e("SwanPerformance", "main process launch end，timeout = " + z + " ; appId = " + string);
+        }
+        a();
     }
 }

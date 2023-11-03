@@ -1,21 +1,25 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.Objects;
 /* loaded from: classes5.dex */
-public class ef4<T> {
+public class ef4 extends cf4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<T> a;
+    public String g;
+    public int h;
+    public long i;
+    public String j;
+    public long k;
+    public String l;
+    public String m;
+    public String n;
 
     public ef4() {
         Interceptable interceptable = $ic;
@@ -27,83 +31,61 @@ public class ef4<T> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList();
     }
 
-    public synchronized T c() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                if (this.a.isEmpty()) {
-                    return null;
-                }
-                T t = this.a.get(0);
-                this.a.remove(0);
-                return t;
+            if (!TextUtils.isEmpty(this.g) && this.i > 0 && !TextUtils.isEmpty(this.l) && !TextUtils.isEmpty(this.m) && !TextUtils.isEmpty(this.n)) {
+                return true;
             }
+            return false;
         }
-        return (T) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public synchronized T d() {
+    public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this) {
-                if (this.a.isEmpty()) {
-                    return null;
-                }
-                return this.a.get(0);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return Objects.hash(this.g, Integer.valueOf(this.h), Long.valueOf(this.i), this.j);
         }
-        return (T) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    @NonNull
-    public Iterator<T> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.iterator();
-        }
-        return (Iterator) invokeV.objValue;
-    }
-
-    public T e(T t) {
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
-            if (t != null) {
-                for (int size = this.a.size() - 1; size >= 0; size--) {
-                    if (t.equals(this.a.get(size))) {
-                        return this.a.get(size);
-                    }
-                }
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (super.equals(obj)) {
+                return true;
             }
-            return null;
+            if (obj == null || !(obj instanceof ef4)) {
+                return false;
+            }
+            ef4 ef4Var = (ef4) obj;
+            if (TextUtils.isEmpty(this.j) && TextUtils.isEmpty(ef4Var.j)) {
+                if (this.g.equals(ef4Var.g) && this.i == ef4Var.i) {
+                    return true;
+                }
+                return false;
+            } else if (TextUtils.equals(this.g, ef4Var.g) && this.i == ef4Var.i && TextUtils.equals(this.j, ef4Var.j)) {
+                return true;
+            } else {
+                return false;
+            }
         }
-        return (T) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(",Queue Size:" + this.a.size());
-            synchronized (this) {
-                int i = 0;
-                for (T t : this.a) {
-                    sb.append(":[" + i + PreferencesUtil.RIGHT_MOUNT + t);
-                    i++;
-                }
-            }
-            return sb.toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "bundleId=" + this.g + ", category=" + this.h + ", versionCode=" + this.i + ", versionName=" + this.j + ", size=" + this.k + ", md5=" + this.l + ", sign=" + this.m + ", downloadUrl=" + this.n;
         }
         return (String) invokeV.objValue;
     }

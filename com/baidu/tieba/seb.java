@@ -1,23 +1,33 @@
 package com.baidu.tieba;
 
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes8.dex */
-public interface seb {
+public class seb {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public List<d78> b;
+    public List<String> c;
+    public int d;
+    public List<ax4> e;
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void onCompletion();
-
-        boolean onError(int i, int i2, Object obj);
-
-        boolean onInfo(int i, int i2, Object obj);
+    public seb() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = 0;
     }
-
-    void release();
-
-    void setListener(a aVar);
-
-    void setSource(ArrayList<String> arrayList);
-
-    void start();
 }

@@ -1,95 +1,59 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.component.buoy.BuoyComponent;
-import com.baidu.bdtask.component.buoy.TaskBuoyViewData;
-import com.baidu.bdtask.component.buoy.TaskBuoyViewModel;
-import com.baidu.bdtask.ctrl.model.TaskStatus;
-import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.Executor;
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes8.dex */
-public final class sk extends BuoyComponent {
+public final class sk {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile sk b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Executor a;
 
-    @Override // com.baidu.bdtask.component.buoy.BuoyComponent
-    public float s(TaskInfo taskInfo, TaskStatus taskStatus) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, taskInfo, taskStatus)) == null) {
-            return 1.0f;
-        }
-        return invokeLL.floatValue;
-    }
-
-    @Override // com.baidu.bdtask.component.buoy.BuoyComponent
-    public boolean t(TaskStatus taskStatus) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, taskStatus)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sk(ln<TaskBuoyViewData, TaskBuoyViewModel> lnVar, TaskBuoyViewModel taskBuoyViewModel, TaskInfo taskInfo) {
-        super(lnVar, taskBuoyViewModel, taskInfo);
+    public sk() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {lnVar, taskBuoyViewModel, taskInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((ln) objArr2[0], (TaskBuoyViewModel) objArr2[1], (TaskInfo) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new ThreadPoolExecutor(5, 25, 20L, TimeUnit.SECONDS, new LinkedBlockingDeque(50));
     }
 
-    @Override // com.baidu.tieba.gk
-    public void b(TaskInfo taskInfo, int i, String str) {
+    public static sk b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLIL(1048576, this, taskInfo, i, str) != null) || i == 304) {
-            return;
-        }
-        p();
-    }
-
-    @Override // com.baidu.bdtask.component.buoy.BuoyComponent
-    public float q(TaskInfo taskInfo, TaskStatus taskStatus) {
-        InterceptResult invokeLL;
-        int repeat;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo, taskStatus)) == null) {
-            if (!taskInfo.isClickAction() || (repeat = taskInfo.getTaskRule().getRepeat()) == 0) {
-                return 0.0f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (sk.class) {
+                    if (b == null) {
+                        b = new sk();
+                    }
+                }
             }
-            return taskStatus.getProcess().getRepeatTimes() / repeat;
+            return b;
         }
-        return invokeLL.floatValue;
+        return (sk) invokeV.objValue;
     }
 
-    @Override // com.baidu.bdtask.component.buoy.BuoyComponent
-    public long r(TaskInfo taskInfo, TaskStatus taskStatus) {
-        InterceptResult invokeLL;
+    public Executor a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, taskInfo, taskStatus)) == null) {
-            if (!taskInfo.isClickAction()) {
-                return 0L;
-            }
-            return taskInfo.getTaskRule().getRepeat();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return invokeLL.longValue;
+        return (Executor) invokeV.objValue;
     }
 }

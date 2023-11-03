@@ -1,41 +1,44 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.BaseFragment;
+import android.text.TextUtils;
+import com.baidu.tbadk.mutiprocess.history.HistoryEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class sm5 {
+public class sm5 implements cm5<HistoryEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseFragment a;
 
-    public sm5(BaseFragment baseFragment) {
+    public sm5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = baseFragment;
     }
 
-    public BaseFragment a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.cm5
+    /* renamed from: a */
+    public boolean onEvent(HistoryEvent historyEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, historyEvent)) == null) {
+            if (historyEvent != null && !TextUtils.isEmpty(historyEvent.tid)) {
+                il6.a(historyEvent.tid);
+                return true;
+            }
+            return false;
         }
-        return (BaseFragment) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 }

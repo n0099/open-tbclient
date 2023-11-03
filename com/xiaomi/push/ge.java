@@ -20,13 +20,13 @@ public class ge extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public String mo757a() {
+    public String mo761a() {
         return "shutdown the connection. " + this.b + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f431a;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public void mo474a() {
+    public void mo478a() {
         this.a.b.a(this.b, this.f431a);
     }
 }

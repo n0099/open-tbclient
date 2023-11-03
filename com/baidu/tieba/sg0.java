@@ -1,57 +1,114 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.ref.WeakReference;
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class sg0 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, WeakReference<tg0>> a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface sg0 {
+    public static final ServiceReference a = new ServiceReference("nad.core", "uad");
+    public static final sg0 b = new a();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948150317, "Lcom/baidu/tieba/sg0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    boolean a(Activity activity);
+
+    ViewGroup b(Activity activity);
+
+    wh0 c();
+
+    void d(boolean z);
+
+    void e(Activity activity, long j);
+
+    int f();
+
+    boolean isMainActivity(Activity activity);
+
+    /* loaded from: classes8.dex */
+    public class a implements sg0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.sg0
+        public boolean a(Activity activity) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) {
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.sg0
+        public ViewGroup b(Activity activity) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity)) == null) {
+                return null;
+            }
+            return (ViewGroup) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.sg0
+        public wh0 c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return null;
+            }
+            return (wh0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.sg0
+        public void d(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.sg0
+        public void e(Activity activity, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLJ(1048580, this, activity, j) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.sg0
+        public int f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.sg0
+        public boolean isMainActivity(Activity activity) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, activity)) == null) {
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948150317, "Lcom/baidu/tieba/sg0;");
-                return;
-            }
-        }
-        a = new HashMap();
-    }
-
-    public static tg0 a(@NonNull eg0 eg0Var) {
-        InterceptResult invokeL;
-        tg0 tg0Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, eg0Var)) == null) {
-            WeakReference<tg0> weakReference = a.get(eg0Var.e());
-            if (weakReference == null || (tg0Var = weakReference.get()) == null) {
-                tg0 tg0Var2 = new tg0(eg0Var);
-                a.put(eg0Var.e(), new WeakReference<>(tg0Var2));
-                return tg0Var2;
-            }
-            return tg0Var;
-        }
-        return (tg0) invokeL.objValue;
-    }
-
-    public static void b(@NonNull eg0 eg0Var) {
-        WeakReference<tg0> remove;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, eg0Var) == null) && (remove = a.remove(eg0Var.e())) != null) {
-            remove.clear();
         }
     }
 }

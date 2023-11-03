@@ -1,18 +1,43 @@
 package com.baidu.tieba;
 
-import android.view.MotionEvent;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
-public final class y14 {
+import java.io.File;
+/* loaded from: classes9.dex */
+public abstract class y14 implements ph2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xc2 a;
+
+    @Override // com.baidu.tieba.ph2
+    @NonNull
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "aigames/extcore/game-extension-core.zip" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ph2
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.ph2
+    @NonNull
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "aigames/extcore/game-extension-config.json" : (String) invokeV.objValue;
+    }
 
     public y14() {
         Interceptable interceptable = $ic;
@@ -28,51 +53,14 @@ public final class y14 {
         }
     }
 
-    public boolean a(MotionEvent motionEvent) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ph2
+    @NonNull
+    public File f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            xc2 xc2Var = this.a;
-            boolean z = false;
-            if (xc2Var == null) {
-                return false;
-            }
-            boolean f = z14.f(xc2Var.m());
-            boolean f2 = z14.f(this.a.v());
-            JSEvent jSEvent = null;
-            if (f || f2) {
-                jSEvent = z14.j(motionEvent);
-            }
-            if (f) {
-                z = this.a.dispatchEvent(jSEvent);
-            }
-            if (f2 && this.a.s0()) {
-                this.a.v().dispatchEvent(jSEvent);
-            }
-            z14.g(true);
-            return z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return new File(w24.d(), "extension_core");
         }
-        return invokeL.booleanValue;
-    }
-
-    public void b(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            z14.m(i, i2);
-        }
-    }
-
-    public void d(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            z14.l(i, i2);
-        }
-    }
-
-    public void c(xc2 xc2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xc2Var) == null) {
-            this.a = xc2Var;
-        }
+        return (File) invokeV.objValue;
     }
 }

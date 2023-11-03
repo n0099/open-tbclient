@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ad;
-import com.baidu.tieba.pt9;
+import com.baidu.tieba.qd;
+import com.baidu.tieba.u6a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -34,7 +34,7 @@ public class PersonCommonForumItemView extends RelativeLayout {
     public TextView e;
     public int f;
     public Context g;
-    public pt9 h;
+    public u6a h;
     public View.OnClickListener i;
 
     /* loaded from: classes7.dex */
@@ -68,7 +68,7 @@ public class PersonCommonForumItemView extends RelativeLayout {
                 TiebaStatic.log(new StatisticItem("c12503").param("obj_locate", "6"));
                 TiebaStatic.log(new StatisticItem("c11594"));
                 String str = this.a.h.b;
-                if (ad.isForumName(str)) {
+                if (qd.isForumName(str)) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.g).createNormalCfg(str, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(8)));
                 }
             }
@@ -95,7 +95,7 @@ public class PersonCommonForumItemView extends RelativeLayout {
         }
         this.f = 3;
         this.g = context;
-        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07e6, (ViewGroup) this, true);
+        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07fb, (ViewGroup) this, true);
         c();
         d();
     }
@@ -105,9 +105,9 @@ public class PersonCommonForumItemView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a = (BarImageView) findViewById(R.id.forum_avatar);
             this.b = (TextView) findViewById(R.id.forum_name);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090c15);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090c39);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090c3a);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090c41);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090c66);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090c67);
         }
     }
 
@@ -132,15 +132,15 @@ public class PersonCommonForumItemView extends RelativeLayout {
         }
     }
 
-    public void setData(pt9 pt9Var) {
+    public void setData(u6a u6aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, pt9Var) == null) {
-            this.h = pt9Var;
-            this.a.startLoad(pt9Var.c, 10, false);
+        if (interceptable == null || interceptable.invokeL(1048579, this, u6aVar) == null) {
+            this.h = u6aVar;
+            this.a.startLoad(u6aVar.c, 10, false);
             TextView textView = this.b;
-            textView.setText(StringHelper.cutForumNameWithSuffix(pt9Var.b, 7, "...") + this.g.getString(R.string.obfuscated_res_0x7f0f0785));
-            this.d.setText(StringHelper.numberUniformFormat((long) pt9Var.d));
-            this.c.setText(String.format(this.g.getString(R.string.obfuscated_res_0x7f0f10a2), StringHelper.getUserDescByGender(pt9Var.e)));
+            textView.setText(StringHelper.cutForumNameWithSuffix(u6aVar.b, 7, "...") + this.g.getString(R.string.obfuscated_res_0x7f0f0787));
+            this.d.setText(StringHelper.numberUniformFormat((long) u6aVar.d));
+            this.c.setText(String.format(this.g.getString(R.string.obfuscated_res_0x7f0f10b4), StringHelper.getUserDescByGender(u6aVar.e)));
             if (getRootView() != null) {
                 getRootView().setOnClickListener(this.i);
             }

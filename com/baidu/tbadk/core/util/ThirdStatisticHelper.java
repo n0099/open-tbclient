@@ -11,8 +11,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.util.WebviewHelper;
-import com.baidu.tieba.oa;
-import com.baidu.tieba.va;
+import com.baidu.tieba.db;
+import com.baidu.tieba.lb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -78,7 +78,7 @@ public class ThirdStatisticHelper {
                 int i = 0;
                 if (strArr != null && strArr.length != 0) {
                     try {
-                        oa g = new va().g(strArr[0], 3, 30000, 3000);
+                        db g = new lb().g(strArr[0], 3, 30000, 3000);
                         if (g != null) {
                             i = g.b;
                         }

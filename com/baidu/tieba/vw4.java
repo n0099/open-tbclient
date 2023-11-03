@@ -1,73 +1,122 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.FrsPage.RecommendBook;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.CallRobotEntrance;
+import tbclient.StyleContentInfo;
 /* loaded from: classes8.dex */
-public class vw4 extends ThreadData {
+public final class vw4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final CallRobotEntrance a;
+    public final StyleContentInfo b;
+    public final StyleContentInfo c;
+    public final boolean d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948255190, "Lcom/baidu/tieba/vw4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948255190, "Lcom/baidu/tieba/vw4;");
-                return;
+            if (obj instanceof vw4) {
+                vw4 vw4Var = (vw4) obj;
+                return Intrinsics.areEqual(this.a, vw4Var.a) && Intrinsics.areEqual(this.b, vw4Var.b) && Intrinsics.areEqual(this.c, vw4Var.c) && this.d == vw4Var.d;
             }
+            return false;
         }
-        a = BdUniqueId.gen();
+        return invokeL.booleanValue;
     }
 
-    public vw4() {
+    /* JADX DEBUG: Multi-variable search result rejected for r1v5, resolved type: boolean */
+    /* JADX WARN: Multi-variable type inference failed */
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            CallRobotEntrance callRobotEntrance = this.a;
+            int hashCode = (((((callRobotEntrance == null ? 0 : callRobotEntrance.hashCode()) * 31) + this.b.hashCode()) * 31) + this.c.hashCode()) * 31;
+            boolean z = this.d;
+            int i = z;
+            if (z != 0) {
+                i = 1;
+            }
+            return hashCode + i;
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "CallRobotEntranceData(robotEntrance=" + this.a + ", robotDayContentInfo=" + this.b + ", robotDarkContentInfo=" + this.c + ", isDefault=" + this.d + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public vw4(CallRobotEntrance callRobotEntrance, StyleContentInfo robotDayContentInfo, StyleContentInfo robotDarkContentInfo, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {callRobotEntrance, robotDayContentInfo, robotDarkContentInfo, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(robotDayContentInfo, "robotDayContentInfo");
+        Intrinsics.checkNotNullParameter(robotDarkContentInfo, "robotDarkContentInfo");
+        this.a = callRobotEntrance;
+        this.b = robotDayContentInfo;
+        this.c = robotDarkContentInfo;
+        this.d = z;
     }
 
-    @Override // com.baidu.tbadk.core.data.ThreadData, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yh
-    public BdUniqueId getType() {
+    public final StyleContentInfo a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (StyleContentInfo) invokeV.objValue;
+    }
+
+    public final StyleContentInfo b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return a;
+            return this.b;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (StyleContentInfo) invokeV.objValue;
     }
 
-    public void c(RecommendBook recommendBook) {
+    public final CallRobotEntrance c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, recommendBook) != null) || recommendBook == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
-        recommendBook.type.intValue();
-        String str = recommendBook.book_id;
-        String str2 = recommendBook.title;
-        String str3 = recommendBook.image;
-        List<String> list = recommendBook.desc;
-        String str4 = recommendBook.link_url;
+        return (CallRobotEntrance) invokeV.objValue;
+    }
+
+    public final boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
     }
 }

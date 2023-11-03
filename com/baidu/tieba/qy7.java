@@ -1,139 +1,143 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.LoadingViewAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes7.dex */
-public class qy7 {
+/* loaded from: classes8.dex */
+public class qy7 implements oi {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public List<lh> b;
-    public ei c;
-    public oy7 d;
-    public ty7 e;
-    public jy7 f;
-    public ly7 g;
-    public ky7 h;
-    public my7 i;
-    public ny7 j;
-    public py7 k;
+    public String a;
+    public long b;
 
-    public qy7(TbPageContext tbPageContext, ei eiVar) {
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes8.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public long b;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public qy7 c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new qy7(this, null);
+            }
+            return (qy7) invokeV.objValue;
+        }
+
+        public b d(long j) {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+                this.b = j;
+                return this;
+            }
+            return (b) invokeJ.objValue;
+        }
+
+        public b e(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+                this.a = str;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948108250, "Lcom/baidu/tieba/qy7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948108250, "Lcom/baidu/tieba/qy7;");
+                return;
+            }
+        }
+        c = BdUniqueId.gen();
+    }
+
+    public long a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return invokeV.longValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.oi
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return c;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public qy7(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, eiVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {bVar};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.c = eiVar;
-        b();
+        this.a = bVar.a;
+        this.b = bVar.b;
     }
 
-    public List<yh> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c.getData();
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void c() {
-        ei eiVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (eiVar = this.c) != null) {
-            eiVar.getListAdapter().notifyDataSetChanged();
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ArrayList arrayList = new ArrayList();
-            this.b = arrayList;
-            arrayList.add(new sy7(this.a));
-            this.b.add(new ry7(this.a));
-            this.b.add(new LoadingViewAdapter(this.a));
-            oy7 oy7Var = new oy7(this.a);
-            this.d = oy7Var;
-            oy7Var.x(this.c);
-            this.b.add(this.d);
-            ty7 ty7Var = new ty7(this.a);
-            this.e = ty7Var;
-            ty7Var.x(this.c);
-            this.b.add(this.e);
-            jy7 jy7Var = new jy7(this.a);
-            this.f = jy7Var;
-            jy7Var.x(this.c);
-            this.b.add(this.f);
-            ly7 ly7Var = new ly7(this.a);
-            this.g = ly7Var;
-            ly7Var.x(this.c);
-            this.b.add(this.g);
-            ky7 ky7Var = new ky7(this.a);
-            this.h = ky7Var;
-            ky7Var.x(this.c);
-            this.b.add(this.h);
-            my7 my7Var = new my7(this.a);
-            this.i = my7Var;
-            my7Var.x(this.c);
-            this.b.add(this.i);
-            ny7 ny7Var = new ny7(this.a);
-            this.j = ny7Var;
-            ny7Var.x(this.c);
-            this.b.add(this.j);
-            TbPageContext tbPageContext = this.a;
-            py7 py7Var = new py7(tbPageContext, ThreadData.TYPE_RECOMMEND_INFO, tbPageContext.getUniqueId());
-            this.k = py7Var;
-            py7Var.x(this.c);
-            this.b.add(this.k);
-            this.c.addAdapters(this.b);
-        }
-    }
-
-    public void d(List<yh> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.c.setData(list);
-        }
-    }
-
-    public void e(eu4 eu4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, eu4Var) == null) {
-            for (lh lhVar : this.b) {
-                if (lhVar instanceof iy7) {
-                    ((iy7) lhVar).u(eu4Var);
-                }
-            }
-        }
-    }
-
-    public void f(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
-            for (lh lhVar : this.b) {
-                lhVar.setPageId(bdUniqueId);
-            }
-        }
+    public /* synthetic */ qy7(b bVar, a aVar) {
+        this(bVar);
     }
 }

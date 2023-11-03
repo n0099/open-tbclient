@@ -1,70 +1,51 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.MutableContextWrapper;
-import com.baidu.adp.base.BdPageContextSupport;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class pp6 extends MutableContextWrapper implements TbPageContextSupport, BdPageContextSupport {
+public final class pp6 implements gb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pp6(Context context) {
-        super(context);
+    @Override // com.baidu.tieba.gb7
+    public String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TbadkCoreStatisticKey.HOT_TOPIC_CLICK : (String) invokeV.objValue;
+    }
+
+    public pp6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.base.BdPageContextSupport
-    public TbPageContext<?> getPageContext() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.gb7
+    public Map<String, String> a(d57 businessInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Context baseContext = getBaseContext();
-            if (baseContext instanceof TbPageContextSupport) {
-                return ((TbPageContextSupport) baseContext).getPageContext();
-            }
-            if (!TbadkCoreApplication.getInst().isDebugMode()) {
-                return null;
-            }
-            throw new IllegalArgumentException("base context is not TbPageContextSupport!!!");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            hashMap.put("obj_locate", "index");
+            return hashMap;
         }
-        return (TbPageContext) invokeV.objValue;
-    }
-
-    @Override // android.content.MutableContextWrapper
-    public void setBaseContext(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            if (context instanceof TbPageContextSupport) {
-                super.setBaseContext(context);
-            } else if (!TbadkCoreApplication.getInst().isDebugMode()) {
-            } else {
-                throw new IllegalArgumentException("base context is not TbPageContextSupport!!!");
-            }
-        }
+        return (Map) invokeL.objValue;
     }
 }

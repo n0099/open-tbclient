@@ -37,18 +37,18 @@ import com.baidu.tbadk.widget.richText.TbRichTextData;
 import com.baidu.tbadk.widget.richText.TbRichTextImageInfo;
 import com.baidu.tbadk.widget.richText.TbRichTextVoiceInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ad;
-import com.baidu.tieba.fsa;
-import com.baidu.tieba.g45;
-import com.baidu.tieba.id;
-import com.baidu.tieba.mj6;
-import com.baidu.tieba.ow5;
-import com.baidu.tieba.pea;
-import com.baidu.tieba.ry4;
+import com.baidu.tieba.a55;
+import com.baidu.tieba.aqa;
+import com.baidu.tieba.g5b;
+import com.baidu.tieba.il6;
+import com.baidu.tieba.iy5;
+import com.baidu.tieba.jz4;
+import com.baidu.tieba.lv4;
+import com.baidu.tieba.pl6;
+import com.baidu.tieba.qd;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
-import com.baidu.tieba.tj6;
-import com.baidu.tieba.uu4;
-import com.baidu.tieba.vca;
+import com.baidu.tieba.ura;
+import com.baidu.tieba.yd;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -74,7 +74,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
     public AgreeView g;
     public TbImage h;
     public ThreadData i;
-    public pea j;
+    public ura j;
     public Context k;
     public View l;
     public RelativeLayout m;
@@ -91,7 +91,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
     public View.OnClickListener x;
 
     /* loaded from: classes4.dex */
-    public class a extends ow5 {
+    public class a extends iy5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SpannableStringBuilder n;
@@ -99,12 +99,12 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
 
         /* renamed from: com.baidu.tbadk.core.view.ThreadGodReplyLayout$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0214a implements Runnable {
+        public class RunnableC0215a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0214a(a aVar) {
+            public RunnableC0215a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -155,15 +155,15 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
             this.n = spannableStringBuilder;
         }
 
-        @Override // com.baidu.tieba.ow5, android.text.style.ClickableSpan
+        @Override // com.baidu.tieba.iy5, android.text.style.ClickableSpan
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                tj6.b().a(new StatisticItem(TbadkCoreStatisticKey.GOD_REPLY_LAYOUT_FULL_TEXT_CLICK));
+                pl6.b().a(new StatisticItem(TbadkCoreStatisticKey.GOD_REPLY_LAYOUT_FULL_TEXT_CLICK));
                 this.o.a.setMaxLines(15);
                 this.o.a.setEllipsize(TextUtils.TruncateAt.END);
                 this.o.a.setText(this.n);
-                this.o.a.post(new RunnableC0214a(this));
+                this.o.a.post(new RunnableC0215a(this));
             }
         }
     }
@@ -233,7 +233,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.j != null && this.a.j.t() != null && !StringUtils.isNull(this.a.j.t().getName_show()) && !StringUtils.isNull(this.a.j.t().getUserId())) {
                 PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(this.a.k, this.a.j.t().getUserId(), this.a.j.t().getName_show());
-                personInfoActivityConfig.setSourceTid(this.a.j.U());
+                personInfoActivityConfig.setSourceTid(this.a.j.T());
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002003, personInfoActivityConfig));
                 if (this.a.t != null) {
                     this.a.t.onClick(view2);
@@ -300,7 +300,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         return (TextView) invokeV.objValue;
     }
 
-    public final void m() {
+    public final void n() {
         String tid;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -310,7 +310,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
             } else {
                 tid = threadData.getTid();
             }
-            mj6.l(this.a, tid, R.color.CAM_X0105, R.color.CAM_X0109);
+            il6.l(this.a, tid, R.color.CAM_X0105, R.color.CAM_X0109);
         }
     }
 
@@ -337,29 +337,29 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         this.v = BdUtilHelper.getEquipmentWidth(getContext()) - (BdUtilHelper.getDimens(getContext(), R.dimen.tbds70) * 2);
         this.w = new c(this);
         this.x = new d(this);
-        j(context);
+        k(context);
     }
 
-    public void setData(pea peaVar) {
+    public void setData(ura uraVar) {
         TbRichTextVoiceInfo tbRichTextVoiceInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, peaVar) == null) {
-            if (peaVar != null && peaVar.t() != null && peaVar.t().getUserId() != null) {
-                this.j = peaVar;
+        if (interceptable == null || interceptable.invokeL(1048592, this, uraVar) == null) {
+            if (uraVar != null && uraVar.t() != null && uraVar.t().getUserId() != null) {
+                this.j = uraVar;
                 setVisibility(0);
-                q(peaVar);
-                SpannableStringBuilder i = i(peaVar.f0());
-                p(peaVar, i);
-                n(i);
-                o(peaVar);
-                r(peaVar);
+                r(uraVar);
+                SpannableStringBuilder i = i(uraVar.e0());
+                q(uraVar, i);
+                o(i);
+                p(uraVar);
+                s(uraVar);
                 List<TbRichTextImageInfo> list = this.n;
-                if ((list != null && list.size() > 0) || ((tbRichTextVoiceInfo = this.o) != null && tbRichTextVoiceInfo.P() != null)) {
+                if ((list != null && list.size() > 0) || ((tbRichTextVoiceInfo = this.o) != null && tbRichTextVoiceInfo.Q() != null)) {
                     this.m.setPadding(0, 0, 0, BdUtilHelper.getDimens(getContext(), R.dimen.M_H_X003));
                 } else {
                     this.m.setPadding(0, 0, 0, BdUtilHelper.getDimens(getContext(), R.dimen.tbds0));
                 }
-                if (!k(this.a) && !k(this.c) && !k(this.b)) {
+                if (!l(this.a) && !l(this.c) && !l(this.b)) {
                     setVisibility(8);
                     return;
                 }
@@ -393,7 +393,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         this.v = BdUtilHelper.getEquipmentWidth(getContext()) - (BdUtilHelper.getDimens(getContext(), R.dimen.tbds70) * 2);
         this.w = new c(this);
         this.x = new d(this);
-        j(context);
+        k(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -420,7 +420,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         this.v = BdUtilHelper.getEquipmentWidth(getContext()) - (BdUtilHelper.getDimens(getContext(), R.dimen.tbds70) * 2);
         this.w = new c(this);
         this.x = new d(this);
-        j(context);
+        k(context);
     }
 
     public final void h(int i) {
@@ -433,7 +433,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         }
     }
 
-    public final boolean k(View view2) {
+    public final boolean l(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, view2)) == null) {
@@ -445,10 +445,10 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         return invokeL.booleanValue;
     }
 
-    public void r(pea peaVar) {
+    public void s(ura uraVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, peaVar) == null) {
-            TbRichTextVoiceInfo x0 = peaVar.x0();
+        if (interceptable == null || interceptable.invokeL(1048589, this, uraVar) == null) {
+            TbRichTextVoiceInfo x0 = uraVar.x0();
             this.o = x0;
             if (x0 == null) {
                 this.b.setVisibility(8);
@@ -467,16 +467,16 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
     }
 
     public void setData(ThreadData threadData) {
-        pea peaVar;
+        ura uraVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, threadData) == null) {
             this.i = threadData;
             if (threadData != null) {
-                peaVar = threadData.getTopAgreePost();
+                uraVar = threadData.getTopAgreePost();
             } else {
-                peaVar = null;
+                uraVar = null;
             }
-            setData(peaVar);
+            setData(uraVar);
         }
     }
 
@@ -516,20 +516,20 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
 
     public final SpannableStringBuilder i(TbRichText tbRichText) {
         InterceptResult invokeL;
-        ArrayList<TbRichTextData> P;
+        ArrayList<TbRichTextData> Q;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, tbRichText)) == null) {
-            if (tbRichText == null || (P = tbRichText.P()) == null) {
+            if (tbRichText == null || (Q = tbRichText.Q()) == null) {
                 return null;
             }
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            Iterator<TbRichTextData> it = P.iterator();
+            Iterator<TbRichTextData> it = Q.iterator();
             while (it.hasNext()) {
                 TbRichTextData next = it.next();
                 if (next.getType() == 1) {
-                    spannableStringBuilder.append((CharSequence) next.Z());
+                    spannableStringBuilder.append((CharSequence) next.a0());
                 } else if (next.getType() == 17) {
-                    String str = next.Q().mGifInfo.mSharpText;
+                    String str = next.R().mGifInfo.mSharpText;
                     if (str != null && str.startsWith(SmallTailInfo.EMOTION_PREFIX) && str.endsWith(SmallTailInfo.EMOTION_SUFFIX)) {
                         spannableStringBuilder.append((CharSequence) "[表情]");
                     }
@@ -538,8 +538,8 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
                 }
             }
             if (spannableStringBuilder.length() > 0) {
-                for (ow5 ow5Var : (ow5[]) spannableStringBuilder.getSpans(0, spannableStringBuilder.length() - 1, ow5.class)) {
-                    spannableStringBuilder.removeSpan(ow5Var);
+                for (iy5 iy5Var : (iy5[]) spannableStringBuilder.getSpans(0, spannableStringBuilder.length() - 1, iy5.class)) {
+                    spannableStringBuilder.removeSpan(iy5Var);
                 }
                 for (ForegroundColorSpan foregroundColorSpan : (ForegroundColorSpan[]) spannableStringBuilder.getSpans(0, spannableStringBuilder.length() - 1, ForegroundColorSpan.class)) {
                     spannableStringBuilder.removeSpan(foregroundColorSpan);
@@ -550,34 +550,34 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         return (SpannableStringBuilder) invokeL.objValue;
     }
 
-    public void q(pea peaVar) {
+    public void r(ura uraVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048588, this, peaVar) != null) || peaVar == null) {
+        if ((interceptable != null && interceptable.invokeL(1048588, this, uraVar) != null) || uraVar == null) {
             return;
         }
-        if (peaVar.z1()) {
+        if (uraVar.B1()) {
             h(8);
             return;
         }
         h(0);
-        this.e.setData(peaVar.t());
-        String cutChineseAndEnglishWithSuffix = StringHelper.cutChineseAndEnglishWithSuffix(peaVar.t().getName_show(), 14, "...");
+        this.e.setData(uraVar.t());
+        String cutChineseAndEnglishWithSuffix = StringHelper.cutChineseAndEnglishWithSuffix(uraVar.t().getName_show(), 14, "...");
         TextView textView = this.f;
         textView.setText(cutChineseAndEnglishWithSuffix + "：");
         if (this.i != null) {
-            peaVar.p().threadId = this.i.getTid();
+            uraVar.p().threadId = this.i.getTid();
         }
-        peaVar.p().threadId = String.valueOf(peaVar.p0());
-        peaVar.p().objType = 3;
-        this.g.setData(peaVar.p());
-        if (peaVar.r0() != null && !ad.isEmpty(peaVar.r0().b())) {
-            this.h.l(peaVar.r0().b());
+        uraVar.p().threadId = String.valueOf(uraVar.p0());
+        uraVar.p().objType = 3;
+        this.g.setData(uraVar.p());
+        if (uraVar.r0() != null && !qd.isEmpty(uraVar.r0().b())) {
+            this.h.l(uraVar.r0().b());
         } else {
             this.h.setImageResource(R.drawable.pic_comment_god_big);
         }
     }
 
-    public final void j(Context context) {
+    public final void k(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
             this.k = context;
@@ -628,31 +628,31 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         }
     }
 
-    public void o(pea peaVar) {
+    public void p(ura uraVar) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, peaVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, uraVar) == null) {
             List<TbRichTextImageInfo> list = this.n;
             if (list == null) {
                 this.n = new ArrayList();
             } else {
                 list.clear();
             }
-            if (!uu4.c().g()) {
+            if (!lv4.c().g()) {
                 this.c.setVisibility(8);
                 this.d.setVisibility(8);
                 return;
             }
-            TbRichText f0 = peaVar.f0();
-            if (f0 != null && f0.P() != null) {
-                Iterator<TbRichTextData> it = f0.P().iterator();
+            TbRichText e0 = uraVar.e0();
+            if (e0 != null && e0.Q() != null) {
+                Iterator<TbRichTextData> it = e0.Q().iterator();
                 while (it.hasNext()) {
                     TbRichTextData next = it.next();
                     if (next != null) {
                         int i2 = y;
-                        next.k0(i2, i2);
+                        next.l0(i2, i2);
                         if (next.getType() == 8) {
-                            this.n.add(next.V());
+                            this.n.add(next.W());
                         }
                     }
                 }
@@ -673,14 +673,14 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
                         tbImageView.addCornerFlags(15);
                         if (i3 < this.n.size()) {
                             TbRichTextImageInfo tbRichTextImageInfo = this.n.get(i3);
-                            if (tbRichTextImageInfo != null && !TextUtils.isEmpty(tbRichTextImageInfo.P())) {
-                                String P = tbRichTextImageInfo.P();
+                            if (tbRichTextImageInfo != null && !TextUtils.isEmpty(tbRichTextImageInfo.Q())) {
+                                String Q = tbRichTextImageInfo.Q();
                                 if (this.p) {
                                     i = 13;
                                 } else {
                                     i = 14;
                                 }
-                                tbImageView.startLoad(P, i, false);
+                                tbImageView.startLoad(Q, i, false);
                                 tbImageView.setVisibility(0);
                                 i3++;
                             } else {
@@ -712,25 +712,25 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         }
     }
 
-    public void l() {
+    public void m() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.u != TbadkCoreApplication.getInst().getSkinType()) {
             this.u = TbadkCoreApplication.getInst().getSkinType();
             SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0105);
             EMManager.from(this.m).setCorner(R.string.J_X05).setBackGroundColor(R.color.CAM_X0206);
-            m();
+            n();
             g();
             this.g.P(TbadkCoreApplication.getInst().getSkinType());
             this.b.b();
         }
     }
 
-    public final void n(SpannableStringBuilder spannableStringBuilder) {
+    public final void o(SpannableStringBuilder spannableStringBuilder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, spannableStringBuilder) == null) {
             if (spannableStringBuilder != null && !TextUtils.isEmpty(spannableStringBuilder.toString())) {
                 this.a.setVisibility(0);
-                if (!id.b(this.v, this.a.getPaint(), spannableStringBuilder.toString(), 5)) {
+                if (!yd.b(this.v, this.a.getPaint(), spannableStringBuilder.toString(), 5)) {
                     this.a.setText(spannableStringBuilder, TextView.BufferType.SPANNABLE);
                 } else {
                     SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(spannableStringBuilder);
@@ -759,10 +759,10 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
                         spannableStringBuilder.replace(spannableStringBuilder.length() - i, spannableStringBuilder.length(), (CharSequence) spannableStringBuilder3);
                     }
                     this.a.setText(spannableStringBuilder);
-                    this.a.setOnTouchListener(new fsa(spannableStringBuilder));
-                    tj6.b().a(new StatisticItem(TbadkCoreStatisticKey.GOD_REPLY_LAYOUT_FULL_TEXT_SHOW));
+                    this.a.setOnTouchListener(new g5b(spannableStringBuilder));
+                    pl6.b().a(new StatisticItem(TbadkCoreStatisticKey.GOD_REPLY_LAYOUT_FULL_TEXT_SHOW));
                 }
-                m();
+                n();
                 return;
             }
             this.a.setVisibility(8);
@@ -774,11 +774,11 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         List<TbRichTextImageInfo> list;
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, view2) == null) && (view2 instanceof TbImageView) && (list = this.n) != null && list.size() != 0 && view2.getTag(R.id.god_reply_image_layout) != null && (view2.getTag(R.id.god_reply_image_layout) instanceof Integer)) {
+        if ((interceptable == null || interceptable.invokeL(1048585, this, view2) == null) && (view2 instanceof TbImageView) && (list = this.n) != null && list.size() != 0 && view2.getTag(R.id.god_reply_image_layout) != null && (view2.getTag(R.id.god_reply_image_layout) instanceof Integer)) {
             int intValue = ((Integer) view2.getTag(R.id.god_reply_image_layout)).intValue();
             ArrayList<String> arrayList = new ArrayList<>();
             for (TbRichTextImageInfo tbRichTextImageInfo : this.n) {
-                arrayList.add(tbRichTextImageInfo.N());
+                arrayList.add(tbRichTextImageInfo.O());
             }
             ThreadData threadData = this.i;
             String str2 = "";
@@ -801,15 +801,15 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         }
     }
 
-    public final void p(pea peaVar, SpannableStringBuilder spannableStringBuilder) {
+    public final void q(ura uraVar, SpannableStringBuilder spannableStringBuilder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, peaVar, spannableStringBuilder) == null) {
-            if (!peaVar.z1()) {
+        if (interceptable == null || interceptable.invokeLL(1048587, this, uraVar, spannableStringBuilder) == null) {
+            if (!uraVar.B1()) {
                 this.a.setTextSize(0, BdUtilHelper.getDimens(getContext(), R.dimen.tbfontsize40));
                 this.a.setMaxLines(5);
                 return;
             }
-            ry4 r0 = peaVar.r0();
+            jz4 r0 = uraVar.r0();
             spannableStringBuilder.insert(0, r0.d());
             int dimens = BdUtilHelper.getDimens(getContext(), R.dimen.L_X01);
             int dimens2 = BdUtilHelper.getDimens(getContext(), R.dimen.T_X10);
@@ -817,11 +817,11 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
             int dimens4 = BdUtilHelper.getDimens(getContext(), R.dimen.tbds1);
             int dimens5 = BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X002);
             int dimens6 = BdUtilHelper.getDimens(getContext(), R.dimen.tbds42);
-            int d2 = vca.d(getContext(), r0.a());
-            g45 g45Var = new g45(dimens, R.string.J_X04, d2, dimens2, d2, dimens3, dimens6);
-            g45Var.i(dimens5);
-            g45Var.h(dimens4);
-            spannableStringBuilder.setSpan(g45Var, 0, peaVar.r0().d().length(), 33);
+            int d2 = aqa.d(getContext(), r0.a());
+            a55 a55Var = new a55(dimens, (int) R.string.J_X04, d2, dimens2, d2, dimens3, dimens6);
+            a55Var.i(dimens5);
+            a55Var.h(dimens4);
+            spannableStringBuilder.setSpan(a55Var, 0, uraVar.r0().d().length(), 33);
             this.a.setTextSize(0, BdUtilHelper.getDimens(getContext(), R.dimen.T_X07));
             this.a.setMaxLines(2);
         }

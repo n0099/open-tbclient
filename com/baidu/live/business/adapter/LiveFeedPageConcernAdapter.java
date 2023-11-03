@@ -18,11 +18,11 @@ import com.baidu.live.business.model.data.LiveFollowEntity;
 import com.baidu.live.business.model.data.LiveHostInfo;
 import com.baidu.live.business.util.LiveBaseLottieView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b80;
-import com.baidu.tieba.f80;
-import com.baidu.tieba.o50;
-import com.baidu.tieba.q70;
-import com.baidu.tieba.t70;
+import com.baidu.tieba.f60;
+import com.baidu.tieba.h80;
+import com.baidu.tieba.k80;
+import com.baidu.tieba.s80;
+import com.baidu.tieba.w80;
 import com.facebook.drawee.drawable.ScalingUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 import java.util.ArrayList;
@@ -37,7 +37,7 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
     public boolean g;
     public d i;
     public List<LiveFollowEntity> b = new ArrayList();
-    public String h = f80.f().r();
+    public String h = w80.f().r();
 
     /* loaded from: classes3.dex */
     public interface d {
@@ -69,13 +69,13 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
         public OneFollowViewHolder(View view2, String str, String str2) {
             super(view2);
             this.h = "";
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092741);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092742);
-            this.d = (LiveBaseLottieView) view2.findViewById(R.id.obfuscated_res_0x7f09031f);
-            this.e = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09031e);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0927a0);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0927a1);
+            this.d = (LiveBaseLottieView) view2.findViewById(R.id.obfuscated_res_0x7f090334);
+            this.e = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090333);
             this.f = (LinearLayout) view2.findViewById(R.id.right_container);
-            this.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0917b1);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917c4);
+            this.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0917f3);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091807);
             this.h = str;
             LiveFeedPageConcernAdapter.p(this.d, str2);
             this.d.setRepeatCount(-1);
@@ -84,13 +84,13 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
 
         @Override // com.baidu.live.business.adapter.LiveFeedPageConcernAdapter.BaseFollowViewHolder
         public void a(Context context) {
-            b80.h(this.a, 1, 14.0f);
-            b80.h(this.b, 1, 14.0f);
-            b80.f(this.e, o50.b(context, 24.0f), o50.b(context, 23.0f));
-            b80.f(this.d, o50.b(context, 33.0f), o50.b(context, 32.0f));
-            b80.h(this.c, 1, 12.0f);
+            s80.h(this.a, 1, 14.0f);
+            s80.h(this.b, 1, 14.0f);
+            s80.f(this.e, f60.b(context, 24.0f), f60.b(context, 23.0f));
+            s80.f(this.d, f60.b(context, 33.0f), f60.b(context, 32.0f));
+            s80.h(this.c, 1, 12.0f);
             ViewGroup.LayoutParams layoutParams = this.g.getLayoutParams();
-            layoutParams.height = b80.c(o50.b(context, 32.0f));
+            layoutParams.height = s80.c(f60.b(context, 32.0f));
             this.g.setLayoutParams(layoutParams);
         }
     }
@@ -111,13 +111,13 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
         public TwoFollowViewHolder(View view2, String str, String str2) {
             super(view2);
             this.i = "";
-            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091fb3);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092741);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090324);
-            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090baa);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092740);
-            this.c = (LiveBaseLottieView) view2.findViewById(R.id.obfuscated_res_0x7f09031f);
-            this.d = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09031e);
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ffb);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0927a0);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090339);
+            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090bcc);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09279f);
+            this.c = (LiveBaseLottieView) view2.findViewById(R.id.obfuscated_res_0x7f090334);
+            this.d = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090333);
             this.h = (LinearLayout) view2.findViewById(R.id.right_container);
             this.i = str;
             this.j = str2;
@@ -128,44 +128,44 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
 
         @Override // com.baidu.live.business.adapter.LiveFeedPageConcernAdapter.BaseFollowViewHolder
         public void a(Context context) {
-            b80.h(this.b, 1, 12.0f);
-            b80.h(this.e, 1, 9.0f);
-            b80.h(this.g, 1, 10.0f);
-            b80.h(this.f, 1, 11.0f);
-            b80.f(this.d, o50.b(context, 30.0f), o50.b(context, 30.0f));
-            b80.f(this.c, o50.b(context, 41.0f), o50.b(context, 41.0f));
+            s80.h(this.b, 1, 12.0f);
+            s80.h(this.e, 1, 9.0f);
+            s80.h(this.g, 1, 10.0f);
+            s80.h(this.f, 1, 11.0f);
+            s80.f(this.d, f60.b(context, 30.0f), f60.b(context, 30.0f));
+            s80.f(this.c, f60.b(context, 41.0f), f60.b(context, 41.0f));
             ViewGroup.LayoutParams layoutParams = this.f.getLayoutParams();
-            layoutParams.height = b80.c(o50.b(context, 41.0f));
+            layoutParams.height = s80.c(f60.b(context, 41.0f));
             this.f.setLayoutParams(layoutParams);
         }
 
         public final void c(Context context) {
             if (!LiveFeedPageSdk.IMMERSION.equals(this.j) && !LiveFeedPageSdk.VIDEO_BAR.equals(this.j) && !LiveFeedPageSdk.FOLLOW_VIDEO.equals(this.j)) {
-                if (!"night".equals(f80.f().r()) && !"dark".equals(f80.f().r())) {
-                    this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f3a);
+                if (!"night".equals(w80.f().r()) && !"dark".equals(w80.f().r())) {
+                    this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f4e);
                 } else {
-                    this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f3b);
+                    this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f4f);
                 }
             } else {
-                this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f3c);
+                this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f50);
             }
             if (LiveFeedPageSdk.VIDEO_BAR.equals(this.j) || LiveFeedPageSdk.FOLLOW_VIDEO.equals(this.j)) {
                 ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
-                int b = o50.b(context, 13.0f);
-                layoutParams.width = ((o50.e(context) - (b * 2)) - o50.b(context, 7.0f)) / 2;
+                int b = f60.b(context, 13.0f);
+                layoutParams.width = ((f60.e(context) - (b * 2)) - f60.b(context, 7.0f)) / 2;
                 this.a.setLayoutParams(layoutParams);
                 ViewGroup.LayoutParams layoutParams2 = this.h.getLayoutParams();
                 layoutParams2.width = -1;
                 this.h.setLayoutParams(layoutParams2);
             }
-            this.d.getHierarchy().setPlaceholderImage(f80.f().l(this.j), ScalingUtils.ScaleType.FIT_XY);
+            this.d.getHierarchy().setPlaceholderImage(w80.f().l(this.j), ScalingUtils.ScaleType.FIT_XY);
             if (LiveFeedPageSdk.IMMERSION.equals(this.j) || LiveFeedPageSdk.VIDEO_BAR.equals(this.j)) {
                 this.d.getHierarchy().setUseGlobalColorFilter(false);
             }
             GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setColor(f80.f().a(context, this.j, "color_FF3333"));
+            gradientDrawable.setColor(w80.f().a(context, this.j, "color_FF3333"));
             gradientDrawable.setCornerRadius(1000.0f);
-            gradientDrawable.setStroke(o50.b(context, 1.0f), f80.f().a(context, this.j, "color_white1"));
+            gradientDrawable.setStroke(f60.b(context, 1.0f), w80.f().a(context, this.j, "color_white1"));
             this.e.setBackgroundDrawable(gradientDrawable);
         }
     }
@@ -182,11 +182,11 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
         public ViewHolder(View view2, String str, String str2) {
             super(view2);
             this.f = "";
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092741);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090324);
-            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090baa);
-            this.b = (LiveBaseLottieView) view2.findViewById(R.id.obfuscated_res_0x7f09031f);
-            this.c = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09031e);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0927a0);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090339);
+            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090bcc);
+            this.b = (LiveBaseLottieView) view2.findViewById(R.id.obfuscated_res_0x7f090334);
+            this.c = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090333);
             this.f = str;
             LiveFeedPageConcernAdapter.p(this.b, str2);
             this.b.setRepeatCount(-1);
@@ -195,11 +195,11 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
 
         @Override // com.baidu.live.business.adapter.LiveFeedPageConcernAdapter.BaseFollowViewHolder
         public void a(Context context) {
-            b80.h(this.a, 1, 10.0f);
-            b80.h(this.d, 1, 10.0f);
-            b80.f(this.c, o50.b(context, 45.0f), o50.b(context, 45.0f));
-            b80.f(this.b, o50.b(context, 61.0f), o50.b(context, 61.0f));
-            b80.f(this.e, o50.b(context, 45.0f), o50.b(context, 45.0f));
+            s80.h(this.a, 1, 10.0f);
+            s80.h(this.d, 1, 10.0f);
+            s80.f(this.c, f60.b(context, 45.0f), f60.b(context, 45.0f));
+            s80.f(this.b, f60.b(context, 61.0f), f60.b(context, 61.0f));
+            s80.f(this.e, f60.b(context, 45.0f), f60.b(context, 45.0f));
         }
     }
 
@@ -278,8 +278,8 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
         this.a = LayoutInflater.from(context);
     }
 
-    public void r(List<LiveFollowEntity> list, int i) {
-        if (q70.c(list)) {
+    public void s(List<LiveFollowEntity> list, int i) {
+        if (h80.c(list)) {
             return;
         }
         List<LiveFollowEntity> list2 = this.b;
@@ -307,7 +307,7 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onViewAttachedToWindow(@NonNull RecyclerView.ViewHolder viewHolder) {
         super.onViewAttachedToWindow(viewHolder);
-        u(viewHolder);
+        x(viewHolder);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -322,18 +322,18 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
         n(viewHolder);
     }
 
-    public void s(d dVar) {
+    public void t(d dVar) {
         this.i = dVar;
     }
 
-    public void t(boolean z) {
+    public void u(boolean z) {
         this.f = z;
     }
 
     public static void p(LiveBaseLottieView liveBaseLottieView, String str) {
         if (liveBaseLottieView != null) {
             if (!LiveFeedPageSdk.IMMERSION.equals(str) && !LiveFeedPageSdk.VIDEO_BAR.equals(str)) {
-                if (!"night".equals(f80.f().r()) && !"dark".equals(f80.f().r())) {
+                if (!"night".equals(w80.f().r()) && !"dark".equals(w80.f().r())) {
                     liveBaseLottieView.setAnimationFromUrl("https://ala-rmb-gift.bj.bcebos.com/lottie/common/live_feed_page_shinning.json");
                     return;
                 } else {
@@ -355,7 +355,7 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
     }
 
     public void q() {
-        if (!q70.c(this.b)) {
+        if (!h80.c(this.b)) {
             this.b.clear();
         }
         notifyDataSetChanged();
@@ -388,11 +388,11 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
         if (LiveFeedPageSdk.FOLLOW_VIDEO.equals(this.e)) {
             if (i == 0) {
                 RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) viewHolder.itemView.getLayoutParams();
-                ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin = o50.b(this.d, 13.0f);
+                ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin = f60.b(this.d, 13.0f);
                 viewHolder.itemView.setLayoutParams(layoutParams);
             } else {
                 RecyclerView.LayoutParams layoutParams2 = (RecyclerView.LayoutParams) viewHolder.itemView.getLayoutParams();
-                ((ViewGroup.MarginLayoutParams) layoutParams2).leftMargin = o50.b(this.d, 0.0f);
+                ((ViewGroup.MarginLayoutParams) layoutParams2).leftMargin = f60.b(this.d, 0.0f);
                 viewHolder.itemView.setLayoutParams(layoutParams2);
             }
         }
@@ -401,7 +401,7 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
         }
         if (getItemViewType(i) == 1 && this.g && (viewHolder instanceof OneFollowViewHolder)) {
             OneFollowViewHolder oneFollowViewHolder = (OneFollowViewHolder) viewHolder;
-            LiveFollowEntity liveFollowEntity = (LiveFollowEntity) q70.b(this.b, i);
+            LiveFollowEntity liveFollowEntity = (LiveFollowEntity) h80.b(this.b, i);
             if (liveFollowEntity != null) {
                 if (liveFollowEntity.needLogShow) {
                     d dVar = this.i;
@@ -418,13 +418,13 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
                     oneFollowViewHolder.g.setVisibility(0);
                     LiveHostInfo liveHostInfo = liveFollowEntity.hostInfo;
                     if (liveHostInfo != null) {
-                        if (t70.a(liveHostInfo.name)) {
-                            oneFollowViewHolder.c.setText(R.string.obfuscated_res_0x7f0f0bcc);
+                        if (k80.a(liveHostInfo.name)) {
+                            oneFollowViewHolder.c.setText(R.string.obfuscated_res_0x7f0f0bdd);
                         } else {
                             oneFollowViewHolder.c.setText(liveFollowEntity.hostInfo.name);
                         }
-                        oneFollowViewHolder.c.setTextColor(f80.f().a(this.d, this.e, "color_858585"));
-                        oneFollowViewHolder.c.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ResourcesCompat.getDrawable(oneFollowViewHolder.itemView.getContext().getResources(), f80.f().e(this.e), null), (Drawable) null);
+                        oneFollowViewHolder.c.setTextColor(w80.f().a(this.d, this.e, "color_858585"));
+                        oneFollowViewHolder.c.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ResourcesCompat.getDrawable(oneFollowViewHolder.itemView.getContext().getResources(), w80.f().e(this.e), null), (Drawable) null);
                     }
                 } else {
                     oneFollowViewHolder.f.setVisibility(0);
@@ -442,19 +442,19 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
                 }
                 LiveHostInfo liveHostInfo4 = liveFollowEntity.hostInfo;
                 if (liveHostInfo4 != null) {
-                    if (!t70.a(liveHostInfo4.name)) {
+                    if (!k80.a(liveHostInfo4.name)) {
                         oneFollowViewHolder.a.setText(liveFollowEntity.hostInfo.name);
                     }
-                    oneFollowViewHolder.a.setTextColor(f80.f().a(this.d, this.e, "color_1F1F1F"));
-                    oneFollowViewHolder.b.setTextColor(f80.f().a(this.d, this.e, "color_1F1F1F"));
+                    oneFollowViewHolder.a.setTextColor(w80.f().a(this.d, this.e, "color_1F1F1F"));
+                    oneFollowViewHolder.b.setTextColor(w80.f().a(this.d, this.e, "color_1F1F1F"));
                 }
                 oneFollowViewHolder.itemView.setOnClickListener(new a(i));
-                oneFollowViewHolder.e.getHierarchy().setPlaceholderImage(f80.f().l(this.e), ScalingUtils.ScaleType.FIT_XY);
+                oneFollowViewHolder.e.getHierarchy().setPlaceholderImage(w80.f().l(this.e), ScalingUtils.ScaleType.FIT_XY);
                 if (LiveFeedPageSdk.IMMERSION.equals(this.e) || "recommend".equals(this.e) || LiveFeedPageSdk.VIDEO_BAR.equals(this.e)) {
                     oneFollowViewHolder.e.getHierarchy().setUseGlobalColorFilter(false);
                 }
-                this.h = f80.f().r();
-                if (!t70.a(oneFollowViewHolder.h) && !oneFollowViewHolder.h.equals(this.h)) {
+                this.h = w80.f().r();
+                if (!k80.a(oneFollowViewHolder.h) && !oneFollowViewHolder.h.equals(this.h)) {
                     oneFollowViewHolder.h = this.h;
                     if (oneFollowViewHolder.d.isAnimating()) {
                         oneFollowViewHolder.d.cancelAnimation();
@@ -465,7 +465,7 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
         } else if (getItemViewType(i) == 2 && this.g && (viewHolder instanceof TwoFollowViewHolder)) {
             TwoFollowViewHolder twoFollowViewHolder = (TwoFollowViewHolder) viewHolder;
             twoFollowViewHolder.c(this.d);
-            LiveFollowEntity liveFollowEntity2 = (LiveFollowEntity) q70.b(this.b, i);
+            LiveFollowEntity liveFollowEntity2 = (LiveFollowEntity) h80.b(this.b, i);
             if (liveFollowEntity2 != null) {
                 if (liveFollowEntity2.needLogShow) {
                     d dVar2 = this.i;
@@ -479,13 +479,13 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
                     twoFollowViewHolder.f.setVisibility(0);
                     LiveHostInfo liveHostInfo5 = liveFollowEntity2.hostInfo;
                     if (liveHostInfo5 != null) {
-                        if (t70.a(liveHostInfo5.name)) {
-                            twoFollowViewHolder.f.setText(R.string.obfuscated_res_0x7f0f0bcc);
+                        if (k80.a(liveHostInfo5.name)) {
+                            twoFollowViewHolder.f.setText(R.string.obfuscated_res_0x7f0f0bdd);
                         } else {
                             twoFollowViewHolder.f.setText(liveFollowEntity2.hostInfo.name);
                         }
                     }
-                    twoFollowViewHolder.f.setTextColor(f80.f().a(this.d, this.e, "color_1F1F1F"));
+                    twoFollowViewHolder.f.setTextColor(w80.f().a(this.d, this.e, "color_1F1F1F"));
                     twoFollowViewHolder.c.setVisibility(8);
                     twoFollowViewHolder.e.setVisibility(8);
                     twoFollowViewHolder.d.setVisibility(8);
@@ -499,7 +499,7 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
                     if (!TextUtils.isEmpty(liveFollowEntity2.liveTag)) {
                         twoFollowViewHolder.g.setVisibility(0);
                         twoFollowViewHolder.g.setText(liveFollowEntity2.liveTag);
-                        twoFollowViewHolder.g.setTextColor(f80.f().a(this.d, this.e, "color_858585"));
+                        twoFollowViewHolder.g.setTextColor(w80.f().a(this.d, this.e, "color_858585"));
                     } else {
                         twoFollowViewHolder.g.setVisibility(8);
                     }
@@ -507,18 +507,18 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
                     if (liveHostInfo6 != null) {
                         twoFollowViewHolder.d.setImageURI(liveHostInfo6.avatar);
                     }
-                    twoFollowViewHolder.e.setTextColor(f80.f().a(this.d, this.e, "color_white3"));
+                    twoFollowViewHolder.e.setTextColor(w80.f().a(this.d, this.e, "color_white3"));
                 }
                 LiveHostInfo liveHostInfo7 = liveFollowEntity2.hostInfo;
                 if (liveHostInfo7 != null) {
-                    if (!t70.a(liveHostInfo7.name)) {
+                    if (!k80.a(liveHostInfo7.name)) {
                         twoFollowViewHolder.b.setText(liveFollowEntity2.hostInfo.name);
                     }
-                    twoFollowViewHolder.b.setTextColor(f80.f().a(this.d, this.e, "color_1F1F1F"));
+                    twoFollowViewHolder.b.setTextColor(w80.f().a(this.d, this.e, "color_1F1F1F"));
                 }
                 twoFollowViewHolder.itemView.setOnClickListener(new b(i));
-                this.h = f80.f().r();
-                if (!t70.a(twoFollowViewHolder.i) && !twoFollowViewHolder.i.equals(this.h)) {
+                this.h = w80.f().r();
+                if (!k80.a(twoFollowViewHolder.i) && !twoFollowViewHolder.i.equals(this.h)) {
                     twoFollowViewHolder.i = this.h;
                     if (twoFollowViewHolder.c.isAnimating()) {
                         twoFollowViewHolder.c.cancelAnimation();
@@ -528,7 +528,7 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
             }
         } else if (viewHolder instanceof ViewHolder) {
             ViewHolder viewHolder2 = (ViewHolder) viewHolder;
-            LiveFollowEntity liveFollowEntity3 = (LiveFollowEntity) q70.b(this.b, i);
+            LiveFollowEntity liveFollowEntity3 = (LiveFollowEntity) h80.b(this.b, i);
             if (liveFollowEntity3 != null) {
                 if (liveFollowEntity3.needLogShow) {
                     d dVar3 = this.i;
@@ -540,13 +540,13 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
                 if (liveFollowEntity3.isMore) {
                     n(viewHolder2);
                     if (!LiveFeedPageSdk.IMMERSION.equals(this.e) && !LiveFeedPageSdk.VIDEO_BAR.equals(this.e)) {
-                        if (!"night".equals(f80.f().r()) && !"dark".equals(f80.f().r())) {
-                            viewHolder2.e.setImageResource(R.drawable.obfuscated_res_0x7f080f2f);
+                        if (!"night".equals(w80.f().r()) && !"dark".equals(w80.f().r())) {
+                            viewHolder2.e.setImageResource(R.drawable.obfuscated_res_0x7f080f43);
                         } else {
-                            viewHolder2.e.setImageResource(R.drawable.obfuscated_res_0x7f080f31);
+                            viewHolder2.e.setImageResource(R.drawable.obfuscated_res_0x7f080f45);
                         }
                     } else {
-                        viewHolder2.e.setImageResource(R.drawable.obfuscated_res_0x7f080f30);
+                        viewHolder2.e.setImageResource(R.drawable.obfuscated_res_0x7f080f44);
                     }
                     viewHolder2.e.setVisibility(0);
                     viewHolder2.b.setVisibility(4);
@@ -561,29 +561,29 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
                     if (liveHostInfo8 != null) {
                         viewHolder2.c.setImageURI(liveHostInfo8.avatar);
                     }
-                    viewHolder2.d.setTextColor(f80.f().a(this.d, this.e, "color_white3"));
+                    viewHolder2.d.setTextColor(w80.f().a(this.d, this.e, "color_white3"));
                 }
                 LiveHostInfo liveHostInfo9 = liveFollowEntity3.hostInfo;
                 if (liveHostInfo9 != null) {
-                    if (t70.a(liveHostInfo9.name)) {
-                        viewHolder2.a.setText(R.string.obfuscated_res_0x7f0f0bcc);
+                    if (k80.a(liveHostInfo9.name)) {
+                        viewHolder2.a.setText(R.string.obfuscated_res_0x7f0f0bdd);
                     } else {
                         viewHolder2.a.setText(liveFollowEntity3.hostInfo.name);
                     }
-                    viewHolder2.a.setTextColor(f80.f().a(this.d, this.e, "color_1F1F1F"));
+                    viewHolder2.a.setTextColor(w80.f().a(this.d, this.e, "color_1F1F1F"));
                 }
                 viewHolder2.itemView.setOnClickListener(new c(i));
-                viewHolder2.c.getHierarchy().setPlaceholderImage(f80.f().l(this.e), ScalingUtils.ScaleType.FIT_XY);
+                viewHolder2.c.getHierarchy().setPlaceholderImage(w80.f().l(this.e), ScalingUtils.ScaleType.FIT_XY);
                 if (LiveFeedPageSdk.IMMERSION.equals(this.e) || LiveFeedPageSdk.VIDEO_BAR.equals(this.e)) {
                     viewHolder2.c.getHierarchy().setUseGlobalColorFilter(false);
                 }
                 GradientDrawable gradientDrawable = new GradientDrawable();
-                gradientDrawable.setColor(f80.f().a(this.d, this.e, "color_FF3333"));
+                gradientDrawable.setColor(w80.f().a(this.d, this.e, "color_FF3333"));
                 gradientDrawable.setCornerRadius(1000.0f);
-                gradientDrawable.setStroke(o50.b(this.d, 1.0f), f80.f().a(this.d, this.e, "color_white1"));
+                gradientDrawable.setStroke(f60.b(this.d, 1.0f), w80.f().a(this.d, this.e, "color_white1"));
                 viewHolder2.d.setBackgroundDrawable(gradientDrawable);
-                this.h = f80.f().r();
-                if (!t70.a(viewHolder2.f) && !viewHolder2.f.equals(this.h)) {
+                this.h = w80.f().r();
+                if (!k80.a(viewHolder2.f) && !viewHolder2.f.equals(this.h)) {
                     viewHolder2.f = this.h;
                     if (viewHolder2.b.isAnimating()) {
                         viewHolder2.b.cancelAnimation();
@@ -600,15 +600,15 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
             this.g = true;
         }
         if (getItemViewType(i) == 1 && this.g) {
-            return new OneFollowViewHolder(this.a.inflate(R.layout.obfuscated_res_0x7f0d05d6, viewGroup, false), this.h, this.e);
+            return new OneFollowViewHolder(this.a.inflate(R.layout.obfuscated_res_0x7f0d05eb, viewGroup, false), this.h, this.e);
         }
         if (getItemViewType(i) == 2 && this.g) {
-            return new TwoFollowViewHolder(this.a.inflate(R.layout.obfuscated_res_0x7f0d05e5, viewGroup, false), this.h, this.e);
+            return new TwoFollowViewHolder(this.a.inflate(R.layout.obfuscated_res_0x7f0d05fa, viewGroup, false), this.h, this.e);
         }
-        return new ViewHolder(this.a.inflate(R.layout.obfuscated_res_0x7f0d05ce, viewGroup, false), this.h, this.e);
+        return new ViewHolder(this.a.inflate(R.layout.obfuscated_res_0x7f0d05e3, viewGroup, false), this.h, this.e);
     }
 
-    public final void u(@NonNull RecyclerView.ViewHolder viewHolder) {
+    public final void x(@NonNull RecyclerView.ViewHolder viewHolder) {
         if (o() == 1 && this.g) {
             OneFollowViewHolder oneFollowViewHolder = (OneFollowViewHolder) viewHolder;
             LiveBaseLottieView liveBaseLottieView = oneFollowViewHolder.d;

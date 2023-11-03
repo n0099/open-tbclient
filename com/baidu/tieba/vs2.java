@@ -1,12 +1,7 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,92 +10,58 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class vs2 {
+public class vs2 extends ss2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public CallbackHandler a;
-    public JSONObject b;
+    public zs2 A;
+    public double B;
+    public int C;
+    public String z;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948251284, "Lcom/baidu/tieba/vs2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948251284, "Lcom/baidu/tieba/vs2;");
-                return;
-            }
-        }
-        c = am1.a;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return UnitedSchemeUtility.isInvokedFromSwanGame(this.a);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public vs2(CallbackHandler callbackHandler, JSONObject jSONObject) {
+    public vs2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {callbackHandler, jSONObject};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = callbackHandler;
-        this.b = jSONObject;
+        this.z = "";
+        this.C = 1000;
     }
 
-    public void a(String str) {
+    @Override // com.baidu.tieba.ss2, com.baidu.tieba.x12, com.baidu.tieba.fw2
+    public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            b(str, null);
-        }
-    }
-
-    public void b(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) != null) || this.b == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        JSONObject wrapCallbackParamsWithEncode = UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0);
-        this.a.handleSchemeDispatchCallback(this.b.optString(str), wrapCallbackParamsWithEncode.toString());
-        if (c) {
-            Log.d("AudioStatusCallback", "Audio callback type is : " + str + " , data is : " + wrapCallbackParamsWithEncode.toString());
-        }
+        super.a(jSONObject);
+        this.z = jSONObject.optString("markerId");
+        zs2 zs2Var = new zs2();
+        this.A = zs2Var;
+        zs2Var.a(jSONObject.optJSONObject("destination"));
+        jSONObject.optBoolean("autoRotate");
+        this.B = jSONObject.optDouble("rotate");
+        this.C = Math.abs(jSONObject.optInt("duration", this.C));
     }
 
-    public void d(String str) {
+    @Override // com.baidu.tieba.x12, com.baidu.tieba.fw2
+    public boolean isValid() {
+        InterceptResult invokeV;
+        zs2 zs2Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                if (c) {
-                    Log.d("AudioStatusCallback", "Audio Callback is Null");
-                    return;
-                }
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.b) && !TextUtils.isEmpty(this.z) && (zs2Var = this.A) != null && zs2Var.isValid()) {
+                return true;
             }
-            try {
-                this.b = new JSONObject(str);
-            } catch (JSONException e) {
-                vc3.b("audio", 2009, "update json exception", -1, "");
-                ss2.c("AudioStatusCallback", "#setCallbacks error", e);
-            }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 }

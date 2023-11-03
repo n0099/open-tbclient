@@ -1,24 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.m9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.ParameterizedType;
 /* loaded from: classes6.dex */
-public class ia7 {
+public abstract class ia7<V extends View, M> implements ya7<V, M> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public m9<byte[]> a;
+    public final String a;
 
-    public ia7() {
+    public ia7(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,42 +32,48 @@ public class ia7 {
                 return;
             }
         }
-        b();
+        this.a = str;
     }
 
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a == null) {
-            gz4.k();
-            this.a = gz4.i("tb.bawu_team_info");
-        }
-    }
-
-    public byte[] a(String str) {
+    @Override // com.baidu.tieba.ya7
+    @NonNull
+    public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
-        m9.b<byte[]> bVar;
-        byte[] bArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            m9<byte[]> m9Var = this.a;
-            if (m9Var != null && str != null) {
-                bVar = m9Var.h(str);
-            } else {
-                bVar = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            try {
+                Context context = viewGroup.getContext();
+                if (context instanceof fr6) {
+                    context = ((fr6) context).getPageContext().getPageActivity();
+                }
+                if (context == null) {
+                    context = viewGroup.getContext();
+                }
+                return d().getConstructor(Context.class).newInstance(context);
+            } catch (Exception e) {
+                throw new IllegalStateException(e);
             }
-            if (bVar == null || (bArr = bVar.b) == null) {
-                return null;
-            }
-            return bArr;
         }
-        return (byte[]) invokeL.objValue;
+        return (View) invokeL.objValue;
     }
 
-    public void c(String str, byte[] bArr) {
+    @Override // com.baidu.tieba.ya7
+    @NonNull
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr) == null) && !StringUtils.isNull(str)) {
-            b();
-            this.a.e(str, bArr, TbConfig.MILLS_7DAYS);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
+        return (String) invokeV.objValue;
+    }
+
+    public final Class<V> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return (Class) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+        }
+        return (Class) invokeV.objValue;
     }
 }

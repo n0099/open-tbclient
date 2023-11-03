@@ -8,17 +8,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import java.util.ArrayList;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class sl2 extends jj2<am2> {
+public class sl2 extends ak2<rm2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.jj2
+    @Override // com.baidu.tieba.ak2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "switchCamera" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getRemoteUserList" : (String) invokeV.objValue;
     }
 
     public sl2() {
@@ -35,14 +40,45 @@ public class sl2 extends jj2<am2> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jj2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull am2 am2Var) {
+    @Override // com.baidu.tieba.ak2
+    public void c(@NonNull ZeusPlugin.Command command) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, am2Var) == null) {
-            d(am2Var, command.what, null, true);
-            am2Var.d();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, command) == null) {
+            command.obj = new JSONObject();
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ak2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull rm2 rm2Var) {
+        JSONObject a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, command, rm2Var) == null) {
+            ArrayList<vm2> h = rm2Var.h();
+            JSONObject jSONObject = new JSONObject();
+            JSONArray jSONArray = new JSONArray();
+            if (h != null) {
+                Iterator<vm2> it = h.iterator();
+                while (it.hasNext()) {
+                    vm2 next = it.next();
+                    if (next == null) {
+                        a = null;
+                    } else {
+                        a = next.a();
+                    }
+                    if (a != null) {
+                        jSONArray.put(a);
+                    }
+                }
+            }
+            try {
+                jSONObject.put("userList", jSONArray);
+            } catch (JSONException unused) {
+            }
+            command.obj = jSONObject;
+            String str = command.what;
+            d(rm2Var, str, "" + command.obj, true);
         }
     }
 }

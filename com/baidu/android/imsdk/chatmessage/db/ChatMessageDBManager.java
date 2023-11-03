@@ -1200,8 +1200,8 @@ public class ChatMessageDBManager extends DBBase {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Removed duplicated region for block: B:78:0x0283 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:80:0x0285  */
+    /* JADX WARN: Removed duplicated region for block: B:78:0x0284 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:80:0x0286  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

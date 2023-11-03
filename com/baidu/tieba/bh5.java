@@ -1,46 +1,60 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.editortools.RawLayout;
+import com.baidu.tbadk.editortools.sendtool.SendView;
+import com.baidu.tbadk.editortools.sendtool.SendViewBtnStyle;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
 /* loaded from: classes5.dex */
-public class bh5 extends dh5 {
+public class bh5 extends ke5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public final String b;
 
-    public bh5(Context context, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bh5(Context context, boolean z) {
+        super(context, (String) null, 4);
+        le5 sendView;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {context, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context.getApplicationContext();
-        this.b = str;
+        this.o = false;
+        this.n = 2;
+        this.p = new int[]{4, 12, 10, 13, 11, 28, 29, 39, 9};
+        if (z) {
+            sendView = new SendViewBtnStyle(context);
+        } else {
+            sendView = new SendView(context);
+        }
+        this.m = sendView;
+        RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(-2, -2);
+        ((LinearLayout.LayoutParams) layoutParams).gravity = 80;
+        ((View) this.m).setLayoutParams(layoutParams);
     }
 
-    @Override // com.baidu.tieba.dh5
-    public InputStream b() throws IOException {
-        InterceptResult invokeV;
+    public void i(int i) {
+        le5 le5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.getAssets().open(this.b);
+        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (le5Var = this.m) != null && (le5Var instanceof TextView)) {
+            ((TextView) le5Var).setText(i);
         }
-        return (InputStream) invokeV.objValue;
     }
 }

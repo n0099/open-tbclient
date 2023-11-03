@@ -1,99 +1,109 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.tieba.jc0;
+import com.baidu.minivideo.effect.core.Rotation;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-@Service
-/* loaded from: classes6.dex */
-public class kc0 extends zd0 {
+/* loaded from: classes7.dex */
+public class kc0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final float[] a;
+    public static final float[] b;
+    public static final float[] c;
+    public static final float[] d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.zd0
-    public String a() {
-        InterceptResult invokeV;
+    public static float a(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "dlink" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) ? f == 0.0f ? 1.0f : 0.0f : invokeF.floatValue;
     }
 
-    /* loaded from: classes6.dex */
-    public class a implements jc0.c {
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ he0 a;
-        public final /* synthetic */ de0 b;
-        public final /* synthetic */ kc0 c;
 
-        public a(kc0 kc0Var, he0 he0Var, de0 de0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kc0Var, he0Var, de0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-666032748, "Lcom/baidu/tieba/kc0$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-666032748, "Lcom/baidu/tieba/kc0$a;");
                     return;
                 }
             }
-            this.c = kc0Var;
-            this.a = he0Var;
-            this.b = de0Var;
+            int[] iArr = new int[Rotation.values().length];
+            a = iArr;
+            try {
+                iArr[Rotation.ROTATION_90.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[Rotation.ROTATION_180.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[Rotation.ROTATION_270.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[Rotation.NORMAL.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
         }
+    }
 
-        @Override // com.baidu.tieba.jc0.c
-        public void onResult(boolean z) {
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                kc0 kc0Var = this.c;
-                he0 he0Var = this.a;
-                de0 de0Var = this.b;
-                if (z) {
-                    i = 0;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947908145, "Lcom/baidu/tieba/kc0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947908145, "Lcom/baidu/tieba/kc0;");
+                return;
+            }
+        }
+        a = new float[]{0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f};
+        b = new float[]{1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f};
+        c = new float[]{1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f};
+        d = new float[]{0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f, 1.0f};
+    }
+
+    public static float[] b(Rotation rotation, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        float[] fArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{rotation, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            int i = a.a[rotation.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        fArr = a;
+                    } else {
+                        fArr = d;
+                    }
                 } else {
-                    i = 1001;
+                    fArr = c;
                 }
-                kc0Var.c(he0Var, de0Var, i, z);
+            } else {
+                fArr = b;
             }
-        }
-    }
-
-    public kc0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if (z) {
+                fArr = new float[]{a(fArr[0]), fArr[1], a(fArr[2]), fArr[3], a(fArr[4]), fArr[5], a(fArr[6]), fArr[7]};
             }
+            return z2 ? new float[]{fArr[0], a(fArr[1]), fArr[2], a(fArr[3]), fArr[4], a(fArr[5]), fArr[6], a(fArr[7])} : fArr;
         }
-    }
-
-    @Override // com.baidu.tieba.zd0
-    public boolean b(@NonNull Context context, @NonNull de0 de0Var, @Nullable Map<String, Object> map, @Nullable he0 he0Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, de0Var, map, he0Var)) == null) {
-            super.b(context, de0Var, map, he0Var);
-            new jc0().g(context, de0Var.d(), new a(this, he0Var, de0Var));
-            return true;
-        }
-        return invokeLLLL.booleanValue;
+        return (float[]) invokeCommon.objValue;
     }
 }

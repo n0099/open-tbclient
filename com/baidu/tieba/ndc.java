@@ -1,37 +1,29 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.agc;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import tv.athena.revenue.payui.view.AbsViewEventHandler;
-import tv.athena.revenue.payui.view.IYYPayResultView;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.TreeMap;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ndc implements IYYPayResultView.a {
+public class ndc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public AbsViewEventHandler b;
-    public Dialog c;
-    public rcc d;
-    public IPayCallback<CurrencyChargeMessage> e;
-    public IYYPayResultView.c f;
+    public TreeMap<String, String> a;
+    public TreeMap<String, String> b;
 
-    public ndc(Activity activity, IYYPayResultView iYYPayResultView, AbsViewEventHandler absViewEventHandler, Dialog dialog, rcc rccVar, IPayCallback<CurrencyChargeMessage> iPayCallback, IYYPayResultView.c cVar) {
+    public ndc(TreeMap<String, String> treeMap, TreeMap<String, String> treeMap2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, iYYPayResultView, absViewEventHandler, dialog, rccVar, iPayCallback, cVar};
+            Object[] objArr = {treeMap, treeMap2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,49 +33,105 @@ public class ndc implements IYYPayResultView.a {
                 return;
             }
         }
-        RLog.info("PayResultViewCallback", "create PayResultViewCallback payCallback:" + iPayCallback);
-        this.a = activity;
-        this.b = absViewEventHandler;
-        this.c = dialog;
-        this.d = rccVar;
-        this.e = iPayCallback;
-        this.f = cVar;
+        this.a = treeMap;
+        this.b = treeMap2;
     }
 
-    @Override // tv.athena.revenue.payui.view.IYYPayResultView.a
-    public void a(jec jecVar) {
+    public static ndc a(String str) {
+        InterceptResult invokeL;
+        TreeMap<String, String> treeMap;
+        TreeMap<String, String> treeMap2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jecVar) == null) {
-            IYYPayResultView.c cVar = this.f;
-            if (cVar != null && cVar.j != null) {
-                cfc.a(this.c, PayDialogType.PAY_AMOUNT_DIALOG);
-                agc.b bVar = this.f.j;
-                bVar.c = jecVar;
-                bVar.j = "2";
-                this.d.d(this.a, bVar, this.e);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            TreeMap<String, String> treeMap3 = null;
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                String optString = jSONObject.optString("mText");
+                if (optString != null && !optString.isEmpty()) {
+                    treeMap2 = c(optString);
+                } else {
+                    treeMap2 = null;
+                }
+                try {
+                    String optString2 = jSONObject.optString("mImages");
+                    if (optString2 != null && !optString2.isEmpty()) {
+                        treeMap3 = c(optString2);
+                    }
+                } catch (JSONException e) {
+                    treeMap = treeMap2;
+                    e = e;
+                    e.printStackTrace();
+                    treeMap2 = treeMap;
+                    return new ndc(treeMap2, treeMap3);
+                }
+            } catch (JSONException e2) {
+                e = e2;
+                treeMap = null;
             }
-            RLog.error("PayResultViewCallback", "toPayWayDialog error payResultViewParams:" + this.f, new Object[0]);
-            cfc.b(this.c, PayDialogType.PAY_RESULT_DIALOG);
+            return new ndc(treeMap2, treeMap3);
         }
+        return (ndc) invokeL.objValue;
     }
 
-    @Override // tv.athena.revenue.payui.view.IYYPayResultView.a
-    public void b() {
+    public static String b(TreeMap<String, String> treeMap) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            RLog.info("PayResultViewCallback", "onBtnConfirm");
-            cfc.b(this.c, PayDialogType.PAY_RESULT_DIALOG);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, treeMap)) == null) {
+            if (treeMap != null && !treeMap.isEmpty()) {
+                JSONObject jSONObject = new JSONObject();
+                for (Map.Entry<String, String> entry : treeMap.entrySet()) {
+                    try {
+                        jSONObject.put(entry.getKey(), entry.getValue());
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                return jSONObject.toString();
+            }
+            return "";
         }
+        return (String) invokeL.objValue;
     }
 
-    @Override // tv.athena.revenue.payui.view.IYYPayResultView.a
-    public boolean c() {
-        InterceptResult invokeV;
+    public static TreeMap<String, String> c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d.c(this.a, this.b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (str != null && !str.isEmpty()) {
+                TreeMap<String, String> treeMap = new TreeMap<>();
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    Iterator<String> keys = jSONObject.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        treeMap.put(next, (String) jSONObject.get(next));
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                return treeMap;
+            }
+            return null;
         }
-        return invokeV.booleanValue;
+        return (TreeMap) invokeL.objValue;
+    }
+
+    public static String d(ndc ndcVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, ndcVar)) == null) {
+            if (ndcVar == null) {
+                return null;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("mText", b(ndcVar.a));
+                jSONObject.put("mImages", b(ndcVar.b));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeL.objValue;
     }
 }

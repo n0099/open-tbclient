@@ -1,39 +1,200 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.swan.apps.lifecycle.process.LifecycleProcessType;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.smallgame.sdk.permission.PermissionListener;
+import com.baidu.smallgame.sdk.permission.PermissionProxy;
+import com.baidu.tieba.lb3;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
+import com.baidu.webkit.sdk.PermissionRequest;
 /* loaded from: classes6.dex */
-public class ie2 extends de2 {
+public class ie2 implements PermissionProxy {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes6.dex */
+    public class a implements zk3<jb3<lb3.e>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ PermissionListener c;
+        public final /* synthetic */ ie2 d;
+
+        public a(ie2 ie2Var, String str, String str2, PermissionListener permissionListener) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ie2Var, str, str2, permissionListener};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = ie2Var;
+            this.a = str;
+            this.b = str2;
+            this.c = permissionListener;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.zk3
+        /* renamed from: b */
+        public void a(jb3<lb3.e> jb3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jb3Var) == null) {
+                if (eb3.h(jb3Var)) {
+                    this.d.b(this.a, this.b, this.c);
+                } else {
+                    this.c.onPermissionResult(this.a, 2);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements j13 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ PermissionListener a;
+        public final /* synthetic */ String b;
+
+        public b(ie2 ie2Var, PermissionListener permissionListener, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ie2Var, permissionListener, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = permissionListener;
+            this.b = str;
+        }
+
+        @Override // com.baidu.tieba.j13
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                this.a.onPermissionResult(this.b, 0);
+            }
+        }
+
+        @Override // com.baidu.tieba.j13
+        public void b(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                this.a.onPermissionResult(this.b, 1);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947850547, "Lcom/baidu/tieba/ie2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947850547, "Lcom/baidu/tieba/ie2;");
+                return;
+            }
+        }
+        a = rm1.a;
+    }
 
     public ie2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.or2
-    public LifecycleProcessType b() {
-        InterceptResult invokeV;
+    public final void b(@NonNull String str, @NonNull String str2, @NonNull PermissionListener permissionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return LifecycleProcessType.SWAN;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, permissionListener) == null) {
+            b bVar = new b(this, permissionListener, str);
+            i13.e(str2, new String[]{str2}, 2, f63.K().w(), bVar);
         }
-        return (LifecycleProcessType) invokeV.objValue;
+    }
+
+    public final String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (str == null) {
+                return null;
+            }
+            char c = 65535;
+            int hashCode = str.hashCode();
+            if (hashCode != -1785599184) {
+                if (hashCode == -1352756132 && str.equals(PermissionProxy.SCOPE_ID_RECORD)) {
+                    c = 1;
+                }
+            } else if (str.equals(PermissionProxy.SCOPE_ID_CAMERA)) {
+                c = 0;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    return null;
+                }
+                return PermissionRequest.RESOURCE_AUDIO_CAPTURE;
+            }
+            return PermissionRequest.RESOURCE_VIDEO_CAPTURE;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.smallgame.sdk.permission.PermissionProxy
+    public void requestPermission(String str, PermissionListener permissionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, permissionListener) == null) {
+            if (a) {
+                Log.d("V8PermissionDelegate", "requestPermission : " + str);
+            }
+            if (permissionListener == null) {
+                if (a) {
+                    Log.e("V8PermissionDelegate", "PermissionListener can not be null.");
+                    return;
+                }
+                return;
+            }
+            String c = c(str);
+            g63 M = g63.M();
+            if (!TextUtils.isEmpty(c) && M != null && M.w() != null) {
+                M.f0().g(M.w(), str, new a(this, str, c, permissionListener));
+            } else {
+                permissionListener.onPermissionResult(str, 2);
+            }
+        }
     }
 }

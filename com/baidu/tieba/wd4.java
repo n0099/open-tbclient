@@ -1,108 +1,85 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.pms.utils.AbiType;
+import com.baidu.tieba.pf4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Iterator;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class wd4 extends pd4<re4> implements Object {
+public class wd4 implements pf4.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final vd4 a;
 
-    public wd4() {
+    @Override // com.baidu.tieba.pf4.a
+    public void b(String str, String str2, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, jSONObject) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.pf4.a
+    public void onStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    public wd4(@Nullable vd4 vd4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vd4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = vd4Var;
     }
 
-    public static int f(@NonNull Cursor cursor, @NonNull String str) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.pf4.a
+    public void onFail(Exception exc) {
+        vd4 vd4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cursor, str)) == null) {
-            return cursor.getColumnIndex(str);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) && (vd4Var = this.a) != null) {
+            vd4Var.onFail(exc);
         }
-        return invokeLL.intValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pd4
-    /* renamed from: h */
-    public re4 d(Cursor cursor) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.pf4.a
+    public void onSuccess(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
-            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
-                return i(cursor);
-            }
-            return null;
-        }
-        return (re4) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.pd4
-    public List<re4> e(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
-                do {
-                    arrayList.add(i(cursor));
-                } while (cursor.moveToNext());
-                return arrayList;
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pd4
-    /* renamed from: g */
-    public ContentValues c(re4 re4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, re4Var)) == null) {
-            ContentValues a = super.a(re4Var);
-            a.put("max_age", Long.valueOf(re4Var.o));
-            a.put("abi", re4Var.q.id);
-            a.put("lib_name", re4Var.p);
-            return a;
-        }
-        return (ContentValues) invokeL.objValue;
-    }
-
-    public final re4 i(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cursor)) == null) {
-            if (cursor != null) {
-                re4 re4Var = new re4();
-                if (b(cursor, re4Var)) {
-                    re4Var.o = cursor.getLong(f(cursor, "max_age"));
-                    re4Var.q = AbiType.findById(cursor.getString(f(cursor, "abi")), null);
-                    re4Var.p = cursor.getString(f(cursor, "lib_name"));
-                    return re4Var;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
+            try {
+                HashMap hashMap = new HashMap();
+                JSONObject optJSONObject = new JSONObject(str).optJSONObject("data");
+                Iterator<String> keys = optJSONObject.keys();
+                while (keys.hasNext()) {
+                    JSONObject optJSONObject2 = optJSONObject.optJSONObject(keys.next());
+                    if (optJSONObject2 != null) {
+                        hashMap.put(optJSONObject2.optString("appkey"), optJSONObject2.optString("openbundleid"));
+                    }
+                }
+                if (this.a != null) {
+                    this.a.a(hashMap);
+                }
+            } catch (Exception e) {
+                vd4 vd4Var = this.a;
+                if (vd4Var != null) {
+                    vd4Var.onFail(e);
                 }
             }
-            return null;
         }
-        return (re4) invokeL.objValue;
     }
 }

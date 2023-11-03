@@ -1,140 +1,131 @@
 package com.baidu.tieba;
 
+import android.widget.BaseAdapter;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.faceshop.forumpackage.data.ForumEmotionPackageData;
+import com.baidu.tieba.faceshop.forumpackage.model.ForumEmotionModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.functions.Function2;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes8.dex */
-public final class y17 extends e27 {
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes9.dex */
+public class y17 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final wk6 d;
-    public final n47 e;
-    public final n47 f;
-    public final n47 g;
+    public TbPageContext a;
+    public BdTypeListView b;
+    public final List<bi> c;
+    public x17 d;
+    public z17 e;
+    public final List<oi> f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948277386, "Lcom/baidu/tieba/y17;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948277386, "Lcom/baidu/tieba/y17;");
-        }
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof y17) {
-                y17 y17Var = (y17) obj;
-                return Intrinsics.areEqual(this.d, y17Var.d) && Intrinsics.areEqual(this.e, y17Var.e) && Intrinsics.areEqual(this.f, y17Var.f) && Intrinsics.areEqual(this.g, y17Var.g);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int hashCode = this.d.hashCode() * 31;
-            n47 n47Var = this.e;
-            int hashCode2 = (hashCode + (n47Var == null ? 0 : n47Var.hashCode())) * 31;
-            n47 n47Var2 = this.f;
-            int hashCode3 = (hashCode2 + (n47Var2 == null ? 0 : n47Var2.hashCode())) * 31;
-            n47 n47Var3 = this.g;
-            return hashCode3 + (n47Var3 != null ? n47Var3.hashCode() : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "CardPeiWanUiState(peiWanData=" + this.d + ", cardClickStat=" + this.e + ", voiceClickStat=" + this.f + ", cardShow=" + this.g + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y17(wk6 peiWanData, n47 n47Var, n47 n47Var2, n47 n47Var3) {
-        super(null, null, 3, null);
+    public y17(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView, ForumEmotionModel forumEmotionModel) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {peiWanData, n47Var, n47Var2, n47Var3};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {tbPageContext, bdTypeListView, forumEmotionModel};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Function2) objArr2[0], (Function1) objArr2[1], ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(peiWanData, "peiWanData");
-        this.d = peiWanData;
-        this.e = n47Var;
-        this.f = n47Var2;
-        this.g = n47Var3;
+        this.c = new ArrayList();
+        this.f = new ArrayList();
+        this.a = tbPageContext;
+        this.b = bdTypeListView;
+        c(forumEmotionModel);
     }
 
-    public final n47 h() {
+    public void a(List<oi> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, list) != null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        if (this.b != null) {
+            this.f.addAll(list);
+            this.b.setData(this.f);
+        }
+        d();
+    }
+
+    public void f(w17 w17Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, w17Var) == null) {
+            this.d.x(w17Var);
+            this.e.x(w17Var);
+        }
+    }
+
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
+            return this.f.size();
         }
-        return (n47) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public final n47 i() {
-        InterceptResult invokeV;
+    public void d() {
+        BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.g;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (bdTypeListView = this.b) != null && bdTypeListView.getAdapter2() != null && (this.b.getAdapter2() instanceof BaseAdapter)) {
+            this.b.getAdapter2().notifyDataSetChanged();
         }
-        return (n47) invokeV.objValue;
     }
 
-    public final wk6 j() {
-        InterceptResult invokeV;
+    public final void c(ForumEmotionModel forumEmotionModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, forumEmotionModel) == null) {
+            x17 x17Var = new x17(this.a, forumEmotionModel.Q(), c27.b);
+            this.d = x17Var;
+            this.c.add(x17Var);
+            z17 z17Var = new z17(this.a, forumEmotionModel.Q(), a27.a);
+            this.e = z17Var;
+            this.c.add(z17Var);
+            this.b.addAdapters(this.c);
         }
-        return (wk6) invokeV.objValue;
     }
 
-    public final n47 k() {
-        InterceptResult invokeV;
+    public void e(List<oi> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.f;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, list) != null) || ListUtils.isEmpty(list)) {
+            return;
         }
-        return (n47) invokeV.objValue;
+        if (!ListUtils.isEmpty(this.f)) {
+            this.f.clear();
+        }
+        BdTypeListView bdTypeListView = this.b;
+        if (bdTypeListView != null) {
+            bdTypeListView.setData(list);
+            this.f.addAll(list);
+        }
+        d();
+    }
+
+    public void g(ForumEmotionPackageData forumEmotionPackageData) {
+        ForumEmotionPackageData forumEmotionPackageData2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, forumEmotionPackageData) != null) || forumEmotionPackageData == null || ListUtils.isEmpty(this.f)) {
+            return;
+        }
+        for (oi oiVar : this.f) {
+            if (oiVar != null && (oiVar instanceof c27) && (forumEmotionPackageData2 = ((c27) oiVar).a) != null && forumEmotionPackageData2.id == forumEmotionPackageData.id) {
+                forumEmotionPackageData2.download = forumEmotionPackageData.download;
+                forumEmotionPackageData2.share = forumEmotionPackageData.share;
+                d();
+                return;
+            }
+        }
     }
 }

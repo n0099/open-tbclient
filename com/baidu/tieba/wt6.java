@@ -1,14 +1,10 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.log.DefaultLog;
+import android.graphics.PointF;
+import android.graphics.RectF;
+import androidx.core.util.Pools;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.core.util.PvThread;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.log.TbLog;
+import com.baidu.tieba.danmu.ui.DanmakuPlayer;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,13 +12,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
 public final class wt6 {
     public static /* synthetic */ Interceptable $ic;
     public static final wt6 a;
-    public static long b;
-    public static int c;
+    public static final Pools.SimplePool<RectF> b;
+    public static final Pools.SimplePool<PointF> c;
+    public static final Pools.SimplePool<pr6> d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,6 +36,9 @@ public final class wt6 {
             }
         }
         a = new wt6();
+        b = new Pools.SimplePool<>(200);
+        c = new Pools.SimplePool<>(200);
+        d = new Pools.SimplePool<>(1000);
     }
 
     public wt6() {
@@ -55,102 +55,50 @@ public final class wt6 {
         }
     }
 
-    @JvmStatic
-    public static final void f() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && b > 0) {
-            SharedPrefHelper.getInstance().putLong("key_last_page_pause_time", ((System.nanoTime() - b) / 1000000) / 1000);
-        }
-    }
-
-    public final boolean a() {
-        InterceptResult invokeV;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (c == 0) {
-                if (UbsABTestHelper.isExistSid("12.48_client_time_page_count_a")) {
-                    i = 1;
-                } else {
-                    i = 2;
-                }
-                c = i;
-            }
-            if (c == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean b() {
+    public final PointF b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return SharedPrefHelper.getInstance().getBoolean("key_is_last_client_uploaded", true);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            long j = b;
-            if (j > 0) {
-                c(j);
-                b = 0L;
+            PointF acquire = c.acquire();
+            if (acquire == null) {
+                return new PointF();
             }
+            return acquire;
         }
+        return (PointF) invokeV.objValue;
     }
 
-    public final void e() {
+    public final RectF c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            h();
-            if (b == 0) {
-                b = System.nanoTime();
-                g(false);
-                DefaultLog.getInstance().i("ClientDurationHelper", "processUseDuration setIsUploaded false");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            RectF acquire = b.acquire();
+            if (acquire == null) {
+                return new RectF();
             }
+            return acquire;
         }
+        return (RectF) invokeV.objValue;
     }
 
-    @JvmStatic
-    public static final void g(boolean z) {
+    public final pr6 a(qr6 data, DanmakuPlayer player) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65539, null, z) == null) {
-            SharedPrefHelper.getInstance().putBoolean("key_is_last_client_uploaded", z);
-        }
-    }
-
-    public final void c(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            long nanoTime = ((System.nanoTime() - j) / 1000000) / 1000;
-            if (PermissionUtil.isAgreePrivacyPolicy()) {
-                i(nanoTime);
-                g(true);
-                DefaultLog.getInstance().i("ClientDurationHelper", "processUseDuration setIsUploaded true");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, data, player)) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            Intrinsics.checkNotNullParameter(player, "player");
+            pr6 acquire = d.acquire();
+            if (acquire != null) {
+                acquire.m(data);
+                acquire.q(player.m().x());
+            } else {
+                acquire = null;
             }
+            if (acquire == null) {
+                return new pr6(data, player);
+            }
+            return acquire;
         }
-    }
-
-    public final void i(long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048582, this, j) == null) && j >= TbadkCoreApplication.getInst().getUseTimeInterval()) {
-            new PvThread("use", String.valueOf(j)).start();
-            TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), "use", null, 1, "st_param", String.valueOf(j));
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && !b() && PermissionUtil.isAgreePrivacyPolicy()) {
-            long j = SharedPrefHelper.getInstance().getLong("key_last_page_pause_time", 0L);
-            i(j);
-            TbLog defaultLog = DefaultLog.getInstance();
-            defaultLog.i("ClientDurationHelper", "trySupplementClientTime pauseTime=" + j);
-        }
+        return (pr6) invokeLL.objValue;
     }
 }

@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,13 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class wy3 {
+public class wy3 extends my3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public xz3 a;
 
     static {
         InterceptResult invokeClinit;
@@ -30,10 +31,12 @@ public final class wy3 {
                 return;
             }
         }
-        b = am1.a;
+        c = rm1.a;
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public wy3() {
+        super("GetSwanGameDuration");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -41,61 +44,63 @@ public final class wy3 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }
 
-    public void c() {
-        xz3 xz3Var;
+    public static boolean b(Long l, Long l2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (xz3Var = this.a) != null) {
-            xz3Var.c();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, l, l2)) == null) {
+            if (l.longValue() / 86400000 == l2.longValue() / 86400000) {
+                return true;
+            }
+            return false;
         }
+        return invokeLL.booleanValue;
     }
 
-    public static wy3 d(xx1 xx1Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.my3
+    public hy1 a(@NonNull JSONObject jSONObject, @NonNull kj2 kj2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, xx1Var)) == null) {
-            if (xx1Var == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, kj2Var)) == null) {
+            if (jSONObject == null) {
+                kj2Var.onFail(202, "params may be error");
                 return null;
             }
-            wy3 wy3Var = new wy3();
-            wy3Var.a = xz3.e(xx1Var);
-            return wy3Var;
-        }
-        return (wy3) invokeL.objValue;
-    }
-
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            JSONObject a = a(str);
-            xz3 xz3Var = this.a;
-            if (xz3Var != null) {
-                xz3Var.b(a);
+            if (c) {
+                Log.e("GetSwanGameDuration", "params is " + jSONObject.toString());
             }
-        }
-    }
-
-    public final JSONObject a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, str);
-                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, "fail");
-                jSONObject.put("errDes", cv3.a(str));
-            } catch (Exception e) {
-                if (b) {
-                    e.printStackTrace();
+            String optString = jSONObject.optString("swanGameId");
+            if (TextUtils.isEmpty(optString)) {
+                kj2Var.onFail(202, "params may be error");
+            } else {
+                oe3 a = ue3.a();
+                if (!b(Long.valueOf(a.getLong(optString + "_LastPause", 0L)), Long.valueOf(System.currentTimeMillis()))) {
+                    oe3 a2 = ue3.a();
+                    a2.putLong(optString + "_Duration", 0L);
                 }
+                oe3 a3 = ue3.a();
+                long j = a3.getLong(optString + "_Duration", 0L);
+                JSONObject jSONObject2 = new JSONObject();
+                JSONObject jSONObject3 = new JSONObject();
+                try {
+                    jSONObject3.put("swanGameDuration", j);
+                    jSONObject2.put("data", jSONObject3);
+                } catch (JSONException e) {
+                    if (c) {
+                        e.printStackTrace();
+                    }
+                }
+                kj2Var.onSuccess(jSONObject2);
             }
-            return jSONObject;
+            return null;
         }
-        return (JSONObject) invokeL.objValue;
+        return (hy1) invokeLL.objValue;
     }
 }

@@ -1,129 +1,347 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.baseEditMark.MarkData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.log.Logger;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.tieba.pb.pb.main.relatelist.RelateRecThreadListModel;
+import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.List;
-import tbclient.RelateRecThread.DataRes;
-import tbclient.ThreadInfo;
+import java.util.HashSet;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class cm9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<yh> a;
-    public final RelateRecThreadListModel b;
-    public dk9 c;
-    public PbModel d;
-    public boolean e;
-    public List<yh> f;
-    public final yt4 g;
+    public b a;
+    public c b;
+    public a c;
+    public ArrayList<MarkData> d;
+    public int e;
+    public int f;
+    public boolean g;
+    public zl9 h;
 
     /* loaded from: classes5.dex */
-    public class a implements yt4 {
+    public class c extends BdAsyncTask<cm9, Integer, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cm9 a;
+    }
 
-        public a(cm9 cm9Var) {
+    /* loaded from: classes5.dex */
+    public class a extends BdAsyncTask<Boolean, Integer, Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public NetWork a;
+        public String b;
+        public String c;
+        public int d;
+        public em9 e;
+        public final /* synthetic */ cm9 f;
+
+        public a(cm9 cm9Var, String str, int i, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cm9Var};
+                Object[] objArr = {cm9Var, str, Integer.valueOf(i), str2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = cm9Var;
+            this.f = cm9Var;
+            this.a = null;
+            this.b = null;
+            this.c = null;
+            this.d = 0;
+            this.e = null;
+            this.b = str;
+            this.d = i;
+            this.c = str2;
+            this.e = new em9();
         }
 
-        @Override // com.baidu.tieba.yt4
-        public void onError(int i, String str) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public Boolean doInBackground(Boolean... boolArr) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) && this.a.c != null && this.a.c.t1() != null) {
-                this.a.c.t1().Q();
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, boolArr)) == null) {
+                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.MARK_DELSTORE);
+                this.a = netWork;
+                netWork.addPostData("user_id", TbadkCoreApplication.getCurrentAccount());
+                this.a.addPostData("tid", this.b);
+                this.a.addPostData("fid", this.c);
+                this.e.c(this.a.postNetData());
+                if (this.a.getNetContext().getResponse().isRequestSuccess() && this.e.a() == 0) {
+                    return Boolean.TRUE;
+                }
+                return Boolean.FALSE;
+            }
+            return (Boolean) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(Boolean bool) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, bool) == null) {
+                String str = null;
+                this.f.c = null;
+                if (bool.booleanValue()) {
+                    if (this.d < this.f.d.size()) {
+                        this.f.d.remove(this.d);
+                        cm9.i(this.f);
+                    }
+                } else {
+                    str = this.a.getNetContext().getResponse().isRequestSuccess() ? this.e.b() : this.a.getErrorString();
+                }
+                zl9 zl9Var = this.f.h;
+                if (zl9Var != null) {
+                    zl9Var.a(2, bool, str);
+                }
             }
         }
 
-        @Override // com.baidu.tieba.yt4
-        public void onSuccess(Object obj) {
-            String str;
-            int intValue;
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-                if (this.a.d != null && (obj instanceof DataRes)) {
-                    DataRes dataRes = (DataRes) obj;
-                    ye9 s1 = this.a.d.s1();
-                    if (s1.k() != null) {
-                        str = s1.k().getFirst_class();
-                    } else {
-                        str = "";
-                    }
-                    List<ThreadInfo> list = dataRes.recom_thread_info;
-                    if (ListUtils.isEmpty(list)) {
-                        if (this.a.c != null && this.a.c.t1() != null) {
-                            this.a.c.t1().y(s1.s());
-                            this.a.c.t1().Q();
-                            if (s1.s()) {
-                                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_PB_FOLD_ICON_SHOW);
-                                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                                statisticItem.param("fid", s1.l());
-                                statisticItem.param("fname", s1.m());
-                                statisticItem.param("tid", s1.Q());
-                                TiebaStatic.log(statisticItem);
-                                return;
-                            }
-                            return;
-                        }
-                        return;
-                    }
-                    List<yh> b = dm9.b(list, str, this.a.d.r1());
-                    this.a.a.addAll(b);
-                    s1.T0(this.a.a);
-                    this.a.f.addAll(b);
-                    Integer num = dataRes.rec_type;
-                    if (num == null) {
-                        intValue = 0;
-                    } else {
-                        intValue = num.intValue();
-                    }
-                    s1.P0(intValue);
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                super.cancel(true);
+                NetWork netWork = this.a;
+                if (netWork != null) {
+                    netWork.cancelNetConnect();
                 }
-                if (this.a.c != null && !ListUtils.isEmpty(this.a.a)) {
-                    this.a.c.u4();
-                }
-                if (this.a.c != null && this.a.c.t1() != null && this.a.c.t1().q() && !ListUtils.isEmpty(this.a.a)) {
-                    this.a.c.t1().n();
+                this.f.c = null;
+                zl9 zl9Var = this.f.h;
+                if (zl9Var != null) {
+                    zl9Var.a(2, Boolean.FALSE, null);
                 }
             }
         }
     }
 
-    public cm9(bo9 bo9Var, BdUniqueId bdUniqueId, dk9 dk9Var, PbModel pbModel) {
+    /* loaded from: classes5.dex */
+    public class b extends BdAsyncTask<Boolean, String, cm9> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public NetWork a;
+        public String b;
+        public int c;
+        public em9 d;
+        public Boolean e;
+        public final /* synthetic */ cm9 f;
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPreExecute() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            }
+        }
+
+        public b(cm9 cm9Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cm9Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f = cm9Var;
+            this.a = null;
+            this.b = null;
+            this.c = 0;
+            this.d = null;
+            this.e = Boolean.FALSE;
+            this.c = i;
+            this.d = new em9();
+        }
+
+        public final void b(String str) {
+            String currentAccount;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || (currentAccount = TbadkCoreApplication.getCurrentAccount()) == null) {
+                return;
+            }
+            yz4.l();
+            ca<String> m = yz4.m("tb.my_bookmarks");
+            if (m != null) {
+                m.e(currentAccount, str, 604800000L);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public cm9 doInBackground(Boolean... boolArr) {
+            InterceptResult invokeL;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, boolArr)) == null) {
+                this.e = boolArr[0];
+                if (boolArr.length >= 2 && boolArr[1] != null) {
+                    z = boolArr[1].booleanValue();
+                } else {
+                    z = true;
+                }
+                cm9 cm9Var = new cm9();
+                if (this.e.booleanValue() && z) {
+                    yz4.l();
+                    ca<String> m = yz4.m("tb.my_bookmarks");
+                    if (m != null) {
+                        publishProgress(m.get(TbadkCoreApplication.getCurrentAccount()));
+                    }
+                    if (this.f.d == null) {
+                        this.f.d = new ArrayList();
+                    } else {
+                        this.f.d.clear();
+                    }
+                    this.f.e = 0;
+                }
+                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.MARK_GETSTORE);
+                this.a = netWork;
+                netWork.addPostData("user_id", TbadkCoreApplication.getCurrentAccount());
+                if (this.f.g) {
+                    this.a.addPostData("offset", String.valueOf(0));
+                } else {
+                    this.a.addPostData("offset", String.valueOf(this.c));
+                }
+                this.a.addPostData("rn", String.valueOf(20));
+                String postNetData = this.a.postNetData();
+                this.b = postNetData;
+                this.d.c(postNetData);
+                if (this.a.getNetContext().getResponse().isRequestSuccess()) {
+                    cm9Var.u(this.b);
+                    if (this.c == 0) {
+                        if (this.f.d == null) {
+                            this.f.d = new ArrayList();
+                        } else {
+                            this.f.d.clear();
+                        }
+                        this.f.e = 0;
+                        if (this.e.booleanValue()) {
+                            b(this.b);
+                        }
+                    }
+                }
+                return cm9Var;
+            }
+            return (cm9) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: d */
+        public void onPostExecute(cm9 cm9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, cm9Var) == null) {
+                if (cm9Var == null) {
+                    cm9Var = new cm9();
+                }
+                em9 em9Var = this.d;
+                if (em9Var != null) {
+                    Logger.addLog(Logger.COLLECTION, 0L, 0, "collection_thread_list_result", em9Var.a(), this.d.b(), new Object[0]);
+                }
+                this.f.e = cm9Var.m();
+                ArrayList<MarkData> n = cm9Var.n();
+                if (this.e.booleanValue()) {
+                    if (n != null && n.size() != 0) {
+                        this.f.B(n);
+                    }
+                } else {
+                    this.f.k(n);
+                }
+                Iterator<MarkData> it = n.iterator();
+                int i = 0;
+                while (it.hasNext()) {
+                    if (it.next().getNewCounts() > 0) {
+                        i++;
+                        this.f.C(i);
+                    }
+                }
+                if (this.f.h != null) {
+                    String str = null;
+                    if (this.a.getNetContext().getResponse().isRequestSuccess()) {
+                        if (this.d.a() != 0) {
+                            str = this.d.b();
+                        }
+                        this.f.h.a(0, str, Boolean.FALSE);
+                    } else {
+                        this.f.h.a(3, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f0e61));
+                    }
+                }
+                this.f.g = false;
+            }
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                super.cancel(true);
+                NetWork netWork = this.a;
+                if (netWork != null) {
+                    netWork.cancelNetConnect();
+                }
+                this.f.a = null;
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: e */
+        public void onProgressUpdate(String... strArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, strArr) == null) {
+                super.onProgressUpdate(strArr);
+                String str = strArr[0];
+                ArrayList<MarkData> arrayList = new ArrayList<>();
+                if (str != null) {
+                    arrayList = this.f.t(str);
+                    if (this.e.booleanValue()) {
+                        this.f.B(arrayList);
+                    } else {
+                        this.f.k(arrayList);
+                    }
+                } else {
+                    this.f.B(arrayList);
+                }
+                if (ListUtils.isEmpty(arrayList)) {
+                    return;
+                }
+                this.f.h.a(0, null, Boolean.TRUE);
+            }
+        }
+    }
+
+    public cm9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bo9Var, bdUniqueId, dk9Var, pbModel};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -133,59 +351,312 @@ public class cm9 {
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.f = new ArrayList();
-        this.g = new a(this);
-        this.c = dk9Var;
-        this.d = pbModel;
-        RelateRecThreadListModel relateRecThreadListModel = new RelateRecThreadListModel(bo9Var.getPageContext(), bdUniqueId);
-        this.b = relateRecThreadListModel;
-        relateRecThreadListModel.U(this.g);
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.e = 0;
+        this.f = 0;
+        this.g = false;
+        this.h = null;
+        this.d = new ArrayList<>();
+        this.g = true;
     }
 
-    public boolean d() {
+    public final void y() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048596, this) != null) || this.d == null) {
+            return;
+        }
+        HashSet hashSet = new HashSet();
+        Iterator<MarkData> it = this.d.iterator();
+        while (it.hasNext()) {
+            MarkData next = it.next();
+            String id = next.getId();
+            int replyNum = next.getReplyNum();
+            if (!hashSet.add(id)) {
+                l(id, replyNum);
+                it.remove();
+            }
+        }
+    }
+
+    public static /* synthetic */ int i(cm9 cm9Var) {
+        int i = cm9Var.f;
+        cm9Var.f = i - 1;
+        return i;
+    }
+
+    public void A(zl9 zl9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, zl9Var) == null) {
+            this.h = zl9Var;
+        }
+    }
+
+    public void B(ArrayList<MarkData> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
+            this.d = arrayList;
+        }
+    }
+
+    public void C(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.f = i;
+        }
+    }
+
+    public void j(MarkData markData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, markData) == null) {
+            this.d.add(markData);
+        }
+    }
+
+    public void k(ArrayList<MarkData> arrayList) {
+        ArrayList<MarkData> arrayList2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, arrayList) == null) && (arrayList2 = this.d) != null && arrayList != null) {
+            arrayList2.addAll(arrayList);
+            y();
+        }
+    }
+
+    public void u(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            try {
+                v(new JSONObject(str));
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+            }
+        }
+    }
+
+    public void w(Boolean bool) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, bool) == null) {
+            x(bool, true);
+        }
+    }
+
+    public boolean D(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            a aVar = this.c;
+            if (aVar != null) {
+                aVar.cancel();
+            }
+            if (i >= this.d.size() || this.d.get(i) == null || this.d.get(i).getId() == null) {
+                return false;
+            }
+            a aVar2 = new a(this, this.d.get(i).getId(), i, this.d.get(i).getForumId());
+            this.c = aVar2;
+            aVar2.setPriority(2);
+            this.c.execute(new Boolean[0]);
+            return true;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public final ArrayList<MarkData> t(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
+            ArrayList<MarkData> arrayList = new ArrayList<>();
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                if (!jSONObject.optJSONObject("error").optString("errno").equals("0")) {
+                    return null;
+                }
+                JSONArray optJSONArray = jSONObject.optJSONArray("store_thread");
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    MarkData markData = new MarkData();
+                    markData.paserJson(optJSONArray.getJSONObject(i));
+                    arrayList.add(markData);
+                }
+                return arrayList;
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+                return null;
+            }
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    public void v(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, jSONObject) == null) {
+            try {
+                if (!jSONObject.optJSONObject("error").optString("errno").equals("0")) {
+                    return;
+                }
+                JSONArray optJSONArray = jSONObject.optJSONArray("store_thread");
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    MarkData markData = new MarkData();
+                    markData.paserJson(optJSONArray.getJSONObject(i));
+                    this.d.add(markData);
+                }
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+            }
+        }
+    }
+
+    public String E(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048580, this, i, i2)) == null) {
+            ArrayList<MarkData> arrayList = this.d;
+            if (arrayList == null) {
+                return null;
+            }
+            if (i >= arrayList.size()) {
+                i2 -= (i - this.d.size()) - 1;
+                i = this.d.size() - 1;
+            }
+            JSONArray jSONArray = new JSONArray();
+            int i3 = 0;
+            for (int i4 = i; i4 >= 0 && i4 > i - i2; i4--) {
+                try {
+                    JSONObject json = this.d.get(i4).toJson();
+                    if (json != null && i3 >= 0) {
+                        int i5 = i3 + 1;
+                        jSONArray.put(i3, json);
+                        i3 = i5;
+                    }
+                } catch (Exception e) {
+                    BdLog.e(e.toString());
+                    jSONArray = null;
+                }
+            }
+            if (jSONArray == null) {
+                return null;
+            }
+            return jSONArray.toString();
+        }
+        return (String) invokeII.objValue;
+    }
+
+    public final void l(String str, int i) {
+        ArrayList<MarkData> arrayList;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(1048583, this, str, i) == null) && (arrayList = this.d) != null && ListUtils.getCount(arrayList) > 0) {
+            Iterator<MarkData> it = this.d.iterator();
+            while (it.hasNext()) {
+                MarkData next = it.next();
+                if (next != null && next.getId().equals(str)) {
+                    next.setReplyNum(i);
+                }
+            }
+        }
+    }
+
+    public void x(Boolean bool, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048595, this, bool, z) == null) {
+            b bVar = this.a;
+            if (bVar != null) {
+                bVar.cancel();
+            }
+            b bVar2 = new b(this, q());
+            this.a = bVar2;
+            bVar2.setPriority(3);
+            this.a.execute(bool, Boolean.valueOf(z));
+        }
+    }
+
+    public int m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            PbModel pbModel = this.d;
-            if (pbModel == null || TextUtils.isEmpty(pbModel.M1()) || this.d.s1() == null) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            ArrayList<MarkData> arrayList = this.d;
+            if (arrayList == null) {
+                return 0;
             }
-            if (this.e) {
+            return arrayList.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public ArrayList<MarkData> n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.d;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public int o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public int p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public int q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            ArrayList<MarkData> arrayList = this.d;
+            if (arrayList == null) {
+                return 0;
+            }
+            return arrayList.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            if (this.e > 0) {
                 return true;
             }
-            if (this.d.s1().c0()) {
-                return false;
-            }
-            String forumId = this.d.getForumId();
-            if (TextUtils.isEmpty(forumId) && this.d.s1().k() != null) {
-                forumId = this.d.s1().k().getId();
-            }
-            long j = JavaTypesHelper.toLong(forumId, 0L);
-            long j2 = JavaTypesHelper.toLong(this.d.M1(), 0L);
-            int I1 = this.d.I1();
-            String H1 = this.d.H1();
-            if (!this.e) {
-                this.e = true;
-            }
-            return this.b.T(j, j2, 1, I1, H1);
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public void e() {
+    public void s() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.clear();
-            this.b.onDestroy();
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            b bVar = this.a;
+            if (bVar != null) {
+                bVar.cancel();
+            }
+            c cVar = this.b;
+            if (cVar != null) {
+                cVar.cancel();
+            }
+            a aVar = this.c;
+            if (aVar != null) {
+                aVar.cancel();
+            }
         }
     }
 
-    public void f(dk9 dk9Var, PbModel pbModel) {
+    public void z() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, dk9Var, pbModel) == null) {
-            this.c = dk9Var;
-            this.d = pbModel;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            this.f = 0;
+            this.e = 0;
+            this.g = true;
         }
     }
 }

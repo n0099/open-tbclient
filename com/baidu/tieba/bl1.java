@@ -3,50 +3,87 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.security.SecureRandom;
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes5.dex */
-public class bl1 {
+public final class bl1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static byte[] a(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
+    public static byte[] a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, bArr, bArr2)) == null) {
-            byte[] bArr3 = null;
-            if (bArr2 != null) {
-                try {
-                    if (bArr2.length > 0 && bArr != null && bArr.length > 0 && (bArr3 = gl1.b(bArr, bArr2)) != null) {
-                        if (bArr3.length > 0) {
-                            return bArr3;
-                        }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            char[] cArr = new char[32];
+            try {
+                char[] charArray = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+                for (int i = 0; i < 32; i++) {
+                    int nextInt = new SecureRandom().nextInt(62);
+                    if (nextInt >= 0 && nextInt < charArray.length) {
+                        cArr[i] = charArray[nextInt];
                     }
-                } catch (Throwable th) {
-                    zk1.d(th);
                 }
+            } catch (Throwable th) {
+                ql1.d(th);
             }
-            return bArr3;
+            return new String(cArr).getBytes();
         }
-        return (byte[]) invokeLL.objValue;
+        return (byte[]) invokeV.objValue;
     }
 
     public static byte[] b(byte[] bArr, byte[] bArr2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, bArr2)) == null) {
-            byte[] bArr3 = null;
-            if (bArr2 != null) {
+            if (bArr != null) {
                 try {
-                    if (bArr2.length > 0 && bArr != null && bArr.length > 0 && (bArr3 = gl1.c(bArr, bArr2)) != null) {
-                        if (bArr3.length > 0) {
-                            return bArr3;
-                        }
+                    if (bArr.length == 32 && bArr2 != null && bArr2.length != 0) {
+                        SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
+                        Cipher cipher = Cipher.getInstance(com.kuaishou.weapon.p0.b.c);
+                        byte[] bArr3 = new byte[16];
+                        System.arraycopy(bArr, 8, bArr3, 0, 16);
+                        cipher.init(2, secretKeySpec, new IvParameterSpec(bArr3));
+                        byte[] bArr4 = new byte[bArr2.length - 16];
+                        System.arraycopy(bArr2, 0, bArr4, 0, bArr2.length - 16);
+                        return cipher.doFinal(bArr4);
                     }
                 } catch (Throwable th) {
-                    zk1.d(th);
+                    ql1.d(th);
+                    return null;
                 }
             }
-            return bArr3;
+            return bArr2;
         }
         return (byte[]) invokeLL.objValue;
+    }
+
+    public static al1 c(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, bArr2)) == null) {
+            if (bArr2 != null) {
+                try {
+                    if (bArr2.length != 0) {
+                        SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
+                        Cipher cipher = Cipher.getInstance(com.kuaishou.weapon.p0.b.c);
+                        byte[] bArr3 = new byte[16];
+                        System.arraycopy(bArr, 8, bArr3, 0, 16);
+                        cipher.init(1, secretKeySpec, new IvParameterSpec(bArr3));
+                        byte[] doFinal = cipher.doFinal(bArr2);
+                        byte[] e = vl1.e(bArr2);
+                        byte[] bArr4 = new byte[doFinal.length + e.length];
+                        System.arraycopy(doFinal, 0, bArr4, 0, doFinal.length);
+                        System.arraycopy(e, 0, bArr4, doFinal.length, e.length);
+                        return new al1(bArr, bArr4);
+                    }
+                } catch (Throwable th) {
+                    ql1.d(th);
+                }
+            }
+            return null;
+        }
+        return (al1) invokeLL.objValue;
     }
 }

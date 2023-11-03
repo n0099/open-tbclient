@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.gd;
+import com.baidu.tieba.wd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -163,7 +163,7 @@ public class AdverSegmentData implements Comparable<AdverSegmentData>, Serializa
             if (StringUtils.isNull(this.viewStatisticsUrl) && StringUtils.isNull(this.clickStatisticsUrl)) {
                 return;
             }
-            String c = gd.c(TbadkApplication.getInst().getAndroidId());
+            String c = wd.c(TbadkApplication.getInst().getAndroidId());
             String lastCachedOid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
             StringBuilder sb = new StringBuilder();
             sb.append("&ANDROIDID=");

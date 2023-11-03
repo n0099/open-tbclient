@@ -18,9 +18,9 @@ import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.tbadk.data.MetaData;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e55;
-import com.baidu.tieba.f55;
-import com.baidu.tieba.hb;
+import com.baidu.tieba.xb;
+import com.baidu.tieba.y55;
+import com.baidu.tieba.z55;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class LightInteractiveManager {
     public static /* synthetic */ Interceptable $ic;
     public static boolean isShowing;
@@ -50,7 +50,7 @@ public class LightInteractiveManager {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -100,7 +100,7 @@ public class LightInteractiveManager {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements DialogInterface.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -133,15 +133,15 @@ public class LightInteractiveManager {
                 MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_QINGHUDONG_EMOTION);
                 MessageManager.getInstance().unRegisterListener(this.a);
                 if (this.b.get() != null) {
-                    ((LightInteractiveLayout) this.b.get()).E();
+                    ((LightInteractiveLayout) this.b.get()).F();
                 }
                 boolean unused = LightInteractiveManager.isShowing = false;
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class c implements f55 {
+    /* loaded from: classes5.dex */
+    public class c implements z55 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Dialog a;
@@ -164,7 +164,7 @@ public class LightInteractiveManager {
             this.a = dialog;
         }
 
-        @Override // com.baidu.tieba.f55
+        @Override // com.baidu.tieba.z55
         public void onClose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -173,7 +173,7 @@ public class LightInteractiveManager {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class d implements DialogInterface.OnShowListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -260,11 +260,11 @@ public class LightInteractiveManager {
             ((LightInteractiveLayout) weakReference2.get()).setOnDismissListener(new c(dialog));
         }
         dialog.setOnShowListener(new d());
-        if ((context instanceof Activity) && hb.e((Activity) context)) {
+        if ((context instanceof Activity) && xb.e((Activity) context)) {
             dialog.show();
         }
         if (metaData != null) {
-            e55.b(i4, metaData.getUserId());
+            y55.b(i4, metaData.getUserId());
         }
         MessageManager.getInstance().registerListener(aVar);
     }

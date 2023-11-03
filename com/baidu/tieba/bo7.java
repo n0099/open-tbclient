@@ -1,50 +1,51 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.card.data.CardHListViewData;
-import com.baidu.tieba.tbadkCore.FrsRequestData;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tieba.forumMember.tbtitle.model.cache.GetLevelInfoReadCacheResponsedMessage;
+import com.baidu.tieba.forumMember.tbtitle.model.req.GetLevelInfoReadCacheRequestMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bo7 {
+public class bo7 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(ArrayList<yh> arrayList, String str, CardHListViewData cardHListViewData, int i) {
-        InterceptResult invokeLLLI;
+    public bo7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65536, null, arrayList, str, cardHListViewData, i)) == null) {
-            if (cardHListViewData != null && !ListUtils.isEmpty(arrayList) && !StringUtils.isNull(str) && i >= 0) {
-                int size = arrayList.size();
-                for (int i2 = 0; i2 < size; i2++) {
-                    yh yhVar = arrayList.get(i2);
-                    if ((yhVar instanceof CardHListViewData) && str.equals(((CardHListViewData) yhVar).threadId)) {
-                        return false;
-                    }
-                }
-                int i3 = i + 1;
-                if (i3 > 0) {
-                    ListUtils.add(arrayList, i3, cardHListViewData);
-                    return true;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return false;
         }
-        return invokeLLLI.booleanValue;
     }
 
-    public static boolean b(FrsRequestData frsRequestData) {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, frsRequestData)) == null) {
-            if (frsRequestData == null || frsRequestData.S() != 1) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage != null && (customMessage instanceof GetLevelInfoReadCacheRequestMessage)) {
+                byte[] a = new ao7().a(((GetLevelInfoReadCacheRequestMessage) customMessage).getCacheKey());
+                GetLevelInfoReadCacheResponsedMessage getLevelInfoReadCacheResponsedMessage = new GetLevelInfoReadCacheResponsedMessage();
+                try {
+                    getLevelInfoReadCacheResponsedMessage.decodeInBackGround(2003007, a);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return getLevelInfoReadCacheResponsedMessage;
             }
-            return true;
+            return null;
         }
-        return invokeL.booleanValue;
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

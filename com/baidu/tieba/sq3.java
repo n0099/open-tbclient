@@ -1,103 +1,69 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public interface sq3 {
-    String a(Context context);
+public class sq3 implements rq3 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public tq3 a;
+    public boolean b;
 
-    String b(Context context);
-
-    String c(Context context);
-
-    String d(Context context);
-
-    String getDeviceId(Context context);
-
-    /* loaded from: classes8.dex */
-    public static class a implements sq3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final sq3 a;
-
-        @Override // com.baidu.tieba.sq3
-        public String a(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-                return this.a.a(context);
+    public sq3(@NonNull Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return (String) invokeL.objValue;
         }
+        this.b = false;
+        c(context);
+    }
 
-        @Override // com.baidu.tieba.sq3
-        public String b(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-                return this.a.b(context);
-            }
-            return (String) invokeL.objValue;
+    @Override // com.baidu.tieba.rq3
+    public void a() {
+        tq3 tq3Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b && (tq3Var = this.a) != null && tq3Var.b()) {
+            this.b = false;
+            this.a.c(6, "", new int[0]);
+            this.a.c(3, "", new int[0]);
+            this.a.c(12, "", new int[0]);
+            this.a.c(9, "", new int[0]);
         }
+    }
 
-        @Override // com.baidu.tieba.sq3
-        public String c(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-                return this.a.c(context);
-            }
-            return (String) invokeL.objValue;
+    @Override // com.baidu.tieba.rq3
+    public void b(int i) {
+        tq3 tq3Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && !this.b && (tq3Var = this.a) != null && tq3Var.b() && this.a.c(12, "", new int[0]) == 0) {
+            this.b = true;
+            this.a.c(5, "", new int[0]);
+            this.a.c(2, "", new int[0]);
+            this.a.c(11, "", new int[0]);
+            this.a.c(8, "", new int[0]);
+            this.a.c(39, "", new int[0]);
         }
+    }
 
-        @Override // com.baidu.tieba.sq3
-        public String d(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-                return this.a.d(context);
-            }
-            return (String) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.sq3
-        public String getDeviceId(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-                return this.a.getDeviceId(context);
-            }
-            return (String) invokeL.objValue;
-        }
-
-        public a(sq3 delegation) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {delegation};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            Intrinsics.checkNotNullParameter(delegation, "delegation");
-            this.a = delegation;
+    public final void c(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && this.a == null) {
+            this.a = tq3.a(context);
         }
     }
 }

@@ -230,14 +230,14 @@ public class ShaderConfig implements Parcelable, Cloneable {
                 if (this.fParams != null) {
                     ArrayList arrayList = new ArrayList();
                     for (ShaderParams shaderParams : this.fParams) {
-                        arrayList.add(shaderParams.m51clone());
+                        arrayList.add(shaderParams.m52clone());
                     }
                     shaderConfig.fParams = arrayList;
                 }
                 if (this.vParams != null) {
                     ArrayList arrayList2 = new ArrayList();
                     for (ShaderParams shaderParams2 : this.vParams) {
-                        arrayList2.add(shaderParams2.m51clone());
+                        arrayList2.add(shaderParams2.m52clone());
                     }
                     shaderConfig.vParams = arrayList2;
                 }

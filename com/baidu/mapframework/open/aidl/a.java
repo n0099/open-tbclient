@@ -18,19 +18,19 @@ public interface a extends IInterface {
 
     /* renamed from: com.baidu.mapframework.open.aidl.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static abstract class AbstractBinderC0103a extends Binder implements a {
+    public static abstract class AbstractBinderC0104a extends Binder implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.mapframework.open.aidl.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public static class C0104a implements a {
+        public static class C0105a implements a {
             public static /* synthetic */ Interceptable $ic;
             public static a a;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder b;
 
-            public C0104a(IBinder iBinder) {
+            public C0105a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -63,8 +63,8 @@ public interface a extends IInterface {
                             iBinder = null;
                         }
                         obtain.writeStrongBinder(iBinder);
-                        if (!this.b.transact(1, obtain, obtain2, 0) && AbstractBinderC0103a.a() != null) {
-                            AbstractBinderC0103a.a().a(bVar);
+                        if (!this.b.transact(1, obtain, obtain2, 0) && AbstractBinderC0104a.a() != null) {
+                            AbstractBinderC0104a.a().a(bVar);
                         } else {
                             obtain2.readException();
                         }
@@ -90,7 +90,7 @@ public interface a extends IInterface {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-                return C0104a.a;
+                return C0105a.a;
             }
             return (a) invokeV.objValue;
         }
@@ -106,7 +106,7 @@ public interface a extends IInterface {
                 if (queryLocalInterface != null && (queryLocalInterface instanceof a)) {
                     return (a) queryLocalInterface;
                 }
-                return new C0104a(iBinder);
+                return new C0105a(iBinder);
             }
             return (a) invokeL.objValue;
         }

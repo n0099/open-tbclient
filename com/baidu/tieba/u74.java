@@ -1,74 +1,37 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.LinkedBlockingDeque;
-@SuppressLint({"MobilebdThread"})
 /* loaded from: classes8.dex */
-public final class u74 extends Thread {
+public class u74 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedBlockingDeque<l74> a;
-    public volatile boolean b;
 
-    public u74() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new LinkedBlockingDeque<>(1024);
+    /* loaded from: classes8.dex */
+    public interface a {
+        void a(int i, long j, long j2);
+
+        void b(int i);
+
+        void success();
     }
 
-    public final LinkedBlockingDeque<l74> a() {
-        InterceptResult invokeV;
+    public static void a(String str, a aVar) {
+        g63 M;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if ((interceptable != null && interceptable.invokeLL(65536, null, str, aVar) != null) || aVar == null || TextUtils.isEmpty(str) || (M = g63.M()) == null) {
+            return;
         }
-        return (LinkedBlockingDeque) invokeV.objValue;
-    }
-
-    public final boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (t74.b().d(str)) {
+            aVar.success();
+            return;
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            while (this.b) {
-                try {
-                    this.a.take().a();
-                } catch (InterruptedException unused) {
-                    return;
-                } catch (Throwable unused2) {
-                }
-            }
-        }
-    }
-
-    public final void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.b = z;
+        String a2 = t74.b().a(str);
+        if (TextUtils.isEmpty(a2)) {
+            aVar.b(2112);
+        } else {
+            qd4.h(new lh4(M.b, M.l0(), a2, 1), new x74(M.b, M.l0(), t74.b().c(str, 2), aVar));
         }
     }
 }

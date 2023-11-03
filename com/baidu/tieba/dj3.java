@@ -1,11 +1,12 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
-import android.os.StatFs;
-import android.text.TextUtils;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Matrix;
+import android.net.Uri;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.devices.StorageUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,46 +15,93 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.StringTokenizer;
+import com.facebook.common.executors.UiThreadImmediateExecutorService;
+import com.facebook.common.references.CloseableReference;
+import com.facebook.datasource.DataSource;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber;
+import com.facebook.imagepipeline.image.CloseableBitmap;
+import com.facebook.imagepipeline.image.CloseableImage;
+import com.facebook.imagepipeline.request.ImageRequest;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
 /* loaded from: classes5.dex */
-public final class dj3 {
+public class dj3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a {
+    public interface b {
+        void a(String str, Bitmap bitmap);
+    }
+
+    /* loaded from: classes5.dex */
+    public static class a extends BaseBitmapDataSubscriber {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
+        public final /* synthetic */ b a;
+        public final /* synthetic */ String b;
 
-        public a(String str, boolean z, boolean z2, int i) {
+        public a(b bVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)};
+                Object[] objArr = {bVar, str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = str;
+            this.a = bVar;
+            this.b = str;
+        }
+
+        @Override // com.facebook.datasource.BaseDataSubscriber, com.facebook.datasource.DataSubscriber
+        public void onCancellation(DataSource<CloseableReference<CloseableImage>> dataSource) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dataSource) == null) {
+                super.onCancellation(dataSource);
+                this.a.a(this.b, null);
+            }
+        }
+
+        @Override // com.facebook.datasource.BaseDataSubscriber
+        public void onFailureImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSource) == null) {
+                this.a.a(this.b, null);
+            }
+        }
+
+        @Override // com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber
+        public void onNewResultImpl(Bitmap bitmap) {
+            Bitmap copy;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap) == null) {
+                if (bitmap != null && !bitmap.isRecycled()) {
+                    try {
+                        if (bitmap.getConfig() == null) {
+                            copy = bitmap.copy(Bitmap.Config.ARGB_8888, true);
+                        } else {
+                            copy = bitmap.copy(bitmap.getConfig(), true);
+                        }
+                        this.a.a(this.b, copy);
+                        return;
+                    } catch (Exception e) {
+                        if (dj3.a) {
+                            Log.e("SwanAppFrescoImageUtils", e.getMessage());
+                        }
+                        this.a.a(this.b, null);
+                        return;
+                    }
+                }
+                this.a.a(this.b, null);
+            }
         }
     }
 
@@ -70,236 +118,136 @@ public final class dj3 {
                 return;
             }
         }
-        a = am1.a;
+        a = rm1.a;
     }
 
-    public static int a() {
-        InterceptResult invokeV;
+    public static Bitmap b(DataSource<CloseableReference<CloseableImage>> dataSource) {
+        InterceptResult invokeL;
+        CloseableReference<CloseableImage> closeableReference;
+        Throwable th;
+        Bitmap underlyingBitmap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b()) {
-                return (int) (new StatFs(Environment.getExternalStorageDirectory().getPath()).getTotalBytes() / 1024);
-            }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return Environment.getExternalStorageState().equals("mounted");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static long c() {
-        InterceptResult invokeV;
-        long blockSize;
-        long availableBlocks;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b()) {
-                StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
-                if (wh3.d()) {
-                    blockSize = statFs.getBlockSizeLong();
-                    availableBlocks = statFs.getAvailableBlocksLong();
-                } else {
-                    blockSize = statFs.getBlockSize();
-                    availableBlocks = statFs.getAvailableBlocks();
-                }
-                return availableBlocks * blockSize;
-            }
-            return -1L;
-        }
-        return invokeV.longValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:108:0x01d0  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static List<a> d() {
-        InterceptResult invokeV;
-        String path;
-        boolean z;
-        HashSet hashSet;
-        BufferedReader bufferedReader;
-        String str;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            HashMap hashMap = new HashMap();
-            ArrayList arrayList = new ArrayList();
-            BufferedReader bufferedReader2 = null;
-            File externalFilesDir = AppRuntime.getAppContext().getExternalFilesDir(null);
-            if (externalFilesDir == null) {
-                path = null;
-            } else {
-                path = externalFilesDir.getPath();
-            }
-            int i2 = 1;
-            boolean z2 = false;
-            boolean z3 = wh3.b() ? !Environment.isExternalStorageRemovable() : false;
-            String externalStorageState = Environment.getExternalStorageState();
-            if (!externalStorageState.equals("mounted") && !externalStorageState.equals("mounted_ro")) {
-                z = false;
-            } else {
-                z = true;
-            }
-            boolean equals = Environment.getExternalStorageState().equals("mounted_ro");
-            try {
-                try {
-                    hashSet = new HashSet();
-                    bufferedReader = new BufferedReader(new FileReader("/proc/mounts"));
-                } catch (Throwable th) {
-                    th = th;
-                }
-            } catch (FileNotFoundException e) {
-                e = e;
-                bufferedReader2 = null;
-            } catch (IOException e2) {
-                e = e2;
-                bufferedReader2 = null;
-            } catch (Throwable th2) {
-                th = th2;
-                bufferedReader2 = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, dataSource)) == null) {
+            if (dataSource == null) {
+                return null;
             }
             try {
-                if (a) {
-                    Log.d(StorageUtils.TAG, "/proc/mounts");
-                }
-                while (true) {
-                    String readLine = bufferedReader.readLine();
-                    if (readLine == null) {
-                        break;
-                    }
-                    if (a) {
-                        Log.d(StorageUtils.TAG, readLine);
-                    }
-                    StringTokenizer stringTokenizer = new StringTokenizer(readLine, " ");
-                    String nextToken = stringTokenizer.nextToken();
-                    String nextToken2 = stringTokenizer.nextToken();
-                    if (!hashSet.contains(nextToken2)) {
-                        stringTokenizer.nextToken();
-                        boolean contains = Arrays.asList(stringTokenizer.nextToken().split(",")).contains("ro");
-                        if (!readLine.contains("vfat") && !readLine.contains("/mnt")) {
-                            if (e(nextToken, nextToken2)) {
-                                hashSet.add(nextToken2);
-                                if (f(nextToken2)) {
-                                    i = i2 + 1;
-                                    arrayList.add(new a(nextToken2, z2, contains, i2));
-                                    i2 = i;
-                                }
-                            }
-                            z2 = false;
-                        }
-                        if (nextToken2.equals(path)) {
-                            hashSet.add(path);
-                            hashMap.put(nextToken, new a(path, z3, contains, -1));
-                        } else if (readLine.contains("/dev/block/vold")) {
-                            if (!readLine.contains("/mnt/secure") && !readLine.contains("/mnt/asec") && !readLine.contains("/mnt/obb") && !readLine.contains("/dev/mapper") && !readLine.contains("tmpfs")) {
-                                hashSet.add(nextToken2);
-                                if (!hashMap.containsKey(nextToken)) {
-                                    i = i2 + 1;
-                                    hashMap.put(nextToken, new a(nextToken2, z2, contains, i2));
-                                    i2 = i;
-                                }
-                            }
-                        } else if (hashSet.contains(nextToken)) {
-                            Iterator it = hashMap.keySet().iterator();
-                            while (true) {
-                                if (it.hasNext()) {
-                                    str = (String) it.next();
-                                    if (TextUtils.equals(((a) hashMap.get(str)).a, nextToken)) {
-                                        break;
-                                    }
-                                } else {
-                                    str = null;
-                                    break;
-                                }
-                            }
-                            hashMap.remove(str);
-                            hashSet.add(nextToken2);
-                            if (!hashMap.containsKey(nextToken)) {
-                                hashMap.put(nextToken, new a(nextToken2, false, contains, i2));
-                                i2++;
+                closeableReference = dataSource.getResult();
+                if (closeableReference != null) {
+                    try {
+                        CloseableImage closeableImage = closeableReference.get();
+                        if (closeableImage != null && (closeableImage instanceof CloseableBitmap) && (underlyingBitmap = ((CloseableBitmap) closeableImage).getUnderlyingBitmap()) != null && !underlyingBitmap.isRecycled()) {
+                            try {
+                                Bitmap createBitmap = Bitmap.createBitmap(underlyingBitmap);
+                                dataSource.close();
+                                CloseableReference.closeSafely(closeableReference);
+                                return createBitmap;
+                            } catch (OutOfMemoryError unused) {
+                                System.gc();
                             }
                         }
-                        z2 = false;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        dataSource.close();
+                        CloseableReference.closeSafely(closeableReference);
+                        throw th;
                     }
                 }
-                for (a aVar : hashMap.values()) {
-                    if (f(aVar.a)) {
-                        arrayList.add(aVar);
-                    }
-                }
-                if (!hashSet.contains(path) && z) {
-                    arrayList.add(0, new a(path, z3, equals, -1));
-                }
-                sl4.d(bufferedReader);
-            } catch (FileNotFoundException e3) {
-                e = e3;
-                bufferedReader2 = bufferedReader;
-                if (a) {
-                    e.printStackTrace();
-                }
-                sl4.d(bufferedReader2);
-                if (arrayList.isEmpty()) {
-                }
-                return arrayList;
-            } catch (IOException e4) {
-                e = e4;
-                bufferedReader2 = bufferedReader;
-                if (a) {
-                    e.printStackTrace();
-                }
-                sl4.d(bufferedReader2);
-                if (arrayList.isEmpty()) {
-                }
-                return arrayList;
+                dataSource.close();
+                CloseableReference.closeSafely(closeableReference);
+                return null;
             } catch (Throwable th3) {
+                closeableReference = null;
                 th = th3;
-                bufferedReader2 = bufferedReader;
-                sl4.d(bufferedReader2);
-                throw th;
             }
-            if (arrayList.isEmpty()) {
-                arrayList.add(new a(path, z3, equals, -1));
-            }
-            return arrayList;
+        } else {
+            return (Bitmap) invokeL.objValue;
         }
-        return (List) invokeV.objValue;
     }
 
-    public static boolean e(String str, String str2) {
+    public static Bitmap c(Uri uri, Context context) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
-            if (str == null || !str.contains("/dev/fuse") || str2 == null || str2.startsWith("/storage/emulated/legacy") || str2.contains("/Android/obb")) {
-                return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, uri, context)) == null) {
+            if (uri != null && context != null) {
+                if (d(uri)) {
+                    if (a) {
+                        Log.i("SwanAppFrescoImageUtils", "start get Bitmap from memory, uri : " + uri.toString());
+                    }
+                    return b(Fresco.getImagePipeline().fetchImageFromBitmapCache(ImageRequest.fromUri(uri), context.getApplicationContext()));
+                }
+                if (a) {
+                    Log.i("SwanAppFrescoImageUtils", "start get Bitmap from sdcard, uri : " + uri.toString());
+                }
+                DataSource<Boolean> isInDiskCache = Fresco.getImagePipeline().isInDiskCache(uri);
+                if (isInDiskCache != null && isInDiskCache.hasResult() && isInDiskCache.getResult() != null && isInDiskCache.getResult().booleanValue()) {
+                    try {
+                        return b(Fresco.getImagePipeline().fetchDecodedImage(ImageRequest.fromUri(uri), context));
+                    } finally {
+                        isInDiskCache.close();
+                    }
+                }
             }
-            if (str2.startsWith("/storage/")) {
-                return true;
-            }
-            if (!wh3.e() || str2.startsWith("/mnt/") || str2.startsWith("/data/")) {
-                return false;
-            }
-            return true;
+            return null;
         }
-        return invokeLL.booleanValue;
+        return (Bitmap) invokeLL.objValue;
     }
 
-    public static boolean f(String str) {
+    public static boolean d(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                return new File(str).canRead();
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, uri)) == null) {
+            if (uri != null && Fresco.getImagePipeline().isInBitmapMemoryCache(uri)) {
+                return true;
             }
             return false;
         }
         return invokeL.booleanValue;
+    }
+
+    public static void e(String str, b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, bVar) == null) {
+            Uri C = ak3.C(str);
+            if (C == null) {
+                bVar.a(str, null);
+                return;
+            }
+            Fresco.getImagePipeline().fetchDecodedImage(ImageRequestBuilder.newBuilderWithSource(C).build(), AppRuntime.getAppContext()).subscribe(new a(bVar, str), UiThreadImmediateExecutorService.getInstance());
+        }
+    }
+
+    public static void f(Uri uri, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65542, null, uri, str) != null) || uri == null) {
+            return;
+        }
+        if (a) {
+            Log.i("SwanAppFrescoImageUtils", "start preFetch into memory, uri : " + uri.toString());
+        }
+        Fresco.getImagePipeline().prefetchToBitmapCache(ImageRequestBuilder.newBuilderWithSource(uri).build(), str);
+    }
+
+    public static Bitmap g(Bitmap bitmap, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65543, null, bitmap, i, i2)) == null) {
+            if (bitmap == null || i <= 0 || i2 <= 0) {
+                return null;
+            }
+            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
+            if (width == 0 || height == 0) {
+                return null;
+            }
+            Matrix matrix = new Matrix();
+            matrix.postScale(i / width, i2 / height);
+            try {
+                return Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
+            } catch (Exception | OutOfMemoryError unused) {
+                return null;
+            }
+        }
+        return (Bitmap) invokeLII.objValue;
     }
 }

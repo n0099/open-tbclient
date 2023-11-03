@@ -1,104 +1,92 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.chatmessage.messages.AudioMsg;
-import com.baidu.tieba.impersonal.data.VoiceMsgContent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.YyExtData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.TiebaStaticHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class cx8 extends ww8<AudioMsg, VoiceMsgContent> {
+public class cx8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947690246, "Lcom/baidu/tieba/cx8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947690246, "Lcom/baidu/tieba/cx8;");
+    public static void a(StatisticItem statisticItem, jx8 jx8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, statisticItem, jx8Var) == null) {
+            int i = 5;
+            String str = "";
+            if (jx8Var != null) {
+                YyExtData g = jx8Var.g();
+                if (g != null) {
+                    if (g.isYyGame) {
+                        i = 3;
+                    } else {
+                        i = 2;
+                    }
+                    str = TiebaStatic.YYValues.YY_LIVE;
+                }
+                if (!TextUtils.isEmpty(jx8Var.e())) {
+                    statisticItem.param("obj_param1", jx8Var.e());
+                }
+            }
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, i);
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, str);
         }
     }
 
-    @Override // com.baidu.tieba.ww8
-    public int c() {
-        InterceptResult invokeV;
+    public static void b(StatisticItem statisticItem, String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 3;
-        }
-        return invokeV.intValue;
-    }
-
-    public cx8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if ((interceptable == null || interceptable.invokeLLLLL(65537, null, statisticItem, str, str2, str3, str4) == null) && statisticItem != null) {
+            if (!TextUtils.isEmpty(str)) {
+                statisticItem.param("fid", str);
+            }
+            if (!TextUtils.isEmpty(str2)) {
+                statisticItem.param("fname", str2);
+            }
+            if (!TextUtils.isEmpty(str3)) {
+                statisticItem.param("uid", str3);
+            }
+            if (!TextUtils.isEmpty(str4)) {
+                statisticItem.param("tid", str4);
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ww8
-    /* renamed from: h */
-    public AudioMsg e(VoiceMsgContent voiceMsgContent) {
-        InterceptResult invokeL;
-        int i;
-        String str;
+    public static void c(int i, String str, String str2, String str3, String str4, jx8 jx8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, voiceMsgContent)) == null) {
-            String str2 = (voiceMsgContent == null || (str2 = voiceMsgContent.b()) == null) ? "" : "";
-            if (voiceMsgContent != null) {
-                i = voiceMsgContent.a();
-            } else {
-                i = 0;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), str, str2, str3, str4, jx8Var}) == null) {
+            StatisticItem statisticItem = new StatisticItem("c15008");
+            statisticItem.param("obj_locate", i);
+            b(statisticItem, str, str2, str3, str4);
+            if (jx8Var != null) {
+                a(statisticItem, jx8Var);
+                TiebaStaticHelper.addYYParam(statisticItem, jx8Var.g());
             }
-            AudioMsg audioMsg = new AudioMsg(str2, i, 2);
-            if (voiceMsgContent != null) {
-                str = voiceMsgContent.f();
-            } else {
-                str = null;
-            }
-            audioMsg.setRemoteUrl(str);
-            return audioMsg;
+            TiebaStatic.log(statisticItem);
         }
-        return (AudioMsg) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ww8
-    /* renamed from: i */
-    public VoiceMsgContent g(AudioMsg sdkMsg) {
-        InterceptResult invokeL;
+    public static void d(String str, String str2, String str3, String str4, jx8 jx8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, sdkMsg)) == null) {
-            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
-            VoiceMsgContent voiceMsgContent = new VoiceMsgContent();
-            String localUrl = sdkMsg.getLocalUrl();
-            Intrinsics.checkNotNullExpressionValue(localUrl, "sdkMsg.localUrl");
-            voiceMsgContent.i(localUrl);
-            String remoteUrl = sdkMsg.getRemoteUrl();
-            Intrinsics.checkNotNullExpressionValue(remoteUrl, "sdkMsg.remoteUrl");
-            voiceMsgContent.k(remoteUrl);
-            voiceMsgContent.h(sdkMsg.getDuration());
-            return voiceMsgContent;
+        if (interceptable == null || interceptable.invokeLLLLL(65539, null, str, str2, str3, str4, jx8Var) == null) {
+            StatisticItem statisticItem = new StatisticItem("c15007");
+            b(statisticItem, str, str2, str3, str4);
+            if (jx8Var != null) {
+                a(statisticItem, jx8Var);
+                TiebaStaticHelper.addYYParam(statisticItem, jx8Var.g());
+            }
+            TiebaStatic.log(statisticItem);
         }
-        return (VoiceMsgContent) invokeL.objValue;
+    }
+
+    public static void e(int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, str, str2) == null) {
+            TiebaStatic.log(new StatisticItem("c13857").param("obj_type", i).param("post_id", str).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", str2));
+        }
     }
 }

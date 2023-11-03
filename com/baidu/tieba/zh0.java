@@ -1,10 +1,18 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.app.Application;
+import android.app.Dialog;
 import android.content.Context;
-import android.os.Bundle;
+import android.content.DialogInterface;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RadioButton;
+import android.widget.TextView;
+import android.widget.Toast;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.download.scheduled.NadScheduledConfirmView;
+import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,76 +20,149 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.Map;
-import java.util.Set;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
-public final class zh0 {
+public class zh0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<Activity, Set<Object>> a;
-    public static final zh0 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
     /* loaded from: classes9.dex */
-    public static final class a implements Application.ActivityLifecycleCallbacks {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zh0 a;
 
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityCreated(Activity activity, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
-                Intrinsics.checkNotNullParameter(activity, "activity");
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityPaused(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-                Intrinsics.checkNotNullParameter(activity, "activity");
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityResumed(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-                Intrinsics.checkNotNullParameter(activity, "activity");
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048580, this, activity, outState) == null) {
-                Intrinsics.checkNotNullParameter(activity, "activity");
-                Intrinsics.checkNotNullParameter(outState, "outState");
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityStarted(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
-                Intrinsics.checkNotNullParameter(activity, "activity");
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityStopped(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
-                Intrinsics.checkNotNullParameter(activity, "activity");
-            }
-        }
-
-        public a() {
+        public a(zh0 zh0Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zh0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zh0Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                zh0 zh0Var = this.a;
+                zh0Var.a = !zh0Var.a;
+                if (view2 instanceof RadioButton) {
+                    ((RadioButton) view2).setChecked(this.a.a);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ Dialog c;
+        public final /* synthetic */ zh0 d;
+
+        public b(zh0 zh0Var, String str, String str2, Dialog dialog) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zh0Var, str, str2, dialog};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = zh0Var;
+            this.a = str;
+            this.b = str2;
+            this.c = dialog;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                ai0.b().c(this.a, this.d.a);
+                zh0 zh0Var = this.d;
+                zh0Var.f(true, this.b, zh0Var.a);
+                this.c.dismiss();
+                if (this.d.a) {
+                    View inflate = LayoutInflater.from(gf0.b()).inflate(R.layout.nad_scheduled_confirm_toast_view, (ViewGroup) null);
+                    ((TextView) inflate.findViewById(R.id.nad_scheduled_confirm_toast_view)).setText(gf0.b().getResources().getString(R.string.nad_scheduled_dialog_toast_text));
+                    Toast toast = new Toast(view2.getContext());
+                    toast.setView(inflate);
+                    toast.setGravity(17, 0, 0);
+                    toast.show();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class c implements DialogInterface.OnCancelListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ zh0 c;
+
+        public c(zh0 zh0Var, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zh0Var, str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = zh0Var;
+            this.a = str;
+            this.b = str2;
+        }
+
+        @Override // android.content.DialogInterface.OnCancelListener
+        public void onCancel(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                ai0.b().c(this.a, false);
+                zh0 zh0Var = this.c;
+                zh0Var.f(false, this.b, zh0Var.a);
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class d implements DialogInterface.OnDismissListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d(zh0 zh0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zh0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -92,40 +173,35 @@ public final class zh0 {
             }
         }
 
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityDestroyed(Activity activity) {
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-                Intrinsics.checkNotNullParameter(activity, "activity");
-                zh0.b.e(activity);
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                si0.a().b(new di0(false));
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948359815, "Lcom/baidu/tieba/zh0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes9.dex */
+    public static class e {
+        public static /* synthetic */ Interceptable $ic;
+        public static final zh0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-231977754, "Lcom/baidu/tieba/zh0$e;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-231977754, "Lcom/baidu/tieba/zh0$e;");
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948359815, "Lcom/baidu/tieba/zh0;");
-                return;
-            }
-        }
-        b = new zh0();
-        a = new LinkedHashMap();
-        Context b2 = pe0.b();
-        if (b2 != null) {
-            if (!(b2 instanceof Application)) {
-                b2 = null;
-            }
-            Application application = (Application) b2;
-            if (application != null) {
-                application.registerActivityLifecycleCallbacks(new a());
-            }
+            a = new zh0(null);
         }
     }
 
@@ -133,58 +209,69 @@ public final class zh0 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public final <T extends ci0> void b(Activity activity, Object event, int i, fi0<T> subscriber) {
+    public static zh0 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(1048576, this, activity, event, i, subscriber) == null) {
-            Intrinsics.checkNotNullParameter(activity, "activity");
-            Intrinsics.checkNotNullParameter(event, "event");
-            Intrinsics.checkNotNullParameter(subscriber, "subscriber");
-            bi0.a().d(event, i, subscriber);
-            d(activity, subscriber);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return e.a;
         }
+        return (zh0) invokeV.objValue;
     }
 
-    public final <T extends ci0> void c(Activity activity, Object event, fi0<T> subscriber) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, event, subscriber) == null) {
-            Intrinsics.checkNotNullParameter(activity, "activity");
-            Intrinsics.checkNotNullParameter(event, "event");
-            Intrinsics.checkNotNullParameter(subscriber, "subscriber");
-            b(activity, event, 0, subscriber);
-        }
+    public /* synthetic */ zh0(a aVar) {
+        this();
     }
 
-    public final void d(Activity activity, Object obj) {
+    public void e(String str, String str2, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, activity, obj) == null) {
-            if (!a.containsKey(activity) || a.get(activity) == null) {
-                a.put(activity, new LinkedHashSet());
-            }
-            Set<Object> set = a.get(activity);
-            if (set != null) {
-                set.add(obj);
-            }
+        if ((interceptable != null && interceptable.invokeLLL(1048576, this, str, str2, context) != null) || !(context instanceof Activity)) {
+            return;
         }
+        Dialog dialog = new Dialog(context, R.style.obfuscated_res_0x7f10010c);
+        NadScheduledConfirmView nadScheduledConfirmView = new NadScheduledConfirmView(context);
+        this.a = true;
+        nadScheduledConfirmView.setOnWifiBtnClickListener(new a(this));
+        nadScheduledConfirmView.setOnPosBtnClickListener(new b(this, str, str2, dialog));
+        dialog.setContentView(nadScheduledConfirmView);
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.setCancelable(true);
+        dialog.setOnCancelListener(new c(this, str, str2));
+        dialog.setOnDismissListener(new d(this));
+        dialog.show();
+        si0.a().b(new di0(true));
     }
 
-    public final void e(Activity activity) {
-        Set<Object> set;
+    public final void f(boolean z, String str, boolean z2) {
+        String str2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, activity) == null) && (set = a.get(activity)) != null) {
-            for (Object obj : set) {
-                bi0.a().a(obj);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, Boolean.valueOf(z2)}) == null) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.u(ClogBuilder.Page.SCHEDULED_DOWNLOAD);
+            clogBuilder.y(ClogBuilder.LogType.NAVIDEO_POP_CLOSE);
+            clogBuilder.p(str);
+            clogBuilder.j("ScheduledPop");
+            String str3 = "0";
+            if (z) {
+                str2 = "0";
+            } else {
+                str2 = "1";
             }
-            a.remove(activity);
+            if (z2) {
+                str3 = "1";
+            }
+            clogBuilder.k(str2);
+            clogBuilder.l(str3);
+            az0.e(clogBuilder);
         }
     }
 }

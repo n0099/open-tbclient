@@ -21,7 +21,7 @@ import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.resolve.constants.ConstantValue;
 import kotlin.reflect.jvm.internal.impl.storage.NotNullLazyValue;
 import kotlin.reflect.jvm.internal.impl.storage.StorageKt;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class JavaTargetAnnotationDescriptor extends JavaAnnotationDescriptor {
     public static final /* synthetic */ KProperty[] $$delegatedProperties = {Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(JavaTargetAnnotationDescriptor.class), "allValueArguments", "getAllValueArguments()Ljava/util/Map;"))};
     public final NotNullLazyValue allValueArguments$delegate;

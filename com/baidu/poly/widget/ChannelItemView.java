@@ -17,7 +17,7 @@ import com.baidu.poly.widget.entitiy.InstallmentEntity;
 import com.baidu.poly.widget.entitiy.PayChannelExtInfoEntity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bc1;
-import com.baidu.tieba.kb1;
+import com.baidu.tieba.sc1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -85,7 +85,7 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                bc1.c++;
+                sc1.c++;
                 if (this.b.f != null) {
                     this.b.f.a(this.a);
                 }
@@ -197,7 +197,7 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
             }
             linearLayout.setGravity(16);
             linearLayout.setPadding(b(getContext(), 10.0f), 0, 0, 0);
-            linearLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f0804d4);
+            linearLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f0804dc);
             linearLayout.setEnabled(true ^ installmentEntity.isSelected());
             TextView textView = new TextView(getContext());
             textView.setTextSize(11.0f);
@@ -239,18 +239,18 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d09ed, (ViewGroup) this, true);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0906b7);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0906c1);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0906b6);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0906c3);
-            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091638);
-            this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09163a);
-            this.j = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091639);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f09273e);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f092794);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091163);
-            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f091d03);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0a06, (ViewGroup) this, true);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0906d6);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0906e0);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0906d5);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0906e2);
+            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091678);
+            this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09167a);
+            this.j = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091679);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f09279d);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0927f3);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0911a0);
+            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f091d4a);
             setOnClickListener(this);
         }
     }
@@ -336,13 +336,13 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
             String icon = payChannelEntity.getIcon();
             int isSelected = payChannelEntity.getIsSelected();
             int enable = payChannelEntity.getEnable();
-            kb1.b().a(this.a, icon);
+            bc1.b().a(this.a, icon);
             this.b.setText(displayName);
             if (isSelected == 1) {
-                this.d.setImageResource(R.drawable.obfuscated_res_0x7f0804d0);
+                this.d.setImageResource(R.drawable.obfuscated_res_0x7f0804d8);
                 this.m = true;
             } else {
-                this.d.setImageResource(R.drawable.obfuscated_res_0x7f08155f);
+                this.d.setImageResource(R.drawable.obfuscated_res_0x7f081578);
                 this.m = false;
             }
             if (1 == enable) {

@@ -1,81 +1,27 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class j84 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile i84 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(View view2, vv2 vv2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, view2, vv2Var)) == null) {
-            hn1 Y = cr2.V().Y();
-            if (Y != null && Y.c(view2, vv2Var)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean f(View view2, vv2 vv2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, view2, vv2Var)) == null) {
-            hn1 Y = cr2.V().Y();
-            if (Y != null && Y.a(view2, vv2Var)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static Context b() {
+    public static synchronized i84 a() {
         InterceptResult invokeV;
+        i84 i84Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            hn1 Y = cr2.V().Y();
-            if (Y != null) {
-                return Y.getContext();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (j84.class) {
+                if (a == null) {
+                    a = new i84();
+                }
+                i84Var = a;
             }
-            return null;
+            return i84Var;
         }
-        return (Context) invokeV.objValue;
-    }
-
-    public static void c(ok3 ok3Var) {
-        hn1 Y;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, ok3Var) == null) && (Y = cr2.V().Y()) != null) {
-            Y.e(ok3Var);
-        }
-    }
-
-    public static boolean d(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
-            hn1 Y = cr2.V().Y();
-            if (Y != null && Y.removeView(view2)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void e(ok3 ok3Var) {
-        hn1 Y;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, ok3Var) == null) && (Y = cr2.V().Y()) != null) {
-            Y.f(ok3Var);
-        }
+        return (i84) invokeV.objValue;
     }
 }

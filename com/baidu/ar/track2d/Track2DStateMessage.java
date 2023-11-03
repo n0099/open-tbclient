@@ -1,5 +1,5 @@
 package com.baidu.ar.track2d;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public enum Track2DStateMessage {
     MODEL_LOADED,
     TRACK_MODEL_APPEAR,

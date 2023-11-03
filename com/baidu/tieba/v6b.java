@@ -1,227 +1,132 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.UploadDataProvider;
-import com.baidu.turbonet.net.UploadDataSink;
-import java.io.IOException;
-import java.net.HttpRetryException;
-import java.nio.ByteBuffer;
 /* loaded from: classes8.dex */
-public final class v6b extends z6b {
+public class v6b implements oi {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final x6b d;
-    public final a7b e;
-    public final ByteBuffer f;
-    public final UploadDataProvider g;
-    public boolean h;
-    public boolean i;
-    public boolean j;
+    public boolean a;
+    public p6b b;
+    public int c;
+    public String d;
+    public String e;
 
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    @Override // com.baidu.tieba.z6b
-    public void e() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.z6b
-    public void g() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b extends UploadDataProvider {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v6b a;
-
-        @Override // com.baidu.turbonet.net.UploadDataProvider
-        public long a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return -1L;
-            }
-            return invokeV.longValue;
-        }
-
-        public b(v6b v6bVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948194151, "Lcom/baidu/tieba/v6b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v6bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = v6bVar;
-        }
-
-        @Override // com.baidu.turbonet.net.UploadDataProvider
-        public void c(UploadDataSink uploadDataSink) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uploadDataSink) == null) {
-                uploadDataSink.b(new HttpRetryException("Cannot retry streamed Http body", -1));
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948194151, "Lcom/baidu/tieba/v6b;");
+                return;
             }
         }
-
-        public /* synthetic */ b(v6b v6bVar, a aVar) {
-            this(v6bVar);
-        }
-
-        @Override // com.baidu.turbonet.net.UploadDataProvider
-        public void b(UploadDataSink uploadDataSink, ByteBuffer byteBuffer) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uploadDataSink, byteBuffer) == null) {
-                if (byteBuffer.remaining() >= this.a.f.remaining()) {
-                    byteBuffer.put(this.a.f);
-                    this.a.f.clear();
-                    uploadDataSink.a(this.a.h);
-                    if (!this.a.h) {
-                        this.a.e.quit();
-                        return;
-                    } else if (this.a.i) {
-                        this.a.e.quit();
-                        return;
-                    } else {
-                        return;
-                    }
-                }
-                int limit = this.a.f.limit();
-                this.a.f.limit(this.a.f.position() + byteBuffer.remaining());
-                byteBuffer.put(this.a.f);
-                this.a.f.limit(limit);
-                uploadDataSink.a(false);
-            }
-        }
+        f = BdUniqueId.gen();
     }
 
-    public v6b(x6b x6bVar, int i, a7b a7bVar, boolean z, boolean z2) {
+    public v6b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {x6bVar, Integer.valueOf(i), a7bVar, Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.g = new b(this, null);
-        if (x6bVar != null) {
-            if (i > 0) {
-                this.f = ByteBuffer.allocate(i);
-                this.d = x6bVar;
-                this.e = a7bVar;
-                this.i = z;
-                this.j = z2;
-                return;
-            }
-            throw new IllegalArgumentException("chunkLength should be greater than 0");
-        }
-        throw null;
+        this.a = false;
+        this.c = 0;
     }
 
-    @Override // java.io.OutputStream
-    public void write(int i) throws IOException {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            p();
-            this.f.put((byte) i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.z6b, java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
-    public void close() throws IOException {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.close();
-            if (!this.h) {
-                this.h = true;
-                this.f.flip();
-                if (this.i) {
-                    this.e.b(this.d.getReadTimeout());
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.z6b
-    public UploadDataProvider f() {
+    public p6b c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.g;
+            return this.b;
         }
-        return (UploadDataProvider) invokeV.objValue;
+        return (p6b) invokeV.objValue;
     }
 
-    @Override // java.io.OutputStream, java.io.Flushable
-    public void flush() throws IOException {
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.j && this.f.position() > 0) {
-            q();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.oi
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return f;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void e(p6b p6bVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, p6bVar) != null) || p6bVar == null) {
+            return;
+        }
+        this.a = false;
+        this.b = p6bVar;
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.d = str;
         }
     }
 
-    public final void p() throws IOException {
+    public void g(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && !this.f.hasRemaining()) {
-            q();
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.e = str;
         }
     }
 
-    public final void q() throws IOException {
+    public void h(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            c();
-            this.f.flip();
-            this.e.b(this.d.getReadTimeout());
-            a();
-        }
-    }
-
-    @Override // java.io.OutputStream
-    public void write(byte[] bArr, int i, int i2) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr, i, i2) == null) {
-            c();
-            if (bArr.length - i >= i2 && i >= 0 && i2 >= 0) {
-                int i3 = i2;
-                while (i3 > 0) {
-                    int min = Math.min(i3, this.f.remaining());
-                    this.f.put(bArr, (i + i2) - i3, min);
-                    i3 -= min;
-                    p();
-                }
-                return;
-            }
-            throw new IndexOutOfBoundsException();
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.c = i;
         }
     }
 }

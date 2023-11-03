@@ -119,11 +119,11 @@ public class BusinessMessageDBManager extends DBBase {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:53:0x017e, code lost:
-        if (r10.isClosed() == false) goto L40;
+    /* JADX WARN: Code restructure failed: missing block: B:53:0x017f, code lost:
+        if (r10.isClosed() == false) goto L39;
      */
-    /* JADX WARN: Removed duplicated region for block: B:72:0x01aa A[Catch: all -> 0x01df, TRY_ENTER, TryCatch #13 {all -> 0x01df, blocks: (B:72:0x01aa, B:54:0x0180, B:75:0x01b1, B:80:0x01d0, B:82:0x01d6, B:83:0x01d9, B:52:0x017a, B:86:0x01dd), top: B:99:0x005c }] */
-    /* JADX WARN: Removed duplicated region for block: B:80:0x01d0 A[Catch: all -> 0x01df, TRY_ENTER, TryCatch #13 {all -> 0x01df, blocks: (B:72:0x01aa, B:54:0x0180, B:75:0x01b1, B:80:0x01d0, B:82:0x01d6, B:83:0x01d9, B:52:0x017a, B:86:0x01dd), top: B:99:0x005c }] */
+    /* JADX WARN: Removed duplicated region for block: B:72:0x01ab A[Catch: all -> 0x01e0, TRY_ENTER, TryCatch #0 {all -> 0x01e0, blocks: (B:72:0x01ab, B:54:0x0181, B:75:0x01b2, B:80:0x01d1, B:82:0x01d7, B:83:0x01da, B:52:0x017b, B:86:0x01de), top: B:94:0x005c }] */
+    /* JADX WARN: Removed duplicated region for block: B:80:0x01d1 A[Catch: all -> 0x01e0, TRY_ENTER, TryCatch #0 {all -> 0x01e0, blocks: (B:72:0x01ab, B:54:0x0181, B:75:0x01b2, B:80:0x01d1, B:82:0x01d7, B:83:0x01da, B:52:0x017b, B:86:0x01de), top: B:94:0x005c }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -267,11 +267,11 @@ public class BusinessMessageDBManager extends DBBase {
                     }
                 } catch (Throwable th8) {
                     th = th8;
+                    throw th;
                 }
             }
-        } else {
-            return (List) invokeCommon.objValue;
         }
+        return (List) invokeCommon.objValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:19:0x006d, code lost:
@@ -314,7 +314,7 @@ public class BusinessMessageDBManager extends DBBase {
         return invokeJ.longValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x006f, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x0070, code lost:
         if (r0.isClosed() == false) goto L24;
      */
     /*
@@ -357,10 +357,10 @@ public class BusinessMessageDBManager extends DBBase {
         return (ChatAdvCustomMsg) invokeJ.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x0064, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x0065, code lost:
         if (r9.isClosed() == false) goto L20;
      */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x0084  */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x0085  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -473,7 +473,7 @@ public class BusinessMessageDBManager extends DBBase {
         return invokeL.longValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x00ae, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x00af, code lost:
         if (r0.isClosed() == false) goto L34;
      */
     /*

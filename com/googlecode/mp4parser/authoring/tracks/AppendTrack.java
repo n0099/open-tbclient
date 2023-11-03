@@ -27,7 +27,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AppendTrack extends AbstractTrack {
     public static Logger LOG = Logger.getLogger(AppendTrack.class);
     public SampleDescriptionBox stsd;

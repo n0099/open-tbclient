@@ -1,22 +1,19 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import com.baidu.live.feed.search.LiveFeedSearchActivity;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
+import com.baidu.tbadk.core.util.PullViewHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
 /* loaded from: classes5.dex */
-public class b60 implements w60 {
+public class b60 {
     public static /* synthetic */ Interceptable $ic;
+    public static b60 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
     public b60() {
         Interceptable interceptable = $ic;
@@ -28,20 +25,33 @@ public class b60 implements w60 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = true;
+        new PorterDuffColorFilter(PullViewHelper.IMAGE_COLORFILTER_NIGHT, PorterDuff.Mode.MULTIPLY);
     }
 
-    @Override // com.baidu.tieba.w60
-    public void a(Context context, String str) {
+    public static b60 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) && context != null) {
-            Intent intent = new Intent(context, LiveFeedSearchActivity.class);
-            intent.putExtra("source", str);
-            if (!(context instanceof Activity)) {
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (b60.class) {
+                if (b == null) {
+                    b = new b60();
+                }
             }
-            context.startActivity(intent);
+            return b;
         }
+        return (b60) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
     }
 }

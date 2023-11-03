@@ -1,92 +1,126 @@
 package com.baidu.tieba;
 
+import android.graphics.BitmapFactory;
+import android.graphics.Rect;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.adp.lib.safe.BdCloseHelper;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.n7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 /* loaded from: classes7.dex */
-public class m7 implements l7 {
+public class m7 extends n7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public Rect e;
 
-    public m7(int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m7(String str, String str2, DiskFileOperate.Action action) {
+        super(str, str2, action);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {str, str2, action};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1], (DiskFileOperate.Action) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
+        this.e = null;
+        this.e = new Rect();
     }
 
-    @Override // com.baidu.tieba.l7
-    public Object a(u8 u8Var) {
+    /* JADX WARN: Removed duplicated region for block: B:32:0x006d A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x006e A[RETURN] */
+    @Override // com.baidu.tieba.n7, com.baidu.adp.lib.Disk.ops.DiskFileOperate
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean formatData(byte[] bArr) {
         InterceptResult invokeL;
+        ByteArrayInputStream byteArrayInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, u8Var)) == null) {
-            return Integer.valueOf(this.a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
+            if (bArr != null && this.c.b(bArr)) {
+                long j = this.c.b;
+                if (j == 0 || j >= System.currentTimeMillis()) {
+                    if (this.b == null) {
+                        BitmapFactory.Options options = new BitmapFactory.Options();
+                        this.b = options;
+                        options.inDither = false;
+                        int g = g();
+                        BitmapFactory.Options options2 = this.b;
+                        options2.inScreenDensity = g;
+                        options2.inTargetDensity = g;
+                        options2.inDensity = g;
+                    }
+                    int a = n7.a.a();
+                    ByteArrayInputStream byteArrayInputStream2 = null;
+                    try {
+                        try {
+                            byteArrayInputStream = new ByteArrayInputStream(bArr, a, bArr.length - a);
+                        } catch (Error e) {
+                            e = e;
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                    }
+                    try {
+                        this.a = BitmapFactory.decodeStream(byteArrayInputStream, this.e, this.b);
+                        BdCloseHelper.close((InputStream) byteArrayInputStream);
+                    } catch (Error e2) {
+                        e = e2;
+                        byteArrayInputStream2 = byteArrayInputStream;
+                        BdLog.e(e.getMessage());
+                        BdCloseHelper.close((InputStream) byteArrayInputStream2);
+                        if (this.a != null) {
+                        }
+                    } catch (Throwable th2) {
+                        th = th2;
+                        byteArrayInputStream2 = byteArrayInputStream;
+                        BdCloseHelper.close((InputStream) byteArrayInputStream2);
+                        throw th;
+                    }
+                    if (this.a != null) {
+                        return false;
+                    }
+                    return true;
+                }
+            }
+            return false;
         }
-        return invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.l7
-    public Object b(u8 u8Var) {
-        InterceptResult invokeL;
+    public int g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u8Var)) == null) {
-            return Integer.valueOf(this.a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return BdBaseApplication.getInst().getContext().getResources().getDisplayMetrics().densityDpi;
         }
-        return invokeL.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.l7
-    public Object c(u8 u8Var) {
-        InterceptResult invokeL;
+    public Rect h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, u8Var)) == null) {
-            return Integer.valueOf(this.a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
         }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.l7
-    public Object d(u8 u8Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, u8Var)) == null) {
-            return Integer.valueOf(this.a);
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.l7
-    public Object e(u8 u8Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, u8Var)) == null) {
-            return d(u8Var);
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.l7
-    public Object f(u8 u8Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, u8Var)) == null) {
-            return Integer.valueOf(this.a);
-        }
-        return invokeL.objValue;
+        return (Rect) invokeV.objValue;
     }
 }

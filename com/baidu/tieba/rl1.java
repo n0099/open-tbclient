@@ -1,44 +1,77 @@
 package com.baidu.tieba;
 
-import android.database.ContentObserver;
-import android.os.Handler;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class rl1 extends ContentObserver {
-    public static /* synthetic */ Interceptable $ic;
+/* loaded from: classes8.dex */
+public final class rl1 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "";
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
-    public tl1 a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rl1(tl1 tl1Var) {
-        super(null);
+    public static String a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tl1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Handler) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            try {
+            } catch (Throwable th) {
+                ql1.d(th);
             }
+            if (!TextUtils.isEmpty(a)) {
+                return a;
+            }
+            a = ak1.g(context).F();
+            return a;
         }
-        this.a = tl1Var;
+        return (String) invokeL.objValue;
     }
 
-    @Override // android.database.ContentObserver
-    public void onChange(boolean z) {
-        tl1 tl1Var;
+    public static String b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (tl1Var = this.a) != null) {
-            tl1Var.b = tl1Var.a.a(0, null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            try {
+                if (!TextUtils.isEmpty(b)) {
+                    return b;
+                }
+                String c = c(context);
+                b = c;
+                if (!TextUtils.isEmpty(c)) {
+                    return b;
+                }
+                String a2 = new dk1(context).a();
+                b = a2;
+                if (!TextUtils.isEmpty(a2)) {
+                    return b;
+                }
+                return "";
+            } catch (Throwable th) {
+                ql1.d(th);
+                return "";
+            }
         }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            try {
+                Class<?> cls = Class.forName("com.baidu.sofire.ac.F");
+                Object invoke = cls.getDeclaredMethod("getInstance", new Class[0]).invoke(cls, new Object[0]);
+                if (invoke == null) {
+                    return "";
+                }
+                return (String) cls.getDeclaredMethod("gzd", Context.class).invoke(invoke, context);
+            } catch (Throwable th) {
+                ql1.d(th);
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
     }
 }

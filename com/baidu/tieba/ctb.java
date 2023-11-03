@@ -1,4 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
-public interface ctb<TResult> {
+public interface ctb {
+    void a(dtb dtbVar);
 }

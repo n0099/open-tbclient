@@ -7,8 +7,8 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.k29;
-import com.baidu.tieba.lt7;
+import com.baidu.tieba.g68;
+import com.baidu.tieba.of9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -37,13 +37,13 @@ public class NpsPluginLoadingDialogActivity extends BaseActivity implements View
         }
     }
 
-    public final void M0() {
+    public final void J0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (this.e) {
-                lt7.i().l();
+                g68.i().l();
             } else {
-                k29.j().n();
+                of9.j().n();
             }
         }
     }
@@ -82,11 +82,11 @@ public class NpsPluginLoadingDialogActivity extends BaseActivity implements View
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onBackPressed();
-            M0();
+            J0();
         }
     }
 
-    public void N0(int i) {
+    public void L0(int i) {
         PluginRoundProgressBar pluginRoundProgressBar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (pluginRoundProgressBar = this.a) != null && pluginRoundProgressBar.getProgress() != i) {
@@ -97,9 +97,9 @@ public class NpsPluginLoadingDialogActivity extends BaseActivity implements View
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091655) {
+        if ((interceptable == null || interceptable.invokeL(1048582, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091695) {
             finish();
-            M0();
+            J0();
         }
     }
 
@@ -113,35 +113,35 @@ public class NpsPluginLoadingDialogActivity extends BaseActivity implements View
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             setActivityBgTransparent();
-            setContentView(R.layout.obfuscated_res_0x7f0d0a27);
+            setContentView(R.layout.obfuscated_res_0x7f0d0a40);
             Intent intent = getIntent();
             this.c = intent.getBooleanExtra("showHideView", false);
             intent.getLongExtra("dialogId", -1L);
             String stringExtra = intent.getStringExtra("tag");
             this.d = stringExtra;
             this.e = (stringExtra == null || !stringExtra.equals("gameAssistTag")) ? false : false;
-            PluginRoundProgressBar pluginRoundProgressBar = (PluginRoundProgressBar) findViewById(R.id.obfuscated_res_0x7f091da4);
+            PluginRoundProgressBar pluginRoundProgressBar = (PluginRoundProgressBar) findViewById(R.id.obfuscated_res_0x7f091deb);
             this.a = pluginRoundProgressBar;
             pluginRoundProgressBar.setMax(100);
             this.a.setRoundColor(0);
             this.a.setTextColor(-1);
             this.a.setRoundProgressColor(-1);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091655);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091695);
             this.b = textView;
             if (this.c) {
                 textView.setVisibility(8);
             }
             this.b.setOnClickListener(this);
             if (this.e) {
-                if (!lt7.i().k()) {
+                if (!g68.i().k()) {
                     finish();
                 } else {
-                    lt7.i().m(this);
+                    g68.i().m(this);
                 }
-            } else if (!k29.j().m()) {
+            } else if (!of9.j().m()) {
                 finish();
             } else {
-                k29.j().o(this);
+                of9.j().o(this);
             }
         }
     }

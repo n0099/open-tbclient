@@ -1,13 +1,9 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.chatmessage.messages.AudioMsg;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.coreExtra.messageCenter.NewsRemindMessage;
-import com.baidu.tbadk.data.JSONLikeSerializable;
-import com.baidu.tieba.immessagecenter.arch.utils.IMLog;
-import com.baidu.tieba.immessagecenter.msgtab.data.MsgTabForumData;
-import com.baidu.tieba.immessagecenter.msgtab.obs.ForumChannelDataObs;
-import com.baidu.tieba.immessagecenter.msgtab.obs.NewsRemindMsgMonitor;
-import com.baidu.tieba.log.TbLog;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.im.lib.socket.msg.TbVoiceMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,30 +11,66 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import org.json.JSONArray;
+import java.util.Map;
+import kotlin.Triple;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
-public final class yr8 {
+public final class yr8 extends rr8<TbVoiceMsg, AudioMsg> {
     public static /* synthetic */ Interceptable $ic;
+    public static final a f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948339882, "Lcom/baidu/tieba/yr8;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948339882, "Lcom/baidu/tieba/yr8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948339882, "Lcom/baidu/tieba/yr8;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+        f = new a(null);
+    }
+
+    public /* synthetic */ yr8(DefaultConstructorMarker defaultConstructorMarker) {
+        this();
+    }
+
+    /* loaded from: classes9.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948339882, "Lcom/baidu/tieba/yr8;");
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public final Triple<Class<TbVoiceMsg>, Class<AudioMsg>, yr8> a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new Triple<>(TbVoiceMsg.class, AudioMsg.class, new yr8(null));
+            }
+            return (Triple) invokeV.objValue;
         }
     }
 
@@ -52,81 +84,41 @@ public final class yr8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        j(3, TbVoiceMsg.class);
     }
 
-    public final HashMap<String, Serializable> a(List<tq8> list) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rr8
+    /* renamed from: n */
+    public AudioMsg g(TbVoiceMsg tbMsg) {
         InterceptResult invokeL;
-        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-            TbLog iMLog = IMLog.getInstance();
-            StringBuilder sb = new StringBuilder();
-            sb.append("NavigationData Size = ");
-            if (list != null) {
-                i = list.size();
-            } else {
-                i = 0;
-            }
-            sb.append(i);
-            iMLog.i("im", sb.toString());
-            List<MsgTabForumData> b = b(list);
-            TbLog iMLog2 = IMLog.getInstance();
-            iMLog2.i("im", "ForumListData Size = " + b.size());
-            HashMap<String, Serializable> hashMap = new HashMap<>();
-            ArrayList arrayList = new ArrayList();
-            for (MsgTabForumData msgTabForumData : b) {
-                LinkedHashMap linkedHashMap = new LinkedHashMap();
-                linkedHashMap.put("forum_id", String.valueOf(msgTabForumData.getForumId()));
-                linkedHashMap.put("forum_name", msgTabForumData.getForumName());
-                linkedHashMap.put("avatar", msgTabForumData.getIcon());
-                String hotNumsText = msgTabForumData.getHotNumsText();
-                if (hotNumsText == null) {
-                    hotNumsText = "";
-                }
-                linkedHashMap.put("hot_num_value", hotNumsText);
-                arrayList.add(linkedHashMap);
-            }
-            JSONLikeSerializable jSONLikeSerializable = new JSONLikeSerializable();
-            jSONLikeSerializable.parseJsonArray(new JSONArray((Collection) arrayList));
-            hashMap.put("often_forum_list", jSONLikeSerializable);
-            hashMap.put("checkLength", Integer.valueOf(b.size()));
-            TbLog iMLog3 = IMLog.getInstance();
-            iMLog3.i("im", "OftenForumListString = " + jSONLikeSerializable.getJsonString());
-            return hashMap;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbMsg)) == null) {
+            Intrinsics.checkNotNullParameter(tbMsg, "tbMsg");
+            AudioMsg audioMsg = new AudioMsg();
+            audioMsg.setContent(tbMsg.getVoiceUrl(), 2, tbMsg.getIntDuring());
+            return audioMsg;
         }
-        return (HashMap) invokeL.objValue;
+        return (AudioMsg) invokeL.objValue;
     }
 
-    public final List<MsgTabForumData> b(List<tq8> list) {
-        InterceptResult invokeL;
-        MsgTabForumData d;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rr8
+    /* renamed from: o */
+    public TbVoiceMsg h(int i, AudioMsg sdkMsg, Map<String, ? extends Object> sdkMsgMap) {
+        InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (list != null) {
-                for (tq8 tq8Var : list) {
-                    if (tq8Var.b() == 3 && (d = ForumChannelDataObs.b.a().d(tq8Var.a())) != null) {
-                        arrayList.add(d);
-                    }
-                }
-            }
-            return arrayList;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, sdkMsg, sdkMsgMap)) == null) {
+            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
+            Intrinsics.checkNotNullParameter(sdkMsgMap, "sdkMsgMap");
+            TbVoiceMsg tbVoiceMsg = (TbVoiceMsg) DataExt.toEntity(sdkMsgMap, TbVoiceMsg.class);
+            tbVoiceMsg.setVoiceUrl(sdkMsg.getRemoteUrl());
+            tbVoiceMsg.setDuring(String.valueOf(sdkMsg.getDuration()));
+            return tbVoiceMsg;
         }
-        return (List) invokeL.objValue;
-    }
-
-    public final long c(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
-            NewsRemindMessage m = NewsRemindMsgMonitor.f.a().m();
-            if (m.getNotificationCount() + m.getMsgCount() > 0) {
-                return -1L;
-            }
-            return j;
-        }
-        return invokeJ.longValue;
+        return (TbVoiceMsg) invokeILL.objValue;
     }
 }

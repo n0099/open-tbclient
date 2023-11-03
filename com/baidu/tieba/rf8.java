@@ -1,53 +1,80 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.BIMManager;
-import com.baidu.tbadk.data.AtSelectData;
-import com.baidu.tieba.im.lib.socket.msg.data.BotsDTO;
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-/* loaded from: classes7.dex */
-public class rf8 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
+public class rf8 extends ns<bw4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ph8 f;
+    public int g;
 
-    public static void a(@NonNull Map<String, Object> map, @NonNull BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO) {
-        BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext ext;
-        List<AtSelectData> atUserInfos;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rf8(Context context, TbPageContext<?> tbPageContext) {
+        super(context);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, map, itemsDTO) == null) {
-            Map map2 = (Map) map.get("opts");
-            if (map2 == null) {
-                map2 = new HashMap();
-                map.put("opts", map2);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO> opts = itemsDTO.getOpts();
-            if (opts != null && !opts.isEmpty()) {
-                String str = null;
-                if (itemsDTO.isNormalType()) {
-                    str = opts.get(0).getName();
-                } else if (itemsDTO.isFileType()) {
-                    BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext ext2 = opts.get(0).getExt();
-                    if (ext2 != null) {
-                        str = ext2.getPicPath();
-                    }
-                } else if (itemsDTO.isAtType() && (ext = opts.get(0).getExt()) != null && (atUserInfos = ext.getAtUserInfos()) != null && !atUserInfos.isEmpty()) {
-                    StringBuilder sb = new StringBuilder();
-                    for (int i = 0; i < atUserInfos.size(); i++) {
-                        sb.append(BIMManager.getBdUKFromBdUid(atUserInfos.get(i).getUid()));
-                        if (i < atUserInfos.size() - 1) {
-                            sb.append(",");
-                        }
-                    }
-                    str = sb.toString();
-                }
-                if (str != null && !str.isEmpty()) {
-                    map2.put(itemsDTO.getValue(), str);
-                }
+        }
+        this.g = 3;
+        this.f = new ph8(tbPageContext);
+    }
+
+    @Override // com.baidu.tieba.ns
+    public View g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f.p();
+        }
+        return (View) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ht
+    /* renamed from: r */
+    public void onBindDataToView(bw4 bw4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, bw4Var) == null) && (bw4Var instanceof mh8)) {
+            this.f.k((mh8) bw4Var);
+        }
+    }
+
+    public void s(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
+            this.f.n(bdUniqueId);
+        }
+    }
+
+    @Override // com.baidu.tieba.it
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            if (this.g != i) {
+                this.f.l(tbPageContext, i);
+                p(g(), 3);
             }
+            this.g = i;
         }
     }
 }

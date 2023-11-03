@@ -61,10 +61,10 @@ public final class SubstitutingScope implements MemberScope {
 
     @Override // kotlin.reflect.jvm.internal.impl.resolve.scopes.ResolutionScope
     /* renamed from: getContributedClassifier */
-    public ClassifierDescriptor mo2108getContributedClassifier(Name name, LookupLocation lookupLocation) {
-        ClassifierDescriptor mo2108getContributedClassifier = this.workerScope.mo2108getContributedClassifier(name, lookupLocation);
-        if (mo2108getContributedClassifier != null) {
-            return (ClassifierDescriptor) substitute((SubstitutingScope) mo2108getContributedClassifier);
+    public ClassifierDescriptor mo2112getContributedClassifier(Name name, LookupLocation lookupLocation) {
+        ClassifierDescriptor mo2112getContributedClassifier = this.workerScope.mo2112getContributedClassifier(name, lookupLocation);
+        if (mo2112getContributedClassifier != null) {
+            return (ClassifierDescriptor) substitute((SubstitutingScope) mo2112getContributedClassifier);
         }
         return null;
     }

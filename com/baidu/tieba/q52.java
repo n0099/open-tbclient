@@ -1,33 +1,82 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.searchbox.download.center.clearcache.UserSettingForceListListener;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebChromeClient;
+import java.util.Locale;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class q52 {
+public class q52 extends m52 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String G0;
+    public JSONObject H0;
+    public boolean I0;
+
+    @Override // com.baidu.tieba.m52
+    public boolean i2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.m52, com.baidu.searchbox.widget.SlideInterceptor
+    public boolean isSlidable(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, motionEvent)) == null) {
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.m52
+    public boolean k2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.m52
+    public void q2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        }
+    }
 
     /* loaded from: classes7.dex */
-    public static class a implements SwanAppNetworkUtils.b {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
+        public final /* synthetic */ JSONObject a;
+        public final /* synthetic */ q52 b;
 
-        public a(String str) {
+        public a(q52 q52Var, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str};
+                Object[] objArr = {q52Var, jSONObject};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -37,88 +86,158 @@ public class q52 {
                     return;
                 }
             }
-            this.a = str;
+            this.b = q52Var;
+            this.a = jSONObject;
         }
 
-        @Override // com.baidu.swan.apps.network.SwanAppNetworkUtils.b
-        public void onResult(int i) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                q52.b(this.a, i);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                tr2.V().v(new s13(this.b.G0, this.a.toString(), this.b.H0.optString("slaveId")).a());
+                this.b.I0 = false;
             }
         }
     }
 
-    public static void a(String str) {
+    public q52() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
-            SwanAppNetworkUtils.b(new a(str));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.I0 = true;
+    }
+
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void C0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.C0();
+            f63.K().q().f0().v();
         }
     }
 
-    public static void b(String str, int i) {
-        String str2;
+    @Override // com.baidu.tieba.m52, com.baidu.swan.support.v4.app.Fragment
+    public void F0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65537, null, str, i) == null) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        str2 = "unknown";
-                    } else {
-                        str2 = "offline";
-                    }
-                } else {
-                    str2 = "bad";
-                }
-            } else {
-                str2 = FrsActivityConfig.GOOD;
-            }
-            c(str, str2);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.c0 = null;
+            super.F0();
         }
     }
 
-    public static void c(String str, String str2) {
+    @Override // com.baidu.tieba.m52, com.baidu.swan.support.v4.app.Fragment
+    public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-            d(str, str2, null);
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            super.onResume();
+            O2(1);
         }
     }
 
-    public static void d(String str, String str2, @Nullable String str3) {
+    @Override // com.baidu.tieba.m52
+    public void a2(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, str3) == null) {
-            e(str, str2, str3, 0, 0, 0, 0L);
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            b2(view2);
+            A2(-1);
+            J2(-16777216);
+            C2(X(R.string.obfuscated_res_0x7f0f1512));
+            E2(true);
+            Q2(false);
         }
     }
 
-    public static void e(String str, String str2, @Nullable String str3, int i, int i2, int i3, long j) {
-        Object obj;
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void y0(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j)}) == null) {
-            rc3 rc3Var = new rc3();
-            rc3Var.a = "swan";
-            rc3Var.b = str;
-            rc3Var.a("appid", o53.K().getAppId());
-            rc3Var.a(DpStatConstants.KEY_NETWORK_STATUS, str2);
-            if (!TextUtils.isEmpty(str3)) {
-                rc3Var.a("request", str3);
-                rc3Var.a("request_total", String.valueOf(i));
-                rc3Var.a("request_fail", String.valueOf(i2));
-                rc3Var.a("request_slow", String.valueOf(i3));
-                rc3Var.a("error_duration", String.valueOf(j));
+        if (interceptable == null || interceptable.invokeL(1048587, this, bundle) == null) {
+            super.y0(bundle);
+            Bundle r = r();
+            if (r == null) {
+                return;
             }
-            String str4 = "1";
-            if (u52.d().c()) {
-                obj = "1";
-            } else {
-                obj = "0";
+            this.G0 = r.getString("plugin_fun_page_path");
+            this.H0 = gj3.d(r.getString("plugin_pay_params"));
+        }
+    }
+
+    public static q52 f3(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            q52 q52Var = new q52();
+            if (!TextUtils.isEmpty(str2)) {
+                Bundle bundle = new Bundle();
+                bundle.putString("plugin_fun_page_path", str);
+                bundle.putString("plugin_pay_params", str2);
+                q52Var.m1(bundle);
             }
-            rc3Var.a("jserror", obj);
-            if (!p52.b()) {
-                str4 = "0";
+            return q52Var;
+        }
+        return (q52) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public View B0(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, layoutInflater, viewGroup, bundle)) == null) {
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0939, viewGroup, false);
+            a2(inflate);
+            e3(inflate);
+            if (Z1()) {
+                inflate = c2(inflate);
             }
-            rc3Var.a(UserSettingForceListListener.FORCE_LIST_ITEM_SHOW_KEY, str4);
-            ic3.x("1619", rc3Var);
+            return J1(inflate, this);
+        }
+        return (View) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.m52
+    public boolean H() {
+        InterceptResult invokeV;
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.I0 && (jSONObject = this.H0) != null) {
+                r13 r13Var = new r13(jSONObject.optString("componentId"));
+                r13Var.a = this.H0.optString("slaveId");
+                r13Var.b();
+                return false;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void e3(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && view2 != null && this.H0 != null) {
+            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09107c);
+            g63 c0 = g63.c0();
+            if (c0 != null) {
+                textView.setText(c0.Z().L());
+            }
+            JSONObject optJSONObject = this.H0.optJSONObject(WebChromeClient.KEY_ARG_ARRAY);
+            if (optJSONObject == null) {
+                return;
+            }
+            ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f09107d)).setText(String.format(Locale.CHINA, "%.2f", Double.valueOf((optJSONObject.optLong("fee") * 1.0d) / 100.0d)));
+            TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09107f);
+            hf4 g = e23.g(this.H0.optString("pluginProvider"));
+            if (g != null) {
+                textView2.setText(g.s);
+            }
+            ((Button) view2.findViewById(R.id.obfuscated_res_0x7f09107e)).setOnClickListener(new a(this, optJSONObject));
         }
     }
 }

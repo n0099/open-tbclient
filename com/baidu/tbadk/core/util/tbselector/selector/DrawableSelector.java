@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.tbselector.interfaces.ISelector;
 import com.baidu.tbadk.core.util.tbselector.utils.SelectorHelper;
-import com.baidu.tieba.vca;
+import com.baidu.tieba.aqa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -373,7 +373,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
             this.gradientColors = r1;
             int[] iArr = {0, SelectorHelper.getColor(i)};
             int[] iArr2 = this.gradientColors;
-            iArr2[0] = vca.c(iArr2[1]);
+            iArr2[0] = aqa.c(iArr2[1]);
             this.gradientType = 0;
             this.gradientOrientation = TOP_BOTTOM;
             return this;

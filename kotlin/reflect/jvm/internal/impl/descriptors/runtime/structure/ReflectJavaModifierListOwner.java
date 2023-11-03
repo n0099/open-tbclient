@@ -6,11 +6,11 @@ import kotlin.reflect.jvm.internal.impl.descriptors.Visibilities;
 import kotlin.reflect.jvm.internal.impl.descriptors.Visibility;
 import kotlin.reflect.jvm.internal.impl.load.java.JavaVisibilities;
 import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaModifierListOwner;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface ReflectJavaModifierListOwner extends JavaModifierListOwner {
     int getModifiers();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class DefaultImpls {
         public static Visibility getVisibility(ReflectJavaModifierListOwner reflectJavaModifierListOwner) {
             Visibility visibility;

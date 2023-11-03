@@ -6,66 +6,94 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class f77 implements s67 {
+public final class f77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<Runnable> a;
-    public boolean b;
+    public final String a;
+    public final String b;
+    public final Map<String, String> c;
 
-    public f77() {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof f77) {
+                f77 f77Var = (f77) obj;
+                return Intrinsics.areEqual(this.a, f77Var.a) && Intrinsics.areEqual(this.b, f77Var.b) && Intrinsics.areEqual(this.c, f77Var.c);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c.hashCode() : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "PicDecorationData(decorationName=" + this.a + ", decorationLocation=" + this.b + ", decorationInfo=" + this.c + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public f77(String decorationName, String decorationLocation, Map<String, String> decorationInfo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {decorationName, decorationLocation, decorationInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(decorationName, "decorationName");
+        Intrinsics.checkNotNullParameter(decorationLocation, "decorationLocation");
+        Intrinsics.checkNotNullParameter(decorationInfo, "decorationInfo");
+        this.a = decorationName;
+        this.b = decorationLocation;
+        this.c = decorationInfo;
     }
 
-    public final boolean b() {
+    public final Map<String, String> a() {
         InterceptResult invokeV;
-        Runnable runnable;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public final String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            WeakReference<Runnable> weakReference = this.a;
-            if (weakReference != null) {
-                runnable = weakReference.get();
-            } else {
-                runnable = null;
-            }
-            if (runnable != null) {
-                runnable.run();
-            }
-            if (runnable != null) {
-                return true;
-            }
-            return false;
+            return this.b;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.s67
-    public final void a(Runnable runnable) {
+    public final String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            Intrinsics.checkNotNullParameter(runnable, "runnable");
-            this.b = true;
-            this.a = new WeakReference<>(runnable);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
-    }
-
-    public final void c(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) {
-            Intrinsics.checkNotNullParameter(runnable, "runnable");
-            this.a = new WeakReference<>(runnable);
-        }
+        return (String) invokeV.objValue;
     }
 }

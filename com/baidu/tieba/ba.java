@@ -1,16 +1,19 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
+import com.baidu.tieba.ca;
 /* loaded from: classes5.dex */
-public interface ba {
-    int a();
+public interface ba<T> {
+    T a(String str, String str2);
 
-    int b();
+    void b(String str);
 
-    View c(LayoutInflater layoutInflater);
+    v9 c();
 
-    int getXOffset();
+    void d(String str, String str2);
 
-    int getYOffset();
+    ca.b<T> e(String str, String str2);
+
+    void f(String str, String str2, T t, long j);
+
+    void g(String str);
 }

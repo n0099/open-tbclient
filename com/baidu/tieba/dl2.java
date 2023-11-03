@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import android.view.Surface;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,16 +10,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes5.dex */
-public class dl2 extends jj2<am2> {
+public class dl2 extends ak2<qm2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.jj2
+    @Override // com.baidu.tieba.ak2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "onPageBack" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setSurface" : (String) invokeV.objValue;
     }
 
     public dl2() {
@@ -36,13 +37,17 @@ public class dl2 extends jj2<am2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jj2
+    @Override // com.baidu.tieba.ak2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull am2 am2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull qm2 qm2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, am2Var) == null) {
-            d(am2Var, command.what, null, true);
-            am2Var.R();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, qm2Var) == null) {
+            String str = command.what;
+            d(qm2Var, str, "" + command.obj, true);
+            Object obj = command.obj;
+            if (obj instanceof Surface) {
+                qm2Var.setSurface((Surface) obj);
+            }
         }
     }
 }

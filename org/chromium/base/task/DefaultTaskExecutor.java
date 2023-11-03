@@ -23,7 +23,7 @@ public class DefaultTaskExecutor implements TaskExecutor {
     }
 
     private synchronized ChoreographerTaskRunner createChoreographerTaskRunner() {
-        return (ChoreographerTaskRunner) ThreadUtils.runOnUiThreadBlockingNoException(new Callable() { // from class: com.baidu.tieba.u4c
+        return (ChoreographerTaskRunner) ThreadUtils.runOnUiThreadBlockingNoException(new Callable() { // from class: com.baidu.tieba.vhc
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

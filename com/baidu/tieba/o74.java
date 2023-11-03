@@ -5,37 +5,24 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmField;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class o74 {
+public class o74 extends p04 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @V8JavascriptField
-    @JvmField
-    public final byte[] message;
-    @V8JavascriptField
-    @JvmField
-    public final Object remoteInfo;
+    public Object data;
 
-    public o74(byte[] message, Object remoteInfo) {
+    public o74() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {message, remoteInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        Intrinsics.checkNotNullParameter(message, "message");
-        Intrinsics.checkNotNullParameter(remoteInfo, "remoteInfo");
-        this.message = message;
-        this.remoteInfo = remoteInfo;
     }
 }

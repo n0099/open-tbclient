@@ -1,212 +1,85 @@
 package com.baidu.tieba;
 
-import android.content.pm.PackageInfo;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
+import android.graphics.Canvas;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.mvc.message.MvcHttpMessage;
-import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
-import com.baidu.tbadk.mvc.message.MvcNetMessage;
-import com.baidu.tbadk.mvc.message.MvcSocketMessage;
-import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
-import com.baidu.tbadk.mvc.model.NetModel;
-import com.baidu.tieba.downloadmanager.net.DownloadManagerHttpResponseMessage;
-import com.baidu.tieba.downloadmanager.net.DownloadManagerNetModel;
-import com.baidu.tieba.downloadmanager.net.DownloadManagerSocketResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
+import java.util.Map;
+import kotlin.Pair;
+import kotlin.collections.MapsKt__MapsKt;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class nt6 extends jt6 implements NetModel.k {
+public class nt6 implements lt6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final DownloadManagerNetModel b;
-    public pt6 c;
-    public qt6 d;
-    public List<String> e;
-    public mt6 f;
-    public final List<ht6> g;
-    public int h;
+    public final lt6 a;
+    public final Map<Integer, lt6> b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nt6(TbPageContext tbPageContext, BdUniqueId bdUniqueId, int i) {
-        super(tbPageContext, bdUniqueId, i);
+    public nt6(lt6 defaultRenderer, Pair<Integer, ? extends lt6>... renderers) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, Integer.valueOf(i)};
+            Object[] objArr = {defaultRenderer, renderers};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], ((Integer) objArr2[2]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = new qt6();
-        this.e = new ArrayList();
-        this.g = new ArrayList();
-        this.h = 0;
-        pt6 pt6Var = new pt6(1, i);
-        this.c = pt6Var;
-        DownloadManagerNetModel downloadManagerNetModel = new DownloadManagerNetModel(tbPageContext, pt6Var);
-        this.b = downloadManagerNetModel;
-        downloadManagerNetModel.p0(this);
-        this.b.setUniqueId(bdUniqueId);
+        Intrinsics.checkNotNullParameter(defaultRenderer, "defaultRenderer");
+        Intrinsics.checkNotNullParameter(renderers, "renderers");
+        this.a = defaultRenderer;
+        this.b = MapsKt__MapsKt.mutableMapOf((Pair[]) Arrays.copyOf(renderers, renderers.length));
     }
 
-    @Override // com.baidu.tbadk.mvc.model.NetModel.l
-    public void H(MvcHttpResponsedMessage mvcHttpResponsedMessage, MvcHttpMessage mvcHttpMessage, MvcNetMessage mvcNetMessage) {
+    @Override // com.baidu.tieba.lt6
+    public xt6 a(pr6 item, pt6 displayer, jr6 config) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048576, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) != null) || mvcHttpResponsedMessage == null) {
-            return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, displayer, config)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(displayer, "displayer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            lt6 lt6Var = this.b.get(Integer.valueOf(c(item)));
+            if (lt6Var == null) {
+                lt6Var = this.a;
+            }
+            return lt6Var.a(item, displayer, config);
         }
-        qt6 qt6Var = null;
-        if (!mvcHttpResponsedMessage.hasError() && (mvcHttpResponsedMessage instanceof DownloadManagerHttpResponseMessage)) {
-            qt6Var = (qt6) ((DownloadManagerHttpResponseMessage) mvcHttpResponsedMessage).getData();
-        }
-        if (qt6Var != null && i(qt6Var)) {
-            return;
-        }
-        f(mvcHttpResponsedMessage.getError(), mvcHttpResponsedMessage.getErrorString());
+        return (xt6) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tbadk.mvc.model.NetModel.m
-    public void v(MvcSocketResponsedMessage mvcSocketResponsedMessage, MvcSocketMessage mvcSocketMessage, MvcNetMessage mvcNetMessage) {
+    @Override // com.baidu.tieba.lt6
+    public void b(pr6 item, Canvas canvas, pt6 displayer, jr6 config) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048585, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) != null) || mvcSocketResponsedMessage == null) {
-            return;
-        }
-        qt6 qt6Var = null;
-        if (!mvcSocketResponsedMessage.hasError() && (mvcSocketResponsedMessage instanceof DownloadManagerSocketResponseMessage)) {
-            qt6Var = ((DownloadManagerSocketResponseMessage) mvcSocketResponsedMessage).getData();
-        }
-        if (qt6Var != null && i(qt6Var)) {
-            return;
-        }
-        f(mvcSocketResponsedMessage.getError(), mvcSocketResponsedMessage.getErrorString());
-    }
-
-    @Override // com.baidu.tieba.jt6
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            e();
-            this.c.c();
-            this.b.loadData();
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item, canvas, displayer, config) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(canvas, "canvas");
+            Intrinsics.checkNotNullParameter(displayer, "displayer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            lt6 lt6Var = this.b.get(Integer.valueOf(c(item)));
+            if (lt6Var == null) {
+                lt6Var = this.a;
+            }
+            lt6Var.b(item, canvas, displayer, config);
         }
     }
 
-    @Override // com.baidu.tieba.jt6
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            e();
-            this.d.a.clear();
-            this.e.clear();
-            this.c.b();
-            this.b.loadData();
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.g.clear();
-            this.h = 0;
-        }
-    }
-
-    @Override // com.baidu.tieba.jt6
-    public void d(mt6 mt6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, mt6Var) == null) {
-            this.f = mt6Var;
-        }
-    }
-
-    public final boolean i(qt6 qt6Var) {
+    public int c(pr6 item) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, qt6Var)) == null) {
-            if (qt6Var == null) {
-                return false;
-            }
-            qt6 qt6Var2 = this.d;
-            qt6Var2.c = qt6Var.c;
-            qt6Var2.b = qt6Var.b;
-            g(qt6Var.a);
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, item)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            return item.e().g();
         }
-        return invokeL.booleanValue;
-    }
-
-    public final void f(int i, String str) {
-        mt6 mt6Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) && i != 0 && (mt6Var = this.f) != null) {
-            mt6Var.b(i, str);
-        }
-    }
-
-    public void g(List<ht6> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
-            for (ht6 ht6Var : list) {
-                PackageInfo a = jq7.a(ht6Var.a.pkgName);
-                if (a != null) {
-                    ht6Var.f = true;
-                    if (a.versionCode < ht6Var.a.apkDetail.version_code.intValue()) {
-                        List<ht6> list2 = this.g;
-                        int i = this.h;
-                        this.h = i + 1;
-                        list2.add(i, ht6Var);
-                    } else {
-                        this.g.add(ht6Var);
-                    }
-                    this.e.add(ht6Var.a.pkgName);
-                }
-            }
-            if (ListUtils.getCount(this.g) < 15 && this.d.c.intValue() != 0) {
-                this.c.c();
-                this.b.loadData();
-                return;
-            }
-            this.d.a.addAll(this.g);
-            if (this.f != null) {
-                if (ListUtils.getCount(this.d.a) <= 4) {
-                    this.f.a(this.d.a, h(), this.d.c.intValue());
-                    return;
-                }
-                mt6 mt6Var = this.f;
-                qt6 qt6Var = this.d;
-                mt6Var.a(qt6Var.a, null, qt6Var.c.intValue());
-            }
-        }
-    }
-
-    public List<ht6> h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (ht6 ht6Var : this.d.b) {
-                if (!this.e.contains(ht6Var.a.pkgName)) {
-                    arrayList.add(ht6Var);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
+        return invokeL.intValue;
     }
 }

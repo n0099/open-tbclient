@@ -6,17 +6,37 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.ETAG;
-import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class ki4 extends yg4 {
+/* loaded from: classes7.dex */
+public class ki4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ki4 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
+
+    /* loaded from: classes7.dex */
+    public static class a extends pm4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a() {
+            super("swan_preload_package");
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
 
     public ki4() {
         Interceptable interceptable = $ic;
@@ -28,75 +48,50 @@ public class ki4 extends yg4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new a();
     }
 
-    @Override // com.baidu.tieba.yg4
-    public JSONArray c() {
+    public static ki4 a() {
         InterceptResult invokeV;
-        List<qe4> w;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (ki4.class) {
+                    if (b == null) {
+                        b = new ki4();
+                    }
+                }
+            }
+            return b;
+        }
+        return (ki4) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", "bbasp_core");
-                jSONObject.put(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, ad4.b().J(0));
-                jSONObject.put("version_code", ad4.b().w(0));
-                jSONArray.put(jSONObject);
-            } catch (JSONException unused) {
-            }
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("type", "bbasp_game");
-                jSONObject2.put(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, ad4.b().J(1));
-                jSONObject2.put("version_code", ad4.b().w(1));
-                jSONArray.put(jSONObject2);
-            } catch (JSONException unused2) {
-            }
-            JSONObject jSONObject3 = new JSONObject();
-            try {
-                jSONObject3.put("type", ETAG.KEY_EXTENSION);
-                jSONObject3.put(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, ad4.b().v(0));
-                jSONObject3.put("version_code", ad4.b().j(0));
-                jSONArray.put(jSONObject3);
-            } catch (JSONException unused3) {
-            }
-            JSONObject jSONObject4 = new JSONObject();
-            try {
-                jSONObject4.put("type", "extension_game");
-                jSONObject4.put(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, ad4.b().v(1));
-                jSONObject4.put("version_code", ad4.b().j(1));
-                jSONArray.put(jSONObject4);
-            } catch (JSONException unused4) {
-            }
-            try {
-                w = md4.i().w(f(10));
-            } catch (JSONException unused5) {
-            }
-            if (w == null) {
-                return jSONArray;
-            }
-            for (qe4 qe4Var : w) {
-                JSONObject jSONObject5 = new JSONObject();
-                jSONObject5.put("type", "ddl");
-                jSONObject5.put("bundle_id", qe4Var.g);
-                jSONObject5.put("version_code", qe4Var.i);
-                jSONObject5.put(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, qe4Var.j);
-                jSONArray.put(jSONObject5);
-            }
-            return jSONArray;
+            return this.a.getString("version", "0");
         }
-        return (JSONArray) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final String f(int i) {
-        InterceptResult invokeI;
+    public void c(ji4 ji4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            return "SELECT * from (SELECT * from (SELECT * from swan_plugin ORDER BY update_time) group by bundle_id) order by update_time DESC limit 0," + i + ParamableElem.DIVIDE_PARAM;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ji4Var) == null) && ji4Var != null) {
+            this.a.edit().putString("version", ji4Var.c()).apply();
         }
-        return (String) invokeI.objValue;
+    }
+
+    public void d(JSONObject jSONObject) {
+        ji4 a2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null || (a2 = ji4.a(jSONObject)) == null) {
+            return;
+        }
+        rd4.b().H(a2);
     }
 }

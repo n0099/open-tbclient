@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.HashMap;
 /* loaded from: classes9.dex */
-public abstract class zyb {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface zyb {
+    String a();
+
+    void a(String str);
+
+    void a(String str, HashMap<String, Object> hashMap);
 }

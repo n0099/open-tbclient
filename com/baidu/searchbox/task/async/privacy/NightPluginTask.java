@@ -40,7 +40,7 @@ public class NightPluginTask extends LaunchTask {
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public int getProcess() {
-        return 1;
+        return 17;
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask

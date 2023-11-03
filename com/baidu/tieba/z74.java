@@ -1,40 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
 /* loaded from: classes9.dex */
-public class z74 implements um1 {
+public class z74 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public z74() {
+    public static void a(od2 od2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if ((interceptable == null || interceptable.invokeL(65536, null, od2Var) == null) && od2Var != null && od2Var.m().hasEventListener("audiointerruptionbegin") && j04.h().i()) {
+            od2Var.dispatchEvent(new JSEvent("audiointerruptionbegin"));
         }
     }
 
-    @Override // com.baidu.tieba.um1
-    public Class<? extends v42> a() {
-        InterceptResult invokeV;
+    public static void b(od2 od2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return m14.class;
+        if ((interceptable == null || interceptable.invokeL(65537, null, od2Var) == null) && od2Var != null && od2Var.m().hasEventListener("audiointerruptionend")) {
+            od2Var.dispatchEvent(new JSEvent("audiointerruptionend"));
         }
-        return (Class) invokeV.objValue;
     }
 }

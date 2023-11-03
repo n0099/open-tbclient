@@ -1,184 +1,31 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.app.NotificationCompat;
+import android.opengl.GLES20;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.net.request.Headers;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.searchbox.download.util.MigrateStatisticUtils;
+import com.baidu.minivideo.effect.core.Rotation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONObject;
-@Service
+import com.faceunity.gles.GeneratedTexture;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.nio.FloatBuffer;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class dc0 extends zd0 {
+public class dc0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.zd0
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? NotificationCompat.CATEGORY_CALL : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends jo0<Map<String, String>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q61 a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ Context c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ he0 e;
-        public final /* synthetic */ de0 f;
-        public final /* synthetic */ HashMap g;
-        public final /* synthetic */ String h;
-        public final /* synthetic */ dc0 i;
-
-        public a(dc0 dc0Var, q61 q61Var, String str, Context context, String str2, he0 he0Var, de0 de0Var, HashMap hashMap, String str3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dc0Var, q61Var, str, context, str2, he0Var, de0Var, hashMap, str3};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.i = dc0Var;
-            this.a = q61Var;
-            this.b = str;
-            this.c = context;
-            this.d = str2;
-            this.e = he0Var;
-            this.f = de0Var;
-            this.g = hashMap;
-            this.h = str3;
-        }
-
-        @Override // com.baidu.tieba.ho0
-        public void a(Exception exc, int i) {
-            int i2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) {
-                this.a.dismiss();
-                this.i.n("4", this.b);
-                boolean l = this.i.l(this.c, this.d, this.b);
-                dc0 dc0Var = this.i;
-                he0 he0Var = this.e;
-                de0 de0Var = this.f;
-                if (l) {
-                    i2 = 0;
-                } else {
-                    i2 = 1001;
-                }
-                dc0Var.c(he0Var, de0Var, i2, l);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.io0
-        @Nullable
-        /* renamed from: f */
-        public Map<String, String> d(Headers headers, String str, int i) {
-            InterceptResult invokeLLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, headers, str, i)) == null) {
-                return dc0.m(str);
-            }
-            return (Map) invokeLLI.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.io0
-        /* renamed from: e */
-        public void b(Headers headers, @Nullable Map<String, String> map, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048579, this, headers, map, i) == null) {
-                this.a.dismiss();
-                int i2 = 0;
-                if (map == null) {
-                    this.i.n("8", this.b);
-                    boolean l = this.i.l(this.c, this.d, this.b);
-                    dc0 dc0Var = this.i;
-                    he0 he0Var = this.e;
-                    de0 de0Var = this.f;
-                    if (!l) {
-                        i2 = 1001;
-                    }
-                    dc0Var.c(he0Var, de0Var, i2, l);
-                    return;
-                }
-                String str = (String) vx0.b(map, "virtualPhone");
-                if (TextUtils.isEmpty(str)) {
-                    this.i.n("5", this.b);
-                    boolean l2 = this.i.l(this.c, this.d, this.b);
-                    dc0 dc0Var2 = this.i;
-                    he0 he0Var2 = this.e;
-                    de0 de0Var2 = this.f;
-                    if (!l2) {
-                        i2 = 1001;
-                    }
-                    dc0Var2.c(he0Var2, de0Var2, i2, l2);
-                    return;
-                }
-                String str2 = (String) vx0.b(map, "solutionId");
-                if (TextUtils.isEmpty(str2)) {
-                    this.i.n("6", this.b);
-                    boolean l3 = this.i.l(this.c, this.d, this.b);
-                    dc0 dc0Var3 = this.i;
-                    he0 he0Var3 = this.e;
-                    de0 de0Var3 = this.f;
-                    if (!l3) {
-                        i2 = 1001;
-                    }
-                    dc0Var3.c(he0Var3, de0Var3, i2, l3);
-                    return;
-                }
-                String str3 = (String) vx0.b(this.g, "log_url");
-                if (str3 == null) {
-                    str3 = "";
-                }
-                if (TextUtils.isEmpty(str3)) {
-                    this.i.n("3", this.b);
-                } else {
-                    this.i.n("7", this.b);
-                    String replaceAll = str3.replaceAll("\\__TIMESTAMP__", this.h).replaceAll("\\__VIRTUALPHONE__", str).replaceAll("\\__SOLUTIONID__", str2);
-                    qo0 qo0Var = new qo0();
-                    qo0Var.l(replaceAll);
-                    qo0Var.g(3000);
-                    qo0Var.c();
-                    xn0.b().a().a(qo0Var, null);
-                }
-                boolean l4 = this.i.l(this.c, str, this.b);
-                dc0 dc0Var4 = this.i;
-                he0 he0Var4 = this.e;
-                de0 de0Var4 = this.f;
-                if (!l4) {
-                    i2 = 1001;
-                }
-                dc0Var4.c(he0Var4, de0Var4, i2, l4);
-            }
-        }
-    }
+    public int[] a;
+    public int[] b;
+    public final FloatBuffer c;
+    public final FloatBuffer d;
+    public final FloatBuffer e;
+    public int f;
+    public int g;
+    public int h;
+    public float[] i;
 
     public dc0() {
         Interceptable interceptable = $ic;
@@ -190,115 +37,188 @@ public class dc0 extends zd0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.i = new float[]{0.0f, 0.0f, 0.0f, 0.0f};
+        FloatBuffer asFloatBuffer = ByteBuffer.allocateDirect(ic0.a.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
+        this.c = asFloatBuffer;
+        asFloatBuffer.put(ic0.a).position(0);
+        FloatBuffer asFloatBuffer2 = ByteBuffer.allocateDirect(kc0.a.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
+        this.d = asFloatBuffer2;
+        asFloatBuffer2.put(kc0.a).position(0);
+        float[] b = kc0.b(Rotation.NORMAL, false, true);
+        FloatBuffer asFloatBuffer3 = ByteBuffer.allocateDirect(b.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
+        this.e = asFloatBuffer3;
+        asFloatBuffer3.put(b).position(0);
     }
 
-    @Nullable
-    public static Map<String, String> m(String str) {
-        InterceptResult invokeL;
-        JSONObject optJSONObject;
+    public final boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            HashMap hashMap = new HashMap();
-            JSONArray optJSONArray = ux0.c(str).optJSONArray("data");
-            if (optJSONArray == null || optJSONArray.length() <= 0 || (optJSONObject = optJSONArray.optJSONObject(0)) == null) {
-                return null;
-            }
-            hashMap.put("virtualPhone", optJSONObject.optString("virtualPhone"));
-            hashMap.put("solutionId", optJSONObject.optString("solutionId"));
-            return hashMap;
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.zd0
-    public boolean b(@NonNull Context context, @NonNull de0 de0Var, @Nullable Map<String, Object> map, @Nullable he0 he0Var) {
-        InterceptResult invokeLLLL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, de0Var, map, he0Var)) == null) {
-            super.b(context, de0Var, map, he0Var);
-            HashMap<String, String> d = de0Var.d();
-            String valueOf = String.valueOf(System.currentTimeMillis());
-            String str2 = (String) vx0.b(d, MigrateStatisticUtils.EXT_INFO);
-            String str3 = (String) vx0.b(d, "phone");
-            int i = 0;
-            if (TextUtils.isEmpty(str3)) {
-                n("1", str2);
-                c(he0Var, de0Var, 202, false);
-                return true;
-            }
-            if (d.containsKey("type")) {
-                str = (String) vx0.b(d, "type");
-            } else {
-                str = "0";
-            }
-            if (TextUtils.equals(str, "1")) {
-                String str4 = (String) vx0.b(d, "number_url");
-                if (str4 == null) {
-                    str4 = "";
-                }
-                String str5 = str4;
-                if (TextUtils.isEmpty(str5)) {
-                    n("2", str2);
-                    boolean l = l(context, str3, str2);
-                    if (!l) {
-                        i = 1001;
-                    }
-                    c(he0Var, de0Var, i, l);
-                    return true;
-                }
-                q61 q61Var = new q61(context);
-                q61Var.e(context.getString(R.string.nad_ocpc_phone_call_toast_text));
-                q61Var.c(false);
-                q61Var.d(false);
-                u01.b(q61Var);
-                a aVar = new a(this, q61Var, str2, context, str3, he0Var, de0Var, d, valueOf);
-                String replaceAll = str5.replaceAll("\\__TIMESTAMP__", valueOf);
-                qo0 qo0Var = new qo0();
-                qo0Var.l(replaceAll);
-                qo0Var.g(3000);
-                qo0Var.c();
-                xn0.b().a().a(qo0Var, aVar);
-            } else {
-                boolean l2 = l(context, str3, str2);
-                if (!l2) {
-                    i = 1001;
-                }
-                c(he0Var, de0Var, i, l2);
-            }
-            return true;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final boolean l(@NonNull Context context, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, str2)) == null) {
-            if (TextUtils.isEmpty(str)) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int[] iArr = this.a;
+            if (iArr != null && this.h < iArr.length) {
                 return false;
             }
-            if (u01.d(context, new Intent("android.intent.action.DIAL", Uri.parse("tel:" + str)))) {
-                n("11", str2);
-                new j81().p(context, str2, "makePhoneCall");
-                return true;
-            }
-            n("9", str2);
             return true;
         }
-        return invokeLLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public final void n(@NonNull String str, String str2) {
+    public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048579, this, str, str2) != null) || TextUtils.isEmpty(str2)) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            int[] iArr = this.b;
+            if (iArr != null) {
+                GLES20.glDeleteTextures(iArr.length, iArr, 0);
+                this.b = null;
+            }
+            int[] iArr2 = this.a;
+            if (iArr2 != null) {
+                GLES20.glDeleteFramebuffers(iArr2.length, iArr2, 0);
+                this.a = null;
+            }
         }
-        jy0.e(new ClogBuilder().u(ClogBuilder.Page.AD_CALL).i(ClogBuilder.Area.AD_CALL).y(ClogBuilder.LogType.AD_CALL).k(str).p(str2));
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.h = 0;
+        }
+    }
+
+    public void c(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) && i != 0 && i2 != 0) {
+            if (this.f != i || this.g != i2) {
+                if (this.a != null) {
+                    b();
+                }
+                this.f = i;
+                this.g = i2;
+                d(2);
+            }
+        }
+    }
+
+    public final void d(int i) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            int[] iArr = this.a;
+            if (iArr != null) {
+                i2 = i + iArr.length;
+            } else {
+                i2 = i;
+            }
+            int[] iArr2 = new int[i2];
+            int[] iArr3 = new int[i2];
+            for (int i3 = 0; i3 < i2; i3++) {
+                int[] iArr4 = this.a;
+                if (iArr4 != null && iArr4.length > i3) {
+                    iArr2[i3] = iArr4[i3];
+                }
+                int[] iArr5 = this.b;
+                if (iArr5 != null && iArr5.length > i3) {
+                    iArr3[i3] = iArr5[i3];
+                }
+                if (iArr3[i3] == 0) {
+                    GLES20.glGenFramebuffers(1, iArr2, i3);
+                    GLES20.glGenTextures(1, iArr3, i3);
+                    GLES20.glBindTexture(3553, iArr3[i3]);
+                    GLES20.glTexImage2D(3553, 0, GeneratedTexture.FORMAT, this.f, this.g, 0, GeneratedTexture.FORMAT, 5121, null);
+                    GLES20.glTexParameterf(3553, 10240, 9729.0f);
+                    GLES20.glTexParameterf(3553, 10241, 9729.0f);
+                    GLES20.glTexParameterf(3553, 10242, 33071.0f);
+                    GLES20.glTexParameterf(3553, 10243, 33071.0f);
+                    GLES20.glBindFramebuffer(36160, iArr2[i3]);
+                    GLES20.glFramebufferTexture2D(36160, 36064, 3553, iArr3[i3], 0);
+                    GLES20.glBindTexture(3553, 0);
+                    GLES20.glBindFramebuffer(36160, 0);
+                }
+            }
+            this.a = iArr2;
+            this.b = iArr3;
+        }
+    }
+
+    public int e(int i, cc0 cc0Var) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i, cc0Var)) == null) {
+            if (cc0Var == null) {
+                return i;
+            }
+            try {
+                if (a()) {
+                    d(2);
+                }
+                cc0Var.s();
+                GLES20.glBindFramebuffer(36160, this.a[this.h]);
+                GLES20.glViewport(0, 0, this.f, this.g);
+                GLES20.glClearColor(this.i[0], this.i[1], this.i[2], this.i[3]);
+                GLES20.glClear(16640);
+                cc0Var.p(i, this.c, this.e);
+                GLES20.glBindFramebuffer(36160, 0);
+                i = this.b[this.h];
+                this.h++;
+                return i;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return i;
+            }
+        }
+        return invokeIL.intValue;
+    }
+
+    public int f(int i, List<cc0> list) {
+        InterceptResult invokeIL;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, list)) == null) {
+            if (list != null) {
+                int size = list.size();
+                if (size == 0) {
+                    return i;
+                }
+                if (this.a.length - this.h <= size) {
+                    d(size);
+                }
+                int i3 = this.h;
+                while (true) {
+                    i2 = this.h;
+                    if (i3 >= i2 + size) {
+                        break;
+                    }
+                    cc0 cc0Var = list.get(i3 - i2);
+                    cc0Var.s();
+                    GLES20.glBindFramebuffer(36160, this.a[i3]);
+                    GLES20.glViewport(0, 0, this.f, this.g);
+                    float[] fArr = this.i;
+                    GLES20.glClearColor(fArr[0], fArr[1], fArr[2], fArr[3]);
+                    GLES20.glClear(16640);
+                    cc0Var.p(i, this.c, this.e);
+                    GLES20.glBindFramebuffer(36160, 0);
+                    i = this.b[i3];
+                    i3++;
+                }
+                this.h = i2 + size;
+            }
+            return i;
+        }
+        return invokeIL.intValue;
+    }
+
+    public void h(float f, float f2, float f3, float f4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+            float[] fArr = this.i;
+            fArr[0] = f;
+            fArr[1] = f2;
+            fArr[2] = f3;
+            fArr[3] = f4;
+        }
     }
 }

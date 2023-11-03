@@ -30,14 +30,14 @@ import kotlin.reflect.jvm.internal.impl.storage.StorageManager;
 import kotlin.reflect.jvm.internal.impl.types.ClassTypeConstructorImpl;
 import kotlin.reflect.jvm.internal.impl.types.Variance;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeRefiner;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class NotFoundClasses {
     public final MemoizedFunctionToNotNull<ClassRequest, ClassDescriptor> classes;
     public final ModuleDescriptor module;
     public final MemoizedFunctionToNotNull<FqName, PackageFragmentDescriptor> packageFragments;
     public final StorageManager storageManager;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class ClassRequest {
         public final ClassId classId;
         public final List<Integer> typeParametersCount;
@@ -78,7 +78,7 @@ public final class NotFoundClasses {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class MockClassDescriptor extends ClassDescriptorBase {
         public final boolean isInner;
         public final ClassTypeConstructorImpl typeConstructor;
@@ -86,13 +86,13 @@ public final class NotFoundClasses {
 
         @Override // kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor
         /* renamed from: getCompanionObjectDescriptor */
-        public ClassDescriptor mo2099getCompanionObjectDescriptor() {
+        public ClassDescriptor mo2103getCompanionObjectDescriptor() {
             return null;
         }
 
         @Override // kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor
         /* renamed from: getUnsubstitutedPrimaryConstructor */
-        public ClassConstructorDescriptor mo2100getUnsubstitutedPrimaryConstructor() {
+        public ClassConstructorDescriptor mo2104getUnsubstitutedPrimaryConstructor() {
             return null;
         }
 

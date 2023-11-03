@@ -45,6 +45,7 @@ public class VisitedForumData extends OrmObject implements Serializable {
     public int mRedCount;
     public List<FrsTabItemData> mTabInfoList;
     public ThemeColorInfo mThemeColorInfo;
+    public int mThreadNum;
     public String mVisitedTime;
 
     public VisitedForumData() {
@@ -352,6 +353,8 @@ public class VisitedForumData extends OrmObject implements Serializable {
         }
         this.mIsLike = z4;
         this.mDayThreadNum = historyForumInfo.day_thread_num.intValue();
+        this.mThreadNum = historyForumInfo.thread_num.intValue();
+        this.mPostNum = historyForumInfo.post_num.intValue();
     }
 
     public void setDayThreadNum(int i) {

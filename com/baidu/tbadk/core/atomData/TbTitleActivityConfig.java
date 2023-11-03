@@ -9,9 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class TbTitleActivityConfig extends IntentConfig {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String FORUM_ID = "forumId";
-    public static final String FORUM_NAME = "forumName";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -33,7 +31,7 @@ public class TbTitleActivityConfig extends IntentConfig {
             }
         }
         Intent intent = getIntent();
-        intent.putExtra("forumName", str);
-        intent.putExtra("forumId", str2);
+        intent.putExtra("forum_name", str);
+        intent.putExtra("forum_id", str2);
     }
 }

@@ -35,7 +35,7 @@ import kotlin.reflect.jvm.internal.impl.types.SimpleType;
 import kotlin.reflect.jvm.internal.impl.types.TypeSubstitutor;
 import kotlin.reflect.jvm.internal.impl.types.Variance;
 import kotlin.reflect.jvm.internal.impl.util.OperatorNameConventions;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class FunctionInvokeDescriptor extends SimpleFunctionDescriptorImpl {
     public static final Factory Factory = new Factory(null);
 
@@ -54,7 +54,7 @@ public final class FunctionInvokeDescriptor extends SimpleFunctionDescriptorImpl
         return false;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Factory {
         public Factory() {
         }

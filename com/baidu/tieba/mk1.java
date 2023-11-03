@@ -1,31 +1,113 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.HandlerThread;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class mk1 extends HandlerThread {
+public class mk1 extends lk1 {
     public static /* synthetic */ Interceptable $ic;
-    public static mk1 a;
-    public static Handler b;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* loaded from: classes7.dex */
+    public class a extends ll1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ mk1 c;
+
+        public a(mk1 mk1Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mk1Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = mk1Var;
+            this.b = i;
+        }
+
+        @Override // com.baidu.tieba.ll1
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    this.c.b(this.b);
+                } catch (Throwable th) {
+                    ql1.d(th);
+                    mk1 mk1Var = this.c;
+                    mk1Var.d(this.b, 3, 2009, mk1Var.c, "cu on getToken unknown error.");
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b extends ll1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ mk1 c;
+
+        public b(mk1 mk1Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mk1Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = mk1Var;
+            this.b = i;
+        }
+
+        @Override // com.baidu.tieba.ll1
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    this.c.g(this.b, this.c.c, this.c.h);
+                } catch (Throwable th) {
+                    ql1.d(th);
+                    mk1 mk1Var = this.c;
+                    mk1Var.n(this.b, 3, 2009, mk1Var.c, "cu on getToken unknown error.");
+                }
+            }
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mk1() {
-        super("BackgroundThread", 10);
+    public mk1(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], ((Integer) objArr[1]).intValue());
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -33,27 +115,61 @@ public class mk1 extends HandlerThread {
         }
     }
 
-    public static void a() {
+    @Override // com.baidu.tieba.lk1
+    public void j(Context context, int i, long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && a == null) {
-            mk1 mk1Var = new mk1();
-            a = mk1Var;
-            mk1Var.start();
-            b = new Handler(a.getLooper());
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            super.j(context, i, j);
+            c(i, 2);
+            nl1.c().b(new a(this, i));
         }
     }
 
-    public static Handler b() {
-        InterceptResult invokeV;
-        Handler handler;
+    @Override // com.baidu.tieba.lk1
+    public void p(Context context, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (mk1.class) {
-                a();
-                handler = b;
-            }
-            return handler;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            super.p(context, i, j);
+            c(i, 4);
+            nl1.c().b(new b(this, i));
         }
-        return (Handler) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.lk1
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (TextUtils.isEmpty(this.e)) {
+                this.g = null;
+                this.f = 0L;
+                return true;
+            } else if (this.f - System.currentTimeMillis() < pl1.a) {
+                this.g = null;
+                this.f = 0L;
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.lk1
+    public boolean q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (TextUtils.isEmpty(this.h)) {
+                this.i = 0L;
+                return true;
+            } else if (this.i - System.currentTimeMillis() < pl1.a) {
+                this.i = 0L;
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
     }
 }

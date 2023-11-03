@@ -1,27 +1,78 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class nm3 {
+public class nm3 extends g23 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile mm3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized mm3 a() {
-        InterceptResult invokeV;
-        mm3 mm3Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (nm3.class) {
-                if (a == null) {
-                    a = new mm3();
+    /* loaded from: classes7.dex */
+    public class a implements zk3<Bundle> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nm3 a;
+
+        public a(nm3 nm3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nm3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                mm3Var = a;
             }
-            return mm3Var;
+            this.a = nm3Var;
         }
-        return (mm3) invokeV.objValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.zk3
+        /* renamed from: b */
+        public void a(Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+                this.a.d.putBundle("key_result_stokent", bundle);
+                this.a.c();
+            }
+        }
+    }
+
+    public nm3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.g23
+    public void b(@NonNull Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            String[] stringArray = bundle.getStringArray("key_param_tpl_list");
+            if (stringArray != null && stringArray.length >= 1) {
+                hm3.u(AppRuntime.getAppContext(), new a(this), stringArray);
+            } else {
+                c();
+            }
+        }
     }
 }

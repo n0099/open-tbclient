@@ -1,42 +1,33 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UsbAbTestConst;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.horizonalList.widget.HTypeListView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public final class n2a implements l77, j77 {
+public class n2a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public List<bi> a;
+    public TbPageContext b;
+    public HTypeListView c;
+    public l2a d;
+    public k2a e;
+    public j2a f;
 
-    @Override // com.baidu.tieba.j77
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "obj_locate" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.l77
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? CommonStatisticKey.KEY_HOME_PEI_WAN_VOICE_CLICK : (String) invokeV.objValue;
-    }
-
-    public n2a() {
+    public n2a(TbPageContext tbPageContext, HTypeListView hTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, hTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -46,49 +37,46 @@ public final class n2a implements l77, j77 {
                 return;
             }
         }
-        this.a = true;
+        this.a = new ArrayList();
+        this.b = tbPageContext;
+        this.c = hTypeListView;
+        a();
     }
 
-    @Override // com.baidu.tieba.l77
-    public Map<String, String> a(v27 businessInfo) {
-        InterceptResult invokeL;
-        String str;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            String str2 = "";
-            if (currentAccount == null) {
-                currentAccount = "";
-            }
-            hashMap.put("uid", currentAccount);
-            String str3 = businessInfo.a().get("room_id");
-            if (str3 == null) {
-                str3 = "";
-            }
-            hashMap.put(TiebaStatic.Params.OBJ_TO, str3);
-            String str4 = businessInfo.a().get("voice_uid");
-            if (str4 != null) {
-                str2 = str4;
-            }
-            hashMap.put("obj_id", str2);
-            if (this.a) {
-                str = "1";
-            } else {
-                str = "0";
-            }
-            hashMap.put("obj_param1", str);
-            hashMap.put(TiebaStatic.Params.OBJ_PARAM2, UsbAbTestConst.KEY_RECOMMEND_FEED_TEST);
-            return hashMap;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.d = new l2a(this.b, dd5.d);
+            this.e = new k2a(this.b, r2a.b);
+            this.f = new j2a(this.b.getPageActivity(), e2a.d);
+            this.a.add(this.d);
+            this.a.add(this.e);
+            this.a.add(this.f);
+            this.c.a(this.a);
         }
-        return (Map) invokeL.objValue;
     }
 
-    public final void d(boolean z) {
+    public void b() {
+        HTypeListView hTypeListView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.a = z;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (hTypeListView = this.c) != null && (hTypeListView.getAdapter() instanceof TypeAdapter)) {
+            ((TypeAdapter) this.c.getAdapter()).notifyDataSetChanged();
+        }
+    }
+
+    public void c(List<oi> list) {
+        HTypeListView hTypeListView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && (hTypeListView = this.c) != null) {
+            hTypeListView.setData(list);
+        }
+    }
+
+    public void d(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
+            this.d.x(onClickListener);
+            this.e.x(onClickListener);
         }
     }
 }

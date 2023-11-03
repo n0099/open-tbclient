@@ -1,27 +1,19 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
+import com.baidu.tieba.ll8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class tl8 implements vl8 {
+public class tl8 extends xm8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RelativeLayout a;
-    public TextView b;
-    public ImageView c;
-    public RecyclerView d;
-    public tl8 e;
 
     public tl8() {
         Interceptable interceptable = $ic;
@@ -37,66 +29,59 @@ public class tl8 implements vl8 {
         }
     }
 
-    @Override // com.baidu.tieba.vl8
-    public RelativeLayout a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.um8
+    public boolean a(int i, boolean z, Object obj) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e.a;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), obj})) == null) {
+            i(i);
+            return true;
         }
-        return (RelativeLayout) invokeV.objValue;
+        return invokeCommon.booleanValue;
     }
 
-    @Override // com.baidu.tieba.vl8
-    public RecyclerView c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.xm8
+    public void h(List list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e.d;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            if (this.a.isEmpty()) {
+                g(list);
+            } else {
+                super.h(list);
+            }
         }
-        return (RecyclerView) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.vl8
-    public ImageView d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e.c;
-        }
-        return (ImageView) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.vl8
-    public TextView e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e.b;
-        }
-        return (TextView) invokeV.objValue;
-    }
-
-    public static tl8 f(@NonNull View view2) {
+    @Override // com.baidu.tieba.xm8
+    public List<tm8> j(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            tl8 tl8Var = new tl8();
-            tl8Var.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0918df);
-            tl8Var.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ec0);
-            tl8Var.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ed9);
-            tl8Var.d = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090ecc);
-            tl8Var.e = tl8Var;
-            return tl8Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
+            if (list != null && !list.isEmpty()) {
+                ArrayList arrayList = new ArrayList();
+                for (Object obj : list) {
+                    if (obj instanceof AbilityItem) {
+                        arrayList.add(new ul8((AbilityItem) obj));
+                    } else {
+                        boolean z = obj instanceof ll8.b;
+                        if (z) {
+                            Object obj2 = ((ll8.b) obj).a;
+                            if (obj2 instanceof AbilityItem) {
+                                arrayList.add(new ul8((AbilityItem) obj2));
+                            }
+                        }
+                        if (z) {
+                            Object obj3 = ((ll8.b) obj).a;
+                            if (obj3 instanceof ul8) {
+                                arrayList.add((ul8) obj3);
+                            }
+                        }
+                    }
+                }
+                return arrayList;
+            }
+            return null;
         }
-        return (tl8) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.vl8
-    public void b(int i, @NonNull mm8 mm8Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, mm8Var) == null) && !mm8Var.e()) {
-            EMManager.from(this.e.b).setTextSize(R.dimen.T_X08).setTextStyle(R.string.F_X01).setTextColor(R.color.CAM_X0107);
-        }
+        return (List) invokeL.objValue;
     }
 }

@@ -1,66 +1,59 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
+import java.io.File;
 /* loaded from: classes6.dex */
 public class hh {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<jh> a;
 
-    public hh() {
+    public static String a(String str) {
+        InterceptResult invokeL;
+        String str2;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return "";
             }
+            if (str.contains(".so")) {
+                String[] split = str.split("\\.");
+                StringBuilder sb = new StringBuilder();
+                if (hd.a()) {
+                    str3 = "so_64_cache";
+                } else {
+                    str3 = "so_cache";
+                }
+                sb.append(str3);
+                sb.append(File.separator);
+                sb.append(split[0]);
+                str2 = sb.toString();
+            } else if (str.contains(".mp3")) {
+                str2 = "mp3_cache";
+            } else if (str.contains(DefaultHlsExtractorFactory.MP4_FILE_EXTENSION)) {
+                str2 = "mp4_cache";
+            } else {
+                str2 = "res_cache";
+            }
+            return BdBaseApplication.getInst().getFilesDir() + File.separator + str2;
         }
-        this.a = new SparseArray<>();
+        return (String) invokeL.objValue;
     }
 
-    public jh a(int i) {
-        InterceptResult invokeI;
+    public static String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return this.a.get(i);
-        }
-        return (jh) invokeI.objValue;
-    }
-
-    public boolean b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            jh a = a(i);
-            if (a != null && a.b() > 0 && a.a() > 0) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return "";
             }
-            return false;
+            return a(str) + File.separator + str;
         }
-        return invokeI.booleanValue;
-    }
-
-    public boolean c(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3)) == null) {
-            if (i2 > 0 && i3 > 0) {
-                this.a.put(i, new jh(i2, i3));
-                return true;
-            }
-            return false;
-        }
-        return invokeIII.booleanValue;
+        return (String) invokeL.objValue;
     }
 }

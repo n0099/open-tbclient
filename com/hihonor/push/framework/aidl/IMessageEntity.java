@@ -1,4 +1,4 @@
 package com.hihonor.push.framework.aidl;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface IMessageEntity {
 }

@@ -1,13 +1,31 @@
 package com.baidu.tieba;
 
-import rx.subjects.ReplaySubject$ReplayProducer;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes6.dex */
-public interface gbc<T> {
-    void a(ReplaySubject$ReplayProducer<T> replaySubject$ReplayProducer);
+public final class gbc {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void complete();
-
-    void error(Throwable th);
-
-    void next(T t);
+    public static final String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (StringsKt__StringsJVMKt.isBlank(str)) {
+                return "";
+            }
+            StringBuilder sb = new StringBuilder();
+            sb.append('[');
+            Thread currentThread = Thread.currentThread();
+            Intrinsics.checkExpressionValueIsNotNull(currentThread, "Thread.currentThread()");
+            sb.append(currentThread.getName());
+            sb.append("] ");
+            sb.append(str);
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
 }

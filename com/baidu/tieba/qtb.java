@@ -1,90 +1,79 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-/* loaded from: classes7.dex */
-public class qtb extends htb {
+import com.baidu.validation.utils.ValidationLog;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public class qtb {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, htb> a;
-    public static final Object b;
-    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public final List<String> b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948104778, "Lcom/baidu/tieba/qtb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948104778, "Lcom/baidu/tieba/qtb;");
-                return;
-            }
-        }
-        a = new HashMap();
-        b = new Object();
-    }
-
-    public qtb(Context context, String str) {
+    public qtb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        mtb.d(context, str);
+        this.b = new ArrayList();
     }
 
-    public static htb a(Context context) {
+    public static qtb a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            Context applicationContext = context.getApplicationContext();
-            if (applicationContext != null) {
-                context = applicationContext;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            String packageName = context.getPackageName();
-            c = packageName;
-            return b(context, packageName);
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                qtb qtbVar = new qtb();
+                JSONObject optJSONObject = jSONObject.optJSONObject("action");
+                if (optJSONObject != null) {
+                    qtbVar.a = optJSONObject.optString("name");
+                    JSONArray optJSONArray = optJSONObject.optJSONArray("params");
+                    if (optJSONArray != null) {
+                        for (int i = 0; i < optJSONArray.length(); i++) {
+                            qtbVar.b.add(optJSONArray.optString(i));
+                        }
+                    }
+                }
+                return qtbVar;
+            } catch (JSONException e) {
+                ValidationLog.e(e);
+                return null;
+            }
         }
-        return (htb) invokeL.objValue;
+        return (qtb) invokeL.objValue;
     }
 
-    public static htb b(Context context, String str) {
-        InterceptResult invokeLL;
-        htb htbVar;
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                throw new IllegalArgumentException("packageName can not be empty");
-            }
-            synchronized (b) {
-                htbVar = a.get(str);
-                if (htbVar == null) {
-                    a.put(str, new qtb(context, str));
-                }
-            }
-            return htbVar;
-        }
-        return (htb) invokeLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public List<String> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (List) invokeV.objValue;
     }
 }

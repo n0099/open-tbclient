@@ -1,45 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.h6c;
+import android.content.Context;
+import android.view.Surface;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class ibc<T, R> extends h6c<R> implements i6c<T> {
+public abstract class ibc extends hbc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ibc(h6c.a<R> aVar) {
-        super(aVar);
+    public void d(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((h6c.a) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
         }
     }
 
-    public final hbc<T, R> P() {
-        InterceptResult invokeV;
+    public void e(Context context, Surface surface, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (getClass() == hbc.class) {
-                return (hbc) this;
-            }
-            return new hbc<>(this);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, surface, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
         }
-        return (hbc) invokeV.objValue;
+    }
+
+    public void f(Context context, Surface surface) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, surface) == null) {
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
     }
 }

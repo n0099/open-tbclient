@@ -7,11 +7,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.dt5;
 import com.baidu.tieba.im.base.core.slice.SliceActivity;
 import com.baidu.tieba.im.biz.aibot.data.AibotArgs;
 import com.baidu.tieba.im.dispatcher.AiBotChatDispatcher;
-import com.baidu.tieba.jr5;
-import com.baidu.tieba.ta8;
+import com.baidu.tieba.rn8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -96,7 +96,7 @@ public final class AibotChatActivity extends SliceActivity {
                 intent.putExtra(AiBotChatDispatcher.AI_SINGLE_IS_ANIMATION, str5);
                 intent.putExtra("botUk", botUk);
                 intent.putExtra("argsData", new AibotArgs(str, str2, str3, str4, str6, i));
-                ta8.a.a("navTo", paid, botUk, str, str2, str3, str4, str5, str6, Integer.valueOf(i));
+                rn8.a.a("navTo", paid, botUk, str, str2, str3, str4, str5, str6, Integer.valueOf(i));
                 context.startActivity(intent);
             }
         }
@@ -145,21 +145,33 @@ public final class AibotChatActivity extends SliceActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onResume();
             UtilHelper.changeStatusBarIconAndTextColor(true, this);
+        }
+    }
+
+    public final void o1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            AibotChatFragment aibotChatFragment = new AibotChatFragment();
+            if (getIntent() != null) {
+                this.d = getIntent().getStringExtra("botUk");
+                aibotChatFragment.setArguments(getIntent().getExtras());
+            }
+            dt5.c(getSupportFragmentManager(), R.id.obfuscated_res_0x7f090c7c, aibotChatFragment);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d002b);
             setSwipeBackEnabled(false);
             if (bundle == null) {
-                r1();
+                o1();
                 getWindow().setSoftInputMode(48);
                 this.b = getIntent().getStringExtra(AiBotChatDispatcher.AI_SINGLE_IS_ANIMATION);
                 enterExitAnimation();
@@ -171,7 +183,7 @@ public final class AibotChatActivity extends SliceActivity {
     public void onNewIntent(Intent intent) {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, intent) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, intent) == null) {
             super.onNewIntent(intent);
             if (intent != null) {
                 str = intent.getStringExtra("botUk");
@@ -180,20 +192,8 @@ public final class AibotChatActivity extends SliceActivity {
             }
             if (str != null && !Intrinsics.areEqual(str, this.d)) {
                 setIntent(intent);
-                r1();
+                o1();
             }
-        }
-    }
-
-    public final void r1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            AibotChatFragment aibotChatFragment = new AibotChatFragment();
-            if (getIntent() != null) {
-                this.d = getIntent().getStringExtra("botUk");
-                aibotChatFragment.setArguments(getIntent().getExtras());
-            }
-            jr5.c(getSupportFragmentManager(), R.id.obfuscated_res_0x7f090c4e, aibotChatFragment);
         }
     }
 }

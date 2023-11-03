@@ -1,9 +1,25 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.tieba.xr1;
+import android.content.Context;
 /* loaded from: classes9.dex */
-public interface zr1<T extends xr1> extends wr1<T> {
-    @Nullable
-    n93 getParams();
+public interface zr1 {
+    void b();
+
+    void c();
+
+    zr1 create();
+
+    void d(qv2 qv2Var, boolean z);
+
+    void e(qv2 qv2Var, Context context);
+
+    boolean isPlaying();
+
+    boolean onBackPressed();
+
+    void pause();
+
+    void resume();
+
+    void stop();
 }

@@ -1,46 +1,29 @@
 package com.baidu.tieba;
 
-import android.text.SpannableStringBuilder;
+import com.baidu.tbadk.core.data.IMUserExtraData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.AbstractComponent;
-import tbclient.FeedContentResource;
+import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public final class z47 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final q17 a(SpannableStringBuilder titleBuilder, List<FeedContentResource> contentList, k37 feedExtraData) {
-        InterceptResult invokeLLL;
+    public static final y47 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, titleBuilder, contentList, feedExtraData)) == null) {
-            Intrinsics.checkNotNullParameter(titleBuilder, "titleBuilder");
-            Intrinsics.checkNotNullParameter(contentList, "contentList");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            q17 q17Var = new q17(new s27(titleBuilder, spannableStringBuilder));
-            k57.a(contentList, spannableStringBuilder, feedExtraData, q17Var);
-            return q17Var;
-        }
-        return (q17) invokeLLL.objValue;
-    }
-
-    public static final void b(AbstractComponent abstractComponent, List<h77<?>> dataList, SpannableStringBuilder titleBuilder, k37 feedExtraData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65537, null, abstractComponent, dataList, titleBuilder, feedExtraData) == null) {
-            Intrinsics.checkNotNullParameter(abstractComponent, "<this>");
-            Intrinsics.checkNotNullParameter(dataList, "dataList");
-            Intrinsics.checkNotNullParameter(titleBuilder, "titleBuilder");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            List<FeedContentResource> data = abstractComponent.data;
-            Intrinsics.checkNotNullExpressionValue(data, "data");
-            q17 a = a(titleBuilder, data, feedExtraData);
-            if (a.i()) {
-                dataList.add(new i77(a, "abstract"));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
+            int optInt = jSONObject.optInt("total_recommend_num", 0);
+            int optInt2 = jSONObject.optInt("used_recommend_num", 0);
+            String optString = jSONObject.optString(IMUserExtraData.KEY_BAZHU_LEVEL);
+            Intrinsics.checkNotNullExpressionValue(optString, "jsonObject.optString(\"bazhu_level\")");
+            return new y47(optInt, optInt2, optString);
         }
+        return (y47) invokeL.objValue;
     }
 }

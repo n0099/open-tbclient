@@ -92,7 +92,7 @@ public class CircleSkipView extends KSFrameLayout implements a {
 
     public static TextView ad(Context context) {
         TextView textView = new TextView(context);
-        textView.setText(context.getString(R.string.obfuscated_res_0x7f0f0b88));
+        textView.setText(context.getString(R.string.obfuscated_res_0x7f0f0b99));
         textView.setTextColor(-1);
         textView.setTextSize(12.0f);
         return textView;

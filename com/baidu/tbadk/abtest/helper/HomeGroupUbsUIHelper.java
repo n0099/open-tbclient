@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fw9;
-import com.baidu.tieba.jv4;
+import com.baidu.tieba.bw4;
+import com.baidu.tieba.k9a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -132,11 +132,11 @@ public final class HomeGroupUbsUIHelper {
         SkinManager.setBackgroundColor(view2, R.color.CAM_X0202);
     }
 
-    public static boolean isFromHotRankTab(jv4 jv4Var) {
+    public static boolean isFromHotRankTab(bw4 bw4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, jv4Var)) == null) {
-            if (jv4Var != null && jv4Var.getThreadData() != null && jv4Var.getThreadData().isFromHotRankTab) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, bw4Var)) == null) {
+            if (bw4Var != null && bw4Var.getThreadData() != null && bw4Var.getThreadData().isFromHotRankTab) {
                 return true;
             }
             return false;
@@ -228,11 +228,11 @@ public final class HomeGroupUbsUIHelper {
         return invokeCommon.booleanValue;
     }
 
-    public static boolean handleVerticalVideoSize(ViewGroup.LayoutParams layoutParams, boolean z, fw9 fw9Var, int i, int i2) {
+    public static boolean handleVerticalVideoSize(ViewGroup.LayoutParams layoutParams, boolean z, k9a k9aVar, int i, int i2) {
         InterceptResult invokeCommon;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{layoutParams, Boolean.valueOf(z), fw9Var, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{layoutParams, Boolean.valueOf(z), k9aVar, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
             if (layoutParams == null) {
                 return z;
             }
@@ -247,8 +247,8 @@ public final class HomeGroupUbsUIHelper {
             } else {
                 z2 = true;
             }
-            if (fw9Var != null) {
-                fw9Var.changeRenderViewMode(0);
+            if (k9aVar != null) {
+                k9aVar.changeRenderViewMode(0);
             }
             return z2;
         }

@@ -1,136 +1,68 @@
 package com.baidu.tieba;
 
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class lc3 {
+public class lc3 implements jc3<JSONObject> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static volatile boolean b;
-    public static final List<a> c;
     public transient /* synthetic */ FieldHolder $fh;
+    public JSONArray b;
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final pc3 a;
-        public JSONObject b;
-        public final long c;
-        public final String d;
-
-        public a(@NonNull pc3 pc3Var, @NonNull String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pc3Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pc3Var;
-            this.d = str;
-            this.c = pc3Var.l();
-            synchronized (lc3.c) {
-                if (lc3.b) {
-                    lc3.c.add(this);
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947938029, "Lcom/baidu/tieba/lc3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947938029, "Lcom/baidu/tieba/lc3;");
-                return;
-            }
-        }
-        a = am1.a;
-        b = false;
-        c = new ArrayList();
-    }
-
-    public static void d() {
+    public lc3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            synchronized (c) {
-                b = true;
-                c.clear();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void c(@NonNull HybridUbcFlow hybridUbcFlow) {
-        UbcFlowEvent g;
+    public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, hybridUbcFlow) != null) || !"670".equals(hybridUbcFlow.l())) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b = null;
         }
-        hybridUbcFlow.D("networkStatus", String.valueOf(cx2.c()));
-        if (nz2.f || (g = hybridUbcFlow.g("na_first_meaningful_paint")) == null) {
-            return;
-        }
-        long g2 = g.g();
-        synchronized (c) {
-            if (a) {
-                Log.d("SwanReqStatisticManager", "size=" + c.size());
-            }
-            b = false;
-            JSONArray jSONArray = new JSONArray();
-            for (a aVar : c) {
-                if (aVar.c <= g2) {
-                    JSONObject jSONObject = new JSONObject();
-                    try {
-                        jSONObject.put("type", aVar.d);
-                        if (aVar.a != null) {
-                            aVar.a.p(jSONObject);
-                        }
-                        if (aVar.b != null) {
-                            Iterator<String> keys = aVar.b.keys();
-                            while (keys.hasNext()) {
-                                String next = keys.next();
-                                jSONObject.put(next, aVar.b.get(next));
-                            }
-                        }
-                        jSONArray.put(jSONObject);
-                    } catch (JSONException e) {
-                        if (a) {
-                            Log.e("SwanReqStatisticManager", "appendRequestRecord", e);
-                        }
-                    }
+    }
+
+    public JSONObject c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("stageError", this.b);
+            } catch (JSONException e) {
+                if (jc3.a) {
+                    Log.e("WhiteCollector", Log.getStackTraceString(e));
                 }
             }
-            if (jSONArray.length() > 0) {
-                hybridUbcFlow.D("requests", jSONArray.toString());
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public void a(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null) {
+            if (this.b == null) {
+                this.b = new JSONArray();
+            }
+            this.b.put(jSONObject);
+            if (jc3.a) {
+                Log.d("WhiteCollector", "FEStage: " + jSONObject);
             }
         }
     }

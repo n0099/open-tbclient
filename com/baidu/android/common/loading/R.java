@@ -44,25 +44,25 @@ public final class R {
         public static final int fixed_height = 0x7f0402db;
         public static final int fixed_width = 0x7f0402dc;
         public static final int intensity = 0x7f040378;
-        public static final int max = 0x7f0404e5;
-        public static final int relative_height = 0x7f0405fb;
-        public static final int relative_width = 0x7f0405fc;
-        public static final int repeat_count = 0x7f0405ff;
-        public static final int repeat_delay = 0x7f040600;
-        public static final int repeat_mode = 0x7f040601;
-        public static final int reverse = 0x7f040605;
-        public static final int roundColor = 0x7f040623;
-        public static final int roundPaintCapRound = 0x7f040627;
-        public static final int roundProgressColor = 0x7f040629;
-        public static final int roundProgressEndColor = 0x7f04062a;
-        public static final int roundProgressStartColor = 0x7f04062b;
-        public static final int roundWidth = 0x7f040630;
-        public static final int shape = 0x7f040678;
-        public static final int style = 0x7f0406c7;
-        public static final int textColor = 0x7f040758;
-        public static final int textIsDisplayable = 0x7f040762;
-        public static final int textSize = 0x7f040765;
-        public static final int tilt = 0x7f040785;
+        public static final int max = 0x7f0404f0;
+        public static final int relative_height = 0x7f040606;
+        public static final int relative_width = 0x7f040607;
+        public static final int repeat_count = 0x7f04060a;
+        public static final int repeat_delay = 0x7f04060b;
+        public static final int repeat_mode = 0x7f04060c;
+        public static final int reverse = 0x7f040610;
+        public static final int roundColor = 0x7f04062e;
+        public static final int roundPaintCapRound = 0x7f040632;
+        public static final int roundProgressColor = 0x7f040634;
+        public static final int roundProgressEndColor = 0x7f040635;
+        public static final int roundProgressStartColor = 0x7f040636;
+        public static final int roundWidth = 0x7f04063b;
+        public static final int shape = 0x7f040683;
+        public static final int style = 0x7f0406d2;
+        public static final int textColor = 0x7f0407d9;
+        public static final int textIsDisplayable = 0x7f0407e3;
+        public static final int textSize = 0x7f0407e6;
+        public static final int tilt = 0x7f040806;
         public transient /* synthetic */ FieldHolder $fh;
 
         public attr() {
@@ -104,10 +104,10 @@ public final class R {
     /* loaded from: classes.dex */
     public static final class drawable {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int black_shimmer_loading = 0x7f08038f;
-        public static final int novel_loading_bg = 0x7f08111d;
-        public static final int novel_loading_progress = 0x7f08111e;
-        public static final int white_shimmer_loading = 0x7f08159c;
+        public static final int black_shimmer_loading = 0x7f080394;
+        public static final int novel_loading_bg = 0x7f081133;
+        public static final int novel_loading_progress = 0x7f081134;
+        public static final int white_shimmer_loading = 0x7f0815b5;
         public transient /* synthetic */ FieldHolder $fh;
 
         public drawable() {
@@ -129,18 +129,18 @@ public final class R {
     public static final class id {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int FILL = 0x7f09000a;
-        public static final int STROKE = 0x7f09001c;
-        public static final int cw_0 = 0x7f090857;
-        public static final int cw_180 = 0x7f090858;
-        public static final int cw_270 = 0x7f090859;
-        public static final int cw_90 = 0x7f09085a;
-        public static final int linear = 0x7f091549;
-        public static final int loading_bar = 0x7f091654;
-        public static final int message = 0x7f091767;
-        public static final int radial = 0x7f091e3a;
-        public static final int restart = 0x7f091f20;
-        public static final int reverse = 0x7f091f25;
-        public static final int root_container = 0x7f091fb3;
+        public static final int STROKE = 0x7f090027;
+        public static final int cw_0 = 0x7f090878;
+        public static final int cw_180 = 0x7f090879;
+        public static final int cw_270 = 0x7f09087a;
+        public static final int cw_90 = 0x7f09087b;
+        public static final int linear = 0x7f091588;
+        public static final int loading_bar = 0x7f091694;
+        public static final int message = 0x7f0917a9;
+        public static final int radial = 0x7f091e81;
+        public static final int restart = 0x7f091f67;
+        public static final int reverse = 0x7f091f6c;
+        public static final int root_container = 0x7f091ffb;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -161,7 +161,7 @@ public final class R {
     /* loaded from: classes.dex */
     public static final class layout {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int novel_loading_layout = 0x7f0d0746;
+        public static final int novel_loading_layout = 0x7f0d075b;
         public transient /* synthetic */ FieldHolder $fh;
 
         public layout() {
@@ -183,7 +183,7 @@ public final class R {
     public static final class string {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int app_name = 0x7f0f029e;
-        public static final int picture_image_loading = 0x7f0f10df;
+        public static final int picture_image_loading = 0x7f0f10f1;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {
@@ -254,8 +254,8 @@ public final class R {
                     return;
                 }
             }
-            RoundProgressBar = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f0404e5, com.baidu.tieba.R.attr.obfuscated_res_0x7f040605, com.baidu.tieba.R.attr.obfuscated_res_0x7f040623, com.baidu.tieba.R.attr.obfuscated_res_0x7f040626, com.baidu.tieba.R.attr.obfuscated_res_0x7f040627, com.baidu.tieba.R.attr.obfuscated_res_0x7f040629, com.baidu.tieba.R.attr.obfuscated_res_0x7f04062a, com.baidu.tieba.R.attr.obfuscated_res_0x7f04062b, com.baidu.tieba.R.attr.obfuscated_res_0x7f04062c, com.baidu.tieba.R.attr.roundTextColor, com.baidu.tieba.R.attr.obfuscated_res_0x7f04062e, com.baidu.tieba.R.attr.roundTextSize, com.baidu.tieba.R.attr.obfuscated_res_0x7f040630, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406c7, com.baidu.tieba.R.attr.obfuscated_res_0x7f040758, com.baidu.tieba.R.attr.obfuscated_res_0x7f040762, com.baidu.tieba.R.attr.obfuscated_res_0x7f040765};
-            ShimmerFrameLayout = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f04008e, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400af, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400cd, com.baidu.tieba.R.attr.obfuscated_res_0x7f04028d, com.baidu.tieba.R.attr.obfuscated_res_0x7f04028f, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402db, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402dc, com.baidu.tieba.R.attr.obfuscated_res_0x7f040378, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405fb, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405fc, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405ff, com.baidu.tieba.R.attr.obfuscated_res_0x7f040600, com.baidu.tieba.R.attr.obfuscated_res_0x7f040601, com.baidu.tieba.R.attr.obfuscated_res_0x7f040678, com.baidu.tieba.R.attr.obfuscated_res_0x7f04067f, com.baidu.tieba.R.attr.obfuscated_res_0x7f040785};
+            RoundProgressBar = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f0404f0, com.baidu.tieba.R.attr.obfuscated_res_0x7f040610, com.baidu.tieba.R.attr.obfuscated_res_0x7f04062e, com.baidu.tieba.R.attr.obfuscated_res_0x7f040631, com.baidu.tieba.R.attr.obfuscated_res_0x7f040632, com.baidu.tieba.R.attr.obfuscated_res_0x7f040634, com.baidu.tieba.R.attr.obfuscated_res_0x7f040635, com.baidu.tieba.R.attr.obfuscated_res_0x7f040636, com.baidu.tieba.R.attr.obfuscated_res_0x7f040637, com.baidu.tieba.R.attr.roundTextColor, com.baidu.tieba.R.attr.obfuscated_res_0x7f040639, com.baidu.tieba.R.attr.roundTextSize, com.baidu.tieba.R.attr.obfuscated_res_0x7f04063b, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406d2, com.baidu.tieba.R.attr.obfuscated_res_0x7f0407d9, com.baidu.tieba.R.attr.obfuscated_res_0x7f0407e3, com.baidu.tieba.R.attr.obfuscated_res_0x7f0407e6};
+            ShimmerFrameLayout = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f04008e, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400af, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400cd, com.baidu.tieba.R.attr.obfuscated_res_0x7f04028d, com.baidu.tieba.R.attr.obfuscated_res_0x7f04028f, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402db, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402dc, com.baidu.tieba.R.attr.obfuscated_res_0x7f040378, com.baidu.tieba.R.attr.obfuscated_res_0x7f040606, com.baidu.tieba.R.attr.obfuscated_res_0x7f040607, com.baidu.tieba.R.attr.obfuscated_res_0x7f04060a, com.baidu.tieba.R.attr.obfuscated_res_0x7f04060b, com.baidu.tieba.R.attr.obfuscated_res_0x7f04060c, com.baidu.tieba.R.attr.obfuscated_res_0x7f040683, com.baidu.tieba.R.attr.obfuscated_res_0x7f04068a, com.baidu.tieba.R.attr.obfuscated_res_0x7f040806};
         }
 
         public styleable() {

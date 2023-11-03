@@ -1,87 +1,38 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.adp.widget.ImageView.BdImage;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.minivideo.arface.utils.ThreadPool;
+import com.baidu.tieba.dqb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import com.baidu.ugc.editvideo.data.MultiMediaData;
+import com.baidu.ugc.editvideo.record.RecordConstants;
 /* loaded from: classes8.dex */
-public class uz6 extends BaseAdapter {
+public abstract class uz6 implements xz6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<dq4> a;
-    public String b;
-    public Context c;
-    public kh5 d;
-    public int e;
-    public int f;
+    public a07 a;
+    public yz6 b;
+    public Thread c;
+    public boolean d;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i : invokeI.longValue;
-    }
+    public abstract void f();
 
     /* loaded from: classes8.dex */
-    public class a implements hh5 {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ViewGroup a;
+        public final /* synthetic */ uz6 a;
 
-        public a(uz6 uz6Var, ViewGroup viewGroup) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uz6Var, viewGroup};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = viewGroup;
-        }
-
-        @Override // com.baidu.tieba.hh5
-        public void a(BdImage bdImage, String str, boolean z) {
-            HeadImageView headImageView;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLZ(1048576, this, bdImage, str, z) == null) && (headImageView = (HeadImageView) this.a.findViewWithTag(str)) != null && bdImage != null) {
-                headImageView.invalidate();
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public HeadImageView a;
-        public TextView b;
-        public ImageView c;
-
-        public b(uz6 uz6Var) {
+        public a(uz6 uz6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -93,21 +44,25 @@ public class uz6 extends BaseAdapter {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = uz6Var;
         }
 
-        public /* synthetic */ b(uz6 uz6Var, a aVar) {
-            this(uz6Var);
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.f();
+            }
         }
     }
 
-    public uz6(Context context) {
+    public uz6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -117,105 +72,158 @@ public class uz6 extends BaseAdapter {
                 return;
             }
         }
-        this.c = context;
-        this.d = new kh5();
-        this.f = (int) this.c.getResources().getDimension(R.dimen.obfuscated_res_0x7f070364);
-        this.e = BdUtilHelper.getEquipmentWidth(this.c) / 2;
+        this.d = false;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public dq4 getItem(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.xz6
+    public void a(a07 a07Var, yz6 yz6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<dq4> list = this.a;
-            if (list != null && i >= 0 && i < list.size()) {
-                return this.a.get(i);
-            }
-            return null;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, a07Var, yz6Var) != null) || yz6Var == null) {
+            return;
         }
-        return (dq4) invokeI.objValue;
+        this.b = yz6Var;
+        if (a07Var == null) {
+            yz6Var.onError(StringUtil.NULL_STRING, "cover config is null !!");
+            return;
+        }
+        this.a = a07Var;
+        this.c = new Thread(new a(this));
+        ThreadPool.b().e(this.c);
     }
 
-    public void b(List<dq4> list, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, str) == null) {
-            this.a = list;
-            this.b = str;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public int[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<dq4> list = this.a;
-            if (list != null) {
-                return list.size();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            a07 a07Var = this.a;
+            int[] iArr = {a07Var.a, a07Var.b};
+            if (!a07Var.g && !a07Var.e) {
+                float f = a07Var.d;
+                if (f != 0.0f) {
+                    dqb.a e = dqb.e(f, RecordConstants.VIDEO_CONSTANT_WIDTH);
+                    iArr[0] = e.b();
+                    iArr[1] = e.a();
+                }
+            } else {
+                dqb.a e2 = e();
+                float f2 = this.a.d;
+                if (f2 != 0.0f) {
+                    dqb.a f3 = dqb.f(f2, e2.b(), e2.a());
+                    iArr[0] = f3.b();
+                    iArr[1] = f3.a();
+                }
+                dqb.a d = dqb.d(iArr[0], iArr[1]);
+                iArr[0] = d.b();
+                iArr[1] = d.a();
             }
-            return 0;
+            return iArr;
         }
-        return invokeV.intValue;
+        return (int[]) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        b bVar;
+    public Bitmap c(Bitmap bitmap, float f, MultiMediaData multiMediaData) {
+        InterceptResult invokeCommon;
+        Bitmap bitmap2;
+        int i;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
-            if (view2 != null) {
-                bVar = (b) view2.getTag();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{bitmap, Float.valueOf(f), multiMediaData})) == null) {
+            if (multiMediaData != null && ((i2 = 360 - (((int) multiMediaData.angle) % 360)) == 90 || i2 == 270)) {
+                Matrix matrix = new Matrix();
+                matrix.setRotate(i2);
+                bitmap2 = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
             } else {
-                view2 = LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d020e, viewGroup, false);
-                bVar = new b(this, null);
-                bVar.a = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f0911c7);
-                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0911d9);
-                ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0911b3);
-                bVar.c = imageView;
-                SkinManager.setImageResource(imageView, R.drawable.icon_site_ok);
-                view2.setTag(bVar);
+                bitmap2 = null;
             }
-            bVar.a.setTag(null);
-            bVar.a.setDefaultResource(R.drawable.pic_image_h_not);
-            bVar.a.startLoad(null, 12, false);
-            bVar.a.invalidate();
-            dq4 item = getItem(i);
-            if (item != null) {
-                if (!TextUtils.isEmpty(item.g())) {
-                    item.g();
-                    String textOmit = BdUtilHelper.getTextOmit(bVar.b.getPaint(), item.g(), this.e);
-                    bVar.b.setText(textOmit + "(" + item.c() + SmallTailInfo.EMOTION_SUFFIX);
-                } else {
-                    bVar.b.setText("");
-                }
-                String b2 = item.b();
-                if (!TextUtils.isEmpty(b2) && b2.equals(this.b)) {
-                    bVar.c.setVisibility(0);
-                } else {
-                    bVar.c.setVisibility(8);
-                }
-                ImageFileInfo e = item.e();
-                if (e != null) {
-                    e.clearPageActions();
-                    int i2 = this.f;
-                    e.addPageAction(uh5.g(i2, i2));
-                    BdImage c = this.d.c(e, false);
-                    bVar.a.setTag(e.toCachedKey(false));
-                    if (c != null) {
-                        bVar.a.invalidate();
-                    } else {
-                        this.d.e(e, new a(this, viewGroup), false, false);
-                    }
-                }
+            if (bitmap2 != null) {
+                bitmap = bitmap2;
+            }
+            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
+            if (bitmap.getHeight() / bitmap.getWidth() > f) {
+                width = (int) (bitmap.getHeight() * f);
             } else {
-                bVar.b.setText("");
+                height = (int) (bitmap.getWidth() * f);
             }
-            return view2;
+            Bitmap createBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
+            Canvas canvas = new Canvas(createBitmap);
+            canvas.save();
+            int i3 = 0;
+            if (height != bitmap.getHeight()) {
+                i = Math.abs(height - bitmap.getHeight()) / 2;
+            } else {
+                i = 0;
+            }
+            if (width != bitmap.getWidth()) {
+                i3 = Math.abs(width - bitmap.getWidth()) / 2;
+            }
+            canvas.drawBitmap(bitmap, i3, i, (Paint) null);
+            canvas.restore();
+            bitmap.recycle();
+            return createBitmap;
         }
-        return (View) invokeILL.objValue;
+        return (Bitmap) invokeCommon.objValue;
+    }
+
+    public String d(int i, int i2, Bitmap bitmap, boolean z) {
+        InterceptResult invokeCommon;
+        String a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), bitmap, Boolean.valueOf(z)})) == null) {
+            if (i != 0 && i2 != 0) {
+                Bitmap h = xrb.h(bitmap, i, i2, z);
+                if (this.d) {
+                    a2 = f8b.b();
+                } else {
+                    a2 = f8b.a();
+                }
+                String c = f8b.c(a2, h, System.currentTimeMillis() + ".jpg");
+                if (h != null) {
+                    h.recycle();
+                    return c;
+                }
+                return c;
+            }
+            return "";
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public dqb.a e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            MultiMediaData multiMediaData = this.a.c;
+            int i = RecordConstants.VIDEO_CONSTANT_WIDTH;
+            int i2 = RecordConstants.VIDEO_CONSTANT_HEIGHT;
+            if (multiMediaData == null) {
+                return new dqb.a(i, i2);
+            }
+            if (multiMediaData.type == 1) {
+                float f = multiMediaData.angle;
+                float f2 = multiMediaData.rotation;
+                if ((f + f2) % 360.0f != 90.0f && (f + f2) % 360.0f != 270.0f) {
+                    i = multiMediaData.width;
+                    i2 = multiMediaData.height;
+                } else {
+                    i = multiMediaData.height;
+                    i2 = multiMediaData.width;
+                }
+            }
+            return new dqb.a(i, i2);
+        }
+        return (dqb.a) invokeV.objValue;
+    }
+
+    public void g(zz6 zz6Var, Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, zz6Var, bitmap) == null) {
+            if (zz6Var == null) {
+                zz6Var = new zz6();
+            }
+            int[] b = b();
+            zz6Var.a = d(b[0], b[1], bitmap, true);
+            this.b.a(this.a.f, zz6Var);
+        }
     }
 }

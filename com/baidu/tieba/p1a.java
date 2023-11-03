@@ -1,34 +1,81 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
-import com.baidu.tieba.recapp.constants.PlaceId;
-import com.baidu.tieba.recapp.view.AdVideoFlowView;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes7.dex */
-public class p1a implements h0a {
+public class p1a extends ci {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public n06 a;
-    public TbPageContext<BaseFragmentActivity> b;
-    public Map<AdvertAppInfo, AdVideoFlowView> c;
+    public BaseFragment b;
+    public b c;
+    public TBSpecificationBtn d;
+    public View.OnClickListener e;
 
-    public p1a(IAdBaseAsyncController.a aVar) {
+    /* loaded from: classes7.dex */
+    public interface b {
+        void Q1(boolean z);
+    }
+
+    @Override // com.baidu.tieba.ci
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ p1a a;
+
+        public a(p1a p1aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p1aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = p1aVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                ViewHelper.skipToLoginActivity(this.a.b.getContext());
+                if (this.a.c != null) {
+                    this.a.c.Q1(true);
+                }
+            }
+        }
+    }
+
+    public p1a(BaseFragment baseFragment, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
+            Object[] objArr = {baseFragment, bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,70 +85,55 @@ public class p1a implements h0a {
                 return;
             }
         }
-        n06 n06Var = new n06(PlaceId.VIDEO_FLOW, "VIDEO_FLOW", aVar);
-        this.a = n06Var;
-        n06Var.e(false);
-        this.c = new HashMap();
+        this.e = new a(this);
+        this.b = baseFragment;
+        this.c = bVar;
     }
 
-    @Override // com.baidu.tieba.h0a
-    @Nullable
-    public hz9 i(AdvertAppInfo advertAppInfo) {
-        InterceptResult invokeL;
+    public void g(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, advertAppInfo)) == null) {
-            if (this.b == null) {
-                return null;
-            }
-            AdVideoFlowView adVideoFlowView = this.c.get(advertAppInfo);
-            if (adVideoFlowView == null) {
-                adVideoFlowView = new AdVideoFlowView(this.b.getPageActivity());
-                this.c.put(advertAppInfo, adVideoFlowView);
-            }
-            adVideoFlowView.setPageContext(this.b);
-            adVideoFlowView.setData(advertAppInfo);
-            return adVideoFlowView;
-        }
-        return (hz9) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.h0a
-    public void a(TbPageContext<BaseFragmentActivity> tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
-            this.b = tbPageContext;
-        }
-    }
-
-    @Override // com.baidu.tieba.h0a
-    public void m(AdvertAppInfo advertAppInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, advertAppInfo) == null) {
-            this.c.remove(advertAppInfo);
-        }
-    }
-
-    @Override // com.baidu.tieba.h0a
-    public void c(AdvertAppInfo advertAppInfo, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, advertAppInfo, z) == null) {
-            AdVideoFlowView adVideoFlowView = this.c.get(advertAppInfo);
-            if (adVideoFlowView != null) {
-                adVideoFlowView.onPageSelected(z);
-            }
-            for (AdVideoFlowView adVideoFlowView2 : this.c.values()) {
-                if (adVideoFlowView2 != adVideoFlowView) {
-                    adVideoFlowView2.onPageSelected(false);
-                }
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            wp5.a(this.b.getPageContext(), this.a);
+            TBSpecificationBtn tBSpecificationBtn = this.d;
+            if (tBSpecificationBtn != null) {
+                tBSpecificationBtn.k();
             }
         }
     }
 
-    @Override // com.baidu.tieba.h0a
-    public void loadAd() {
+    public void i(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
+            this.d.setOnClickListener(onClickListener);
+        }
+    }
+
+    @Override // com.baidu.tieba.ci
+    public View a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            View inflate = LayoutInflater.from(this.b.getContext()).inflate(R.layout.obfuscated_res_0x7f0d060f, (ViewGroup) null);
+            this.a = inflate;
+            this.d = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f0916c2);
+            t55 t55Var = new t55();
+            BaseFragment baseFragment = this.b;
+            if (baseFragment != null && baseFragment.getContext() != null) {
+                this.d.setText(this.b.getContext().getResources().getString(R.string.login_see_more));
+            }
+            this.d.setTextSize(R.dimen.tbds42);
+            this.d.setConfig(t55Var);
+            this.d.setOnClickListener(this.e);
+            g(TbadkCoreApplication.getInst().getSkinType());
+            return this.a;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.d(1, null);
+            this.a.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         }
     }
 }

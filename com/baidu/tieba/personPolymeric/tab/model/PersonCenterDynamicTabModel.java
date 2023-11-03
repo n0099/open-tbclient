@@ -47,7 +47,7 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -112,7 +112,7 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
             }
             if (responsedMessage.getError() == 0) {
                 if (!ListUtils.isEmpty(list)) {
-                    this.a.Y(list);
+                    this.a.Z(list);
                     this.a.d.addAll(list);
                 }
                 this.a.b = z;
@@ -162,7 +162,7 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
         MessageManager.getInstance().registerListener(this.i);
     }
 
-    public final void W(long j) {
+    public final void X(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
             PersonCenterDynamicTabRequestMessage personCenterDynamicTabRequestMessage = new PersonCenterDynamicTabRequestMessage(this.e, j, 10);
@@ -171,29 +171,29 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
         }
     }
 
-    public void a0(MetaData metaData) {
+    public void b0(MetaData metaData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, metaData) == null) {
             this.g = metaData;
         }
     }
 
-    public void b0(b bVar) {
+    public void c0(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
             this.c = bVar;
         }
     }
 
-    public void c0(User user) {
+    public void d0(User user) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, user) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, user) == null) {
             this.f = user;
-            Z();
+            a0();
         }
     }
 
-    public boolean V() {
+    public boolean W() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -202,19 +202,19 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public void X() {
+    public void Y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            W(this.a);
+            X(this.a);
         }
     }
 
-    public void Z() {
+    public void a0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.a = 0L;
             this.d.clear();
-            W(this.a);
+            X(this.a);
         }
     }
 
@@ -230,7 +230,7 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
         }
     }
 
-    public final void Y(List<ThreadData> list) {
+    public final void Z(List<ThreadData> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && this.f != null && !ListUtils.isEmpty(list)) {
             for (ThreadData threadData : list) {

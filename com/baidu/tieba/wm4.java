@@ -1,122 +1,118 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.text.TextUtils;
+import android.os.Build;
+import android.system.Os;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.cyberplayer.sdk.rtc.RTCConst;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileOutputStream;
 /* loaded from: classes8.dex */
-public class wm4 {
+public class wm4 implements tm4<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BroadcastReceiver a;
-    public Context b;
-    public int c;
-    public b d;
+    public Context a;
 
-    /* loaded from: classes8.dex */
-    public interface b {
-        void a(int i, int i2);
-    }
-
-    /* loaded from: classes8.dex */
-    public class a extends BroadcastReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wm4 this$0;
-
-        public a(wm4 wm4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wm4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = wm4Var;
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            int d;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLL(1048576, this, context, intent) != null) || !TextUtils.equals(intent.getAction(), NetworkMonitor.NET_CHANGE_ACTION) || (d = this.this$0.d()) == this.this$0.c) {
-                return;
-            }
-            if (this.this$0.d != null) {
-                this.this$0.d.a(this.this$0.c, d);
-            }
-            this.this$0.c = d;
-        }
-    }
-
-    public wm4() {
+    public wm4(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = context.getApplicationContext();
     }
 
-    public int d() {
+    @Override // com.baidu.tieba.tm4
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (SwanAppNetworkUtils.j(this.b)) {
-                return 1;
+            return !new File(this.a.getFilesDir(), "libuuid.so").exists();
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.tm4
+    /* renamed from: b */
+    public String get() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return d();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            File file = new File(this.a.getFilesDir(), "libuuid.so");
+            if (!file.exists()) {
+                return null;
             }
-            if (SwanAppNetworkUtils.i(this.b)) {
-                return 2;
+            return zm4.c(file);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.tm4
+    /* renamed from: c */
+    public void put(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            e(str);
+        }
+    }
+
+    @SuppressLint({"WorldReadableFiles"})
+    @TargetApi(21)
+    public final void e(String str) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            File file = new File(this.a.getFilesDir(), "libuuid.so");
+            if (Build.VERSION.SDK_INT >= 24) {
+                i = 1;
+            } else {
+                i = 0;
             }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public void g() {
-        Context context;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (context = this.b) != null) {
-            context.unregisterReceiver(this.a);
-        }
-    }
-
-    public void e(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.b = context;
-            this.c = d();
-            a aVar = new a(this);
-            this.a = aVar;
-            this.b.registerReceiver(aVar, new IntentFilter(NetworkMonitor.NET_CHANGE_ACTION));
-        }
-    }
-
-    public void f(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.d = bVar;
+            FileOutputStream fileOutputStream = null;
+            try {
+                try {
+                    fileOutputStream = this.a.openFileOutput("libuuid.so", i ^ 1);
+                    fileOutputStream.write(str.getBytes());
+                    fileOutputStream.flush();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                if (i != 0) {
+                    try {
+                        Os.chmod(file.getAbsolutePath(), RTCConst.RTC_ROOM_USERID_ALREADY_EXIST_ERROR);
+                    } catch (Exception unused) {
+                    }
+                }
+            } finally {
+                zm4.a(fileOutputStream);
+            }
         }
     }
 }

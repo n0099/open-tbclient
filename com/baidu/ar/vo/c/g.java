@@ -9,7 +9,7 @@ import com.baidu.ar.arplay.representation.Vector3f;
 import com.baidu.ar.arrender.l;
 import com.baidu.ar.arrender.m;
 import java.util.HashMap;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class g implements d {
     public int mPreviewHeight;
     public int mPreviewWidth;

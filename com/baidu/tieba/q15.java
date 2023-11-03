@@ -1,25 +1,36 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.browser.BrowserHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.TBAlertBuilder;
+import com.baidu.tbadk.core.dialog.TBAlertConfig;
 import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.dialog.yun.strategy.FrequenceDialogStrategy;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.log.TbLog;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.data.LevePopData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class q15 implements e15 {
+public final class q15 extends f15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public static final void g(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, view2) == null) {
+        }
+    }
 
     public q15() {
         Interceptable interceptable = $ic;
@@ -35,59 +46,86 @@ public final class q15 implements e15 {
         }
     }
 
-    @Override // com.baidu.tieba.e15
-    public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, Object> strategyData, Map<String, Object> extraData) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.f15
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogData, strategyData, extraData)) == null) {
-            Intrinsics.checkNotNullParameter(dialogData, "dialogData");
-            Intrinsics.checkNotNullParameter(strategyData, "strategyData");
-            Intrinsics.checkNotNullParameter(extraData, "extraData");
-            HashMap hashMap = new HashMap(strategyData);
-            hashMap.put("dialogName", dialogData.getDialogName());
-            return hashMap;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            YunDialogManager.unMarkShowingDialogName("userGrowth");
         }
-        return (Map) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.e15
-    public boolean b(Map<String, Object> map) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.f15
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            Intrinsics.checkNotNullParameter(map, "map");
-            boolean z = false;
-            try {
-                FrequenceDialogStrategy.Data data = (FrequenceDialogStrategy.Data) DataExt.toEntity(map, FrequenceDialogStrategy.Data.class);
-                long currentTimeMillis = System.currentTimeMillis() / 1000;
-                if (currentTimeMillis >= data.startTimestamp && currentTimeMillis <= data.endTimestamp) {
-                    if (data.frequence == 0) {
-                        return true;
-                    }
-                    s15 s15Var = s15.a;
-                    String str = data.dialogName;
-                    Intrinsics.checkNotNullExpressionValue(str, "data.dialogName");
-                    int a = s15Var.a(str);
-                    if (a < data.frequence) {
-                        z = true;
-                    }
-                    if (!z) {
-                        TbLog yunDialogLog = YunDialogLog.getInstance();
-                        yunDialogLog.i(YunDialogManager.LOG_KEY, "云弹窗 " + data.dialogName + " 命中频次超限限制，当前已展示次数：" + a + "，配置展现次数：" + data.frequence);
-                    }
-                    return z;
-                }
-                TbLog yunDialogLog2 = YunDialogLog.getInstance();
-                yunDialogLog2.i(YunDialogManager.LOG_KEY, "云弹窗 " + data.dialogName + " 命中频次时间限制，当前时间戳：" + currentTimeMillis + " 配置时间：" + data.startTimestamp + " - " + data.endTimestamp);
-                return false;
-            } catch (Exception e) {
-                if (!TbadkApplication.getInst().isDebugMode()) {
-                    YunDialogLog.getInstance().i(YunDialogManager.LOG_KEY, "云弹窗频次策略解析失败");
-                    return false;
-                }
-                throw e;
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            YunDialogManager.markShowingDialogName("userGrowth");
         }
-        return invokeL.booleanValue;
+    }
+
+    public static final void h(LevePopData levePopData, View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, levePopData, view2) == null) {
+            BrowserHelper.startWebActivity(view2.getContext(), (String) null, levePopData.getBtn_scheme(), true);
+        }
+    }
+
+    @Override // com.baidu.tieba.f15
+    public void b(TBAlertBuilder builder) {
+        String cancel_btn_text;
+        String btn_text;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, builder) == null) {
+            Intrinsics.checkNotNullParameter(builder, "builder");
+            final LevePopData levePopData = TbSingleton.getInstance().getLevePopData();
+            RelativeLayout relativeLayout = new RelativeLayout(c());
+            View view2 = new View(c());
+            EMManager.from(view2).setCardType(1).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0205);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, UtilHelper.getDimenPixelSize(R.dimen.tbds127));
+            layoutParams.setMargins(0, UtilHelper.getDimenPixelSize(R.dimen.tbds149), 0, 0);
+            relativeLayout.addView(view2, layoutParams);
+            ImageView imageView = new ImageView(c());
+            imageView.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.icon_mask_usergrouth_home, WebPManager.ResourceStateType.NORMAL));
+            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
+            layoutParams2.addRule(14);
+            relativeLayout.addView(imageView, layoutParams2);
+            TBAlertBuilder customHeaderView = builder.setTitleStr(levePopData.getTitle()).setDescStr(levePopData.getDesc()).setDescLightStyle(true).setCustomHeaderView(relativeLayout);
+            TBAlertConfig.OperateBtnConfig[] operateBtnConfigArr = new TBAlertConfig.OperateBtnConfig[2];
+            if (StringUtils.isNull(levePopData.getCancel_btn_text())) {
+                cancel_btn_text = TbadkCoreApplication.getInst().getString(R.string.guide_popup_window_known);
+            } else {
+                cancel_btn_text = levePopData.getCancel_btn_text();
+            }
+            operateBtnConfigArr[0] = new TBAlertConfig.OperateBtnConfig(cancel_btn_text, TBAlertConfig.OperateBtnStyle.SECONDARY, new View.OnClickListener() { // from class: com.baidu.tieba.z05
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // android.view.View.OnClickListener
+                public final void onClick(View view3) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
+                        q15.g(view3);
+                    }
+                }
+            });
+            if (StringUtils.isNull(levePopData.getBtn_text())) {
+                btn_text = TbadkCoreApplication.getInst().getString(R.string.check_detail);
+            } else {
+                btn_text = levePopData.getBtn_text();
+            }
+            operateBtnConfigArr[1] = new TBAlertConfig.OperateBtnConfig(btn_text, TBAlertConfig.OperateBtnStyle.MAIN, new View.OnClickListener() { // from class: com.baidu.tieba.c15
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // android.view.View.OnClickListener
+                public final void onClick(View view3) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
+                        q15.h(LevePopData.this, view3);
+                    }
+                }
+            });
+            customHeaderView.setOperateBtn(operateBtnConfigArr).setCancelable(false).setAutoClose().show();
+            PollingModel.setLevelPopData(levePopData, true);
+        }
     }
 }

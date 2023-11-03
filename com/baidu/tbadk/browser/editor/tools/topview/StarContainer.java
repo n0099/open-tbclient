@@ -24,11 +24,11 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.widget.RankStarView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cd5;
-import com.baidu.tieba.hh6;
+import com.baidu.tieba.dh5;
+import com.baidu.tieba.dj6;
+import com.baidu.tieba.le5;
 import com.baidu.tieba.lego.card.utils.ColorUtils;
-import com.baidu.tieba.pd5;
-import com.baidu.tieba.qf5;
+import com.baidu.tieba.xd5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +42,7 @@ import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 @Metadata(d1 = {"\u0000v\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\u0010\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\n\u0018\u00002\u00020\u00012\u00020\u00022\u00020\u0003B'\b\u0007\u0012\b\u0010\u0004\u001a\u0004\u0018\u00010\u0005\u0012\n\b\u0002\u0010\u0006\u001a\u0004\u0018\u00010\u0007\u0012\b\b\u0002\u0010\b\u001a\u00020\t¢\u0006\u0002\u0010\nJ\b\u0010 \u001a\u00020!H\u0016J\b\u0010\"\u001a\u00020\tH\u0016J\b\u0010#\u001a\u00020!H\u0016J\b\u0010$\u001a\u00020!H\u0016J\u0012\u0010%\u001a\u00020!2\b\u0010&\u001a\u0004\u0018\u00010'H\u0016J\u0010\u0010(\u001a\u00020!2\u0006\u0010)\u001a\u00020\tH\u0016J\u0010\u0010*\u001a\u00020!2\u0006\u0010&\u001a\u00020'H\u0016J0\u0010+\u001a\u00020!2&\u0010,\u001a\"\u0012\u0004\u0012\u00020\u0011\u0012\u0004\u0012\u00020\u0012\u0018\u00010\u0010j\u0010\u0012\u0004\u0012\u00020\u0011\u0012\u0004\u0012\u00020\u0012\u0018\u0001`\u0013H\u0016J\u0010\u0010-\u001a\u00020!2\u0006\u0010.\u001a\u00020\u0015H\u0016J\u0010\u0010/\u001a\u00020!2\u0006\u00100\u001a\u00020\tH\u0016R\u000e\u0010\u000b\u001a\u00020\fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u000eX\u0082\u0004¢\u0006\u0002\n\u0000R.\u0010\u000f\u001a\"\u0012\u0004\u0012\u00020\u0011\u0012\u0004\u0012\u00020\u0012\u0018\u00010\u0010j\u0010\u0012\u0004\u0012\u00020\u0011\u0012\u0004\u0012\u00020\u0012\u0018\u0001`\u0013X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0014\u001a\u0004\u0018\u00010\u0015X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0017\u001a\u00020\u0018X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0019\u001a\u00020\u001aX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u001b\u001a\u00020\u001cX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u001d\u001a\u00020\u001eX\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u001f\u001a\u0004\u0018\u00010\u0011X\u0082\u000e¢\u0006\u0002\n\u0000¨\u00061"}, d2 = {"Lcom/baidu/tbadk/browser/editor/tools/topview/StarContainer;", "Landroid/widget/FrameLayout;", "Lcom/baidu/tbadk/editortools/ToolViewInterface;", "Lcom/baidu/tbadk/editortools/topview/IToolData;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "mBackground", "Landroid/view/View;", "mCloseView", "Landroid/widget/ImageView;", "mData", "Ljava/util/HashMap;", "", "", "Lkotlin/collections/HashMap;", "mET", "Lcom/baidu/tbadk/editortools/EditorTools;", "mHeadPhotoBackGround", "mHeadPhotoView", "Lcom/baidu/tbadk/core/view/HeadImageView;", "mNameView", "Landroid/widget/TextView;", "mRankStarView", "Lcom/baidu/tbadk/widget/RankStarView;", "mRootLayout", "Landroid/widget/LinearLayout;", "mUserName", CriusAttrConstants.DISPLAY, "", "getToolId", "hide", "init", "onAction", "action", "Lcom/baidu/tbadk/editortools/Action;", "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "sendAction", "setData", "data", "setEditorTools", "et", "setToolId", "id", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes4.dex */
-public final class StarContainer extends FrameLayout implements pd5, qf5 {
+public final class StarContainer extends FrameLayout implements le5, dh5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EditorTools a;
@@ -100,22 +100,22 @@ public final class StarContainer extends FrameLayout implements pd5, qf5 {
         }
     }
 
-    @Override // com.baidu.tieba.pd5
-    public void c0(cd5 action) {
+    @Override // com.baidu.tieba.le5
+    public void display() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, action) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.le5
+    public void g0(xd5 action) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, action) == null) {
             Intrinsics.checkNotNullParameter(action, "action");
         }
     }
 
-    @Override // com.baidu.tieba.pd5
-    public void display() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.pd5
+    @Override // com.baidu.tieba.le5
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -125,21 +125,21 @@ public final class StarContainer extends FrameLayout implements pd5, qf5 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.pd5
+    @Override // com.baidu.tieba.le5
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.pd5
+    @Override // com.baidu.tieba.le5
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.pd5
+    @Override // com.baidu.tieba.le5
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
@@ -195,7 +195,7 @@ public final class StarContainer extends FrameLayout implements pd5, qf5 {
         FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(BdUtilHelper.getDimens(getContext(), R.dimen.tbds105), BdUtilHelper.getDimens(getContext(), R.dimen.tbds105));
         layoutParams3.leftMargin = BdUtilHelper.getDimens(getContext(), R.dimen.tbds16);
         layoutParams3.topMargin = BdUtilHelper.getDimens(getContext(), R.dimen.tbds46);
-        this.h.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ts4
+        this.h.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.kt4
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -233,26 +233,26 @@ public final class StarContainer extends FrameLayout implements pd5, qf5 {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             EditorTools editorTools = this$0.a;
             if (editorTools != null) {
-                editorTools.q();
+                editorTools.v();
             }
         }
     }
 
-    @Override // com.baidu.tieba.dd5
-    public void O(cd5 cd5Var) {
+    @Override // com.baidu.tieba.yd5
+    public void S(xd5 xd5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, cd5Var) == null) && cd5Var != null && cd5Var.a == 8) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, xd5Var) == null) && xd5Var != null && xd5Var.a == 8) {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("newValue", this.j.getStarCount());
                 jSONObject.put("playerName", this.c);
-                hh6.a().h("gameCard.playerInfoStar", jSONObject);
+                dj6.a().h("gameCard.playerInfoStar", jSONObject);
             } catch (Exception unused) {
             }
         }
     }
 
-    @Override // com.baidu.tieba.pd5
+    @Override // com.baidu.tieba.le5
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
@@ -264,7 +264,7 @@ public final class StarContainer extends FrameLayout implements pd5, qf5 {
         }
     }
 
-    @Override // com.baidu.tieba.qf5
+    @Override // com.baidu.tieba.dh5
     public void setData(HashMap<String, Object> hashMap) {
         String str;
         String obj;
@@ -295,7 +295,7 @@ public final class StarContainer extends FrameLayout implements pd5, qf5 {
         }
     }
 
-    @Override // com.baidu.tieba.pd5
+    @Override // com.baidu.tieba.le5
     public void setEditorTools(EditorTools et) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, et) == null) {

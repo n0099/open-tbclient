@@ -1,17 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.hottopicselect.HotSelectCacheReqMessage;
-import com.baidu.tieba.hottopicselect.HotSelectCacheResponseMessage;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.yy.gameassist.interfaces.PermissionService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class n68 implements CustomMessageTask.CustomRunnable<Object> {
+public class n68 extends bg1<PermissionService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,21 +26,15 @@ public class n68 implements CustomMessageTask.CustomRunnable<Object> {
         }
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bg1
+    /* renamed from: a */
+    public PermissionService createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage == null || !(customMessage instanceof HotSelectCacheReqMessage)) {
-                return null;
-            }
-            HotSelectCacheResponseMessage hotSelectCacheResponseMessage = new HotSelectCacheResponseMessage();
-            try {
-                hotSelectCacheResponseMessage.decodeInBackGround(2016491, (byte[]) null);
-            } catch (Exception unused) {
-            }
-            return hotSelectCacheResponseMessage;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new o68();
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return (PermissionService) invokeV.objValue;
     }
 }

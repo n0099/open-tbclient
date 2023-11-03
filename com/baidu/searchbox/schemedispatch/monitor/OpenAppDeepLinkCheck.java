@@ -32,7 +32,7 @@ public final class OpenAppDeepLinkCheck extends OpenAppBaseCheck implements IDee
 
     @Override // com.baidu.searchbox.schemedispatch.monitor.OpenAppBaseCheck
     public void loadWhiteListAsync() {
-        ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.tieba.mi1
+        ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.tieba.dj1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -40,7 +40,7 @@ public final class OpenAppDeepLinkCheck extends OpenAppBaseCheck implements IDee
             public final void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    OpenAppDeepLinkCheck.m105loadWhiteListAsync$lambda0(OpenAppDeepLinkCheck.this);
+                    OpenAppDeepLinkCheck.m106loadWhiteListAsync$lambda0(OpenAppDeepLinkCheck.this);
                 }
             }
         }, "SchemeDeepLinkWhiteListLoad", 2);
@@ -65,7 +65,7 @@ public final class OpenAppDeepLinkCheck extends OpenAppBaseCheck implements IDee
     }
 
     /* renamed from: loadWhiteListAsync$lambda-0  reason: not valid java name */
-    public static final void m105loadWhiteListAsync$lambda0(OpenAppDeepLinkCheck this$0) {
+    public static final void m106loadWhiteListAsync$lambda0(OpenAppDeepLinkCheck this$0) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         this$0.loadDeepLinkWhiteList();
         FileUtils.deleteCache(AppRuntime.getAppContext(), "scheme_deep_link_white_list");

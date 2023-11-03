@@ -1,15 +1,16 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.tieba.lo2;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.SwanAppBaseActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.List;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class i13 {
     public static /* synthetic */ Interceptable $ic;
@@ -29,74 +30,97 @@ public class i13 {
                 return;
             }
         }
-        a = am1.a;
+        a = rm1.a;
     }
 
-    public static void a() {
-        String[] list;
+    @SuppressLint({"BDThrowableCheck"})
+    public static boolean a(Context context, @NonNull j13 j13Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && (list = lo2.q().list()) != null && list.length > 0) {
-            for (String str : list) {
-                if (!TextUtils.isEmpty(str)) {
-                    qe4 qe4Var = new qe4();
-                    qe4Var.g = str;
-                    qe4Var.i = -1L;
-                    md4.i().f(qe4Var);
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, j13Var)) == null) {
+            if (context instanceof SwanAppBaseActivity) {
+                return true;
             }
-            lo2.e.d();
+            j13Var.b(2, "method should be called after setActivityRef");
+            if (!a) {
+                return false;
+            }
+            throw new IllegalStateException("this method should be called after setActivityRef");
         }
+        return invokeLL.booleanValue;
     }
 
-    public static void b(String str) {
-        File s;
-        String[] list;
+    public static boolean c(ArrayList<String> arrayList, @NonNull j13 j13Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && !TextUtils.isEmpty(str) && (s = lo2.s(str)) != null && (list = s.list()) != null && list.length > 1) {
-            List<qe4> q = w03.q(str);
-            for (String str2 : list) {
-                long j = -1;
-                try {
-                    j = Long.parseLong(str2);
-                } catch (NumberFormatException e) {
-                    if (a) {
-                        h13.b(Log.getStackTraceString(e));
-                    }
-                }
-                if (!c(j, q)) {
-                    sl4.L(lo2.t(str, str2));
-                    h13.b("delete plugin name = " + str + " ; version = " + str2);
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, arrayList, j13Var)) == null) {
+            if (arrayList != null && !arrayList.isEmpty()) {
+                return false;
             }
-            qe4 qe4Var = null;
-            if (q != null) {
-                if (q.size() == 1) {
-                    qe4Var = q.get(0);
-                } else if (q.size() >= 2) {
-                    qe4Var = q.get(1);
-                }
-            }
-            if (qe4Var != null) {
-                md4.i().f(qe4Var);
-            }
+            j13Var.a("permission has already granted");
+            return true;
         }
+        return invokeLL.booleanValue;
     }
 
-    public static boolean c(long j, List<qe4> list) {
-        InterceptResult invokeJL;
+    @NonNull
+    public static ArrayList<String> d(@NonNull Context context, @NonNull String[] strArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(65539, null, j, list)) == null) {
-            if (j >= 0 && list != null && list.size() != 0) {
-                int min = Math.min(list.size(), 2);
-                for (int i = 0; i < min; i++) {
-                    qe4 qe4Var = list.get(i);
-                    if (qe4Var != null && (j == qe4Var.i || j == ej3.c(qe4Var.j))) {
-                        return true;
-                    }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, strArr)) == null) {
+            ArrayList<String> arrayList = new ArrayList<>();
+            for (String str : strArr) {
+                if (!bn4.a(context, str)) {
+                    arrayList.add(str);
                 }
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeLL.objValue;
+    }
+
+    public static boolean b(@NonNull Context context, @NonNull String str, @NonNull j13 j13Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, str, j13Var)) == null) {
+            if (bn4.a(context, str)) {
+                j13Var.a("permission has already granted");
+                return true;
             }
             return false;
         }
-        return invokeJL.booleanValue;
+        return invokeLLL.booleanValue;
+    }
+
+    public static void e(@NonNull String str, @NonNull String[] strArr, int i, @NonNull Context context, @NonNull j13 j13Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65541, null, new Object[]{str, strArr, Integer.valueOf(i), context, j13Var}) != null) || !a(context, j13Var) || b(context, str, j13Var)) {
+            return;
+        }
+        f(context, strArr, i, j13Var);
+    }
+
+    public static void f(@NonNull Context context, @NonNull String[] strArr, int i, @NonNull j13 j13Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLIL(65542, null, context, strArr, i, j13Var) != null) || !a(context, j13Var)) {
+            return;
+        }
+        ArrayList<String> d = d(context, strArr);
+        if (c(d, j13Var)) {
+            return;
+        }
+        ((SwanAppBaseActivity) context).A(i, (String[]) d.toArray(new String[0]), new f13(context, i, j13Var));
+    }
+
+    public static void g(@NonNull String[] strArr, int i, @NonNull Context context, @NonNull j13 j13Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLILL(65543, null, strArr, i, context, j13Var) != null) || !a(context, j13Var)) {
+            return;
+        }
+        ArrayList<String> d = d(context, strArr);
+        if (c(d, j13Var)) {
+            return;
+        }
+        f(context, (String[]) d.toArray(new String[0]), i, j13Var);
     }
 }

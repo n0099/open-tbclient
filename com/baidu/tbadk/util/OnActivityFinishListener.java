@@ -38,7 +38,7 @@ public class OnActivityFinishListener<T> extends SimpleMessageListener {
     public static <T> void j(@NonNull TbPageContext<?> tbPageContext, @Nullable T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, tbPageContext, t) == null) {
-            SimpleMessageListener.c(2001459, tbPageContext, t);
+            SimpleMessageListener.d(2001459, tbPageContext, t);
         }
     }
 }

@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ad;
+import com.baidu.tieba.qd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -169,7 +169,7 @@ public class PersonHeaderBackgroundController {
         this.a = tbPageContext;
         this.b = tbImageView;
         this.e = z;
-        tbImageView.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08033f);
+        tbImageView.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080343);
         this.c = view2;
         view2.setOnClickListener(this.f);
     }
@@ -217,7 +217,7 @@ public class PersonHeaderBackgroundController {
         }
         this.d = userData;
         String bg_pic = userData.getBg_pic();
-        if (!ad.isEmpty(bg_pic)) {
+        if (!qd.isEmpty(bg_pic)) {
             BdResourceLoader.getInstance().loadResource(bg_pic, 10, new a(this), 0, 0, this.a.getUniqueId(), new Object[0]);
         }
     }

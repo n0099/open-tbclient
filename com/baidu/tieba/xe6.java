@@ -1,39 +1,51 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.barselect.model.CandidateSearchHttpResMsg;
+import com.baidu.tieba.barselect.model.CandidateSearchReqMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
-public class xe6 extends kf1<eh6> {
+/* loaded from: classes9.dex */
+public class xe6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
 
-    public xe6() {
+    public xe6(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = tbPageContext;
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CANDIDATE_SEARCH, cra.a(TbConfig.URL_CANDIDATE_SEARCH, 309641));
+        tbHttpMessageTask.setResponsedClass(CandidateSearchHttpResMsg.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kf1
-    /* renamed from: a */
-    public eh6 createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    public void a(int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new ye6();
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            CandidateSearchReqMsg candidateSearchReqMsg = new CandidateSearchReqMsg();
+            candidateSearchReqMsg.applyId = i;
+            candidateSearchReqMsg.fid = j;
+            candidateSearchReqMsg.setTag(this.a.getUniqueId());
+            MessageManager.getInstance().sendMessage(candidateSearchReqMsg);
         }
-        return (eh6) invokeV.objValue;
     }
 }

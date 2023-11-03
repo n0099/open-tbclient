@@ -1,35 +1,22 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tieba.wr;
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class ql9 {
+public class ql9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public bk6 b;
-    public wr.a c;
-    public OriginalThreadInfo d;
-    public int e;
+    public Context a;
 
-    public abstract View a();
-
-    public abstract void b(TbPageContext tbPageContext, int i);
-
-    public abstract void c(OriginalThreadInfo originalThreadInfo);
-
-    public ql9(TbPageContext tbPageContext) {
+    public ql9(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,21 +26,6 @@ public abstract class ql9 {
                 return;
             }
         }
-        this.e = 3;
-        this.a = tbPageContext;
-    }
-
-    public void d(wr.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.c = aVar;
-        }
-    }
-
-    public void e(bk6 bk6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bk6Var) == null) {
-            this.b = bk6Var;
-        }
+        this.a = context;
     }
 }

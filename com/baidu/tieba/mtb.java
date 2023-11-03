@@ -1,81 +1,37 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-@Deprecated
+import java.io.File;
 /* loaded from: classes7.dex */
-public abstract class mtb implements jtb {
+public class mtb {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, mtb> a;
-    public static final Object b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947985614, "Lcom/baidu/tieba/mtb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947985614, "Lcom/baidu/tieba/mtb;");
-                return;
-            }
-        }
-        a = new HashMap();
-        b = new Object();
-    }
-
-    public mtb() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static mtb c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            Context applicationContext = context.getApplicationContext();
-            if (applicationContext != null) {
-                context = applicationContext;
-            }
-            return d(context, context.getPackageName());
-        }
-        return (mtb) invokeL.objValue;
-    }
-
-    public static mtb d(Context context, String str) {
+    public static String a(File file, Object obj) {
         InterceptResult invokeLL;
-        mtb mtbVar;
+        String b;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
-            synchronized (b) {
-                mtbVar = a.get(str);
-                if (mtbVar == null) {
-                    mtbVar = new stb(context, str);
-                    a.put(str, mtbVar);
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, file, obj)) == null) {
+            synchronized (obj) {
+                b = ntb.b(file);
             }
-            return mtbVar;
+            return b;
         }
-        return (mtb) invokeLL.objValue;
+        return (String) invokeLL.objValue;
+    }
+
+    public static boolean b(String str, File file, boolean z, Object obj) {
+        InterceptResult invokeCommon;
+        boolean e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, file, Boolean.valueOf(z), obj})) == null) {
+            synchronized (obj) {
+                e = ntb.e(str, file, z);
+            }
+            return e;
+        }
+        return invokeCommon.booleanValue;
     }
 }

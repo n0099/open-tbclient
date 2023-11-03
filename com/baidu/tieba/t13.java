@@ -1,257 +1,183 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.util.Log;
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes8.dex */
-public class t13 {
+public abstract class t13 extends u13 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
-    public static volatile t13 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap<String, u13<s13>> a;
-    public ConcurrentHashMap<String, Runnable> b;
-    public a c;
 
-    /* loaded from: classes8.dex */
-    public static class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
+    @Override // com.baidu.tieba.u13
+    public p13 f(q13 q13Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, q13Var)) == null) {
+            return null;
         }
+        return (p13) invokeL.objValue;
     }
 
-    /* loaded from: classes8.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference<t13> a;
-        public String b;
-
-        public b(t13 t13Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {t13Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new WeakReference<>(t13Var);
-            this.b = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            t13 t13Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (t13Var = this.a.get()) == null) {
-                return;
-            }
-            if (t13.d) {
-                Log.d("MDelegate-Observe", "run: observer timeout " + this.b);
-            }
-            s13 s13Var = new s13(this.b);
-            s13Var.b(null);
-            t13Var.c(s13Var);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948128307, "Lcom/baidu/tieba/t13;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948128307, "Lcom/baidu/tieba/t13;");
-                return;
-            }
-        }
-        d = am1.a;
-    }
-
-    public static t13 b() {
+    @Override // com.baidu.tieba.u13
+    public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (e == null) {
-                synchronized (t13.class) {
-                    if (e == null) {
-                        e = new t13();
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public abstract void p(SwanAppActivity swanAppActivity, String str, q13 q13Var, sb3 sb3Var, s72<r13> s72Var);
+
+    /* loaded from: classes8.dex */
+    public class a implements tm1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ q13 a;
+        public final /* synthetic */ s72 b;
+        public final /* synthetic */ t13 c;
+
+        public a(t13 t13Var, q13 q13Var, s72 s72Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t13Var, q13Var, s72Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return e;
+            this.c = t13Var;
+            this.a = q13Var;
+            this.b = s72Var;
         }
-        return (t13) invokeV.objValue;
+
+        @Override // com.baidu.tieba.tm1
+        public void onResult(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (i == 0) {
+                    this.c.o(this.a, this.b);
+                    return;
+                }
+                r13 r13Var = new r13(this.a.f);
+                r13Var.a = this.a.e;
+                this.b.a(r13Var);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements zk3<sb3> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ g63 a;
+        public final /* synthetic */ SwanAppActivity b;
+        public final /* synthetic */ q13 c;
+        public final /* synthetic */ s72 d;
+        public final /* synthetic */ t13 e;
+
+        public b(t13 t13Var, g63 g63Var, SwanAppActivity swanAppActivity, q13 q13Var, s72 s72Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t13Var, g63Var, swanAppActivity, q13Var, s72Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = t13Var;
+            this.a = g63Var;
+            this.b = swanAppActivity;
+            this.c = q13Var;
+            this.d = s72Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.zk3
+        /* renamed from: b */
+        public void a(sb3 sb3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sb3Var) == null) {
+                this.e.p(this.b, this.a.P(), this.c, sb3Var, this.d);
+            }
+        }
     }
 
     public t13() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new ConcurrentHashMap<>();
-        this.b = new ConcurrentHashMap<>();
-        this.c = new a(Looper.getMainLooper());
-    }
-
-    public void c(@NonNull s13 s13Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, s13Var) == null) {
-            u13<s13> u13Var = this.a.get(s13Var.c());
-            if (u13Var == null) {
-                if (d) {
-                    Log.e("MDelegate-Observe", "notify a null observer");
-                    return;
-                }
-                return;
-            }
-            String b2 = u13Var.b();
-            if (d) {
-                Log.d("MDelegate-Observe", "notify observer: " + b2);
-            }
-            u13Var.onEvent(s13Var);
-            if (this.b.containsKey(b2)) {
-                if (d) {
-                    Log.d("MDelegate-Observe", "remove observer: " + b2 + " timeout runnable");
-                }
-                this.c.removeCallbacks(this.b.get(b2));
-                this.b.remove(b2);
-            }
-            if (u13Var.c()) {
-                if (d) {
-                    Log.d("MDelegate-Observe", "auto unregister disposable observer: " + b2);
-                }
-                f(u13Var);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public void e(u13<s13> u13Var) {
+    @Override // com.baidu.tieba.u13
+    public hy1 j(String str, q13 q13Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, u13Var) == null) {
-            if (u13Var == null) {
-                if (d) {
-                    Log.e("MDelegate-Observe", "register a null observer");
-                    return;
-                }
-                return;
-            }
-            String b2 = u13Var.b();
-            if (this.a.containsKey(b2)) {
-                if (d) {
-                    Log.e("MDelegate-Observe", "multiple register observer：" + b2);
-                    return;
-                }
-                return;
-            }
-            if (d) {
-                Log.d("MDelegate-Observe", "register observer: " + b2);
-            }
-            this.a.put(b2, u13Var);
-            long a2 = u13Var.a();
-            if (a2 > 0 && u13Var.c()) {
-                if (d) {
-                    Log.d("MDelegate-Observe", "post observer: " + b2 + " " + a2 + "ms timeout runnable");
-                }
-                b bVar = new b(this, b2);
-                this.b.put(b2, bVar);
-                this.c.postDelayed(bVar, a2);
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, q13Var)) == null) {
+            return new hy1(0);
         }
+        return (hy1) invokeLL.objValue;
     }
 
-    public void d() {
+    @Override // com.baidu.tieba.u13
+    public hy1 m(q13 q13Var, s72<r13> s72Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (d) {
-                Log.d("MDelegate-Observe", "release observable");
-            }
-            if (e == null) {
-                return;
-            }
-            this.a.clear();
-            for (Map.Entry<String, Runnable> entry : this.b.entrySet()) {
-                if (d) {
-                    Log.d("MDelegate-Observe", "remove observer: " + entry.getKey() + " timeout runnable");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, q13Var, s72Var)) == null) {
+            if (q13Var != null && !TextUtils.isEmpty(q13Var.a)) {
+                if (s72Var == null) {
+                    return new hy1(1001, "get fun page info, cb is null");
                 }
-                this.c.removeCallbacks(entry.getValue());
+                g63 q = f63.K().q();
+                SwanAppActivity w = q.w();
+                if (w != null && !w.isFinishing()) {
+                    if (!q.N().e(q)) {
+                        q.N().f(w, null, new a(this, q13Var, s72Var));
+                        return new hy1(1001, "not login");
+                    }
+                    o(q13Var, s72Var);
+                    return new hy1(0);
+                }
+                return new hy1(1001, "get fun page info, master has dead");
             }
-            this.b.clear();
-            e = null;
+            return new hy1(1001, "get fun page info, provider appKey is empty");
         }
+        return (hy1) invokeLL.objValue;
     }
 
-    public void f(u13<s13> u13Var) {
+    public final void o(q13 q13Var, s72<r13> s72Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, u13Var) == null) {
-            if (u13Var == null) {
-                if (d) {
-                    Log.e("MDelegate-Observe", "unregister a null observer");
-                    return;
-                }
-                return;
-            }
-            String b2 = u13Var.b();
-            if (!this.a.containsKey(b2)) {
-                if (d) {
-                    Log.e("MDelegate-Observe", "unregister a nonexistent observer");
-                    return;
-                }
-                return;
-            }
-            if (d) {
-                Log.d("MDelegate-Observe", "unregister observer: " + b2);
-            }
-            this.a.remove(b2);
+        if (interceptable == null || interceptable.invokeLL(1048580, this, q13Var, s72Var) == null) {
+            y13.b("start get open data");
+            g63 q = f63.K().q();
+            SwanAppActivity w = q.w();
+            sb3.B(w, g(), q13Var.a, true, h(), new b(this, q, w, q13Var, s72Var));
         }
     }
 }

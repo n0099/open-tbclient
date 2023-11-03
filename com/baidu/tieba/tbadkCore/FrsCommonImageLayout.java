@@ -35,9 +35,9 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.k4;
-import com.baidu.tieba.ya;
-import com.baidu.tieba.za;
+import com.baidu.tieba.a5;
+import com.baidu.tieba.ob;
+import com.baidu.tieba.pb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -72,7 +72,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
     public String o;
     public String p;
     public String q;
-    public ya<TbImageView> r;
+    public ob<TbImageView> r;
     public View.OnClickListener s;
     public boolean t;
     public BdPageContext<?> u;
@@ -89,7 +89,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
 
     /* loaded from: classes8.dex */
     public interface e {
-        ya<TbImageView> o0();
+        ob<TbImageView> u0();
     }
 
     @Override // android.widget.AbsListView.RecyclerListener
@@ -146,7 +146,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
     }
 
     /* loaded from: classes8.dex */
-    public class b implements za<TbImageView> {
+    public class b implements pb<TbImageView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -177,7 +177,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.za
+        @Override // com.baidu.tieba.pb
         public /* bridge */ /* synthetic */ TbImageView a(TbImageView tbImageView) {
             TbImageView tbImageView2 = tbImageView;
             e(tbImageView2);
@@ -186,7 +186,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.za
+        @Override // com.baidu.tieba.pb
         public /* bridge */ /* synthetic */ TbImageView c(TbImageView tbImageView) {
             TbImageView tbImageView2 = tbImageView;
             h(tbImageView2);
@@ -194,7 +194,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.za
+        @Override // com.baidu.tieba.pb
         /* renamed from: f */
         public void b(TbImageView tbImageView) {
             Interceptable interceptable = $ic;
@@ -220,7 +220,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.za
+        @Override // com.baidu.tieba.pb
         /* renamed from: g */
         public TbImageView d() {
             InterceptResult invokeV;
@@ -349,7 +349,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
                             MessageManager.getInstance().sendMessage(new CustomMessage(2010000, bulid));
                             TiebaStatic.eventStat(this.b.e, "pic_frs", "");
                             HistoryMessage historyMessage = new HistoryMessage();
-                            historyMessage.Activity = (TbPageContext) k4.a(this.b.e);
+                            historyMessage.Activity = (TbPageContext) a5.a(this.b.e);
                             historyMessage.threadId = this.b.n.getId();
                             historyMessage.threadName = this.b.n.getTitle();
                             historyMessage.forumName = this.b.n.getForum_name();
@@ -541,13 +541,13 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         }
     }
 
-    public static ya<TbImageView> m(Context context, int i) {
+    public static ob<TbImageView> m(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65550, null, context, i)) == null) {
-            return new ya<>(new b(context), i, 0);
+            return new ob<>(new b(context), i, 0);
         }
-        return (ya) invokeLI.objValue;
+        return (ob) invokeLI.objValue;
     }
 
     @Override // android.view.ViewGroup
@@ -732,7 +732,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
             Resources resources = getResources();
             this.y = resources.getString(R.string.frs_item_common_image_canvas_text1) + this.l + resources.getString(R.string.frs_item_common_image_canvas_text2);
             if (this.r == null && (bdPageContext.getOrignalPage() instanceof e)) {
-                this.r = ((e) bdPageContext.getOrignalPage()).o0();
+                this.r = ((e) bdPageContext.getOrignalPage()).u0();
             }
             if (this.r == null) {
                 return;

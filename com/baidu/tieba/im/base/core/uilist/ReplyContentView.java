@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.base.core.uilist.ReplyContentView;
 import com.baidu.tieba.im.lib.socket.msg.TbReMsgInfo;
-import com.baidu.tieba.vy6;
+import com.baidu.tieba.l07;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -93,7 +93,7 @@ public final class ReplyContentView extends AppCompatTextView {
         int i4 = this.b;
         setPadding(i3, i4, i3, i4);
         setLineSpacing(0.0f, this.d);
-        b();
+        r();
         setVisibility(8);
     }
 
@@ -101,7 +101,7 @@ public final class ReplyContentView extends AppCompatTextView {
         this(context, (i & 2) != 0 ? null : attributeSet);
     }
 
-    public static final void f(ReplyContentView this$0, SpannableStringBuilder spannableStringBuilder) {
+    public static final void e(ReplyContentView this$0, SpannableStringBuilder spannableStringBuilder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, this$0, spannableStringBuilder) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -117,29 +117,32 @@ public final class ReplyContentView extends AppCompatTextView {
         replyContentView.setFixedWidth(z, i);
     }
 
-    public final void b() {
+    public final void d(TbReMsgInfo tbReMsgInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            EMManager.from(this).setTextColor(this.g).setTextSize(R.dimen.T_X07).setCorner(R.string.J_X05).setBackGroundColor(this.f);
-        }
-    }
-
-    public final void e(TbReMsgInfo tbReMsgInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbReMsgInfo) == null) {
-            vy6.e(getContext(), tbReMsgInfo.getContent(), this.c, new vy6.i() { // from class: com.baidu.tieba.ca8
+        if (interceptable == null || interceptable.invokeL(1048576, this, tbReMsgInfo) == null) {
+            l07.e(getContext(), tbReMsgInfo.getContent(), this.c, new l07.i() { // from class: com.baidu.tieba.an8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.vy6.i
+                @Override // com.baidu.tieba.l07.i
                 public final void a(SpannableStringBuilder spannableStringBuilder) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, spannableStringBuilder) == null) {
-                        ReplyContentView.f(ReplyContentView.this, spannableStringBuilder);
+                        ReplyContentView.e(ReplyContentView.this, spannableStringBuilder);
                     }
                 }
             });
-            b();
+            r();
+        }
+    }
+
+    public final void f(TbReMsgInfo msg) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, msg) == null) {
+            Intrinsics.checkNotNullParameter(msg, "msg");
+            this.f = R.color.CAM_X0206;
+            this.g = R.color.CAM_X0108;
+            d(msg);
         }
     }
 
@@ -147,19 +150,16 @@ public final class ReplyContentView extends AppCompatTextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, msg) == null) {
             Intrinsics.checkNotNullParameter(msg, "msg");
-            this.f = R.color.CAM_X0206;
-            this.g = R.color.CAM_X0108;
-            e(msg);
+            this.f = R.color.CAM_X0617;
+            this.g = R.color.CAM_X0606;
+            d(msg);
         }
     }
 
-    public final void i(TbReMsgInfo msg) {
+    public final void r() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, msg) == null) {
-            Intrinsics.checkNotNullParameter(msg, "msg");
-            this.f = R.color.CAM_X0617;
-            this.g = R.color.CAM_X0606;
-            e(msg);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            EMManager.from(this).setTextColor(this.g).setTextSize(R.dimen.T_X07).setCorner(R.string.J_X05).setBackGroundColor(this.f);
         }
     }
 

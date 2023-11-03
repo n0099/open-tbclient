@@ -1,29 +1,61 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
-import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.BDPTask;
+import com.baidu.bdtask.ctrl.SubTaskState;
+import com.baidu.bdtask.model.info.TaskInfo;
+import com.baidu.tieba.hq;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class iq {
+public final class iq implements hq {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(View view2, View view3, int i) {
+    public iq() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65536, null, view2, view3, i) == null) {
-            b(view2, view3, i, i, i, i);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static void b(View view2, View view3, int i, int i2, int i3, int i4) {
+    @Override // com.baidu.tieba.hq
+    public void a(SubTaskState subTaskState) {
+        tp d;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{view2, view3, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) && view3 != null && view2 != null) {
-            if (view2.getTouchDelegate() instanceof gq) {
-                ((gq) view2.getTouchDelegate()).b(view3, i, i2, i3, i4);
-            } else {
-                view2.setTouchDelegate(new gq(view3, i, i2, i3, i4, new Rect(0, 0, 0, 0)));
+        if (interceptable == null || interceptable.invokeL(1048576, this, subTaskState) == null) {
+            hq.a.c(this, subTaskState);
+            sp v = BDPTask.m.v();
+            if (v != null && (d = v.d()) != null) {
+                d.c(subTaskState.getTaskInfo().getActionId(), subTaskState.getTaskStatus().getCurStatusCodeMsg());
             }
+        }
+    }
+
+    @Override // com.baidu.tieba.hq
+    public boolean b(TaskInfo taskInfo, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo, i)) == null) {
+            return hq.a.b(this, taskInfo, i);
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public void c(SubTaskState subTaskState) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, subTaskState) == null) {
+            hq.a.a(this, subTaskState);
         }
     }
 }

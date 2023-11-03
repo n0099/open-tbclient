@@ -1,33 +1,62 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.net.Uri;
-import androidx.annotation.NonNull;
-import androidx.core.content.FileProvider;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
 /* loaded from: classes7.dex */
 public final class mj3 {
     public static /* synthetic */ Interceptable $ic;
+    public static SharedPreferences a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Uri a(@NonNull Context context, @NonNull File file) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, file)) == null) {
-            return FileProvider.getUriForFile(context, b().a(context), file);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947974547, "Lcom/baidu/tieba/mj3;")) == null) {
+            return;
         }
-        return (Uri) invokeLL.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947974547, "Lcom/baidu/tieba/mj3;");
+        }
     }
 
-    public static ep1 b() {
+    public static Context a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return wo2.p();
+            return AppRuntime.getAppContext();
         }
-        return (ep1) invokeV.objValue;
+        return (Context) invokeV.objValue;
+    }
+
+    public static SharedPreferences c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (a == null) {
+                a = PreferenceManager.getDefaultSharedPreferences(a());
+            }
+            return a;
+        }
+        return (SharedPreferences) invokeV.objValue;
+    }
+
+    public static boolean b(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, str, z)) == null) {
+            return c().getBoolean(str, z);
+        }
+        return invokeLZ.booleanValue;
     }
 }

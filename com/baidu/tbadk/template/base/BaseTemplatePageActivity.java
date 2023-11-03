@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.ko5;
+import com.baidu.tieba.eq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,12 +13,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class BaseTemplatePageActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ko5 a;
+    public eq5 a;
     public ViewGroup b;
 
-    public abstract ko5 M0();
+    public abstract eq5 J0();
 
-    public abstract int N0();
+    public abstract int L0();
 
     public BaseTemplatePageActivity() {
         Interceptable interceptable = $ic;
@@ -39,9 +39,9 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            ko5 ko5Var = this.a;
-            if (ko5Var != null) {
-                ko5Var.i();
+            eq5 eq5Var = this.a;
+            if (eq5Var != null) {
+                eq5Var.i();
             }
         }
     }
@@ -51,9 +51,9 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onPause();
-            ko5 ko5Var = this.a;
-            if (ko5Var != null) {
-                ko5Var.j();
+            eq5 eq5Var = this.a;
+            if (eq5Var != null) {
+                eq5Var.j();
             }
         }
     }
@@ -63,9 +63,9 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onResume();
-            ko5 ko5Var = this.a;
-            if (ko5Var != null) {
-                ko5Var.k();
+            eq5 eq5Var = this.a;
+            if (eq5Var != null) {
+                eq5Var.k();
             }
         }
     }
@@ -75,9 +75,9 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            ko5 ko5Var = this.a;
-            if (ko5Var != null) {
-                ko5Var.h(i);
+            eq5 eq5Var = this.a;
+            if (eq5Var != null) {
+                eq5Var.h(i);
             }
         }
     }
@@ -87,10 +87,10 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            ViewGroup viewGroup = (ViewGroup) getLayoutInflater().inflate(N0(), (ViewGroup) null);
+            ViewGroup viewGroup = (ViewGroup) getLayoutInflater().inflate(L0(), (ViewGroup) null);
             this.b = viewGroup;
             setContentView(viewGroup);
-            this.a = M0();
+            this.a = J0();
         }
     }
 }

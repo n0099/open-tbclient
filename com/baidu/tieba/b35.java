@@ -1,32 +1,23 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
+import android.view.ViewGroup;
+import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.hybrid.BridgeHandler;
-import com.baidu.tbadk.core.hybrid.NamedBridgeHandler;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class b35 {
+public class b35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final View a;
-    public Context b;
+    public int a;
+    public int b;
 
-    public abstract void c(c35 c35Var);
-
-    public abstract void e(String str, BridgeHandler bridgeHandler);
-
-    public b35(View view2, t25 t25Var) {
+    public b35() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, t25Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,23 +27,29 @@ public abstract class b35 {
                 return;
             }
         }
-        this.a = view2;
-        this.b = view2.getContext();
+        this.a = -2;
+        this.b = -1;
     }
 
-    public final void d(NamedBridgeHandler namedBridgeHandler) {
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, namedBridgeHandler) == null) {
-            e(namedBridgeHandler.scope(), namedBridgeHandler);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.a = i;
         }
     }
 
-    public final Context f() {
-        InterceptResult invokeV;
+    public void b(ViewPager viewPager) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewPager) != null) || viewPager == null) {
+            return;
         }
-        return (Context) invokeV.objValue;
+        ViewGroup.LayoutParams layoutParams = viewPager.getLayoutParams();
+        if (layoutParams == null) {
+            layoutParams = new ViewGroup.LayoutParams(this.b, this.a);
+        } else {
+            layoutParams.height = this.a;
+            layoutParams.width = this.b;
+        }
+        viewPager.setLayoutParams(layoutParams);
     }
 }

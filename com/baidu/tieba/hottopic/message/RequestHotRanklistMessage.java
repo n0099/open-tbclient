@@ -21,7 +21,7 @@ public class RequestHotRanklistMessage extends NetMessage {
     public String call_from;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f1114common;
+    public CommonReq f1109common;
     public long fid;
     public String list_type;
     public String need_tab_list;
@@ -83,7 +83,7 @@ public class RequestHotRanklistMessage extends NetMessage {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f1114common;
+            return this.f1109common;
         }
         return (CommonReq) invokeV.objValue;
     }
@@ -116,7 +116,7 @@ public class RequestHotRanklistMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, commonReq) == null) {
-            this.f1114common = commonReq;
+            this.f1109common = commonReq;
         }
     }
 

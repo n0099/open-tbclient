@@ -166,16 +166,16 @@ public class DialogRecordDBManager extends DBBase {
         return (List) invokeI.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:51:0x011a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:51:0x011b, code lost:
         if (r14 != null) goto L45;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:52:0x011c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:52:0x011d, code lost:
         r14.endTransaction();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:66:0x0139, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:66:0x013a, code lost:
         if (r14 != null) goto L45;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:68:0x013c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:68:0x013d, code lost:
         return r1;
      */
     /*

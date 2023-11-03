@@ -16,17 +16,17 @@ import com.baidu.nadcore.player.tail.AdBaseTailFrameView;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c11;
-import com.baidu.tieba.ir0;
-import com.baidu.tieba.iu0;
-import com.baidu.tieba.jr0;
-import com.baidu.tieba.jy0;
-import com.baidu.tieba.um0;
+import com.baidu.tieba.as0;
+import com.baidu.tieba.az0;
+import com.baidu.tieba.ln0;
+import com.baidu.tieba.t11;
+import com.baidu.tieba.zr0;
+import com.baidu.tieba.zu0;
 import com.google.android.material.badge.BadgeDrawable;
 import java.lang.ref.WeakReference;
 /* loaded from: classes3.dex */
 public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements View.OnClickListener {
-    public um0 m;
+    public ln0 m;
     public int n;
     public int o;
     public boolean p;
@@ -38,7 +38,7 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
     public TextView v;
     public TextView w;
     public View x;
-    public iu0 y;
+    public zu0 y;
 
     /* loaded from: classes3.dex */
     public interface b {
@@ -54,7 +54,7 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
 
         @Override // com.baidu.nadcore.player.tail.AdBaseTailFrameView.d
         public void a(String str, String str2) {
-            AdVideoTailFrameView.this.u(str, str2, "");
+            AdVideoTailFrameView.this.x(str, str2, "");
         }
     }
 
@@ -84,28 +84,24 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
                 adVideoTailFrameView.w.setText(String.format("%ds", Integer.valueOf(adVideoTailFrameView.n - adVideoTailFrameView.o)));
             }
             sendMessageDelayed(message2, 1000L);
-            adVideoTailFrameView.n();
+            adVideoTailFrameView.o();
         }
     }
 
-    public AdVideoTailFrameView(Context context, iu0 iu0Var, boolean z) {
+    public AdVideoTailFrameView(Context context, zu0 zu0Var, boolean z) {
         super(context);
         this.n = 5;
         this.o = 0;
-        this.y = iu0Var;
-        p();
+        this.y = zu0Var;
+        q();
     }
 
-    public void m(boolean z) {
-        um0 um0Var = this.m;
-        if (um0Var != null && TextUtils.equals(um0Var.t, "ad_full_video")) {
-            z(z);
+    public void n(boolean z) {
+        ln0 ln0Var = this.m;
+        if (ln0Var != null && TextUtils.equals(ln0Var.t, "ad_full_video")) {
+            A(z);
         }
-        r(z);
-    }
-
-    public void s(boolean z) {
-        f();
+        s(z);
     }
 
     public void setCallBack(b bVar) {
@@ -113,157 +109,16 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
     }
 
     public void setData(@NonNull Object obj) {
-        if (obj instanceof um0) {
-            this.m = (um0) obj;
+        if (obj instanceof ln0) {
+            this.m = (ln0) obj;
         }
     }
 
-    public final void n() {
-        b bVar;
-        int i = this.o;
-        int i2 = this.n;
-        if (i == i2) {
-            b bVar2 = this.r;
-            if (bVar2 != null) {
-                bVar2.b();
-            }
-            o();
-        } else if (i2 - i <= 3 && i2 - i > 0 && (bVar = this.r) != null) {
-            bVar.a();
-        }
+    public void t(boolean z) {
+        f();
     }
 
-    public void o() {
-        t();
-        this.o = 0;
-        iu0 iu0Var = this.y;
-        if (iu0Var != null) {
-            iu0Var.P();
-            this.y.R(8);
-        }
-    }
-
-    public boolean q() {
-        um0 um0Var = this.m;
-        if (um0Var != null && um0Var.j()) {
-            return true;
-        }
-        return false;
-    }
-
-    public void t() {
-        this.p = true;
-        Handler handler = this.q;
-        if (handler != null) {
-            handler.removeMessages(1);
-        }
-    }
-
-    public void y() {
-        Handler handler = this.q;
-        if (handler != null) {
-            handler.removeMessages(1);
-        } else {
-            this.q = new c(this, null);
-        }
-        this.p = false;
-        this.q.sendMessage(this.q.obtainMessage(1));
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        iu0 iu0Var;
-        if (view2.getId() != R.id.video_ad_suffix_timer_close || (iu0Var = this.y) == null) {
-            return;
-        }
-        iu0Var.R(8);
-        this.y.P();
-        this.y.I(ir0.x("layer_event_ad_finish"));
-        if (!this.y.x().Y()) {
-            this.y.I(jr0.x(PlayerEvent.ACTION_ON_COMPLETE));
-        }
-        u(ClogBuilder.LogType.FREE_CLICK.type, ClogBuilder.Area.BUTTON.type, "");
-    }
-
-    public void p() {
-        s(false);
-        setAlsHandler(new a());
-        this.x = findViewById(R.id.video_ad_suffix_timer_close);
-        this.w = (TextView) findViewById(R.id.video_ad_suffix_timer);
-        this.s = findViewById(R.id.video_ad_suffix_timer_close_area);
-        this.t = (ImageView) findViewById(R.id.video_ad_suffix_close);
-        this.u = (TextView) findViewById(R.id.video_ad_suffix_close_divider);
-        this.v = (TextView) findViewById(R.id.video_ad_suffix_close_txt);
-        this.s.setBackground(getResources().getDrawable(R.drawable.nad_videoplayer_video_ad_tip_bg));
-        this.t.setImageDrawable(getResources().getDrawable(R.drawable.nad_videoplayer_video_ad_icon_close));
-        this.x.setOnClickListener(this);
-    }
-
-    public void r(boolean z) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.b.getLayoutParams();
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.c.getLayoutParams();
-        LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.f.getLayoutParams();
-        if (z) {
-            layoutParams.width = (int) getResources().getDimension(R.dimen.nad_suffix_video_tail_frame_avatar_width_half);
-            layoutParams.height = (int) getResources().getDimension(R.dimen.nad_suffix_video_tail_frame_avatar_width_half);
-            layoutParams.bottomMargin = (int) getResources().getDimension(R.dimen.nad_suffix_video_tail_frame_avatar_margin_bottom_half);
-            layoutParams2.bottomMargin = (int) getResources().getDimension(R.dimen.nad_suffix_video_tail_frame_name_margin_bottom_half);
-            layoutParams3.width = (int) getResources().getDimension(R.dimen.nad_suffix_video_tail_frame_operate_btn_width_half);
-            layoutParams3.height = (int) getResources().getDimension(R.dimen.nad_suffix_video_tail_frame_operate_btn_height_half);
-            this.c.setTextSize(14.0f);
-            this.d.setTextSize(13.0f);
-            this.e.setTextSize(c11.c.a(getContext(), 13.0f));
-        } else {
-            layoutParams.width = (int) getResources().getDimension(R.dimen.nad_suffix_video_tail_frame_avatar_width_full);
-            layoutParams.height = (int) getResources().getDimension(R.dimen.nad_suffix_video_tail_frame_avatar_width_full);
-            layoutParams.bottomMargin = (int) getResources().getDimension(R.dimen.nad_suffix_video_tail_frame_avatar_margin_bottom_full);
-            layoutParams2.bottomMargin = (int) getResources().getDimension(R.dimen.nad_suffix_video_tail_frame_name_margin_bottom_full);
-            layoutParams3.width = (int) getResources().getDimension(R.dimen.nad_suffix_video_tail_frame_operate_btn_width_full);
-            layoutParams3.height = (int) getResources().getDimension(R.dimen.nad_suffix_video_tail_frame_operate_btn_height_full);
-            this.c.setTextSize(17.0f);
-            this.d.setTextSize(14.0f);
-            this.e.setTextSize(14);
-        }
-        this.b.setLayoutParams(layoutParams);
-        this.c.setLayoutParams(layoutParams2);
-        this.f.setLayoutParams(layoutParams3);
-    }
-
-    public void u(String str, String str2, String str3) {
-        if (this.m == null || !NetUtil.a(getContext())) {
-            return;
-        }
-        ClogBuilder clogBuilder = new ClogBuilder();
-        clogBuilder.z(str);
-        clogBuilder.u(ClogBuilder.Page.AD_TAIL);
-        if (!TextUtils.isEmpty(str2)) {
-            clogBuilder.j(str2);
-        }
-        clogBuilder.p(this.m.r);
-        if (!TextUtils.isEmpty(str3)) {
-            clogBuilder.m(str3);
-        }
-        jy0.e(clogBuilder);
-    }
-
-    public void x() {
-        um0 um0Var = this.m;
-        if (um0Var != null) {
-            this.n = um0Var.k;
-            j(um0Var);
-            if (this.m.w) {
-                y();
-            } else {
-                t();
-            }
-            if (TextUtils.equals(this.m.t, "ad_full_video")) {
-                this.x.setVisibility(0);
-                z(!this.y.x().Q0());
-            }
-        }
-    }
-
-    public final void z(boolean z) {
+    public final void A(boolean z) {
         if (z) {
             ViewGroup.LayoutParams layoutParams = this.x.getLayoutParams();
             if (layoutParams instanceof FrameLayout.LayoutParams) {
@@ -289,5 +144,150 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
         this.u.setVisibility(8);
         this.v.setVisibility(8);
         this.t.setVisibility(8);
+    }
+
+    public final void o() {
+        b bVar;
+        int i = this.o;
+        int i2 = this.n;
+        if (i == i2) {
+            b bVar2 = this.r;
+            if (bVar2 != null) {
+                bVar2.b();
+            }
+            p();
+        } else if (i2 - i <= 3 && i2 - i > 0 && (bVar = this.r) != null) {
+            bVar.a();
+        }
+    }
+
+    public void p() {
+        u();
+        this.o = 0;
+        zu0 zu0Var = this.y;
+        if (zu0Var != null) {
+            zu0Var.Q();
+            this.y.S(8);
+        }
+    }
+
+    public boolean r() {
+        ln0 ln0Var = this.m;
+        if (ln0Var != null && ln0Var.j()) {
+            return true;
+        }
+        return false;
+    }
+
+    public void u() {
+        this.p = true;
+        Handler handler = this.q;
+        if (handler != null) {
+            handler.removeMessages(1);
+        }
+    }
+
+    public void z() {
+        Handler handler = this.q;
+        if (handler != null) {
+            handler.removeMessages(1);
+        } else {
+            this.q = new c(this, null);
+        }
+        this.p = false;
+        this.q.sendMessage(this.q.obtainMessage(1));
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        zu0 zu0Var;
+        if (view2.getId() != R.id.video_ad_suffix_timer_close || (zu0Var = this.y) == null) {
+            return;
+        }
+        zu0Var.S(8);
+        this.y.Q();
+        this.y.J(zr0.x("layer_event_ad_finish"));
+        if (!this.y.y().Y()) {
+            this.y.J(as0.x(PlayerEvent.ACTION_ON_COMPLETE));
+        }
+        x(ClogBuilder.LogType.FREE_CLICK.type, ClogBuilder.Area.BUTTON.type, "");
+    }
+
+    public void q() {
+        t(false);
+        setAlsHandler(new a());
+        this.x = findViewById(R.id.video_ad_suffix_timer_close);
+        this.w = (TextView) findViewById(R.id.video_ad_suffix_timer);
+        this.s = findViewById(R.id.video_ad_suffix_timer_close_area);
+        this.t = (ImageView) findViewById(R.id.video_ad_suffix_close);
+        this.u = (TextView) findViewById(R.id.video_ad_suffix_close_divider);
+        this.v = (TextView) findViewById(R.id.video_ad_suffix_close_txt);
+        this.s.setBackground(getResources().getDrawable(R.drawable.nad_videoplayer_video_ad_tip_bg));
+        this.t.setImageDrawable(getResources().getDrawable(R.drawable.nad_videoplayer_video_ad_icon_close));
+        this.x.setOnClickListener(this);
+    }
+
+    public void s(boolean z) {
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.b.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.c.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.f.getLayoutParams();
+        if (z) {
+            layoutParams.width = (int) getResources().getDimension(R.dimen.nad_suffix_video_tail_frame_avatar_width_half);
+            layoutParams.height = (int) getResources().getDimension(R.dimen.nad_suffix_video_tail_frame_avatar_width_half);
+            layoutParams.bottomMargin = (int) getResources().getDimension(R.dimen.nad_suffix_video_tail_frame_avatar_margin_bottom_half);
+            layoutParams2.bottomMargin = (int) getResources().getDimension(R.dimen.nad_suffix_video_tail_frame_name_margin_bottom_half);
+            layoutParams3.width = (int) getResources().getDimension(R.dimen.nad_suffix_video_tail_frame_operate_btn_width_half);
+            layoutParams3.height = (int) getResources().getDimension(R.dimen.nad_suffix_video_tail_frame_operate_btn_height_half);
+            this.c.setTextSize(14.0f);
+            this.d.setTextSize(13.0f);
+            this.e.setTextSize(t11.c.a(getContext(), 13.0f));
+        } else {
+            layoutParams.width = (int) getResources().getDimension(R.dimen.nad_suffix_video_tail_frame_avatar_width_full);
+            layoutParams.height = (int) getResources().getDimension(R.dimen.nad_suffix_video_tail_frame_avatar_width_full);
+            layoutParams.bottomMargin = (int) getResources().getDimension(R.dimen.nad_suffix_video_tail_frame_avatar_margin_bottom_full);
+            layoutParams2.bottomMargin = (int) getResources().getDimension(R.dimen.nad_suffix_video_tail_frame_name_margin_bottom_full);
+            layoutParams3.width = (int) getResources().getDimension(R.dimen.nad_suffix_video_tail_frame_operate_btn_width_full);
+            layoutParams3.height = (int) getResources().getDimension(R.dimen.nad_suffix_video_tail_frame_operate_btn_height_full);
+            this.c.setTextSize(17.0f);
+            this.d.setTextSize(14.0f);
+            this.e.setTextSize(14);
+        }
+        this.b.setLayoutParams(layoutParams);
+        this.c.setLayoutParams(layoutParams2);
+        this.f.setLayoutParams(layoutParams3);
+    }
+
+    public void x(String str, String str2, String str3) {
+        if (this.m == null || !NetUtil.a(getContext())) {
+            return;
+        }
+        ClogBuilder clogBuilder = new ClogBuilder();
+        clogBuilder.z(str);
+        clogBuilder.u(ClogBuilder.Page.AD_TAIL);
+        if (!TextUtils.isEmpty(str2)) {
+            clogBuilder.j(str2);
+        }
+        clogBuilder.p(this.m.r);
+        if (!TextUtils.isEmpty(str3)) {
+            clogBuilder.m(str3);
+        }
+        az0.e(clogBuilder);
+    }
+
+    public void y() {
+        ln0 ln0Var = this.m;
+        if (ln0Var != null) {
+            this.n = ln0Var.k;
+            k(ln0Var);
+            if (this.m.w) {
+                z();
+            } else {
+                u();
+            }
+            if (TextUtils.equals(this.m.t, "ad_full_video")) {
+                this.x.setVisibility(0);
+                A(!this.y.y().Q0());
+            }
+        }
     }
 }

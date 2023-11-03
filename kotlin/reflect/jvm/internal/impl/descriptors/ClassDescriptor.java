@@ -5,10 +5,10 @@ import java.util.List;
 import kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScope;
 import kotlin.reflect.jvm.internal.impl.types.SimpleType;
 import kotlin.reflect.jvm.internal.impl.types.TypeSubstitution;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface ClassDescriptor extends ClassOrPackageFragmentDescriptor, ClassifierDescriptorWithTypeParameters {
     /* renamed from: getCompanionObjectDescriptor */
-    ClassDescriptor mo2099getCompanionObjectDescriptor();
+    ClassDescriptor mo2103getCompanionObjectDescriptor();
 
     Collection<ClassConstructorDescriptor> getConstructors();
 
@@ -40,7 +40,7 @@ public interface ClassDescriptor extends ClassOrPackageFragmentDescriptor, Class
     MemberScope getUnsubstitutedMemberScope();
 
     /* renamed from: getUnsubstitutedPrimaryConstructor */
-    ClassConstructorDescriptor mo2100getUnsubstitutedPrimaryConstructor();
+    ClassConstructorDescriptor mo2104getUnsubstitutedPrimaryConstructor();
 
     Visibility getVisibility();
 

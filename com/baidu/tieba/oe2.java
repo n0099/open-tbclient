@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 
-import androidx.collection.ArraySet;
+import android.content.Context;
+import androidx.annotation.NonNull;
 /* loaded from: classes7.dex */
 public interface oe2 {
-    ArraySet<String> a();
+    @NonNull
+    Context a();
 }

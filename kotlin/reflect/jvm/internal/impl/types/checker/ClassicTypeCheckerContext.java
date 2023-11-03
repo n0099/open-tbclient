@@ -58,7 +58,7 @@ public class ClassicTypeCheckerContext extends AbstractTypeCheckerContext implem
             return new AbstractTypeCheckerContext.SupertypesPolicy.DoCustomTransform() { // from class: kotlin.reflect.jvm.internal.impl.types.checker.ClassicTypeCheckerContext$Companion$classicSubstitutionSupertypePolicy$2
                 @Override // kotlin.reflect.jvm.internal.impl.types.AbstractTypeCheckerContext.SupertypesPolicy
                 /* renamed from: transformType */
-                public SimpleTypeMarker mo2110transformType(AbstractTypeCheckerContext abstractTypeCheckerContext, KotlinTypeMarker kotlinTypeMarker) {
+                public SimpleTypeMarker mo2114transformType(AbstractTypeCheckerContext abstractTypeCheckerContext, KotlinTypeMarker kotlinTypeMarker) {
                     ClassicTypeSystemContext classicTypeSystemContext2 = ClassicTypeSystemContext.this;
                     TypeSubstitutor typeSubstitutor = buildSubstitutor;
                     SimpleTypeMarker lowerBoundIfFlexible = classicTypeSystemContext2.lowerBoundIfFlexible(kotlinTypeMarker);

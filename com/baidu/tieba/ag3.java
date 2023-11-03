@@ -1,134 +1,88 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.os.Build;
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.zf3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.UUID;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ag3 extends m73 {
+public class ag3 extends bg3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947614172, "Lcom/baidu/tieba/ag3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947614172, "Lcom/baidu/tieba/ag3;");
-                return;
-            }
-        }
-        c = am1.a;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ag3(m63 m63Var) {
-        super(m63Var, "/swanAPI/getSystemRiskInfo");
+    public ag3(d73 d73Var) {
+        super(d73Var, "/swanAPI/getBatteryInfo");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {m63Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {d73Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                super((d73) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.m73
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, p53 p53Var) {
+    @Override // com.baidu.tieba.d83
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g63 g63Var) {
         InterceptResult invokeLLLL;
-        String h;
-        String a;
-        String P;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, p53Var)) == null) {
-            np1 h0 = wo2.h0();
-            JSONObject jSONObject = new JSONObject();
-            if (context == null) {
-                try {
-                    context = wo2.c();
-                } catch (JSONException e) {
-                    e.printStackTrace();
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g63Var)) == null) {
+            if (!j(context, g63Var, unitedSchemeEntity)) {
+                return false;
+            }
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                if (d83.b) {
+                    Log.d("SwanAppAction", "getBatteryInfo --- params is empty");
                 }
+                g32.c("battery", "none params");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                return false;
             }
-            String str = "";
-            if (h0 == null) {
-                h = "";
-            } else {
-                h = h0.h(context);
+            String optString = optParamsAsJo.optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                if (d83.b) {
+                    Log.d("SwanAppAction", "getBatteryInfo --- cb is empty");
+                }
+                g32.c("battery", "cb is empty");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
             }
-            jSONObject.put(DpStatConstants.KEY_USER_ID, h);
-            if (h0 == null) {
-                a = "";
-            } else {
-                a = wo2.G0().a(context);
+            zf3.a a = zf3.a(context);
+            if (a == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "sticky broadcast receive error");
+                return false;
             }
-            jSONObject.put("zid", a);
-            jSONObject.put("idfa", "");
-            jSONObject.put("imei", jj3.r());
-            if (p53Var == null) {
-                P = "";
-            } else {
-                P = p53Var.P();
+            if (d83.b) {
+                Log.d("battery", "/swanAPI/getBatteryInfo = level: " + a.a + " ; plugged: " + a.b);
             }
-            jSONObject.put("appkey", P);
-            jSONObject.put("os", "android");
-            jSONObject.put("osVersion", Build.VERSION.RELEASE);
-            jSONObject.put("hostName", context.getPackageName());
-            jSONObject.put("hostVersion", jj3.D());
-            jSONObject.put("model", Build.MODEL);
-            jSONObject.put("uuid", am4.b(context).a());
-            jSONObject.put("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
-            if (h0 != null) {
-                str = h0.i(context);
+            JSONObject k = k(a);
+            if (k == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "Json error");
+                if (d83.b) {
+                    Log.d("SwanAppAction", "getBatteryInfoSync --- json error");
+                }
+                return false;
             }
-            jSONObject.put("cuid", str);
-            if (c) {
-                Log.d("GetSystemRiskInfoAction", jSONObject.toString());
-            }
-            String b = jm4.b(UUID.randomUUID().toString().getBytes(), false);
-            String a2 = hi3.a(b, jSONObject.toString(), "AES/CTR/NoPadding", "4c6579b50ff05adb");
-            String d = hi3.d("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCjP7b5s3ozPgXpS7d9k2dGaie8KLNmCbhybWPxVjLTmN4Jj3c7GnwdzyIQOix7t95Kipd75AXcnP2c4vUnmXPpZwh6ejNAmiGLkLE7fobPCZKfI3aTweSKxIav3QPHMaZrra1aiGtnZ+rTHXD3chBpNCGbuAEUqN+psHjvnHO72QIDAQAB", b, "RSA/ECB/PKCS1Padding");
-            if (c) {
-                Log.d("GetSystemRiskInfoAction", "aesKey=" + b + ", aesValue=" + a2 + ", rsaKey=" + d);
-            }
-            JSONObject jSONObject2 = new JSONObject();
-            JSONObject jSONObject3 = new JSONObject();
-            try {
-                jSONObject3.put("key", d);
-                jSONObject3.put("value", a2);
-                jSONObject2.put("content", jSONObject3);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-            }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0));
+            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(k, 0).toString(), optString);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }
         return invokeLLLL.booleanValue;

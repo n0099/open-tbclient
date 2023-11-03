@@ -1,5 +1,14 @@
 package com.baidu.tieba;
-/* loaded from: classes8.dex */
+
+import com.baidu.adp.BdUniqueId;
+import java.util.List;
+/* loaded from: classes9.dex */
 public interface yb8 {
-    void e1();
+    boolean a(BdUniqueId bdUniqueId, String str, String str2, String str3);
+
+    boolean b(int i, jc8 jc8Var);
+
+    boolean c(int i);
+
+    void setData(List<oi> list);
 }

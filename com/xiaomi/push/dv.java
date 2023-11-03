@@ -53,21 +53,21 @@ public final class dv {
         @Override // com.xiaomi.push.e
         public a a(b bVar) {
             while (true) {
-                int m270a = bVar.m270a();
-                if (m270a == 0) {
+                int m274a = bVar.m274a();
+                if (m274a == 0) {
                     return this;
                 }
-                if (m270a == 8) {
+                if (m274a == 8) {
                     a(bVar.c());
-                } else if (m270a == 16) {
-                    a(bVar.m276a());
-                } else if (m270a == 24) {
-                    b(bVar.m279b());
-                } else if (m270a == 32) {
-                    b(bVar.m276a());
-                } else if (m270a == 42) {
-                    a(bVar.m273a());
-                } else if (!a(bVar, m270a)) {
+                } else if (m274a == 16) {
+                    a(bVar.m280a());
+                } else if (m274a == 24) {
+                    b(bVar.m283b());
+                } else if (m274a == 32) {
+                    b(bVar.m280a());
+                } else if (m274a == 42) {
+                    a(bVar.m277a());
+                } else if (!a(bVar, m274a)) {
                     return this;
                 }
             }
@@ -93,53 +93,53 @@ public final class dv {
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()I */
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()[B */
         /* renamed from: a  reason: collision with other method in class */
-        public List<String> m371a() {
+        public List<String> m375a() {
             return this.f238a;
         }
 
         @Override // com.xiaomi.push.e
         public void a(c cVar) {
-            if (m372a()) {
-                cVar.m326b(1, c());
+            if (m376a()) {
+                cVar.m330b(1, c());
             }
-            if (m374c()) {
-                cVar.m318a(2, m373b());
+            if (m378c()) {
+                cVar.m322a(2, m377b());
             }
-            if (m375d()) {
-                cVar.m313a(3, d());
+            if (m379d()) {
+                cVar.m317a(3, d());
             }
             if (f()) {
-                cVar.m318a(4, m376e());
+                cVar.m322a(4, m380e());
             }
-            for (String str : m371a()) {
-                cVar.m317a(5, str);
+            for (String str : m375a()) {
+                cVar.m321a(5, str);
             }
         }
 
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()I */
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()[B */
         /* renamed from: a  reason: collision with other method in class */
-        public boolean m372a() {
+        public boolean m376a() {
             return this.f239a;
         }
 
         @Override // com.xiaomi.push.e
         public int b() {
             int i = 0;
-            int b = m372a() ? c.b(1, c()) + 0 : 0;
-            if (m374c()) {
-                b += c.a(2, m373b());
+            int b = m376a() ? c.b(1, c()) + 0 : 0;
+            if (m378c()) {
+                b += c.a(2, m377b());
             }
-            if (m375d()) {
+            if (m379d()) {
                 b += c.a(3, d());
             }
             if (f()) {
-                b += c.a(4, m376e());
+                b += c.a(4, m380e());
             }
-            for (String str : m371a()) {
+            for (String str : m375a()) {
                 i += c.a(str);
             }
-            int size = b + i + (m371a().size() * 1);
+            int size = b + i + (m375a().size() * 1);
             this.c = size;
             return size;
         }
@@ -158,7 +158,7 @@ public final class dv {
 
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.b()I */
         /* renamed from: b  reason: collision with other method in class */
-        public boolean m373b() {
+        public boolean m377b() {
             return this.f241c;
         }
 
@@ -167,7 +167,7 @@ public final class dv {
         }
 
         /* renamed from: c  reason: collision with other method in class */
-        public boolean m374c() {
+        public boolean m378c() {
             return this.f240b;
         }
 
@@ -176,7 +176,7 @@ public final class dv {
         }
 
         /* renamed from: d  reason: collision with other method in class */
-        public boolean m375d() {
+        public boolean m379d() {
             return this.d;
         }
 
@@ -185,7 +185,7 @@ public final class dv {
         }
 
         /* renamed from: e  reason: collision with other method in class */
-        public boolean m376e() {
+        public boolean m380e() {
             return this.f;
         }
 

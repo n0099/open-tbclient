@@ -1,19 +1,12 @@
 package com.baidu.tieba;
+
+import android.content.Intent;
+import android.os.Bundle;
 /* loaded from: classes6.dex */
 public interface ibb {
-    int availableBytes();
+    void c(Bundle bundle, Intent intent);
 
-    void close();
+    void onNewIntent(Intent intent);
 
-    void flush();
-
-    byte[] getOutPutBytes();
-
-    void init(int i, int i2);
-
-    boolean putBytes(byte[] bArr, int i);
-
-    int receiveBytes(byte[] bArr, int i);
-
-    void setSpeed(float f);
+    void onSaveInstanceState(Bundle bundle);
 }

@@ -1,7 +1,7 @@
 package com.google.gson.internal;
 
 import java.lang.reflect.Type;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class Primitives {
     public static boolean isPrimitive(Type type) {
         if ((type instanceof Class) && ((Class) type).isPrimitive()) {

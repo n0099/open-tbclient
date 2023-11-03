@@ -1,73 +1,62 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class iba implements c25 {
+public class iba {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public my4 a;
 
-    public iba(my4 my4Var) {
+    public static void a(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {my4Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeLL(65536, null, context, str) == null) {
+            UrlSchemaJumpHelper.jumpGameAlbum(context, str);
         }
-        this.a = my4Var;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public static void b(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            my4 my4Var = this.a;
-            if (my4Var == null) {
-                return null;
-            }
-            return my4Var.c();
+        if (interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) {
+            UrlSchemaJumpHelper.jumpGameGodsPage(context, str);
         }
-        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.c25
-    public String getPicLinkUrl() {
-        InterceptResult invokeV;
+    public static void c(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            my4 my4Var = this.a;
-            if (my4Var == null) {
-                return null;
-            }
-            return my4Var.b();
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
+            UrlSchemaJumpHelper.jumpGameOrderPage(context, str);
         }
-        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.c25
-    public String getPicUrl() {
+    public static void d(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, context, str) == null) {
+            UrlSchemaJumpHelper.jumpGameSkillDetail(context, str);
+        }
+    }
+
+    public static void e(Context context, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, z) == null) {
+            UrlSchemaJumpHelper.jumpPersonChat(context, str, z);
+        }
+    }
+
+    public static Ringtone f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            my4 my4Var = this.a;
-            if (my4Var == null) {
-                return null;
-            }
-            return my4Var.a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            Ringtone ringtone = RingtoneManager.getRingtone(TbadkCoreApplication.getInst(), RingtoneManager.getDefaultUri(2));
+            ringtone.play();
+            return ringtone;
         }
-        return (String) invokeV.objValue;
+        return (Ringtone) invokeV.objValue;
     }
 }

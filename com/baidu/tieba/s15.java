@@ -1,161 +1,62 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.os.Bundle;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tieba.log.TbLog;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.browser.BrowserHelper;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__IndentKt;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class s15 {
+public class s15 extends g15 {
     public static /* synthetic */ Interceptable $ic;
-    public static final s15 a;
-    public static final SharedPreferences b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948098578, "Lcom/baidu/tieba/s15;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948098578, "Lcom/baidu/tieba/s15;");
-                return;
-            }
-        }
-        a = new s15();
-        b = TbadkCoreApplication.getInst().getSharedPreferences("new_frequency_strategy_helper_sp", 0);
-    }
 
     public s15() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public final int a(String dialogName) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.g15
+    public void a(@NonNull Context context, @NonNull u05 u05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dialogName)) == null) {
-            Intrinsics.checkNotNullParameter(dialogName, "dialogName");
-            String str = "";
-            String string = b.getString(c(dialogName), "");
-            if (string != null) {
-                str = string;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, u05Var) == null) {
+            String a = u05Var.a("yun_dialogName");
+            String a2 = u05Var.a("yun_dialogUrl");
+            if (!TextUtils.isEmpty(a) && !TextUtils.isEmpty(a2)) {
+                b(context, a2, a);
             }
-            if (StringUtils.isNotNull(str)) {
-                return e(str, "count");
-            }
-            return 0;
         }
-        return invokeL.intValue;
     }
 
-    public final int b(String dialogName) {
-        InterceptResult invokeL;
+    public final void b(Context context, String str, String str2) {
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogName)) == null) {
-            Intrinsics.checkNotNullParameter(dialogName, "dialogName");
-            String str = "";
-            String string = b.getString(c(dialogName), "");
-            if (string != null) {
-                str = string;
-            }
-            if (StringUtils.isNotNull(str)) {
-                return e(str, "version");
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public final String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return SharedPrefHelper.getSharedPrefKeyWithAccount("KEY_NEW_FREQUENCE_DIALOG_STRATEGY_COUNTER") + '_' + str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final String d(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048579, this, i, i2)) == null) {
-            return StringsKt__IndentKt.trimIndent("\n        {\"version\":" + i + ",\"count\":" + i2 + "}\n    ");
-        }
-        return (String) invokeII.objValue;
-    }
-
-    public final void g(String dialogName, int i) {
-        String d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, dialogName, i) == null) {
-            Intrinsics.checkNotNullParameter(dialogName, "dialogName");
-            String c = c(dialogName);
-            if (StringUtils.isNull(b.getString(c, ""))) {
-                d = d(i, 1);
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2) == null) {
+            if (str.indexOf("?") > 0) {
+                str3 = str + "&page_type=" + TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT;
             } else {
-                d = d(i, a(dialogName) + 1);
+                str3 = str + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE;
             }
-            SharedPreferences.Editor edit = b.edit();
-            edit.putString(c, d);
-            edit.apply();
-        }
-    }
-
-    public final int e(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            try {
-                return new JSONObject(str).optInt(str2);
-            } catch (Exception e) {
-                if (!TbadkCoreApplication.getInst().isDebugMode()) {
-                    TbLog yunDialogLog = YunDialogLog.getInstance();
-                    yunDialogLog.e(YunDialogManager.LOG_KEY, "读取缓存频次json失败" + e.getMessage());
-                    e.printStackTrace();
-                    return 0;
-                }
-                throw e;
-            }
-        }
-        return invokeLL.intValue;
-    }
-
-    public final void f(String dialogName, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, dialogName, i) == null) {
-            Intrinsics.checkNotNullParameter(dialogName, "dialogName");
-            TbLog yunDialogLog = YunDialogLog.getInstance();
-            yunDialogLog.i(YunDialogManager.LOG_KEY, "重置弹窗 " + dialogName + " 的本地频次记录");
-            String c = c(dialogName);
-            SharedPreferences.Editor edit = b.edit();
-            edit.putString(c, a.d(i, 0));
-            edit.apply();
+            Bundle bundle = new Bundle();
+            bundle.putString(WebViewActivityConfig.TAG_PAGE_TRANSLUCENT, TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
+            bundle.putString(WebViewActivityConfig.TAG_WEB_DIALOG_NAME, str2);
+            bundle.putBoolean(WebViewActivityConfig.TAG_TRANSLUCENT_AUTO_CLOSE, true);
+            BrowserHelper.startWebActivity(context, "", str3, false, true, true, bundle);
         }
     }
 }

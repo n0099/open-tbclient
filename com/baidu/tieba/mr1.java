@@ -1,12 +1,7 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public interface mr1 {
-    boolean b(Context context, Intent intent, String str, String str2, String str3);
-
-    boolean c();
-
-    boolean d();
+    void b(g63 g63Var, JSONObject jSONObject);
 }

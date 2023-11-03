@@ -1,23 +1,28 @@
 package com.baidu.tieba;
 
+import android.os.Environment;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes6.dex */
-public class h7 implements l7 {
+public class h7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte a;
+    public final String a;
+    public String b;
+    public String c;
+    public String d;
 
-    public h7(byte b) {
+    public h7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Byte.valueOf(b)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,66 +32,107 @@ public class h7 implements l7 {
                 return;
             }
         }
-        this.a = b;
+        this.a = Environment.getExternalStorageDirectory().getAbsolutePath();
+        this.b = this.a + "/baidu/";
+        this.c = null;
+        this.d = null;
+        try {
+            this.c = BdBaseApplication.getInst().getContext().getFilesDir().getAbsolutePath() + "/";
+            this.d = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
     }
 
-    @Override // com.baidu.tieba.l7
-    public Object a(u8 u8Var) {
-        InterceptResult invokeL;
+    public String a(String str, boolean z, boolean z2, boolean z3) {
+        InterceptResult invokeCommon;
+        String str2;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, u8Var)) == null) {
-            return Byte.valueOf(this.a);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
+            if (z2) {
+                if (!b()) {
+                    return null;
+                }
+                if (str != null) {
+                    str3 = this.b + str + "/";
+                } else {
+                    str3 = this.b;
+                }
+            } else if (z3) {
+                str2 = this.d;
+                if (str2 == null) {
+                    return null;
+                }
+                if (str != null) {
+                    str3 = this.d + str + "/";
+                }
+                str3 = str2;
+            } else {
+                str2 = this.c;
+                if (str2 == null) {
+                    return null;
+                }
+                if (str != null) {
+                    str3 = this.c + str + "/";
+                }
+                str3 = str2;
+            }
+            File file = new File(str3);
+            if (file.exists()) {
+                return str3;
+            }
+            if (!z || !file.mkdirs()) {
+                return null;
+            }
+            return str3;
         }
-        return invokeL.objValue;
+        return (String) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.l7
-    public Object b(u8 u8Var) {
-        InterceptResult invokeL;
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u8Var)) == null) {
-            return Byte.valueOf(this.a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (Environment.getExternalStorageState().equals("mounted")) {
+                return true;
+            }
+            return false;
         }
-        return invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.l7
-    public Object c(u8 u8Var) {
-        InterceptResult invokeL;
+    public File c(String str, String str2, boolean z, boolean z2, boolean z3) {
+        InterceptResult invokeCommon;
+        String a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, u8Var)) == null) {
-            return Byte.valueOf(this.a);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
+            if (str2 == null || (a = a(str, z, z2, z3)) == null) {
+                return null;
+            }
+            return new File(a + str2);
         }
-        return invokeL.objValue;
+        return (File) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.l7
-    public Object d(u8 u8Var) {
-        InterceptResult invokeL;
+    public File d(String str, boolean z, boolean z2, boolean z3) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, u8Var)) == null) {
-            return Byte.valueOf(this.a);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
+            String a = a(str, z, z2, z3);
+            if (a == null) {
+                return null;
+            }
+            return new File(a);
         }
-        return invokeL.objValue;
+        return (File) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.l7
-    public Object e(u8 u8Var) {
-        InterceptResult invokeL;
+    public void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, u8Var)) == null) {
-            return d(u8Var);
+        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || str == null) {
+            return;
         }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.l7
-    public Object f(u8 u8Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, u8Var)) == null) {
-            return Integer.valueOf(this.a);
-        }
-        return invokeL.objValue;
+        this.b = this.a + "/" + str + "/";
     }
 }

@@ -65,7 +65,7 @@ public class di implements LoggerInterface {
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:85:0x017a -> B:108:0x017f). Please submit an issue!!! */
     /* renamed from: a  reason: collision with other method in class */
-    public void m363a() {
+    public void m367a() {
         RandomAccessFile randomAccessFile;
         FileLock fileLock;
         File file;

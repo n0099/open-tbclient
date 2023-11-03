@@ -1,48 +1,55 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.text.TextUtils;
+import android.util.Pair;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
-import com.baidu.tieba.pp2;
-import com.baidu.tieba.uu1;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatcher;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.storage.PathType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.net.URLConnection;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class vu1 {
+public class vu1 extends ku1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile vu1 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public c a;
 
-    /* loaded from: classes8.dex */
-    public interface c {
-        void b(uu1.c cVar, int i);
+    @Override // com.baidu.tieba.ku1
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "File" : (String) invokeV.objValue;
+    }
 
-        void f(uu1.c cVar, String str);
-
-        void g(uu1.c cVar, o83 o83Var);
+    @Override // com.baidu.tieba.ku1
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "FileApi" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes8.dex */
-    public class a implements s03 {
+    public class a implements ActivityResultConsumer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uu1.c a;
+        public final /* synthetic */ String a;
         public final /* synthetic */ vu1 b;
 
-        public a(vu1 vu1Var, uu1.c cVar) {
+        public a(vu1 vu1Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {vu1Var, cVar};
+                Object[] objArr = {vu1Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -53,145 +60,110 @@ public class vu1 {
                 }
             }
             this.b = vu1Var;
-            this.a = cVar;
+            this.a = str;
         }
 
-        @Override // com.baidu.tieba.s03
-        public void a(String str) {
+        @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
+        public boolean consume(ActivityResultDispatcher activityResultDispatcher, int i, Intent intent) {
+            InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.b.c(this.a);
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, activityResultDispatcher, i, intent)) == null) {
+                this.b.d(this.a, new hy1(0));
+                return true;
             }
-        }
-
-        @Override // com.baidu.tieba.s03
-        public void b(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                p22.c("GetLocationHelper", str);
-                vc3.b(GameAssistConstKt.METHOD_GET_LOCATION, 5002, "user no permission", 10005, str);
-                this.b.a.f(this.a, str);
-            }
+            return invokeLIL.booleanValue;
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class b implements pp2.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uu1.c a;
-        public final /* synthetic */ vu1 b;
-
-        public b(vu1 vu1Var, uu1.c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vu1Var, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = vu1Var;
-            this.a = cVar;
-        }
-
-        @Override // com.baidu.tieba.pp2.a
-        public void a(o83 o83Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, o83Var) == null) {
-                this.b.a.g(this.a, o83Var);
-            }
-        }
-
-        @Override // com.baidu.tieba.pp2.a
-        public void onFailed(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                vc3.b(GameAssistConstKt.METHOD_GET_LOCATION, 4000, "sdk's errCode is " + i, 1001, String.valueOf(i));
-                this.b.a.b(this.a, i);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948253175, "Lcom/baidu/tieba/vu1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948253175, "Lcom/baidu/tieba/vu1;");
-                return;
-            }
-        }
-        boolean z = am1.a;
-    }
-
-    public vu1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vu1(@NonNull iu1 iu1Var) {
+        super(iu1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {iu1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((iu1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static vu1 d() {
-        InterceptResult invokeV;
+    public final String y(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (b == null) {
-                synchronized (vu1.class) {
-                    if (b == null) {
-                        b = new vu1();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            int lastIndexOf = str.lastIndexOf("/");
+            if (lastIndexOf > 0) {
+                String contentTypeFor = URLConnection.getFileNameMap().getContentTypeFor(str.substring(lastIndexOf + 1));
+                if (!TextUtils.isEmpty(contentTypeFor)) {
+                    return contentTypeFor;
+                }
+                return "*/*";
+            }
+            return "*/*";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public hy1 z(String str) {
+        InterceptResult invokeL;
+        Uri fromFile;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            r("#shareFile", false);
+            if (o()) {
+                g32.c("FileApi", "FileApi does not supported when app is invisible.");
+                return new hy1(1001, "FileApi does not supported when app is invisible.");
+            }
+            Pair<hy1, JSONObject> t = t(str);
+            hy1 hy1Var = (hy1) t.first;
+            if (!hy1Var.isSuccess()) {
+                return hy1Var;
+            }
+            JSONObject jSONObject = (JSONObject) t.second;
+            String optString = jSONObject.optString("filePath");
+            String M = od3.M(optString, g63.h0());
+            if (!TextUtils.isEmpty(optString) && od3.s(optString) == PathType.BD_FILE && !TextUtils.isEmpty(M)) {
+                String optString2 = jSONObject.optString("cb");
+                if (TextUtils.isEmpty(optString2)) {
+                    g32.c("FileApi", "cb is required");
+                    return new hy1(202, "cb is required");
+                }
+                File file = new File(M);
+                if (file.exists() && !file.isDirectory()) {
+                    SwanAppActivity activity = tr2.V().getActivity();
+                    if (activity == null) {
+                        g32.c("FileApi", "activity null");
+                        return new hy1(1001, "activity null");
                     }
+                    ActivityResultDispatcher resultDispatcher = activity.getResultDispatcher();
+                    Intent intent = new Intent();
+                    if (ni3.i()) {
+                        fromFile = dk3.a(activity, file);
+                        intent.setFlags(3);
+                    } else {
+                        fromFile = Uri.fromFile(file);
+                    }
+                    intent.setAction("android.intent.action.SEND");
+                    intent.putExtra("android.intent.extra.STREAM", fromFile);
+                    intent.setType(y(M));
+                    resultDispatcher.addConsumer(new a(this, optString2));
+                    resultDispatcher.startActivityForResult(Intent.createChooser(intent, "分享到..."));
+                    return hy1.f();
                 }
+                g32.c("FileApi", "file not exists");
+                return new hy1(1001, "file not exists");
             }
-            return b;
+            g32.c("FileApi", "a valid filePath is required");
+            return new hy1(202, "a valid filePath is required");
         }
-        return (vu1) invokeV.objValue;
-    }
-
-    public final void c(uu1.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            String str = "gcj02";
-            if (!TextUtils.equals(cVar.a, "gcj02")) {
-                if (TextUtils.equals(cVar.a, "bd09ll")) {
-                    str = "bd09ll";
-                } else {
-                    str = "wgs84";
-                }
-            }
-            wo2.I().b(str, false, cVar.b, new b(this, cVar));
-        }
-    }
-
-    public void e(@NonNull uu1.c cVar, @NonNull c cVar2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, cVar2, z) == null) {
-            this.a = cVar2;
-            if (jj3.M()) {
-                c(cVar);
-            } else if (z) {
-                vc3.b(GameAssistConstKt.METHOD_GET_LOCATION, 1002, "GetLocation does not supported when app is invisible", 10005, "GetLocation does not supported when app is invisible");
-                this.a.f(cVar, "GetLocation does not supported when app is invisible");
-            } else {
-                r03.f(o53.K().w(), new String[]{com.kuaishou.weapon.p0.h.g, com.kuaishou.weapon.p0.h.h}, 0, new a(this, cVar));
-            }
-        }
+        return (hy1) invokeL.objValue;
     }
 }

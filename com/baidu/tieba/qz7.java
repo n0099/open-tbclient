@@ -1,89 +1,93 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.os.MessageQueue;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.mvc.message.MvcHttpMessage;
+import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
+import com.baidu.tbadk.mvc.message.MvcNetMessage;
+import com.baidu.tieba.frs.mc.FrsModelController;
+import com.baidu.tieba.tbadkCore.FrsRequestData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-/* loaded from: classes7.dex */
-public class qz7 implements dz7 {
+import java.lang.ref.WeakReference;
+/* loaded from: classes8.dex */
+public class qz7 implements MessageQueue.IdleHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ez7 a;
-    public cz7 b;
+    public WeakReference<FrsModelController> a;
+    public MvcHttpResponsedMessage<kqa> b;
+    public MvcHttpMessage<FrsRequestData, kqa> c;
+    public MvcNetMessage<FrsRequestData, kqa> d;
+    public rqa e;
 
-    public qz7(ez7 ez7Var) {
+    public qz7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ez7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = ez7Var;
-        this.b = new pz7(this);
     }
 
-    @Override // com.baidu.tieba.dz7
-    public boolean a(BdUniqueId bdUniqueId, String str, String str2, String str3) {
-        InterceptResult invokeLLLL;
+    @Override // android.os.MessageQueue.IdleHandler
+    public boolean queueIdle() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, bdUniqueId, str, str2, str3)) == null) {
-            cz7 cz7Var = this.b;
-            if (cz7Var != null) {
-                return cz7Var.a(bdUniqueId, str, str2, str3);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            FrsModelController frsModelController = this.a.get();
+            if (frsModelController == null) {
+                return false;
             }
-            return false;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.dz7
-    public boolean b(int i, oz7 oz7Var) {
-        InterceptResult invokeIL;
-        ez7 ez7Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, oz7Var)) == null) {
-            if (oz7Var != null && (ez7Var = this.a) != null) {
-                ez7Var.setData(oz7Var.getDataList());
-                return true;
+            frsModelController.S0(this.b, this.c, this.d);
+            rqa rqaVar = this.e;
+            if (rqaVar != null) {
+                rqaVar.b();
             }
             return false;
         }
-        return invokeIL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.dz7
-    public boolean c(int i) {
-        InterceptResult invokeI;
+    public void a(FrsModelController frsModelController) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            ez7 ez7Var = this.a;
-            if (ez7Var != null) {
-                ez7Var.a(i);
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(1048576, this, frsModelController) == null) {
+            this.a = new WeakReference<>(frsModelController);
         }
-        return invokeI.booleanValue;
     }
 
-    @Override // com.baidu.tieba.dz7
-    public void setData(List<yh> list) {
-        ez7 ez7Var;
+    public void b(rqa rqaVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && (ez7Var = this.a) != null) {
-            ez7Var.setData(list);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rqaVar) == null) {
+            this.e = rqaVar;
+        }
+    }
+
+    public void c(MvcHttpMessage<FrsRequestData, kqa> mvcHttpMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mvcHttpMessage) == null) {
+            this.c = mvcHttpMessage;
+        }
+    }
+
+    public void d(MvcNetMessage<FrsRequestData, kqa> mvcNetMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, mvcNetMessage) == null) {
+            this.d = mvcNetMessage;
+        }
+    }
+
+    public void e(MvcHttpResponsedMessage<kqa> mvcHttpResponsedMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, mvcHttpResponsedMessage) == null) {
+            this.b = mvcHttpResponsedMessage;
         }
     }
 }

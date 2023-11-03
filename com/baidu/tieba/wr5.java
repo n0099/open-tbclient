@@ -1,115 +1,59 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.browser.BaseWebViewActivity;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.util.WebviewHelper;
+import android.util.SparseArray;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URLDecoder;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class wr5 {
+public abstract class wr5 implements bs5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
-    public static Boolean a(String str) {
-        InterceptResult invokeL;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (str == null) {
-                return Boolean.FALSE;
-            }
-            if (!ad.isEquals(WebviewHelper.getMatchStringFromURL(str, BaseWebViewActivity.CUSTOM_FULL_SCREEN), "=")) {
-                try {
-                    str = URLDecoder.decode(str.replaceAll("%(?![0-9a-fA-F]{2})", "%25"), "UTF-8");
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                }
-            }
-            String matchStringFromURL = WebviewHelper.getMatchStringFromURL(str, "topic_id=");
-            String matchStringFromURL2 = WebviewHelper.getMatchStringFromURL(str, "topic_name=");
-            String matchStringFromURL3 = WebviewHelper.getMatchStringFromURL(str, BaseWebViewActivity.CUSTOM_FULL_SCREEN_EQUAL);
-            String matchStringFromURL4 = WebviewHelper.getMatchStringFromURL(str, "nonavigationbar=");
-            if ((!ad.isEmpty(matchStringFromURL) || !ad.isEmpty(matchStringFromURL2)) && StringHelper.equals(matchStringFromURL3, "1") && StringHelper.equals(matchStringFromURL4, "1")) {
-                return Boolean.TRUE;
-            }
-            return Boolean.FALSE;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
-        return (Boolean) invokeL.objValue;
     }
 
-    public static Boolean b(Uri uri) {
-        InterceptResult invokeL;
+    public abstract View getView();
+
+    public wr5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, uri)) == null) {
-            if (uri != null && uri.toString() != null) {
-                if (WebviewHelper.getMatchStringFromURL(uri.toString(), "source=").contains("hottopic_detail_hybrid")) {
-                    return Boolean.TRUE;
-                }
-                return Boolean.FALSE;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return Boolean.FALSE;
         }
-        return (Boolean) invokeL.objValue;
+        this.a = false;
+        new SparseArray();
     }
 
-    public static String c(String str, String str2) {
-        InterceptResult invokeLL;
+    public void a(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            StringBuilder sb = new StringBuilder("https://tieba.baidu.com/mo/q/newtopic/topicTemplate?");
-            sb.append(BaseWebViewActivity.CUSTOM_FULL_SCREEN_EQUAL);
-            sb.append("1");
-            sb.append("&nonavigationbar=");
-            sb.append("1");
-            sb.append("&from=");
-            sb.append("1");
-            sb.append("&loadingSignal=");
-            sb.append("1");
-            if (str != null) {
-                sb.append("&topic_id=");
-                sb.append(str);
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            b(view2, false);
+        }
+    }
+
+    public void b(View view2, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, z) == null) && view2 != null && getView() != null) {
+            View view3 = getView();
+            if (view3.getParent() != null) {
+                return;
             }
-            if (str2 != null) {
-                sb.append("&topic_name=");
-                sb.append(str2);
-            }
-            sb.append("&skin=");
-            sb.append(SkinManager.getCurrentSkinTypeString());
-            return sb.toString();
+            tj5.a(view2, this.a).a(view2, view3, z);
+            c();
         }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            return WebviewHelper.getMatchStringFromURL(str, "topic_id=");
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            return WebviewHelper.getMatchStringFromURL(str, "hottopic_detail_hybrid-");
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void f(TbPageContext tbPageContext, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65541, null, tbPageContext, str, str2) != null) || tbPageContext == null) {
-            return;
-        }
-        UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{c(str, str2)});
     }
 }

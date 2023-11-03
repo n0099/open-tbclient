@@ -1,25 +1,12 @@
 package com.baidu.tieba;
 
-import android.app.Notification;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.os.Build;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
-import android.widget.RemoteViews;
+import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.download.notification.NotificationReceiver;
 import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.searchbox.ui.SystemBarTintManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,40 +14,326 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Set;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ng0 {
+public class ng0 implements qg0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public NotificationManager a;
-    public NotificationCompat.Builder b;
+    public final mz0 a;
 
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
+    public static class f {
         public static /* synthetic */ Interceptable $ic;
+        public static qg0 a;
+        public static final qg0 b;
         public transient /* synthetic */ FieldHolder $fh;
-    }
 
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ng0 a;
-        public transient /* synthetic */ FieldHolder $fh;
+        /* loaded from: classes7.dex */
+        public class a implements qg0 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ Throwable a;
+
+            @Override // com.baidu.tieba.qg0
+            public void b(yy0 yy0Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yy0Var) == null) {
+                }
+            }
+
+            @Override // com.baidu.tieba.qg0
+            public void c(HashMap<String, vg0> hashMap) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) {
+                }
+            }
+
+            @Override // com.baidu.tieba.qg0
+            public void d(yy0 yy0Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048579, this, yy0Var) == null) {
+                }
+            }
+
+            public a(Throwable th) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {th};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = th;
+                if (this.a != null) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put("v", "5.12.0.110");
+                    hashMap.put("e", this.a.toString());
+                    az0.e(new ClogBuilder().y(ClogBuilder.LogType.CHECK).k("12").l("4000").m(new JSONObject(hashMap).toString()));
+                }
+            }
+
+            @Override // com.baidu.tieba.qg0
+            public List<vg0> a() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    return new ArrayList();
+                }
+                return (List) invokeV.objValue;
+            }
+        }
 
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-576451180, "Lcom/baidu/tieba/ng0$b;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-576451056, "Lcom/baidu/tieba/ng0$f;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-576451180, "Lcom/baidu/tieba/ng0$b;");
+                    classClinitInterceptable.invokePostClinit(-576451056, "Lcom/baidu/tieba/ng0$f;");
                     return;
                 }
             }
-            a = new ng0(null);
+            try {
+                if (g21.b()) {
+                    a = new ng0(null);
+                } else {
+                    a = b(null);
+                }
+            } catch (Throwable th) {
+                a = b(th);
+            }
+            b = a;
+        }
+
+        public static qg0 b(Throwable th) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, th)) == null) {
+                return new a(th);
+            }
+            return (qg0) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Set a;
+        public final /* synthetic */ ng0 b;
+
+        public a(ng0 ng0Var, Set set) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ng0Var, set};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ng0Var;
+            this.a = set;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.a.beginTransaction();
+                try {
+                    for (String str : this.a) {
+                        yy0 yy0Var = new yy0();
+                        yy0Var.o(str);
+                        this.b.a.e(yy0Var, new kz0[0]);
+                    }
+                    this.b.a.setTransactionSuccessful();
+                } finally {
+                    this.b.a.endTransaction();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ HashMap a;
+        public final /* synthetic */ ng0 b;
+
+        public b(ng0 ng0Var, HashMap hashMap) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ng0Var, hashMap};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ng0Var;
+            this.a = hashMap;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.a.beginTransaction();
+                try {
+                    for (Map.Entry entry : this.a.entrySet()) {
+                        vg0 vg0Var = (vg0) entry.getValue();
+                        if (vg0Var != null) {
+                            yy0 a = og0.a(vg0Var);
+                            if (!TextUtils.isEmpty(a.g())) {
+                                this.b.a.a(a, new kz0[0]);
+                            }
+                        }
+                    }
+                    this.b.a.setTransactionSuccessful();
+                } finally {
+                    this.b.a.endTransaction();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yy0 a;
+        public final /* synthetic */ ng0 b;
+
+        public c(ng0 ng0Var, yy0 yy0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ng0Var, yy0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ng0Var;
+            this.a = yy0Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.a.a(this.a, new kz0[0]);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yy0 a;
+        public final /* synthetic */ ng0 b;
+
+        public d(ng0 ng0Var, yy0 yy0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ng0Var, yy0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ng0Var;
+            this.a = yy0Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.a.f(this.a, new kz0[0]);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Runnable a;
+
+        public e(ng0 ng0Var, Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ng0Var, runnable};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = runnable;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    this.a.run();
+                } catch (Throwable th) {
+                    if (!pc0.a) {
+                        Log.d("AdDownloadDBHelper", "wrapExecutor", th);
+                        return;
+                    }
+                    throw th;
+                }
+            }
         }
     }
 
@@ -77,263 +350,104 @@ public class ng0 {
                 return;
             }
         }
-        this.a = (NotificationManager) pe0.b().getSystemService("notification");
-    }
-
-    public static ng0 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (ng0) invokeV.objValue;
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.a == null) {
-            return;
-        }
-        try {
-            a(135637042);
-            a(1743353008);
-            a(-1276312226);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        pg0 pg0Var = new pg0();
+        pg0Var.getReadableDatabase();
+        pg0Var.close();
+        SQLiteDatabase openDatabase = SQLiteDatabase.openDatabase(gf0.b().getDatabasePath("nad.core.download.db").getPath(), null, 0);
+        openDatabase.setLocale(Locale.US);
+        this.a = new rg0(openDatabase);
     }
 
     public /* synthetic */ ng0(a aVar) {
         this();
     }
 
-    public void a(int i) {
-        NotificationManager notificationManager;
+    @Override // com.baidu.tieba.qg0
+    public void b(yy0 yy0Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || (notificationManager = this.a) == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yy0Var) != null) || TextUtils.isEmpty(yy0Var.g())) {
             return;
         }
-        try {
-            notificationManager.cancel(i);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        g(new d(this, yy0Var), "update_apk_data", 3);
     }
 
-    public final NotificationCompat.Builder c() {
-        InterceptResult invokeV;
-        NotificationCompat.Builder builder;
+    @Override // com.baidu.tieba.qg0
+    public void c(HashMap<String, vg0> hashMap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Context b2 = pe0.b();
-            if (Build.VERSION.SDK_INT >= 26) {
-                d();
-                builder = new NotificationCompat.Builder(b2, "com.baidu.nadcore.notification.channel");
-            } else {
-                builder = new NotificationCompat.Builder(b2);
-            }
-            builder.setSmallIcon(dg0.b().f());
-            builder.setWhen(System.currentTimeMillis());
-            builder.setPriority(0);
-            builder.setDefaults(-1);
-            builder.setVisibility(1);
-            builder.setVibrate(new long[]{0});
-            builder.setSound(null);
-            return builder;
-        }
-        return (NotificationCompat.Builder) invokeV.objValue;
-    }
-
-    @RequiresApi(api = 26)
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.a == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) != null) || my0.c(hashMap)) {
             return;
         }
-        NotificationChannel notificationChannel = new NotificationChannel("com.baidu.nadcore.notification.channel", "下载消息提示", 4);
-        notificationChannel.setLockscreenVisibility(1);
-        notificationChannel.enableLights(false);
-        notificationChannel.enableVibration(false);
-        notificationChannel.setVibrationPattern(new long[]{0});
-        notificationChannel.setSound(null, null);
-        this.a.createNotificationChannel(notificationChannel);
+        g(new b(this, hashMap), "update_apk_data", 3);
     }
 
-    public boolean g() {
+    @Override // com.baidu.tieba.qg0
+    public void d(yy0 yy0Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, yy0Var) != null) || TextUtils.isEmpty(yy0Var.g())) {
+            return;
+        }
+        g(new c(this, yy0Var), "update_apk_data", 3);
+    }
+
+    public static qg0 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            boolean areNotificationsEnabled = NotificationManagerCompat.from(pe0.b()).areNotificationsEnabled();
-            if (this.a != null && !TextUtils.isEmpty("com.baidu.nadcore.notification.channel") && Build.VERSION.SDK_INT >= 26) {
-                NotificationChannel notificationChannel = this.a.getNotificationChannel("com.baidu.nadcore.notification.channel");
-                if (notificationChannel == null) {
-                    return areNotificationsEnabled;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return f.b;
+        }
+        return (qg0) invokeV.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:15:0x0068  */
+    @Override // com.baidu.tieba.qg0
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public List<vg0> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            yy0 yy0Var = new yy0();
+            yz0 f2 = yz0.f();
+            f2.a("o", yy0Var.b().d());
+            f2.c("o", yy0Var);
+            HashSet hashSet = new HashSet();
+            Cursor d2 = this.a.d(f2);
+            try {
+                long currentTimeMillis = System.currentTimeMillis();
+                if (d2.moveToFirst()) {
+                    do {
+                        yy0 yy0Var2 = new yy0();
+                        rz0.b(yy0Var2, d2);
+                        if (yy0Var2.x() + mg0.b < currentTimeMillis) {
+                            hashSet.add(yy0Var2.g());
+                        } else {
+                            ky0.b(arrayList, og0.b(yy0Var2));
+                        }
+                    } while (d2.moveToNext());
+                    jf0.a(d2);
+                    if (hashSet.size() > 0) {
+                        g(new a(this, hashSet), "remove_outdated_apk_data", 3);
+                    }
+                    return arrayList;
                 }
-                if (areNotificationsEnabled && notificationChannel.getImportance() != 0) {
-                    return true;
+                jf0.a(d2);
+                if (hashSet.size() > 0) {
                 }
-                return false;
+                return arrayList;
+            } catch (Throwable th) {
+                jf0.a(d2);
+                throw th;
             }
-            return areNotificationsEnabled;
         }
-        return invokeV.booleanValue;
+        return (List) invokeV.objValue;
     }
 
-    public PendingIntent e(String str, eg0 eg0Var) {
-        InterceptResult invokeLL;
-        String str2;
+    public final void g(@NonNull Runnable runnable, @NonNull String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, eg0Var)) == null) {
-            if (!TextUtils.isEmpty(str) && eg0Var != null) {
-                Context b2 = pe0.b();
-                Intent intent = new Intent(str);
-                intent.setComponent(new ComponentName(b2.getPackageName(), NotificationReceiver.class.getName()));
-                intent.putExtra("key_package_name", eg0Var.d);
-                File file = eg0Var.h;
-                if (file != null && file.exists()) {
-                    str2 = eg0Var.h.getAbsolutePath();
-                } else {
-                    str2 = "";
-                }
-                intent.putExtra("key_download_path", str2);
-                intent.putExtra("key_notify_type", eg0Var.q.m);
-                intent.putExtra("key_notification_id", eg0Var.e().hashCode());
-                intent.putExtra("key_extra_param", eg0Var.p.a);
-                return m11.a(b2, eg0Var.e().hashCode(), intent, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION);
-            }
-            return null;
-        }
-        return (PendingIntent) invokeLL.objValue;
-    }
-
-    public void i(eg0 eg0Var, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048583, this, eg0Var, str) != null) || this.a == null) {
-            return;
-        }
-        try {
-            b();
-            Context b2 = pe0.b();
-            String str2 = eg0Var.p.h;
-            String str3 = "";
-            if (TextUtils.equals(str, "notify_type_pause")) {
-                str3 = b2.getResources().getString(R.string.nad_download_paused);
-            } else if (TextUtils.equals(str, "notify_type_stop")) {
-                str3 = b2.getResources().getString(R.string.nad_download_stopped);
-            }
-            NotificationCompat.Builder c = c();
-            c.setTicker(str2 + str3);
-            c.setContentTitle(str2);
-            c.setContentText(str3);
-            c.setAutoCancel(true);
-            c.setOngoing(false);
-            this.a.notify(1743353008, c.build());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void h(String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048582, this, str, str2, str3, str4) == null) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            if (!TextUtils.isEmpty(str)) {
-                clogBuilder.z(str);
-            }
-            if (!TextUtils.equals(str, ClogBuilder.LogType.DOWNLOAD_INSTALL.type) && !TextUtils.equals(str, ClogBuilder.LogType.OPEN_APP.type)) {
-                clogBuilder.u(ClogBuilder.Page.AD_NOTIFICATION);
-            } else {
-                clogBuilder.u(ClogBuilder.Page.RETARGET);
-            }
-            if (!TextUtils.isEmpty(str2)) {
-                clogBuilder.j(str2);
-            }
-            if (!TextUtils.isEmpty(str3)) {
-                clogBuilder.p(str3);
-            }
-            if (!TextUtils.isEmpty(str4)) {
-                clogBuilder.k(str4);
-            }
-            jy0.e(clogBuilder);
-        }
-    }
-
-    public void j(@NonNull Bitmap bitmap, @NonNull RemoteViews remoteViews, PendingIntent pendingIntent, PendingIntent pendingIntent2, @NonNull eg0 eg0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bitmap, remoteViews, pendingIntent, pendingIntent2, eg0Var) != null) || this.a == null) {
-            return;
-        }
-        try {
-            a(eg0Var.e().hashCode());
-            NotificationCompat.Builder c = c();
-            if (Build.VERSION.SDK_INT >= 24) {
-                c.setCustomContentView(remoteViews).setContentIntent(pendingIntent).setDeleteIntent(pendingIntent2).setPriority(2).setAutoCancel(true);
-            } else {
-                c.setContentIntent(pendingIntent).setDeleteIntent(pendingIntent2).setLargeIcon(bitmap).setContentTitle(eg0Var.p.h).setContentText(eg0Var.q.n).setPriority(2).setAutoCancel(true);
-            }
-            Notification build = c.build();
-            build.flags |= 32;
-            this.a.notify(eg0Var.e().hashCode(), build);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void k(eg0 eg0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, eg0Var) != null) || this.a == null) {
-            return;
-        }
-        try {
-            b();
-            Context b2 = pe0.b();
-            String str = eg0Var.p.h;
-            String string = b2.getResources().getString(R.string.nad_download_succeed);
-            NotificationCompat.Builder c = c();
-            c.setTicker(string);
-            c.setContentTitle(str);
-            c.setContentText(string);
-            c.setContentIntent(e(NotificationReceiver.RECEIVER_ACTION_DOWNLOAD_SUCCESS, eg0Var));
-            c.setAutoCancel(true);
-            c.setOngoing(false);
-            this.a.notify(-1276312226, c.build());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void l(eg0 eg0Var) {
-        NotificationManager notificationManager;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, eg0Var) != null) || (notificationManager = this.a) == null) {
-            return;
-        }
-        try {
-            notificationManager.cancel(1743353008);
-            this.a.cancel(-1276312226);
-            Context b2 = pe0.b();
-            String str = eg0Var.p.h;
-            String string = b2.getResources().getString(R.string.nad_downloading);
-            int i = (int) (eg0Var.i * 100.0f);
-            if (this.b == null) {
-                NotificationCompat.Builder c = c();
-                this.b = c;
-                c.setAutoCancel(false);
-                this.b.setOngoing(true);
-                NotificationCompat.Builder builder = this.b;
-                builder.setTicker(string + "：" + str);
-                this.b.setContentTitle(str);
-                this.b.setContentText(string);
-            } else {
-                NotificationCompat.Builder builder2 = this.b;
-                builder2.setTicker(string + "：" + str);
-                this.b.setContentTitle(str);
-                this.b.setDefaults(4);
-            }
-            this.b.setProgress(100, i, false);
-            this.a.notify(135637042, this.b.build());
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (interceptable == null || interceptable.invokeLLI(1048580, this, runnable, str, i) == null) {
+            b01.c(new e(this, runnable), str, i);
         }
     }
 }

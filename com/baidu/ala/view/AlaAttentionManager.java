@@ -222,7 +222,7 @@ public class AlaAttentionManager {
         if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, linkedList, alaAttentionData) != null) || alaAttentionData == null) {
             return;
         }
-        linkedList.add(alaAttentionData.m27clone());
+        linkedList.add(alaAttentionData.m28clone());
     }
 
     private void dealAttentionUpdateData(LinkedList<AlaAttentionData> linkedList, AlaAttentionData alaAttentionData) {

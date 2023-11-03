@@ -19,8 +19,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.mz5;
-import com.baidu.tieba.rs;
+import com.baidu.tieba.g16;
+import com.baidu.tieba.it;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class EllipsizeTagTitleView extends View implements rs {
+public class EllipsizeTagTitleView extends View implements it {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int A = 2131099736;
     public static final int B;
@@ -265,7 +265,7 @@ public class EllipsizeTagTitleView extends View implements rs {
         canvas.drawText(this.u, this.y.left + this.h, (f + (this.p / 2.0f)) - this.q, this.w);
     }
 
-    @Override // com.baidu.tieba.rs
+    @Override // com.baidu.tieba.it
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048587, this, tbPageContext, i) == null) {
@@ -394,7 +394,7 @@ public class EllipsizeTagTitleView extends View implements rs {
     public final void k(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, mz5.EllipsizeTagTitleView);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, g16.EllipsizeTagTitleView);
             this.c = obtainStyledAttributes.getInt(9, z);
             this.b = obtainStyledAttributes.getInt(11, 0);
             this.a = obtainStyledAttributes.getDimensionPixelSize(10, B);

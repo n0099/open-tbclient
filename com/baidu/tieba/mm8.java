@@ -1,169 +1,89 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.KeyEvent;
+import androidx.annotation.CallSuper;
 import androidx.core.view.InputDeviceCompat;
-import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.im.base.core.chatbox.adapter.ChatRoomRecycleAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class mm8 extends z68 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final boolean a;
-    public final String b;
-    public String c;
-    public List<z68> d;
-    public RecyclerView.Adapter e;
-    public boolean f;
+public interface mm8 {
 
-    @Override // com.baidu.tieba.z68
-    public int getViewType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
+    /* loaded from: classes7.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public mm8(List<nm8> list, String str, String str2, boolean z, boolean z2, @NonNull TbPageContext tbPageContext, d78 d78Var, String str3) {
-        this(list, str, str2, z, false, z2, tbPageContext, d78Var, str3);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), tbPageContext, d78Var, str3};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((List) objArr2[0], (String) objArr2[1], (String) objArr2[2], ((Boolean) objArr2[3]).booleanValue(), ((Boolean) objArr2[4]).booleanValue(), ((Boolean) objArr2[5]).booleanValue(), (TbPageContext) objArr2[6], (d78) objArr2[7], (String) objArr2[8]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        @CallSuper
+        public static void a(mm8 mm8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(65536, null, mm8Var) == null) {
             }
         }
-    }
 
-    public mm8(List<nm8> list, String str, String str2, boolean z, boolean z2, boolean z3, @NonNull TbPageContext tbPageContext, d78 d78Var, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), tbPageContext, d78Var, str3};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        @CallSuper
+        public static void b(mm8 mm8Var, int i, int i2, Intent intent) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{mm8Var, Integer.valueOf(i), Integer.valueOf(i2), intent}) == null) {
             }
         }
-        this.a = z2;
-        this.b = str;
-        this.c = str2;
-        this.f = z;
-        il8 il8Var = new il8(tbPageContext, -1L, !z2, z3);
-        this.d = new ArrayList();
-        if (!ListUtils.isEmpty(list)) {
-            this.d.addAll(list);
-        }
-        this.e = new ChatRoomRecycleAdapter(new jl8(d78Var, str3), il8Var, tbPageContext, str3);
-        il8Var.h(getSubItems());
-    }
 
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<z68> list = this.d;
-            if (list != null) {
-                return list.size();
+        @CallSuper
+        public static void c(mm8 mm8Var, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(65538, null, mm8Var, z) == null) {
             }
-            return 0;
         }
-        return invokeV.intValue;
-    }
 
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f;
+        @CallSuper
+        public static void d(mm8 mm8Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(65539, null, mm8Var, i) == null) {
+            }
         }
-        return invokeV.booleanValue;
-    }
 
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
+        @CallSuper
+        public static boolean e(mm8 mm8Var, int i, KeyEvent event) {
+            InterceptResult invokeLIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, mm8Var, i, event)) == null) {
+                Intrinsics.checkNotNullParameter(event, "event");
+                return false;
+            }
+            return invokeLIL.booleanValue;
         }
-        return invokeV.booleanValue;
-    }
 
-    public void f() {
-        RecyclerView.Adapter adapter;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (adapter = this.e) != null) {
-            adapter.notifyItemRangeChanged(0, c());
+        @CallSuper
+        public static void f(mm8 mm8Var, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(65541, null, mm8Var, z) == null) {
+            }
         }
-    }
 
-    public RecyclerView.Adapter getAdapter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.e;
+        @CallSuper
+        public static void g(mm8 mm8Var, int i, String[] permissions, int[] grantResults) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLILL(65542, null, mm8Var, i, permissions, grantResults) == null) {
+                Intrinsics.checkNotNullParameter(permissions, "permissions");
+                Intrinsics.checkNotNullParameter(grantResults, "grantResults");
+            }
         }
-        return (RecyclerView.Adapter) invokeV.objValue;
-    }
 
-    public List<z68> getSubItems() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return Collections.unmodifiableList(this.d);
+        public static void h(mm8 mm8Var, Bundle outState) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(65543, null, mm8Var, outState) == null) {
+                Intrinsics.checkNotNullParameter(outState, "outState");
+            }
         }
-        return (List) invokeV.objValue;
-    }
 
-    public void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f = z;
+        @CallSuper
+        public static void i(mm8 mm8Var, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(65544, null, mm8Var, z) == null) {
+            }
         }
     }
 }

@@ -1,46 +1,64 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class af2 extends we2 {
+public class af2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public af2(@NonNull ve2 ve2Var) {
-        super(ve2Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ve2Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((ve2) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947613180, "Lcom/baidu/tieba/af2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947613180, "Lcom/baidu/tieba/af2;");
                 return;
             }
         }
+        a = rm1.a;
     }
 
-    @Override // com.baidu.tieba.we2
-    public void e() {
-        ArrayList<String> arrayList;
+    public static String a(int i, String str) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (arrayList = this.d.b) != null && !arrayList.isEmpty()) {
-            zd2 d = be2.c().d();
-            ArrayList<String> arrayList2 = this.d.b;
-            kf2 l = kf2.l();
-            l.i(15);
-            d.g(arrayList2, true, false, l.k());
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
+            return "frame_type_" + i + "_" + str;
+        }
+        return (String) invokeIL.objValue;
+    }
+
+    public static long b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            long j = ue3.a().getLong(a(i, "launch_time"), 0L);
+            if (a) {
+                Log.d("LaunchRecorder", "frame_type : " + i + " , launch time : " + j);
+            }
+            return j;
+        }
+        return invokeI.longValue;
+    }
+
+    public static void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
+            String a2 = a(i, "launch_time");
+            long currentTimeMillis = System.currentTimeMillis();
+            ue3.a().putLong(a2, currentTimeMillis);
+            if (a) {
+                Log.d("LaunchRecorder", "frame_type : " + i + " , launch time : " + currentTimeMillis);
+            }
         }
     }
 }

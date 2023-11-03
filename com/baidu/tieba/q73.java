@@ -1,33 +1,36 @@
 package com.baidu.tieba;
 
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
-import android.util.Log;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
+import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class q73 extends m73 {
+public class q73 extends d83 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q73(m63 m63Var) {
-        super(m63Var, "/swanAPI/setBackgroundColor");
+    public q73(d73 d73Var) {
+        super(d73Var, "/swanAPI/openApp4Ad");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {m63Var};
+            Object[] objArr = {d73Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,47 +44,88 @@ public class q73 extends m73 {
         }
     }
 
-    @Override // com.baidu.tieba.m73
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, p53 p53Var) {
+    public static ResolveInfo j(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            if (context == null || TextUtils.isEmpty(str)) {
+                return null;
+            }
+            Intent intent = new Intent("android.intent.action.MAIN");
+            intent.addCategory("android.intent.category.LAUNCHER");
+            intent.setPackage(str);
+            List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
+            if (queryIntentActivities == null || queryIntentActivities.size() <= 0) {
+                return null;
+            }
+            return queryIntentActivities.iterator().next();
+        }
+        return (ResolveInfo) invokeLL.objValue;
+    }
+
+    public static void k(Context context, ResolveInfo resolveInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, context, resolveInfo) == null) && context != null && resolveInfo != null) {
+            Intent intent = new Intent("android.intent.action.MAIN");
+            intent.addCategory("android.intent.category.LAUNCHER");
+            ActivityInfo activityInfo = resolveInfo.activityInfo;
+            intent.setComponent(new ComponentName(activityInfo.packageName, activityInfo.name));
+            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            try {
+                np2.a().b(context, intent, f63.K().q().P(), null, resolveInfo.activityInfo.packageName);
+            } catch (Exception e) {
+                if (d83.b) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.d83
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g63 g63Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, p53Var)) == null) {
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                p22.c(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, "paramsJson is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g63Var)) == null) {
+            JSONObject a = d83.a(unitedSchemeEntity, "params");
+            if (a == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal parameter");
+                g32.i("OpenAdAppAction", "params parse error");
                 return false;
-            }
-            if (m73.b) {
-                Log.d(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, optParamsAsJo.toString());
-            }
-            y42 W = cr2.V().W();
-            if (W == null) {
-                p22.c(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, "manager is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            }
-            String optString = optParamsAsJo.optString(TtmlNode.ATTR_TTS_BACKGROUND_COLOR);
-            if (TextUtils.isEmpty(optString) && (!TextUtils.isEmpty(optParamsAsJo.optString("backgroundColorTop")) || !TextUtils.isEmpty(optParamsAsJo.optString("backgroundColorBottom")))) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(101);
-                return false;
-            }
-            x42 o = W.o();
-            if (o == null) {
-                p22.c(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, "slave container is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else if (TextUtils.equals("7", o.T1().l())) {
-                p22.c(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, "this page is from showModalPage api");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(402);
-                return false;
-            } else if (!o.S2(o.E3(), SwanAppConfigData.t(optString), true)) {
-                p22.c(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, "set window background fail");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            } else if (!np2.a().d()) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1003, "Host denied");
+                g32.i("OpenAdAppAction", "Host denied");
                 return false;
             } else {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                return true;
+                String optString = a.optString("name");
+                String optString2 = a.optString("url");
+                if (TextUtils.isEmpty(optString) && TextUtils.isEmpty(optString2)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "empty params: Must contain 'url' or 'name' parameter");
+                    g32.i("OpenAdAppAction", "empty params: Must contain 'url' or 'name' parameter");
+                    return false;
+                }
+                if (!TextUtils.isEmpty(optString2)) {
+                    if (ak3.W(context, optString2)) {
+                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                        return true;
+                    }
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "deeplink launch failed");
+                    g32.i("OpenAdAppAction", "deeplink launch failed");
+                }
+                if (!TextUtils.isEmpty(optString)) {
+                    ResolveInfo j = j(context, optString);
+                    if (j != null) {
+                        k(context, j);
+                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                        return true;
+                    }
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "app not installed");
+                    g32.i("OpenAdAppAction", "app not installed");
+                }
+                if (!TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "launch failed");
+                    g32.i("OpenAdAppAction", "launch failed");
+                }
+                return false;
             }
         }
         return invokeLLLL.booleanValue;

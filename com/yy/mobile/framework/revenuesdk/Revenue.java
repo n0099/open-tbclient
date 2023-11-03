@@ -88,13 +88,13 @@ public class Revenue implements IRevenue, IRevenueDataReceiver, IRevenueDataSend
                 this.mProtocolType = revenueConfig.getProtoType();
                 RevenueConfigCenter.addConfig(this.mAppId, this.mUsedChannel, revenueConfig);
                 initLogConfig(revenueConfig);
-                RLog.info(TAG, "initConfig versionName:4.3.45-bdpay config:" + revenueConfig.toString());
+                RLog.info(TAG, "initConfig versionName:4.3.47-bdpay config:" + revenueConfig.toString());
                 this.mAppPayService = new AppPayServiceImpl(this.mAppId, this.mUsedChannel, false, this, this.mPayMetricsStatistics, this.mPayEventStatistics, this.mProtocolType);
                 return;
             }
             throw new IllegalArgumentException("Data Sender == null,Revenue init fail!");
         }
-        RLog.error(TAG, "initConfig versionName:4.3.45-bdpay config null", new Object[0]);
+        RLog.error(TAG, "initConfig versionName:4.3.47-bdpay config null", new Object[0]);
         throw new IllegalArgumentException("init Revenue config == null!");
     }
 

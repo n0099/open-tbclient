@@ -1,160 +1,111 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.browser.BrowserHelper;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.ad9;
-import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
+import com.baidu.searchbox.live.interfaces.service.YYPayService;
+import com.baidu.tbadk.pay.IyyPayResultCallback;
+import com.baidu.tbadk.pay.YYPayData;
+import com.baidu.tbadk.pay.YYPayResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class yg9 extends vg9<CustomDialogData> implements View.OnClickListener {
+public class yg9 implements YYPayService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CustomDialogData c;
-    public zg9 d;
-    public TbImageView e;
-    public TextView f;
-    public TextView g;
-    public TextView h;
-    public TextView i;
-    public View j;
-    public View k;
-    public LinearLayout l;
 
-    @Override // com.baidu.tieba.ah9
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.custom_dailog_view : invokeV.intValue;
+    /* loaded from: classes9.dex */
+    public class a implements IyyPayResultCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ YYPayService.YYPayResultCallback a;
+
+        public a(yg9 yg9Var, YYPayService.YYPayResultCallback yYPayResultCallback) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yg9Var, yYPayResultCallback};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = yYPayResultCallback;
+        }
+
+        @Override // com.baidu.tbadk.pay.IyyPayResultCallback
+        public void onFail(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                this.a.onFail(i, str);
+            }
+        }
+
+        @Override // com.baidu.tbadk.pay.IyyPayResultCallback
+        public void onSuccess(YYPayResult yYPayResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yYPayResult) == null) {
+                if (yYPayResult != null) {
+                    YYPayService.YYPayResultMessage yYPayResultMessage = new YYPayService.YYPayResultMessage();
+                    yYPayResultMessage.setStatus(yYPayResult.status);
+                    yYPayResultMessage.setAppid(yYPayResult.appid);
+                    yYPayResultMessage.setUid(yYPayResult.uid.longValue());
+                    yYPayResultMessage.setUsedChannel(yYPayResult.usedChannel);
+                    yYPayResultMessage.setCurrencyType(yYPayResult.currencyType);
+                    yYPayResultMessage.setAmount(yYPayResult.amount.longValue());
+                    yYPayResultMessage.setCurrencyAmount(yYPayResult.currencyAmount.longValue());
+                    yYPayResultMessage.setOrderId(yYPayResult.orderId);
+                    yYPayResultMessage.setExpand(yYPayResult.expand);
+                    this.a.onSuccess(yYPayResultMessage);
+                    return;
+                }
+                this.a.onSuccess(null);
+            }
+        }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yg9(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    public yg9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.ah9
-    public void b() {
+    @Override // com.baidu.searchbox.live.interfaces.service.YYPayService
+    public void startPayment(Context context, YYPayService.YYPayResultCallback yYPayResultCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e = (TbImageView) getViewGroup().findViewById(R.id.dialog_image);
-            this.f = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f0908d2);
-            this.g = (TextView) getViewGroup().findViewById(R.id.dialog_body);
-            this.h = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f092a93);
-            this.i = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f09199e);
-            this.j = getViewGroup().findViewById(R.id.bdDialog_divider_line);
-            this.k = getViewGroup().findViewById(R.id.divider_yes_no_button);
-            this.l = (LinearLayout) getViewGroup().findViewById(R.id.real_view);
-            this.h.setOnClickListener(this);
-            this.i.setOnClickListener(this);
-            SkinManager.setBackgroundResource(this.h, R.drawable.dialog_single_button_bg_selector);
-            SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0302);
-            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0302);
-            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.g, (int) R.color.common_color_10122);
-            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0204);
-            SkinManager.setBackgroundColor(this.k, R.color.CAM_X0204);
-            SkinManager.setBackgroundResource(this.l, R.drawable.dialog_background);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, yYPayResultCallback) == null) {
+            startPayment(context, null, yYPayResultCallback);
         }
     }
 
-    public void f(zg9 zg9Var) {
+    @Override // com.baidu.searchbox.live.interfaces.service.YYPayService
+    public void startPayment(Context context, String str, YYPayService.YYPayResultCallback yYPayResultCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, zg9Var) == null) {
-            this.d = zg9Var;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, yYPayResultCallback) == null) {
+            startPayment(context, str, 0L, yYPayResultCallback);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ah9
-    /* renamed from: e */
-    public void c(CustomDialogData customDialogData) {
+    @Override // com.baidu.searchbox.live.interfaces.service.YYPayService
+    public void startPayment(Context context, String str, Long l, YYPayService.YYPayResultCallback yYPayResultCallback) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, customDialogData) != null) || customDialogData == null) {
-            return;
-        }
-        this.c = customDialogData;
-        CustomDialogData.Head head = customDialogData.head;
-        if (!TextUtils.isEmpty(head.imageUrl)) {
-            this.e.startLoad(head.imageUrl, 10, false);
-        }
-        if (!TextUtils.isEmpty(head.text)) {
-            this.f.setText(head.text);
-        }
-        if (!TextUtils.isEmpty(customDialogData.body)) {
-            this.g.setText(customDialogData.body);
-        }
-        CustomDialogData.Button button = customDialogData.leftButton;
-        if (button != null && !StringUtils.isNull(button.text)) {
-            this.i.setText(customDialogData.leftButton.text);
-        }
-        CustomDialogData.Button button2 = customDialogData.rightButton;
-        if (button2 != null && !StringUtils.isNull(button2.text)) {
-            this.h.setText(customDialogData.rightButton.text);
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        CustomDialogData.Button button;
-        CustomDialogData.Button button2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
-            if (view2 == this.h) {
-                CustomDialogData customDialogData = this.c;
-                if (customDialogData != null && (button2 = customDialogData.rightButton) != null && !StringUtils.isNull(button2.action)) {
-                    UrlManager.getInstance().dealOneLink(d(), new String[]{this.c.rightButton.action});
-                }
-                zg9 zg9Var = this.d;
-                if (zg9Var != null) {
-                    zg9Var.dismiss();
-                }
-                StatisticItem statisticItem = new StatisticItem(ad9.a.b);
-                statisticItem.param("obj_locate", 2);
-                TiebaStatic.log(statisticItem);
-            } else if (view2 == this.i) {
-                CustomDialogData customDialogData2 = this.c;
-                if (customDialogData2 != null && (button = customDialogData2.leftButton) != null && !StringUtils.isNull(button.action)) {
-                    BrowserHelper.startWebActivity((Context) this.a.getPageActivity(), (String) null, this.c.leftButton.action, true);
-                }
-                zg9 zg9Var2 = this.d;
-                if (zg9Var2 != null) {
-                    zg9Var2.dismiss();
-                }
-                StatisticItem statisticItem2 = new StatisticItem(ad9.a.b);
-                statisticItem2.param("obj_locate", 1);
-                TiebaStatic.log(statisticItem2);
-            }
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, l, yYPayResultCallback) == null) {
+            MessageManager.getInstance().runTask(2921546, String.class, new YYPayData(context, 1, str, l, new a(this, yYPayResultCallback)));
         }
     }
 }

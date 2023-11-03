@@ -1,8 +1,8 @@
 package com.baidu.validation.js;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ngb;
-import com.baidu.tieba.pgb;
+import com.baidu.tieba.otb;
+import com.baidu.tieba.qtb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class BaseInterpreter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ngb mInterpreterCallback;
+    public otb mInterpreterCallback;
     public String mName;
 
     public BaseInterpreter() {
@@ -29,10 +29,10 @@ public abstract class BaseInterpreter {
         }
     }
 
-    public ngb getInterpreterCallback() {
+    public otb getInterpreterCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mInterpreterCallback : (ngb) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mInterpreterCallback : (otb) invokeV.objValue;
     }
 
     public String getName() {
@@ -41,12 +41,12 @@ public abstract class BaseInterpreter {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mName : (String) invokeV.objValue;
     }
 
-    public abstract String interpret(pgb pgbVar);
+    public abstract String interpret(qtb qtbVar);
 
-    public void setInterpreterCallback(ngb ngbVar) {
+    public void setInterpreterCallback(otb otbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ngbVar) == null) {
-            this.mInterpreterCallback = ngbVar;
+        if (interceptable == null || interceptable.invokeL(1048579, this, otbVar) == null) {
+            this.mInterpreterCallback = otbVar;
         }
     }
 

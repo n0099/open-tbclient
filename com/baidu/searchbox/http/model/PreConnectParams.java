@@ -1,7 +1,7 @@
 package com.baidu.searchbox.http.model;
 
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PreConnectParams {
     public int mPreConnectDelayTimeMs;
     public List<String> mPreConnectDelayUrlsWithNum;
@@ -12,7 +12,7 @@ public class PreConnectParams {
     public int maxPreConnectNum;
     public int maxSingleHostPreConnectNum;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class Builder {
         public boolean mPreConnectEnabled = false;
         public int maxPreConnectNum = -1;

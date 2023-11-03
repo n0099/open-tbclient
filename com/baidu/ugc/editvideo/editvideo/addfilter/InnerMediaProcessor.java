@@ -1,7 +1,7 @@
 package com.baidu.ugc.editvideo.editvideo.addfilter;
 
-import com.baidu.tieba.ffb;
-import com.baidu.tieba.nfb;
+import com.baidu.tieba.gsb;
+import com.baidu.tieba.osb;
 /* loaded from: classes9.dex */
 public class InnerMediaProcessor extends Thread {
     public boolean mAddTrack;
@@ -101,7 +101,7 @@ public class InnerMediaProcessor extends Thread {
         try {
             extractDecodeEditEncodeMux();
             if (isUnInterrupted()) {
-                nfb.a().post(new Runnable() { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.InnerMediaProcessor.1
+                osb.a().post(new Runnable() { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.InnerMediaProcessor.1
                     @Override // java.lang.Runnable
                     public void run() {
                         InnerMediaProcessor.this.onPostExecute();
@@ -110,7 +110,7 @@ public class InnerMediaProcessor extends Thread {
             }
         } catch (Exception unused) {
             if (this.mListener != null) {
-                nfb.a().post(new Runnable() { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.InnerMediaProcessor.2
+                osb.a().post(new Runnable() { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.InnerMediaProcessor.2
                     @Override // java.lang.Runnable
                     public void run() {
                         int i;
@@ -131,7 +131,7 @@ public class InnerMediaProcessor extends Thread {
     }
 
     public void log(String str, String str2) {
-        ffb.l(str, str2);
+        gsb.l(str, str2);
     }
 
     public void setClipRange(long j, long j2) {

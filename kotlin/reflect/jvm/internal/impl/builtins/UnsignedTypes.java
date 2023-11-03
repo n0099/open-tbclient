@@ -13,7 +13,7 @@ import kotlin.reflect.jvm.internal.impl.name.ClassId;
 import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.types.TypeUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class UnsignedTypes {
     public static final UnsignedTypes INSTANCE = new UnsignedTypes();
     public static final HashMap<ClassId, ClassId> arrayClassIdToUnsignedClassId;
@@ -60,11 +60,11 @@ public final class UnsignedTypes {
     }
 
     public final boolean isUnsignedType(KotlinType kotlinType) {
-        ClassifierDescriptor mo2106getDeclarationDescriptor;
-        if (TypeUtils.noExpectedType(kotlinType) || (mo2106getDeclarationDescriptor = kotlinType.getConstructor().mo2106getDeclarationDescriptor()) == null) {
+        ClassifierDescriptor mo2110getDeclarationDescriptor;
+        if (TypeUtils.noExpectedType(kotlinType) || (mo2110getDeclarationDescriptor = kotlinType.getConstructor().mo2110getDeclarationDescriptor()) == null) {
             return false;
         }
-        Intrinsics.checkExpressionValueIsNotNull(mo2106getDeclarationDescriptor, "type.constructor.declara…escriptor ?: return false");
-        return isUnsignedClass(mo2106getDeclarationDescriptor);
+        Intrinsics.checkExpressionValueIsNotNull(mo2110getDeclarationDescriptor, "type.constructor.declara…escriptor ?: return false");
+        return isUnsignedClass(mo2110getDeclarationDescriptor);
     }
 }

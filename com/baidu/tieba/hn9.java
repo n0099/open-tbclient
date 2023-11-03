@@ -1,39 +1,38 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
-import com.baidu.tieba.pb.pb.sub.adapter.SubPbReplyAdapter;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Iterator;
+import tbclient.ThreadInfo;
+import tbclient.VideoInfo;
 /* loaded from: classes6.dex */
-public class hn9 {
+public class hn9 implements oi {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ln9 a;
-    public SubPbReplyAdapter b;
-    public NewSubPbActivity c;
-    public BdTypeListView d;
-    public List<lh> e;
-    public View.OnClickListener f;
+    public String a;
+    public int b;
+    public int c;
+    public String d;
+    public int e;
+    public int f;
     public boolean g;
-    public boolean h;
+    public ThreadData h;
 
-    public hn9(NewSubPbActivity newSubPbActivity, BdTypeListView bdTypeListView) {
+    public hn9(ThreadInfo threadInfo, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {newSubPbActivity, bdTypeListView};
+            Object[] objArr = {threadInfo, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -43,102 +42,72 @@ public class hn9 {
                 return;
             }
         }
-        this.e = new ArrayList();
-        this.f = null;
-        this.g = false;
-        this.h = true;
-        this.c = newSubPbActivity;
-        this.d = bdTypeListView;
+        b(threadInfo);
+        this.g = z;
     }
 
-    public boolean a() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.g;
+            return this.f;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    public void c() {
+    @Override // com.baidu.tieba.oi
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.d.getAdapter2() != null) {
-            this.d.getAdapter2().notifyDataSetChanged();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return gn9.a;
         }
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public void b() {
+    public final void b(ThreadInfo threadInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ln9 ln9Var = new ln9(this.c, pea.X0);
-            this.a = ln9Var;
-            ln9Var.e(this.f);
-            this.a.setFromCDN(this.h);
-            this.e.add(this.a);
-            SubPbReplyAdapter subPbReplyAdapter = new SubPbReplyAdapter(this.c, on9.b);
-            this.b = subPbReplyAdapter;
-            this.e.add(subPbReplyAdapter);
-            this.e.add(new mn9(this.c, nn9.a));
-            this.d.addAdapters(this.e);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadInfo) != null) || threadInfo == null) {
+            return;
         }
-    }
-
-    public void d(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.f = onClickListener;
-        }
-    }
-
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.h = z;
-        }
-    }
-
-    public void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.g = z;
-        }
-    }
-
-    public void h(View.OnLongClickListener onLongClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, onLongClickListener) == null) {
-            this.a.d(onLongClickListener);
-        }
-    }
-
-    public void i(boolean z) {
-        ln9 ln9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && (ln9Var = this.a) != null) {
-            ln9Var.I(z);
-        }
-    }
-
-    public void j(TbRichTextView.z zVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, zVar) == null) {
-            this.a.n(zVar);
-        }
-    }
-
-    public void e(ThreadData threadData, List<yh> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, threadData, list) == null) {
-            this.a.K(threadData);
-            if (!ad.isEmpty(this.c.k3().E0())) {
-                this.a.J(this.c.k3().E0());
+        ThreadData threadData = new ThreadData();
+        this.h = threadData;
+        threadData.parserProtobuf(threadInfo);
+        this.a = threadInfo.title;
+        this.b = threadInfo.reply_num.intValue();
+        this.c = threadInfo.agree_num.intValue();
+        if (!ListUtils.isEmpty(this.h.getMedias())) {
+            Iterator<MediaData> it = this.h.getMedias().iterator();
+            while (it.hasNext()) {
+                MediaData next = it.next();
+                if (next != null && next.getType() == 3) {
+                    String picUrl = next.getPicUrl();
+                    this.d = picUrl;
+                    if (StringUtils.isNull(picUrl)) {
+                        this.d = next.getSmallUrl();
+                    }
+                    if (StringUtils.isNull(this.d)) {
+                        this.d = next.getThumbnails_url();
+                    }
+                    if (StringUtils.isNull(this.d)) {
+                        this.d = next.getSrc_pic();
+                    }
+                    if (!StringUtils.isNull(this.d)) {
+                        break;
+                    }
+                }
             }
-            NewSubPbActivity newSubPbActivity = this.c;
-            if (newSubPbActivity != null && newSubPbActivity.k3() != null) {
-                this.a.H(this.c.k3().b1());
-            }
-            this.d.setData(list);
-            this.d.getAdapter2().notifyDataSetChanged();
+        }
+        VideoInfo videoInfo = threadInfo.video_info;
+        if (videoInfo != null) {
+            this.e = videoInfo.video_duration.intValue();
+        }
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.f = i;
         }
     }
 }

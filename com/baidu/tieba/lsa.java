@@ -1,468 +1,133 @@
 package com.baidu.tieba;
 
-import android.graphics.SurfaceTexture;
-import android.os.Build;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import android.webkit.WebView;
+import androidx.annotation.Nullable;
+import androidx.core.util.Pair;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.vdb;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class lsa implements vdb.b {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile lsa k;
+public abstract class lsa {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String PROXY_CLASS_NAME_SUFFIX = "_Proxy";
+    public static final String PROXY_CLASS_PACKAGE_NAME = "com.baidu.tieba.h5power";
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public vdb.b b;
-    public vdb.b c;
-    public vdb.b d;
-    public boolean e;
-    public vdb.f f;
-    public SurfaceTexture g;
-    public int h;
-    public boolean i;
-    public vdb.a j;
+    public HashMap<String, List<msa>> mAsyncCallBackMethodList;
+    public HashSet<String> mNotificationNameList;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947954831, "Lcom/baidu/tieba/lsa;")) == null) {
-            return;
+    public nsa dispatch(WebView webView, psa psaVar, nsa nsaVar) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, psaVar, nsaVar)) == null) {
+            return null;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947954831, "Lcom/baidu/tieba/lsa;");
-        }
+        return (nsa) invokeLLL.objValue;
     }
 
-    /* loaded from: classes7.dex */
-    public class a implements vdb.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lsa a;
-
-        public a(lsa lsaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lsaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lsaVar;
+    @Nullable
+    public cj6 getJsBridge() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
         }
-
-        @Override // com.baidu.tieba.vdb.a
-        public void a(Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                if (obj instanceof String) {
-                    String str = (String) obj;
-                }
-                this.a.C();
-                this.a.d.k(this.a.g, this.a.f);
-                if (!this.a.i) {
-                    return;
-                }
-                this.a.i = false;
-                this.a.d.n();
-            }
-        }
+        return (cj6) invokeV.objValue;
     }
 
-    public lsa(TbPageContext tbPageContext) {
+    public abstract List<nsa> processNotification(WebView webView, String str, HashMap hashMap);
+
+    public lsa() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.e = false;
-        this.i = false;
-        this.j = new a(this);
-        this.a = tbPageContext;
-        if (Build.VERSION.SDK_INT >= 21) {
-            if (System.currentTimeMillis() - jsa.b.c() >= jsa.a) {
-                jsa.b.k(0);
-            }
-            if (1 != jsa.b.d().intValue()) {
-                this.c = isa.U(tbPageContext);
-            }
-        }
-        ksa B = ksa.B(tbPageContext);
-        this.b = B;
-        this.d = B;
-    }
-
-    @Override // com.baidu.tieba.vdb.b
-    public void d(byte[] bArr) {
-        vdb.b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, bArr) == null) && (bVar = this.d) == this.b && bVar != null) {
-            bVar.d(bArr);
-        }
-    }
-
-    @Override // com.baidu.tieba.vdb.b
-    public void h(boolean z) {
-        vdb.b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.e = z;
-            if (z && (bVar = this.c) != null) {
-                bVar.s(this.j);
-                this.d = this.c;
-                return;
-            }
-            vdb.b bVar2 = this.c;
-            if (bVar2 != null) {
-                bVar2.release();
-            }
-            this.d = this.b;
-        }
-    }
-
-    @Override // com.baidu.tieba.vdb.b
-    public void i(boolean z) {
-        vdb.b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048585, this, z) == null) && (bVar = this.d) != null) {
-            bVar.i(z);
-        }
-    }
-
-    @Override // com.baidu.tieba.vdb.b
-    public void j(boolean z) {
-        vdb.b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048586, this, z) == null) && (bVar = this.d) != null) {
-            bVar.j(z);
-        }
-    }
-
-    @Override // com.baidu.tieba.vdb.b
-    public void l(int i) {
-        vdb.b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048588, this, i) == null) && (bVar = this.d) != null) {
-            bVar.l(i);
-        }
-    }
-
-    @Override // com.baidu.tieba.vdb.b
-    public void m(boolean z) {
-        vdb.b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048589, this, z) == null) && (bVar = this.d) != null) {
-            bVar.m(z);
-        }
-    }
-
-    @Override // com.baidu.tieba.vdb.b
-    public void s(vdb.a aVar) {
-        vdb.b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048596, this, aVar) == null) && (bVar = this.c) != null) {
-            bVar.s(aVar);
-        }
-    }
-
-    @Override // com.baidu.tieba.vdb.b
-    public void u(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
-            this.h = i;
-            vdb.b bVar = this.d;
-            if (bVar != null) {
-                bVar.u(i);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static TbPageContext D() {
-        InterceptResult invokeV;
+    public final void onDestroy() {
+        cj6 jsBridge;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (k == null) {
-                return null;
-            }
-            return k.a;
-        }
-        return (TbPageContext) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.vdb.b
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            vdb.b bVar = this.d;
-            if (bVar != null) {
-                return bVar.a();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.vdb.b
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            vdb.b bVar = this.d;
-            if (bVar != null) {
-                return bVar.b();
-            }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.vdb.b
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            vdb.b bVar = this.d;
-            if (bVar != null) {
-                return bVar.e();
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.vdb.b
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            vdb.b bVar = this.d;
-            if (bVar != null) {
-                return bVar.f();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.vdb.b
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.i = true;
-            vdb.b bVar = this.d;
-            if (bVar != null) {
-                bVar.n();
-            }
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (jsBridge = getJsBridge()) != null) {
+            jsBridge.onDestroy();
         }
     }
 
-    @Override // com.baidu.tieba.vdb.b
-    public boolean o() {
-        InterceptResult invokeV;
+    public nsa addObserver(WebView webView, String str, nsa nsaVar, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            vdb.b bVar = this.d;
-            if (bVar != null) {
-                return bVar.o();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{webView, str, nsaVar, Boolean.valueOf(z)})) == null) {
+            if (nsaVar == null) {
+                nsaVar = new nsa();
             }
-            return true;
+            if (this.mNotificationNameList.contains(str)) {
+                nsaVar.n(false);
+                nsaVar.t(true);
+                List<msa> list = this.mAsyncCallBackMethodList.get(str);
+                if (list == null) {
+                    list = new ArrayList<>();
+                }
+                msa msaVar = new msa();
+                msaVar.e(nsaVar.c());
+                msaVar.d(z);
+                msaVar.f(nsaVar.e());
+                list.add(msaVar);
+                this.mAsyncCallBackMethodList.put(str, list);
+                if (webView instanceof zi6) {
+                    ((zi6) webView).a(str, msaVar.a());
+                }
+            }
+            return nsaVar;
         }
-        return invokeV.booleanValue;
+        return (nsa) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.vdb.b
-    public boolean p() {
-        InterceptResult invokeV;
+    public nsa addObserver(String str, nsa nsaVar, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            vdb.b bVar = this.d;
-            if (bVar != null) {
-                return bVar.p();
-            }
-            return false;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, nsaVar, z)) == null) {
+            return addObserver(null, str, nsaVar, z);
         }
-        return invokeV.booleanValue;
+        return (nsa) invokeLLZ.objValue;
     }
 
-    @Override // com.baidu.tieba.vdb.b
-    public void q() {
-        vdb.b bVar;
+    public nsa dispatch(psa psaVar, nsa nsaVar) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && (bVar = this.d) != null) {
-            bVar.q();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, psaVar, nsaVar)) == null) {
+            return dispatch(null, psaVar, nsaVar);
         }
+        return (nsa) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.vdb.b
-    public int r() {
-        InterceptResult invokeV;
+    public void removeObserverBridge(List<Pair<String, String>> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            vdb.b bVar = this.d;
-            if (bVar != null) {
-                return bVar.r();
-            }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.vdb.b
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            q();
-            this.d = null;
-            vdb.b bVar = this.b;
-            if (bVar != null) {
-                bVar.release();
-            }
-            vdb.b bVar2 = this.c;
-            if (bVar2 != null) {
-                bVar2.release();
-            }
-            k = null;
-            this.a = null;
-            this.f = null;
-            this.g = null;
-            this.j = null;
-        }
-    }
-
-    @Override // com.baidu.tieba.vdb.b
-    public int v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            vdb.b bVar = this.d;
-            if (bVar != null) {
-                return bVar.v();
-            }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    public static lsa E(TbPageContext tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, tbPageContext)) == null) {
-            if (k == null) {
-                synchronized (lsa.class) {
-                    if (k == null) {
-                        k = new lsa(tbPageContext);
-                    } else if (tbPageContext != null) {
-                        k.a = tbPageContext;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, list) == null) && list != null && !list.isEmpty()) {
+            for (Pair<String, String> pair : list) {
+                List<msa> list2 = this.mAsyncCallBackMethodList.get(pair.first);
+                if (list2 != null && !list2.isEmpty()) {
+                    Iterator<msa> it = list2.iterator();
+                    while (it.hasNext()) {
+                        if (TextUtils.equals(it.next().a(), pair.second)) {
+                            it.remove();
+                        }
                     }
                 }
             }
-            return k;
         }
-        return (lsa) invokeL.objValue;
-    }
-
-    public final void C() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c != null) {
-            this.b.u(this.h);
-            this.b.i(this.c.o());
-            this.b.m(this.c.a());
-            this.b.j(this.c.p());
-            this.c.q();
-            this.c.release();
-            this.d = this.b;
-            this.e = false;
-        }
-    }
-
-    @Override // com.baidu.tieba.vdb.b
-    public void c(int i, int i2, int i3, int i4) {
-        vdb.b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIII(1048579, this, i, i2, i3, i4) == null) && (bVar = this.d) != null) {
-            bVar.c(i, i2, i3, i4);
-        }
-    }
-
-    @Override // com.baidu.tieba.vdb.b
-    public void t(int i, int i2, int i3, int i4) {
-        vdb.b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIII(1048597, this, i, i2, i3, i4) == null) && (bVar = this.d) != null) {
-            bVar.t(i, i2, i3, i4);
-        }
-    }
-
-    @Override // com.baidu.tieba.vdb.b
-    public void g(int i, int i2, int i3, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
-            this.b.g(i, i2, i3, z);
-            vdb.b bVar = this.c;
-            if (bVar != null) {
-                bVar.g(i, i2, i3, z);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.vdb.b
-    public boolean k(SurfaceTexture surfaceTexture, vdb.f fVar) {
-        InterceptResult invokeLL;
-        vdb.b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, surfaceTexture, fVar)) == null) {
-            this.g = surfaceTexture;
-            this.f = fVar;
-            if (this.e && (bVar = this.c) != null) {
-                if (bVar.k(surfaceTexture, fVar)) {
-                    return true;
-                }
-                C();
-                vdb.b bVar2 = this.d;
-                if (bVar2 == null) {
-                    return false;
-                }
-                boolean k2 = bVar2.k(surfaceTexture, fVar);
-                if (this.i) {
-                    this.i = false;
-                    this.d.n();
-                }
-                return k2;
-            }
-            vdb.b bVar3 = this.b;
-            this.d = bVar3;
-            if (bVar3 == null) {
-                return false;
-            }
-            return bVar3.k(surfaceTexture, fVar);
-        }
-        return invokeLL.booleanValue;
     }
 }

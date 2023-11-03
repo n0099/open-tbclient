@@ -39,7 +39,7 @@ import okio.BufferedSource;
 import okio.Okio;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class CronetInterceptor implements Interceptor {
     public static final boolean DEBUG = false;
     public static final int DEFAULT_BUFFER_SIZE = 8192;
@@ -48,7 +48,7 @@ public class CronetInterceptor implements Interceptor {
     public static Method sEnableSslRedirectMethod;
     public OkHttpClient mOkHttpClient;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class RobustInputStream extends FilterInputStream {
         public volatile HttpURLConnection conn;
         public volatile boolean readComplete;

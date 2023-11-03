@@ -1,23 +1,31 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
+import com.baidu.live.business.model.data.LiveRoomEntity;
+import com.baidu.live.business.model.data.LiveSearchResultInfo;
+import com.baidu.live.feed.search.model.data.LiveSearchSuggestion;
+import com.baidu.live.feed.search.model.data.SearchResultBean;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class v60 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface v60 {
+    void O(List<? extends LiveSearchResultInfo> list, List<? extends LiveSearchSuggestion> list2);
 
-    @Inject(force = false)
-    public static w60 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return c60.a();
-        }
-        return (w60) invokeV.objValue;
-    }
+    void R0(List<String> list);
+
+    void h(int i);
+
+    void hideLoading();
+
+    void i();
+
+    void j0(List<? extends LiveRoomEntity> list);
+
+    void n(w60 w60Var);
+
+    void p(List<String> list);
+
+    void q(SearchResultBean searchResultBean);
+
+    void r0();
+
+    void showToast(String str);
 }

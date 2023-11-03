@@ -2,7 +2,7 @@ package com.baidu.ar.statistic;
 
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public final class r {
     public static Map<String, String> gr() {
         HashMap hashMap = new HashMap();

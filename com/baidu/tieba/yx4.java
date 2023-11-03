@@ -4,14 +4,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Personalized.RecomPostTopic;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.LotteryRegular;
 /* loaded from: classes9.dex */
 public class yx4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public long c;
+    public List<Integer> a;
 
     public yx4() {
         Interceptable interceptable = $ic;
@@ -27,13 +27,15 @@ public class yx4 {
         }
     }
 
-    public void a(RecomPostTopic recomPostTopic) {
+    public void a(LotteryRegular lotteryRegular) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, recomPostTopic) != null) || recomPostTopic == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, lotteryRegular) == null) {
+            String str = lotteryRegular.regular;
+            this.a = new ArrayList();
+            int size = lotteryRegular.chance.size();
+            for (int i = 0; i < size; i++) {
+                this.a.add(lotteryRegular.chance.get(i));
+            }
         }
-        this.a = recomPostTopic.recom_title;
-        this.b = recomPostTopic.recom_topic;
-        this.c = recomPostTopic.uniq_topicid.longValue();
     }
 }

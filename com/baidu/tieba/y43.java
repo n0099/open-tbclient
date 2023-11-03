@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import android.view.View;
-/* loaded from: classes8.dex */
-public interface y43<T extends View> {
-    T getLoadingView();
+import com.baidu.swan.apps.res.ui.wheelview3d.WheelView3d;
+/* loaded from: classes9.dex */
+public interface y43 {
+    void a(WheelView3d wheelView3d, int i);
 }

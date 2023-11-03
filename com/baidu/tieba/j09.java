@@ -1,292 +1,70 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.BIMManager;
-import com.baidu.android.imsdk.IMConstants;
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-import com.baidu.android.imsdk.chatmessage.request.params.FetchMsgParam;
-import com.baidu.android.imsdk.chatmessage.request.params.SendMsgParam;
-import com.baidu.android.imsdk.chatmessage.response.FetchMsgResponse;
-import com.baidu.android.imsdk.chatmessage.response.SendMsgResponse;
-import com.baidu.android.imsdk.group.BIMValueCallBack;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.tbadk.module.alalivesdk.imSdkPersonService.data.PersonFetchMsgResponse;
-import com.baidu.tieba.livesdk.AlaLiveSdkStatic;
+import com.baidu.tieba.im.base.core.inputtool.callback.uistate.ViewState;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class j09 extends kf1<vi5> {
+public class j09 implements qk8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final GroupChatFragment a;
 
-    /* loaded from: classes6.dex */
-    public class a implements vi5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: com.baidu.tieba.j09$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class C0351a implements SendMsgParam.SendMsgParamConstruct {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ yi5 a;
-            public final /* synthetic */ Context b;
-
-            public C0351a(a aVar, yi5 yi5Var, Context context) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, yi5Var, context};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = yi5Var;
-                this.b = context;
-            }
-
-            @Override // com.baidu.android.imsdk.chatmessage.request.params.SendMsgParam.SendMsgParamConstruct
-            public void construct(SendMsgParam sendMsgParam) {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, sendMsgParam) == null) && sendMsgParam != null && sendMsgParam.getChatMsg() != null) {
-                    this.a.a(sendMsgParam.getChatMsg());
-                    BIMManager.saveMessage(this.b, sendMsgParam.getChatMsg());
-                    BIMManager.sendChatMsg(this.b, sendMsgParam);
-                }
-            }
-        }
-
-        /* loaded from: classes6.dex */
-        public class b implements BIMValueCallBack<SendMsgResponse> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ yi5 a;
-
-            public b(a aVar, yi5 yi5Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, yi5Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = yi5Var;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.android.imsdk.group.BIMValueCallBack
-            /* renamed from: a */
-            public void onResult(int i, String str, SendMsgResponse sendMsgResponse) {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeILL(1048576, this, i, str, sendMsgResponse) == null) && str != null && sendMsgResponse != null && sendMsgResponse.msg != null) {
-                    this.a.b(i, str, sendMsgResponse);
-                }
-            }
-        }
-
-        /* loaded from: classes6.dex */
-        public class c extends BroadcastReceiver {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a this$1;
-            public final /* synthetic */ xi5 val$listener;
-
-            public c(a aVar, xi5 xi5Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, xi5Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$1 = aVar;
-                this.val$listener = xi5Var;
-            }
-
-            @Override // android.content.BroadcastReceiver
-            public void onReceive(Context context, Intent intent) {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && IMConstants.MESSAGE_ACTION.equals(intent.getAction())) {
-                    this.val$listener.onReceiveMessage(0, 0, intent.getParcelableArrayListExtra(IMConstants.MESSAGE));
-                }
-            }
-        }
-
-        /* loaded from: classes6.dex */
-        public class d implements FetchMsgParam.FetchMsgParamConstruct {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Context a;
-
-            public d(a aVar, Context context) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, context};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = context;
-            }
-
-            @Override // com.baidu.android.imsdk.chatmessage.request.params.FetchMsgParam.FetchMsgParamConstruct
-            public void construct(FetchMsgParam fetchMsgParam) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, fetchMsgParam) == null) {
-                    BIMManager.fetchMsg(this.a, fetchMsgParam);
-                }
-            }
-        }
-
-        /* loaded from: classes6.dex */
-        public class e implements BIMValueCallBack<FetchMsgResponse> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ wi5 a;
-
-            public e(a aVar, wi5 wi5Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, wi5Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = wi5Var;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.android.imsdk.group.BIMValueCallBack
-            /* renamed from: a */
-            public void onResult(int i, String str, FetchMsgResponse fetchMsgResponse) {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeILL(1048576, this, i, str, fetchMsgResponse) == null) && fetchMsgResponse != null) {
-                    this.a.a(i, str, new PersonFetchMsgResponse(fetchMsgResponse));
-                }
-            }
-        }
-
-        public a(j09 j09Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j09Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            AlaLiveSdkStatic.n();
-        }
-
-        @Override // com.baidu.tieba.vi5
-        public BroadcastReceiver a(@NonNull Context context, @NonNull xi5 xi5Var) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, xi5Var)) == null) {
-                IntentFilter intentFilter = new IntentFilter(IMConstants.MESSAGE_ACTION);
-                c cVar = new c(this, xi5Var);
-                context.registerReceiver(cVar, intentFilter);
-                return cVar;
-            }
-            return (BroadcastReceiver) invokeLL.objValue;
-        }
-
-        @Override // com.baidu.tieba.vi5
-        public void c(@NonNull Context context, @NonNull BroadcastReceiver broadcastReceiver) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, broadcastReceiver) == null) {
-                context.unregisterReceiver(broadcastReceiver);
-            }
-        }
-
-        @Override // com.baidu.tieba.vi5
-        public void b(@NonNull Context context, long j, long j2, int i, long j3, wi5 wi5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Long.valueOf(j3), wi5Var}) == null) {
-                FetchMsgParam.newInstanceByPa(context, j, j2, i, 0, j3, "", new e(this, wi5Var), new d(this, context));
-            }
-        }
-
-        @Override // com.baidu.tieba.vi5
-        public void d(@NonNull Context context, @NonNull ChatMsg chatMsg, long j, @NonNull yi5 yi5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, chatMsg, Long.valueOf(j), yi5Var}) == null) {
-                SendMsgParam.newInstanceByPa(context, chatMsg, j, new b(this, yi5Var), new C0351a(this, yi5Var, context));
-            }
-        }
-    }
-
-    public j09() {
+    public j09(@NonNull GroupChatFragment groupChatFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {groupChatFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = groupChatFragment;
+    }
+
+    @Override // com.baidu.tieba.qk8
+    public void a(ViewState viewState) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, viewState) == null) {
+            this.a.x3(viewState);
+        }
+    }
+
+    @Override // com.baidu.tieba.qk8
+    public void c(@NonNull ViewState viewState) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewState) == null) {
+            if (ViewState.VISIBLE == viewState) {
+                this.a.z3();
+            } else {
+                this.a.o3();
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kf1
-    /* renamed from: a */
-    public vi5 createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.qk8
+    public void d(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.a.t3(z);
         }
-        return (vi5) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.qk8
+    public void b(@NonNull String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) && this.a.X2() != null) {
+            this.a.X2().x1(str, z);
+        }
     }
 }

@@ -1,167 +1,93 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmField;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.LinkConf;
-import tbclient.PubCardFreq;
-import tbclient.QuizCard;
-import tbclient.QuizCardTopConf;
-import tbclient.ThemeColorInfo;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.RandomAccessFile;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes7.dex */
-public final class mta implements yh {
+public class mta extends kta {
     public static /* synthetic */ Interceptable $ic;
-    @JvmField
-    public static final BdUniqueId g;
     public transient /* synthetic */ FieldHolder $fh;
-    public PubCardFreq a;
-    public ThemeColorInfo b;
-    public QuizCardTopConf c;
-    public LinkConf d;
-    public qta e;
-    public boolean f;
+    public boolean g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947985583, "Lcom/baidu/tieba/mta;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947985583, "Lcom/baidu/tieba/mta;");
-                return;
-            }
-        }
-        BdUniqueId gen = BdUniqueId.gen();
-        Intrinsics.checkNotNullExpressionValue(gen, "gen()");
-        g = gen;
-    }
-
-    public mta() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mta(String str, int i, int i2, long j, String str2) {
+        super(str, i, i2, j, str2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Long) objArr2[3]).longValue(), (String) objArr2[4]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public final LinkConf a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.kta
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.g = true;
         }
-        return (LinkConf) invokeV.objValue;
     }
 
-    public final ThemeColorInfo b() {
+    @Override // com.baidu.tieba.kta
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (ThemeColorInfo) invokeV.objValue;
-    }
-
-    public final PubCardFreq c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (PubCardFreq) invokeV.objValue;
-    }
-
-    public final qta d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return (qta) invokeV.objValue;
-    }
-
-    public final QuizCardTopConf e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return (QuizCardTopConf) invokeV.objValue;
-    }
-
-    public final boolean f() {
-        InterceptResult invokeV;
-        Long a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            qta qtaVar = this.e;
-            if (qtaVar == null || (a = qtaVar.a()) == null || a.longValue() != 1) {
-                return false;
-            }
-            return true;
+            return this.g;
         }
         return invokeV.booleanValue;
     }
 
-    public final boolean g() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.kta
+    public nta g(ArrayList<Integer> arrayList, String str, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.f;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.yh
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return g;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public final void h(QuizCard quizCard) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, quizCard) != null) || quizCard == null) {
-            return;
-        }
-        this.a = quizCard.freq;
-        this.b = quizCard.card_background;
-        this.d = quizCard.bottom;
-        this.c = quizCard.top;
-        if (quizCard.quiz != null) {
-            qta qtaVar = new qta();
-            this.e = qtaVar;
-            if (qtaVar != null) {
-                qtaVar.k(quizCard.quiz);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, arrayList, str, i)) == null) {
+            nta ntaVar = new nta();
+            try {
+                RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.b), "r");
+                int i2 = 0;
+                int size = arrayList.size();
+                Iterator<Integer> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    int i3 = i2 + 1;
+                    nta h = h(randomAccessFile, it.next().intValue(), i, str);
+                    if (h == null) {
+                        return null;
+                    }
+                    d((int) (((i3 * 50.0f) / size) + 30.0f));
+                    if (!StringUtils.isNull(h.a)) {
+                        return h;
+                    }
+                    if (h.b != 0) {
+                        return h;
+                    }
+                    i2 = i3;
+                    ntaVar = h;
+                }
+            } catch (FileNotFoundException unused) {
             }
+            return ntaVar;
         }
-    }
-
-    public final void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f = z;
-        }
+        return (nta) invokeLLI.objValue;
     }
 }

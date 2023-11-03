@@ -1,40 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.base.core.uilist.BaseItem;
-import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
-import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Set;
-import kotlin.collections.SetsKt__SetsJVMKt;
-import kotlin.collections.SetsKt__SetsKt;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
 public abstract class fa8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ea8 a;
+    public int a;
 
-    public abstract void b(AbilityItem abilityItem, BaseItem<? extends TbBaseMsg> baseItem, Object obj);
+    public abstract void b();
 
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "" : (String) invokeV.objValue;
-    }
+    public abstract void c();
 
     public fa8() {
         Interceptable interceptable = $ic;
@@ -50,33 +29,19 @@ public abstract class fa8 {
         }
     }
 
-    public Set<String> e() {
+    public final int a() {
         InterceptResult invokeV;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            String d = d();
-            if (d.length() == 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                return SetsKt__SetsKt.emptySet();
-            }
-            return SetsKt__SetsJVMKt.setOf(d);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (Set) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public final void a(AbilityItem abilityItem, BaseItem<? extends TbBaseMsg> baseItem) {
+    public final void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, abilityItem, baseItem) == null) {
-            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
-            ea8 ea8Var = this.a;
-            if (ea8Var != null) {
-                ea8Var.b(abilityItem, baseItem);
-            }
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.a = i;
         }
     }
 }

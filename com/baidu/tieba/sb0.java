@@ -1,292 +1,275 @@
 package com.baidu.tieba;
 
-import android.opengl.GLES20;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
-import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
-import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
-import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
+import com.baidu.minivideo.arface.utils.ThreadPool;
+import com.baidu.tieba.wb0;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Map;
+import java.io.File;
+import java.util.Objects;
 /* loaded from: classes8.dex */
-public class sb0 extends qb0 {
+public class sb0 extends ub0 {
     public static /* synthetic */ Interceptable $ic;
+    public static sb0 g;
     public transient /* synthetic */ FieldHolder $fh;
+    public String c;
+    public File d;
+    public Context e;
+    public Boolean f;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948145512, "Lcom/baidu/tieba/sb0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948145512, "Lcom/baidu/tieba/sb0;");
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sb0 a;
+
+        public a(sb0 sb0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sb0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = sb0Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                sb0 sb0Var = this.a;
+                sb0Var.p(sb0Var.e);
+            }
+        }
+    }
 
     public sb0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.c = "arsource";
     }
 
-    @Override // com.baidu.tieba.pb0
-    public void c(int i, int i2) {
+    public static synchronized void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-            if (this.e) {
-                System.currentTimeMillis();
-            }
-            I();
-            if (i != this.f || i2 != this.g) {
-                this.f = i;
-                this.g = i2;
-                t(" w * h : " + i + " * " + i2);
-                s();
-            }
-            if (i != 0 && i2 != 0) {
-                q();
-                mb0 mb0Var = this.c;
-                if (mb0Var != null) {
-                    mb0Var.g();
-                }
-                mb0 mb0Var2 = this.d;
-                if (mb0Var2 != null) {
-                    mb0Var2.g();
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            synchronized (sb0.class) {
+                if (g == null) {
+                    g = new sb0();
                 }
             }
         }
     }
 
-    @Override // com.baidu.tieba.pb0
-    public int e(MediaTrack mediaTrack, int i, Map<String, float[]> map) {
-        InterceptResult invokeLIL;
+    public static final sb0 k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaTrack, i, map)) == null) {
-            try {
-            } catch (Exception e) {
-                e.printStackTrace();
-                u(e.toString(), e);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (g == null) {
+                h();
             }
-            if (this.c != null && i != 0 && mediaTrack != null && this.m != null && this.l != null) {
-                lb0 G = G(map, mediaTrack);
-                if (G != null) {
-                    return this.c.e(i, G);
-                }
-                return i;
-            }
-            return i;
+            return g;
         }
-        return invokeLIL.intValue;
+        return (sb0) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET]}, finally: {[IGET, INVOKE, IF] complete} */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x0099 */
-    /* JADX DEBUG: Multi-variable search result rejected for r11v1, resolved type: int */
-    /* JADX DEBUG: Multi-variable search result rejected for r11v2, resolved type: float[] */
-    /* JADX DEBUG: Multi-variable search result rejected for r11v3, resolved type: int */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.baidu.tieba.pb0
-    public int g(MediaTrack mediaTrack, int i, int i2, Map<String, float[]> map) {
-        InterceptResult invokeCommon;
-        int i3;
-        int i4;
-        int z;
+    @Override // com.baidu.tieba.ub0
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{mediaTrack, Integer.valueOf(i), Integer.valueOf(i2), map})) == null) {
-            try {
-                try {
-                    if (this.c != null && mediaTrack != null && this.m != null && this.l != null) {
-                        mb0 mb0Var = this.c;
-                        float f = mediaTrack.glClearColor[0];
-                        float f2 = mediaTrack.glClearColor[1];
-                        float f3 = mediaTrack.glClearColor[2];
-                        i3 = mediaTrack.glClearColor[3];
-                        mb0Var.h(f, f2, f3, i3);
-                        ArrayList arrayList = new ArrayList();
-                        try {
-                            if (mediaTrack.mediaSegments != null && mediaTrack.mediaSegments.size() > this.i) {
-                                MediaSegment mediaSegment = mediaTrack.mediaSegments.get(this.i);
-                                if (i == 0) {
-                                    i4 = mediaSegment.textureId;
-                                } else {
-                                    i4 = i;
-                                }
-                                if (i2 != 1) {
-                                    if (i2 != 2) {
-                                        if (i2 != 3) {
-                                            if (i2 != 4) {
-                                                if (i2 != 5) {
-                                                    z = B(mediaTrack, mediaSegment, i4, map, arrayList);
-                                                } else {
-                                                    z = x(i4);
-                                                }
-                                            } else {
-                                                C(map, arrayList, mediaTrack);
-                                            }
-                                        } else {
-                                            z = A(mediaTrack, i4, map);
-                                        }
-                                    } else {
-                                        z = y(mediaSegment, i4, map);
-                                    }
-                                } else {
-                                    z = z(mediaSegment, i4, map);
-                                }
-                                i4 = z;
-                            } else {
-                                i4 = i;
-                            }
-                            if (i4 != 0 && arrayList.size() > 0) {
-                                i4 = this.c.f(i4, arrayList);
-                            }
-                            return i4;
-                        } catch (Exception e) {
-                            e = e;
-                            e.printStackTrace();
-                            u(e.toString(), e);
-                            mb0 mb0Var2 = this.c;
-                            if (mb0Var2 != null) {
-                                mb0Var2.h(0.0f, 0.0f, 0.0f, 0.0f);
-                            }
-                            return i3;
-                        }
-                    }
-                    mb0 mb0Var3 = this.c;
-                    if (mb0Var3 != null) {
-                        mb0Var3.h(0.0f, 0.0f, 0.0f, 0.0f);
-                    }
-                    return i;
-                } catch (Exception e2) {
-                    e = e2;
-                    i3 = i;
-                }
-            } finally {
-                mb0 mb0Var4 = this.c;
-                if (mb0Var4 != null) {
-                    mb0Var4.h(0.0f, 0.0f, 0.0f, 0.0f);
-                }
-            }
-        } else {
-            return invokeCommon.intValue;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ThreadPool.b().e(new a(this));
         }
     }
 
-    @Override // com.baidu.tieba.pb0
-    public int i(MediaSegment mediaSegment, int i, Map<String, float[]> map) {
-        InterceptResult invokeLIL;
+    public final String j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, mediaSegment, i, map)) == null) {
-            if (mediaSegment == null) {
-                return i;
-            }
-            return r(mediaSegment, i, map);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
-        return invokeLIL.intValue;
+        return (String) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET]}, finally: {[IGET, INVOKE, IF] complete} */
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x004e, code lost:
-        if (r8 != null) goto L26;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x0050, code lost:
-        r8.h(0.0f, 0.0f, 0.0f, 0.0f);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x006b, code lost:
-        if (r8 == null) goto L27;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x006e, code lost:
-        return r9;
-     */
-    @Override // com.baidu.tieba.pb0
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public int j(MediaTrack mediaTrack, int i, Map<String, float[]> map) {
-        InterceptResult invokeLIL;
-        mb0 mb0Var;
+    public final boolean n() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048580, this, mediaTrack, i, map)) == null) {
-            try {
-                try {
-                    if (this.c != null && mediaTrack != null && this.m != null && this.l != null) {
-                        this.c.h(mediaTrack.glClearColor[0], mediaTrack.glClearColor[1], mediaTrack.glClearColor[2], mediaTrack.glClearColor[3]);
-                        ArrayList arrayList = new ArrayList();
-                        i = D(map, arrayList, mediaTrack, i);
-                        if (i != 0 && arrayList.size() > 0) {
-                            return this.c.f(i, arrayList);
-                        }
-                        mb0Var = this.c;
-                    }
-                    mb0 mb0Var2 = this.c;
-                    if (mb0Var2 != null) {
-                        mb0Var2.h(0.0f, 0.0f, 0.0f, 0.0f);
-                    }
-                    return i;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    u(e.toString(), e);
-                    mb0Var = this.c;
-                }
-            } finally {
-                mb0 mb0Var3 = this.c;
-                if (mb0Var3 != null) {
-                    mb0Var3.h(0.0f, 0.0f, 0.0f, 0.0f);
-                }
-            }
-        } else {
-            return invokeLIL.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return wa0.n();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void q(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            Log.d("DuAr_AssetsLoader", str);
         }
     }
 
-    @Override // com.baidu.tieba.pb0
-    public int k(int i, float[] fArr, float[] fArr2, int i2, int i3, float f) {
-        InterceptResult invokeCommon;
+    public final boolean i(Context context, String str, File file) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), fArr, fArr2, Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f)})) == null) {
-            if (i == 0 || this.m == null) {
-                return i;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, file)) == null) {
+            if (file.isDirectory()) {
+                vb0.b(file);
+            } else {
+                vb0.d(file);
             }
-            Map<String, ShaderConfig> map = this.l;
-            if (map != null && !map.containsKey(xb0.g)) {
-                this.l.put(xb0.g, ShaderConfig.getGaussianBlurHShaderConfig(f));
-                this.l.put(xb0.h, ShaderConfig.getGaussianBlurVShaderConfig(f));
-                Map<String, lb0> l = vb0.l(this.a, this.l);
-                for (Map.Entry<String, lb0> entry : l.entrySet()) {
-                    lb0 value = entry.getValue();
-                    value.l();
-                    value.v(i2, i3);
+            File file2 = new File(file + ".loading");
+            boolean a2 = new tb0(context).a(str, file2);
+            if (n()) {
+                q(a2 + " assetsToSD " + file2.getAbsolutePath());
+            }
+            if (a2) {
+                a2 = file2.renameTo(file);
+            }
+            if (n()) {
+                q(a2 + " renameTo " + file);
+            }
+            if (!a2) {
+                q("del temp ...");
+                vb0.b(file2);
+                if (file.exists()) {
+                    q("del " + file);
+                    vb0.b(file);
                 }
-                this.m.putAll(l);
             }
-            if (this.d == null) {
-                this.d = new mb0();
-            }
-            this.d.g();
-            this.d.c(i2, i3);
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(this.m.get(xb0.g));
-            arrayList.add(this.m.get(xb0.h));
-            float[] fArr3 = fArr;
-            float[] fArr4 = fArr2;
-            int i4 = 0;
-            while (i4 < arrayList.size()) {
-                lb0 lb0Var = (lb0) arrayList.get(i4);
-                lb0Var.v(i2, i3);
-                if (i4 == 0) {
-                    lb0Var.e(GLES20.glGetUniformLocation(lb0Var.j(), "wRatio"), "wRatio", new ShaderParams("wRatio", ShaderParams.VALUE_TYPE_FLOAT, new float[]{f}));
-                } else {
-                    lb0Var.e(GLES20.glGetUniformLocation(lb0Var.j(), "hRatio"), "hRatio", new ShaderParams("hRatio", ShaderParams.VALUE_TYPE_FLOAT, new float[]{f}));
-                }
-                w(lb0Var, fArr3, fArr4, null);
-                i4++;
-                fArr3 = null;
-                fArr4 = null;
-            }
-            return this.d.f(i, arrayList);
+            return a2;
         }
-        return invokeCommon.intValue;
+        return invokeLLL.booleanValue;
+    }
+
+    public final File l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.d == null && wa0.h() != null && !TextUtils.isEmpty(xa0.a())) {
+                this.d = new File(xa0.a());
+            }
+            return this.d;
+        }
+        return (File) invokeV.objValue;
+    }
+
+    @SuppressLint({"NewApi"})
+    public void m(Context context, String str, File file) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, context, str, file) == null) {
+            this.e = ((Context) Objects.requireNonNull(context)).getApplicationContext();
+            this.c = (String) Objects.requireNonNull(str);
+            this.d = (File) Objects.requireNonNull(file);
+            if (n()) {
+                q("init " + str + " to " + file.getAbsolutePath());
+            }
+        }
+    }
+
+    public boolean o() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            Boolean bool = this.f;
+            if (bool != null) {
+                return bool.booleanValue();
+            }
+            String j = j();
+            File l = l();
+            boolean z = false;
+            if (n()) {
+                q(String.format("from %s to %s ", j, l));
+            }
+            String str2 = null;
+            if (l != null && l.exists() && l.isDirectory()) {
+                str = vb0.h(new File(l, "version"));
+            } else {
+                str = null;
+            }
+            if (!TextUtils.isEmpty(str)) {
+                str2 = vb0.g(this.e, j + "/version");
+            }
+            if (n()) {
+                q("assets=" + str2 + ", sdcard=" + str);
+            }
+            z = (TextUtils.isEmpty(str) || !TextUtils.equals(str, str2)) ? true : true;
+            this.f = Boolean.valueOf(!z);
+            return !z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void p(Context context) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
+            if (!o()) {
+                z = i(context, j(), l());
+            } else {
+                z = true;
+            }
+            if (z) {
+                this.f = null;
+                d(2);
+            }
+            if (n()) {
+                q("arVersion=" + wa0.i() + ", arVersionName=" + wa0.j());
+            }
+        }
+    }
+
+    @SuppressLint({"NewApi"})
+    public void r(Context context, String str, File file, wb0.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048585, this, context, str, file, aVar) == null) {
+            this.e = ((Context) Objects.requireNonNull(context)).getApplicationContext();
+            this.c = (String) Objects.requireNonNull(str);
+            this.d = (File) Objects.requireNonNull(file);
+            if (n()) {
+                q("start " + str + " to " + file.getAbsolutePath());
+            }
+            super.e(aVar);
+        }
     }
 }

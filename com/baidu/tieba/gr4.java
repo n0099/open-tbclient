@@ -1,145 +1,228 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.view.View;
-import android.view.ViewGroup;
-import android.webkit.JsPromptResult;
-import android.webkit.JsResult;
-import android.webkit.WebChromeClient;
-import android.webkit.WebStorage;
-import android.webkit.WebView;
-import android.widget.FrameLayout;
-import com.baidu.adp.base.BdPageContext;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tieba.hr4;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class gr4 extends WebChromeClient {
+public class gr4 {
     public static /* synthetic */ Interceptable $ic;
+    public static hr4 a;
+    public static gr4 b;
+    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdPageContext a;
-    public ffa b;
 
-    public gr4(BdPageContext bdPageContext) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947803520, "Lcom/baidu/tieba/gr4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947803520, "Lcom/baidu/tieba/gr4;");
+                return;
+            }
+        }
+        new ArrayList(5);
+    }
+
+    public gr4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = bdPageContext;
     }
 
-    public void b(ffa ffaVar) {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ffaVar) == null) {
-            this.b = ffaVar;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || a == null) {
         }
     }
 
-    public final void a(WebView webView, String str, String str2) {
+    public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048576, this, webView, str, str2) == null) && webView != null && !ad.isEmpty(str) && !ad.isEmpty(str2)) {
-            if (Build.VERSION.SDK_INT >= 19) {
-                webView.evaluateJavascript("javascript:" + str + "('" + str2 + "')", null);
-                return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            b();
+            hr4 hr4Var = a;
+            if (hr4Var != null) {
+                hr4Var.d();
+                c = false;
             }
-            webView.loadUrl("javascript:" + str + "('" + str2 + "')");
         }
     }
 
-    @Override // android.webkit.WebChromeClient
-    public View getVideoLoadingProgressView() {
-        InterceptResult invokeV;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            FrameLayout frameLayout = new FrameLayout(this.a.getPageActivity());
-            frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-            return frameLayout;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
-            super.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
-            quotaUpdater.updateQuota(j2 * 2);
-        }
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, webView, str, str2, jsResult)) == null) {
-            BdPageContext bdPageContext = this.a;
-            if (bdPageContext != null && hb.f(bdPageContext)) {
-                return super.onJsAlert(webView, str, str2, jsResult);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            b();
+            hr4 hr4Var = a;
+            if (hr4Var != null) {
+                hr4Var.c();
+                c = false;
             }
-            return true;
         }
-        return invokeLLLL.booleanValue;
     }
 
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
-        InterceptResult invokeLLLL;
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, webView, str, str2, jsResult)) == null) {
-            BdPageContext bdPageContext = this.a;
-            if (bdPageContext != null && hb.f(bdPageContext)) {
-                return super.onJsBeforeUnload(webView, str, str2, jsResult);
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            b();
+            hr4 hr4Var = a;
+            if (hr4Var != null) {
+                hr4Var.h();
             }
-            return true;
         }
-        return invokeLLLL.booleanValue;
     }
 
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
-        InterceptResult invokeLLLL;
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, webView, str, str2, jsResult)) == null) {
-            BdPageContext bdPageContext = this.a;
-            if (bdPageContext != null && hb.f(bdPageContext)) {
-                return super.onJsConfirm(webView, str, str2, jsResult);
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            b();
+            i();
+            m();
         }
-        return invokeLLLL.booleanValue;
     }
 
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLLLL;
-        ffa ffaVar;
+    public void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048583, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            if (!y75.a(str) && str2.startsWith("tiebaapp")) {
-                ifa ifaVar = new ifa();
-                ifaVar.w(mfa.b(str2));
-                ifaVar.y(301);
-                a(webView, ifaVar.c(), ifaVar.d());
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            b();
+            hr4 hr4Var = a;
+            if (hr4Var != null) {
+                hr4Var.m();
+                c = true;
             }
-            if (y75.a(str) && (ffaVar = this.b) != null && ffaVar.onJsPrompt(str2, jsPromptResult)) {
-                return true;
-            }
-            jsPromptResult.cancel();
-            return true;
         }
-        return invokeLLLLL.booleanValue;
+    }
+
+    public static gr4 a(BaseFragmentActivity baseFragmentActivity) {
+        InterceptResult invokeL;
+        hr4 hr4Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseFragmentActivity)) == null) {
+            if (b == null) {
+                synchronized (gr4.class) {
+                    if (b == null) {
+                        b = new gr4();
+                        a = hr4.a(baseFragmentActivity);
+                    }
+                }
+            } else {
+                hr4 hr4Var2 = a;
+                if (hr4Var2 != null) {
+                    hr4Var2.j(baseFragmentActivity.getPageContext());
+                }
+            }
+            if (c && (hr4Var = a) != null) {
+                hr4Var.d();
+                a.c();
+                c = false;
+            }
+            return b;
+        }
+        return (gr4) invokeL.objValue;
+    }
+
+    public static void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            try {
+                if (a != null) {
+                    if (b != null) {
+                        b.j();
+                    }
+                    a.e();
+                    a.i();
+                    a = null;
+                }
+                if (b != null) {
+                    b = null;
+                }
+            } catch (Throwable th) {
+                th.printStackTrace();
+            }
+        }
+    }
+
+    public void e(boolean z, boolean z2, boolean z3, hr4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), aVar}) == null) {
+            b();
+            if (z) {
+                c();
+            }
+            if (z2) {
+                d();
+            }
+            l(z3);
+            k(aVar);
+        }
+    }
+
+    public void f(hr4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            b();
+            hr4 hr4Var = a;
+            if (hr4Var != null) {
+                if (hr4Var.b()) {
+                    a.k(aVar);
+                }
+                a.f();
+            }
+        }
+    }
+
+    public void k(hr4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
+            b();
+            hr4 hr4Var = a;
+            if (hr4Var != null) {
+                hr4Var.k(aVar);
+            }
+        }
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            b();
+            hr4 hr4Var = a;
+            if (hr4Var != null) {
+                hr4Var.l(z);
+            }
+        }
+    }
+
+    public void g(int i, hr4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, aVar) == null) {
+            b();
+            hr4 hr4Var = a;
+            if (hr4Var != null) {
+                if (hr4Var.b()) {
+                    a.k(aVar);
+                }
+                a.g(i);
+            }
+        }
     }
 }

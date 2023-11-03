@@ -4,7 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.download.center.clearcache.DiskUpdateListener;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.baidu.tieba.b;
+import com.baidu.tieba.c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -105,7 +105,7 @@ public final class ChatActivityInfo implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            int hashCode = ((((((((((this.id * 31) + this.name.hashCode()) * 31) + this.description.hashCode()) * 31) + this.guestUk.hashCode()) * 31) + b.a(this.beginTime)) * 31) + b.a(this.endTime)) * 31;
+            int hashCode = ((((((((((this.id * 31) + this.name.hashCode()) * 31) + this.description.hashCode()) * 31) + this.guestUk.hashCode()) * 31) + c.a(this.beginTime)) * 31) + c.a(this.endTime)) * 31;
             String str = this.guideText;
             return hashCode + (str == null ? 0 : str.hashCode());
         }

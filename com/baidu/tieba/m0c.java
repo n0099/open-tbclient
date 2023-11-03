@@ -1,137 +1,78 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
+import com.qq.e.ads.rewardvideo.RewardVideoAD;
 import java.util.Map;
-import java.util.TreeMap;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class m0c {
+public class m0c extends h0c<RewardVideoAD> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TreeMap<String, String> a;
-    public TreeMap<String, String> b;
+    public String b;
 
-    public m0c(TreeMap<String, String> treeMap, TreeMap<String, String> treeMap2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m0c(RewardVideoAD rewardVideoAD) {
+        super(rewardVideoAD);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {treeMap, treeMap2};
+            Object[] objArr = {rewardVideoAD};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = treeMap;
-        this.b = treeMap2;
+        this.b = "";
     }
 
-    public static m0c a(String str) {
-        InterceptResult invokeL;
-        TreeMap<String, String> treeMap;
-        TreeMap<String, String> treeMap2;
+    @Override // com.baidu.tieba.h0c
+    public String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            TreeMap<String, String> treeMap3 = null;
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                String optString = jSONObject.optString("mText");
-                if (optString != null && !optString.isEmpty()) {
-                    treeMap2 = c(optString);
-                } else {
-                    treeMap2 = null;
-                }
-                try {
-                    String optString2 = jSONObject.optString("mImages");
-                    if (optString2 != null && !optString2.isEmpty()) {
-                        treeMap3 = c(optString2);
-                    }
-                } catch (JSONException e) {
-                    treeMap = treeMap2;
-                    e = e;
-                    e.printStackTrace();
-                    treeMap2 = treeMap;
-                    return new m0c(treeMap2, treeMap3);
-                }
-            } catch (JSONException e2) {
-                e = e2;
-                treeMap = null;
-            }
-            return new m0c(treeMap2, treeMap3);
-        }
-        return (m0c) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (String) ((RewardVideoAD) this.a).getExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID) : (String) invokeV.objValue;
     }
 
-    public static String b(TreeMap<String, String> treeMap) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.h0c
+    public String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, treeMap)) == null) {
-            if (treeMap != null && !treeMap.isEmpty()) {
-                JSONObject jSONObject = new JSONObject();
-                for (Map.Entry<String, String> entry : treeMap.entrySet()) {
-                    try {
-                        jSONObject.put(entry.getKey(), entry.getValue());
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-                return jSONObject.toString();
-            }
-            return "";
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
-    public static TreeMap<String, String> c(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.h0c
+    public void b(Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (str != null && !str.isEmpty()) {
-                TreeMap<String, String> treeMap = new TreeMap<>();
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    Iterator<String> keys = jSONObject.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        treeMap.put(next, (String) jSONObject.get(next));
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                return treeMap;
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+            ((RewardVideoAD) this.a).sendLossNotification(map);
         }
-        return (TreeMap) invokeL.objValue;
     }
 
-    public static String d(m0c m0cVar) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.h0c
+    public void d(Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, m0cVar)) == null) {
-            if (m0cVar == null) {
-                return null;
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("mText", b(m0cVar.a));
-                jSONObject.put("mImages", b(m0cVar.b));
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject.toString();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) {
+            ((RewardVideoAD) this.a).sendWinNotification(map);
         }
-        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.h0c
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return ((RewardVideoAD) this.a).getECPM();
+        }
+        return invokeV.intValue;
     }
 }

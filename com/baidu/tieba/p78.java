@@ -1,22 +1,64 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.tbadk.data.AtSelectData;
-import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
-import java.util.List;
-import java.util.Map;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public interface p78 {
-    void b(@NonNull String str, @NonNull String str2, @NonNull Map<String, Object> map);
+    public static final a a = a.a;
 
-    void c(@NonNull String str, int i);
+    r78 a(int i);
 
-    void k(@NonNull String str, int i);
+    /* loaded from: classes7.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ a a;
+        public static final ServiceReference b;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    void l(@NonNull String str, @NonNull String str2);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-563283589, "Lcom/baidu/tieba/p78$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-563283589, "Lcom/baidu/tieba/p78$a;");
+                    return;
+                }
+            }
+            a = new a();
+            b = new ServiceReference("Frs", "FrsVisitedInfoService");
+        }
 
-    void n(@NonNull String str, @Nullable Object obj, @Nullable z78 z78Var, @Nullable List<AtSelectData> list, @Nullable Map<String, Integer> map, int i);
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
 
-    void q(@NonNull AbilityItem abilityItem);
+        public final ServiceReference a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return b;
+            }
+            return (ServiceReference) invokeV.objValue;
+        }
+    }
 }

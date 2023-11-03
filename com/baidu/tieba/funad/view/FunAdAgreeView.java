@@ -32,14 +32,14 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ad5;
-import com.baidu.tieba.bd5;
-import com.baidu.tieba.n45;
-import com.baidu.tieba.pk5;
+import com.baidu.tieba.gm5;
+import com.baidu.tieba.h55;
+import com.baidu.tieba.ko5;
 import com.baidu.tieba.rate.RateManager;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.tieba.tbadkCore.data.AgreeMessageData;
-import com.baidu.tieba.tm5;
+import com.baidu.tieba.vd5;
+import com.baidu.tieba.wd5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -231,7 +231,7 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
     }
 
     /* loaded from: classes6.dex */
-    public class c implements ad5 {
+    public class c implements vd5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FunAdAgreeView a;
@@ -254,7 +254,7 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
             this.a = funAdAgreeView;
         }
 
-        @Override // com.baidu.tieba.ad5
+        @Override // com.baidu.tieba.vd5
         public void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -264,7 +264,7 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
             }
         }
 
-        @Override // com.baidu.tieba.ad5
+        @Override // com.baidu.tieba.vd5
         public void a(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
@@ -508,7 +508,7 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
         if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
             this.c = z;
             if (z) {
-                n45.f(this.d, TbadkCoreApplication.getInst().getSkinType());
+                h55.f(this.d, TbadkCoreApplication.getInst().getSkinType());
             }
         }
     }
@@ -581,7 +581,7 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
     public final void y(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048616, this, z) == null) {
-            bd5.g().e(this.n, "", this.m, z, new c(this));
+            wd5.g().e(this.n, "", this.m, z, new c(this));
         }
     }
 
@@ -690,7 +690,7 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
             } else {
                 SkinManager.setLottieAnimation(this.d, this.q);
                 if (this.c) {
-                    n45.f(this.d, i);
+                    h55.f(this.d, i);
                 }
             }
             w();
@@ -790,7 +790,7 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
             SkinManager.setLottieAnimation(this.d, this.q);
             SkinManager.setLottieAnimation(this.f, this.r);
             if (this.c) {
-                n45.f(this.d, TbadkCoreApplication.getInst().getSkinType());
+                h55.f(this.d, TbadkCoreApplication.getInst().getSkinType());
             }
         }
     }
@@ -838,7 +838,7 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
             }
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             if (i == 0) {
-                return getContext().getString(R.string.obfuscated_res_0x7f0f08a4);
+                return getContext().getString(R.string.obfuscated_res_0x7f0f08b0);
             }
             if (i > 0) {
                 return StringHelper.numFormatOverWanNa(j);
@@ -870,7 +870,7 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
             this.f.setOnClickListener(this.E);
             TextView textView2 = new TextView(context);
             this.g = textView2;
-            textView2.setText(R.string.obfuscated_res_0x7f0f08a5);
+            textView2.setText(R.string.obfuscated_res_0x7f0f08b1);
             this.g.setTextSize(0, BdUtilHelper.getDimens(context, R.dimen.T_X09));
             this.g.setOnClickListener(this.E);
             AgreeMessageData agreeMessageData = new AgreeMessageData();
@@ -909,18 +909,18 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
                     setTextNormalColor(this.e);
                     this.g.setTextColor(SkinManager.getColor(R.color.CAM_X0107));
                     if (this.c) {
-                        n45.c(this.e);
+                        h55.c(this.e);
                     }
                 }
             } else {
                 setTextNormalColor(this.e);
                 setTextNormalColor(this.g);
                 if (this.c) {
-                    n45.c(this.e);
+                    h55.c(this.e);
                 }
             }
             if (this.c) {
-                n45.d(this.e);
+                h55.d(this.e);
             }
         }
     }
@@ -976,7 +976,7 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
     public final void s() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048598, this) == null) && this.h != null && this.d != null) {
-            if (this.o && !pk5.a(getContext())) {
+            if (this.o && !gm5.a(getContext())) {
                 return;
             }
             if (!this.o && !ViewHelper.checkUpIsLogin(getContext())) {
@@ -991,7 +991,7 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
             agreeData2.agreeType = 2;
             agreeData2.hasAgree = true;
             w();
-            tm5 findPageExtraByView = TbPageExtraHelper.findPageExtraByView(this);
+            ko5 findPageExtraByView = TbPageExtraHelper.findPageExtraByView(this);
             if (findPageExtraByView != null) {
                 this.h.objSource = findPageExtraByView.a();
             }
@@ -1019,7 +1019,7 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
                     setTextNormalColor(this.e);
                     this.g.setTextColor(SkinManager.getColor(R.color.CAM_X0107));
                     if (this.c) {
-                        n45.c(this.e);
+                        h55.c(this.e);
                     }
                 }
             } else {
@@ -1029,7 +1029,7 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
                 setTextNormalColor(this.g);
             }
             if (this.c) {
-                n45.d(this.e);
+                h55.d(this.e);
             }
         }
     }
@@ -1050,7 +1050,7 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
         if ((interceptable != null && interceptable.invokeL(1048612, this, view2) != null) || this.h == null) {
             return;
         }
-        if (this.o && !pk5.a(getContext())) {
+        if (this.o && !gm5.a(getContext())) {
             return;
         }
         if (!this.o && !ViewHelper.checkUpIsLogin(getContext())) {
@@ -1079,7 +1079,7 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
                     agreeData.hasAgree = true;
                     x(false);
                 }
-                tm5 findPageExtraByView = TbPageExtraHelper.findPageExtraByView(this);
+                ko5 findPageExtraByView = TbPageExtraHelper.findPageExtraByView(this);
                 if (findPageExtraByView != null) {
                     this.h.objSource = findPageExtraByView.a();
                 }
@@ -1107,7 +1107,7 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
                 x(true);
                 RateManager.getInstance().notifyLike(getTbPageContext());
             }
-            tm5 findPageExtraByView2 = TbPageExtraHelper.findPageExtraByView(this);
+            ko5 findPageExtraByView2 = TbPageExtraHelper.findPageExtraByView(this);
             if (findPageExtraByView2 != null) {
                 this.h.objSource = findPageExtraByView2.a();
             }

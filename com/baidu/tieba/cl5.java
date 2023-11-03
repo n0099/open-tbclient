@@ -1,45 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.data.HotEventData;
-import com.baidu.tbadk.mutiprocess.hotevent.HotEvent;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* compiled from: SecondFloorService.java */
 /* loaded from: classes5.dex */
-public class cl5 implements lk5<HotEvent> {
+public final /* synthetic */ class cl5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public cl5() {
+    public static dl5 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return (dl5) ServiceManager.getService(dl5.a);
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lk5
-    /* renamed from: a */
-    public boolean onEvent(HotEvent hotEvent) {
-        InterceptResult invokeL;
-        HotEventData hotEventData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hotEvent)) == null) {
-            if (hotEvent != null && (hotEventData = hotEvent.hotEventData) != null) {
-                pa5.u(hotEventData);
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
+        return (dl5) invokeV.objValue;
     }
 }

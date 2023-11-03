@@ -8,22 +8,22 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ec8;
+import com.baidu.tieba.cp8;
+import com.baidu.tieba.gt5;
 import com.baidu.tieba.im.model.MsglistModel;
-import com.baidu.tieba.mr5;
-import com.baidu.tieba.yb8;
+import com.baidu.tieba.wo8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class MsglistActivity<T> extends TalkableActivity<T> implements yb8 {
+public abstract class MsglistActivity<T> extends TalkableActivity<T> implements wo8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean u;
 
-    public abstract boolean T1(yb8 yb8Var);
+    public abstract boolean U1(wo8 wo8Var);
 
     public abstract boolean V1(Bundle bundle);
 
@@ -36,21 +36,21 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         return invokeV.booleanValue;
     }
 
-    public void Y1() {
+    public void a2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
         }
     }
 
-    public void a2() {
+    public void c2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
         }
     }
 
-    public void c2() {
+    public void d2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
         }
     }
 
@@ -70,7 +70,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         }
     }
 
-    public boolean X1() {
+    public boolean Y1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -79,7 +79,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         return invokeV.booleanValue;
     }
 
-    public void Z1() {
+    public void b2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (TbadkCoreApplication.getInst().isHeadsetModeOn()) {
@@ -90,11 +90,11 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         }
     }
 
-    @Override // com.baidu.tieba.yb8
-    public void e1() {
+    @Override // com.baidu.tieba.wo8
+    public void d1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            Y1();
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            a2();
         }
     }
 
@@ -111,7 +111,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onDestroy();
-            c2();
+            d2();
         }
     }
 
@@ -123,7 +123,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
             AbsMsglistView absMsglistView = this.b;
             if (absMsglistView != null) {
                 absMsglistView.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-                Z1();
+                b2();
             }
         }
     }
@@ -158,13 +158,13 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
             if (msglistModel != null) {
                 msglistModel.setImageUploadUIProgressCallback(this.j);
             }
-            F1();
-            if (!T1(this)) {
+            z1();
+            if (!U1(this)) {
                 return;
             }
-            X1();
-            a2();
-            ec8.a = mr5.b();
+            Y1();
+            c2();
+            cp8.a = gt5.b();
         }
     }
 
@@ -184,11 +184,11 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
             }
             initView();
             adjustResizeForSoftInput(R.color.common_color_10022, false);
-            F1();
-            if (!T1(this)) {
+            z1();
+            if (!U1(this)) {
                 return;
             }
-            X1();
+            Y1();
         }
     }
 }

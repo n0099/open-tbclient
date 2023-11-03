@@ -1,37 +1,94 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
-import com.baidu.adp.lib.safe.SafeHandler;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
-public class xb5 implements ju5 {
+/* loaded from: classes9.dex */
+public class xb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public String b;
-    public String c;
+    public List<String> b;
+    public c c;
     public boolean d;
-    public boolean e;
 
-    /* loaded from: classes8.dex */
-    public class a implements Runnable {
+    /* loaded from: classes9.dex */
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xb5 a;
+    }
 
-        public a(xb5 xb5Var) {
+    /* loaded from: classes9.dex */
+    public interface b {
+        void a();
+    }
+
+    /* loaded from: classes9.dex */
+    public class c extends BdAsyncTask<Object, Integer, Void> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public b a;
+        public volatile NetWork b;
+        public final /* synthetic */ xb5 c;
+
+        /* loaded from: classes9.dex */
+        public class a implements Comparator<Map.Entry<String, Integer>> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public a(c cVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // java.util.Comparator
+            /* renamed from: a */
+            public int compare(Map.Entry<String, Integer> entry, Map.Entry<String, Integer> entry2) {
+                InterceptResult invokeLL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, entry, entry2)) == null) {
+                    return (int) (JavaTypesHelper.toInt(String.valueOf(entry.getValue()), 0) - JavaTypesHelper.toInt(String.valueOf(entry2.getValue()), 0));
+                }
+                return invokeLL.intValue;
+            }
+        }
+
+        public c(xb5 xb5Var, b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {xb5Var};
+                Object[] objArr = {xb5Var, bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -41,16 +98,144 @@ public class xb5 implements ju5 {
                     return;
                 }
             }
-            this.a = xb5Var;
+            this.c = xb5Var;
+            this.a = null;
+            this.b = null;
+            this.a = bVar;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public Void doInBackground(Object... objArr) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BdResourceLoader.getInstance().loadResource(this.a.b, 10, null, null);
-                BdResourceLoader.getInstance().loadResource(this.a.c, 10, null, null);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
+                try {
+                    this.b = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.GET_IP_LIST);
+                    String postNetData = this.b.postNetData();
+                    if (this.b.getNetContext().getResponse().isRequestSuccess() && postNetData != null) {
+                        JSONObject jSONObject = new JSONObject(postNetData);
+                        if (jSONObject.optInt("error_code") == 0) {
+                            String optString = jSONObject.optString("urls");
+                            this.c.b = this.c.j(optString);
+                            if (this.c.b != null && this.c.b.size() > 0) {
+                                HashMap hashMap = new HashMap();
+                                int i = 0;
+                                for (int i2 = 0; i2 < this.c.b.size(); i2++) {
+                                    String str = (String) this.c.b.get(i2);
+                                    cc5 cc5Var = new cc5();
+                                    cc5Var.a(str);
+                                    if (cc5Var.d()) {
+                                        hashMap.put(str, Integer.valueOf(cc5Var.b()));
+                                    }
+                                }
+                                if (hashMap.size() > 0) {
+                                    this.c.b = new ArrayList();
+                                    ArrayList<Map.Entry> arrayList = new ArrayList(hashMap.entrySet());
+                                    Collections.sort(arrayList, new a(this));
+                                    StringBuilder sb = new StringBuilder(50);
+                                    for (Map.Entry entry : arrayList) {
+                                        this.c.b.add((String) entry.getKey());
+                                        if (i != 0) {
+                                            sb.append(",");
+                                        }
+                                        i++;
+                                        sb.append((String) entry.getKey());
+                                    }
+                                    optString = sb.toString();
+                                }
+                                SharedPrefHelper.getInstance().putLong("KeyOfSharedPrefListGetTime", System.currentTimeMillis());
+                                SharedPrefHelper.getInstance().putString("KeyOfSharedPrefIpList", optString);
+                                return null;
+                            }
+                            return null;
+                        }
+                        return null;
+                    }
+                    return null;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return null;
+                }
             }
+            return (Void) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onCancelled(Void r5) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r5) == null) {
+                this.c.c = null;
+                b bVar = this.a;
+                if (bVar != null) {
+                    bVar.a();
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: d */
+        public void onPostExecute(Void r5) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, r5) == null) {
+                this.c.c = null;
+                b bVar = this.a;
+                if (bVar != null) {
+                    bVar.a();
+                }
+            }
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                if (this.b != null) {
+                    this.b.cancelNetConnect();
+                    this.b = null;
+                }
+                this.c.c = null;
+                super.cancel(true);
+            }
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onCancelled() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                this.c.c = null;
+                b bVar = this.a;
+                if (bVar != null) {
+                    bVar.a();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public static xb5 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-294628258, "Lcom/baidu/tieba/xb5$d;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-294628258, "Lcom/baidu/tieba/xb5$d;");
+                    return;
+                }
+            }
+            a = new xb5(null);
         }
     }
 
@@ -64,97 +249,128 @@ public class xb5 implements ju5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.d = false;
+        this.d = false;
+        this.b = null;
     }
 
-    @Override // com.baidu.tieba.ju5
-    public String a() {
+    public static xb5 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return d.a;
+        }
+        return (xb5) invokeV.objValue;
+    }
+
+    public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            return SharedPrefHelper.getInstance().getInt("KeyOfSharedPrefImCount", 0);
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ju5
-    public String c() {
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.d = false;
+        }
+    }
+
+    public /* synthetic */ xb5(a aVar) {
+        this();
+    }
+
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && !TiebaIMConfig.defaultUrl.equals(str)) {
+            this.a = str;
+            SharedPrefHelper.getInstance().putString("KeyOfSharedPrefValidIp", str);
+        }
+    }
+
+    public void m(b bVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) && this.c == null) {
+            this.d = true;
+            c cVar = new c(this, bVar);
+            this.c = cVar;
+            cVar.setSelfExecute(true);
+            this.c.execute(new Object[0]);
+        }
+    }
+
+    public List<String> g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.b == null) {
+                if (System.currentTimeMillis() - SharedPrefHelper.getInstance().getLong("KeyOfSharedPrefListGetTime", 0L) > 86400000) {
+                    SharedPrefHelper.getInstance().putString("KeyOfSharedPrefIpList", "");
+                    return null;
+                }
+                this.b = j(SharedPrefHelper.getInstance().getString("KeyOfSharedPrefIpList", null));
+            }
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int e = e();
+            if (e >= 10) {
+                SharedPrefHelper.getInstance().putInt("KeyOfSharedPrefImCount", 0);
+                SharedPrefHelper.getInstance().putString("KeyOfSharedPrefValidIp", "");
+                this.a = null;
+                return null;
+            }
+            if (this.a == null) {
+                this.a = SharedPrefHelper.getInstance().getString("KeyOfSharedPrefValidIp", null);
+            }
+            if (!qd.isEmpty(this.a)) {
+                SharedPrefHelper.getInstance().putInt("KeyOfSharedPrefImCount", e + 1);
+            } else {
+                this.a = null;
+            }
             return this.a;
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ju5
-    public String d() {
-        InterceptResult invokeV;
+    public final List<String> j(String str) {
+        InterceptResult invokeL;
+        String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ju5
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.d && this.e) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (str != null && str.length() > 0 && (split = str.split(",")) != null && split.length > 0) {
+                ArrayList arrayList = new ArrayList(3);
+                for (String str2 : split) {
+                    arrayList.add(str2);
+                }
+                return arrayList;
             }
-            return false;
+            return null;
         }
-        return invokeV.booleanValue;
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && isValid()) {
-            SafeHandler.getInst().post(new a(this));
-        }
-    }
-
-    @Override // com.baidu.tieba.ju5
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (!StringUtils.isNull(this.a) && !StringUtils.isNull(this.b) && !StringUtils.isNull(this.c)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ju5
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || StringUtils.isNull(str)) {
-            return;
-        }
-        if (!this.d) {
-            this.d = str.equals(this.b);
-        }
-        if (!this.e) {
-            this.e = str.equals(this.c);
-        }
-    }
-
-    public void f(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        this.a = jSONObject.optString("url");
-        this.b = jSONObject.optString("fold_lottie");
-        jSONObject.optString("fold_name");
-        this.c = jSONObject.optString("unfold_lottie");
-        jSONObject.optString("unfold_name");
-        g();
+        return (List) invokeL.objValue;
     }
 }

@@ -1,86 +1,53 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.SparseArray;
-import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class aq4 {
+public class aq4 extends up4 {
     public static /* synthetic */ Interceptable $ic;
-    public static aq4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<cq4> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947623813, "Lcom/baidu/tieba/aq4;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947623813, "Lcom/baidu/tieba/aq4;");
-        }
+    @Override // com.baidu.tieba.tp4
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "o" : (String) invokeV.objValue;
     }
 
     public aq4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = new SparseArray<>();
     }
 
-    public static aq4 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.tp4
+    public String a(String[] strArr, Map<String, String> map) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (aq4.class) {
-                    if (b == null) {
-                        b = new aq4();
-                    }
-                }
-            }
-            return b;
-        }
-        return (aq4) invokeV.objValue;
-    }
-
-    public View a(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, context, i)) == null) {
-            if (this.a.get(i) != null) {
-                return this.a.get(i).a(context);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, strArr, map)) == null) {
+            if (strArr != null && strArr.length != 0) {
+                String substring = strArr[0].substring(1);
+                StringBuilder sb = new StringBuilder("com.baidu.tieba://unidispatch/topicdetail");
+                sb.append("?topic_id=");
+                sb.append(substring);
+                c(strArr, sb, map, 1);
+                return sb.toString();
             }
             return null;
         }
-        return (View) invokeLI.objValue;
-    }
-
-    public void c(int i, cq4 cq4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, cq4Var) == null) {
-            this.a.put(i, cq4Var);
-        }
+        return (String) invokeLL.objValue;
     }
 }

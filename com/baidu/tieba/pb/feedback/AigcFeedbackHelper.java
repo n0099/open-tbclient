@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
-import com.baidu.tieba.pea;
-import com.baidu.tieba.t35;
+import com.baidu.tieba.ko5;
+import com.baidu.tieba.ku4;
+import com.baidu.tieba.n45;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
-import com.baidu.tieba.tm5;
-import com.baidu.tieba.tt4;
+import com.baidu.tieba.ura;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -70,13 +70,13 @@ public final class AigcFeedbackHelper {
         }
     }
 
-    public final t35 c() {
+    public final n45 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return (t35) b.getValue();
+            return (n45) b.getValue();
         }
-        return (t35) invokeV.objValue;
+        return (n45) invokeV.objValue;
     }
 
     @JvmStatic
@@ -112,11 +112,11 @@ public final class AigcFeedbackHelper {
             } else {
                 activity = null;
             }
-            tm5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(activity);
+            ko5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(activity);
             if (currentVisiblePageExtra != null) {
                 agreeData.objSource = currentVisiblePageExtra.a();
             }
-            t35 c = a.c();
+            n45 c = a.c();
             if (tbPageContext != null) {
                 bdUniqueId = tbPageContext.getUniqueId();
             }
@@ -157,11 +157,11 @@ public final class AigcFeedbackHelper {
             } else {
                 activity = null;
             }
-            tm5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(activity);
+            ko5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(activity);
             if (currentVisiblePageExtra != null) {
                 agreeData.objSource = currentVisiblePageExtra.a();
             }
-            t35 c = a.c();
+            n45 c = a.c();
             if (tbPageContext != null) {
                 bdUniqueId = tbPageContext.getUniqueId();
             }
@@ -170,27 +170,27 @@ public final class AigcFeedbackHelper {
     }
 
     @JvmStatic
-    public static final void d(pea peaVar) {
+    public static final void d(ura uraVar) {
         String str;
-        AigcFeedbackInfo r;
+        AigcFeedbackInfo s;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, peaVar) == null) {
-            if (peaVar != null && (r = peaVar.r()) != null) {
-                str = r.feedback_url;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, uraVar) == null) {
+            if (uraVar != null && (s = uraVar.s()) != null) {
+                str = s.feedback_url;
             } else {
                 str = null;
             }
             if (str != null && !TextUtils.isEmpty(str)) {
                 HashMap<String, Serializable> hashMap = new HashMap<>();
-                String U = peaVar.U();
-                Intrinsics.checkNotNullExpressionValue(U, "postData.id");
-                hashMap.put("post_id", U);
-                String u = peaVar.u();
+                String T2 = uraVar.T();
+                Intrinsics.checkNotNullExpressionValue(T2, "postData.id");
+                hashMap.put("post_id", T2);
+                String u = uraVar.u();
                 Intrinsics.checkNotNullExpressionValue(u, "postData.authorId");
                 hashMap.put("bot_uid", u);
                 Bundle bundle = new Bundle();
                 bundle.putString(WebViewActivityConfig.TAG_PAGE_TRANSLUCENT, TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
-                tt4 j = tt4.j(TbadkCoreApplication.getInst(), str);
+                ku4 j = ku4.j(TbadkCoreApplication.getInst(), str);
                 j.f(hashMap);
                 j.a(bundle);
                 j.p();

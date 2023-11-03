@@ -66,13 +66,13 @@ public final class TestCoroutineContext implements CoroutineContext {
 
         @Override // kotlinx.coroutines.CoroutineDispatcher
         /* renamed from: dispatch */
-        public void mo2346dispatch(CoroutineContext coroutineContext, Runnable runnable) {
+        public void mo2350dispatch(CoroutineContext coroutineContext, Runnable runnable) {
             TestCoroutineContext.this.enqueue(runnable);
         }
 
         @Override // kotlinx.coroutines.Delay
         /* renamed from: scheduleResumeAfterDelay */
-        public void mo2347scheduleResumeAfterDelay(long j, final CancellableContinuation<? super Unit> cancellableContinuation) {
+        public void mo2351scheduleResumeAfterDelay(long j, final CancellableContinuation<? super Unit> cancellableContinuation) {
             TestCoroutineContext.this.postDelayed(new Runnable() { // from class: kotlinx.coroutines.test.TestCoroutineContext$Dispatcher$scheduleResumeAfterDelay$$inlined$Runnable$1
                 @Override // java.lang.Runnable
                 public final void run() {

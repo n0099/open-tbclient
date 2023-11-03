@@ -1,7 +1,7 @@
 package com.baidu.searchbox.http.multipath;
 
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface IMultiPath {
     public static final IMultiPath EMPTY = new IMultiPath() { // from class: com.baidu.searchbox.http.multipath.IMultiPath.1
         @Override // com.baidu.searchbox.http.multipath.IMultiPath

@@ -1,181 +1,40 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.tieba.yt1;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
-/* loaded from: classes6.dex */
-public class km3 implements qp1 {
+/* loaded from: classes7.dex */
+public class km3 extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements jp1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(km3 km3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {km3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.jp1
-        @NonNull
-        public xa3 e(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-                return new hm3(context);
-            }
-            return (xa3) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.jp1
-        @NonNull
-        public wa3 f(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
-                return new gm3(context);
-            }
-            return (wa3) invokeL.objValue;
-        }
-
-        public /* synthetic */ b(km3 km3Var, a aVar) {
-            this(km3Var);
-        }
-
-        @Override // com.baidu.tieba.jp1
-        @NonNull
-        public va3 g(Context context, String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, context, str)) == null) {
-                return new fm3(context, str);
-            }
-            return (va3) invokeLL.objValue;
-        }
-
-        @Override // com.baidu.tieba.jp1
-        @NonNull
-        public ta3 a(Activity activity, boolean z, String str, String str2) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{activity, Boolean.valueOf(z), str, str2})) == null) {
-                return new dm3(activity, z, str, str2);
-            }
-            return (ta3) invokeCommon.objValue;
-        }
-
-        @Override // com.baidu.tieba.jp1
-        @NonNull
-        public ya3 b(Activity activity, yt1.d dVar, Bundle bundle) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, dVar, bundle)) == null) {
-                return new im3(activity, dVar, bundle);
-            }
-            return (ya3) invokeLLL.objValue;
-        }
-
-        @Override // com.baidu.tieba.jp1
-        @NonNull
-        public za3 c(Activity activity, String str, String str2, boolean z, boolean z2) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-                return new jm3(activity, str, str2, z, z2);
-            }
-            return (za3) invokeCommon.objValue;
-        }
-
-        @Override // com.baidu.tieba.jp1
-        @NonNull
-        public ua3 d(Context context, boolean z, boolean z2, String[] strArr, String str, boolean z3) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{context, Boolean.valueOf(z), Boolean.valueOf(z2), strArr, str, Boolean.valueOf(z3)})) == null) {
-                return new em3(context, z, z2, strArr, str, z3);
-            }
-            return (ua3) invokeCommon.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947917848, "Lcom/baidu/tieba/km3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947917848, "Lcom/baidu/tieba/km3;");
-                return;
-            }
-        }
-        boolean z = am1.a;
-    }
 
     public km3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.qp1
-    public cp1 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(Bundle bundle) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new cm3();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            Bundle bundle2 = new Bundle();
+            bundle2.putString("result", hm3.k(getAgent().getContext()));
+            return bundle2;
         }
-        return (cp1) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qp1
-    public jp1 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return new b(this, null);
-        }
-        return (jp1) invokeV.objValue;
+        return (Bundle) invokeL.objValue;
     }
 }

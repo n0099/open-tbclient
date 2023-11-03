@@ -1,229 +1,95 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.http.statistics.NetworkStatRecord;
-import com.baidu.searchbox.retrieve.inter.upload.IUploadTask;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.yalog.Logger;
-import com.baidu.yalog.LoggerManager;
-import java.util.ArrayList;
-import org.json.JSONObject;
-/* loaded from: classes8.dex */
-public class y7a {
+/* loaded from: classes9.dex */
+public class y7a extends yk6<w6a> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
-    public static final String e;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public volatile boolean b;
-    public long c;
+    public TbImageView i;
+    public View j;
+    public View k;
 
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final y7a a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-304399768, "Lcom/baidu/tieba/y7a$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-304399768, "Lcom/baidu/tieba/y7a$b;");
-                    return;
-                }
-            }
-            a = new y7a(null);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948284454, "Lcom/baidu/tieba/y7a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948284454, "Lcom/baidu/tieba/y7a;");
-                return;
-            }
-        }
-        d = m7a.a;
-        e = y7a.class.getSimpleName();
-    }
-
-    public static y7a a() {
+    @Override // com.baidu.tieba.yk6
+    public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b.a;
-        }
-        return (y7a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01d5 : invokeV.intValue;
     }
 
-    public boolean g() {
-        InterceptResult invokeV;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (!this.b || System.currentTimeMillis() - this.c > com.baidu.mobads.sdk.internal.bj.e) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
         }
-        return invokeV.booleanValue;
     }
 
-    public y7a() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public y7a(TbPageContext tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        String b2 = n7a.b("fulllog_switch", null);
-        if (!TextUtils.isEmpty(b2)) {
-            this.b = Boolean.valueOf(b2).booleanValue();
-        }
-        this.c = Long.parseLong(n7a.b("fulllog_switch_push_time", Long.toString(System.currentTimeMillis())));
+        View i3 = i();
+        this.j = i3;
+        this.i = (TbImageView) i3.findViewById(R.id.obfuscated_res_0x7f0906c3);
+        this.k = this.j.findViewById(R.id.obfuscated_res_0x7f091808);
     }
 
-    public /* synthetic */ y7a(a aVar) {
-        this();
-    }
-
-    public void b(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.yk6
+    /* renamed from: p */
+    public void k(w6a w6aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            Logger logger = LoggerManager.getLogger("net");
-            logger.e("1809", "netLog", str);
-            logger.flush(true);
-            if (g()) {
-                e(false);
+        if (interceptable == null || interceptable.invokeL(1048580, this, w6aVar) == null) {
+            if (w6aVar == null) {
+                this.j.setVisibility(8);
             }
-        }
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && g()) {
-            Logger logger = LoggerManager.getLogger("net");
-            logger.d("1809", "netLog", str);
-            logger.flush(true);
-            e(false);
-        }
-    }
-
-    public final boolean d(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
-            if (j - this.a > 60000) {
-                return true;
-            }
-            return false;
-        }
-        return invokeJ.booleanValue;
-    }
-
-    public final void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            boolean d2 = d(currentTimeMillis);
-            if (d2) {
-                this.a = currentTimeMillis;
-            }
-            if (z || d2) {
-                String b2 = n7a.b("fulllog_switch_push_time", Long.toString(System.currentTimeMillis()));
-                ArrayList arrayList = new ArrayList();
-                arrayList.add("net");
-                IUploadTask iUploadTask = (IUploadTask) ServiceManager.getService(IUploadTask.SERVICE_REFERENCE);
-                if (iUploadTask != null) {
-                    long j = currentTimeMillis - 5184000000L;
-                    long j2 = currentTimeMillis + 3600000;
-                    iUploadTask.activeUploadSnapShot("netLog", b2, arrayList, null, 10240L, j, j2, true, null);
-                    if (d) {
-                        String str = e;
-                        Log.i(str, "dataId" + b2 + "   isMatchTimeInterval(curTime) == true");
-                        String str2 = e;
-                        Log.i(str2, "startTime==" + j + "endTime==" + j2);
-                    }
+            ViewGroup.LayoutParams layoutParams = this.k.getLayoutParams();
+            if (layoutParams != null) {
+                if (layoutParams.width > 0) {
+                    layoutParams.width = w6aVar.a;
+                }
+                if (layoutParams.height > 0) {
+                    layoutParams.height = w6aVar.b;
                 }
             }
+            this.k.setLayoutParams(layoutParams);
+            this.j.setVisibility(0);
+            l(this.b, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public boolean f(NetworkStatRecord networkStatRecord) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.yk6
+    public void l(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, networkStatRecord)) == null) {
-            int c = n7a.c();
-            if (networkStatRecord.exception == null && networkStatRecord.receiveHeaderTs - networkStatRecord.sendHeaderTs < c && networkStatRecord.realResponseLength <= 1048576 && networkStatRecord.requestBodyLength <= 1048576) {
-                return false;
-            }
-            return true;
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) != null) || this.a == i) {
+            return;
         }
-        return invokeL.booleanValue;
-    }
-
-    public synchronized boolean h(JSONObject jSONObject, JSONObject jSONObject2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, jSONObject, jSONObject2)) == null) {
-            synchronized (this) {
-                if (jSONObject != null) {
-                    String optString = jSONObject.optString("type");
-                    String optString2 = jSONObject.optString("fulllog");
-                    if (TextUtils.equals(optString, "fulllog_network")) {
-                        if (TextUtils.equals(optString2, "1")) {
-                            long currentTimeMillis = System.currentTimeMillis();
-                            this.a = currentTimeMillis;
-                            this.c = currentTimeMillis;
-                            this.b = true;
-                            e(true);
-                            if (d) {
-                                Log.i(e, "Start online real full network log!");
-                            }
-                            n7a.e("fulllog_switch_push_time", Long.toString(System.currentTimeMillis()));
-                        } else if (TextUtils.equals(optString2, "0")) {
-                            this.b = false;
-                            if (d) {
-                                Log.i(e, "Stop online real full network log!");
-                            }
-                        }
-                        n7a.e("fulllog_switch", String.valueOf(this.b));
-                    }
-                }
-            }
-            return true;
-        }
-        return invokeLL.booleanValue;
+        this.a = i;
+        SkinManager.setImageResource(this.i, R.drawable.icon_mine_more);
+        SkinManager.setBackgroundResource(this.j, R.drawable.btn_look_more_selector);
     }
 }

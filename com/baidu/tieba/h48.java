@@ -1,25 +1,173 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.zz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URLEncoder;
+import tbclient.PopInfo;
 /* loaded from: classes6.dex */
 public class h48 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<ThreadData> a;
+    public final FrsFragment a;
+    public b b;
 
-    public h48() {
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends BdAsyncTask<Void, Void, Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ h48 a;
+
+        /* loaded from: classes6.dex */
+        public class a implements zz4.e {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            @Override // com.baidu.tieba.zz4.e
+            public void onClick(zz4 zz4Var) {
+                Interceptable interceptable = $ic;
+                if ((interceptable != null && interceptable.invokeL(1048576, this, zz4Var) != null) || zz4Var == null) {
+                    return;
+                }
+                zz4Var.dismiss();
+            }
+        }
+
+        /* renamed from: com.baidu.tieba.h48$b$b  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class C0319b implements zz4.e {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ PopInfo a;
+            public final /* synthetic */ b b;
+
+            public C0319b(b bVar, PopInfo popInfo) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar, popInfo};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = bVar;
+                this.a = popInfo;
+            }
+
+            @Override // com.baidu.tieba.zz4.e
+            public void onClick(zz4 zz4Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, zz4Var) == null) {
+                    UrlManager.getInstance().dealOneLink(this.b.a.a.getPageContext(), new String[]{this.a.ahead_url});
+                    if (zz4Var == null) {
+                        return;
+                    }
+                    zz4Var.dismiss();
+                }
+            }
+        }
+
+        public b(h48 h48Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {h48Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = h48Var;
+        }
+
+        public /* synthetic */ b(h48 h48Var, a aVar) {
+            this(h48Var);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Boolean doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
+                yz4.l();
+                ca<String> m = yz4.m("tb.enter_frs_dialog_list");
+                String encode = URLEncoder.encode(this.a.a.F1().getForum().getName());
+                if (m.get(encode) == null) {
+                    m.g(encode, "1");
+                    return Boolean.TRUE;
+                }
+                return Boolean.FALSE;
+            }
+            return (Boolean) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(Boolean bool) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) != null) || !bool.booleanValue() || !this.a.c() || !this.a.a.isAdded()) {
+                return;
+            }
+            PopInfo popInfo = this.a.a.F1().enterFrsDialogInfo;
+            zz4 zz4Var = new zz4(this.a.a.getActivity());
+            zz4Var.setTitle(popInfo.title);
+            zz4Var.setMessage(popInfo.v_title);
+            zz4Var.isShowTitleAndMessage();
+            zz4Var.setNegativeButton(popInfo.ok_info, new a(this));
+            zz4Var.setPositiveButton(popInfo.ahead_info, new C0319b(this, popInfo));
+            zz4Var.create(this.a.a.getPageContext()).show();
+        }
+    }
+
+    public h48(FrsFragment frsFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,57 +177,30 @@ public class h48 {
                 return;
             }
         }
-        this.a = new ArrayList();
+        this.a = frsFragment;
     }
 
-    public List<ThreadData> b() {
+    public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<ThreadData> list = this.a;
-            if (list == null) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            PopInfo popInfo = this.a.F1().enterFrsDialogInfo;
+            if (popInfo != null && !StringUtils.isNull(popInfo.ahead_info) && !StringUtils.isNull(popInfo.ahead_url) && !StringUtils.isNull(popInfo.ok_info) && !StringUtils.isNull(popInfo.title) && !StringUtils.isNull(popInfo.v_title) && this.a.F1().enterFrsDialogInfo.if_pop.intValue() != 0) {
+                return true;
             }
-            return !ListUtils.isEmpty(list);
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public f48 a(boolean z, d48 d48Var) {
-        InterceptResult invokeZL;
+    public void d() {
+        FrsFragment frsFragment;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZL = interceptable.invokeZL(1048576, this, z, d48Var)) == null) {
-            f48 f48Var = new f48();
-            f48Var.c = d48Var.i();
-            f48Var.e = d48Var.a();
-            f48Var.f = d48Var.c();
-            ArrayList<ThreadData> h = d48Var.h();
-            if (z) {
-                if (!ListUtils.isEmpty(h)) {
-                    this.a.clear();
-                    this.a.addAll(h);
-                }
-            } else if (!ListUtils.isEmpty(h)) {
-                this.a.addAll(h);
-            }
-            ArrayList arrayList = new ArrayList();
-            arrayList.addAll(this.a);
-            c38.e(true, arrayList, d48Var.e());
-            c38.e(true, arrayList, d48Var.f());
-            c38.e(true, arrayList, d48Var.d());
-            c38.e(true, arrayList, d48Var.g());
-            f48Var.a = c38.c(arrayList);
-            return f48Var;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !TbadkCoreApplication.isLogin() || (frsFragment = this.a) == null || frsFragment.F1() == null || this.a.F1().getForum() == null || StringUtils.isNull(this.a.F1().getForum().getName()) || this.a.F1().enterFrsDialogInfo == null || !c() || this.b != null) {
+            return;
         }
-        return (f48) invokeZL.objValue;
+        b bVar = new b(this, null);
+        this.b = bVar;
+        bVar.execute(new Void[0]);
     }
 }

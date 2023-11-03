@@ -1,306 +1,107 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.content.Intent;
-import android.text.TextUtils;
-import android.util.Pair;
-import android.webkit.WebView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.controller.CustomRule;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.TbWebContainerActivityConfig;
-import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.switchs.InitWriteWebDelaySwitch;
-import com.baidu.tieba.ag6;
-import com.baidu.tieba.browser.exception.TbWebViewException;
-import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.write.WriteWebViewCacheManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import tbclient.Search.DataRes;
 /* loaded from: classes7.dex */
 public class me6 {
     public static /* synthetic */ Interceptable $ic;
-    public static a7c<String, Pair<Boolean, String>> a;
-    public static final List<String> b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public class a implements zf6 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.zf6
-        public boolean a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                return !TextUtils.isEmpty(str);
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b extends CustomRule {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.controller.MessageRule
-        public CustomMessage<?> process(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, customMessage, customMessageTask)) == null) {
-                if (!jf6.isOn()) {
-                    return customMessage;
-                }
-                if (customMessage == null) {
-                    return null;
-                }
-                Object data = customMessage.getData();
-                if (!(data instanceof TbWebContainerActivityConfig)) {
-                    return customMessage;
-                }
-                Intent intent = ((TbWebContainerActivityConfig) data).getIntent();
-                if (intent == null) {
-                    return customMessage;
-                }
-                String stringExtra = intent.getStringExtra(WebViewActivityConfig.TAG_URL);
-                if (TextUtils.isEmpty(stringExtra)) {
-                    return customMessage;
-                }
-                if (ef6.a.b(stringExtra)) {
-                    TbLog hybridLog = HybridLog.getInstance();
-                    hybridLog.e("UrlCountMapHelper", "1s内连续检查到3次相同的url, 发生循环，放弃拦截 url = " + stringExtra);
-                    return customMessage;
-                }
-                TbPageContext<?> currentPageContext = TbadkCoreApplication.getInst().getCurrentPageContext(TbadkCoreApplication.getInst().getCurrentActivity());
-                if (currentPageContext == null) {
-                    return customMessage;
-                }
-                if (UrlManager.getInstance().dealOneLinkWithOutJumpWebView(currentPageContext, new String[]{stringExtra}) == 0) {
-                    return null;
-                }
-                ef6.a.c();
-                return customMessage;
-            }
-            return (CustomMessage) invokeLL.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947969835, "Lcom/baidu/tieba/me6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947969835, "Lcom/baidu/tieba/me6;");
-                return;
-            }
-        }
-        b = new ArrayList();
-    }
+    public long a;
+    public long b;
+    public String c;
+    public String d;
+    public long e;
+    public int f;
+    public int g;
+    public int h;
+    public int i;
+    public String j;
+    public boolean k;
+    public long l;
 
     public me6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static List<String> a() {
-        InterceptResult invokeV;
+    public void a(DataRes dataRes) {
+        long longValue;
+        long longValue2;
+        int intValue;
+        int intValue2;
+        int intValue3;
+        int intValue4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) || dataRes == null) {
+            return;
         }
-        return (List) invokeV.objValue;
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            ag6.a aVar = new ag6.a();
-            aVar.c(new a());
-            dg6.b().c(aVar);
+        Long l = dataRes.uid;
+        long j = 0;
+        if (l == null) {
+            longValue = 0;
+        } else {
+            longValue = l.longValue();
         }
-    }
-
-    public static /* synthetic */ void f() {
-        c();
-        xg6.a().execute(new Runnable() { // from class: com.baidu.tieba.le6
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            @Override // java.lang.Runnable
-            public final void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    ch6.a();
-                }
-            }
-        });
-        ne6.f().i();
-    }
-
-    public static void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
-            MessageManager.getInstance().addMessageRule(new b(2002001));
+        this.b = longValue;
+        this.c = dataRes.portrait;
+        this.d = dataRes.name_show;
+        Long l2 = dataRes.apply_id;
+        if (l2 == null) {
+            longValue2 = 0;
+        } else {
+            longValue2 = l2.longValue();
         }
-    }
-
-    public static void b(final Application application, me6 me6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, application, me6Var) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (vg6.b() == null) {
-                vg6.c(application);
-            }
-            if (wg6.a()) {
-                yg6.a().f(new Runnable() { // from class: com.baidu.tieba.he6
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            WebView.setWebContentsDebuggingEnabled(true);
-                        }
-                    }
-                });
-            }
-            yg6.a().c(new Runnable() { // from class: com.baidu.tieba.ie6
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        me6.f();
-                    }
-                }
-            });
-            yg6.a().f(new Runnable() { // from class: com.baidu.tieba.je6
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        ne6.f().h(application);
-                    }
-                }
-            });
-            if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-                fg6.n().r();
-                if (!InitWriteWebDelaySwitch.isOn()) {
-                    yg6.a().f(new Runnable() { // from class: com.baidu.tieba.ke6
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-
-                        @Override // java.lang.Runnable
-                        public final void run() {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                WriteWebViewCacheManager.g().j();
-                            }
-                        }
-                    });
-                }
-            }
-            i();
-            th6.b("newHybrid", "init WebView Env 耗时：" + (System.currentTimeMillis() - currentTimeMillis) + "ms");
+        this.e = longValue2;
+        Integer num = dataRes.vote_num;
+        boolean z = false;
+        if (num == null) {
+            intValue = 0;
+        } else {
+            intValue = num.intValue();
         }
-    }
-
-    public static void d(a7c<String, Pair<Boolean, String>> a7cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, a7cVar) == null) {
-            a = a7cVar;
+        this.f = intValue;
+        Integer num2 = dataRes.agree_num;
+        if (num2 == null) {
+            intValue2 = 0;
+        } else {
+            intValue2 = num2.intValue();
         }
-    }
-
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            wg6.b(z);
+        this.g = intValue2;
+        Integer num3 = dataRes.thread_num;
+        if (num3 == null) {
+            intValue3 = 0;
+        } else {
+            intValue3 = num3.intValue();
         }
-    }
-
-    public static Pair<Boolean, String> k(String str) throws TbWebViewException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
-            a7c<String, Pair<Boolean, String>> a7cVar = a;
-            if (a7cVar == null) {
-                if (!wg6.a()) {
-                    return new Pair<>(Boolean.FALSE, null);
-                }
-                throw new TbWebViewException("TBWebKit need call initUserAgent first !");
-            }
-            return a7cVar.call(str);
+        this.h = intValue3;
+        Integer num4 = dataRes.post_num;
+        if (num4 == null) {
+            intValue4 = 0;
+        } else {
+            intValue4 = num4.intValue();
         }
-        return (Pair) invokeL.objValue;
+        this.i = intValue4;
+        Boolean bool = dataRes.is_vote;
+        if (bool != null) {
+            z = bool.booleanValue();
+        }
+        this.k = z;
+        Long l3 = dataRes.tid;
+        if (l3 != null) {
+            j = l3.longValue();
+        }
+        this.l = j;
     }
 }

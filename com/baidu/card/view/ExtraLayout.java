@@ -13,8 +13,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a55;
-import com.baidu.tieba.jv4;
+import com.baidu.tieba.bw4;
+import com.baidu.tieba.u55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -148,18 +148,18 @@ public class ExtraLayout extends RelativeLayout {
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.extra_btn);
             this.a = tBSpecificationBtn;
             tBSpecificationBtn.setOnClickListener(this.e);
-            a55 a55Var = new a55();
-            a55Var.u(R.color.CAM_X0302);
-            this.a.setConfig(a55Var);
+            u55 u55Var = new u55();
+            u55Var.u(R.color.CAM_X0302);
+            this.a.setConfig(u55Var);
             this.a.setText(getResources().getString(R.string.download_just_now));
         }
     }
 
-    public void setData(jv4 jv4Var) {
+    public void setData(bw4 bw4Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jv4Var) == null) {
-            ThreadData threadData = jv4Var.getThreadData();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bw4Var) == null) {
+            ThreadData threadData = bw4Var.getThreadData();
             boolean z2 = true;
             int i = 8;
             if (!TextUtils.isEmpty(threadData.extraText)) {

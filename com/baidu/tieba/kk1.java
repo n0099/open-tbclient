@@ -1,89 +1,56 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.SecureRandom;
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes6.dex */
-public final class kk1 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
+public class kk1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
+    public String d;
 
-    public static byte[] a() {
+    public kk1(int i, int i2, int i3, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = -1;
+        this.a = i;
+        this.b = i2;
+        this.c = i3;
+        this.d = str;
+    }
+
+    public static kk1 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            char[] cArr = new char[32];
-            try {
-                char[] charArray = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
-                for (int i = 0; i < 32; i++) {
-                    int nextInt = new SecureRandom().nextInt(62);
-                    if (nextInt >= 0 && nextInt < charArray.length) {
-                        cArr[i] = charArray[nextInt];
-                    }
-                }
-            } catch (Throwable th) {
-                zk1.d(th);
-            }
-            return new String(cArr).getBytes();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new kk1(3, 2020, -1, "No Authorized User Privacy Agreement");
         }
-        return (byte[]) invokeV.objValue;
+        return (kk1) invokeV.objValue;
     }
 
-    public static byte[] b(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, bArr2)) == null) {
-            if (bArr != null) {
-                try {
-                    if (bArr.length == 32 && bArr2 != null && bArr2.length != 0) {
-                        SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
-                        Cipher cipher = Cipher.getInstance(com.kuaishou.weapon.p0.b.c);
-                        byte[] bArr3 = new byte[16];
-                        System.arraycopy(bArr, 8, bArr3, 0, 16);
-                        cipher.init(2, secretKeySpec, new IvParameterSpec(bArr3));
-                        byte[] bArr4 = new byte[bArr2.length - 16];
-                        System.arraycopy(bArr2, 0, bArr4, 0, bArr2.length - 16);
-                        return cipher.doFinal(bArr4);
-                    }
-                } catch (Throwable th) {
-                    zk1.d(th);
-                    return null;
-                }
-            }
-            return bArr2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "CallBackMsg{status=" + this.a + ", subStatus=" + this.b + ", op='" + this.c + "', data='" + this.d + "'}";
         }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public static jk1 c(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, bArr2)) == null) {
-            if (bArr2 != null) {
-                try {
-                    if (bArr2.length != 0) {
-                        SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
-                        Cipher cipher = Cipher.getInstance(com.kuaishou.weapon.p0.b.c);
-                        byte[] bArr3 = new byte[16];
-                        System.arraycopy(bArr, 8, bArr3, 0, 16);
-                        cipher.init(1, secretKeySpec, new IvParameterSpec(bArr3));
-                        byte[] doFinal = cipher.doFinal(bArr2);
-                        byte[] e = el1.e(bArr2);
-                        byte[] bArr4 = new byte[doFinal.length + e.length];
-                        System.arraycopy(doFinal, 0, bArr4, 0, doFinal.length);
-                        System.arraycopy(e, 0, bArr4, doFinal.length, e.length);
-                        return new jk1(bArr, bArr4);
-                    }
-                } catch (Throwable th) {
-                    zk1.d(th);
-                }
-            }
-            return null;
-        }
-        return (jk1) invokeLL.objValue;
+        return (String) invokeV.objValue;
     }
 }

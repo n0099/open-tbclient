@@ -1,63 +1,249 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.JsonWriter;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.database.ContentObserver;
+import android.os.Handler;
+import android.os.Looper;
+import android.provider.MediaStore;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.IOException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class g9b {
     public static /* synthetic */ Interceptable $ic;
+    public static g9b g;
     public transient /* synthetic */ FieldHolder $fh;
+    public Handler a;
+    public BroadcastReceiver b;
+    public ContentObserver c;
+    public ArrayList<d> d;
+    public Handler e;
+    public Runnable f;
 
-    public static void a(JsonWriter jsonWriter, Object obj) throws IOException {
-        Object opt;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, jsonWriter, obj) == null) {
-            if (obj != null && obj != JSONObject.NULL) {
-                if (obj instanceof JSONArray) {
-                    JSONArray jSONArray = (JSONArray) obj;
-                    jsonWriter.beginArray();
-                    int length = jSONArray.length();
-                    for (int i = 0; i < length; i++) {
-                        Object opt2 = jSONArray.opt(i);
-                        if (opt2 != null) {
-                            a(jsonWriter, opt2);
-                        }
-                    }
-                    jsonWriter.endArray();
-                    return;
-                } else if (obj instanceof JSONObject) {
-                    JSONObject jSONObject = (JSONObject) obj;
-                    jsonWriter.beginObject();
-                    Iterator<String> keys = jSONObject.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        if (!TextUtils.isEmpty(next) && (opt = jSONObject.opt(next)) != null) {
-                            jsonWriter.name(next);
-                            a(jsonWriter, opt);
-                        }
-                    }
-                    jsonWriter.endObject();
-                    return;
-                } else if (obj instanceof Number) {
-                    jsonWriter.value((Number) obj);
-                    return;
-                } else if (obj instanceof String) {
-                    jsonWriter.value((String) obj);
-                    return;
-                } else if (obj instanceof Boolean) {
-                    jsonWriter.value(((Boolean) obj).booleanValue());
-                    return;
-                } else {
-                    jsonWriter.value(obj.toString());
+    /* loaded from: classes6.dex */
+    public interface d {
+        void W(boolean z);
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ g9b a;
+
+        public a(g9b g9bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g9bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            jsonWriter.nullValue();
+            this.a = g9bVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.h(false);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ g9b this$0;
+
+        public b(g9b g9bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g9bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = g9bVar;
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+                this.this$0.i(intent);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c extends ContentObserver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ g9b a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(g9b g9bVar, Handler handler) {
+            super(handler);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g9bVar, handler};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Handler) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = g9bVar;
+        }
+
+        @Override // android.database.ContentObserver
+        public void onChange(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                this.a.e.removeCallbacks(this.a.f);
+                this.a.e.postDelayed(this.a.f, 2000L);
+            }
+        }
+    }
+
+    public g9b() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new Handler(Looper.getMainLooper());
+        this.d = new ArrayList<>();
+        this.e = new Handler();
+        this.f = new a(this);
+    }
+
+    public static g9b f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (g == null) {
+                synchronized (g9b.class) {
+                    if (g == null) {
+                        g9b g9bVar = new g9b();
+                        g = g9bVar;
+                        g9bVar.g(TbadkCoreApplication.getInst());
+                    }
+                }
+            }
+            return g;
+        }
+        return (g9b) invokeV.objValue;
+    }
+
+    public void d(d dVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) && dVar != null && !this.d.contains(dVar)) {
+            this.d.add(dVar);
+        }
+    }
+
+    public void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            Iterator<d> it = this.d.iterator();
+            while (it.hasNext()) {
+                it.next().W(z);
+            }
+        }
+    }
+
+    public final void i(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, intent) == null) {
+            if (intent.getAction().equals("android.intent.action.MEDIA_UNMOUNTED")) {
+                h(true);
+                return;
+            }
+            this.e.removeCallbacks(this.f);
+            this.e.postDelayed(this.f, 2000L);
+        }
+    }
+
+    public void k(d dVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, dVar) == null) && this.d.contains(dVar)) {
+            this.d.remove(dVar);
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            j();
+            TbadkCoreApplication inst = TbadkCoreApplication.getInst();
+            inst.unregisterReceiver(this.b);
+            inst.getContentResolver().unregisterContentObserver(this.c);
+            this.e.removeCallbacks(this.f);
+            g = null;
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.d.clear();
+        }
+    }
+
+    public final void g(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            this.b = new b(this);
+            this.c = new c(this, this.a);
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction("android.intent.action.MEDIA_MOUNTED");
+            intentFilter.addAction("android.intent.action.MEDIA_UNMOUNTED");
+            intentFilter.addAction("android.intent.action.MEDIA_SCANNER_STARTED");
+            intentFilter.addAction("android.intent.action.MEDIA_SCANNER_FINISHED");
+            intentFilter.addAction("android.intent.action.MEDIA_EJECT");
+            intentFilter.addDataScheme("file");
+            context.registerReceiver(this.b, intentFilter);
+            context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.c);
         }
     }
 }

@@ -1,133 +1,104 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tieba.m9;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.SevenZipUtils;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetVipInfo.VipSpecialItem;
+import tbclient.GetVipInfo.VipSpecialList;
 /* loaded from: classes7.dex */
-public class ni9 {
+public class ni9 implements oi {
     public static /* synthetic */ Interceptable $ic;
-    public static ni9 c;
+    public static final BdUniqueId c;
+    public static int d;
+    public static boolean e;
+    public static String f;
     public transient /* synthetic */ FieldHolder $fh;
-    public m9<byte[]> a;
-    public m9<byte[]> b;
+    public mi9 a;
+    public List<oi9> b;
 
-    public ni9() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948003563, "Lcom/baidu/tieba/ni9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948003563, "Lcom/baidu/tieba/ni9;");
+                return;
+            }
+        }
+        c = BdUniqueId.gen();
+        d = 3;
+        e = false;
+    }
+
+    @Override // com.baidu.tieba.oi
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return c;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public ni9(VipSpecialList vipSpecialList) {
+        List<VipSpecialItem> list;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vipSpecialList};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        c();
-    }
-
-    public static synchronized ni9 b() {
-        InterceptResult invokeV;
-        ni9 ni9Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (ni9.class) {
-                if (c == null) {
-                    c = new ni9();
-                }
-                ni9Var = c;
-            }
-            return ni9Var;
-        }
-        return (ni9) invokeV.objValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.a == null) {
-                gz4.k();
-                this.a = gz4.i("tb.pb_mark");
-            }
-            if (this.b == null) {
-                gz4.k();
-                this.b = gz4.i("tb.pb_normal");
-            }
-        }
-    }
-
-    public byte[] a(String str, boolean z) {
-        InterceptResult invokeLZ;
-        m9.b<byte[]> h;
-        byte[] bArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
-            if (UbsABTestHelper.isNoCachePb()) {
-                return null;
-            }
-            if (z) {
-                m9<byte[]> m9Var = this.a;
-                if (m9Var != null && str != null) {
-                    h = m9Var.h(str);
-                }
-                h = null;
+        if (vipSpecialList != null && (list = vipSpecialList.item) != null && list.size() > 0) {
+            String str2 = vipSpecialList.card_id;
+            mi9 mi9Var = new mi9();
+            this.a = mi9Var;
+            mi9Var.e(4);
+            this.a.d(vipSpecialList.class_name);
+            this.a.f(vipSpecialList.class_url_name);
+            this.a.g(vipSpecialList.class_url);
+            if (TbadkCoreApplication.isLogin()) {
+                str = TbadkCoreApplication.getCurrentAccount();
             } else {
-                m9<byte[]> m9Var2 = this.b;
-                if (m9Var2 != null && str != null) {
-                    h = m9Var2.h(str);
-                }
-                h = null;
+                str = SevenZipUtils.FILE_NAME_TEMP;
             }
-            if (h == null || (bArr = h.b) == null) {
-                return null;
+            if (StringUtils.isNull(f) || !f.equals(str)) {
+                e = false;
+                f = str;
             }
-            return bArr;
-        }
-        return (byte[]) invokeLZ.objValue;
-    }
-
-    public void d(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
-            if (z) {
-                m9<byte[]> m9Var = this.a;
-                if (m9Var != null && str != null) {
-                    m9Var.i(str, new byte[0], 0L);
+            this.b = new ArrayList();
+            for (int i3 = 0; i3 < vipSpecialList.item.size(); i3++) {
+                this.b.add(new oi9(vipSpecialList.item.get(i3)));
+                if (e) {
+                    if (i3 == vipSpecialList.item.size() - 1 && vipSpecialList.item.size() > d) {
+                        this.b.add(new oi9(true, true));
+                    }
+                } else if (i3 == d - 1 && vipSpecialList.item.size() > d) {
+                    this.b.add(new oi9(true, false));
                     return;
                 }
-                return;
-            }
-            m9<byte[]> m9Var2 = this.b;
-            if (m9Var2 != null && str != null) {
-                m9Var2.i(str, new byte[0], 0L);
-            }
-        }
-    }
-
-    public void f(String str, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, bArr) == null) && bArr != null && str != null) {
-            c();
-            this.a.e(str, bArr, 86400000L);
-        }
-    }
-
-    public void e(String str, boolean z, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Boolean.valueOf(z), bArr}) == null) && str != null) {
-            c();
-            if (z) {
-                this.a.e(str, bArr, 86400000L);
-            } else {
-                this.b.e(str, bArr, 86400000L);
             }
         }
     }

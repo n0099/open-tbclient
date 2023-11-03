@@ -16,19 +16,19 @@ import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
 import com.baidu.tbadk.switchs.UseHttpdnsSdkSwitch;
 import com.baidu.tbadk.task.TbSocketMessageTask;
-import com.baidu.tieba.db5;
-import com.baidu.tieba.er5;
-import com.baidu.tieba.h5;
-import com.baidu.tieba.hb5;
-import com.baidu.tieba.j6;
-import com.baidu.tieba.jb5;
-import com.baidu.tieba.kb5;
-import com.baidu.tieba.lb5;
-import com.baidu.tieba.m5;
-import com.baidu.tieba.o5;
-import com.baidu.tieba.on5;
-import com.baidu.tieba.p5;
-import com.baidu.tieba.zh5;
+import com.baidu.tieba.bc5;
+import com.baidu.tieba.c6;
+import com.baidu.tieba.dc5;
+import com.baidu.tieba.e6;
+import com.baidu.tieba.ec5;
+import com.baidu.tieba.f6;
+import com.baidu.tieba.fc5;
+import com.baidu.tieba.ip5;
+import com.baidu.tieba.oj5;
+import com.baidu.tieba.x5;
+import com.baidu.tieba.xb5;
+import com.baidu.tieba.ys5;
+import com.baidu.tieba.z6;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes4.dex */
@@ -64,25 +64,25 @@ public class InitWebsocketBaseTask extends LaunchTask {
         arrayList.add(new BasicNameValuePair("cuid", TbadkCoreApplication.getUniqueIdentifier()));
         new UseHttpdnsSdkSwitch();
         if (UseHttpdnsSdkSwitch.isOn()) {
-            h5.h(TiebaIMConfig.url);
+            x5.h(TiebaIMConfig.url);
         } else {
-            String h = db5.f().h();
+            String h = xb5.f().h();
             if (TextUtils.isEmpty(h)) {
-                h5.h(TiebaIMConfig.url);
+                x5.h(TiebaIMConfig.url);
             } else {
-                h5.h(h);
+                x5.h(h);
             }
         }
-        h5.e(TiebaIMConfig.wsExtensions);
-        h5.f(arrayList);
-        BdSocketDaemonService.setLinkServiceDisconnectCallBack(new p5() { // from class: com.baidu.searchbox.task.sync.appcreate.InitWebsocketBaseTask.3
-            @Override // com.baidu.tieba.p5
+        x5.e(TiebaIMConfig.wsExtensions);
+        x5.f(arrayList);
+        BdSocketDaemonService.setLinkServiceDisconnectCallBack(new f6() { // from class: com.baidu.searchbox.task.sync.appcreate.InitWebsocketBaseTask.3
+            @Override // com.baidu.tieba.f6
             public void onLinkServiceDisconnect() {
-                er5.e().c(new er5.b() { // from class: com.baidu.searchbox.task.sync.appcreate.InitWebsocketBaseTask.3.1
-                    @Override // com.baidu.tieba.er5.b
+                ys5.e().c(new ys5.b() { // from class: com.baidu.searchbox.task.sync.appcreate.InitWebsocketBaseTask.3.1
+                    @Override // com.baidu.tieba.ys5.b
                     public void onResult(boolean z) {
                         if (!z) {
-                            zh5.b(0, 0, 0, 1, 8);
+                            oj5.b(0, 0, 0, 1, 8);
                             BdSocketLinkService.startService(false, "restart");
                         }
                     }
@@ -90,7 +90,7 @@ public class InitWebsocketBaseTask extends LaunchTask {
             }
         });
         BdSocketLinkService.init();
-        zh5.b(0, 0, 0, 1, 9);
+        oj5.b(0, 0, 0, 1, 9);
         if (PermissionUtil.isAgreePrivacyPolicy()) {
             BdSocketLinkService.startService(false, "TiebaImApplication init");
         }
@@ -100,32 +100,32 @@ public class InitWebsocketBaseTask extends LaunchTask {
     public void initWebsocketBase() {
         long currentTimeMillis = System.currentTimeMillis();
         BdSocketLinkService.setAvailable(true);
-        BdSocketLinkService.setCanOpenWebSocket(new o5() { // from class: com.baidu.searchbox.task.sync.appcreate.InitWebsocketBaseTask.2
-            @Override // com.baidu.tieba.o5
+        BdSocketLinkService.setCanOpenWebSocket(new e6() { // from class: com.baidu.searchbox.task.sync.appcreate.InitWebsocketBaseTask.2
+            @Override // com.baidu.tieba.e6
             public boolean canOpenWebSocket() {
                 return !TbadkCoreApplication.getInst().isExitAppCloseWebSocket();
             }
         });
         int[] imTimeOut = TbadkCoreApplication.getInst().getImTimeOut();
         if (imTimeOut != null && imTimeOut.length == 3) {
-            j6.c().d(imTimeOut[0], imTimeOut[1], imTimeOut[2]);
+            z6.c().d(imTimeOut[0], imTimeOut[1], imTimeOut[2]);
         }
         int[] socketReconnStratgy = TbadkCoreApplication.getInst().getSocketReconnStratgy();
         if (socketReconnStratgy != null && socketReconnStratgy.length > 0) {
-            h5.g(socketReconnStratgy);
+            x5.g(socketReconnStratgy);
         }
-        hb5.j().k();
-        MessageManager.getInstance().getSocketClient().G(hb5.j());
-        MessageManager.getInstance().addResponsedMessageRule(new lb5());
+        bc5.j().k();
+        MessageManager.getInstance().getSocketClient().G(bc5.j());
+        MessageManager.getInstance().addResponsedMessageRule(new fc5());
         try {
-            m5.a().d(TiebaIMConfig.getRSAPublicKey());
+            c6.a().d(TiebaIMConfig.getRSAPublicKey());
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        kb5.j().k();
-        jb5.y().z();
+        ec5.j().k();
+        dc5.y().z();
         initSocket();
-        on5.a().r(System.currentTimeMillis() - currentTimeMillis);
+        ip5.a().r(System.currentTimeMillis() - currentTimeMillis);
     }
 
     public static TbSocketMessageTask registerImScoketTask(int i, Class<? extends SocketResponsedMessage> cls, boolean z) {

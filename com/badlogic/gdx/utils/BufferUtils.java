@@ -1,6 +1,6 @@
 package com.badlogic.gdx.utils;
 
-import com.baidu.tieba.r2;
+import com.baidu.tieba.h3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -93,7 +93,7 @@ public final class BufferUtils {
                 return;
             }
         }
-        new r2();
+        new h3();
     }
 
     public BufferUtils() {

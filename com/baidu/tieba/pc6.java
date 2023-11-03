@@ -1,191 +1,184 @@
 package com.baidu.tieba;
 
-import androidx.annotation.FloatRange;
-import androidx.annotation.RestrictTo;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.ala.AlaSharedPrefConfig;
+import com.baidu.ala.AlaSharedPrefHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.mc6;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.browser.BrowserHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class pc6 {
+public class pc6 extends bi<fd6, CardViewHolder<de6>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public double a;
-    public double b;
-    public boolean c;
-    public double d;
-    public double e;
-    public double f;
-    public double g;
-    public double h;
-    public double i;
-    public final mc6.h j;
+    public TbPageContext a;
+    public TextView b;
+    public String c;
+    public String d;
 
-    public pc6(float f) {
+    public final void A(wc6 wc6Var, de6 de6Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, wc6Var, de6Var) != null) || wc6Var == null || de6Var == null) {
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pc6 a;
+
+        public a(pc6 pc6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pc6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pc6Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+                return;
+            }
+            this.a.x();
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pc6(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), fd6.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f)};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = Math.sqrt(1500.0d);
-        this.b = 0.5d;
-        this.c = false;
-        this.i = Double.MAX_VALUE;
-        this.j = new mc6.h();
-        this.i = f;
+        this.a = tbPageContext;
     }
 
-    public float a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: y */
+    public CardViewHolder<de6> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return (float) this.i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, viewGroup)) == null) {
+            return new CardViewHolder<>(new de6(this.a));
         }
-        return invokeV.floatValue;
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    public final void b() {
+    public final void B(TextView textView, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.c) {
-            return;
-        }
-        if (this.i != Double.MAX_VALUE) {
-            double d = this.b;
-            if (d > 1.0d) {
-                double d2 = this.a;
-                this.f = ((-d) * d2) + (d2 * Math.sqrt((d * d) - 1.0d));
-                double d3 = this.b;
-                double d4 = this.a;
-                this.g = ((-d3) * d4) - (d4 * Math.sqrt((d3 * d3) - 1.0d));
-            } else if (d >= 0.0d && d < 1.0d) {
-                this.h = this.a * Math.sqrt(1.0d - (d * d));
+        if ((interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textView, str, z) == null) && textView != null && this.a != null) {
+            if (z) {
+                textView.setText("");
+                Drawable drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080201);
+                drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+                textView.setCompoundDrawables(null, null, drawable, null);
+                return;
             }
-            this.c = true;
-            return;
-        }
-        throw new IllegalStateException("Error: Final position of the spring must be set before the animation starts");
-    }
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public boolean c(float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            if (Math.abs(f2) < this.e && Math.abs(f - a()) < this.d) {
-                return true;
-            }
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public pc6 d(@FloatRange(from = 0.0d) float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048579, this, f)) == null) {
-            if (f >= 0.0f) {
-                this.b = f;
-                this.c = false;
-                return this;
-            }
-            throw new IllegalArgumentException("Damping ratio must be non-negative");
-        }
-        return (pc6) invokeF.objValue;
-    }
-
-    public pc6 e(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048580, this, f)) == null) {
-            this.i = f;
-            return this;
-        }
-        return (pc6) invokeF.objValue;
-    }
-
-    public pc6 f(@FloatRange(from = 0.0d, fromInclusive = false) float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
-            if (f > 0.0f) {
-                this.a = Math.sqrt(f);
-                this.c = false;
-                return this;
-            }
-            throw new IllegalArgumentException("Spring stiffness constant must be positive.");
-        }
-        return (pc6) invokeF.objValue;
-    }
-
-    public void g(double d) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Double.valueOf(d)}) == null) {
-            double abs = Math.abs(d);
-            this.d = abs;
-            this.e = abs * 62.5d;
-        }
-    }
-
-    public mc6.h h(double d, double d2, long j) {
-        InterceptResult invokeCommon;
-        double cos;
-        double d3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Double.valueOf(d), Double.valueOf(d2), Long.valueOf(j)})) == null) {
-            b();
-            double d4 = j / 1000.0d;
-            double d5 = d - this.i;
-            double d6 = this.b;
-            if (d6 > 1.0d) {
-                double d7 = this.g;
-                double d8 = this.f;
-                double d9 = d5 - (((d7 * d5) - d2) / (d7 - d8));
-                double d10 = ((d5 * d7) - d2) / (d7 - d8);
-                d3 = (Math.pow(2.718281828459045d, d7 * d4) * d9) + (Math.pow(2.718281828459045d, this.f * d4) * d10);
-                double d11 = this.g;
-                double pow = d9 * d11 * Math.pow(2.718281828459045d, d11 * d4);
-                double d12 = this.f;
-                cos = pow + (d10 * d12 * Math.pow(2.718281828459045d, d12 * d4));
-            } else if (d6 == 1.0d) {
-                double d13 = this.a;
-                double d14 = d2 + (d13 * d5);
-                double d15 = d5 + (d14 * d4);
-                d3 = Math.pow(2.718281828459045d, (-d13) * d4) * d15;
-                double pow2 = d15 * Math.pow(2.718281828459045d, (-this.a) * d4);
-                double d16 = this.a;
-                cos = (d14 * Math.pow(2.718281828459045d, (-d16) * d4)) + (pow2 * (-d16));
+            if (str != null) {
+                textView.setText(str);
             } else {
-                double d17 = 1.0d / this.h;
-                double d18 = this.a;
-                double d19 = d17 * ((d6 * d18 * d5) + d2);
-                double pow3 = Math.pow(2.718281828459045d, (-d6) * d18 * d4) * ((Math.cos(this.h * d4) * d5) + (Math.sin(this.h * d4) * d19));
-                double d20 = this.a;
-                double d21 = this.b;
-                double d22 = (-d20) * pow3 * d21;
-                double pow4 = Math.pow(2.718281828459045d, (-d21) * d20 * d4);
-                double d23 = this.h;
-                double sin = (-d23) * d5 * Math.sin(d23 * d4);
-                double d24 = this.h;
-                cos = d22 + (pow4 * (sin + (d19 * d24 * Math.cos(d24 * d4))));
-                d3 = pow3;
+                textView.setText("");
             }
-            mc6.h hVar = this.j;
-            hVar.a = (float) (d3 + this.i);
-            hVar.b = (float) cos;
-            return hVar;
+            textView.setCompoundDrawables(null, null, null, null);
         }
-        return (mc6.h) invokeCommon.objValue;
+    }
+
+    public final void u(fd6 fd6Var, de6 de6Var) {
+        wc6 c;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, fd6Var, de6Var) == null) && (c = fd6Var.c()) != null && de6Var != null) {
+            this.b = de6Var.p();
+            this.c = c.b().user_id;
+            A(c, de6Var);
+            de6Var.A(8);
+            de6Var.B(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0272));
+            de6Var.l(this.a, TbadkCoreApplication.getInst().getSkinType());
+        }
+    }
+
+    public final void x() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            AlaSharedPrefHelper.getInstance().putBoolean(AlaSharedPrefConfig.ALA_MY_LIVE_PRIVILEGE_HAS_ENTERED, true);
+            B(this.b, this.d, false);
+            StatisticItem statisticItem = new StatisticItem("c13333");
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            TiebaStatic.log(statisticItem);
+            String string = SharedPrefHelper.getInstance().getString("ala_personal_privilege_detail_url", "http://lumotian.rmb.rmb.otp.baidu.com/cashliveui/privilege.html");
+            if (string == null) {
+                return;
+            }
+            if (string.endsWith("/")) {
+                string = string.substring(0, string.length() - 1);
+            }
+            String str = this.c;
+            StringBuilder sb = new StringBuilder();
+            sb.append("id=");
+            sb.append(str);
+            if (!string.contains("?")) {
+                sb.insert(0, "?");
+            } else {
+                sb.insert(0, "&");
+            }
+            sb.insert(0, string);
+            BrowserHelper.startWebActivity(this.a.getPageActivity(), sb.toString());
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: z */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, fd6 fd6Var, CardViewHolder<de6> cardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), view2, viewGroup, fd6Var, cardViewHolder})) == null) {
+            if (cardViewHolder.a() == null) {
+                return null;
+            }
+            u(fd6Var, cardViewHolder.a());
+            cardViewHolder.a().i().setOnClickListener(new a(this));
+            return cardViewHolder.a().i();
+        }
+        return (View) invokeCommon.objValue;
     }
 }

@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.qz5;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.wx5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -70,12 +70,12 @@ public class YoungsterVerifyUtils {
         }
     }
 
-    public static String getVerifyByYoungsterPasswordData(wx5 wx5Var) {
+    public static String getVerifyByYoungsterPasswordData(qz5 qz5Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, wx5Var)) == null) {
-            if (wx5Var != null && !StringUtils.isNull(wx5Var.c()) && !StringUtils.isNull(wx5Var.b()) && !StringUtils.isNull(wx5Var.a())) {
-                return wx5Var.c() + "," + wx5Var.b() + "," + wx5Var.a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, qz5Var)) == null) {
+            if (qz5Var != null && !StringUtils.isNull(qz5Var.c()) && !StringUtils.isNull(qz5Var.b()) && !StringUtils.isNull(qz5Var.a())) {
+                return qz5Var.c() + "," + qz5Var.b() + "," + qz5Var.a();
             }
             return "";
         }
@@ -100,7 +100,7 @@ public class YoungsterVerifyUtils {
         }
     }
 
-    public static wx5 getYoungsterPasswordDataByVerify(String str) {
+    public static qz5 getYoungsterPasswordDataByVerify(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
@@ -111,9 +111,9 @@ public class YoungsterVerifyUtils {
             if (split.length <= 2) {
                 return null;
             }
-            return new wx5(split[0], split[1], split[2]);
+            return new qz5(split[0], split[1], split[2]);
         }
-        return (wx5) invokeL.objValue;
+        return (qz5) invokeL.objValue;
     }
 
     public static boolean passwordVerified(String str) {
@@ -128,7 +128,7 @@ public class YoungsterVerifyUtils {
                 clearYoungsterVerify();
                 return false;
             }
-            wx5 youngsterPasswordDataByVerify = getYoungsterPasswordDataByVerify(string);
+            qz5 youngsterPasswordDataByVerify = getYoungsterPasswordDataByVerify(string);
             if (youngsterPasswordDataByVerify == null) {
                 return false;
             }
@@ -141,7 +141,7 @@ public class YoungsterVerifyUtils {
         AccountData currentAccountInfo;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65543, null, str) == null) && !StringUtils.isNull(str) && (currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo()) != null) {
-            SharedPrefHelper.getInstance().putString("key_youngster_verify", getVerifyByYoungsterPasswordData(new wx5(currentAccountInfo.getID(), currentAccountInfo.getPortrait(), str)));
+            SharedPrefHelper.getInstance().putString("key_youngster_verify", getVerifyByYoungsterPasswordData(new qz5(currentAccountInfo.getID(), currentAccountInfo.getPortrait(), str)));
         }
     }
 }

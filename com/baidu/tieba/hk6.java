@@ -1,34 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
+import android.webkit.WebView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 /* loaded from: classes6.dex */
-public abstract class hk6 extends BaseCardInfo {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public String mBottomLink;
-    public String mBottomText;
-    public String mGroupTitle;
-    public int mRightIconResId;
-    public boolean showBottomDivider;
-    public boolean showTopDivider;
-
-    public hk6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.showBottomDivider = true;
-    }
+public interface hk6 {
+    @Nullable
+    WebResourceResponse a(@NonNull WebView webView, @NonNull WebResourceRequest webResourceRequest);
 }

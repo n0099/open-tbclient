@@ -1,28 +1,32 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.ViewGroup;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.widget.ad.AbsDownloadGuide;
+import com.baidu.tbadk.widget.ad.DownloadGuideFull;
+import com.baidu.tbadk.widget.ad.DownloadGuidePart;
+import com.baidu.tieba.feed.widget.roundcorners.RoundFrameLayout;
+import com.baidu.tieba.t27;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
+import tbclient.PbContent;
 /* loaded from: classes8.dex */
-public final class vn6 implements l77 {
+public final class vn6 implements t27.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.l77
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? CommonStatisticKey.KEY_CONCERN_YY_LIVE_AVATER_CLICK : (String) invokeV.objValue;
-    }
+    public RoundFrameLayout a;
+    public AbsDownloadGuide b;
+    public String c;
 
     public vn6() {
         Interceptable interceptable = $ic;
@@ -34,48 +38,124 @@ public final class vn6 implements l77 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.c = "part";
+    }
+
+    @Override // com.baidu.tieba.t27.s
+    public void b(ViewGroup view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            Intrinsics.checkNotNullParameter(view2, "view");
+            AbsDownloadGuide absDownloadGuide = this.b;
+            if (absDownloadGuide == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("absDownloadGuide");
+                absDownloadGuide = null;
+            }
+            absDownloadGuide.q();
         }
     }
 
-    @Override // com.baidu.tieba.l77
-    public Map<String, String> a(v27 businessInfo) {
+    @Override // com.baidu.tieba.t27.g
+    public ViewGroup create(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            Map<String, String> a = businessInfo.a();
-            hashMap.put("obj_type", b(businessInfo));
-            String str = a.get("live_type");
-            String str2 = "";
-            if (str == null) {
-                str = "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            this.a = new RoundFrameLayout(context);
+            int dimens = BdUtilHelper.getDimens(context, R.dimen.tbds21);
+            RoundFrameLayout roundFrameLayout = this.a;
+            if (roundFrameLayout == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("roundLayout");
+                roundFrameLayout = null;
             }
-            hashMap.put("obj_param1", str);
-            String str3 = a.get("live_app_id");
-            if (str3 != null) {
-                str2 = str3;
+            roundFrameLayout.setRadiusPx(0, 0, dimens, dimens);
+            this.b = new DownloadGuidePart(context);
+            RoundFrameLayout roundFrameLayout2 = this.a;
+            if (roundFrameLayout2 == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("roundLayout");
+                roundFrameLayout2 = null;
             }
-            hashMap.put(TiebaStatic.Params.OBJ_PARAM2, str2);
-            return hashMap;
+            AbsDownloadGuide absDownloadGuide = this.b;
+            if (absDownloadGuide == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("absDownloadGuide");
+                absDownloadGuide = null;
+            }
+            roundFrameLayout2.addView(absDownloadGuide);
+            RoundFrameLayout roundFrameLayout3 = this.a;
+            if (roundFrameLayout3 == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("roundLayout");
+                return null;
+            }
+            return roundFrameLayout3;
         }
-        return (Map) invokeL.objValue;
+        return (ViewGroup) invokeL.objValue;
     }
 
-    public final String b(v27 v27Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.t27.g
+    public void g(ViewGroup view2, s57 downloadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v27Var)) == null) {
-            Map<String, String> a = v27Var.a();
-            if (Intrinsics.areEqual(a.get("thread_type"), PayUVEventType.PAY_FULL_SPLIT_ORDER_MOTIFY_BTN_CLICK)) {
-                return "3";
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, downloadData) == null) {
+            Intrinsics.checkNotNullParameter(view2, "view");
+            Intrinsics.checkNotNullParameter(downloadData, "downloadData");
+            Map<String, String> a = downloadData.a().a();
+            String b = downloadData.b();
+            AbsDownloadGuide absDownloadGuide = null;
+            if (!Intrinsics.areEqual(b, this.c)) {
+                RoundFrameLayout roundFrameLayout = this.a;
+                if (roundFrameLayout == null) {
+                    Intrinsics.throwUninitializedPropertyAccessException("roundLayout");
+                    roundFrameLayout = null;
+                }
+                AbsDownloadGuide absDownloadGuide2 = this.b;
+                if (absDownloadGuide2 == null) {
+                    Intrinsics.throwUninitializedPropertyAccessException("absDownloadGuide");
+                    absDownloadGuide2 = null;
+                }
+                roundFrameLayout.removeView(absDownloadGuide2);
+                if (Intrinsics.areEqual(b, "part")) {
+                    Context context = view2.getContext();
+                    Intrinsics.checkNotNullExpressionValue(context, "view.context");
+                    this.b = new DownloadGuidePart(context);
+                } else if (Intrinsics.areEqual(b, "full")) {
+                    Context context2 = view2.getContext();
+                    Intrinsics.checkNotNullExpressionValue(context2, "view.context");
+                    this.b = new DownloadGuideFull(context2);
+                }
+                RoundFrameLayout roundFrameLayout2 = this.a;
+                if (roundFrameLayout2 == null) {
+                    Intrinsics.throwUninitializedPropertyAccessException("roundLayout");
+                    roundFrameLayout2 = null;
+                }
+                AbsDownloadGuide absDownloadGuide3 = this.b;
+                if (absDownloadGuide3 == null) {
+                    Intrinsics.throwUninitializedPropertyAccessException("absDownloadGuide");
+                    absDownloadGuide3 = null;
+                }
+                roundFrameLayout2.addView(absDownloadGuide3);
             }
-            if (!Intrinsics.areEqual(a.get("thread_type"), PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_PAGE_SHOW) && !Intrinsics.areEqual(a.get("thread_type"), PayUVEventType.PAY_AMOUNT_FULL_PAGE_CHANNEL_CLICK) && !Intrinsics.areEqual(a.get("thread_type"), PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_CLOSE_BTN_CLICK)) {
-                return "2";
+            ThreadData threadData = new ThreadData();
+            ArrayList arrayList = new ArrayList();
+            PbContent.Builder builder = new PbContent.Builder();
+            builder.type = 35;
+            builder.tiebaplus_info = ro6.a(downloadData.a());
+            PbContent build = builder.build(true);
+            Intrinsics.checkNotNullExpressionValue(build, "contentBuilder.build(true)");
+            arrayList.add(build);
+            threadData.setRichAbstractList(arrayList);
+            threadData.isTiebaPlusAdThread = Intrinsics.areEqual(a.get("is_tie_plus_ad"), "1");
+            threadData.tiebaPlusOrderId = a.get("tie_plus_order_id");
+            threadData.tid = a.get("thread_id");
+            threadData.setFid(JavaTypesHelper.toLong(a.get("forum_id"), 0L));
+            AbsDownloadGuide absDownloadGuide4 = this.b;
+            if (absDownloadGuide4 == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("absDownloadGuide");
+            } else {
+                absDownloadGuide = absDownloadGuide4;
             }
-            return "1";
+            absDownloadGuide.setData(threadData);
         }
-        return (String) invokeL.objValue;
     }
 }

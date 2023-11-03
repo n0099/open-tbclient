@@ -112,7 +112,7 @@ public final class MediaPlayerController extends PlayerProxy implements Handler.
         }
 
         /* renamed from: onCompletion$lambda-0  reason: not valid java name */
-        public static final void m56onCompletion$lambda0(MediaPlayerController playerController, String timeStamp, String prepareTime) {
+        public static final void m57onCompletion$lambda0(MediaPlayerController playerController, String timeStamp, String prepareTime) {
             Intrinsics.checkNotNullParameter(playerController, "$playerController");
             Intrinsics.checkNotNullParameter(timeStamp, "$timeStamp");
             Intrinsics.checkNotNullParameter(prepareTime, "$prepareTime");
@@ -141,7 +141,7 @@ public final class MediaPlayerController extends PlayerProxy implements Handler.
                     long j = 1000;
                     final String valueOf = String.valueOf(System.currentTimeMillis() / j);
                     final String valueOf2 = String.valueOf(mediaPlayerController.mPrepareTime / j);
-                    mediaPlayerController.mainHandler.post(new Runnable() { // from class: com.baidu.tieba.xg1
+                    mediaPlayerController.mainHandler.post(new Runnable() { // from class: com.baidu.tieba.oh1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -149,7 +149,7 @@ public final class MediaPlayerController extends PlayerProxy implements Handler.
                         public final void run() {
                             Interceptable interceptable = $ic;
                             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                                MediaPlayerController.OnCompletionListener.m56onCompletion$lambda0(MediaPlayerController.this, valueOf, valueOf2);
+                                MediaPlayerController.OnCompletionListener.m57onCompletion$lambda0(MediaPlayerController.this, valueOf, valueOf2);
                             }
                         }
                     });
@@ -169,7 +169,7 @@ public final class MediaPlayerController extends PlayerProxy implements Handler.
         }
 
         /* renamed from: onError$lambda-0  reason: not valid java name */
-        public static final void m57onError$lambda0(MediaPlayerController playerController, RuntimeException exception, String endTime, String glVersion, String filePath, String timeStamp) {
+        public static final void m58onError$lambda0(MediaPlayerController playerController, RuntimeException exception, String endTime, String glVersion, String filePath, String timeStamp) {
             Intrinsics.checkNotNullParameter(playerController, "$playerController");
             Intrinsics.checkNotNullParameter(exception, "$exception");
             Intrinsics.checkNotNullParameter(endTime, "$endTime");
@@ -209,7 +209,7 @@ public final class MediaPlayerController extends PlayerProxy implements Handler.
             final String str4 = str3;
             final String str5 = str;
             final String str6 = str2;
-            mediaPlayerController.mainHandler.post(new Runnable() { // from class: com.baidu.tieba.yg1
+            mediaPlayerController.mainHandler.post(new Runnable() { // from class: com.baidu.tieba.ph1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -217,7 +217,7 @@ public final class MediaPlayerController extends PlayerProxy implements Handler.
                 public final void run() {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                        MediaPlayerController.OnErrorListener.m57onError$lambda0(MediaPlayerController.this, runtimeException, str4, str5, str6, valueOf);
+                        MediaPlayerController.OnErrorListener.m58onError$lambda0(MediaPlayerController.this, runtimeException, str4, str5, str6, valueOf);
                     }
                 }
             });
@@ -240,7 +240,7 @@ public final class MediaPlayerController extends PlayerProxy implements Handler.
         }
 
         /* renamed from: onInfo$lambda-0  reason: not valid java name */
-        public static final void m58onInfo$lambda0(MediaPlayerController playerController) {
+        public static final void m59onInfo$lambda0(MediaPlayerController playerController) {
             Intrinsics.checkNotNullParameter(playerController, "$playerController");
             OnVideoStartedListener onVideoStartedListener = playerController.mOnVideoStartedListener;
             if (onVideoStartedListener != null) {
@@ -256,7 +256,7 @@ public final class MediaPlayerController extends PlayerProxy implements Handler.
                 return true;
             }
             if (i == 3) {
-                mediaPlayerController.mainHandler.post(new Runnable() { // from class: com.baidu.tieba.wg1
+                mediaPlayerController.mainHandler.post(new Runnable() { // from class: com.baidu.tieba.nh1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -264,7 +264,7 @@ public final class MediaPlayerController extends PlayerProxy implements Handler.
                     public final void run() {
                         Interceptable interceptable = $ic;
                         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                            MediaPlayerController.OnInfoListener.m58onInfo$lambda0(MediaPlayerController.this);
+                            MediaPlayerController.OnInfoListener.m59onInfo$lambda0(MediaPlayerController.this);
                         }
                     }
                 });
@@ -596,7 +596,7 @@ public final class MediaPlayerController extends PlayerProxy implements Handler.
                     LogUtilKt.logD(TAG, "prepareAsync-IllegalStateException:" + e.getLocalizedMessage());
                     LogUtilKt.printException(e);
                     final String valueOf = String.valueOf(System.currentTimeMillis() / ((long) 1000));
-                    this.mainHandler.post(new Runnable() { // from class: com.baidu.tieba.zg1
+                    this.mainHandler.post(new Runnable() { // from class: com.baidu.tieba.qh1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -604,7 +604,7 @@ public final class MediaPlayerController extends PlayerProxy implements Handler.
                         public final void run() {
                             Interceptable interceptable = $ic;
                             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                                MediaPlayerController.m55prepareAsync$lambda2(MediaPlayerController.this, e, valueOf);
+                                MediaPlayerController.m56prepareAsync$lambda2(MediaPlayerController.this, e, valueOf);
                             }
                         }
                     });
@@ -614,7 +614,7 @@ public final class MediaPlayerController extends PlayerProxy implements Handler.
     }
 
     /* renamed from: prepareAsync$lambda-2  reason: not valid java name */
-    public static final void m55prepareAsync$lambda2(MediaPlayerController this$0, IllegalStateException e, String timeStamp) {
+    public static final void m56prepareAsync$lambda2(MediaPlayerController this$0, IllegalStateException e, String timeStamp) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         Intrinsics.checkNotNullParameter(e, "$e");
         Intrinsics.checkNotNullParameter(timeStamp, "$timeStamp");

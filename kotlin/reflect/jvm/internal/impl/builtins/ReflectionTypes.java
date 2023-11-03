@@ -28,7 +28,7 @@ import kotlin.reflect.jvm.internal.impl.types.KotlinTypeFactory;
 import kotlin.reflect.jvm.internal.impl.types.StarProjectionImpl;
 import kotlin.reflect.jvm.internal.impl.types.TypeConstructor;
 import kotlin.text.StringsKt__StringsJVMKt;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class ReflectionTypes {
     public static final /* synthetic */ KProperty[] $$delegatedProperties = {Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(ReflectionTypes.class), "kClass", "getKClass()Lorg/jetbrains/kotlin/descriptors/ClassDescriptor;")), Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(ReflectionTypes.class), "kProperty", "getKProperty()Lorg/jetbrains/kotlin/descriptors/ClassDescriptor;")), Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(ReflectionTypes.class), "kProperty0", "getKProperty0()Lorg/jetbrains/kotlin/descriptors/ClassDescriptor;")), Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(ReflectionTypes.class), "kProperty1", "getKProperty1()Lorg/jetbrains/kotlin/descriptors/ClassDescriptor;")), Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(ReflectionTypes.class), "kProperty2", "getKProperty2()Lorg/jetbrains/kotlin/descriptors/ClassDescriptor;")), Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(ReflectionTypes.class), "kMutableProperty0", "getKMutableProperty0()Lorg/jetbrains/kotlin/descriptors/ClassDescriptor;")), Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(ReflectionTypes.class), "kMutableProperty1", "getKMutableProperty1()Lorg/jetbrains/kotlin/descriptors/ClassDescriptor;")), Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(ReflectionTypes.class), "kMutableProperty2", "getKMutableProperty2()Lorg/jetbrains/kotlin/descriptors/ClassDescriptor;"))};
     public static final Companion Companion = new Companion(null);
@@ -51,7 +51,7 @@ public final class ReflectionTypes {
         return this.kClass$delegate.getValue(this, $$delegatedProperties[0]);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class ClassLookup {
         public final int numberOfTypeParameters;
 
@@ -64,7 +64,7 @@ public final class ReflectionTypes {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Companion {
         public Companion() {
         }
@@ -110,11 +110,11 @@ public final class ReflectionTypes {
     public final ClassDescriptor find(String str, int i) {
         Name identifier = Name.identifier(str);
         Intrinsics.checkExpressionValueIsNotNull(identifier, "Name.identifier(className)");
-        ClassifierDescriptor mo2108getContributedClassifier = getKotlinReflectScope().mo2108getContributedClassifier(identifier, NoLookupLocation.FROM_REFLECTION);
-        if (!(mo2108getContributedClassifier instanceof ClassDescriptor)) {
-            mo2108getContributedClassifier = null;
+        ClassifierDescriptor mo2112getContributedClassifier = getKotlinReflectScope().mo2112getContributedClassifier(identifier, NoLookupLocation.FROM_REFLECTION);
+        if (!(mo2112getContributedClassifier instanceof ClassDescriptor)) {
+            mo2112getContributedClassifier = null;
         }
-        ClassDescriptor classDescriptor = (ClassDescriptor) mo2108getContributedClassifier;
+        ClassDescriptor classDescriptor = (ClassDescriptor) mo2112getContributedClassifier;
         if (classDescriptor == null) {
             return this.notFoundClasses.getClass(new ClassId(ReflectionTypesKt.getKOTLIN_REFLECT_FQ_NAME(), identifier), CollectionsKt__CollectionsJVMKt.listOf(Integer.valueOf(i)));
         }

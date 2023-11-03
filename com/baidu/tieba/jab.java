@@ -1,30 +1,66 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.webkit.WebView;
+import androidx.annotation.NonNull;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.vcode.VcodeTool;
+import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tieba.write.vcode.newVcode.NewVcodeView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 /* loaded from: classes6.dex */
-public final class jab {
+public class jab implements iab {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public final NewVcodeView a;
+    @NonNull
+    public final NewWriteModel b;
+    public final NewWriteModel.d c;
+
+    @Override // com.baidu.tieba.iab
+    public void c(NewWriteModel.d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.iab
+    public void e(boolean z, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(1048580, this, z, str) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.iab
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        }
+    }
 
     /* loaded from: classes6.dex */
-    public static class a extends pab {
+    public class a implements NewWriteModel.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Map a;
-        public final /* synthetic */ com.baidu.ubs.analytics.a.a b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ String d;
+        public final /* synthetic */ jab a;
 
-        public a(Map map, com.baidu.ubs.analytics.a.a aVar, String str, String str2) {
+        public a(jab jabVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {map, aVar, str, str2};
+                Object[] objArr = {jabVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -34,58 +70,127 @@ public final class jab {
                     return;
                 }
             }
-            this.a = map;
-            this.b = aVar;
-            this.c = str;
-            this.d = str2;
+            this.a = jabVar;
         }
 
-        @Override // com.baidu.tieba.pab
-        public final void a() {
-            String str;
+        @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
+        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, g95 g95Var, WriteData writeData, AntiData antiData) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a != null) {
-                    StringBuffer stringBuffer = new StringBuffer();
-                    stringBuffer.append("{");
-                    for (Map.Entry entry : this.a.entrySet()) {
-                        stringBuffer.append("\"");
-                        stringBuffer.append(entry.getKey());
-                        stringBuffer.append("\":\"");
-                        stringBuffer.append(entry.getValue().toString().replace("\"", "\\\""));
-                        stringBuffer.append("\",");
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, g95Var, writeData, antiData}) == null) {
+                this.a.a.showPostThreadLoadingView(false);
+                if (z) {
+                    Intent intent = new Intent();
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
+                    intent.putExtras(bundle);
+                    xqa.k(writeData);
+                    aua.a(writeData, postWriteCallBackData.getThreadId());
+                    this.a.a.getContext().setResult(-1, intent);
+                    this.a.a.getContext().finish();
+                } else if (g95Var != null && !TextUtils.isEmpty(g95Var.c())) {
+                    if (this.a.a.getWebView() != null) {
+                        this.a.a.getWebView().loadUrl(g95Var.c());
                     }
-                    StringBuffer stringBuffer2 = new StringBuffer(stringBuffer.subSequence(0, stringBuffer.length() - 1));
-                    stringBuffer2.append("}");
-                    this.b.w(stringBuffer2.toString());
-                }
-                try {
-                    this.b.x(mab.e().I());
-                    this.b.u(String.valueOf(System.currentTimeMillis()));
-                    this.b.t(this.c);
-                    com.baidu.ubs.analytics.a.a aVar = this.b;
-                    if (this.d == null) {
-                        str = "";
-                    } else {
-                        str = this.d;
+                } else {
+                    if (postWriteCallBackData != null) {
+                        this.a.a.showToast(false, postWriteCallBackData.getErrorString());
                     }
-                    aVar.s(str);
-                    new n9b().c(this.b);
-                } catch (Exception e) {
-                    if (e.getMessage() != null) {
-                        nab.b(e.getMessage());
-                    }
+                    this.a.a.getContext().finish();
                 }
             }
         }
     }
 
-    public static void a(String str, String str2, String str3, Map<String, String> map) {
+    public jab(@NonNull NewVcodeView newVcodeView, @NonNull NewWriteModel newWriteModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65536, null, str, str2, str3, map) == null) {
-            com.baidu.ubs.analytics.a.a aVar = new com.baidu.ubs.analytics.a.a();
-            aVar.v(str);
-            oab.c(new a(map, aVar, str2, str3));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {newVcodeView, newWriteModel};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        a aVar = new a(this);
+        this.c = aVar;
+        this.a = newVcodeView;
+        this.b = newWriteModel;
+        newWriteModel.m0(aVar);
+    }
+
+    @Override // com.baidu.tieba.iab
+    public boolean b(WebView webView, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str)) == null) {
+            if (TextUtils.isEmpty(str) || !str.contains("objc:jsAiCodeBack")) {
+                return false;
+            }
+            String jsCallback = VcodeTool.getJsCallback(str);
+            if (!TextUtils.isEmpty(jsCallback) && !"0".equals(jsCallback)) {
+                g(jsCallback);
+                return true;
+            }
+            this.a.getContext().finish();
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.iab
+    public void a(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.a.showWebView(false);
+            if (this.b.e0() == null) {
+                return;
+            }
+            String vcodeUrl = this.b.e0().getVcodeUrl();
+            if (!TextUtils.isEmpty(vcodeUrl) && this.a.getWebView() != null) {
+                this.a.getWebView().loadUrl(vcodeUrl);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.iab
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.showPostThreadLoadingView(false);
+            this.b.cancelLoadData();
+        }
+    }
+
+    public final void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            if (!BdUtilHelper.isNetOk()) {
+                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0e61);
+                this.a.getContext().finish();
+            } else if (!TextUtils.isEmpty(str)) {
+                this.a.showPostThreadLoadingView(true);
+                if (this.b.e0() != null) {
+                    this.b.e0().setVcode(str);
+                    this.b.e0().setVcodeType("6");
+                }
+                this.b.p0();
+            } else {
+                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0e61);
+                this.a.getContext().finish();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.iab
+    public void onPageFinished(WebView webView, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, webView, str) == null) {
+            this.a.showWebViewDelay(500);
         }
     }
 }

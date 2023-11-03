@@ -23,14 +23,14 @@ import androidx.annotation.Nullable;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.tieba.ak4;
-import com.baidu.tieba.bj4;
-import com.baidu.tieba.cj4;
-import com.baidu.tieba.fj4;
-import com.baidu.tieba.ij4;
-import com.baidu.tieba.jj4;
-import com.baidu.tieba.kj4;
-import com.baidu.tieba.oj4;
-import com.baidu.tieba.zi4;
+import com.baidu.tieba.bk4;
+import com.baidu.tieba.fk4;
+import com.baidu.tieba.qj4;
+import com.baidu.tieba.rk4;
+import com.baidu.tieba.sj4;
+import com.baidu.tieba.tj4;
+import com.baidu.tieba.wj4;
+import com.baidu.tieba.zj4;
 import com.bumptech.glide.load.engine.GlideException;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.FileDescriptor;
@@ -39,9 +39,9 @@ import java.util.ArrayList;
 import java.util.List;
 import org.aspectj.runtime.reflect.SignatureImpl;
 /* loaded from: classes4.dex */
-public class FragmentActivity extends fj4 implements zi4.b, bj4.a {
+public class FragmentActivity extends wj4 implements qj4.b, sj4.a {
     public final Handler a = new a();
-    public final ij4 b = ij4.b(new b());
+    public final zj4 b = zj4.b(new b());
     public boolean c;
     public boolean d;
     public boolean e;
@@ -54,13 +54,13 @@ public class FragmentActivity extends fj4 implements zi4.b, bj4.a {
     public static final class c {
         public Object a;
         public List<Fragment> b;
-        public ak4<String, oj4> c;
+        public rk4<String, fk4> c;
     }
 
-    public void l(Fragment fragment) {
+    public void m(Fragment fragment) {
     }
 
-    public Object p() {
+    public Object q() {
         return null;
     }
 
@@ -77,7 +77,7 @@ public class FragmentActivity extends fj4 implements zi4.b, bj4.a {
                     super.handleMessage(message);
                     return;
                 }
-                FragmentActivity.this.o();
+                FragmentActivity.this.p();
                 FragmentActivity.this.b.v();
                 return;
             }
@@ -89,28 +89,28 @@ public class FragmentActivity extends fj4 implements zi4.b, bj4.a {
     }
 
     /* loaded from: classes4.dex */
-    public class b extends jj4<FragmentActivity> {
+    public class b extends ak4<FragmentActivity> {
         public b() {
             super(FragmentActivity.this);
         }
 
-        @Override // com.baidu.tieba.hj4
+        @Override // com.baidu.tieba.yj4
         @Nullable
         public View a(int i) {
             return FragmentActivity.this.findViewById(i);
         }
 
-        @Override // com.baidu.tieba.jj4
+        @Override // com.baidu.tieba.ak4
         public void m(Fragment fragment) {
-            FragmentActivity.this.l(fragment);
+            FragmentActivity.this.m(fragment);
         }
 
-        @Override // com.baidu.tieba.jj4
+        @Override // com.baidu.tieba.ak4
         public boolean s(Fragment fragment) {
             return !FragmentActivity.this.isFinishing();
         }
 
-        @Override // com.baidu.tieba.hj4
+        @Override // com.baidu.tieba.yj4
         public boolean b() {
             Window window = FragmentActivity.this.getWindow();
             if (window != null && window.peekDecorView() != null) {
@@ -119,12 +119,12 @@ public class FragmentActivity extends fj4 implements zi4.b, bj4.a {
             return false;
         }
 
-        @Override // com.baidu.tieba.jj4
+        @Override // com.baidu.tieba.ak4
         public LayoutInflater o() {
             return FragmentActivity.this.getLayoutInflater().cloneInContext(FragmentActivity.this);
         }
 
-        @Override // com.baidu.tieba.jj4
+        @Override // com.baidu.tieba.ak4
         public int p() {
             Window window = FragmentActivity.this.getWindow();
             if (window == null) {
@@ -133,7 +133,7 @@ public class FragmentActivity extends fj4 implements zi4.b, bj4.a {
             return window.getAttributes().windowAnimations;
         }
 
-        @Override // com.baidu.tieba.jj4
+        @Override // com.baidu.tieba.ak4
         public boolean q() {
             if (FragmentActivity.this.getWindow() != null) {
                 return true;
@@ -141,44 +141,40 @@ public class FragmentActivity extends fj4 implements zi4.b, bj4.a {
             return false;
         }
 
-        @Override // com.baidu.tieba.jj4
+        @Override // com.baidu.tieba.ak4
         public void u() {
-            FragmentActivity.this.t();
+            FragmentActivity.this.u();
         }
 
-        @Override // com.baidu.tieba.jj4
+        @Override // com.baidu.tieba.ak4
         public void n(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
             FragmentActivity.this.dump(str, fileDescriptor, printWriter, strArr);
         }
 
-        @Override // com.baidu.tieba.jj4
+        @Override // com.baidu.tieba.ak4
         public void r(@NonNull Fragment fragment, @NonNull String[] strArr, int i) {
-            FragmentActivity.this.q(fragment, strArr, i);
+            FragmentActivity.this.r(fragment, strArr, i);
         }
 
-        @Override // com.baidu.tieba.jj4
+        @Override // com.baidu.tieba.ak4
         public void t(Fragment fragment, Intent intent, int i) {
-            FragmentActivity.this.r(fragment, intent, i);
+            FragmentActivity.this.s(fragment, intent, i);
         }
     }
 
-    public kj4 k() {
+    public bk4 l() {
         return this.b.y();
     }
 
-    public void n() {
+    public void o() {
         this.b.t(this.g);
         this.b.n();
-    }
-
-    public void o() {
-        this.b.o();
     }
 
     @Override // android.app.Activity
     public void onBackPressed() {
         if (!this.b.y().f()) {
-            s();
+            t();
         }
     }
 
@@ -202,7 +198,7 @@ public class FragmentActivity extends fj4 implements zi4.b, bj4.a {
         this.d = false;
         if (this.a.hasMessages(2)) {
             this.a.removeMessages(2);
-            o();
+            p();
         }
         this.b.l();
     }
@@ -211,7 +207,7 @@ public class FragmentActivity extends fj4 implements zi4.b, bj4.a {
     public void onPostResume() {
         super.onPostResume();
         this.a.removeMessages(2);
-        o();
+        p();
         this.b.v();
     }
 
@@ -228,14 +224,14 @@ public class FragmentActivity extends fj4 implements zi4.b, bj4.a {
         if (this.e) {
             i(true);
         }
-        Object p = p();
+        Object q = q();
         List<Fragment> F = this.b.F();
-        ak4<String, oj4> E = this.b.E();
-        if (F == null && E == null && p == null) {
+        rk4<String, fk4> E = this.b.E();
+        if (F == null && E == null && q == null) {
             return null;
         }
         c cVar = new c();
-        cVar.a = p;
+        cVar.a = q;
         cVar.b = F;
         cVar.c = E;
         return cVar;
@@ -254,24 +250,28 @@ public class FragmentActivity extends fj4 implements zi4.b, bj4.a {
         this.b.q();
     }
 
-    public void s() {
-        zi4.e(this);
+    public void p() {
+        this.b.o();
     }
 
     public void t() {
+        qj4.e(this);
+    }
+
+    public void u() {
         if (Build.VERSION.SDK_INT >= 11) {
-            cj4.a(this);
+            tj4.a(this);
         } else {
             this.h = true;
         }
     }
 
-    @Override // com.baidu.tieba.ej4
+    @Override // com.baidu.tieba.vj4
     public final View g(View view2, String str, Context context, AttributeSet attributeSet) {
         return this.b.A(view2, str, context, attributeSet);
     }
 
-    public static String u(View view2) {
+    public static String x(View view2) {
         char c2;
         char c3;
         char c4;
@@ -418,7 +418,7 @@ public class FragmentActivity extends fj4 implements zi4.b, bj4.a {
         this.b.y().b(str, fileDescriptor, printWriter, strArr);
         printWriter.print(str);
         printWriter.println("View Hierarchy:");
-        j(str + GlideException.IndentedAppendable.INDENT, printWriter, getWindow().getDecorView());
+        k(str + GlideException.IndentedAppendable.INDENT, printWriter, getWindow().getDecorView());
     }
 
     public void i(boolean z) {
@@ -426,7 +426,7 @@ public class FragmentActivity extends fj4 implements zi4.b, bj4.a {
             this.f = true;
             this.g = z;
             this.a.removeMessages(1);
-            n();
+            o();
         }
     }
 
@@ -436,7 +436,7 @@ public class FragmentActivity extends fj4 implements zi4.b, bj4.a {
         this.b.d(configuration);
     }
 
-    @Override // com.baidu.tieba.ej4, android.app.Activity
+    @Override // com.baidu.tieba.vj4, android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
         List<Fragment> list = null;
         this.b.a(null);
@@ -447,11 +447,11 @@ public class FragmentActivity extends fj4 implements zi4.b, bj4.a {
         }
         if (bundle != null) {
             Parcelable parcelable = bundle.getParcelable(androidx.fragment.app.FragmentActivity.FRAGMENTS_TAG);
-            ij4 ij4Var = this.b;
+            zj4 zj4Var = this.b;
             if (cVar != null) {
                 list = cVar.b;
             }
-            ij4Var.C(parcelable, list);
+            zj4Var.C(parcelable, list);
         }
         this.b.f();
     }
@@ -471,7 +471,7 @@ public class FragmentActivity extends fj4 implements zi4.b, bj4.a {
         }
     }
 
-    @Override // com.baidu.tieba.bj4.a
+    @Override // com.baidu.tieba.sj4.a
     public final void validateRequestPermissionsRequestCode(int i) {
         if (this.i) {
             this.i = false;
@@ -481,7 +481,7 @@ public class FragmentActivity extends fj4 implements zi4.b, bj4.a {
         }
     }
 
-    public final void j(String str, PrintWriter printWriter, View view2) {
+    public final void k(String str, PrintWriter printWriter, View view2) {
         ViewGroup viewGroup;
         int childCount;
         printWriter.print(str);
@@ -489,17 +489,17 @@ public class FragmentActivity extends fj4 implements zi4.b, bj4.a {
             printWriter.println(StringUtil.NULL_STRING);
             return;
         }
-        printWriter.println(u(view2));
+        printWriter.println(x(view2));
         if (!(view2 instanceof ViewGroup) || (childCount = (viewGroup = (ViewGroup) view2).getChildCount()) <= 0) {
             return;
         }
         String str2 = str + GlideException.IndentedAppendable.INDENT;
         for (int i = 0; i < childCount; i++) {
-            j(str2, printWriter, viewGroup.getChildAt(i));
+            k(str2, printWriter, viewGroup.getChildAt(i));
         }
     }
 
-    public boolean m(View view2, Menu menu) {
+    public boolean n(View view2, Menu menu) {
         return super.onPreparePanel(0, view2, menu);
     }
 
@@ -567,7 +567,7 @@ public class FragmentActivity extends fj4 implements zi4.b, bj4.a {
                     Log.w(androidx.fragment.app.FragmentActivity.TAG, "Activity result no fragment exists for index: 0x" + Integer.toHexString(i));
                     return;
                 }
-                fragment.u0(i & 65535, i2, intent);
+                fragment.t0(i & 65535, i2, intent);
                 return;
             }
             Log.w(androidx.fragment.app.FragmentActivity.TAG, "Activity result fragment index out of range: 0x" + Integer.toHexString(i));
@@ -584,23 +584,23 @@ public class FragmentActivity extends fj4 implements zi4.b, bj4.a {
                 menu.clear();
                 onCreatePanelMenu(i, menu);
             }
-            return m(view2, menu) | this.b.m(menu);
+            return n(view2, menu) | this.b.m(menu);
         }
         return super.onPreparePanel(i, view2, menu);
     }
 
-    public final void q(Fragment fragment, String[] strArr, int i) {
+    public final void r(Fragment fragment, String[] strArr, int i) {
         if (i == -1) {
-            zi4.f(this, strArr, i);
+            qj4.f(this, strArr, i);
         } else if ((i & (-256)) == 0) {
             this.i = true;
-            zi4.f(this, strArr, ((fragment.f + 1) << 8) + (i & 255));
+            qj4.f(this, strArr, ((fragment.f + 1) << 8) + (i & 255));
         } else {
             throw new IllegalArgumentException("Can only use lower 8 bits for requestCode");
         }
     }
 
-    public void r(Fragment fragment, Intent intent, int i) {
+    public void s(Fragment fragment, Intent intent, int i) {
         if (i == -1) {
             super.startActivityForResult(intent, -1);
         } else if (((-65536) & i) == 0) {
@@ -610,7 +610,7 @@ public class FragmentActivity extends fj4 implements zi4.b, bj4.a {
         }
     }
 
-    @Override // android.app.Activity, com.baidu.tieba.zi4.b
+    @Override // android.app.Activity, com.baidu.tieba.qj4.b
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         int i2 = (i >> 8) & 255;
         if (i2 != 0) {

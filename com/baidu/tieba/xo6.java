@@ -2,10 +2,13 @@ package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
-public abstract class xo6 {
+import com.squareup.wire.Message;
+import tbclient.Personalized.LiveAnswer;
+/* loaded from: classes9.dex */
+public class xo6 implements i87<Message> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -21,5 +24,24 @@ public abstract class xo6 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.i87
+    /* renamed from: a */
+    public za7<?> b(Message message) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
+            if (!(message instanceof LiveAnswer)) {
+                return null;
+            }
+            pe8 pe8Var = new pe8();
+            pe8Var.c((LiveAnswer) message);
+            c77 c77Var = new c77();
+            c77Var.a = pe8Var;
+            return new ab7(new s27(c77Var), "recommend_banner");
+        }
+        return (za7) invokeL.objValue;
     }
 }

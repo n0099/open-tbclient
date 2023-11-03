@@ -1,40 +1,132 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.tieba.gc3;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class fc3 extends p13 {
+public final class fc3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public fc3() {
+    public static String a(@NonNull String str, @Nullable String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
+            return str + str2;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void i(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65544, null, str, z) == null) {
+            ue3.a().putBoolean(a("SwanAppStabilitySp-autoObtain", str), z);
         }
     }
 
-    @Override // com.baidu.tieba.p13
-    public void b(@NonNull Bundle bundle) {
+    public static void j(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            gc3.a aVar = gc3.a().a;
-            if (ProcessUtils.isMainProcess() && aVar != null) {
-                aVar.a(bundle.getString("statTag"), bundle.getString("statisticData"));
-            }
+        if (interceptable == null || interceptable.invokeLI(65545, null, str, i) == null) {
+            ue3.a().putInt(a("SwanAppStabilitySp-autoObtainDataLen", str), i);
         }
+    }
+
+    public static void k(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65546, null, str, i) == null) {
+            ue3.a().putInt(a("SwanAppStabilitySp-obtainIntervalMs", str), i);
+        }
+    }
+
+    public static void l(boolean z, @Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(65547, null, z, str) == null) {
+            ue3.a().putBoolean(a("SwanAppStabilitySp-obtainData", str), z);
+        }
+    }
+
+    public static void m(boolean z, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(65548, null, z, str) == null) {
+            ue3.a().putBoolean(a("SwanAppStabilitySp-stabilityProfile", str), z);
+        }
+    }
+
+    public static void n(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65549, null, str, i) == null) {
+            ue3.a().putInt(a("SwanAppStabilitySp-swanStartupStability", str), i);
+        }
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            String appId = f63.K().getAppId();
+            oe3 a = ue3.a();
+            a.remove(a("SwanAppStabilitySp-obtainData", appId));
+            a.remove(a("SwanAppStabilitySp-autoObtain", appId));
+            a.remove(a("SwanAppStabilitySp-swanStartupStability", appId));
+            a.remove(a("SwanAppStabilitySp-obtainIntervalMs", appId));
+            a.remove(a("SwanAppStabilitySp-autoObtainDataLen", appId));
+            a.remove(a("SwanAppStabilitySp-stabilityProfile", appId));
+        }
+    }
+
+    public static int c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            return ue3.a().getInt(a("SwanAppStabilitySp-autoObtainDataLen", f63.K().getAppId()), i);
+        }
+        return invokeI.intValue;
+    }
+
+    public static int d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            return ue3.a().getInt(a("SwanAppStabilitySp-obtainIntervalMs", f63.K().getAppId()), i);
+        }
+        return invokeI.intValue;
+    }
+
+    public static int e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            return ue3.a().getInt(a("SwanAppStabilitySp-swanStartupStability", f63.K().getAppId()), i);
+        }
+        return invokeI.intValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return ue3.a().getBoolean(a("SwanAppStabilitySp-autoObtain", f63.K().getAppId()), false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return ue3.a().getBoolean(a("SwanAppStabilitySp-obtainData", f63.K().getAppId()), false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return ue3.a().getBoolean(a("SwanAppStabilitySp-stabilityProfile", f63.K().getAppId()), false);
+        }
+        return invokeV.booleanValue;
     }
 }

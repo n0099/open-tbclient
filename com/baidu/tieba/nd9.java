@@ -1,42 +1,219 @@
 package com.baidu.tieba;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.BIMManager;
+import com.baidu.android.imsdk.IMConstants;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.android.imsdk.chatmessage.request.params.FetchMsgParam;
+import com.baidu.android.imsdk.chatmessage.request.params.SendMsgParam;
+import com.baidu.android.imsdk.chatmessage.response.FetchMsgResponse;
+import com.baidu.android.imsdk.chatmessage.response.SendMsgResponse;
+import com.baidu.android.imsdk.group.BIMValueCallBack;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.view.FriendBotView;
-import com.baidu.tieba.pb.bot.BotEntranceManager;
-import com.baidu.tieba.pb.pb.main.PbActivity;
-import com.baidu.tieba.pb.pb.main.PbFragment;
-import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tbadk.module.alalivesdk.imSdkPersonService.data.PersonFetchMsgResponse;
+import com.baidu.tieba.livesdk.AlaLiveSdkStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.RobotEntrance;
-import tbclient.RobotSkillInfo;
 /* loaded from: classes7.dex */
-public final class nd9 extends o05 {
+public class nd9 extends bg1<kk5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static final class a implements ee9 {
+    public class a implements kk5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ String b;
 
-        public a(Context context, String str) {
+        /* renamed from: com.baidu.tieba.nd9$a$a  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class C0409a implements SendMsgParam.SendMsgParamConstruct {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ nk5 a;
+            public final /* synthetic */ Context b;
+
+            public C0409a(a aVar, nk5 nk5Var, Context context) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, nk5Var, context};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = nk5Var;
+                this.b = context;
+            }
+
+            @Override // com.baidu.android.imsdk.chatmessage.request.params.SendMsgParam.SendMsgParamConstruct
+            public void construct(SendMsgParam sendMsgParam) {
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeL(1048576, this, sendMsgParam) == null) && sendMsgParam != null && sendMsgParam.getChatMsg() != null) {
+                    this.a.a(sendMsgParam.getChatMsg());
+                    BIMManager.saveMessage(this.b, sendMsgParam.getChatMsg());
+                    BIMManager.sendChatMsg(this.b, sendMsgParam);
+                }
+            }
+        }
+
+        /* loaded from: classes7.dex */
+        public class b implements BIMValueCallBack<SendMsgResponse> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ nk5 a;
+
+            public b(a aVar, nk5 nk5Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, nk5Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = nk5Var;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.android.imsdk.group.BIMValueCallBack
+            /* renamed from: a */
+            public void onResult(int i, String str, SendMsgResponse sendMsgResponse) {
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeILL(1048576, this, i, str, sendMsgResponse) == null) && str != null && sendMsgResponse != null && sendMsgResponse.msg != null) {
+                    this.a.b(i, str, sendMsgResponse);
+                }
+            }
+        }
+
+        /* loaded from: classes7.dex */
+        public class c extends BroadcastReceiver {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a this$1;
+            public final /* synthetic */ mk5 val$listener;
+
+            public c(a aVar, mk5 mk5Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, mk5Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$1 = aVar;
+                this.val$listener = mk5Var;
+            }
+
+            @Override // android.content.BroadcastReceiver
+            public void onReceive(Context context, Intent intent) {
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && IMConstants.MESSAGE_ACTION.equals(intent.getAction())) {
+                    this.val$listener.onReceiveMessage(0, 0, intent.getParcelableArrayListExtra(IMConstants.MESSAGE));
+                }
+            }
+        }
+
+        /* loaded from: classes7.dex */
+        public class d implements FetchMsgParam.FetchMsgParamConstruct {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ Context a;
+
+            public d(a aVar, Context context) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, context};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = context;
+            }
+
+            @Override // com.baidu.android.imsdk.chatmessage.request.params.FetchMsgParam.FetchMsgParamConstruct
+            public void construct(FetchMsgParam fetchMsgParam) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, fetchMsgParam) == null) {
+                    BIMManager.fetchMsg(this.a, fetchMsgParam);
+                }
+            }
+        }
+
+        /* loaded from: classes7.dex */
+        public class e implements BIMValueCallBack<FetchMsgResponse> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ lk5 a;
+
+            public e(a aVar, lk5 lk5Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, lk5Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = lk5Var;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.android.imsdk.group.BIMValueCallBack
+            /* renamed from: a */
+            public void onResult(int i, String str, FetchMsgResponse fetchMsgResponse) {
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeILL(1048576, this, i, str, fetchMsgResponse) == null) && fetchMsgResponse != null) {
+                    this.a.a(i, str, new PersonFetchMsgResponse(fetchMsgResponse));
+                }
+            }
+        }
+
+        public a(nd9 nd9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, str};
+                Object[] objArr = {nd9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,42 +223,43 @@ public final class nd9 extends o05 {
                     return;
                 }
             }
-            this.a = context;
-            this.b = str;
+            AlaLiveSdkStatic.n();
         }
 
-        @Override // com.baidu.tieba.ee9
-        public void onDismiss() {
-            dk9 E6;
-            FriendBotView V0;
+        @Override // com.baidu.tieba.kk5
+        public BroadcastReceiver a(@NonNull Context context, @NonNull mk5 mk5Var) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                PbFragment Y1 = ((PbActivity) this.a).Y1();
-                if (Y1 != null && (E6 = Y1.E6()) != null && (V0 = E6.V0()) != null) {
-                    V0.x();
-                }
-                YunDialogManager.unMarkShowingDialogName("pbFriendBotBottomNewSkill");
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, mk5Var)) == null) {
+                IntentFilter intentFilter = new IntentFilter(IMConstants.MESSAGE_ACTION);
+                c cVar = new c(this, mk5Var);
+                context.registerReceiver(cVar, intentFilter);
+                return cVar;
+            }
+            return (BroadcastReceiver) invokeLL.objValue;
+        }
+
+        @Override // com.baidu.tieba.kk5
+        public void c(@NonNull Context context, @NonNull BroadcastReceiver broadcastReceiver) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, broadcastReceiver) == null) {
+                context.unregisterReceiver(broadcastReceiver);
             }
         }
 
-        @Override // com.baidu.tieba.ee9
-        public void onShow() {
-            dk9 E6;
-            FriendBotView V0;
-            dk9 E62;
-            FriendBotView V02;
+        @Override // com.baidu.tieba.kk5
+        public void b(@NonNull Context context, long j, long j2, int i, long j3, lk5 lk5Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                PbFragment Y1 = ((PbActivity) this.a).Y1();
-                if (Y1 != null && (E62 = Y1.E6()) != null && (V02 = E62.V0()) != null) {
-                    V02.setDynamicLooping(true);
-                }
-                PbFragment Y12 = ((PbActivity) this.a).Y1();
-                if (Y12 != null && (E6 = Y12.E6()) != null && (V0 = E6.V0()) != null) {
-                    V0.r();
-                }
-                SharedPrefHelper.getInstance().putString("pb_friend_bot_bottom_new_skill_text", this.b);
-                SharedPrefHelper.getInstance().putLong("pb_friend_bot_bottom_click_last_time", System.currentTimeMillis());
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Long.valueOf(j3), lk5Var}) == null) {
+                FetchMsgParam.newInstanceByPa(context, j, j2, i, 0, j3, "", new e(this, lk5Var), new d(this, context));
+            }
+        }
+
+        @Override // com.baidu.tieba.kk5
+        public void d(@NonNull Context context, @NonNull ChatMsg chatMsg, long j, @NonNull nk5 nk5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, chatMsg, Long.valueOf(j), nk5Var}) == null) {
+                SendMsgParam.newInstanceByPa(context, chatMsg, j, new b(this, nk5Var), new C0409a(this, nk5Var, context));
             }
         }
     }
@@ -100,46 +278,15 @@ public final class nd9 extends o05 {
         }
     }
 
-    @Override // com.baidu.tieba.o05
-    public void a(Context context, c05 data) {
-        List<RobotSkillInfo> list;
-        boolean z;
-        dk9 E6;
-        ye9 s1;
-        RobotEntrance K;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bg1
+    /* renamed from: a */
+    public kk5 createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, data) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(data, "data");
-            if (!(context instanceof PbActivity)) {
-                YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "pb好朋友bot底部新人设上线引导失败：当前Activity非PbActivity");
-                YunDialogManager.unMarkShowingDialogName("pbFriendBotBottomNewSkill");
-                return;
-            }
-            BotEntranceManager c = BotEntranceManager.c.c();
-            PbActivity pbActivity = (PbActivity) context;
-            PbModel J1 = pbActivity.J1();
-            FriendBotView friendBotView = null;
-            if (J1 != null && (s1 = J1.s1()) != null && (K = s1.K()) != null) {
-                list = K.robot_skill_info;
-            } else {
-                list = null;
-            }
-            String j = c.j(list);
-            if (j.length() == 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                YunDialogManager.unMarkShowingDialogName("pbFriendBotBottomNewSkill");
-                return;
-            }
-            PbFragment Y1 = pbActivity.Y1();
-            if (Y1 != null && (E6 = Y1.E6()) != null) {
-                friendBotView = E6.V0();
-            }
-            he9.e(j, friendBotView, (BaseFragmentActivity) context, new a(context, j));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
         }
+        return (kk5) invokeV.objValue;
     }
 }

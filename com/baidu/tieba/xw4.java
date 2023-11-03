@@ -1,15 +1,21 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+import org.json.JSONObject;
+import tbclient.CartoonThread;
+/* loaded from: classes9.dex */
 public class xw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
+    public long a;
+    public int b;
 
     public xw4() {
         Interceptable interceptable = $ic;
@@ -23,5 +29,45 @@ public class xw4 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public long a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.longValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public void c(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        try {
+            this.a = jSONObject.optLong(MangaBrowserActivityConfig.CARTOON_ID);
+            this.b = jSONObject.optInt(MangaBrowserActivityConfig.CHAPTER_ID);
+        } catch (Exception e) {
+            BdLog.e(e.toString());
+        }
+    }
+
+    public void d(CartoonThread cartoonThread) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, cartoonThread) != null) || cartoonThread == null) {
+            return;
+        }
+        this.a = cartoonThread.cartoon_id.longValue();
+        this.b = cartoonThread.chapter_id.intValue();
     }
 }

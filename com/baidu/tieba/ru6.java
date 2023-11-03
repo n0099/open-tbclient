@@ -1,64 +1,93 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.net.Uri;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.download.callback.IDownloadListener;
+import com.baidu.searchbox.download.unified.DownloadInfoData;
+import com.baidu.searchbox.download.unified.DownloadParams;
+import com.baidu.searchbox.download.unified.DownloadUnifiedManager;
+import com.baidu.searchbox.download.unified.EventCallback;
+import com.baidu.searchbox.download.unified.EventControlInfoForResume;
+import com.baidu.searchbox.download.unified.EventControlInfoForStart;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public final class ru6 {
+public class ru6 {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, String> a;
-    public static Map<String, String> b;
-    public static Map<String, String> c;
+    public static volatile ru6 a;
+    public static volatile DownloadUnifiedManager b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948134166, "Lcom/baidu/tieba/ru6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948134166, "Lcom/baidu/tieba/ru6;");
+    public ru6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new HashMap();
-        b = new HashMap();
-        c = new HashMap();
-        a.put("CAM_X0906", "CAM_X0906");
-        b.put("CAM_X0906", "com.baidu.tbadk.core.elementsMaven.EMABTest");
-        c.put("CAM_X0906", "testMethod");
+        b = DownloadUnifiedManager.getInstance();
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public static ru6 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (b.containsKey(str)) {
-                try {
-                    Method declaredMethod = Class.forName(b.get(str)).getDeclaredMethod(c.get(str), new Class[0]);
-                    declaredMethod.setAccessible(true);
-                    Object invoke = declaredMethod.invoke(null, new Object[0]);
-                    if (invoke instanceof Boolean) {
-                        if (((Boolean) invoke).booleanValue()) {
-                            return a.get(str);
-                        }
-                        return str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (ru6.class) {
+                    if (a == null) {
+                        a = new ru6();
                     }
-                } catch (ClassNotFoundException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
-                    e.printStackTrace();
                 }
             }
-            return str;
+            return a;
         }
-        return (String) invokeL.objValue;
+        return (ru6) invokeV.objValue;
+    }
+
+    public void a(Uri uri) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, uri) == null) {
+            b.deleteDownload(uri);
+        }
+    }
+
+    public void c(Uri uri) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri) == null) {
+            b.pauseDownload(uri);
+        }
+    }
+
+    public DownloadInfoData d(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uri)) == null) {
+            return b.queryDownloadInfoData(uri);
+        }
+        return (DownloadInfoData) invokeL.objValue;
+    }
+
+    public void e(Context context, String str, Uri uri, IDownloadListener iDownloadListener, EventControlInfoForResume eventControlInfoForResume, EventCallback eventCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, str, uri, iDownloadListener, eventControlInfoForResume, eventCallback}) == null) {
+            b.resumeDownload(context, str, uri, iDownloadListener, eventControlInfoForResume, eventCallback);
+        }
+    }
+
+    public void f(Context context, String str, DownloadParams downloadParams, IDownloadListener iDownloadListener, EventControlInfoForStart eventControlInfoForStart, EventCallback eventCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, str, downloadParams, iDownloadListener, eventControlInfoForStart, eventCallback}) == null) {
+            b.startDownload(context, str, downloadParams, iDownloadListener, eventControlInfoForStart, eventCallback);
+        }
     }
 }

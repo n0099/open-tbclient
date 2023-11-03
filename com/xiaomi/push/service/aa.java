@@ -21,16 +21,16 @@ public final class aa extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public String mo757a() {
+    public String mo761a() {
         return "send ack message for message.";
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public void mo474a() {
+    public void mo478a() {
         Map<String, String> map = null;
         try {
-            if (com.xiaomi.push.j.m713a((Context) this.f878a)) {
+            if (com.xiaomi.push.j.m717a((Context) this.f878a)) {
                 try {
                     map = ag.a((Context) this.f878a, this.a);
                 } catch (Throwable unused) {

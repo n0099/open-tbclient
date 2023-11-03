@@ -1,19 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes9.dex */
 public interface z0 {
-    boolean a(int i, int i2, int i3, int i4);
+    void a(y0 y0Var);
 
-    boolean b(int i, int i2, int i3, int i4);
-
-    boolean c(float f, float f2);
-
-    boolean d(int i, int i2, int i3);
-
-    boolean e(int i, int i2);
-
-    boolean f(int i);
-
-    boolean g(int i);
-
-    boolean h(char c);
+    void b(y0 y0Var);
 }

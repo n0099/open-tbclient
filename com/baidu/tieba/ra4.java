@@ -1,29 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ra4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Object a;
+    public static volatile qa4 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948114884, "Lcom/baidu/tieba/ra4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static synchronized qa4 a() {
+        InterceptResult invokeV;
+        qa4 qa4Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (ra4.class) {
+                if (a == null) {
+                    a = new qa4();
+                }
+                qa4Var = a;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948114884, "Lcom/baidu/tieba/ra4;");
-                return;
-            }
+            return qa4Var;
         }
-        a = new Object();
+        return (qa4) invokeV.objValue;
     }
 }

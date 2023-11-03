@@ -188,7 +188,7 @@ public class MockFloatWindowManager {
             LinearLayout linearLayout = new LinearLayout(this.e);
             this.f = linearLayout;
             linearLayout.setOnTouchListener(new a(this));
-            this.f.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ywb
+            this.f.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.z9c
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -201,7 +201,7 @@ public class MockFloatWindowManager {
                 }
             });
             ImageView imageView = new ImageView(this.e);
-            imageView.setImageResource(R.drawable.obfuscated_res_0x7f080f90);
+            imageView.setImageResource(R.drawable.obfuscated_res_0x7f080fa4);
             imageView.setScaleType(ImageView.ScaleType.FIT_XY);
             imageView.setPadding(10, 0, 10, 0);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(70, 60);

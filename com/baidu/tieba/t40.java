@@ -1,101 +1,58 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.io.DataInputStream;
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.net.SocketException;
+import java.net.UnknownHostException;
+import java.security.KeyManagementException;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateException;
+import java.util.concurrent.TimeoutException;
+import javax.net.ssl.SSLHandshakeException;
 /* loaded from: classes8.dex */
-public class t40 {
+public abstract class t40 {
     public static /* synthetic */ Interceptable $ic;
-    public static t40 d;
-    public static final int e;
-    public static final int f;
-    public static final int g;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThreadPoolExecutor a;
-    public ExecutorService b;
-    public Context c;
+    public Context a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948131097, "Lcom/baidu/tieba/t40;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948131097, "Lcom/baidu/tieba/t40;");
-                return;
-            }
-        }
-        int availableProcessors = Runtime.getRuntime().availableProcessors();
-        e = availableProcessors;
-        f = Math.max(2, Math.min(availableProcessors - 1, 4));
-        g = (e * 2) + 1;
-    }
+    public abstract void a(u40 u40Var);
 
-    public t40(Context context) {
+    public abstract u40 b();
+
+    public abstract boolean c();
+
+    public abstract String d();
+
+    public abstract DataInputStream e() throws Exception;
+
+    public abstract void f(u40 u40Var);
+
+    public abstract boolean g() throws IOException;
+
+    public abstract u40 h(String str, int i) throws KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IOException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, SSLHandshakeException, AssertionError, SocketException, UnknownHostException;
+
+    public abstract void i(s40 s40Var) throws IOException;
+
+    public t40() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.c = context;
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(f, g, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue());
-        this.a = threadPoolExecutor;
-        threadPoolExecutor.allowCoreThreadTimeOut(true);
-        this.b = Executors.newSingleThreadExecutor();
-    }
-
-    public static t40 a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (context == null) {
-                return null;
-            }
-            if (d == null) {
-                synchronized (t40.class) {
-                    if (d == null) {
-                        d = new t40(context);
-                    }
-                }
-            }
-            return d;
-        }
-        return (t40) invokeL.objValue;
-    }
-
-    public void b(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            try {
-                this.a.submit(runnable);
-            } catch (Throwable th) {
-                if (v40.a) {
-                    w40.c("TaskManager", "Exception ", th);
-                }
-            }
-        }
+        this.a = l40.h().g();
     }
 }

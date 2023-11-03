@@ -1,27 +1,64 @@
 package com.baidu.tieba;
 
+import android.os.Handler;
+import android.os.Looper;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
 public class vv3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile uv3 a;
+    public static Handler a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized uv3 a() {
-        InterceptResult invokeV;
-        uv3 uv3Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (vv3.class) {
-                if (a == null) {
-                    a = new uv3();
-                }
-                uv3Var = a;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948254198, "Lcom/baidu/tieba/vv3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return uv3Var;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948254198, "Lcom/baidu/tieba/vv3;");
+                return;
+            }
         }
-        return (uv3) invokeV.objValue;
+        a = new Handler(Looper.getMainLooper());
+    }
+
+    public static void a(Runnable runnable, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(65537, null, runnable, j) == null) {
+            a.postDelayed(runnable, j);
+        }
+    }
+
+    public static void d(Runnable runnable, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, runnable, j) == null) {
+            if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
+                a.postDelayed(runnable, j);
+            } else {
+                runnable.run();
+            }
+        }
+    }
+
+    public static void b(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, runnable) == null) {
+            a.removeCallbacks(runnable);
+        }
+    }
+
+    public static void c(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
+            d(runnable, 0L);
+        }
     }
 }

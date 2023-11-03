@@ -1,63 +1,81 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class jv2 {
+public class jv2 extends iv2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
 
-    public jv2() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947896675, "Lcom/baidu/tieba/jv2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947896675, "Lcom/baidu/tieba/jv2;");
+                return;
+            }
+        }
+        boolean z = rm1.a;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jv2(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }
 
-    public static jv2 a(JSONObject jSONObject, String str) {
-        InterceptResult invokeLL;
-        JSONObject optJSONObject;
+    @Override // com.baidu.tieba.iv2
+    public boolean a(yu2 yu2Var, av2 av2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g63 g63Var) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, jSONObject, str)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
-            String optString = jSONObject.optString("error");
-            if (optJSONObject2 == null || !TextUtils.equals(optString, "0")) {
-                return null;
-            }
-            jv2 jv2Var = new jv2();
-            jv2Var.a = optJSONObject2.optString("ak");
-            jv2Var.b = optJSONObject2.optString("sk");
-            jv2Var.c = optJSONObject2.optString("token");
-            jv2Var.d = optJSONObject2.optString(ContentUtil.RESULT_KEY_BUCKET);
-            JSONObject optJSONObject3 = optJSONObject2.optJSONObject("oname_list");
-            if (optJSONObject3 != null && (optJSONObject = optJSONObject3.optJSONObject(str)) != null) {
-                jv2Var.f = optJSONObject.optString("bosobject");
-                jv2Var.e = optJSONObject.optString("bosurl");
-            }
-            return jv2Var;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{yu2Var, av2Var, context, unitedSchemeEntity, callbackHandler, g63Var})) == null) {
+            g32.i("video", "remove, video id:" + av2Var.j + " slave id: " + av2Var.c);
+            d(yu2Var, av2Var, unitedSchemeEntity, callbackHandler);
+            return true;
         }
-        return (jv2) invokeLL.objValue;
+        return invokeCommon.booleanValue;
+    }
+
+    public final void d(yu2 yu2Var, av2 av2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yu2Var, av2Var, unitedSchemeEntity, callbackHandler) == null) {
+            w12 a = t22.a(av2Var);
+            if (a != null) {
+                a.C();
+            } else {
+                z22.a("VideoPlayerAction", "remove with a null component");
+            }
+            yu2Var.onDestroy();
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+        }
     }
 }

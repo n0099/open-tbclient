@@ -1,25 +1,21 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public abstract class rq2<ValueT> {
+public abstract class rq2 implements vq2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ValueT a;
+    public int a;
 
-    public abstract ValueT c(Bundle bundle, String str, ValueT valuet);
-
-    public abstract void e(Bundle bundle, String str, ValueT valuet);
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public rq2() {
-        this(null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -27,54 +23,43 @@ public abstract class rq2<ValueT> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                this(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = -1;
     }
 
-    public rq2(ValueT valuet) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {valuet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = valuet;
-    }
-
-    public ValueT a(sq2 sq2Var, String str) {
+    public JSONObject d(@NonNull String str, @NonNull String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, sq2Var, str)) == null) {
-            return b(sq2Var, str, this.a);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("name", str);
+                jSONObject.put("value", str2);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
         }
-        return (ValueT) invokeLL.objValue;
+        return (JSONObject) invokeLL.objValue;
     }
 
-    public ValueT b(sq2 sq2Var, String str, ValueT valuet) {
-        InterceptResult invokeLLL;
+    public boolean e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sq2Var, str, valuet)) == null) {
-            return c(sq2Var.C(), str, valuet);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (this.a == -1) {
+                np2.g0().getSwitch(str, 0);
+                this.a = 0;
+            }
+            if (this.a != 1) {
+                return false;
+            }
+            return true;
         }
-        return (ValueT) invokeLLL.objValue;
-    }
-
-    public void d(sq2 sq2Var, String str, ValueT valuet) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, sq2Var, str, valuet) == null) {
-            e(sq2Var.C(), str, valuet);
-        }
+        return invokeL.booleanValue;
     }
 }

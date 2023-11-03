@@ -221,7 +221,7 @@ public class ListBtnDialog extends BoxAlertDialog {
                 Resources resources = textView.getContext().getResources();
                 if (this.this$0.mDayOrNight) {
                     textView.setTextColor(textView.getContext().getResources().getColor(R.color.obfuscated_res_0x7f060721));
-                    textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f08020a);
+                    textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f08020d);
                     if (listBtnData.getTextDayColor() != -1) {
                         textView.setTextColor(resources.getColor(listBtnData.getTextDayColor()));
                     }

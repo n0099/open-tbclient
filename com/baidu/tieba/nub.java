@@ -1,64 +1,85 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.retrieve.util.FileMetaUtil;
+import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
+import java.io.File;
+import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class nub {
+public class nub {
     public static /* synthetic */ Interceptable $ic;
-    public static final nub c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ExecutorService a;
-    public final Executor b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948016366, "Lcom/baidu/tieba/nub;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static JSONObject a(JSONObject jSONObject, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, jSONObject, str)) == null) {
+            try {
+                jSONObject.put("bosMessage", str);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948016366, "Lcom/baidu/tieba/nub;");
-                return;
-            }
+            return jSONObject;
         }
-        c = new nub();
+        return (JSONObject) invokeLL.objValue;
     }
 
-    public nub() {
+    public static JSONObject b(File file, String str, String str2, String str3, boolean z) {
+        InterceptResult invokeCommon;
+        String str4;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{file, str, str2, str3, Boolean.valueOf(z)})) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("errno", str2);
+                jSONObject.put("errmsg", str3);
+                if (z) {
+                    str4 = "1";
+                } else {
+                    str4 = "0";
+                }
+                jSONObject.put(FileMetaUtil.IS_FILE, str4);
+                if (file != null && file.exists() && file.isFile()) {
+                    jSONObject.put(FileMetaUtil.ZIP_PATH, str);
+                    jSONObject.put("size", String.valueOf(file.length()));
+                    jSONObject.put(FileMetaUtil.CREATE_TIME, file.lastModified());
+                    jSONObject.put(FileMetaUtil.MODIFY_TIME, file.lastModified());
+                }
+            } catch (Exception e) {
+                if (AppConfig.isDebug()) {
+                    e.printStackTrace();
+                }
             }
+            return jSONObject;
         }
-        this.a = pub.a();
-        this.b = pub.b();
+        return (JSONObject) invokeCommon.objValue;
     }
 
-    public static ExecutorService a() {
-        InterceptResult invokeV;
+    public static JSONObject c(List<String> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.a : (ExecutorService) invokeV.objValue;
-    }
-
-    public static Executor b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? c.b : (Executor) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (list != null) {
+                try {
+                    if (list.size() > 0) {
+                        StringBuilder sb = new StringBuilder();
+                        for (String str : list) {
+                            sb.append(str);
+                            sb.append("&");
+                        }
+                        jSONObject.put("space", sb.toString());
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
     }
 }

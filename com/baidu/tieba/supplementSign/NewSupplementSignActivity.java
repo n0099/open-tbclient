@@ -12,7 +12,7 @@ import com.baidu.tbadk.browser.TBWebContainerActivity;
 import com.baidu.tbadk.core.atomData.SupplementSignActivityConfig;
 import com.baidu.tieba.browser.TbWebView;
 import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.tieba.efa;
+import com.baidu.tieba.jsa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,12 +23,12 @@ import org.json.JSONObject;
 public class NewSupplementSignActivity extends TBWebContainerActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int V;
-    public int W;
     public int X;
     public int Y;
-    public CustomMessageListener Z;
-    public efa a0;
+    public int Z;
+    public int a0;
+    public CustomMessageListener b0;
+    public jsa c0;
 
     /* loaded from: classes8.dex */
     public class a extends CustomMessageListener {
@@ -80,11 +80,11 @@ public class NewSupplementSignActivity extends TBWebContainerActivity {
                 return;
             }
         }
-        this.W = 0;
-        this.X = 0;
         this.Y = 0;
-        this.Z = new a(this, 2001194);
-        this.a0 = new efa(this) { // from class: com.baidu.tieba.supplementSign.NewSupplementSignActivity.2
+        this.Z = 0;
+        this.a0 = 0;
+        this.b0 = new a(this, 2001194);
+        this.c0 = new jsa(this) { // from class: com.baidu.tieba.supplementSign.NewSupplementSignActivity.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ NewSupplementSignActivity this$0;
@@ -107,7 +107,7 @@ public class NewSupplementSignActivity extends TBWebContainerActivity {
                 this.this$0 = this;
             }
 
-            @Override // com.baidu.tieba.efa
+            @Override // com.baidu.tieba.jsa
             public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
                 InterceptResult invokeLLLL;
                 Interceptable interceptable2 = $ic;
@@ -117,9 +117,9 @@ public class NewSupplementSignActivity extends TBWebContainerActivity {
                     }
                     try {
                         JSONObject jSONObject = new JSONObject(str3);
-                        this.this$0.W = jSONObject.optInt("all");
-                        NewSupplementSignActivity.y1(this.this$0, jSONObject.optInt("signed", 0));
-                        NewSupplementSignActivity.z1(this.this$0, jSONObject.optInt("bonus", 0));
+                        this.this$0.Y = jSONObject.optInt("all");
+                        NewSupplementSignActivity.w1(this.this$0, jSONObject.optInt("signed", 0));
+                        NewSupplementSignActivity.x1(this.this$0, jSONObject.optInt("bonus", 0));
                     } catch (Throwable th) {
                         BdLog.e(th);
                     }
@@ -139,10 +139,10 @@ public class NewSupplementSignActivity extends TBWebContainerActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Intent intent = new Intent();
-            intent.putExtra(SupplementSignActivityConfig.FORUM_ID, this.V);
-            intent.putExtra(SupplementSignActivityConfig.CONTINUOUS_SIGN_ALL_DAYS, this.W);
-            intent.putExtra(SupplementSignActivityConfig.SUPPLEMENT_SIGN_DAYS, this.X);
-            intent.putExtra(SupplementSignActivityConfig.SIGN_BONUS_POINT, this.Y);
+            intent.putExtra(SupplementSignActivityConfig.FORUM_ID, this.X);
+            intent.putExtra(SupplementSignActivityConfig.CONTINUOUS_SIGN_ALL_DAYS, this.Y);
+            intent.putExtra(SupplementSignActivityConfig.SUPPLEMENT_SIGN_DAYS, this.Z);
+            intent.putExtra(SupplementSignActivityConfig.SIGN_BONUS_POINT, this.a0);
             super.finish(-1, intent);
         }
     }
@@ -156,15 +156,15 @@ public class NewSupplementSignActivity extends TBWebContainerActivity {
         }
     }
 
-    public static /* synthetic */ int y1(NewSupplementSignActivity newSupplementSignActivity, int i) {
-        int i2 = newSupplementSignActivity.X + i;
-        newSupplementSignActivity.X = i2;
+    public static /* synthetic */ int w1(NewSupplementSignActivity newSupplementSignActivity, int i) {
+        int i2 = newSupplementSignActivity.Z + i;
+        newSupplementSignActivity.Z = i2;
         return i2;
     }
 
-    public static /* synthetic */ int z1(NewSupplementSignActivity newSupplementSignActivity, int i) {
-        int i2 = newSupplementSignActivity.Y + i;
-        newSupplementSignActivity.Y = i2;
+    public static /* synthetic */ int x1(NewSupplementSignActivity newSupplementSignActivity, int i) {
+        int i2 = newSupplementSignActivity.a0 + i;
+        newSupplementSignActivity.a0 = i2;
         return i2;
     }
 
@@ -175,12 +175,12 @@ public class NewSupplementSignActivity extends TBWebContainerActivity {
             super.onCreate(bundle);
             Intent intent = getIntent();
             if (intent != null) {
-                this.V = intent.getIntExtra(SupplementSignActivityConfig.FORUM_ID, 0);
+                this.X = intent.getIntExtra(SupplementSignActivityConfig.FORUM_ID, 0);
             }
             HybridLog.getInstance().i("resign", "补签页：新浏览框架");
-            addJsPromptInterface(this.a0);
+            addJsPromptInterface(this.c0);
             this.mView.C(false);
-            registerListener(this.Z);
+            registerListener(this.b0);
         }
     }
 

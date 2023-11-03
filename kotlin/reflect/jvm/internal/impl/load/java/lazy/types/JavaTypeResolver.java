@@ -39,7 +39,7 @@ import kotlin.reflect.jvm.internal.impl.types.TypeProjection;
 import kotlin.reflect.jvm.internal.impl.types.TypeProjectionImpl;
 import kotlin.reflect.jvm.internal.impl.types.Variance;
 import kotlin.reflect.jvm.internal.impl.types.typeUtil.TypeUtilsKt;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class JavaTypeResolver {
     public final LazyJavaResolverContext c;
     public final TypeParameterResolver typeParameterResolver;
@@ -119,12 +119,12 @@ public final class JavaTypeResolver {
                                 /* JADX DEBUG: Method merged with bridge method */
                                 @Override // kotlin.jvm.functions.Function0
                                 public final KotlinType invoke() {
-                                    ClassifierDescriptor mo2106getDeclarationDescriptor = typeConstructor.mo2106getDeclarationDescriptor();
-                                    if (mo2106getDeclarationDescriptor == null) {
+                                    ClassifierDescriptor mo2110getDeclarationDescriptor = typeConstructor.mo2110getDeclarationDescriptor();
+                                    if (mo2110getDeclarationDescriptor == null) {
                                         Intrinsics.throwNpe();
                                     }
-                                    Intrinsics.checkExpressionValueIsNotNull(mo2106getDeclarationDescriptor, "constructor.declarationDescriptor!!");
-                                    SimpleType defaultType = mo2106getDeclarationDescriptor.getDefaultType();
+                                    Intrinsics.checkExpressionValueIsNotNull(mo2110getDeclarationDescriptor, "constructor.declarationDescriptor!!");
+                                    SimpleType defaultType = mo2110getDeclarationDescriptor.getDefaultType();
                                     Intrinsics.checkExpressionValueIsNotNull(defaultType, "constructor.declarationDescriptor!!.defaultType");
                                     return TypeUtilsKt.replaceArgumentsWithStarProjections(defaultType);
                                 }

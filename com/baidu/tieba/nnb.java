@@ -1,78 +1,98 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
+import android.os.Handler;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.bnb;
+import com.baidu.tieba.enb;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.FunNativeAd2;
-import com.fun.ad.sdk.internal.api.BaseNativeAd2;
-import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.win.opensdk.PBDrawVideo;
-import com.win.opensdk.PBDrawVideoListener;
-import com.win.opensdk.PBError;
+import java.util.UUID;
 /* loaded from: classes7.dex */
-public class nnb extends ReporterPidLoader<PBDrawVideo> {
+public final class nnb implements bnb.a {
     public static /* synthetic */ Interceptable $ic;
+    public static com.baidu.ubs.analytics.a.n f;
+    public static long g;
+    public static long h;
     public transient /* synthetic */ FieldHolder $fh;
-    public final FunNativeAdListenerHelper<PBDrawVideo, PBDrawVideoListener> e;
+    public boolean a;
+    public boolean b;
+    public Handler c;
+    public Runnable d;
+    public e e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nnb(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.DRAW), pid);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.e = new FunNativeAdListenerHelper<>(this);
+    /* loaded from: classes7.dex */
+    public interface e {
+        void a();
+
+        void b();
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+    @Override // com.baidu.tieba.bnb.a
+    public final void a(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
-            onLoadStart(funAdSlot);
-            PBDrawVideo pBDrawVideo = new PBDrawVideo(context.getApplicationContext(), this.mPid.pid);
-            pBDrawVideo.setDrawVideoListener(new a(this, pBDrawVideo));
-            pBDrawVideo.load();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.bnb.a
+    public final void onActivityDestroyed(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, activity) == null) {
         }
     }
 
     /* loaded from: classes7.dex */
-    public class a implements PBDrawVideoListener {
+    public class a implements e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PBDrawVideo a;
-        public final /* synthetic */ nnb b;
+        public final /* synthetic */ nnb a;
 
-        public a(nnb nnbVar, PBDrawVideo pBDrawVideo) {
+        /* renamed from: com.baidu.tieba.nnb$a$a  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class C0417a extends qnb {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public C0417a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            @Override // com.baidu.tieba.qnb
+            public final void a() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    onb.b("记录一次app启动事件");
+                    lmb.c("power_on", "", "", null);
+                    nmb.i().d(false);
+                }
+            }
+        }
+
+        public a(nnb nnbVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {nnbVar, pBDrawVideo};
+                Object[] objArr = {nnbVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -82,82 +102,257 @@ public class nnb extends ReporterPidLoader<PBDrawVideo> {
                     return;
                 }
             }
-            this.b = nnbVar;
-            this.a = pBDrawVideo;
+            this.a = nnbVar;
         }
 
-        @Override // com.win.opensdk.PBListener
-        public void onFail(PBError pBError) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) {
-                LogPrinter.e("onError code: " + pBError.getCode() + ", message: " + pBError.getMsg(), new Object[0]);
-                this.b.onError(pBError.getCode(), pBError.getMsg());
-            }
-        }
-
-        @Override // com.win.opensdk.PBListener
-        public void onLoaded() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                LogPrinter.d();
-                this.b.onAdLoaded(this.a, new String[0]);
-            }
-        }
-
-        @Override // com.win.opensdk.PBListener
-        public void onClicked() {
+        @Override // com.baidu.tieba.nnb.e
+        public final void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                LogPrinter.d();
-                this.b.e.onAdClick(this.a);
+                long currentTimeMillis = System.currentTimeMillis();
+                onb.b("app   went foreground ");
+                if (currentTimeMillis - nnb.h > nnb.g) {
+                    this.a.m(currentTimeMillis);
+                }
+                if (nmb.i().h()) {
+                    pnb.a(new C0417a(this));
+                }
             }
         }
 
-        @Override // com.win.opensdk.PBDrawVideoListener
-        public void onDisplayed() {
+        @Override // com.baidu.tieba.nnb.e
+        public final void b() {
+            enb enbVar;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                LogPrinter.d();
-                this.b.e.onAdShow(this.a);
+                enbVar = enb.a.a;
+                if (enbVar.a().size() == 0) {
+                    onb.b("后台应用退出了 了               ");
+                    nmb.i().d(true);
+                    nnb.h();
+                    return;
+                }
+                onb.b("进入后台但没退出                  ");
             }
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
-        PBDrawVideo pBDrawVideo;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (pBDrawVideo = (PBDrawVideo) obj) != null) {
-            this.e.destroy(pBDrawVideo);
-            pBDrawVideo.destroy();
-        }
-    }
+    /* loaded from: classes7.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nnb a;
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public FunNativeAd2 getNativeAdInternal2(Context context, String str, Object obj) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, obj)) == null) {
-            return new BaseNativeAd2(FunNativeAd2.NativeType.EXPRESS, (PBDrawVideo) obj, new onb(this, this));
-        }
-        return (FunNativeAd2) invokeLLL.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
-            PBDrawVideo pBDrawVideo = (PBDrawVideo) obj;
-            this.e.startShow(pBDrawVideo, str, this.mPid, null, null);
-            View drawVideoView = pBDrawVideo.getDrawVideoView();
-            if (drawVideoView.getParent() != null) {
-                ((ViewGroup) drawVideoView.getParent()).removeView(drawVideoView);
+        public b(nnb nnbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nnbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            viewGroup.removeAllViews();
-            viewGroup.addView(drawVideoView);
-            return true;
+            this.a = nnbVar;
         }
-        return invokeLLLL.booleanValue;
+
+        @Override // java.lang.Runnable
+        public final void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a && this.a.b) {
+                nnb.k(this.a);
+                try {
+                    this.a.e.b();
+                } catch (Exception e) {
+                    wnb.b("Listener threw exception!:" + e.toString());
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c extends qnb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c(nnb nnbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nnbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.qnb
+        public final void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                nnb.f.z(String.valueOf(currentTimeMillis));
+                try {
+                    nnb.f.A(String.valueOf(currentTimeMillis - Long.parseLong(nnb.f.N())));
+                } catch (NumberFormatException e) {
+                    onb.b(e.getLocalizedMessage());
+                }
+                ymb ymbVar = new ymb();
+                if (ymbVar.b(nnb.f.I())) {
+                    ymbVar.e(nnb.f);
+                } else {
+                    ymbVar.f(nnb.f);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class d extends qnb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d(nnb nnbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nnbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.qnb
+        public final void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                onb.b("超时了……………… 一个新的session");
+                new ymb().f(nnb.f);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948009639, "Lcom/baidu/tieba/nnb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948009639, "Lcom/baidu/tieba/nnb;");
+                return;
+            }
+        }
+        g = gnb.a();
+    }
+
+    public static com.baidu.ubs.analytics.a.n e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return f;
+        }
+        return (com.baidu.ubs.analytics.a.n) invokeV.objValue;
+    }
+
+    public static /* synthetic */ long h() {
+        h = 0L;
+        return 0L;
+    }
+
+    public nnb() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = false;
+        this.b = true;
+        this.c = new Handler();
+        this.e = new a(this);
+        long currentTimeMillis = System.currentTimeMillis();
+        h = currentTimeMillis;
+        m(currentTimeMillis);
+    }
+
+    @Override // com.baidu.tieba.bnb.a
+    public final void U() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b = true;
+            Runnable runnable = this.d;
+            if (runnable != null) {
+                this.c.removeCallbacks(runnable);
+                this.d = null;
+            }
+            h = System.currentTimeMillis();
+            pnb.c(new c(this));
+            Handler handler = this.c;
+            b bVar = new b(this);
+            this.d = bVar;
+            handler.postDelayed(bVar, 1000L);
+        }
+    }
+
+    @Override // com.baidu.tieba.bnb.a
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b = false;
+            boolean z = !this.a;
+            this.a = true;
+            Runnable runnable = this.d;
+            if (runnable != null) {
+                this.c.removeCallbacks(runnable);
+            }
+            if (z) {
+                try {
+                    this.e.a();
+                } catch (Exception e2) {
+                    wnb.b("Listener threw exception!:" + e2.toString());
+                }
+            }
+        }
+    }
+
+    public static /* synthetic */ boolean k(nnb nnbVar) {
+        nnbVar.a = false;
+        return false;
+    }
+
+    public final void m(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            com.baidu.ubs.analytics.a.n nVar = new com.baidu.ubs.analytics.a.n();
+            f = nVar;
+            nVar.setStartTime(String.valueOf(j));
+            f.x(UUID.randomUUID().toString().replace("-", ""));
+            pnb.c(new d(this));
+        }
     }
 }

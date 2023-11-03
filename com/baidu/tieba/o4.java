@@ -1,156 +1,64 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.l4;
+import com.baidu.android.util.KVStorageFactory;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 /* loaded from: classes7.dex */
-public abstract class o4 implements l4 {
+public class o4 {
     public static /* synthetic */ Interceptable $ic;
+    public static File a;
+    public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public l4.a callback;
-    public SQLiteDatabase database;
-    public final String dbFileFullPath;
-    public int mVersion;
 
-    public abstract void clearAllTables(SQLiteDatabase sQLiteDatabase);
-
-    public abstract void createAllTables(SQLiteDatabase sQLiteDatabase);
-
-    public o4(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448311464, "Lcom/baidu/tieba/o4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448311464, "Lcom/baidu/tieba/o4;");
                 return;
             }
         }
-        this.mVersion = 1;
-        this.database = null;
-        this.mVersion = i;
-        this.dbFileFullPath = str;
+        a = new File(AppRuntime.getAppContext().getExternalFilesDir(null), "abjson");
+        b = KVStorageFactory.getDefaultSharedPreferences().getBoolean("abtest_mock", false);
     }
 
-    private void exeCallback(SQLiteDatabase sQLiteDatabase) {
-        l4.a aVar;
+    public static boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, this, sQLiteDatabase) == null) && (aVar = this.callback) != null) {
-            aVar.onDatabaseCreated(sQLiteDatabase);
-        }
-    }
-
-    private void onCreateDatabase(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, this, sQLiteDatabase) == null) {
-            onCreate(sQLiteDatabase);
-            exeCallback(sQLiteDatabase);
-        }
-    }
-
-    @Override // com.baidu.tieba.l4
-    public boolean dropDatabase(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            File file = new File(this.dbFileFullPath);
-            if (file.exists()) {
-                return file.delete();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (a.exists() && a.isDirectory() && a.list() != null && a.list().length > 0) {
+                return true;
             }
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, sQLiteDatabase) == null) {
-            createAllTables(sQLiteDatabase);
-        }
-    }
-
-    @Override // com.baidu.tieba.l4
-    public void setOnCreateCallback(l4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
-            this.callback = aVar;
-        }
-    }
-
-    private void onUpdateDatabase(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65539, this, sQLiteDatabase, i, i2) == null) {
-            if (i2 > i) {
-                onUpgrade(sQLiteDatabase, i, i2);
-            } else {
-                onDowngrade(sQLiteDatabase, i, i2);
-            }
-            exeCallback(sQLiteDatabase);
-        }
-    }
-
-    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048582, this, sQLiteDatabase, i, i2) == null) {
-            clearAllTables(sQLiteDatabase);
-            createAllTables(sQLiteDatabase);
-        }
-    }
-
-    public boolean executeDDLSqlIgnoreAnyErrors(SQLiteDatabase sQLiteDatabase, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, sQLiteDatabase, str)) == null) {
-            try {
-                sQLiteDatabase.execSQL(str);
-                return true;
-            } catch (Throwable th) {
-                BdLog.e(str + ":" + th);
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.l4
-    public SQLiteDatabase getWritableDatabase() {
+    public static File a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            File file = new File(this.dbFileFullPath);
-            if (file.getParentFile() != null && (file.getParentFile().exists() || file.getParentFile().mkdirs())) {
-                boolean exists = file.exists();
-                SQLiteDatabase openOrCreateDatabase = SQLiteDatabase.openOrCreateDatabase(this.dbFileFullPath, (SQLiteDatabase.CursorFactory) null);
-                this.database = openOrCreateDatabase;
-                if (openOrCreateDatabase != null) {
-                    if (!exists) {
-                        onCreateDatabase(openOrCreateDatabase);
-                        this.database.setVersion(this.mVersion);
-                    } else {
-                        int version = openOrCreateDatabase.getVersion();
-                        int i = this.mVersion;
-                        if (version != i) {
-                            onUpdateDatabase(this.database, version, i);
-                            this.database.setVersion(this.mVersion);
-                        }
-                    }
-                }
-            }
-            return this.database;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a;
         }
-        return (SQLiteDatabase) invokeV.objValue;
+        return (File) invokeV.objValue;
+    }
+
+    public static boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
+        }
+        return invokeV.booleanValue;
     }
 }

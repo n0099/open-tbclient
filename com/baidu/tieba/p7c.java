@@ -1,127 +1,55 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.h6c;
+import com.baidu.tieba.v7c;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.internal.producers.SingleDelayedProducer;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
 /* loaded from: classes7.dex */
-public final class p7c<T> implements h6c.b<Boolean, T> {
+public class p7c {
     public static /* synthetic */ Interceptable $ic;
+    public static v7c a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final a7c<? super T, Boolean> a;
-    public final boolean b;
 
-    /* loaded from: classes7.dex */
-    public class a extends n6c<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean e;
-        public boolean f;
-        public final /* synthetic */ SingleDelayedProducer g;
-        public final /* synthetic */ n6c h;
-        public final /* synthetic */ p7c i;
-
-        public a(p7c p7cVar, SingleDelayedProducer singleDelayedProducer, n6c n6cVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948016397, "Lcom/baidu/tieba/p7c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p7cVar, singleDelayedProducer, n6cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.i = p7cVar;
-            this.g = singleDelayedProducer;
-            this.h = n6cVar;
-        }
-
-        @Override // com.baidu.tieba.i6c
-        public void onCompleted() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.f) {
-                this.f = true;
-                if (this.e) {
-                    this.g.setValue(Boolean.FALSE);
-                } else {
-                    this.g.setValue(Boolean.valueOf(this.i.b));
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.i6c
-        public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                if (!this.f) {
-                    this.f = true;
-                    this.h.onError(th);
-                    return;
-                }
-                xac.j(th);
-            }
-        }
-
-        @Override // com.baidu.tieba.i6c
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) != null) || this.f) {
-                return;
-            }
-            this.e = true;
-            try {
-                if (this.i.a.call(t).booleanValue()) {
-                    this.f = true;
-                    this.g.setValue(Boolean.valueOf(true ^ this.i.b));
-                    unsubscribe();
-                }
-            } catch (Throwable th) {
-                t6c.g(th, this, t);
-            }
-        }
-    }
-
-    public p7c(a7c<? super T, Boolean> a7cVar, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {a7cVar, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948016397, "Lcom/baidu/tieba/p7c;");
                 return;
             }
         }
-        this.a = a7cVar;
-        this.b = z;
+        a = new v7c();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.a7c
-    /* renamed from: a */
-    public n6c<? super T> call(n6c<? super Boolean> n6cVar) {
+    public static <TResult> TResult a(m7c<TResult> m7cVar) throws ExecutionException, InterruptedException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, n6cVar)) == null) {
-            SingleDelayedProducer singleDelayedProducer = new SingleDelayedProducer(n6cVar);
-            a aVar = new a(this, singleDelayedProducer, n6cVar);
-            n6cVar.b(aVar);
-            n6cVar.f(singleDelayedProducer);
-            return aVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, m7cVar)) == null) {
+            v7c.c("await must not be called on the UI thread");
+            if (m7cVar.g()) {
+                return (TResult) v7c.b(m7cVar);
+            }
+            v7c.b bVar = new v7c.b();
+            m7cVar.c(bVar);
+            m7cVar.b(bVar);
+            bVar.a.await();
+            return (TResult) v7c.b(m7cVar);
         }
-        return (n6c) invokeL.objValue;
+        return (TResult) invokeL.objValue;
+    }
+
+    public static <TResult> m7c<TResult> b(Callable<TResult> callable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, callable)) == null) ? a.a(o7c.a(), callable) : (m7c) invokeL.objValue;
     }
 }

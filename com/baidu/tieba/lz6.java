@@ -1,54 +1,39 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.text.TextUtils;
+import android.view.View;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tbadk.img.ImageUploadResult;
-import com.baidu.tbadk.img.ImageUploader;
+import com.baidu.card.view.RecommendForumLayout;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
 public class lz6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext<?> a;
+    public RecommendForumLayout b;
+    public View.OnClickListener c;
+    public PullLeftRefreshLayout.f d;
+    public vu4 e;
 
     /* loaded from: classes7.dex */
-    public interface c {
-        void J();
-
-        void u(List<String> list);
-    }
-
-    /* loaded from: classes7.dex */
-    public interface d {
-        void a(ImageUploadResult imageUploadResult);
-    }
-
-    /* loaded from: classes7.dex */
-    public class a implements d {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AtomicInteger a;
-        public final /* synthetic */ List b;
-        public final /* synthetic */ c c;
+        public final /* synthetic */ lz6 a;
 
-        public a(lz6 lz6Var, AtomicInteger atomicInteger, List list, c cVar) {
+        public a(lz6 lz6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lz6Var, atomicInteger, list, cVar};
+                Object[] objArr = {lz6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -58,45 +43,30 @@ public class lz6 {
                     return;
                 }
             }
-            this.a = atomicInteger;
-            this.b = list;
-            this.c = cVar;
+            this.a = lz6Var;
         }
 
-        @Override // com.baidu.tieba.lz6.d
-        public void a(ImageUploadResult imageUploadResult) {
-            ImageUploadResult.picInfo picinfo;
-            ImageUploadResult.PicDetailedInfo picDetailedInfo;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, imageUploadResult) == null) {
-                this.a.decrementAndGet();
-                if (imageUploadResult != null && (picinfo = imageUploadResult.picInfo) != null && (picDetailedInfo = picinfo.bigPic) != null && !TextUtils.isEmpty(picDetailedInfo.picUrl)) {
-                    this.b.add(imageUploadResult.picInfo.bigPic.picUrl);
-                }
-                if (this.a.get() == 0) {
-                    if (!ListUtils.isEmpty(this.b)) {
-                        this.c.u(this.b);
-                    } else {
-                        this.c.J();
-                    }
-                }
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                sw6.b(this.a.a, null);
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements Runnable {
+    public class b implements PullLeftRefreshLayout.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ImageFileInfo a;
-        public final /* synthetic */ d b;
+        public final /* synthetic */ lz6 a;
 
-        public b(lz6 lz6Var, ImageFileInfo imageFileInfo, d dVar) {
+        public b(lz6 lz6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lz6Var, imageFileInfo, dVar};
+                Object[] objArr = {lz6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -106,70 +76,113 @@ public class lz6 {
                     return;
                 }
             }
-            this.a = imageFileInfo;
-            this.b = dVar;
+            this.a = lz6Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.f
+        public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String filePath = this.a.getFilePath();
-                ImageUploader imageUploader = new ImageUploader("from_user_collect");
-                if (this.a.isGif()) {
-                    this.b.a(imageUploader.uploadInBackground(filePath, true, false));
-                    return;
-                }
-                Bitmap b = oa9.b(this.a);
-                if (b == null) {
-                    this.b.a(null);
-                    return;
-                }
-                String saveBitmapByAbsolutelyPath = FileHelper.saveBitmapByAbsolutelyPath(TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath(), "face_" + Math.abs(filePath.hashCode()), b, 60);
-                b.recycle();
-                if (TextUtils.isEmpty(saveBitmapByAbsolutelyPath)) {
-                    this.b.a(null);
-                    return;
-                }
-                ImageUploadResult uploadInBackground = imageUploader.uploadInBackground(saveBitmapByAbsolutelyPath, false, false);
-                FileHelper.deleteFile(new File(saveBitmapByAbsolutelyPath));
-                this.b.a(uploadInBackground);
+                sw6.b(this.a.a, null);
             }
         }
     }
 
-    public lz6() {
+    /* loaded from: classes7.dex */
+    public class c implements vu4<ry4> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ lz6 a;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.vu4
+        /* renamed from: a */
+        public void d(View view2, ry4 ry4Var, int i, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, ry4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            }
+        }
+
+        public c(lz6 lz6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lz6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = lz6Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.vu4
+        /* renamed from: c */
+        public void b(View view2, ry4 ry4Var, int i, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{view2, ry4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                if (ry4Var == null) {
+                    sw6.b(this.a.a, null);
+                    return;
+                }
+                String g = ry4Var.g();
+                if (!qd.isForumName(g)) {
+                    return;
+                }
+                this.a.a.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.a.getPageActivity()).createNormalCfg(g, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(3)));
+            }
+        }
+    }
+
+    public lz6(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = new a(this);
+        this.d = new b(this);
+        this.e = new c(this);
+        this.a = tbPageContext;
+        RecommendForumLayout recommendForumLayout = new RecommendForumLayout(tbPageContext);
+        this.b = recommendForumLayout;
+        recommendForumLayout.setShowMore(true);
+        this.b.setSquareEntranceAtStart(true);
+        this.b.setTabName(null);
+        this.b.setFrom(0);
+        this.b.setOnClickRightArrowListener(this.c);
+        this.b.setOnRullOkCallbackr(this.d);
+        this.b.setOnItemCoverListener(this.e);
     }
 
-    public void a(ArrayList<ImageFileInfo> arrayList, c cVar) {
+    public void b(sy4 sy4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, arrayList, cVar) != null) || ListUtils.isEmpty(arrayList)) {
-            return;
-        }
-        AtomicInteger atomicInteger = new AtomicInteger();
-        atomicInteger.set(arrayList.size());
-        ArrayList arrayList2 = new ArrayList();
-        Iterator<ImageFileInfo> it = arrayList.iterator();
-        while (it.hasNext()) {
-            b(it.next(), new a(this, atomicInteger, arrayList2, cVar));
+        if (interceptable == null || interceptable.invokeL(1048576, this, sy4Var) == null) {
+            this.b.a(sy4Var);
         }
     }
 
-    public final void b(ImageFileInfo imageFileInfo, d dVar) {
+    public RecommendForumLayout c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageFileInfo, dVar) == null) {
-            ea9.b().a(new b(this, imageFileInfo, dVar));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
+        return (RecommendForumLayout) invokeV.objValue;
     }
 }

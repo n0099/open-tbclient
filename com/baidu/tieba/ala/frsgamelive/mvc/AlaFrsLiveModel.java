@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.ala.frsgamelive.message.AlaGameFrsLiveThreadsRequestMessage;
 import com.baidu.tieba.ala.frsgamelive.message.AlaGameFrsLiveThreadsRespMessage;
-import com.baidu.tieba.j96;
-import com.baidu.tieba.yh;
+import com.baidu.tieba.eb6;
+import com.baidu.tieba.oi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,7 +38,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
     public int f;
     public boolean g;
     public int h;
-    public List<yh> i;
+    public List<oi> i;
     public boolean j;
     public b k;
     public HttpMessageListener l;
@@ -54,7 +54,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -117,12 +117,12 @@ public class AlaFrsLiveModel extends BdBaseModel {
                 }
                 return;
             }
-            List<yh> liveList = alaGameFrsLiveThreadsRespMessage.getLiveList();
+            List<oi> liveList = alaGameFrsLiveThreadsRespMessage.getLiveList();
             if (this.a.i == null) {
                 this.a.i = new ArrayList();
             }
             if (this.a.b == 1 && ListUtils.getCount(liveList) == 0 && this.a.f == 2) {
-                List<yh> recommandList = alaGameFrsLiveThreadsRespMessage.getRecommandList();
+                List<oi> recommandList = alaGameFrsLiveThreadsRespMessage.getRecommandList();
                 this.a.g = false;
                 this.a.b = alaGameFrsLiveThreadsRequestMessage.getPn();
                 this.a.h = 0;
@@ -139,7 +139,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
                 if (this.a.b != 1 && ListUtils.getCount(this.a.i) != 0) {
                     if (ListUtils.getCount(liveList) > 0) {
                         AlaFrsLiveModel alaFrsLiveModel = this.a;
-                        alaFrsLiveModel.i = alaFrsLiveModel.b0(alaFrsLiveModel.i, liveList);
+                        alaFrsLiveModel.i = alaFrsLiveModel.c0(alaFrsLiveModel.i, liveList);
                     }
                 } else if (liveList != null) {
                     this.a.i.clear();
@@ -180,14 +180,14 @@ public class AlaFrsLiveModel extends BdBaseModel {
         registerListener(aVar);
     }
 
-    public void e0(int i) {
+    public void f0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             this.f = i;
         }
     }
 
-    public void f0(b bVar) {
+    public void g0(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bVar) == null) {
             this.k = bVar;
@@ -215,7 +215,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
         }
     }
 
-    public int Y() {
+    public int Z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -224,7 +224,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
         return invokeV.intValue;
     }
 
-    public int Z() {
+    public int a0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -233,7 +233,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
         return invokeV.intValue;
     }
 
-    public boolean a0() {
+    public boolean b0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -243,14 +243,14 @@ public class AlaFrsLiveModel extends BdBaseModel {
     }
 
     public void clearData() {
-        List<yh> list;
+        List<oi> list;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (list = this.i) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (list = this.i) != null) {
             list.clear();
         }
     }
 
-    public List<yh> getData() {
+    public List<oi> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
@@ -268,7 +268,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public final List<yh> b0(List<yh> list, List<yh> list2) {
+    public final List<oi> c0(List<oi> list, List<oi> list2) {
         InterceptResult invokeLL;
         ThreadData threadData;
         ThreadData threadData2;
@@ -276,24 +276,24 @@ public class AlaFrsLiveModel extends BdBaseModel {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, list, list2)) == null) {
             LinkedList linkedList = new LinkedList();
             linkedList.addAll(list);
-            for (yh yhVar : list2) {
-                if (yhVar != null && (yhVar instanceof j96) && (threadData = ((j96) yhVar).a) != null && (threadData.getThreadType() == 49 || threadData.getThreadType() == 69)) {
+            for (oi oiVar : list2) {
+                if (oiVar != null && (oiVar instanceof eb6) && (threadData = ((eb6) oiVar).a) != null && (threadData.getThreadType() == 49 || threadData.getThreadType() == 69)) {
                     String tid = threadData.getTid();
                     if (!TextUtils.isEmpty(tid)) {
                         boolean z = false;
-                        Iterator<yh> it = list.iterator();
+                        Iterator<oi> it = list.iterator();
                         while (true) {
                             if (!it.hasNext()) {
                                 break;
                             }
-                            yh next = it.next();
-                            if (next != null && (next instanceof j96) && (threadData2 = ((j96) next).a) != null && tid.equals(threadData2.getTid())) {
+                            oi next = it.next();
+                            if (next != null && (next instanceof eb6) && (threadData2 = ((eb6) next).a) != null && tid.equals(threadData2.getTid())) {
                                 z = true;
                                 break;
                             }
                         }
                         if (!z) {
-                            linkedList.add(yhVar);
+                            linkedList.add(oiVar);
                         }
                     }
                 }
@@ -303,10 +303,10 @@ public class AlaFrsLiveModel extends BdBaseModel {
         return (List) invokeLL.objValue;
     }
 
-    public boolean c0() {
+    public boolean d0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             if (!this.g) {
                 return false;
             }
@@ -323,7 +323,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public void d0() {
+    public void e0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             AlaGameFrsLiveThreadsRequestMessage alaGameFrsLiveThreadsRequestMessage = new AlaGameFrsLiveThreadsRequestMessage();

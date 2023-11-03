@@ -11,31 +11,31 @@ import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.am1;
-import com.baidu.tieba.cr2;
-import com.baidu.tieba.fc4;
-import com.baidu.tieba.jz3;
-import com.baidu.tieba.m14;
-import com.baidu.tieba.ns2;
-import com.baidu.tieba.oi2;
-import com.baidu.tieba.oz3;
-import com.baidu.tieba.p53;
-import com.baidu.tieba.q14;
-import com.baidu.tieba.sz3;
-import com.baidu.tieba.tz3;
-import com.baidu.tieba.v42;
-import com.baidu.tieba.vs2;
-import com.baidu.tieba.xc2;
-import com.baidu.tieba.y42;
+import com.baidu.tieba.a04;
+import com.baidu.tieba.d24;
+import com.baidu.tieba.et2;
+import com.baidu.tieba.f04;
+import com.baidu.tieba.fj2;
+import com.baidu.tieba.g63;
+import com.baidu.tieba.h24;
+import com.baidu.tieba.j04;
+import com.baidu.tieba.k04;
+import com.baidu.tieba.m52;
+import com.baidu.tieba.mt2;
+import com.baidu.tieba.od2;
+import com.baidu.tieba.p52;
+import com.baidu.tieba.rm1;
+import com.baidu.tieba.tr2;
+import com.baidu.tieba.wc4;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class AudioPlayer implements ns2, fc4 {
-    public static final boolean o = am1.a;
-    public vs2 a;
+public class AudioPlayer implements et2, wc4 {
+    public static final boolean o = rm1.a;
+    public mt2 a;
     public String d;
-    public tz3 e;
+    public k04 e;
     public int h;
     public String i;
     public String j;
@@ -44,7 +44,7 @@ public class AudioPlayer implements ns2, fc4 {
     public long n;
     public PlayerStatus b = PlayerStatus.NONE;
     public UserStatus c = UserStatus.OPEN;
-    public jz3 f = new jz3();
+    public a04 f = new a04();
     public e g = new e();
     public float l = -1.0f;
 
@@ -69,21 +69,21 @@ public class AudioPlayer implements ns2, fc4 {
     public class a implements TypedCallbackHandler {
     }
 
-    @Override // com.baidu.tieba.ns2
+    @Override // com.baidu.tieba.et2
     public String f() {
         return null;
     }
 
-    @Override // com.baidu.tieba.ns2
+    @Override // com.baidu.tieba.et2
     public Object i() {
         return this;
     }
 
-    @Override // com.baidu.tieba.ns2
+    @Override // com.baidu.tieba.et2
     public void j(boolean z) {
     }
 
-    @Override // com.baidu.tieba.ns2
+    @Override // com.baidu.tieba.et2
     public boolean onBackPressed() {
         return false;
     }
@@ -107,22 +107,22 @@ public class AudioPlayer implements ns2, fc4 {
 
         @Override // java.lang.Runnable
         public void run() {
-            sz3.h().e().post(new a());
+            j04.h().e().post(new a());
         }
     }
 
     /* loaded from: classes4.dex */
-    public class c implements oz3 {
+    public class c implements f04 {
         public c() {
         }
 
-        @Override // com.baidu.tieba.oz3
+        @Override // com.baidu.tieba.f04
         public void a(String str, String str2) {
             AudioPlayer.this.j = str2;
             AudioPlayer.this.w();
         }
 
-        @Override // com.baidu.tieba.oz3
+        @Override // com.baidu.tieba.f04
         public void b(int i, String str) {
             String str2;
             AudioPlayer audioPlayer = AudioPlayer.this;
@@ -257,7 +257,7 @@ public class AudioPlayer implements ns2, fc4 {
     /* loaded from: classes4.dex */
     public class e extends Handler {
         public e() {
-            super(sz3.h().e().getLooper());
+            super(j04.h().e().getLooper());
         }
 
         @Override // android.os.Handler
@@ -291,32 +291,32 @@ public class AudioPlayer implements ns2, fc4 {
         return this.n;
     }
 
-    public tz3 B() {
-        tz3 tz3Var = this.e;
-        if (tz3Var == null || tz3Var.s()) {
-            this.e = sz3.h().d(this.j, this.f.f);
+    public k04 B() {
+        k04 k04Var = this.e;
+        if (k04Var == null || k04Var.s()) {
+            this.e = j04.h().d(this.j, this.f.f);
             S();
         }
         return this.e;
     }
 
-    public final xc2 C() {
+    public final od2 C() {
         SwanAppActivity w;
-        p53 M = p53.M();
+        g63 M = g63.M();
         if (M == null || !M.x0() || (w = M.w()) == null) {
             return null;
         }
-        oi2 Q = w.Q();
-        if (!(Q instanceof q14)) {
+        fj2 R = w.R();
+        if (!(R instanceof h24)) {
             return null;
         }
-        return ((q14) Q).h1();
+        return ((h24) R).h1();
     }
 
     public float D() {
-        jz3 jz3Var = this.f;
-        if (jz3Var != null) {
-            return jz3Var.i;
+        a04 a04Var = this.f;
+        if (a04Var != null) {
+            return a04Var.i;
         }
         return 1.0f;
     }
@@ -328,22 +328,22 @@ public class AudioPlayer implements ns2, fc4 {
 
     public final void F() {
         this.b = PlayerStatus.IDLE;
-        tz3 tz3Var = this.e;
-        if (tz3Var != null) {
-            tz3Var.destroy();
+        k04 k04Var = this.e;
+        if (k04Var != null) {
+            k04Var.destroy();
             this.e = null;
         }
         this.g.removeMessages(0);
     }
 
     public final boolean G() {
-        v42 m;
-        if (p53.M() != null && p53.M().x0()) {
-            y42 W = cr2.V().W();
-            if (W == null || (m = W.m()) == null || !(m instanceof m14)) {
+        m52 m;
+        if (g63.M() != null && g63.M().x0()) {
+            p52 W = tr2.V().W();
+            if (W == null || (m = W.m()) == null || !(m instanceof d24)) {
                 return true;
             }
-            return ((m14) m).K3();
+            return ((d24) m).K3();
         }
         return false;
     }
@@ -399,25 +399,25 @@ public class AudioPlayer implements ns2, fc4 {
         X(this.f.i);
     }
 
-    @Override // com.baidu.tieba.ns2
+    @Override // com.baidu.tieba.et2
     public String b() {
         return this.f.b;
     }
 
-    @Override // com.baidu.tieba.ns2
+    @Override // com.baidu.tieba.et2
     public String c() {
         return this.d;
     }
 
-    @Override // com.baidu.tieba.ns2
+    @Override // com.baidu.tieba.et2
     public void onDestroy() {
-        p53 M = p53.M();
+        g63 M = g63.M();
         if (M != null && M.x0()) {
             T();
         }
     }
 
-    @Override // com.baidu.tieba.fc4
+    @Override // com.baidu.tieba.wc4
     public void onPause() {
         E();
     }
@@ -469,8 +469,8 @@ public class AudioPlayer implements ns2, fc4 {
         }
     }
 
-    public void V(vs2 vs2Var) {
-        this.a = vs2Var;
+    public void V(mt2 mt2Var) {
+        this.a = mt2Var;
     }
 
     public final void W(boolean z) {
@@ -502,35 +502,35 @@ public class AudioPlayer implements ns2, fc4 {
         }
     }
 
-    public void Z(jz3 jz3Var) {
-        this.f = jz3Var;
-        vs2 vs2Var = this.a;
-        if (vs2Var != null) {
-            vs2Var.d(jz3Var.j);
+    public void Z(a04 a04Var) {
+        this.f = a04Var;
+        mt2 mt2Var = this.a;
+        if (mt2Var != null) {
+            mt2Var.d(a04Var.j);
         }
         a0();
     }
 
-    @Override // com.baidu.tieba.ns2
+    @Override // com.baidu.tieba.et2
     public void k(boolean z) {
-        xc2 C;
-        p53 M = p53.M();
+        od2 C;
+        g63 M = g63.M();
         if (M != null && M.x0() && !z && (C = C()) != null && !C.q0()) {
             C.runOnJSThread(new b());
         }
     }
 
     public final void K(String str, JSONObject jSONObject) {
-        vs2 vs2Var = this.a;
-        if (vs2Var != null) {
-            vs2Var.b(str, jSONObject);
+        mt2 mt2Var = this.a;
+        if (mt2Var != null) {
+            mt2Var.b(str, jSONObject);
         }
     }
 
     public final void M() {
         try {
             if (this.i.contains("http")) {
-                sz3 h = sz3.h();
+                j04 h = j04.h();
                 File file = new File(h.g(this.i));
                 if (file.exists() && !file.isDirectory()) {
                     this.j = file.getAbsolutePath();
@@ -553,7 +553,7 @@ public class AudioPlayer implements ns2, fc4 {
         try {
             File file = new File(this.j);
             if (file.exists() && !file.isDirectory()) {
-                long f = sz3.h().f(this.j);
+                long f = j04.h().f(this.j);
                 this.n = f;
                 if (0 != f) {
                     B().c(this.j);
@@ -573,7 +573,7 @@ public class AudioPlayer implements ns2, fc4 {
         L("10003");
     }
 
-    public void N(jz3 jz3Var) {
+    public void N(a04 a04Var) {
         if (o) {
             Log.d("SwanAppAudioPlayer", "AudioPlayer open");
         }
@@ -581,9 +581,9 @@ public class AudioPlayer implements ns2, fc4 {
             F();
         }
         this.c = UserStatus.OPEN;
-        this.f = jz3Var;
+        this.f = a04Var;
         this.h = 0;
-        this.i = cr2.V().I().a(this.f.c);
+        this.i = tr2.V().I().a(this.f.c);
         this.b = PlayerStatus.IDLE;
         J("onWaiting");
         M();
@@ -660,7 +660,7 @@ public class AudioPlayer implements ns2, fc4 {
         if (this.k == null) {
             this.k = new d(this, null);
         }
-        this.e.j(this.k);
+        this.e.k(this.k);
         this.e.q(this.k);
         this.e.g(this.k);
         this.e.l(this.k);

@@ -1,65 +1,66 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class urb {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = -1;
+    public static String b = "";
     public transient /* synthetic */ FieldHolder $fh;
 
-    public urb() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static void b(String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) || str2.length() <= 4000) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948222020, "Lcom/baidu/tieba/urb;")) == null) {
             return;
         }
-        int i = 0;
-        while (i < str2.length()) {
-            int i2 = i + 4000;
-            if (i2 < str2.length()) {
-                str2.substring(i, i2);
-            } else {
-                str2.substring(i);
-            }
-            i = i2;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948222020, "Lcom/baidu/tieba/urb;");
         }
     }
 
-    public static void a(String str) {
-        String str2;
+    public static String a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            StackTraceElement[] stackTrace = new Throwable().fillInStackTrace().getStackTrace();
-            int i = 2;
-            while (true) {
-                if (i < stackTrace.length) {
-                    if (!stackTrace[i].getClass().equals(urb.class)) {
-                        String className = stackTrace[i].getClassName();
-                        str2 = className.substring(className.lastIndexOf(46) + 1);
-                        break;
-                    }
-                    i++;
-                } else {
-                    str2 = "";
-                    break;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (!TextUtils.isEmpty(b)) {
+                return b;
             }
-            b("HonorPush_" + str2, str, null);
+            try {
+                b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return b;
         }
+        return (String) invokeL.objValue;
+    }
+
+    public static int b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            int i = a;
+            if (i >= 0) {
+                return i;
+            }
+            try {
+                a = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return a;
+        }
+        return invokeL.intValue;
     }
 }

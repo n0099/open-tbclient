@@ -70,7 +70,7 @@ public class by2 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
                 if (this.a.f == null) {
-                    p22.i("PayCheckRequest", "PayCheckRequestCallback is empty and paycheck request failed : \n" + Log.getStackTraceString(exc));
+                    g32.i("IsBlockDomainRequest", "IsBlockDomainRequestCallback is empty and isblockdomain request failed : \n" + Log.getStackTraceString(exc));
                     return;
                 }
                 this.a.f.onFail(exc.getMessage());
@@ -83,7 +83,7 @@ public class by2 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) == null) {
                 if (this.a.f == null) {
-                    p22.i("PayCheckRequest", "paycheck request success, but PayCheckRequestCallback is empty.");
+                    g32.i("IsBlockDomainRequest", "isblockdomain request success, but IsBlockDomainRequestCallback is empty.");
                 } else if (jSONObject == null) {
                     this.a.f.onFail("response is empty");
                 } else if (jSONObject.optInt("errno", -1) != 0) {
@@ -106,7 +106,7 @@ public class by2 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
                 if (response != null && response.body() != null) {
-                    return pi3.d(response.body().string());
+                    return gj3.d(response.body().string());
                 }
                 return null;
             }
@@ -127,9 +127,24 @@ public class by2 {
                 return;
             }
         }
-        boolean z = am1.a;
-        h = String.format("%s/ma/pay_check", j22.b());
-        i = ww2.a;
+        boolean z = rm1.a;
+        h = String.format("%s/ma/isblockdomain", a32.b());
+        i = nx2.a;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            String i2 = of4.i(h);
+            this.a = i2;
+            this.a = c32.b(i2);
+            String P = f63.K().q().P();
+            String str = this.a;
+            if (TextUtils.isEmpty(P)) {
+                P = "";
+            }
+            this.a = c32.a(str, "src_app", P);
+        }
     }
 
     public by2() {
@@ -153,23 +168,6 @@ public class by2 {
         this.g = new a(this);
         e();
         f();
-        g();
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            String P = o53.K().q().P();
-            try {
-                JSONObject jSONObject = this.e;
-                if (TextUtils.isEmpty(P)) {
-                    P = "";
-                }
-                jSONObject.put("appkey", P);
-            } catch (JSONException e) {
-                p22.i("PayCheckRequest", "set post data 'appkey' failed: \n" + Log.getStackTraceString(e));
-            }
-        }
     }
 
     public void d(@NonNull b bVar) {
@@ -177,6 +175,19 @@ public class by2 {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
             this.f = bVar;
             c(this.g);
+        }
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        try {
+            this.e.put("url", str);
+            this.d = true;
+        } catch (JSONException unused) {
+            g32.i("IsBlockDomainRequest", "set url need to check failed");
         }
     }
 
@@ -195,41 +206,19 @@ public class by2 {
                 responseCallback.onFail(new InvalidParameterException("error: invalid url"));
                 return;
             }
-            this.a = hj3.b(this.a, this.c);
-            sc4 sc4Var = new sc4(this.a, RequestBody.create(i, this.e.toString()), responseCallback);
-            sc4Var.c = this.b;
-            sc4Var.g = true;
-            p22.b("PayCheckRequest", "start paycheck request : " + this.e);
-            tc4.g().e(sc4Var);
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            String i2 = xe4.i(h);
-            this.a = i2;
-            this.a = l22.b(i2);
+            this.a = yj3.b(this.a, this.c);
+            jd4 jd4Var = new jd4(this.a, RequestBody.create(i, this.e.toString()), responseCallback);
+            jd4Var.c = this.b;
+            jd4Var.g = true;
+            g32.b("IsBlockDomainRequest", "start isblockdomain request : " + this.e);
+            kd4.g().e(jd4Var);
         }
     }
 
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            b("Referer", wi3.b());
-        }
-    }
-
-    public void h(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        try {
-            this.e.put("order_info", jSONObject);
-            this.d = true;
-        } catch (JSONException e) {
-            p22.i("PayCheckRequest", "set order info failed: \n" + Log.getStackTraceString(e));
+            b("Referer", nj3.b());
         }
     }
 }

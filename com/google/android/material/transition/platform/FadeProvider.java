@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 @RequiresApi(21)
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class FadeProvider implements VisibilityAnimatorProvider {
     public float incomingEndThreshold = 1.0f;
 

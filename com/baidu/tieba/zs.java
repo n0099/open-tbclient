@@ -2,30 +2,27 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import androidx.recyclerview.widget.RecyclerView;
+import android.view.ViewGroup;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.MutiImgTextLayout;
+import com.baidu.card.view.ForumGoodsEnterLayout;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.voice.VoiceManager;
-import com.baidu.tieba.vt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class zs extends wr<jv4> {
+public class zs extends us {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MutiImgTextLayout f;
-    public jv4 g;
-    public int h;
-    public String i;
+    public bw4 h;
+    public ForumGoodsEnterLayout i;
+    public int j;
+    public final View.OnClickListener k;
 
     /* loaded from: classes9.dex */
-    public class a implements vt.b {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ zs a;
@@ -48,19 +45,12 @@ public class zs extends wr<jv4> {
             this.a = zsVar;
         }
 
-        @Override // com.baidu.tieba.vt.b
-        public boolean a(vt.a aVar) {
-            InterceptResult invokeL;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-                if (this.a.g != null && this.a.g.getThreadData() != null) {
-                    mj6.a(this.a.g.getThreadData().getId());
-                    mj6.l(this.a.f.a, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    mj6.l(this.a.f.b, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
-                }
-                return false;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.d() != null) {
+                this.a.d().a(view2, this.a.h);
             }
-            return invokeL.booleanValue;
         }
     }
 
@@ -82,83 +72,73 @@ public class zs extends wr<jv4> {
                 return;
             }
         }
-        this.h = 3;
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().g instanceof MutiImgTextLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().g.getParent() == null) {
-            MutiImgTextLayout mutiImgTextLayout = (MutiImgTextLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().g;
-            this.f = mutiImgTextLayout;
-            if (context instanceof VoiceManager.j) {
-                mutiImgTextLayout.setVoiceManager(((VoiceManager.j) context).O0());
-            }
-        } else {
-            this.f = new MutiImgTextLayout(context);
-        }
-        this.f.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
+        this.k = new a(this);
+        int dimens = BdUtilHelper.getDimens(context, R.dimen.M_H_X003);
+        int dimens2 = BdUtilHelper.getDimens(context, R.dimen.tbds0);
+        u(dimens);
+        t(dimens2);
+        ForumGoodsEnterLayout forumGoodsEnterLayout = new ForumGoodsEnterLayout(context);
+        this.i = forumGoodsEnterLayout;
+        forumGoodsEnterLayout.setOnAfterClickListener(this.k);
     }
 
-    @Override // com.baidu.tieba.wr
-    public void p(bk6<jv4> bk6Var) {
+    public void A(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bk6Var) == null) {
-            this.f.setSubClickListener(bk6Var);
-        }
-    }
-
-    public void setFrom(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.i = str;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.j = i;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qs
-    /* renamed from: x */
-    public void onBindDataToView(jv4 jv4Var) {
+    @Override // com.baidu.tieba.ht
+    /* renamed from: z */
+    public void onBindDataToView(bw4 bw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, jv4Var) == null) {
-            this.g = jv4Var;
-            this.f.setFrom(this.i);
-            this.f.onBindDataToView(jv4Var);
+        if (interceptable == null || interceptable.invokeL(1048582, this, bw4Var) == null) {
+            this.h = bw4Var;
+            this.i.setSourceForPb(this.a.k());
+            this.i.setFrstype(this.j);
+            this.i.setData(bw4Var);
         }
     }
 
-    public void y(boolean z) {
+    public void B(View view2, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f.setFromCDN(z);
+        if ((interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i, i2) == null) && view2 != null && (view2.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
+            if (marginLayoutParams.topMargin != i || marginLayoutParams.bottomMargin != i2) {
+                marginLayoutParams.topMargin = i;
+                marginLayoutParams.bottomMargin = i2;
+                view2.setLayoutParams(marginLayoutParams);
+            }
         }
     }
 
-    public void z(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f.setNeedFrsTabName(z);
-        }
-    }
-
-    @Override // com.baidu.tieba.wr
-    public View k() {
+    @Override // com.baidu.tieba.ns
+    public View g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.i;
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.wr
-    public void l() {
+    public void y() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            m(1, new a(this));
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            int dimens = BdUtilHelper.getDimens(this.b, R.dimen.M_H_X003);
+            u(dimens);
+            t(0);
+            B(this.i, dimens, 0);
         }
     }
 
-    @Override // com.baidu.tieba.rs
+    @Override // com.baidu.tieba.it
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
-            this.h = i;
+        if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
+            this.i.d(tbPageContext, i);
         }
     }
 }

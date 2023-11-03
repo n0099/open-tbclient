@@ -1,8 +1,8 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.tieba.pc;
-import com.baidu.tieba.w9;
+import com.baidu.tieba.fd;
+import com.baidu.tieba.ma;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -72,7 +72,7 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(BarDetailForDirSwitch.class);
             SwitchManager.getInstance().registerSwitch(PbNormalLikeButtonSwitch.class);
             SwitchManager.getInstance().registerSwitch(UseHttpdnsSdkSwitch.class);
-            SwitchManager.getInstance().registerSwitch(pc.class);
+            SwitchManager.getInstance().registerSwitch(fd.class);
             SwitchManager.getInstance().registerSwitch(PbPreloadSwitch.class);
             SwitchManager.getInstance().registerSwitch(FlutterSignAllEnableSwitch.class);
             SwitchManager.getInstance().registerSwitch(FlutterPersonAttentionEnableSwitch.class);
@@ -127,7 +127,7 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(PageCountSwitch.class);
             SwitchManager.getInstance().registerSwitch(UbcAddCookieSwitch.class);
             SwitchManager.getInstance().registerSwitch(InitWriteWebDelaySwitch.class);
-            w9.a().b();
+            ma.a().b();
         }
     }
 }

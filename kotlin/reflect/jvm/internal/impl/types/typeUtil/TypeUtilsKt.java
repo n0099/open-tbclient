@@ -37,7 +37,7 @@ public final class TypeUtilsKt {
     }
 
     public static final boolean canHaveUndefinedNullability(UnwrappedType unwrappedType) {
-        if (!(unwrappedType.getConstructor() instanceof NewTypeVariableConstructor) && !(unwrappedType.getConstructor().mo2106getDeclarationDescriptor() instanceof TypeParameterDescriptor) && !(unwrappedType instanceof NewCapturedType)) {
+        if (!(unwrappedType.getConstructor() instanceof NewTypeVariableConstructor) && !(unwrappedType.getConstructor().mo2110getDeclarationDescriptor() instanceof TypeParameterDescriptor) && !(unwrappedType instanceof NewCapturedType)) {
             return false;
         }
         return true;
@@ -54,9 +54,9 @@ public final class TypeUtilsKt {
 
             /* renamed from: invoke  reason: avoid collision after fix types in other method */
             public final boolean invoke2(UnwrappedType unwrappedType) {
-                ClassifierDescriptor mo2106getDeclarationDescriptor = unwrappedType.getConstructor().mo2106getDeclarationDescriptor();
-                if (mo2106getDeclarationDescriptor != null) {
-                    return TypeUtilsKt.isTypeAliasParameter(mo2106getDeclarationDescriptor);
+                ClassifierDescriptor mo2110getDeclarationDescriptor = unwrappedType.getConstructor().mo2110getDeclarationDescriptor();
+                if (mo2110getDeclarationDescriptor != null) {
+                    return TypeUtilsKt.isTypeAliasParameter(mo2110getDeclarationDescriptor);
                 }
                 return false;
             }
@@ -103,11 +103,11 @@ public final class TypeUtilsKt {
 
             /* renamed from: invoke  reason: avoid collision after fix types in other method */
             public final boolean invoke2(UnwrappedType unwrappedType) {
-                ClassifierDescriptor mo2106getDeclarationDescriptor = unwrappedType.getConstructor().mo2106getDeclarationDescriptor();
-                if (mo2106getDeclarationDescriptor == null) {
+                ClassifierDescriptor mo2110getDeclarationDescriptor = unwrappedType.getConstructor().mo2110getDeclarationDescriptor();
+                if (mo2110getDeclarationDescriptor == null) {
                     return false;
                 }
-                if (!(mo2106getDeclarationDescriptor instanceof TypeAliasDescriptor) && !(mo2106getDeclarationDescriptor instanceof TypeParameterDescriptor)) {
+                if (!(mo2110getDeclarationDescriptor instanceof TypeAliasDescriptor) && !(mo2110getDeclarationDescriptor instanceof TypeParameterDescriptor)) {
                     return false;
                 }
                 return true;
@@ -216,7 +216,7 @@ public final class TypeUtilsKt {
             r5 = r3
             kotlin.reflect.jvm.internal.impl.types.KotlinType r5 = (kotlin.reflect.jvm.internal.impl.types.KotlinType) r5
             kotlin.reflect.jvm.internal.impl.types.TypeConstructor r5 = r5.getConstructor()
-            kotlin.reflect.jvm.internal.impl.descriptors.ClassifierDescriptor r5 = r5.mo2106getDeclarationDescriptor()
+            kotlin.reflect.jvm.internal.impl.descriptors.ClassifierDescriptor r5 = r5.mo2110getDeclarationDescriptor()
             boolean r6 = r5 instanceof kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor
             if (r6 != 0) goto L53
             goto L54
@@ -265,7 +265,7 @@ public final class TypeUtilsKt {
         if (unwrap instanceof FlexibleType) {
             FlexibleType flexibleType = (FlexibleType) unwrap;
             SimpleType lowerBound = flexibleType.getLowerBound();
-            if (!lowerBound.getConstructor().getParameters().isEmpty() && lowerBound.getConstructor().mo2106getDeclarationDescriptor() != null) {
+            if (!lowerBound.getConstructor().getParameters().isEmpty() && lowerBound.getConstructor().mo2110getDeclarationDescriptor() != null) {
                 List<TypeParameterDescriptor> parameters = lowerBound.getConstructor().getParameters();
                 Intrinsics.checkExpressionValueIsNotNull(parameters, "constructor.parameters");
                 ArrayList arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(parameters, 10));
@@ -275,7 +275,7 @@ public final class TypeUtilsKt {
                 lowerBound = TypeSubstitutionKt.replace$default(lowerBound, (List) arrayList, (Annotations) null, 2, (Object) null);
             }
             SimpleType upperBound = flexibleType.getUpperBound();
-            if (!upperBound.getConstructor().getParameters().isEmpty() && upperBound.getConstructor().mo2106getDeclarationDescriptor() != null) {
+            if (!upperBound.getConstructor().getParameters().isEmpty() && upperBound.getConstructor().mo2110getDeclarationDescriptor() != null) {
                 List<TypeParameterDescriptor> parameters2 = upperBound.getConstructor().getParameters();
                 Intrinsics.checkExpressionValueIsNotNull(parameters2, "constructor.parameters");
                 ArrayList arrayList2 = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(parameters2, 10));
@@ -290,9 +290,9 @@ public final class TypeUtilsKt {
             boolean isEmpty = simpleType2.getConstructor().getParameters().isEmpty();
             simpleType = simpleType2;
             if (!isEmpty) {
-                ClassifierDescriptor mo2106getDeclarationDescriptor = simpleType2.getConstructor().mo2106getDeclarationDescriptor();
+                ClassifierDescriptor mo2110getDeclarationDescriptor = simpleType2.getConstructor().mo2110getDeclarationDescriptor();
                 simpleType = simpleType2;
-                if (mo2106getDeclarationDescriptor != null) {
+                if (mo2110getDeclarationDescriptor != null) {
                     List<TypeParameterDescriptor> parameters3 = simpleType2.getConstructor().getParameters();
                     Intrinsics.checkExpressionValueIsNotNull(parameters3, "constructor.parameters");
                     ArrayList arrayList3 = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(parameters3, 10));

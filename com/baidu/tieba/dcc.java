@@ -1,226 +1,347 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.content.Context;
-import android.content.res.Resources;
-import android.os.Build;
-import android.util.DisplayMetrics;
-import android.util.TypedValue;
-import android.view.Display;
+import android.graphics.Bitmap;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.render.RenderEngine;
+import com.yy.render.trans.SimpleClientMessageSender;
+import com.yy.transvod.player.log.TLog;
+import java.lang.ref.WeakReference;
+import java.util.concurrent.atomic.AtomicBoolean;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class dcc {
+public class dcc implements zac {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile dcc h;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final int b;
-    public final boolean c;
-    public final int d;
-    public final int e;
-    public final boolean f;
-    public final float g;
+    public AtomicBoolean a;
+    public AtomicBoolean b;
+    public int c;
+    public a d;
+    public Handler e;
+    public WeakReference<bcc> f;
+    public WeakReference<Looper> g;
 
-    public dcc(Activity activity) {
-        boolean z;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947701189, "Lcom/baidu/tieba/dcc;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947701189, "Lcom/baidu/tieba/dcc;");
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class a extends SimpleClientMessageSender {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String f;
+        public final /* synthetic */ dcc g;
+
+        @Override // com.yy.render.trans.SimpleClientMessageSender
+        public void d(String str, Bitmap bitmap) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) {
+            }
+        }
+
+        @Override // com.yy.render.trans.SimpleClientMessageSender
+        public String e(String str, Bitmap bitmap) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bitmap)) == null) {
+                return null;
+            }
+            return (String) invokeLL.objValue;
+        }
+
+        @Override // com.yy.render.trans.SimpleClientMessageSender
+        public void f(String str, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bundle) == null) {
+            }
+        }
+
+        @Override // com.yy.render.trans.SimpleClientMessageSender
+        public String g(String str, Bundle bundle) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, bundle)) == null) {
+                return null;
+            }
+            return (String) invokeLL.objValue;
+        }
+
+        @Override // com.yy.render.trans.SimpleClientMessageSender
+        public String i(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
+                return null;
+            }
+            return (String) invokeLL.objValue;
+        }
+
+        @Override // com.yy.render.trans.SimpleClientMessageSender
+        public void j(String str, int i, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLILL(1048582, this, str, i, str2, str3) == null) {
+            }
+        }
+
+        /* renamed from: com.baidu.tieba.dcc$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class HandlerC0258a extends Handler {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            public HandlerC0258a(a aVar, Looper looper) {
+                super(looper);
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, looper};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        super((Looper) newInitContext.callArgs[0]);
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // android.os.Handler
+            public void handleMessage(Message message) {
+                bcc bccVar;
+                Interceptable interceptable = $ic;
+                if ((interceptable != null && interceptable.invokeL(1048576, this, message) != null) || (bccVar = (bcc) this.a.g.f.get()) == null) {
+                    return;
+                }
+                int i = message.what;
+                if (i != 1) {
+                    if (i == 2) {
+                        bccVar.b(message.arg1, message.arg2, (String) message.obj);
+                        return;
+                    }
+                    return;
+                }
+                ccc cccVar = (ccc) message.obj;
+                bccVar.a(cccVar.a, cccVar.b, cccVar.c, cccVar.d);
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(dcc dccVar, String str) {
+            super(str);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dccVar, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.g = dccVar;
+            this.f = str;
+        }
+
+        @Override // com.yy.render.trans.SimpleClientMessageSender
+        public void h(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeLL(1048580, this, str, str2) != null) || !str.equals(this.f)) {
+                return;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str2);
+                o(jSONObject.optString("cmd"), jSONObject.getJSONObject("data"));
+            } catch (Exception e) {
+                e.printStackTrace();
+                TLog.d("[P2pManagerClient]", "(onDataFromServer) ex" + e.getMessage());
+            }
+        }
+
+        @Override // com.yy.render.trans.SimpleClientMessageSender
+        public void k(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+                TLog.g(this, "P2pManagerClient onServiceCrash: " + str);
+            }
+        }
+
+        public final void n() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.g.e == null) {
+                Looper looper = (Looper) this.g.g.get();
+                if (looper == null) {
+                    looper = Looper.getMainLooper();
+                }
+                this.g.e = new HandlerC0258a(this, looper);
+            }
+        }
+
+        public final void o(String str, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048585, this, str, jSONObject) == null) && jSONObject != null) {
+                n();
+                char c = 65535;
+                int hashCode = str.hashCode();
+                if (hashCode != 144413458) {
+                    if (hashCode != 1541535551) {
+                        if (hashCode == 2091728354 && str.equals("onUpdatePcdnResult")) {
+                            c = 2;
+                        }
+                    } else if (str.equals("onShareStats")) {
+                        c = 0;
+                    }
+                } else if (str.equals("onJsonContent")) {
+                    c = 1;
+                }
+                if (c != 0) {
+                    if (c != 1) {
+                        if (c == 2) {
+                            int optInt = jSONObject.optInt("playTaskId");
+                            int optInt2 = jSONObject.optInt("result");
+                            String optString = jSONObject.optString("pcdnUrl");
+                            if (this.g.e != null) {
+                                this.g.e.sendMessage(Message.obtain(this.g.e, 3, optInt, optInt2, optString));
+                                return;
+                            }
+                            return;
+                        }
+                        return;
+                    }
+                    int optInt3 = jSONObject.optInt("playTaskId");
+                    int optInt4 = jSONObject.optInt("cbKye");
+                    String optString2 = jSONObject.optString("json");
+                    if (this.g.e != null) {
+                        this.g.e.sendMessage(Message.obtain(this.g.e, 2, optInt3, optInt4, optString2));
+                        return;
+                    }
+                    return;
+                }
+                int optInt5 = jSONObject.optInt("playTaskId");
+                int optInt6 = jSONObject.optInt("shareUpStreamFlow");
+                int optInt7 = jSONObject.optInt("shareDownStreamFlow");
+                int optInt8 = jSONObject.optInt("serverDownStreamFlow");
+                if (this.g.e != null) {
+                    this.g.e.sendMessage(Message.obtain(this.g.e, 1, new ccc(optInt5, optInt6, optInt7, optInt8)));
+                }
+            }
+        }
+    }
+
+    public dcc() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        Resources resources = activity.getResources();
-        if (resources.getConfiguration().orientation == 1) {
-            z = true;
-        } else {
-            z = false;
-        }
-        this.f = z;
-        this.g = h(activity);
-        this.a = c(resources, "status_bar_height");
-        this.b = b(activity);
-        this.d = e(activity);
-        this.e = g(activity);
-        this.c = this.d > 0;
+        this.a = new AtomicBoolean(false);
+        this.b = new AtomicBoolean(false);
+        this.c = hashCode();
+        this.d = null;
+        this.e = null;
+        this.f = new WeakReference<>(null);
+        this.g = new WeakReference<>(null);
+        this.d = new a(this, String.valueOf(this.c));
     }
 
-    @TargetApi(14)
-    public static boolean j(Activity activity) {
-        InterceptResult invokeL;
+    public static dcc h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
-            Display defaultDisplay = activity.getWindowManager().getDefaultDisplay();
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            if (Build.VERSION.SDK_INT >= 17) {
-                defaultDisplay.getRealMetrics(displayMetrics);
-            }
-            int i = displayMetrics.heightPixels;
-            int i2 = displayMetrics.widthPixels;
-            DisplayMetrics displayMetrics2 = new DisplayMetrics();
-            defaultDisplay.getMetrics(displayMetrics2);
-            int i3 = displayMetrics2.heightPixels;
-            if (i2 - displayMetrics2.widthPixels <= 0 && i - i3 <= 0) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @TargetApi(14)
-    public final int b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 14) {
-                TypedValue typedValue = new TypedValue();
-                context.getTheme().resolveAttribute(16843499, typedValue, true);
-                return TypedValue.complexToDimensionPixelSize(typedValue.data, context.getResources().getDisplayMetrics());
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    @TargetApi(14)
-    public final int e(Context context) {
-        InterceptResult invokeL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            Resources resources = context.getResources();
-            if (Build.VERSION.SDK_INT >= 14 && j((Activity) context)) {
-                if (this.f) {
-                    str = "navigation_bar_height";
-                } else {
-                    str = "navigation_bar_height_landscape";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (h == null) {
+                synchronized (dcc.class) {
+                    if (h == null) {
+                        h = new dcc();
+                    }
                 }
-                return c(resources, str);
             }
-            return 0;
+            return h;
         }
-        return invokeL.intValue;
+        return (dcc) invokeV.objValue;
     }
 
-    @SuppressLint({"NewApi"})
-    public final float h(Activity activity) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.zac
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, activity)) == null) {
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            if (Build.VERSION.SDK_INT >= 16) {
-                activity.getWindowManager().getDefaultDisplay().getRealMetrics(displayMetrics);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            TLog.h("[P2pManagerClient]", "P2pManagerClient on service connect");
+            if (fgc.n().k()) {
+                TLog.h("[P2pManagerClient]", "P2pManagerClient on service connect, just return as FailOver2MainProcess");
             } else {
-                activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-            }
-            float f = displayMetrics.density;
-            return Math.min(displayMetrics.widthPixels / f, displayMetrics.heightPixels / f);
-        }
-        return invokeL.floatValue;
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (this.g < 600.0f && !this.f) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final int c(Resources resources, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, resources, str)) == null) {
-            try {
-                Class<?> cls = Class.forName("com.android.internal.R$dimen");
-                int parseInt = Integer.parseInt(cls.getField(str).get(cls.newInstance()).toString());
-                if (parseInt <= 0) {
-                    return 0;
-                }
-                return resources.getDimensionPixelSize(parseInt);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return 0;
+                TLog.h("[P2pManagerClient]", "P2pManagerClient on service connect p2p not enabled");
             }
         }
-        return invokeLL.intValue;
     }
 
-    @TargetApi(14)
-    public final int g(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.zac
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
-            Resources resources = context.getResources();
-            if (Build.VERSION.SDK_INT >= 14 && j((Activity) context)) {
-                return c(resources, "navigation_bar_width");
-            }
-            return 0;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            TLog.h("[P2pManagerClient]", "P2pManagerClient on service onDisconnect");
         }
-        return invokeL.intValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            TLog.h("[P2pManagerClient]", "init");
+            if (this.a.compareAndSet(false, true)) {
+                RenderEngine.r.a().r(this);
+            }
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            TLog.h("[P2pManagerClient]", "close");
+            if (this.b.compareAndSet(true, false)) {
+                TLog.h("[P2pManagerClient]", "close msg client!!!");
+                this.d.a();
+            }
+            if (this.a.compareAndSet(true, false)) {
+                RenderEngine.r.a().D(this);
+            }
+        }
     }
 }

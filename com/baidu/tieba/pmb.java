@@ -1,36 +1,71 @@
 package com.baidu.tieba;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class pmb {
+public final class pmb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public SQLiteDatabase a;
 
-    public static RippedAd a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        String str;
-        String str2;
-        String str3;
+    public pmb() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
-            JSONObject optJSONObject = jSONObject.optJSONObject("ext");
-            if (optJSONObject != null) {
-                str2 = optJSONObject.optString("appname");
-                str3 = optJSONObject.optString("pkg_name");
-                str = optJSONObject.optString("pkgurl");
-            } else {
-                str = null;
-                str2 = null;
-                str3 = null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            RippedAd.Builder builder = new RippedAd.Builder();
-            builder.setCorporation(jSONObject.optString("corporation_name")).setTitle(jSONObject.optString("txt")).setDescription(jSONObject.optString("desc")).setAppName(str2).setAppPkg(str3).setAppUrl(str).setIconUrl(jSONObject.optString("img2")).setImageUrl(jSONObject.optString("img")).setVideoImageUrl(null).setVideoUrl(jSONObject.optString("video")).setClickUrl(jSONObject.optString("rl")).setDeepLinkUrl(jSONObject.optString("customized_invoke_url")).setConvUrl(null);
-            return builder.build();
         }
-        return (RippedAd) invokeL.objValue;
+        this.a = smb.a().c();
+    }
+
+    public final List<com.baidu.ubs.analytics.a.a> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Cursor rawQuery = this.a.rawQuery("SELECT * FROM tb_ab_click_log order by _id ", null);
+            ArrayList arrayList = new ArrayList();
+            while (rawQuery.moveToNext()) {
+                com.baidu.ubs.analytics.a.a aVar = new com.baidu.ubs.analytics.a.a();
+                aVar.v(rawQuery.getString(rawQuery.getColumnIndex("_eventId")));
+                aVar.w(rawQuery.getString(rawQuery.getColumnIndex("_parameter")));
+                aVar.x(rawQuery.getString(rawQuery.getColumnIndex("_sessionId")));
+                aVar.u(rawQuery.getString(rawQuery.getColumnIndex("_timeStamp")));
+                aVar.t(rawQuery.getString(rawQuery.getColumnIndex("_pagerName")));
+                aVar.s(rawQuery.getString(rawQuery.getColumnIndex("_productLine")));
+                aVar.setId(rawQuery.getInt(rawQuery.getColumnIndex("_id")));
+                arrayList.add(aVar);
+            }
+            rawQuery.close();
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a.execSQL("delete from tb_ab_click_log where _id <= " + i);
+        }
+    }
+
+    public final void c(com.baidu.ubs.analytics.a.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.a.execSQL("INSERT INTO tb_ab_click_log(_eventId,_parameter,_sessionId,_timeStamp,_pagerName,_productLine) VALUES (?,?,?,?,?,?);", new String[]{aVar.G(), aVar.H(), aVar.I(), aVar.F(), aVar.E(), aVar.D()});
+        }
     }
 }

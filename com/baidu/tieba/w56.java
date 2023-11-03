@@ -1,90 +1,81 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
+import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
+import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
+import com.baidu.tbadk.core.atomData.QRCodeScanActivityConfig;
+import com.baidu.tieba.aiapps.apps.barcode.ScanCodeDelegateActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.nio.charset.Charset;
+@Singleton
+@Service
 /* loaded from: classes8.dex */
-public class w56 {
+public class w56 implements kq2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public Context b;
-    public BdTypeRecyclerView c;
-    public List<lh> d;
-    public d66 e;
-    public d66 f;
-    public c66 g;
-    public b66 h;
-    public r76 i;
-    public a66 j;
-    public int k;
-    public int l;
-    public String m;
 
-    public w56(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView, int i, int i2, String str) {
+    /* loaded from: classes8.dex */
+    public class a implements DelegateListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ky1 a;
+
+        public a(w56 w56Var, ky1 ky1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w56Var, ky1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ky1Var;
+        }
+
+        @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
+        public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) && delegateResult.isOk()) {
+                this.a.a(delegateResult.mResult.getString(QRCodeScanActivityConfig.RESULT_SCAN_CODE, ""), "", Charset.defaultCharset().name());
+            }
+        }
+    }
+
+    public w56() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeRecyclerView, Integer.valueOf(i), Integer.valueOf(i2), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.m = "0";
-        this.a = tbPageContext;
-        this.b = tbPageContext.getPageActivity();
-        this.c = bdTypeRecyclerView;
-        this.k = i;
-        this.l = i2;
-        this.m = str;
-        a();
     }
 
-    public final void a() {
+    @Override // com.baidu.tieba.kq2
+    public void a(Context context, ky1 ky1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.d = new ArrayList();
-            this.e = new d66(this.a, this.k, false);
-            this.f = new d66(this.a, this.k, true);
-            this.g = new c66(this.a);
-            this.h = new b66(this.a);
-            this.i = new r76(this.a, this.l, this.m);
-            this.j = new a66(this.a);
-            this.d.add(this.e);
-            this.d.add(this.f);
-            this.d.add(this.g);
-            this.d.add(this.h);
-            this.d.add(this.i);
-            this.d.add(this.j);
-            this.c.addAdapters(this.d);
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, context, ky1Var) != null) || !(context instanceof Activity)) {
+            return;
         }
-    }
-
-    public void b() {
-        BdTypeRecyclerView bdTypeRecyclerView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bdTypeRecyclerView = this.c) != null) {
-            bdTypeRecyclerView.getListAdapter().notifyDataSetChanged();
-        }
-    }
-
-    public void c(List<yh> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.c.setData(list);
-        }
+        DelegateUtils.callOnMainWithActivity((Activity) context, ScanCodeDelegateActivity.class, v56.class, new Bundle(), new a(this, ky1Var));
     }
 }

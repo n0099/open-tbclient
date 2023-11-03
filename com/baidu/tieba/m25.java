@@ -1,11 +1,13 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.framework.cmdRouter.MultiDexHelper;
-import com.baidu.adp.idlehelp.IdleHandlerManager;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.TiebaStaticClassesArray;
+import android.content.SharedPreferences;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,58 +15,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Field;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__IndentKt;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class m25 {
+public final class m25 {
     public static /* synthetic */ Interceptable $ic;
-    public static String[] a;
+    public static final m25 a;
+    public static final SharedPreferences b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ TiebaStaticClassesArray b;
-
-        public a(boolean z, TiebaStaticClassesArray tiebaStaticClassesArray) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Boolean.valueOf(z), tiebaStaticClassesArray};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = z;
-            this.b = tiebaStaticClassesArray;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    if (this.a) {
-                        MultiDexHelper.loadClass(BdBaseApplication.getInst());
-                        return;
-                    }
-                    Log.e("TiebaStaticClassesArray", "load from dex fail ");
-                    if (!this.b.loadStaticClasses()) {
-                        MultiDexHelper.loadStaticClass(BdBaseApplication.getInst());
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -79,53 +38,124 @@ public class m25 {
                 return;
             }
         }
-        a = new String[]{"com.baidu.tieba.livesdk.AlaLiveSdkStatic", "com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic", "com.baidu.tieba.ad.browser.AdStatic", "com.baidu.tieba.recapp.lego.RecAppLegoStatic", "com.baidu.tieba.recapp.RecAppStatic", "com.baidu.tieba.lego.activity.LegoListActivityStatic", "com.baidu.tbadk.core.LaunchStatic", "com.baidu.tieba.wallet.PayStatic", "com.baidu.tieba.image.ImageViewerActivityStatic", "com.baidu.tieba.im.TiebaIMActivityStatic", "com.baidu.tieba.immessagecenter.im.chat.notify.ImMessageCenterDelegateStatic", "com.baidu.tieba.enterForum.home.EnterForumDelegateStatic", "com.baidu.tieba.videoplay.fragment.VideoChannelDelegateStatic", "com.baidu.tieba.emotion.editortool.EmotionIntefaceStatic", "com.baidu.tieba.homepage.framework.RecommendFrsDelegateStatic", "com.baidu.tieba.personCenter.PersonInfoDelegateStatic", "com.baidu.tieba.write.bottomButton.WriteThreadDelegateStatic", "com.baidu.tieba.ala.livecard.Static", "com.baidu.tieba.flutter.FlutterStatic", "com.baidu.tieba.flutter.FlutterPluginStatic", "com.baidu.tieba.sdkcode.SdkCodePluginStatic", "com.baidu.tieba.homepage.topic.TopicStatic", "com.baidu.tieba.quickWebView.QuickWebViewStatic", "com.baidu.tbadk.core.util.schemeaction.SchemeActionStatic", "com.baidu.tieba.hottopic.controller.HotTopicStatic", "com.baidu.tieba.myAttentionAndFans.PersonListActivityStatic", "com.baidu.tieba.sharesdk.ShareStatic", "com.baidu.tieba.feed.FeedAppStatic", "com.baidu.tbadk.mutiprocess.MutiProcessStatic", "com.baidu.tieba.write.write.WriteActivityImmediateStatic"};
+        a = new m25();
+        b = TbadkCoreApplication.getInst().getSharedPreferences("new_frequency_strategy_helper_sp", 0);
     }
 
-    public static void a() {
+    public m25() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public final int a(String dialogName) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dialogName)) == null) {
+            Intrinsics.checkNotNullParameter(dialogName, "dialogName");
+            String str = "";
+            String string = b.getString(c(dialogName), "");
+            if (string != null) {
+                str = string;
+            }
+            if (StringUtils.isNotNull(str)) {
+                return e(str, "count");
+            }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public final int b(String dialogName) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogName)) == null) {
+            Intrinsics.checkNotNullParameter(dialogName, "dialogName");
+            String str = "";
+            String string = b.getString(c(dialogName), "");
+            if (string != null) {
+                str = string;
+            }
+            if (StringUtils.isNotNull(str)) {
+                return e(str, "version");
+            }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public final String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return SharedPrefHelper.getSharedPrefKeyWithAccount("KEY_NEW_FREQUENCE_DIALOG_STRATEGY_COUNTER") + '_' + str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String d(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048579, this, i, i2)) == null) {
+            return StringsKt__IndentKt.trimIndent("\n        {\"version\":" + i + ",\"count\":" + i2 + "}\n    ");
+        }
+        return (String) invokeII.objValue;
+    }
+
+    public final void g(String dialogName, int i) {
+        String d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048582, this, dialogName, i) == null) {
+            Intrinsics.checkNotNullParameter(dialogName, "dialogName");
+            String c = c(dialogName);
+            if (StringUtils.isNull(b.getString(c, ""))) {
+                d = d(i, 1);
+            } else {
+                d = d(i, a(dialogName) + 1);
+            }
+            SharedPreferences.Editor edit = b.edit();
+            edit.putString(c, d);
+            edit.apply();
+        }
+    }
+
+    public final int e(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
             try {
-                TiebaStaticClassesArray tiebaStaticClassesArray = new TiebaStaticClassesArray();
-                try {
-                    Class<?> cls = Class.forName("com.baidu.tbadk.core.util.TiebaStaticArray");
-                    Object newInstance = cls.newInstance();
-                    Field declaredField = cls.getDeclaredField("staticClassesArray");
-                    declaredField.setAccessible(true);
-                    tiebaStaticClassesArray.staticClassesArray = (String[]) declaredField.get(newInstance);
-                } catch (Exception e) {
+                return new JSONObject(str).optInt(str2);
+            } catch (Exception e) {
+                if (!TbadkCoreApplication.getInst().isDebugMode()) {
+                    TbLog yunDialogLog = YunDialogLog.getInstance();
+                    yunDialogLog.e(YunDialogManager.LOG_KEY, "读取缓存频次json失败" + e.getMessage());
                     e.printStackTrace();
+                    return 0;
                 }
-                Log.e("staticClassesArray: ", "" + tiebaStaticClassesArray.staticClassesArray.length);
-                long currentTimeMillis = System.currentTimeMillis();
-                IdleHandlerManager.getInstance().addOrRunTask("MultiDexHelper", new a(b(), tiebaStaticClassesArray));
-                Log.e("Tasks", "load from dex coast time " + (System.currentTimeMillis() - currentTimeMillis));
-            } catch (Exception e2) {
-                e2.printStackTrace();
+                throw e;
             }
         }
+        return invokeLL.intValue;
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
+    public final void f(String dialogName, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String[] strArr = a;
-            try {
-                if (strArr.length <= 0) {
-                    return false;
-                }
-                for (String str : strArr) {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    Class.forName(str);
-                    Log.e("TiebaStaticClassesArray", str + " " + (System.currentTimeMillis() - currentTimeMillis));
-                }
-                return true;
-            } catch (Throwable th) {
-                BdLog.e(th, true);
-                return false;
-            }
+        if (interceptable == null || interceptable.invokeLI(1048581, this, dialogName, i) == null) {
+            Intrinsics.checkNotNullParameter(dialogName, "dialogName");
+            TbLog yunDialogLog = YunDialogLog.getInstance();
+            yunDialogLog.i(YunDialogManager.LOG_KEY, "重置弹窗 " + dialogName + " 的本地频次记录");
+            String c = c(dialogName);
+            SharedPreferences.Editor edit = b.edit();
+            edit.putString(c, a.d(i, 0));
+            edit.apply();
         }
-        return invokeV.booleanValue;
     }
 }

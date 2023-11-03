@@ -1,29 +1,36 @@
 package com.baidu.tieba;
+
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import org.apache.http.client.methods.HttpPut;
 /* loaded from: classes5.dex */
-public interface dp0 {
-    void a(int i);
+public final class dp0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void onBufferEnd();
+    public static boolean a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (!TextUtils.equals(str, "GET") && !TextUtils.equals(str, "HEAD")) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
 
-    void onBufferStart();
-
-    void onEnd(int i);
-
-    void onError(int i, int i2, String str);
-
-    void onInfo(int i, int i2);
-
-    void onPause();
-
-    void onPrepared();
-
-    void onResume();
-
-    void onSeekEnd();
-
-    void onStart();
-
-    void onUpdateProgress(int i, int i2, int i3);
-
-    void onVideoSizeChanged(int i, int i2);
+    public static boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (!TextUtils.equals(str, "POST") && !TextUtils.equals(str, "PATCH") && !TextUtils.equals(str, HttpPut.METHOD_NAME) && !TextUtils.equals(str, "PROPPATCH") && !TextUtils.equals(str, "REPORT")) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
 }

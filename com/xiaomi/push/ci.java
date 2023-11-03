@@ -63,19 +63,19 @@ public class ci {
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public Object mo333a() {
+        public Object mo337a() {
             return null;
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public String m334a() {
+        public String m338a() {
             return this.f172a;
         }
 
         public void a(Context context) {
             a aVar = this.f171a;
             if (aVar != null) {
-                aVar.a(context, mo333a());
+                aVar.a(context, mo337a());
             }
             b(context);
         }
@@ -97,7 +97,7 @@ public class ci {
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public boolean m335a() {
+        public boolean m339a() {
             return this.f170a == null || TextUtils.isEmpty(this.b) || this.f173a == null;
         }
 
@@ -283,7 +283,7 @@ public class ci {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m332a(String str) {
+    public String m336a(String str) {
         return a(str).a();
     }
 
@@ -295,12 +295,12 @@ public class ci {
         if (this.f166a == null) {
             throw new IllegalStateException("should exec init method first!");
         }
-        String m334a = aVar.m334a();
+        String m338a = aVar.m338a();
         synchronized (this.f168a) {
-            cgVar = this.f168a.get(m334a);
+            cgVar = this.f168a.get(m338a);
             if (cgVar == null) {
-                cgVar = this.f166a.a(this.f165a, m334a);
-                this.f168a.put(m334a, cgVar);
+                cgVar = this.f166a.a(this.f165a, m338a);
+                this.f168a.put(m338a, cgVar);
             }
         }
         if (this.f169a.isShutdown()) {
@@ -331,13 +331,13 @@ public class ci {
         Iterator<a> it = arrayList.iterator();
         while (it.hasNext()) {
             a next = it.next();
-            if (next.m335a()) {
-                next.a(a(next.m334a()), this.f165a);
+            if (next.m339a()) {
+                next.a(a(next.m338a()), this.f165a);
             }
-            ArrayList arrayList2 = (ArrayList) hashMap.get(next.m334a());
+            ArrayList arrayList2 = (ArrayList) hashMap.get(next.m338a());
             if (arrayList2 == null) {
                 arrayList2 = new ArrayList();
-                hashMap.put(next.m334a(), arrayList2);
+                hashMap.put(next.m338a(), arrayList2);
             }
             arrayList2.add(next);
         }
@@ -359,12 +359,12 @@ public class ci {
         if (this.f166a == null) {
             throw new IllegalStateException("should exec init method first!");
         }
-        String m334a = aVar.m334a();
+        String m338a = aVar.m338a();
         synchronized (this.f168a) {
-            cgVar = this.f168a.get(m334a);
+            cgVar = this.f168a.get(m338a);
             if (cgVar == null) {
-                cgVar = this.f166a.a(this.f165a, m334a);
-                this.f168a.put(m334a, cgVar);
+                cgVar = this.f166a.a(this.f165a, m338a);
+                this.f168a.put(m338a, cgVar);
             }
         }
         if (this.f169a.isShutdown()) {

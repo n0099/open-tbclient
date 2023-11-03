@@ -13,7 +13,7 @@ public final class fe {
     }
 
     public static a a(Exception exc) {
-        m475a(exc);
+        m479a(exc);
         boolean z = exc instanceof gg;
         Exception exc2 = exc;
         if (z) {
@@ -43,7 +43,7 @@ public final class fe {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m475a(Exception exc) {
+    public static void m479a(Exception exc) {
         if (exc == null) {
             throw null;
         }
@@ -53,7 +53,7 @@ public final class fe {
         ey eyVar;
         ey eyVar2;
         Throwable cause;
-        m475a(exc);
+        m479a(exc);
         boolean z = exc instanceof gg;
         Exception exc2 = exc;
         if (z) {
@@ -94,7 +94,7 @@ public final class fe {
     public static a c(Exception exc) {
         ey eyVar;
         ey eyVar2;
-        m475a(exc);
+        m479a(exc);
         boolean z = exc instanceof gg;
         Exception exc2 = exc;
         if (z) {
@@ -139,7 +139,7 @@ public final class fe {
     public static a d(Exception exc) {
         ey eyVar;
         ey eyVar2;
-        m475a(exc);
+        m479a(exc);
         boolean z = exc instanceof gg;
         Exception exc2 = exc;
         if (z) {

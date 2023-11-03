@@ -1,105 +1,176 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.media.AudioManager;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.io.File;
 /* loaded from: classes5.dex */
-public class ef3 extends m73 {
+public class ef3 extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+
+    public static String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? "CREATE TABLE cookies (_id INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT,value TEXT,domain TEXT,path TEXT,expires INTEGER,secure INTEGER,ext TEXT);" : (String) invokeV.objValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947732375, "Lcom/baidu/tieba/ef3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947732375, "Lcom/baidu/tieba/ef3;");
+                return;
+            }
+        }
+        b = rm1.a;
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ef3(m63 m63Var) {
-        super(m63Var, "/swanAPI/getMediaVolumeSync");
+    public ef3(@NonNull Context context, String str) {
+        super(context.getApplicationContext(), c(str), (SQLiteDatabase.CursorFactory) null, 1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {m63Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {context, str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
+            }
+        }
+        this.a = str;
+    }
+
+    public static String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            String o = cp2.o(str);
+            File file = new File(o);
+            if (!file.exists() && !file.mkdirs()) {
+                g32.k("SwanCookieDBHelper", "mkdirs fail: " + o);
+            }
+            return o + File.separator + "smCookie.db";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    @SuppressLint({"BDThrowableCheck"})
+    public synchronized SQLiteDatabase getReadableDatabase() {
+        InterceptResult invokeV;
+        SQLiteDatabase sQLiteDatabase;
+        Exception e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                try {
+                    sQLiteDatabase = super.getReadableDatabase();
+                } catch (Exception e2) {
+                    sQLiteDatabase = null;
+                    e = e2;
+                }
+                try {
+                    String databaseName = getDatabaseName();
+                    if (!new File(databaseName).exists()) {
+                        g32.k("SwanCookieDBHelper", "getReadableDatabase file is not exit: " + databaseName);
+                        return null;
+                    }
+                } catch (Exception e3) {
+                    e = e3;
+                    g32.k("SwanCookieDBHelper", "getRead fail mAppId =" + this.a + ParamableElem.DIVIDE_PARAM + Log.getStackTraceString(e));
+                    if (b) {
+                        throw new RuntimeException(e);
+                    }
+                    return sQLiteDatabase;
+                }
+                return sQLiteDatabase;
+            }
+        }
+        return (SQLiteDatabase) invokeV.objValue;
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    @SuppressLint({"BDThrowableCheck"})
+    public synchronized SQLiteDatabase getWritableDatabase() {
+        InterceptResult invokeV;
+        SQLiteDatabase sQLiteDatabase;
+        Exception e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this) {
+                try {
+                    sQLiteDatabase = super.getWritableDatabase();
+                } catch (Exception e2) {
+                    sQLiteDatabase = null;
+                    e = e2;
+                }
+                try {
+                    String databaseName = getDatabaseName();
+                    if (!new File(databaseName).exists()) {
+                        g32.k("SwanCookieDBHelper", "getWritableDatabase file is not exit: " + databaseName);
+                        return null;
+                    }
+                } catch (Exception e3) {
+                    e = e3;
+                    g32.k("SwanCookieDBHelper", "getWrite fail mAppId =" + this.a + ParamableElem.DIVIDE_PARAM + Log.getStackTraceString(e));
+                    if (b) {
+                        throw new RuntimeException(e);
+                    }
+                    return sQLiteDatabase;
+                }
+                return sQLiteDatabase;
+            }
+        }
+        return (SQLiteDatabase) invokeV.objValue;
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) == null) {
+            if (b) {
+                Log.d("SwanCookieDBHelper", "onCreate");
+            }
+            try {
+                sQLiteDatabase.execSQL(a());
+            } catch (Exception e) {
+                g32.k("SwanCookieDBHelper", "createTableSql fail:" + Log.getStackTraceString(e));
             }
         }
     }
 
-    @Override // com.baidu.tieba.m73
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, p53 p53Var) {
-        InterceptResult invokeLLLL;
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, p53Var)) == null) {
-            if (p53Var == null) {
-                p22.c("getMediaVolumeSync", "none swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-                if (m73.b) {
-                    Log.d("SwanAppAction", "getMediaVolumeSync --- illegal swanApp");
-                }
-                return false;
-            } else if (context == null) {
-                p22.c("getMediaVolumeSync", "none context");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-                if (m73.b) {
-                    Log.d("SwanAppAction", "getMediaVolumeSync --- illegal context");
-                }
-                return false;
-            } else {
-                AudioManager audioManager = (AudioManager) context.getSystemService("audio");
-                if (audioManager == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "get AudioManager error");
-                    if (m73.b) {
-                        Log.d("SwanAppAction", "getMediaVolumeSync --- get AudioManager error");
-                    }
-                    return false;
-                }
-                int streamMaxVolume = audioManager.getStreamMaxVolume(3);
-                int streamVolume = audioManager.getStreamVolume(3);
-                if (streamMaxVolume <= 0) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "max volume get 0");
-                    if (m73.b) {
-                        Log.d("SwanAppAction", "getMediaVolumeSync --- max volume get 0");
-                    }
-                    return false;
-                }
-                double d = streamVolume / streamMaxVolume;
-                if (d < 0.0d) {
-                    d = 0.0d;
-                } else if (d > 1.0d) {
-                    d = 1.0d;
-                }
-                if (m73.b) {
-                    Log.d("SwanAppAction", "getMediaVolumeSync: " + d);
-                }
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("value", d);
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-                    return true;
-                } catch (JSONException unused) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "json exception");
-                    if (m73.b) {
-                        Log.d("SwanAppAction", "getMediaVolumeSync --- json exception");
-                    }
-                    return false;
-                }
-            }
+        if ((interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) && b) {
+            Log.d("SwanCookieDBHelper", "oldVersion = " + i + ";newVersion=" + i2);
         }
-        return invokeLLLL.booleanValue;
     }
 }

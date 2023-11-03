@@ -53,7 +53,7 @@ public class MemberCloseAdHttpResponseMessage extends TbHttpResponsedMessage {
             if (getError() == 0 && closeAdResIdl.data != null) {
                 CloseAdData closeAdData = new CloseAdData();
                 this.mData = closeAdData;
-                closeAdData.P(closeAdResIdl.data.vip_close_ad);
+                closeAdData.Q(closeAdResIdl.data.vip_close_ad);
             }
         }
     }

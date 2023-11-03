@@ -64,8 +64,8 @@ import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.searchbox.wordscommand.util.CommandUtil;
 import com.baidu.searchbox.wordscommand.util.InvokeParamsSpUtil;
 import com.baidu.searchbox.wordscommand.util.SimpleLifecycleCallback;
-import com.baidu.tieba.k30;
-import com.baidu.tieba.l30;
+import com.baidu.tieba.b40;
+import com.baidu.tieba.c40;
 import com.facebook.common.executors.UiThreadImmediateExecutorService;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.datasource.DataSource;
@@ -291,12 +291,12 @@ public class WordCommandManager {
     }
 
     private void addDispatcherEvent(String str) {
-        k30.c("external_dispatch_start", String.valueOf(this.mUBCDispatchStartTime));
-        k30.c(CommandUBCHelper.COMMAND_UBC_TIME_START, String.valueOf(this.mUBCShareTokenStartTime));
-        k30.c(CommandUBCHelper.COMMAND_UBC_CONTENT, this.mUBCClipboardString);
-        k30.c("launch_scheme", str);
-        k30.b("external_dispatch_end");
-        k30.b(CommandUBCHelper.COMMAND_UBC_TIME_END);
+        b40.c("external_dispatch_start", String.valueOf(this.mUBCDispatchStartTime));
+        b40.c(CommandUBCHelper.COMMAND_UBC_TIME_START, String.valueOf(this.mUBCShareTokenStartTime));
+        b40.c(CommandUBCHelper.COMMAND_UBC_CONTENT, this.mUBCClipboardString);
+        b40.c("launch_scheme", str);
+        b40.b("external_dispatch_end");
+        b40.b(CommandUBCHelper.COMMAND_UBC_TIME_END);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -409,8 +409,8 @@ public class WordCommandManager {
                     });
                     return;
                 }
-                k30.b(CommandUBCHelper.COMMAND_UBC_TIME_SERVER_ERROR);
-                k30.c(CommandUBCHelper.COMMAND_UBC_ERROR_TYPE, CommandUBCHelper.COMMAND_UBC_ERROR_TYPE_SERVER);
+                b40.b(CommandUBCHelper.COMMAND_UBC_TIME_SERVER_ERROR);
+                b40.c(CommandUBCHelper.COMMAND_UBC_ERROR_TYPE, CommandUBCHelper.COMMAND_UBC_ERROR_TYPE_SERVER);
             }
         });
     }
@@ -1068,15 +1068,15 @@ public class WordCommandManager {
         if (context != null && commandContent != null) {
             if (commandContent.isRepeat) {
                 CommandUBCHelper.ubcStatisticsWithValue(CommandUBCHelper.WORD_COMMAND_PARSE_DIALOG, "repeat", CommandUBCHelper.COMMAND_UBC_STATISTICS_SOURCE_VALUE_SERVER, sDecodeCommandActivityId, null);
-                k30.c(CommandUBCHelper.COMMAND_UBC_ERROR_TYPE, CommandUBCHelper.COMMAND_UBC_ERROR_TYPE_REPEAT);
+                b40.c(CommandUBCHelper.COMMAND_UBC_ERROR_TYPE, CommandUBCHelper.COMMAND_UBC_ERROR_TYPE_REPEAT);
                 if (AppConfig.isDebug()) {
                     Log.d("WordCommandManager", "重复了，度口令不跳转了");
                 }
             } else if (shouldDismissCommandDialog(commandContent)) {
-                k30.b("external_dispatch_end");
-                k30.c(CommandUBCHelper.COMMAND_UBC_ERROR_TYPE, CommandUBCHelper.COMMAND_UBC_ERROR_TYPE_REPEAT);
+                b40.b("external_dispatch_end");
+                b40.c(CommandUBCHelper.COMMAND_UBC_ERROR_TYPE, CommandUBCHelper.COMMAND_UBC_ERROR_TYPE_REPEAT);
             } else {
-                l30.d(CommandUBCHelper.COMMAND_UBC_SHARE_TOKEN);
+                c40.d(CommandUBCHelper.COMMAND_UBC_SHARE_TOKEN);
                 if (!commandContent.mShowable) {
                     IWordCommandApp.Impl.get().schemeInvoke(commandContent.scheme);
                 } else {

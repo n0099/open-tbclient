@@ -1,166 +1,130 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.logsystem.basic.upload.Constant;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.ddmlib.tools.perflib.vmtrace.utils.Strings;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
-import java.util.ArrayList;
+import com.bumptech.glide.load.engine.GlideException;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes6.dex */
 public class gl4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ConcurrentHashMap<String, String> f;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public String c;
-    public JSONObject d;
-    public List<wk4> e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947797754, "Lcom/baidu/tieba/gl4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static Map<String, Integer> a(Set<String> set) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, set)) == null) {
+            HashMap hashMap = new HashMap();
+            int i = 0;
+            for (String str : set) {
+                hashMap.put(str, Integer.valueOf(i));
+                i++;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947797754, "Lcom/baidu/tieba/gl4;");
-                return;
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public static StringBuilder b(StringBuilder... sbArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, sbArr)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (StringBuilder sb2 : sbArr) {
+                sb.append((CharSequence) sb2);
             }
+            return sb;
         }
-        ConcurrentHashMap<String, String> concurrentHashMap = new ConcurrentHashMap<>();
-        f = concurrentHashMap;
-        concurrentHashMap.put("1415", PayUVEventType.PAY_RUBY_ENTRANCE_BANNER_SHOW);
+        return (StringBuilder) invokeL.objValue;
     }
 
-    public List<wk4> a() {
-        InterceptResult invokeV;
+    public static String c(List<dl4> list, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public gl4(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, jSONObject};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, list, str)) == null) {
+            Set<String> d = el4.b().d();
+            int size = d.size();
+            Map<String, Integer> a = a(d);
+            StringBuilder[] sbArr = new StringBuilder[size];
+            for (int i = 0; i < size; i++) {
+                sbArr[i] = new StringBuilder();
             }
+            for (dl4 dl4Var : list) {
+                Integer num = a.get(dl4Var.f());
+                if (num != null) {
+                    sbArr[num.intValue()].append(Strings.repeat(GlideException.IndentedAppendable.INDENT, dl4Var.d()));
+                    sbArr[num.intValue()].append("- ");
+                    StringBuilder sb = sbArr[num.intValue()];
+                    sb.append(dl4Var.b() / 1000);
+                    sb.append("ms");
+                    sbArr[num.intValue()].append("   ");
+                    sbArr[num.intValue()].append(dl4Var.f());
+                    sbArr[num.intValue()].append("   ");
+                    sbArr[num.intValue()].append(dl4Var.c().getFullName());
+                    sbArr[num.intValue()].append("\n");
+                }
+            }
+            String sb2 = b(sbArr).toString();
+            d(sb2, str);
+            return sb2;
         }
-        this.e = new ArrayList();
-        this.c = str;
-        this.d = jSONObject;
+        return (String) invokeLL.objValue;
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public boolean e() {
-        InterceptResult invokeV;
-        String str;
+    public static void d(String str, String str2) {
+        FileWriter fileWriter;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str)) {
+            FileWriter fileWriter2 = null;
             try {
-                JSONObject jSONObject = this.d;
-                this.a = jSONObject.getInt("threshold");
-                this.b = jSONObject.getInt("timeup");
-                JSONArray jSONArray = new JSONArray(jSONObject.getString("item"));
-                int length = jSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    JSONObject jSONObject2 = jSONArray.getJSONObject(i);
-                    String string = jSONObject2.getString("ubcid");
-                    if (!TextUtils.isEmpty(string) && f.containsKey(string)) {
-                        String optString = jSONObject2.optString("bizid");
-                        f.get(string);
-                        str = optString;
-                    } else {
-                        str = string;
+                try {
+                    try {
+                        File parentFile = new File(str2).getParentFile();
+                        if (parentFile != null && !parentFile.exists()) {
+                            parentFile.mkdirs();
+                        }
+                        fileWriter = new FileWriter(str2);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        return;
                     }
-                    String string2 = jSONObject2.getString("switch");
-                    String string3 = jSONObject2.getString(Constant.IS_REAL);
-                    String string4 = jSONObject2.getString("isAbtest");
-                    int parseInt = Integer.parseInt(jSONObject2.getString("timeout"));
-                    String string5 = jSONObject2.getString("type");
-                    if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3) && !TextUtils.isEmpty(string5)) {
-                        wk4 wk4Var = new wk4(str, string2, string3, parseInt, string5, string4);
-                        if (jSONObject2.has("rate")) {
-                            wk4Var.g = Integer.parseInt(jSONObject2.getString("rate"));
-                        }
-                        if (jSONObject2.has("bizid")) {
-                            jSONObject2.getString("bizid");
-                        }
-                        if (jSONObject2.has("c")) {
-                            wk4Var.h = jSONObject2.getString("c");
-                        }
-                        if (jSONObject2.has("limitUnit")) {
-                            wk4Var.i = Integer.parseInt(jSONObject2.getString("limitUnit"));
-                        }
-                        if (jSONObject2.has("limitCnt")) {
-                            wk4Var.j = Integer.parseInt(jSONObject2.getString("limitCnt"));
-                        }
-                        if (jSONObject2.has(Constant.ID_TYPE)) {
-                            wk4Var.k = jSONObject2.getString(Constant.ID_TYPE);
-                        }
-                        if (jSONObject2.has("appblacklist")) {
-                            jSONObject2.getString("appblacklist");
-                        }
-                        this.e.add(wk4Var);
+                } catch (IOException e2) {
+                    e = e2;
+                }
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                fileWriter.write(str);
+                fileWriter.flush();
+                fileWriter.close();
+            } catch (IOException e3) {
+                e = e3;
+                fileWriter2 = fileWriter;
+                e.printStackTrace();
+                if (fileWriter2 != null) {
+                    fileWriter2.close();
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                fileWriter2 = fileWriter;
+                if (fileWriter2 != null) {
+                    try {
+                        fileWriter2.close();
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
                     }
                 }
-                return true;
-            } catch (NumberFormatException | JSONException unused) {
-                return false;
+                throw th;
             }
         }
-        return invokeV.booleanValue;
     }
 }

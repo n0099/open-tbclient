@@ -9,8 +9,8 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.widget.timepicker.pickerview.listener.OnTimeSelectListener;
-import com.baidu.tieba.c95;
 import com.baidu.tieba.view.NavigationBarCoverTip;
+import com.baidu.tieba.w95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ public class SignManager {
     public static /* synthetic */ Interceptable $ic;
     public static SignManager mInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public c95 mISignManager;
+    public w95 mISignManager;
     public String mSignInfo;
 
     public SignManager() {
@@ -40,17 +40,17 @@ public class SignManager {
         this.mISignManager = getISignManager();
     }
 
-    private c95 getISignManager() {
+    private w95 getISignManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2156675, c95.class);
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2156675, w95.class);
             if (runTask != null) {
-                return (c95) runTask.getData();
+                return (w95) runTask.getData();
             }
             return null;
         }
-        return (c95) invokeV.objValue;
+        return (w95) invokeV.objValue;
     }
 
     public static SignManager getInstance() {
@@ -73,9 +73,9 @@ public class SignManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            c95 c95Var = this.mISignManager;
-            if (c95Var != null) {
-                return c95Var.g();
+            w95 w95Var = this.mISignManager;
+            if (w95Var != null) {
+                return w95Var.g();
             }
             return 0;
         }
@@ -86,9 +86,9 @@ public class SignManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            c95 c95Var = this.mISignManager;
-            if (c95Var != null) {
-                return c95Var.b();
+            w95 w95Var = this.mISignManager;
+            if (w95Var != null) {
+                return w95Var.b();
             }
             return 0;
         }
@@ -108,9 +108,9 @@ public class SignManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            c95 c95Var = this.mISignManager;
-            if (c95Var != null) {
-                return c95Var.a();
+            w95 w95Var = this.mISignManager;
+            if (w95Var != null) {
+                return w95Var.a();
             }
             return false;
         }
@@ -118,26 +118,26 @@ public class SignManager {
     }
 
     public void updateSignAlarm() {
-        c95 c95Var;
+        w95 w95Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (c95Var = this.mISignManager) != null) {
-            c95Var.c();
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (w95Var = this.mISignManager) != null) {
+            w95Var.c();
         }
     }
 
     public void checkAndShowTimePicker(int i, TbPageContext tbPageContext, ViewGroup viewGroup, boolean z) {
-        c95 c95Var;
+        w95 w95Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), tbPageContext, viewGroup, Boolean.valueOf(z)}) == null) && (c95Var = this.mISignManager) != null) {
-            c95Var.f(i, tbPageContext, viewGroup, z);
+        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), tbPageContext, viewGroup, Boolean.valueOf(z)}) == null) && (w95Var = this.mISignManager) != null) {
+            w95Var.f(i, tbPageContext, viewGroup, z);
         }
     }
 
     public void setSignAlert(boolean z, int i, int i2) {
-        c95 c95Var;
+        w95 w95Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)}) == null) && (c95Var = this.mISignManager) != null) {
-            c95Var.i(z, i, i2);
+        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)}) == null) && (w95Var = this.mISignManager) != null) {
+            w95Var.i(z, i, i2);
         }
     }
 
@@ -152,9 +152,9 @@ public class SignManager {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, activity, viewGroup)) == null) {
-            c95 c95Var = this.mISignManager;
-            if (c95Var != null) {
-                return c95Var.e(activity, viewGroup);
+            w95 w95Var = this.mISignManager;
+            if (w95Var != null) {
+                return w95Var.e(activity, viewGroup);
             }
             return null;
         }
@@ -162,10 +162,10 @@ public class SignManager {
     }
 
     public void updateSignSwitchAndTimeByServerSync(boolean z, long j) {
-        c95 c95Var;
+        w95 w95Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) && (c95Var = this.mISignManager) != null) {
-            c95Var.h(z, j);
+        if ((interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) && (w95Var = this.mISignManager) != null) {
+            w95Var.h(z, j);
         }
     }
 
@@ -173,9 +173,9 @@ public class SignManager {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), tbPageContext, onTimeSelectListener, Boolean.valueOf(z)})) == null) {
-            c95 c95Var = this.mISignManager;
-            if (c95Var != null) {
-                return c95Var.d(i, tbPageContext, onTimeSelectListener, z);
+            w95 w95Var = this.mISignManager;
+            if (w95Var != null) {
+                return w95Var.d(i, tbPageContext, onTimeSelectListener, z);
             }
             return null;
         }

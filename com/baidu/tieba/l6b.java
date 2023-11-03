@@ -1,90 +1,78 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.ExperimentalCronetEngine;
-import com.baidu.turbonet.net.TurbonetEngine;
-import com.baidu.turbonet.net.impl.VersionSafeCallbacks;
-import org.json.JSONException;
+import tbclient.FrsPage.CardFreq;
 /* loaded from: classes7.dex */
 public final class l6b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TurbonetEngine a;
-    public Context b;
-    public String c;
-    public String d;
+    public Long a;
+    public Long b;
+    public Long c;
 
-    public l6b(Context context, String str, String str2, k6b k6bVar) {
+    public l6b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, str2, k6bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = context;
-        this.c = str;
-        this.d = str2;
-        a(k6bVar);
     }
 
-    public final void a(k6b k6bVar) {
+    public final Long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, k6bVar) == null) {
-            ExperimentalCronetEngine.Builder builder = new ExperimentalCronetEngine.Builder(this.b);
-            if (k6bVar == null) {
-                builder.g(this.c);
-                builder.f(this.d);
-                this.a = builder.b();
-            } else {
-                if (k6bVar.h()) {
-                    builder.h(k6bVar.l());
-                }
-                try {
-                    if (k6bVar.g().has("nq") && k6bVar.g().getJSONObject("nq").getBoolean("network_quality_enabled")) {
-                        builder.k(true, "");
-                    }
-                } catch (JSONException e) {
-                    Log.e("cr_TurbonetContext", "JSON expcetion: " + e);
-                }
-                builder.g(this.c);
-                builder.f(this.d);
-                builder.a(k6bVar.g().toString());
-                this.a = builder.b();
-            }
-            Log.v("cr_TurbonetContext", "Turbonet init context success.");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
+        return (Long) invokeV.objValue;
     }
 
-    public TurbonetEngine b() {
+    public final Long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            return this.c;
         }
-        return (TurbonetEngine) invokeV.objValue;
+        return (Long) invokeV.objValue;
     }
 
-    public long c() {
+    public final Long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return new VersionSafeCallbacks.f(this.a).a();
+            return this.a;
         }
-        return invokeV.longValue;
+        return (Long) invokeV.objValue;
+    }
+
+    public final void d(CardFreq cardFreq) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, cardFreq) != null) || cardFreq == null) {
+            return;
+        }
+        this.a = cardFreq.start_time;
+        this.b = cardFreq.end_time;
+        this.c = cardFreq.show_times;
+    }
+
+    public final void e(tbclient.Personalized.CardFreq cardFreq) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, cardFreq) != null) || cardFreq == null) {
+            return;
+        }
+        this.a = cardFreq.start_time;
+        this.b = cardFreq.end_time;
+        this.c = cardFreq.show_times;
     }
 }

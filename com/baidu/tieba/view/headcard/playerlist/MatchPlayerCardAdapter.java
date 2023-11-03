@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.pta;
+import com.baidu.tieba.q6b;
 import com.baidu.tieba.view.headcard.playerlist.MatchPlayerCardAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -28,7 +28,7 @@ public final class MatchPlayerCardAdapter extends RecyclerView.Adapter<ViewHolde
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
-    public List<pta> b;
+    public List<q6b> b;
 
     @Metadata(d1 = {"\u0000\u001e\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\b\u0086\u0004\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\u000e\u0010\u0007\u001a\u00020\b2\u0006\u0010\t\u001a\u00020\nR\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006¨\u0006\u000b"}, d2 = {"Lcom/baidu/tieba/view/headcard/playerlist/MatchPlayerCardAdapter$ViewHolder;", "Landroidx/recyclerview/widget/RecyclerView$ViewHolder;", "mView", "Lcom/baidu/tieba/view/headcard/playerlist/PlayerCardView;", "(Lcom/baidu/tieba/view/headcard/playerlist/MatchPlayerCardAdapter;Lcom/baidu/tieba/view/headcard/playerlist/PlayerCardView;)V", "getMView", "()Lcom/baidu/tieba/view/headcard/playerlist/PlayerCardView;", "bindView", "", "data", "Lcom/baidu/tieba/view/headcard/data/MatchPlayerInfoData;", "tbadk_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes8.dex */
@@ -61,7 +61,7 @@ public final class MatchPlayerCardAdapter extends RecyclerView.Adapter<ViewHolde
             this.a = mView;
         }
 
-        public static final void b(pta data, MatchPlayerCardAdapter this$0, View view2) {
+        public static final void b(q6b data, MatchPlayerCardAdapter this$0, View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(65537, null, data, this$0, view2) == null) {
                 Intrinsics.checkNotNullParameter(data, "$data");
@@ -73,14 +73,14 @@ public final class MatchPlayerCardAdapter extends RecyclerView.Adapter<ViewHolde
             }
         }
 
-        public final void a(final pta data) {
+        public final void a(final q6b data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
                 Intrinsics.checkNotNullParameter(data, "data");
                 this.a.setData(data);
                 PlayerCardView playerCardView = this.a;
                 final MatchPlayerCardAdapter matchPlayerCardAdapter = this.b;
-                playerCardView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.cua
+                playerCardView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.d7b
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -88,7 +88,7 @@ public final class MatchPlayerCardAdapter extends RecyclerView.Adapter<ViewHolde
                     public final void onClick(View view2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                            MatchPlayerCardAdapter.ViewHolder.b(pta.this, matchPlayerCardAdapter, view2);
+                            MatchPlayerCardAdapter.ViewHolder.b(q6b.this, matchPlayerCardAdapter, view2);
                         }
                     }
                 });
@@ -115,7 +115,7 @@ public final class MatchPlayerCardAdapter extends RecyclerView.Adapter<ViewHolde
         this.a = mContext;
     }
 
-    public final void setData(List<pta> data) {
+    public final void setData(List<q6b> data) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, data) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
@@ -128,7 +128,7 @@ public final class MatchPlayerCardAdapter extends RecyclerView.Adapter<ViewHolde
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<pta> list = this.b;
+            List<q6b> list = this.b;
             if (list == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mData");
                 list = null;
@@ -138,15 +138,15 @@ public final class MatchPlayerCardAdapter extends RecyclerView.Adapter<ViewHolde
         return invokeV.intValue;
     }
 
-    public final void n(int i, pta ptaVar) {
+    public final void n(int i, q6b q6bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, ptaVar) == null) {
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, q6bVar) == null) {
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_COLLECT_COVER_CLICK);
             statisticItem.param("obj_type", i);
-            statisticItem.addParam("obj_locate", ptaVar.n());
-            statisticItem.addParam("obj_source", ptaVar.h());
-            statisticItem.addParam("fid", ptaVar.b());
-            statisticItem.addParam("fname", ptaVar.c());
+            statisticItem.addParam("obj_locate", q6bVar.n());
+            statisticItem.addParam("obj_source", q6bVar.h());
+            statisticItem.addParam("fid", q6bVar.b());
+            statisticItem.addParam("fname", q6bVar.c());
             TiebaStatic.log(statisticItem);
         }
     }
@@ -158,8 +158,8 @@ public final class MatchPlayerCardAdapter extends RecyclerView.Adapter<ViewHolde
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, holder, i) == null) {
             Intrinsics.checkNotNullParameter(holder, "holder");
-            List<pta> list = this.b;
-            List<pta> list2 = null;
+            List<q6b> list = this.b;
+            List<q6b> list2 = null;
             if (list == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mData");
                 list = null;
@@ -167,7 +167,7 @@ public final class MatchPlayerCardAdapter extends RecyclerView.Adapter<ViewHolde
             if (list.size() <= i) {
                 return;
             }
-            List<pta> list3 = this.b;
+            List<q6b> list3 = this.b;
             if (list3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mData");
             } else {

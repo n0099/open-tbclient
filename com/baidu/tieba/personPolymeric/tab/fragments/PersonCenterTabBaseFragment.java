@@ -2,10 +2,11 @@ package com.baidu.tieba.personPolymeric.tab.fragments;
 
 import android.view.View;
 import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.zu9;
+import com.baidu.tieba.e8a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -15,21 +16,21 @@ import tbclient.User;
 public abstract class PersonCenterTabBaseFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zu9 a;
+    public e8a a;
 
-    public abstract void c2(boolean z);
+    public abstract void u2(boolean z);
 
-    public abstract int d2();
+    public abstract int v2();
 
-    public abstract boolean e2();
+    public abstract boolean w2();
 
-    public void f2(MetaData metaData) {
+    public void x2(MetaData metaData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, metaData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, metaData) == null) {
         }
     }
 
-    public abstract void g2(User user);
+    public abstract void y2(User user);
 
     public PersonCenterTabBaseFragment() {
         Interceptable interceptable = $ic;
@@ -47,21 +48,21 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void hideNetRefreshView(View view2) {
-        zu9 zu9Var;
+        e8a e8aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && (zu9Var = this.a) != null) {
-            zu9Var.dettachView(view2);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (e8aVar = this.a) != null) {
+            e8aVar.dettachView(view2);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            zu9 zu9Var = this.a;
-            if (zu9Var != null) {
-                zu9Var.onChangeSkinType();
+            e8a e8aVar = this.a;
+            if (e8aVar != null) {
+                e8aVar.onChangeSkinType();
             }
         }
     }
@@ -69,11 +70,11 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void showNetRefreshView(View view2, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048583, this, view2, str, z) == null) {
+        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, view2, str, z) == null) {
             if (this.a == null) {
-                zu9 zu9Var = new zu9(getPageContext().getPageActivity(), getNetRefreshListener());
-                this.a = zu9Var;
-                zu9Var.d(getPageContext().getResources().getString(R.string.refresh_view_title_text));
+                e8a e8aVar = new e8a(getPageContext().getPageActivity(), getNetRefreshListener());
+                this.a = e8aVar;
+                e8aVar.d(getPageContext().getResources().getString(R.string.refresh_view_title_text));
                 this.a.c(null);
                 this.a.b(getPageContext().getResources().getString(R.string.refresh_view_button_text));
                 this.a.e();

@@ -1,94 +1,161 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.base.BdPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.data.ImShareCardCommonData;
-import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.sprite.funnysprite.data.SpriteTipHttpResponseMessage;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
-import org.json.JSONException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class nna {
+public final class nna {
     public static /* synthetic */ Interceptable $ic;
+    public static final a b;
     public transient /* synthetic */ FieldHolder $fh;
+    public SpriteTipHttpResponseMessage a;
 
-    public static String a(BdPageContext bdPageContext, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, bdPageContext, str)) == null) {
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    sb.append(jSONArray.optJSONObject(i).optString("src"));
-                }
-                return sb.toString();
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return bdPageContext.getString(R.string.pic_str);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948009608, "Lcom/baidu/tieba/nna;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948009608, "Lcom/baidu/tieba/nna;");
+                return;
             }
         }
-        return (String) invokeLL.objValue;
+        b = new a(null);
     }
 
-    public static String b(BdPageContext bdPageContext, ChatMessage chatMessage) {
-        InterceptResult invokeLL;
-        String string;
-        ImShareCardCommonData d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bdPageContext, chatMessage)) == null) {
-            int msgType = chatMessage.getMsgType();
-            String str = "";
-            if (msgType != 1) {
-                if (msgType != 2) {
-                    if (msgType != 3) {
-                        if (msgType != 30) {
-                            if (msgType != 32) {
-                                if (msgType != 33) {
-                                    if (msgType != 37) {
-                                        if (msgType == 38 && (d = lj8.d(chatMessage)) != null) {
-                                            if (d.getType() == 1) {
-                                                str = TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_topic_share);
-                                            } else if (d.getType() == 2) {
-                                                str = TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_compilation_share);
-                                            } else if (d.getType() == 3) {
-                                                str = TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_active_share);
-                                            }
-                                        }
-                                    } else {
-                                        str = bdPageContext.getString(R.string.last_msg_chatroom_share);
-                                    }
-                                } else {
-                                    str = bdPageContext.getString(R.string.last_msg_forum_share);
-                                }
-                            } else {
-                                str = bdPageContext.getString(R.string.last_msg_thread_share);
-                            }
-                        }
-                    } else {
-                        str = bdPageContext.getString(R.string.voice_str);
-                    }
-                } else {
-                    str = a(bdPageContext, chatMessage.getContent());
-                }
-                if (chatMessage == null && chatMessage.getToUserInfo() != null) {
-                    if (TextUtils.equals(chatMessage.getToUserInfo().getUserId(), String.valueOf(TbadkCoreApplication.getCurrentAccountId()))) {
-                        string = bdPageContext.getString(R.string.private_message_report_person);
-                    } else {
-                        string = bdPageContext.getString(R.string.private_message_is_report_name);
-                    }
-                    return string + chatMessage.getToUserInfo().getUserName() + bdPageContext.getString(R.string.private_message_report_content) + str;
-                }
-                return bdPageContext.getString(R.string.private_message_is_report_name);
-            }
-            str = chatMessage.getContent();
-            if (chatMessage == null) {
-            }
-            return bdPageContext.getString(R.string.private_message_is_report_name);
+    public /* synthetic */ nna(DefaultConstructorMarker defaultConstructorMarker) {
+        this();
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
         }
-        return (String) invokeLL.objValue;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @JvmStatic
+        public final nna a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return b.a.a();
+            }
+            return (nna) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final b a;
+        public static final nna b;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-568526774, "Lcom/baidu/tieba/nna$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-568526774, "Lcom/baidu/tieba/nna$b;");
+                    return;
+                }
+            }
+            a = new b();
+            b = new nna(null);
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public final nna a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return b;
+            }
+            return (nna) invokeV.objValue;
+        }
+    }
+
+    public nna() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = null;
+        }
+    }
+
+    public final SpriteTipHttpResponseMessage b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (SpriteTipHttpResponseMessage) invokeV.objValue;
+    }
+
+    public final void c(SpriteTipHttpResponseMessage data) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, data) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            this.a = data;
+        }
     }
 }

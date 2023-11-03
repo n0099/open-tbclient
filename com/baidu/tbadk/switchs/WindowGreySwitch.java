@@ -43,7 +43,7 @@ public class WindowGreySwitch extends BaseNormalSwitch {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.t9
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ja
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -15,10 +15,11 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 public final class ABTestStaticData {
     public static /* synthetic */ Interceptable $ic;
     public static final Companion Companion;
+    public static int isNewFrs;
     public static int isNewWrite;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Metadata(d1 = {"\u0000\u0014\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0004\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002R\u001a\u0010\u0003\u001a\u00020\u0004X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0003\u0010\u0005\"\u0004\b\u0006\u0010\u0007¨\u0006\b"}, d2 = {"Lcom/baidu/tbadk/abtest/ABTestStaticData$Companion;", "", "()V", "isNewWrite", "", "()I", "setNewWrite", "(I)V", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+    @Metadata(d1 = {"\u0000\u0014\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0006\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002R\u001a\u0010\u0003\u001a\u00020\u0004X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0003\u0010\u0005\"\u0004\b\u0006\u0010\u0007R\u001a\u0010\b\u001a\u00020\u0004X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\b\u0010\u0005\"\u0004\b\t\u0010\u0007¨\u0006\n"}, d2 = {"Lcom/baidu/tbadk/abtest/ABTestStaticData$Companion;", "", "()V", "isNewFrs", "", "()I", "setNewFrs", "(I)V", "isNewWrite", "setNewWrite", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes4.dex */
     public static final class Companion {
         public static /* synthetic */ Interceptable $ic;
@@ -42,18 +43,34 @@ public final class ABTestStaticData {
             }
         }
 
-        public final int isNewWrite() {
+        public final int isNewFrs() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return ABTestStaticData.isNewFrs;
+            }
+            return invokeV.intValue;
+        }
+
+        public final int isNewWrite() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 return ABTestStaticData.isNewWrite;
             }
             return invokeV.intValue;
         }
 
+        public final void setNewFrs(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+                ABTestStaticData.isNewFrs = i;
+            }
+        }
+
         public final void setNewWrite(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
                 ABTestStaticData.isNewWrite = i;
             }
         }
@@ -74,6 +91,7 @@ public final class ABTestStaticData {
         }
         Companion = new Companion(null);
         isNewWrite = -1;
+        isNewFrs = -1;
     }
 
     public ABTestStaticData() {

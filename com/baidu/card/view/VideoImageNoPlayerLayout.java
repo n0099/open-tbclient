@@ -18,10 +18,10 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.au;
-import com.baidu.tieba.bk6;
-import com.baidu.tieba.jv4;
-import com.baidu.tieba.qs;
+import com.baidu.tieba.bw4;
+import com.baidu.tieba.ht;
+import com.baidu.tieba.ru;
+import com.baidu.tieba.xl6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 /* loaded from: classes3.dex */
-public class VideoImageNoPlayerLayout extends RelativeLayout implements qs<jv4> {
+public class VideoImageNoPlayerLayout extends RelativeLayout implements ht<bw4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
@@ -44,10 +44,10 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements qs<jv4> 
     public RelativeLayout j;
     public RelativeLayout k;
     public boolean l;
-    public bk6<jv4> m;
-    public jv4 n;
+    public xl6<bw4> m;
+    public bw4 n;
     public View.OnClickListener o;
-    public au p;
+    public ru p;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -78,9 +78,9 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements qs<jv4> 
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.m != null) {
-                    bk6 bk6Var = this.a.m;
+                    xl6 xl6Var = this.a.m;
                     VideoImageNoPlayerLayout videoImageNoPlayerLayout = this.a;
-                    bk6Var.a(videoImageNoPlayerLayout.c, videoImageNoPlayerLayout.n);
+                    xl6Var.a(videoImageNoPlayerLayout.c, videoImageNoPlayerLayout.n);
                 }
                 if (this.a.o != null) {
                     this.a.o.onClick(this.a.c);
@@ -153,10 +153,10 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements qs<jv4> 
         }
     }
 
-    public void setData(jv4 jv4Var) {
+    public void setData(bw4 bw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, jv4Var) == null) {
-            this.n = jv4Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bw4Var) == null) {
+            this.n = bw4Var;
         }
     }
 
@@ -167,18 +167,18 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements qs<jv4> 
         }
     }
 
-    public void setOnCardSubClickListener(bk6<jv4> bk6Var) {
+    public void setOnCardSubClickListener(xl6<bw4> xl6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bk6Var) == null) {
-            this.m = bk6Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, xl6Var) == null) {
+            this.m = xl6Var;
         }
     }
 
-    public void setVideoAreaClickListener(au auVar) {
+    public void setVideoAreaClickListener(ru ruVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, auVar) == null) {
-            this.p = auVar;
-            if (auVar != null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, ruVar) == null) {
+            this.p = ruVar;
+            if (ruVar != null) {
                 h();
             }
         }
@@ -209,12 +209,12 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements qs<jv4> 
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qs
+    @Override // com.baidu.tieba.ht
     /* renamed from: f */
-    public void onBindDataToView(jv4 jv4Var) {
+    public void onBindDataToView(bw4 bw4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jv4Var) == null) && jv4Var != null && jv4Var.getThreadData() != null && jv4Var.getThreadData().originalThreadData != null) {
-            OriginalThreadInfo originalThreadInfo = jv4Var.getThreadData().originalThreadData;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bw4Var) == null) && bw4Var != null && bw4Var.getThreadData() != null && bw4Var.getThreadData().originalThreadData != null) {
+            OriginalThreadInfo originalThreadInfo = bw4Var.getThreadData().originalThreadData;
             originalThreadInfo.r.is_vertical.intValue();
             String str = originalThreadInfo.f;
             originalThreadInfo.r.video_length.intValue();

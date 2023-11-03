@@ -6,7 +6,7 @@ import com.heytap.msp.push.callback.IGetAppNotificationCallBackService;
 import com.heytap.msp.push.callback.ISetAppNotificationCallBackService;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface a {
     @Deprecated
     void clearNotificationType();

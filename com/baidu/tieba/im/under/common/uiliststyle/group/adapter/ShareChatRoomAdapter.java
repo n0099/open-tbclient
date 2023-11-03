@@ -71,7 +71,7 @@ public final class ShareChatRoomAdapter extends BaseStyleNormalAdapter<ShareChat
     }
 
     @Override // com.baidu.tieba.im.base.core.uilist.BaseNormalAdapter
-    public BaseViewHolder N(ViewGroup parent) {
+    public BaseViewHolder O(ViewGroup parent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parent)) == null) {
@@ -84,7 +84,7 @@ public final class ShareChatRoomAdapter extends BaseStyleNormalAdapter<ShareChat
     }
 
     @Override // com.baidu.tieba.im.base.core.uilist.BaseNormalAdapter
-    public BaseViewHolder P(ViewGroup parent) {
+    public BaseViewHolder Q(ViewGroup parent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parent)) == null) {
@@ -101,7 +101,7 @@ public final class ShareChatRoomAdapter extends BaseStyleNormalAdapter<ShareChat
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
             final ChatShareChatroomCard chatShareChatroomCard = new ChatShareChatroomCard(context, null, 2, null);
-            chatShareChatroomCard.setId(R.id.obfuscated_res_0x7f090ec8);
+            chatShareChatroomCard.setId(R.id.obfuscated_res_0x7f090eff);
             chatShareChatroomCard.setScene(1);
             chatShareChatroomCard.setLayoutParams(new ViewGroup.LayoutParams(m, -2));
             return new BaseViewHolder(chatShareChatroomCard) { // from class: com.baidu.tieba.im.under.common.uiliststyle.group.adapter.ShareChatRoomAdapter$createViewHolder$1
@@ -143,7 +143,7 @@ public final class ShareChatRoomAdapter extends BaseStyleNormalAdapter<ShareChat
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.base.core.uilist.BaseNormalAdapter
     /* renamed from: h0 */
-    public void U(int i, ViewGroup directParent, ShareChatRoomSysItem data, BaseViewHolder holder, List<Object> payloads, int i2) {
+    public void V(int i, ViewGroup directParent, ShareChatRoomSysItem data, BaseViewHolder holder, List<Object> payloads, int i2) {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), directParent, data, holder, payloads, Integer.valueOf(i2)}) == null) {
@@ -153,13 +153,13 @@ public final class ShareChatRoomAdapter extends BaseStyleNormalAdapter<ShareChat
             Intrinsics.checkNotNullParameter(payloads, "payloads");
             ChatShareChatroomCard chatShareChatroomCard = (ChatShareChatroomCard) holder.itemView;
             chatShareChatroomCard.setCurrentRoomId(data.getTbMsg().getSessionId());
-            chatShareChatroomCard.c(data.getTbMsg().formatMsg());
+            chatShareChatroomCard.b(data.getTbMsg().formatMsg());
             if (data.isLeft()) {
                 i3 = R.drawable.icon_pic_im_bubble_left;
             } else {
                 i3 = R.drawable.icon_pic_im_bubble_share_right;
             }
-            chatShareChatroomCard.f(i3, data.isLeft());
+            chatShareChatroomCard.e(i3, data.isLeft());
         }
     }
 }

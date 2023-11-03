@@ -1,129 +1,79 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.ThirdStatisticHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.YYLiveUtil;
-import com.baidu.tieba.aiapps.TbAiappsLaunchUtil;
+import com.baidu.tieba.ca;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class ln7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ca<byte[]> a;
 
-    public static void a(StatisticItem statisticItem, String str) {
+    public ln7() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, statisticItem, str) == null) && YYLiveUtil.isYYLiveLink(str)) {
-            YYLiveUtil.addYyExtData(statisticItem, str);
-        }
-    }
-
-    public static void b(Context context, vda vdaVar) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65537, null, context, vdaVar) != null) || vdaVar == null) {
-            return;
-        }
-        TbPageContext<BaseFragmentActivity> tbPageContext = null;
-        if (context instanceof BaseActivity) {
-            tbPageContext = ((BaseActivity) context).getPageContext();
-        } else if (context instanceof BaseFragmentActivity) {
-            tbPageContext = ((BaseFragmentActivity) context).getPageContext();
-        }
-        if (tbPageContext == null) {
-            return;
-        }
-        wda wdaVar = vdaVar.f;
-        if (wdaVar != null) {
-            TbAiappsLaunchUtil.launch(wdaVar.b, wdaVar.c, "1191003700000000", wdaVar.d);
-        } else {
-            if (YYLiveUtil.isYYLiveLink(vdaVar.d)) {
-                str = vdaVar.d + "&source=" + YYLiveUtil.SOURCE_FRS_SERVICE_AREA;
-            } else {
-                str = vdaVar.d;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
         }
-        xq7.a(tbPageContext, vdaVar.e);
+        b();
     }
 
-    public static void c(vda vdaVar) {
-        int i;
-        String str;
+    public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, vdaVar) != null) || vdaVar == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a == null) {
+            yz4.l();
+            this.a = yz4.i("tb.forum_member_info");
         }
-        StatisticItem statisticItem = new StatisticItem("c13626");
-        statisticItem.param("fid", vdaVar.g);
-        if (vdaVar.f == null) {
-            i = 1;
-        } else {
-            i = 2;
-        }
-        statisticItem.param("obj_type", i);
-        statisticItem.param("obj_locate", vdaVar.h);
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        wda wdaVar = vdaVar.f;
-        if (wdaVar != null) {
-            str = wdaVar.c;
-        } else {
-            str = vdaVar.d;
-        }
-        wda wdaVar2 = vdaVar.f;
-        if (wdaVar2 != null) {
-            String str2 = wdaVar2.a;
-        } else {
-            String str3 = vdaVar.c;
-        }
-        statisticItem.param("obj_name", vdaVar.c);
-        statisticItem.param("obj_param1", vdaVar.d);
-        a(statisticItem, str);
-        TiebaStatic.log(statisticItem);
-        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(vdaVar.i, 1));
     }
 
-    public static void d(vda vdaVar) {
-        int i;
-        String str;
+    public byte[] a(String str) {
+        InterceptResult invokeL;
+        ca.b<byte[]> bVar;
+        byte[] bArr;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, vdaVar) != null) || vdaVar == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
+            }
+            String str2 = str + "/" + TbadkCoreApplication.getCurrentAccount();
+            ca<byte[]> caVar = this.a;
+            if (caVar != null) {
+                bVar = caVar.h(str2);
+            } else {
+                bVar = null;
+            }
+            if (bVar == null || (bArr = bVar.b) == null) {
+                return null;
+            }
+            return bArr;
         }
-        StatisticItem statisticItem = new StatisticItem("c13627");
-        statisticItem.param("fid", vdaVar.g);
-        if (vdaVar.f == null) {
-            i = 1;
-        } else {
-            i = 2;
+        return (byte[]) invokeL.objValue;
+    }
+
+    public void c(String str, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr) == null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (StringUtils.isNull(str)) {
+                return;
+            }
+            b();
+            ca<byte[]> caVar = this.a;
+            caVar.e(str + "/" + currentAccount, bArr, TbConfig.MILLS_7DAYS);
         }
-        statisticItem.param("obj_type", i);
-        statisticItem.param("obj_locate", vdaVar.h);
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        wda wdaVar = vdaVar.f;
-        if (wdaVar != null) {
-            str = wdaVar.c;
-        } else {
-            str = vdaVar.d;
-        }
-        wda wdaVar2 = vdaVar.f;
-        if (wdaVar2 != null) {
-            String str2 = wdaVar2.a;
-        } else {
-            String str3 = vdaVar.c;
-        }
-        statisticItem.param("obj_name", vdaVar.c);
-        statisticItem.param("obj_param1", vdaVar.d);
-        a(statisticItem, str);
-        TiebaStatic.log(statisticItem);
-        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(vdaVar.i, 0));
     }
 }

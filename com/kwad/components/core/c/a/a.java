@@ -15,7 +15,7 @@ public final class a {
 
     /* renamed from: com.kwad.components.core.c.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C0619a {
+    public static class C0625a {
         public boolean DS;
         public boolean DT;
         public b DU;
@@ -34,81 +34,81 @@ public final class a {
         public final Context context;
         public int gH;
 
-        public C0619a(Context context) {
+        public C0625a(Context context) {
             this.context = context;
         }
 
-        public final C0619a L(AdTemplate adTemplate) {
+        public final C0625a L(AdTemplate adTemplate) {
             this.adTemplate = adTemplate;
             return this;
         }
 
-        public final C0619a a(b bVar) {
+        public final C0625a a(b bVar) {
             this.DU = bVar;
             return this;
         }
 
-        public final C0619a a(u.b bVar) {
+        public final C0625a a(u.b bVar) {
             this.Ea = bVar;
             return this;
         }
 
-        public final C0619a ae(int i) {
+        public final C0625a ae(int i) {
             this.gH = i;
             return this;
         }
 
-        public final C0619a af(int i) {
+        public final C0625a af(int i) {
             this.Ee = i;
             return this;
         }
 
-        public final C0619a ag(int i) {
+        public final C0625a ag(int i) {
             this.Ef = i;
             return this;
         }
 
-        public final C0619a aj(boolean z) {
+        public final C0625a aj(boolean z) {
             this.DW = z;
             return this;
         }
 
-        public final C0619a ak(boolean z) {
+        public final C0625a ak(boolean z) {
             this.DY = z;
             return this;
         }
 
-        public final C0619a al(boolean z) {
+        public final C0625a al(boolean z) {
             this.DZ = z;
             return this;
         }
 
-        public final C0619a am(boolean z) {
+        public final C0625a am(boolean z) {
             this.Ec = z;
             return this;
         }
 
-        public final C0619a an(boolean z) {
+        public final C0625a an(boolean z) {
             this.DT = z;
             return this;
         }
 
-        public final C0619a ao(boolean z) {
+        public final C0625a ao(boolean z) {
             this.DS = z;
             return this;
         }
 
-        public final C0619a ap(boolean z) {
+        public final C0625a ap(boolean z) {
             this.Ed = z;
             return this;
         }
 
-        public final C0619a b(c cVar) {
+        public final C0625a b(c cVar) {
             this.DV = cVar;
             return this;
         }
 
-        public final C0619a c(JSONObject jSONObject) {
+        public final C0625a c(JSONObject jSONObject) {
             this.Eb = jSONObject;
             return this;
         }
@@ -137,7 +137,7 @@ public final class a {
             return this.context;
         }
 
-        public final C0619a l(long j) {
+        public final C0625a l(long j) {
             this.DX = j;
             return this;
         }
@@ -196,7 +196,7 @@ public final class a {
         adTemplate.converted = true;
         AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
         com.kwad.sdk.components.c.f(com.kwad.components.kwai.kwai.a.class);
-        if (d.a(new C0619a(context).L(adTemplate), 1) == 1) {
+        if (d.a(new C0625a(context).L(adTemplate), 1) == 1) {
             bVar.onAdClicked();
             return 0;
         } else if (!com.kwad.sdk.core.response.a.a.am(bQ)) {
@@ -208,7 +208,7 @@ public final class a {
             }
             return 0;
         } else if (cVar != null) {
-            int m = cVar.m(new C0619a(context).aj(z).L(adTemplate).ak(z2).am(false));
+            int m = cVar.m(new C0625a(context).aj(z).L(adTemplate).ak(z2).am(false));
             int i = bQ.status;
             if (i != 2 && i != 3) {
                 bVar.onAdClicked();
@@ -219,111 +219,111 @@ public final class a {
         }
     }
 
-    public static int a(C0619a c0619a) {
-        c0619a.getAdTemplate().converted = true;
-        if (c0619a.mD()) {
-            a(c0619a.getContext(), c0619a.getAdTemplate(), c0619a.mw(), c0619a.getApkDownloadHelper(), c0619a.DW, c0619a.mz());
+    public static int a(C0625a c0625a) {
+        c0625a.getAdTemplate().converted = true;
+        if (c0625a.mD()) {
+            a(c0625a.getContext(), c0625a.getAdTemplate(), c0625a.mw(), c0625a.getApkDownloadHelper(), c0625a.DW, c0625a.mz());
             return 0;
-        } else if (b(c0619a)) {
+        } else if (b(c0625a)) {
             return 0;
         } else {
-            AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(c0619a.getAdTemplate());
+            AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(c0625a.getAdTemplate());
             com.kwad.sdk.components.c.f(com.kwad.components.kwai.kwai.a.class);
-            if (d.a(c0619a, 1) == 1) {
+            if (d.a(c0625a, 1) == 1) {
                 if (com.kwad.sdk.core.response.a.a.bK(bQ)) {
-                    com.kwad.sdk.core.report.a.o(c0619a.getAdTemplate(), (int) Math.ceil(((float) c0619a.my()) / 1000.0f));
+                    com.kwad.sdk.core.report.a.o(c0625a.getAdTemplate(), (int) Math.ceil(((float) c0625a.my()) / 1000.0f));
                 }
-                e(c0619a);
+                e(c0625a);
                 return 0;
-            } else if (e.d(c0619a.getContext(), c0619a.getAdTemplate())) {
-                e(c0619a);
+            } else if (e.d(c0625a.getContext(), c0625a.getAdTemplate())) {
+                e(c0625a);
                 return 0;
-            } else if (c0619a.mC() && (!com.kwad.sdk.core.response.a.a.am(bQ) || i(c0619a))) {
-                e(c0619a);
-                h(c0619a);
+            } else if (c0625a.mC() && (!com.kwad.sdk.core.response.a.a.am(bQ) || i(c0625a))) {
+                e(c0625a);
+                h(c0625a);
                 return 0;
             } else if (!com.kwad.sdk.core.response.a.a.am(bQ)) {
-                if (c0619a.getAdTemplate().isWebViewDownload) {
-                    return g(c0619a);
+                if (c0625a.getAdTemplate().isWebViewDownload) {
+                    return g(c0625a);
                 }
-                boolean e = com.kwad.sdk.utils.d.e(c0619a.getContext(), com.kwad.sdk.core.response.a.a.bO(bQ), com.kwad.sdk.core.response.a.a.ag(bQ));
-                e(c0619a);
+                boolean e = com.kwad.sdk.utils.d.e(c0625a.getContext(), com.kwad.sdk.core.response.a.a.bO(bQ), com.kwad.sdk.core.response.a.a.ag(bQ));
+                e(c0625a);
                 if (e) {
-                    com.kwad.sdk.core.report.a.m(c0619a.getAdTemplate(), 0);
+                    com.kwad.sdk.core.report.a.m(c0625a.getAdTemplate(), 0);
                     return 0;
                 }
-                AdWebViewActivityProxy.launch(c0619a.getContext(), c0619a.getAdTemplate());
+                AdWebViewActivityProxy.launch(c0625a.getContext(), c0625a.getAdTemplate());
                 return 0;
             } else {
                 if (com.kwad.sdk.core.response.a.a.am(bQ)) {
-                    if (c0619a.mG() == 2 || c0619a.mG() == 1) {
-                        c0619a.am(false);
-                        e(c0619a);
+                    if (c0625a.mG() == 2 || c0625a.mG() == 1) {
+                        c0625a.am(false);
+                        e(c0625a);
                     } else {
-                        e(c0619a);
-                        if (!c(c0619a)) {
-                            c0619a.am(true);
+                        e(c0625a);
+                        if (!c(c0625a)) {
+                            c0625a.am(true);
                         }
                     }
-                    return g(c0619a);
+                    return g(c0625a);
                 }
                 return 0;
             }
         }
     }
 
-    public static boolean b(C0619a c0619a) {
-        return com.kwad.sdk.core.response.a.a.am(com.kwad.sdk.core.response.a.d.bQ(c0619a.getAdTemplate())) ? !c0619a.mE() && c.s(c0619a) == 3 : d(c0619a) == 1;
+    public static boolean b(C0625a c0625a) {
+        return com.kwad.sdk.core.response.a.a.am(com.kwad.sdk.core.response.a.d.bQ(c0625a.getAdTemplate())) ? !c0625a.mE() && c.s(c0625a) == 3 : d(c0625a) == 1;
     }
 
-    public static boolean c(C0619a c0619a) {
-        AdTemplate adTemplate = c0619a.getAdTemplate();
+    public static boolean c(C0625a c0625a) {
+        AdTemplate adTemplate = c0625a.getAdTemplate();
         AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
-        if (!c0619a.mC() || !com.kwad.sdk.core.response.a.a.c(bQ, com.kwad.sdk.core.config.d.lG()) || TextUtils.isEmpty(com.kwad.sdk.core.response.a.a.ar(bQ)) || AdWebViewVideoActivityProxy.showingAdWebViewVideoActivity || c0619a.getApkDownloadHelper().mO()) {
+        if (!c0625a.mC() || !com.kwad.sdk.core.response.a.a.c(bQ, com.kwad.sdk.core.config.d.lG()) || TextUtils.isEmpty(com.kwad.sdk.core.response.a.a.ar(bQ)) || AdWebViewVideoActivityProxy.showingAdWebViewVideoActivity || c0625a.getApkDownloadHelper().mO()) {
             return false;
         }
-        AdWebViewVideoActivityProxy.launch(c0619a.getContext(), adTemplate);
+        AdWebViewVideoActivityProxy.launch(c0625a.getContext(), adTemplate);
         return true;
     }
 
-    public static int d(C0619a c0619a) {
-        AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(c0619a.getAdTemplate());
+    public static int d(C0625a c0625a) {
+        AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(c0625a.getAdTemplate());
         if (bQ.unDownloadConf.unDownloadRegionConf != null) {
-            int cC = c0619a.cC();
+            int cC = c0625a.cC();
             return cC != 2 ? cC != 3 ? bQ.unDownloadConf.unDownloadRegionConf.actionBarType : bQ.unDownloadConf.unDownloadRegionConf.materialJumpType : bQ.unDownloadConf.unDownloadRegionConf.describeBarType;
         }
         return 0;
     }
 
-    public static void e(C0619a c0619a) {
-        f(c0619a);
-        if (c0619a.mw() != null) {
-            c0619a.mw().onAdClicked();
+    public static void e(C0625a c0625a) {
+        f(c0625a);
+        if (c0625a.mw() != null) {
+            c0625a.mw().onAdClicked();
         }
     }
 
-    public static void f(C0619a c0619a) {
-        if (c0619a.mA()) {
-            com.kwad.sdk.core.report.a.a(c0619a.adTemplate, c0619a.Ea, c0619a.gP());
+    public static void f(C0625a c0625a) {
+        if (c0625a.mA()) {
+            com.kwad.sdk.core.report.a.a(c0625a.adTemplate, c0625a.Ea, c0625a.gP());
         }
     }
 
-    public static int g(C0619a c0619a) {
-        c apkDownloadHelper = c0619a.getApkDownloadHelper();
+    public static int g(C0625a c0625a) {
+        c apkDownloadHelper = c0625a.getApkDownloadHelper();
         if (apkDownloadHelper == null) {
-            apkDownloadHelper = new c(c0619a.adTemplate);
-            c0619a.b(apkDownloadHelper);
+            apkDownloadHelper = new c(c0625a.adTemplate);
+            c0625a.b(apkDownloadHelper);
         }
-        return apkDownloadHelper.m(c0619a);
+        return apkDownloadHelper.m(c0625a);
     }
 
-    public static void h(C0619a c0619a) {
-        AdTemplate adTemplate = c0619a.getAdTemplate();
-        Context context = c0619a.getContext();
+    public static void h(C0625a c0625a) {
+        AdTemplate adTemplate = c0625a.getAdTemplate();
+        Context context = c0625a.getContext();
         AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
         if (com.kwad.sdk.utils.d.e(context, com.kwad.sdk.core.response.a.a.bO(bQ), com.kwad.sdk.core.response.a.a.ag(bQ))) {
             com.kwad.sdk.core.report.a.m(adTemplate, 0);
-        } else if (i(c0619a)) {
+        } else if (i(c0625a)) {
             AdWebViewActivityProxy.launch(context, adTemplate, 4);
         } else if (!com.kwad.sdk.core.response.a.a.c(bQ, com.kwad.sdk.core.config.d.lG()) || adTemplate.mAdWebVideoPageShowing) {
             AdWebViewActivityProxy.launch(context, adTemplate, 0);
@@ -332,8 +332,8 @@ public final class a {
         }
     }
 
-    public static boolean i(C0619a c0619a) {
-        AdTemplate adTemplate = c0619a.getAdTemplate();
+    public static boolean i(C0625a c0625a) {
+        AdTemplate adTemplate = c0625a.getAdTemplate();
         return com.kwad.sdk.core.response.a.b.bg(adTemplate) && !adTemplate.interactLandingPageShowing;
     }
 }

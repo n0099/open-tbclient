@@ -11,7 +11,7 @@ import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.e;
+import com.baidu.tieba.f;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -31,8 +31,8 @@ public class ToolsActivity extends Activity {
     public CheckBox c;
     public List<String> d;
     public List<String> e;
-    public e f;
-    public e g;
+    public f f;
+    public f g;
     public String h;
     public String i;
     public SharedPreferences j;
@@ -64,19 +64,19 @@ public class ToolsActivity extends Activity {
             SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("gdt_mock", 0);
             this.j = sharedPreferences;
             this.k = sharedPreferences.edit();
-            Button button = (Button) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0907af);
-            Button button2 = (Button) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09053b);
-            this.a = (Spinner) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09008f);
-            this.b = (Spinner) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09082e);
+            Button button = (Button) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0907ce);
+            Button button2 = (Button) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090559);
+            this.a = (Spinner) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0900a2);
+            this.b = (Spinner) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09084f);
             this.c = (CheckBox) findViewById(com.baidu.tieba.R.id.isFullscreenCheckBox);
             this.d = new ArrayList(Arrays.asList(getResources().getStringArray(com.baidu.tieba.R.array.obfuscated_res_0x7f030019)));
             this.e = new ArrayList(Arrays.asList(getResources().getStringArray(com.baidu.tieba.R.array.obfuscated_res_0x7f030011)));
-            e eVar = new e(this, 17367048, getResources().getStringArray(com.baidu.tieba.R.array.obfuscated_res_0x7f030019));
-            this.f = eVar;
-            eVar.setDropDownViewResource(17367049);
-            e eVar2 = new e(this, 17367048, getResources().getStringArray(com.baidu.tieba.R.array.obfuscated_res_0x7f030011));
-            this.g = eVar2;
-            eVar2.setDropDownViewResource(17367049);
+            f fVar = new f(this, 17367048, getResources().getStringArray(com.baidu.tieba.R.array.obfuscated_res_0x7f030019));
+            this.f = fVar;
+            fVar.setDropDownViewResource(17367049);
+            f fVar2 = new f(this, 17367048, getResources().getStringArray(com.baidu.tieba.R.array.obfuscated_res_0x7f030011));
+            this.g = fVar2;
+            fVar2.setDropDownViewResource(17367049);
             this.a.setAdapter((SpinnerAdapter) this.f);
             this.b.setAdapter((SpinnerAdapter) this.g);
             int i = this.j.getInt("pt", -1);
@@ -93,7 +93,7 @@ public class ToolsActivity extends Activity {
             }
             this.a.setOnItemSelectedListener(new a(this));
             this.b.setOnItemSelectedListener(new b(this));
-            button.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.vwb
+            button.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.w9c
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -105,7 +105,7 @@ public class ToolsActivity extends Activity {
                     }
                 }
             });
-            button2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.wwb
+            button2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.x9c
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -117,7 +117,7 @@ public class ToolsActivity extends Activity {
                     }
                 }
             });
-            this.c.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.xwb
+            this.c.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.y9c
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

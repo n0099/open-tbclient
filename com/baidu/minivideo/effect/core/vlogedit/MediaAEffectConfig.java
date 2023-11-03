@@ -164,7 +164,7 @@ public class MediaAEffectConfig implements Parcelable, Cloneable {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 MediaAEffectConfig mediaAEffectConfig = (MediaAEffectConfig) super.clone();
-                mediaAEffectConfig.mMediaAEffect = this.mMediaAEffect.m47clone();
+                mediaAEffectConfig.mMediaAEffect = this.mMediaAEffect.m48clone();
                 mediaAEffectConfig.mShaderConfig = (ShaderConfig) this.mShaderConfig.clone();
                 return mediaAEffectConfig;
             } catch (Exception e) {

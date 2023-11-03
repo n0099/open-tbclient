@@ -1,59 +1,27 @@
 package com.baidu.tieba;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapShader;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.PointF;
+import android.graphics.RectF;
+import android.graphics.Shader;
+import android.widget.ImageView;
+import com.baidu.adp.newwidget.ImageView.DrawerArgs;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IStatisticManager;
-import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
+import java.util.Arrays;
 /* loaded from: classes5.dex */
-public class ag implements IStatisticManager {
+public class ag extends qf {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.nps.interfa.IStatisticManager
-    public void onPatchResult(int i, String str, int i2, String str2, IStatisticManager.StatisticExtendInfo statisticExtendInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), str2, statisticExtendInfo}) == null) {
-        }
-    }
-
-    @Override // com.baidu.nps.interfa.IStatisticManager
-    public void onUninstallResult(int i, String str, int i2, String str2, IStatisticManager.StatisticExtendInfo statisticExtendInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), str2, statisticExtendInfo}) == null) {
-        }
-    }
-
-    @Override // com.baidu.nps.interfa.IStatisticManager
-    public void recordDownloadResult(int i, String str, int i2, String str2, IStatisticManager.StatisticExtendInfo statisticExtendInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), str2, statisticExtendInfo}) == null) {
-        }
-    }
-
-    @Override // com.baidu.nps.interfa.IStatisticManager
-    public void recordException(int i, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048579, this, i, str, str2) == null) {
-        }
-    }
-
-    @Override // com.baidu.nps.interfa.IStatisticManager
-    public void recordPeriod(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-        }
-    }
-
-    @Override // com.baidu.nps.interfa.IStatisticManager
-    public void recordResult(long j, int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-        }
-    }
+    public Matrix s;
+    public BitmapShader t;
+    public RectF u;
 
     public ag() {
         Interceptable interceptable = $ic;
@@ -65,26 +33,134 @@ public class ag implements IStatisticManager {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.s = new Matrix();
+        this.u = new RectF();
+    }
+
+    @Override // com.baidu.tieba.qf
+    public void a(tf tfVar, ImageView imageView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, tfVar, imageView) == null) {
+            int b = tfVar.b();
+            int a = tfVar.a();
+            RectF rectF = this.g;
+            PointF b2 = b(rectF.left, rectF.top, this.f);
+            int i = (int) b2.x;
+            int i2 = (int) b2.y;
+            RectF rectF2 = this.g;
+            PointF b3 = b(rectF2.right, rectF2.bottom, this.f);
+            int i3 = (int) b3.x;
+            int i4 = (int) b3.y;
+            this.s.reset();
+            this.s.postScale((i3 - i) / b, (i4 - i2) / a);
+            this.s.postTranslate(i, i2);
+            if (tfVar.e()) {
+                Bitmap bitmap = tfVar.a.getBitmap();
+                Shader.TileMode tileMode = Shader.TileMode.CLAMP;
+                this.t = new BitmapShader(bitmap, tileMode, tileMode);
+            } else {
+                this.t = tfVar.b.createBitmapShader();
+            }
+            BitmapShader bitmapShader = this.t;
+            if (bitmapShader == null) {
+                return;
+            }
+            bitmapShader.setLocalMatrix(this.s);
+            this.c.setShader(this.t);
+            int width = (imageView.getWidth() - imageView.getPaddingLeft()) - imageView.getPaddingRight();
+            int height = (imageView.getHeight() - imageView.getPaddingTop()) - imageView.getPaddingBottom();
+            this.u.set(Math.max(i, 0), Math.max(i2, 0), Math.min(i3, width), Math.min(i4, height));
+            DrawerArgs drawerArgs = this.l;
+            if (!drawerArgs.c) {
+                return;
+            }
+            float f = drawerArgs.d / 2.0f;
+            if (!drawerArgs.g) {
+                this.h.set(f, f, imageView.getWidth() - f, imageView.getHeight() - f);
+                return;
+            }
+            RectF rectF3 = this.h;
+            RectF rectF4 = this.u;
+            rectF3.set(rectF4.left + f, rectF4.top + f, rectF4.right - f, rectF4.bottom - f);
         }
     }
 
-    @Override // com.baidu.nps.interfa.IStatisticManager
-    public void recordInstallResult(int i, String str, int i2, String str2, IStatisticManager.StatisticExtendInfo statisticExtendInfo) {
+    @Override // com.baidu.tieba.qf
+    public void f(Canvas canvas, ImageView imageView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), str2, statisticExtendInfo}) == null) {
-            zf.c(str, i, i2);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, imageView) == null) {
+            DrawerArgs drawerArgs = this.l;
+            if (!drawerArgs.c) {
+                return;
+            }
+            if (!drawerArgs.b) {
+                canvas.drawPath(l(this.h, drawerArgs.a), this.d);
+                return;
+            }
+            RectF rectF = this.u;
+            float f = (rectF.right + rectF.left) / 2.0f;
+            float f2 = (rectF.top + rectF.bottom) / 2.0f;
+            float min = Math.min(rectF.width(), this.u.height()) / 2.0f;
+            if (min <= 0.0f) {
+                f = (imageView.getRight() + imageView.getLeft()) / 2.0f;
+                f2 = (imageView.getTop() + imageView.getBottom()) / 2.0f;
+                min = Math.min(imageView.getWidth(), imageView.getHeight()) / 2.0f;
+            }
+            canvas.drawCircle(f, f2, min - (this.l.d / 2.0f), this.d);
         }
     }
 
-    @Override // com.baidu.nps.interfa.IStatisticManager
-    public void recordInvokeResult(int i, String str, int i2, String str2, IStatisticManager.StatisticExtendInfo statisticExtendInfo) {
+    @Override // com.baidu.tieba.qf
+    public void i(Canvas canvas, ImageView imageView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), str2, statisticExtendInfo}) == null) {
-            if (i == 14) {
-                zf.a(str, i2);
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, canvas, imageView) != null) || this.l.m == 0) {
+            return;
+        }
+        int scrollX = imageView.getScrollX();
+        int scrollY = imageView.getScrollY();
+        canvas.translate(scrollX, scrollY);
+        this.e.setColor(this.l.m);
+        if (!this.l.b) {
+            this.o.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
+            canvas.drawPath(l(this.o, this.l.a), this.e);
+        } else {
+            float width = imageView.getWidth() / 2.0f;
+            float height = imageView.getHeight() / 2.0f;
+            canvas.drawCircle(width, height, Math.min(width, height) - (this.l.d / 2.0f), this.e);
+        }
+        canvas.translate(-scrollX, -scrollY);
+    }
+
+    @Override // com.baidu.tieba.qf
+    public void h(Canvas canvas, tf tfVar, ImageView imageView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, canvas, tfVar, imageView) == null) {
+            boolean d = tfVar.d();
+            if (d && tfVar.d()) {
+                tfVar.b.changeDrawing(true);
             }
-            zf.d(str, i, i2);
+            DrawerArgs drawerArgs = this.l;
+            if (!drawerArgs.b) {
+                float[] fArr = drawerArgs.a;
+                float[] copyOf = Arrays.copyOf(fArr, fArr.length);
+                if (this.l.c) {
+                    for (int i = 0; i < copyOf.length; i++) {
+                        if (copyOf[i] != 0.0f) {
+                            copyOf[i] = copyOf[i] + 1.0f;
+                        }
+                    }
+                }
+                canvas.drawPath(l(this.u, copyOf), this.c);
+            } else {
+                RectF rectF = this.u;
+                canvas.drawCircle((rectF.right + rectF.left) / 2.0f, (rectF.top + rectF.bottom) / 2.0f, Math.min(rectF.width(), this.u.height()) / 2.0f, this.c);
+            }
+            if (d && tfVar.d()) {
+                tfVar.b.changeDrawing(false);
+            }
         }
     }
 }

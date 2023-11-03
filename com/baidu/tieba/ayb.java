@@ -1,423 +1,65 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.os.RemoteCallbackList;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.eyb;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.mobads.sdk.api.NativeResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import com.yy.render.ITransDataListener;
-import java.util.concurrent.ConcurrentHashMap;
-import kotlin.TypeCastException;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public final class ayb {
+public class ayb implements zyb {
     public static /* synthetic */ Interceptable $ic;
-    public static ayb e;
-    public static final a f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final ConcurrentHashMap<String, byb> b;
-    public final ConcurrentHashMap<String, String> c;
-    public ConcurrentHashMap<String, RemoteCallbackList<ITransDataListener>> d;
+    public NativeResponse a;
 
-    /* loaded from: classes5.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final ayb a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return ayb.e;
-            }
-            return (ayb) invokeV.objValue;
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947632927, "Lcom/baidu/tieba/ayb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947632927, "Lcom/baidu/tieba/ayb;");
-                return;
-            }
-        }
-        f = new a(null);
-        e = new ayb();
-    }
-
-    public ayb() {
+    public ayb(NativeResponse nativeResponse) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {nativeResponse};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = "MessageChannel";
-        this.b = new ConcurrentHashMap<>();
-        this.c = new ConcurrentHashMap<>();
-        this.d = new ConcurrentHashMap<>();
+        this.a = nativeResponse;
     }
 
-    public final byb b(String str, Context context, String str2) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.zyb
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, context, str2)) == null) {
-            try {
-                Object newInstance = Class.forName(str).getConstructor(Context.class, String.class).newInstance(context, str2);
-                if (newInstance != null) {
-                    return (byb) newInstance;
-                }
-                throw new TypeCastException("null cannot be cast to non-null type com.yy.render.trans.ServerMessageHandler");
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                return null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            NativeResponse nativeResponse = this.a;
+            return nativeResponse != null ? nativeResponse.getECPMLevel() : "0";
         }
-        return (byb) invokeLLL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final void c(String str, Bundle bundle) {
-        boolean z;
+    @Override // com.baidu.tieba.zyb
+    public void a(String str) {
+        NativeResponse nativeResponse;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bundle) == null) {
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (!z && bundle != null) {
-                byb bybVar = this.b.get(str);
-                if (bybVar == null) {
-                    eyb.a aVar = eyb.b;
-                    String str2 = this.a;
-                    aVar.g(str2, "onBundleFromClient " + str + " no handler");
-                    return;
-                }
-                bybVar.f(bundle);
-                return;
-            }
-            eyb.b.g(this.a, "onBundleFromClient null");
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (nativeResponse = this.a) == null) {
+            return;
         }
+        nativeResponse.biddingSuccess(str);
     }
 
-    public final boolean d(String str, Bundle bundle) {
-        InterceptResult invokeLL;
-        boolean z;
+    @Override // com.baidu.tieba.zyb
+    public void a(String str, HashMap<String, Object> hashMap) {
+        NativeResponse nativeResponse;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bundle)) == null) {
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (!z && bundle != null) {
-                byb bybVar = this.b.get(str);
-                if (bybVar == null) {
-                    eyb.a aVar = eyb.b;
-                    String str2 = this.a;
-                    aVar.g(str2, "onBundleFromClientForBoolean " + str + " no handler");
-                    return false;
-                }
-                return bybVar.g(bundle);
-            }
-            eyb.b.g(this.a, "onBundleFromClientForBoolean null");
-            return false;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, hashMap) == null) || (nativeResponse = this.a) == null) {
+            return;
         }
-        return invokeLL.booleanValue;
-    }
-
-    public final String e(String str, Bundle bundle) {
-        InterceptResult invokeLL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, bundle)) == null) {
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (!z && bundle != null) {
-                byb bybVar = this.b.get(str);
-                if (bybVar == null) {
-                    eyb.a aVar = eyb.b;
-                    String str2 = this.a;
-                    aVar.g(str2, "onBundleFromClientForStr " + str + " no handler");
-                    return "";
-                }
-                return bybVar.h(bundle);
-            }
-            eyb.b.g(this.a, "onBundleFromClientForStr null");
-            return "";
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public final void f(String str, String str2) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-            boolean z2 = false;
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (!z) {
-                if (!((str2 == null || str2.length() == 0) ? true : true)) {
-                    byb bybVar = this.b.get(str);
-                    if (bybVar == null) {
-                        eyb.a aVar = eyb.b;
-                        String str3 = this.a;
-                        aVar.g(str3, "onDataFromClient " + str + " no handler");
-                        return;
-                    }
-                    bybVar.i(str2);
-                    return;
-                }
-            }
-            eyb.b.g(this.a, "onDataFromClient null");
-        }
-    }
-
-    public final boolean k(String str, ITransDataListener iTransDataListener) {
-        InterceptResult invokeLL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, str, iTransDataListener)) == null) {
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (!z && iTransDataListener != null) {
-                byb remove = this.b.remove(str);
-                if (remove != null) {
-                    remove.l();
-                }
-                this.c.remove(str);
-                RemoteCallbackList<ITransDataListener> remoteCallbackList = this.d.get(str);
-                if (remoteCallbackList == null) {
-                    return true;
-                }
-                return remoteCallbackList.unregister(iTransDataListener);
-            }
-            eyb.b.g(this.a, "registerDataListener null");
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final boolean g(String str, String str2) {
-        InterceptResult invokeLL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            boolean z2 = true;
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (!z) {
-                if (str2 != null && str2.length() != 0) {
-                    z2 = false;
-                }
-                if (!z2) {
-                    byb bybVar = this.b.get(str);
-                    if (bybVar == null) {
-                        eyb.a aVar = eyb.b;
-                        String str3 = this.a;
-                        aVar.g(str3, "onDataFromClientForBoolean " + str + " no handler");
-                        return false;
-                    }
-                    return bybVar.j(str2);
-                }
-            }
-            eyb.b.g(this.a, "onDataFromClientForBoolean null");
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final String h(String str, String str2) {
-        InterceptResult invokeLL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) {
-            boolean z2 = false;
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (!z) {
-                if (!((str2 == null || str2.length() == 0) ? true : true)) {
-                    byb bybVar = this.b.get(str);
-                    if (bybVar == null) {
-                        eyb.a aVar = eyb.b;
-                        String str3 = this.a;
-                        aVar.g(str3, "onDataFromClientForStr " + str + " no handler");
-                        return "";
-                    }
-                    return bybVar.k(str2);
-                }
-            }
-            eyb.b.g(this.a, "onDataFromClientForStr null");
-            return "";
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public final boolean i(Context context, String str, String str2, ITransDataListener iTransDataListener) {
-        InterceptResult invokeLLLL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, context, str, str2, iTransDataListener)) == null) {
-            boolean z2 = true;
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (!z) {
-                if (str2 != null && str2.length() != 0) {
-                    z2 = false;
-                }
-                if (!z2 && iTransDataListener != null) {
-                    if (this.b.get(str) != null) {
-                        eyb.a aVar = eyb.b;
-                        String str3 = this.a;
-                        aVar.g(str3, "registerDataListener " + str + " has handler");
-                        return false;
-                    }
-                    if (context == null) {
-                        Intrinsics.throwNpe();
-                    }
-                    byb b = b(str2, context, str);
-                    if (b == null) {
-                        eyb.b.g(this.a, "registerDataListener reflect fail");
-                        return false;
-                    }
-                    this.b.put(str, b);
-                    this.c.put(str, str2);
-                    RemoteCallbackList<ITransDataListener> remoteCallbackList = this.d.get(str);
-                    if (remoteCallbackList == null) {
-                        remoteCallbackList = new RemoteCallbackList<>();
-                        this.d.put(str, remoteCallbackList);
-                    }
-                    return remoteCallbackList.register(iTransDataListener);
-                }
-            }
-            eyb.b.g(this.a, "registerDataListener null");
-            return false;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final cyb<String> j(String str, String str2) {
-        InterceptResult invokeLL;
-        boolean z;
-        boolean z2;
-        cyb<String> cybVar;
-        String transDataForStr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) {
-            if (str.length() == 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (!z) {
-                if (str2.length() == 0) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                if (!z2) {
-                    if (!this.d.containsKey(str)) {
-                        return new cyb<>(false, str + " no handler");
-                    }
-                    RemoteCallbackList<ITransDataListener> remoteCallbackList = this.d.get(str);
-                    if (remoteCallbackList == null) {
-                        return new cyb<>(false, str + "  handler is null");
-                    } else if (remoteCallbackList.getRegisteredCallbackCount() == 0) {
-                        return new cyb<>(false, str + " callback count = 0");
-                    } else {
-                        try {
-                            synchronized (remoteCallbackList) {
-                                int beginBroadcast = remoteCallbackList.beginBroadcast();
-                                String str3 = "";
-                                eyb.a aVar = eyb.b;
-                                String str4 = this.a;
-                                aVar.g(str4, "sendData2MainProcessForStr callback count = " + beginBroadcast + WebvttCueParser.CHAR_SPACE);
-                                if (1 <= beginBroadcast) {
-                                    int i = 1;
-                                    while (true) {
-                                        transDataForStr = remoteCallbackList.getBroadcastItem(i - 1).transDataForStr(str, str2);
-                                        Intrinsics.checkExpressionValueIsNotNull(transDataForStr, "listener.transDataForStr(channelId, data)");
-                                        if (i == beginBroadcast) {
-                                            break;
-                                        }
-                                        i++;
-                                    }
-                                    str3 = transDataForStr;
-                                }
-                                remoteCallbackList.finishBroadcast();
-                                cybVar = new cyb<>(true, str3);
-                            }
-                            return cybVar;
-                        } catch (Exception e2) {
-                            eyb.a aVar2 = eyb.b;
-                            String str5 = this.a;
-                            aVar2.d(str5, "sendData2MainProcessForStr ex: " + e2.getMessage());
-                            return new cyb<>(false, "");
-                        }
-                    }
-                }
-            }
-            return new cyb<>(false, "channelId, data is null or empty");
-        }
-        return (cyb) invokeLL.objValue;
+        nativeResponse.biddingFail(str, hashMap);
     }
 }

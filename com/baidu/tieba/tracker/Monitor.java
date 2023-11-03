@@ -1,16 +1,18 @@
 package com.baidu.tieba.tracker;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.baidu.tieba.dma;
-import com.baidu.tieba.ema;
-import com.baidu.tieba.gma;
-import com.baidu.tieba.hma;
-import com.baidu.tieba.kma;
-import com.baidu.tieba.lma;
-import com.baidu.tieba.mma;
-import com.baidu.tieba.pma;
+import com.baidu.tieba.cza;
+import com.baidu.tieba.dza;
+import com.baidu.tieba.fza;
+import com.baidu.tieba.gza;
+import com.baidu.tieba.jza;
+import com.baidu.tieba.kza;
+import com.baidu.tieba.lza;
+import com.baidu.tieba.mza;
+import com.baidu.tieba.qza;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +30,7 @@ import kotlin.jvm.internal.Intrinsics;
 public final class Monitor {
     public static /* synthetic */ Interceptable $ic;
     public static final Monitor a;
-    public static Map<String, mma<pma>> b;
+    public static Map<String, mza<qza>> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -62,7 +64,7 @@ public final class Monitor {
         }
     }
 
-    public final mma<pma> a(Fragment fragment, pma ref, hma type) {
+    public final mza<qza> a(Fragment fragment, qza ref, gza type) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, fragment, ref, type)) == null) {
@@ -70,9 +72,9 @@ public final class Monitor {
             Intrinsics.checkNotNullParameter(ref, "ref");
             Intrinsics.checkNotNullParameter(type, "type");
             final String traceId = ref.getTraceId();
-            mma<pma> mmaVar = b.get(traceId);
-            if (mmaVar == null) {
-                mmaVar = new lma<>(fragment, ref, type, new Function1<pma, ema>(traceId) { // from class: com.baidu.tieba.tracker.Monitor$get$monitor$1
+            mza<qza> mzaVar = b.get(traceId);
+            if (mzaVar == null) {
+                mzaVar = new lza<>(fragment, ref, type, new Function1<qza, dza>(traceId) { // from class: com.baidu.tieba.tracker.Monitor$get$monitor$1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ String $pid;
@@ -100,34 +102,88 @@ public final class Monitor {
 
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // kotlin.jvm.functions.Function1
-                    public final ema invoke(pma it) {
+                    public final dza invoke(qza it) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, it)) == null) {
                             Intrinsics.checkNotNullParameter(it, "it");
-                            return dma.a.b(this.$pid);
+                            return cza.a.b(this.$pid);
                         }
-                        return (ema) invokeL.objValue;
+                        return (dza) invokeL.objValue;
                     }
                 });
             }
-            b.put(traceId, mmaVar);
-            return mmaVar;
+            b.put(traceId, mzaVar);
+            return mzaVar;
         }
-        return (mma) invokeLLL.objValue;
+        return (mza) invokeLLL.objValue;
     }
 
-    public final mma<pma> b(final gma event, hma traceType) {
+    public final mza<qza> b(FragmentActivity activity, qza ref) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event, traceType)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, ref)) == null) {
+            Intrinsics.checkNotNullParameter(activity, "activity");
+            Intrinsics.checkNotNullParameter(ref, "ref");
+            final String traceId = ref.getTraceId();
+            mza<qza> mzaVar = b.get(traceId);
+            if (mzaVar == null) {
+                mzaVar = new jza<>(activity, ref, new Function1<qza, dza>(traceId) { // from class: com.baidu.tieba.tracker.Monitor$get$monitor$2
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ String $pid;
+
+                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                    {
+                        super(1);
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {traceId};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                super(((Integer) newInitContext.callArgs[0]).intValue());
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.$pid = traceId;
+                    }
+
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // kotlin.jvm.functions.Function1
+                    public final dza invoke(qza it) {
+                        InterceptResult invokeL;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, it)) == null) {
+                            Intrinsics.checkNotNullParameter(it, "it");
+                            return cza.a.b(this.$pid);
+                        }
+                        return (dza) invokeL.objValue;
+                    }
+                });
+            }
+            b.put(traceId, mzaVar);
+            return mzaVar;
+        }
+        return (mza) invokeLL.objValue;
+    }
+
+    public final mza<qza> c(final fza event, gza traceType) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, event, traceType)) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
             Intrinsics.checkNotNullParameter(traceType, "traceType");
-            mma<pma> mmaVar = b.get(event.getTraceId());
-            if (mmaVar == null) {
-                mmaVar = new kma<>(event, traceType, new Function1<pma, ema>(event) { // from class: com.baidu.tieba.tracker.Monitor$get$monitor$3
+            mza<qza> mzaVar = b.get(event.getTraceId());
+            if (mzaVar == null) {
+                mzaVar = new kza<>(event, traceType, new Function1<qza, dza>(event) { // from class: com.baidu.tieba.tracker.Monitor$get$monitor$3
                     public static /* synthetic */ Interceptable $ic;
-                    public final /* synthetic */ gma $event;
+                    public final /* synthetic */ fza $event;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -153,27 +209,27 @@ public final class Monitor {
 
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // kotlin.jvm.functions.Function1
-                    public final ema invoke(pma it) {
+                    public final dza invoke(qza it) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, it)) == null) {
                             Intrinsics.checkNotNullParameter(it, "it");
-                            return dma.a.b(this.$event.getTraceId());
+                            return cza.a.b(this.$event.getTraceId());
                         }
-                        return (ema) invokeL.objValue;
+                        return (dza) invokeL.objValue;
                     }
                 });
             }
-            b.put(event.getTraceId(), mmaVar);
-            return mmaVar;
+            b.put(event.getTraceId(), mzaVar);
+            return mzaVar;
         }
-        return (mma) invokeLL.objValue;
+        return (mza) invokeLL.objValue;
     }
 
-    public final mma<pma> c(pma ref) {
+    public final mza<qza> d(qza ref) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ref)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, ref)) == null) {
             Intrinsics.checkNotNullParameter(ref, "ref");
             String traceId = ref.getTraceId();
             if (b.containsKey(traceId)) {
@@ -181,16 +237,16 @@ public final class Monitor {
             }
             return null;
         }
-        return (mma) invokeL.objValue;
+        return (mza) invokeL.objValue;
     }
 
-    public final mma<pma> d(String pid) {
+    public final mza<qza> e(String pid) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, pid)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, pid)) == null) {
             Intrinsics.checkNotNullParameter(pid, "pid");
             return b.remove(pid);
         }
-        return (mma) invokeL.objValue;
+        return (mza) invokeL.objValue;
     }
 }

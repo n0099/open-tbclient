@@ -1,105 +1,116 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.download.util.MigrateStatisticUtils;
-import com.baidu.searchbox.launch.stats.SpeedStatsManager;
-import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
-import com.baidu.tbadk.core.util.DeviceInfoUtil;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.play.PlayStatisticsResponseMessage;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class u8a extends CustomMessageListener {
+public class u8a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final r8a a;
-    @NonNull
-    public final s8a b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u8a(@NonNull r8a r8aVar, @NonNull s8a s8aVar) {
-        super(2016311);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {r8aVar, s8aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948166251, "Lcom/baidu/tieba/u8a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948166251, "Lcom/baidu/tieba/u8a;");
                 return;
             }
         }
-        this.a = r8aVar;
-        this.b = s8aVar;
+        c();
+        b();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        String str;
+    public static void a(HttpMessage httpMessage, f9a f9aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016311) {
-            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_SHOW_END_STAMP_KEY);
-            Object data = customResponsedMessage.getData();
-            if (data instanceof String) {
-                String str2 = (String) data;
-                aha.a("SplashClickListener link:" + str2);
-                if (!TextUtils.isEmpty(str2) && !TextUtils.equals("advertevent", Uri.parse(str2).getScheme())) {
-                    Intent intent = new Intent();
-                    int indexOf = str2.indexOf("&extInfo=");
-                    if (indexOf > 0) {
-                        str = str2.substring(0, indexOf);
-                    } else {
-                        str = str2;
-                    }
-                    String substring = str2.substring(str.length() + 9, str2.length());
-                    if (str.startsWith("https://") || str.startsWith("http://")) {
-                        intent.putExtra("gd_ad", true);
-                        intent.putExtra(MigrateStatisticUtils.EXT_INFO, substring);
-                    }
-                    if (!this.a.h() && ((StringUtils.isNull(str) || !str.startsWith("bdtiebalive")) && this.a.g() != 2)) {
-                        intent.putExtra("class", 30);
-                        intent.putExtra(BigdayActivityConfig.JUMP_URL, str);
-                        intent.putExtra("is_ad", true);
-                        TbadkCoreApplication.setIntent(intent);
-                    } else {
-                        intent.putExtra("class", 30);
-                        intent.putExtra(BigdayActivityConfig.JUMP_URL, str);
-                        intent.putExtra("is_ad", true);
-                        UtilHelper.commenDealIntent(this.a.getActivity(), intent);
-                    }
-                }
-                this.a.e();
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getActivity().getClass().getSimpleName()).param("obj_param1", 5).param(TiebaStatic.Params.OBJ_PARAM3, String.valueOf(this.a.d())));
-                if (!this.a.d() && !DeviceInfoUtil.isHuaWeiP40Pro()) {
-                    SpeedStatsManager.getInstance().setStatsFlag(-1);
-                    if (!this.a.h()) {
-                        TiebaStatic.log(new StatisticItem("ignore_speed").param("obj_source", "click"));
-                        return;
-                    }
-                    return;
-                }
-                this.b.a();
+        if ((interceptable == null || interceptable.invokeLL(65537, null, httpMessage, f9aVar) == null) && httpMessage != null && f9aVar != null) {
+            httpMessage.addParam("tid", f9aVar.c);
+            httpMessage.addParam("fid", f9aVar.d);
+            httpMessage.addParam(TiebaStatic.Params.OBJ_TO, f9aVar.g);
+            httpMessage.addParam("obj_id", f9aVar.k);
+            httpMessage.addParam(TiebaStatic.Params.OBJ_PARAM3, f9aVar.h);
+            httpMessage.addParam("obj_source", f9aVar.f);
+            httpMessage.addParam("obj_locate", f9aVar.a);
+            httpMessage.addParam("obj_param1", f9aVar.i);
+            if (!StringUtils.isNull(f9aVar.n)) {
+                httpMessage.addParam(TiebaStatic.Params.TOPIC_TYPE, f9aVar.n);
             }
+            if (!StringUtils.isNull(f9aVar.p)) {
+                httpMessage.addParam(TiebaStatic.Params.IS_VERTICAL, f9aVar.p);
+            }
+        }
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            MessageManager messageManager = MessageManager.getInstance();
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PLAY_DURATION_STATISTICS, TbConfig.SERVER_ADDRESS + TbConfig.URL_PLAY_DURATION_STATISTICS);
+            tbHttpMessageTask.setResponsedClass(PlayStatisticsResponseMessage.class);
+            tbHttpMessageTask.setIsNeedTbs(true);
+            messageManager.registerTask(tbHttpMessageTask);
+        }
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            MessageManager messageManager = MessageManager.getInstance();
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PLAY_STATISTICS_CMD, TbConfig.SERVER_ADDRESS + TbConfig.URL_PLAY_STATISTICS);
+            tbHttpMessageTask.setResponsedClass(PlayStatisticsResponseMessage.class);
+            tbHttpMessageTask.setIsNeedTbs(true);
+            messageManager.registerTask(tbHttpMessageTask);
+        }
+    }
+
+    public static void d(long j, String str, f9a f9aVar, String str2, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), str, f9aVar, str2, Long.valueOf(j2)}) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PLAY_DURATION_STATISTICS);
+            httpMessage.addParam(TiebaStatic.Params.OBJ_DURATION, j);
+            httpMessage.addParam("obj_type", str);
+            httpMessage.addParam("playduration", j2);
+            if (f9aVar != null) {
+                httpMessage.addParam(VideoFinishResult.KEY_VIDEO_MD5, f9aVar.m);
+            }
+            httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            httpMessage.addParam(TiebaStatic.Params.OBJ_PARAM2, str2);
+            a(httpMessage, f9aVar);
+            MessageManager.getInstance().sendMessage(httpMessage);
+        }
+    }
+
+    public static void e(String str, String str2, String str3, f9a f9aVar, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, str2, str3, f9aVar, Integer.valueOf(i)}) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PB_PLAY_STATISTICS_CMD);
+            httpMessage.addParam(VideoFinishResult.KEY_VIDEO_MD5, str);
+            httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            httpMessage.addParam(TiebaStatic.Params.OBJ_PARAM2, str2);
+            httpMessage.addParam("obj_type", str3);
+            if (TbSingleton.getInstance().getPcdnConfigData() != null && TbSingleton.getInstance().getPcdnConfigData().c()) {
+                httpMessage.addParam("pcdn_state", i);
+            }
+            a(httpMessage, f9aVar);
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 }

@@ -1,26 +1,25 @@
 package com.baidu.tieba.feed.component.uistate;
 
 import android.content.Context;
-import com.baidu.tieba.l47;
-import com.baidu.tieba.n47;
+import com.baidu.tieba.k77;
+import com.baidu.tieba.s47;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
-import java.util.List;
 import kotlin.Metadata;
 import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
-import kotlin.jvm.functions.Function3;
-@Metadata(d1 = {"\u0000(\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\",\u0010\u0000\u001a \u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\u0003\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u00050\u0004\u0012\u0004\u0012\u00020\u00060\u0001X\u0082\u0004¢\u0006\u0002\n\u0000\"5\u0010\u0007\u001a)\u0012\u0013\u0012\u00110\u0003¢\u0006\f\b\t\u0012\b\b\n\u0012\u0004\b\b(\u000b\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u00050\u0004\u0012\u0004\u0012\u00020\u00060\bX\u0082\u0004¢\u0006\u0002\n\u0000\"5\u0010\f\u001a)\u0012\u0013\u0012\u00110\u0003¢\u0006\f\b\t\u0012\b\b\n\u0012\u0004\b\b(\u000b\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u00050\u0004\u0012\u0004\u0012\u00020\u00060\bX\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\r"}, d2 = {"onCommentClickImpl", "Lkotlin/Function3;", "Landroid/content/Context;", "Lcom/baidu/tieba/feed/data/SocialMeta;", "", "Lcom/baidu/tieba/feed/data/StatData;", "", "onPraiseClickImpl", "Lkotlin/Function2;", "Lkotlin/ParameterName;", "name", AdvanceSetting.NETWORK_TYPE, "onShareClickImpl", "lib-templates_release"}, k = 2, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000&\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\" \u0010\u0000\u001a\u0014\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00040\u0001X\u0082\u0004¢\u0006\u0002\n\u0000\" \u0010\u0005\u001a\u0014\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u00070\u0001X\u0082\u0004¢\u0006\u0002\n\u0000\" \u0010\b\u001a\u0014\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u0007\u0012\u0004\u0012\u00020\u00040\u0001X\u0082\u0004¢\u0006\u0002\n\u0000\"\u001a\u0010\t\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00040\nX\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u000b"}, d2 = {"onCommentClickImpl", "Lkotlin/Function2;", "Landroid/content/Context;", "Lcom/baidu/tieba/feed/component/uistate/SocialUiState;", "", "onManageClickImpl", "Lcom/baidu/tieba/feed/data/SocialMeta;", "", "onPraiseClickImpl", "onShareClickImpl", "Lkotlin/Function1;", "lib-templates_release"}, k = 2, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
 public final class SocialUiStateKt {
     public static /* synthetic */ Interceptable $ic;
-    public static final Function2<l47, List<n47>, Unit> a;
-    public static final Function3<Context, l47, List<n47>, Unit> b;
-    public static final Function2<l47, List<n47>, Unit> c;
+    public static final Function1<s47, Unit> a;
+    public static final Function2<Context, s47, Unit> b;
+    public static final Function2<s47, Boolean, Unit> c;
+    public static final Function2<Context, k77, Boolean> d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,5 +38,6 @@ public final class SocialUiStateKt {
         a = SocialUiStateKt$onShareClickImpl$1.INSTANCE;
         b = SocialUiStateKt$onCommentClickImpl$1.INSTANCE;
         c = SocialUiStateKt$onPraiseClickImpl$1.INSTANCE;
+        d = SocialUiStateKt$onManageClickImpl$1.INSTANCE;
     }
 }

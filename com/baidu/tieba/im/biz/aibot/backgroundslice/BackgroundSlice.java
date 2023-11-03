@@ -17,13 +17,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.db8;
+import com.baidu.tieba.bo8;
 import com.baidu.tieba.im.base.core.slice.Slice;
 import com.baidu.tieba.im.biz.aibot.backgroundslice.BackgroundSlice;
 import com.baidu.tieba.im.biz.aibot.data.AibotChatDetail;
-import com.baidu.tieba.mna;
-import com.baidu.tieba.ta8;
-import com.baidu.tieba.va8;
+import com.baidu.tieba.n0b;
+import com.baidu.tieba.rn8;
+import com.baidu.tieba.tn8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -43,7 +43,7 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000\\\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000e\n\u0002\b\u0007\n\u0002\u0010\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0006\u0018\u0000 62\u00020\u00012\u00020\u0002:\u000267B\u0005¢\u0006\u0002\u0010\u0003J\"\u0010\u0019\u001a\u00020\u001a2\b\u0010\u001b\u001a\u0004\u0018\u00010\u00122\b\u0010\u001c\u001a\u0004\u0018\u00010\u00122\u0006\u0010\u001d\u001a\u00020\tJ\u0006\u0010\u001e\u001a\u00020\u001aJ\b\u0010\u001f\u001a\u00020\tH\u0002J\u0010\u0010 \u001a\u00020\u001a2\u0006\u0010!\u001a\u00020\fH\u0002J\u0018\u0010 \u001a\u00020\u001a2\u0006\u0010\"\u001a\u00020\u00122\u0006\u0010!\u001a\u00020\fH\u0002J \u0010 \u001a\u00020\u001a2\u0006\u0010\"\u001a\u00020\u00122\u0006\u0010!\u001a\u00020\f2\u0006\u0010#\u001a\u00020\tH\u0002J\u0010\u0010$\u001a\u00020\u001a2\u0006\u0010%\u001a\u00020&H\u0016J\"\u0010'\u001a\u00020\f2\u0006\u0010(\u001a\u00020)2\u0006\u0010*\u001a\u00020+2\b\u0010,\u001a\u0004\u0018\u00010-H\u0016J\b\u0010.\u001a\u00020\u001aH\u0016J\b\u0010/\u001a\u00020\u001aH\u0016J\u0010\u00100\u001a\u00020\u001a2\u0006\u00101\u001a\u000202H\u0016J\u0018\u00103\u001a\u00020\u001a2\u0006\u00104\u001a\u00020\u00052\u0006\u00105\u001a\u00020\tH\u0016R\u0011\u0010\u0004\u001a\u00020\u0005¢\u0006\b\n\u0000\u001a\u0004\b\u0006\u0010\u0007R\u000e\u0010\b\u001a\u00020\tX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\tX\u0082\u000e¢\u0006\u0002\n\u0000R\u001a\u0010\u000b\u001a\u00020\fX\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b\r\u0010\u000e\"\u0004\b\u000f\u0010\u0010R\u0010\u0010\u0011\u001a\u0004\u0018\u00010\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0014\u001a\u0004\u0018\u00010\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\tX\u0082\u000e¢\u0006\u0002\n\u0000R\u001a\u0010\u0016\u001a\u00020\fX\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b\u0017\u0010\u000e\"\u0004\b\u0018\u0010\u0010¨\u00068"}, d2 = {"Lcom/baidu/tieba/im/biz/aibot/backgroundslice/BackgroundSlice;", "Lcom/baidu/tieba/im/base/core/slice/Slice;", "Lcom/baidu/tieba/im/biz/aibot/IPageChangeNotify;", "()V", "DEFAULT_BG", "", "getDEFAULT_BG", "()I", "canLoadDefaultBg", "", "canStatPersonPageExp", "chatBgView", "Landroid/view/View;", "getChatBgView", "()Landroid/view/View;", "setChatBgView", "(Landroid/view/View;)V", "mChatBgUrl", "", "mPageState", "mPersonBgColor", "mPicBgLoaded", "personBgView", "getPersonBgView", "setPersonBgView", "bindData", "", "chatBgUrl", "personBgColor", "needDelayed", "changePageState", "isPersonPageState", "loadPicUrl", "targetView", "backgroundUrl", "fromNet", "onConfigurationChanged", "newConfig", "Landroid/content/res/Configuration;", "onCreateView", "inflater", "Landroid/view/LayoutInflater;", "container", "Landroid/view/ViewGroup;", "savedInstanceState", "Landroid/os/Bundle;", MissionEvent.MESSAGE_PAUSE, "onResume", "onSetChatDetail", "chatDetail", "Lcom/baidu/tieba/im/biz/aibot/data/AibotChatDetail;", "onSetPageState", "state", "refreshPage", "Companion", "FitTopTransformation", "im-personal_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class BackgroundSlice extends Slice implements va8 {
+public final class BackgroundSlice extends Slice implements tn8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View j;
@@ -182,7 +182,7 @@ public final class BackgroundSlice extends Slice implements va8 {
                     SafeHandler inst = SafeHandler.getInst();
                     final BackgroundSlice backgroundSlice = this.b;
                     final View view2 = this.a;
-                    inst.post(new Runnable() { // from class: com.baidu.tieba.xa8
+                    inst.post(new Runnable() { // from class: com.baidu.tieba.vn8
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -222,7 +222,7 @@ public final class BackgroundSlice extends Slice implements va8 {
         }
         this.n = 2;
         this.q = true;
-        this.r = R.drawable.obfuscated_res_0x7f0802d7;
+        this.r = R.drawable.obfuscated_res_0x7f0802db;
     }
 
     public final View k0() {
@@ -280,15 +280,15 @@ public final class BackgroundSlice extends Slice implements va8 {
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onResume();
             if (this.p && m0()) {
-                db8.a.b(1);
+                bo8.a.b(1);
             }
         }
     }
 
-    @Override // com.baidu.tieba.va8
-    public void J(AibotChatDetail chatDetail) {
+    @Override // com.baidu.tieba.tn8
+    public void N(AibotChatDetail chatDetail) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chatDetail) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, chatDetail) == null) {
             Intrinsics.checkNotNullParameter(chatDetail, "chatDetail");
             g0(chatDetail.getConfigData().getChatBackground(), chatDetail.getConfigData().getThemeColor(), false);
         }
@@ -339,10 +339,10 @@ public final class BackgroundSlice extends Slice implements va8 {
         }
     }
 
-    @Override // com.baidu.tieba.va8
-    public void D1(int i, boolean z) {
+    @Override // com.baidu.tieba.tn8
+    public void S1(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) != null) || this.n == i) {
+        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) != null) || this.n == i) {
             return;
         }
         this.n = i;
@@ -367,8 +367,8 @@ public final class BackgroundSlice extends Slice implements va8 {
                     this$0.l0().setBackgroundColor(Color.parseColor(str));
                 } catch (Exception e) {
                     if (!TbadkCoreApplication.getInst().isDebugMode()) {
-                        ta8 ta8Var = ta8.a;
-                        ta8Var.a("BackgroundSlice 色值解析异常" + e.getMessage());
+                        rn8 rn8Var = rn8.a;
+                        rn8Var.a("BackgroundSlice 色值解析异常" + e.getMessage());
                         return;
                     }
                     throw new IllegalArgumentException("颜色解析异常");
@@ -436,7 +436,7 @@ public final class BackgroundSlice extends Slice implements va8 {
         if (m0()) {
             k0().setVisibility(4);
             l0().setVisibility(0);
-            l0().postDelayed(new Runnable() { // from class: com.baidu.tieba.wa8
+            l0().postDelayed(new Runnable() { // from class: com.baidu.tieba.un8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -448,12 +448,12 @@ public final class BackgroundSlice extends Slice implements va8 {
                     }
                 }
             }, j);
-            db8.a.b(1);
+            bo8.a.b(1);
         } else {
             l0().setVisibility(4);
             k0().setVisibility(0);
         }
-        k0().postDelayed(new Runnable() { // from class: com.baidu.tieba.ya8
+        k0().postDelayed(new Runnable() { // from class: com.baidu.tieba.wn8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -471,7 +471,7 @@ public final class BackgroundSlice extends Slice implements va8 {
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048589, this, str, view2, z) == null) {
-            RequestBuilder<Drawable> load = Glide.with(M()).load(Integer.valueOf(this.r));
+            RequestBuilder<Drawable> load = Glide.with(K()).load(Integer.valueOf(this.r));
             Intrinsics.checkNotNullExpressionValue(load, "with(this.host).load(DEFAULT_BG)");
             if (z) {
                 if (str.length() == 0) {
@@ -482,7 +482,7 @@ public final class BackgroundSlice extends Slice implements va8 {
                 if (z2) {
                     return;
                 }
-                load = Glide.with(M()).load(str);
+                load = Glide.with(K()).load(str);
                 Intrinsics.checkNotNullExpressionValue(load, "with(this.host).load(backgroundUrl)");
             }
             if (UtilHelper.isFoldScreen() || UtilHelper.isLargeScreen(TbadkCoreApplication.getInst())) {
@@ -498,12 +498,12 @@ public final class BackgroundSlice extends Slice implements va8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (m0()) {
-                mna.b(k0(), 240);
-                mna.d(l0(), 240);
+                n0b.b(k0(), 240);
+                n0b.d(l0(), 240);
                 return;
             }
-            mna.b(l0(), 240);
-            mna.d(k0(), 240);
+            n0b.b(l0(), 240);
+            n0b.d(k0(), 240);
         }
     }
 }

@@ -23,18 +23,18 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] c;
     public static byte[] d;
-    public static final C0079a e;
+    public static final C0080a e;
     public transient /* synthetic */ FieldHolder $fh;
     public final Cipher a;
     public final Key b;
 
     /* renamed from: com.baidu.bdtask.service.cache.storage.encrypter.aes.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static final class C0079a {
+    public static final class C0080a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0079a() {
+        public C0080a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -66,7 +66,7 @@ public final class a {
             return a.d;
         }
 
-        public /* synthetic */ C0079a(DefaultConstructorMarker defaultConstructorMarker) {
+        public /* synthetic */ C0080a(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
 
@@ -124,7 +124,7 @@ public final class a {
                 return;
             }
         }
-        e = new C0079a(null);
+        e = new C0080a(null);
         c = new int[]{40, 114, -31, -94, -121, -82, -95, -82, -96, 126, -85, 0, NetError.ERR_CERT_ERROR_IN_SSL_RENEGOTIATION, -104, 44, -39};
     }
 

@@ -1,7 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import android.app.Activity;
+import android.os.Bundle;
+import android.util.Log;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,11 +14,45 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class i66 extends BaseCardInfo {
+public class i66 extends ActivityDelegation {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public j66 a;
+
+    /* loaded from: classes6.dex */
+    public class a implements h66 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ i66 a;
+
+        public a(i66 i66Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i66Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i66Var;
+        }
+
+        @Override // com.baidu.tieba.h66
+        public void a(Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+                this.a.mResult.putInt("status_code", bundle.getInt("result_code"));
+                this.a.mResult.putString("params", bundle.getString("result_msg"));
+                this.a.finish();
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -29,7 +67,7 @@ public class i66 extends BaseCardInfo {
                 return;
             }
         }
-        b = BdUniqueId.gen();
+        a = rm1.a;
     }
 
     public i66() {
@@ -46,13 +84,47 @@ public class i66 extends BaseCardInfo {
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yh
-    public BdUniqueId getType() {
+    public static Bundle d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("order_info", str);
+            return bundle;
+        }
+        return (Bundle) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public boolean onExec() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b;
+            if (this.mParams.isEmpty()) {
+                if (a) {
+                    Log.d("BaiFuBaoPayDelegation", "onExec params is null.");
+                }
+                return false;
+            }
+            if (a) {
+                Log.d("BaiFuBaoPayDelegation", "PAYMENT onExec");
+            }
+            Log.d("BaiFuBaoPayDelegation", "PAYMENT onExec");
+            if (!xo5.c().d()) {
+                BdUtilHelper.showToast(TbadkCoreApplication.getInst(), (int) R.string.plugin_pay_wallet_not_found);
+                return false;
+            } else if (!(getAgent() instanceof Activity)) {
+                return false;
+            } else {
+                e66 e66Var = new e66();
+                e66Var.mParams.putInt("type", 1);
+                e66Var.mParams.putString("orderInfo", this.mParams.getString("order_info"));
+                e66Var.d(getAgent());
+                e66Var.e(new a(this));
+                e66Var.onExec();
+                return false;
+            }
         }
-        return (BdUniqueId) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 }

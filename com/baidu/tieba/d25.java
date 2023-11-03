@@ -1,31 +1,21 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.view.View;
-import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.data.DialogStrategiesData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class d25 implements b25 {
+public final class d25 implements w15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.b25
-    public View b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (View) invokeV.objValue;
-    }
 
     public d25() {
         Interceptable interceptable = $ic;
@@ -41,47 +31,41 @@ public class d25 implements b25 {
         }
     }
 
-    @Override // com.baidu.tieba.b25
-    public e25 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.w15
+    public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, Object> strategyData, Map<String, Object> extraData) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            e25 e25Var = new e25();
-            e25Var.c(R.drawable.icon_banner_n);
-            e25Var.g(R.drawable.icon_banner_s);
-            e25Var.h(R.dimen.obfuscated_res_0x7f070399);
-            e25Var.d(81);
-            e25Var.e(R.dimen.obfuscated_res_0x7f070399);
-            return e25Var;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogData, strategyData, extraData)) == null) {
+            Intrinsics.checkNotNullParameter(dialogData, "dialogData");
+            Intrinsics.checkNotNullParameter(strategyData, "strategyData");
+            Intrinsics.checkNotNullParameter(extraData, "extraData");
+            HashMap hashMap = new HashMap();
+            hashMap.put("dialogName", "newGod");
+            hashMap.putAll(strategyData);
+            hashMap.putAll(extraData);
+            return hashMap;
         }
-        return (e25) invokeV.objValue;
+        return (Map) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.b25
-    public h25 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            h25 h25Var = new h25();
-            Resources resources = TbadkCoreApplication.getInst().getResources();
-            if (resources != null) {
-                h25Var.a(resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703c0));
-            }
-            return h25Var;
-        }
-        return (h25) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.b25
-    public TbImageView d(Context context) {
+    @Override // com.baidu.tieba.w15
+    public boolean b(Map<String, Object> map) {
         InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            TbImageView tbImageView = new TbImageView(context);
-            tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-            tbImageView.setGifIconSupport(false);
-            return tbImageView;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
+            Intrinsics.checkNotNullParameter(map, "map");
+            boolean z2 = SharedPrefHelper.getInstance().getBoolean(SharedPrefHelper.getSharedPrefKeyWithAccount("key_new_god_pop_is_show"), false);
+            if (TbSingleton.getInstance().getNewGodData() != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z2 || !z) {
+                return false;
+            }
+            return true;
         }
-        return (TbImageView) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

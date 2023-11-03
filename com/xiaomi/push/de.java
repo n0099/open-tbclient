@@ -50,7 +50,7 @@ public class de {
 
         /* JADX DEBUG: Possible override for method com.xiaomi.push.am.b.b()V */
         /* renamed from: b  reason: collision with other method in class */
-        public final boolean m360b() {
+        public final boolean m364b() {
             return System.currentTimeMillis() - this.a > com.baidu.mobads.sdk.internal.bj.e;
         }
     }
@@ -122,9 +122,9 @@ public class de {
             try {
                 if (c()) {
                     HashMap hashMap = new HashMap();
-                    hashMap.put("uid", com.xiaomi.push.service.bv.m806a());
+                    hashMap.put("uid", com.xiaomi.push.service.bv.m810a());
                     hashMap.put("token", this.b);
-                    hashMap.put("net", bi.m290a(de.this.f209a));
+                    hashMap.put("net", bi.m294a(de.this.f209a));
                     bi.a(this.f213a, hashMap, this.f212a, "file");
                 }
                 this.f214a = true;
@@ -134,7 +134,7 @@ public class de {
 
         @Override // com.xiaomi.push.am.b
         /* renamed from: c  reason: collision with other method in class */
-        public void mo361c() {
+        public void mo365c() {
             if (!this.f214a) {
                 int i = this.a + 1;
                 this.a = i;
@@ -180,7 +180,7 @@ public class de {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        if (aa.b() || aa.m256a()) {
+        if (aa.b() || aa.m260a()) {
             return;
         }
         try {
@@ -205,7 +205,7 @@ public class de {
         while (!this.f210a.isEmpty()) {
             b peek = this.f210a.peek();
             if (peek != null) {
-                if (!peek.m360b() && this.f210a.size() <= 6) {
+                if (!peek.m364b() && this.f210a.size() <= 6) {
                     return;
                 }
                 com.xiaomi.channel.commonutils.logger.b.c("remove Expired task");

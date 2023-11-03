@@ -1,46 +1,49 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import com.baidu.tieba.anb;
+import android.app.Activity;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.ad.sdk.internal.api.utils.PxUtils;
-import com.fun.ad.sdk.internal.api.utils.ViewUtils;
-import com.qq.e.ads.splash.SplashAD;
+import java.lang.ref.WeakReference;
+import java.util.Stack;
 /* loaded from: classes5.dex */
-public class enb {
+public final class enb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public SplashAD g;
-    public View h;
-    public int i;
-    public int j;
-    public int[] k;
-    public int l;
-    public int m;
+    public Stack<WeakReference<Activity>> a;
 
     /* loaded from: classes5.dex */
-    public interface a {
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final enb a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-826159373, "Lcom/baidu/tieba/enb$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-826159373, "Lcom/baidu/tieba/enb$a;");
+                    return;
+                }
+            }
+            a = new enb((byte) 0);
+        }
     }
 
-    public enb(Context context) {
+    public enb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -50,38 +53,61 @@ public class enb {
                 return;
             }
         }
-        this.k = new int[2];
-        int round = Math.round(Math.min(PxUtils.getDeviceHeightInPixel(context), PxUtils.getDeviceWidthInPixel(context)) * 0.3f);
-        this.a = round;
-        this.b = Math.round((round * 16) / 9);
-        this.c = PxUtils.dpToPx(context, 6);
-        this.d = PxUtils.dpToPx(context, 100);
-        this.e = 1;
-        this.f = 300;
+        this.a = new Stack<>();
     }
 
-    public final void a(View view2, ViewGroup viewGroup, float f, float f2, int[] iArr, ViewGroup viewGroup2, a aVar) {
+    public final Stack<WeakReference<Activity>> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, viewGroup, Float.valueOf(f), Float.valueOf(f2), iArr, viewGroup2, aVar}) == null) {
-            LogPrinter.d("zoomOut onAnimationEnd", new Object[0]);
-            ViewUtils.removeFromParent(view2);
-            view2.setScaleX(1.0f);
-            view2.setScaleY(1.0f);
-            view2.setX(0.0f);
-            view2.setY(0.0f);
-            int[] iArr2 = new int[2];
-            viewGroup.getLocationOnScreen(iArr2);
-            float f3 = (f - iArr2[0]) + iArr[0];
-            float f4 = (f2 - iArr2[1]) + iArr[1];
-            LogPrinter.d("zoomOut distX:" + f3 + " distY:" + f4, new Object[0]);
-            LogPrinter.d("zoomOut containerScreenX:" + iArr2[0] + " containerScreenY:" + iArr2[1], new Object[0]);
-            viewGroup2.addView(view2, -1, -1);
-            viewGroup.addView(viewGroup2, new FrameLayout.LayoutParams(this.a, this.b));
-            viewGroup2.setTranslationX(f3);
-            viewGroup2.setTranslationY(f4);
-            if (aVar != null) {
-                ((anb.b.a) aVar).a.b.zoomOutAnimationFinish();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (Stack) invokeV.objValue;
+    }
+
+    public /* synthetic */ enb(byte b) {
+        this();
+    }
+
+    public final void c(WeakReference<Activity> weakReference) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, weakReference) == null) {
+            this.a.add(weakReference);
+        }
+    }
+
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < this.a.size(); i++) {
+                Activity activity = this.a.get(i).get();
+                if (activity != null) {
+                    sb.append(activity.getClass().getSimpleName());
+                    sb.append("->");
+                }
             }
+            if (sb.length() > 0) {
+                return sb.substring(0, sb.length() - 2);
+            }
+            return "没有路径了";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void d(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            if (this.a != null) {
+                for (int i = 0; i < this.a.size(); i++) {
+                    if (this.a.get(i).get() == activity) {
+                        Stack<WeakReference<Activity>> stack = this.a;
+                        stack.remove(stack.get(i));
+                    }
+                }
+            }
+            b();
         }
     }
 }

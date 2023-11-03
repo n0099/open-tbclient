@@ -1,27 +1,24 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.live.asynctask.BdAsyncTaskParallelType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidParameterException;
+import java.io.DataInputStream;
 /* loaded from: classes5.dex */
 public class b50 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public h80 a;
-    public BdAsyncTaskParallelType b;
-    public int c;
+    public c50 a;
+    public d50 b;
 
-    public b50(BdAsyncTaskParallelType bdAsyncTaskParallelType, h80 h80Var) {
+    public b50() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdAsyncTaskParallelType, h80Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,45 +28,35 @@ public class b50 {
                 return;
             }
         }
-        this.a = null;
-        this.b = BdAsyncTaskParallelType.MAX_PARALLEL;
-        this.c = 1;
-        if (bdAsyncTaskParallelType != null && h80Var != null) {
-            this.b = bdAsyncTaskParallelType;
-            this.a = h80Var;
-            return;
-        }
-        throw new InvalidParameterException("BdAsyncTaskParallel parameter null");
+        this.a = new c50();
+        this.b = new d50();
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public s40 a(s40 s40Var, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, s40Var, z)) == null) {
+            this.a.b(s40Var, z);
+            return s40Var;
         }
-        return invokeV.intValue;
+        return (s40) invokeLZ.objValue;
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    public s40 b(Context context, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            h80 h80Var = this.a;
-            if (h80Var == null) {
-                return 0;
-            }
-            return h80Var.b();
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, j)) == null) {
+            return this.a.c(context, j);
         }
-        return invokeV.intValue;
+        return (s40) invokeLJ.objValue;
     }
 
-    public BdAsyncTaskParallelType c() {
-        InterceptResult invokeV;
+    public s40 c(DataInputStream dataInputStream) throws Exception {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataInputStream)) == null) {
+            return this.b.b(dataInputStream);
         }
-        return (BdAsyncTaskParallelType) invokeV.objValue;
+        return (s40) invokeL.objValue;
     }
 }

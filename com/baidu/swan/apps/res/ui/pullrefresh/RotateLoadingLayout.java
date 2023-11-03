@@ -15,7 +15,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.livesdk.sdk.service.IMLikeRequest;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wh3;
+import com.baidu.tieba.ni3;
 /* loaded from: classes4.dex */
 public class RotateLoadingLayout extends LoadingLayout {
     public static final Interpolator k = new LinearInterpolator();
@@ -66,7 +66,7 @@ public class RotateLoadingLayout extends LoadingLayout {
 
     public final void o() {
         this.f.clearAnimation();
-        if (wh3.c()) {
+        if (ni3.c()) {
             this.f.setRotation(0.0f);
         }
     }
@@ -78,7 +78,7 @@ public class RotateLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void d(float f) {
-        if (wh3.c()) {
+        if (ni3.c()) {
             this.f.setRotation(f * 180.0f);
         }
     }
@@ -108,17 +108,17 @@ public class RotateLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public View a(Context context, ViewGroup viewGroup, AttributeSet attributeSet) {
-        return LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00cc, viewGroup, false);
+        return LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00ce, viewGroup, false);
     }
 
     public final void n(Context context) {
-        this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091de3);
-        this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091de1);
-        this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091de4);
-        this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091de7);
-        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091de9);
+        this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091e2a);
+        this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e28);
+        this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091e2b);
+        this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091e2e);
+        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091e30);
         this.f.setScaleType(ImageView.ScaleType.CENTER);
-        this.f.setImageResource(R.drawable.obfuscated_res_0x7f08015d);
+        this.f.setImageResource(R.drawable.obfuscated_res_0x7f080160);
         RotateAnimation rotateAnimation = new RotateAnimation(0.0f, 720.0f, 1, 0.5f, 1, 0.5f);
         this.j = rotateAnimation;
         rotateAnimation.setFillAfter(true);

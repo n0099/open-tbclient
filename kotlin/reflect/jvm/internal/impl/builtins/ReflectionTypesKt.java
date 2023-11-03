@@ -3,7 +3,7 @@ package kotlin.reflect.jvm.internal.impl.builtins;
 import java.util.List;
 import kotlin.collections.CollectionsKt__CollectionsKt;
 import kotlin.reflect.jvm.internal.impl.name.FqName;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class ReflectionTypesKt {
     public static final FqName KOTLIN_REFLECT_FQ_NAME = new FqName("kotlin.reflect");
     public static final String K_PROPERTY_PREFIX = K_PROPERTY_PREFIX;

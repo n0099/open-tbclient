@@ -1,5 +1,5 @@
 package com.google.zxing;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class RGBLuminanceSource extends LuminanceSource {
     public final int dataHeight;
     public final int dataWidth;

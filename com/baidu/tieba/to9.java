@@ -1,47 +1,37 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.BaseAdapter;
+import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pbextra.praise.PraiseListActivity;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class to9 extends BaseAdapter implements AbsListView.OnScrollListener {
+public class to9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PraiseListActivity a;
-    public List<ro9> b;
-    public volatile boolean c;
+    public BdTypeRecyclerView a;
+    public final List<bi> b;
+    public List<oi> c;
+    public so9 d;
+    public qo9 e;
+    public ro9 f;
+    public hp9 g;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048583, this, absListView, i, i2, i3) == null) {
-        }
-    }
-
-    public to9(PraiseListActivity praiseListActivity) {
+    public to9(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {praiseListActivity};
+            Object[] objArr = {context, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -51,87 +41,149 @@ public class to9 extends BaseAdapter implements AbsListView.OnScrollListener {
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.a = praiseListActivity;
+        this.b = new ArrayList();
+        d(context, bdTypeRecyclerView);
     }
 
-    public final View a(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        String b;
+    public void a(int i, yo9 yo9Var, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, view2, viewGroup)) == null) {
-            so9 b2 = so9.b(this.a.getPageContext().getPageActivity(), view2);
-            ro9 item = getItem(i);
-            if (StringUtils.isNull(item.b())) {
-                b = item.d();
-            } else {
-                b = item.b();
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), yo9Var, Integer.valueOf(i2)}) == null) {
+            new dp9().a(i, yo9Var, i2, this.c, this.a);
+        }
+    }
+
+    public void b(boolean z) {
+        List<oi> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && (list = this.c) != null && list.size() > 0) {
+            for (oi oiVar : this.c) {
+                if (oiVar != null && (oiVar instanceof zo9)) {
+                    zo9 zo9Var = (zo9) oiVar;
+                    zo9Var.s(z);
+                    h(zo9Var);
+                }
             }
-            b2.c(b, item.a(), item.e(), this.c);
-            this.a.changSkinType(b2.a());
-            return b2.a();
+            this.a.getAdapter().notifyDataSetChanged();
         }
-        return (View) invokeILL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: b */
-    public ro9 getItem(int i) {
-        InterceptResult invokeI;
+    public void j(List<wo9> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            List<ro9> list = this.b;
-            if (list != null) {
-                return list.get(i);
-            }
-            return null;
+        if ((interceptable != null && interceptable.invokeL(1048585, this, list) != null) || this.a == null) {
+            return;
         }
-        return (ro9) invokeI.objValue;
-    }
-
-    public void c(List<ro9> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.b = list;
+        List<oi> b = new dp9().b(list);
+        if (ListUtils.isEmpty(this.c)) {
+            this.c = b;
+        } else {
+            this.c.addAll(b);
+        }
+        if (!ListUtils.isEmpty(this.c)) {
+            this.a.setData(this.c);
+            this.g.a();
         }
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public List<oi> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<ro9> list = this.b;
-            if (list == null) {
-                return 0;
-            }
-            return list.size();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
-        return invokeV.intValue;
+        return (List) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
+    public final void d(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
-            return a(i, view2, viewGroup);
+        if (interceptable == null || interceptable.invokeLL(1048579, this, context, bdTypeRecyclerView) == null) {
+            this.d = new so9(context, bp9.c);
+            this.e = new qo9(context, zo9.i);
+            this.f = new ro9(context, ap9.d);
+            this.b.add(this.d);
+            this.b.add(this.e);
+            this.b.add(this.f);
+            this.a = bdTypeRecyclerView;
+            bdTypeRecyclerView.addAdapters(this.b);
         }
-        return (View) invokeILL.objValue;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
+    public boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, absListView, i) == null) {
-            if (i == 0) {
-                this.c = false;
-                notifyDataSetChanged();
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            List<oi> list = this.c;
+            if (list != null && list.size() > 0) {
+                for (oi oiVar : this.c) {
+                    if (oiVar != null && (oiVar instanceof zo9) && ((zo9) oiVar).h()) {
+                        return true;
+                    }
+                }
             }
-            this.c = true;
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            List<oi> list = this.c;
+            if (list == null || list.size() <= 0) {
+                return false;
+            }
+            for (oi oiVar : this.c) {
+                if (oiVar != null && (oiVar instanceof zo9) && !((zo9) oiVar).h()) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            so9 so9Var = this.d;
+            if (so9Var != null) {
+                so9Var.notifyDataSetChanged();
+            }
+            qo9 qo9Var = this.e;
+            if (qo9Var != null) {
+                qo9Var.notifyDataSetChanged();
+            }
+            ro9 ro9Var = this.f;
+            if (ro9Var != null) {
+                ro9Var.notifyDataSetChanged();
+            }
+        }
+    }
+
+    public final void h(zo9 zo9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, zo9Var) == null) {
+            StatisticItem statisticItem = new StatisticItem("c13682");
+            statisticItem.param("obj_type", 2);
+            statisticItem.param("obj_locate", 3);
+            statisticItem.param("fid", zo9Var.c());
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public void i(gp9 gp9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, gp9Var) == null) {
+            this.f.A(gp9Var);
+        }
+    }
+
+    public void k(hp9 hp9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, hp9Var) == null) {
+            this.g = hp9Var;
+            this.e.C(hp9Var);
+            this.f.B(hp9Var);
         }
     }
 }

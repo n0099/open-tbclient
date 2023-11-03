@@ -1,230 +1,129 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.lego.model.LegoPageModel;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.data.ChatRoomInfoData;
+import com.baidu.tieba.immessagecenter.chatgroup.data.AtInfo;
+import com.baidu.tieba.immessagecenter.chatgroup.data.AtInfoMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.data.ChatNewMessage;
+import com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import java.io.IOException;
-import tbclient.Lego.DataRes;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class d09 implements b09 {
+public class d09 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LegoPageModel a;
-    public c09 b;
-    public LegoPageModel.b c;
 
-    /* loaded from: classes5.dex */
-    public class a implements LegoPageModel.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d09 a;
-
-        public a(d09 d09Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d09Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = d09Var;
+    public static AtInfo a(@NonNull ChatRoomInfoData.AtInfoData atInfoData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, atInfoData)) == null) {
+            AtInfo atInfo = new AtInfo();
+            atInfo.setAtCountAll(atInfoData.getAtCountAll());
+            atInfo.setAtAllMsgCount(atInfoData.getAtAllMsgCount());
+            atInfo.setAtSingleMsgCount(atInfoData.getAtSingleMsgCount());
+            atInfo.setAllMsgList(b(atInfoData.getAllMsgList()));
+            atInfo.setSingleMsgList(b(atInfoData.getAllSingleList()));
+            return atInfo;
         }
-
-        @Override // com.baidu.tieba.lego.model.LegoPageModel.b
-        public void a(long j, String str, DataRes dataRes, boolean z) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), str, dataRes, Boolean.valueOf(z)}) == null) && this.a.b != null) {
-                this.a.b.c(j, str, dataRes, z);
-            }
-        }
-
-        @Override // com.baidu.tieba.lego.model.LegoPageModel.b
-        public void b(long j, String str, int i, String str2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), str, Integer.valueOf(i), str2}) == null) && this.a.b != null) {
-                this.a.b.b(j, str, str2, i);
-            }
-        }
-
-        @Override // com.baidu.tieba.lego.model.LegoPageModel.b
-        public void c(long j, String str, DataRes dataRes, boolean z, int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), str, dataRes, Boolean.valueOf(z), Integer.valueOf(i)}) == null) && this.a.b != null) {
-                this.a.b.a(true, dataRes, !z, j, str, i);
-            }
-        }
+        return (AtInfo) invokeL.objValue;
     }
 
-    /* loaded from: classes5.dex */
-    public class b extends gs5<DataRes> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m9 a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ String c;
-
-        public b(d09 d09Var, m9 m9Var, long j, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d09Var, m9Var, Long.valueOf(j), str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static List<AtInfoMsg> b(List<ChatRoomInfoData.AtMsgBaseData> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return Collections.emptyList();
+            }
+            ArrayList arrayList = new ArrayList();
+            for (ChatRoomInfoData.AtMsgBaseData atMsgBaseData : list) {
+                if (atMsgBaseData != null) {
+                    AtInfoMsg atInfoMsg = new AtInfoMsg();
+                    atInfoMsg.setMsgId(atMsgBaseData.getMsgId());
+                    atInfoMsg.setMsgKey(atMsgBaseData.getMsgKey());
+                    arrayList.add(atInfoMsg);
                 }
             }
-            this.a = m9Var;
-            this.b = j;
-            this.c = str;
+            return arrayList;
         }
+        return (List) invokeL.objValue;
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.gs5
-        /* renamed from: a */
-        public DataRes doInBackground() {
-            InterceptResult invokeV;
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                m9 m9Var = this.a;
-                StringBuilder sb = new StringBuilder();
-                sb.append(this.b);
-                sb.append("_");
-                if (TextUtils.isEmpty(this.c)) {
-                    str = "";
-                } else {
-                    str = this.c;
-                }
-                sb.append(str);
-                byte[] bArr = (byte[]) m9Var.get(sb.toString());
-                if (bArr != null && bArr.length != 0) {
-                    try {
-                        return (DataRes) new Wire(new Class[0]).parseFrom(bArr, DataRes.class);
-                    } catch (IOException unused) {
+    @NonNull
+    public static List<ChatRoomInfo> c(List<ChatRoomInfoData> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return Collections.emptyList();
+            }
+            ArrayList arrayList = new ArrayList();
+            for (ChatRoomInfoData chatRoomInfoData : list) {
+                if (chatRoomInfoData != null) {
+                    ChatRoomInfo chatRoomInfo = new ChatRoomInfo();
+                    chatRoomInfo.setRoomId(chatRoomInfoData.getRoomId());
+                    ChatRoomInfoData.ChatroomInfoBasicData chatroomInfoBasicData = chatRoomInfoData.getChatroomInfoBasicData();
+                    if (chatroomInfoBasicData != null) {
+                        chatRoomInfo.setForumId(String.valueOf(chatroomInfoBasicData.getForumId()));
+                        chatRoomInfo.setForumName(chatroomInfoBasicData.getForumName());
+                        chatRoomInfo.setName(chatroomInfoBasicData.getName());
+                        chatRoomInfo.setAvatar(chatroomInfoBasicData.getAvatar());
+                        chatRoomInfo.setUnreadNum(JavaTypesHelper.toInt(chatroomInfoBasicData.getUnreadNum(), 0));
                     }
-                }
-                return null;
-            }
-            return (DataRes) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements lr5<DataRes> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ d09 c;
-
-        public c(d09 d09Var, long j, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d09Var, Long.valueOf(j), str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                    chatRoomInfo.setJumpUrl(chatRoomInfoData.getJumpUrl());
+                    if (chatRoomInfoData.getAtInfoData() != null) {
+                        chatRoomInfo.setAtInfo(a(chatRoomInfoData.getAtInfoData()));
+                    }
+                    arrayList.add(chatRoomInfo);
                 }
             }
-            this.c = d09Var;
-            this.a = j;
-            this.b = str;
+            return arrayList;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.lr5
-        /* renamed from: a */
-        public void onReturnDataInUI(DataRes dataRes) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) {
-                return;
-            }
-            this.c.f(this.a, this.b, dataRes);
-        }
+        return (List) invokeL.objValue;
     }
 
-    public d09(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+    public static void d(@NonNull ChatRoomInfo chatRoomInfo, @NonNull ChatRoomInfoData chatRoomInfoData) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLL(65539, null, chatRoomInfo, chatRoomInfoData) == null) {
+            ChatRoomInfoData.ChatroomInfoBasicData chatroomInfoBasicData = chatRoomInfoData.getChatroomInfoBasicData();
+            if (chatroomInfoBasicData != null) {
+                chatroomInfoBasicData.setUnreadNum(String.valueOf(chatRoomInfo.getUnreadNum()));
+            }
+            ChatRoomInfoData.ChatroomMEMsgInfoData chatroomMEMsgInfoData = chatRoomInfoData.getChatroomMEMsgInfoData();
+            ChatNewMessage newMessage = chatRoomInfo.getNewMessage();
+            if (chatroomMEMsgInfoData != null && newMessage != null) {
+                chatroomMEMsgInfoData.setFromUid(JavaTypesHelper.toLong(newMessage.getFromUid(), 0L));
+                chatroomMEMsgInfoData.setFromName(newMessage.getFromName());
+                chatroomMEMsgInfoData.setContent(newMessage.getContent());
+                chatroomMEMsgInfoData.setMsgId(newMessage.getMsgId());
+                chatroomMEMsgInfoData.setSpecialMsg(newMessage.getSpecialMsg());
+                chatroomMEMsgInfoData.setSpecialMsg(newMessage.getSpecialType());
             }
         }
-        this.c = new a(this);
-        LegoPageModel legoPageModel = new LegoPageModel(tbPageContext, bdUniqueId);
-        this.a = legoPageModel;
-        legoPageModel.P(this.c);
     }
 
-    @Override // com.baidu.tieba.b09
-    public void b(c09 c09Var) {
+    public static String e(@NonNull TbPageContext<?> tbPageContext, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c09Var) == null) {
-            this.b = c09Var;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext, str, str2)) == null) {
+            String str3 = "";
+            if (!StringUtils.isNull(str)) {
+                str3 = "" + str + tbPageContext.getString(R.string.obfuscated_res_0x7f0f0413);
+            }
+            if (!StringUtils.isNull(str2)) {
+                return str3 + str2;
+            }
+            return str3;
         }
-    }
-
-    @Override // com.baidu.tieba.b09
-    public void a(long j, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048576, this, j, str) == null) {
-            gz4.k();
-            ks5.b(new b(this, gz4.i("tb.lego_update"), j, str), new c(this, j, str));
-        }
-    }
-
-    @Override // com.baidu.tieba.b09
-    public void c(int i, long j, String str, int i2, String str2) {
-        LegoPageModel legoPageModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), str, Integer.valueOf(i2), str2}) == null) && (legoPageModel = this.a) != null) {
-            legoPageModel.O(i, j, str, i2, str2);
-        }
-    }
-
-    public final void f(long j, String str, DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), str, dataRes}) != null) || j < 0) {
-            return;
-        }
-        c09 c09Var = this.b;
-        if (c09Var != null) {
-            c09Var.a(false, dataRes, false, j, str, 1);
-        }
-        this.a.O(2, j, str, 1, "");
+        return (String) invokeLLL.objValue;
     }
 }

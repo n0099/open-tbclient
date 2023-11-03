@@ -1,91 +1,103 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tieba.filedownloader.SearchBoxDownloaderImpl;
+import com.baidu.tieba.filedownloader.TbFileDownloaderImpl;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 /* loaded from: classes8.dex */
-public class ud7 extends SparseArray<fe7> {
+public final class ud7 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
 
-    public ud7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948207233, "Lcom/baidu/tieba/ud7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948207233, "Lcom/baidu/tieba/ud7;");
                 return;
             }
         }
-        this.a = null;
+        a = new a(null);
     }
 
-    public void b() {
+    @JvmStatic
+    public static final int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (int i = 0; i < size(); i++) {
-                fe7 valueAt = valueAt(i);
-                if (valueAt != null) {
-                    valueAt.M(null);
-                    valueAt.o();
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a() : invokeV.intValue;
+    }
+
+    /* loaded from: classes8.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
-    }
 
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            for (int i = 0; i < size(); i++) {
-                fe7 valueAt = valueAt(i);
-                if (valueAt != null) {
-                    valueAt.init();
+        @JvmStatic
+        public final int a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (UbsABTestHelper.isNonEcomAdDownloaderTestA()) {
+                    return 2;
                 }
+                UbsABTestHelper.isNonEcomAdDownloaderTestB();
+                return 1;
             }
+            return invokeV.intValue;
         }
-    }
 
-    public void a(int i, fe7 fe7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, fe7Var) == null) {
-            if (i > 100) {
-                i = 100;
-            }
-            put(i, fe7Var);
-        }
-    }
-
-    public fe7 c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            if (i > 100) {
-                i = 100;
-            }
-            return get(i);
-        }
-        return (fe7) invokeI.objValue;
-    }
-
-    public void e(je7 je7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, je7Var) == null) {
-            for (int i = 0; i < size(); i++) {
-                fe7 valueAt = valueAt(i);
-                if (valueAt != null) {
-                    valueAt.M(je7Var);
+        public final vd7 b(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (UbsABTestHelper.isNonEcomAdDownloaderTestA()) {
+                            return SearchBoxDownloaderImpl.b.b();
+                        }
+                        if (UbsABTestHelper.isNonEcomAdDownloaderTestB()) {
+                            return TbFileDownloaderImpl.a.a();
+                        }
+                        return TbFileDownloaderImpl.a.a();
+                    }
+                    return SearchBoxDownloaderImpl.b.b();
                 }
+                return TbFileDownloaderImpl.a.a();
             }
+            return (vd7) invokeI.objValue;
         }
     }
 }

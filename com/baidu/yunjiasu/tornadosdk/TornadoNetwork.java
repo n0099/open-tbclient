@@ -599,7 +599,7 @@ public final class TornadoNetwork {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:16:0x0045, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:16:0x0044, code lost:
         return r1;
      */
     /*

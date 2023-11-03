@@ -1,142 +1,102 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.exp.ADConfigError;
-import com.baidu.nadcore.net.util.NetUtil;
-import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
+import com.baidu.tieba.xi0;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes7.dex */
-public class oi0 {
+public class oi0 implements vi0, Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public boolean b;
-    public int c;
-    public BroadcastReceiver d;
-    public li0 e;
+    public final ConcurrentLinkedQueue<xi0.b<?>> a;
+    public final AtomicBoolean b;
 
     /* loaded from: classes7.dex */
-    public class a implements si0 {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final oi0 a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ oi0 a;
 
-        /* renamed from: com.baidu.tieba.oi0$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class C0413a extends BroadcastReceiver {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a this$1;
-
-            public C0413a(a aVar) {
-                Interceptable interceptable = $ic;
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-545975018, "Lcom/baidu/tieba/oi0$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
+                    $ic = interceptable;
                 }
-                this.this$1 = aVar;
-            }
-
-            @Override // android.content.BroadcastReceiver
-            public void onReceive(Context context, Intent intent) {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && NetworkMonitor.NET_CHANGE_ACTION.equals(intent.getAction()) && NetUtil.a(pe0.b())) {
-                    ni0.c().b();
-                    try {
-                        pe0.b().unregisterReceiver(this);
-                    } catch (Exception unused) {
-                    }
-                    this.this$1.a.d = null;
-                }
-            }
-        }
-
-        public a(oi0 oi0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {oi0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-545975018, "Lcom/baidu/tieba/oi0$a;");
                     return;
                 }
             }
-            this.a = oi0Var;
-        }
-
-        @Override // com.baidu.tieba.si0
-        public void a(ADConfigError aDConfigError) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, aDConfigError) == null) && this.a.e != null && !this.a.e.j() && aDConfigError != null && !TextUtils.isEmpty(aDConfigError.reason)) {
-                if (NetUtil.a(pe0.b())) {
-                    ni0.c().b();
-                } else if (this.a.d == null) {
-                    IntentFilter intentFilter = new IntentFilter();
-                    intentFilter.addAction(NetworkMonitor.NET_CHANGE_ACTION);
-                    this.a.d = new C0413a(this);
-                    pe0.b().registerReceiver(this.a.d, intentFilter);
-                }
-            }
+            a = new oi0();
         }
     }
 
-    public oi0(int i, int i2, boolean z) {
+    public oi0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.c = i2;
-        this.b = z;
+        this.a = new ConcurrentLinkedQueue<>();
+        this.b = new AtomicBoolean(false);
     }
 
-    public void d() {
-        li0 li0Var;
+    public static vi0 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (li0Var = this.e) != null) {
-            li0Var.m(null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.a;
+        }
+        return (vi0) invokeV.objValue;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
+            return;
+        }
+        while (true) {
+            xi0.b<?> poll = this.a.poll();
+            if (poll != null) {
+                poll.a.onEvent(poll.b);
+            } else {
+                this.b.set(false);
+                return;
+            }
         }
     }
 
-    public void e() {
+    @Override // com.baidu.tieba.vi0
+    public <T extends ti0> void a(yi0 yi0Var, wi0<T> wi0Var, T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            li0 li0Var = new li0(this.a, this.b, this.c);
-            this.e = li0Var;
-            li0Var.m(new a(this));
-            kz0.c(this.e, "adc_async_request", 0);
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, yi0Var, wi0Var, t) == null) {
+            if (vf0.b()) {
+                this.a.offer(new xi0.b<>(yi0Var, wi0Var, t));
+                if (this.b.compareAndSet(false, true)) {
+                    b01.c(this, "BackgroundDeliver", 3);
+                    return;
+                }
+                return;
+            }
+            wi0Var.onEvent(t);
         }
     }
 }

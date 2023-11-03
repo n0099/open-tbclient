@@ -7,7 +7,7 @@ import androidx.annotation.Nullable;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vm0;
+import com.baidu.tieba.mn0;
 /* loaded from: classes3.dex */
 public class NadExpressBigImgOperateView extends NadExpressNaBaseView {
     @Nullable
@@ -27,10 +27,10 @@ public class NadExpressBigImgOperateView extends NadExpressNaBaseView {
     }
 
     @Override // com.baidu.nadcore.widget.view.NadExpressNaBaseView
-    public void g(LayoutInflater layoutInflater, vm0 vm0Var) {
+    public void g(LayoutInflater layoutInflater, mn0 mn0Var) {
         int i;
-        if (vm0Var != null && vm0Var.a(AdBaseModel.STYLE.BIG_IMAGE) != 0) {
-            i = vm0Var.a(AdBaseModel.STYLE.BIG_IMAGE);
+        if (mn0Var != null && mn0Var.a(AdBaseModel.STYLE.BIG_IMAGE) != 0) {
+            i = mn0Var.a(AdBaseModel.STYLE.BIG_IMAGE);
         } else {
             i = R.layout.nad_feed_big_image;
         }
@@ -41,7 +41,7 @@ public class NadExpressBigImgOperateView extends NadExpressNaBaseView {
         this(context, attributeSet, i, null);
     }
 
-    public NadExpressBigImgOperateView(Context context, AttributeSet attributeSet, int i, vm0 vm0Var) {
-        super(context, attributeSet, i, vm0Var);
+    public NadExpressBigImgOperateView(Context context, AttributeSet attributeSet, int i, mn0 mn0Var) {
+        super(context, attributeSet, i, mn0Var);
     }
 }

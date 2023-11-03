@@ -1,9 +1,9 @@
 package com.badlogic.ashley.core;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c3;
-import com.baidu.tieba.i0;
-import com.baidu.tieba.r2;
+import com.baidu.tieba.h3;
+import com.baidu.tieba.s3;
+import com.baidu.tieba.y0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +18,7 @@ public class ComponentOperationHandler {
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
     public c b;
-    public r2<ComponentOperation> c;
+    public h3<ComponentOperation> c;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -26,11 +26,11 @@ public class ComponentOperationHandler {
     }
 
     /* loaded from: classes.dex */
-    public static class ComponentOperation implements c3.a {
+    public static class ComponentOperation implements s3.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Type a;
-        public i0 b;
+        public y0 b;
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
         /* loaded from: classes.dex */
@@ -112,7 +112,7 @@ public class ComponentOperationHandler {
             }
         }
 
-        @Override // com.baidu.tieba.c3.a
+        @Override // com.baidu.tieba.s3.a
         public void reset() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -124,19 +124,19 @@ public class ComponentOperationHandler {
             this();
         }
 
-        public void a(i0 i0Var) {
+        public void a(y0 y0Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, i0Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, y0Var) == null) {
                 this.a = Type.Add;
-                this.b = i0Var;
+                this.b = y0Var;
             }
         }
 
-        public void b(i0 i0Var) {
+        public void b(y0 y0Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i0Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, y0Var) == null) {
                 this.a = Type.Remove;
-                this.b = i0Var;
+                this.b = y0Var;
             }
         }
     }
@@ -174,7 +174,7 @@ public class ComponentOperationHandler {
     }
 
     /* loaded from: classes.dex */
-    public static class c extends c3<ComponentOperation> {
+    public static class c extends s3<ComponentOperation> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -193,7 +193,7 @@ public class ComponentOperationHandler {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.c3
+        @Override // com.baidu.tieba.s3
         /* renamed from: g */
         public ComponentOperation d() {
             InterceptResult invokeV;
@@ -225,33 +225,33 @@ public class ComponentOperationHandler {
             }
         }
         this.b = new c(null);
-        this.c = new r2<>();
+        this.c = new h3<>();
         this.a = bVar;
     }
 
-    public void a(i0 i0Var) {
+    public void a(y0 y0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, i0Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, y0Var) == null) {
             if (this.a.value()) {
                 ComponentOperation e = this.b.e();
-                e.a(i0Var);
+                e.a(y0Var);
                 this.c.a(e);
                 return;
             }
-            i0Var.g();
+            y0Var.g();
         }
     }
 
-    public void c(i0 i0Var) {
+    public void c(y0 y0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, i0Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, y0Var) == null) {
             if (this.a.value()) {
                 ComponentOperation e = this.b.e();
-                e.b(i0Var);
+                e.b(y0Var);
                 this.c.a(e);
                 return;
             }
-            i0Var.h();
+            y0Var.h();
         }
     }
 
@@ -260,9 +260,9 @@ public class ComponentOperationHandler {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             int i = 0;
             while (true) {
-                r2<ComponentOperation> r2Var = this.c;
-                if (i < r2Var.b) {
-                    ComponentOperation componentOperation = r2Var.get(i);
+                h3<ComponentOperation> h3Var = this.c;
+                if (i < h3Var.b) {
+                    ComponentOperation componentOperation = h3Var.get(i);
                     int i2 = a.a[componentOperation.a.ordinal()];
                     if (i2 != 1) {
                         if (i2 == 2) {
@@ -274,7 +274,7 @@ public class ComponentOperationHandler {
                     this.b.c(componentOperation);
                     i++;
                 } else {
-                    r2Var.clear();
+                    h3Var.clear();
                     return;
                 }
             }

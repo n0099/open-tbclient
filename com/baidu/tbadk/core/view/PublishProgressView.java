@@ -11,7 +11,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.PublishProgressData;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qga;
+import com.baidu.tieba.vta;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -79,8 +79,8 @@ public class PublishProgressView extends RelativeLayout implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.publish_progress_view, this);
-            this.a = (PublishProgressBar) inflate.findViewById(R.id.obfuscated_res_0x7f091da4);
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091dac);
+            this.a = (PublishProgressBar) inflate.findViewById(R.id.obfuscated_res_0x7f091deb);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091df3);
             TextView textView = (TextView) inflate.findViewById(R.id.progress_close_btn);
             this.c = textView;
             textView.setOnClickListener(this);
@@ -142,7 +142,7 @@ public class PublishProgressView extends RelativeLayout implements View.OnClickL
                 publishProgressData.hideRunning();
                 d();
             }
-            qga.c();
+            vta.c();
         }
     }
 

@@ -21,9 +21,9 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.switchs.UniKVTestSwitch;
 import com.baidu.tbadk.util.AppLaunchInfoFetcher;
-import com.baidu.tieba.ad;
-import com.baidu.tieba.pk5;
-import com.baidu.tieba.q25;
+import com.baidu.tieba.gm5;
+import com.baidu.tieba.k35;
+import com.baidu.tieba.qd;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -154,14 +154,14 @@ public class GrowthFunnelHelper {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65554, null, str) == null) {
-            StatisticItem addParam = new StatisticItem(KEY_APP_LAUNCH_FUNNEL).addParam("obj_locate", str).addParam("obj_type", q25.a().b());
-            if (q25.a().d()) {
+            StatisticItem addParam = new StatisticItem(KEY_APP_LAUNCH_FUNNEL).addParam("obj_locate", str).addParam("obj_type", k35.a().b());
+            if (k35.a().d()) {
                 i = 1;
             } else {
                 i = 2;
             }
             StatisticItem addParam2 = addParam.addParam("obj_param1", i).addParam("obj_source", 8);
-            if (q25.a().b() != 3) {
+            if (k35.a().b() != 3) {
                 addParam2.addParam(TiebaStatic.Params.OBJ_PARAM2, getRealStartScheme());
             }
             TiebaStatic.log(addParam2);
@@ -172,14 +172,14 @@ public class GrowthFunnelHelper {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65555, null, str) == null) {
-            StatisticItem addParam = new StatisticItem(KEY_APP_LAUNCH_FUNNEL).addParam("obj_locate", str).addParam("obj_type", q25.a().b());
-            if (q25.a().d()) {
+            StatisticItem addParam = new StatisticItem(KEY_APP_LAUNCH_FUNNEL).addParam("obj_locate", str).addParam("obj_type", k35.a().b());
+            if (k35.a().d()) {
                 i = 1;
             } else {
                 i = 2;
             }
             StatisticItem addParam2 = addParam.addParam("obj_param1", i).addParam("obj_source", 7);
-            if (q25.a().b() != 3) {
+            if (k35.a().b() != 3) {
                 addParam2.addParam(TiebaStatic.Params.OBJ_PARAM2, getRealStartScheme());
             }
             TiebaStatic.log(addParam2);
@@ -245,8 +245,8 @@ public class GrowthFunnelHelper {
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             String str = "";
             if (realStartType == 99) {
-                String c = pk5.c();
-                if (ad.isEmpty(c)) {
+                String c = gm5.c();
+                if (qd.isEmpty(c)) {
                     return "";
                 }
                 return c;
@@ -254,7 +254,7 @@ public class GrowthFunnelHelper {
             if (!StringUtils.isNull(realStartScheme)) {
                 str = realStartScheme;
             }
-            return ad.getUrlEncode(str);
+            return qd.getUrlEncode(str);
         }
         return (String) invokeV.objValue;
     }
@@ -269,34 +269,6 @@ public class GrowthFunnelHelper {
                 i = 2;
             }
             TiebaStatic.log(statisticItem.addParam("obj_source", i).addParam(TiebaStatic.Params.OBJ_PARAM3, System.currentTimeMillis()));
-        }
-    }
-
-    public static void logEnterLogoActivity() {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65552, null) == null) {
-            StatisticItem addParam = new StatisticItem(KEY_APP_LAUNCH_FUNNEL).addParam("obj_type", q25.a().b());
-            if (q25.a().d()) {
-                i = 1;
-            } else {
-                i = 2;
-            }
-            TiebaStatic.log(addParam.addParam("obj_param1", i).addParam("obj_source", 5));
-        }
-    }
-
-    public static void logExitLogoActivity() {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65553, null) == null) {
-            StatisticItem addParam = new StatisticItem(KEY_APP_LAUNCH_FUNNEL).addParam("obj_type", q25.a().b());
-            if (q25.a().d()) {
-                i = 1;
-            } else {
-                i = 2;
-            }
-            TiebaStatic.log(addParam.addParam("obj_param1", i).addParam("obj_source", 6));
         }
     }
 
@@ -343,7 +315,7 @@ public class GrowthFunnelHelper {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65561, null, activity) == null) && activity != null && activity.getClass() != null && Build.VERSION.SDK_INT >= 23 && (activityManager = (ActivityManager) activity.getSystemService("activity")) != null && (appTask = (ActivityManager.AppTask) ListUtils.getItem(activityManager.getAppTasks(), 0)) != null && appTask.getTaskInfo() != null && appTask.getTaskInfo().baseActivity != null && activity.getClass().getName().equals(appTask.getTaskInfo().baseActivity.getClassName())) {
             String scheme = getScheme(appTask.getTaskInfo().baseIntent);
-            updateAppStartInfo(scheme, ad.isEmpty(scheme));
+            updateAppStartInfo(scheme, qd.isEmpty(scheme));
             updateRealAppStartInfo();
         }
     }
@@ -415,7 +387,7 @@ public class GrowthFunnelHelper {
         } else if (type == AppLaunchInfoFetcher.Type.ACTIVITY) {
             if (intent != null) {
                 String dataString = intent.getDataString();
-                updateAppStartInfo(dataString, ad.isEmpty(dataString));
+                updateAppStartInfo(dataString, qd.isEmpty(dataString));
             } else {
                 updateAppStartInfoForException("intent=null", 100);
             }
@@ -424,6 +396,47 @@ public class GrowthFunnelHelper {
             startScheme = "START_TYPE_FOR_UNKNOWN";
         }
         updateRealAppStartInfo();
+    }
+
+    public static void logEnterLogoActivity() {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65552, null) == null) {
+            StatisticItem addParam = new StatisticItem(KEY_APP_LAUNCH_FUNNEL).addParam("obj_type", k35.a().b());
+            if (k35.a().d()) {
+                i = 1;
+            } else {
+                i = 2;
+            }
+            TiebaStatic.log(addParam.addParam("obj_param1", i).addParam("obj_source", 5));
+        }
+    }
+
+    public static void logExitLogoActivity() {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65553, null) == null) {
+            StatisticItem addParam = new StatisticItem(KEY_APP_LAUNCH_FUNNEL).addParam("obj_type", k35.a().b());
+            if (k35.a().d()) {
+                i = 1;
+            } else {
+                i = 2;
+            }
+            TiebaStatic.log(addParam.addParam("obj_param1", i).addParam("obj_source", 6));
+        }
+    }
+
+    public static void notifyFlutterStartType() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65558, null) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("start_type", realStartType + "");
+            hashMap.put("start_scheme", getRealStartScheme());
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("uniqueKey", "kTBCUpdateLaunchTypeNotification");
+            hashMap2.put("data", hashMap);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921542, hashMap2));
+        }
     }
 
     public static void logRecall(String str, SharedPreferences.Editor editor) {
@@ -443,19 +456,6 @@ public class GrowthFunnelHelper {
             }
         }
         editor.remove(str).apply();
-    }
-
-    public static void notifyFlutterStartType() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65558, null) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("start_type", realStartType + "");
-            hashMap.put("start_scheme", getRealStartScheme());
-            HashMap hashMap2 = new HashMap();
-            hashMap2.put("uniqueKey", "kTBCUpdateLaunchTypeNotification");
-            hashMap2.put("data", hashMap);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921542, hashMap2));
-        }
     }
 
     public static void updateAppStartInfo(String str, boolean z) {

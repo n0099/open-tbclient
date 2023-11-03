@@ -1,108 +1,97 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.pms.IPmsContext;
-import com.baidu.searchbox.pms.init.RequestParams;
-import com.baidu.searchbox.pms.statistic.StatisticCallback;
+import com.baidu.nps.interfa.IPackageDownloadCallback;
+import com.baidu.searchbox.pms.bean.ErrorInfo;
+import com.baidu.searchbox.pms.bean.PackageInfo;
+import com.baidu.searchbox.pms.callback.DownloadCallback;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
 import java.util.List;
-@Singleton
-@Service
 /* loaded from: classes5.dex */
-public class eg implements IPmsContext {
+public class eg implements DownloadCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public IPackageDownloadCallback a;
 
-    @Override // com.baidu.searchbox.pms.IPmsContext
-    public boolean checkChannelAllow(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.searchbox.pms.callback.DownloadCallback
+    public void onBulkDownloaded(List<PackageInfo> list, List<PackageInfo> list2, List<PackageInfo> list3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            return true;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, list, list2, list3) == null) {
         }
-        return invokeLL.booleanValue;
     }
 
-    @Override // com.baidu.searchbox.pms.IPmsContext
-    public List<String> getAutoClearChannelIdList() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.pms.callback.DownloadCallback
+    public void onDownloadCancel(PackageInfo packageInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo) == null) {
         }
-        return (List) invokeV.objValue;
     }
 
-    public eg() {
+    @Override // com.baidu.searchbox.pms.callback.DownloadCallback
+    public void onDownloadPause(PackageInfo packageInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, packageInfo) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.pms.callback.DownloadCallback
+    public void onDownloadResume(PackageInfo packageInfo, long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{packageInfo, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.pms.callback.DownloadCallback
+    public void onDownloadStart(PackageInfo packageInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, packageInfo) == null) {
+        }
+    }
+
+    public eg(IPackageDownloadCallback iPackageDownloadCallback) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {iPackageDownloadCallback};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = iPackageDownloadCallback;
     }
 
-    @Override // com.baidu.searchbox.pms.IPmsContext
-    public List<RequestParams.Channel> getLongConnectParams() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.pms.callback.DownloadCallback
+    public void onDownloadError(PackageInfo packageInfo, ErrorInfo errorInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return Collections.emptyList();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, packageInfo, errorInfo) == null) {
+            this.a.onPackageDownloadFail(packageInfo.packageName, errorInfo.code, errorInfo.errorMsg);
+            pg.b(packageInfo.packageName, 1, packageInfo.version);
         }
-        return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.pms.IPmsContext
-    public StatisticCallback getStatisticCallback() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.pms.callback.DownloadCallback
+    public void onDownloadSuccess(PackageInfo packageInfo, ErrorInfo errorInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return new gg();
+        if (interceptable == null || interceptable.invokeLL(1048583, this, packageInfo, errorInfo) == null) {
+            this.a.onPackageDownloadSuccess(packageInfo.packageName, packageInfo.filePath);
+            pg.b(packageInfo.packageName, 0, packageInfo.version);
         }
-        return (StatisticCallback) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.pms.IPmsContext
-    public RequestParams getRegisterParams(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.searchbox.pms.callback.DownloadCallback
+    public void onDownloadProgress(PackageInfo packageInfo, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return getRegisterParams(str, "aps");
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{packageInfo, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            this.a.onProgress(j, j2);
         }
-        return (RequestParams) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.pms.IPmsContext
-    public RequestParams getRegisterParams(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            RequestParams requestParams = new RequestParams();
-            requestParams.setRunType(str);
-            if (TextUtils.isEmpty(str2)) {
-                str2 = "aps";
-            }
-            requestParams.setRunNode(str2);
-            if ("0".equals(str)) {
-                requestParams.addChannel(pf.f().d());
-                requestParams.addChannel(new bh());
-                requestParams.addChannel(new mg());
-            }
-            return requestParams;
-        }
-        return (RequestParams) invokeLL.objValue;
     }
 }

@@ -278,21 +278,20 @@ public class b implements Handler.Callback {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:101:0x01d2  */
-    /* JADX WARN: Removed duplicated region for block: B:24:0x0082 A[Catch: Exception -> 0x019e, TryCatch #0 {Exception -> 0x019e, blocks: (B:12:0x004f, B:14:0x0062, B:16:0x006c, B:20:0x0077, B:22:0x007c, B:24:0x0082, B:26:0x008c, B:30:0x0096, B:31:0x0099, B:33:0x00a9, B:35:0x00b3, B:40:0x00cb, B:41:0x00d1, B:43:0x00d7, B:45:0x00e1, B:50:0x00f8, B:51:0x00fc, B:53:0x0102, B:55:0x010c, B:60:0x0124, B:61:0x0128, B:63:0x012e, B:65:0x0138, B:68:0x0140, B:69:0x0144, B:71:0x014a, B:73:0x0154, B:74:0x0159, B:76:0x015f, B:78:0x0169, B:79:0x016c, B:81:0x0172, B:83:0x017c, B:84:0x0181, B:86:0x0187, B:88:0x0191, B:89:0x0194), top: B:116:0x004f, outer: #2 }] */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x00a9 A[Catch: Exception -> 0x019e, TryCatch #0 {Exception -> 0x019e, blocks: (B:12:0x004f, B:14:0x0062, B:16:0x006c, B:20:0x0077, B:22:0x007c, B:24:0x0082, B:26:0x008c, B:30:0x0096, B:31:0x0099, B:33:0x00a9, B:35:0x00b3, B:40:0x00cb, B:41:0x00d1, B:43:0x00d7, B:45:0x00e1, B:50:0x00f8, B:51:0x00fc, B:53:0x0102, B:55:0x010c, B:60:0x0124, B:61:0x0128, B:63:0x012e, B:65:0x0138, B:68:0x0140, B:69:0x0144, B:71:0x014a, B:73:0x0154, B:74:0x0159, B:76:0x015f, B:78:0x0169, B:79:0x016c, B:81:0x0172, B:83:0x017c, B:84:0x0181, B:86:0x0187, B:88:0x0191, B:89:0x0194), top: B:116:0x004f, outer: #2 }] */
-    /* JADX WARN: Removed duplicated region for block: B:43:0x00d7 A[Catch: Exception -> 0x019e, TryCatch #0 {Exception -> 0x019e, blocks: (B:12:0x004f, B:14:0x0062, B:16:0x006c, B:20:0x0077, B:22:0x007c, B:24:0x0082, B:26:0x008c, B:30:0x0096, B:31:0x0099, B:33:0x00a9, B:35:0x00b3, B:40:0x00cb, B:41:0x00d1, B:43:0x00d7, B:45:0x00e1, B:50:0x00f8, B:51:0x00fc, B:53:0x0102, B:55:0x010c, B:60:0x0124, B:61:0x0128, B:63:0x012e, B:65:0x0138, B:68:0x0140, B:69:0x0144, B:71:0x014a, B:73:0x0154, B:74:0x0159, B:76:0x015f, B:78:0x0169, B:79:0x016c, B:81:0x0172, B:83:0x017c, B:84:0x0181, B:86:0x0187, B:88:0x0191, B:89:0x0194), top: B:116:0x004f, outer: #2 }] */
-    /* JADX WARN: Removed duplicated region for block: B:53:0x0102 A[Catch: Exception -> 0x019e, TryCatch #0 {Exception -> 0x019e, blocks: (B:12:0x004f, B:14:0x0062, B:16:0x006c, B:20:0x0077, B:22:0x007c, B:24:0x0082, B:26:0x008c, B:30:0x0096, B:31:0x0099, B:33:0x00a9, B:35:0x00b3, B:40:0x00cb, B:41:0x00d1, B:43:0x00d7, B:45:0x00e1, B:50:0x00f8, B:51:0x00fc, B:53:0x0102, B:55:0x010c, B:60:0x0124, B:61:0x0128, B:63:0x012e, B:65:0x0138, B:68:0x0140, B:69:0x0144, B:71:0x014a, B:73:0x0154, B:74:0x0159, B:76:0x015f, B:78:0x0169, B:79:0x016c, B:81:0x0172, B:83:0x017c, B:84:0x0181, B:86:0x0187, B:88:0x0191, B:89:0x0194), top: B:116:0x004f, outer: #2 }] */
-    /* JADX WARN: Removed duplicated region for block: B:63:0x012e A[Catch: Exception -> 0x019e, TryCatch #0 {Exception -> 0x019e, blocks: (B:12:0x004f, B:14:0x0062, B:16:0x006c, B:20:0x0077, B:22:0x007c, B:24:0x0082, B:26:0x008c, B:30:0x0096, B:31:0x0099, B:33:0x00a9, B:35:0x00b3, B:40:0x00cb, B:41:0x00d1, B:43:0x00d7, B:45:0x00e1, B:50:0x00f8, B:51:0x00fc, B:53:0x0102, B:55:0x010c, B:60:0x0124, B:61:0x0128, B:63:0x012e, B:65:0x0138, B:68:0x0140, B:69:0x0144, B:71:0x014a, B:73:0x0154, B:74:0x0159, B:76:0x015f, B:78:0x0169, B:79:0x016c, B:81:0x0172, B:83:0x017c, B:84:0x0181, B:86:0x0187, B:88:0x0191, B:89:0x0194), top: B:116:0x004f, outer: #2 }] */
-    /* JADX WARN: Removed duplicated region for block: B:71:0x014a A[Catch: Exception -> 0x019e, TryCatch #0 {Exception -> 0x019e, blocks: (B:12:0x004f, B:14:0x0062, B:16:0x006c, B:20:0x0077, B:22:0x007c, B:24:0x0082, B:26:0x008c, B:30:0x0096, B:31:0x0099, B:33:0x00a9, B:35:0x00b3, B:40:0x00cb, B:41:0x00d1, B:43:0x00d7, B:45:0x00e1, B:50:0x00f8, B:51:0x00fc, B:53:0x0102, B:55:0x010c, B:60:0x0124, B:61:0x0128, B:63:0x012e, B:65:0x0138, B:68:0x0140, B:69:0x0144, B:71:0x014a, B:73:0x0154, B:74:0x0159, B:76:0x015f, B:78:0x0169, B:79:0x016c, B:81:0x0172, B:83:0x017c, B:84:0x0181, B:86:0x0187, B:88:0x0191, B:89:0x0194), top: B:116:0x004f, outer: #2 }] */
-    /* JADX WARN: Removed duplicated region for block: B:76:0x015f A[Catch: Exception -> 0x019e, TryCatch #0 {Exception -> 0x019e, blocks: (B:12:0x004f, B:14:0x0062, B:16:0x006c, B:20:0x0077, B:22:0x007c, B:24:0x0082, B:26:0x008c, B:30:0x0096, B:31:0x0099, B:33:0x00a9, B:35:0x00b3, B:40:0x00cb, B:41:0x00d1, B:43:0x00d7, B:45:0x00e1, B:50:0x00f8, B:51:0x00fc, B:53:0x0102, B:55:0x010c, B:60:0x0124, B:61:0x0128, B:63:0x012e, B:65:0x0138, B:68:0x0140, B:69:0x0144, B:71:0x014a, B:73:0x0154, B:74:0x0159, B:76:0x015f, B:78:0x0169, B:79:0x016c, B:81:0x0172, B:83:0x017c, B:84:0x0181, B:86:0x0187, B:88:0x0191, B:89:0x0194), top: B:116:0x004f, outer: #2 }] */
-    /* JADX WARN: Removed duplicated region for block: B:81:0x0172 A[Catch: Exception -> 0x019e, TryCatch #0 {Exception -> 0x019e, blocks: (B:12:0x004f, B:14:0x0062, B:16:0x006c, B:20:0x0077, B:22:0x007c, B:24:0x0082, B:26:0x008c, B:30:0x0096, B:31:0x0099, B:33:0x00a9, B:35:0x00b3, B:40:0x00cb, B:41:0x00d1, B:43:0x00d7, B:45:0x00e1, B:50:0x00f8, B:51:0x00fc, B:53:0x0102, B:55:0x010c, B:60:0x0124, B:61:0x0128, B:63:0x012e, B:65:0x0138, B:68:0x0140, B:69:0x0144, B:71:0x014a, B:73:0x0154, B:74:0x0159, B:76:0x015f, B:78:0x0169, B:79:0x016c, B:81:0x0172, B:83:0x017c, B:84:0x0181, B:86:0x0187, B:88:0x0191, B:89:0x0194), top: B:116:0x004f, outer: #2 }] */
-    /* JADX WARN: Removed duplicated region for block: B:86:0x0187 A[Catch: Exception -> 0x019e, TryCatch #0 {Exception -> 0x019e, blocks: (B:12:0x004f, B:14:0x0062, B:16:0x006c, B:20:0x0077, B:22:0x007c, B:24:0x0082, B:26:0x008c, B:30:0x0096, B:31:0x0099, B:33:0x00a9, B:35:0x00b3, B:40:0x00cb, B:41:0x00d1, B:43:0x00d7, B:45:0x00e1, B:50:0x00f8, B:51:0x00fc, B:53:0x0102, B:55:0x010c, B:60:0x0124, B:61:0x0128, B:63:0x012e, B:65:0x0138, B:68:0x0140, B:69:0x0144, B:71:0x014a, B:73:0x0154, B:74:0x0159, B:76:0x015f, B:78:0x0169, B:79:0x016c, B:81:0x0172, B:83:0x017c, B:84:0x0181, B:86:0x0187, B:88:0x0191, B:89:0x0194), top: B:116:0x004f, outer: #2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:101:0x01cf  */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x007f A[Catch: Exception -> 0x019b, TryCatch #1 {Exception -> 0x019b, blocks: (B:12:0x004c, B:14:0x005f, B:16:0x0069, B:20:0x0074, B:22:0x0079, B:24:0x007f, B:26:0x0089, B:30:0x0093, B:31:0x0096, B:33:0x00a6, B:35:0x00b0, B:40:0x00c8, B:41:0x00ce, B:43:0x00d4, B:45:0x00de, B:50:0x00f5, B:51:0x00f9, B:53:0x00ff, B:55:0x0109, B:60:0x0121, B:61:0x0125, B:63:0x012b, B:65:0x0135, B:68:0x013d, B:69:0x0141, B:71:0x0147, B:73:0x0151, B:74:0x0156, B:76:0x015c, B:78:0x0166, B:79:0x0169, B:81:0x016f, B:83:0x0179, B:84:0x017e, B:86:0x0184, B:88:0x018e, B:89:0x0191), top: B:116:0x004c, outer: #0 }] */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x00a6 A[Catch: Exception -> 0x019b, TryCatch #1 {Exception -> 0x019b, blocks: (B:12:0x004c, B:14:0x005f, B:16:0x0069, B:20:0x0074, B:22:0x0079, B:24:0x007f, B:26:0x0089, B:30:0x0093, B:31:0x0096, B:33:0x00a6, B:35:0x00b0, B:40:0x00c8, B:41:0x00ce, B:43:0x00d4, B:45:0x00de, B:50:0x00f5, B:51:0x00f9, B:53:0x00ff, B:55:0x0109, B:60:0x0121, B:61:0x0125, B:63:0x012b, B:65:0x0135, B:68:0x013d, B:69:0x0141, B:71:0x0147, B:73:0x0151, B:74:0x0156, B:76:0x015c, B:78:0x0166, B:79:0x0169, B:81:0x016f, B:83:0x0179, B:84:0x017e, B:86:0x0184, B:88:0x018e, B:89:0x0191), top: B:116:0x004c, outer: #0 }] */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x00d4 A[Catch: Exception -> 0x019b, TryCatch #1 {Exception -> 0x019b, blocks: (B:12:0x004c, B:14:0x005f, B:16:0x0069, B:20:0x0074, B:22:0x0079, B:24:0x007f, B:26:0x0089, B:30:0x0093, B:31:0x0096, B:33:0x00a6, B:35:0x00b0, B:40:0x00c8, B:41:0x00ce, B:43:0x00d4, B:45:0x00de, B:50:0x00f5, B:51:0x00f9, B:53:0x00ff, B:55:0x0109, B:60:0x0121, B:61:0x0125, B:63:0x012b, B:65:0x0135, B:68:0x013d, B:69:0x0141, B:71:0x0147, B:73:0x0151, B:74:0x0156, B:76:0x015c, B:78:0x0166, B:79:0x0169, B:81:0x016f, B:83:0x0179, B:84:0x017e, B:86:0x0184, B:88:0x018e, B:89:0x0191), top: B:116:0x004c, outer: #0 }] */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x00ff A[Catch: Exception -> 0x019b, TryCatch #1 {Exception -> 0x019b, blocks: (B:12:0x004c, B:14:0x005f, B:16:0x0069, B:20:0x0074, B:22:0x0079, B:24:0x007f, B:26:0x0089, B:30:0x0093, B:31:0x0096, B:33:0x00a6, B:35:0x00b0, B:40:0x00c8, B:41:0x00ce, B:43:0x00d4, B:45:0x00de, B:50:0x00f5, B:51:0x00f9, B:53:0x00ff, B:55:0x0109, B:60:0x0121, B:61:0x0125, B:63:0x012b, B:65:0x0135, B:68:0x013d, B:69:0x0141, B:71:0x0147, B:73:0x0151, B:74:0x0156, B:76:0x015c, B:78:0x0166, B:79:0x0169, B:81:0x016f, B:83:0x0179, B:84:0x017e, B:86:0x0184, B:88:0x018e, B:89:0x0191), top: B:116:0x004c, outer: #0 }] */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x012b A[Catch: Exception -> 0x019b, TryCatch #1 {Exception -> 0x019b, blocks: (B:12:0x004c, B:14:0x005f, B:16:0x0069, B:20:0x0074, B:22:0x0079, B:24:0x007f, B:26:0x0089, B:30:0x0093, B:31:0x0096, B:33:0x00a6, B:35:0x00b0, B:40:0x00c8, B:41:0x00ce, B:43:0x00d4, B:45:0x00de, B:50:0x00f5, B:51:0x00f9, B:53:0x00ff, B:55:0x0109, B:60:0x0121, B:61:0x0125, B:63:0x012b, B:65:0x0135, B:68:0x013d, B:69:0x0141, B:71:0x0147, B:73:0x0151, B:74:0x0156, B:76:0x015c, B:78:0x0166, B:79:0x0169, B:81:0x016f, B:83:0x0179, B:84:0x017e, B:86:0x0184, B:88:0x018e, B:89:0x0191), top: B:116:0x004c, outer: #0 }] */
+    /* JADX WARN: Removed duplicated region for block: B:71:0x0147 A[Catch: Exception -> 0x019b, TryCatch #1 {Exception -> 0x019b, blocks: (B:12:0x004c, B:14:0x005f, B:16:0x0069, B:20:0x0074, B:22:0x0079, B:24:0x007f, B:26:0x0089, B:30:0x0093, B:31:0x0096, B:33:0x00a6, B:35:0x00b0, B:40:0x00c8, B:41:0x00ce, B:43:0x00d4, B:45:0x00de, B:50:0x00f5, B:51:0x00f9, B:53:0x00ff, B:55:0x0109, B:60:0x0121, B:61:0x0125, B:63:0x012b, B:65:0x0135, B:68:0x013d, B:69:0x0141, B:71:0x0147, B:73:0x0151, B:74:0x0156, B:76:0x015c, B:78:0x0166, B:79:0x0169, B:81:0x016f, B:83:0x0179, B:84:0x017e, B:86:0x0184, B:88:0x018e, B:89:0x0191), top: B:116:0x004c, outer: #0 }] */
+    /* JADX WARN: Removed duplicated region for block: B:76:0x015c A[Catch: Exception -> 0x019b, TryCatch #1 {Exception -> 0x019b, blocks: (B:12:0x004c, B:14:0x005f, B:16:0x0069, B:20:0x0074, B:22:0x0079, B:24:0x007f, B:26:0x0089, B:30:0x0093, B:31:0x0096, B:33:0x00a6, B:35:0x00b0, B:40:0x00c8, B:41:0x00ce, B:43:0x00d4, B:45:0x00de, B:50:0x00f5, B:51:0x00f9, B:53:0x00ff, B:55:0x0109, B:60:0x0121, B:61:0x0125, B:63:0x012b, B:65:0x0135, B:68:0x013d, B:69:0x0141, B:71:0x0147, B:73:0x0151, B:74:0x0156, B:76:0x015c, B:78:0x0166, B:79:0x0169, B:81:0x016f, B:83:0x0179, B:84:0x017e, B:86:0x0184, B:88:0x018e, B:89:0x0191), top: B:116:0x004c, outer: #0 }] */
+    /* JADX WARN: Removed duplicated region for block: B:81:0x016f A[Catch: Exception -> 0x019b, TryCatch #1 {Exception -> 0x019b, blocks: (B:12:0x004c, B:14:0x005f, B:16:0x0069, B:20:0x0074, B:22:0x0079, B:24:0x007f, B:26:0x0089, B:30:0x0093, B:31:0x0096, B:33:0x00a6, B:35:0x00b0, B:40:0x00c8, B:41:0x00ce, B:43:0x00d4, B:45:0x00de, B:50:0x00f5, B:51:0x00f9, B:53:0x00ff, B:55:0x0109, B:60:0x0121, B:61:0x0125, B:63:0x012b, B:65:0x0135, B:68:0x013d, B:69:0x0141, B:71:0x0147, B:73:0x0151, B:74:0x0156, B:76:0x015c, B:78:0x0166, B:79:0x0169, B:81:0x016f, B:83:0x0179, B:84:0x017e, B:86:0x0184, B:88:0x018e, B:89:0x0191), top: B:116:0x004c, outer: #0 }] */
+    /* JADX WARN: Removed duplicated region for block: B:86:0x0184 A[Catch: Exception -> 0x019b, TryCatch #1 {Exception -> 0x019b, blocks: (B:12:0x004c, B:14:0x005f, B:16:0x0069, B:20:0x0074, B:22:0x0079, B:24:0x007f, B:26:0x0089, B:30:0x0093, B:31:0x0096, B:33:0x00a6, B:35:0x00b0, B:40:0x00c8, B:41:0x00ce, B:43:0x00d4, B:45:0x00de, B:50:0x00f5, B:51:0x00f9, B:53:0x00ff, B:55:0x0109, B:60:0x0121, B:61:0x0125, B:63:0x012b, B:65:0x0135, B:68:0x013d, B:69:0x0141, B:71:0x0147, B:73:0x0151, B:74:0x0156, B:76:0x015c, B:78:0x0166, B:79:0x0169, B:81:0x016f, B:83:0x0179, B:84:0x017e, B:86:0x0184, B:88:0x018e, B:89:0x0191), top: B:116:0x004c, outer: #0 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public final boolean a(Context context, com.baidu.webkit.logsdk.b bVar) {
-        com.baidu.webkit.logsdk.b.b e;
         b a;
         String a2;
         JSONObject jSONObject;
@@ -312,154 +311,154 @@ public class b implements Handler.Callback {
                 bVar2.a = null;
                 bVar2.g = bVar;
                 bVar2.c = context;
-                e = e();
+                com.baidu.webkit.logsdk.b.b e = e();
                 String b = bVar.b();
                 if (TextUtils.isEmpty(b)) {
                     b = "https://browserkernel.baidu.com/log/config_browser.json";
                 }
                 e.a = b;
-            } catch (Exception e2) {
-                e = e2;
-            }
-            try {
                 try {
-                    jSONObject = new JSONObject("{    \"master\": \"1\",    \"net_level\": 3,    \"timeout\":\"30\",    \"filesize\":\"10\",    \"timeup\":\"1\",    \"threshold\":\"3\",    \"f1\":\"1_0\",    \"f2\":\"0_1\",    \"f3\":\"2_3\",    \"publickey\":\"test\",     \"array\": [        {\"log_type\": \"frame_event\", \"master\": \"0\", \"log_level\": 3},        {\"log_type\": \"frame_pv\", \"master\": \"0\", \"log_level\": 2},        {\"log_type\": \"frame_record\", \"master\": \"0\", \"log_level\": 1},        {\"log_type\": \"frame_crash\", \"master\": \"0\", \"log_level\": 1},        {\"log_type\": \"frame_anr\", \"master\": \"0\", \"log_level\": 1},        {\"log_type\": \"frame_app\", \"master\": \"0\", \"log_level\": 1},        {\"log_type\": \"frame_reportinfo\", \"master\": \"0\", \"log_level\": 1},        {\"log_type\": \"kernel_t5timing\", \"master\": \"0\", \"log_level\": 1},        {\"log_type\": \"kernel_safe\", \"master\": \"0\", \"log_level\": 1},        {\"log_type\": \"kernel_crash\", \"master\": \"0\", \"log_level\": 1},        {\"log_type\": \"kernel_sailor\", \"master\": \"1\", \"log_level\": 1, \"param_type\": \"kernel\"},        {\"log_type\": \"kernel_sailorStat\", \"master\": \"1\", \"log_level\": 1, \"param_type\": \"kernel\"},        {\"log_type\": \"kernel_whiteScreen\", \"master\": \"0\", \"log_level\": 1}    ],    \"params\": {        \"kernel\": {\"body\":[],                   \"url\": [] }    }}");
-                    edit = com.baidu.webkit.logsdk.b.b.a().edit();
-                } catch (Exception e3) {
-                    com.baidu.webkit.logsdk.d.c.a(e3);
-                }
-                if (jSONObject.has("master")) {
-                    String string = jSONObject.getString("master");
-                    if (!TextUtils.isEmpty(string)) {
-                        z = !string.equals("0");
-                        edit.putBoolean("master", z);
-                        if (jSONObject.has(DpStatConstants.KEY_NET_LEVEL)) {
-                            String string2 = jSONObject.getString(DpStatConstants.KEY_NET_LEVEL);
-                            if (!TextUtils.isEmpty(string2)) {
-                                int parseInt = Integer.parseInt(string2);
-                                edit.putInt(DpStatConstants.KEY_NET_LEVEL, (parseInt < 0 || parseInt > 3) ? 3 : 3);
-                            }
-                        }
-                        if (jSONObject.has("timeout")) {
-                            String string3 = jSONObject.getString("timeout");
-                            if (!TextUtils.isEmpty(string3)) {
-                                double parseDouble = Double.parseDouble(string3) * 8.64E7d;
-                                edit.putLong("timeout", (long) ((parseDouble < 3.456E8d || parseDouble > 2.592E9d) ? 6.048E8d : 6.048E8d));
-                            }
-                        }
-                        if (jSONObject.has("filesize")) {
-                            String string4 = jSONObject.getString("filesize");
-                            if (!TextUtils.isEmpty(string4)) {
-                                double parseDouble2 = Double.parseDouble(string4) * 1024.0d;
-                                edit.putLong("filesize", (long) ((parseDouble2 < 1024.0d || parseDouble2 > 307200.0d) ? 10240.0d : 10240.0d));
-                            }
-                        }
-                        if (jSONObject.has("timeup")) {
-                            String string5 = jSONObject.getString("timeup");
-                            if (!TextUtils.isEmpty(string5)) {
-                                double parseDouble3 = Double.parseDouble(string5) * 8.64E7d;
-                                edit.putLong("timeup", (long) ((parseDouble3 < 8.64E7d || parseDouble3 > 3.456E8d) ? 1.728E8d : 1.728E8d));
-                            }
-                        }
-                        if (jSONObject.has("threshold")) {
-                            String string6 = jSONObject.getString("threshold");
-                            if (!TextUtils.isEmpty(string6)) {
-                                int parseInt2 = Integer.parseInt(string6);
-                                if (parseInt2 <= 0) {
-                                    parseInt2 = 10;
-                                }
-                                edit.putLong("threshold", parseInt2);
-                            }
-                        }
-                        if (jSONObject.has("publickey")) {
-                            String string7 = jSONObject.getString("publickey");
-                            if (!TextUtils.isEmpty(string7)) {
-                                edit.putString("publickey", string7);
-                                com.baidu.webkit.logsdk.b.b.b = string7;
-                            }
-                        }
-                        if (jSONObject.has("f1")) {
-                            String string8 = jSONObject.getString("f1");
-                            if (!TextUtils.isEmpty(string8)) {
-                                edit.putString("f1", string8);
-                            }
-                        }
-                        if (jSONObject.has("f2")) {
-                            String string9 = jSONObject.getString("f2");
-                            if (!TextUtils.isEmpty(string9)) {
-                                edit.putString("f2", string9);
-                                com.baidu.webkit.logsdk.b.b.c = string9;
-                            }
-                        }
-                        if (jSONObject.has("f3")) {
-                            String string10 = jSONObject.getString("f3");
-                            if (!TextUtils.isEmpty(string10)) {
-                                edit.putString("f3", string10);
-                            }
-                        }
-                        e.a(jSONObject, edit);
-                        e.a(jSONObject, z, edit);
-                        edit.apply();
-                        a = a();
-                        com.baidu.webkit.logsdk.d.c.a("BdLogSDK", "BdLogManager setReady = true", null);
-                        a.f = true;
-                        if (1 != 0 && a.b != null) {
-                            a.b.sendMessage(a.b.obtainMessage(2));
-                        }
-                        com.baidu.webkit.logsdk.upload.b f = f();
-                        a2 = bVar.a();
-                        if (TextUtils.isEmpty(a2)) {
-                            a2 = "https://browserkernel.baidu.com/logstat/stat/log";
-                        }
-                        f.a = a2;
-                        g();
-                        h();
-                        bVar2 = this;
-                        bVar2.e = true;
+                    try {
+                        jSONObject = new JSONObject("{    \"master\": \"1\",    \"net_level\": 3,    \"timeout\":\"30\",    \"filesize\":\"10\",    \"timeup\":\"1\",    \"threshold\":\"3\",    \"f1\":\"1_0\",    \"f2\":\"0_1\",    \"f3\":\"2_3\",    \"publickey\":\"test\",     \"array\": [        {\"log_type\": \"frame_event\", \"master\": \"0\", \"log_level\": 3},        {\"log_type\": \"frame_pv\", \"master\": \"0\", \"log_level\": 2},        {\"log_type\": \"frame_record\", \"master\": \"0\", \"log_level\": 1},        {\"log_type\": \"frame_crash\", \"master\": \"0\", \"log_level\": 1},        {\"log_type\": \"frame_anr\", \"master\": \"0\", \"log_level\": 1},        {\"log_type\": \"frame_app\", \"master\": \"0\", \"log_level\": 1},        {\"log_type\": \"frame_reportinfo\", \"master\": \"0\", \"log_level\": 1},        {\"log_type\": \"kernel_t5timing\", \"master\": \"0\", \"log_level\": 1},        {\"log_type\": \"kernel_safe\", \"master\": \"0\", \"log_level\": 1},        {\"log_type\": \"kernel_crash\", \"master\": \"0\", \"log_level\": 1},        {\"log_type\": \"kernel_sailor\", \"master\": \"1\", \"log_level\": 1, \"param_type\": \"kernel\"},        {\"log_type\": \"kernel_sailorStat\", \"master\": \"1\", \"log_level\": 1, \"param_type\": \"kernel\"},        {\"log_type\": \"kernel_whiteScreen\", \"master\": \"0\", \"log_level\": 1}    ],    \"params\": {        \"kernel\": {\"body\":[],                   \"url\": [] }    }}");
+                        edit = com.baidu.webkit.logsdk.b.b.a().edit();
+                    } catch (Exception e2) {
+                        com.baidu.webkit.logsdk.d.c.a(e2);
                     }
+                    if (jSONObject.has("master")) {
+                        String string = jSONObject.getString("master");
+                        if (!TextUtils.isEmpty(string)) {
+                            z = !string.equals("0");
+                            edit.putBoolean("master", z);
+                            if (jSONObject.has(DpStatConstants.KEY_NET_LEVEL)) {
+                                String string2 = jSONObject.getString(DpStatConstants.KEY_NET_LEVEL);
+                                if (!TextUtils.isEmpty(string2)) {
+                                    int parseInt = Integer.parseInt(string2);
+                                    edit.putInt(DpStatConstants.KEY_NET_LEVEL, (parseInt < 0 || parseInt > 3) ? 3 : 3);
+                                }
+                            }
+                            if (jSONObject.has("timeout")) {
+                                String string3 = jSONObject.getString("timeout");
+                                if (!TextUtils.isEmpty(string3)) {
+                                    double parseDouble = Double.parseDouble(string3) * 8.64E7d;
+                                    edit.putLong("timeout", (long) ((parseDouble < 3.456E8d || parseDouble > 2.592E9d) ? 6.048E8d : 6.048E8d));
+                                }
+                            }
+                            if (jSONObject.has("filesize")) {
+                                String string4 = jSONObject.getString("filesize");
+                                if (!TextUtils.isEmpty(string4)) {
+                                    double parseDouble2 = Double.parseDouble(string4) * 1024.0d;
+                                    edit.putLong("filesize", (long) ((parseDouble2 < 1024.0d || parseDouble2 > 307200.0d) ? 10240.0d : 10240.0d));
+                                }
+                            }
+                            if (jSONObject.has("timeup")) {
+                                String string5 = jSONObject.getString("timeup");
+                                if (!TextUtils.isEmpty(string5)) {
+                                    double parseDouble3 = Double.parseDouble(string5) * 8.64E7d;
+                                    edit.putLong("timeup", (long) ((parseDouble3 < 8.64E7d || parseDouble3 > 3.456E8d) ? 1.728E8d : 1.728E8d));
+                                }
+                            }
+                            if (jSONObject.has("threshold")) {
+                                String string6 = jSONObject.getString("threshold");
+                                if (!TextUtils.isEmpty(string6)) {
+                                    int parseInt2 = Integer.parseInt(string6);
+                                    if (parseInt2 <= 0) {
+                                        parseInt2 = 10;
+                                    }
+                                    edit.putLong("threshold", parseInt2);
+                                }
+                            }
+                            if (jSONObject.has("publickey")) {
+                                String string7 = jSONObject.getString("publickey");
+                                if (!TextUtils.isEmpty(string7)) {
+                                    edit.putString("publickey", string7);
+                                    com.baidu.webkit.logsdk.b.b.b = string7;
+                                }
+                            }
+                            if (jSONObject.has("f1")) {
+                                String string8 = jSONObject.getString("f1");
+                                if (!TextUtils.isEmpty(string8)) {
+                                    edit.putString("f1", string8);
+                                }
+                            }
+                            if (jSONObject.has("f2")) {
+                                String string9 = jSONObject.getString("f2");
+                                if (!TextUtils.isEmpty(string9)) {
+                                    edit.putString("f2", string9);
+                                    com.baidu.webkit.logsdk.b.b.c = string9;
+                                }
+                            }
+                            if (jSONObject.has("f3")) {
+                                String string10 = jSONObject.getString("f3");
+                                if (!TextUtils.isEmpty(string10)) {
+                                    edit.putString("f3", string10);
+                                }
+                            }
+                            e.a(jSONObject, edit);
+                            e.a(jSONObject, z, edit);
+                            edit.apply();
+                            a = a();
+                            com.baidu.webkit.logsdk.d.c.a("BdLogSDK", "BdLogManager setReady = true", null);
+                            a.f = true;
+                            if (1 != 0 && a.b != null) {
+                                a.b.sendMessage(a.b.obtainMessage(2));
+                            }
+                            com.baidu.webkit.logsdk.upload.b f = f();
+                            a2 = bVar.a();
+                            if (TextUtils.isEmpty(a2)) {
+                                a2 = "https://browserkernel.baidu.com/logstat/stat/log";
+                            }
+                            f.a = a2;
+                            g();
+                            h();
+                            bVar2 = this;
+                            bVar2.e = true;
+                        }
+                    }
+                    z = true;
+                    if (jSONObject.has(DpStatConstants.KEY_NET_LEVEL)) {
+                    }
+                    if (jSONObject.has("timeout")) {
+                    }
+                    if (jSONObject.has("filesize")) {
+                    }
+                    if (jSONObject.has("timeup")) {
+                    }
+                    if (jSONObject.has("threshold")) {
+                    }
+                    if (jSONObject.has("publickey")) {
+                    }
+                    if (jSONObject.has("f1")) {
+                    }
+                    if (jSONObject.has("f2")) {
+                    }
+                    if (jSONObject.has("f3")) {
+                    }
+                    e.a(jSONObject, edit);
+                    e.a(jSONObject, z, edit);
+                    edit.apply();
+                    a = a();
+                    com.baidu.webkit.logsdk.d.c.a("BdLogSDK", "BdLogManager setReady = true", null);
+                    a.f = true;
+                    if (1 != 0) {
+                        a.b.sendMessage(a.b.obtainMessage(2));
+                    }
+                    com.baidu.webkit.logsdk.upload.b f2 = f();
+                    a2 = bVar.a();
+                    if (TextUtils.isEmpty(a2)) {
+                    }
+                    f2.a = a2;
+                    g();
+                    h();
+                    bVar2 = this;
+                    bVar2.e = true;
+                } catch (Exception e3) {
+                    e = e3;
+                    bVar2 = this;
+                    com.baidu.webkit.logsdk.d.c.a(e);
+                    return bVar2.e;
                 }
-                z = true;
-                if (jSONObject.has(DpStatConstants.KEY_NET_LEVEL)) {
-                }
-                if (jSONObject.has("timeout")) {
-                }
-                if (jSONObject.has("filesize")) {
-                }
-                if (jSONObject.has("timeup")) {
-                }
-                if (jSONObject.has("threshold")) {
-                }
-                if (jSONObject.has("publickey")) {
-                }
-                if (jSONObject.has("f1")) {
-                }
-                if (jSONObject.has("f2")) {
-                }
-                if (jSONObject.has("f3")) {
-                }
-                e.a(jSONObject, edit);
-                e.a(jSONObject, z, edit);
-                edit.apply();
-                a = a();
-                com.baidu.webkit.logsdk.d.c.a("BdLogSDK", "BdLogManager setReady = true", null);
-                a.f = true;
-                if (1 != 0) {
-                    a.b.sendMessage(a.b.obtainMessage(2));
-                }
-                com.baidu.webkit.logsdk.upload.b f2 = f();
-                a2 = bVar.a();
-                if (TextUtils.isEmpty(a2)) {
-                }
-                f2.a = a2;
-                g();
-                h();
-                bVar2 = this;
-                bVar2.e = true;
             } catch (Exception e4) {
                 e = e4;
-                bVar2 = this;
-                com.baidu.webkit.logsdk.d.c.a(e);
-                return bVar2.e;
             }
         }
         return bVar2.e;

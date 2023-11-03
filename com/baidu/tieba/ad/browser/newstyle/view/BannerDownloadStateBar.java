@@ -91,12 +91,12 @@ public class BannerDownloadStateBar extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0065, (ViewGroup) this, true);
+            this.a = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0067, (ViewGroup) this, true);
             setOrientation(0);
             setGravity(17);
-            setBackgroundResource(R.drawable.obfuscated_res_0x7f0800d5);
-            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0902a1);
-            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0902a4);
+            setBackgroundResource(R.drawable.obfuscated_res_0x7f0800d8);
+            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0902b4);
+            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0902b7);
             setState(0);
         }
     }
@@ -109,42 +109,42 @@ public class BannerDownloadStateBar extends LinearLayout {
                     if (i != 2) {
                         if (i != 3) {
                             if (i != 4) {
-                                setBackgroundResource(R.drawable.obfuscated_res_0x7f0800d5);
+                                setBackgroundResource(R.drawable.obfuscated_res_0x7f0800d8);
                                 this.c.setVisibility(8);
                                 this.c.setImageDrawable(null);
                                 this.b.setText(R.string.obfuscated_res_0x7f0f00ca);
                                 this.b.setTextColor(Color.parseColor("#333333"));
                                 return;
                             }
-                            setBackgroundResource(R.drawable.obfuscated_res_0x7f0800d6);
+                            setBackgroundResource(R.drawable.obfuscated_res_0x7f0800d9);
                             this.c.setVisibility(8);
                             this.c.setImageDrawable(null);
                             this.b.setText(R.string.obfuscated_res_0x7f0f00cc);
                             this.b.setTextColor(Color.parseColor("#FFFFFF"));
                             return;
                         }
-                        setBackgroundResource(R.drawable.obfuscated_res_0x7f0800d6);
+                        setBackgroundResource(R.drawable.obfuscated_res_0x7f0800d9);
                         this.c.setVisibility(8);
                         this.c.setImageDrawable(null);
                         this.b.setText(R.string.obfuscated_res_0x7f0f00cb);
                         this.b.setTextColor(Color.parseColor("#FFFFFF"));
                         return;
                     }
-                    setBackgroundResource(R.drawable.obfuscated_res_0x7f0800d5);
+                    setBackgroundResource(R.drawable.obfuscated_res_0x7f0800d8);
                     this.c.setVisibility(0);
-                    this.c.setImageResource(R.drawable.obfuscated_res_0x7f0800d8);
+                    this.c.setImageResource(R.drawable.obfuscated_res_0x7f0800db);
                     this.b.setText(R.string.obfuscated_res_0x7f0f00ce);
                     this.b.setTextColor(Color.parseColor("#333333"));
                     return;
                 }
-                setBackgroundResource(R.drawable.obfuscated_res_0x7f0800d5);
+                setBackgroundResource(R.drawable.obfuscated_res_0x7f0800d8);
                 this.c.setVisibility(0);
-                this.c.setImageResource(R.drawable.obfuscated_res_0x7f0800d7);
+                this.c.setImageResource(R.drawable.obfuscated_res_0x7f0800da);
                 this.b.setText(R.string.obfuscated_res_0x7f0f00cd);
                 this.b.setTextColor(Color.parseColor("#333333"));
                 return;
             }
-            setBackgroundResource(R.drawable.obfuscated_res_0x7f0800d5);
+            setBackgroundResource(R.drawable.obfuscated_res_0x7f0800d8);
             this.c.setVisibility(8);
             this.c.setImageDrawable(null);
             this.b.setText(R.string.obfuscated_res_0x7f0f00ca);

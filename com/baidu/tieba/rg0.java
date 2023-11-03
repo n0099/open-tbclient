@@ -1,157 +1,216 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.download.consts.AdDownloadAction;
-import com.baidu.nadcore.download.consts.AdDownloadStatus;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.mz0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.text.DecimalFormat;
-/* loaded from: classes7.dex */
-public class rg0 extends og0 {
+/* loaded from: classes8.dex */
+public class rg0 extends lz0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<xg0<?>> e;
-    @Nullable
-    public DecimalFormat f;
-
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-461934607, "Lcom/baidu/tieba/rg0$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-461934607, "Lcom/baidu/tieba/rg0$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[AdDownloadStatus.values().length];
-            a = iArr;
-            try {
-                iArr[AdDownloadStatus.NONE.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[AdDownloadStatus.DOWNLOADING.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[AdDownloadStatus.PAUSE.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[AdDownloadStatus.COMPLETED.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-            try {
-                a[AdDownloadStatus.INSTALLED.ordinal()] = 5;
-            } catch (NoSuchFieldError unused5) {
-            }
-            try {
-                a[AdDownloadStatus.FAILED.ordinal()] = 6;
-            } catch (NoSuchFieldError unused6) {
-            }
-        }
-    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rg0(@NonNull eg0 eg0Var, @NonNull xg0<?> xg0Var) {
-        super(eg0Var);
+    public rg0(SQLiteDatabase sQLiteDatabase) {
+        super(sQLiteDatabase);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {eg0Var, xg0Var};
+            Object[] objArr = {sQLiteDatabase};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((eg0) newInitContext.callArgs[0]);
+                super((SQLiteDatabase) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = null;
-        r(xg0Var);
     }
 
-    @Override // com.baidu.tieba.og0, com.baidu.tieba.wg0
-    public void a(@NonNull AdDownloadAction adDownloadAction, @NonNull eg0 eg0Var) {
+    @Override // com.baidu.tieba.lz0, com.baidu.tieba.mz0
+    public synchronized mz0.a a(tz0 tz0Var, kz0... kz0VarArr) {
+        InterceptResult invokeLL;
+        mz0.a a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, adDownloadAction, eg0Var) == null) {
-            super.a(adDownloadAction, eg0Var);
-            s();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tz0Var, kz0VarArr)) == null) {
+            synchronized (this) {
+                a = super.a(tz0Var, kz0VarArr);
+            }
+            return a;
         }
+        return (mz0.a) invokeLL.objValue;
     }
 
-    public void r(xg0<?> xg0Var) {
+    @Override // com.baidu.tieba.lz0, com.baidu.tieba.mz0
+    public synchronized boolean b(tz0 tz0Var, kz0... kz0VarArr) {
+        InterceptResult invokeLL;
+        boolean b;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xg0Var) == null) {
-            this.e = new WeakReference<>(xg0Var);
-            s();
-        }
-    }
-
-    public void s() {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.e == null) {
-            return;
-        }
-        Resources resources = pe0.b().getResources();
-        String string = resources.getString(R.string.nad_download_start);
-        switch (a.a[this.a.c.ordinal()]) {
-            case 1:
-                if (TextUtils.isEmpty(this.a.p.d)) {
-                    str = resources.getString(R.string.nad_download_start);
-                } else {
-                    str = this.a.p.d;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tz0Var, kz0VarArr)) == null) {
+            synchronized (this) {
+                try {
+                    b = super.b(tz0Var, kz0VarArr);
+                } catch (Exception unused) {
+                    return false;
                 }
-                string = str;
-                break;
-            case 2:
-                DecimalFormat decimalFormat = this.f;
-                if (decimalFormat == null) {
-                    decimalFormat = new DecimalFormat("#.#%");
+            }
+            return b;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.lz0, com.baidu.tieba.mz0
+    public synchronized int e(tz0 tz0Var, kz0... kz0VarArr) {
+        InterceptResult invokeLL;
+        int e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, tz0Var, kz0VarArr)) == null) {
+            synchronized (this) {
+                try {
+                    e = super.e(tz0Var, kz0VarArr);
+                } catch (Exception unused) {
+                    return -1;
                 }
-                string = decimalFormat.format(this.a.i);
-                break;
-            case 3:
-                string = resources.getString(R.string.nad_download_continue);
-                break;
-            case 4:
-                string = resources.getString(R.string.nad_download_install);
-                break;
-            case 5:
-                string = resources.getString(R.string.nad_download_open);
-                break;
-            case 6:
-                string = resources.getString(R.string.nad_download_failed_retry);
-                break;
+            }
+            return e;
         }
-        xg0<?> xg0Var = this.e.get();
-        if (xg0Var == null) {
-            return;
+        return invokeLL.intValue;
+    }
+
+    @Override // com.baidu.tieba.lz0, com.baidu.tieba.mz0
+    public synchronized int f(tz0 tz0Var, kz0... kz0VarArr) {
+        InterceptResult invokeLL;
+        int f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, tz0Var, kz0VarArr)) == null) {
+            synchronized (this) {
+                try {
+                    f = super.f(tz0Var, kz0VarArr);
+                } catch (Exception unused) {
+                    return -1;
+                }
+            }
+            return f;
         }
-        xg0Var.c(string, this.a);
+        return invokeLL.intValue;
+    }
+
+    @Override // com.baidu.tieba.lz0
+    public synchronized int h(String str, uz0 uz0Var) {
+        InterceptResult invokeLL;
+        int h;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, uz0Var)) == null) {
+            synchronized (this) {
+                try {
+                    h = super.h(str, uz0Var);
+                } catch (Exception unused) {
+                    return -1;
+                }
+            }
+            return h;
+        }
+        return invokeLL.intValue;
+    }
+
+    @Override // com.baidu.tieba.lz0
+    public synchronized boolean j(tz0 tz0Var, uz0 uz0Var) {
+        InterceptResult invokeLL;
+        boolean j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, tz0Var, uz0Var)) == null) {
+            synchronized (this) {
+                try {
+                    j = super.j(tz0Var, uz0Var);
+                } catch (Exception unused) {
+                    return false;
+                }
+            }
+            return j;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.lz0, com.baidu.tieba.mz0
+    public synchronized void beginTransaction() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                try {
+                    super.beginTransaction();
+                } catch (Exception unused) {
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.lz0, com.baidu.tieba.mz0
+    public synchronized void endTransaction() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            synchronized (this) {
+                try {
+                    super.endTransaction();
+                } catch (Exception unused) {
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.lz0, com.baidu.tieba.mz0
+    public synchronized void setTransactionSuccessful() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            synchronized (this) {
+                try {
+                    super.setTransactionSuccessful();
+                } catch (Exception unused) {
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.lz0, com.baidu.tieba.mz0
+    public synchronized long c(tz0 tz0Var) {
+        InterceptResult invokeL;
+        long c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, tz0Var)) == null) {
+            synchronized (this) {
+                try {
+                    c = super.c(tz0Var);
+                } catch (Exception unused) {
+                    return -1L;
+                }
+            }
+            return c;
+        }
+        return invokeL.longValue;
+    }
+
+    @Override // com.baidu.tieba.lz0, com.baidu.tieba.mz0
+    public synchronized Cursor d(yz0 yz0Var) {
+        InterceptResult invokeL;
+        Cursor d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, yz0Var)) == null) {
+            synchronized (this) {
+                try {
+                    d = super.d(yz0Var);
+                } catch (Exception unused) {
+                    return new zz0(null);
+                }
+            }
+            return d;
+        }
+        return (Cursor) invokeL.objValue;
     }
 }

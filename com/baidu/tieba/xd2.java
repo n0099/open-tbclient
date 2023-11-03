@@ -1,9 +1,17 @@
 package com.baidu.tieba;
-
-import android.content.Context;
-import androidx.annotation.NonNull;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface xd2 {
-    @NonNull
-    Context a();
+    void a(od2 od2Var);
+
+    void b(od2 od2Var);
+
+    void c(od2 od2Var);
+
+    void d(od2 od2Var);
+
+    void e(od2 od2Var);
+
+    void f(od2 od2Var);
+
+    void g(od2 od2Var);
 }

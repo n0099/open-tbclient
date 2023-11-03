@@ -4,7 +4,7 @@ import com.baidu.android.common.others.IStringUtil;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.util.Arrays;
 import okhttp3.internal.ws.WebSocketProtocol;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class BitArray implements Cloneable {
     public int[] bits;
     public int size;
@@ -23,7 +23,7 @@ public final class BitArray implements Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public BitArray m171clone() {
+    public BitArray m175clone() {
         return new BitArray((int[]) this.bits.clone(), this.size);
     }
 

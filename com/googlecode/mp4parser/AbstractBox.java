@@ -13,7 +13,7 @@ import com.googlecode.mp4parser.util.Path;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class AbstractBox implements Box {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static Logger LOG = Logger.getLogger(AbstractBox.class);

@@ -122,7 +122,7 @@ public final class Tun {
     private final void processUdp(ByteBuffer byteBuffer, DirectIPHeader directIPHeader) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65550, this, byteBuffer, directIPHeader) == null) {
-            SClientPacket sClientPacket = new SClientPacket(1, 0, 1, UInt.m945constructorimpl(directIPHeader.getPacketLength()), null);
+            SClientPacket sClientPacket = new SClientPacket(1, 0, 1, UInt.m949constructorimpl(directIPHeader.getPacketLength()), null);
             sClientPacket.encodeHeader2Buffer(headerBuf);
             sClientPacket.writeBodyBuffer(byteBuffer);
             SClient.INSTANCE.write(sClientPacket);
@@ -172,8 +172,8 @@ public final class Tun {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65548, this, new Object[]{Long.valueOf(j), byteBuffer, Integer.valueOf(i)}) == null) {
             try {
-                int m869constructorimpl = (UByte.m869constructorimpl(byteBuffer.get(0)) & 255) >>> 4;
-                if (m869constructorimpl != 4) {
+                int m873constructorimpl = (UByte.m873constructorimpl(byteBuffer.get(0)) & 255) >>> 4;
+                if (m873constructorimpl != 4) {
                     return;
                 }
                 DirectIPv4Header.Companion.getHeader().setPacketLength(i);
@@ -197,7 +197,7 @@ public final class Tun {
                     processICMP(byteBuffer, header);
                 }
                 LogTo logTo = LogTo.INSTANCE;
-                logTo.d("*****", "[TUN " + j + "] read data len:" + i + " ipVersion: " + m869constructorimpl + " protocol: " + protocol);
+                logTo.d("*****", "[TUN " + j + "] read data len:" + i + " ipVersion: " + m873constructorimpl + " protocol: " + protocol);
             } catch (ErrnoException e) {
                 looping = false;
                 e.printStackTrace();
@@ -218,7 +218,7 @@ public final class Tun {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65549, this, byteBuffer, directIPHeader) == null) {
             if (directIPHeader instanceof DirectIPv4Header) {
-                SClientPacket sClientPacket = new SClientPacket(1, 0, 1, UInt.m945constructorimpl(directIPHeader.getPacketLength()), null);
+                SClientPacket sClientPacket = new SClientPacket(1, 0, 1, UInt.m949constructorimpl(directIPHeader.getPacketLength()), null);
                 sClientPacket.encodeHeader2Buffer(headerBuf);
                 sClientPacket.writeBodyBuffer(byteBuffer);
                 SClient.INSTANCE.write(sClientPacket);

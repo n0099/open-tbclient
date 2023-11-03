@@ -1,118 +1,223 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import android.content.Context;
+import android.content.Intent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewParent;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.adp.widget.SwipeBackLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.tbadk.switchs.BaseNormalSwitch;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.fluency.BdTracesManager;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tieba.w28;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-@Service
 /* loaded from: classes5.dex */
-public final class a38 extends BaseNormalSwitch {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final a a;
-    public static int b = -1;
+public class a38 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947564355, "Lcom/baidu/tieba/a38;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947564355, "Lcom/baidu/tieba/a38;");
-                return;
-            }
-        }
-        a = new a(null);
-    }
-
-    @JvmStatic
-    public static final boolean isSwitchOn() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a.a() : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.t9
-    public int getDefaultType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.t9
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "home_hiden_live_enter_login" : (String) invokeV.objValue;
-    }
+    public Context a;
+    public ViewGroup b;
+    public b38 c;
+    public w28 d;
+    public lp5 e;
+    public w28.a f;
+    public Runnable g;
 
     /* loaded from: classes5.dex */
-    public static final class a {
+    public class a implements w28.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a38 a;
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
+        public a(a38 a38Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a38Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = a38Var;
         }
 
-        @JvmStatic
-        public final boolean a() {
-            InterceptResult invokeV;
+        @Override // com.baidu.tieba.w28.a
+        public void onStateChanged(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (a38.b == -1) {
-                    a38.b = SwitchManager.getInstance().findType("home_hiden_live_enter_login");
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (i == 1) {
+                    if (TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_trans_frs")) {
+                        if (this.a.e == null) {
+                            this.a.e = new lp5("anim_switch_trans_frs");
+                        }
+                        this.a.e.b();
+                        BdTracesManager.INSTANCE.getFpsTracer().beginFpsCollect(FrsActivityConfig.KEY_FPS_FRS_FROM, "frs", "tran");
+                    }
+                } else if (i == 2) {
+                    this.a.k();
+                    if (this.a.e != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_trans_frs")) {
+                        this.a.e.c();
+                    }
+                    BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(FrsActivityConfig.KEY_FPS_FRS);
+                } else if (i == 0) {
+                    this.a.j();
                 }
-                if (a38.b == 1) {
-                    return true;
-                }
-                return false;
             }
-            return invokeV.booleanValue;
         }
     }
 
-    public a38() {
+    /* loaded from: classes5.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a38 a;
+
+        public b(a38 a38Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a38Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = a38Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.f();
+            }
+        }
+    }
+
+    public a38(Context context, ViewGroup viewGroup, Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, viewGroup, intent};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.f = new a(this);
+        this.g = new b(this);
+        this.a = context;
+        this.b = viewGroup;
+        b38 b38Var = new b38(context);
+        this.c = b38Var;
+        w28 a2 = x28.a(b38Var, intent);
+        this.d = a2;
+        a2.b(this.f);
+    }
+
+    public static boolean i(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, intent)) == null) {
+            if (intent == null || intent.getIntExtra("transition_type", 0) == 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            SafeHandler.getInst().removeCallbacks(this.g);
+            if (this.d.a() == 1) {
+                SafeHandler.getInst().postDelayed(this.g, 10L);
+                return;
+            }
+            k();
+            this.d.c();
+        }
+    }
+
+    public final void g() {
+        View findViewById;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ViewGroup viewGroup = this.b;
+            if (viewGroup != null && (viewGroup.getChildAt(0) instanceof SwipeBackLayout)) {
+                this.b.getChildAt(0).setVisibility(8);
+            }
+            ViewGroup viewGroup2 = this.b;
+            if (viewGroup2 != null && (findViewById = viewGroup2.findViewById(16908290)) != null) {
+                findViewById.setVisibility(8);
+            }
+        }
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            ViewGroup viewGroup = this.b;
+            if (viewGroup != null && (viewGroup.getChildAt(0) instanceof SwipeBackLayout)) {
+                this.b.getChildAt(0).setVisibility(0);
+            }
+            ViewGroup viewGroup2 = this.b;
+            if (viewGroup2 != null && viewGroup2.findViewById(16908290) != null) {
+                this.b.findViewById(16908290).setVisibility(0);
+            }
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.b == null) {
+            return;
+        }
+        f();
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            ViewParent parent = this.c.a.getParent();
+            if (parent instanceof ViewGroup) {
+                ((ViewGroup) parent).removeView(this.c.a);
+            }
+            SafeHandler.getInst().removeCallbacks(this.g);
+        }
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || this.b == null) {
+            return;
+        }
+        j();
+        this.b.addView(this.c.a);
+        g();
+        this.d.d();
     }
 }

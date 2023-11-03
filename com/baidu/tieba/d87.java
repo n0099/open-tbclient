@@ -1,60 +1,40 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardReplyView;
+import com.baidu.tieba.feed.component.uistate.BrowseLocationUiState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class d87 extends q67<CardReplyView, b27> {
+public class d87 implements i87<c57> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d87(String str) {
-        super(str);
+    public d87() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.q67, com.baidu.tieba.g77
-    @NonNull
-    public View a(@NonNull ViewGroup viewGroup) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.i87
+    /* renamed from: a */
+    public za7<?> b(@NonNull c57 c57Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            View a = super.a(viewGroup);
-            v87.j(a);
-            return a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c57Var)) == null) {
+            return new ab7(new BrowseLocationUiState(c57Var), "browse_location");
         }
-        return (View) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.g77
-    /* renamed from: e */
-    public void b(@NonNull CardReplyView cardReplyView, @NonNull b27 b27Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardReplyView, b27Var) == null) {
-            cardReplyView.c(b27Var);
-        }
+        return (za7) invokeL.objValue;
     }
 }

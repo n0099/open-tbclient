@@ -1,25 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.framework.ui.dialog.TaskDialogData;
+import com.baidu.tieba.go;
+import com.baidu.tieba.ho;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class ll implements zl {
+public final class ll<VD extends TaskDialogData, VM extends go<VD>, View extends ho<VM>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public Integer b;
-    public String c;
+    public final View a;
+    public final VM b;
+    public final VD c;
 
-    public ll(String str, Integer num, String str2) {
+    public ll(View view2, VM vm, VD vd) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, num, str2};
+            Object[] objArr = {view2, vm, vd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,57 +30,16 @@ public abstract class ll implements zl {
                 return;
             }
         }
-        this.a = str;
-        this.b = num;
-        this.c = str2;
+        this.a = view2;
+        this.b = vm;
+        this.c = vd;
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Integer num = this.b;
-            if (num != null) {
-                return num.intValue();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String str = this.c;
-            if (str == null) {
-                return "";
-            }
-            return str;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.b = Integer.valueOf(i);
-        }
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.c = str;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.a(this.b);
+            this.b.b(this.c);
         }
     }
 }

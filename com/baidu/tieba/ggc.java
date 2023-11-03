@@ -1,13 +1,5 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.ContextThemeWrapper;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Gallery;
-import android.widget.ImageView;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,16 +8,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.BannerConfigItem;
-import kotlin.TypeCastException;
-import kotlin.jvm.internal.Intrinsics;
-import tv.athena.revenue.payui.model.ImageLoaderSupplier;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.TreeSet;
 /* loaded from: classes6.dex */
-public final class ggc extends egc<BannerConfigItem.BannerInfo> {
+public class ggc {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ggc c;
     public transient /* synthetic */ FieldHolder $fh;
-    public ImageLoaderSupplier c;
+    public TreeMap<Integer, a> a;
+    public TreeMap<Integer, TreeSet<String>> b;
 
     static {
         InterceptResult invokeClinit;
@@ -43,19 +35,16 @@ public final class ggc extends egc<BannerConfigItem.BannerInfo> {
     }
 
     /* loaded from: classes6.dex */
-    public final class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public ImageView a;
-        public final /* synthetic */ ggc b;
+        public boolean a;
+        public boolean b;
 
-        /* JADX DEBUG: Incorrect args count in method signature: ()V */
-        public a(ggc ggcVar) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ggcVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -65,150 +54,162 @@ public final class ggc extends egc<BannerConfigItem.BannerInfo> {
                     return;
                 }
             }
-            this.b = ggcVar;
-        }
-
-        public final void c(ImageView imageView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, imageView) == null) {
-                this.a = imageView;
-            }
-        }
-
-        public final ImageView a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a;
-            }
-            return (ImageView) invokeV.objValue;
-        }
-
-        public final void b(BannerConfigItem.BannerInfo bannerInfo, int i, Context context) {
-            ImageView imageView;
-            ImageLoaderSupplier e;
-            String str;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bannerInfo, i, context) == null) && (imageView = this.a) != null && (e = this.b.e()) != null) {
-                if (bannerInfo != null) {
-                    str = bannerInfo.imageUrl;
-                } else {
-                    str = null;
-                }
-                ImageLoaderSupplier.ImageParam imageParam = new ImageLoaderSupplier.ImageParam(str, -1, -1);
-                if (context instanceof ContextThemeWrapper) {
-                    ContextThemeWrapper contextThemeWrapper = (ContextThemeWrapper) context;
-                    if (rfc.a.a(contextThemeWrapper.getBaseContext())) {
-                        RLog.debug("PluginCenterBannerAdapter", "imageLoaderSupplier load success context.baseContext:" + contextThemeWrapper.getBaseContext());
-                        Context baseContext = contextThemeWrapper.getBaseContext();
-                        Intrinsics.checkExpressionValueIsNotNull(baseContext, "context.baseContext");
-                        e.onLoad(baseContext, imageView, imageParam);
-                        return;
-                    }
-                    RLog.error("PluginCenterBannerAdapter", "imageLoaderSupplier load error context.baseContext null", new Object[0]);
-                } else if (rfc.a.a(context)) {
-                    RLog.debug("PluginCenterBannerAdapter", "imageLoaderSupplier load success context:" + context);
-                    e.onLoad(context, imageView, imageParam);
-                } else {
-                    RLog.error("PluginCenterBannerAdapter", "imageLoaderSupplier load error context null", new Object[0]);
-                }
-            }
+            this.a = false;
+            this.b = false;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ggc(Context context) {
-        super(context);
+    public ggc() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        RLog.debug("PluginCenterBannerAdapter", "constructor");
+        this.a = new TreeMap<>();
+        this.b = new TreeMap<>();
     }
 
-    @NonNull
-    public final a d(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            a aVar = new a(this);
-            aVar.c((ImageView) view2.findViewById(R.id.top_banner_image));
-            ImageView a2 = aVar.a();
-            if (a2 == null) {
-                Intrinsics.throwNpe();
-            }
-            a2.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            view2.setTag(aVar);
-            return aVar;
-        }
-        return (a) invokeL.objValue;
-    }
-
-    public final ImageLoaderSupplier e() {
+    public static ggc c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (ImageLoaderSupplier) invokeV.objValue;
-    }
-
-    public final void f(BannerConfigItem.BannerInfo bannerInfo, a aVar, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, bannerInfo, aVar, i) == null) && bannerInfo != null) {
-            Context mContext = this.b;
-            Intrinsics.checkExpressionValueIsNotNull(mContext, "mContext");
-            aVar.b(bannerInfo, i, mContext);
-        }
-    }
-
-    public final void g(ImageLoaderSupplier imageLoaderSupplier) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, imageLoaderSupplier) == null) {
-            this.c = imageLoaderSupplier;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
-            Object obj = null;
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.b).inflate(R.layout.pay_ui_layout_plugincenter_banner_item, (ViewGroup) null);
-                if (view2 == null) {
-                    Intrinsics.throwNpe();
-                }
-                view2.setLayoutParams(new Gallery.LayoutParams(-1, -1));
-                aVar = d(view2);
-            } else {
-                if (view2 != null) {
-                    obj = view2.getTag();
-                }
-                if (obj != null) {
-                    aVar = (a) obj;
-                } else {
-                    throw new TypeCastException("null cannot be cast to non-null type tv.athena.revenue.payui.view.banner.PluginCenterBannerAdapter.ViewHolder");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (ggc.class) {
+                    if (c == null) {
+                        c = new ggc();
+                    }
                 }
             }
-            BannerConfigItem.BannerInfo item = getItem(i);
-            Intrinsics.checkExpressionValueIsNotNull(item, "getItem(position)");
-            f(item, aVar, i);
-            return view2;
+            return c;
         }
-        return (View) invokeILL.objValue;
+        return (ggc) invokeV.objValue;
+    }
+
+    public synchronized int a() {
+        InterceptResult invokeV;
+        int size;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                size = this.b.size();
+            }
+            return size;
+        }
+        return invokeV.intValue;
+    }
+
+    public synchronized int d() {
+        InterceptResult invokeV;
+        int size;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                size = this.a.size();
+            }
+            return size;
+        }
+        return invokeV.intValue;
+    }
+
+    public synchronized int b() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this) {
+                i = 0;
+                for (Map.Entry<Integer, TreeSet<String>> entry : this.b.entrySet()) {
+                    i += entry.getValue().size();
+                }
+            }
+            return i;
+        }
+        return invokeV.intValue;
+    }
+
+    public synchronized int f() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            synchronized (this) {
+                i = 0;
+                for (Map.Entry<Integer, a> entry : this.a.entrySet()) {
+                    if (entry.getValue().a && entry.getValue().b) {
+                        i++;
+                    }
+                }
+            }
+            return i;
+        }
+        return invokeV.intValue;
+    }
+
+    public synchronized int i() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            synchronized (this) {
+                i = 0;
+                for (Map.Entry<Integer, a> entry : this.a.entrySet()) {
+                    if (entry.getValue().a) {
+                        i++;
+                    }
+                }
+            }
+            return i;
+        }
+        return invokeV.intValue;
+    }
+
+    public synchronized void e(dec decVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, decVar) == null) {
+            synchronized (this) {
+                if (decVar != null) {
+                    if (!this.a.containsKey(Integer.valueOf(decVar.hashCode()))) {
+                        this.a.put(Integer.valueOf(decVar.hashCode()), new a());
+                    }
+                }
+            }
+        }
+    }
+
+    public synchronized void h(dec decVar) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, decVar) == null) {
+            synchronized (this) {
+                if (decVar != null) {
+                    if (this.a.containsKey(Integer.valueOf(decVar.hashCode())) && (aVar = this.a.get(Integer.valueOf(decVar.hashCode()))) != null) {
+                        aVar.a = false;
+                        aVar.b = false;
+                    }
+                }
+            }
+        }
+    }
+
+    public synchronized void g(dec decVar, int i, boolean z) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{decVar, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            synchronized (this) {
+                if (decVar != null) {
+                    if (this.a.containsKey(Integer.valueOf(decVar.hashCode())) && (aVar = this.a.get(Integer.valueOf(decVar.hashCode()))) != null) {
+                        aVar.a = true;
+                        aVar.b = z;
+                    }
+                }
+            }
+        }
     }
 }

@@ -28,6 +28,8 @@ public class DrawableSpan extends ReplacementSpan {
     public int e;
     public int f;
     public int g;
+    public int h;
+    public int i;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes5.dex */
@@ -139,13 +141,27 @@ public class DrawableSpan extends ReplacementSpan {
     public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.h = i;
+        }
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             this.a = i;
         }
     }
 
-    public void d(Drawable drawable) {
+    public void e(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, drawable) == null) {
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.i = i;
+        }
+    }
+
+    public void f(Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, drawable) == null) {
             this.b = drawable;
         }
     }
@@ -156,12 +172,16 @@ public class DrawableSpan extends ReplacementSpan {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             IconType iconType = this.d;
             if (iconType == IconType.WEBP) {
-                return WebPManager.getPureDrawable(this.c, SkinManager.getColor(this.e), WebPManager.ResourceStateType.NORMAL_PRESS);
-            }
-            if (iconType == IconType.SVG) {
+                int i = this.e;
+                if (i == 0) {
+                    return SkinManager.getDrawable(this.c);
+                }
+                return WebPManager.getPureDrawable(this.c, SkinManager.getColor(i), WebPManager.ResourceStateType.NORMAL_PRESS);
+            } else if (iconType == IconType.SVG) {
                 return SvgManager.getInstance().getPureDrawable(this.c, this.e, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            } else {
+                return SkinManager.getDrawable(this.c);
             }
-            return SkinManager.getDrawable(this.c);
         }
         return (Drawable) invokeV.objValue;
     }
@@ -197,7 +217,7 @@ public class DrawableSpan extends ReplacementSpan {
             drawable.setBounds(0, 0, this.f, this.g);
             canvas.save();
             Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
-            float f2 = f + this.a;
+            float f2 = f + this.a + this.h;
             int i6 = fontMetricsInt.descent;
             int i7 = fontMetricsInt.ascent;
             canvas.translate(f2, ((i4 + ((i6 - i7) / 2)) + i7) - (this.g / 2));
@@ -210,11 +230,11 @@ public class DrawableSpan extends ReplacementSpan {
     public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, @Nullable Paint.FontMetricsInt fontMetricsInt) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
             this.g = ((int) paint.getTextSize()) - (this.a * 2);
             int b = b();
             this.f = b;
-            return (this.a * 2) + b;
+            return (this.a * 2) + b + this.h + this.i;
         }
         return invokeCommon.intValue;
     }

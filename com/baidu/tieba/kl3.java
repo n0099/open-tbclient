@@ -1,37 +1,11 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class kl3 {
-    public static /* synthetic */ Interceptable $ic;
-    public static ml3 a;
-    public transient /* synthetic */ FieldHolder $fh;
+import android.view.View;
+/* loaded from: classes7.dex */
+public interface kl3 {
+    boolean a(View view2, mw2 mw2Var);
 
-    @NonNull
-    public static ml3 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (a == null) {
-                a = new ml3("0");
-            }
-            return a;
-        }
-        return (ml3) invokeV.objValue;
-    }
+    boolean c(View view2, mw2 mw2Var);
 
-    public static void b(@NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            ml3 ml3Var = a;
-            if (ml3Var == null) {
-                a = new ml3(str);
-            } else {
-                ml3Var.n(str);
-            }
-        }
-    }
+    boolean removeView(View view2);
 }

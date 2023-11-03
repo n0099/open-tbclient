@@ -1,72 +1,108 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.os.Build;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteStatement;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.Reader;
+import java.io.Writer;
+/* loaded from: classes8.dex */
 public class rd {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 0;
-    public static int b = 3;
-    public static final String[] c;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448315835, "Lcom/baidu/tieba/rd;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448315835, "Lcom/baidu/tieba/rd;");
-                return;
-            }
-        }
-        c = new String[]{"meizu"};
-    }
-
-    public static boolean b() {
-        InterceptResult invokeV;
+    public static void a(Cursor cursor) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String str = Build.BRAND;
-            if (str == null) {
-                return false;
+        if ((interceptable == null || interceptable.invokeL(65536, null, cursor) == null) && cursor != null) {
+            try {
+                cursor.close();
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
-            String lowerCase = str.toLowerCase();
-            int i = 0;
-            while (true) {
-                String[] strArr = c;
-                if (i >= strArr.length) {
-                    return false;
-                }
-                if (strArr[i].equals(lowerCase)) {
-                    return true;
-                }
-                i++;
-            }
-        } else {
-            return invokeV.booleanValue;
         }
     }
 
-    public static String a(int i) {
-        InterceptResult invokeI;
+    public static void b(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            Application app = BdBaseApplication.getInst().getApp();
-            if (app == null) {
-                return "";
+        if ((interceptable == null || interceptable.invokeL(65537, null, sQLiteDatabase) == null) && sQLiteDatabase != null) {
+            try {
+                sQLiteDatabase.close();
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
-            return app.getString(i);
         }
-        return (String) invokeI.objValue;
+    }
+
+    public static void c(SQLiteStatement sQLiteStatement) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65538, null, sQLiteStatement) == null) && sQLiteStatement != null) {
+            try {
+                sQLiteStatement.close();
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public static void d(Closeable closeable) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, closeable) == null) && closeable != null) {
+            try {
+                closeable.close();
+            } catch (Throwable th) {
+                BdLog.e(th.getMessage());
+            }
+        }
+    }
+
+    public static void e(InputStream inputStream) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, inputStream) == null) && inputStream != null) {
+            try {
+                inputStream.close();
+            } catch (IOException e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public static void f(OutputStream outputStream) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65541, null, outputStream) == null) && outputStream != null) {
+            try {
+                outputStream.close();
+            } catch (IOException e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public static void g(Reader reader) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65542, null, reader) == null) && reader != null) {
+            try {
+                reader.close();
+            } catch (IOException e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public static void h(Writer writer) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65543, null, writer) == null) && writer != null) {
+            try {
+                writer.close();
+            } catch (IOException e) {
+                BdLog.e(e.getMessage());
+            }
+        }
     }
 }

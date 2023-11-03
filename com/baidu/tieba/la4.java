@@ -1,10 +1,18 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.model.LatLng;
-import com.baidu.tieba.ya4;
+import com.baidu.location.BDAbstractLocationListener;
+import com.baidu.location.BDLocation;
+import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.tieba.gq2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,26 +20,65 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import org.json.JSONObject;
+import java.util.concurrent.TimeUnit;
+@Singleton
+@Service
 /* loaded from: classes7.dex */
-public class la4 extends ba4<es2> {
+public class la4 implements gq2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
+    public static final long d;
+    public static final c e;
     public transient /* synthetic */ FieldHolder $fh;
+    public LocationClient a;
+    public LocationClientOption b;
+
+    public static boolean q(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) ? i == 65 || i == 61 || i == 161 || i == 66 || i == 68 : invokeI.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.gq2
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.gq2
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.gq2
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.gq2
+    public void f(gq2.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
+        }
+    }
 
     /* loaded from: classes7.dex */
-    public class a implements ya4.b {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ es2 a;
-        public final /* synthetic */ yr2 b;
+        public final /* synthetic */ la4 a;
 
-        public a(la4 la4Var, es2 es2Var, yr2 yr2Var) {
+        public a(la4 la4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {la4Var, es2Var, yr2Var};
+                Object[] objArr = {la4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -41,18 +88,191 @@ public class la4 extends ba4<es2> {
                     return;
                 }
             }
-            this.a = es2Var;
-            this.b = yr2Var;
+            this.a = la4Var;
         }
 
-        @Override // com.baidu.tieba.ya4.b
-        public void onAnimationEnd() {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!TextUtils.isEmpty(this.a.y)) {
-                    this.b.c(this.a.y, null);
+                this.a.a.requestLocation();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements gq2.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(la4 la4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {la4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                p22.i("map", "TranslateMarkerAction animation end");
+            }
+        }
+
+        @Override // com.baidu.tieba.gq2.a
+        public void a(f93 f93Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, f93Var) == null) && la4.c) {
+                Log.i("SwanAppLocationImpl", "onWarmUpSuccess::= result=" + f93Var);
+            }
+        }
+
+        @Override // com.baidu.tieba.gq2.a
+        public void onFailed(int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && la4.c) {
+                Log.i("SwanAppLocationImpl", "onWarmUpFailed:: errCode=" + i);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+        public BDLocation b;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = 0L;
+        }
+
+        public /* synthetic */ c(a aVar) {
+            this();
+        }
+
+        public synchronized BDLocation c(long j) {
+            InterceptResult invokeJ;
+            BDLocation bDLocation;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+                synchronized (this) {
+                    if (d(j)) {
+                        bDLocation = this.b;
+                    } else {
+                        bDLocation = null;
+                    }
+                }
+                return bDLocation;
+            }
+            return (BDLocation) invokeJ.objValue;
+        }
+
+        public final synchronized void e(BDLocation bDLocation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bDLocation) == null) {
+                synchronized (this) {
+                    this.b = bDLocation;
+                    this.a = System.currentTimeMillis();
+                }
+            }
+        }
+
+        public synchronized boolean d(long j) {
+            InterceptResult invokeJ;
+            boolean z;
+            boolean z2;
+            boolean z3;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+                synchronized (this) {
+                    long currentTimeMillis = System.currentTimeMillis() - this.a;
+                    if (this.b != null) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    if (currentTimeMillis < j) {
+                        z2 = true;
+                    } else {
+                        z2 = false;
+                    }
+                    if (z && z2) {
+                        z3 = true;
+                    } else {
+                        z3 = false;
+                    }
+                    if (la4.c) {
+                        Log.i("SwanAppLocationImpl", String.format("hitCache[%b] hasInfo[%b] isAgeOk[%b] cacheAge[%d] timeout[%d]", Boolean.valueOf(z3), Boolean.valueOf(z), Boolean.valueOf(z2), Long.valueOf(currentTimeMillis), Long.valueOf(j)));
+                    }
+                }
+                return z3;
+            }
+            return invokeJ.booleanValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class d extends BDAbstractLocationListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public LocationClient a;
+        public gq2.a b;
+        public String c;
+        public boolean d;
+
+        public d(LocationClient locationClient, gq2.a aVar, String str, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {locationClient, aVar, str, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = locationClient;
+            this.b = aVar;
+            this.c = str;
+            this.d = z;
+        }
+
+        @Override // com.baidu.location.BDAbstractLocationListener
+        public void onReceiveLocation(BDLocation bDLocation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, bDLocation) == null) {
+                this.a.unRegisterLocationListener(this);
+                int locType = bDLocation.getLocType();
+                if (!la4.q(locType)) {
+                    if (!this.d) {
+                        this.b.onFailed(locType);
+                        return;
+                    }
+                    return;
+                }
+                la4.e.e(bDLocation);
+                if (!this.d) {
+                    this.b.a(la4.o(bDLocation, this.c));
+                }
             }
         }
     }
@@ -70,7 +290,23 @@ public class la4 extends ba4<es2> {
                 return;
             }
         }
-        boolean z = am1.a;
+        c = rm1.a;
+        d = TimeUnit.MINUTES.toMillis(3L);
+        e = new c(null);
+    }
+
+    @Override // com.baidu.tieba.gq2
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            long p = p();
+            if (e.b == null || (p > 0 && !e.d(p))) {
+                if (c) {
+                    Log.i("SwanAppLocationImpl", "onWarmUp");
+                }
+                b("gcj02", false, true, new b(this));
+            }
+        }
     }
 
     public la4() {
@@ -87,66 +323,133 @@ public class la4 extends ba4<es2> {
         }
     }
 
-    public static la4 e() {
+    @Override // com.baidu.tieba.gq2
+    public f93 h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new la4();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            BDLocation bDLocation = e.b;
+            if (bDLocation == null) {
+                return null;
+            }
+            return o(bDLocation, bDLocation.getCoorType());
         }
-        return (la4) invokeV.objValue;
+        return (f93) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ba4
-    /* renamed from: d */
-    public boolean b(Context context, es2 es2Var, yr2 yr2Var, p53 p53Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
+    public final long p() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, es2Var, yr2Var, p53Var, jSONObject)) == null) {
-            return f(context, es2Var, yr2Var, p53Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return d;
         }
-        return invokeLLLLL.booleanValue;
+        return invokeV.longValue;
     }
 
-    public final boolean f(Context context, es2 es2Var, yr2 yr2Var, p53 p53Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.baidu.tieba.gq2
+    public double[] g(@NonNull f93 f93Var, @NonNull String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, es2Var, yr2Var, p53Var)) == null) {
-            p22.i("map", "TranslateMarkerAction start");
-            yr1 B = cr2.V().B(es2Var.c);
-            if (!(B instanceof wr1)) {
-                p22.c("map", "WebViewManager is null");
-                return false;
-            }
-            za4 d = y94.b().c((wr1) B).d(es2Var.b);
-            if (d == null) {
-                p22.c("map", "can not find map by id " + es2Var.b);
-                return false;
-            }
-            return g(es2Var, d, yr2Var);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, f93Var, str)) == null) {
+            return n(f93Var.b, f93Var.c, f93Var.a, str);
         }
-        return invokeLLLL.booleanValue;
+        return (double[]) invokeLL.objValue;
     }
 
-    public final boolean g(es2 es2Var, za4 za4Var, yr2 yr2Var) {
-        InterceptResult invokeLLL;
+    public static BDLocation m(double d2, double d3, String str) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, es2Var, za4Var, yr2Var)) == null) {
-            if (!es2Var.isValid()) {
-                return false;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Double.valueOf(d2), Double.valueOf(d3), str})) == null) {
+            BDLocation bDLocation = new BDLocation();
+            bDLocation.setLongitude(d3);
+            bDLocation.setLatitude(d2);
+            if (TextUtils.equals(str, "gcj02")) {
+                return bDLocation;
             }
-            is2 is2Var = es2Var.A;
-            LatLng latLng = new LatLng(is2Var.a, is2Var.b);
-            List<ya4> K = za4Var.K(es2Var.z);
-            p22.i("map", "TranslateMarkerAction animation start");
-            if (K != null) {
-                for (ya4 ya4Var : K) {
-                    ya4Var.c(za4Var, latLng, es2Var, new a(this, es2Var, yr2Var));
-                }
+            if (TextUtils.equals(str, "bd09")) {
+                return LocationClient.getBDLocationInCoorType(bDLocation, "bd09");
             }
-            p22.i("map", "TranslateMarkerAction end");
-            return true;
+            if (TextUtils.equals(str, "bd09ll")) {
+                return LocationClient.getBDLocationInCoorType(bDLocation, "bd09ll");
+            }
+            if (TextUtils.equals(str, "wgs84")) {
+                return LocationClient.getBDLocationInCoorType(bDLocation, "gcj2wgs");
+            }
+            return bDLocation;
         }
-        return invokeLLL.booleanValue;
+        return (BDLocation) invokeCommon.objValue;
+    }
+
+    public static f93 o(BDLocation bDLocation, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, bDLocation, str)) == null) {
+            double longitude = bDLocation.getLongitude();
+            double latitude = bDLocation.getLatitude();
+            if (!TextUtils.equals(str, bDLocation.getCoorType())) {
+                BDLocation m = m(latitude, longitude, str);
+                longitude = m.getLongitude();
+                latitude = m.getLatitude();
+            }
+            return new f93(str, longitude, latitude, bDLocation.getSpeed(), bDLocation.getRadius(), bDLocation.getAltitude(), bDLocation.getCountry(), bDLocation.getCountryCode(), bDLocation.getCity(), bDLocation.getCityCode(), bDLocation.getProvince(), bDLocation.getDistrict(), bDLocation.getStreet(), bDLocation.getStreetNumber());
+        }
+        return (f93) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.gq2
+    public void b(String str, boolean z, boolean z2, gq2.a aVar) {
+        boolean z3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), aVar}) == null) {
+            BDLocation c2 = e.c(p());
+            if (c2 != null) {
+                z3 = true;
+            } else {
+                z3 = false;
+            }
+            if (z3) {
+                aVar.a(o(c2, str));
+            }
+            if (this.a == null) {
+                this.a = new LocationClient(AppRuntime.getAppContext());
+                LocationClientOption locationClientOption = new LocationClientOption();
+                locationClientOption.setCoorType("gcj02");
+                locationClientOption.setScanSpan(0);
+                locationClientOption.setIgnoreKillProcess(true);
+                locationClientOption.setIsNeedAddress(true);
+                this.a.setLocOption(locationClientOption);
+                this.b = locationClientOption;
+                this.a.start();
+            }
+            this.a.registerLocationListener(new d(this.a, aVar, str, z3));
+            this.b.setIsNeedAltitude(z2);
+            this.a.setLocOption(this.b);
+            ak3.a0(new a(this));
+        }
+    }
+
+    public final double[] n(double d2, double d3, String str, String str2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Double.valueOf(d2), Double.valueOf(d3), str, str2})) == null) {
+            double[] dArr = new double[2];
+            if (TextUtils.equals(str2, "gcj02")) {
+                return dArr;
+            }
+            BDLocation bDLocation = new BDLocation();
+            bDLocation.setLongitude(d2);
+            bDLocation.setLatitude(d3);
+            if (TextUtils.equals(str2, "bd09")) {
+                bDLocation = LocationClient.getBDLocationInCoorType(bDLocation, "bd09");
+            } else if (TextUtils.equals(str2, "bd09ll")) {
+                bDLocation = LocationClient.getBDLocationInCoorType(bDLocation, "bd09ll");
+            } else if (TextUtils.equals(str2, "wgs84")) {
+                bDLocation = LocationClient.getBDLocationInCoorType(bDLocation, "gcj2wgs");
+            }
+            dArr[0] = bDLocation.getLongitude();
+            dArr[1] = bDLocation.getLatitude();
+            return dArr;
+        }
+        return (double[]) invokeCommon.objValue;
     }
 }

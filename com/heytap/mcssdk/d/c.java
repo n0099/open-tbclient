@@ -11,7 +11,7 @@ import com.heytap.mcssdk.PushService;
 import com.heytap.msp.push.mode.BaseMode;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class c implements d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

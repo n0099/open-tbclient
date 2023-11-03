@@ -13,7 +13,7 @@ import java.io.Reader;
 import java.util.Arrays;
 import kotlin.text.Typography;
 import org.apache.commons.codec.language.bm.ResourceConstants;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class JsonReader implements Closeable {
     public static final long MIN_INCOMPLETE_INTEGER = -922337203685477580L;
     public static final char[] NON_EXECUTE_PREFIX = Gson.JSON_NON_EXECUTABLE_PREFIX.toCharArray();

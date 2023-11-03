@@ -16,10 +16,10 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tbadk.loading.LoadingView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.raa;
+import com.baidu.tieba.oi;
 import com.baidu.tieba.square.adapter.LeftAdapter;
-import com.baidu.tieba.yh;
+import com.baidu.tieba.wna;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,7 +38,7 @@ public class RightLeftListView {
     public BdListView.p mOnRightScrollToBottomListener;
     public BdListView.p mOnScrollToBottomListener;
     public TbPageContext<?> mPageContext;
-    public raa mRightAdapterManager;
+    public wna mRightAdapterManager;
     public RelativeLayout mRightContainer;
     public LinearLayoutManager mRightLayoutManager;
     public final View mRoot;
@@ -123,7 +123,7 @@ public class RightLeftListView {
         return (String) invokeI.objValue;
     }
 
-    public void setForumListData(List<yh> list) {
+    public void setForumListData(List<oi> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, list) == null) {
             setForumListData(list, 0);
@@ -142,7 +142,7 @@ public class RightLeftListView {
         LeftAdapter leftAdapter;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048593, this, bVar) == null) && (leftAdapter = this.mLeftAdapter) != null) {
-            leftAdapter.s(bVar);
+            leftAdapter.t(bVar);
         }
     }
 
@@ -175,7 +175,7 @@ public class RightLeftListView {
             return;
         }
         int n = this.mLeftAdapter.n(str);
-        this.mLeftAdapter.t(n);
+        this.mLeftAdapter.u(n);
         smoothMoveToPosition(n);
     }
 
@@ -188,7 +188,7 @@ public class RightLeftListView {
             LeftAdapter leftAdapter = new LeftAdapter(this.mPageContext.getPageActivity());
             this.mLeftAdapter = leftAdapter;
             this.mRvLeft.setAdapter(leftAdapter);
-            this.mRightAdapterManager = new raa(this.mPageContext, this.mRvRight);
+            this.mRightAdapterManager = new wna(this.mPageContext, this.mRvRight);
             LinearLayoutManager linearLayoutManager2 = new LinearLayoutManager(this.mPageContext.getPageActivity());
             this.mRightLayoutManager = linearLayoutManager2;
             this.mRvRight.setLayoutManager(linearLayoutManager2);
@@ -212,8 +212,8 @@ public class RightLeftListView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             this.mRightContainer = (RelativeLayout) this.mRoot.findViewById(R.id.right_container);
-            this.mRvLeft = (RecyclerView) this.mRoot.findViewById(R.id.obfuscated_res_0x7f091fe0);
-            this.mRvRight = (BdTypeRecyclerView) this.mRoot.findViewById(R.id.obfuscated_res_0x7f091fe2);
+            this.mRvLeft = (RecyclerView) this.mRoot.findViewById(R.id.obfuscated_res_0x7f092029);
+            this.mRvRight = (BdTypeRecyclerView) this.mRoot.findViewById(R.id.obfuscated_res_0x7f09202b);
         }
     }
 
@@ -313,10 +313,10 @@ public class RightLeftListView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             ArrayList arrayList = new ArrayList();
-            hi hiVar = new hi();
-            hiVar.a = this.mPageContext.getString(R.string.obfuscated_res_0x7f0f07ec);
-            hiVar.b = R.drawable.new_pic_emotion_06;
-            arrayList.add(hiVar);
+            xi xiVar = new xi();
+            xiVar.a = this.mPageContext.getString(R.string.obfuscated_res_0x7f0f07ef);
+            xiVar.b = R.drawable.new_pic_emotion_06;
+            arrayList.add(xiVar);
             this.mRightAdapterManager.c(arrayList);
         }
     }
@@ -338,9 +338,9 @@ public class RightLeftListView {
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            raa raaVar = this.mRightAdapterManager;
-            if (raaVar != null) {
-                raaVar.b();
+            wna wnaVar = this.mRightAdapterManager;
+            if (wnaVar != null) {
+                wnaVar.b();
             }
             LeftAdapter leftAdapter = this.mLeftAdapter;
             if (leftAdapter != null) {
@@ -378,7 +378,7 @@ public class RightLeftListView {
             this.mRvRight.setNextPage(this.mLoadMoreView);
             this.mLoadMoreView.m();
             this.mLoadMoreView.c().setPadding(0, BdUtilHelper.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds62), 0, BdUtilHelper.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds362));
-            this.mLoadMoreView.H(this.mPageContext.getPageActivity().getString(R.string.obfuscated_res_0x7f0f07eb));
+            this.mLoadMoreView.H(this.mPageContext.getPageActivity().getString(R.string.obfuscated_res_0x7f0f07ee));
             this.mLoadMoreView.g();
         }
     }
@@ -387,14 +387,14 @@ public class RightLeftListView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048588, this, str, list, z) == null) {
             int position = ListUtils.getPosition(list, str);
-            this.mLeftAdapter.r(position, list);
+            this.mLeftAdapter.s(position, list);
             if (z) {
                 smoothMoveToPosition(position);
             }
         }
     }
 
-    public void setForumListData(List<yh> list, int i) {
+    public void setForumListData(List<oi> list, int i) {
         BdTypeRecyclerView bdTypeRecyclerView;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048590, this, list, i) == null) {

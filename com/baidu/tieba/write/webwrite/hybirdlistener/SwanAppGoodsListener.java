@@ -19,17 +19,17 @@ import com.baidu.tbadk.mutiprocess.event.GoodsEvent;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
 import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.cya;
-import com.baidu.tieba.dya;
+import com.baidu.tieba.dbb;
+import com.baidu.tieba.ebb;
 import com.baidu.tieba.frs.FrsPublishFineGoodsDialogView;
-import com.baidu.tieba.gya;
-import com.baidu.tieba.hb;
-import com.baidu.tieba.hz4;
+import com.baidu.tieba.hbb;
 import com.baidu.tieba.view.EBusinessProtocolView;
 import com.baidu.tieba.write.webwrite.data.BizBase;
 import com.baidu.tieba.write.webwrite.data.WrapListener;
 import com.baidu.tieba.write.webwrite.hybirdlistener.SwanAppGoodsListener;
-import com.baidu.tieba.xya;
+import com.baidu.tieba.xb;
+import com.baidu.tieba.ybb;
+import com.baidu.tieba.zz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,31 +43,31 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 @Metadata(d1 = {"\u0000q\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u0011\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002*\u0001\u0011\u0018\u00002\u00020\u00012\u00020\u0002B)\u0012\n\u0010\u0003\u001a\u0006\u0012\u0002\b\u00030\u0004\u0012\u0006\u0010\u0005\u001a\u00020\u0006\u0012\u0006\u0010\u0007\u001a\u00020\b\u0012\u0006\u0010\t\u001a\u00020\n¢\u0006\u0002\u0010\u000bJ\u0016\u0010\u0013\u001a\u0010\u0012\u0004\u0012\u00020\u0015\u0012\u0004\u0012\u00020\u0016\u0018\u00010\u0014H\u0016J\u0013\u0010\u0017\u001a\b\u0012\u0004\u0012\u00020\u00190\u0018H\u0016¢\u0006\u0002\u0010\u001aJ\u0010\u0010\u001b\u001a\u00020\u00162\u0006\u0010\f\u001a\u00020\rH\u0002J\u0013\u0010\u001c\u001a\b\u0012\u0004\u0012\u00020\u001d0\u0018H\u0016¢\u0006\u0002\u0010\u001eJ\b\u0010\u001f\u001a\u00020\u0016H\u0016J\u0010\u0010 \u001a\u00020\u00162\u0006\u0010\f\u001a\u00020\rH\u0002J\u0018\u0010 \u001a\u00020\u00162\u0006\u0010!\u001a\u00020\r2\u0006\u0010\"\u001a\u00020#H\u0002J\u0010\u0010 \u001a\u00020\u00162\u0006\u0010\"\u001a\u00020$H\u0002J\u0010\u0010%\u001a\u00020\u00162\u0006\u0010\"\u001a\u00020$H\u0002J\u0015\u0010&\u001a\n\u0012\u0004\u0012\u00020'\u0018\u00010\u0018H\u0016¢\u0006\u0002\u0010(R\u000e\u0010\f\u001a\u00020\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u0010\u001a\u00020\u0011X\u0082\u0004¢\u0006\u0004\n\u0002\u0010\u0012¨\u0006)"}, d2 = {"Lcom/baidu/tieba/write/webwrite/hybirdlistener/SwanAppGoodsListener;", "Lcom/baidu/tieba/write/webwrite/data/BizBase;", "Lcom/baidu/tieba/write/webwrite/data/Clean;", "context", "Lcom/baidu/tbadk/TbPageContext;", "webView", "Lcom/baidu/tieba/browser/TbWebView;", "writeData", "Lcom/baidu/tbadk/coreExtra/data/WriteData;", "writePageState", "Lcom/baidu/tieba/write/webwrite/fragment/WritePageState;", "(Lcom/baidu/tbadk/TbPageContext;Lcom/baidu/tieba/browser/TbWebView;Lcom/baidu/tbadk/coreExtra/data/WriteData;Lcom/baidu/tieba/write/webwrite/fragment/WritePageState;)V", "count", "", "mOnProtocolStateListener", "Lcom/baidu/tieba/view/EBusinessProtocolView$OnProtocolStateListener;", "mSwanAppReturnProductDateListener", "com/baidu/tieba/write/webwrite/hybirdlistener/SwanAppGoodsListener$mSwanAppReturnProductDateListener$1", "Lcom/baidu/tieba/write/webwrite/hybirdlistener/SwanAppGoodsListener$mSwanAppReturnProductDateListener$1;", "addDraftData", "Lkotlin/Function1;", "Lorg/json/JSONObject;", "", "editorActionHandlers", "", "Lcom/baidu/tieba/write/webwrite/data/ActionHandler;", "()[Lcom/baidu/tieba/write/webwrite/data/ActionHandler;", "jumpAiApps", "keyListeners", "Lcom/baidu/tieba/write/webwrite/data/WrapListener;", "()[Lcom/baidu/tieba/write/webwrite/data/WrapListener;", MissionEvent.MESSAGE_DESTROY, "openGoodsPage", "id", "data", "", "", "openGoodsProtocol", "requestCodeHandlers", "Lcom/baidu/tieba/write/webwrite/data/ActivityRequestCodeHandler;", "()[Lcom/baidu/tieba/write/webwrite/data/ActivityRequestCodeHandler;", "write_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes8.dex */
-public final class SwanAppGoodsListener extends BizBase implements gya {
+public final class SwanAppGoodsListener extends BizBase implements hbb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int g;
     public final a h;
     public final EBusinessProtocolView.f i;
 
-    @Override // com.baidu.tieba.write.webwrite.data.BizBase, com.baidu.tieba.fya
-    public Function1<JSONObject, Unit> b() {
+    @Override // com.baidu.tieba.gbb
+    public ebb[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (ebb[]) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.write.webwrite.data.BizBase, com.baidu.tieba.gbb
+    public Function1<JSONObject, Unit> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return null;
         }
         return (Function1) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.fya
-    public dya[] f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return null;
-        }
-        return (dya[]) invokeV.objValue;
     }
 
     /* loaded from: classes8.dex */
@@ -95,7 +95,7 @@ public final class SwanAppGoodsListener extends BizBase implements gya {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tbadk.mutiprocess.ResponsedEventListener, com.baidu.tieba.lk5
+        @Override // com.baidu.tbadk.mutiprocess.ResponsedEventListener, com.baidu.tieba.cm5
         /* renamed from: g */
         public boolean onEvent(GoodsEvent goodsEvent) {
             InterceptResult invokeL;
@@ -118,7 +118,7 @@ public final class SwanAppGoodsListener extends BizBase implements gya {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SwanAppGoodsListener(TbPageContext<?> context, TbWebView webView, WriteData writeData, xya writePageState) {
+    public SwanAppGoodsListener(TbPageContext<?> context, TbWebView webView, WriteData writeData, ybb writePageState) {
         super(context, webView, writeData, writePageState);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -130,7 +130,7 @@ public final class SwanAppGoodsListener extends BizBase implements gya {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (xya) objArr2[3]);
+                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (ybb) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -141,7 +141,7 @@ public final class SwanAppGoodsListener extends BizBase implements gya {
         Intrinsics.checkNotNullParameter(writeData, "writeData");
         Intrinsics.checkNotNullParameter(writePageState, "writePageState");
         this.h = new a(this);
-        this.i = new EBusinessProtocolView.f() { // from class: com.baidu.tieba.fza
+        this.i = new EBusinessProtocolView.f() { // from class: com.baidu.tieba.gcb
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -157,7 +157,7 @@ public final class SwanAppGoodsListener extends BizBase implements gya {
         MutiProcessManager.getInstance().registerResponsedEventListener(GoodsEvent.class, this.h, i());
     }
 
-    public static final void A(hz4 dialog, SwanAppGoodsListener this$0, int i, View view2) {
+    public static final void A(zz4 dialog, SwanAppGoodsListener this$0, int i, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(65537, null, dialog, this$0, i, view2) == null) {
             Intrinsics.checkNotNullParameter(dialog, "$dialog");
@@ -190,10 +190,10 @@ public final class SwanAppGoodsListener extends BizBase implements gya {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             EBusinessProtocolView eBusinessProtocolView = new EBusinessProtocolView(i().getPageActivity(), EBusinessProtocolView.WindowType.PROTOCOL);
-            eBusinessProtocolView.n(i().getPageActivity().getString(R.string.obfuscated_res_0x7f0f1199));
+            eBusinessProtocolView.n(i().getPageActivity().getString(R.string.obfuscated_res_0x7f0f11ad));
             eBusinessProtocolView.i("file:///android_asset/protocol.html");
             eBusinessProtocolView.l(this.i);
-            hb.i(eBusinessProtocolView, i().getPageActivity());
+            xb.i(eBusinessProtocolView, i().getPageActivity());
         }
     }
 
@@ -205,26 +205,26 @@ public final class SwanAppGoodsListener extends BizBase implements gya {
         }
     }
 
-    @Override // com.baidu.tieba.fya
-    public cya[] d() {
+    @Override // com.baidu.tieba.gbb
+    public WrapListener[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new cya[]{n(59, new SwanAppGoodsListener$editorActionHandlers$1(this))} : (cya[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new WrapListener[]{h().invoke("writePage.openGoodsPage", new SwanAppGoodsListener$keyListeners$1(this)), h().invoke("writePage.openGoodsProtocol", new SwanAppGoodsListener$keyListeners$2(this)), h().invoke("writePage.updateGoodsProtocol", SwanAppGoodsListener$keyListeners$3.INSTANCE)} : (WrapListener[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.gya
+    @Override // com.baidu.tieba.gbb
+    public dbb[] f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new dbb[]{n(59, new SwanAppGoodsListener$editorActionHandlers$1(this))} : (dbb[]) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.hbb
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             MutiProcessManager.getInstance().unRegisterResponsedEventListener(this.h);
         }
-    }
-
-    @Override // com.baidu.tieba.fya
-    public WrapListener[] e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new WrapListener[]{h().invoke("writePage.openGoodsPage", new SwanAppGoodsListener$keyListeners$1(this)), h().invoke("writePage.openGoodsProtocol", new SwanAppGoodsListener$keyListeners$2(this)), h().invoke("writePage.updateGoodsProtocol", SwanAppGoodsListener$keyListeners$3.INSTANCE)} : (WrapListener[]) invokeV.objValue;
     }
 
     public final void x(final int i) {
@@ -236,11 +236,11 @@ public final class SwanAppGoodsListener extends BizBase implements gya {
             }
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_COMMODITY_ENTRANCE_CLICK).param("obj_locate", 2).param("fid", k().getForumId()).param("fname", k().getForumName()));
             if (!SharedPrefHelper.getInstance().getBoolean("commodity_goods_show_first_dialog", false)) {
-                final hz4 hz4Var = new hz4(i().getPageActivity());
-                hz4Var.setContentViewSize(2);
-                hz4Var.setCanceledOnTouchOutside(false);
+                final zz4 zz4Var = new zz4(i().getPageActivity());
+                zz4Var.setContentViewSize(2);
+                zz4Var.setCanceledOnTouchOutside(false);
                 FrsPublishFineGoodsDialogView frsPublishFineGoodsDialogView = new FrsPublishFineGoodsDialogView(i().getPageActivity());
-                frsPublishFineGoodsDialogView.setConfirmButtonListener(new View.OnClickListener() { // from class: com.baidu.tieba.dza
+                frsPublishFineGoodsDialogView.setConfirmButtonListener(new View.OnClickListener() { // from class: com.baidu.tieba.ecb
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -248,13 +248,13 @@ public final class SwanAppGoodsListener extends BizBase implements gya {
                     public final void onClick(View view2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                            SwanAppGoodsListener.A(hz4.this, this, i, view2);
+                            SwanAppGoodsListener.A(zz4.this, this, i, view2);
                         }
                     }
                 });
-                hz4Var.setContentView(frsPublishFineGoodsDialogView);
+                zz4Var.setContentView(frsPublishFineGoodsDialogView);
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_WRITE_GOODS_NEW_DIALOG_SHOW).param("obj_locate", 2).param("fid", k().getForumId()).param("fname", k().getForumName()));
-                hz4Var.create(i()).show();
+                zz4Var.create(i()).show();
                 return;
             }
             v(i);

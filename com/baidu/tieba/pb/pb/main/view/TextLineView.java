@@ -12,7 +12,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fd9;
+import com.baidu.tieba.kq9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -103,7 +103,7 @@ public class TextLineView extends TextView {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, fd9.TextLineView);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, kq9.TextLineView);
         this.b = obtainStyledAttributes.getDimensionPixelSize(2, 0);
         this.c = obtainStyledAttributes.getDimensionPixelSize(3, 0);
         this.d = obtainStyledAttributes.getDimensionPixelSize(0, 0);

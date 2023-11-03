@@ -1,95 +1,159 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tbadk.core.atomData.SelectForumActivityConfig;
-import com.baidu.tieba.aiapps.TbAiappsLaunchUtil;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes8.dex */
-public class y46 extends m73 {
+/* loaded from: classes9.dex */
+public class y46 extends bg1<t31> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y46(m63 m63Var) {
-        super(m63Var, "/swan/publishThread");
+    /* loaded from: classes9.dex */
+    public class a implements t31 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.t31
+        public int[] b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new int[]{R.drawable.nad_web_back} : (int[]) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.t31
+        public int[] c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new int[]{R.drawable.nad_web_close} : (int[]) invokeV.objValue;
+        }
+
+        /* renamed from: com.baidu.tieba.y46$a$a  reason: collision with other inner class name */
+        /* loaded from: classes9.dex */
+        public class View$OnClickListenerC0534a implements View.OnClickListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ u31 a;
+
+            public View$OnClickListenerC0534a(a aVar, u31 u31Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, u31Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = u31Var;
+            }
+
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                u31 u31Var;
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (u31Var = this.a) != null) {
+                    u31Var.i();
+                }
+            }
+        }
+
+        /* loaded from: classes9.dex */
+        public class b implements View.OnClickListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ u31 a;
+
+            public b(a aVar, u31 u31Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, u31Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = u31Var;
+            }
+
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                u31 u31Var;
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (u31Var = this.a) != null) {
+                    u31Var.k();
+                }
+            }
+        }
+
+        public a(y46 y46Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y46Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.t31
+        public void a(View view2, u31 u31Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, u31Var) == null) {
+                int intValue = ((Integer) view2.getTag()).intValue();
+                if (intValue == R.drawable.nad_web_back) {
+                    view2.setOnClickListener(new View$OnClickListenerC0534a(this, u31Var));
+                } else if (intValue == R.drawable.nad_web_close) {
+                    view2.setOnClickListener(new b(this, u31Var));
+                }
+            }
+        }
+    }
+
+    public y46() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {m63Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public static boolean j(Context context, String str) {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bg1
+    /* renamed from: a */
+    public t31 createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return false;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                String optString = jSONObject.optString("path");
-                if (StringUtils.isNull(optString)) {
-                    String optString2 = jSONObject.optString("appid");
-                    if (StringUtils.isNull(optString2)) {
-                        return false;
-                    }
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2921361, TbAiappsLaunchUtil.getSmartLink(optString2, "", "", 0)));
-                    return true;
-                }
-                String substring = optString.substring(39);
-                if (StringUtils.isNull(substring)) {
-                    return false;
-                }
-                JSONObject jSONObject2 = new JSONObject(ad.getUrlDecode(substring));
-                String optString3 = jSONObject2.optString("third_app_id");
-                String optString4 = jSONObject2.optString("third_app_name");
-                String optString5 = jSONObject2.optString("third_app_pic");
-                String optString6 = jSONObject2.optString("third_app_link");
-                SelectForumActivityConfig selectForumActivityConfig = new SelectForumActivityConfig(context, 10086);
-                selectForumActivityConfig.setAiAppsParams(optString3, optString4, optString5, null, null, optString6);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, selectForumActivityConfig));
-                return true;
-            } catch (JSONException unused) {
-                return false;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
         }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.m73
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, p53 p53Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, p53Var)) == null) {
-            j(context, unitedSchemeEntity.getParam("params"));
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            return true;
-        }
-        return invokeLLLL.booleanValue;
+        return (t31) invokeV.objValue;
     }
 }

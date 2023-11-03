@@ -1,92 +1,155 @@
 package com.baidu.tieba;
 
-import android.media.MediaFormat;
+import android.app.Activity;
+import android.content.Context;
+import android.view.ViewGroup;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.transvod.player.log.TLog;
-import com.yy.transvod.player.mediacodec.MediaInfo;
-import com.yy.transvod.player.mediacodec.NativeFfmpeg;
-import java.lang.ref.WeakReference;
-import java.nio.ByteBuffer;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.channel.ModuleConfigKs;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.AdRipper;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.kwad.sdk.api.KsAdSDK;
+import com.kwad.sdk.api.KsInterstitialAd;
+import com.kwad.sdk.api.KsLoadManager;
+import com.kwad.sdk.api.KsScene;
+import java.util.List;
 /* loaded from: classes6.dex */
-public final class i1c extends p1c implements NativeFfmpeg.a {
+public class i1c extends z0c<c1c> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.k1c
-    public void C() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+    /* loaded from: classes6.dex */
+    public class a implements KsLoadManager.InterstitialAdListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ i1c a;
+
+        public a(i1c i1cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i1cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i1cVar;
+        }
+
+        @Override // com.kwad.sdk.api.KsLoadManager.InterstitialAdListener
+        public void onError(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
+                this.a.onError(i, str);
+            }
+        }
+
+        @Override // com.kwad.sdk.api.KsLoadManager.InterstitialAdListener
+        public void onInterstitialAdLoad(@Nullable List<KsInterstitialAd> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+                LogPrinter.d();
+                if (list == null || list.isEmpty()) {
+                    LogPrinter.e("onInterstitialAdLoad error: adList is null or empty", new Object[0]);
+                    this.a.onError(0, "NoFill");
+                    return;
+                }
+                KsInterstitialAd ksInterstitialAd = list.get(0);
+                if (ksInterstitialAd != null) {
+                    this.a.onAdLoaded(new c1c(ksInterstitialAd), new String[0]);
+                    return;
+                }
+                LogPrinter.e("onInterstitialAdLoad error: ad is null or empty", new Object[0]);
+                this.a.onError(0, "NoFill");
+            }
+        }
+
+        @Override // com.kwad.sdk.api.KsLoadManager.InterstitialAdListener
+        public void onRequestResult(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            }
         }
     }
 
-    public i1c(int i, t0c t0cVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public i1c(Ssp.Pid pid, ModuleConfigKs moduleConfigKs) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.INTERSTITIAL), pid, moduleConfigKs);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), t0cVar};
+            Object[] objArr = {pid, moduleConfigKs};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], (ModuleConfigKs) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.s = new WeakReference<>(t0cVar);
-        this.w = false;
-        this.b = i;
-        this.A.i(i);
-        this.o = 3;
     }
 
-    public void M(MediaInfo mediaInfo) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public AdRipper createAdRipper(Ssp.Pid pid) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaInfo) == null) {
-            TLog.g(this, mediaInfo.toString());
-            if (this.q.e(mediaInfo)) {
-                this.q.c(mediaInfo);
-            }
-            if (this.E == 0 || this.B == null) {
-                this.E = 32768;
-                this.B = ByteBuffer.allocateDirect(32768);
-                this.C = ByteBuffer.allocateDirect(this.E);
-            }
-            this.p.setInteger("samples", mediaInfo.g);
-            this.p.setInteger("channel-count", mediaInfo.h);
-            this.p.setInteger("sample-rate", mediaInfo.j);
-            synchronized (this.k) {
-                if (this.d != null) {
-                    this.d.d("setFormat", this.p, this.a, false);
-                }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new r1c(pid) : (AdRipper) invokeL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            c1c c1cVar = (c1c) obj;
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
+            KsScene build = new KsScene.Builder(Long.parseLong(this.mPid.pid)).adNum(1).build();
+            onLoadStart(funAdSlot);
+            KsLoadManager loadManager = KsAdSDK.getLoadManager();
+            if (loadManager == null) {
+                onError(FunAdSdk.PLATFORM_KS);
+            } else {
+                loadManager.loadInterstitialAd(build, new a(this));
             }
         }
     }
 
-    @Override // com.baidu.tieba.k1c
-    public void z(MediaFormat mediaFormat, int i) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, mediaFormat, i) == null) {
-            TLog.g(this, "[audio][decoder] AudioSwDecodeFilter handleCreateDecoder taskID " + i);
-            L();
-            this.w = false;
-            this.a = i;
-            this.A.p(this);
-            this.A.h(this.a);
-            if (this.A.j(5, mediaFormat) != 0) {
-                m(50);
-            }
-            MediaInfo b = MediaInfo.b(1, mediaFormat.getInteger("sample-rate"), mediaFormat.getInteger("channel-count"));
-            if (mediaFormat.containsKey("samples")) {
-                b.g = mediaFormat.getInteger("samples");
-            }
-            this.p = mediaFormat;
-            M(b);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
+            c1c c1cVar = (c1c) obj;
+            onShowStart(c1cVar);
+            ((KsInterstitialAd) c1cVar.a).setAdInteractionListener(new l1c(this, c1cVar));
+            ((KsInterstitialAd) c1cVar.a).showInterstitialAd(activity, e());
+            return true;
         }
+        return invokeLLLL.booleanValue;
     }
 }

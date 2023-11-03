@@ -1,109 +1,71 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.concurrent.TimeUnit;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public class zh4 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = -1;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948359939, "Lcom/baidu/tieba/zh4;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public zh4(int i, int i2, int i3, int i4, int i5) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i6 = newInitContext.flag;
+            if ((i6 & 1) != 0) {
+                int i7 = i6 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948359939, "Lcom/baidu/tieba/zh4;");
-        }
+        this.a = i;
+        this.b = i2;
+        this.c = i3;
+        this.d = i5;
+        this.e = i4;
     }
 
-    public static int a(String str) {
-        InterceptResult invokeL;
+    @NonNull
+    public static zh4 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            int i = 5;
-            if (c() <= 0) {
-                return 5;
-            }
-            String string = ad4.b().i().getString("expire_time", "");
-            if (TextUtils.isEmpty(string)) {
-                return 5;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(string);
-                i = jSONObject.optInt("time", 5);
-                JSONObject optJSONObject = jSONObject.optJSONObject("appkeys");
-                if (optJSONObject == null) {
-                    return i;
-                }
-                int optInt = optJSONObject.optInt(str, -1);
-                if (optInt >= 0) {
-                    return optInt;
-                }
-                return i;
-            } catch (JSONException unused) {
-                return i;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new zh4(24, 70, 1440, 720, 30);
         }
-        return invokeL.intValue;
+        return (zh4) invokeV.objValue;
     }
 
-    public static void e(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65541, null, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        String optString = jSONObject.optString("version");
-        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
-            return;
-        }
-        ad4.b().i().putString("expire_time_version", optString);
-        ad4.b().i().putString("expire_time", optJSONObject.toString());
-    }
-
-    public static long b(String str) {
+    @NonNull
+    public static zh4 b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return TimeUnit.HOURS.toMillis(a(str));
-        }
-        return invokeL.longValue;
-    }
-
-    public static int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (a < 0) {
-                ad4.b().F("swan_update_expired_time", 0);
-                a = 0;
+            if (TextUtils.isEmpty(str)) {
+                return a();
             }
-            return a;
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                return new zh4(jSONObject.optInt("clean_check_hour", 24), jSONObject.optInt("hold_history_max_count", 70), jSONObject.optInt("history_force_clean_hour", 1440), jSONObject.optInt("force_clean_hour", 720), jSONObject.optInt("hold_max_count", 30));
+            } catch (JSONException unused) {
+                return a();
+            }
         }
-        return invokeV.intValue;
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return ad4.b().i().getString("expire_time_version", "0");
-        }
-        return (String) invokeV.objValue;
+        return (zh4) invokeL.objValue;
     }
 }

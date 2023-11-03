@@ -1,59 +1,158 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.memberCenter.tail.tool.TailToolController;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.coreExtra.messageCenter.NewsRemindMessage;
+import com.baidu.tieba.immessagecenter.msgtab.obs.NewsRemindMsgMonitor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class h79 extends od5 {
+public final class h79 extends bg1<v95> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h79(Context context, int i) {
-        super(context, TbadkCoreApplication.getInst().getString(R.string.tail_web_view_title), 16, i);
+    /* loaded from: classes6.dex */
+    public static final class a implements v95 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.v95
+        public boolean f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.v95
+        public NewsRemindMessage a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return NewsRemindMsgMonitor.f.a().m();
+            }
+            return (NewsRemindMessage) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.v95
+        public ijc<Boolean> c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return NewsRemindMsgMonitor.f.a().i();
+            }
+            return (ijc) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.v95
+        public ijc<NewsRemindMessage> g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return NewsRemindMsgMonitor.f.a().k();
+            }
+            return (ijc) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.v95
+        public void b(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+                NewsRemindMsgMonitor.f.a().j().onNext(Boolean.valueOf(z));
+            }
+        }
+
+        @Override // com.baidu.tieba.v95
+        public boolean d() {
+            InterceptResult invokeV;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                Long valueOf = Long.valueOf(SharedPrefHelper.getInstance().getLong("key_msg_remind_frequency_minute", 0L));
+                if (valueOf.longValue() > 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (!z) {
+                    valueOf = null;
+                }
+                if (valueOf == null) {
+                    return false;
+                }
+                if (System.currentTimeMillis() - SharedPrefHelper.getInstance().getLong("key_msg_remind_last_show_time", 0L) < valueOf.longValue()) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.v95
+        public void e() {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || TbSingleton.MsgUpgradeTips.isMsgTabUpgradeTipsShowing() || d()) {
+                return;
+            }
+            NewsRemindMessage m = NewsRemindMsgMonitor.f.a().m();
+            int msgCount = m.getMsgCount() + m.getChatCount() + m.getNotificationCount();
+            if (!m.hasMsgRemind() && !m.hasChatRemind() && !m.hasNotificationRemind()) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (msgCount <= 0 && z && SharedPrefHelper.getInstance().getLong("key_msg_remind_frequency_minute", 0L) > 0) {
+                SharedPrefHelper.getInstance().putLong("key_msg_remind_last_show_time", System.currentTimeMillis());
+                NewsRemindMsgMonitor.f.a().f();
+            }
+        }
+    }
+
+    public h79() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.d = R.drawable.icon_mask_post_keyboard24_selection;
-        this.e = R.drawable.icon_mask_post_keyboard24_selection;
-        this.h = R.drawable.icon_pure_post_more_tail64;
-        this.r = R.drawable.icon_pure_pic_vip64;
-        this.i = false;
-        this.j = true;
-        this.m = new TailToolController(context);
-        this.o = true;
-        this.n = 6;
-        this.p = new int[]{1};
     }
 
-    @Override // com.baidu.tieba.od5
-    public boolean a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bg1
+    /* renamed from: a */
+    public v95 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            TiebaStatic.log(new StatisticItem("c15166").param("uid", TbadkCoreApplication.getCurrentAccount()));
-            return super.a();
+            return new a();
         }
-        return invokeV.booleanValue;
+        return (v95) invokeV.objValue;
     }
 }

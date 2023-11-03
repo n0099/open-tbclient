@@ -1,115 +1,40 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.SparseIntArray;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.pb.pb.main.AbsPbActivity;
-import com.baidu.tieba.pb.pb.main.PbFragment;
-import com.baidu.tieba.pb.videopb.AbsVideoPbFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.GetVipInfo.VipThemeItem;
 /* loaded from: classes7.dex */
-public abstract class qi9<T, V extends TypeAdapter.ViewHolder> extends lh<T, V> {
+public class qi9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bo9 a;
-    public PbFragment b;
-    public AbsVideoPbFragment c;
-    public int d;
-    public boolean e;
-    public SparseIntArray f;
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public qi9(bo9 bo9Var, BdUniqueId bdUniqueId) {
-        super(r0, bdUniqueId);
-        AbsPbActivity l0;
+    public qi9(VipThemeItem vipThemeItem) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bo9Var, bdUniqueId};
+            Object[] objArr = {vipThemeItem};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (bo9Var == null) {
-            l0 = null;
-        } else {
-            l0 = bo9Var.l0();
-        }
-        this.d = 3;
-        this.e = false;
-        this.f = new SparseIntArray();
-        t(bo9Var);
-    }
-
-    @Override // com.baidu.tieba.lh
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, T t, V v) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t, v})) == null) {
-            this.d = TbadkCoreApplication.getInst().getSkinType();
-            return null;
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public int s(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            int i2 = this.f.get(i, -1);
-            if (i2 != -1) {
-                return i2;
-            }
-            int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(i);
-            this.f.put(i, dimensionPixelSize);
-            return dimensionPixelSize;
-        }
-        return invokeI.intValue;
-    }
-
-    public void setFromCDN(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.e = z;
-        }
-    }
-
-    public void t(bo9 bo9Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, bo9Var) == null) && bo9Var != null) {
-            this.a = bo9Var;
-            this.b = bo9Var.S1();
-            AbsVideoPbFragment a0 = bo9Var.a0();
-            this.c = a0;
-            PbFragment pbFragment = this.b;
-            if (pbFragment != null) {
-                this.mContext = pbFragment.getActivity();
-            } else if (a0 != null) {
-                this.mContext = a0.getActivity();
-            } else {
-                this.mContext = null;
-            }
-        }
+        String str = vipThemeItem.img_url;
+        String str2 = vipThemeItem.title;
+        vipThemeItem.props_id.intValue();
+        vipThemeItem.props_category.intValue();
+        String str3 = vipThemeItem.props_category_name;
+        String str4 = vipThemeItem.desc;
+        String str5 = vipThemeItem.link;
+        String str6 = vipThemeItem.tag_img_url;
+        String str7 = vipThemeItem.update_time;
+        vipThemeItem.id.intValue();
+        vipThemeItem.type.intValue();
     }
 }

@@ -1,22 +1,19 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.Rect;
+import android.widget.ImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.AbstractMap;
-import java.util.ArrayList;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class cg {
+public class cg extends zf {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-
-    public abstract String a();
+    public Rect x;
 
     public cg() {
         Interceptable interceptable = $ic;
@@ -31,76 +28,33 @@ public abstract class cg {
                 return;
             }
         }
-        this.a = false;
+        this.x = new Rect();
     }
 
-    public void b(int i) {
+    @Override // com.baidu.tieba.sf, com.baidu.tieba.qf
+    public void h(Canvas canvas, tf tfVar, ImageView imageView) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || this.a) {
-            return;
-        }
-        this.a = true;
-        if (TextUtils.isEmpty(a())) {
-            return;
-        }
-        try {
-            new JSONObject().put("version", i);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void c(int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            String a = a();
-            if (TextUtils.isEmpty(a)) {
-                return;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, canvas, tfVar, imageView) == null) {
+            Matrix matrix = this.f;
+            if (matrix != null) {
+                canvas.concat(matrix);
             }
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new AbstractMap.SimpleEntry("version", String.valueOf(j)));
-            String str = a + "_download";
-            if (i == 0) {
-                bg.c(str, arrayList);
+            canvas.save();
+            if (this.w) {
+                try {
+                    canvas.clipPath(this.t);
+                } catch (Error unused) {
+                }
+            }
+            if (tfVar.e()) {
+                Bitmap bitmap = tfVar.a.getBitmap();
+                this.x.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
+                canvas.drawBitmap(bitmap, this.x, this.g, this.c);
             } else {
-                bg.b(str, arrayList);
+                this.x.set(0, 0, tfVar.b(), tfVar.a());
+                tfVar.b.drawImageTo(canvas, this.x, this.g, this.c);
             }
-        }
-    }
-
-    public void d(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            String a = a();
-            if (TextUtils.isEmpty(a)) {
-                return;
-            }
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new AbstractMap.SimpleEntry("version", String.valueOf(i2)));
-            String str = a + "_install";
-            if (i == 13) {
-                bg.c(str, arrayList);
-            } else {
-                bg.b(str, arrayList);
-            }
-        }
-    }
-
-    public void e(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
-            String a = a();
-            if (TextUtils.isEmpty(a)) {
-                return;
-            }
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new AbstractMap.SimpleEntry("version", String.valueOf(i2)));
-            String str = a + "_launch";
-            if (i == 14) {
-                bg.c(str, arrayList);
-            } else {
-                bg.b(str, arrayList);
-            }
+            canvas.restore();
         }
     }
 }

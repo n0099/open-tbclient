@@ -1,7 +1,30 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.aop.annotation.DebugTrace;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.searchbox.dns.DnsHelper;
+import com.baidu.searchbox.dns.util.DnsUtil;
+import com.baidu.searchbox.http.HttpManager;
+import com.baidu.searchbox.http.IClientIPProvider;
+import com.baidu.searchbox.http.IHttpContext;
+import com.baidu.searchbox.http.IHttpDns;
+import com.baidu.searchbox.http.cookie.CookieManager;
+import com.baidu.searchbox.http.model.MultipleConnectParams;
+import com.baidu.searchbox.http.model.PreConnectParams;
+import com.baidu.searchbox.http.request.HttpRequest;
+import com.baidu.searchbox.http.statistics.NetworkInfoRecord;
+import com.baidu.searchbox.http.statistics.NetworkStat;
+import com.baidu.tbadk.TbDomainConfig;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.switchs.UbcAddCookieSwitch;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,44 +32,185 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ThemeCardPropMain;
+import com.baidu.ubc.UBCManager;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import okhttp3.EventListener;
+import okhttp3.HttpUrl;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.internal.WrappedEventListener;
+import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes7.dex */
-public class lka {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static long k = 1350000;
+public class lka implements IHttpContext {
+    public static /* synthetic */ Interceptable $ic;
+    public static boolean c;
+    public static final String d;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
+    public volatile boolean a;
+    public Context b;
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public boolean forceHttpDnsIPv4OnlyInDualStack(HttpRequest httpRequest) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, httpRequest)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public List<HttpUrl> getBrAllowlist() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public IClientIPProvider getClientIPProvider() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (IClientIPProvider) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public EventListener getEventListener() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
+        }
+        return (EventListener) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public int getFallbackConnectDelayMs() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public MultipleConnectParams getMultipleConnectParams() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return null;
+        }
+        return (MultipleConnectParams) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public NetworkStat<Request> getNewNetworkStat() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return null;
+        }
+        return (NetworkStat) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public String getSimOperator() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public boolean isBrAllowlistEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public boolean isNeedAuthenticateHeader4Tunnel(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public boolean isOldHttpUseTurbonet(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048591, this, str, i)) == null) {
+            return false;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public boolean isRttLogEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public boolean ok4URLConnectionEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public boolean okHttpPreConnectEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947947143, "Lcom/baidu/tieba/lka;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947947143, "Lcom/baidu/tieba/lka;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947947143, "Lcom/baidu/tieba/lka;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947947143, "Lcom/baidu/tieba/lka;");
-        }
+        c = AppConfig.isDebug();
+        d = lka.class.getSimpleName();
     }
 
-    public void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-        }
-    }
-
+    @DebugTrace
     public lka() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -60,183 +224,119 @@ public class lka {
                 return;
             }
         }
-        this.j = 0;
+        this.a = false;
+        this.b = AppRuntime.getAppContext();
     }
 
-    public long a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public CookieManager getCookieManager(boolean z, boolean z2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (UbcAddCookieSwitch.Companion.isOn()) {
+                return new ala();
+            }
+            return null;
         }
-        return invokeV.longValue;
+        return (CookieManager) invokeCommon.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public IHttpDns getNewCloneHttpDns(HttpRequest httpRequest) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, httpRequest)) == null) {
+            if (c) {
+                String str = d;
+                Log.i(str, "baidunetwork HttpContext getNewCloneHttpDns httpRequest:" + httpRequest);
+            }
+            if (httpRequest == null) {
+                return null;
+            }
+            IHttpDns httpDns = HttpManager.getDefault(this.b).getHttpDns();
+            if (!(httpDns instanceof ika)) {
+                return null;
+            }
+            return new ika(((ika) httpDns).a(), true);
         }
-        return (String) invokeV.objValue;
+        return (IHttpDns) invokeL.objValue;
     }
 
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.j;
-        }
-        return invokeV.intValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.h;
-        }
-        return invokeV.intValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.g;
-        }
-        return invokeV.intValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.i;
-        }
-        return invokeV.intValue;
-    }
-
-    public String i() {
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public IHttpDns getNewHttpDns() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.e;
+            if (c) {
+                Log.i(d, "baidunetwork HttpContext getNewHttpDns!");
+            }
+            DnsHelper dnsHelper = new DnsHelper(this.b, true);
+            dnsHelper.setHttpDnsConfig(new DnsHelper.DnsConfig(true, true, true, null));
+            return new ika(dnsHelper, false);
         }
-        return (String) invokeV.objValue;
+        return (IHttpDns) invokeV.objValue;
     }
 
-    public String j() {
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            synchronized (this) {
+                if (this.a) {
+                    return;
+                }
+                this.a = true;
+                if (c) {
+                    Log.i(d, "baidunetwork HttpContext init!");
+                }
+                WrappedEventListener.setGlobalEventListener(bla.f());
+                DnsUtil.initNetworkStackType();
+                OkHttpClient.setDefaultFallbackConnectDealyMs(300);
+                ska.d();
+            }
+        }
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public PreConnectParams getPreConnectParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return new PreConnectParams.Builder().setPreConnectEnabled(true).setPreConnectUrlsAllowlist(Collections.singletonList(TbDomainConfig.DOMAIN_HTTPS_SERVER_ADDRESS)).setMaxPreConnectNum(20).setMaxSingleHostPreConnectNum(3).setPreConnectDelayTimeMs(5000).setPreConnectPeriodTimeMs(31000).setPreConnectDelayUrlsWithNum(new ArrayList()).setPreConnectNoDelayUrlsWithNum(new ArrayList()).build();
         }
-        return (String) invokeV.objValue;
+        return (PreConnectParams) invokeV.objValue;
     }
 
-    public void k(ThemeCardPropMain themeCardPropMain) {
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public void prefetchDnsResult(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, themeCardPropMain) != null) || themeCardPropMain == null) {
-            return;
-        }
-        this.a = themeCardPropMain.props_id.longValue();
-        this.b = themeCardPropMain.title;
-        this.c = themeCardPropMain.description;
-        this.d = themeCardPropMain.example_url;
-        this.e = themeCardPropMain.permission;
-        this.f = themeCardPropMain.props_state_img;
-        this.g = themeCardPropMain.in_use.intValue();
-        this.h = themeCardPropMain.free_user_level.intValue();
-        String str = themeCardPropMain.activity_url;
-        this.i = themeCardPropMain.is_finished.intValue();
-    }
-
-    public void m(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
-            this.a = j;
+        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
+            if (!PermissionUtil.isAgreePrivacyPolicy()) {
+                qka.a = true;
+            } else {
+                ((ika) HttpManager.getDefault(this.b).getHttpDns()).a().forceUpdateDomain(str);
+            }
         }
     }
 
-    public void n(String str) {
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public void uploadIllegalUrlBy850(JSONObject jSONObject) {
+        UBCManager uBCManager;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.f = str;
+        if ((interceptable == null || interceptable.invokeL(1048597, this, jSONObject) == null) && jSONObject != null && (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) != null) {
+            uBCManager.onEvent("850", jSONObject);
         }
     }
 
-    public void o(int i) {
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public void setNetworkInfoRecord(NetworkInfoRecord networkInfoRecord) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.j = i;
-        }
-    }
-
-    public void p(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    public void q(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            this.d = str;
-        }
-    }
-
-    public void r(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            this.h = i;
-        }
-    }
-
-    public void s(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            this.g = i;
-        }
-    }
-
-    public void t(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
-            this.i = i;
-        }
-    }
-
-    public void u(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
-            this.e = str;
-        }
-    }
-
-    public void v(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
-            this.b = str;
+        if (interceptable == null || interceptable.invokeL(1048596, this, networkInfoRecord) == null) {
+            if (c) {
+                String str = d;
+                Log.i(str, "baidu_networksetNetworkInfoRecord networkInfoRecord:" + networkInfoRecord);
+            }
+            HttpManager.getDefault(this.b).setNetworkStat(null);
         }
     }
 }

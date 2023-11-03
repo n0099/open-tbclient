@@ -1,52 +1,249 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.base.core.repo.MsgProcessor;
-import com.baidu.tieba.im.base.core.uilist.BaseItem;
-import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
-import com.baidu.tieba.im.lib.socket.msg.TbSysMsg;
-import com.baidu.tieba.im.lib.socket.msg.data.BubbleInfo;
-import com.baidu.tieba.im.lib.socket.msg.data.EnableDegradeUserData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
-import kotlin.Pair;
-import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.random.Random;
-/* loaded from: classes6.dex */
-public abstract class k98 {
+import kotlin.text.StringsKt__StringsKt;
+import tbclient.ClickBackCard;
+import tbclient.ClickBackCardItem;
+/* loaded from: classes7.dex */
+public final class k98 extends nm6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a U0;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MsgProcessor a;
+    public String S0;
+    public List<b> T0;
 
-    public void c() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947868031, "Lcom/baidu/tieba/k98;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947868031, "Lcom/baidu/tieba/k98;");
+                return;
+            }
+        }
+        U0 = new a(null);
+    }
+
+    @JvmStatic
+    public static final boolean X(k98 k98Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, k98Var)) == null) ? U0.b(k98Var) : invokeL.booleanValue;
+    }
+
+    @JvmStatic
+    public static final boolean Z(k98 k98Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, k98Var)) == null) ? U0.c(k98Var) : invokeL.booleanValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public final boolean a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                int i = SharedPrefHelper.getInstance().getInt("key_recom_topic_card_show_times", 0);
+                int i2 = SharedPrefHelper.getInstance().getInt("key_recom_topic_card_curr_show_times", 0);
+                long currentTimeMillis = System.currentTimeMillis();
+                long j = SharedPrefHelper.getInstance().getLong("key_recom_topic_card_last_show_time", 0L);
+                String tidString = SharedPrefHelper.getInstance().getString("key_recom_topic_card_curr_tid_builder", "");
+                StringBuilder sb = new StringBuilder(tidString);
+                if (StringHelper.isTaday(j) && i2 < i) {
+                    Intrinsics.checkNotNullExpressionValue(tidString, "tidString");
+                    if (!StringsKt__StringsKt.contains$default((CharSequence) tidString, (CharSequence) str, false, 2, (Object) null)) {
+                        SharedPrefHelper.getInstance().putInt("key_recom_topic_card_curr_show_times", i2 + 1);
+                        SharedPrefHelper.getInstance().putLong("key_recom_topic_card_last_show_time", currentTimeMillis);
+                        SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
+                        sb.append(str);
+                        sharedPrefHelper.putString("key_recom_topic_card_curr_tid_builder", sb.toString());
+                        return true;
+                    }
+                }
+                if (StringHelper.isTaday(j) || i <= 0) {
+                    return false;
+                }
+                SharedPrefHelper.getInstance().putInt("key_recom_topic_card_curr_show_times", 1);
+                SharedPrefHelper.getInstance().putLong("key_recom_topic_card_last_show_time", currentTimeMillis);
+                SharedPrefHelper.getInstance().putString("key_recom_topic_card_curr_tid_builder", str);
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @JvmStatic
+        public final boolean b(k98 k98Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k98Var)) == null) {
+                if (k98Var != null && !StringUtils.isNull(k98Var.W()) && k98Var.V() != null && !k98Var.V().isEmpty()) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @JvmStatic
+        public final boolean c(k98 k98Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k98Var)) == null) {
+                if (TbadkCoreApplication.isLogin() && k98Var != null && ListUtils.isNotEmpty(k98Var.V())) {
+                    String str = k98Var.g;
+                    Intrinsics.checkNotNullExpressionValue(str, "data.tid");
+                    if (a(str)) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
         }
     }
 
-    public abstract BubbleInfo g();
+    /* loaded from: classes7.dex */
+    public static final class b implements oi {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public long c;
+        public String d;
 
-    public abstract List<EnableDegradeUserData> j();
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
 
-    public abstract TbBaseMsg.c k();
+        public final long a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.c;
+            }
+            return invokeV.longValue;
+        }
 
-    public abstract List<EnableDegradeUserData> n();
+        public final String b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.d;
+            }
+            return (String) invokeV.objValue;
+        }
 
-    public abstract long o();
+        public final String c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.b;
+            }
+            return (String) invokeV.objValue;
+        }
 
-    public abstract int q();
+        public final String d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.a;
+            }
+            return (String) invokeV.objValue;
+        }
 
-    @JvmOverloads
-    public final <T extends TbBaseMsg> void v(T tbMsg) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, tbMsg) == null) {
-            Intrinsics.checkNotNullParameter(tbMsg, "tbMsg");
-            B(this, tbMsg, null, 2, null);
+        @Override // com.baidu.tieba.oi
+        public BdUniqueId getType() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                BdUniqueId TYPE_RECOMMEND_TOPIC_CARD = nm6.C0;
+                Intrinsics.checkNotNullExpressionValue(TYPE_RECOMMEND_TOPIC_CARD, "TYPE_RECOMMEND_TOPIC_CARD");
+                return TYPE_RECOMMEND_TOPIC_CARD;
+            }
+            return (BdUniqueId) invokeV.objValue;
+        }
+
+        public final void e(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+                this.c = j;
+            }
+        }
+
+        public final void f(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+                this.d = str;
+            }
+        }
+
+        public final void g(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+                this.b = str;
+            }
+        }
+
+        public final void h(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+                this.a = str;
+            }
         }
     }
 
@@ -54,102 +251,83 @@ public abstract class k98 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new MsgProcessor();
+        this.T0 = new ArrayList();
     }
 
-    public final MsgProcessor b() {
+    public final List<b> V() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.T0;
         }
-        return (MsgProcessor) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public static /* synthetic */ void B(k98 k98Var, TbBaseMsg tbBaseMsg, MsgProcessor.d dVar, int i, Object obj) {
-        if (obj == null) {
-            if ((i & 2) != 0) {
-                dVar = MsgProcessor.d.a.d(MsgProcessor.d.g, false, 0, 3, null);
-            }
-            k98Var.w(tbBaseMsg, dVar);
-            return;
-        }
-        throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: sendMsg");
-    }
-
-    public final void C(MsgProcessor.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.a.K(bVar);
-        }
-    }
-
-    public final void D(MsgProcessor.e<? extends TbSysMsg> eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar) == null) {
-            this.a.L(eVar);
-        }
-    }
-
-    public final void s(Pair<? extends Object, ? extends Class<? extends BaseItem<? extends TbBaseMsg>>> pair) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, pair) == null) {
-            Intrinsics.checkNotNullParameter(pair, "pair");
-            this.a.G(pair);
-        }
-    }
-
-    public final String l() {
+    public final String W() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return pf8.b(of8.a()) + TbBaseMsg.Companion.a() + Random.Default.nextLong();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.S0;
         }
         return (String) invokeV.objValue;
     }
 
-    @JvmOverloads
-    public final <T extends TbBaseMsg> void w(T tbMsg, MsgProcessor.d source) {
+    public final String getTid() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048589, this, tbMsg, source) == null) {
-            Intrinsics.checkNotNullParameter(tbMsg, "tbMsg");
-            Intrinsics.checkNotNullParameter(source, "source");
-            tbMsg.setSessionId(o());
-            tbMsg.setMsgId(TbBaseMsg.Companion.a());
-            tbMsg.setMsgKey(l());
-            if (tbMsg.isMockSender()) {
-                this.a.C(tbMsg, source);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.nm6, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.oi
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            BdUniqueId TYPE_RECOMMEND_TOPIC_CARD = nm6.C0;
+            Intrinsics.checkNotNullExpressionValue(TYPE_RECOMMEND_TOPIC_CARD, "TYPE_RECOMMEND_TOPIC_CARD");
+            return TYPE_RECOMMEND_TOPIC_CARD;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public final void Y(ClickBackCard clickBackCard) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, clickBackCard) != null) || clickBackCard == null) {
+            return;
+        }
+        this.S0 = clickBackCard.card_name;
+        this.T0.clear();
+        List<ClickBackCardItem> list = clickBackCard.card_list;
+        if (ListUtils.isNotEmpty(list)) {
+            for (ClickBackCardItem clickBackCardItem : list) {
+                b bVar = new b();
+                bVar.h(clickBackCardItem.text);
+                bVar.g(clickBackCardItem.jump_url);
+                Long l = clickBackCardItem.business_id;
+                Intrinsics.checkNotNullExpressionValue(l, "item.business_id");
+                bVar.e(l.longValue());
+                bVar.f(clickBackCardItem.business_type);
+                this.T0.add(bVar);
             }
-            wu4 t = wu4.t();
-            tbMsg.setUserId(t.j());
-            String m = t.m();
-            Intrinsics.checkNotNullExpressionValue(m, "am.currentAccountNameShow");
-            tbMsg.setUserName(m);
-            String r = t.r();
-            Intrinsics.checkNotNullExpressionValue(r, "am.currentPortrait");
-            tbMsg.setPortrait(r);
-            tbMsg.setRole(q());
-            tbMsg.setSendClient("android");
-            tbMsg.setForumExt(k());
-            BubbleInfo g = g();
-            if (g != null && !g.isExpired()) {
-                tbMsg.setBubbleInfo(g);
-            }
-            tbMsg.setEnableDegradeUserDataList(j());
-            tbMsg.setSecondDegradeUserDataList(n());
-            tbMsg.setLocalMsgId(true);
-            c();
-            this.a.C(tbMsg, source);
+        }
+    }
+
+    public final void setTid(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.g = str;
         }
     }
 }

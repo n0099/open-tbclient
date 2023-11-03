@@ -1,176 +1,82 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.database.Cursor;
-import com.baidu.adp.lib.safe.BdCloseHelper;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tieba.m9;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class fd {
+public class fd extends ja {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b implements Comparator<m9.b<?>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(m9.b<?> bVar, m9.b<?> bVar2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bVar, bVar2)) == null) {
-                long j = bVar.c;
-                long j2 = bVar2.c;
-                if (j == j2) {
-                    return 0;
-                }
-                if (j > j2) {
-                    return -1;
-                }
-                return 1;
-            }
-            return invokeLL.intValue;
-        }
-    }
-
-    /* JADX WARN: Type inference failed for: r3v11, types: [T, byte[]] */
-    @SuppressLint({"Range"})
-    public static List<m9.b<byte[]>> a(m9<byte[]> m9Var) {
-        InterceptResult invokeL;
-        Cursor cursor;
+    @Override // com.baidu.tieba.ja
+    public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, m9Var)) == null) {
-            LinkedList linkedList = new LinkedList();
-            try {
-                cursor = c(m9Var);
-            } catch (Throwable th) {
-                th = th;
-                cursor = null;
-            }
-            if (cursor == null) {
-                return null;
-            }
-            while (cursor.moveToNext()) {
-                try {
-                    m9.b bVar = new m9.b();
-                    bVar.a = cursor.getString(cursor.getColumnIndex("m_key"));
-                    bVar.c = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                    cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                    bVar.b = cursor.getBlob(cursor.getColumnIndex("m_value"));
-                    linkedList.add(bVar);
-                } catch (Throwable th2) {
-                    th = th2;
-                    try {
-                        BdLog.e(th);
-                        BdCloseHelper.close(cursor);
-                        Collections.sort(linkedList, new b(null));
-                        return linkedList;
-                    } finally {
-                        BdCloseHelper.close(cursor);
-                    }
-                }
-            }
-            BdCloseHelper.close(cursor);
-            Collections.sort(linkedList, new b(null));
-            return linkedList;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
-        return (List) invokeL.objValue;
     }
 
-    /* JADX WARN: Type inference failed for: r3v11, types: [T, java.lang.String] */
-    @SuppressLint({"Range"})
-    public static List<m9.b<String>> b(m9<String> m9Var) {
-        InterceptResult invokeL;
-        Cursor cursor;
+    @Override // com.baidu.tieba.ja
+    /* renamed from: getCrashKeys */
+    public String[] mo131getCrashKeys() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, m9Var)) == null) {
-            LinkedList linkedList = new LinkedList();
-            try {
-                cursor = c(m9Var);
-            } catch (Throwable th) {
-                th = th;
-                cursor = null;
-            }
-            if (cursor == null) {
-                return null;
-            }
-            while (cursor.moveToNext()) {
-                try {
-                    m9.b bVar = new m9.b();
-                    bVar.a = cursor.getString(cursor.getColumnIndex("m_key"));
-                    bVar.c = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                    cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                    bVar.b = cursor.getString(cursor.getColumnIndex("m_value"));
-                    linkedList.add(bVar);
-                } catch (Throwable th2) {
-                    th = th2;
-                    try {
-                        BdLog.e(th);
-                        BdCloseHelper.close(cursor);
-                        Collections.sort(linkedList, new b(null));
-                        return linkedList;
-                    } finally {
-                        BdCloseHelper.close(cursor);
-                    }
-                }
-            }
-            BdCloseHelper.close(cursor);
-            Collections.sort(linkedList, new b(null));
-            return linkedList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
         }
-        return (List) invokeL.objValue;
+        return (String[]) invokeV.objValue;
     }
 
-    public static Cursor c(m9<?> m9Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ja
+    public int getDefaultType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, m9Var)) == null) {
-            if (m9Var == null || !(m9Var instanceof m9.c)) {
-                return null;
-            }
-            m9.c cVar = (m9.c) m9Var;
-            if (!(cVar.c() instanceof k9)) {
-                return null;
-            }
-            d9 n = ((k9) cVar.c()).n();
-            return n.q(n.h().f(), cVar.j());
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 0;
         }
-        return (Cursor) invokeL.objValue;
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.ja
+    public int getMaxCrashTimes() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 10;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.ja
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "need_more_logs" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ja
+    public int getOffType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public fd() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 }

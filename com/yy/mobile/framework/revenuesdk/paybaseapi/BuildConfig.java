@@ -6,6 +6,6 @@ public final class BuildConfig {
     public static final boolean DEBUG = false;
     public static final String FLAVOR = "";
     public static final boolean USE_BD_DOMAIN = false;
-    public static final int VERSION_CODE = 381;
-    public static final String VERSION_NAME = "4.3.45-bdpay";
+    public static final int VERSION_CODE = 505;
+    public static final String VERSION_NAME = "4.3.47-bdpay";
 }

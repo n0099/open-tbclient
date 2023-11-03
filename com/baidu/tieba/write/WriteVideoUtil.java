@@ -24,11 +24,11 @@ import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.switchs.PublishVideoThreadSwitch;
 import com.baidu.tieba.R;
+import com.baidu.tieba.f05;
 import com.baidu.tieba.frs.ForumWriteData;
-import com.baidu.tieba.nz4;
-import com.baidu.tieba.pz4;
-import com.baidu.tieba.rz4;
-import com.baidu.tieba.sda;
+import com.baidu.tieba.h05;
+import com.baidu.tieba.j05;
+import com.baidu.tieba.xqa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -86,7 +86,7 @@ public class WriteVideoUtil {
     }
 
     /* loaded from: classes8.dex */
-    public class b implements rz4.f {
+    public class b implements j05.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -98,14 +98,14 @@ public class WriteVideoUtil {
         public final /* synthetic */ String g;
         public final /* synthetic */ String h;
         public final /* synthetic */ String i;
-        public final /* synthetic */ pz4 j;
+        public final /* synthetic */ h05 j;
 
-        public b(String str, String str2, String str3, String str4, int i, Boolean bool, String str5, String str6, String str7, pz4 pz4Var) {
+        public b(String str, String str2, String str3, String str4, int i, Boolean bool, String str5, String str6, String str7, h05 h05Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, str3, str4, Integer.valueOf(i), bool, str5, str6, str7, pz4Var};
+                Object[] objArr = {str, str2, str3, str4, Integer.valueOf(i), bool, str5, str6, str7, h05Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -124,38 +124,38 @@ public class WriteVideoUtil {
             this.g = str5;
             this.h = str6;
             this.i = str7;
-            this.j = pz4Var;
+            this.j = h05Var;
         }
 
-        @Override // com.baidu.tieba.rz4.f
-        public void G0(rz4 rz4Var, int i, View view2) {
+        @Override // com.baidu.tieba.j05.f
+        public void F0(j05 j05Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, rz4Var, i, view2) == null) {
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, j05Var, i, view2) == null) {
                 if (i == 0) {
                     WriteVideoUtil.sendThread(true, true, this.a, this.b, this.c, this.d, this.e, this.f, this.g, this.h, this.i);
                 } else if (i == 1) {
                     WriteVideoUtil.sendThread(true, false, this.a, this.b, this.c, this.d, this.e, this.f, this.g, this.h, this.i);
                 }
-                pz4 pz4Var = this.j;
-                if (pz4Var != null) {
-                    pz4Var.dismiss();
+                h05 h05Var = this.j;
+                if (h05Var != null) {
+                    h05Var.dismiss();
                 }
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public class c implements rz4.c {
+    public class c implements j05.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pz4 a;
+        public final /* synthetic */ h05 a;
 
-        public c(pz4 pz4Var) {
+        public c(h05 h05Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pz4Var};
+                Object[] objArr = {h05Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -165,15 +165,15 @@ public class WriteVideoUtil {
                     return;
                 }
             }
-            this.a = pz4Var;
+            this.a = h05Var;
         }
 
-        @Override // com.baidu.tieba.rz4.c
+        @Override // com.baidu.tieba.j05.c
         public void onClick() {
-            pz4 pz4Var;
+            h05 h05Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (pz4Var = this.a) != null) {
-                pz4Var.dismiss();
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (h05Var = this.a) != null) {
+                h05Var.dismiss();
             }
         }
     }
@@ -205,7 +205,7 @@ public class WriteVideoUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return !TextUtils.isEmpty(sda.G());
+            return !TextUtils.isEmpty(xqa.G());
         }
         return invokeV.booleanValue;
     }
@@ -254,26 +254,26 @@ public class WriteVideoUtil {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{bdPageContext, str, str2, str3, str4, Integer.valueOf(i), bool, str5, str6, str7}) == null) && bdPageContext != null && bdPageContext.getPageActivity() != null) {
             String string = bdPageContext.getString(R.string.work_publish_open_dialog_title);
-            pz4 pz4Var = new pz4(bdPageContext);
-            rz4 rz4Var = new rz4(bdPageContext.getPageActivity());
-            rz4Var.u(string);
+            h05 h05Var = new h05(bdPageContext);
+            j05 j05Var = new j05(bdPageContext.getPageActivity());
+            j05Var.u(string);
             ArrayList arrayList = new ArrayList();
-            nz4 nz4Var = new nz4(0, bdPageContext.getString(R.string.work_publish_open_dialog_load_draft), rz4Var);
-            nz4Var.r(R.color.CAM_X0105);
-            nz4Var.p(R.color.CAM_X0204);
-            arrayList.add(nz4Var);
-            nz4 nz4Var2 = new nz4(1, bdPageContext.getString(R.string.work_publish_open_dialog_add_new), rz4Var);
-            nz4Var2.r(R.color.CAM_X0105);
-            nz4Var2.p(R.color.CAM_X0204);
-            arrayList.add(nz4Var2);
-            b bVar = new b(str, str2, str3, str4, i, bool, str5, str6, str7, pz4Var);
-            c cVar = new c(pz4Var);
-            rz4Var.m(arrayList);
-            rz4Var.r(bVar);
-            rz4Var.p(cVar);
-            pz4Var.setCanceledOnTouchOutside(true);
-            pz4Var.h(rz4Var);
-            pz4Var.l();
+            f05 f05Var = new f05(0, bdPageContext.getString(R.string.work_publish_open_dialog_load_draft), j05Var);
+            f05Var.s(R.color.CAM_X0105);
+            f05Var.q(R.color.CAM_X0204);
+            arrayList.add(f05Var);
+            f05 f05Var2 = new f05(1, bdPageContext.getString(R.string.work_publish_open_dialog_add_new), j05Var);
+            f05Var2.s(R.color.CAM_X0105);
+            f05Var2.q(R.color.CAM_X0204);
+            arrayList.add(f05Var2);
+            b bVar = new b(str, str2, str3, str4, i, bool, str5, str6, str7, h05Var);
+            c cVar = new c(h05Var);
+            j05Var.m(arrayList);
+            j05Var.r(bVar);
+            j05Var.p(cVar);
+            h05Var.setCanceledOnTouchOutside(true);
+            h05Var.h(j05Var);
+            h05Var.l();
         }
     }
 
@@ -315,7 +315,7 @@ public class WriteVideoUtil {
                 if (z2) {
                     i2 = 2;
                 } else {
-                    sda.B("");
+                    xqa.B("");
                     i2 = 1;
                 }
             } else {

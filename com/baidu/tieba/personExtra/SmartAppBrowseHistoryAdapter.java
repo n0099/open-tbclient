@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ad;
+import com.baidu.tieba.qd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -58,22 +58,22 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
                 }
             }
             this.a = view2;
-            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091254);
+            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091292);
             this.b = headImageView;
             headImageView.setIsRound(true);
             this.b.setPlaceHolder(1);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09279b);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0927fa);
         }
 
         public void a(SmartApp smartApp) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, smartApp) == null) {
                 this.a.setTag(smartApp);
-                if (!ad.isEmpty(smartApp.avatar)) {
+                if (!qd.isEmpty(smartApp.avatar)) {
                     this.b.setPlaceHolder(1);
                     this.b.startLoad(smartApp.avatar, 10, false, false);
                 }
-                if (!ad.isEmpty(smartApp.name)) {
+                if (!qd.isEmpty(smartApp.name)) {
                     this.c.setText(smartApp.name);
                 } else {
                     this.c.setText(R.string.intelligent_smart_app);
@@ -149,14 +149,14 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
         }
     }
 
-    public void r(View.OnClickListener onClickListener) {
+    public void s(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, onClickListener) == null) {
             this.c = onClickListener;
         }
     }
 
-    public void s(View.OnLongClickListener onLongClickListener) {
+    public void t(View.OnLongClickListener onLongClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, onLongClickListener) == null) {
             this.d = onLongClickListener;
@@ -195,7 +195,7 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) {
-            return new HistoryRecordViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08d9, viewGroup, false));
+            return new HistoryRecordViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08ee, viewGroup, false));
         }
         return (HistoryRecordViewHolder) invokeLI.objValue;
     }

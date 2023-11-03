@@ -1,47 +1,50 @@
 package com.baidu.tieba;
 
-import android.content.ContentProviderClient;
-import android.content.Context;
-import android.net.Uri;
-import android.os.Build;
-import android.os.Bundle;
-import com.baidu.tieba.p00;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.CharArrayWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
 /* loaded from: classes7.dex */
 public class o00 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Context context, p00.a aVar) {
-        Bundle call;
+    public static void a(InputStream inputStream, OutputStream outputStream, int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, context, aVar) == null) {
-            if (context == null) {
-                aVar.a(false, null);
-                return;
-            }
-            try {
-                Uri parse = Uri.parse("content://cn.nubia.identity/identity");
-                if (Build.VERSION.SDK_INT > 17) {
-                    ContentProviderClient acquireContentProviderClient = context.getContentResolver().acquireContentProviderClient(parse);
-                    if (acquireContentProviderClient != null) {
-                        call = acquireContentProviderClient.call("getOAID", null, null);
-                        if (Build.VERSION.SDK_INT >= 24) {
-                            acquireContentProviderClient.close();
-                        } else {
-                            acquireContentProviderClient.release();
-                        }
-                    } else {
-                        call = null;
-                    }
+        if (interceptable == null || interceptable.invokeLLI(65536, null, inputStream, outputStream, i) == null) {
+            byte[] bArr = new byte[i];
+            while (true) {
+                int read = inputStream.read(bArr);
+                if (read > 0) {
+                    outputStream.write(bArr, 0, read);
                 } else {
-                    call = context.getContentResolver().call(parse, "getOAID", (String) null, (Bundle) null);
+                    return;
                 }
-                aVar.a(true, (call == null || call.getInt("code", -1) != 0) ? null : call.getString("id"));
-            } catch (Throwable unused) {
-                aVar.a(false, null);
             }
+        }
+    }
+
+    public static String b(InputStream inputStream, String str) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, inputStream, str)) == null) {
+            CharArrayWriter charArrayWriter = new CharArrayWriter();
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, str);
+            char[] cArr = new char[8192];
+            while (true) {
+                int read = inputStreamReader.read(cArr);
+                if (read > 0) {
+                    charArrayWriter.write(cArr, 0, read);
+                } else {
+                    return charArrayWriter.toString();
+                }
+            }
+        } else {
+            return (String) invokeLL.objValue;
         }
     }
 }

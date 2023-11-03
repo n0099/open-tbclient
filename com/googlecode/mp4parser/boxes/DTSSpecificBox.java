@@ -16,7 +16,7 @@ import java.nio.ByteBuffer;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class DTSSpecificBox extends AbstractBox {
     public static final String TYPE = "ddts";
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_0 = null;

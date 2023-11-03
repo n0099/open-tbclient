@@ -1,21 +1,22 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.facebook.drawee.generic.GenericDraweeHierarchy;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
-import java.util.Map;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
+import com.baidu.tieba.h52;
+import com.baidu.webkit.sdk.VideoPlayerFactory;
+/* loaded from: classes7.dex */
 public interface kq1 {
-    void a(Context context, JSONObject jSONObject);
+    int a();
 
-    void b(Context context, JSONObject jSONObject);
+    VideoPlayerFactory b();
 
-    void c(GenericDraweeHierarchy genericDraweeHierarchy, boolean z);
+    int c();
 
-    void d(Context context, String[] strArr, int i);
+    void d(boolean z);
 
-    ImageRequestBuilder e(ImageRequestBuilder imageRequestBuilder, Map<String, String> map);
+    boolean e();
 
-    void f(Context context, JSONObject jSONObject);
+    boolean f();
+
+    void g(int i);
+
+    void h(h52.c cVar);
 }

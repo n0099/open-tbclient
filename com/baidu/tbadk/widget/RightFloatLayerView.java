@@ -31,12 +31,12 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ad;
-import com.baidu.tieba.ew5;
-import com.baidu.tieba.i1a;
-import com.baidu.tieba.uz9;
-import com.baidu.tieba.y65;
-import com.baidu.tieba.zy8;
+import com.baidu.tieba.dc9;
+import com.baidu.tieba.nea;
+import com.baidu.tieba.qd;
+import com.baidu.tieba.t75;
+import com.baidu.tieba.yx5;
+import com.baidu.tieba.zca;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -512,14 +512,14 @@ public class RightFloatLayerView extends RelativeLayout {
         }
     }
 
-    public static void b(y65 y65Var) {
+    public static void b(t75 t75Var) {
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, y65Var) != null) || y65Var == null) {
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, t75Var) != null) || t75Var == null) {
             return;
         }
-        int i2 = y65Var.n;
-        int i3 = y65Var.q;
+        int i2 = t75Var.n;
+        int i3 = t75Var.q;
         if (i2 == 2) {
             str = TbadkCoreStatisticKey.KEY_AD_FLOAT_LAYER_SHOW;
         } else {
@@ -527,7 +527,7 @@ public class RightFloatLayerView extends RelativeLayout {
         }
         StatisticItem param = new StatisticItem(str).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", i3);
         if (TextUtils.equals(str, TbadkCoreStatisticKey.KEY_FLOAT_LAYER_SHOW)) {
-            ew5.a.b(param, y65Var.t, y65Var.r, y65Var.h);
+            yx5.a.b(param, t75Var.t, t75Var.r, t75Var.h);
         }
         TiebaStatic.log(param);
     }
@@ -546,22 +546,22 @@ public class RightFloatLayerView extends RelativeLayout {
         }
     }
 
-    public void setData(y65 y65Var) {
+    public void setData(t75 t75Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048592, this, y65Var) == null) && y65Var != null && !this.s && !ad.isEmpty(y65Var.b)) {
-            if (l(y65Var)) {
+        if ((interceptable == null || interceptable.invokeL(1048592, this, t75Var) == null) && t75Var != null && !this.s && !qd.isEmpty(t75Var.b)) {
+            if (l(t75Var)) {
                 this.b.setVisibility(0);
             } else {
                 this.b.setVisibility(4);
             }
-            if (y65Var.d()) {
+            if (t75Var.d()) {
                 this.a.setVisibility(8);
             } else {
                 this.a.setVisibility(0);
             }
             this.c.setVisibility(0);
-            this.c.startLoad(y65Var.b, 45, false);
-            v(y65Var);
+            this.c.startLoad(t75Var.b, 45, false);
+            v(t75Var);
             this.s = true;
         }
     }
@@ -616,14 +616,14 @@ public class RightFloatLayerView extends RelativeLayout {
         j(context);
     }
 
-    public static void a(y65 y65Var, int i2, String str) {
+    public static void a(t75 t75Var, int i2, String str) {
         String str2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLIL(65539, null, y65Var, i2, str) != null) || y65Var == null) {
+        if ((interceptable != null && interceptable.invokeLIL(65539, null, t75Var, i2, str) != null) || t75Var == null) {
             return;
         }
-        int i3 = y65Var.n;
-        int i4 = y65Var.q;
+        int i3 = t75Var.n;
+        int i4 = t75Var.q;
         if (i3 == 2) {
             str2 = TbadkCoreStatisticKey.KEY_AD_FLOAT_LAYER_CLICK;
         } else {
@@ -631,7 +631,7 @@ public class RightFloatLayerView extends RelativeLayout {
         }
         StatisticItem param = new StatisticItem(str2).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", i4).param("obj_param1", i2);
         if (TextUtils.equals(str2, TbadkCoreStatisticKey.KEY_FLOAT_LAYER_CLICK)) {
-            ew5.a.a(param, y65Var.t, y65Var.r, y65Var.i, str);
+            yx5.a.a(param, t75Var.t, t75Var.r, t75Var.i, str);
         }
         TiebaStatic.log(param);
     }
@@ -743,41 +743,41 @@ public class RightFloatLayerView extends RelativeLayout {
         setVisibility(0);
     }
 
-    public final int e(y65 y65Var) {
+    public final int e(t75 t75Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, y65Var)) == null) {
-            String str = y65Var.l;
-            String str2 = y65Var.o;
-            String str3 = y65Var.m;
-            int a2 = uz9.a(getContext(), str, str2, str3, null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t75Var)) == null) {
+            String str = t75Var.l;
+            String str2 = t75Var.o;
+            String str3 = t75Var.m;
+            int a2 = zca.a(getContext(), str, str2, str3, null);
             s(str3, 2);
             u(str3, a2);
-            w(y65Var);
+            w(t75Var);
             return a2;
         }
         return invokeL.intValue;
     }
 
-    public void g(y65 y65Var) {
+    public void g(t75 t75Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, y65Var) != null) || y65Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, t75Var) != null) || t75Var == null) {
             return;
         }
         String str = null;
-        if (y65Var.n == 2) {
-            e(y65Var);
+        if (t75Var.n == 2) {
+            e(t75Var);
         } else {
-            str = f(y65Var);
+            str = f(t75Var);
         }
-        a(y65Var, 0, str);
+        a(t75Var, 0, str);
     }
 
-    public boolean l(y65 y65Var) {
+    public boolean l(t75 t75Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, y65Var)) == null) {
-            if (y65Var.n != 2 && !y65Var.b()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t75Var)) == null) {
+            if (t75Var.n != 2 && !t75Var.b()) {
                 return false;
             }
             return true;
@@ -785,10 +785,10 @@ public class RightFloatLayerView extends RelativeLayout {
         return invokeL.booleanValue;
     }
 
-    public void r(y65 y65Var) {
+    public void r(t75 t75Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, y65Var) == null) {
-            zy8.b(y65Var);
+        if (interceptable == null || interceptable.invokeL(1048589, this, t75Var) == null) {
+            dc9.b(t75Var);
         }
     }
 
@@ -822,48 +822,48 @@ public class RightFloatLayerView extends RelativeLayout {
         }
     }
 
-    public void t(y65 y65Var) {
+    public void t(t75 t75Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048597, this, y65Var) != null) || y65Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048597, this, t75Var) != null) || t75Var == null) {
             return;
         }
-        int i2 = y65Var.n;
-        String str = y65Var.m;
+        int i2 = t75Var.n;
+        String str = t75Var.m;
         if (i2 == 2) {
             s(str, 7);
         }
-        a(y65Var, 1, null);
+        a(t75Var, 1, null);
     }
 
-    public void v(y65 y65Var) {
+    public void v(t75 t75Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048599, this, y65Var) != null) || y65Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048599, this, t75Var) != null) || t75Var == null) {
             return;
         }
-        if (y65Var.n == 2) {
-            s(y65Var.m, 3);
-            r(y65Var);
+        if (t75Var.n == 2) {
+            s(t75Var.m, 3);
+            r(t75Var);
         } else {
-            ThirdStatisticHelper.sendReq(y65Var.h);
+            ThirdStatisticHelper.sendReq(t75Var.h);
         }
-        b(y65Var);
+        b(t75Var);
     }
 
-    public void w(y65 y65Var) {
+    public void w(t75 t75Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, y65Var) == null) {
-            zy8.d(y65Var);
+        if (interceptable == null || interceptable.invokeL(1048600, this, t75Var) == null) {
+            dc9.d(t75Var);
         }
     }
 
-    public final String f(y65 y65Var) {
+    public final String f(t75 t75Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, y65Var)) == null) {
-            String str = y65Var.a;
-            String str2 = y65Var.j;
-            String str3 = y65Var.k;
-            String str4 = y65Var.i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, t75Var)) == null) {
+            String str = t75Var.a;
+            String str2 = t75Var.j;
+            String str3 = t75Var.k;
+            String str4 = t75Var.i;
             if (!UtilHelper.isMatchScheme(getContext(), str2, str3)) {
                 if (!StringUtils.isNull(str) && this.t != null) {
                     UrlManager.getInstance().dealOneLink(this.t, new String[]{str});
@@ -958,7 +958,7 @@ public class RightFloatLayerView extends RelativeLayout {
     public final void s(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048590, this, str, i2) == null) {
-            i1a.d("TIEBA_LAYER", str, 0, i2, "layer", null, null, null, null, null);
+            nea.d("TIEBA_LAYER", str, 0, i2, "layer", null, null, null, null, null);
         }
     }
 
@@ -984,7 +984,7 @@ public class RightFloatLayerView extends RelativeLayout {
             } else {
                 valueOf = String.valueOf(i2);
             }
-            i1a.d("TIEBA_LAYER_DEEPLINK", str, 0, 706, str3, null, valueOf, null, null, null);
+            nea.d("TIEBA_LAYER_DEEPLINK", str, 0, 706, str3, null, valueOf, null, null, null);
         }
     }
 }

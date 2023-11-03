@@ -1,30 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.view.View;
 /* loaded from: classes5.dex */
-public class a06 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface a06 extends g06<i06> {
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947561410, "Lcom/baidu/tieba/a06;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947561410, "Lcom/baidu/tieba/a06;");
-                return;
-            }
-        }
-        a = TbConfig.TIEBA_ADDRESS + "mo/q/account_page";
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(i06 i06Var, View view2);
+
+        void b(i06 i06Var, View view2);
     }
+
+    void a(int i);
+
+    void c(Object obj);
+
+    View getView();
+
+    void h(a aVar);
+
+    void j();
+
+    void l(int i);
 }

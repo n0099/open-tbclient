@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.adapter.holder.EmojiGroupVH;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.EmojiGroupData;
-import com.baidu.tieba.sn8;
-import com.baidu.tieba.un8;
+import com.baidu.tieba.v09;
+import com.baidu.tieba.x09;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,15 +24,15 @@ public class EmojiGroupAdapter extends RecyclerView.Adapter<EmojiGroupVH> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
-    public final un8 a;
+    public final x09 a;
     public final List<EmojiGroupData> b;
 
-    public EmojiGroupAdapter(@NonNull un8 un8Var) {
+    public EmojiGroupAdapter(@NonNull x09 x09Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {un8Var};
+            Object[] objArr = {x09Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -43,7 +43,7 @@ public class EmojiGroupAdapter extends RecyclerView.Adapter<EmojiGroupVH> {
             }
         }
         this.b = new ArrayList();
-        this.a = un8Var;
+        this.a = x09Var;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -65,7 +65,7 @@ public class EmojiGroupAdapter extends RecyclerView.Adapter<EmojiGroupVH> {
             EmojiGroupData emojiGroupData = this.b.get(i);
             emojiGroupVH.a.setText(emojiGroupData.getGroupName());
             EMManager.from(emojiGroupVH.a).setTextColor(R.color.CAM_X0109);
-            ((sn8) emojiGroupVH.b.getAdapter()).d(emojiGroupData.getReactions());
+            ((v09) emojiGroupVH.b.getAdapter()).d(emojiGroupData.getReactions());
         }
     }
 
@@ -77,7 +77,7 @@ public class EmojiGroupAdapter extends RecyclerView.Adapter<EmojiGroupVH> {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
-            return new EmojiGroupVH(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0293, viewGroup, false), this.a);
+            return new EmojiGroupVH(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0299, viewGroup, false), this.a);
         }
         return (EmojiGroupVH) invokeLI.objValue;
     }

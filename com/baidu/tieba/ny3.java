@@ -1,109 +1,121 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
-import com.baidu.swan.apps.favordata.SwanFavorItemData;
-import com.baidu.tieba.mq2;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ny3 {
+public class ny3 implements cs1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<String, my3> a;
 
-    public static void a(String str, String str2, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, str2, Long.valueOf(j)}) == null) {
-            my3 my3Var = new my3();
-            my3Var.b = str;
-            my3Var.e = str2;
-            if (p53.M() != null && p53.M().Z() != null) {
-                mq2.a Z = p53.M().Z();
-                my3Var.a = ic3.n(Z.H());
-                my3Var.f = Z.I();
-                my3Var.c = Z.U();
-                my3Var.a("play_time", Long.valueOf(j));
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948018753, "Lcom/baidu/tieba/ny3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            ic3.y("916", PayUVEventType.PAY_AMOUNT_DIALOG_CHANNEL_CLICK, my3Var);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948018753, "Lcom/baidu/tieba/ny3;");
+                return;
+            }
+        }
+        b = rm1.a;
+    }
+
+    public ny3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new HashMap<>();
+        c();
+    }
+
+    @Override // com.baidu.tieba.cs1
+    public hy1 a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull kj2 kj2Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, jSONObject, kj2Var)) == null) {
+            return b(str, jSONObject, kj2Var);
+        }
+        return (hy1) invokeLLL.objValue;
+    }
+
+    public final hy1 b(String str, JSONObject jSONObject, kj2 kj2Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject, kj2Var)) == null) {
+            my3 my3Var = this.a.get(str);
+            if (my3Var != null) {
+                if (b) {
+                    Log.i("GameCenterDispatcher", "action: " + str + " params: " + jSONObject);
+                }
+                return my3Var.a(jSONObject, kj2Var);
+            }
+            if (b) {
+                Log.i("GameCenterDispatcher", "action has not found: " + str + ", params: " + jSONObject);
+            }
+            return new hy1(10002, "no such api.");
+        }
+        return (hy1) invokeLLL.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            d(new ky3());
+            d(new ly3());
+            d(new ix3());
+            d(new mx3());
+            d(new jx3());
+            d(new bz3());
+            d(new kx3());
+            d(new ry3());
+            d(new yy3());
+            d(new hx3());
+            d(new ox3());
+            d(new lx3());
+            d(new nx3());
+            d(new uy3());
+            d(new az3());
+            d(new vy3());
+            d(new xy3());
+            d(new wy3());
         }
     }
 
-    public static void b(String str, String str2) {
-        String str3;
-        mq2.a aVar;
+    public void d(my3 my3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            if (p53.M() != null && p53.M().Z() != null) {
-                aVar = p53.M().Z();
-                str3 = ic3.n(aVar.H());
-            } else {
-                str3 = "";
-                aVar = null;
+        if (interceptable == null || interceptable.invokeL(1048579, this, my3Var) == null) {
+            if (b && TextUtils.isEmpty(my3Var.a)) {
+                throw new IllegalArgumentException("action name is null");
             }
-            if (aVar != null && TextUtils.equals(str3, SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME)) {
-                my3 my3Var = new my3();
-                my3Var.b = str;
-                my3Var.e = str2;
-                my3Var.a = str3;
-                my3Var.f = aVar.I();
-                my3Var.c = aVar.U();
-                ic3.y("916", PayUVEventType.PAY_AMOUNT_DIALOG_CHANNEL_CLICK, my3Var);
+            if (b && this.a.containsKey(my3Var.a)) {
+                throw new IllegalArgumentException("duplicate action: " + my3Var);
             }
+            this.a.put(my3Var.a, my3Var);
         }
-    }
-
-    public static void c(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
-            my3 my3Var = new my3();
-            my3Var.b = str;
-            my3Var.e = str2;
-            if (p53.M() != null && p53.M().Z() != null) {
-                mq2.a Z = p53.M().Z();
-                my3Var.a = ic3.n(Z.H());
-                my3Var.f = Z.I();
-                my3Var.c = Z.U();
-            }
-            my3Var.k = str3;
-            ic3.y("916", PayUVEventType.PAY_AMOUNT_DIALOG_CHANNEL_CLICK, my3Var);
-        }
-    }
-
-    public static void d(String str) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            my3 my3Var = new my3();
-            my3Var.b = str;
-            my3Var.e = "show";
-            if (p53.M() != null && p53.M().Z() != null) {
-                mq2.a Z = p53.M().Z();
-                my3Var.a = ic3.n(Z.H());
-                my3Var.f = Z.I();
-                my3Var.c = Z.U();
-            }
-            if (e()) {
-                str2 = "0";
-            } else {
-                str2 = "1";
-            }
-            my3Var.a("early", str2);
-            ic3.y("916", PayUVEventType.PAY_AMOUNT_DIALOG_CHANNEL_CLICK, my3Var);
-        }
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (m64.c() > 0 && z14.c() && System.currentTimeMillis() - m64.c() > LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

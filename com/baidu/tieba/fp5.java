@@ -1,17 +1,15 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Page;
 /* loaded from: classes6.dex */
 public class fp5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public boolean b;
-    public Object c;
 
     public fp5() {
         Interceptable interceptable = $ic;
@@ -26,27 +24,14 @@ public class fp5 {
                 return;
             }
         }
-        this.b = true;
+        BdUniqueId.gen();
+        this.a = 0;
     }
 
-    public void a(Page page) {
-        boolean z;
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, page) != null) || page == null) {
-            return;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.a = i;
         }
-        if (page.has_more.intValue() == 1) {
-            z = true;
-        } else {
-            z = false;
-        }
-        this.b = z;
-        page.has_prev.intValue();
-        this.a = page.current_page.intValue();
-        page.page_size.intValue();
-        page.total_page.intValue();
-        page.offset.intValue();
-        page.total_count.intValue();
-        aq5.b("parserProto--->currentPage=" + this.a + ",hasMore=" + this.b);
     }
 }

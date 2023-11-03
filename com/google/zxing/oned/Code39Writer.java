@@ -5,7 +5,7 @@ import com.google.zxing.EncodeHintType;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class Code39Writer extends OneDimensionalCodeWriter {
     public static void toIntArray(int i, int[] iArr) {
         for (int i2 = 0; i2 < 9; i2++) {

@@ -1,214 +1,141 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.browser.core.async.BdRunnable;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.GlobalBuildConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tbadk.util.WebviewHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tieba.deletethread.DeleteThreadHttpResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class y06 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String b;
-    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
+    public HttpMessageListener a;
+    public c b;
+    public BdUniqueId c;
+    public CustomMessageListener d;
 
-    /* loaded from: classes8.dex */
-    public interface b {
-        void a(JSONObject jSONObject);
+    /* loaded from: classes9.dex */
+    public interface c {
+        void a(DeleteThreadHttpResponseMessage deleteThreadHttpResponseMessage);
     }
 
-    /* loaded from: classes8.dex */
-    public class a extends BdRunnable {
+    /* loaded from: classes9.dex */
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Map c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ y06 e;
+        public final /* synthetic */ y06 a;
 
-        /* renamed from: com.baidu.tieba.y06$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public class C0527a extends BdRunnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ JSONObject c;
-            public final /* synthetic */ a d;
-
-            public C0527a(a aVar, JSONObject jSONObject) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, jSONObject};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.d = aVar;
-                this.c = jSONObject;
-            }
-
-            @Override // com.baidu.browser.core.async.BdRunnable
-            public void c() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.d.e.a.a(this.c);
-                }
-            }
-        }
-
-        public a(y06 y06Var, Map map, String str) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(y06 y06Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {y06Var, map, str};
+                Object[] objArr = {y06Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.e = y06Var;
-            this.c = map;
-            this.d = str;
+            this.a = y06Var;
         }
 
-        /*  JADX ERROR: JadxRuntimeException in pass: InlineMethods
-            jadx.core.utils.exceptions.JadxRuntimeException: Failed to process method for inline: com.baidu.tieba.y06.a(com.baidu.tieba.y06, java.util.Map):java.util.Map
-            	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:76)
-            	at jadx.core.dex.visitors.InlineMethods.visit(InlineMethods.java:51)
-            Caused by: java.lang.NullPointerException: Cannot invoke "jadx.core.dex.instructions.args.InsnArg.isRegister()" because "arg" is null
-            	at jadx.core.dex.instructions.args.RegisterArg.sameRegAndSVar(RegisterArg.java:173)
-            	at jadx.core.dex.instructions.args.InsnArg.isSameVar(InsnArg.java:269)
-            	at jadx.core.dex.visitors.MarkMethodsForInline.isSyntheticAccessPattern(MarkMethodsForInline.java:118)
-            	at jadx.core.dex.visitors.MarkMethodsForInline.inlineMth(MarkMethodsForInline.java:86)
-            	at jadx.core.dex.visitors.MarkMethodsForInline.process(MarkMethodsForInline.java:53)
-            	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:65)
-            	... 1 more
-            */
-        @Override // com.baidu.browser.core.async.BdRunnable
-        public void c() {
-            /*
-                r4 = this;
-                com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.tieba.y06.a.$ic
-                if (r0 != 0) goto L74
-            L4:
-                java.lang.String r0 = "application/json; charset=utf-8"
-                okhttp3.MediaType r0 = okhttp3.MediaType.parse(r0)
-                org.json.JSONObject r1 = new org.json.JSONObject
-                r1.<init>()
-                com.baidu.tieba.y06 r2 = r4.e     // Catch: org.json.JSONException -> L1e
-                java.util.Map r3 = r4.c     // Catch: org.json.JSONException -> L1e
-                com.baidu.tieba.y06.a(r2, r3)     // Catch: org.json.JSONException -> L1e
-                com.baidu.tieba.y06 r2 = r4.e     // Catch: org.json.JSONException -> L1e
-                java.util.Map r3 = r4.c     // Catch: org.json.JSONException -> L1e
-                com.baidu.tieba.y06.b(r2, r3, r1)     // Catch: org.json.JSONException -> L1e
-                goto L22
-            L1e:
-                r2 = move-exception
-                r2.printStackTrace()
-            L22:
-                okhttp3.OkHttpClient r2 = new okhttp3.OkHttpClient
-                r2.<init>()
-                java.lang.String r1 = java.lang.String.valueOf(r1)
-                okhttp3.RequestBody r0 = okhttp3.RequestBody.create(r0, r1)
-                okhttp3.Request$Builder r1 = new okhttp3.Request$Builder
-                r1.<init>()
-                java.lang.String r3 = r4.d
-                okhttp3.Request$Builder r1 = r1.url(r3)
-                okhttp3.Request$Builder r0 = r1.post(r0)
-                okhttp3.Request r0 = r0.build()
-                r1 = 0
-                okhttp3.Call r0 = r2.newCall(r0)     // Catch: java.io.IOException -> L4c
-                okhttp3.Response r1 = r0.execute()     // Catch: java.io.IOException -> L4c
-                goto L50
-            L4c:
-                r0 = move-exception
-                r0.printStackTrace()
-            L50:
-                okhttp3.ResponseBody r0 = r1.body()     // Catch: org.json.JSONException -> L6a java.io.IOException -> L6f
-                java.lang.String r0 = r0.string()     // Catch: org.json.JSONException -> L6a java.io.IOException -> L6f
-                org.json.JSONObject r1 = new org.json.JSONObject     // Catch: org.json.JSONException -> L6a java.io.IOException -> L6f
-                r1.<init>(r0)     // Catch: org.json.JSONException -> L6a java.io.IOException -> L6f
-                com.baidu.tieba.cr r0 = com.baidu.tieba.cr.f()     // Catch: org.json.JSONException -> L6a java.io.IOException -> L6f
-                com.baidu.tieba.y06$a$a r2 = new com.baidu.tieba.y06$a$a     // Catch: org.json.JSONException -> L6a java.io.IOException -> L6f
-                r2.<init>(r4, r1)     // Catch: org.json.JSONException -> L6a java.io.IOException -> L6f
-                r0.h(r2)     // Catch: org.json.JSONException -> L6a java.io.IOException -> L6f
-                goto L73
-            L6a:
-                r0 = move-exception
-                r0.printStackTrace()
-                goto L73
-            L6f:
-                r0 = move-exception
-                r0.printStackTrace()
-            L73:
-                return
-            L74:
-                r2 = r0
-                r3 = 1048576(0x100000, float:1.469368E-39)
-                com.baidu.titan.sdk.runtime.InterceptResult r0 = r2.invokeV(r3, r4)
-                if (r0 == 0) goto L4
-                return
-            */
-            throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.y06.a.c():void");
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject)) {
+                this.a.c((JSONObject) customResponsedMessage.getData());
+            }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        String str;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948276394, "Lcom/baidu/tieba/y06;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes9.dex */
+    public class b extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ y06 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(y06 y06Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y06Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948276394, "Lcom/baidu/tieba/y06;");
+            this.a = y06Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003185 || !(httpResponsedMessage instanceof DeleteThreadHttpResponseMessage) || !httpResponsedMessage.isSuccess() || this.a.b == null) {
                 return;
             }
+            this.a.b.a((DeleteThreadHttpResponseMessage) httpResponsedMessage);
         }
-        if (GlobalBuildConfig.isDebug()) {
-            str = "http://";
-        } else {
-            str = "https://";
-        }
-        b = str;
-        c = b + "afdconf.baidu.com/afd/download";
     }
 
-    public y06(@NonNull b bVar) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public y06(String str) {
+        this(str, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bVar};
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public y06(String str, @Nullable BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, bdUniqueId};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -218,107 +145,68 @@ public class y06 {
                 return;
             }
         }
-        this.a = bVar;
+        this.b = null;
+        this.d = new a(this, 2016489);
+        this.c = bdUniqueId;
+        if (this.a == null) {
+            this.a = new b(this, CmdConfigHttp.CMD_NEG_DELETE_THREAD);
+        }
+        if (this.c != null) {
+            this.a.setSelfListener(true);
+            this.a.setTag(this.c);
+            this.d.setSelfListener(true);
+            this.d.setTag(this.c);
+        }
+        MessageManager.getInstance().registerListener(this.a);
+        MessageManager.getInstance().registerListener(this.d);
     }
 
-    /*  JADX ERROR: NullPointerException in pass: MarkMethodsForInline
-        java.lang.NullPointerException: Cannot invoke "jadx.core.dex.instructions.args.InsnArg.isRegister()" because "arg" is null
-        	at jadx.core.dex.instructions.args.RegisterArg.sameRegAndSVar(RegisterArg.java:173)
-        	at jadx.core.dex.instructions.args.InsnArg.isSameVar(InsnArg.java:269)
-        	at jadx.core.dex.visitors.MarkMethodsForInline.isSyntheticAccessPattern(MarkMethodsForInline.java:118)
-        	at jadx.core.dex.visitors.MarkMethodsForInline.inlineMth(MarkMethodsForInline.java:86)
-        	at jadx.core.dex.visitors.MarkMethodsForInline.process(MarkMethodsForInline.java:53)
-        	at jadx.core.dex.visitors.MarkMethodsForInline.visit(MarkMethodsForInline.java:37)
-        */
-    public static /* synthetic */ java.util.Map a(com.baidu.tieba.y06 r0, java.util.Map r1) {
-        /*
-            r0.d(r1)
-            return r1
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.y06.a(com.baidu.tieba.y06, java.util.Map):java.util.Map");
-    }
-
-    public void g(Map<String, String> map, String str) {
+    public void f(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, map, str) == null) {
-            cr.f().g(new a(this, map, str));
+        if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
+            this.b = cVar;
         }
     }
 
-    /*  JADX ERROR: NullPointerException in pass: MarkMethodsForInline
-        java.lang.NullPointerException: Cannot invoke "jadx.core.dex.instructions.args.InsnArg.isRegister()" because "arg" is null
-        	at jadx.core.dex.instructions.args.RegisterArg.sameRegAndSVar(RegisterArg.java:173)
-        	at jadx.core.dex.instructions.args.InsnArg.isSameVar(InsnArg.java:269)
-        	at jadx.core.dex.visitors.MarkMethodsForInline.isSyntheticAccessPattern(MarkMethodsForInline.java:118)
-        	at jadx.core.dex.visitors.MarkMethodsForInline.inlineMth(MarkMethodsForInline.java:86)
-        	at jadx.core.dex.visitors.MarkMethodsForInline.process(MarkMethodsForInline.java:53)
-        	at jadx.core.dex.visitors.MarkMethodsForInline.visit(MarkMethodsForInline.java:37)
-        */
-    public static /* synthetic */ org.json.JSONObject b(com.baidu.tieba.y06 r0, java.util.Map r1, org.json.JSONObject r2) throws org.json.JSONException {
-        /*
-            r0.f(r1, r2)
-            return r2
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.y06.b(com.baidu.tieba.y06, java.util.Map, org.json.JSONObject):org.json.JSONObject");
+    public final void c(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && BdNetTypeUtil.isNetworkAvailableForImmediately()) {
+            try {
+                int i = jSONObject.getInt("type");
+                String JsonArrayToString = StringHelper.JsonArrayToString(jSONObject.getJSONArray("thread_ids"));
+                String JsonArrayToString2 = StringHelper.JsonArrayToString(jSONObject.getJSONArray("reason"));
+                String JsonArrayToString3 = StringHelper.JsonArrayToString(jSONObject.getJSONArray("is_frs_masks"));
+                String string = jSONObject.getString("forum_id");
+                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_NEG_DELETE_THREAD);
+                httpMessage.addParam("type", i);
+                httpMessage.addParam("thread_ids", JsonArrayToString);
+                httpMessage.addParam("is_frs_masks", JsonArrayToString3);
+                httpMessage.addParam("reason", JsonArrayToString2);
+                httpMessage.addParam("forum_id", string);
+                httpMessage.addParam("tbs", TbadkCoreApplication.getInst().getTbs());
+                if (this.c != null) {
+                    httpMessage.setTag(this.c);
+                }
+                MessageManager.getInstance().sendMessage(httpMessage);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
-    public static String e() {
-        InterceptResult invokeV;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (BdNetTypeUtil.isWifiNet()) {
-                return UtilHelper.getWifiMac(TbadkCoreApplication.getInst().getApp());
-            }
-            return UtilHelper.getGprsIpAddress();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.d);
+            MessageManager.getInstance().unRegisterListener(this.a);
         }
-        return (String) invokeV.objValue;
     }
 
-    public final Map<String, String> d(Map<String, String> map) {
-        InterceptResult invokeL;
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) {
-            map.put("_client_version", TbConfig.getVersion());
-            map.put("uid", TbadkCoreApplication.getCurrentAccount());
-            map.put("cuid", TbadkCoreApplication.getInst().getCuidGalaxy2());
-            map.put("ua", WebviewHelper.getGlobalUserAgent());
-            String e = hf0.c().e(false);
-            if (!TextUtils.isEmpty(e)) {
-                map.put("model", e);
-            }
-            String h = hf0.c().h(false);
-            if (!TextUtils.isEmpty(h)) {
-                map.put(HttpRequest.OS_VERSION, h);
-            }
-            String b2 = hf0.c().b(false);
-            if (!TextUtils.isEmpty(b2)) {
-                map.put("imei", b2);
-            }
-            String a2 = hf0.c().a(false);
-            if (!TextUtils.isEmpty(a2)) {
-                map.put(HttpRequest.ANDROID_ID, a2);
-            }
-            map.put(HttpRequest.CLIENT_TYPE, "2");
-            map.put("nt", String.valueOf(BdNetTypeUtil.netType()));
-            map.put("ip", e());
-            map.put("ssl", "1");
-            return map;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().registerListener(this.a);
+            MessageManager.getInstance().registerListener(this.d);
         }
-        return (Map) invokeL.objValue;
-    }
-
-    public final JSONObject f(Map<String, String> map, JSONObject jSONObject) throws JSONException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, jSONObject)) == null) {
-            if (ez8.f(map)) {
-                return jSONObject;
-            }
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                jSONObject.putOpt(entry.getKey(), entry.getValue());
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeLL.objValue;
     }
 }

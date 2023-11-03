@@ -262,7 +262,7 @@ public final class BIMLogPb {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
                 /* renamed from: clone */
-                public Builder mo43clone() {
+                public Builder mo44clone() {
                     InterceptResult invokeV;
                     Interceptable interceptable = $ic;
                     if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -976,7 +976,7 @@ public final class BIMLogPb {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
             /* renamed from: clone */
-            public Builder mo43clone() {
+            public Builder mo44clone() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
@@ -2218,7 +2218,7 @@ public final class BIMLogPb {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
             /* renamed from: clone */
-            public Builder mo43clone() {
+            public Builder mo44clone() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {

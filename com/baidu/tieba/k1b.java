@@ -1,11 +1,15 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface k1b {
-    void i(String str);
+    void a(int i);
 
-    void k(String str);
+    void b();
 
-    void u(String str);
+    void onConvertAborted();
 
-    void v(String str);
+    void onConvertFailed();
+
+    void onConvertProgress(int i);
+
+    void onConvertSuccess();
 }

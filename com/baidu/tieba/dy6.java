@@ -1,5 +1,7 @@
 package com.baidu.tieba;
 
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.enterForum.recforum.view.RecommendForumView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,33 +11,34 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class dy6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public RecommendForumView a;
 
-    public dy6() {
+    public dy6(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        RecommendForumView recommendForumView = new RecommendForumView(tbPageContext.getPageActivity());
+        this.a = recommendForumView;
+        recommendForumView.setTbPageContext(tbPageContext);
     }
 
-    public hy6 a(String str, boolean z) {
-        InterceptResult invokeLZ;
+    public RecommendForumView a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
-            if ("default".equals(str)) {
-                return new fy6(z);
-            }
-            if ("manual".equals(str)) {
-                return new gy6(z);
-            }
-            return new fy6(z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (hy6) invokeLZ.objValue;
+        return (RecommendForumView) invokeV.objValue;
     }
 }

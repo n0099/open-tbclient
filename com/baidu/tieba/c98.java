@@ -1,170 +1,105 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
+import android.content.Context;
 import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.bu;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class c98 {
+public class c98 extends bi<i98, ThreadCardViewHolder<i98>> implements s16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext<?> a;
+    public BdUniqueId b;
+    public ui c;
+    public String d;
 
-    /* loaded from: classes5.dex */
-    public class a extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-        public final /* synthetic */ AnimatorListenerAdapter b;
-
-        public a(View view2, AnimatorListenerAdapter animatorListenerAdapter) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2, animatorListenerAdapter};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = view2;
-            this.b = animatorListenerAdapter;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationCancel(Animator animator) {
-            AnimatorListenerAdapter animatorListenerAdapter;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, animator) == null) && (animatorListenerAdapter = this.b) != null) {
-                animatorListenerAdapter.onAnimationCancel(animator);
-            }
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            AnimatorListenerAdapter animatorListenerAdapter;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) && (animatorListenerAdapter = this.b) != null) {
-                animatorListenerAdapter.onAnimationEnd(animator);
-            }
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationStart(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-                super.onAnimationStart(animator);
-                this.a.setVisibility(0);
-                AnimatorListenerAdapter animatorListenerAdapter = this.b;
-                if (animatorListenerAdapter != null) {
-                    animatorListenerAdapter.onAnimationStart(animator);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-        public final /* synthetic */ AnimatorListenerAdapter b;
-
-        public b(View view2, AnimatorListenerAdapter animatorListenerAdapter) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2, animatorListenerAdapter};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = view2;
-            this.b = animatorListenerAdapter;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationCancel(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                this.a.setVisibility(8);
-                this.a.setAlpha(0.0f);
-                AnimatorListenerAdapter animatorListenerAdapter = this.b;
-                if (animatorListenerAdapter != null) {
-                    animatorListenerAdapter.onAnimationCancel(animator);
-                }
-            }
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.a.setVisibility(8);
-                this.a.setAlpha(0.0f);
-                AnimatorListenerAdapter animatorListenerAdapter = this.b;
-                if (animatorListenerAdapter != null) {
-                    animatorListenerAdapter.onAnimationEnd(animator);
-                }
-            }
-        }
-    }
-
-    public static void a(View view2, AnimatorListenerAdapter animatorListenerAdapter) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c98(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, byte b) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, view2, animatorListenerAdapter) == null) {
-            b(view2, animatorListenerAdapter, 300L);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId, Byte.valueOf(b)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = tbPageContext;
+    }
+
+    @Override // com.baidu.tieba.s16
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.d = str;
         }
     }
 
-    public static void c(View view2, AnimatorListenerAdapter animatorListenerAdapter) {
+    public void x(ui uiVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, view2, animatorListenerAdapter) == null) {
-            d(view2, animatorListenerAdapter, 300L);
+        if (interceptable == null || interceptable.invokeL(1048581, this, uiVar) == null) {
+            this.c = uiVar;
         }
     }
 
-    public static void b(View view2, AnimatorListenerAdapter animatorListenerAdapter, long j) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: t */
+    public ThreadCardViewHolder<i98> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{view2, animatorListenerAdapter, Long.valueOf(j)}) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, View.ALPHA, 0.0f);
-            ofFloat.setDuration(j);
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(view2, View.TRANSLATION_Y, 0.0f, view2.getMeasuredHeight());
-            ofFloat2.setDuration(j);
-            AnimatorSet animatorSet = new AnimatorSet();
-            animatorSet.playTogether(ofFloat2, ofFloat);
-            animatorSet.addListener(new b(view2, animatorListenerAdapter));
-            animatorSet.start();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            bu.b bVar = new bu.b(this.a.getPageActivity(), false);
+            t98 t98Var = new t98(this.a);
+            t98Var.o(this.b);
+            bVar.n(t98Var);
+            bVar.l().j(UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
+            bVar.l().c(0);
+            bVar.l().g(0);
+            bVar.l().f(0);
+            bVar.l().e(0);
+            bVar.l().i(0);
+            ThreadCardViewHolder<i98> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.c));
+            threadCardViewHolder.i(this.b);
+            return threadCardViewHolder;
         }
+        return (ThreadCardViewHolder) invokeL.objValue;
     }
 
-    public static void d(View view2, AnimatorListenerAdapter animatorListenerAdapter, long j) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, i98 i98Var, ThreadCardViewHolder<i98> threadCardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{view2, animatorListenerAdapter, Long.valueOf(j)}) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, View.ALPHA, 1.0f);
-            ofFloat.setDuration(j);
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(view2, View.TRANSLATION_Y, view2.getMeasuredHeight(), 0.0f);
-            ofFloat2.setDuration(j);
-            AnimatorSet animatorSet = new AnimatorSet();
-            animatorSet.playTogether(ofFloat2, ofFloat);
-            animatorSet.addListener(new a(view2, animatorListenerAdapter));
-            animatorSet.start();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, i98Var, threadCardViewHolder})) == null) {
+            threadCardViewHolder.e(i98Var);
+            if (threadCardViewHolder.a() != null) {
+                threadCardViewHolder.a().s(i);
+                threadCardViewHolder.a().b(this.d);
+                threadCardViewHolder.a().onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
+            }
+            return threadCardViewHolder.getView();
         }
+        return (View) invokeCommon.objValue;
     }
 }

@@ -1,51 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.mutiprocess.soloader.SoLoaderEvent;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentHashMap;
+/* compiled from: ChatBoxDialogService.java */
 /* loaded from: classes7.dex */
-public class ol5 implements lk5<SoLoaderEvent> {
+public final /* synthetic */ class ol5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ol5() {
+    public static pl5 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return (pl5) ServiceManager.getService(pl5.a);
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lk5
-    /* renamed from: a */
-    public boolean onEvent(SoLoaderEvent soLoaderEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, soLoaderEvent)) == null) {
-            if (soLoaderEvent != null && !StringUtils.isNull(soLoaderEvent.name)) {
-                if (tg.a(BdBaseApplication.getInst().getContext(), rg.a(soLoaderEvent.name))) {
-                    ConcurrentHashMap<String, String> resHashMap = BdBaseApplication.getInst().getResHashMap();
-                    String str = soLoaderEvent.name;
-                    resHashMap.put(str, rg.a(str));
-                    return true;
-                }
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
+        return (pl5) invokeV.objValue;
     }
 }

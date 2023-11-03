@@ -14,7 +14,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class MultiFinderPatternFinder extends FinderPatternFinder {
     public static final float DIFF_MODSIZE_CUTOFF = 0.5f;
     public static final float DIFF_MODSIZE_CUTOFF_PERCENT = 0.05f;
@@ -22,7 +22,7 @@ public final class MultiFinderPatternFinder extends FinderPatternFinder {
     public static final float MAX_MODULE_COUNT_PER_EDGE = 180.0f;
     public static final float MIN_MODULE_COUNT_PER_EDGE = 9.0f;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class ModuleSizeComparator implements Serializable, Comparator<FinderPattern> {
         public ModuleSizeComparator() {
         }

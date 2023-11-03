@@ -1,65 +1,151 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.browser.BrowserHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.coreExtra.data.NewGodData;
+import android.os.Build;
+import android.util.DisplayMetrics;
+import android.view.WindowManager;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import com.baidu.adp.lib.util.DeviceInfoHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import tbclient.NewGodInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class ts5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(NewGodData newGodData) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, newGodData)) == null) {
-            if (newGodData != null && newGodData.getType() == 2) {
-                z = true;
-            } else {
-                z = false;
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes8.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static ts5 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-393445067, "Lcom/baidu/tieba/ts5$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-393445067, "Lcom/baidu/tieba/ts5$b;");
+                    return;
+                }
             }
-            return c(z);
+            a = new ts5(null);
+        }
+    }
+
+    public ts5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static ts5 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (ts5) invokeV.objValue;
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return Build.BRAND;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return Build.DEVICE;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return DeviceInfoHelper.getModel();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public /* synthetic */ ts5(a aVar) {
+        this();
+    }
+
+    @RequiresApi(api = 17)
+    public final DisplayMetrics b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            if (context == null) {
+                return displayMetrics;
+            }
+            ((WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay().getRealMetrics(displayMetrics);
+            return displayMetrics;
+        }
+        return (DisplayMetrics) invokeL.objValue;
+    }
+
+    @NonNull
+    public String d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            return DeviceInfoHelper.getMacAddress();
         }
         return (String) invokeL.objValue;
     }
 
-    public static String b(NewGodInfo newGodInfo) {
+    @RequiresApi(api = 17)
+    public String e(Context context) {
         InterceptResult invokeL;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, newGodInfo)) == null) {
-            if (newGodInfo != null && newGodInfo.type.intValue() == 2) {
-                z = true;
-            } else {
-                z = false;
-            }
-            return c(z);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            return String.valueOf(b(context).heightPixels);
         }
         return (String) invokeL.objValue;
     }
 
-    public static String c(boolean z) {
-        InterceptResult invokeZ;
+    @RequiresApi(api = 17)
+    public String f(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            if (z) {
-                return TbadkCoreApplication.getInst().getApp().getString(R.string.field_new_video_god);
-            }
-            return TbadkCoreApplication.getInst().getApp().getString(R.string.field_new_god);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
+            return String.valueOf(b(context).widthPixels);
         }
-        return (String) invokeZ.objValue;
-    }
-
-    public static void d(String str, String str2, String str3, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65539, null, str, str2, str3, context) == null) {
-            BrowserHelper.startWebActivity(context, null, i9b.a(i9b.a(i9b.a(TbConfig.URL_FORUM_LEVEL_H5_PAGE, "portrait", str2), "forum_id", str), "obj_locate", str3), true, true, true);
-        }
+        return (String) invokeL.objValue;
     }
 }

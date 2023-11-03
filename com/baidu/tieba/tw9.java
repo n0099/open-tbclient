@@ -1,37 +1,82 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class tw9 {
+public class tw9 extends ura {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId j1;
     public transient /* synthetic */ FieldHolder $fh;
+    public hy4 g1;
+    public hy4 h1;
+    public hy4 i1;
 
-    public static boolean a(gi5 gi5Var) {
-        InterceptResult invokeL;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948195763, "Lcom/baidu/tieba/tw9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948195763, "Lcom/baidu/tieba/tw9;");
+                return;
+            }
+        }
+        j1 = BdUniqueId.gen();
+    }
+
+    public tw9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, gi5Var)) == null) {
-            if (gi5Var != null) {
-                return gi5Var.isViewAttached();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ura, com.baidu.tieba.oi
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return j1;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public boolean F1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            hy4 hy4Var = this.g1;
+            if (hy4Var != null && !StringUtils.isNull(hy4Var.b)) {
+                return true;
+            }
+            hy4 hy4Var2 = this.h1;
+            if (hy4Var2 != null && !StringUtils.isNull(hy4Var2.b)) {
+                return true;
+            }
+            hy4 hy4Var3 = this.i1;
+            if (hy4Var3 != null) {
+                return !StringUtils.isNull(hy4Var3.b);
             }
             return false;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static void b(gi5 gi5Var, View.OnClickListener onClickListener, Context context, View view2, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{gi5Var, onClickListener, context, view2, str, Boolean.valueOf(z)}) == null) && !a(gi5Var) && context != null && view2 != null) {
-            if (gi5Var == null) {
-                gi5Var = new gi5(context, onClickListener);
-            }
-            gi5Var.j(context.getResources().getDimensionPixelSize(R.dimen.tbds530));
-            gi5Var.attachView(view2, z);
-            gi5Var.o();
-            gi5Var.onChangeSkinType();
-        }
+        return invokeV.booleanValue;
     }
 }

@@ -1,182 +1,209 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
+import android.net.Uri;
 import android.text.TextUtils;
-import android.view.MotionEvent;
-import android.view.View;
+import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.canvas.view.CanvasView;
-import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
+import com.baidu.swan.apps.storage.PathType;
+import com.baidu.tieba.q12;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.backends.pipeline.PipelineDraweeControllerBuilder;
+import com.facebook.drawee.controller.AbstractDraweeController;
+import com.facebook.drawee.controller.BaseControllerListener;
+import com.facebook.drawee.drawable.ScalingUtils;
+import com.facebook.drawee.generic.GenericDraweeHierarchy;
+import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
+import com.facebook.drawee.generic.RoundingParams;
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.facebook.imagepipeline.image.ImageInfo;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import java.io.File;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
-public final class p12 extends f12<CanvasView, n02> {
+public abstract class p12<V extends SimpleDraweeView, M extends q12> extends u12<V, M> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public CanvasView i;
+
+    public abstract void W(@NonNull V v, @NonNull M m);
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CanvasView.c a;
 
-        public a(p12 p12Var, CanvasView.c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p12Var, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-569003461, "Lcom/baidu/tieba/p12$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-569003461, "Lcom/baidu/tieba/p12$a;");
                     return;
                 }
             }
-            this.a = cVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            CanvasView.c cVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (cVar = this.a) != null) {
-                cVar.a();
+            int[] iArr = new int[PathType.values().length];
+            a = iArr;
+            try {
+                iArr[PathType.BD_FILE.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
             }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b extends vk3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean j;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(p12 p12Var, String str, String str2, String str3, boolean z) {
-            super(str, str2, str3);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p12Var, str, str2, str3, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+            try {
+                a[PathType.RELATIVE.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
             }
-            this.j = z;
-        }
-
-        @Override // com.baidu.tieba.vk3, android.view.View.OnTouchListener
-        public boolean onTouch(View view2, MotionEvent motionEvent) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                if (this.j && super.onTouch(view2, motionEvent)) {
-                    return true;
-                }
-                return false;
+            try {
+                a[PathType.NETWORK.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
             }
-            return invokeLL.booleanValue;
+            try {
+                a[PathType.ERROR.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p12(@NonNull Context context, @NonNull n02 n02Var) {
-        super(context, n02Var);
+    public p12(@Nullable Context context, @NonNull M m) {
+        super(context, m);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, n02Var};
+            Object[] objArr = {context, m};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (g12) objArr2[1]);
+                super((Context) objArr2[0], (v12) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        CanvasView canvasView = new CanvasView(context);
-        this.i = canvasView;
-        canvasView.setInterceptTouchEvent(n02Var.j);
-        this.i.setHide(n02Var.f);
-        this.i.setGesture(n02Var.g);
-        if (n02Var.g) {
-            this.i.setInterceptTouchEvent(false);
-        }
     }
 
-    public boolean H(n02 n02Var, CanvasView.c cVar) {
+    public static Uri Y(@NonNull String str) {
+        InterceptResult invokeL;
+        String str2;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            PathType s = od3.s(str);
+            g63 M = g63.M();
+            if (M != null) {
+                str2 = M.b;
+                str3 = M.l0();
+            } else {
+                str2 = null;
+                str3 = null;
+            }
+            if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
+                return null;
+            }
+            int i = a.a[s.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        return null;
+                    }
+                    return Uri.parse(str);
+                }
+                File file = new File(str);
+                if (file.exists()) {
+                    return Uri.fromFile(file);
+                }
+                String L = od3.L(str, M, str3);
+                if (TextUtils.isEmpty(L)) {
+                    return null;
+                }
+                return Uri.fromFile(new File(L));
+            }
+            String M2 = od3.M(str, str2);
+            if (TextUtils.isEmpty(M2)) {
+                return null;
+            }
+            return Uri.fromFile(new File(M2));
+        }
+        return (Uri) invokeL.objValue;
+    }
+
+    @NonNull
+    public y22 U(@NonNull M m, @NonNull M m2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n02Var, cVar)) == null) {
-            if (n02Var != null && (n02Var instanceof o02)) {
-                n02 n = n();
-                if (!TextUtils.equals(n.b, n02Var.b) || !TextUtils.equals(n.c, n02Var.c)) {
-                    i22.a("Component-Canvas", "drawCanvas with illegal ids!");
-                }
-                o02 o02Var = (o02) n02Var;
-                this.i.c(o02Var.h(), o02Var.i());
-                this.i.postInvalidate();
-                this.i.post(new a(this, cVar));
-                return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, m, m2)) == null) {
+            y22 k = super.k(m, m2);
+            if (!TextUtils.equals(m.t, m2.t)) {
+                k.b(9);
             }
-            p22.c("Component-Canvas", "some params is invalid");
-            return false;
+            return k;
         }
-        return invokeLL.booleanValue;
+        return (y22) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.f12
-    public void A() {
+    public void V(@NonNull V v, @NonNull M m, @NonNull y22 y22Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.A();
-            this.i.f();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.f12
-    @SuppressLint({"ClickableViewAccessibility"})
-    /* renamed from: I */
-    public void r(@NonNull SwanAppComponentContainerView swanAppComponentContainerView, @NonNull n02 n02Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, swanAppComponentContainerView, n02Var) == null) {
-            swanAppComponentContainerView.setOnTouchListener(new b(this, n02Var.c, n02Var.b, n02Var.a, n02Var.g));
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v, m, y22Var) == null) {
+            super.D(v, m, y22Var);
+            if (y22Var.a(9)) {
+                W(v, m);
+            }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.f12
-    @NonNull
-    /* renamed from: J */
-    public CanvasView v(@NonNull Context context) {
-        InterceptResult invokeL;
+    public final void X(@NonNull V v, @NonNull M m, @Nullable BaseControllerListener<ImageInfo> baseControllerListener) {
+        Uri Y;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            return this.i;
+        if ((interceptable != null && interceptable.invokeLLL(1048579, this, v, m, baseControllerListener) != null) || m.j == null) {
+            return;
         }
-        return (CanvasView) invokeL.objValue;
+        if (w12.h) {
+            Log.d("Component-SimpleDrawee", "renderImageStyle");
+        }
+        String str = m.t;
+        if (TextUtils.isEmpty(str) || (Y = Y(str)) == null) {
+            return;
+        }
+        g32.i("Component-SimpleDrawee", "Image Uri:" + Y);
+        PipelineDraweeControllerBuilder oldController = Fresco.newDraweeControllerBuilder().setOldController(v.getController());
+        if (baseControllerListener != null) {
+            oldController.setControllerListener(baseControllerListener);
+        }
+        HashMap hashMap = new HashMap();
+        String h0 = ad2.V().h0();
+        if (!TextUtils.isEmpty(h0)) {
+            hashMap.put("User-Agent", h0);
+        }
+        String b = nj3.b();
+        if (!TextUtils.isEmpty(b) && nj3.c(Y.toString())) {
+            hashMap.put("Referer", b);
+        }
+        br1 C = np2.C();
+        ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(Y);
+        C.e(newBuilderWithSource, hashMap);
+        oldController.setImageRequest(newBuilderWithSource.build());
+        AbstractDraweeController build = oldController.build();
+        RoundingParams roundingParams = new RoundingParams();
+        roundingParams.setCornersRadius(m.n);
+        GenericDraweeHierarchy build2 = new GenericDraweeHierarchyBuilder(v.getResources()).build();
+        build2.setRoundingParams(roundingParams);
+        build2.setActualImageScaleType(ScalingUtils.ScaleType.FIT_XY);
+        v.setHierarchy(build2);
+        v.setController(build);
     }
 }

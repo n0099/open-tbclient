@@ -2,7 +2,7 @@ package com.google.android.material.transition.platform;
 
 import androidx.annotation.RequiresApi;
 @RequiresApi(21)
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class FadeModeResult {
     public final int endAlpha;
     public final boolean endOnTop;

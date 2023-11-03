@@ -1,14 +1,16 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
-import java.util.List;
+import com.baidu.adp.base.BdPageContext;
+import com.baidu.tieba.frs.loadmore.FrsLoadMoreModel;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 /* loaded from: classes5.dex */
-public interface dz7 {
-    boolean a(BdUniqueId bdUniqueId, String str, String str2, String str3);
+public interface dz7 extends FrsLoadMoreModel.b {
+    FrsViewData F1();
 
-    boolean b(int i, oz7 oz7Var);
+    BdPageContext getPageContext();
 
-    boolean c(int i);
+    BdUniqueId getUniqueId();
 
-    void setData(List<yh> list);
+    String v();
 }

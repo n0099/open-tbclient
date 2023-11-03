@@ -5,7 +5,7 @@ import com.google.zxing.EncodeHintType;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Code93Writer extends OneDimensionalCodeWriter {
     public static int appendPattern(boolean[] zArr, int i, int[] iArr, boolean z) {
         boolean z2;

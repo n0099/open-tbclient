@@ -1,20 +1,16 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tbadk.core.message.UpgradePopWindowMessage;
-import com.baidu.tieba.frs.FrsActivity;
+import android.graphics.drawable.Drawable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class np7 extends o05 {
+public class np7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<String, Drawable> a;
 
     public np7() {
         Interceptable interceptable = $ic;
@@ -26,22 +22,16 @@ public class np7 extends o05 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.o05
-    public void a(@NonNull Context context, @NonNull c05 c05Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, c05Var) == null) {
-            if (!(context instanceof FrsActivity)) {
-                YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "FRS升级弹窗失败：当前Activity非FrsActivity");
-                YunDialogManager.unMarkShowingDialogName("frsUpgrade");
                 return;
             }
-            UpgradePopWindowMessage upgradePopWindowMessage = new UpgradePopWindowMessage(2001016, ((FrsActivity) context).getPageContext());
-            upgradePopWindowMessage.setFromPage("frs");
-            MessageManager.getInstance().sendMessage(upgradePopWindowMessage);
+        }
+        this.a = new HashMap<>();
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.a.isEmpty()) {
+            this.a.clear();
         }
     }
 }

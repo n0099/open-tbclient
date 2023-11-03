@@ -1,54 +1,42 @@
 package com.baidu.tieba;
 
+import com.baidu.tieba.l5c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.java_websocket.exceptions.InvalidDataException;
-import org.java_websocket.exceptions.InvalidFrameException;
-import org.java_websocket.framing.Framedata;
-/* loaded from: classes6.dex */
-public abstract class k5c extends m5c {
+import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
+/* loaded from: classes7.dex */
+public class k5c implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ int a;
+    public final /* synthetic */ l5c.a b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k5c(Framedata.Opcode opcode) {
-        super(opcode);
+    public k5c(l5c.a aVar, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {opcode};
+            Object[] objArr = {aVar, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Framedata.Opcode) newInitContext.callArgs[0]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = aVar;
+        this.a = i;
     }
 
-    @Override // com.baidu.tieba.m5c
-    public void h() throws InvalidDataException {
+    @Override // java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (f()) {
-                if (!b()) {
-                    if (!c()) {
-                        if (!e()) {
-                            return;
-                        }
-                        throw new InvalidFrameException("Control frame cant have rsv3==true set");
-                    }
-                    throw new InvalidFrameException("Control frame cant have rsv2==true set");
-                }
-                throw new InvalidFrameException("Control frame cant have rsv1==true set");
-            }
-            throw new InvalidFrameException("Control frame cant have fin==false set");
+            this.b.b(HonorPushErrorEnum.fromCode(this.a));
         }
     }
 }

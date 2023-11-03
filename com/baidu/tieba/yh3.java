@@ -1,162 +1,77 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.content.ActivityNotFoundException;
 import android.content.Context;
-import android.content.Intent;
-import android.os.Build;
 import android.util.Log;
-import android.view.Window;
-import android.widget.Toast;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.android.ActivityUtils;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes9.dex */
-public final class yh3 {
+public class yh3 extends d83 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int c() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yh3(d73 d73Var) {
+        super(d73Var, "/swanAPI/updateTextarea");
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return 5894;
-        }
-        return invokeV.intValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948330117, "Lcom/baidu/tieba/yh3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948330117, "Lcom/baidu/tieba/yh3;");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {d73Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = am1.a;
     }
 
-    public static void a(Activity activity) {
+    @Override // com.baidu.tieba.d83
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g63 g63Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, activity) == null) && activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null) {
-            Window window = activity.getWindow();
-            window.clearFlags(1024);
-            int systemUiVisibility = window.getDecorView().getSystemUiVisibility() & (~c());
-            if (l43.b) {
-                systemUiVisibility |= 5120;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g63Var)) == null) {
+            if (d83.b) {
+                Log.d("UpdateTextAreaAction", "handle entity: " + unitedSchemeEntity.toString());
             }
-            window.getDecorView().setSystemUiVisibility(systemUiVisibility);
-        }
-    }
-
-    public static void b(Activity activity, Dialog dialog) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, activity, dialog) == null) && activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null && dialog != null && dialog.getWindow() != null && dialog.getWindow().getDecorView() != null) {
-            dialog.getWindow().getDecorView().setSystemUiVisibility(activity.getWindow().getDecorView().getSystemUiVisibility());
-        }
-    }
-
-    public static boolean d(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity)) == null) {
-            if (activity != null && !activity.isDestroyed() && !activity.isFinishing()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void e(Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, activity) == null) && activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null) {
-            Window window = activity.getWindow();
-            window.setFlags(1024, 1024);
-            window.getDecorView().setSystemUiVisibility(window.getDecorView().getSystemUiVisibility() | c());
-        }
-    }
-
-    public static void j(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, activity) == null) {
-            if (a) {
-                Log.i(ActivityUtils.TAG, "tryFinishAndRemoveTask: " + activity);
-            }
-            if (activity != null && !activity.isDestroyed()) {
-                if (Build.VERSION.SDK_INT >= 21) {
-                    activity.finishAndRemoveTask();
-                } else {
-                    activity.finish();
-                }
-            }
-        }
-    }
-
-    public static void f(Activity activity, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, activity, intent) == null) {
-            h(activity, intent, true);
-        }
-    }
-
-    public static boolean g(Context context, Intent intent) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, intent)) == null) {
-            return h(context, intent, false);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean h(Context context, Intent intent, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65544, null, context, intent, z)) == null) {
-            return i(context, intent, z, true);
-        }
-        return invokeLLZ.booleanValue;
-    }
-
-    public static boolean i(Context context, Intent intent, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{context, intent, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (z || !(context instanceof Activity)) {
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-            }
-            try {
-                context.startActivity(intent);
-                return true;
-            } catch (ActivityNotFoundException unused) {
-                if (!z2) {
-                    return false;
-                }
-                Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f14cf, 0).show();
-                return false;
-            } catch (SecurityException e) {
-                if (z2) {
-                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f14cf, 0).show();
-                }
-                if (!a) {
-                    return false;
-                }
-                Log.e(ActivityUtils.TAG, "Launcher does not have the permission to launch " + intent + ". Make sure to create a MAIN intent-filter for the corresponding activity or use the exported attribute for this activity.", e);
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
+            g32.i("UpdateTextAreaAction", "UpdateTextAreaAction updateParams: " + optParamsAsJo);
+            String optString = optParamsAsJo.optString("slaveId");
+            String optString2 = optParamsAsJo.optString("componentId");
+            r22 r22Var = (r22) t22.b(optString, optString2);
+            if (r22Var == null) {
+                String str = "can't find textarea component:#" + optString2;
+                g32.c("UpdateTextAreaAction", str);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str);
+                return false;
+            }
+            s22 s22Var = (s22) r22Var.l();
+            s22Var.g(optParamsAsJo);
+            y12 G = r22Var.G(s22Var);
+            if (!G.a()) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, G.b);
+                return false;
+            }
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+            r22Var.W0(optString2);
+            return true;
         }
-        return invokeCommon.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 }

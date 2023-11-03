@@ -1,56 +1,85 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.BundleDataSource;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.CursorDataSource;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.IntentDataSource;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.JsonDataSource;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.MapDataSource;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.ProtobufDataSource;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
 /* loaded from: classes8.dex */
-public class v8 {
+public class v8 implements u8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Integer a;
 
-    public static final boolean a(d7 d7Var, w7 w7Var) {
-        InterceptResult invokeLL;
-        l7 a;
+    public v8(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, d7Var, w7Var)) == null) {
-            if (d7Var != null && w7Var != null) {
-                for (Field field : b7.b(d7Var.getClass())) {
-                    if (field != null && !Modifier.isTransient(field.getModifiers()) && !Modifier.isStatic(field.getModifiers())) {
-                        String name = field.getName();
-                        if (!TextUtils.isEmpty(name) && (a = x8.a(b7.d(d7Var, name))) != null) {
-                            Object obj = null;
-                            if (w7Var instanceof JsonDataSource) {
-                                obj = a.f(new u8(field.getGenericType()));
-                            } else if (w7Var instanceof BundleDataSource) {
-                                obj = a.d(new u8(field.getGenericType()));
-                            } else if (w7Var instanceof IntentDataSource) {
-                                obj = a.e(new u8(field.getGenericType()));
-                            } else if (w7Var instanceof MapDataSource) {
-                                obj = a.b(new u8(field.getGenericType()));
-                            } else if (w7Var instanceof CursorDataSource) {
-                                obj = a.a(new u8(field.getGenericType()));
-                            } else if (w7Var instanceof ProtobufDataSource) {
-                                obj = a.c(new u8(field.getGenericType()));
-                            }
-                            if (obj != null) {
-                                w7Var.set(name, obj);
-                            }
-                        }
-                    }
-                }
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeLL.booleanValue;
+        this.a = Integer.valueOf(i);
+    }
+
+    @Override // com.baidu.tieba.u8
+    public Object a(k9 k9Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k9Var)) == null) {
+            Class<?> a = k9Var.a();
+            if (a != Byte.class && a != Byte.TYPE) {
+                if (a != Short.class && a != Short.TYPE) {
+                    if (a != Integer.class && a != Integer.TYPE) {
+                        if (a != Long.class && a != Long.TYPE) {
+                            if (a != Float.class && a != Float.TYPE) {
+                                if (a != Double.class && a != Double.TYPE) {
+                                    if (a != Character.class && a != Character.TYPE) {
+                                        boolean z = false;
+                                        if (a != Boolean.class && a != Boolean.TYPE) {
+                                            if (a == String.class) {
+                                                return String.valueOf(this.a);
+                                            }
+                                            if (a == char[].class) {
+                                                return String.valueOf(this.a).toCharArray();
+                                            }
+                                            if (a == byte[].class) {
+                                                try {
+                                                    return jd.e(String.valueOf(this.a), 0);
+                                                } catch (IOException e) {
+                                                    e.printStackTrace();
+                                                    return null;
+                                                }
+                                            }
+                                            return null;
+                                        }
+                                        if (this.a.byteValue() == 0) {
+                                            z = true;
+                                        }
+                                        return Boolean.valueOf(z);
+                                    }
+                                    return Character.valueOf((char) this.a.intValue());
+                                }
+                                return Double.valueOf(this.a.doubleValue());
+                            }
+                            return Float.valueOf(this.a.floatValue());
+                        }
+                        return Long.valueOf(this.a.longValue());
+                    }
+                    return Integer.valueOf(this.a.intValue());
+                }
+                return Short.valueOf(this.a.shortValue());
+            }
+            return Byte.valueOf(this.a.byteValue());
+        }
+        return invokeL.objValue;
     }
 }

@@ -22,7 +22,7 @@ import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.resolve.NonReportingOverrideStrategy;
 import kotlin.reflect.jvm.internal.impl.resolve.OverridingUtil;
 import kotlin.reflect.jvm.internal.impl.serialization.deserialization.ErrorReporter;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class DescriptorResolverUtils {
     public static /* synthetic */ void $$$reportNull$$$0(int i) {
         String str = i != 18 ? "Argument for @NotNull parameter '%s' of %s.%s must not be null" : "@NotNull method %s.%s must not return null";

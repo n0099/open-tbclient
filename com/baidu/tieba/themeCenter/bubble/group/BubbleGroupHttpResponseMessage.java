@@ -3,8 +3,8 @@ package com.baidu.tieba.themeCenter.bubble.group;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.ela;
-import com.baidu.tieba.qla;
+import com.baidu.tieba.dya;
+import com.baidu.tieba.pya;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,8 +21,8 @@ import tbclient.GetBubbleByCategory.ThemeBubbleInMain;
 public class BubbleGroupHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ela> mBubbleGroupList;
-    public qla mRecommand;
+    public List<dya> mBubbleGroupList;
+    public pya mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BubbleGroupHttpResponseMessage(int i) {
@@ -60,24 +60,24 @@ public class BubbleGroupHttpResponseMessage extends TbHttpResponsedMessage {
         DataRes dataRes = getBubbleByCategoryResIdl.data;
         if (dataRes != null) {
             if (dataRes.recommend != null) {
-                qla qlaVar = new qla();
-                this.mRecommand = qlaVar;
-                qlaVar.d(getBubbleByCategoryResIdl.data.recommend);
+                pya pyaVar = new pya();
+                this.mRecommand = pyaVar;
+                pyaVar.d(getBubbleByCategoryResIdl.data.recommend);
             }
             if (getBubbleByCategoryResIdl.data.bubbles != null) {
                 this.mBubbleGroupList = new ArrayList();
                 for (ThemeBubbleInMain themeBubbleInMain : getBubbleByCategoryResIdl.data.bubbles) {
                     if (themeBubbleInMain != null && !StringUtils.isNull(themeBubbleInMain.bubble_category)) {
-                        ela elaVar = new ela();
-                        elaVar.c(themeBubbleInMain);
-                        this.mBubbleGroupList.add(elaVar);
+                        dya dyaVar = new dya();
+                        dyaVar.c(themeBubbleInMain);
+                        this.mBubbleGroupList.add(dyaVar);
                     }
                 }
             }
         }
     }
 
-    public List<ela> getGroupList() {
+    public List<dya> getGroupList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -86,12 +86,12 @@ public class BubbleGroupHttpResponseMessage extends TbHttpResponsedMessage {
         return (List) invokeV.objValue;
     }
 
-    public qla getRecommand() {
+    public pya getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.mRecommand;
         }
-        return (qla) invokeV.objValue;
+        return (pya) invokeV.objValue;
     }
 }

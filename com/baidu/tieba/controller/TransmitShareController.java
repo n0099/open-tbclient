@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ShareDialogConfig;
 import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.gr5;
-import com.baidu.tieba.io6;
+import com.baidu.tieba.at5;
+import com.baidu.tieba.yp6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes5.dex */
-public class TransmitShareController implements io6.a {
+public class TransmitShareController implements yp6.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FROM_ENTERFORUM = 1;
     public static final int FROM_SELECTFORUM = 2;
@@ -34,9 +34,9 @@ public class TransmitShareController implements io6.a {
     public boolean isSelectForumDataLoaded;
     public ArrayList<TransmitForumData> mEnterForumData;
     public ArrayList<TransmitForumData> mForumList;
-    public io6 mGetEnterForumDataController;
+    public yp6 mGetEnterForumDataController;
     public int mPrivateThread;
-    public io6 mSelectForumController;
+    public yp6 mSelectForumController;
     public ArrayList<TransmitForumData> mSelectForumData;
 
     static {
@@ -86,13 +86,13 @@ public class TransmitShareController implements io6.a {
     private void initGetEnterForumController() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2016562), io6.class);
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2016562), yp6.class);
             if (runTask != null) {
-                this.mGetEnterForumDataController = (io6) runTask.getData();
+                this.mGetEnterForumDataController = (yp6) runTask.getData();
             }
-            io6 io6Var = this.mGetEnterForumDataController;
-            if (io6Var != null) {
-                io6Var.a(this);
+            yp6 yp6Var = this.mGetEnterForumDataController;
+            if (yp6Var != null) {
+                yp6Var.a(this);
             }
         }
     }
@@ -100,13 +100,13 @@ public class TransmitShareController implements io6.a {
     private void initSelectForumController() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001449), io6.class);
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001449), yp6.class);
             if (runTask != null) {
-                this.mSelectForumController = (io6) runTask.getData();
+                this.mSelectForumController = (yp6) runTask.getData();
             }
-            io6 io6Var = this.mSelectForumController;
-            if (io6Var != null) {
-                io6Var.a(this);
+            yp6 yp6Var = this.mSelectForumController;
+            if (yp6Var != null) {
+                yp6Var.a(this);
             }
         }
     }
@@ -156,13 +156,13 @@ public class TransmitShareController implements io6.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.isLoading = true;
-            io6 io6Var = this.mSelectForumController;
-            if (io6Var != null) {
-                io6Var.b();
+            yp6 yp6Var = this.mSelectForumController;
+            if (yp6Var != null) {
+                yp6Var.b();
             }
-            io6 io6Var2 = this.mGetEnterForumDataController;
-            if (io6Var2 != null) {
-                io6Var2.b();
+            yp6 yp6Var2 = this.mGetEnterForumDataController;
+            if (yp6Var2 != null) {
+                yp6Var2.b();
             }
         }
     }
@@ -222,7 +222,7 @@ public class TransmitShareController implements io6.a {
         }
     }
 
-    @Override // com.baidu.tieba.io6.a
+    @Override // com.baidu.tieba.yp6.a
     public void callback(ArrayList<TransmitForumData> arrayList, boolean z, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{arrayList, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
@@ -244,7 +244,7 @@ public class TransmitShareController implements io6.a {
 
     public void showShareDialog(ShareDialogConfig shareDialogConfig) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, shareDialogConfig) != null) || shareDialogConfig == null || shareDialogConfig.shareItem == null || gr5.a()) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, shareDialogConfig) != null) || shareDialogConfig == null || shareDialogConfig.shareItem == null || at5.a()) {
             return;
         }
         if (shareDialogConfig.showLocation) {

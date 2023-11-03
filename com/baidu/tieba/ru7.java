@@ -1,69 +1,163 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hx7;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
+import java.util.List;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.FrsPage.ForumGroup;
+import tbclient.FrsPage.GroupFeedCard;
 /* loaded from: classes8.dex */
-public class ru7 implements c09 {
+public final class ru7 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final a c;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public hx7.c a;
+    public final GroupFeedCard a;
+    public final String b;
 
-    @Override // com.baidu.tieba.c09
-    public void c(long j, String str, Message message, boolean z) {
+    @JvmStatic
+    public static final void f(ForumGroup forumGroup, List<oi> list, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), str, message, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65539, null, forumGroup, list, str) == null) {
+            c.b(forumGroup, list, str);
         }
     }
 
-    public ru7(hx7.c cVar) {
+    /* loaded from: classes8.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public final BdUniqueId a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeV = interceptable.invokeV(1048576, this)) != null) {
+                return (BdUniqueId) invokeV.objValue;
+            }
+            return ru7.d;
+        }
+
+        @JvmStatic
+        public final void b(ForumGroup frsForumGroup, List<oi> newList, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frsForumGroup, newList, str) == null) {
+                Intrinsics.checkNotNullParameter(frsForumGroup, "frsForumGroup");
+                Intrinsics.checkNotNullParameter(newList, "newList");
+                int i = 0;
+                int i2 = 0;
+                for (oi oiVar : newList) {
+                    Integer num = frsForumGroup.feed_card.index;
+                    Intrinsics.checkNotNullExpressionValue(num, "frsForumGroup.feed_card.index");
+                    if (i >= num.intValue()) {
+                        break;
+                    }
+                    if (!Intrinsics.areEqual(oiVar.getType(), ThreadData.TYPE_TOP) && !js5.o(oiVar)) {
+                        i++;
+                    }
+                    i2++;
+                }
+                if (i2 <= newList.size()) {
+                    GroupFeedCard groupFeedCard = frsForumGroup.feed_card;
+                    Intrinsics.checkNotNullExpressionValue(groupFeedCard, "frsForumGroup.feed_card");
+                    newList.add(i2, new ru7(groupFeedCard, str));
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948134197, "Lcom/baidu/tieba/ru7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948134197, "Lcom/baidu/tieba/ru7;");
+                return;
+            }
+        }
+        c = new a(null);
+        BdUniqueId gen = BdUniqueId.gen();
+        Intrinsics.checkNotNullExpressionValue(gen, "gen()");
+        d = gen;
+    }
+
+    public ru7(GroupFeedCard data, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {data, str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = cVar;
+        Intrinsics.checkNotNullParameter(data, "data");
+        this.a = data;
+        this.b = str;
     }
 
-    @Override // com.baidu.tieba.c09
-    public void a(boolean z, Message message, boolean z2, long j, String str, int i) {
+    public final GroupFeedCard d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), message, Boolean.valueOf(z2), Long.valueOf(j), str, Integer.valueOf(i)}) == null) {
-            su7 su7Var = new su7();
-            vz8 vz8Var = new vz8();
-            vz8Var.a = j;
-            vz8Var.b = str;
-            rz8 a = a09.d().a(vz8Var);
-            if (a != null) {
-                a.b(z, message, z2, i);
-            }
-            su7Var.b(a);
-            hx7.c cVar = this.a;
-            if (cVar != null) {
-                cVar.d(z, su7Var, z2, "", str, true);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (GroupFeedCard) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.c09
-    public void b(long j, String str, String str2, int i) {
-        hx7.c cVar;
+    public final String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), str, str2, Integer.valueOf(i)}) == null) && (cVar = this.a) != null) {
-            cVar.b(str, str2, i, true, 1);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.oi
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return d;
+        }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

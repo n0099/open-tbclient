@@ -1,46 +1,93 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
-import android.os.CountDownTimer;
+import android.net.http.SslError;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import android.webkit.SslErrorHandler;
+import android.webkit.WebResourceError;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.FrameLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdActivityStack;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.pb.ejection.value.Direction;
-import com.baidu.tieba.pb.ejection.value.LifeCycleState;
+import com.baidu.searchbox.live.interfaces.browser.IBrowserView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.medialive.browser.HkWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class vf9 extends uf9 {
+public class vf9 implements IBrowserView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean A;
-    public final PorterDuffColorFilter B;
-    public Bitmap z;
+    public HkWebView a;
+    public FrameLayout b;
+    public View c;
+    public View d;
+    public View e;
+    public IBrowserView.OnBrowserStatusChangeCallBack f;
+    public boolean g;
+
+    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
+    public void setDisallowInterceptTouchEvent(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
+    public void setDynamicDispatcherEnabled(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
+    public void setOnLongPressListener(IBrowserView.OnLongPressListener onLongPressListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, onLongPressListener) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
+    public void setStateViewVisible(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
+    public void setUpSelect(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+        }
+    }
 
     /* loaded from: classes8.dex */
-    public class a extends CountDownTimer {
+    public class a extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ vf9 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(vf9 vf9Var, long j, long j2) {
-            super(j, j2);
+        public a(vf9 vf9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {vf9Var, Long.valueOf(j), Long.valueOf(j2)};
+                Object[] objArr = {vf9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Long) objArr2[0]).longValue(), ((Long) objArr2[1]).longValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -49,245 +96,248 @@ public class vf9 extends uf9 {
             this.a = vf9Var;
         }
 
-        @Override // android.os.CountDownTimer
-        public void onFinish() {
+        @Override // android.webkit.WebViewClient
+        public void onPageFinished(WebView webView, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                vf9 vf9Var = this.a;
-                vf9Var.v = LifeCycleState.DEAD;
-                vf9Var.w.cancel();
+            if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
+                super.onPageFinished(webView, str);
+                this.a.i();
+                if (this.a.f != null) {
+                    this.a.f.onHideLoading();
+                }
+                if (this.a.g) {
+                    this.a.j();
+                    if (this.a.f != null) {
+                        this.a.f.onLoadFailure();
+                    }
+                } else if (this.a.f != null) {
+                    this.a.f.onLoadSuccess();
+                }
             }
         }
 
-        @Override // android.os.CountDownTimer
-        public void onTick(long j) {
+        @Override // android.webkit.WebViewClient
+        public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                if (j <= 2000) {
-                    vf9 vf9Var = this.a;
-                    vf9Var.g = (int) (vf9Var.g - vf9Var.h);
-                }
-                vf9 vf9Var2 = this.a;
-                int i = vf9Var2.t + 10;
-                vf9Var2.t = i;
-                if (i > 360) {
-                    vf9Var2.t = 0;
-                }
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
+                super.onPageStarted(webView, str, bitmap);
+                this.a.g = false;
+                this.a.k();
+                this.a.h();
             }
+        }
+
+        @Override // android.webkit.WebViewClient
+        public void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, WebResourceError webResourceError) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, webResourceRequest, webResourceError) == null) {
+                super.onReceivedError(webView, webResourceRequest, webResourceError);
+                this.a.g = true;
+            }
+        }
+
+        @Override // android.webkit.WebViewClient
+        public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048579, this, webView, sslErrorHandler, sslError) == null) {
+                super.onReceivedSslError(webView, sslErrorHandler, sslError);
+                this.a.g = true;
+            }
+        }
+
+        @Override // android.webkit.WebViewClient
+        public boolean shouldOverrideUrlLoading(WebView webView, String str) {
+            InterceptResult invokeLL;
+            Activity currentActivity;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
+                if (TextUtils.isEmpty(str) || (currentActivity = BdActivityStack.getInst().currentActivity()) == null) {
+                    return false;
+                }
+                UrlManager.getInstance().dealOneLink((TbPageContext) a5.a(currentActivity), new String[]{str}, true);
+                return true;
+            }
+            return invokeLL.booleanValue;
         }
     }
 
-    public vf9(Bitmap bitmap, int i, int i2, int i3, int i4) {
+    public vf9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bitmap, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.A = false;
-        this.z = bitmap;
-        this.b = i;
-        this.c = i2;
-        this.d = i;
-        this.e = i2;
-        int nextInt = this.x.nextInt(91) + 45;
-        this.a = nextInt;
-        if (nextInt < 90) {
-            this.o = Direction.RIGHT;
-        } else {
-            this.o = Direction.LEFT;
-            this.a = 180 - nextInt;
-        }
-        int sqrt = (int) (Math.sqrt(Math.pow(bitmap.getWidth(), 2.0d) + Math.pow(bitmap.getHeight(), 2.0d)) / 2.0d);
-        this.f = sqrt;
-        this.p = sqrt;
-        this.q = i3 - sqrt;
-        this.r = sqrt;
-        this.s = i4 - sqrt;
-        this.B = new PorterDuffColorFilter(SkinManager.getColor(R.color.CAM_X0501), PorterDuff.Mode.SRC_ATOP);
-        a aVar = new a(this, 3000L, 10L);
-        this.w = aVar;
-        aVar.start();
+        this.g = false;
     }
 
-    @Override // com.baidu.tieba.uf9
-    public void a() {
+    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
+    public boolean canGoBack() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (!this.A) {
-                this.A = true;
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            HkWebView hkWebView = this.a;
+            if (hkWebView != null && hkWebView.canGoBack()) {
+                return true;
             }
-            int i = this.l + 1;
-            this.l = i;
-            this.i = (int) ((this.k * i) + ((this.m * Math.pow(i, 2.0d)) / 2.0d));
-            double radians = Math.toRadians(this.a);
-            if (this.n == Direction.TOP) {
-                if (this.o == Direction.RIGHT) {
-                    f(radians);
-                } else {
-                    d(radians);
-                }
-            } else if (this.o == Direction.RIGHT) {
-                e(radians);
-            } else {
-                c(radians);
-            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
+    public void goBack() {
+        HkWebView hkWebView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (hkWebView = this.a) != null) {
+            hkWebView.goBack();
         }
     }
 
-    @Override // com.baidu.tieba.uf9
-    public void b(Canvas canvas) {
-        Bitmap bitmap;
+    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
+    public void onDestroy() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) && (bitmap = this.z) != null && !bitmap.isRecycled()) {
-            if (this.g < 0) {
-                this.g = 0;
-            }
-            this.u.setAlpha(this.g);
-            if (this.y == 4) {
-                this.u.setColorFilter(this.B);
-            }
-            canvas.save();
-            canvas.rotate(this.t, this.d, this.e);
-            Bitmap bitmap2 = this.z;
-            canvas.drawBitmap(bitmap2, this.d - (bitmap2.getWidth() / 2.0f), this.e - (this.z.getHeight() / 2.0f), this.u);
-            canvas.restore();
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.a = null;
         }
     }
 
-    public final void c(double d) {
+    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
+    public void refresh() {
+        HkWebView hkWebView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Double.valueOf(d)}) == null) {
-            this.d = this.b - ((int) ((this.i - this.j) * Math.cos(d)));
-            this.e = this.c + ((int) ((this.i - this.j) * Math.sin(d)));
-            int i = this.d;
-            int i2 = this.p;
-            if (i <= i2) {
-                int tan = this.c + ((int) ((this.b - i2) * Math.tan(d)));
-                this.e = tan;
-                this.o = Direction.RIGHT;
-                int i3 = this.p;
-                this.b = i3;
-                this.c = tan;
-                this.d = i3;
-                this.j = this.i;
-            }
-            int i4 = this.e;
-            int i5 = this.s;
-            if (i4 >= i5) {
-                int tan2 = this.b - ((int) ((i5 - this.c) / Math.tan(d)));
-                this.d = tan2;
-                this.n = Direction.TOP;
-                int i6 = this.s;
-                this.c = i6;
-                this.b = tan2;
-                this.e = i6;
-                this.j = this.i;
-            }
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (hkWebView = this.a) != null) {
+            hkWebView.reload();
         }
     }
 
-    public final void d(double d) {
+    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
+    public boolean canScrollVertically(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d)}) == null) {
-            this.d = this.b - ((int) ((this.i - this.j) * Math.cos(d)));
-            this.e = this.c - ((int) ((this.i - this.j) * Math.sin(d)));
-            int i = this.d;
-            int i2 = this.p;
-            if (i <= i2) {
-                int tan = this.c - ((int) ((this.b - i2) * Math.tan(d)));
-                this.e = tan;
-                this.o = Direction.RIGHT;
-                int i3 = this.p;
-                this.b = i3;
-                this.c = tan;
-                this.d = i3;
-                this.j = this.i;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            HkWebView hkWebView = this.a;
+            if (hkWebView != null) {
+                return hkWebView.canScrollVertically(i);
             }
-            int i4 = this.e;
-            int i5 = this.r;
-            if (i4 <= i5) {
-                int tan2 = this.b - ((int) ((this.c - i5) / Math.tan(d)));
-                this.d = tan2;
-                this.n = Direction.BOTTOM;
-                int i6 = this.r;
-                this.c = i6;
-                this.b = tan2;
-                this.e = i6;
-                this.j = this.i;
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
+    public void loadUrl(String str) {
+        HkWebView hkWebView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) && (hkWebView = this.a) != null) {
+            hkWebView.loadUrl(str);
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
+    public void setErrorView(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, view2) == null) {
+            this.c = view2;
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
+    public void setLoadingView(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, view2) == null) {
+            this.d = view2;
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
+    public void setOnBrowserStatusChangeCallBack(IBrowserView.OnBrowserStatusChangeCallBack onBrowserStatusChangeCallBack) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, onBrowserStatusChangeCallBack) == null) {
+            this.f = onBrowserStatusChangeCallBack;
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
+    public View getView(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            if (this.b == null) {
+                this.b = new FrameLayout(context);
+            }
+            if (this.e == null) {
+                View view2 = new View(context);
+                this.e = view2;
+                view2.setBackgroundColor(context.getResources().getColor(17170443));
+            }
+            if (this.a == null) {
+                HkWebView hkWebView = new HkWebView(context);
+                this.a = hkWebView;
+                hkWebView.setWebViewClient(new a(this));
+            }
+            this.b.addView(this.a);
+            return this.b;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.d != null && this.e.getParent() != null) {
+                ((ViewGroup) this.e.getParent()).removeView(this.e);
+            }
+            View view2 = this.c;
+            if (view2 != null && view2.getParent() != null) {
+                ((ViewGroup) this.c.getParent()).removeView(this.c);
             }
         }
     }
 
-    public final void e(double d) {
+    public final void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Double.valueOf(d)}) == null) {
-            this.d = ((int) ((this.i - this.j) * Math.cos(d))) + this.b;
-            this.e = this.c + ((int) ((this.i - this.j) * Math.sin(d)));
-            int i = this.d;
-            int i2 = this.q;
-            if (i >= i2) {
-                int tan = this.c + ((int) ((i2 - this.b) * Math.tan(d)));
-                this.e = tan;
-                this.o = Direction.LEFT;
-                int i3 = this.q;
-                this.b = i3;
-                this.c = tan;
-                this.d = i3;
-                this.j = this.i;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (this.d != null && this.e.getParent() != null) {
+                ((ViewGroup) this.e.getParent()).removeView(this.e);
             }
-            int i4 = this.e;
-            int i5 = this.s;
-            if (i4 >= i5) {
-                int tan2 = this.b + ((int) ((i5 - this.c) / Math.tan(d)));
-                this.d = tan2;
-                this.n = Direction.TOP;
-                int i6 = this.s;
-                this.c = i6;
-                this.b = tan2;
-                this.e = i6;
-                this.j = this.i;
+            View view2 = this.d;
+            if (view2 != null && view2.getParent() != null) {
+                ((ViewGroup) this.d.getParent()).removeView(this.d);
             }
         }
     }
 
-    public final void f(double d) {
+    public final void j() {
+        View view2;
+        View view3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Double.valueOf(d)}) == null) {
-            this.d = ((int) ((this.i - this.j) * Math.cos(d))) + this.b;
-            this.e = this.c - ((int) ((this.i - this.j) * Math.sin(d)));
-            int i = this.d;
-            int i2 = this.q;
-            if (i >= i2) {
-                int tan = this.c - ((int) ((i2 - this.b) * Math.tan(d)));
-                this.e = tan;
-                this.j = this.i;
-                this.o = Direction.LEFT;
-                int i3 = this.q;
-                this.b = i3;
-                this.c = tan;
-                this.d = i3;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if (this.b != null && (view3 = this.e) != null && view3.getParent() == null) {
+                this.b.addView(this.e, new FrameLayout.LayoutParams(-1, -1));
             }
-            int i4 = this.e;
-            int i5 = this.r;
-            if (i4 <= i5) {
-                int tan2 = this.b + ((int) ((this.c - i5) / Math.tan(d)));
-                this.d = tan2;
-                this.n = Direction.BOTTOM;
-                this.b = tan2;
-                int i6 = this.r;
-                this.c = i6;
-                this.e = i6;
-                this.j = this.i;
+            if (this.b != null && (view2 = this.c) != null && view2.getParent() == null) {
+                this.b.addView(this.c, new FrameLayout.LayoutParams(-1, -1));
+            }
+        }
+    }
+
+    public final void k() {
+        View view2;
+        View view3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            if (this.b != null && (view3 = this.e) != null && view3.getParent() == null) {
+                this.b.addView(this.e, new FrameLayout.LayoutParams(-1, -1));
+            }
+            if (this.b != null && (view2 = this.d) != null && view2.getParent() == null) {
+                this.b.addView(this.d, new FrameLayout.LayoutParams(-1, -1));
             }
         }
     }

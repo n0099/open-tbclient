@@ -35,6 +35,7 @@ public class UbsABTestDataManager {
     public static UbsABTestDataManager mInstance;
     public transient /* synthetic */ FieldHolder $fh;
     public final HashMap<BdUniqueId, AbsGroupUbsABTest> mAbTestGroups;
+    public JSONArray mCurrentABTestJson;
     public final HashMap<String, UsbAbTestSwitch> mSwitchs;
     public final HashMap<BdUniqueId, UsbAbTestSwitch> mUbsABTestMap;
 
@@ -60,46 +61,9 @@ public class UbsABTestDataManager {
         this.mSwitchs = new HashMap<>();
         this.mAbTestGroups = new HashMap<>();
         this.mUbsABTestMap = new HashMap<>();
+        this.mCurrentABTestJson = new JSONArray();
         registerABTestGroup();
         putAllUsbAbTest(getAllDataFormSharedPref());
-    }
-
-    private void putUsbAbTestForAllGroup() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            for (Map.Entry<BdUniqueId, AbsGroupUbsABTest> entry : this.mAbTestGroups.entrySet()) {
-                AbsGroupUbsABTest value = entry.getValue();
-                if (value != null) {
-                    setUbsABTestForGroup(value);
-                }
-            }
-            refreshUbsABTestMap();
-        }
-    }
-
-    private void refreshUbsABTestMap() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            this.mUbsABTestMap.clear();
-            for (BdUniqueId bdUniqueId : this.mAbTestGroups.keySet()) {
-                this.mUbsABTestMap.put(bdUniqueId, getUbsABTestByGroupKey(bdUniqueId));
-            }
-        }
-    }
-
-    public HashMap<String, Integer> getSwitchsClone() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            HashMap<String, Integer> hashMap = new HashMap<>();
-            int i = 0;
-            for (String str : this.mSwitchs.keySet()) {
-                hashMap.put(str, Integer.valueOf(i));
-                i++;
-            }
-            return hashMap;
-        }
-        return (HashMap) invokeV.objValue;
     }
 
     private HashMap<String, UsbAbTestSwitch> getAllDataFormSharedPref() {
@@ -110,6 +74,7 @@ public class UbsABTestDataManager {
             try {
                 getSharedPrefKeyForUbsABTest();
                 JSONArray jSONArray = new JSONArray(SharedPrefHelper.getInstance().getString(getSharedPrefKeyForUbsABTest(), "[]"));
+                this.mCurrentABTestJson = jSONArray;
                 for (int i = 0; i < jSONArray.length(); i++) {
                     JSONObject jSONObject = jSONArray.getJSONObject(i);
                     if (jSONObject != null) {
@@ -157,10 +122,19 @@ public class UbsABTestDataManager {
         return (UbsABTestDataManager) invokeV.objValue;
     }
 
+    public JSONArray getCurrentABTestJson() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mCurrentABTestJson;
+        }
+        return (JSONArray) invokeV.objValue;
+    }
+
     public Map<BdUniqueId, UsbAbTestSwitch> getUbsABTestMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.mUbsABTestMap;
         }
         return (Map) invokeV.objValue;
@@ -195,7 +169,7 @@ public class UbsABTestDataManager {
     public UsbAbTestSwitch getUbsABTestByGroupKey(BdUniqueId bdUniqueId) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bdUniqueId)) == null) {
             AbsGroupUbsABTest absGroupUbsABTest = this.mAbTestGroups.get(bdUniqueId);
             if (absGroupUbsABTest == null) {
                 return null;
@@ -207,7 +181,7 @@ public class UbsABTestDataManager {
 
     public void parseJSONArrayByStr(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             try {
                 if (TextUtils.isEmpty(str)) {
                     parseJSONArray(null);
@@ -221,9 +195,47 @@ public class UbsABTestDataManager {
 
     public void registerABTestGroup(AbsGroupUbsABTest absGroupUbsABTest) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, absGroupUbsABTest) == null) && absGroupUbsABTest != null && absGroupUbsABTest.getGroupKey() != null) {
+        if ((interceptable == null || interceptable.invokeL(1048583, this, absGroupUbsABTest) == null) && absGroupUbsABTest != null && absGroupUbsABTest.getGroupKey() != null) {
             this.mAbTestGroups.put(absGroupUbsABTest.getGroupKey(), absGroupUbsABTest);
         }
+    }
+
+    private void putUsbAbTestForAllGroup() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
+            for (Map.Entry<BdUniqueId, AbsGroupUbsABTest> entry : this.mAbTestGroups.entrySet()) {
+                AbsGroupUbsABTest value = entry.getValue();
+                if (value != null) {
+                    setUbsABTestForGroup(value);
+                }
+            }
+            refreshUbsABTestMap();
+        }
+    }
+
+    private void refreshUbsABTestMap() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
+            this.mUbsABTestMap.clear();
+            for (BdUniqueId bdUniqueId : this.mAbTestGroups.keySet()) {
+                this.mUbsABTestMap.put(bdUniqueId, getUbsABTestByGroupKey(bdUniqueId));
+            }
+        }
+    }
+
+    public HashMap<String, Integer> getSwitchsClone() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            HashMap<String, Integer> hashMap = new HashMap<>();
+            int i = 0;
+            for (String str : this.mSwitchs.keySet()) {
+                hashMap.put(str, Integer.valueOf(i));
+                i++;
+            }
+            return hashMap;
+        }
+        return (HashMap) invokeV.objValue;
     }
 
     private void setUbsABTestForGroup(AbsGroupUbsABTest absGroupUbsABTest) {
@@ -249,7 +261,7 @@ public class UbsABTestDataManager {
 
     public void parseJSONArray(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jSONArray) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, jSONArray) == null) {
             try {
                 String sharedPrefKeyForUbsABTest = getSharedPrefKeyForUbsABTest();
                 if (jSONArray == null) {
@@ -257,6 +269,7 @@ public class UbsABTestDataManager {
                     SharedPrefHelper.getInstance().remove(sharedPrefKeyForUbsABTest);
                     return;
                 }
+                this.mCurrentABTestJson = jSONArray;
                 HashMap<String, UsbAbTestSwitch> hashMap = new HashMap<>();
                 for (int i = 0; i < jSONArray.length(); i++) {
                     JSONObject jSONObject = jSONArray.getJSONObject(i);
@@ -275,7 +288,7 @@ public class UbsABTestDataManager {
 
     public void switchCurrentABTestBySid(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             synchronized (this.mSwitchs) {
                 if (TextUtils.isEmpty(str)) {
                     this.mSwitchs.clear();

@@ -1,7 +1,7 @@
 package com.google.ar.core;
 
 import com.google.ar.core.exceptions.FatalException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Config {
     public long a = 0;
 
@@ -45,7 +45,7 @@ public class Config {
         super.finalize();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum AugmentedFaceMode {
         DISABLED(0),
         MESH3D(2);
@@ -70,7 +70,7 @@ public class Config {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum CloudAnchorMode {
         DISABLED(0),
         ENABLED(1);
@@ -95,7 +95,7 @@ public class Config {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum FocusMode {
         FIXED(0),
         AUTO(1);
@@ -120,7 +120,7 @@ public class Config {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum LightEstimationMode {
         DISABLED(0),
         AMBIENT_INTENSITY(1);
@@ -145,7 +145,7 @@ public class Config {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum PlaneFindingMode {
         DISABLED(0),
         HORIZONTAL(1),
@@ -172,7 +172,7 @@ public class Config {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum UpdateMode {
         BLOCKING(0),
         LATEST_CAMERA_IMAGE(1);

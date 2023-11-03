@@ -1,11 +1,11 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
-public interface dr {
-    void a(Exception exc);
+public interface dr<T> {
+    T a();
 
-    void b(Error error);
+    void a(T t);
 
-    void onComplete();
+    void b();
 
-    void onStart();
+    boolean c();
 }

@@ -1,93 +1,116 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.PassportSDK;
+import com.baidu.sapi2.share.ShareStorage;
+import com.baidu.sapi2.shell.listener.WebAuthListener;
+import com.baidu.sapi2.shell.result.WebAuthResult;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.person.PersonMoreData;
-import com.baidu.tieba.person.PersonMoreItemData;
+import com.baidu.tbadk.core.util.DialogLoginHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import com.google.gson.Gson;
 /* loaded from: classes7.dex */
-public class qp9 {
+public class qp9 extends lp9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rp9 a;
-    public TbPageContext b;
-    public List<yh> c;
-    public PersonMoreData d;
+    public ShareStorage.StorageModel i;
 
-    public qp9(TbPageContext tbPageContext, Bundle bundle, bk6<rq9> bk6Var) {
+    /* loaded from: classes7.dex */
+    public class a extends WebAuthListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qp9 a;
+
+        public a(qp9 qp9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qp9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qp9Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onFailure(WebAuthResult webAuthResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) {
+                BaseActivity baseActivity = this.a.b;
+                baseActivity.showToast(String.format(baseActivity.getString(R.string.obfuscated_res_0x7f0f13dc), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onSuccess(WebAuthResult webAuthResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, webAuthResult) == null) {
+                this.a.f();
+                DialogLoginHelper.addLoginDialogSuccessLog(DialogLoginHelper.getOneKeyLoginActivityLocate(), DialogLoginHelper.FULL_SCREEN_TYPE_SHARE, DialogLoginHelper.FULL_SCREEN_TYPE_SHARE);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qp9(TbPageContext tbPageContext, mp9 mp9Var) {
+        super(tbPageContext, mp9Var, DialogLoginHelper.FULL_SCREEN_TYPE_SHARE);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bundle, bk6Var};
+            Object[] objArr = {tbPageContext, mp9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (mp9) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = tbPageContext;
-        rp9 rp9Var = new rp9(tbPageContext);
-        this.a = rp9Var;
-        rp9Var.f(bk6Var);
-        a(bundle);
     }
 
-    public final void a(Bundle bundle) {
+    @Override // com.baidu.tieba.lp9
+    public void j(np9 np9Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) && bundle != null && (bundle.get(PersonMoreData.URL_MAPS) instanceof ArrayList)) {
-            this.d = new PersonMoreData();
-            this.d.mUrlMaps.addAll(DataExt.toEntityList(bundle.getStringArrayList(PersonMoreData.URL_MAPS).toString(), PersonMoreItemData.class));
+        if ((interceptable != null && interceptable.invokeL(1048576, this, np9Var) != null) || np9Var == null) {
+            return;
         }
+        this.e = np9Var;
+        this.i = (ShareStorage.StorageModel) new Gson().fromJson(np9Var.d, (Class<Object>) ShareStorage.StorageModel.class);
     }
 
-    public final void b() {
+    @Override // com.baidu.tieba.lp9
+    public void n(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = new ArrayList();
-            PersonMoreData personMoreData = this.d;
-            if (personMoreData != null && !ListUtils.isEmpty(personMoreData.mUrlMaps)) {
-                for (PersonMoreItemData personMoreItemData : this.d.mUrlMaps) {
-                    if (personMoreItemData != null && !StringUtils.isNull(personMoreItemData.mUrl)) {
-                        rq9 rq9Var = new rq9();
-                        rq9Var.e = personMoreItemData.mName;
-                        rq9Var.a = 36;
-                        rq9Var.f = personMoreItemData.mUrl;
-                        rq9Var.j = personMoreItemData.mId;
-                        this.c.add(rq9Var);
-                    }
-                }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            super.n(view2);
+            if (view2.getId() == R.id.obfuscated_res_0x7f0916c1) {
+                r();
             }
         }
     }
 
-    public void c() {
+    public void r() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b.getPageActivity().setContentView(R.layout.obfuscated_res_0x7f0d07cf);
-            this.a.c(this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091c51));
-            b();
-            this.a.e(this.c);
-        }
-    }
-
-    public void d() {
-        rp9 rp9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (rp9Var = this.a) != null) {
-            rp9Var.d();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.i != null) {
+            PassportSDK.getInstance().invokeV2ShareLogin(this.b, new a(this), this.i);
         }
     }
 }

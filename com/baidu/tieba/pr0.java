@@ -1,15 +1,24 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.player.event.StatisticsEvent;
+import com.baidu.nadcore.player.constants.PlayerStatus;
+import com.baidu.nadcore.player.ui.BdLayerTitleBarView;
+import com.baidu.searchbox.player.event.InteractiveEvent;
+import com.baidu.searchbox.player.event.LayerEvent;
+import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class pr0 extends mr0 {
+public class pr0 extends kr0 implements BdLayerTitleBarView.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BdLayerTitleBarView b;
 
     public pr0() {
         Interceptable interceptable = $ic;
@@ -25,90 +34,138 @@ public class pr0 extends mr0 {
         }
     }
 
-    public void g() {
+    @Override // com.baidu.tieba.lr0
+    @NonNull
+    public View getContentView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.er0
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b = new BdLayerTitleBarView(f());
+            this.b.setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
+            this.b.setVisibility(4);
+            this.b.setListener(this);
+        }
+    }
+
+    @Override // com.baidu.nadcore.player.ui.BdLayerTitleBarView.a
+    public void onBack() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c(or0.x(StatisticsEvent.ACTION_PLAYER_PAUSE));
+            s().Y0(2);
         }
     }
 
-    public void h() {
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    @Override // com.baidu.tieba.er0
+    public void m(@NonNull js0 js0Var) {
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            c(or0.x(StatisticsEvent.ACTION_PLAYER_RESUME));
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            c(or0.x(StatisticsEvent.ACTION_PLAYER_START));
-        }
-    }
-
-    public void d(int i, int i2, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, obj) == null) {
-            sr0 x = or0.x(StatisticsEvent.ACTION_PLAYER_ERROR);
-            x.o(2, String.valueOf(obj));
-            x.o(4, Integer.valueOf(i2));
-            c(x);
-        }
-    }
-
-    public void e(int i, int i2, Object obj) {
-        sr0 x;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj) == null) {
-            if (i != 701) {
-                if (i != 702) {
-                    if (i != 904 && i != 956) {
-                        if (i != 10009) {
-                            if (i != 11004) {
-                                if (i != 11005) {
-                                    x = null;
-                                } else {
-                                    x = or0.x(StatisticsEvent.ACTION_ERROR_RETRY_END);
-                                }
-                            } else {
-                                x = or0.x(StatisticsEvent.ACTION_ERROR_RETRY_START);
-                                x.o(4, Integer.valueOf(i2));
-                            }
-                        } else {
-                            x = or0.x("statistics_player_carlton");
-                            x.o(2, String.valueOf(obj));
-                        }
-                    } else {
-                        x = or0.x(StatisticsEvent.ACTION_PLAYER_FIRST_FRAME_DISPLAY);
-                        x.o(2, String.valueOf(obj));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, js0Var) == null) {
+            String c2 = js0Var.c();
+            switch (c2.hashCode()) {
+                case -882902390:
+                    if (c2.equals(PlayerEvent.ACTION_SET_DATA_SOURCE)) {
+                        c = 3;
+                        break;
                     }
-                } else {
-                    x = or0.x(StatisticsEvent.ACTION_BUFFER_END);
+                    c = 65535;
+                    break;
+                case -745690976:
+                    if (c2.equals(InteractiveEvent.ACTION_INTERACTIVE_START)) {
+                        c = 5;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -552621273:
+                    if (c2.equals(LayerEvent.ACTION_SWITCH_FULL)) {
+                        c = 6;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -552580917:
+                    if (c2.equals(LayerEvent.ACTION_SWITCH_HALF)) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -461848373:
+                    if (c2.equals(PlayerEvent.ACTION_ON_ERROR)) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 154871702:
+                    if (c2.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 250537257:
+                    if (c2.equals(LayerEvent.ACTION_NET_ERROR_SHOW)) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
+            }
+            if (c != 0 && c != 1 && c != 2) {
+                if (c != 4 && c != 5) {
+                    if (c == 6 && !s().W()) {
+                        u(true, false);
+                        return;
+                    }
+                    return;
                 }
-            } else {
-                x = or0.x(StatisticsEvent.ACTION_BUFFER_START);
-            }
-            if (x != null) {
-                c(x);
+                this.b.a(false);
+            } else if (s().Q0()) {
+                this.b.e(false, true, s().n1());
             }
         }
     }
 
-    public void f(int i) {
+    @Override // com.baidu.tieba.er0
+    public void p(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            sr0 x = or0.x(StatisticsEvent.ACTION_PLAYER_COMPLETE);
-            x.o(1, Integer.valueOf(i));
-            c(x);
+        if (interceptable == null || interceptable.invokeLL(1048580, this, playerStatus, playerStatus2) == null) {
+            super.p(playerStatus, playerStatus2);
+            if (playerStatus == PlayerStatus.PLAYING && s().Q0()) {
+                fv0 fv0Var = this.a;
+                if ((fv0Var instanceof wu0) && !((wu0) fv0Var).Y()) {
+                    this.b.a(true);
+                }
+            }
         }
     }
 
-    public void j(int i) {
+    @Override // com.baidu.tieba.kr0
+    public void u(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            sr0 x = or0.x(StatisticsEvent.ACTION_PLAYER_STOP);
-            x.o(1, Integer.valueOf(i));
-            c(x);
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            super.u(z, z2);
+            if (z) {
+                if (s().Q0() && s().a1() == 0) {
+                    this.b.e(true, !s().W(), s().n1());
+                }
+            } else if (s().Q0() && s().a1() == 0 && this.b.getVisibility() != 4 && s().W()) {
+                this.b.a(true);
+            }
         }
     }
 }

@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public interface en {
-    void a(Bitmap bitmap);
-
-    void onError();
+    JSONObject c();
 }

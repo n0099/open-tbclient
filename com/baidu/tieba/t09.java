@@ -1,148 +1,105 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class t09 {
+public final class t09 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final AbilityItem a;
+    public final Integer b;
+    public final View c;
 
-    public static void a(@NonNull StringBuilder sb, long j, boolean z, int i, @NonNull String str) {
-        String str2;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{sb, Long.valueOf(j), Boolean.valueOf(z), Integer.valueOf(i), str}) == null) {
-            if (z) {
-                str2 = "groupId";
-            } else {
-                str2 = "roomId";
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            sb.append(str2);
-            sb.append("=");
-            sb.append(j);
-            sb.append(",");
-            sb.append(StatConstants.KEY_EXT_ERR_CODE);
-            sb.append("=");
-            sb.append(i);
-            sb.append(",");
-            sb.append(StatConstants.KEY_EXT_ERR_MSG);
-            sb.append("=");
-            sb.append(str);
-            sb.append(",");
-        }
-    }
-
-    public static void b(@NonNull StringBuilder sb, boolean z) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65537, null, sb, z) == null) {
-            if (z) {
-                str = "success";
-            } else {
-                str = "fail";
+            if (obj instanceof t09) {
+                t09 t09Var = (t09) obj;
+                return Intrinsics.areEqual(this.a, t09Var.a) && Intrinsics.areEqual(this.b, t09Var.b) && Intrinsics.areEqual(this.c, t09Var.c);
             }
-            sb.append(str);
-            sb.append(",");
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public static void d(@NonNull String str, long j) {
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65539, null, str, j) == null) {
-            vu4.d(str + j);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int hashCode = this.a.hashCode() * 31;
+            Integer num = this.b;
+            int hashCode2 = (hashCode + (num == null ? 0 : num.hashCode())) * 31;
+            View view2 = this.c;
+            return hashCode2 + (view2 != null ? view2.hashCode() : 0);
         }
+        return invokeV.intValue;
     }
 
-    public static void n(@NonNull String str, long j) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65549, null, str, j) == null) {
-            vu4.e(str + j);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "DirectTagData(data=" + this.a + ", position=" + this.b + ", redView=" + this.c + ')';
         }
+        return (String) invokeV.objValue;
     }
 
-    public static void c(@NonNull String str) {
+    public t09(AbilityItem data, Integer num, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            vu4.d(str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {data, num, view2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
+        Intrinsics.checkNotNullParameter(data, "data");
+        this.a = data;
+        this.b = num;
+        this.c = view2;
     }
 
-    public static void l(boolean z) {
+    public final AbilityItem a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65547, null, z) == null) {
-            StringBuilder sb = new StringBuilder();
-            b(sb, z);
-            vu4.b("login_lcp", sb.toString());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (AbilityItem) invokeV.objValue;
     }
 
-    public static void m(@NonNull String str) {
+    public final Integer b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, null, str) == null) {
-            vu4.e(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
+        return (Integer) invokeV.objValue;
     }
 
-    public static void e(long j, long j2, int i, boolean z, boolean z2, int i2, @NonNull String str, int i3) {
+    public final View c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2), str, Integer.valueOf(i3)}) == null) {
-            vu4.b("fetch_chat_room_msg_request", "roomId=" + j + ",beginMsgId=" + j2 + ",count=" + i + ",isFirstFetch=" + z + ",isFetchHistory=" + z2 + ",errCode=" + i2 + ",errMsg=" + str + ",resultCount=" + i3 + ",");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
-    }
-
-    public static void f(long j, int i, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-            StringBuilder sb = new StringBuilder();
-            a(sb, j, false, i, str);
-            vu4.b("im_enter_auto_retry_" + j, sb.toString());
-        }
-    }
-
-    public static void g(long j, int i, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-            StringBuilder sb = new StringBuilder();
-            a(sb, j, false, i, str);
-            vu4.b("im_exit_auto_retry_" + j, sb.toString());
-        }
-    }
-
-    public static void h(long j, int i, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-            StringBuilder sb = new StringBuilder();
-            a(sb, j, true, i, str);
-            vu4.b("im_group_enter_auto_retry_" + j, sb.toString());
-        }
-    }
-
-    public static void i(long j, int i, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-            StringBuilder sb = new StringBuilder();
-            a(sb, j, false, i, str);
-            vu4.b("im_group_exit_auto_retry_" + j, sb.toString());
-        }
-    }
-
-    public static void j(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65545, null, j) == null) {
-            vu4.d("key_im_on_enter_lose");
-            vu4.b("key_im_on_enter_lose", "roomId=" + j + ",");
-            vu4.e("key_im_on_enter_lose");
-        }
-    }
-
-    public static void k(long j, int i, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-            StringBuilder sb = new StringBuilder();
-            a(sb, j, false, i, str);
-            vu4.b("login_im", sb.toString());
-        }
+        return (View) invokeV.objValue;
     }
 }

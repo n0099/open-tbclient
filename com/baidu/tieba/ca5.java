@@ -1,108 +1,66 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.coreExtra.message.HotEventRequestMessage;
+import com.baidu.tbadk.coreExtra.message.HotEventRespondedMessage;
+import com.baidu.tbadk.data.HotEventData;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class ca5 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ca5 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
+    public boolean a;
+    public String b;
+    public final HttpMessageListener c;
 
     /* loaded from: classes5.dex */
-    public interface b {
-        void a(ShareItem shareItem);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends BdAsyncTask<ShareItem, Integer, ShareItem> {
+    public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ShareItem a;
-        public final /* synthetic */ ca5 b;
+        public final /* synthetic */ ca5 a;
 
-        public a(ca5 ca5Var, ShareItem shareItem) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ca5 ca5Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ca5Var, shareItem};
+                Object[] objArr = {ca5Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = ca5Var;
-            this.a = shareItem;
+            this.a = ca5Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public ShareItem doInBackground(ShareItem... shareItemArr) {
-            InterceptResult invokeL;
-            ShareItem shareItem;
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, shareItemArr)) == null) {
-                String str = null;
-                if (shareItemArr == null || shareItemArr.length < 1 || (shareItem = shareItemArr[0]) == null) {
-                    return null;
+            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
+                this.a.a = false;
+                if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003543 || !(httpResponsedMessage instanceof HotEventRespondedMessage) || httpResponsedMessage.getError() != 0) {
+                    return;
                 }
-                String str2 = shareItem.tid;
-                NetWork netWork = new NetWork();
-                netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.URL_SMART_APP_SHARE_IMAGE);
-                if (shareItem.typeShareToSmallApp == 4) {
-                    netWork.addPostData("forum_id", this.a.fid);
-                    netWork.addPostData("type", "2");
-                } else {
-                    netWork.addPostData("thread_id", str2);
-                    netWork.addPostData("type", "3");
-                }
-                String postNetData = netWork.postNetData();
-                if (ad.isEmpty(postNetData)) {
-                    return shareItem;
-                }
-                try {
-                    str = new JSONObject(postNetData).optString(BigdayActivityConfig.IMG_URL);
-                } catch (JSONException e) {
-                    BdLog.e(e);
-                }
-                if (!TextUtils.isEmpty(str) && shareItem.typeShareToSmallApp != 4) {
-                    shareItem.smartAppShareImageUrl = str;
-                    shareItem.imageUri = Uri.parse(str);
-                }
-                return shareItem;
-            }
-            return (ShareItem) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(ShareItem shareItem) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareItem) == null) {
-                super.onPostExecute(shareItem);
-                if (this.b.a != null) {
-                    this.b.a.a(shareItem);
-                }
+                jb5.u(HotEventData.getInstance());
             }
         }
     }
@@ -117,21 +75,72 @@ public class ca5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = false;
+        this.b = "";
+        this.c = new a(this, CmdConfigHttp.CMD_HOT_EVENT);
+        c();
     }
 
-    public void b(ShareItem shareItem) {
+    public static ca5 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, shareItem) == null) {
-            new a(this, shareItem).execute(shareItem);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (ca5.class) {
+                    if (d == null) {
+                        d = new ca5();
+                    }
+                }
+            }
+            return d;
+        }
+        return (ca5) invokeV.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            e();
         }
     }
 
-    public void c(b bVar) {
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.a = bVar;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().registerListener(this.c);
         }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_HOT_EVENT);
+        }
+    }
+
+    public final void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HOT_EVENT, TbConfig.SERVER_ADDRESS + str);
+            tbHttpMessageTask.setResponsedClass(HotEventRespondedMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || this.a) {
+            return;
+        }
+        if (!this.b.equals(str)) {
+            this.b = str;
+            g();
+            d(str);
+        }
+        MessageManager.getInstance().sendMessage(new HotEventRequestMessage(CmdConfigHttp.CMD_HOT_EVENT));
+        this.a = true;
     }
 }

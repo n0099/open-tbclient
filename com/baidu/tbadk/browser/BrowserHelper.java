@@ -27,14 +27,14 @@ import com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper;
 import com.baidu.tbadk.core.atomData.TbWebContainerActivityConfig;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.ad;
-import com.baidu.tieba.ah6;
-import com.baidu.tieba.br4;
-import com.baidu.tieba.ch6;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.jx9;
-import com.baidu.tieba.tt4;
-import com.baidu.tieba.xu4;
+import com.baidu.tieba.ku4;
+import com.baidu.tieba.oaa;
+import com.baidu.tieba.pv4;
+import com.baidu.tieba.qd;
+import com.baidu.tieba.sr4;
+import com.baidu.tieba.wi6;
+import com.baidu.tieba.yi6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -93,7 +93,7 @@ public class BrowserHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            return ch6.e(str);
+            return yi6.e(str);
         }
         return invokeL.booleanValue;
     }
@@ -123,7 +123,7 @@ public class BrowserHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (!isExistWhiteForum(str) && !ad.isEmpty(str) && str.contains("_client_type=")) {
+            if (!isExistWhiteForum(str) && !qd.isEmpty(str) && str.contains("_client_type=")) {
                 return str;
             }
             return str + "&_client_type=2";
@@ -135,7 +135,7 @@ public class BrowserHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (!ad.isEmpty(str) && str.indexOf("_client_version=") > -1) {
+            if (!qd.isEmpty(str) && str.indexOf("_client_version=") > -1) {
                 return str;
             }
             return str + "&_client_version=" + TbConfig.getVersion();
@@ -147,7 +147,7 @@ public class BrowserHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (!ad.isEmpty(str) && str.indexOf("cuid=") <= -1) {
+            if (!qd.isEmpty(str) && str.indexOf("cuid=") <= -1) {
                 StringBuilder sb = new StringBuilder();
                 sb.append(str);
                 if (str.indexOf("?") > 0) {
@@ -176,7 +176,7 @@ public class BrowserHelper {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, list)) == null) {
-            if (!ad.isEmpty(str) && list != null) {
+            if (!qd.isEmpty(str) && list != null) {
                 StringBuilder sb = new StringBuilder();
                 sb.append(str);
                 if (str.indexOf("?") < 0) {
@@ -233,7 +233,7 @@ public class BrowserHelper {
             if (!allowedUseNewWebContainer(str2) && !z4) {
                 return new TbWebViewActivityConfig(context2, str, str2, z, z2, z3);
             }
-            ah6.c(str2);
+            wi6.c(str2);
             return new TbWebContainerActivityConfig(context2, str, str2, z, z2, z3);
         }
         return (TbWebViewActivityConfig) invokeCommon.objValue;
@@ -272,43 +272,43 @@ public class BrowserHelper {
     }
 
     public static void initCookie(Context context) {
-        br4 br4Var;
+        sr4 sr4Var;
         AccountLoginCoreHelper.a aVar;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, null, context) == null) {
             try {
                 CookieSyncManager.createInstance(TbadkCoreApplication.getInst());
-                br4Var = new br4();
+                sr4Var = new sr4();
             } catch (Throwable th) {
                 BdLog.e(th);
-                br4Var = null;
+                sr4Var = null;
             }
-            if (br4Var == null) {
+            if (sr4Var == null) {
                 return;
             }
-            br4Var.setAcceptCookie(true);
+            sr4Var.setAcceptCookie(true);
             if (AccountLoginCoreHelper.getInstance() != null) {
                 aVar = AccountLoginCoreHelper.getInstance().parseBDUSS(TbadkCoreApplication.getCurrentBduss());
             } else {
                 aVar = null;
             }
             if (aVar != null) {
-                String a = xu4.a(TbadkCoreApplication.getCurrentAccountInfo());
+                String a = pv4.a(TbadkCoreApplication.getCurrentAccountInfo());
                 StringBuilder sb = new StringBuilder();
                 if (!StringUtils.isNull(a)) {
                     sb.append("STOKEN=");
                     sb.append(a);
                     sb.append("; domain=.tieba.baidu.com;");
-                    br4Var.setCookie("tieba.baidu.com", sb.toString());
+                    sr4Var.setCookie("tieba.baidu.com", sb.toString());
                 }
             } else {
                 try {
                     if (Build.VERSION.SDK_INT >= 21) {
-                        br4Var.removeAllCookies(null);
+                        sr4Var.removeAllCookies(null);
                         CookieManager.getInstance().flush();
                     } else {
-                        br4Var.removeAllCookie();
+                        sr4Var.removeAllCookie();
                         CookieSyncManager.createInstance(context);
                         CookieSyncManager.getInstance().sync();
                     }
@@ -316,35 +316,35 @@ public class BrowserHelper {
                     BdLog.e(e);
                 }
             }
-            br4Var.setCookie(".baidu.com", "CUID=" + TbadkCoreApplication.getInst().getCuid() + ParamableElem.DIVIDE_PARAM);
+            sr4Var.setCookie(".baidu.com", "CUID=" + TbadkCoreApplication.getInst().getCuid() + ParamableElem.DIVIDE_PARAM);
             String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
             if (!TextUtils.isEmpty(cuidGalaxy2)) {
                 str = new String(Base64Encoder.B64Encode(cuidGalaxy2.getBytes()));
             } else {
                 str = "";
             }
-            br4Var.setCookie(".baidu.com", "BAIDUCUID=" + str + ParamableElem.DIVIDE_PARAM);
-            br4Var.setCookie(".baidu.com", "need_cookie_decrypt=0" + ParamableElem.DIVIDE_PARAM);
+            sr4Var.setCookie(".baidu.com", "BAIDUCUID=" + str + ParamableElem.DIVIDE_PARAM);
+            sr4Var.setCookie(".baidu.com", "need_cookie_decrypt=0" + ParamableElem.DIVIDE_PARAM);
             StringBuilder sb2 = new StringBuilder();
             sb2.append("TBBRAND");
             sb2.append("=");
             sb2.append(ParamableElem.DIVIDE_PARAM);
-            br4Var.setCookie(".baidu.com", sb2.toString());
-            br4Var.setCookie(".baidu.com", "DNARBBT=" + ParamableElem.DIVIDE_PARAM);
-            if (jx9.b()) {
-                br4Var.setCookie(".baidu.com", "TBBRAND=" + DeviceInfoHelper.getModel() + ParamableElem.DIVIDE_PARAM);
+            sr4Var.setCookie(".baidu.com", sb2.toString());
+            sr4Var.setCookie(".baidu.com", "DNARBBT=" + ParamableElem.DIVIDE_PARAM);
+            if (oaa.b()) {
+                sr4Var.setCookie(".baidu.com", "TBBRAND=" + DeviceInfoHelper.getModel() + ParamableElem.DIVIDE_PARAM);
             } else {
-                br4Var.setCookie(".baidu.com", "need_cookie_decrypt=" + jx9.c() + ParamableElem.DIVIDE_PARAM);
-                String d = jx9.d("TBBRAND");
+                sr4Var.setCookie(".baidu.com", "need_cookie_decrypt=" + oaa.c() + ParamableElem.DIVIDE_PARAM);
+                String d = oaa.d("TBBRAND");
                 if (!TextUtils.isEmpty(d)) {
-                    br4Var.setCookie(".baidu.com", d + "=" + jx9.e() + ParamableElem.DIVIDE_PARAM);
+                    sr4Var.setCookie(".baidu.com", d + "=" + oaa.e() + ParamableElem.DIVIDE_PARAM);
                 }
             }
-            br4Var.setCookie(".baidu.com", "BAIDUZID=" + TbadkCoreApplication.getInst().getZid() + ParamableElem.DIVIDE_PARAM);
-            br4Var.setCookie(".baidu.com", "BAIDUID=" + TbSingleton.getInstance().getBaiduIdForAnti() + ParamableElem.DIVIDE_PARAM);
-            br4Var.setCookie(".baidu.com", "cuid_galaxy2=" + cuidGalaxy2 + ParamableElem.DIVIDE_PARAM);
-            br4Var.setCookie(".baidu.com", "cuid_gid=" + TbadkCoreApplication.getInst().getCuidGid() + ParamableElem.DIVIDE_PARAM);
-            br4Var.setCookie(".baidu.com", "BDUSS=" + TbadkCoreApplication.getCurrentBduss() + ParamableElem.DIVIDE_PARAM + "HttpOnly");
+            sr4Var.setCookie(".baidu.com", "BAIDUZID=" + TbadkCoreApplication.getInst().getZid() + ParamableElem.DIVIDE_PARAM);
+            sr4Var.setCookie(".baidu.com", "BAIDUID=" + TbSingleton.getInstance().getBaiduIdForAnti() + ParamableElem.DIVIDE_PARAM);
+            sr4Var.setCookie(".baidu.com", "cuid_galaxy2=" + cuidGalaxy2 + ParamableElem.DIVIDE_PARAM);
+            sr4Var.setCookie(".baidu.com", "cuid_gid=" + TbadkCoreApplication.getInst().getCuidGid() + ParamableElem.DIVIDE_PARAM);
+            sr4Var.setCookie(".baidu.com", "BDUSS=" + TbadkCoreApplication.getCurrentBduss() + ParamableElem.DIVIDE_PARAM + "HttpOnly");
             try {
                 if (Build.VERSION.SDK_INT >= 21) {
                     CookieManager.getInstance().flush();
@@ -442,7 +442,7 @@ public class BrowserHelper {
     public static void startWebActivity(Context context, String str, String str2, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65559, null, context, str, str2, bundle) == null) {
-            tt4 j = tt4.j(context, str2);
+            ku4 j = ku4.j(context, str2);
             j.r(str);
             j.a(bundle);
             j.p();
@@ -452,7 +452,7 @@ public class BrowserHelper {
     public static void startWebActivity(Context context, String str, String str2, boolean z, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65561, null, new Object[]{context, str, str2, Boolean.valueOf(z), bundle}) == null) {
-            tt4 j = tt4.j(context, str2);
+            ku4 j = ku4.j(context, str2);
             j.r(str);
             j.k(z);
             j.a(bundle);
@@ -470,7 +470,7 @@ public class BrowserHelper {
     public static void startWebActivity(Context context, String str, String str2, boolean z, boolean z2, boolean z3, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65563, null, new Object[]{context, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), bundle}) == null) {
-            tt4 j = tt4.j(context, str2);
+            ku4 j = ku4.j(context, str2);
             j.r(str);
             j.m(z);
             j.k(z2);
@@ -497,7 +497,7 @@ public class BrowserHelper {
     public static void startWebActivity(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65566, null, new Object[]{context, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Boolean.valueOf(z5), Boolean.valueOf(z6), Boolean.valueOf(z7)}) == null) {
-            tt4 j = tt4.j(context, str2);
+            ku4 j = ku4.j(context, str2);
             j.r(str);
             j.m(z);
             j.k(z2);

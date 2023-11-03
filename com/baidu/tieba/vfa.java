@@ -1,40 +1,71 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.common.others.url.UrlUtils;
-import com.baidu.tbadk.browser.BaseWebViewActivity;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class vfa {
+public final class vfa implements gb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    public static String a(String str, String str2, String str3, String str4) {
-        InterceptResult invokeLLLL;
+    @Override // com.baidu.tieba.gb7
+    public String getKey() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, str, str2, str3, str4)) == null) {
-            if (!str.contains("pageType=")) {
-                str = UrlUtils.appendParam(str, "pageType", str2);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? CommonStatisticKey.KEY_FORUM_REC_THREAD_CLICK : (String) invokeV.objValue;
+    }
+
+    public vfa() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (!str.contains("noshare=")) {
-                str = UrlUtils.appendParam(str, BaseWebViewActivity.KEY_NO_SHARE, "1");
-            }
-            if (!str.contains("nonavigationbar=")) {
-                str = UrlUtils.appendParam(str, BaseWebViewActivity.KEY_NO_NAVIGATIONBAR, "1");
-            }
-            if (!str.contains(BaseWebViewActivity.CUSTOM_FULL_SCREEN_EQUAL)) {
-                str = UrlUtils.appendParam(str, BaseWebViewActivity.CUSTOM_FULL_SCREEN, "1");
-            }
-            if (!str.contains("themeId=") && !StringUtils.isNull(str3)) {
-                str = UrlUtils.appendParam(str, "themeId", str3);
-            }
-            if (!str.contains("decoratorId=") && !StringUtils.isNull(str4)) {
-                return UrlUtils.appendParam(str, "decoratorId", str4);
-            }
-            return str;
         }
-        return (String) invokeLLLL.objValue;
+        this.a = "";
+    }
+
+    @Override // com.baidu.tieba.gb7
+    public Map<String, String> a(d57 businessInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (currentAccount == null) {
+                currentAccount = "";
+            }
+            hashMap.put("uid", currentAccount);
+            hashMap.put("obj_locate", this.a);
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public final vfa b(String objLocate) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objLocate)) == null) {
+            Intrinsics.checkNotNullParameter(objLocate, "objLocate");
+            this.a = objLocate;
+            return this;
+        }
+        return (vfa) invokeL.objValue;
     }
 }

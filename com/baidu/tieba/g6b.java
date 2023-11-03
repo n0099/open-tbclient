@@ -1,80 +1,90 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.ExperimentalCronetEngine;
-import com.baidu.turbonet.net.ICronetEngineBuilder;
-import com.baidu.turbonet.net.impl.CronetUrlRequestContext;
 /* loaded from: classes6.dex */
-public class g6b extends q5b {
+public final class g6b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
+    public long d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g6b(Context context) {
-        super(context);
+    public g6b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.d = 200L;
     }
 
-    @Override // com.baidu.turbonet.net.ICronetEngineBuilder
-    public /* bridge */ /* synthetic */ ICronetEngineBuilder a(String str) {
-        super.g(str);
-        return this;
+    public final long a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
+        }
+        return invokeV.longValue;
     }
 
-    @Override // com.baidu.turbonet.net.ICronetEngineBuilder
-    public /* bridge */ /* synthetic */ ICronetEngineBuilder d(String str) {
-        super.z(str);
-        return this;
-    }
-
-    @Override // com.baidu.turbonet.net.ICronetEngineBuilder
-    public /* bridge */ /* synthetic */ ICronetEngineBuilder e(String str) {
-        super.A(str);
-        return this;
-    }
-
-    @Override // com.baidu.turbonet.net.ICronetEngineBuilder
-    public /* bridge */ /* synthetic */ ICronetEngineBuilder f(String str) {
-        super.C(str);
-        return this;
-    }
-
-    @Override // com.baidu.turbonet.net.ICronetEngineBuilder
-    public ExperimentalCronetEngine b() {
+    public final int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (s() == null) {
-                D(r());
-            }
-            return new CronetUrlRequestContext(this);
+            return this.a;
         }
-        return (ExperimentalCronetEngine) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.turbonet.net.ICronetEngineBuilder
-    public /* bridge */ /* synthetic */ ICronetEngineBuilder c(boolean z, String str) {
-        super.l(z, str);
-        return this;
+    public final int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public final int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    public final void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public final void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.b = i;
+        }
     }
 }

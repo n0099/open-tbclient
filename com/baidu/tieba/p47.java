@@ -1,30 +1,57 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.feed.helper.CommonOnClickKt;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.functions.Function2;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class p47 {
+public final class p47 extends h47 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public final c37 b;
-    public final c37 c;
+    public String g;
+    public int h;
+    public final b77 i;
+    public final b67 j;
+    public final Function2<b67, View, Unit> k;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948012150, "Lcom/baidu/tieba/p47;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948012150, "Lcom/baidu/tieba/p47;");
+        }
+    }
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
             if (this == obj) {
                 return true;
             }
             if (obj instanceof p47) {
                 p47 p47Var = (p47) obj;
-                return Intrinsics.areEqual(this.a, p47Var.a) && Intrinsics.areEqual(this.b, p47Var.b) && Intrinsics.areEqual(this.c, p47Var.c);
+                return Intrinsics.areEqual(this.g, p47Var.g) && this.h == p47Var.h && Intrinsics.areEqual(this.i, p47Var.i) && Intrinsics.areEqual(this.j, p47Var.j) && Intrinsics.areEqual(this.k, p47Var.k);
             }
             return false;
         }
@@ -34,78 +61,104 @@ public final class p47 {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int hashCode = this.a.hashCode() * 31;
-            c37 c37Var = this.b;
-            int hashCode2 = (hashCode + (c37Var == null ? 0 : c37Var.hashCode())) * 31;
-            c37 c37Var2 = this.c;
-            return hashCode2 + (c37Var2 != null ? c37Var2.hashCode() : 0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            String str = this.g;
+            int hashCode = (((((str == null ? 0 : str.hashCode()) * 31) + this.h) * 31) + this.i.hashCode()) * 31;
+            b67 b67Var = this.j;
+            return ((hashCode + (b67Var != null ? b67Var.hashCode() : 0)) * 31) + this.k.hashCode();
         }
         return invokeV.intValue;
+    }
+
+    public final b67 l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.j : (b67) invokeV.objValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "TextData(text=" + this.a + ", colorData=" + this.b + ", bgColorData=" + this.c + ')';
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return "RecommendCardUiState(mTitle=" + this.g + ", titleColorId=" + this.h + ", mNestedData=" + this.i + ", feedBackData=" + this.j + ", onFeedBackClick=" + this.k + ')';
         }
         return (String) invokeV.objValue;
     }
 
-    public p47(String text, c37 c37Var, c37 c37Var2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public p47(String str, int i, b77 mNestedData, b67 b67Var, Function2<? super b67, ? super View, Unit> onFeedBackClick) {
+        super(null, null, null, null, 15, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {text, c37Var, c37Var2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r3;
+            Object[] objArr = {str, Integer.valueOf(i), mNestedData, b67Var, onFeedBackClick};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Map) objArr2[0], (Map) objArr2[1], (Function2) objArr2[2], (Function1) objArr2[3], ((Integer) objArr2[4]).intValue(), (DefaultConstructorMarker) objArr2[5]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(text, "text");
-        this.a = text;
-        this.b = c37Var;
-        this.c = c37Var2;
+        Intrinsics.checkNotNullParameter(mNestedData, "mNestedData");
+        Intrinsics.checkNotNullParameter(onFeedBackClick, "onFeedBackClick");
+        this.g = str;
+        this.h = i;
+        this.i = mNestedData;
+        this.j = b67Var;
+        this.k = onFeedBackClick;
     }
 
-    public final c37 a() {
+    public /* synthetic */ p47(String str, int i, b77 b77Var, b67 b67Var, Function2 function2, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this(str, i, b77Var, b67Var, (i2 & 16) != 0 ? CommonOnClickKt.a() : function2);
+    }
+
+    public final b67 m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.j;
         }
-        return (c37) invokeV.objValue;
+        return (b67) invokeV.objValue;
     }
 
-    public final c37 b() {
+    public final b77 n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.i;
         }
-        return (c37) invokeV.objValue;
+        return (b77) invokeV.objValue;
     }
 
-    public final String c() {
+    public final String o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.g;
         }
         return (String) invokeV.objValue;
     }
 
-    public final void d(String str) {
+    public final Function2<b67, View, Unit> p() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.a = str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.k;
         }
+        return (Function2) invokeV.objValue;
+    }
+
+    public final int q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.h;
+        }
+        return invokeV.intValue;
     }
 }

@@ -1,218 +1,313 @@
 package com.baidu.tieba;
 
+import android.content.ContentValues;
 import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.Signature;
-import android.text.TextUtils;
-import android.util.Base64;
-import androidx.core.view.InputDeviceCompat;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedInputStream;
-import java.io.ByteArrayInputStream;
-import java.security.PublicKey;
-import java.security.cert.Certificate;
-import java.security.cert.CertificateFactory;
-import java.util.Enumeration;
-import java.util.jar.JarEntry;
-import java.util.jar.JarFile;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public final class hl1 {
+public class hl1 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
+    public static volatile hl1 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final b a;
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            try {
-            } catch (Throwable th) {
-                zk1.d(th);
-            }
-            if (!TextUtils.isEmpty(a)) {
-                return a;
-            }
-            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 64);
-            if (packageInfo == null) {
-                return "";
-            }
-            a = b(packageInfo, packageInfo.applicationInfo.sourceDir);
-            return a;
-        }
-        return (String) invokeL.objValue;
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:18:0x0020  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String b(PackageInfo packageInfo, String str) {
-        InterceptResult invokeLL;
-        PublicKey publicKey;
-        byte[] encoded;
-        Signature[] signatureArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, packageInfo, str)) == null) {
-            if (packageInfo != null && (signatureArr = packageInfo.signatures) != null && signatureArr.length > 0 && signatureArr[0] != null) {
+    /* loaded from: classes6.dex */
+    public static class b extends SQLiteOpenHelper {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(Context context) {
+            super(context, "sso.db", (SQLiteDatabase.CursorFactory) null, 2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        public /* synthetic */ b(Context context, a aVar) {
+            this(context);
+        }
+
+        @Override // android.database.sqlite.SQLiteOpenHelper
+        public void onCreate(SQLiteDatabase sQLiteDatabase) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
                 try {
-                    publicKey = c(signatureArr[0]);
+                    sQLiteDatabase.execSQL("create table if not exists rp_tb(id integer primary key autoincrement, a text, c integer, d integer);");
                 } catch (Throwable th) {
-                    zk1.d(th);
-                }
-                if (publicKey == null) {
-                    publicKey = d(str);
-                }
-                if (publicKey == null && (encoded = publicKey.getEncoded()) != null) {
-                    return el1.b(Base64.encodeToString(encoded, 0).replace("\n", "").replace("\r", ""));
+                    ql1.d(th);
                 }
             }
-            publicKey = null;
-            if (publicKey == null) {
-            }
-            return publicKey == null ? "" : "";
         }
-        return (String) invokeLL.objValue;
-    }
 
-    public static PublicKey c(Signature signature) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, signature)) == null) {
-            CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(signature.toByteArray());
-            Certificate generateCertificate = certificateFactory.generateCertificate(byteArrayInputStream);
-            try {
-                byteArrayInputStream.close();
-            } catch (Throwable th) {
-                zk1.d(th);
-            }
-            return generateCertificate.getPublicKey();
-        }
-        return (PublicKey) invokeL.objValue;
-    }
-
-    public static PublicKey d(String str) {
-        InterceptResult invokeL;
-        JarFile jarFile;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            try {
-                if (TextUtils.isEmpty(str)) {
-                    return null;
-                }
-                byte[] bArr = new byte[8192];
+        @Override // android.database.sqlite.SQLiteOpenHelper
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) && i == 1 && i2 == 2) {
                 try {
-                    jarFile = new JarFile(str);
-                    try {
-                        Enumeration<JarEntry> entries = jarFile.entries();
-                        Certificate[] certificateArr = null;
-                        while (entries.hasMoreElements()) {
-                            JarEntry nextElement = entries.nextElement();
-                            if (!nextElement.isDirectory() && !nextElement.getName().startsWith("META-INF/")) {
-                                Certificate[] e = e(jarFile, nextElement, bArr);
-                                if (e != null && e.length > 0) {
-                                    if (certificateArr == null) {
-                                        certificateArr = e;
-                                    } else {
-                                        for (int i = 0; i < certificateArr.length; i++) {
-                                            int i2 = 0;
-                                            while (true) {
-                                                if (i2 < e.length) {
-                                                    if (certificateArr[i] != null && certificateArr[i].equals(e[i2])) {
-                                                        z = true;
-                                                        break;
-                                                    }
-                                                    i2++;
-                                                } else {
-                                                    z = false;
-                                                    break;
-                                                }
-                                            }
-                                            if (z && certificateArr.length == e.length) {
-                                            }
-                                            jarFile.close();
-                                            jarFile.close();
-                                            return null;
-                                        }
-                                        continue;
-                                    }
-                                }
-                                jarFile.close();
-                                jarFile.close();
-                                return null;
-                            }
-                        }
-                        jarFile.close();
-                        if (certificateArr == null || certificateArr.length <= 0) {
-                            return null;
-                        }
-                        return certificateArr[0].getPublicKey();
-                    } catch (Throwable th) {
-                        th = th;
-                        if (jarFile != null) {
-                            jarFile.close();
-                        }
-                        throw th;
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    jarFile = null;
+                    sQLiteDatabase.delete("rp_tb", null, null);
+                } catch (Throwable th) {
+                    ql1.d(th);
                 }
-            } catch (Throwable th3) {
-                zk1.d(th3);
-                return null;
             }
-        } else {
-            return (PublicKey) invokeL.objValue;
         }
     }
 
-    public static Certificate[] e(JarFile jarFile, JarEntry jarEntry, byte[] bArr) {
-        InterceptResult invokeLLL;
-        BufferedInputStream bufferedInputStream;
-        Certificate[] certificateArr;
+    public hl1(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, jarFile, jarEntry, bArr)) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new b(context, null);
+    }
+
+    public final void f(il1 il1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, il1Var) == null) {
             try {
-                bufferedInputStream = new BufferedInputStream(jarFile.getInputStream(jarEntry));
-                while (bufferedInputStream.read(bArr, 0, bArr.length) != -1) {
+                this.a.getWritableDatabase().delete("rp_tb", "id=?", new String[]{String.valueOf(il1Var.a())});
+            } catch (Throwable th) {
+                System.currentTimeMillis();
+                ql1.d(th);
+            }
+        }
+    }
+
+    public static hl1 a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (b == null) {
+                synchronized (hl1.class) {
+                    if (b == null) {
+                        b = new hl1(context);
+                    }
+                }
+            }
+            return b;
+        }
+        return (hl1) invokeL.objValue;
+    }
+
+    public void d(ArrayList<il1> arrayList) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) && arrayList != null) {
+            try {
+                if (arrayList.size() != 0) {
+                    for (int i = 0; i < arrayList.size(); i++) {
+                        f(arrayList.get(i));
+                    }
+                }
+            } catch (Throwable th) {
+                ql1.d(th);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, IF, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
+    public ArrayList<il1> b(String str) {
+        InterceptResult invokeL;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            try {
+                cursor = this.a.getWritableDatabase().rawQuery("SELECT * FROM rp_tb WHERE c IN (" + str + ") LIMIT 100", null);
+                if (cursor != null) {
                     try {
+                        if (cursor.getCount() != 0) {
+                            ArrayList<il1> arrayList = new ArrayList<>();
+                            ArrayList<il1> arrayList2 = new ArrayList<>();
+                            while (cursor.moveToNext()) {
+                                il1 il1Var = new il1();
+                                il1Var.b(cursor.getInt(cursor.getColumnIndex("id")));
+                                byte[] b2 = ol1.b(cursor.getString(cursor.getColumnIndex("a")));
+                                if (b2 == null) {
+                                    arrayList2.add(il1Var);
+                                } else {
+                                    il1Var.c(new String(b2));
+                                    il1Var.g(cursor.getInt(cursor.getColumnIndex("c")));
+                                    il1Var.e(cursor.getInt(cursor.getColumnIndex("d")));
+                                    arrayList.add(il1Var);
+                                }
+                            }
+                            if (!arrayList2.isEmpty()) {
+                                d(arrayList2);
+                            }
+                            return arrayList;
+                        }
                     } catch (Throwable th) {
                         th = th;
                         try {
-                            zk1.d(th);
-                            return new Certificate[0];
-                        } finally {
-                            if (bufferedInputStream != null) {
+                            ql1.d(th);
+                            if (cursor != null) {
                                 try {
-                                    bufferedInputStream.close();
+                                    if (!cursor.isClosed()) {
+                                        cursor.close();
+                                    }
                                 } catch (Throwable th2) {
-                                    zk1.d(th2);
+                                    ql1.d(th2);
+                                }
+                            }
+                            return null;
+                        } finally {
+                            if (cursor != null) {
+                                try {
+                                    if (!cursor.isClosed()) {
+                                        cursor.close();
+                                    }
+                                } catch (Throwable th3) {
+                                    ql1.d(th3);
                                 }
                             }
                         }
                     }
                 }
-                if (jarEntry != null) {
-                    certificateArr = jarEntry.getCertificates();
-                } else {
-                    certificateArr = new Certificate[0];
+                if (cursor != null) {
+                    try {
+                        if (!cursor.isClosed()) {
+                            cursor.close();
+                        }
+                    } catch (Throwable th4) {
+                        ql1.d(th4);
+                    }
                 }
-                try {
-                    bufferedInputStream.close();
-                } catch (Throwable th3) {
-                    zk1.d(th3);
-                }
-                return certificateArr;
-            } catch (Throwable th4) {
-                th = th4;
-                bufferedInputStream = null;
+                return null;
+            } catch (Throwable th5) {
+                th = th5;
+                cursor = null;
             }
         } else {
-            return (Certificate[]) invokeLLL.objValue;
+            return (ArrayList) invokeL.objValue;
+        }
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, IF, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
+    public ArrayList<il1> e(String str) {
+        InterceptResult invokeL;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            try {
+                cursor = this.a.getWritableDatabase().rawQuery("SELECT * FROM rp_tb WHERE c IN (" + str + ") and d=2 LIMIT 100", null);
+                if (cursor != null) {
+                    try {
+                        if (cursor.getCount() != 0) {
+                            ArrayList<il1> arrayList = new ArrayList<>();
+                            ArrayList<il1> arrayList2 = new ArrayList<>();
+                            while (cursor.moveToNext()) {
+                                il1 il1Var = new il1();
+                                il1Var.b(cursor.getInt(cursor.getColumnIndex("id")));
+                                byte[] b2 = ol1.b(cursor.getString(cursor.getColumnIndex("a")));
+                                if (b2 == null) {
+                                    arrayList2.add(il1Var);
+                                } else {
+                                    il1Var.c(new String(b2));
+                                    il1Var.g(cursor.getInt(cursor.getColumnIndex("c")));
+                                    il1Var.e(cursor.getInt(cursor.getColumnIndex("d")));
+                                    arrayList.add(il1Var);
+                                }
+                            }
+                            if (!arrayList2.isEmpty()) {
+                                d(arrayList2);
+                            }
+                            return arrayList;
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        try {
+                            ql1.d(th);
+                            if (cursor != null) {
+                                try {
+                                    if (!cursor.isClosed()) {
+                                        cursor.close();
+                                    }
+                                } catch (Throwable th2) {
+                                    ql1.d(th2);
+                                }
+                            }
+                            return null;
+                        } finally {
+                            if (cursor != null) {
+                                try {
+                                    if (!cursor.isClosed()) {
+                                        cursor.close();
+                                    }
+                                } catch (Throwable th3) {
+                                    ql1.d(th3);
+                                }
+                            }
+                        }
+                    }
+                }
+                if (cursor != null) {
+                    try {
+                        if (!cursor.isClosed()) {
+                            cursor.close();
+                        }
+                    } catch (Throwable th4) {
+                        ql1.d(th4);
+                    }
+                }
+                return null;
+            } catch (Throwable th5) {
+                th = th5;
+                cursor = null;
+            }
+        } else {
+            return (ArrayList) invokeL.objValue;
+        }
+    }
+
+    public void c(il1 il1Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, il1Var) != null) || il1Var == null) {
+            return;
+        }
+        try {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("a", ol1.a(il1Var.d().getBytes()));
+            contentValues.put("c", Integer.valueOf(il1Var.h()));
+            contentValues.put("d", Integer.valueOf(il1Var.f()));
+            this.a.getWritableDatabase().insert("rp_tb", null, contentValues);
+        } catch (Throwable th) {
+            ql1.d(th);
         }
     }
 }

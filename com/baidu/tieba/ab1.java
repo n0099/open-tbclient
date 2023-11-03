@@ -1,17 +1,76 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.poly.widget.PolyActivity;
+import com.baidu.poly.widget.WechatSignAutoRenewActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 /* loaded from: classes5.dex */
-public abstract class ab1<K, V> {
+public class ab1 implements ud1 {
     public static /* synthetic */ Interceptable $ic;
+    public static ab1 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<K, V> a;
+    public b a;
+    public boolean b;
+
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ab1 this$0;
+
+        public b(ab1 ab1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ab1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = ab1Var;
+        }
+
+        public /* synthetic */ b(ab1 ab1Var, a aVar) {
+            this(ab1Var);
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && this.this$0.b) {
+                this.this$0.b = false;
+                try {
+                    int intExtra = intent.getIntExtra("code", 0);
+                    Intent intent2 = new Intent(PolyActivity.g, WechatSignAutoRenewActivity.class);
+                    intent2.putExtra("code", intExtra);
+                    PolyActivity.g.startActivity(intent2);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 
     public ab1() {
         Interceptable interceptable = $ic;
@@ -26,47 +85,63 @@ public abstract class ab1<K, V> {
                 return;
             }
         }
-        this.a = qc1.c();
+        this.b = false;
     }
 
-    public Map<K, V> b() {
+    public static ab1 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (c == null) {
+                synchronized (ab1.class) {
+                    if (c == null) {
+                        c = new ab1();
+                    }
+                }
+            }
+            return c;
         }
-        return (Map) invokeV.objValue;
+        return (ab1) invokeV.objValue;
     }
 
-    public Map<K, V> c() {
-        InterceptResult invokeV;
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public V a(K k) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) {
-            return this.a.get(k);
-        }
-        return (V) invokeL.objValue;
-    }
-
-    public void e(Map<K, V> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
-            this.a = map;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a = new b(this, null);
+            PolyActivity.g.getApplicationContext().registerReceiver(this.a, new IntentFilter("com_baidu_poly_cashier_wechat_sign_auto_renew_receiver"));
         }
     }
 
-    public void d(K k, V v) {
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, k, v) == null) {
-            this.a.put(k, v);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a != null) {
+            try {
+                PolyActivity.g.getApplicationContext().unregisterReceiver(this.a);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ud1
+    public void a(Activity activity, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, str2) == null) {
+            gd1.b("WECHAT signWechatAutoRenew appId=" + str);
+            hb1 a2 = xa1.a();
+            if (a2 == null) {
+                return;
+            }
+            if (!a2.b(activity)) {
+                ee1.f(activity, "您没有安装微信，请选择其他支付方式");
+                activity.finish();
+                return;
+            }
+            this.b = true;
+            f();
+            e();
+            a2.a(activity, str, str2);
+            activity.finish();
         }
     }
 }

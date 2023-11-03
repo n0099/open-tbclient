@@ -3,7 +3,7 @@ package com.baidu.tbadk.switchs;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.qk5;
+import com.baidu.tieba.hm5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,7 +35,7 @@ public class DisableZanSwitch extends BaseNormalSwitch {
         }
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.t9
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ja
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -66,7 +66,7 @@ public class DisableZanSwitch extends BaseNormalSwitch {
             }
             if (mCachedSwitchValue < 0) {
                 mCachedSwitchValue = SharedPrefHelper.getInstance().getInt(KEY_SWITCH, 0);
-                if (!TbadkCoreApplication.getInst().isMainProcess(false) && (f = qk5.f(KEY_SWITCH, -1)) >= 0) {
+                if (!TbadkCoreApplication.getInst().isMainProcess(false) && (f = hm5.f(KEY_SWITCH, -1)) >= 0) {
                     mCachedSwitchValue = f;
                     SharedPrefHelper.getInstance().putInt(KEY_SWITCH, f);
                 }
@@ -84,7 +84,7 @@ public class DisableZanSwitch extends BaseNormalSwitch {
         if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
             mCachedSwitchValue = i;
             SharedPrefHelper.getInstance().putInt(KEY_SWITCH, i);
-            qk5.n(KEY_SWITCH, i);
+            hm5.n(KEY_SWITCH, i);
         }
     }
 }

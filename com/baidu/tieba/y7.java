@@ -1,23 +1,23 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-/* loaded from: classes8.dex */
-public class y7 implements e8 {
+/* loaded from: classes9.dex */
+public class y7 implements b8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public char a;
 
-    public y7(boolean z) {
+    public y7(char c) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
+            Object[] objArr = {Character.valueOf(c)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,51 +27,65 @@ public class y7 implements e8 {
                 return;
             }
         }
-        this.a = z;
+        this.a = c;
     }
 
-    @Override // com.baidu.tieba.e8
-    public Object a(u8 u8Var) {
+    @Override // com.baidu.tieba.b8
+    public Object a(k9 k9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, u8Var)) == null) {
-            Class<?> a = u8Var.a();
-            if (a != Boolean.class && a != Boolean.TYPE) {
-                if (a != Short.class && a != Short.TYPE) {
-                    if (a != Integer.class && a != Integer.TYPE) {
-                        if (a != Long.class && a != Long.TYPE) {
-                            if (a != Float.class && a != Float.TYPE) {
-                                if (a != Double.class && a != Double.TYPE) {
-                                    if (a != Character.class && a != Character.TYPE) {
-                                        if (a == String.class) {
-                                            return String.valueOf(this.a);
-                                        }
-                                        if (a == char[].class) {
-                                            return String.valueOf(this.a).toCharArray();
-                                        }
-                                        if (a == byte[].class) {
-                                            try {
-                                                return tc.e(String.valueOf(this.a), 0);
-                                            } catch (IOException e) {
-                                                e.printStackTrace();
-                                                return null;
-                                            }
-                                        }
-                                        return null;
-                                    }
-                                    return Character.valueOf((char) (!this.a ? 1 : 0));
-                                }
-                                return Double.valueOf(!this.a ? 1 : 0);
-                            }
-                            return Float.valueOf(!this.a ? 1 : 0);
-                        }
-                        return Long.valueOf(!this.a ? 1 : 0);
-                    }
-                    return Integer.valueOf(!this.a ? 1 : 0);
-                }
-                return Short.valueOf((short) (!this.a ? 1 : 0));
-            }
-            return Boolean.valueOf(this.a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k9Var)) == null) {
+            return String.valueOf(this.a);
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.b8
+    public Object b(k9 k9Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k9Var)) == null) {
+            return Character.valueOf(this.a);
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.b8
+    public Object c(k9 k9Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k9Var)) == null) {
+            return Character.valueOf(this.a);
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.b8
+    public Object d(k9 k9Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, k9Var)) == null) {
+            return Character.valueOf(this.a);
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.b8
+    public Object e(k9 k9Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, k9Var)) == null) {
+            return d(k9Var);
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.b8
+    public Object f(k9 k9Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, k9Var)) == null) {
+            return String.valueOf(this.a);
         }
         return invokeL.objValue;
     }

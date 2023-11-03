@@ -1,46 +1,58 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class asb implements Runnable {
+public abstract class asb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ lsb a;
-    public final /* synthetic */ csb b;
 
-    public asb(csb csbVar, lsb lsbVar) {
+    public static float a(String str, float f) {
+        InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {csbVar, lsbVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65536, null, str, f)) == null) {
+            if (str == null) {
+                return f;
+            }
+            try {
+                return Float.parseFloat(str);
+            } catch (Exception unused) {
+                return f;
             }
         }
-        this.b = csbVar;
-        this.a = lsbVar;
+        return invokeLF.floatValue;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
+    public static int b(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this.b.c) {
-                btb btbVar = this.b.a;
-                if (btbVar != null) {
-                    this.a.c();
-                    ((psb) btbVar).a.countDown();
-                }
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
+            if (str == null) {
+                return i;
+            }
+            try {
+                return Integer.parseInt(str);
+            } catch (Exception unused) {
+                return i;
             }
         }
+        return invokeLI.intValue;
+    }
+
+    public static long c(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, str, j)) == null) {
+            if (str == null) {
+                return j;
+            }
+            try {
+                return Long.parseLong(str);
+            } catch (Exception unused) {
+                return j;
+            }
+        }
+        return invokeLJ.longValue;
     }
 }

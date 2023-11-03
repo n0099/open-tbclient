@@ -3,10 +3,10 @@ package com.baidu.searchbox.http.request;
 import com.baidu.searchbox.http.AbstractHttpManager;
 import okhttp3.Request;
 import okhttp3.RequestBody;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PatchRequest extends HttpCommonRequest<PatchRequestBuilder> {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class PatchRequestBuilder extends HttpCommonRequestBuilder<PatchRequestBuilder> {
         public PatchRequestBuilder(AbstractHttpManager abstractHttpManager) {
             super(abstractHttpManager);

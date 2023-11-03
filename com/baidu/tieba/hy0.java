@@ -1,19 +1,29 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 /* loaded from: classes6.dex */
-public final class hy0 extends cz0 {
+public final class hy0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final iy0 a;
+    public int a;
+    public int b;
+    public int c;
+    public float d;
+    public boolean e;
+    public int f;
+    public float g;
+    public int h;
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public hy0() {
+        this(0, 0, 0, 0.0f, false, 0, 0.0f, 0, 255, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -21,268 +31,157 @@ public final class hy0 extends cz0 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                this(((Integer) objArr[0]).intValue(), ((Integer) objArr[1]).intValue(), ((Integer) objArr[2]).intValue(), ((Float) objArr[3]).floatValue(), ((Boolean) objArr[4]).booleanValue(), ((Integer) objArr[5]).intValue(), ((Float) objArr[6]).floatValue(), ((Integer) objArr[7]).intValue(), ((Integer) objArr[8]).intValue(), (DefaultConstructorMarker) objArr[9]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new iy0();
     }
 
-    public String A() {
-        InterceptResult invokeV;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.e.getValue();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (this != obj) {
+                if (obj instanceof hy0) {
+                    hy0 hy0Var = (hy0) obj;
+                    return this.a == hy0Var.a && this.b == hy0Var.b && this.c == hy0Var.c && Float.compare(this.d, hy0Var.d) == 0 && this.e == hy0Var.e && this.f == hy0Var.f && Float.compare(this.g, hy0Var.g) == 0 && this.h == hy0Var.h;
+                }
+                return false;
+            }
+            return true;
         }
-        return (String) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    public int B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.h.getValue();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.cz0
-    public bz0 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (bz0) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.l.getValue();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
+    /* JADX DEBUG: Multi-variable search result rejected for r1v5, resolved type: boolean */
+    /* JADX WARN: Multi-variable type inference failed */
+    public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a.m.getValue();
+            int floatToIntBits = ((((((this.a * 31) + this.b) * 31) + this.c) * 31) + Float.floatToIntBits(this.d)) * 31;
+            boolean z = this.e;
+            int i = z;
+            if (z != 0) {
+                i = 1;
+            }
+            return ((((((floatToIntBits + i) * 31) + this.f) * 31) + Float.floatToIntBits(this.g)) * 31) + this.h;
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public String e() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a.f.getValue();
+            return "NadSensorHelperParams(planeType=" + this.a + ", leftThreshold=" + this.b + ", rightThreshold=" + this.c + ", thirdAxisLimit=" + this.d + ", isSaveStartAngle=" + this.e + ", updateInterval=" + this.f + ", shakeSensitivity=" + this.g + ", shakeCounts=" + this.h + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }
 
-    public long f() {
-        InterceptResult invokeV;
+    public hy0(int i, int i2, int i3, float f, boolean z, int i4, float f2, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a.j.getValue();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f), Boolean.valueOf(z), Integer.valueOf(i4), Float.valueOf(f2), Integer.valueOf(i5)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i6 = newInitContext.flag;
+            if ((i6 & 1) != 0) {
+                int i7 = i6 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return invokeV.longValue;
+        this.a = i;
+        this.b = i2;
+        this.c = i3;
+        this.d = f;
+        this.e = z;
+        this.f = i4;
+        this.g = f2;
+        this.h = i5;
     }
 
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a.a.getValue();
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public /* synthetic */ hy0(int i, int i2, int i3, float f, boolean z, int i4, float f2, int i5, int i6, DefaultConstructorMarker defaultConstructorMarker) {
+        this(r1, r2, r3, r4, r5, r6, r7, r0);
+        int i7;
+        int i8;
+        float f3;
+        boolean z2;
+        int i9;
+        float f4;
+        int i10;
+        if ((i6 & 1) != 0) {
+            i7 = 0;
+        } else {
+            i7 = i;
         }
-        return (String) invokeV.objValue;
+        if ((i6 & 2) != 0) {
+            i8 = 90;
+        } else {
+            i8 = i2;
+        }
+        int i11 = (i6 & 4) == 0 ? i3 : 90;
+        if ((i6 & 8) != 0) {
+            f3 = 0.5f;
+        } else {
+            f3 = f;
+        }
+        if ((i6 & 16) != 0) {
+            z2 = true;
+        } else {
+            z2 = z;
+        }
+        if ((i6 & 32) != 0) {
+            i9 = 67;
+        } else {
+            i9 = i4;
+        }
+        if ((i6 & 64) != 0) {
+            f4 = 12.0f;
+        } else {
+            f4 = f2;
+        }
+        if ((i6 & 128) != 0) {
+            i10 = 2;
+        } else {
+            i10 = i5;
+        }
     }
 
-    public String h() {
+    public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.a.k.getValue();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.a.d.getValue();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.a.g.getValue();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.h;
         }
         return invokeV.intValue;
     }
 
-    public long x() {
+    public final float b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            return this.a.i.getValue();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.g;
         }
-        return invokeV.longValue;
+        return invokeV.floatValue;
     }
 
-    public int y() {
+    public final int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            return this.a.c.getValue();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
         }
         return invokeV.intValue;
-    }
-
-    public int z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            return this.a.b.getValue();
-        }
-        return invokeV.intValue;
-    }
-
-    public hy0 k(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            this.a.l.setValue(str);
-            return this;
-        }
-        return (hy0) invokeL.objValue;
-    }
-
-    public hy0 l(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            this.a.m.setValue(str);
-            return this;
-        }
-        return (hy0) invokeL.objValue;
-    }
-
-    public hy0 m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            this.a.f.setValue(str);
-            return this;
-        }
-        return (hy0) invokeL.objValue;
-    }
-
-    public hy0 n(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048590, this, j)) == null) {
-            this.a.j.setValue(j);
-            return this;
-        }
-        return (hy0) invokeJ.objValue;
-    }
-
-    public hy0 o(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
-            this.a.a.setValue(str);
-            return this;
-        }
-        return (hy0) invokeL.objValue;
-    }
-
-    public hy0 p(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
-            this.a.k.setValue(str);
-            return this;
-        }
-        return (hy0) invokeL.objValue;
-    }
-
-    public hy0 q(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
-            this.a.d.setValue(str);
-            return this;
-        }
-        return (hy0) invokeL.objValue;
-    }
-
-    public hy0 r(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
-            this.a.g.setValue(i);
-            return this;
-        }
-        return (hy0) invokeI.objValue;
-    }
-
-    public hy0 s(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048595, this, j)) == null) {
-            this.a.i.setValue(j);
-            return this;
-        }
-        return (hy0) invokeJ.objValue;
-    }
-
-    public hy0 t(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) {
-            this.a.c.setValue(i);
-            return this;
-        }
-        return (hy0) invokeI.objValue;
-    }
-
-    public hy0 u(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
-            this.a.b.setValue(i);
-            return this;
-        }
-        return (hy0) invokeI.objValue;
-    }
-
-    public hy0 v(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, str)) == null) {
-            this.a.e.setValue(str);
-            return this;
-        }
-        return (hy0) invokeL.objValue;
-    }
-
-    public hy0 w(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i)) == null) {
-            this.a.h.setValue(i);
-            return this;
-        }
-        return (hy0) invokeI.objValue;
     }
 }

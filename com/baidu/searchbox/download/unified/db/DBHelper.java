@@ -17,7 +17,7 @@ import com.baidu.searchbox.download.unified.DownloadParams;
 import com.baidu.searchbox.download.util.DownloadHelper;
 import com.baidu.searchbox.download.util.FileClassifyHelper;
 import com.baidu.searchbox.ng.browser.explore.model.WebAddress;
-import com.baidu.tieba.xw;
+import com.baidu.tieba.ox;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -87,7 +87,7 @@ public class DBHelper {
                         if (ApkCloudStatisticsUtils.enableAppsearchCloudStatic()) {
                             downloadManager.doCloudResumeStatisticJob(j);
                         }
-                        xw.d(j);
+                        ox.d(j);
                     }
                     cursor.moveToNext();
                 }
@@ -104,7 +104,7 @@ public class DBHelper {
             contentValues.put("status", (Integer) 190);
             contentValues.put("control", (Integer) 0);
             int update = AppRuntime.getAppContext().getContentResolver().update(Downloads.Impl.CONTENT_URI, contentValues, DownloadHelper.buildWhereClauseForIds(list), DownloadHelper.buildWhereArgsForIds(list));
-            xw.q(DownloadHelper.listToArrayForLong(list));
+            ox.q(DownloadHelper.listToArrayForLong(list));
             return update;
         } catch (Throwable th) {
             Closeables.closeSafely(cursor);

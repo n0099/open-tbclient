@@ -1,96 +1,64 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 /* loaded from: classes7.dex */
-public class nj3 implements si4 {
+public class nj3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final nj3 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-573591244, "Lcom/baidu/tieba/nj3$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-573591244, "Lcom/baidu/tieba/nj3$b;");
-                    return;
-                }
-            }
-            a = new nj3(null);
-        }
-    }
-
-    public nj3() {
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            g63 M = g63.M();
+            if (M != null) {
+                return String.format(str, M.P(), M.W());
             }
+            return "";
         }
+        return (String) invokeL.objValue;
     }
 
-    public static nj3 b() {
+    public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            String a = a("https://smartapps.cn/%s/%s/page-frame.html");
+            if (rm1.a) {
+                Log.d("SwanAppRefererUtils", "getFixedReferer: " + a);
+            }
+            return a;
         }
-        return (nj3) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public /* synthetic */ nj3(a aVar) {
-        this();
-    }
-
-    @Override // com.baidu.tieba.si4
-    public boolean a(@NonNull String str, @NonNull int i) {
-        InterceptResult invokeLI;
+    public static void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    return false;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            String b = b();
+            if (!TextUtils.isEmpty(b)) {
+                if (rm1.a) {
+                    Log.d("SwanAppRefererUtils", "call setRefererPattern for Slave Webview; referer is " + b);
                 }
-                File file = new File(xo2.g().b(), str);
-                if (!file.exists() || !file.isDirectory()) {
-                    return false;
-                }
+                WebSettingsGlobalBlink.setRefererPattern(b, cp2.i());
+            }
+        }
+    }
+
+    public static boolean c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (!TextUtils.isEmpty(str) && str.startsWith("https://")) {
                 return true;
             }
-            File file2 = new File(lo2.g(), str);
-            if (!file2.exists() || !file2.isDirectory()) {
-                return false;
-            }
-            return true;
+            return false;
         }
-        return invokeLI.booleanValue;
+        return invokeL.booleanValue;
     }
 }

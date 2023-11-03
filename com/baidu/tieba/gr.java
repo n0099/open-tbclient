@@ -1,55 +1,74 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
-import android.os.StatFs;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
 public final class gr {
     public static /* synthetic */ Interceptable $ic;
+    public static final gr a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448305698, "Lcom/baidu/tieba/gr;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448305698, "Lcom/baidu/tieba/gr;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448305698, "Lcom/baidu/tieba/gr;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+        a = new gr();
+    }
+
+    public gr() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448305698, "Lcom/baidu/tieba/gr;");
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
     }
 
-    public static float a() {
+    public final long a() {
         InterceptResult invokeV;
-        long j;
-        StatFs statFs;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            long j2 = 0;
-            try {
-                statFs = new StatFs(Environment.getDataDirectory().getPath());
-                j = statFs.getBlockSize();
-            } catch (Exception e) {
-                e = e;
-                j = 0;
-            }
-            try {
-                j2 = statFs.getAvailableBlocks();
-            } catch (Exception e2) {
-                e = e2;
-                e.printStackTrace();
-                return ((float) (j2 * j)) / 1024.0f;
-            }
-            return ((float) (j2 * j)) / 1024.0f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return System.currentTimeMillis();
         }
-        return invokeV.floatValue;
+        return invokeV.longValue;
+    }
+
+    public final String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            if (str.length() <= 128) {
+                return str;
+            }
+            String substring = str.substring(0, 128);
+            Intrinsics.checkExpressionValueIsNotNull(substring, "(this as java.lang.Strin…ing(startIndex, endIndex)");
+            return substring;
+        }
+        return (String) invokeL.objValue;
     }
 }

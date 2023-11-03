@@ -1,47 +1,33 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.net.Uri;
+import androidx.annotation.NonNull;
+import androidx.core.content.FileProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes5.dex */
-public abstract class dk3 implements Runnable {
+public final class dk3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ek3 a;
 
-    public dk3() {
+    public static Uri a(@NonNull Context context, @NonNull File file) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, file)) == null) {
+            return FileProvider.getUriForFile(context, b().a(context), file);
         }
+        return (Uri) invokeLL.objValue;
     }
 
-    public void a() {
-        ek3 ek3Var;
+    public static vp1 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (ek3Var = this.a) != null) {
-            ek3Var.a(this);
-            this.a = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return np2.p();
         }
-    }
-
-    public dk3 b(ek3 ek3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ek3Var)) == null) {
-            this.a = ek3Var;
-            return this;
-        }
-        return (dk3) invokeL.objValue;
+        return (vp1) invokeV.objValue;
     }
 }

@@ -1,53 +1,103 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
-import android.text.TextUtils;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class cs2 {
+public class cs2 implements ds2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
 
-    public static int a(String str, int i) {
-        InterceptResult invokeLI;
-        long parseLong;
+    @Override // com.baidu.tieba.ds2
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                p22.o("map", "color string is empty, use default " + Integer.toHexString(i));
-                return i;
-            }
-            try {
-                if (str.charAt(0) == '#') {
-                    String substring = str.substring(1);
-                    if (substring.length() != 6 && substring.length() != 8) {
-                        throw new IllegalArgumentException("char count not right");
-                    }
-                    if (substring.length() == 6) {
-                        parseLong = Long.parseLong(substring, 16) | (-16777216);
-                    } else {
-                        parseLong = Long.parseLong(substring.substring(6) + substring.substring(0, 6), 16);
-                    }
-                    return (int) parseLong;
-                }
-                return Color.parseColor(str);
-            } catch (IllegalArgumentException unused) {
-                p22.o("map", "parse color error, use default " + Integer.toHexString(i));
-                return i;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
         }
-        return invokeLI.intValue;
+        return invokeV.booleanValue;
     }
 
-    public static float b(double d) {
-        InterceptResult invokeCommon;
+    public cs2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Double.valueOf(d)})) == null) {
-            return (float) (d * gj3.l(AppRuntime.getAppContext()));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return invokeCommon.floatValue;
+        this.a = -2;
+        this.b = -2;
+    }
+
+    @Override // com.baidu.tieba.ds2
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.ds2
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.b == -2) {
+                np2.g0().getSwitch("swan_webview_pause_control", 3);
+                this.b = 3;
+            }
+            if ((this.b & 2) == 2) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ds2
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.b == -2) {
+                np2.g0().getSwitch("swan_webview_pause_control", 3);
+                this.b = 3;
+            }
+            if ((this.b & 1) == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ds2
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.a == -2) {
+                np2.g0().getSwitch("swan_webview_backstage_optimize", -1);
+                this.a = -1;
+            }
+            if (this.a > -1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

@@ -1,9 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.nadcore.model.ParseError;
+import com.baidu.platform.comapi.map.MapBundleKey;
+import com.baidu.searchbox.download.util.MigrateStatisticUtils;
+import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,220 +14,126 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public final class an0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
+    @NonNull
+    public final AdBaseModel.STYLE a;
+    @NonNull
     public final String b;
-    public final int c;
+    @NonNull
+    public String c;
+    @NonNull
     public final String d;
-    public final bm0 e;
-    public final List<bn0> f;
+    @NonNull
+    public final String e;
+    @NonNull
+    public final String f;
+    @NonNull
+    public final String g;
+    @NonNull
+    public final String h;
+    @NonNull
+    public final List<String> i;
+    @NonNull
+    public final List<tm0> j;
+    @NonNull
+    public final String k;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947620806, "Lcom/baidu/tieba/an0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947620806, "Lcom/baidu/tieba/an0;");
-                return;
-            }
-        }
-        g = new a(null);
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof an0) {
-                    an0 an0Var = (an0) obj;
-                    return Intrinsics.areEqual(this.a, an0Var.a) && Intrinsics.areEqual(this.b, an0Var.b) && this.c == an0Var.c && Intrinsics.areEqual(this.d, an0Var.d) && Intrinsics.areEqual(this.e, an0Var.e) && Intrinsics.areEqual(this.f, an0Var.f);
-                }
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            String str = this.a;
-            int hashCode = (str != null ? str.hashCode() : 0) * 31;
-            String str2 = this.b;
-            int hashCode2 = (((hashCode + (str2 != null ? str2.hashCode() : 0)) * 31) + this.c) * 31;
-            String str3 = this.d;
-            int hashCode3 = (hashCode2 + (str3 != null ? str3.hashCode() : 0)) * 31;
-            bm0 bm0Var = this.e;
-            int hashCode4 = (hashCode3 + (bm0Var != null ? bm0Var.hashCode() : 0)) * 31;
-            List<bn0> list = this.f;
-            return hashCode4 + (list != null ? list.hashCode() : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return "ImageInfoData(imageStyle=" + this.a + ", url=" + this.b + ", chargeDuration=" + this.c + ", scrollChargeSwitch=" + this.d + ", downloadData=" + this.e + ", imageList=" + this.f + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        @JvmStatic
-        public final an0 a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-                if (jSONObject != null) {
-                    String optString = jSONObject.optString("image_info_style", "0");
-                    Intrinsics.checkNotNullExpressionValue(optString, "optString(\"image_info_style\", \"0\")");
-                    String optString2 = jSONObject.optString("url");
-                    Intrinsics.checkNotNullExpressionValue(optString2, "optString(\"url\")");
-                    int optInt = jSONObject.optInt("image_style_charge_duration");
-                    String optString3 = jSONObject.optString("image_style_scroll_charge_switch");
-                    Intrinsics.checkNotNullExpressionValue(optString3, "optString(\"image_style_scroll_charge_switch\")");
-                    return new an0(optString, optString2, optInt, optString3, bm0.c(jSONObject.optJSONObject("ad_download")), an0.g.b(jSONObject.optJSONArray("images")));
-                }
-                return null;
-            }
-            return (an0) invokeL.objValue;
-        }
-
-        public final List<bn0> b(JSONArray jSONArray) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray)) == null) {
-                if (jSONArray != null && jSONArray.length() > 0) {
-                    ArrayList arrayList = new ArrayList();
-                    int length = jSONArray.length();
-                    for (int i = 0; i < length; i++) {
-                        bn0 a = bn0.c.a(jSONArray.optJSONObject(i));
-                        if (a != null) {
-                            arrayList.add(a);
-                        }
-                    }
-                    return arrayList;
-                }
-                return new ArrayList();
-            }
-            return (List) invokeL.objValue;
-        }
-    }
-
-    public an0(String imageStyle, String url, int i, String scrollChargeSwitch, bm0 bm0Var, List<bn0> imageList) {
+    public an0(@NonNull AdBaseModel.STYLE style, @NonNull String str, int i, @NonNull JSONObject jSONObject, @NonNull JSONObject jSONObject2, @NonNull String str2) {
+        int length;
+        int length2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {imageStyle, url, Integer.valueOf(i), scrollChargeSwitch, bm0Var, imageList};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {style, str, Integer.valueOf(i), jSONObject, jSONObject2, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(imageStyle, "imageStyle");
-        Intrinsics.checkNotNullParameter(url, "url");
-        Intrinsics.checkNotNullParameter(scrollChargeSwitch, "scrollChargeSwitch");
-        Intrinsics.checkNotNullParameter(imageList, "imageList");
-        this.a = imageStyle;
-        this.b = url;
-        this.c = i;
-        this.d = scrollChargeSwitch;
-        this.e = bm0Var;
-        this.f = imageList;
-    }
-
-    public final long a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i = this.c;
-            if (i <= 0) {
-                return 0L;
+        this.a = style;
+        this.b = jSONObject2.optString("id");
+        this.c = jSONObject2.optString("scheme");
+        if (!TextUtils.isEmpty(str2)) {
+            this.d = str2;
+        } else {
+            this.d = jSONObject2.optString(MigrateStatisticUtils.EXT_INFO);
+        }
+        if (!TextUtils.isEmpty(this.d)) {
+            this.c = this.c.replace("__EXT_RENDER_AFD__", this.d);
+        }
+        this.e = jSONObject2.optString("user_name");
+        this.f = jSONObject2.optString(RecommendDetailActivityConfig.USER_PORTRAIT);
+        this.g = jSONObject2.optString("title");
+        if (jSONObject2.optInt("title_lines", 0) > 0) {
+        }
+        this.h = jSONObject2.optString("tag", "广告");
+        jSONObject2.optString("recommend_reason");
+        this.i = new ArrayList();
+        JSONArray optJSONArray = jSONObject2.optJSONArray("recommend_reason");
+        if (optJSONArray == null) {
+            length = 0;
+        } else {
+            length = optJSONArray.length();
+        }
+        for (int i4 = 0; i4 < length; i4++) {
+            String optString = optJSONArray.optString(i4);
+            if (!TextUtils.isEmpty(optString)) {
+                ky0.b(this.i, optString);
             }
-            return TimeUnit.SECONDS.toMillis(i);
         }
-        return invokeV.longValue;
+        this.j = new ArrayList();
+        JSONArray optJSONArray2 = jSONObject2.optJSONArray("pic_list");
+        if (optJSONArray2 == null) {
+            length2 = 0;
+        } else {
+            length2 = optJSONArray2.length();
+        }
+        for (int i5 = 0; i5 < length2; i5++) {
+            JSONObject optJSONObject = optJSONArray2.optJSONObject(i5);
+            if (optJSONObject != null) {
+                ky0.b(this.j, tm0.a(optJSONObject));
+            }
+        }
+        vn0.a(jSONObject2.optJSONArray("lottie_list"));
+        jSONObject2.optString("refer_url");
+        this.k = jSONObject2.optString("prerender_scheme");
     }
 
-    public final bm0 b() {
-        InterceptResult invokeV;
+    public static an0 a(String str, int i, JSONObject jSONObject, JSONObject jSONObject2, String str2) throws ParseError {
+        InterceptResult invokeCommon;
+        AdBaseModel.STYLE style;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i), jSONObject, jSONObject2, str2})) == null) {
+            try {
+                style = AdBaseModel.STYLE.from(jSONObject2.optString(MapBundleKey.MapObjKey.OBJ_AD_STYLE, "hidden"));
+            } catch (Throwable unused) {
+                style = null;
+            }
+            AdBaseModel.STYLE style2 = style;
+            if (style2 != null) {
+                return new an0(style2, str, i, jSONObject, jSONObject2, str2);
+            }
+            throw ParseError.contentError(24, jSONObject2.optString(MapBundleKey.MapObjKey.OBJ_AD_STYLE));
         }
-        return (bm0) invokeV.objValue;
+        return (an0) invokeCommon.objValue;
     }
 
-    public final List<bn0> c() {
-        InterceptResult invokeV;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            for (tm0 tm0Var : this.j) {
+                tm0Var.b();
+            }
         }
-        return (List) invokeV.objValue;
-    }
-
-    public final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return Intrinsics.areEqual(this.a, "1");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return Intrinsics.areEqual(this.a, "0");
-        }
-        return invokeV.booleanValue;
     }
 }

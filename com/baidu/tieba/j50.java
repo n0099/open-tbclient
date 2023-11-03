@@ -1,42 +1,45 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.live.business.refresh.BdSwipeRefreshLayout;
+import com.baidu.searchbox.dns.transmit.DnsTransmitter;
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
+import com.baidu.tieba.q40;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class j50 implements BdSwipeRefreshLayout.h {
+public class j50 extends g50 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public View b;
-    public boolean c;
+    public q40.d b;
 
-    public abstract View a();
-
-    public abstract void b(boolean z);
-
-    public abstract void f();
-
-    public abstract void g(boolean z);
-
-    public abstract void h(boolean z);
-
-    public abstract void i();
-
-    public abstract void j();
-
-    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
-    public void onPullPercentChange(float f, float f2) {
+    @Override // com.baidu.tieba.i50.b
+    public String getHost() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "https://httpsdns.baidu.com/v6/0025" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.i50.b
+    public String getMediaType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.g50, com.baidu.tieba.i50.b
+    public String getMethod() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "GET" : (String) invokeV.objValue;
     }
 
     public j50(Context context) {
@@ -54,107 +57,106 @@ public abstract class j50 implements BdSwipeRefreshLayout.h {
                 return;
             }
         }
-        this.a = null;
         this.b = null;
-        this.c = false;
         this.a = context;
     }
 
-    public final void e(View view2) {
-        int makeMeasureSpec;
+    public void a(q40.d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
-            if (layoutParams == null) {
-                layoutParams = new ViewGroup.LayoutParams(-1, -2);
-            }
-            int childMeasureSpec = ViewGroup.getChildMeasureSpec(0, 0, layoutParams.width);
-            int i = layoutParams.height;
-            if (i > 0) {
-                makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(i, 1073741824);
-            } else {
-                makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
-            }
-            view2.measure(childMeasureSpec, makeMeasureSpec);
+        if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
+            this.b = dVar;
         }
     }
 
-    public Context c() {
+    @Override // com.baidu.tieba.i50.b
+    public Map<String, String> getHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("Host", DnsTransmitter.IDC_HOST);
+            return hashMap;
         }
-        return (Context) invokeV.objValue;
+        return (Map) invokeV.objValue;
     }
 
-    public boolean d() {
+    @Override // com.baidu.tieba.i50.b
+    public byte[] getRequestParameter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return ("type=ipv4,ipv6&dn=" + v40.Z(this.a).D).getBytes();
         }
-        return invokeV.booleanValue;
+        return (byte[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
-    public final View getView() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.i50.d
+    public void onFailure(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.b == null) {
-                View a = a();
-                this.b = a;
-                e(a);
+        if (interceptable == null || interceptable.invokeIL(1048582, this, i, str) == null) {
+            if (m50.a) {
+                n50.b("LCPHttpDnsUrlRequest", "HttpDns failure errorcode:" + i + ",errormsg:" + str);
             }
-            return this.b;
+            q40.g(3, this.a);
+            q40.a(this.a).b(v40.Z(this.a).D, this.b);
         }
-        return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
-    public void onCompleteRefresh() {
+    @Override // com.baidu.tieba.i50.d
+    public void onSuccess(byte[] bArr) {
+        int length;
+        int length2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048587, this) != null) || this.c) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bArr) == null) {
+            String str = new String(bArr);
+            if (m50.a) {
+                n50.a("LCPHttpDnsUrlRequest", "onSuccess----ip of " + v40.Z(this.a).D + " is " + str);
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str).getJSONObject("data").getJSONObject(v40.Z(this.a).D);
+                JSONArray optJSONArray = jSONObject.optJSONArray("ip");
+                JSONArray optJSONArray2 = jSONObject.optJSONArray("ipv6");
+                if (optJSONArray2 == null) {
+                    length = 0;
+                } else {
+                    length = optJSONArray2.length();
+                }
+                if (optJSONArray == null) {
+                    length2 = 0;
+                } else {
+                    length2 = optJSONArray.length();
+                }
+                if (length2 + length > 0) {
+                    ArrayList arrayList = new ArrayList();
+                    if (optJSONArray != null && length2 > 0) {
+                        arrayList.add(optJSONArray.getString(0));
+                    }
+                    if (optJSONArray2 != null && length > 0) {
+                        arrayList.add(optJSONArray2.getString(0));
+                    }
+                    q40.h(arrayList, this.a);
+                    if (this.b != null && q40.b.size() > 0) {
+                        this.b.a(0, DnsModel.MSG_OK, q40.b.get(0));
+                        if (q40.b.size() > 1) {
+                            q40.c++;
+                            return;
+                        }
+                        return;
+                    }
+                    return;
+                }
+                if (m50.a) {
+                    n50.b("LCPHttpDnsUrlRequest", "HttpDnsResponse ips is null ");
+                }
+                q40.g(3, this.a);
+                q40.a(this.a).b(v40.Z(this.a).D, this.b);
+            } catch (Exception e) {
+                if (m50.a) {
+                    n50.b("LCPHttpDnsUrlRequest", "HttpDnsRequester ip parse exception " + e.getMessage());
+                }
+                q40.g(3, this.a);
+                q40.a(this.a).b(v40.Z(this.a).D, this.b);
+            }
         }
-        f();
-    }
-
-    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
-    public void onFinish() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || this.c) {
-            return;
-        }
-        b(true);
-    }
-
-    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
-    public void onPullToRefresh() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048590, this) != null) || this.c) {
-            return;
-        }
-        h(false);
-    }
-
-    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
-    public void onRefreshing() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048591, this) != null) || this.c) {
-            return;
-        }
-        i();
-        g(true);
-    }
-
-    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
-    public void onReleaseToRefresh() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048592, this) != null) || this.c) {
-            return;
-        }
-        j();
     }
 }

@@ -29,7 +29,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AACTrackImpl extends AbstractTrack {
     public static Map<Integer, String> audioObjectTypes;
     public static Map<Integer, Integer> samplingFrequencyIndexMap;
@@ -68,7 +68,7 @@ public class AACTrackImpl extends AbstractTrack {
         return null;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class AdtsHeader {
         public int bufferFullness;
         public int channelconfig;

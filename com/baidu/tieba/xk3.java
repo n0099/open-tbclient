@@ -1,71 +1,67 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.ContextWrapper;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.tieba.t43;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
-public class xk3 implements t43.c {
+import java.util.concurrent.CountDownLatch;
+/* loaded from: classes9.dex */
+public abstract class xk3<OuT> implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrameLayout a;
+    public final al3<OuT> a;
+    public OuT b;
 
-    /* loaded from: classes8.dex */
-    public class a implements Runnable {
+    public abstract void c();
+
+    /* loaded from: classes9.dex */
+    public static class a extends xk3<OuT> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ViewGroup a;
-        public final /* synthetic */ xk3 b;
+        public final /* synthetic */ CountDownLatch c;
 
-        public a(xk3 xk3Var, ViewGroup viewGroup) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(al3 al3Var, CountDownLatch countDownLatch) {
+            super(al3Var, null);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {xk3Var, viewGroup};
+                Object[] objArr = {al3Var, countDownLatch};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((al3) objArr2[0], (a) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = xk3Var;
-            this.a = viewGroup;
+            this.c = countDownLatch;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.xk3
+        public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.b.a == null) {
-                    this.b.a = new FrameLayout(this.a.getContext());
-                    this.b.a.setBackgroundResource(R.color.obfuscated_res_0x7f060451);
-                }
-                this.a.removeView(this.b.a);
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-                layoutParams.gravity = 17;
-                this.a.addView(this.b.a, layoutParams);
+                this.c.countDown();
             }
         }
     }
 
-    public xk3() {
+    public xk3(al3<OuT> al3Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {al3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -75,52 +71,59 @@ public class xk3 implements t43.c {
                 return;
             }
         }
-        this.a = null;
+        this.b = null;
+        this.a = al3Var;
     }
 
-    public final void e(ViewGroup viewGroup) {
-        FrameLayout frameLayout;
+    public static <OuT> OuT b(al3<OuT> al3Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) && viewGroup != null && (frameLayout = this.a) != null) {
-            viewGroup.removeView(frameLayout);
-            this.a = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, al3Var)) == null) {
+            return (OuT) a(Looper.getMainLooper(), al3Var);
         }
+        return (OuT) invokeL.objValue;
     }
 
-    public final void f(t43 t43Var) {
+    public /* synthetic */ xk3(al3 al3Var, a aVar) {
+        this(al3Var);
+    }
+
+    public static <OuT> OuT a(Looper looper, al3<OuT> al3Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, t43Var) == null) {
-            Context context = t43Var.getContext();
-            if (t43Var.getContext() instanceof ContextWrapper) {
-                context = ((ContextWrapper) t43Var.getContext()).getBaseContext();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, looper, al3Var)) == null) {
+            if (al3Var == null) {
+                return null;
             }
-            if (context instanceof Activity) {
-                yh3.b((Activity) context, t43Var);
+            if (looper != null && Thread.currentThread() != looper.getThread()) {
+                CountDownLatch countDownLatch = new CountDownLatch(1);
+                a aVar = new a(al3Var, countDownLatch);
+                new Handler(looper).post(aVar);
+                try {
+                    countDownLatch.await();
+                } catch (InterruptedException e) {
+                    g32.o("Awaiting", "callOnLooper: Thread=" + Thread.currentThread().getName() + " ret by InterruptedException " + e);
+                    e.printStackTrace();
+                }
+                return aVar.b;
             }
+            return al3Var.create();
         }
+        return (OuT) invokeLL.objValue;
     }
 
-    public final void d(ViewGroup viewGroup, View view2) {
+    @Override // java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, view2) != null) || viewGroup == null || view2 == null || !(viewGroup instanceof FrameLayout)) {
-            return;
-        }
-        view2.post(new a(this, viewGroup));
-    }
-
-    @Override // com.baidu.tieba.t43.c
-    public void a(t43 t43Var, t43.b bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, t43Var, bVar) != null) || t43Var == null || bVar == null || ProcessUtils.isMainProcess() || !SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
-            return;
-        }
-        f(t43Var);
-        ViewGroup viewGroup = (ViewGroup) t43Var.findViewById(16908290);
-        if (viewGroup != null) {
-            if (wo2.M().a()) {
-                d(viewGroup, bVar.r);
-            } else {
-                e(viewGroup);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            try {
+                try {
+                    this.b = this.a.create();
+                } catch (Exception e) {
+                    g32.o("Awaiting", "catch: " + e + "\n" + Log.getStackTraceString(e));
+                }
+            } finally {
+                c();
             }
         }
     }

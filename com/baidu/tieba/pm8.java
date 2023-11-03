@@ -1,156 +1,138 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.content.res.Resources;
+import android.util.SparseIntArray;
+import android.view.View;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class pm8 {
+public class pm8 extends GridLayoutManager.SpanSizeLookup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public List<String> a;
-    @Nullable
-    public String b;
-    @Nullable
-    public String c;
-    @Nullable
-    public String d;
-    @Nullable
-    public String e;
-    @Nullable
-    public String f;
-    @Nullable
-    public String g;
-    @Nullable
-    public String h;
+    public final RecyclerView a;
+    public final int b;
+    public final SparseIntArray c;
+    public final int d;
 
-    public pm8() {
+    public pm8(RecyclerView recyclerView, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {recyclerView, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = new SparseIntArray();
+        this.a = recyclerView;
+        this.b = Math.max(1, d());
+        this.d = i;
+        setSpanIndexCacheEnabled(true);
     }
 
-    @Nullable
-    public String a() {
+    public static int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return Math.max(Resources.getSystem().getDisplayMetrics().heightPixels, Resources.getSystem().getDisplayMetrics().widthPixels);
+        }
+        return invokeV.intValue;
+    }
+
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+            int measuredWidth = this.a.getMeasuredWidth();
+            if (measuredWidth == 0) {
+                measuredWidth = this.a.getWidth();
+            }
+            return (measuredWidth - this.a.getPaddingLeft()) - this.a.getPaddingRight();
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    @Nullable
-    public String b() {
+    public final int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.h;
+            return this.b;
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    @Nullable
-    public String c() {
+    public float c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.g;
+            return (a() * 1.0f) / this.b;
         }
-        return (String) invokeV.objValue;
+        return invokeV.floatValue;
     }
 
-    @Nullable
-    public List<String> d() {
-        InterceptResult invokeV;
+    @Override // androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
+    public void invalidateSpanIndexCache() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.c.clear();
+            super.invalidateSpanIndexCache();
         }
-        return (List) invokeV.objValue;
     }
 
-    @Nullable
-    public String e() {
-        InterceptResult invokeV;
+    public final int e(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Nullable
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Nullable
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Nullable
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void i(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        this.h = jSONObject.optString("forum_head_img");
-        this.b = jSONObject.optString("hot_nums_text");
-        this.c = jSONObject.optString("add_url");
-        this.d = jSONObject.optString("manage_url");
-        this.e = jSONObject.optString("manager_switch");
-        this.f = jSONObject.optString("is_like");
-        this.g = jSONObject.optString("frs_scheme");
-        JSONArray optJSONArray = jSONObject.optJSONArray("head_img");
-        if (optJSONArray != null && optJSONArray.length() > 0) {
-            if (this.a == null) {
-                this.a = new ArrayList();
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            if (a() <= 0) {
+                return 1;
             }
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                String optString = optJSONArray.optString(i);
-                if (!TextUtils.isEmpty(optString)) {
-                    this.a.add(optString);
-                }
-            }
+            return ((int) Math.floor(f(i) / c())) + 1;
         }
+        return invokeI.intValue;
+    }
+
+    @Override // androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
+    public int getSpanSize(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            return Math.min(this.b, e(i));
+        }
+        return invokeI.intValue;
+    }
+
+    public final int f(int i) {
+        InterceptResult invokeI;
+        RecyclerView.ViewHolder createViewHolder;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            RecyclerView.Adapter adapter = this.a.getAdapter();
+            int i2 = this.c.get(i, -1);
+            if (i2 != -1) {
+                return i2;
+            }
+            if (adapter == null || (createViewHolder = adapter.createViewHolder(this.a, adapter.getItemViewType(i))) == null) {
+                return 0;
+            }
+            adapter.onBindViewHolder(createViewHolder, i);
+            createViewHolder.itemView.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
+            int measuredWidth = createViewHolder.itemView.getMeasuredWidth() + this.d;
+            adapter.onViewRecycled(createViewHolder);
+            this.c.put(i, measuredWidth);
+            return measuredWidth;
+        }
+        return invokeI.intValue;
     }
 }

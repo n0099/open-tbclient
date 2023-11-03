@@ -1,117 +1,124 @@
 package com.baidu.tieba;
 
-import android.media.MediaMetadataRetriever;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.tbadk.album.VideoFileInfo;
+import com.baidu.android.imsdk.chatmessage.messages.gfh.GfhKeyValue;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.sweetsqlite.Column;
+import com.baidu.nadcore.sweetsqlite.LongColumn;
+import com.baidu.nadcore.sweetsqlite.StringColumn;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class tna {
+public final class tna extends sz0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final kz0 f;
+    public static final kz0 g;
+    public static final kz0 h;
+    public static final kz0 i;
+    public static final kz0[] j;
+    public static final kz0[][] k;
+    public static final kz0[] l;
     public transient /* synthetic */ FieldHolder $fh;
+    public final StringColumn a;
+    public final StringColumn b;
+    public final LongColumn c;
+    public final LongColumn d;
+    public final Column[] e;
 
-    public static boolean a(InputStream inputStream, String str, udb udbVar) throws IOException {
-        double d;
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.sz0
+    public String g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, inputStream, str, udbVar)) == null) {
-            try {
-                if (inputStream instanceof FileInputStream) {
-                    d = ((FileInputStream) inputStream).getChannel().size();
-                } else {
-                    d = 0.0d;
-                }
-                FileOutputStream fileOutputStream = new FileOutputStream(str);
-                byte[] bArr = new byte[1444];
-                int i = 0;
-                while (true) {
-                    int read = inputStream.read(bArr);
-                    if (read == -1) {
-                        break;
-                    }
-                    i += read;
-                    if (udbVar != null && d != 0.0d) {
-                        udbVar.b((int) ((i / d) * 100.0d));
-                    } else if (udbVar != null && d == 0.0d) {
-                        udbVar.b(80);
-                    }
-                    fileOutputStream.write(bArr, 0, read);
-                }
-                return true;
-            } finally {
-                if (inputStream != null) {
-                    try {
-                        inputStream.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        }
-        return invokeLLL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "forum_visited_info" : (String) invokeV.objValue;
     }
 
-    public static boolean b(String str, String str2, udb udbVar) throws IOException {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, udbVar)) == null) {
-            return a(new FileInputStream(str), str2, udbVar);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948188354, "Lcom/baidu/tieba/tna;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948188354, "Lcom/baidu/tieba/tna;");
+                return;
+            }
         }
-        return invokeLLL.booleanValue;
+        f = sz0.a(4, "fid", "         fid", 0);
+        g = sz0.a(4, GfhKeyValue.TYPE_DATE, "        date", 1);
+        h = sz0.a(3, "custom_count", "custom_count", 2);
+        kz0 a = sz0.a(3, "latest_time", " latest_time", 3);
+        i = a;
+        kz0 kz0Var = f;
+        kz0 kz0Var2 = g;
+        j = new kz0[]{kz0Var, kz0Var2, h, a};
+        k = new kz0[][]{new kz0[]{kz0Var}, new kz0[]{kz0Var2}, new kz0[]{a}};
+        l = new kz0[0];
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:24:0x0082 -> B:25:0x0085). Please submit an issue!!! */
-    public static VideoFileInfo c(String str) {
-        InterceptResult invokeL;
+    public tna() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            File file = new File(str);
-            if (file.exists() && file.isFile()) {
-                VideoFileInfo videoFileInfo = new VideoFileInfo();
-                videoFileInfo.videoPath = str;
-                videoFileInfo.lastModified = file.lastModified();
-                MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-                try {
-                    try {
-                        try {
-                            mediaMetadataRetriever.setDataSource(str);
-                            videoFileInfo.videoDuration = JavaTypesHelper.toInt(mediaMetadataRetriever.extractMetadata(9), 0);
-                            videoFileInfo.mimeType = mediaMetadataRetriever.extractMetadata(12);
-                            videoFileInfo.videoWidth = JavaTypesHelper.toInt(mediaMetadataRetriever.extractMetadata(18), 0);
-                            videoFileInfo.videoHeight = JavaTypesHelper.toInt(mediaMetadataRetriever.extractMetadata(19), 0);
-                            int i = JavaTypesHelper.toInt(mediaMetadataRetriever.extractMetadata(24), 0);
-                            if (i == 90 || i == 270) {
-                                int i2 = videoFileInfo.videoWidth;
-                                videoFileInfo.videoWidth = videoFileInfo.videoHeight;
-                                videoFileInfo.videoHeight = i2;
-                            }
-                            mediaMetadataRetriever.release();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            mediaMetadataRetriever.release();
-                        }
-                    } catch (Throwable th) {
-                        try {
-                            mediaMetadataRetriever.release();
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
-                        }
-                        throw th;
-                    }
-                } catch (Exception e3) {
-                    e3.printStackTrace();
-                }
-                return videoFileInfo;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return null;
         }
-        return (VideoFileInfo) invokeL.objValue;
+        this.a = new StringColumn(f);
+        this.b = new StringColumn(g);
+        this.c = new LongColumn(h);
+        LongColumn longColumn = new LongColumn(i);
+        this.d = longColumn;
+        this.e = new Column[]{this.a, this.b, this.c, longColumn};
+    }
+
+    @Override // com.baidu.tieba.sz0
+    public Column[] c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
+        }
+        return (Column[]) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.sz0
+    public kz0[] d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return j;
+        }
+        return (kz0[]) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.sz0
+    public kz0[][] e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return k;
+        }
+        return (kz0[][]) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.sz0
+    public kz0[] f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return l;
+        }
+        return (kz0[]) invokeV.objValue;
     }
 }

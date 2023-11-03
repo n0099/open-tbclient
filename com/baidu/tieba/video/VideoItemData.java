@@ -28,12 +28,12 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.module.hottopic.HotTopicStat;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nw5;
-import com.baidu.tieba.nx4;
+import com.baidu.tieba.fy4;
+import com.baidu.tieba.hy5;
+import com.baidu.tieba.ll5;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
-import com.baidu.tieba.uj5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -557,7 +557,7 @@ public class VideoItemData implements Serializable, Parcelable {
                 try {
                     Object obj2 = map.get("rich_abstract");
                     if (obj2 != null) {
-                        this.mRichAbstractList = nx4.a(new JSONArray(DataExt.toJson(obj2)));
+                        this.mRichAbstractList = fy4.a(new JSONArray(DataExt.toJson(obj2)));
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -674,7 +674,7 @@ public class VideoItemData implements Serializable, Parcelable {
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("rich_abstract");
                 if (optJSONArray2 != null) {
-                    this.mRichAbstractList = nx4.a(optJSONArray2);
+                    this.mRichAbstractList = fy4.a(optJSONArray2);
                 }
                 StringBuilder sb = new StringBuilder();
                 JSONArray optJSONArray3 = jSONObject.optJSONArray("abstract");
@@ -901,7 +901,7 @@ public class VideoItemData implements Serializable, Parcelable {
                 this.title = jSONObject.optString("title");
                 JSONArray optJSONArray = jSONObject.optJSONArray("rich_abstract");
                 if (optJSONArray != null) {
-                    this.mRichAbstractList = nx4.a(optJSONArray);
+                    this.mRichAbstractList = fy4.a(optJSONArray);
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("rich_title");
                 if (optJSONArray2 != null) {
@@ -1095,14 +1095,14 @@ public class VideoItemData implements Serializable, Parcelable {
             if (this.threadData != null && (list = this.richTitle) != null && !list.isEmpty()) {
                 for (PbContent pbContent : this.richTitle) {
                     if (pbContent.type.intValue() == 18) {
-                        uj5 h = uj5.h(pbContent.text, pbContent.link);
+                        ll5 h = ll5.h(pbContent.text, pbContent.link);
                         h.e(this.threadData);
                         h.d(R.color.CAM_X0101);
                         h.g(R.color.CAM_X0113);
                         h.b(HotTopicStat.Locate.VIDEO_MIDDLE);
-                        p = nw5.q(h);
+                        p = hy5.q(h);
                     } else {
-                        p = nw5.p(this.threadData, pbContent);
+                        p = hy5.p(this.threadData, pbContent);
                     }
                     this.titleSsb.append(p);
                 }

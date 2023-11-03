@@ -129,16 +129,16 @@ public class EmotionView extends TbImageView {
                     if (action != 1) {
                         if (action == 3) {
                             this.a.g = false;
-                            this.a.D();
+                            this.a.E();
                         }
                     } else {
                         this.a.g = false;
                         if (!this.a.h) {
-                            if (this.a.m != null && this.a.u()) {
+                            if (this.a.m != null && this.a.x()) {
                                 this.a.m.onClick(this.a);
                             }
                         } else {
-                            this.a.D();
+                            this.a.E();
                         }
                     }
                 } else {
@@ -150,7 +150,7 @@ public class EmotionView extends TbImageView {
                     EmotionView emotionView2 = this.a;
                     emotionView2.l = emotionView2.j;
                     this.a.f = System.currentTimeMillis();
-                    if (this.a.x()) {
+                    if (this.a.y()) {
                         EmotionView emotionView3 = this.a;
                         emotionView3.postDelayed(new d(emotionView3, emotionView3.f), 500L);
                     }
@@ -190,10 +190,10 @@ public class EmotionView extends TbImageView {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.b.g || this.a != this.b.f || !this.b.z()) {
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.b.g || this.a != this.b.f || !this.b.A()) {
                 return;
             }
-            this.b.C();
+            this.b.D();
         }
     }
 
@@ -219,13 +219,13 @@ public class EmotionView extends TbImageView {
         init();
     }
 
-    public void A(EmotionImageData emotionImageData) {
+    public void B(EmotionImageData emotionImageData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, emotionImageData) == null) && emotionImageData != null && !TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, emotionImageData) == null) && emotionImageData != null && !TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
             this.a = emotionImageData;
             setTag(emotionImageData.getThumbUrl());
             if (this.o == 20) {
-                B(this.a);
+                C(this.a);
             } else {
                 startLoad(this.a.getThumbUrl(), this.o, false);
             }
@@ -280,14 +280,14 @@ public class EmotionView extends TbImageView {
 
     public void setController(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, cVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, cVar) == null) {
             this.p = cVar;
         }
     }
 
     public void setLoadProcType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             this.o = i;
         }
     }
@@ -295,15 +295,100 @@ public class EmotionView extends TbImageView {
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View
     public void setOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, onClickListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, onClickListener) == null) {
             this.m = onClickListener;
         }
     }
 
-    public final void B(EmotionImageData emotionImageData) {
+    public final boolean A() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            float abs = Math.abs(this.k - this.i);
+            float abs2 = Math.abs(this.l - this.j);
+            float f = this.n;
+            if (abs < f && abs2 < f) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public EmotionImageData getData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a;
+        }
+        return (EmotionImageData) invokeV.objValue;
+    }
+
+    public boolean getIsGif() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mIsGif;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int getLoadProcType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.o;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tbadk.widget.TbImageView
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.a = null;
+            setImageResource(0);
+            super.reset();
+        }
+    }
+
+    public final boolean x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            c cVar = this.p;
+            if (cVar != null && !cVar.c()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            c cVar = this.p;
+            if (cVar != null && !cVar.e()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            setOnTouchListener(new b(this));
+        }
+    }
+
+    public final void C(EmotionImageData emotionImageData) {
         BdImage bdImage;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, emotionImageData) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, emotionImageData) == null) {
             Object loadResource = BdResourceLoader.getInstance().loadResource(emotionImageData.getThumbUrl(), 20, new a(this), 0, 0, null, null, emotionImageData.getThumbUrl(), Boolean.FALSE, null);
             if (loadResource != null && (loadResource instanceof BdImage)) {
                 bdImage = (BdImage) loadResource;
@@ -317,10 +402,10 @@ public class EmotionView extends TbImageView {
         }
     }
 
-    public final void C() {
+    public final void D() {
         EmotionImageData emotionImageData;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && !this.h && x() && (emotionImageData = this.a) != null && !TextUtils.isEmpty(emotionImageData.getPicUrl())) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && !this.h && y() && (emotionImageData = this.a) != null && !TextUtils.isEmpty(emotionImageData.getPicUrl())) {
             c cVar = this.p;
             if (cVar != null) {
                 cVar.d();
@@ -356,9 +441,9 @@ public class EmotionView extends TbImageView {
         }
     }
 
-    public final void D() {
+    public final void E() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.b != null && this.h) {
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.b != null && this.h) {
             c cVar = this.p;
             if (cVar != null) {
                 cVar.b();
@@ -376,95 +461,10 @@ public class EmotionView extends TbImageView {
 
     public final void init() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.c = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f0703a1);
             this.d = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f0703a8);
             this.n = ViewConfiguration.get(getContext()).getScaledTouchSlop() * 2;
         }
-    }
-
-    public EmotionImageData getData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return (EmotionImageData) invokeV.objValue;
-    }
-
-    public boolean getIsGif() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.mIsGif;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int getLoadProcType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.o;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tbadk.widget.TbImageView
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.a = null;
-            setImageResource(0);
-            super.reset();
-        }
-    }
-
-    public final boolean u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            c cVar = this.p;
-            if (cVar != null && !cVar.c()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            c cVar = this.p;
-            if (cVar != null && !cVar.e()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            setOnTouchListener(new b(this));
-        }
-    }
-
-    public final boolean z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            float abs = Math.abs(this.k - this.i);
-            float abs2 = Math.abs(this.l - this.j);
-            float f = this.n;
-            if (abs < f && abs2 < f) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

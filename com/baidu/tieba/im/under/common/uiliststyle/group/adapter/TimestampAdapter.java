@@ -48,7 +48,7 @@ public class TimestampAdapter extends BaseSysAdapter<TimestampSysItem, Holder> {
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092579);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925d0);
         }
     }
 
@@ -76,20 +76,20 @@ public class TimestampAdapter extends BaseSysAdapter<TimestampSysItem, Holder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.base.core.uilist.BaseSysAdapter
     @NonNull
-    /* renamed from: Q */
-    public Holder L(@NonNull ViewGroup viewGroup) {
+    /* renamed from: R */
+    public Holder M(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d099a, viewGroup, false));
+            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d09b2, viewGroup, false));
         }
         return (Holder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.base.core.uilist.BaseSysAdapter
-    /* renamed from: R */
-    public void N(int i, @NonNull ViewGroup viewGroup, @NonNull TimestampSysItem timestampSysItem, @NonNull Holder holder, @NonNull List<Object> list, int i2) {
+    /* renamed from: S */
+    public void O(int i, @NonNull ViewGroup viewGroup, @NonNull TimestampSysItem timestampSysItem, @NonNull Holder holder, @NonNull List<Object> list, int i2) {
         String timeShow;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), viewGroup, timestampSysItem, holder, list, Integer.valueOf(i2)}) == null) && (timeShow = timestampSysItem.getTbMsg().getTimeShow()) != null) {

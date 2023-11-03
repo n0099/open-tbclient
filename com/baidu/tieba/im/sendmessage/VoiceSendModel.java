@@ -6,7 +6,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.og8;
+import com.baidu.tieba.mt8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,7 +50,7 @@ public class VoiceSendModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
         public ChatMessage b;
-        public og8 c;
+        public mt8 c;
         public final /* synthetic */ VoiceSendModel d;
 
         public a(VoiceSendModel voiceSendModel, String str, ChatMessage chatMessage) {
@@ -71,7 +71,7 @@ public class VoiceSendModel extends BdBaseModel {
             this.d = voiceSendModel;
             this.a = str;
             this.b = chatMessage;
-            this.c = new og8();
+            this.c = new mt8();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -123,14 +123,14 @@ public class VoiceSendModel extends BdBaseModel {
         }
     }
 
-    public void O(b bVar) {
+    public void P(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             this.b = bVar;
         }
     }
 
-    public void P(String str, ChatMessage chatMessage) {
+    public void Q(String str, ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, chatMessage) == null) {
             a aVar = new a(this, str, chatMessage);

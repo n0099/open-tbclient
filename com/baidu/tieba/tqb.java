@@ -1,49 +1,43 @@
 package com.baidu.tieba;
 
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.AugmentedFace;
-import com.google.ar.core.Session;
-import java.util.Map;
 /* loaded from: classes8.dex */
-public final class tqb {
+public class tqb {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<Long, AugmentedFace> a;
 
-    public tqb() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948191268, "Lcom/baidu/tieba/tqb;")) == null) {
+            return;
         }
-        this.a = new com.google.ar.core.j(1, 0.75f, true);
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948191268, "Lcom/baidu/tieba/tqb;");
+        }
     }
 
-    public final synchronized AugmentedFace a(long j, Session session) {
-        InterceptResult invokeJL;
-        AugmentedFace augmentedFace;
+    public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, session)) == null) {
-            synchronized (this) {
-                augmentedFace = this.a.get(Long.valueOf(j));
-                if (augmentedFace == null) {
-                    augmentedFace = new AugmentedFace(j, session);
-                    this.a.put(Long.valueOf(j), augmentedFace);
-                }
-            }
-            return augmentedFace;
+        if ((interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) && a) {
+            Log.d(str, "-----------------" + str2);
         }
-        return (AugmentedFace) invokeJL.objValue;
+    }
+
+    public static void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && a) {
+            Log.d("muxer_publish_progress", str + "---" + str2);
+        }
     }
 }

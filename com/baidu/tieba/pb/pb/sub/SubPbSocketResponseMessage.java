@@ -4,7 +4,7 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pf9;
+import com.baidu.tieba.us9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.PbFloor.PbFloorResIdl;
 public class SubPbSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pf9 pbFloorData;
+    public us9 pbFloorData;
     public boolean treatDelPage;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -49,13 +49,13 @@ public class SubPbSocketResponseMessage extends SocketResponsedMessage {
             if (extra != null && (extra instanceof SubPbRequestMessage)) {
                 this.treatDelPage = ((SubPbRequestMessage) extra).isTreatDelPage();
             }
-            pf9 pf9Var = null;
+            us9 us9Var = null;
             try {
                 PbFloorResIdl pbFloorResIdl = (PbFloorResIdl) new Wire(new Class[0]).parseFrom(bArr, PbFloorResIdl.class);
                 if (pbFloorResIdl != null && pbFloorResIdl.data != null) {
-                    pf9Var = pf9.r(pbFloorResIdl.data);
-                    if (pf9Var != null) {
-                        pf9Var.l = pbFloorResIdl.error;
+                    us9Var = us9.r(pbFloorResIdl.data);
+                    if (us9Var != null) {
+                        us9Var.l = pbFloorResIdl.error;
                     } else if (pbFloorResIdl.error != null) {
                         if (pbFloorResIdl.error.errorno != null) {
                             setError(pbFloorResIdl.error.errorno.intValue());
@@ -66,8 +66,8 @@ public class SubPbSocketResponseMessage extends SocketResponsedMessage {
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
-            this.pbFloorData = pf9Var;
-            return pf9Var;
+            this.pbFloorData = us9Var;
+            return us9Var;
         }
         return invokeIL.objValue;
     }

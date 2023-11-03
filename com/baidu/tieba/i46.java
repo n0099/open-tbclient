@@ -1,59 +1,39 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.sapi2.PassportSDK;
-import com.baidu.sapi2.SapiAccount;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.sapi2.callback.AccountRealNameCallback;
-import com.baidu.sapi2.callback.SapiCallback;
-import com.baidu.sapi2.dto.RealNameDTO;
-import com.baidu.sapi2.result.AccountRealNameResult;
-import com.baidu.sapi2.result.CheckUserFaceIdResult;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
-import com.baidu.tieba.zy3;
+import com.baidu.nadcore.download.basic.AdAppStateManager;
+import com.baidu.nadcore.download.consts.AdDownloadAction;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-@Singleton
-@Service
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class i46 extends ActivityDelegation implements w24 {
+public final class i46 {
     public static /* synthetic */ Interceptable $ic;
+    public static final i46 a;
+    public static final HashMap<String, vg0> b;
+    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a implements SapiCallback<CheckUserFaceIdResult> {
+    public static final class a implements nh0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zy3.d a;
-        public final /* synthetic */ i46 b;
+        public final /* synthetic */ vg0 a;
 
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFinish() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            }
-        }
-
-        public a(i46 i46Var, zy3.d dVar) {
+        public a(vg0 vg0Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {i46Var, dVar};
+                Object[] objArr = {vg0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -63,174 +43,95 @@ public class i46 extends ActivityDelegation implements w24 {
                     return;
                 }
             }
-            this.b = i46Var;
-            this.a = dVar;
+            this.a = vg0Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        /* renamed from: a */
-        public void onFailure(CheckUserFaceIdResult checkUserFaceIdResult) {
+        @Override // com.baidu.tieba.nh0
+        public void a(AdDownloadAction action, vg0 data) {
+            vg0 vg0Var;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, checkUserFaceIdResult) == null) {
-                this.a.onFail(checkUserFaceIdResult.getResultMsg());
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        /* renamed from: b */
-        public void onSuccess(CheckUserFaceIdResult checkUserFaceIdResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, checkUserFaceIdResult) == null) {
-                if (!"advanced_cert_face_match".equals(checkUserFaceIdResult.action) && !"cert_face_match".equals(checkUserFaceIdResult.action)) {
-                    this.b.f(null, null, this.a);
-                } else {
-                    this.a.onSuccess();
+            if (interceptable == null || interceptable.invokeLL(1048576, this, action, data) == null) {
+                Intrinsics.checkNotNullParameter(action, "action");
+                Intrinsics.checkNotNullParameter(data, "data");
+                if (action == AdDownloadAction.INSTALL_FINISH && !ky0.h(i46.b)) {
+                    String str = data.d;
+                    if (!TextUtils.isEmpty(str) && (vg0Var = (vg0) my0.b(i46.b, str)) != null && vg0Var.e() != null) {
+                        yh0.l().t(this.a, true);
+                        eh0.f().a(vg0Var.e().hashCode());
+                        eh0.f().h(ClogBuilder.LogType.INSTALL_COMPLETE.type, ClogBuilder.Area.AD_NOTIFICATION_NOTIFY.type, vg0Var.p.a, vg0Var.q.m);
+                        my0.g(i46.b, str);
+                    }
                 }
             }
+        }
+
+        @Override // com.baidu.tieba.nh0
+        public vg0 getData() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.a;
+            }
+            return (vg0) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b extends AccountRealNameCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zy3.d a;
-
-        public b(i46 i46Var, zy3.d dVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947803582, "Lcom/baidu/tieba/i46;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {i46Var, dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = dVar;
-        }
-
-        @Override // com.baidu.sapi2.callback.AccountRealNameCallback
-        public void onFinish(AccountRealNameResult accountRealNameResult) {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, accountRealNameResult) == null) {
-                super.onFinish(accountRealNameResult);
-                if (accountRealNameResult.getResultCode() == 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (z) {
-                    this.a.onSuccess();
-                } else {
-                    this.a.onFail(accountRealNameResult.getResultMsg());
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947803582, "Lcom/baidu/tieba/i46;");
+                return;
             }
         }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements zy3.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ i46 a;
-
-        public c(i46 i46Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {i46Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i46Var;
-        }
-
-        @Override // com.baidu.tieba.zy3.d
-        public void onFail(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.a.mResult.putString("bundle_fail", "real_name_success");
-                this.a.finish();
-            }
-        }
-
-        @Override // com.baidu.tieba.zy3.d
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.mResult.putString("bundle_success", "real_name_success");
-                this.a.finish();
-            }
-        }
+        a = new i46();
+        b = new HashMap<>();
     }
 
     public i46() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public boolean onExec() {
-        InterceptResult invokeV;
+    public final void b(vg0 vg0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            f(getAgent(), oi3.g(this.mParams, "swanAppId"), new c(this));
-            return false;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, vg0Var) != null) || vg0Var == null) {
+            return;
         }
-        return invokeV.booleanValue;
+        a aVar = new a(vg0Var);
+        AdAppStateManager.instance().register(vg0Var);
+        ig0.c().k(vg0Var.e(), aVar);
     }
 
-    @Override // com.baidu.tieba.w24
-    public void b(zy3.d dVar) {
+    public final void c(vg0 adDownloadBean) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-            if (SapiAccountManager.getInstance().getSapiConfiguration() == null) {
-                dVar.onFail("pass没有初始化");
-                return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adDownloadBean) == null) {
+            Intrinsics.checkNotNullParameter(adDownloadBean, "adDownloadBean");
+            b(adDownloadBean);
+            HashMap<String, vg0> hashMap = b;
+            String str = adDownloadBean.d;
+            Intrinsics.checkNotNullExpressionValue(str, "adDownloadBean.packageName");
+            hashMap.put(str, adDownloadBean);
+            eh0.f().h(ClogBuilder.LogType.FREE_SHOW.type, ClogBuilder.Area.AD_NOTIFICATION_SHOW.type, adDownloadBean.p.a, adDownloadBean.q.m);
+            if (!c) {
+                eh0.f().h(ClogBuilder.LogType.FREE_SHOW.type, ClogBuilder.Area.AD_NOTIFICATION_NOTIFY.type, "", String.valueOf(j46.b.a() + 1));
+                c = true;
             }
-            SapiAccount session = SapiAccountManager.getInstance().getSession();
-            HashMap hashMap = new HashMap();
-            hashMap.put("scene", "baidugame");
-            SapiAccountManager.getInstance().getAccountService().checkUserFaceId(new a(this, dVar), session.bduss, hashMap);
-        }
-    }
-
-    public final void f(Context context, String str, zy3.d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, dVar) == null) {
-            if (SapiAccountManager.getInstance().getSapiConfiguration() == null) {
-                dVar.onFail("pass没有初始化");
-                return;
-            }
-            RealNameDTO realNameDTO = new RealNameDTO();
-            realNameDTO.bduss = SapiAccountManager.getInstance().getSession().bduss;
-            realNameDTO.scene = "baidugame";
-            realNameDTO.needCbKey = true;
-            PassportSDK.getInstance().loadAccountRealName(cr2.V().getActivity(), new b(this, dVar), realNameDTO);
+            yh0.l().t(adDownloadBean, false);
         }
     }
 }

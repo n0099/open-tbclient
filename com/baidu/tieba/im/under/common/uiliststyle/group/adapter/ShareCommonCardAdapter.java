@@ -73,7 +73,7 @@ public final class ShareCommonCardAdapter extends BaseStyleNormalAdapter<ShareCo
     }
 
     @Override // com.baidu.tieba.im.base.core.uilist.BaseNormalAdapter
-    public BaseViewHolder N(ViewGroup parent) {
+    public BaseViewHolder O(ViewGroup parent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parent)) == null) {
@@ -86,7 +86,7 @@ public final class ShareCommonCardAdapter extends BaseStyleNormalAdapter<ShareCo
     }
 
     @Override // com.baidu.tieba.im.base.core.uilist.BaseNormalAdapter
-    public BaseViewHolder P(ViewGroup parent) {
+    public BaseViewHolder Q(ViewGroup parent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parent)) == null) {
@@ -110,7 +110,7 @@ public final class ShareCommonCardAdapter extends BaseStyleNormalAdapter<ShareCo
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
             final ChatShareCommonCard chatShareCommonCard = new ChatShareCommonCard(context, null, 2, null);
-            chatShareCommonCard.setId(R.id.obfuscated_res_0x7f090ec9);
+            chatShareCommonCard.setId(R.id.obfuscated_res_0x7f090f00);
             chatShareCommonCard.setScene(1);
             chatShareCommonCard.setRoomId(this.m);
             chatShareCommonCard.setLayoutParams(new ViewGroup.LayoutParams(n, -2));
@@ -153,7 +153,7 @@ public final class ShareCommonCardAdapter extends BaseStyleNormalAdapter<ShareCo
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.base.core.uilist.BaseNormalAdapter
     /* renamed from: h0 */
-    public void U(int i, ViewGroup directParent, ShareCommonCardSysItem data, BaseViewHolder holder, List<Object> payloads, int i2) {
+    public void V(int i, ViewGroup directParent, ShareCommonCardSysItem data, BaseViewHolder holder, List<Object> payloads, int i2) {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), directParent, data, holder, payloads, Integer.valueOf(i2)}) == null) {
@@ -169,7 +169,7 @@ public final class ShareCommonCardAdapter extends BaseStyleNormalAdapter<ShareCo
             SkinManager.setBackgroundResource(directParent, i3);
             ChatShareCommonCard chatShareCommonCard = (ChatShareCommonCard) holder.itemView;
             chatShareCommonCard.a(data.getTbMsg().shareCommon);
-            chatShareCommonCard.e(data.isLeft());
+            chatShareCommonCard.d(data.isLeft());
         }
     }
 }

@@ -45,7 +45,7 @@ public class RewardTaskStepView extends LinearLayout {
     }
 
     private void a(int i, String str, String str2, boolean z) {
-        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(z ? R.layout.obfuscated_res_0x7f0d04e5 : R.layout.obfuscated_res_0x7f0d04e6, (ViewGroup) this, false);
+        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(z ? R.layout.obfuscated_res_0x7f0d04f8 : R.layout.obfuscated_res_0x7f0d04f9, (ViewGroup) this, false);
         if (z) {
             a(viewGroup, str);
         } else {
@@ -55,16 +55,16 @@ public class RewardTaskStepView extends LinearLayout {
     }
 
     private void a(ViewGroup viewGroup, int i, String str) {
-        ((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0913f6)).setText(String.format(str, this.no));
-        ((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0913f5)).setText(String.valueOf(i));
+        ((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091434)).setText(String.format(str, this.no));
+        ((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091433)).setText(String.valueOf(i));
     }
 
     public static void a(ViewGroup viewGroup, String str) {
-        ((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0913f6)).setText(str);
+        ((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091434)).setText(str);
     }
 
     private void ac(boolean z) {
-        DividerView dividerView = (DividerView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04e3, (ViewGroup) this, false);
+        DividerView dividerView = (DividerView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04f6, (ViewGroup) this, false);
         int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704fe);
         int dimensionPixelSize2 = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704fc);
         dividerView.setDividerColor(getResources().getColor(z ? R.color.obfuscated_res_0x7f0607a6 : R.color.obfuscated_res_0x7f0607a8));

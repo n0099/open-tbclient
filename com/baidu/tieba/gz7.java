@@ -1,38 +1,44 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.ThreadCardViewHolder;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tbadk.gif.GifView;
-import com.baidu.tbadk.widget.ForeDrawableImageView;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.kt;
-import com.baidu.tieba.vt;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.frs.loadmore.FrsLoadMoreModel;
+import com.baidu.tieba.frs.mc.FrsModelController;
+import com.baidu.tieba.frs.smartsort.FrsSmartLoadMoreModel;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.AdMixFloor;
 /* loaded from: classes6.dex */
-public class gz7 extends fz7<py4, ThreadCardViewHolder<ThreadData>> {
+public class gz7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ya<ImageView> e;
-    public ya<GifView> f;
-    public bk6<ThreadData> g;
+    public final FrsFragment a;
+    public final FrsLoadMoreModel b;
+    public final FrsSmartLoadMoreModel c;
+    public final FrsModelController d;
+    public final vp7 e;
+    public final b f;
 
     /* loaded from: classes6.dex */
-    public class a implements za<ImageView> {
+    public interface b {
+        void removeItem(int i);
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ gz7 a;
@@ -55,368 +61,269 @@ public class gz7 extends fz7<py4, ThreadCardViewHolder<ThreadData>> {
             this.a = gz7Var;
         }
 
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.za
-        public /* bridge */ /* synthetic */ ImageView a(ImageView imageView) {
-            ImageView imageView2 = imageView;
-            e(imageView2);
-            return imageView2;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.za
-        public /* bridge */ /* synthetic */ ImageView c(ImageView imageView) {
-            ImageView imageView2 = imageView;
-            h(imageView2);
-            return imageView2;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.za
-        /* renamed from: f */
-        public void b(ImageView imageView) {
+        @Override // com.baidu.tieba.gz7.b
+        public void removeItem(int i) {
+            int itemCount;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, imageView) == null) {
-                imageView.setBackgroundDrawable(null);
-                imageView.setImageDrawable(null);
-                imageView.setTag(null);
-                imageView.setOnClickListener(null);
-                if (imageView instanceof ForeDrawableImageView) {
-                    ForeDrawableImageView foreDrawableImageView = (ForeDrawableImageView) imageView;
-                    foreDrawableImageView.stopLoading();
-                    foreDrawableImageView.setForegroundDrawable(0);
-                    foreDrawableImageView.setDefaultBgResource(R.color.common_color_10220);
-                }
+            if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || this.a.e == null) {
+                return;
             }
-        }
-
-        public ImageView e(ImageView imageView) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, imageView)) == null) {
-                if (imageView instanceof TbImageView) {
-                    TbImageView tbImageView = (TbImageView) imageView;
-                    tbImageView.setTag(null);
-                    if (uu4.c().g()) {
-                        tbImageView.setAdjustViewBounds(false);
-                        tbImageView.setInterceptOnClick(false);
-                    } else {
-                        tbImageView.setDefaultResource(R.drawable.icon_click);
-                        tbImageView.setAdjustViewBounds(true);
-                        tbImageView.setInterceptOnClick(true);
+            try {
+                if (this.a.e.g0() != null) {
+                    List<oi> data = this.a.e.g0().getData();
+                    if (!ListUtils.isEmpty(data) && this.a.e.g0().getAdapter() != null && ((oi) ListUtils.remove(data, i)) != null) {
+                        this.a.e.g0().getAdapter().notifyItemRemoved(i);
                     }
                 }
-                return imageView;
-            }
-            return (ImageView) invokeL.objValue;
-        }
-
-        public ImageView h(ImageView imageView) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, imageView)) == null) {
-                imageView.setBackgroundDrawable(null);
-                imageView.setImageDrawable(null);
-                imageView.setTag(null);
-                imageView.setOnClickListener(null);
-                if (imageView instanceof ForeDrawableImageView) {
-                    ForeDrawableImageView foreDrawableImageView = (ForeDrawableImageView) imageView;
-                    foreDrawableImageView.stopLoading();
-                    foreDrawableImageView.setForegroundDrawable(0);
-                    foreDrawableImageView.setDefaultBgResource(R.color.common_color_10220);
-                    foreDrawableImageView.reset();
-                }
-                return imageView;
-            }
-            return (ImageView) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.za
-        /* renamed from: g */
-        public ImageView d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(this.a.b.getPageActivity());
-                boolean g = uu4.c().g();
-                foreDrawableImageView.setDefaultBg(SkinManager.getDrawable(R.color.common_color_10220));
-                if (g) {
-                    foreDrawableImageView.setAdjustViewBounds(false);
-                    foreDrawableImageView.setInterceptOnClick(false);
+            } catch (Exception e) {
+                BdLog.e(e);
+                if (this.a.e.g0().getAdapter() == null) {
+                    itemCount = 0;
                 } else {
-                    foreDrawableImageView.setDefaultResource(R.drawable.icon_click);
-                    foreDrawableImageView.setAdjustViewBounds(true);
-                    foreDrawableImageView.setInterceptOnClick(true);
+                    itemCount = this.a.e.g0().getAdapter().getItemCount();
                 }
-                return foreDrawableImageView;
-            }
-            return (ImageView) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements za<GifView> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gz7 a;
-
-        public b(gz7 gz7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gz7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gz7Var;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.za
-        public /* bridge */ /* synthetic */ GifView a(GifView gifView) {
-            GifView gifView2 = gifView;
-            e(gifView2);
-            return gifView2;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.za
-        public /* bridge */ /* synthetic */ GifView c(GifView gifView) {
-            GifView gifView2 = gifView;
-            h(gifView2);
-            return gifView2;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.za
-        /* renamed from: f */
-        public void b(GifView gifView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, gifView) == null) {
-                gifView.setBackgroundDrawable(null);
-                gifView.setImageDrawable(null);
-                gifView.setTag(null);
-                gifView.setOnClickListener(null);
-                gifView.setDefaultBgResource(R.color.common_color_10220);
-                gifView.h();
-            }
-        }
-
-        public GifView h(GifView gifView) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, gifView)) == null) {
-                gifView.k();
-                gifView.h();
-                gifView.setImageDrawable(null);
-                gifView.l();
-                gifView.setBackgroundDrawable(null);
-                gifView.setTag(null);
-                gifView.setOnClickListener(null);
-                gifView.setDefaultBgResource(R.color.common_color_10220);
-                return gifView;
-            }
-            return (GifView) invokeL.objValue;
-        }
-
-        public GifView e(GifView gifView) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, gifView)) == null) {
-                gifView.setTag(null);
-                if (uu4.c().g()) {
-                    gifView.setAdjustViewBounds(false);
-                    gifView.setInterceptOnClick(false);
-                } else {
-                    gifView.setDefaultResource(R.drawable.icon_click);
-                    gifView.setAdjustViewBounds(true);
-                    gifView.setInterceptOnClick(true);
-                }
-                return gifView;
-            }
-            return (GifView) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.za
-        /* renamed from: g */
-        public GifView d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                GifView gifView = new GifView(this.a.b.getPageActivity());
-                boolean g = uu4.c().g();
-                gifView.setDefaultBg(SkinManager.getDrawable(R.color.common_color_10220));
-                if (g) {
-                    gifView.setAdjustViewBounds(false);
-                    gifView.setInterceptOnClick(false);
-                } else {
-                    gifView.setDefaultResource(R.drawable.icon_click);
-                    gifView.setAdjustViewBounds(true);
-                    gifView.setInterceptOnClick(true);
-                }
-                return gifView;
-            }
-            return (GifView) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c extends bk6<ThreadData> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gz7 b;
-
-        public c(gz7 gz7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gz7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = gz7Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.bk6
-        /* renamed from: d */
-        public void a(View view2, ThreadData threadData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
-                this.b.s(view2, threadData);
+                a48.f("frsLoadMoreController-removeItem()", i, itemCount, e);
+                throw null;
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class d implements ii {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gz7 a;
-
-        public d(gz7 gz7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gz7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gz7Var;
-        }
-
-        @Override // com.baidu.tieba.ii
-        public void b(View view2, yh yhVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, yhVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (yhVar instanceof py4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
-                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-                ThreadData threadData = ((py4) yhVar).t;
-                threadData.objType = 1;
-                if (this.a.g != null) {
-                    this.a.g.a(threadCardViewHolder.getView(), threadData);
-                }
-                ThreadCardUtils.jumpToPB((jv4) threadData, view2.getContext(), 0, false);
-                threadCardViewHolder.a().q(new vt.a(1));
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gz7(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, ThreadData.TYPE_CONTENT_FEED_PIC_NORMMAL);
+    public gz7(FrsFragment frsFragment, oz7 oz7Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {frsFragment, oz7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = new ya<>(new a(this), 12, 0);
-        this.f = new ya<>(new b(this), 20, 0);
-        this.g = new c(this);
+        this.f = new a(this);
+        if (frsFragment != null) {
+            this.a = frsFragment;
+            this.b = new FrsLoadMoreModel(frsFragment, oz7Var);
+            FrsSmartLoadMoreModel frsSmartLoadMoreModel = new FrsSmartLoadMoreModel(frsFragment, oz7Var);
+            this.c = frsSmartLoadMoreModel;
+            frsSmartLoadMoreModel.e0(this.f);
+            this.b.k0(this.f);
+            this.e = frsFragment.i2();
+            FrsModelController y1 = frsFragment.y1();
+            this.d = y1;
+            this.c.setSortType(y1.t0());
+            this.b.setSortType(this.d.t0());
+            return;
+        }
+        throw new NullPointerException("FrsFragment is NullPointerException");
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
-    /* renamed from: A */
-    public ThreadCardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public boolean b(List<Long> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            kt.b bVar = new kt.b(this.b.getPageActivity(), false);
-            ms msVar = new ms(this.b.getPageActivity());
-            msVar.setFrom("hot_topic");
-            msVar.F(2);
-            msVar.I(this.e, this.f);
-            msVar.K(0, BdUtilHelper.getDimens(this.mContext, R.dimen.tbds44), 0, 0);
-            msVar.E(t());
-            msVar.D(1);
-            bVar.n(msVar);
-            kt k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.c);
-            k.t(2);
-            ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
-            threadCardViewHolder.i(this.mPageId);
-            setOnAdapterItemClickListener(new d(this));
-            return threadCardViewHolder;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            FrsModelController frsModelController = this.d;
+            if (frsModelController == null || frsModelController.M0()) {
+                return false;
+            }
+            return this.b.S(list);
         }
-        return (ThreadCardViewHolder) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.fz7, com.baidu.tieba.lh
-    /* renamed from: B */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, py4 py4Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
-        InterceptResult invokeCommon;
-        ThreadData threadData;
+    public void j(oi oiVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, py4Var, threadCardViewHolder})) == null) {
-            if (py4Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && (threadData = py4Var.t) != null) {
-                threadData.statFloor = getPositionByType(i) + 1;
-                threadCardViewHolder.a().s(i);
-                threadCardViewHolder.e(py4Var.t);
-                threadCardViewHolder.a().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
-                threadCardViewHolder.a().r(this.g);
-                y(threadCardViewHolder.getView(), py4Var.t, i, i);
-                return threadCardViewHolder.getView();
-            }
-            return null;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, oiVar) != null) || oiVar == null) {
+            return;
         }
-        return (View) invokeCommon.objValue;
+        if (this.d.M0()) {
+            this.c.Y(oiVar);
+        } else {
+            this.b.d0(oiVar);
+        }
+    }
+
+    public void k(@NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            if (this.d.M0()) {
+                this.c.Z(str);
+            } else {
+                this.b.e0(str);
+            }
+        }
+    }
+
+    public void m(x58 x58Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, x58Var) == null) {
+            this.b.i0(x58Var);
+            this.c.d0(x58Var);
+        }
+    }
+
+    public void n(int i) {
+        FrsModelController frsModelController;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048588, this, i) != null) || (frsModelController = this.d) == null) {
+            return;
+        }
+        if (frsModelController.M0()) {
+            this.c.setHasMore(i);
+        } else {
+            this.b.setHasMore(i);
+        }
+    }
+
+    public void o(int i) {
+        FrsModelController frsModelController;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048589, this, i) != null) || (frsModelController = this.d) == null) {
+            return;
+        }
+        if (frsModelController.M0()) {
+            this.c.setPn(i);
+        } else {
+            this.b.setPn(i);
+        }
+    }
+
+    public ArrayList<oi> c(boolean z, boolean z2, ArrayList<oi> arrayList, kra kraVar, boolean z3, int i, List<AdMixFloor> list) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), arrayList, kraVar, Boolean.valueOf(z3), Integer.valueOf(i), list})) == null) {
+            return d(z, z2, arrayList, kraVar, false, z3, i, list);
+        }
+        return (ArrayList) invokeCommon.objValue;
+    }
+
+    public ArrayList<oi> d(boolean z, boolean z2, ArrayList<oi> arrayList, kra kraVar, boolean z3, boolean z4, int i, List<AdMixFloor> list) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), arrayList, kraVar, Boolean.valueOf(z3), Boolean.valueOf(z4), Integer.valueOf(i), list})) == null) {
+            if (this.d == null) {
+                return arrayList;
+            }
+            boolean L0 = this.a.y1().L0();
+            if (this.d.M0()) {
+                return this.c.Q(z, L0, arrayList, z3, z4, i, list);
+            }
+            return this.b.V(z, L0, z2, arrayList, kraVar, list, i);
+        }
+        return (ArrayList) invokeCommon.objValue;
+    }
+
+    public ArrayList<oi> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.d.M0()) {
+                return this.c.R();
+            }
+            return this.d.p0();
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public FrsSmartLoadMoreModel f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return (FrsSmartLoadMoreModel) invokeV.objValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            FrsModelController frsModelController = this.d;
+            if (frsModelController == null) {
+                return 1;
+            }
+            if (frsModelController.M0()) {
+                return this.c.getPn();
+            }
+            return this.b.getPn();
+        }
+        return invokeV.intValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            FrsModelController frsModelController = this.d;
+            if (frsModelController == null) {
+                return -1;
+            }
+            if (frsModelController.M0()) {
+                return this.c.S();
+            }
+            return this.b.X();
+        }
+        return invokeV.intValue;
+    }
+
+    public void l() {
+        FrsModelController frsModelController;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || (frsModelController = this.d) == null) {
+            return;
+        }
+        if (frsModelController.M0()) {
+            this.c.a0();
+        } else {
+            this.b.h0();
+        }
+    }
+
+    public void i(String str, String str2, FrsViewData frsViewData) {
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048583, this, str, str2, frsViewData) == null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921462, 0));
+            if (this.d != null && this.e != null && frsViewData != null) {
+                this.a.I = System.currentTimeMillis();
+                if (this.d.M0()) {
+                    if (this.c.S() == 1 && !this.d.K0()) {
+                        this.c.setSortType(this.d.t0());
+                        this.c.P();
+                        int pn = this.c.getPn();
+                        this.c.setPn(pn);
+                        this.d.P0(pn + 1);
+                    }
+                } else if (this.d.u0() == 1) {
+                    if (!this.b.isLoading && !this.d.K0()) {
+                        int pn2 = this.b.getPn();
+                        if (this.b.S(frsViewData.getThreadListIds())) {
+                            this.b.T();
+                            this.b.setSortType(this.d.t0());
+                            long j = JavaTypesHelper.toLong(str2, 0L);
+                            if (this.d.w0() != null) {
+                                str3 = bca.e(this.d.w0().getThreadList(), false);
+                            } else {
+                                str3 = "";
+                            }
+                            this.b.g0(j, frsViewData.getThreadListIds(), str, pn2, frsViewData.isBrandForum, str3);
+                        } else if (this.b.X() == 1) {
+                            this.b.T();
+                            this.b.setPn(pn2);
+                            this.d.P0(pn2 + 1);
+                            FrsLoadMoreModel frsLoadMoreModel = this.b;
+                            frsLoadMoreModel.loadingDone = false;
+                            frsLoadMoreModel.loadIndex = 0;
+                        }
+                    }
+                } else if (this.d.N0()) {
+                } else {
+                    this.d.O0();
+                }
+            }
+        }
     }
 }

@@ -1,132 +1,101 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Intent;
+import android.net.Uri;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tieba.zz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class wp6 {
+public class wp6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Canvas a;
-    public Bitmap b;
-    public int c;
-    public int d;
 
-    public wp6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new Canvas();
-        this.b = hr6.b();
-    }
+    /* loaded from: classes8.dex */
+    public class a implements zz4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TbPageContext a;
+        public final /* synthetic */ int b;
 
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.b.isRecycled()) {
-            return;
-        }
-        this.b.eraseColor(0);
-    }
-
-    public final Bitmap c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (Bitmap) invokeV.objValue;
-    }
-
-    public final Canvas d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return (Canvas) invokeV.objValue;
-    }
-
-    public final int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public final int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || Intrinsics.areEqual(this.b, hr6.b())) {
-            return;
-        }
-        this.a.setBitmap(null);
-        this.b = hr6.b();
-        this.c = 0;
-        this.d = 0;
-    }
-
-    public final void a(int i, int i2, int i3, boolean z, int i4) {
-        boolean z2;
-        Bitmap.Config config;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Integer.valueOf(i4)}) == null) {
-            if (!z ? !(i > this.c || i2 > this.d) : !(i != this.c || i2 != this.d)) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            if (!Intrinsics.areEqual(this.b, hr6.b()) && !this.b.isRecycled() && z2) {
-                this.b.eraseColor(0);
-                this.a.setBitmap(this.b);
-                return;
-            }
-            this.c = Math.max(1, i);
-            this.d = Math.max(1, i2);
-            if (i4 == 32) {
-                config = Bitmap.Config.ARGB_8888;
-            } else {
-                config = Bitmap.Config.ARGB_4444;
-            }
-            try {
-                Bitmap createBitmap = Bitmap.createBitmap(this.c, this.d, config);
-                if (i3 > 0) {
-                    createBitmap.setDensity(i3);
+        public a(TbPageContext tbPageContext, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tbPageContext, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                this.a.setBitmap(createBitmap);
-                this.a.setDensity(i3);
-                Intrinsics.checkNotNullExpressionValue(createBitmap, "createBitmap(width, heig…y = density\n            }");
-                this.b = createBitmap;
-            } catch (Exception unused) {
-                this.b = hr6.b();
-                this.a.setBitmap(null);
-                this.c = 0;
-                this.d = 0;
             }
+            this.a = tbPageContext;
+            this.b = i;
+        }
+
+        @Override // com.baidu.tieba.zz4.e
+        public void onClick(zz4 zz4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, zz4Var) == null) {
+                zz4Var.dismiss();
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.a.getPageActivity(), true, this.b)));
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements zz4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.zz4.e
+        public void onClick(zz4 zz4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, zz4Var) == null) {
+                zz4Var.dismiss();
+            }
+        }
+    }
+
+    public static void a(Intent intent, TbPageContext tbPageContext, int i) {
+        Uri uri;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLI(65536, null, intent, tbPageContext, i) != null) || intent == null || !TbadkCoreApplication.isLogin() || (uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI)) == null) {
+            return;
+        }
+        String queryParameter = uri.getQueryParameter("portrait");
+        if (TbadkCoreApplication.getCurrentPortrait() != null && queryParameter != null && !TbadkCoreApplication.getCurrentPortrait().contains(queryParameter)) {
+            zz4 zz4Var = new zz4(tbPageContext.getPageActivity());
+            zz4Var.setContentViewSize(1);
+            zz4Var.setMessage(tbPageContext.getString(R.string.account_not_the_same_as_pc));
+            zz4Var.setPositiveButton(R.string.change_account, new a(tbPageContext, i));
+            zz4Var.setNegativeButton(R.string.not_change_account, new b());
+            zz4Var.create(tbPageContext).show();
         }
     }
 }

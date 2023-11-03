@@ -1,59 +1,108 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.StringUtils;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
-import java.io.File;
-/* loaded from: classes7.dex */
+import com.baidu.ubc.UBCManager;
+import java.util.AbstractMap;
+import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
 public class rg {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "11446";
+    public static String b = "type";
+    public static String c = "value";
+    public static String d = "ext";
+    public static String e = "suc";
+    public static String f = "fail";
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448315928, "Lcom/baidu/tieba/rg;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448315928, "Lcom/baidu/tieba/rg;");
+        }
+    }
 
     public static String a(String str) {
         InterceptResult invokeL;
-        String str2;
-        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "-";
             }
-            if (str.contains(".so")) {
-                String[] split = str.split("\\.");
-                StringBuilder sb = new StringBuilder();
-                if (rc.a()) {
-                    str3 = "so_64_cache";
-                } else {
-                    str3 = "so_cache";
-                }
-                sb.append(str3);
-                sb.append(File.separator);
-                sb.append(split[0]);
-                str2 = sb.toString();
-            } else if (str.contains(".mp3")) {
-                str2 = "mp3_cache";
-            } else if (str.contains(DefaultHlsExtractorFactory.MP4_FILE_EXTENSION)) {
-                str2 = "mp4_cache";
-            } else {
-                str2 = "res_cache";
-            }
-            return BdBaseApplication.getInst().getFilesDir() + File.separator + str2;
+            return str;
         }
         return (String) invokeL.objValue;
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
+    public static void b(String str, List<AbstractMap.SimpleEntry<String, String>> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return "";
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, list) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(b, f);
+                jSONObject.put(c, str);
+                JSONObject jSONObject2 = new JSONObject();
+                if (list != null && !list.isEmpty()) {
+                    for (int i = 0; i < list.size(); i++) {
+                        AbstractMap.SimpleEntry<String, String> simpleEntry = list.get(i);
+                        if (simpleEntry != null && !TextUtils.isEmpty(simpleEntry.getKey())) {
+                            jSONObject2.put(simpleEntry.getKey(), a(simpleEntry.getValue()));
+                        }
+                    }
+                }
+                jSONObject.put(d, jSONObject2);
+                d(a, jSONObject);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
-            return a(str) + File.separator + str;
         }
-        return (String) invokeL.objValue;
+    }
+
+    public static void c(String str, List<AbstractMap.SimpleEntry<String, String>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, list) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(b, e);
+                jSONObject.put(c, str);
+                JSONObject jSONObject2 = new JSONObject();
+                if (list != null && !list.isEmpty()) {
+                    for (int i = 0; i < list.size(); i++) {
+                        AbstractMap.SimpleEntry<String, String> simpleEntry = list.get(i);
+                        if (simpleEntry != null && !TextUtils.isEmpty(simpleEntry.getKey())) {
+                            jSONObject2.put(simpleEntry.getKey(), a(simpleEntry.getValue()));
+                        }
+                    }
+                }
+                jSONObject.put(d, jSONObject2);
+                d(a, jSONObject);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    public static void d(String str, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, jSONObject) == null) {
+            ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(str, jSONObject);
+        }
     }
 }

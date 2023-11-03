@@ -17,11 +17,11 @@ import com.baidu.tbadk.core.growthFunnel.GrowthFunnelHelper;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.kx9;
-import com.baidu.tieba.lx9;
-import com.baidu.tieba.pk5;
-import com.baidu.tieba.uu4;
-import com.baidu.tieba.xu4;
+import com.baidu.tieba.gm5;
+import com.baidu.tieba.lv4;
+import com.baidu.tieba.paa;
+import com.baidu.tieba.pv4;
+import com.baidu.tieba.qaa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -91,15 +91,15 @@ public class NetMessageHelper {
             builder.user_agent = WebviewHelper.getGlobalUserAgent();
             if (z) {
                 if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
-                    builder.BDUSS = pk5.b();
-                    if (!StringUtils.isNull(pk5.e())) {
-                        builder.stoken = pk5.e();
+                    builder.BDUSS = gm5.b();
+                    if (!StringUtils.isNull(gm5.e())) {
+                        builder.stoken = gm5.e();
                     }
                 } else {
                     AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
                     if (currentAccountInfo != null) {
                         builder.BDUSS = currentAccountInfo.getBDUSS();
-                        String a = xu4.a(currentAccountInfo);
+                        String a = pv4.a(currentAccountInfo);
                         if (!StringUtils.isNull(a)) {
                             builder.stoken = a;
                         }
@@ -108,7 +108,7 @@ public class NetMessageHelper {
             }
             if (z2) {
                 if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
-                    builder.tbs = pk5.f();
+                    builder.tbs = gm5.f();
                 } else {
                     builder.tbs = TbadkCoreApplication.getInst().getTbs();
                 }
@@ -124,7 +124,7 @@ public class NetMessageHelper {
             builder.net_type = Integer.valueOf(BdNetTypeUtil.netType());
             builder.sample_id = TbSingleton.getInstance().getSampleId();
             builder.is_teenager = 0;
-            if (lx9.b()) {
+            if (qaa.b()) {
                 builder._phone_imei = TbadkCoreApplication.getInst().getImei();
                 builder.model = DeviceInfoHelper.getModel();
                 builder._os_version = DeviceInfoHelper.getOsVersion();
@@ -132,59 +132,59 @@ public class NetMessageHelper {
                 builder.oaid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
                 builder.android_id = TbadkCoreApplication.getInst().getAndroidId();
             } else {
-                builder.need_decrypt = Integer.valueOf(JavaTypesHelper.toInt(lx9.c(), 0));
-                String g = lx9.g(HttpRequest.PHONE_IMEI);
+                builder.need_decrypt = Integer.valueOf(JavaTypesHelper.toInt(qaa.c(), 0));
+                String g = qaa.g(HttpRequest.PHONE_IMEI);
                 if (HttpRequest.PHONE_IMEI.equals(g)) {
-                    builder._phone_imei = lx9.f();
+                    builder._phone_imei = qaa.f();
                 } else if (HttpRequest.PHONE_IMEI_REVERSAL.equals(g)) {
-                    builder.iemi = lx9.f();
+                    builder.iemi = qaa.f();
                 }
-                String g2 = lx9.g("model");
+                String g2 = qaa.g("model");
                 if ("model".equals(g2)) {
-                    builder.model = lx9.h();
+                    builder.model = qaa.h();
                 } else if ("ledom".equals(g2)) {
-                    builder.ledom = lx9.h();
+                    builder.ledom = qaa.h();
                 }
-                String g3 = lx9.g(HttpRequest.OS_VERSION);
+                String g3 = qaa.g(HttpRequest.OS_VERSION);
                 if (HttpRequest.OS_VERSION.equals(g3)) {
-                    builder._os_version = lx9.j();
+                    builder._os_version = qaa.j();
                 } else if ("noisrev_so".equals(g3)) {
-                    builder.noisrev_so = lx9.j();
+                    builder.noisrev_so = qaa.j();
                 }
-                String g4 = lx9.g("brand");
+                String g4 = qaa.g("brand");
                 if ("brand".equals(g4)) {
-                    builder.brand = lx9.e();
+                    builder.brand = qaa.e();
                 } else if ("dnarb".equals(g4)) {
-                    builder.dnarb = lx9.e();
+                    builder.dnarb = qaa.e();
                 }
-                String g5 = lx9.g("oaid");
+                String g5 = qaa.g("oaid");
                 if ("oaid".equals(g5)) {
-                    builder.oaid = lx9.i();
+                    builder.oaid = qaa.i();
                 } else if ("diao".equals(g5)) {
-                    builder.diao = lx9.i();
+                    builder.diao = qaa.i();
                 }
-                String g6 = lx9.g(HttpRequest.ANDROID_ID);
+                String g6 = qaa.g(HttpRequest.ANDROID_ID);
                 if (HttpRequest.ANDROID_ID.equals(g6)) {
-                    builder.android_id = lx9.d();
+                    builder.android_id = qaa.d();
                 } else if (HttpRequest.ANDROID_ID_REVERSAL.equals(g6)) {
-                    builder.di_diordna = lx9.d();
+                    builder.di_diordna = qaa.d();
                 }
             }
-            if (kx9.b()) {
+            if (paa.b()) {
                 builder.mac = PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst());
             } else {
-                builder.need_cam_decrypt = Integer.valueOf(JavaTypesHelper.toInt(kx9.c(), 0));
-                String d = kx9.d("mac");
+                builder.need_cam_decrypt = Integer.valueOf(JavaTypesHelper.toInt(paa.c(), 0));
+                String d = paa.d("mac");
                 if ("mac".equals(d)) {
-                    builder.mac = kx9.e();
+                    builder.mac = paa.e();
                 } else if (HttpRequest.MAC_REVERSAL.equals(d)) {
-                    builder.cam = kx9.e();
+                    builder.cam = paa.e();
                 }
             }
             builder.sdk_ver = TbadkCoreApplication.getInst().getSdk_ver();
             builder.framework_ver = TbadkCoreApplication.getInst().getFramework_ver();
             builder.naws_game_ver = TbadkCoreApplication.getInst().getNaws_game_ver();
-            builder.q_type = Integer.valueOf(uu4.c().e());
+            builder.q_type = Integer.valueOf(lv4.c().e());
             builder.scr_h = Integer.valueOf(BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst()));
             builder.scr_w = Integer.valueOf(BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst()));
             builder.scr_dip = Double.valueOf(BdUtilHelper.getEquipmentDensity(TbadkCoreApplication.getInst()));

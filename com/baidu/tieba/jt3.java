@@ -1,24 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class jt3 {
+public class jt3 implements kt3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rt3 a;
 
-    public int b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.kt3
+    public void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 3;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
         }
-        return invokeV.intValue;
     }
 
     public jt3() {
@@ -33,14 +29,5 @@ public class jt3 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public rt3 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (rt3) invokeV.objValue;
     }
 }

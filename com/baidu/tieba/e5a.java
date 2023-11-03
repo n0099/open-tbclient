@@ -2,287 +2,217 @@ package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PrivacyMarkActivityConfig;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.SimpleUser;
 /* loaded from: classes5.dex */
 public class e5a {
     public static /* synthetic */ Interceptable $ic;
+    public static e5a h;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public boolean e;
-    public int f;
-    public int g;
-    public int h;
-    public SimpleUser i;
-    public int j;
-    public int k;
+    public long a;
+    public long b;
+    public long c;
+    public long d;
+    public long e;
+    public long f;
+    public long g;
 
-    public e5a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947686712, "Lcom/baidu/tieba/e5a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947686712, "Lcom/baidu/tieba/e5a;");
+                return;
             }
         }
+        h = new e5a();
     }
 
-    public int a() {
+    public static e5a d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return h;
+        }
+        return (e5a) invokeV.objValue;
+    }
+
+    public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.g;
+            return this.e;
         }
-        return invokeV.intValue;
+        return invokeV.longValue;
     }
 
-    public int b() {
+    public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.h;
+            return this.a;
         }
-        return invokeV.intValue;
+        return invokeV.longValue;
     }
 
-    public int c() {
+    public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+            return this.d;
         }
-        return invokeV.intValue;
+        return invokeV.longValue;
     }
 
-    public int d() {
+    public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
+            return this.b;
         }
-        return invokeV.intValue;
+        return invokeV.longValue;
     }
 
-    public int e() {
+    public long f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
+            return this.c;
         }
-        return invokeV.intValue;
+        return invokeV.longValue;
     }
 
-    public SimpleUser f() {
+    public long g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.i;
+            return this.g;
         }
-        return (SimpleUser) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    public int g() {
+    public long h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.f;
         }
-        return invokeV.intValue;
+        return invokeV.longValue;
     }
 
-    public int h() {
-        InterceptResult invokeV;
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.k;
-        }
-        return invokeV.intValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            this.a = sharedPrefHelper.getInt(CommandUBCHelper.COMMAND_UBC_SOURCE_SEND + currentAccount, 0);
-            this.b = sharedPrefHelper.getInt("like" + currentAccount, 0);
-            this.c = sharedPrefHelper.getInt("group" + currentAccount, 0);
-            this.d = sharedPrefHelper.getInt("live" + currentAccount, 0);
-            this.f = sharedPrefHelper.getInt("reply" + currentAccount, 1);
-            this.k = sharedPrefHelper.getInt("reply_show_myself" + currentAccount, 0);
-            this.g = sharedPrefHelper.getInt(PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE + currentAccount, 0);
-            this.h = sharedPrefHelper.getInt("bazhu_show_outside" + currentAccount, 0);
-            this.e = TbadkCoreApplication.getInst().getLocationShared();
-            if (this.a == 0 && this.b == 0 && this.c == 0 && this.d == 0 && this.f == 1 && this.k == 0 && this.g == 0 && this.h == 0) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-            sharedPrefHelper.putInt(CommandUBCHelper.COMMAND_UBC_SOURCE_SEND + currentAccount, this.a);
-            sharedPrefHelper.putInt("like" + currentAccount, this.b);
-            sharedPrefHelper.putInt("group" + currentAccount, this.c);
-            sharedPrefHelper.putInt("live" + currentAccount, this.d);
-            sharedPrefHelper.putInt("reply" + currentAccount, this.f);
-            sharedPrefHelper.putInt("reply_show_myself" + currentAccount, this.k);
-            sharedPrefHelper.putInt(PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE + currentAccount, this.g);
-            sharedPrefHelper.putInt("bazhu_show_outside" + currentAccount, this.h);
-            TbadkCoreApplication.getInst().setLocationShared(this.e);
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.a = 0L;
+            this.b = 0L;
+            this.c = 0L;
+            this.d = 0L;
+            this.e = 0L;
+            this.f = 0L;
+            this.g = 0L;
         }
     }
 
-    public void l(e5a e5aVar) {
+    public e5a() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048587, this, e5aVar) != null) || e5aVar == null) {
-            return;
-        }
-        this.a = e5aVar.a;
-        this.b = e5aVar.b;
-        this.c = e5aVar.c;
-        this.e = e5aVar.e;
-        this.d = e5aVar.d;
-        this.j = e5aVar.j;
-        this.f = e5aVar.f;
-        this.k = e5aVar.k;
-        this.h = e5aVar.h;
-        this.g = e5aVar.g;
-    }
-
-    public void n(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048589, this, str, i) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-            sharedPrefHelper.putInt(str + currentAccount, i);
-        }
-    }
-
-    public void o(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.g = i;
-        }
-    }
-
-    public void p(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.h = i;
-        }
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.j = i;
-        }
-    }
-
-    public void r(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048593, this, i) == null) && i <= 3 && i >= 1) {
-            this.b = i;
-        }
-    }
-
-    public void s(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048594, this, i) == null) && i <= 3 && i >= 1) {
-            this.c = i;
-        }
-    }
-
-    public void t(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048595, this, i) == null) && i <= 3 && i >= 1) {
-            this.d = i;
-        }
-    }
-
-    public void u(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
-            if (i != 1) {
-                this.e = false;
-            } else {
-                this.e = true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = 0L;
+        this.b = 0L;
+        this.c = 0L;
+        this.d = 0L;
+        this.e = 0L;
+        this.f = 0L;
+        this.g = 0L;
     }
 
-    public void v(SimpleUser simpleUser) {
+    public void j(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, simpleUser) == null) {
-            this.i = simpleUser;
-            if (simpleUser != null) {
-                x(simpleUser.show_onlyme.intValue());
-            }
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            this.e = j;
         }
     }
 
-    public void w(int i) {
+    public void k(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
-            if (i == 0) {
-                this.f = 1;
-            } else {
-                this.f = i;
-            }
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            this.a = j;
         }
     }
 
-    public void x(int i) {
+    public void l(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
-            this.k = i;
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
+            this.d = j;
         }
     }
 
-    public void y(int i) {
+    public void m(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
-            this.a = i;
+        if ((interceptable == null || interceptable.invokeJ(1048587, this, j) == null) && this.b == 0) {
+            this.b = j;
         }
+    }
+
+    public void n(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
+            this.c = j;
+        }
+    }
+
+    public void o(long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeJ(1048589, this, j) == null) && this.g == 0) {
+            this.g = j;
+        }
+    }
+
+    public void p(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
+            this.f = j;
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            StringBuffer stringBuffer = new StringBuffer();
+            stringBuffer.append(" beginTime:");
+            stringBuffer.append(this.e);
+            stringBuffer.append(" creatTime:");
+            stringBuffer.append(this.a);
+            stringBuffer.append(" refreshStartTime:");
+            stringBuffer.append(this.g);
+            stringBuffer.append(" refrehTime:");
+            stringBuffer.append(this.f);
+            stringBuffer.append(" drawTime:");
+            stringBuffer.append(this.d);
+            stringBuffer.append(" profileTime:");
+            stringBuffer.append(this.c);
+            return stringBuffer.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

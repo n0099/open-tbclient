@@ -1,138 +1,90 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import androidx.media2.session.SessionCommand;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.exoplayer2.extractor.ogg.DefaultOggSeeker;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class j64 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public long b;
+    public long c;
 
-    public static void a(CallbackHandler callbackHandler, String str) {
+    public j64(long j, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65536, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        q64 q64Var = new q64();
-        q64Var.a = str;
-        g64.c().a(new f64(50000, q64Var));
+        this.a = j;
+        this.b = j2;
+        this.c = j3;
     }
 
-    public static void b(CallbackHandler callbackHandler, String str) {
+    @NonNull
+    public static j64 b(long j, double d, double d2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65537, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Double.valueOf(d), Double.valueOf(d2)})) == null) {
+            return new j64(j, (long) (d * 1000.0d), (long) (d2 * 1000.0d));
         }
-        q64 q64Var = new q64();
-        q64Var.a = str;
-        g64.c().a(new f64(90000, q64Var));
+        return (j64) invokeCommon.objValue;
     }
 
-    public static void e(CallbackHandler callbackHandler, String str) {
+    public i64 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!c()) {
+                return null;
+            }
+            i64 i64Var = new i64();
+            i64Var.a = Math.max(this.a - this.b, 0L);
+            i64Var.b = this.a + this.c;
+            return i64Var;
         }
-        q64 q64Var = new q64();
-        q64Var.a = str;
-        g64.c().a(new f64(60000, q64Var));
+        return (i64) invokeV.objValue;
     }
 
-    public static void g(CallbackHandler callbackHandler, String str) {
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65542, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            long j = this.a;
+            if (j >= 0) {
+                long j2 = this.b;
+                if (j2 >= 0) {
+                    long j3 = this.c;
+                    if (j3 >= 0 && j2 + j3 > 0 && j + j3 > 0) {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
-        q64 q64Var = new q64();
-        q64Var.a = str;
-        g64.c().a(new f64(SessionCommand.COMMAND_CODE_SESSION_FAST_FORWARD, q64Var));
+        return invokeV.booleanValue;
     }
 
-    public static void i(String str, String str2) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) {
-            o64 o64Var = new o64();
-            o64Var.b = str;
-            o64Var.a = str2;
-            g64.c().a(new f64(30000, o64Var));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "[ mBaseline = " + this.a + "; mLeftOffset = " + this.b + "; mRightOffset = " + this.c + " ]";
         }
-    }
-
-    public static void c(String str, int i, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
-            n64 n64Var = new n64();
-            n64Var.b = str;
-            n64Var.c = i;
-            n64Var.d = z ? 1 : 0;
-            n64Var.a = str2;
-            g64.c().a(new f64(DefaultOggSeeker.MATCH_BYTE_RANGE, n64Var));
-        }
-    }
-
-    public static void h(String str, int i, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
-            n64 n64Var = new n64();
-            n64Var.b = str;
-            n64Var.c = i;
-            n64Var.d = z ? 1 : 0;
-            n64Var.a = str2;
-            g64.c().a(new f64(70000, n64Var));
-        }
-    }
-
-    public static void k(String str, int i, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
-            n64 n64Var = new n64();
-            n64Var.b = str;
-            n64Var.c = i;
-            n64Var.d = z ? 1 : 0;
-            n64Var.a = str2;
-            g64.c().a(new f64(110000, n64Var));
-        }
-    }
-
-    public static void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            q64 q64Var = new q64();
-            q64Var.a = str;
-            g64.c().a(new f64(20000, q64Var));
-        }
-    }
-
-    public static void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            q64 q64Var = new q64();
-            q64Var.a = str;
-            g64.c().a(new f64(10000, q64Var));
-        }
-    }
-
-    public static void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65547, null, str) == null) {
-            q64 q64Var = new q64();
-            q64Var.a = str;
-            g64.c().a(new f64(120000, q64Var));
-        }
-    }
-
-    public static void j(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65545, null, str, i, str2) == null) {
-            p64 p64Var = new p64();
-            p64Var.b = str;
-            p64Var.c = i;
-            p64Var.a = str2;
-            g64.c().a(new f64(80000, p64Var));
-        }
+        return (String) invokeV.objValue;
     }
 }

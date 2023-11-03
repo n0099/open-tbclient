@@ -1,68 +1,60 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.sdk.api.ExpressResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes7.dex */
-public class oxb {
+public final class oxb implements ExpressResponse.ExpressDislikeListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
+    public final /* synthetic */ pxb a;
 
-    public oxb(int i) {
+    public oxb(pxb pxbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {pxbVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        if (i != 0) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        this.b = "未知错误";
-                        return;
-                    } else {
-                        this.b = "App配置错误，请在AndroidManifest.xml加上BridgeActivity声明";
-                        return;
-                    }
-                }
-                this.b = "授权APP版本太低，请先升级";
-                return;
-            }
-            this.b = "未能找到可用的授权APP";
-            return;
-        }
-        this.b = "成功";
+        this.a = pxbVar;
     }
 
-    public oxb(int i, String str) {
+    @Override // com.baidu.mobads.sdk.api.ExpressResponse.ExpressDislikeListener
+    public void onDislikeItemClick(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+        }
+    }
+
+    @Override // com.baidu.mobads.sdk.api.ExpressResponse.ExpressDislikeListener
+    public void onDislikeWindowShow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.mobads.sdk.api.ExpressResponse.ExpressDislikeListener
+    public void onDislikeWindowClose() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LogPrinter.d("express feed onDislikeWindowClose", new Object[0]);
+            pxb pxbVar = this.a;
+            if (pxbVar != null) {
+                kyb kybVar = (kyb) pxbVar;
+                kybVar.b.e.onAdClose(kybVar.a);
             }
         }
-        this.a = i;
-        this.b = str;
     }
 }

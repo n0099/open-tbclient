@@ -1,39 +1,29 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.File;
 /* loaded from: classes6.dex */
-public class jw6 {
+public class jw6 extends bg1<el5> {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
+    public static final String b;
+    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public final List<lh> b;
-    public b c;
-    public iw6 d;
 
     /* loaded from: classes6.dex */
-    public interface b {
-        void a(mw6 mw6Var);
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements ii {
+    public class a implements el5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jw6 a;
 
         public a(jw6 jw6Var) {
             Interceptable interceptable = $ic;
@@ -47,68 +37,116 @@ public class jw6 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = jw6Var;
         }
 
-        @Override // com.baidu.tieba.ii
-        public void b(View view2, yh yhVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+        @Override // com.baidu.tieba.el5
+        public boolean a(@NonNull String str) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, yhVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (yhVar instanceof mw6)) {
-                mw6 mw6Var = (mw6) yhVar;
-                if (this.a.c != null) {
-                    this.a.c.a(mw6Var);
-                    TiebaStatic.log(new StatisticItem("c14585").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fid", mw6Var.a()).param("obj_locate", 2));
-                }
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return qw6.k().m(str);
             }
+            return invokeL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.el5
+        @NonNull
+        public String b(@NonNull String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                return qw6.k().j(str);
+            }
+            return (String) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.el5
+        @NonNull
+        public String c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return jw6.c;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.el5
+        @NonNull
+        public String d(@NonNull String str, boolean z) {
+            InterceptResult invokeLZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, str, z)) == null) {
+                qw6 k = qw6.k();
+                boolean q = k.q(str);
+                boolean r = k.r(str);
+                String g = k.g(str, z);
+                if (g == null) {
+                    g = "";
+                }
+                if (!q && !r) {
+                    return e(k.h(str), g);
+                }
+                return g;
+            }
+            return (String) invokeLZ.objValue;
+        }
+
+        @Override // com.baidu.tieba.el5
+        @NonNull
+        public String e(@NonNull String str, @NonNull String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
+                return jw6.b + File.separator + str + File.separator + str2;
+            }
+            return (String) invokeLL.objValue;
         }
     }
 
-    public jw6(Context context) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947897760, "Lcom/baidu/tieba/jw6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947897760, "Lcom/baidu/tieba/jw6;");
+                return;
+            }
+        }
+        a = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
+        b = a + File.separator + ".emotions";
+        c = a + File.separator + ".collect";
+    }
+
+    public jw6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.b = new ArrayList();
-        this.a = context;
-        c();
     }
 
-    public void d(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.c = bVar;
-        }
-    }
-
-    public List<lh> b() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bg1
+    /* renamed from: c */
+    public el5 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            return new a(this);
         }
-        return (List) invokeV.objValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            iw6 iw6Var = new iw6(this.a, mw6.e);
-            this.d = iw6Var;
-            iw6Var.setOnAdapterItemClickListener(new a(this));
-            this.b.add(this.d);
-        }
+        return (el5) invokeV.objValue;
     }
 }

@@ -10,7 +10,7 @@ import java.io.Reader;
 import java.io.StringReader;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class JsonStreamParser implements Iterator<JsonElement> {
     public final Object lock;
     public final JsonReader parser;

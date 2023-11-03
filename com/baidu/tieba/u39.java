@@ -1,73 +1,119 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.service.YYPayService;
-import com.baidu.tbadk.pay.IyyPayResultCallback;
-import com.baidu.tbadk.pay.YYPayData;
-import com.baidu.tbadk.pay.YYPayResult;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+@Singleton
+@Service
 /* loaded from: classes8.dex */
-public class u39 implements YYPayService {
+public final class u39 extends ja {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948160206, "Lcom/baidu/tieba/u39;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948160206, "Lcom/baidu/tieba/u39;");
+                return;
+            }
+        }
+        a = new a(null);
+    }
+
+    @Override // com.baidu.tieba.ja
+    public void changeSettingByType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ja
+    /* renamed from: getCrashKeys */
+    public String[] mo131getCrashKeys() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (String[]) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ja
+    public int getDefaultType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.ja
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "aichat_global_switch_android" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ja
+    public int getOffType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes8.dex */
-    public class a implements IyyPayResultCallback {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ YYPayService.YYPayResultCallback a;
 
-        public a(u39 u39Var, YYPayService.YYPayResultCallback yYPayResultCallback) {
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u39Var, yYPayResultCallback};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
-            }
-            this.a = yYPayResultCallback;
-        }
-
-        @Override // com.baidu.tbadk.pay.IyyPayResultCallback
-        public void onFail(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                this.a.onFail(i, str);
             }
         }
 
-        @Override // com.baidu.tbadk.pay.IyyPayResultCallback
-        public void onSuccess(YYPayResult yYPayResult) {
+        public final boolean a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yYPayResult) == null) {
-                if (yYPayResult != null) {
-                    YYPayService.YYPayResultMessage yYPayResultMessage = new YYPayService.YYPayResultMessage();
-                    yYPayResultMessage.setStatus(yYPayResult.status);
-                    yYPayResultMessage.setAppid(yYPayResult.appid);
-                    yYPayResultMessage.setUid(yYPayResult.uid.longValue());
-                    yYPayResultMessage.setUsedChannel(yYPayResult.usedChannel);
-                    yYPayResultMessage.setCurrencyType(yYPayResult.currencyType);
-                    yYPayResultMessage.setAmount(yYPayResult.amount.longValue());
-                    yYPayResultMessage.setCurrencyAmount(yYPayResult.currencyAmount.longValue());
-                    yYPayResultMessage.setOrderId(yYPayResult.orderId);
-                    yYPayResultMessage.setExpand(yYPayResult.expand);
-                    this.a.onSuccess(yYPayResultMessage);
-                    return;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (SwitchManager.getInstance().findType("aichat_global_switch_android") == 1) {
+                    return true;
                 }
-                this.a.onSuccess(null);
+                return false;
             }
+            return invokeV.booleanValue;
         }
     }
 
@@ -75,37 +121,23 @@ public class u39 implements YYPayService {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.YYPayService
-    public void startPayment(Context context, YYPayService.YYPayResultCallback yYPayResultCallback) {
+    @Override // com.baidu.tieba.ja
+    public int getMaxCrashTimes() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, yYPayResultCallback) == null) {
-            startPayment(context, null, yYPayResultCallback);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mMaxCrashTimes;
         }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.YYPayService
-    public void startPayment(Context context, String str, YYPayService.YYPayResultCallback yYPayResultCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, yYPayResultCallback) == null) {
-            startPayment(context, str, 0L, yYPayResultCallback);
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.YYPayService
-    public void startPayment(Context context, String str, Long l, YYPayService.YYPayResultCallback yYPayResultCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, l, yYPayResultCallback) == null) {
-            MessageManager.getInstance().runTask(2921546, String.class, new YYPayData(context, 1, str, l, new a(this, yYPayResultCallback)));
-        }
+        return invokeV.intValue;
     }
 }

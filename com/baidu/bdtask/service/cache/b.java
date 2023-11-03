@@ -10,11 +10,11 @@ import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.bdtask.model.response.NextActive;
 import com.baidu.cyberplayer.sdk.task.UpgradeInfo;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.tieba.an;
-import com.baidu.tieba.dm;
-import com.baidu.tieba.go;
-import com.baidu.tieba.mq;
-import com.baidu.tieba.nq;
+import com.baidu.tieba.dr;
+import com.baidu.tieba.er;
+import com.baidu.tieba.rn;
+import com.baidu.tieba.um;
+import com.baidu.tieba.xo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,7 +38,7 @@ public final class b {
     public static final a e;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
-    public final mq<Function0<Unit>> b;
+    public final dr<Function0<Unit>> b;
     public String c;
 
     /* loaded from: classes3.dex */
@@ -76,12 +76,12 @@ public final class b {
 
     /* renamed from: com.baidu.bdtask.service.cache.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static final class RunnableC0077b implements Runnable {
+    public static final class RunnableC0078b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
 
-        public RunnableC0077b(b bVar) {
+        public RunnableC0078b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -130,7 +130,7 @@ public final class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String a2 = dm.c.c().a(this.a);
+            String a2 = um.c.c().a(this.a);
             if (a2 == null) {
                 return "";
             }
@@ -153,7 +153,7 @@ public final class b {
             }
         }
         this.a = TaskState.key;
-        this.b = new nq();
+        this.b = new er();
         this.c = "";
     }
 
@@ -280,7 +280,7 @@ public final class b {
                         if (m != null) {
                             byte[] bytes = m.getBytes(charset);
                             Intrinsics.checkExpressionValueIsNotNull(bytes, "(this as java.lang.String).getBytes(charset)");
-                            String newFingerprint = go.b(bytes, false);
+                            String newFingerprint = xo.b(bytes, false);
                             str = this.this$0.c;
                             if (Intrinsics.areEqual(newFingerprint, str)) {
                                 DebugTrace.a.c(AnonymousClass1.INSTANCE);
@@ -335,7 +335,7 @@ public final class b {
                                     return (String) invokeV.objValue;
                                 }
                             });
-                            an c2 = dm.c.c();
+                            rn c2 = um.c.c();
                             str2 = this.this$0.a;
                             c2.a(m, str2);
                             return;
@@ -344,7 +344,7 @@ public final class b {
                     }
                 }
             });
-            ExecutorUtilsExt.postOnSerial(new RunnableC0077b(this), "storageSync");
+            ExecutorUtilsExt.postOnSerial(new RunnableC0078b(this), "storageSync");
         }
     }
 

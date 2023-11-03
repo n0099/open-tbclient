@@ -1,455 +1,319 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.OvershootInterpolator;
-import android.widget.FrameLayout;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.enb;
+import androidx.media2.session.SessionCommand;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.FunSplashAd;
-import com.fun.ad.sdk.FunSplashAdInteractionListener;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.AdRipper;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.ad.sdk.internal.api.utils.ViewUtils;
-import com.qq.e.ads.splash.SplashAD;
-import com.qq.e.ads.splash.SplashADZoomOutListener;
-import com.qq.e.comm.util.AdError;
-import java.lang.ref.WeakReference;
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Map;
+import java.util.UUID;
+import okhttp3.internal.http2.Http2Codec;
+import org.apache.http.client.methods.HttpPut;
+import org.apache.http.protocol.HTTP;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class anb extends lmb<emb> {
+public final class anb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean e;
-    public WeakReference<b> f;
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public anb(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.SPLASH), pid, true, false, true);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue(), ((Boolean) objArr2[4]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.f = new WeakReference<>(null);
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public AdRipper createAdRipper(Ssp.Pid pid) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new qmb(pid) : (AdRipper) invokeL.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            emb embVar = (emb) obj;
-        }
-    }
-
-    @Override // com.baidu.tieba.lmb
-    public void e(Context context, FunAdSlot funAdSlot) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
-            this.e = false;
-            SplashAD splashAD = new SplashAD(context, this.mPid.pid, new a(this, r0, funAdSlot), 0);
-            SplashAD[] splashADArr = {splashAD};
-            splashAD.fetchAdOnly();
-        }
-    }
 
     /* loaded from: classes5.dex */
-    public class a implements SplashADZoomOutListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public boolean b;
-        public emb c;
-        public final /* synthetic */ SplashAD[] d;
-        public final /* synthetic */ FunAdSlot e;
-        public final /* synthetic */ anb f;
+    public interface a<T> {
+        void a(T t);
 
-        public a(anb anbVar, SplashAD[] splashADArr, FunAdSlot funAdSlot) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {anbVar, splashADArr, funAdSlot};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = anbVar;
-            this.d = splashADArr;
-            this.e = funAdSlot;
-        }
-
-        @Override // com.qq.e.ads.splash.SplashADZoomOutListener
-        public boolean isSupportZoomOut() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                LogPrinter.d("isSupportZoomOut", new Object[0]);
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.qq.e.ads.splash.SplashADListener
-        public void onADExposure() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                LogPrinter.d();
-                this.f.onAdShow((anb) this.c, this.a, new String[0]);
-                this.a = true;
-            }
-        }
-
-        @Override // com.qq.e.ads.splash.SplashADListener
-        public void onADLoaded(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-                LogPrinter.d();
-                emb embVar = new emb(this.d[0]);
-                this.c = embVar;
-                this.f.onAdLoaded(embVar, new String[0]);
-            }
-        }
-
-        @Override // com.qq.e.ads.splash.SplashADListener
-        public void onADPresent() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                LogPrinter.d();
-            }
-        }
-
-        @Override // com.qq.e.ads.splash.SplashADListener
-        public void onADTick(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-                LogPrinter.d();
-            }
-        }
-
-        @Override // com.qq.e.ads.splash.SplashADListener
-        public void onNoAD(AdError adError) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, adError) == null) {
-                int errorCode = adError.getErrorCode();
-                LogPrinter.e("onNoAD code: " + errorCode + ", message: " + adError.getErrorMsg(), new Object[0]);
-                if (errorCode == 4005) {
-                    this.f.onAdError(this.c, adError.getErrorMsg());
-                } else {
-                    this.f.onError(errorCode, adError.getErrorMsg());
-                }
-            }
-        }
-
-        @Override // com.qq.e.ads.splash.SplashADZoomOutListener
-        public void onZoomOutPlayFinish() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-                LogPrinter.d("onZoomOutPlayFinish", new Object[0]);
-            }
-        }
-
-        @Override // com.qq.e.ads.splash.SplashADListener
-        public void onADClicked() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                LogPrinter.d();
-                this.f.onAdClicked((anb) this.c, this.b, new String[0]);
-                this.b = true;
-                b bVar = this.f.f.get();
-                if (bVar != null) {
-                    String sid = this.e.getSid();
-                    FunSplashAdInteractionListener funSplashAdInteractionListener = bVar.e;
-                    if (funSplashAdInteractionListener != null) {
-                        funSplashAdInteractionListener.onAdClicked(sid);
-                    }
-                }
-            }
-        }
-
-        @Override // com.qq.e.ads.splash.SplashADZoomOutListener
-        public void onZoomOut() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-                this.f.e = true;
-                b bVar = this.f.f.get();
-                if (bVar != null) {
-                    bVar.c = true;
-                }
-                LogPrinter.d("onZoomOut", new Object[0]);
-                this.f.onAdClose(this.c);
-            }
-        }
-
-        @Override // com.qq.e.ads.splash.SplashADListener
-        public void onADDismissed() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                LogPrinter.d();
-                anb anbVar = this.f;
-                if (!anbVar.e) {
-                    anbVar.onAdClose(this.c);
-                    return;
-                }
-                b bVar = anbVar.f.get();
-                if (bVar != null) {
-                    bVar.a();
-                }
-            }
-        }
+        void a(String str);
     }
 
-    /* loaded from: classes5.dex */
-    public static class b implements FunSplashAd {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public enb a;
-        public SplashAD b;
-        public boolean c;
-        public ViewGroup d;
-        public FunSplashAdInteractionListener e;
-
-        /* loaded from: classes5.dex */
-        public class a implements enb.a {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
+    /* JADX WARN: Not initialized variable reg: 7, insn: 0x0179: MOVE  (r5 I:??[OBJECT, ARRAY]) = (r7 I:??[OBJECT, ARRAY]), block:B:53:0x0179 */
+    public static String a(File file, String str) {
+        InterceptResult invokeLL;
+        InputStream inputStream;
+        FileInputStream fileInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, file, str)) == null) {
+            String uuid = UUID.randomUUID().toString();
+            InputStream inputStream2 = null;
+            try {
+            } catch (Throwable th) {
+                th = th;
+                inputStream2 = inputStream;
             }
-        }
-
-        public b(SplashAD splashAD) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {splashAD};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = splashAD;
-        }
-
-        @Override // com.fun.ad.sdk.FunSplashAd
-        public void removeMiniWindow() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                LogPrinter.d();
-                a();
-            }
-        }
-
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                enb enbVar = this.a;
-                if (enbVar != null) {
-                    enbVar.g = null;
-                    enbVar.h = null;
-                }
-                ViewUtils.removeFromParent(this.d);
-                this.d = null;
-                this.a = null;
-                this.b = null;
-                this.e = null;
-            }
-        }
-
-        @Override // com.fun.ad.sdk.FunSplashAd
-        public boolean showMiniWindow(Activity activity, boolean z, FunSplashAdInteractionListener funSplashAdInteractionListener) {
-            InterceptResult invokeCommon;
-            b bVar;
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, Boolean.valueOf(z), funSplashAdInteractionListener})) == null) {
-                if (activity != null) {
-                    if (!this.c) {
-                        LogPrinter.d("isZoomOutPulled == false, will not show mini window", new Object[0]);
-                        return false;
-                    }
-                    enb enbVar = this.a;
-                    if (enbVar == null) {
-                        return false;
-                    }
-                    this.e = funSplashAdInteractionListener;
-                    ViewGroup viewGroup = (ViewGroup) activity.getWindow().getDecorView();
-                    ViewGroup viewGroup2 = (ViewGroup) activity.findViewById(16908290);
-                    a aVar = new a(this);
-                    enbVar.getClass();
-                    LogPrinter.d("zoomOut startZoomOut activity", new Object[0]);
-                    com.fun.module.gdt.p pVar = null;
-                    if (viewGroup != null && viewGroup2 != null) {
-                        if (enbVar.g != null && enbVar.h != null) {
-                            int[] iArr = new int[2];
-                            viewGroup.getLocationOnScreen(iArr);
-                            int[] iArr2 = enbVar.k;
-                            int i2 = iArr2[0] - iArr[0];
-                            int i3 = iArr2[1] - iArr[1];
-                            ViewUtils.removeFromParent(enbVar.h);
-                            viewGroup.addView(enbVar.h, new FrameLayout.LayoutParams(enbVar.i, enbVar.j));
-                            enbVar.h.setX(i2);
-                            enbVar.h.setY(i3);
-                            View view2 = enbVar.h;
-                            enbVar.g = null;
-                            enbVar.h = null;
-                            if (view2 != null) {
-                                Context context = viewGroup2.getContext();
-                                int[] iArr3 = new int[2];
-                                view2.getLocationOnScreen(iArr3);
-                                int width = view2.getWidth();
-                                int height = view2.getHeight();
-                                int width2 = viewGroup.getWidth();
-                                int height2 = viewGroup.getHeight();
-                                if (width2 == 0) {
-                                    width2 = enbVar.l;
+            try {
+                try {
+                    HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
+                    httpURLConnection.setReadTimeout(20000);
+                    httpURLConnection.setConnectTimeout(SessionCommand.COMMAND_CODE_SESSION_FAST_FORWARD);
+                    httpURLConnection.setDoInput(true);
+                    httpURLConnection.setDoOutput(true);
+                    httpURLConnection.setUseCaches(false);
+                    httpURLConnection.setRequestMethod("POST");
+                    httpURLConnection.setRequestProperty("Accept-Charset", "utf-8");
+                    httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, Http2Codec.KEEP_ALIVE);
+                    httpURLConnection.setRequestProperty("Content-Type", IMAudioTransRequest.CONTENT_TYPE + ";boundary=" + uuid);
+                    httpURLConnection.setRequestProperty("token", nmb.i().j());
+                    if (file != null) {
+                        DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
+                        StringBuffer stringBuffer = new StringBuffer();
+                        stringBuffer.append("--");
+                        stringBuffer.append(uuid);
+                        stringBuffer.append("\r\n");
+                        stringBuffer.append("Content-Disposition: form-data; name=\"txt\"; filename=\"" + file.getName() + "\"\r\n");
+                        StringBuilder sb = new StringBuilder("Content-Type: application/octet-stream; charset=utf-8");
+                        sb.append("\r\n");
+                        stringBuffer.append(sb.toString());
+                        stringBuffer.append("\r\n");
+                        dataOutputStream.write(stringBuffer.toString().getBytes("UTF-8"));
+                        fileInputStream = new FileInputStream(file);
+                        try {
+                            byte[] bArr = new byte[8192];
+                            while (true) {
+                                int read = fileInputStream.read(bArr);
+                                if (read == -1) {
+                                    break;
                                 }
-                                if (height2 == 0) {
-                                    height2 = enbVar.m;
-                                }
-                                int i4 = enbVar.a;
-                                float f = i4 / width;
-                                int i5 = enbVar.b;
-                                float f2 = i5 / height;
-                                if (enbVar.e == 0) {
-                                    i = enbVar.c;
-                                } else {
-                                    i = (width2 - enbVar.c) - i4;
-                                }
-                                float f3 = i;
-                                float f4 = (height2 - enbVar.d) - i5;
-                                LogPrinter.d("zoomOut animationContainerWidth:" + width2 + " animationContainerHeight:" + height2, new Object[0]);
-                                StringBuilder sb = new StringBuilder();
-                                sb.append("zoomOut splashScreenX:");
-                                sb.append(iArr3[0]);
-                                sb.append(" splashScreenY:");
-                                sb.append(iArr3[1]);
-                                LogPrinter.d(sb.toString(), new Object[0]);
-                                LogPrinter.d("zoomOut splashWidth:" + width + " splashHeight:" + height, new Object[0]);
-                                LogPrinter.d("zoomOut width:" + enbVar.a + " height:" + enbVar.b, new Object[0]);
-                                LogPrinter.d("zoomOut animationDistX:" + f3 + " animationDistY:" + f4, new Object[0]);
-                                ViewUtils.removeFromParent(view2);
-                                viewGroup.addView(view2, new FrameLayout.LayoutParams(width, height));
-                                com.fun.module.gdt.p pVar2 = new com.fun.module.gdt.p(context, enbVar.c);
-                                view2.setPivotX(0.0f);
-                                view2.setPivotY(0.0f);
-                                if (z) {
-                                    view2.animate().scaleX(f).scaleY(f2).x(f3).y(f4).setInterpolator(new OvershootInterpolator(0.0f)).setDuration(enbVar.f).setListener(new dnb(enbVar, aVar, view2, viewGroup2, f3, f4, iArr3, pVar2));
-                                } else {
-                                    enbVar.a(view2, viewGroup2, f3, f4, iArr3, pVar2, aVar);
-                                }
-                                bVar = this;
-                                pVar = pVar2;
-                                bVar.d = pVar;
-                                return true;
+                                dataOutputStream.write(bArr, 0, read);
                             }
-                        } else {
-                            LogPrinter.d("zoomOut splashAD or splashView is null", new Object[0]);
+                            fileInputStream.close();
+                            dataOutputStream.write("\r\n".getBytes("UTF-8"));
+                            dataOutputStream.write(("--" + uuid + "--\r\n").getBytes("UTF-8"));
+                            dataOutputStream.flush();
+                            dataOutputStream.close();
+                            if (httpURLConnection.getResponseCode() == 200) {
+                                InputStream inputStream3 = httpURLConnection.getInputStream();
+                                StringBuffer stringBuffer2 = new StringBuffer();
+                                while (true) {
+                                    int read2 = inputStream3.read();
+                                    if (read2 == -1) {
+                                        break;
+                                    }
+                                    stringBuffer2.append((char) read2);
+                                }
+                                inputStream3.close();
+                                httpURLConnection.disconnect();
+                                String stringBuffer3 = stringBuffer2.toString();
+                                try {
+                                    fileInputStream.close();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                                return stringBuffer3;
+                            }
+                            onb.b(file.getAbsolutePath() + "     上传文件失败…………");
+                            httpURLConnection.disconnect();
+                            try {
+                                fileInputStream.close();
+                            } catch (IOException e2) {
+                                e2.printStackTrace();
+                            }
+                            return null;
+                        } catch (IOException e3) {
+                            e = e3;
+                            wnb.d(e);
+                            if (fileInputStream != null) {
+                                fileInputStream.close();
+                            }
+                            return null;
+                        } catch (Exception e4) {
+                            e = e4;
+                            wnb.d(e);
+                            if (fileInputStream != null) {
+                                fileInputStream.close();
+                            }
+                            return null;
                         }
-                    } else {
-                        LogPrinter.d("zoomOut animationContainer or zoomOutContainer is null", new Object[0]);
                     }
-                    bVar = this;
-                    bVar.d = pVar;
+                } catch (IOException e5) {
+                    e5.printStackTrace();
+                }
+            } catch (IOException e6) {
+                e = e6;
+                fileInputStream = null;
+            } catch (Exception e7) {
+                e = e7;
+                fileInputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+                if (inputStream2 != null) {
+                    try {
+                        inputStream2.close();
+                    } catch (IOException e8) {
+                        e8.printStackTrace();
+                    }
+                }
+                throw th;
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String b(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            try {
+                HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str2).openConnection();
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setDoInput(true);
+                httpURLConnection.setRequestMethod(HttpPut.METHOD_NAME);
+                httpURLConnection.setRequestProperty("Content-Type", "application/json");
+                httpURLConnection.setRequestProperty("Accept-Charset", "utf-8");
+                httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, Http2Codec.KEEP_ALIVE);
+                httpURLConnection.setRequestProperty("Content-Length", String.valueOf(str.toString().getBytes("UTF-8").length));
+                httpURLConnection.setReadTimeout(20000);
+                httpURLConnection.setConnectTimeout(10000);
+                httpURLConnection.setRequestProperty("token", nmb.i().j());
+                httpURLConnection.connect();
+                OutputStream outputStream = httpURLConnection.getOutputStream();
+                outputStream.write(str.getBytes("UTF-8"));
+                outputStream.flush();
+                outputStream.close();
+                if (httpURLConnection.getResponseCode() == 200) {
+                    InputStreamReader inputStreamReader = new InputStreamReader(httpURLConnection.getInputStream(), "UTF-8");
+                    BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                    StringBuffer stringBuffer = new StringBuffer("");
+                    while (true) {
+                        String readLine = bufferedReader.readLine();
+                        if (readLine != null) {
+                            stringBuffer.append(new String(readLine.getBytes("UTF-8"), "utf-8"));
+                        } else {
+                            bufferedReader.close();
+                            inputStreamReader.close();
+                            httpURLConnection.disconnect();
+                            return stringBuffer.toString();
+                        }
+                    }
+                } else {
+                    onb.b("上传log失败    ");
+                    httpURLConnection.disconnect();
+                    return null;
+                }
+            } catch (Exception e) {
+                onb.b("上传log失败    " + e.getMessage());
+                wnb.d(e);
+                return null;
+            }
+        } else {
+            return (String) invokeLL.objValue;
+        }
+    }
+
+    public static String d(String str, Map<String, Object> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, map)) == null) {
+            String str2 = "";
+            if (map.size() > 0) {
+                StringBuffer stringBuffer = new StringBuffer();
+                if (!map.isEmpty()) {
+                    for (Map.Entry<String, Object> entry : map.entrySet()) {
+                        if (stringBuffer.length() <= 0) {
+                            stringBuffer.append(entry.getKey());
+                            stringBuffer.append("=");
+                            stringBuffer.append(entry.getValue());
+                        } else {
+                            stringBuffer.append("&");
+                            stringBuffer.append(entry.getKey());
+                            stringBuffer.append("=");
+                            stringBuffer.append(entry.getValue());
+                        }
+                    }
+                    str2 = stringBuffer.toString();
+                }
+            }
+            try {
+                HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.setConnectTimeout(10000);
+                httpURLConnection.setReadTimeout(20000);
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setDoInput(true);
+                httpURLConnection.setRequestProperty("token", nmb.i().j());
+                PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(httpURLConnection.getOutputStream(), "utf-8"));
+                printWriter.write(str2);
+                printWriter.flush();
+                BufferedInputStream bufferedInputStream = new BufferedInputStream(httpURLConnection.getInputStream());
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                byte[] bArr = new byte[1024];
+                while (true) {
+                    int read = bufferedInputStream.read(bArr);
+                    if (read != -1) {
+                        byteArrayOutputStream.write(bArr, 0, read);
+                        byteArrayOutputStream.flush();
+                    } else {
+                        printWriter.close();
+                        bufferedInputStream.close();
+                        String byteArrayOutputStream2 = byteArrayOutputStream.toString("utf-8");
+                        byteArrayOutputStream.close();
+                        return byteArrayOutputStream2;
+                    }
+                }
+            } catch (Exception e) {
+                wnb.e(e);
+                return null;
+            }
+        } else {
+            return (String) invokeLL.objValue;
+        }
+    }
+
+    public static boolean c(String str, a aVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, aVar)) == null) {
+            try {
+            } catch (Exception e) {
+                wnb.d(e);
+            }
+            if (str == null) {
+                if (aVar != null) {
+                    aVar.a("-1");
+                }
+                return false;
+            }
+            JSONObject jSONObject = new JSONObject(str);
+            if (jSONObject.getString("status").equals("0")) {
+                if (aVar != null) {
+                    JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                    if (optJSONObject != null) {
+                        aVar.a((a) optJSONObject);
+                        return true;
+                    }
+                    aVar.a((a) jSONObject.optJSONArray("data"));
                     return true;
                 }
-                throw new IllegalArgumentException();
+                return true;
+            } else if (jSONObject.getString("status").equals("1")) {
+                if (aVar != null) {
+                    aVar.a(jSONObject.optString("status"));
+                }
+                onb.b("net status  error ");
+                return false;
+            } else {
+                if (jSONObject.getString("status").equals("2")) {
+                    hnb.h(nmb.i().g());
+                    onb.b("net  token error ");
+                    return false;
+                }
+                if (aVar != null) {
+                    aVar.a("-1");
+                }
+                return false;
             }
-            return invokeCommon.booleanValue;
         }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
-            emb embVar = (emb) obj;
-            onShowStart(embVar);
-            ((SplashAD) embVar.a).showAd(viewGroup);
-            return true;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public FunSplashAd showSplashInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, activity, viewGroup, str, obj)) == null) {
-            emb embVar = (emb) obj;
-            onShowStart(embVar);
-            ((SplashAD) embVar.a).showAd(viewGroup);
-            b bVar = new b((SplashAD) embVar.a);
-            this.f = new WeakReference<>(bVar);
-            View decorView = activity.getWindow().getDecorView();
-            if (bVar.a == null) {
-                bVar.a = new enb(decorView.getContext());
-            }
-            enb enbVar = bVar.a;
-            enbVar.g = bVar.b;
-            enbVar.h = viewGroup;
-            viewGroup.getLocationOnScreen(enbVar.k);
-            enbVar.i = viewGroup.getWidth();
-            enbVar.j = viewGroup.getHeight();
-            enbVar.l = decorView.getWidth();
-            enbVar.m = decorView.getHeight();
-            return bVar;
-        }
-        return (FunSplashAd) invokeLLLL.objValue;
+        return invokeLL.booleanValue;
     }
 }

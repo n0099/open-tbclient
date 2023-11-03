@@ -1,83 +1,42 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class qu7 extends CustomMessageTask {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.tbadkCore.FrsViewData;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+/* loaded from: classes8.dex */
+public interface qu7 {
+    void a(String str);
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
+    void b();
 
-    /* loaded from: classes7.dex */
-    public static class b implements CustomMessageTask.CustomRunnable<hx7> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    int c();
 
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+    void d(yi yiVar);
 
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
+    void e();
 
-        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<hx7> customMessage) {
-            InterceptResult invokeL;
-            b09 c;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof hx7)) {
-                    hx7 data = customMessage.getData();
-                    if (data.c() == null && (c = a09.d().c(data.b(), data.f())) != null) {
-                        c.b(new ru7(data.e()));
-                        data.i(c);
-                    }
-                }
-                return null;
-            }
-            return (CustomResponsedMessage) invokeL.objValue;
-        }
-    }
+    List<oi> f();
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qu7() {
-        super(2001406, new b(null));
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super(((Integer) objArr[0]).intValue(), (CustomMessageTask.CustomRunnable) objArr[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-    }
+    void g(ArrayList<oi> arrayList, FrsViewData frsViewData);
+
+    HashMap<Integer, ThreadData> h();
+
+    int i();
+
+    int j();
+
+    boolean k(BdUniqueId bdUniqueId);
+
+    void l(kp7 kp7Var);
+
+    void m(boolean z);
+
+    void notifyDataSetChanged();
+
+    void onDestory();
+
+    void setFromCDN(boolean z);
 }

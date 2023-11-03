@@ -17,7 +17,7 @@ public final class DefaultFloatViewAnimator implements FloatViewAnimator {
     public final long mDuration = 325;
 
     /* renamed from: enterAnim$lambda-0  reason: not valid java name */
-    public static final void m83enterAnim$lambda0(WindowManager.LayoutParams params, WeakReference viewRef, WindowManager windowManager, ValueAnimator valueAnimator) {
+    public static final void m84enterAnim$lambda0(WindowManager.LayoutParams params, WeakReference viewRef, WindowManager windowManager, ValueAnimator valueAnimator) {
         Intrinsics.checkNotNullParameter(params, "$params");
         Intrinsics.checkNotNullParameter(viewRef, "$viewRef");
         Intrinsics.checkNotNullParameter(windowManager, "$windowManager");
@@ -35,7 +35,7 @@ public final class DefaultFloatViewAnimator implements FloatViewAnimator {
     }
 
     /* renamed from: exitAnim$lambda-1  reason: not valid java name */
-    public static final void m84exitAnim$lambda1(WindowManager.LayoutParams params, WeakReference viewRef, WindowManager windowManager, ValueAnimator valueAnimator) {
+    public static final void m85exitAnim$lambda1(WindowManager.LayoutParams params, WeakReference viewRef, WindowManager windowManager, ValueAnimator valueAnimator) {
         Intrinsics.checkNotNullParameter(params, "$params");
         Intrinsics.checkNotNullParameter(viewRef, "$viewRef");
         Intrinsics.checkNotNullParameter(windowManager, "$windowManager");
@@ -72,7 +72,7 @@ public final class DefaultFloatViewAnimator implements FloatViewAnimator {
             return null;
         }
         ValueAnimator duration = ValueAnimator.ofInt(initValue(view2, params, windowManager), params.x).setDuration(this.mDuration);
-        duration.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.zh1
+        duration.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.qi1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -80,7 +80,7 @@ public final class DefaultFloatViewAnimator implements FloatViewAnimator {
             public final void onAnimationUpdate(ValueAnimator valueAnimator) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                    DefaultFloatViewAnimator.m83enterAnim$lambda0(params, viewRef, windowManager, valueAnimator);
+                    DefaultFloatViewAnimator.m84enterAnim$lambda0(params, viewRef, windowManager, valueAnimator);
                 }
             }
         });
@@ -97,7 +97,7 @@ public final class DefaultFloatViewAnimator implements FloatViewAnimator {
             return null;
         }
         ValueAnimator duration = ValueAnimator.ofInt(params.x, initValue(view2, params, windowManager)).setDuration(this.mDuration);
-        duration.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.yh1
+        duration.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.pi1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -105,7 +105,7 @@ public final class DefaultFloatViewAnimator implements FloatViewAnimator {
             public final void onAnimationUpdate(ValueAnimator valueAnimator) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                    DefaultFloatViewAnimator.m84exitAnim$lambda1(params, viewRef, windowManager, valueAnimator);
+                    DefaultFloatViewAnimator.m85exitAnim$lambda1(params, viewRef, windowManager, valueAnimator);
                 }
             }
         });

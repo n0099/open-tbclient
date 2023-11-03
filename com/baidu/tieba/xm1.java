@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 
-import java.net.MalformedURLException;
-/* loaded from: classes8.dex */
+import org.json.JSONObject;
+/* loaded from: classes9.dex */
 public interface xm1 {
-    String a();
+    void a(int i);
 
-    boolean b();
-
-    String c(String str) throws MalformedURLException;
+    void b(JSONObject jSONObject);
 }

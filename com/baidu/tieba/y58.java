@@ -1,312 +1,857 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import androidx.annotation.DimenRes;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.group.AbsGroupUbsABTest;
-import com.baidu.tbadk.core.data.ThreadData;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.tbadk.core.GlobalBuildConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tieba.funAd.http.FunAdRecordHttpMessage;
+import com.baidu.tieba.q58;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import com.fun.ad.sdk.ChannelNativeAds;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunNativeAd;
+import com.fun.ad.sdk.FunNativeAd2;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.kwad.sdk.api.KsImage;
+import com.kwad.sdk.api.KsNativeAd;
+import com.qq.e.ads.nativ.NativeUnifiedADData;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import tbclient.GetTopicRelateThread.DataRes;
-import tbclient.Hottopic.HotThread;
-import tbclient.ThreadInfo;
-/* loaded from: classes8.dex */
-public class y58 extends ThreadData {
+/* loaded from: classes9.dex */
+public class y58 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<jk6> a;
-    public mx4 b;
-    public long c;
-    public int d;
-    public List<yh> e;
-    @Nullable
-    public Map<String, Object> f;
 
-    public y58() {
+    public static void H(FunNativeAd2 funNativeAd2, int i, q58.i iVar) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLIL(65543, null, funNativeAd2, i, iVar) == null) {
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-307468272, "Lcom/baidu/tieba/y58$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-307468272, "Lcom/baidu/tieba/y58$a;");
+                    return;
+                }
             }
-        }
-        this.d = 1;
-        this.e = new ArrayList();
-        this.d = 1;
-    }
-
-    @Nullable
-    public Map<String, Object> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public y58(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+            int[] iArr = new int[FunNativeAd.InteractionType.values().length];
+            a = iArr;
+            try {
+                iArr[FunNativeAd.InteractionType.TYPE_DOWNLOAD.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
             }
-        }
-        this.d = 1;
-        this.e = new ArrayList();
-        this.d = i;
-    }
-
-    public final void f(List<jk6> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && !ListUtils.isEmpty(list)) {
-            jk6 jk6Var = list.get(list.size() - 1);
-            if (jk6Var.getThreadData() != null) {
-                this.c = JavaTypesHelper.toLong(jk6Var.getThreadData().getTid(), 0L);
+            try {
+                a[FunNativeAd.InteractionType.TYPE_DIAL.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[FunNativeAd.InteractionType.TYPE_BROWSE.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
             }
         }
     }
 
-    public final void c(@NonNull List<ThreadInfo> list) {
+    public static void A(FunNativeAd2 funNativeAd2) {
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        NativeUnifiedADData nativeUnifiedADData;
+        View l;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            for (ThreadInfo threadInfo : list) {
-                ThreadData threadData = new ThreadData();
-                threadData.parserProtobuf(threadInfo);
-                threadData.insertItemToTitleOrAbstractText();
-                this.e.add(threadData);
+        if ((interceptable == null || interceptable.invokeL(65536, null, funNativeAd2) == null) && GlobalBuildConfig.isTiebaDebugTool() && funNativeAd2 != null && d(funNativeAd2) != null) {
+            ChannelNativeAds d = d(funNativeAd2);
+            FunNativeAd.InteractionType f = f(funNativeAd2);
+            List<String> list = null;
+            if (f != null) {
+                str = f.name();
+            } else {
+                str = null;
+            }
+            if (funNativeAd2.getNativeInfo() != null) {
+                list = funNativeAd2.getNativeInfo().getImageUrls();
+                str2 = funNativeAd2.getNativeInfo().getDescription();
+                str3 = funNativeAd2.getNativeInfo().getIconUrl();
+                str4 = funNativeAd2.getNativeInfo().getTitle();
+            } else {
+                str2 = null;
+                str3 = null;
+                str4 = null;
+            }
+            Log.e(LogPrinter.TAG, "===== Show Fun Ad Type START ===== ");
+            Log.e(LogPrinter.TAG, "isDownloadAd = " + str);
+            Log.e(LogPrinter.TAG, "ksNative = " + d.ksNative);
+            Log.e(LogPrinter.TAG, "gdtNative = " + d.gdtNative);
+            Log.e(LogPrinter.TAG, "jyNative = " + d.jyNative);
+            Log.e(LogPrinter.TAG, "imageurls = " + list);
+            Log.e(LogPrinter.TAG, "videoView = " + l(funNativeAd2));
+            Log.e(LogPrinter.TAG, "interactionType = " + str);
+            Log.e(LogPrinter.TAG, "description = " + str2);
+            Log.e(LogPrinter.TAG, "iconUrl = " + str3);
+            Log.e(LogPrinter.TAG, "title = " + str4);
+            Object obj = d.ksNative;
+            if (obj instanceof KsNativeAd) {
+                KsNativeAd ksNativeAd = (KsNativeAd) obj;
+                Log.e(LogPrinter.TAG, "AdSourc=" + ksNativeAd.getAdSource());
+                Log.e(LogPrinter.TAG, "AppName=" + ksNativeAd.getAppName());
+                Log.e(LogPrinter.TAG, "AppScore=" + ksNativeAd.getAppScore());
+                Log.e(LogPrinter.TAG, "AppVersion=" + ksNativeAd.getAppVersion());
+                Log.e(LogPrinter.TAG, "AppDownloadCountDes=" + ksNativeAd.getAppDownloadCountDes());
+                Log.e(LogPrinter.TAG, "CorporationName=" + ksNativeAd.getCorporationName());
+                Log.e(LogPrinter.TAG, "PermissionInfo=" + ksNativeAd.getPermissionInfo());
+                Log.e(LogPrinter.TAG, "getAppPrivacyUrl=" + ksNativeAd.getAppPrivacyUrl());
+                Log.e(LogPrinter.TAG, "getActionDescription=" + ksNativeAd.getActionDescription());
+                Log.e(LogPrinter.TAG, "getAdDescription=" + ksNativeAd.getAdDescription());
+                List<KsImage> imageList = ksNativeAd.getImageList();
+                if (imageList != null) {
+                    for (KsImage ksImage : imageList) {
+                        System.out.println("Test=>ksImage: height=" + ksImage.getHeight() + " width=" + ksImage.getWidth());
+                    }
+                }
+                System.out.println("Test=>ksVideo[1]: height=" + ksNativeAd.getVideoHeight() + " width=" + ksNativeAd.getVideoWidth());
+                if (ksNativeAd.getVideoCoverImage() != null) {
+                    System.out.println("Test=>ksVideo[2]: height=" + ksNativeAd.getVideoCoverImage().getHeight() + " width=" + ksNativeAd.getVideoCoverImage().getWidth());
+                }
+            } else {
+                Object obj2 = d.gdtNative;
+                if (obj2 instanceof NativeUnifiedADData) {
+                    Log.e(LogPrinter.TAG, "CTAText=" + nativeUnifiedADData.getCTAText());
+                    Log.e(LogPrinter.TAG, "Title=" + nativeUnifiedADData.getTitle());
+                    Log.e(LogPrinter.TAG, "AppScore=" + nativeUnifiedADData.getAppScore());
+                    Log.e(LogPrinter.TAG, "DownloadCount=" + nativeUnifiedADData.getDownloadCount());
+                    Log.e(LogPrinter.TAG, "ECPM=" + nativeUnifiedADData.getECPM());
+                    Log.e(LogPrinter.TAG, "isAppAd=" + nativeUnifiedADData.isAppAd());
+                    List<String> imgList = ((NativeUnifiedADData) obj2).getImgList();
+                    if (imgList != null) {
+                        Iterator<String> it = imgList.iterator();
+                        while (it.hasNext()) {
+                            System.out.println("Test=>gdtImage: image=" + it.next());
+                        }
+                    }
+                    System.out.println("Test=>gdtImage: height=" + nativeUnifiedADData.getPictureHeight() + " width=" + nativeUnifiedADData.getPictureWidth());
+                }
+            }
+            if (l(funNativeAd2) != null) {
+                System.out.println("Test=>mediaView: width=" + l.getWidth() + " height=" + l.getHeight());
+            }
+            Log.e(LogPrinter.TAG, "===== Show Fun Ad Type END =====\n\n");
+        }
+    }
+
+    public static void B(FunNativeAd2 funNativeAd2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, funNativeAd2) == null) {
+            Object e = e(funNativeAd2);
+            if (e instanceof NativeUnifiedADData) {
+                ((NativeUnifiedADData) e).setVideoMute(false);
             }
         }
     }
 
-    public ArrayList<yh> d(ay4 ay4Var) {
+    public static boolean J(FunNativeAd2 funNativeAd2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ay4Var)) == null) {
-            ArrayList<yh> arrayList = new ArrayList<>(this.e);
-            g(arrayList, ay4Var);
-            ArrayList<yh> arrayList2 = new ArrayList<>();
-            Iterator<yh> it = arrayList.iterator();
-            int i = 0;
-            while (it.hasNext()) {
-                yh next = it.next();
-                if (next instanceof ThreadData) {
-                    ThreadData threadData = (ThreadData) next;
-                    int[] imageWidthAndHeight = threadData.getImageWidthAndHeight();
-                    if (threadData.getType() == ThreadData.TYPE_NORMAL) {
-                        py4 py4Var = new py4();
-                        py4Var.t = threadData;
-                        py4Var.position = i;
-                        py4Var.a = true;
-                        arrayList2.add(py4Var);
-                        py4 py4Var2 = new py4();
-                        py4Var2.t = threadData;
-                        py4Var2.position = i;
-                        if (threadData.isBJHNormalThreadType()) {
-                            py4Var2.f = true;
-                        } else if (threadData.picCount() == 1) {
-                            py4Var2.d = true;
-                            py4Var2.u = imageWidthAndHeight[0];
-                            py4Var2.v = imageWidthAndHeight[1];
-                        } else if (threadData.picCount() >= 2) {
-                            py4Var2.e = true;
-                        } else {
-                            py4Var2.b = true;
-                        }
-                        arrayList2.add(py4Var2);
-                        if (threadData.getItem() != null) {
-                            py4 py4Var3 = new py4();
-                            py4Var3.n = true;
-                            py4Var3.t = threadData;
-                            py4Var3.position = i;
-                            arrayList2.add(py4Var3);
-                        }
-                        py4 py4Var4 = new py4();
-                        py4Var4.m = true;
-                        py4Var4.t = threadData;
-                        py4Var4.position = i;
-                        arrayList2.add(py4Var4);
-                        py4 py4Var5 = new py4();
-                        py4Var5.g = true;
-                        py4Var5.t = threadData;
-                        py4Var5.position = i;
-                        arrayList2.add(py4Var5);
-                    } else if (threadData.getType() == ThreadData.TYPE_VIDEO) {
-                        py4 py4Var6 = new py4();
-                        py4Var6.t = threadData;
-                        py4Var6.position = i;
-                        py4Var6.a = true;
-                        arrayList2.add(py4Var6);
-                        py4 py4Var7 = new py4();
-                        py4Var7.t = threadData;
-                        py4Var7.position = i;
-                        py4Var7.i = true;
-                        arrayList2.add(py4Var7);
-                        if (threadData.getItem() != null) {
-                            py4 py4Var8 = new py4();
-                            py4Var8.n = true;
-                            py4Var8.t = threadData;
-                            py4Var8.position = i;
-                            arrayList2.add(py4Var8);
-                        }
-                        py4 py4Var9 = new py4();
-                        py4Var9.m = true;
-                        py4Var9.t = threadData;
-                        py4Var9.position = i;
-                        arrayList2.add(py4Var9);
-                        py4 py4Var10 = new py4();
-                        py4Var10.g = true;
-                        py4Var10.t = threadData;
-                        py4Var10.position = i;
-                        arrayList2.add(py4Var10);
-                    } else if (threadData.getType() == ThreadData.TYPE_ARTICLE && threadData.isBJHArticleThreadType()) {
-                        threadData.position = i;
-                        arrayList2.add(threadData);
-                    } else if (qk6.R(threadData)) {
-                        qk6 qk6Var = new qk6(threadData);
-                        qk6Var.g = threadData.getTid();
-                        arrayList2.add(qk6Var);
-                    } else {
-                        py4 py4Var11 = new py4();
-                        py4Var11.t = threadData;
-                        py4Var11.position = i;
-                        arrayList2.add(py4Var11);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, funNativeAd2)) == null) {
+            if (e(funNativeAd2) != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static int b(FunNativeAd2 funNativeAd2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, funNativeAd2)) == null) {
+            int i = a.a[f(funNativeAd2).ordinal()];
+            if (i != 1) {
+                if (i == 2) {
+                    return 3;
+                }
+                if (i != 3) {
+                    return 1;
+                }
+                return 4;
+            }
+            return 2;
+        }
+        return invokeL.intValue;
+    }
+
+    public static ChannelNativeAds d(FunNativeAd2 funNativeAd2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, funNativeAd2)) == null) {
+            if (funNativeAd2 != null && funNativeAd2.getNativeInfo() != null) {
+                return funNativeAd2.getNativeInfo().getChannelNativeAds();
+            }
+            return null;
+        }
+        return (ChannelNativeAds) invokeL.objValue;
+    }
+
+    public static Object e(FunNativeAd2 funNativeAd2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, funNativeAd2)) == null) {
+            ChannelNativeAds d = d(funNativeAd2);
+            if (d != null) {
+                return d.gdtNative;
+            }
+            return null;
+        }
+        return invokeL.objValue;
+    }
+
+    public static FunNativeAd.InteractionType f(FunNativeAd2 funNativeAd2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, funNativeAd2)) == null) {
+            if (funNativeAd2 != null && funNativeAd2.getNativeInfo() != null) {
+                return funNativeAd2.getNativeInfo().getInteractionType();
+            }
+            return null;
+        }
+        return (FunNativeAd.InteractionType) invokeL.objValue;
+    }
+
+    public static Object g(FunNativeAd2 funNativeAd2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, funNativeAd2)) == null) {
+            ChannelNativeAds d = d(funNativeAd2);
+            if (d != null) {
+                return d.ksNative;
+            }
+            return null;
+        }
+        return invokeL.objValue;
+    }
+
+    public static String h(FunNativeAd2 funNativeAd2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, funNativeAd2)) == null) {
+            if (funNativeAd2 != null && funNativeAd2.getNativeInfo() != null) {
+                return funNativeAd2.getNativeInfo().getDescription();
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String i(FunNativeAd2 funNativeAd2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, funNativeAd2)) == null) {
+            if (funNativeAd2 != null && funNativeAd2.getNativeInfo() != null) {
+                return funNativeAd2.getNativeInfo().getIconUrl();
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static List<String> j(FunNativeAd2 funNativeAd2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, funNativeAd2)) == null) {
+            if (funNativeAd2 != null && funNativeAd2.getNativeInfo() != null) {
+                return funNativeAd2.getNativeInfo().getImageUrls();
+            }
+            return null;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public static String k(FunNativeAd2 funNativeAd2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, funNativeAd2)) == null) {
+            if (funNativeAd2 != null && funNativeAd2.getNativeInfo() != null) {
+                return funNativeAd2.getNativeInfo().getTitle();
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static View l(FunNativeAd2 funNativeAd2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, funNativeAd2)) == null) {
+            if (funNativeAd2 != null && funNativeAd2.getNativeInfo() != null) {
+                return funNativeAd2.getNativeInfo().getVideoView();
+            }
+            return null;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    public static int p(@DimenRes int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65562, null, i)) == null) {
+            return BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), i);
+        }
+        return invokeI.intValue;
+    }
+
+    public static int q(FunNativeAd2 funNativeAd2) {
+        InterceptResult invokeL;
+        ChannelNativeAds d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, funNativeAd2)) == null) {
+            if (funNativeAd2 == null || (d = d(funNativeAd2)) == null) {
+                return -1;
+            }
+            if (d.gdtNative != null) {
+                return 1;
+            }
+            if (d.ksNative == null) {
+                return -1;
+            }
+            return 2;
+        }
+        return invokeL.intValue;
+    }
+
+    public static String r(FunNativeAd2 funNativeAd2) {
+        InterceptResult invokeL;
+        ChannelNativeAds d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, funNativeAd2)) == null) {
+            if (funNativeAd2 == null || (d = d(funNativeAd2)) == null) {
+                return "";
+            }
+            if (d.gdtNative != null) {
+                return FunAdSdk.PLATFORM_GDT;
+            }
+            if (d.ksNative == null) {
+                return "";
+            }
+            return FunAdSdk.PLATFORM_KS;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static int u(FunNativeAd2 funNativeAd2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, funNativeAd2)) == null) {
+            if (l(funNativeAd2) != null) {
+                return 2;
+            }
+            return 1;
+        }
+        return invokeL.intValue;
+    }
+
+    public static boolean z(FunNativeAd2 funNativeAd2) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65572, null, funNativeAd2)) == null) {
+            if (l(funNativeAd2) != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            int s = s(funNativeAd2);
+            if (z && s == 6) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void C(ImageView imageView, FunNativeAd2 funNativeAd2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, imageView, funNativeAd2) == null) && funNativeAd2 != null && imageView != null) {
+            ChannelNativeAds d = d(funNativeAd2);
+            if (d == null) {
+                imageView.setVisibility(8);
+                imageView.setImageDrawable(null);
+            } else if (d.gdtNative != null) {
+                imageView.setVisibility(0);
+                WebPManager.setMaskDrawable(imageView, R.drawable.obfuscated_res_0x7f0809b9, WebPManager.ResourceStateType.NORMAL);
+            } else if (d.ksNative != null) {
+                imageView.setVisibility(0);
+                WebPManager.setMaskDrawable(imageView, R.drawable.obfuscated_res_0x7f0809ba, WebPManager.ResourceStateType.NORMAL);
+            } else {
+                imageView.setVisibility(8);
+                imageView.setImageDrawable(null);
+            }
+        }
+    }
+
+    public static void D(View view2, boolean z) {
+        int i;
+        int p;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(65539, null, view2, z) == null) && view2 != null && view2.getLayoutParams() != null) {
+            if (z) {
+                i = p(R.dimen.tbds447);
+                p = p(R.dimen.tbds796);
+            } else {
+                i = -1;
+                p = p(R.dimen.tbds504);
+            }
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view2.getLayoutParams();
+            layoutParams.topMargin = p(R.dimen.M_H_X004);
+            if (layoutParams.width != i || layoutParams.height != p) {
+                layoutParams.width = i;
+                layoutParams.height = p;
+                view2.setLayoutParams(layoutParams);
+            }
+        }
+    }
+
+    public static void G(View view2, boolean z) {
+        int i;
+        int p;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(65542, null, view2, z) == null) && view2 != null && view2.getLayoutParams() != null) {
+            if (z) {
+                i = p(R.dimen.tbds515);
+                p = p(R.dimen.tbds915);
+            } else {
+                i = -1;
+                p = p(R.dimen.tbds551);
+            }
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+            if (layoutParams.width != i || layoutParams.height != p) {
+                layoutParams.width = i;
+                layoutParams.height = p;
+                view2.setLayoutParams(layoutParams);
+            }
+        }
+    }
+
+    public static void I(ImageView imageView, FunNativeAd2 funNativeAd2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65544, null, imageView, funNativeAd2) != null) || funNativeAd2 == null) {
+            return;
+        }
+        ChannelNativeAds d = d(funNativeAd2);
+        if (d == null) {
+            imageView.setVisibility(8);
+            imageView.setImageDrawable(null);
+        } else if (d.gdtNative != null) {
+            WebPManager.setMaskDrawable(imageView, R.drawable.obfuscated_res_0x7f0809bc, WebPManager.ResourceStateType.NORMAL);
+            imageView.setVisibility(0);
+        } else if (d.ksNative != null) {
+            WebPManager.setMaskDrawable(imageView, R.drawable.obfuscated_res_0x7f0809bd, WebPManager.ResourceStateType.NORMAL);
+            imageView.setVisibility(0);
+        } else {
+            imageView.setVisibility(8);
+            imageView.setImageDrawable(null);
+        }
+    }
+
+    public static String c(FunNativeAd2 funNativeAd2, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65549, null, funNativeAd2, i)) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    return "";
+                }
+                Object g = g(funNativeAd2);
+                if (g instanceof KsNativeAd) {
+                    KsNativeAd ksNativeAd = (KsNativeAd) g;
+                    if (qd.isEmpty(ksNativeAd.getAppIconUrl())) {
+                        return ksNativeAd.getProductName();
                     }
-                } else if (next instanceof BaseCardInfo) {
-                    ((BaseCardInfo) next).position = i;
-                    arrayList2.add(next);
+                    return ksNativeAd.getAppName();
+                }
+            } else {
+                Object e = e(funNativeAd2);
+                if (e instanceof NativeUnifiedADData) {
+                    return ((NativeUnifiedADData) e).getTitle();
+                }
+            }
+            return "";
+        }
+        return (String) invokeLI.objValue;
+    }
+
+    public static String t(FunNativeAd2 funNativeAd2, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65566, null, funNativeAd2, i)) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    return "";
+                }
+                Object g = g(funNativeAd2);
+                if (g instanceof KsNativeAd) {
+                    KsNativeAd ksNativeAd = (KsNativeAd) g;
+                    if (qd.isEmpty(ksNativeAd.getAppIconUrl())) {
+                        return "";
+                    }
+                    return ksNativeAd.getAppIconUrl();
+                }
+            } else {
+                Object e = e(funNativeAd2);
+                if (e instanceof NativeUnifiedADData) {
+                    return ((NativeUnifiedADData) e).getIconUrl();
+                }
+            }
+            return "";
+        }
+        return (String) invokeLI.objValue;
+    }
+
+    public static void E(View view2, boolean z, List<String> list) {
+        int i;
+        int i2;
+        int p;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{view2, Boolean.valueOf(z), list}) == null) && view2 != null && view2.getLayoutParams() != null) {
+            if (z) {
+                i = p(R.dimen.tbds515);
+                p = p(R.dimen.tbds915);
+            } else {
+                i = -1;
+                boolean z2 = true;
+                if (ListUtils.getCount(list) != 1) {
+                    z2 = false;
+                }
+                if (z2) {
+                    i2 = R.dimen.tbds551;
                 } else {
-                    arrayList2.add(next);
+                    i2 = R.dimen.tbds213;
                 }
-                i++;
+                p = p(i2);
             }
-            AbsGroupUbsABTest.setCardInfoUbsABTest(arrayList2);
-            return arrayList2;
-        }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    public final void g(ArrayList<yh> arrayList, ay4 ay4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, arrayList, ay4Var) == null) && ay4Var != null && !ListUtils.isEmpty(ay4Var.e())) {
-            int size = arrayList.size();
-            int i = 0;
-            int i2 = 0;
-            while (true) {
-                if (i >= size) {
-                    break;
-                }
-                if (arrayList.get(i) instanceof ThreadData) {
-                    if (ay4Var.floorPosition == i2) {
-                        ListUtils.add(arrayList, i, ay4Var);
-                        break;
-                    }
-                    i2++;
-                }
-                i++;
-            }
-            if (size == 2) {
-                ListUtils.add(arrayList, ay4Var);
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+            if (layoutParams.width != i || layoutParams.height != p) {
+                layoutParams.width = i;
+                layoutParams.height = p;
+                view2.setLayoutParams(layoutParams);
             }
         }
     }
 
-    public void h(DataRes dataRes) {
+    public static void F(View view2, boolean z) {
+        int p;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, dataRes) != null) || dataRes == null) {
-            return;
-        }
-        this.f = DataExt.toMap(dataRes);
-        if (dataRes.thread_list != null) {
-            this.a = new ArrayList();
-            for (ThreadInfo threadInfo : dataRes.thread_list) {
-                if (threadInfo != null) {
-                    ThreadData threadData = new ThreadData();
-                    threadData.parserProtobuf(threadInfo);
-                    threadData.setResource(5);
-                    jk6 jk6Var = null;
-                    if (sk6.L(threadData)) {
-                        jk6Var = new sk6(threadData);
-                    } else if (rk6.R(threadData)) {
-                        jk6Var = new rk6();
-                        jk6Var.a = threadData;
-                    }
-                    if (jk6Var != null && jk6Var.isValid()) {
-                        jk6Var.E("c10816");
-                        this.a.add(jk6Var);
-                    }
-                }
+        if ((interceptable == null || interceptable.invokeLZ(65541, null, view2, z) == null) && view2 != null && view2.getLayoutParams() != null) {
+            if (z) {
+                p = p(R.dimen.tbds33);
+            } else {
+                p = p(R.dimen.tbds25);
             }
-            f(this.a);
-            c(dataRes.thread_list);
-        }
-        if (dataRes.page != null) {
-            mx4 mx4Var = new mx4();
-            this.b = mx4Var;
-            mx4Var.j(dataRes.page);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view2.getLayoutParams();
+            layoutParams.topMargin = p;
+            layoutParams.bottomMargin = 0;
+            view2.setLayoutParams(layoutParams);
         }
     }
 
-    public void i(HotThread hotThread) {
+    public static String o(FunNativeAd2 funNativeAd2, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, hotThread) != null) || hotThread == null) {
-            return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65561, null, funNativeAd2, i)) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    return "";
+                }
+                Object g = g(funNativeAd2);
+                if (g instanceof KsNativeAd) {
+                    return ((KsNativeAd) g).getAdDescription();
+                }
+            } else {
+                Object e = e(funNativeAd2);
+                if (e instanceof NativeUnifiedADData) {
+                    return ((NativeUnifiedADData) e).getDesc();
+                }
+            }
+            return "";
         }
-        String str = hotThread.hot_title;
-        if (hotThread.thread_list != null) {
-            this.a = new ArrayList();
-            for (ThreadInfo threadInfo : hotThread.thread_list) {
-                if (threadInfo != null) {
-                    ThreadData threadData = new ThreadData();
-                    threadData.parserProtobuf(threadInfo);
-                    threadData.setResource(5);
-                    jk6 jk6Var = null;
-                    if (threadData.isShareThread) {
-                        jk6Var = new rk6();
-                        jk6Var.a = threadData;
-                    } else if (sk6.L(threadData)) {
-                        jk6Var = new sk6(threadData);
-                    } else if (rk6.R(threadData)) {
-                        jk6Var = new rk6();
-                        jk6Var.a = threadData;
+        return (String) invokeLI.objValue;
+    }
+
+    public static void K(int i, String str, String str2, sra sraVar) {
+        List<String> list;
+        String str3;
+        String str4;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{Integer.valueOf(i), str, str2, sraVar}) == null) && sraVar != null && sraVar.e() != null) {
+            FunNativeAd2 funNativeAd2 = (FunNativeAd2) sraVar.e();
+            String str5 = null;
+            if (funNativeAd2 != null && funNativeAd2.getNativeInfo() != null) {
+                String title = funNativeAd2.getNativeInfo().getTitle();
+                String description = funNativeAd2.getNativeInfo().getDescription();
+                list = funNativeAd2.getNativeInfo().getImageUrls();
+                str3 = title;
+                str4 = description;
+            } else {
+                list = null;
+                str3 = null;
+                str4 = null;
+            }
+            String valueOf = String.valueOf(i);
+            String g = sraVar.g();
+            String d = sraVar.d();
+            if (list != null) {
+                str5 = list.toString();
+            }
+            FunAdRecordHttpMessage.uploadShowOrClickRecord(str, str2, valueOf, g, d, str3, str4, str5, r(funNativeAd2), String.valueOf(v(funNativeAd2)));
+        }
+    }
+
+    public static void a(StatisticItem statisticItem, sra sraVar) {
+        List<String> list;
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65547, null, statisticItem, sraVar) == null) && statisticItem != null && sraVar != null && sraVar.e() != null) {
+            FunNativeAd2 funNativeAd2 = (FunNativeAd2) sraVar.e();
+            statisticItem.param("tid", sraVar.g());
+            statisticItem.param("fid", sraVar.d());
+            statisticItem.param(TiebaStatic.Params.AD_TYPE, v(funNativeAd2));
+            statisticItem.param(TiebaStatic.Params.AD_SOURCE, r(funNativeAd2));
+            String str2 = null;
+            if (funNativeAd2 != null && funNativeAd2.getNativeInfo() != null) {
+                str2 = funNativeAd2.getNativeInfo().getTitle();
+                str = funNativeAd2.getNativeInfo().getDescription();
+                list = funNativeAd2.getNativeInfo().getImageUrls();
+            } else {
+                list = null;
+                str = null;
+            }
+            statisticItem.param(TiebaStatic.Params.AD_TITLE, str2);
+            statisticItem.param(TiebaStatic.Params.AD_DESC, str);
+            if (list != null) {
+                statisticItem.param("ad_pic", list.toString());
+            }
+        }
+    }
+
+    public static String n(@NonNull FunNativeAd2 funNativeAd2, @NonNull Context context) {
+        InterceptResult invokeLL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65560, null, funNativeAd2, context)) == null) {
+            ChannelNativeAds d = d(funNativeAd2);
+            int i2 = R.string.obfuscated_res_0x7f0f00d7;
+            if (d == null) {
+                return context.getString(R.string.obfuscated_res_0x7f0f00d7);
+            }
+            Object obj = d.ksNative;
+            if (obj instanceof KsNativeAd) {
+                return ((KsNativeAd) obj).getActionDescription();
+            }
+            int i3 = a.a[f(funNativeAd2).ordinal()];
+            int i4 = R.string.obfuscated_res_0x7f0f00da;
+            if (i3 != 1) {
+                if (i3 != 2) {
+                    i = R.string.obfuscated_res_0x7f0f00d7;
+                } else {
+                    i = R.string.obfuscated_res_0x7f0f00d9;
+                }
+            } else {
+                i = R.string.obfuscated_res_0x7f0f00da;
+            }
+            Object obj2 = d.gdtNative;
+            if (!(obj2 instanceof NativeUnifiedADData) || !((NativeUnifiedADData) obj2).isAppAd()) {
+                i4 = i;
+            }
+            if (i4 != 0) {
+                i2 = i4;
+            }
+            return context.getString(i2);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String m(FunNativeAd2 funNativeAd2) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, funNativeAd2)) == null) {
+            ChannelNativeAds d = d(funNativeAd2);
+            if (d == null) {
+                return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f00d7);
+            }
+            Object obj = d.ksNative;
+            if (obj instanceof KsNativeAd) {
+                return ((KsNativeAd) obj).getActionDescription();
+            }
+            int i2 = a.a[f(funNativeAd2).ordinal()];
+            int i3 = R.string.obfuscated_res_0x7f0f00d8;
+            int i4 = R.string.obfuscated_res_0x7f0f00da;
+            if (i2 != 1) {
+                if (i2 != 2) {
+                    i = R.string.obfuscated_res_0x7f0f00d8;
+                } else {
+                    i = R.string.obfuscated_res_0x7f0f00d9;
+                }
+            } else {
+                i = R.string.obfuscated_res_0x7f0f00da;
+            }
+            Object obj2 = d.gdtNative;
+            if (!(obj2 instanceof NativeUnifiedADData) || !((NativeUnifiedADData) obj2).isAppAd()) {
+                i4 = i;
+            }
+            if (i4 != 0) {
+                i3 = i4;
+            }
+            return TbadkCoreApplication.getInst().getContext().getString(i3);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static int s(FunNativeAd2 funNativeAd2) {
+        InterceptResult invokeL;
+        KsNativeAd ksNativeAd;
+        KsImage ksImage;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, funNativeAd2)) == null) {
+            if (funNativeAd2 != null && d(funNativeAd2) != null) {
+                int q = q(funNativeAd2);
+                if (q != 1) {
+                    if (q != 2 || (ksNativeAd = (KsNativeAd) g(funNativeAd2)) == null) {
+                        return -1;
                     }
-                    if (jk6Var != null && jk6Var.isValid()) {
-                        jk6Var.E("c10816");
-                        this.a.add(jk6Var);
+                    if (l(funNativeAd2) != null) {
+                        if (ksNativeAd.getVideoWidth() > ksNativeAd.getVideoHeight()) {
+                            return 5;
+                        }
+                        return 6;
+                    }
+                    List<KsImage> imageList = ksNativeAd.getImageList();
+                    if (!ListUtils.isEmpty(imageList) && (ksImage = (KsImage) ListUtils.getItem(imageList, 0)) != null) {
+                        if (ksImage.getWidth() <= ksImage.getHeight()) {
+                            return 4;
+                        }
+                        return 0;
+                    }
+                } else {
+                    NativeUnifiedADData nativeUnifiedADData = (NativeUnifiedADData) e(funNativeAd2);
+                    if (nativeUnifiedADData != null) {
+                        if (l(funNativeAd2) != null) {
+                            if (nativeUnifiedADData.getPictureWidth() > nativeUnifiedADData.getPictureHeight()) {
+                                return 5;
+                            }
+                            return 6;
+                        } else if (nativeUnifiedADData.getPictureWidth() <= nativeUnifiedADData.getPictureHeight()) {
+                            return 4;
+                        } else {
+                            return 0;
+                        }
                     }
                 }
             }
-            f(this.a);
-            c(hotThread.thread_list);
+            return -1;
         }
-        if (hotThread.page != null) {
-            mx4 mx4Var = new mx4();
-            this.b = mx4Var;
-            mx4Var.j(hotThread.page);
+        return invokeL.intValue;
+    }
+
+    public static int v(FunNativeAd2 funNativeAd2) {
+        InterceptResult invokeL;
+        ChannelNativeAds d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, funNativeAd2)) == null) {
+            if (funNativeAd2 == null || d(funNativeAd2) == null || (d = d(funNativeAd2)) == null) {
+                return 0;
+            }
+            if (d.gdtNative != null) {
+                return u(funNativeAd2);
+            }
+            if (d.ksNative != null) {
+                return u(funNativeAd2);
+            }
+            return 0;
         }
+        return invokeL.intValue;
+    }
+
+    public static boolean w(FunNativeAd2 funNativeAd2) {
+        InterceptResult invokeL;
+        ChannelNativeAds d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, funNativeAd2)) == null) {
+            if (funNativeAd2 == null || (d = d(funNativeAd2)) == null || d.gdtNative != null) {
+                return false;
+            }
+            Object obj = d.ksNative;
+            if (!(obj instanceof KsNativeAd)) {
+                return false;
+            }
+            return !TextUtils.isEmpty(((KsNativeAd) obj).getAppIconUrl());
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean x(FunNativeAd2 funNativeAd2, List<String> list) {
+        InterceptResult invokeLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65570, null, funNativeAd2, list)) == null) {
+            if (ListUtils.getCount(list) == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            int s = s(funNativeAd2);
+            if (!z || s != 2) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean y(FunNativeAd2 funNativeAd2, List<String> list) {
+        InterceptResult invokeLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65571, null, funNativeAd2, list)) == null) {
+            if (ListUtils.getCount(list) == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            int s = s(funNativeAd2);
+            if (!z || s != 4) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
     }
 }

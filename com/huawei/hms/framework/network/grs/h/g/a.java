@@ -2,9 +2,9 @@ package com.huawei.hms.framework.network.grs.h.g;
 
 import android.content.Context;
 import android.content.res.AssetManager;
-import com.baidu.tieba.hvb;
-import com.baidu.tieba.jvb;
-import com.baidu.tieba.kvb;
+import com.baidu.tieba.i8c;
+import com.baidu.tieba.k8c;
+import com.baidu.tieba.l8c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,7 +35,7 @@ public class a {
                 return;
             }
         }
-        a = new kvb();
+        a = new l8c();
     }
 
     public static HostnameVerifier a() {
@@ -50,7 +50,7 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             try {
                 AssetManager assets = context.getAssets();
-                return new hvb(new jvb(assets.open(GrsApp.getInstance().getBrand("/") + "grs_sp.bks"), ""));
+                return new i8c(new k8c(assets.open(GrsApp.getInstance().getBrand("/") + "grs_sp.bks"), ""));
             } catch (IOException | KeyManagementException | NoSuchAlgorithmException e) {
                 throw new AssertionError(e);
             }

@@ -107,7 +107,7 @@ public class MapSurfaceView extends aj implements View.OnKeyListener, MapRenderM
     }
 
     /* loaded from: classes3.dex */
-    public class a implements f.InterfaceC0126f {
+    public class a implements f.InterfaceC0127f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MapSurfaceView a;
@@ -203,7 +203,7 @@ public class MapSurfaceView extends aj implements View.OnKeyListener, MapRenderM
             return (String) invokeI.objValue;
         }
 
-        @Override // com.baidu.platform.comapi.map.f.InterfaceC0126f
+        @Override // com.baidu.platform.comapi.map.f.InterfaceC0127f
         public EGLContext a(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
@@ -213,7 +213,7 @@ public class MapSurfaceView extends aj implements View.OnKeyListener, MapRenderM
             return (EGLContext) invokeLLL.objValue;
         }
 
-        @Override // com.baidu.platform.comapi.map.f.InterfaceC0126f
+        @Override // com.baidu.platform.comapi.map.f.InterfaceC0127f
         public void a(EGL10 egl10, EGLDisplay eGLDisplay, EGLContext eGLContext) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, egl10, eGLDisplay, eGLContext) == null) {

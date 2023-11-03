@@ -1,236 +1,117 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.base.BdPageContextSupport;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.NetWorkErr;
-import com.baidu.tbadk.coreExtra.data.AuthTokenData;
-import com.baidu.tieba.e75;
-import com.baidu.tieba.hz4;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.GlobalBuildConfig;
+import com.baidu.tieba.hb7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class wfa {
+public final class wfa implements hb7 {
     public static /* synthetic */ Interceptable $ic;
-    public static AtomicBoolean a;
-    public static List<Integer> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public class a implements hz4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hz4 a;
-        public final /* synthetic */ e75 b;
-
-        public a(hz4 hz4Var, e75 e75Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hz4Var, e75Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hz4Var;
-            this.b = e75Var;
-        }
-
-        @Override // com.baidu.tieba.hz4.e
-        public void onClick(hz4 hz4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, hz4Var) == null) {
-                this.a.dismiss();
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, this.b));
+    public wfa() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class b implements hz4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hz4 a;
-
-        public b(hz4 hz4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hz4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hz4Var;
+    @Override // com.baidu.tieba.gb7
+    public String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return hb7.a.b(this);
         }
-
-        @Override // com.baidu.tieba.hz4.e
-        public void onClick(hz4 hz4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, hz4Var) == null) {
-                this.a.dismiss();
-            }
-        }
+        return (String) invokeV.objValue;
     }
 
-    /* loaded from: classes8.dex */
-    public static abstract class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public abstract void a(String str);
-
-        public abstract void c(String str);
-
-        public abstract void d();
-
-        public abstract void e();
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    @Override // com.baidu.tieba.gb7
+    public Map<String, String> a(d57 d57Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, d57Var)) == null) {
+            return hb7.a.a(this, d57Var);
         }
+        return (Map) invokeL.objValue;
+    }
 
-        public void b(e75.c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-                if (cVar != null && cVar.a) {
-                    if (cVar instanceof e75.a) {
-                        a(((e75.a) cVar).b);
-                        return;
-                    } else if (cVar instanceof e75.b) {
-                        c(((e75.b) cVar).b);
-                        return;
-                    } else {
-                        e();
-                        return;
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x002a, code lost:
+        if (r5.equals("video_forum") == false) goto L25;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x0033, code lost:
+        if (r5.equals("live_forum") == false) goto L25;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x0048, code lost:
+        if (r5.equals("common_forum") == false) goto L25;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x004b, code lost:
+        return "forum_head_click";
+     */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x0067  */
+    /* JADX WARN: Removed duplicated region for block: B:42:? A[RETURN, SYNTHETIC] */
+    @Override // com.baidu.tieba.hb7
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public String c(d57 businessInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            String str = businessInfo.a().get("card_head_type");
+            if (str == null) {
+                str = "common_user";
+            }
+            switch (str.hashCode()) {
+                case -1924729441:
+                    if (str.equals("common_user")) {
+                        return "";
                     }
-                }
-                d();
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948270039, "Lcom/baidu/tieba/wfa;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948270039, "Lcom/baidu/tieba/wfa;");
-                return;
-            }
-        }
-        a = new AtomicBoolean(false);
-        b = Arrays.asList(Integer.valueOf((int) NetWorkErr.ERROR_UEG_IDENTITY_VERIFY), Integer.valueOf((int) NetWorkErr.ERROR_UEG_PHONE_VERIFY), Integer.valueOf((int) NetWorkErr.ERROR_UEG_MODIFY_PWD), Integer.valueOf((int) NetWorkErr.ERROR_UEG_FACE_VERIFY), Integer.valueOf((int) NetWorkErr.ERROR_UEG_DOUBLE_CHECK), Integer.valueOf((int) NetWorkErr.ERROR_UEG_BIND_MOBILE));
-    }
-
-    public static boolean a(int i, AuthTokenData authTokenData, c cVar) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65537, null, i, authTokenData, cVar)) == null) {
-            if (b.contains(Integer.valueOf(i))) {
-                if ((i != 3250020 && i != 3250021) || (authTokenData != null && !TextUtils.isEmpty(authTokenData.getAuthToken()))) {
-                    return c(i, authTokenData.getAuthToken(), cVar);
-                }
-                return false;
-            }
-            return false;
-        }
-        return invokeILL.booleanValue;
-    }
-
-    public static boolean b(int i, String str, c cVar) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65538, null, i, str, cVar)) == null) {
-            if (b.contains(Integer.valueOf(i))) {
-                if ((i != 3250020 && i != 3250021) || !TextUtils.isEmpty(str)) {
-                    return c(i, str, cVar);
-                }
-                return false;
-            }
-            return false;
-        }
-        return invokeILL.booleanValue;
-    }
-
-    public static boolean c(int i, String str, c cVar) {
-        InterceptResult invokeILL;
-        e75 a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65539, null, i, str, cVar)) == null) {
-            if (!a.compareAndSet(false, true)) {
-                return false;
-            }
-            String.valueOf(System.currentTimeMillis());
-            if (i == 3250022) {
-                e75 d = e75.d();
-                d.h(cVar);
-                if (cVar != null) {
-                    cVar.d();
-                }
-                if (TbadkCoreApplication.getInst().getCurrentActivity() != null) {
-                    hz4 hz4Var = new hz4(TbadkCoreApplication.getInst().getCurrentActivity());
-                    hz4Var.setMessageId(R.string.anti_account_modifypwd_tip);
-                    hz4Var.setPositiveButton(R.string.modify_pwd, new a(hz4Var, d));
-                    hz4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03d2, new b(hz4Var));
-                    if (TbadkCoreApplication.getInst().getCurrentActivity() instanceof BdPageContextSupport) {
-                        hz4Var.create(((BdPageContextSupport) TbadkCoreApplication.getInst().getCurrentActivity()).getPageContext());
-                        hz4Var.show();
+                    if (GlobalBuildConfig.isDebug()) {
+                        return "";
                     }
-                }
-            } else {
-                if (i == 3250017) {
-                    a2 = e75.b();
-                } else if (i == 3250023) {
-                    a2 = e75.c();
-                } else if (i == 3250024) {
-                    a2 = new e75(4, null);
-                } else {
-                    a2 = e75.a(str);
-                }
-                a2.h(cVar);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, a2));
+                    throw new IllegalStateException("unknown card_head_type :" + str);
+                case -1617812209:
+                    if (str.equals("video_user")) {
+                        return "video_user_head_click";
+                    }
+                    if (GlobalBuildConfig.isDebug()) {
+                    }
+                    break;
+                case 448970189:
+                    break;
+                case 1009035070:
+                    if (str.equals("live_user")) {
+                        return "live_user_head_click";
+                    }
+                    if (GlobalBuildConfig.isDebug()) {
+                    }
+                    break;
+                case 1201356814:
+                    break;
+                case 1373469789:
+                    break;
+                default:
+                    if (GlobalBuildConfig.isDebug()) {
+                    }
+                    break;
             }
-            a.set(false);
-            return true;
+        } else {
+            return (String) invokeL.objValue;
         }
-        return invokeILL.booleanValue;
     }
 }

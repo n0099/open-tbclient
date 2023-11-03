@@ -1,78 +1,76 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.ba4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ca4 extends ba4<bs2> {
+public class ca4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947668019, "Lcom/baidu/tieba/ca4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public static class a implements ba4.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947668019, "Lcom/baidu/tieba/ca4;");
+        }
+
+        @Override // com.baidu.tieba.ba4.a
+        public void a(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || view2 == null) {
                 return;
             }
+            view2.setAlpha(1.0f);
         }
-        boolean z = am1.a;
-    }
 
-    public ca4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        @Override // com.baidu.tieba.ba4.a
+        public void b(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) != null) || view2 == null) {
+                return;
             }
+            view2.setAlpha(0.2f);
         }
     }
 
-    public static ca4 e() {
-        InterceptResult invokeV;
+    public static void a(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new ca4();
+        if (interceptable == null || interceptable.invokeL(65536, null, view2) == null) {
+            b(view2, null);
         }
-        return (ca4) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ba4
-    public boolean b(Context context, bs2 bs2Var, yr2 yr2Var, p53 p53Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
+    public static void b(View view2, Drawable drawable) {
+        ba4 ba4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, bs2Var, yr2Var, p53Var, jSONObject)) == null) {
-            return d(context, bs2Var, yr2Var, p53Var);
+        if ((interceptable != null && interceptable.invokeLL(65537, null, view2, drawable) != null) || view2 == null) {
+            return;
         }
-        return invokeLLLLL.booleanValue;
-    }
-
-    public final boolean d(Context context, bs2 bs2Var, yr2 yr2Var, p53 p53Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, bs2Var, yr2Var, p53Var)) == null) {
-            p22.i("map", "MapCreateAction start");
-            boolean a = y94.b().a(context, bs2Var);
-            p22.i("map", "MapCreateAction end");
-            return a;
+        if (drawable == null) {
+            ba4Var = new ba4();
+        } else {
+            ba4Var = new ba4(drawable);
         }
-        return invokeLLLL.booleanValue;
+        ba4Var.b(view2);
+        ba4Var.a(new a());
+        view2.setBackground(ba4Var);
     }
 }

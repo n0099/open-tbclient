@@ -404,7 +404,7 @@ public class CyberPlayerCoreInvoker {
         try {
             if (!RemotePlayerFactory.getInstance().prefetch(str, str2, str3, i, i2, i3, str4, i4, i5, i6, i7, prefetchOptions, sPrefetchListener) && isLoaded(1)) {
                 if (TextUtils.isEmpty(str2)) {
-                    str6 = "dumedia/7.41.94.23";
+                    str6 = "dumedia/7.41.99.35";
                 } else if (str2.indexOf(YalogWrap.YALOG_SPACE) == -1) {
                     str6 = str2 + " dumedia/" + SDKVersion.VERSION;
                 } else {

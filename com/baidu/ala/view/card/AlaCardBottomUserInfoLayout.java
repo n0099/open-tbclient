@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ns5;
+import com.baidu.tieba.hu5;
 import com.baidu.tieba.view.AlaPlayAnimationView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -101,11 +101,11 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
     private void init(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00f1, (ViewGroup) this, true);
-            this.alaCardUserHeadImg = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0901df);
-            this.alaCardUserName = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0901e0);
-            this.alaPlayAnim = (AlaPlayAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f090236);
-            this.alaWatchCount = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090248);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00f3, (ViewGroup) this, true);
+            this.alaCardUserHeadImg = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0901f2);
+            this.alaCardUserName = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0901f3);
+            this.alaPlayAnim = (AlaPlayAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f090249);
+            this.alaWatchCount = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09025b);
             initHeaderImg();
         }
     }
@@ -149,8 +149,8 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
             } else {
                 str = "";
             }
-            if (ns5.e(str) > 10) {
-                str = ns5.m(str, 10) + "...";
+            if (hu5.e(str) > 10) {
+                str = hu5.m(str, 10) + "...";
             }
             if (alaUserInfoData != null) {
                 this.alaCardUserHeadImg.startLoad(alaUserInfoData.portrait, 28, false);

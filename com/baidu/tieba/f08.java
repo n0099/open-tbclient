@@ -1,74 +1,129 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.ThirdStatisticHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.YYLiveUtil;
+import com.baidu.tieba.aiapps.TbAiappsLaunchUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class f08 extends lh<f16, CardViewHolder<b16>> {
+public class f08 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public b16 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f08(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public static void a(StatisticItem statisticItem, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, statisticItem, str) == null) && YYLiveUtil.isYYLiveLink(str)) {
+            YYLiveUtil.addYyExtData(statisticItem, str);
+        }
+    }
+
+    public static void b(Context context, ara araVar) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65537, null, context, araVar) != null) || araVar == null) {
+            return;
+        }
+        TbPageContext<BaseFragmentActivity> tbPageContext = null;
+        if (context instanceof BaseActivity) {
+            tbPageContext = ((BaseActivity) context).getPageContext();
+        } else if (context instanceof BaseFragmentActivity) {
+            tbPageContext = ((BaseFragmentActivity) context).getPageContext();
+        }
+        if (tbPageContext == null) {
+            return;
+        }
+        bra braVar = araVar.f;
+        if (braVar != null) {
+            TbAiappsLaunchUtil.launch(braVar.b, braVar.c, "1191003700000000", braVar.d);
+        } else {
+            if (YYLiveUtil.isYYLiveLink(araVar.d)) {
+                str = araVar.d + "&source=" + YYLiveUtil.SOURCE_FRS_SERVICE_AREA;
+            } else {
+                str = araVar.d;
             }
+            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
         }
-        this.b = null;
-        this.a = tbPageContext;
+        s38.a(tbPageContext, araVar.e);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
-    /* renamed from: s */
-    public CardViewHolder<b16> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public static void c(ara araVar) {
+        int i;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            this.b = new b16(this.a);
-            return new CardViewHolder<>(this.b);
+        if ((interceptable != null && interceptable.invokeL(65538, null, araVar) != null) || araVar == null) {
+            return;
         }
-        return (CardViewHolder) invokeL.objValue;
+        StatisticItem statisticItem = new StatisticItem("c13626");
+        statisticItem.param("fid", araVar.g);
+        if (araVar.f == null) {
+            i = 1;
+        } else {
+            i = 2;
+        }
+        statisticItem.param("obj_type", i);
+        statisticItem.param("obj_locate", araVar.h);
+        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+        bra braVar = araVar.f;
+        if (braVar != null) {
+            str = braVar.c;
+        } else {
+            str = araVar.d;
+        }
+        bra braVar2 = araVar.f;
+        if (braVar2 != null) {
+            String str2 = braVar2.a;
+        } else {
+            String str3 = araVar.c;
+        }
+        statisticItem.param("obj_name", araVar.c);
+        statisticItem.param("obj_param1", araVar.d);
+        a(statisticItem, str);
+        TiebaStatic.log(statisticItem);
+        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(araVar.i, 1));
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.lh
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, f16 f16Var, CardViewHolder<b16> cardViewHolder) {
-        t(i, view2, viewGroup, f16Var, cardViewHolder);
-        return view2;
-    }
-
-    public View t(int i, View view2, ViewGroup viewGroup, f16 f16Var, CardViewHolder<b16> cardViewHolder) {
-        InterceptResult invokeCommon;
+    public static void d(ara araVar) {
+        int i;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, f16Var, cardViewHolder})) == null) {
-            cardViewHolder.a().j(f16Var);
-            return view2;
+        if ((interceptable != null && interceptable.invokeL(65539, null, araVar) != null) || araVar == null) {
+            return;
         }
-        return (View) invokeCommon.objValue;
+        StatisticItem statisticItem = new StatisticItem("c13627");
+        statisticItem.param("fid", araVar.g);
+        if (araVar.f == null) {
+            i = 1;
+        } else {
+            i = 2;
+        }
+        statisticItem.param("obj_type", i);
+        statisticItem.param("obj_locate", araVar.h);
+        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+        bra braVar = araVar.f;
+        if (braVar != null) {
+            str = braVar.c;
+        } else {
+            str = araVar.d;
+        }
+        bra braVar2 = araVar.f;
+        if (braVar2 != null) {
+            String str2 = braVar2.a;
+        } else {
+            String str3 = araVar.c;
+        }
+        statisticItem.param("obj_name", araVar.c);
+        statisticItem.param("obj_param1", araVar.d);
+        a(statisticItem, str);
+        TiebaStatic.log(statisticItem);
+        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(araVar.i, 0));
     }
 }

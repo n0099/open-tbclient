@@ -1,85 +1,51 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Build;
-import android.webkit.CookieSyncManager;
-import android.webkit.WebView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.webview.NadNativeBrowserView;
-import com.baidu.nadcore.webview.view.AbsNadBrowserView;
-import com.baidu.tieba.i41;
-import com.baidu.tieba.q51;
+import com.baidu.nadcore.webpanel.model.AdData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import kotlin.jvm.internal.Intrinsics;
+import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
-public final class j41 implements i41.a {
+public class j41 extends ti0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    @Override // com.baidu.tieba.i41.a
-    public void a(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, context, i) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-        }
-    }
-
-    @Override // com.baidu.tieba.i41.a
-    public boolean b(HashMap<String, String> hashMap, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap, i)) == null) {
-            return true;
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public j41() {
+    public j41(int i, AdData adData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), adData};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = i;
     }
 
-    @Override // com.baidu.tieba.i41.a
-    public AbsNadBrowserView c(Context context, s51 s51Var, int i) {
-        InterceptResult invokeLLI;
+    public j41(int i, ce0 ce0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, context, s51Var, i)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            v51.c(context, "创建native内核browserView");
-            return new NadNativeBrowserView(context);
-        }
-        return (AbsNadBrowserView) invokeLLI.objValue;
-    }
-
-    @Override // com.baidu.tieba.i41.a
-    public void d(Context context, boolean z, int i, q51.b listener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, Boolean.valueOf(z), Integer.valueOf(i), listener}) == null) {
-            Intrinsics.checkNotNullParameter(listener, "listener");
-            try {
-                if (Build.VERSION.SDK_INT >= 28) {
-                    WebView.setDataDirectorySuffix(v01.a());
-                }
-                CookieSyncManager.createInstance(context);
-                listener.a();
-            } catch (Exception e) {
-                listener.b();
-                v51.d(e);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), ce0Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = i;
+        new WeakReference(ce0Var);
     }
 }

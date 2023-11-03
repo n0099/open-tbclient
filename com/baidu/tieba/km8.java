@@ -1,85 +1,86 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import android.content.Intent;
+import android.content.res.Configuration;
+import android.os.Bundle;
+import android.view.KeyEvent;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleRegistry;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tieba.im.lib.socket.msg.data.Reaction;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.adapter.ResponsePanelEmojiAdapter;
+import com.baidu.tieba.im.base.core.slice.Slice;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-/* loaded from: classes6.dex */
-public class km8 implements mu6 {
+import java.util.LinkedHashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes7.dex */
+public final class km8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public LinearLayout a;
-    @NonNull
-    public final hm8 b;
-    public ImageView c;
-    @Nullable
-    public ResponsePanelEmojiAdapter d;
+    public final Slice a;
+    public final LifecycleRegistry b;
+    public final Map<Slice, a> c;
 
-    /* loaded from: classes6.dex */
-    public class a extends LinearLayoutManager {
+    /* loaded from: classes7.dex */
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final Slice a;
+        public boolean b;
 
-        @Override // androidx.recyclerview.widget.LinearLayoutManager, androidx.recyclerview.widget.RecyclerView.LayoutManager
-        public boolean canScrollHorizontally() {
-            InterceptResult invokeV;
+        public boolean equals(Object obj) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                if (this == obj) {
+                    return true;
+                }
+                if (obj instanceof a) {
+                    a aVar = (a) obj;
+                    return Intrinsics.areEqual(this.a, aVar.a) && this.b == aVar.b;
+                }
                 return false;
             }
-            return invokeV.booleanValue;
+            return invokeL.booleanValue;
         }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(km8 km8Var, Context context, int i, boolean z) {
-            super(context, i, z);
+        /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: boolean */
+        /* JADX WARN: Multi-variable type inference failed */
+        public int hashCode() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {km8Var, context, Integer.valueOf(i), Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Context) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Boolean) objArr2[2]).booleanValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                int hashCode = this.a.hashCode() * 31;
+                boolean z = this.b;
+                int i = z;
+                if (z != 0) {
+                    i = 1;
                 }
+                return hashCode + i;
             }
+            return invokeV.intValue;
         }
-    }
 
-    /* loaded from: classes6.dex */
-    public class b implements un8 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ km8 a;
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return "SliceRecord(slice=" + this.a + ", isShowing=" + this.b + ')';
+            }
+            return (String) invokeV.objValue;
+        }
 
-        public b(km8 km8Var) {
+        public a(Slice slice, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {km8Var};
+                Object[] objArr = {slice, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -89,25 +90,18 @@ public class km8 implements mu6 {
                     return;
                 }
             }
-            this.a = km8Var;
-        }
-
-        @Override // com.baidu.tieba.un8
-        public void a(@NonNull Reaction reaction) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, reaction) == null) {
-                this.a.b.H(reaction);
-                this.a.b.z();
-            }
+            Intrinsics.checkNotNullParameter(slice, "slice");
+            this.a = slice;
+            this.b = z;
         }
     }
 
-    public km8(@NonNull hm8 hm8Var) {
+    public km8(Slice owner) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {hm8Var};
+            Object[] objArr = {owner};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -117,65 +111,141 @@ public class km8 implements mu6 {
                 return;
             }
         }
-        this.b = hm8Var;
+        Intrinsics.checkNotNullParameter(owner, "owner");
+        this.a = owner;
+        this.b = new LifecycleRegistry(owner);
+        this.c = new LinkedHashMap();
     }
 
-    public void c(@NonNull List<Reaction> list) {
-        ResponsePanelEmojiAdapter responsePanelEmojiAdapter;
+    public final void g(Configuration newConfig) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && (responsePanelEmojiAdapter = this.d) != null) {
-            responsePanelEmojiAdapter.o(list);
+        if (interceptable == null || interceptable.invokeL(1048582, this, newConfig) == null) {
+            Intrinsics.checkNotNullParameter(newConfig, "newConfig");
+            for (Map.Entry<Slice, a> entry : this.c.entrySet()) {
+                entry.getKey().T(newConfig);
+            }
         }
     }
 
-    public void d(boolean z) {
-        LinearLayout linearLayout;
-        int i;
+    public final void l(Bundle outState) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) != null) || (linearLayout = this.a) == null) {
-            return;
-        }
-        if (z) {
-            i = 0;
-        } else {
-            i = 8;
-        }
-        linearLayout.setVisibility(i);
-    }
-
-    @Override // com.baidu.tieba.mu6
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            WebPManager.setPureDrawable(this.c, R.drawable.obfuscated_res_0x7f0800e3, R.color.CAM_X0108, null);
+        if (interceptable == null || interceptable.invokeL(1048587, this, outState) == null) {
+            Intrinsics.checkNotNullParameter(outState, "outState");
+            for (Map.Entry<Slice, a> entry : this.c.entrySet()) {
+                entry.getKey().Y(outState);
+            }
         }
     }
 
-    public void b(@NonNull View view2) {
+    public void a(ViewGroup container, Slice child) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090ea7);
-            this.a = linearLayout;
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) linearLayout.getLayoutParams();
-            int i = yi8.a;
-            layoutParams.leftMargin = i;
-            layoutParams.rightMargin = i;
-            this.a.setLayoutParams(layoutParams);
-            RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091e74);
-            this.d = new ResponsePanelEmojiAdapter(this.b.getPageContext().getOrignalPage().getPageContext());
-            a aVar = new a(this, this.b.getPageContext().getPageActivity(), 0, false);
-            this.d.p(new b(this));
-            recyclerView.setLayoutManager(aVar);
-            recyclerView.setAdapter(this.d);
-            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0917b2);
-            this.c = imageView;
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) imageView.getLayoutParams();
-            int i2 = yi8.b;
-            layoutParams2.leftMargin = i2;
-            layoutParams2.rightMargin = i2;
-            this.c.setLayoutParams(layoutParams2);
-            this.c.setOnClickListener(this.b);
-            onChangeSkinType(TbadkApplication.getInst().getSkinType());
+        if (interceptable == null || interceptable.invokeLL(1048576, this, container, child) == null) {
+            Intrinsics.checkNotNullParameter(container, "container");
+            Intrinsics.checkNotNullParameter(child, "child");
+            om8.a.a();
+            this.b.addObserver(child);
+            this.c.put(child, new a(child, true));
+        }
+    }
+
+    public final LifecycleRegistry b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (LifecycleRegistry) invokeV.objValue;
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            for (Map.Entry<Slice, a> entry : this.c.entrySet()) {
+                entry.getKey().Q();
+            }
+        }
+    }
+
+    public final void c(Lifecycle.Event event) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, event) == null) {
+            Intrinsics.checkNotNullParameter(event, "event");
+            this.b.handleLifecycleEvent(event);
+        }
+    }
+
+    public final void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            for (Map.Entry<Slice, a> entry : this.c.entrySet()) {
+                entry.getKey().S(z);
+            }
+        }
+    }
+
+    public final void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            for (Map.Entry<Slice, a> entry : this.c.entrySet()) {
+                entry.getKey().onChangeSkinType(i);
+            }
+        }
+    }
+
+    public final void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            for (Map.Entry<Slice, a> entry : this.c.entrySet()) {
+                entry.getKey().W(z);
+            }
+        }
+    }
+
+    public final void m(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            for (Map.Entry<Slice, a> entry : this.c.entrySet()) {
+                entry.getKey().Z(z);
+            }
+        }
+    }
+
+    public final void d(int i, int i2, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, intent) == null) {
+            for (Map.Entry<Slice, a> entry : this.c.entrySet()) {
+                entry.getKey().R(i, i2, intent);
+            }
+        }
+    }
+
+    public final boolean i(int i, KeyEvent event) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, event)) == null) {
+            Intrinsics.checkNotNullParameter(event, "event");
+            Map<Slice, a> map = this.c;
+            if (map.isEmpty()) {
+                return false;
+            }
+            for (Map.Entry<Slice, a> entry : map.entrySet()) {
+                if (entry.getKey().onKeyDown(i, event)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeIL.booleanValue;
+    }
+
+    public final void k(int i, String[] permissions, int[] grantResults) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048586, this, i, permissions, grantResults) == null) {
+            Intrinsics.checkNotNullParameter(permissions, "permissions");
+            Intrinsics.checkNotNullParameter(grantResults, "grantResults");
+            for (Map.Entry<Slice, a> entry : this.c.entrySet()) {
+                entry.getKey().X(i, permissions, grantResults);
+            }
         }
     }
 }

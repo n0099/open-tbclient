@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.AlaInfoData;
-import com.baidu.tbadk.core.data.UserData;
+import com.baidu.ala.data.SdkLiveInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -11,8 +10,7 @@ import org.json.JSONObject;
 public class e86 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public UserData a;
-    public AlaInfoData b;
+    public SdkLiveInfoData a;
 
     public e86() {
         Interceptable interceptable = $ic;
@@ -24,18 +22,17 @@ public class e86 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new UserData();
-        this.b = new AlaInfoData();
     }
 
-    public void a(JSONObject jSONObject, JSONObject jSONObject2) {
+    public void a(JSONObject jSONObject, String str) {
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, jSONObject2) == null) {
-            this.a.parserJson(jSONObject);
-            this.b.parserJson(jSONObject2);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, str) == null) && jSONObject != null && (optJSONObject = jSONObject.optJSONObject("live_info")) != null) {
+            SdkLiveInfoData sdkLiveInfoData = new SdkLiveInfoData();
+            this.a = sdkLiveInfoData;
+            sdkLiveInfoData.fromJson(optJSONObject, str);
         }
     }
 }

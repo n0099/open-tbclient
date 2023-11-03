@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import androidx.annotation.FloatRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class FadeThroughProvider implements VisibilityAnimatorProvider {
     public static final float PROGRESS_THRESHOLD = 0.35f;
 

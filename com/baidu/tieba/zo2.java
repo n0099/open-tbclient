@@ -1,27 +1,25 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class zo2 {
+public abstract class zo2 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile yo2 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized yo2 a() {
-        InterceptResult invokeV;
-        yo2 yo2Var;
+    public zo2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (zo2.class) {
-                if (a == null) {
-                    a = new yo2();
-                }
-                yo2Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return yo2Var;
         }
-        return (yo2) invokeV.objValue;
     }
 }

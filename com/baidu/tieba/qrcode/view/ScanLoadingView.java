@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ScanLoadingView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -113,12 +113,12 @@ public class ScanLoadingView extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0594, (ViewGroup) this, true);
-            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f091651);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05a9, (ViewGroup) this, true);
+            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f091691);
             this.a = tBLottieAnimationView;
             tBLottieAnimationView.loop(true);
             this.a.setFrame(0);
-            SkinManager.setLottieAnimation(this.a, R.raw.obfuscated_res_0x7f110074);
+            SkinManager.setLottieAnimation(this.a, R.raw.obfuscated_res_0x7f110076);
             SkinManager.setViewTextColor((TextView) findViewById(R.id.loading_text), R.color.CAM_X0108, 1);
             setVisibility(8);
         }

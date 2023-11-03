@@ -18,13 +18,13 @@ import com.baidu.bdtask.component.dialog.TaskDialogViewData;
 import com.baidu.bdtask.ui.utils.d;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bn;
-import com.baidu.tieba.bp;
-import com.baidu.tieba.cp;
-import com.baidu.tieba.hq;
-import com.baidu.tieba.kp;
-import com.baidu.tieba.lp;
-import com.baidu.tieba.yl;
+import com.baidu.tieba.bq;
+import com.baidu.tieba.cq;
+import com.baidu.tieba.pm;
+import com.baidu.tieba.sn;
+import com.baidu.tieba.sp;
+import com.baidu.tieba.tp;
+import com.baidu.tieba.yq;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -66,12 +66,12 @@ public abstract class a extends Activity {
 
     /* renamed from: com.baidu.bdtask.ui.components.dialog.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static final class View$OnClickListenerC0082a implements View.OnClickListener {
+    public static final class View$OnClickListenerC0083a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public View$OnClickListenerC0082a(a aVar) {
+        public View$OnClickListenerC0083a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -91,13 +91,13 @@ public abstract class a extends Activity {
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
-            bp v;
-            cp d;
+            sp v;
+            tp d;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 TaskDialogViewData a = this.a.a();
                 if (a != null && (v = BDPTask.m.v()) != null && (d = v.d()) != null) {
-                    d.b(a.getTaskInfoSingleKey(), yl.c.a());
+                    d.b(a.getTaskInfoSingleKey(), pm.c.a());
                 }
                 this.a.g();
                 this.a.d();
@@ -220,8 +220,8 @@ public abstract class a extends Activity {
     }
 
     public final void b(TextView textView, ImageView imageView, String str, String str2, String str3, Function0<Unit> function0) {
-        bp v;
-        bn h;
+        sp v;
+        sn h;
         Context appContext;
         Resources resources;
         Interceptable interceptable = $ic;
@@ -229,7 +229,7 @@ public abstract class a extends Activity {
             if (!TextUtils.isEmpty(str)) {
                 textView.setVisibility(0);
                 imageView.setVisibility(8);
-                textView.setTextColor(hq.a.a(str2, resources.getColor(R.color.task_sdk_text_color_default)));
+                textView.setTextColor(yq.a.a(str2, resources.getColor(R.color.task_sdk_text_color_default)));
                 textView.setText(str);
                 textView.setOnClickListener(new b(function0));
                 c(str3, textView);
@@ -279,41 +279,41 @@ public abstract class a extends Activity {
 
     public final void g() {
         TaskDialogViewData a;
-        bp v;
-        kp f;
+        sp v;
+        bq f;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (a = a()) != null && (v = BDPTask.m.v()) != null && (f = v.f()) != null) {
-            f.a("y_task_pop", "close_clk", lp.b(lp.a, a.getTaskId(), a.getTaskActId(), null, 4, null));
+            f.a("y_task_pop", "close_clk", cq.b(cq.a, a.getTaskId(), a.getTaskActId(), null, 4, null));
         }
     }
 
     public final void h() {
         TaskDialogViewData a;
-        bp v;
-        kp f;
+        sp v;
+        bq f;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (a = a()) != null && (v = BDPTask.m.v()) != null && (f = v.f()) != null) {
-            f.a("y_task_pop", "icon_clk", lp.b(lp.a, a.getTaskId(), a.getTaskActId(), null, 4, null));
+            f.a("y_task_pop", "icon_clk", cq.b(cq.a, a.getTaskId(), a.getTaskActId(), null, 4, null));
         }
     }
 
     public final void i() {
         TaskDialogViewData a;
-        bp v;
-        kp f;
+        sp v;
+        bq f;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (a = a()) != null && (v = BDPTask.m.v()) != null && (f = v.f()) != null) {
-            f.a("y_task_pop", "cancel_clk", lp.b(lp.a, a.getTaskId(), a.getTaskActId(), null, 4, null));
+            f.a("y_task_pop", "cancel_clk", cq.b(cq.a, a.getTaskId(), a.getTaskActId(), null, 4, null));
         }
     }
 
     public final void k() {
         TaskDialogViewData a;
-        bp v;
-        kp f;
+        sp v;
+        bq f;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (a = a()) != null && (v = BDPTask.m.v()) != null && (f = v.f()) != null) {
-            f.a("y_task_pop", "c_pv", lp.b(lp.a, a.getTaskId(), a.getTaskActId(), null, 4, null));
+            f.a("y_task_pop", "c_pv", cq.b(cq.a, a.getTaskId(), a.getTaskActId(), null, 4, null));
         }
     }
 
@@ -333,7 +333,7 @@ public abstract class a extends Activity {
             if (findViewById2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("closeBtn");
             }
-            findViewById2.setOnClickListener(new View$OnClickListenerC0082a(this));
+            findViewById2.setOnClickListener(new View$OnClickListenerC0083a(this));
             Intent intent = getIntent();
             Intrinsics.checkExpressionValueIsNotNull(intent, "intent");
             Bundle extras = intent.getExtras();

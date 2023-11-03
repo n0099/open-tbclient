@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.lib.util.AndroidUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ws5;
+import com.baidu.tieba.qu5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ public class BottomInputLayout extends LinearLayout {
 
     /* loaded from: classes5.dex */
     public interface a {
-        void e(boolean z);
+        void f(boolean z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -115,7 +115,7 @@ public class BottomInputLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
             if (this.f && (motionEvent.getAction() & 255) == 0) {
-                ws5.c();
+                qu5.c();
             }
             return super.dispatchTouchEvent(motionEvent);
         }
@@ -150,14 +150,14 @@ public class BottomInputLayout extends LinearLayout {
             if (this.b > i2 + this.d + 5 + this.e) {
                 a aVar = this.c;
                 if (aVar != null) {
-                    aVar.e(false);
+                    aVar.f(false);
                     return;
                 }
                 return;
             }
             a aVar2 = this.c;
             if (aVar2 != null) {
-                aVar2.e(true);
+                aVar2.f(true);
             }
         }
     }

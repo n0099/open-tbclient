@@ -1,84 +1,164 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.log.DefaultLog;
+import com.baidu.android.util.io.FileUtils;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tieba.log.TbLog;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
-import java.util.LinkedHashSet;
-import java.util.Set;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
+import java.io.File;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public abstract class vq6<T> extends qq6 {
+public class vq6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<String, String> a;
+    public static boolean b;
+    public static final String c;
+    public static final String d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final boolean b;
-    public final Set<T> c;
-    public boolean d;
 
-    public abstract T c(aq6 aq6Var);
+    /* loaded from: classes8.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vq6(int i, boolean z) {
-        super(i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            vq6.g();
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948249486, "Lcom/baidu/tieba/vq6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948249486, "Lcom/baidu/tieba/vq6;");
                 return;
             }
         }
-        this.b = z;
-        this.c = Collections.synchronizedSet(new LinkedHashSet());
-        this.d = true;
+        a = new HashMap();
+        b = false;
+        c = BdBaseApplication.getInst().getFilesDir().toString() + File.separator + "res_cache" + File.separator + "dynamic_big_res";
+        d = BdBaseApplication.getInst().getFilesDir().toString() + File.separator + "res_cache" + File.separator + "dynamic_big_res.zip";
     }
 
-    public /* synthetic */ vq6(int i, boolean z, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this(i, (i2 & 2) != 0 ? false : z);
-    }
-
-    @Override // com.baidu.tieba.qq6
-    public boolean b(zp6 item, cs6 timer, tp6 config) {
-        InterceptResult invokeLLL;
+    public static void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(timer, "timer");
-            Intrinsics.checkNotNullParameter(config, "config");
-            if (!this.d) {
-                return false;
-            }
-            boolean contains = this.c.contains(c(item.e()));
-            if (this.b) {
-                if (contains) {
-                    return false;
+        if ((interceptable != null && interceptable.invokeV(65542, null) != null) || !FileUtils.exists(d)) {
+            return;
+        }
+        ar6.a(new a(), "ResLoader", 3);
+    }
+
+    public static void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65543, null) == null) && z35.b(d, c)) {
+            FileUtils.deleteFile(d);
+        }
+    }
+
+    public static synchronized Uri b(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            synchronized (vq6.class) {
+                Uri c2 = c(str);
+                if (c2 != null) {
+                    return c2;
                 }
-                return true;
+                return d(str2);
             }
-            return contains;
         }
-        return invokeLLL.booleanValue;
+        return (Uri) invokeLL.objValue;
     }
 
-    public final Set<T> d() {
-        InterceptResult invokeV;
+    public static synchronized Uri c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Set<T> mFilterSet = this.c;
-            Intrinsics.checkNotNullExpressionValue(mFilterSet, "mFilterSet");
-            return mFilterSet;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            synchronized (vq6.class) {
+                f();
+                String str2 = c + File.separator + str;
+                String str3 = c + File.separator + "dynamic_big_res" + File.separator + str;
+                if (FileUtils.exists(str2)) {
+                    return new Uri.Builder().scheme("file").path(str2).build();
+                }
+                if (FileUtils.exists(str3)) {
+                    return new Uri.Builder().scheme("file").path(str3).build();
+                }
+                return null;
+            }
         }
-        return (Set) invokeV.objValue;
+        return (Uri) invokeL.objValue;
+    }
+
+    public static synchronized Uri d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            synchronized (vq6.class) {
+                e();
+                String str2 = a.get(str);
+                if (TextUtils.isEmpty(str2)) {
+                    return null;
+                }
+                return Uri.parse(str2);
+            }
+        }
+        return (Uri) invokeL.objValue;
+    }
+
+    public static void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65541, null) != null) || b) {
+            return;
+        }
+        b = true;
+        try {
+            JSONObject jSONObject = new JSONObject(SharedPrefHelper.getInstance().getString("dynamic_res_url", ""));
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                a.put(next, jSONObject.optString(next));
+            }
+        } catch (Throwable th) {
+            TbLog defaultLog = DefaultLog.getInstance();
+            defaultLog.e("DynamicResLoader", "exception:" + th);
+        }
     }
 }

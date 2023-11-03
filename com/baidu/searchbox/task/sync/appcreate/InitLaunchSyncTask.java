@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.InputMethodManagerLeaksFixer;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.util.ForeBackLifecycleMonitorUtil;
-import com.baidu.tieba.gs5;
-import com.baidu.tieba.ks5;
-import com.baidu.tieba.tu4;
+import com.baidu.tieba.au5;
+import com.baidu.tieba.eu5;
+import com.baidu.tieba.kv4;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class InitLaunchSyncTask extends LaunchTask {
@@ -29,8 +29,8 @@ public class InitLaunchSyncTask extends LaunchTask {
 
     private void cleanDirectoryNewStatIfNeed() {
         if (TbadkCoreApplication.getInst().isMainProcess(true) && TbadkCoreApplication.getInst().getIsFirstUse()) {
-            ks5.b(new gs5<Object>() { // from class: com.baidu.searchbox.task.sync.appcreate.InitLaunchSyncTask.2
-                @Override // com.baidu.tieba.gs5
+            eu5.b(new au5<Object>() { // from class: com.baidu.searchbox.task.sync.appcreate.InitLaunchSyncTask.2
+                @Override // com.baidu.tieba.au5
                 public Object doInBackground() {
                     if ("12.1.0.1".equals(FileHelper.DataDir.getLatestVersion())) {
                         FileHelper.DataDir.cleanDirectory("/newStat");
@@ -71,7 +71,7 @@ public class InitLaunchSyncTask extends LaunchTask {
                 return false;
             }
         });
-        TbadkCoreApplication.getInst().registerActivityLifecycleCallbacks(new tu4());
+        TbadkCoreApplication.getInst().registerActivityLifecycleCallbacks(new kv4());
         InputMethodManagerLeaksFixer.fixFocusedViewLeak(TbadkCoreApplication.getInst());
         cleanDirectoryNewStatIfNeed();
     }

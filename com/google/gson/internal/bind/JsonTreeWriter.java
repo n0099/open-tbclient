@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class JsonTreeWriter extends JsonWriter {
     public String pendingName;
     public JsonElement product;

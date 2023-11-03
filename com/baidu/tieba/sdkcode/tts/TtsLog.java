@@ -2,7 +2,7 @@ package com.baidu.tieba.sdkcode.tts;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.ze;
+import com.baidu.tieba.pf;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -55,7 +55,7 @@ public final class TtsLog {
         if (interceptable == null || interceptable.invokeL(1048576, this, args) == null) {
             Intrinsics.checkNotNullParameter(args, "args");
             try {
-                ze.a.a().i("Tts", DataExt.toJson(args));
+                pf.a.a().i("Tts", DataExt.toJson(args));
             } catch (Exception e) {
                 BdLog.e(e);
             }

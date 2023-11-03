@@ -1,98 +1,212 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.extcore.model.ExtensionCore;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class hd3 extends m73 {
+public class hd3 extends jd3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean x;
+    public static int y;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean v;
+    public JSONObject w;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hd3(m63 m63Var) {
-        super(m63Var, "/swanAPI/file/removeSavedFile");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {m63Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947819826, "Lcom/baidu/tieba/hd3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947819826, "Lcom/baidu/tieba/hd3;");
                 return;
             }
         }
+        x = rm1.a;
+        y = 35;
     }
 
-    @Override // com.baidu.tieba.m73
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, p53 p53Var) {
-        InterceptResult invokeLLLL;
+    public hd3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, p53Var)) == null) {
-            if (context != null && callbackHandler != null && p53Var != null && p53Var.g0() != null) {
-                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-                if (optParamsAsJo == null) {
-                    p22.c("removeSavedFile", "params is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                String M = xc3.M(optParamsAsJo.optString("filePath"), p53.h0());
-                if (m73.b) {
-                    Log.d("SaveFileAction", "——> handle: fileUrl " + optParamsAsJo.optString("filePath"));
-                    Log.d("SaveFileAction", "——> handle: filePath " + M);
-                }
-                if (m73.b) {
-                    Log.d("RemoveSavedFileAction", "——> handle: filePath " + M);
-                }
-                if (TextUtils.isEmpty(M)) {
-                    p22.c("removeSavedFile", "file path is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                int a = p53Var.g0().a(M);
-                if (m73.b) {
-                    Log.d("RemoveSavedFileAction", "——> handle: statusCode " + a);
-                }
-                if (a > 2000) {
-                    p22.c("removeSavedFile", "file path status code : " + a);
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a, j63.a(a)));
-                    return false;
-                } else if (sl4.k(M)) {
-                    p22.i("removeSavedFile", "file delete success");
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    if (m73.b) {
-                        Log.d("RemoveSavedFileAction", "——> handle:  delete OK ");
-                        return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.v = false;
+        this.c = "NA";
+    }
+
+    @Override // com.baidu.tieba.jd3, com.baidu.tieba.id3
+    public JSONObject f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.h == null) {
+                this.h = new JSONObject();
+            }
+            try {
+                if (this.w != null) {
+                    if (this.v) {
+                        String z = ak3.z(y);
+                        if (!TextUtils.isEmpty(z)) {
+                            this.w.put("stacktrace", z);
+                        }
                     }
-                    return true;
-                } else {
-                    p22.c("removeSavedFile", "file delete fail");
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2004, j63.a(2004)));
-                    if (m73.b) {
-                        Log.d("RemoveSavedFileAction", "——> handle:  delete fail ");
+                    if (this.w.length() != 0) {
+                        this.h.put("info", this.w);
                     }
-                    return false;
+                }
+                ExtensionCore U = ad2.V().U();
+                if (U != null) {
+                    this.h.put("extension_ver", U.extensionCoreVersionName);
+                }
+            } catch (JSONException e) {
+                if (x) {
+                    e.printStackTrace();
                 }
             }
-            p22.c("removeSavedFile", "execute fail");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-            return false;
+            return super.f();
         }
-        return invokeLLLL.booleanValue;
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public hd3 l(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            if (str != null && str2 != null) {
+                if (this.w == null) {
+                    this.w = new JSONObject();
+                }
+                try {
+                    this.w.put(str, str2);
+                } catch (JSONException e) {
+                    if (x) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            return this;
+        }
+        return (hd3) invokeLL.objValue;
+    }
+
+    public hd3 m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            this.f = str;
+            return this;
+        }
+        return (hd3) invokeL.objValue;
+    }
+
+    public hd3 n(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            this.v = z;
+            return this;
+        }
+        return (hd3) invokeZ.objValue;
+    }
+
+    public hd3 o(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            this.b = String.valueOf(i);
+            return this;
+        }
+        return (hd3) invokeI.objValue;
+    }
+
+    public hd3 p(@NonNull zh3 zh3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, zh3Var)) == null) {
+            this.b = String.valueOf(zh3Var.a());
+            String sb = zh3Var.g().toString();
+            if (!TextUtils.isEmpty(sb)) {
+                l("detail", sb);
+            }
+            return this;
+        }
+        return (hd3) invokeL.objValue;
+    }
+
+    public hd3 q(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            this.a = str;
+            return this;
+        }
+        return (hd3) invokeL.objValue;
+    }
+
+    public hd3 s(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            this.g = str;
+            return this;
+        }
+        return (hd3) invokeL.objValue;
+    }
+
+    public hd3 t(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            this.c = str;
+            return this;
+        }
+        return (hd3) invokeL.objValue;
+    }
+
+    public hd3 r(gr2 gr2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, gr2Var)) == null) {
+            if (gr2Var == null) {
+                return this;
+            }
+            if (!TextUtils.isEmpty(gr2Var.U())) {
+                this.c = gr2Var.U();
+            }
+            if (!TextUtils.isEmpty(gr2Var.I())) {
+                this.f = gr2Var.I();
+            }
+            if (!TextUtils.isEmpty(gr2Var.X())) {
+                this.p = gr2Var.X();
+            }
+            if (!TextUtils.isEmpty(gr2Var.f0())) {
+                this.s = gr2Var.f0();
+            }
+            return this;
+        }
+        return (hd3) invokeL.objValue;
     }
 }

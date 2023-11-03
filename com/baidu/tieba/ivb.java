@@ -1,85 +1,72 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.os.AsyncTask;
+import android.graphics.Canvas;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.cert.CertificateException;
+import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
 public class ivb {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "SecureX509SingleInstance";
-    public static volatile jvb b;
+    public static /* synthetic */ Interceptable $ic;
+    public static final int a;
+    public static final Method b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947868372, "Lcom/baidu/tieba/ivb;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947868372, "Lcom/baidu/tieba/ivb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947868372, "Lcom/baidu/tieba/ivb;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947868372, "Lcom/baidu/tieba/ivb;");
+        try {
+            a = ((Integer) Canvas.class.getField("MATRIX_SAVE_FLAG").get(null)).intValue();
+            b = Canvas.class.getMethod("save", Integer.TYPE);
+        } catch (Throwable th) {
+            b(th);
+            throw null;
         }
     }
 
-    public ivb() {
+    public static void a(Canvas canvas, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeLI(65537, null, canvas, i) == null) {
+            try {
+                b.invoke(canvas, Integer.valueOf(i));
+            } catch (Throwable th) {
+                b(th);
+                throw null;
             }
         }
     }
 
-    @SuppressLint({"NewApi"})
-    public static jvb a(Context context) throws CertificateException, NoSuchAlgorithmException, KeyStoreException, IOException {
+    public static RuntimeException b(Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (context != null) {
-                pvb.b(context);
-                if (b == null) {
-                    synchronized (ivb.class) {
-                        if (b == null) {
-                            InputStream n = nvb.n(context);
-                            if (n == null) {
-                                svb.e(a, "get assets bks");
-                                n = context.getAssets().open("hmsrootcas.bks");
-                            } else {
-                                svb.e(a, "get files bks");
-                            }
-                            b = new jvb(n, "");
-                            new qvb().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, context);
-                        }
-                    }
-                }
-                String str = a;
-                svb.b(str, "SecureX509TrustManager getInstance: cost : " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
-                return b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, th)) == null) {
+            if (th == null) {
+                throw new NullPointerException("t");
             }
-            throw new NullPointerException("context is null");
+            c(th);
+            throw null;
         }
-        return (jvb) invokeL.objValue;
+        return (RuntimeException) invokeL.objValue;
+    }
+
+    public static <T extends Throwable> T c(Throwable th) throws Throwable {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, th)) == null) {
+            throw th;
+        }
+        return (T) invokeL.objValue;
     }
 }

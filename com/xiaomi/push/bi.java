@@ -83,7 +83,7 @@ public class bi {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static NetworkInfo m289a(Context context) {
+    public static NetworkInfo m293a(Context context) {
         try {
             ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
             if (connectivityManager == null) {
@@ -104,27 +104,27 @@ public class bi {
         try {
             try {
                 try {
-                    HttpURLConnection m291a = m291a(context, m292a(str));
-                    m291a.setConnectTimeout(10000);
-                    m291a.setReadTimeout(15000);
+                    HttpURLConnection m295a = m295a(context, m296a(str));
+                    m295a.setConnectTimeout(10000);
+                    m295a.setReadTimeout(15000);
                     String str4 = str2;
                     if (str2 == 0) {
                         str4 = "GET";
                     }
-                    m291a.setRequestMethod(str4);
+                    m295a.setRequestMethod(str4);
                     int i = 0;
                     if (map != null) {
                         z = "gzip".equalsIgnoreCase(map.get("Content-Encoding"));
                         for (String str5 : map.keySet()) {
-                            m291a.setRequestProperty(str5, map.get(str5));
+                            m295a.setRequestProperty(str5, map.get(str5));
                         }
                     } else {
                         z = false;
                     }
                     if (!TextUtils.isEmpty(str3)) {
-                        m291a.setDoOutput(true);
+                        m295a.setDoOutput(true);
                         byte[] bytes = str3.getBytes();
-                        OutputStream gZIPOutputStream = z ? new GZIPOutputStream(m291a.getOutputStream()) : m291a.getOutputStream();
+                        OutputStream gZIPOutputStream = z ? new GZIPOutputStream(m295a.getOutputStream()) : m295a.getOutputStream();
                         try {
                             gZIPOutputStream.write(bytes, 0, bytes.length);
                             gZIPOutputStream.flush();
@@ -137,23 +137,23 @@ public class bi {
                             throw new IOException(th.getMessage());
                         }
                     }
-                    bgVar.a = m291a.getResponseCode();
-                    com.xiaomi.channel.commonutils.logger.b.m182a("Http POST Response Code: " + bgVar.a);
+                    bgVar.a = m295a.getResponseCode();
+                    com.xiaomi.channel.commonutils.logger.b.m186a("Http POST Response Code: " + bgVar.a);
                     while (true) {
-                        String headerFieldKey = m291a.getHeaderFieldKey(i);
-                        String headerField = m291a.getHeaderField(i);
+                        String headerFieldKey = m295a.getHeaderFieldKey(i);
+                        String headerField = m295a.getHeaderField(i);
                         if (headerFieldKey == null && headerField == null) {
                             try {
                                 break;
                             } catch (IOException unused) {
-                                bufferedReader = new BufferedReader(new InputStreamReader(new a(m291a.getErrorStream())));
+                                bufferedReader = new BufferedReader(new InputStreamReader(new a(m295a.getErrorStream())));
                             }
                         } else {
                             bgVar.f142a.put(headerFieldKey, headerField);
                             i = i + 1 + 1;
                         }
                     }
-                    bufferedReader = new BufferedReader(new InputStreamReader(new a(m291a.getInputStream())));
+                    bufferedReader = new BufferedReader(new InputStreamReader(new a(m295a.getInputStream())));
                 } catch (IOException e2) {
                     e = e2;
                 }
@@ -200,29 +200,29 @@ public class bi {
                 URL url2 = !z ? new URL(a(url.toString())) : url;
                 try {
                     HttpURLConnection.setFollowRedirects(true);
-                    HttpURLConnection m291a = m291a(context, url2);
-                    m291a.setConnectTimeout(10000);
-                    m291a.setReadTimeout(15000);
+                    HttpURLConnection m295a = m295a(context, url2);
+                    m295a.setConnectTimeout(10000);
+                    m295a.setReadTimeout(15000);
                     if (!TextUtils.isEmpty(str)) {
-                        m291a.setRequestProperty("User-Agent", str);
+                        m295a.setRequestProperty("User-Agent", str);
                     }
                     if (str2 != null) {
-                        m291a.setRequestProperty("Cookie", str2);
+                        m295a.setRequestProperty("Cookie", str2);
                     }
                     if (map != null) {
                         for (String str3 : map.keySet()) {
-                            m291a.setRequestProperty(str3, map.get(str3));
+                            m295a.setRequestProperty(str3, map.get(str3));
                         }
                     }
                     if (bVar != null && (url.getProtocol().equals("http") || url.getProtocol().equals("https"))) {
-                        bVar.a = m291a.getResponseCode();
+                        bVar.a = m295a.getResponseCode();
                         if (bVar.f143a == null) {
                             bVar.f143a = new HashMap();
                         }
                         int i = 0;
                         while (true) {
-                            String headerFieldKey = m291a.getHeaderFieldKey(i);
-                            String headerField = m291a.getHeaderField(i);
+                            String headerFieldKey = m295a.getHeaderFieldKey(i);
+                            String headerField = m295a.getHeaderField(i);
                             if (headerFieldKey == null && headerField == null) {
                                 break;
                             }
@@ -232,7 +232,7 @@ public class bi {
                             i++;
                         }
                     }
-                    return new a(m291a.getInputStream());
+                    return new a(m295a.getInputStream());
                 } catch (IOException e) {
                     throw new IOException("IOException:" + e.getClass().getSimpleName());
                 } catch (Throwable th) {
@@ -245,7 +245,7 @@ public class bi {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m290a(Context context) {
+    public static String m294a(Context context) {
         if (e(context)) {
             return "wifi";
         }
@@ -398,8 +398,8 @@ public class bi {
                     stringBuffer.append(URLEncoder.encode(entry.getValue(), "UTF-8"));
                     stringBuffer.append("&");
                 } catch (UnsupportedEncodingException e) {
-                    com.xiaomi.channel.commonutils.logger.b.m182a("Failed to convert from params map to string: " + e);
-                    com.xiaomi.channel.commonutils.logger.b.m182a("map: " + map.toString());
+                    com.xiaomi.channel.commonutils.logger.b.m186a("Failed to convert from params map to string: " + e);
+                    com.xiaomi.channel.commonutils.logger.b.m186a("map: " + map.toString());
                     return null;
                 }
             }
@@ -411,17 +411,17 @@ public class bi {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static HttpURLConnection m291a(Context context, URL url) {
-        return (HttpURLConnection) (("http".equals(url.getProtocol()) && m293a(context)) ? url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80))) : url.openConnection());
+    public static HttpURLConnection m295a(Context context, URL url) {
+        return (HttpURLConnection) (("http".equals(url.getProtocol()) && m297a(context)) ? url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80))) : url.openConnection());
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static URL m292a(String str) {
+    public static URL m296a(String str) {
         return new URL(str);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m293a(Context context) {
+    public static boolean m297a(Context context) {
         ConnectivityManager connectivityManager;
         if ("CN".equalsIgnoreCase(((TelephonyManager) context.getSystemService("phone")).getSimCountryIso())) {
             try {
@@ -492,21 +492,21 @@ public class bi {
     }
 
     public static boolean f(Context context) {
-        NetworkInfo m289a = m289a(context);
-        return m289a != null && m289a.getType() == 0 && 20 == m289a.getSubtype();
+        NetworkInfo m293a = m293a(context);
+        return m293a != null && m293a.getType() == 0 && 20 == m293a.getSubtype();
     }
 
     public static boolean g(Context context) {
-        NetworkInfo m289a = m289a(context);
-        return m289a != null && m289a.getType() == 0 && 13 == m289a.getSubtype();
+        NetworkInfo m293a = m293a(context);
+        return m293a != null && m293a.getType() == 0 && 13 == m293a.getSubtype();
     }
 
     public static boolean h(Context context) {
-        NetworkInfo m289a = m289a(context);
-        if (m289a != null && m289a.getType() == 0) {
-            String subtypeName = m289a.getSubtypeName();
+        NetworkInfo m293a = m293a(context);
+        if (m293a != null && m293a.getType() == 0) {
+            String subtypeName = m293a.getSubtypeName();
             if (!"TD-SCDMA".equalsIgnoreCase(subtypeName) && !"CDMA2000".equalsIgnoreCase(subtypeName) && !"WCDMA".equalsIgnoreCase(subtypeName)) {
-                switch (m289a.getSubtype()) {
+                switch (m293a.getSubtype()) {
                     case 3:
                     case 5:
                     case 6:
@@ -531,9 +531,9 @@ public class bi {
     }
 
     public static boolean i(Context context) {
-        NetworkInfo m289a = m289a(context);
-        if (m289a != null && m289a.getType() == 0) {
-            int subtype = m289a.getSubtype();
+        NetworkInfo m293a = m293a(context);
+        if (m293a != null && m293a.getType() == 0) {
+            int subtype = m293a.getSubtype();
             return subtype == 1 || subtype == 2 || subtype == 4 || subtype == 7 || subtype == 11;
         }
         return false;

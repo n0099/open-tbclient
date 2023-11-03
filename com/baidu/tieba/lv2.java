@@ -1,130 +1,75 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.core.container.NgWebView;
-import com.baidu.swan.apps.core.slave.SwanWebModeWidget;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class lv2 {
+public class lv2 extends iv2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        return i != 3 ? 100 : 118;
-                    }
-                    return 112;
-                }
-                return 100;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947956257, "Lcom/baidu/tieba/lv2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return 82;
-        }
-        return invokeI.intValue;
-    }
-
-    public static int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            Bundle b = c23.b(mv2.class, null);
-            if (b == null) {
-                return 1;
-            }
-            return b.getInt("font_size_level", 1);
-        }
-        return invokeV.intValue;
-    }
-
-    public static int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b() + 1;
-        }
-        return invokeV.intValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return ej3.f("3.200.101");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            SwanAppConfigData t = cr2.V().t();
-            if (t == null) {
-                return false;
-            }
-            return TextUtils.equals("none", t.e.q);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static NgWebView c(v42 v42Var) {
-        InterceptResult invokeL;
-        HashMap<String, yr1> W;
-        yr1 yr1Var;
-        xr1 webView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, v42Var)) == null) {
-            if (v42Var instanceof x42) {
-                wr1 v3 = ((x42) v42Var).v3();
-                if (v3 != null && v3.j() != null) {
-                    return (NgWebView) v3.j().getWebView();
-                }
-                if (v3 == null) {
-                    return null;
-                }
-                return (NgWebView) v3.getWebView();
-            } else if (!(v42Var instanceof c52) || (W = jc2.V().W()) == null || W.size() <= 0 || (yr1Var = W.get(hl3.c().h())) == null || !(yr1Var instanceof SwanWebModeWidget) || (webView = yr1Var.getWebView()) == null || !(webView instanceof NgWebView)) {
-                return null;
-            } else {
-                return (NgWebView) webView;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947956257, "Lcom/baidu/tieba/lv2;");
+                return;
             }
         }
-        return (NgWebView) invokeL.objValue;
+        boolean z = rm1.a;
     }
 
-    public static void g(int i, int i2) {
-        SwanAppActivity w;
-        y42 Y;
-        v42 m;
-        NgWebView c;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lv2(String str) {
+        super(str);
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeII(65542, null, i, i2) != null) || (w = o53.K().w()) == null || (Y = w.Y()) == null || (m = Y.m()) == null || (c = c(m)) == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        if (!f()) {
-            c.getSettings().setTextZoom(a(i));
-            kv2.a(Integer.valueOf(i + 1), String.valueOf(i2));
-        }
-        h(i);
     }
 
-    public static void h(int i) {
+    @Override // com.baidu.tieba.iv2
+    public boolean a(yu2 yu2Var, av2 av2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g63 g63Var) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65543, null, i) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putInt("key_text_size", i);
-            f23.e().h(new h23(22, bundle));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{yu2Var, av2Var, context, unitedSchemeEntity, callbackHandler, g63Var})) == null) {
+            g32.i("video", "sendDanmu, video id:" + av2Var.j + " slave id: " + av2Var.c);
+            d(yu2Var, av2Var.t, unitedSchemeEntity, callbackHandler);
+            return true;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public final void d(yu2 yu2Var, String str, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yu2Var, str, unitedSchemeEntity, callbackHandler) == null) {
+            yu2Var.r(str);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
     }
 }

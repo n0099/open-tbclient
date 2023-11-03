@@ -1,97 +1,86 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.swan.apps.scheme.actions.forbidden.ForbiddenInfo;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class d76 extends cj6<u66> {
+public class d76 implements jq2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView i;
-    public TextView j;
-    public TbImageView k;
-    public TbImageView l;
-    public View m;
-    public u66 n;
 
-    @Override // com.baidu.tieba.cj6
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0959 : invokeV.intValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d76(TbPageContext tbPageContext, ViewGroup viewGroup) {
-        super(tbPageContext, viewGroup);
+    public d76() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.m = i();
-        this.i = (TextView) i().findViewById(R.id.obfuscated_res_0x7f09104e);
-        this.j = (TextView) i().findViewById(R.id.obfuscated_res_0x7f09104d);
-        this.k = (TbImageView) i().findViewById(R.id.obfuscated_res_0x7f09104c);
-        TbImageView tbImageView = (TbImageView) i().findViewById(R.id.obfuscated_res_0x7f09104b);
-        this.l = tbImageView;
-        tbImageView.setAutoChangeStyle(true);
-        this.l.setDefaultResource(17170445);
-        this.l.setDefaultBgResource(17170445);
-        this.k.setOnClickListener(this);
-        this.j.setOnClickListener(this);
-        k(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cj6
-    /* renamed from: o */
-    public void j(u66 u66Var) {
+    @Override // com.baidu.tieba.jq2
+    public boolean a(Context context, String str, zh3 zh3Var) {
+        InterceptResult invokeLLL;
+        String n;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, u66Var) == null) {
-            this.n = u66Var;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, zh3Var)) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_AIAPPS_START_FAIL);
+            if (s56.k().n() == null) {
+                n = "";
+            } else {
+                n = s56.k().n();
+            }
+            statisticItem.param("uid", n);
+            statisticItem.param("obj_param1", zh3Var.h());
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, zh3Var.e());
+            TiebaStatic.log(statisticItem);
+            if (zh3Var.j() == 10 && zh3Var.h() == 1013) {
+                b(context, zh3Var);
+                return true;
+            }
+            return false;
         }
+        return invokeLLL.booleanValue;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public final void b(Context context, zh3 zh3Var) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && f() != null) {
-            f().a(view2, this.n);
-        }
-    }
-
-    @Override // com.baidu.tieba.cj6
-    public void k(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            SkinManager.setBackgroundResource(this.m, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0101);
-            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0101);
-            SkinManager.setImageResource(this.k, R.drawable.icon_tab_live_close_n);
-            SkinManager.setBackgroundResource(this.j, R.drawable.tab_sub_notification_btn_bg_selecor);
-            SkinManager.setImageResource(this.l, R.drawable.obfuscated_res_0x7f08035a);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, zh3Var) == null) {
+            g63 c0 = g63.c0();
+            if (context != null && c0 != null) {
+                String i = lf3.i(tr2.V().getCoreVersion(), c0.Z().H());
+                long h = zh3Var.h();
+                String r = zh3Var.r();
+                if (1020 == h && !TextUtils.isEmpty(r)) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (!z) {
+                    r = ei4.b().a(h);
+                }
+                ForbiddenInfo forbiddenInfo = new ForbiddenInfo(c0.X(), r, "v" + ak3.D() + "/" + i + "/" + zh3Var.a());
+                forbiddenInfo.enableSlidingFlag = -1;
+                ar2.l(context, "type_need_update_sdk", zh3Var, forbiddenInfo, c0.Z().D());
+            }
         }
     }
 }

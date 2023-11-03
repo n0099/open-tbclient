@@ -1,26 +1,106 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.kl5;
+import com.baidu.tieba.newdetail.HotTopicDetailModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 /* loaded from: classes8.dex */
-public class wz5 {
+public class wz5 implements cg1<kl5> {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile wz5 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<Integer> a;
-    public tz5 b;
-    public vz5 c;
-    public List<StatisticItem> d;
+
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes8.dex */
+    public static final class b implements kl5, HotTopicDetailModel.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public HotTopicDetailModel b;
+        @Nullable
+        public kl5.a c;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        @Override // com.baidu.tieba.kl5
+        public void c(@Nullable kl5.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+                this.c = aVar;
+            }
+        }
+
+        @Override // com.baidu.tieba.kl5
+        public kl5 a(@NonNull TbPageContext tbPageContext, long j, @NonNull String str) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{tbPageContext, Long.valueOf(j), str})) == null) {
+                HotTopicDetailModel hotTopicDetailModel = new HotTopicDetailModel(tbPageContext);
+                this.b = hotTopicDetailModel;
+                hotTopicDetailModel.d0(j, str);
+                this.b.c0(this);
+                return this;
+            }
+            return (kl5) invokeCommon.objValue;
+        }
+
+        @Override // com.baidu.tieba.kl5
+        public void b(int i, ey4 ey4Var, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), ey4Var, Long.valueOf(j)}) == null) {
+                this.b.Q(i, ey4Var, j);
+            }
+        }
+
+        @Override // com.baidu.tieba.newdetail.HotTopicDetailModel.d
+        public void i(int i, @Nullable ti8 ti8Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeIL(1048579, this, i, ti8Var) == null) && this.c != null) {
+                if (ti8Var != null) {
+                    ArrayList arrayList = new ArrayList();
+                    for (fm6 fm6Var : ti8Var.a) {
+                        if (fm6Var instanceof fm6) {
+                            ThreadData threadData = fm6Var.getThreadData();
+                            if (!TextUtils.equals(threadData.getTid(), "0")) {
+                                arrayList.add(threadData);
+                            }
+                        }
+                    }
+                    this.c.b(arrayList, ti8Var.e());
+                }
+                this.c.a();
+            }
+        }
+    }
 
     public wz5() {
         Interceptable interceptable = $ic;
@@ -32,141 +112,19 @@ public class wz5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        ArrayList<Integer> arrayList = new ArrayList<>();
-        this.a = arrayList;
-        arrayList.add(1);
-        this.a.add(2);
-        vz5 vz5Var = new vz5();
-        this.c = vz5Var;
-        this.b = new tz5(vz5Var, this.a);
-        g(SharedPrefHelper.getInstance().getInt("key_abtest_channel", 0));
     }
 
-    public static wz5 c() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.cg1
+    /* renamed from: a */
+    public kl5 getService() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (e == null) {
-                synchronized (vz5.class) {
-                    if (e == null) {
-                        e = new wz5();
-                    }
-                }
-            }
-            return e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new b(null);
         }
-        return (wz5) invokeV.objValue;
-    }
-
-    public void a(StatisticItem statisticItem) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, statisticItem) != null) || statisticItem == null) {
-            return;
-        }
-        if (this.d == null) {
-            this.d = new ArrayList();
-        }
-        this.d.add(statisticItem);
-    }
-
-    public void d(String str) {
-        vz5 vz5Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (ad.isEmpty(str) || (vz5Var = this.c) == null || !vz5Var.g()) {
-                k9b.d(str);
-            }
-        }
-    }
-
-    public void e(String str) {
-        vz5 vz5Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            if (ad.isEmpty(str) || (vz5Var = this.c) == null || !vz5Var.g()) {
-                k9b.e(str);
-            }
-        }
-    }
-
-    public void f(String str) {
-        tz5 tz5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (tz5Var = this.b) != null) {
-            tz5Var.b(str);
-        }
-    }
-
-    public void g(int i) {
-        vz5 vz5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048581, this, i) == null) && (vz5Var = this.c) != null) {
-            vz5Var.k(i);
-        }
-    }
-
-    public int b(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
-            tz5 tz5Var = this.b;
-            if (tz5Var == null) {
-                return 0;
-            }
-            return tz5Var.a(str, i);
-        }
-        return invokeLI.intValue;
-    }
-
-    public void h(String str, String str2) {
-        vz5 vz5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) && !ListUtils.isEmpty(this.d) && (vz5Var = this.c) != null && vz5Var.g()) {
-            int i = -1;
-            for (StatisticItem statisticItem : this.d) {
-                if (statisticItem != null) {
-                    if (statisticItem.getPosition() == 0) {
-                        i(str, str2, statisticItem);
-                    } else if (i != statisticItem.getPosition()) {
-                        i = statisticItem.getPosition();
-                        i(str, str2, statisticItem);
-                    }
-                }
-            }
-            this.d.clear();
-        }
-    }
-
-    public void i(String str, String str2, StatisticItem statisticItem) {
-        vz5 vz5Var;
-        String str3;
-        String str4;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048583, this, str, str2, statisticItem) == null) && statisticItem != null && (vz5Var = this.c) != null && vz5Var.g()) {
-            HashMap hashMap = new HashMap();
-            List<Object> params = statisticItem.getParams();
-            if (params != null) {
-                int size = params.size();
-                for (int i = 0; i < size; i += 2) {
-                    Object obj = params.get(i);
-                    if (obj == null) {
-                        str3 = "";
-                    } else {
-                        str3 = obj.toString();
-                    }
-                    Object obj2 = params.get(i + 1);
-                    if (obj2 == null) {
-                        str4 = "";
-                    } else {
-                        str4 = obj2.toString();
-                    }
-                    hashMap.put(str3, str4);
-                }
-            }
-            k9b.c(str2 + statisticItem.getKey(), str, "", hashMap);
-        }
+        return (kl5) invokeV.objValue;
     }
 }

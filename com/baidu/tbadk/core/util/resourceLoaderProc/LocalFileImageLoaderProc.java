@@ -9,16 +9,16 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.img.effect.ImageOperation;
-import com.baidu.tieba.bb;
-import com.baidu.tieba.cb;
-import com.baidu.tieba.uh5;
+import com.baidu.tieba.jj5;
+import com.baidu.tieba.rb;
+import com.baidu.tieba.sb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class LocalFileImageLoaderProc implements cb<BdImage> {
+public class LocalFileImageLoaderProc implements sb<BdImage> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int height;
@@ -26,7 +26,7 @@ public class LocalFileImageLoaderProc implements cb<BdImage> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: decodeToResource */
-    public BdImage m126decodeToResource(byte[] bArr, Object... objArr) {
+    public BdImage m127decodeToResource(byte[] bArr, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bArr, objArr)) == null) {
@@ -35,7 +35,7 @@ public class LocalFileImageLoaderProc implements cb<BdImage> {
         return (BdImage) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.cb
+    @Override // com.baidu.tieba.sb
     public BdAsyncTaskParallel getAsyncTaskParallel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public class LocalFileImageLoaderProc implements cb<BdImage> {
         return (BdAsyncTaskParallel) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.cb
+    @Override // com.baidu.tieba.sb
     public int getAsyncTaskPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -57,17 +57,17 @@ public class LocalFileImageLoaderProc implements cb<BdImage> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.cb
-    public BdImage getFromRemote(String str, String str2, int i, int i2, bb bbVar, Object... objArr) {
+    @Override // com.baidu.tieba.sb
+    public BdImage getFromRemote(String str, String str2, int i, int i2, rb rbVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), bbVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), rbVar, objArr})) == null) {
             return null;
         }
         return (BdImage) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.cb
+    @Override // com.baidu.tieba.sb
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -152,11 +152,11 @@ public class LocalFileImageLoaderProc implements cb<BdImage> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.cb
-    public BdImage getFromLocal(String str, String str2, int i, int i2, bb bbVar, Object... objArr) {
+    @Override // com.baidu.tieba.sb
+    public BdImage getFromLocal(String str, String str2, int i, int i2, rb rbVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), bbVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), rbVar, objArr})) == null) {
             if (StringUtils.isNull(str)) {
                 return null;
             }
@@ -167,7 +167,7 @@ public class LocalFileImageLoaderProc implements cb<BdImage> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.cb
+    @Override // com.baidu.tieba.sb
     public BdImage getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -185,13 +185,13 @@ public class LocalFileImageLoaderProc implements cb<BdImage> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            ImageOperation g = uh5.g(this.width, this.height);
+            ImageOperation g = jj5.g(this.width, this.height);
             return "image_" + str + ':' + g.actionName + '=' + g.actionParam;
         }
         return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.cb
+    @Override // com.baidu.tieba.sb
     public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && obj != null && (obj instanceof BdImage)) {

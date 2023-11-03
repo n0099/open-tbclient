@@ -38,7 +38,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public static class a extends a.AbstractBinderC0177a {
+    public static class a extends a.AbstractBinderC0178a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -309,7 +309,7 @@ public class b {
                     int i = bundle.getInt("bundle_key_pid");
                     BinderHolder binderHolder = (BinderHolder) bundle.getParcelable("bundle_key_binder_holder");
                     if (i > 0 && binderHolder != null && (iBinder = binderHolder.a) != null) {
-                        b.put(Integer.valueOf(i), a.AbstractBinderC0177a.a(iBinder));
+                        b.put(Integer.valueOf(i), a.AbstractBinderC0178a.a(iBinder));
                         if (d.size() <= 0) {
                             return a(0);
                         }

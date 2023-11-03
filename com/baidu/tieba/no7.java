@@ -1,113 +1,68 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.PrivateForumPopInfoData;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tieba.frs.FrsPrivateCommonDialogView;
-import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import tbclient.PrivateForumInfo;
 /* loaded from: classes7.dex */
-public class no7 implements e15 {
+public class no7 extends bi<wo7, CardViewHolder<zo7>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
 
-    public no7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public no7(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext.getPageActivity(), bdUniqueId, bdUniqueId2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = tbPageContext;
     }
 
-    public static boolean c() {
-        InterceptResult invokeV;
-        String str;
-        boolean z;
-        PrivateForumPopInfoData privateForumPopInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            fda frsResponseData = TbSingleton.getInstance().getFrsResponseData();
-            if (frsResponseData == null) {
-                return false;
-            }
-            FrsViewData frsViewData = new FrsViewData();
-            frsViewData.receiveData(frsResponseData);
-            String str2 = null;
-            if (frsViewData.getForum() != null) {
-                str2 = frsViewData.getForum().getName();
-                str = frsViewData.getForum().getId();
-            } else {
-                str = null;
-            }
-            if (StringUtils.isNull(str2) || StringUtils.isNull(str)) {
-                return false;
-            }
-            if ((frsViewData.getPrivateForumTotalInfo() == null || frsViewData.getPrivateForumTotalInfo().a() == null || frsViewData.getUserData().getIs_manager() != 1) && frsViewData.getPrivateForumPopInfo() == null) {
-                return false;
-            }
-            PrivateForumPopInfoData privateForumPopInfoData = new PrivateForumPopInfoData();
-            privateForumPopInfoData.S(frsViewData.getPrivateForumTotalInfo().c());
-            PrivateForumInfo a = frsViewData.getPrivateForumTotalInfo().a();
-            if (a != null && a.private_forum_status.intValue() == 1 && (ad.isEmpty(privateForumPopInfoData.Q()) || privateForumPopInfoData.P() != JavaTypesHelper.toInt(str, 0))) {
-                privateForumPopInfoData.V("create_success");
-                privateForumPopInfoData.W(String.format(ko7.a, str, str2));
-                privateForumPopInfoData.U(JavaTypesHelper.toInt(str, -1));
-                privateForumPopInfoData.setTitle(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1727));
-                privateForumPopInfoData.T(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1728));
-                z = FrsPrivateCommonDialogView.b(privateForumPopInfoData, false);
-            } else if (privateForumPopInfoData.P() == JavaTypesHelper.toInt(str, 0)) {
-                z = FrsPrivateCommonDialogView.b(privateForumPopInfoData, false);
-            } else {
-                z = false;
-            }
-            if (!z && (privateForumPopInfo = frsViewData.getPrivateForumPopInfo()) != null && privateForumPopInfo.P() == JavaTypesHelper.toInt(str, 0)) {
-                return FrsPrivateCommonDialogView.b(privateForumPopInfo, true);
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.e15
-    @NonNull
-    public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogStrategiesData, map, map2)) == null) {
-            HashMap hashMap = new HashMap(map);
-            hashMap.put("dialogName", "frsExam");
-            hashMap.putAll(map);
-            hashMap.putAll(map2);
-            return hashMap;
-        }
-        return (Map) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.e15
-    public boolean b(@NonNull Map<String, Object> map) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: t */
+    public CardViewHolder<zo7> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            return c();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new CardViewHolder<>(new zo7(this.a));
         }
-        return invokeL.booleanValue;
+        return (CardViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, wo7 wo7Var, CardViewHolder<zo7> cardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, wo7Var, cardViewHolder})) == null) {
+            cardViewHolder.a().l(this.a, TbadkCoreApplication.getInst().getSkinType());
+            return cardViewHolder.getView();
+        }
+        return (View) invokeCommon.objValue;
     }
 }

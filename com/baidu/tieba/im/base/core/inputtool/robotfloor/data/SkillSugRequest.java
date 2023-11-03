@@ -3,7 +3,7 @@ package com.baidu.tieba.im.base.core.inputtool.robotfloor.data;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.baidu.tieba.b;
+import com.baidu.tieba.c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -75,7 +75,7 @@ public final class SkillSugRequest implements Serializable {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? (((((b.a(this.skillId) * 31) + this.botUk.hashCode()) * 31) + b.a(this.forumId)) * 31) + b.a(this.chatroomId) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? (((((c.a(this.skillId) * 31) + this.botUk.hashCode()) * 31) + c.a(this.forumId)) * 31) + c.a(this.chatroomId) : invokeV.intValue;
     }
 
     public String toString() {

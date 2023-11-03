@@ -1,133 +1,286 @@
 package com.baidu.tieba;
 
-import android.media.AudioManager;
-import android.util.Pair;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import androidx.lifecycle.SavedStateHandle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.mobstat.Config;
+import com.baidu.tbadk.browser.CommonTbJsBridge;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collection;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class jw1 extends wv1 {
+public class jw1 extends iw1 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile hm4 f;
+    public static long g;
     public transient /* synthetic */ FieldHolder $fh;
-    public AudioManager f;
 
-    @Override // com.baidu.tieba.tt1
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947897605, "Lcom/baidu/tieba/jw1;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947897605, "Lcom/baidu/tieba/jw1;");
+        }
+    }
+
+    @Override // com.baidu.tieba.iw1
+    public boolean N() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.iw1, com.baidu.tieba.ku1
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "VolumeApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? "SwanGlobalStorageApi" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            long unused = jw1.g = jw1.f.getContentSize();
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jw1(@NonNull rt1 rt1Var) {
-        super(rt1Var);
+    public jw1(@NonNull iu1 iu1Var) {
+        super(iu1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {rt1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {iu1Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((rt1) newInitContext.callArgs[0]);
+                super((iu1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        synchronized (jw1.class) {
+            if (f == null) {
+                b0();
+            }
+        }
     }
 
-    public qx1 A(String str) {
+    @Override // com.baidu.tieba.iw1
+    public hy1 E(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            r("#setMediaVolume", false);
-            p53 c0 = p53.c0();
-            if (c0 == null) {
-                return new qx1(1001, "swan app is null");
-            }
-            SwanAppActivity w = c0.w();
-            if (w == null) {
-                p22.c("VolumeApi", "swan activity is null");
-                return new qx1(1001, "swan activity is null");
-            }
-            Pair<qx1, JSONObject> t = t(str);
-            qx1 qx1Var = (qx1) t.first;
-            if (!qx1Var.isSuccess()) {
-                return qx1Var;
-            }
-            try {
-                float parseFloat = Float.parseFloat(((JSONObject) t.second).optString("value"));
-                if (this.f == null) {
-                    this.f = (AudioManager) w.getSystemService("audio");
-                }
-                int streamMaxVolume = this.f.getStreamMaxVolume(3);
-                int z = z(parseFloat, streamMaxVolume);
-                if (z >= 0 && z <= streamMaxVolume) {
-                    try {
-                        this.f.setStreamVolume(3, z, 1);
-                        return qx1.f();
-                    } catch (SecurityException unused) {
-                        return new qx1(1001, "Cannot set volume under silent mode.");
-                    }
-                }
-                return new qx1(202, "value is illegal.");
-            } catch (NumberFormatException unused2) {
-                p22.c("VolumeApi", "illegal argument type");
-                return new qx1(202, "value is illegal.");
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            r("#getStorage", false);
+            return super.E(str);
         }
-        return (qx1) invokeL.objValue;
+        return (hy1) invokeL.objValue;
     }
 
-    public qx1 y() {
+    @Override // com.baidu.tieba.iw1
+    public hm4 G(@NonNull g63 g63Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, g63Var)) == null) {
+            return f;
+        }
+        return (hm4) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.iw1
+    public hy1 L(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            r("#getStorageSync", false);
+            return super.L(str);
+        }
+        return (hy1) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.iw1
+    public hy1 S(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            r("#removeStorage", false);
+            return super.S(str);
+        }
+        return (hy1) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.iw1
+    public hy1 U(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            r("#removeStorageSync", false);
+            return super.U(str);
+        }
+        return (hy1) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.iw1
+    public hy1 V(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            r("#setStorage", false);
+            return super.V(str);
+        }
+        return (hy1) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.iw1
+    public hy1 X(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            r("#setStorageSync", false);
+            return super.X(str);
+        }
+        return (hy1) invokeL.objValue;
+    }
+
+    public static void c0() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65541, null) == null) && f != null) {
+            aj3.f().execute(new a());
+        }
+    }
+
+    @Override // com.baidu.tieba.iw1
+    public hy1 B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            r("#getMediaVolume", false);
-            p53 c0 = p53.c0();
-            if (c0 == null) {
-                return new qx1(1001, "swan app is null");
-            }
-            SwanAppActivity w = c0.w();
-            if (w == null) {
-                p22.c("VolumeApi", "swan activity is null");
-                return new qx1(1001, "swan activity is null");
-            }
-            if (this.f == null) {
-                this.f = (AudioManager) w.getSystemService("audio");
-            }
-            float streamMaxVolume = this.f.getStreamMaxVolume(3);
-            float streamVolume = this.f.getStreamVolume(3);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("value", streamVolume / streamMaxVolume);
-                return new qx1(0, jSONObject);
-            } catch (JSONException unused) {
-                return new qx1(1001, "make result json error");
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            r("#clearStorage", false);
+            return super.B();
         }
-        return (qx1) invokeV.objValue;
+        return (hy1) invokeV.objValue;
     }
 
-    public final int z(float f, int i) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.iw1
+    public hy1 D() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Float.valueOf(f), Integer.valueOf(i)})) == null) {
-            int round = Math.round(i * f);
-            if (round == 0 && f > 0.0f) {
-                return 1;
-            }
-            return round;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            r("#clearStorageSync", false);
+            return super.D();
         }
-        return invokeCommon.intValue;
+        return (hy1) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.iw1
+    public hy1 K() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            r("#getStorageInfoSync", false);
+            return H();
+        }
+        return (hy1) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.iw1
+    public void Y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            c0();
+        }
+    }
+
+    public static synchronized void b0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            synchronized (jw1.class) {
+                if (f == null) {
+                    try {
+                        f = new xe3("swan_js_global_storage", 2, cp2.g().getAbsolutePath());
+                    } catch (NoClassDefFoundError | UnsatisfiedLinkError unused) {
+                        f = new pm4("swan_js_global_storage");
+                        ye3.i(1, "swan_js_global_storage");
+                    }
+                    c0();
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.iw1
+    public hy1 H() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            r("#getStorageInfo", false);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(SavedStateHandle.KEYS, new JSONArray((Collection) f.a()));
+                jSONObject.put(CommonTbJsBridge.FILE_DOWNLOAD_CURRENT_SIZE, g / 1024);
+                jSONObject.put("limitSize", 10240);
+                return new hy1(0, jSONObject);
+            } catch (JSONException unused) {
+                return new hy1(202, "JSONException");
+            }
+        }
+        return (hy1) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.iw1
+    public boolean O(@Nullable g63 g63Var, @NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, g63Var, str, str2)) == null) {
+            if ((g - f.getString(str, "").length()) + str2.length() > Config.FULL_TRACE_LOG_LIMIT) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLLL.booleanValue;
     }
 }

@@ -12,14 +12,14 @@ import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hua;
+import com.baidu.tieba.i7b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class CaptureRecordButton extends FrameLayout implements hua {
+public class CaptureRecordButton extends FrameLayout implements i7b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -140,7 +140,7 @@ public class CaptureRecordButton extends FrameLayout implements hua {
         }
     }
 
-    @Override // com.baidu.tieba.hua
+    @Override // com.baidu.tieba.i7b
     public void setMaxDuration(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
@@ -148,7 +148,7 @@ public class CaptureRecordButton extends FrameLayout implements hua {
         }
     }
 
-    @Override // com.baidu.tieba.hua
+    @Override // com.baidu.tieba.i7b
     public void setMinDuration(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
@@ -156,15 +156,15 @@ public class CaptureRecordButton extends FrameLayout implements hua {
         }
     }
 
-    @Override // com.baidu.tieba.hua
-    public void setOnProgressListener(hua.a aVar) {
+    @Override // com.baidu.tieba.i7b
+    public void setOnProgressListener(i7b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, aVar) == null) {
             this.d.setOnProgressListener(aVar);
         }
     }
 
-    @Override // com.baidu.tieba.hua
+    @Override // com.baidu.tieba.i7b
     public void setProgress(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
@@ -172,7 +172,7 @@ public class CaptureRecordButton extends FrameLayout implements hua {
         }
     }
 
-    @Override // com.baidu.tieba.hua
+    @Override // com.baidu.tieba.i7b
     public void setShowDeleteLastTip(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
@@ -180,7 +180,7 @@ public class CaptureRecordButton extends FrameLayout implements hua {
         }
     }
 
-    @Override // com.baidu.tieba.hua
+    @Override // com.baidu.tieba.i7b
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -188,7 +188,7 @@ public class CaptureRecordButton extends FrameLayout implements hua {
         }
     }
 
-    @Override // com.baidu.tieba.hua
+    @Override // com.baidu.tieba.i7b
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -245,7 +245,7 @@ public class CaptureRecordButton extends FrameLayout implements hua {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.hua
+    @Override // com.baidu.tieba.i7b
     public int getMaxDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -264,7 +264,7 @@ public class CaptureRecordButton extends FrameLayout implements hua {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.hua
+    @Override // com.baidu.tieba.i7b
     public float getProgress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -274,7 +274,7 @@ public class CaptureRecordButton extends FrameLayout implements hua {
         return invokeV.floatValue;
     }
 
-    @Override // com.baidu.tieba.hua
+    @Override // com.baidu.tieba.i7b
     public int getSlideNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -284,7 +284,7 @@ public class CaptureRecordButton extends FrameLayout implements hua {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.hua
+    @Override // com.baidu.tieba.i7b
     public void reset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
@@ -292,7 +292,7 @@ public class CaptureRecordButton extends FrameLayout implements hua {
         }
     }
 
-    @Override // com.baidu.tieba.hua
+    @Override // com.baidu.tieba.i7b
     public void start() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
@@ -300,7 +300,7 @@ public class CaptureRecordButton extends FrameLayout implements hua {
         }
     }
 
-    @Override // com.baidu.tieba.hua
+    @Override // com.baidu.tieba.i7b
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
@@ -311,13 +311,13 @@ public class CaptureRecordButton extends FrameLayout implements hua {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            FrameLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0516, this);
-            this.a = findViewById(R.id.obfuscated_res_0x7f091eb3);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091eb6);
+            FrameLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0529, this);
+            this.a = findViewById(R.id.obfuscated_res_0x7f091efa);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091efd);
             this.c = findViewById;
             findViewById.setAlpha(0.0f);
-            this.b = findViewById(R.id.obfuscated_res_0x7f091eb4);
-            this.d = (RecordCircleProgressBar) findViewById(R.id.obfuscated_res_0x7f091eb7);
+            this.b = findViewById(R.id.obfuscated_res_0x7f091efb);
+            this.d = (RecordCircleProgressBar) findViewById(R.id.obfuscated_res_0x7f091efe);
             AnimatorSet animatorSet = new AnimatorSet();
             this.e = animatorSet;
             animatorSet.play(ObjectAnimator.ofFloat(this.a, Key.SCALE_X, 1.0f, 0.388f)).with(ObjectAnimator.ofFloat(this.a, Key.SCALE_Y, 1.0f, 0.388f)).with(ObjectAnimator.ofFloat(this.b, Key.SCALE_X, 0.8f, 1.0f)).with(ObjectAnimator.ofFloat(this.b, Key.SCALE_Y, 0.8f, 1.0f)).with(ObjectAnimator.ofFloat(this.b, Key.ALPHA, 1.0f, 0.66f));

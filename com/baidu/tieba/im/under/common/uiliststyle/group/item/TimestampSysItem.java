@@ -110,7 +110,7 @@ public final class TimestampSysItem extends BaseItem<TbTimestampSysMsg> {
         return invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.im.base.core.uilist.BaseItem, com.baidu.tieba.yh
+    @Override // com.baidu.tieba.im.base.core.uilist.BaseItem, com.baidu.tieba.oi
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

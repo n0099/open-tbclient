@@ -1,18 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.app.Activity;
+import android.content.Context;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tieba.easteregg.EasterEggAdController;
+import com.baidu.tieba.easteregg.data.EasterEggAdData;
+import com.baidu.tieba.easteregg.data.EasterEggAdDataHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.FrsTabInfo;
+import kotlin.Unit;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class sv6 {
+public final class sv6 extends g15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<rv6> a;
 
     public sv6() {
         Interceptable interceptable = $ic;
@@ -28,21 +31,29 @@ public class sv6 {
         }
     }
 
-    public void a(List<FrsTabInfo> list) {
+    @Override // com.baidu.tieba.g15
+    public void a(Context context, u05 data) {
+        Unit unit;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            if (this.a == null) {
-                this.a = new ArrayList<>();
-            }
-            this.a.clear();
-            if (list == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, data) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(data, "data");
+            if ((context instanceof Activity) && (context instanceof qva)) {
+                EasterEggAdData b = EasterEggAdDataHolder.b.a().b();
+                if (b != null) {
+                    new EasterEggAdController((Activity) context).o(b);
+                    YunDialogManager.markShowingDialogName("easterEgg");
+                    unit = Unit.INSTANCE;
+                } else {
+                    unit = null;
+                }
+                if (unit == null) {
+                    YunDialogManager.unMarkShowingDialogName("easterEgg");
+                    return;
+                }
                 return;
             }
-            for (FrsTabInfo frsTabInfo : list) {
-                if (frsTabInfo != null && !StringUtils.isNull(frsTabInfo.tab_code) && !StringUtils.isNull(frsTabInfo.tab_name)) {
-                    this.a.add(new rv6(frsTabInfo));
-                }
-            }
+            YunDialogManager.unMarkShowingDialogName("easterEgg");
         }
     }
 }

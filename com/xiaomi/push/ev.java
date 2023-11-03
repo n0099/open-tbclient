@@ -56,7 +56,7 @@ public class ev implements et.a {
 
     @Override // com.xiaomi.push.et.a
     /* renamed from: a */
-    public boolean mo469a() {
+    public boolean mo473a() {
         return this.f334a;
     }
 }

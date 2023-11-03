@@ -1,83 +1,174 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import android.content.Intent;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tieba.frs.FrsNoListItemViewHolder;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import com.baidu.tbadk.pageStayDuration.PageStayDurationFilter;
+import com.baidu.tbadk.pageStayDuration.PageStayDurationItem;
+import com.baidu.tbadk.pageStayDuration.PageStayDurationStat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class a66 extends lh<gd7, FrsNoListItemViewHolder> {
+public class a66 implements er1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public final int b;
+    public long a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a66(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), gd7.b);
+    @Override // com.baidu.tieba.er1
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.er1
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.er1
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+        }
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "a061" : (String) invokeV.objValue;
+    }
+
+    public PageStayDurationFilter i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return null;
+        }
+        return (PageStayDurationFilter) invokeV.objValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947567176, "Lcom/baidu/tieba/a66;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947567176, "Lcom/baidu/tieba/a66;");
                 return;
             }
         }
-        this.b = (BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070422);
-        this.a = tbPageContext;
+        b = rm1.a;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.lh
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, gd7 gd7Var, FrsNoListItemViewHolder frsNoListItemViewHolder) {
-        t(i, view2, viewGroup, gd7Var, frsNoListItemViewHolder);
-        return view2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
-    /* renamed from: s */
-    public FrsNoListItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public a66() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.frs_no_list_item_view, viewGroup, false);
-            ViewGroup.LayoutParams generateLayoutParamsByParent = generateLayoutParamsByParent(viewGroup);
-            generateLayoutParamsByParent.width = -1;
-            generateLayoutParamsByParent.height = this.b;
-            inflate.setLayoutParams(generateLayoutParamsByParent);
-            return new FrsNoListItemViewHolder(inflate, viewGroup);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
-        return (FrsNoListItemViewHolder) invokeL.objValue;
     }
 
-    public View t(int i, View view2, ViewGroup viewGroup, gd7 gd7Var, FrsNoListItemViewHolder frsNoListItemViewHolder) {
-        InterceptResult invokeCommon;
+    public List<String> h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, gd7Var, frsNoListItemViewHolder})) == null) {
-            frsNoListItemViewHolder.d.setTextOption(NoDataViewFactory.e.d(null, this.a.getContext().getResources().getString(R.string.no_data_common_txt)));
-            frsNoListItemViewHolder.d.f(this.a, TbadkCoreApplication.getInst().getSkinType());
-            return view2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add("a001");
+            return arrayList;
         }
-        return (View) invokeCommon.objValue;
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.er1
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            if (b) {
+                Log.e("DefaultSwanAppLifecycle", "onAppBackground");
+            }
+            long j = SharedPrefHelper.getInstance().getLong("smart_app_tid", 0L);
+            String string = SharedPrefHelper.getInstance().getString("smart_app_id", "");
+            String string2 = SharedPrefHelper.getInstance().getString("smart_app_name", "");
+            if (this.a != 0 && j != 0) {
+                long currentTimeMillis = System.currentTimeMillis() - this.a;
+                PageStayDurationItem pageStayDurationItem = new PageStayDurationItem();
+                pageStayDurationItem.setStayDurationTime(currentTimeMillis);
+                pageStayDurationItem.setCurrentPageKey(g());
+                pageStayDurationItem.setTid(j);
+                pageStayDurationItem.objID = string;
+                pageStayDurationItem.objNAME = string2;
+                pageStayDurationItem.setSorceKeyList(h());
+                PageStayDurationStat.getInstance().setSmartStat(true);
+                PageStayDurationStat.getInstance().stat(TbadkApplication.getInst().getApplicationContext(), pageStayDurationItem, i());
+                SharedPrefHelper.getInstance().putLong("smart_app_tid", 0L);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.er1
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (b) {
+                Log.e("DefaultSwanAppLifecycle", "onAppForeground" + g63.M().b);
+            }
+            File file = new File(hh.b("libBaiduMapSDK.so"));
+            if (file.exists() && file.isFile() && BdBaseApplication.getInst().getResHashMap().get("libBaiduMapSDK.so") == null && jh.a(BdBaseApplication.getInst().getContext(), hh.a("libBaiduMapSDK.so"))) {
+                try {
+                    System.loadLibrary("BaiduMapSDK");
+                } catch (Throwable unused) {
+                }
+                BdBaseApplication.getInst().getResHashMap().put("libBaiduMapSDK.so", hh.a("libBaiduMapSDK.so"));
+            }
+            this.a = System.currentTimeMillis();
+        }
+    }
+
+    @Override // com.baidu.tieba.er1
+    public void d(@NonNull SwanAppActivity swanAppActivity, int i, @Nullable dr2 dr2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048579, this, swanAppActivity, i, dr2Var) == null) {
+            if (b) {
+                Log.e("DefaultSwanAppLifecycle", "onAppExit");
+            }
+            if (SharedPrefHelper.getInstance().getBoolean("key_ai_app_guide_display", true)) {
+                Intent intent = new Intent(swanAppActivity, DealIntentService.class);
+                intent.putExtra("class", 38);
+                swanAppActivity.startService(intent);
+            }
+        }
     }
 }

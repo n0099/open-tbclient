@@ -1,7 +1,7 @@
 package com.baidu.searchbox.http.model;
 
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MultipleConnectParams {
     public List<Integer> fromList;
     public int maxMultiConnectNum;

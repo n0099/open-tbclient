@@ -1,91 +1,232 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.tieba.hh4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class kh4 extends yg4 {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+/* loaded from: classes7.dex */
+public class kh4 extends hh4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public kh4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+        public String b;
+        public long c;
+
+        public a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = 0L;
+            this.a = str;
+        }
+
+        @NonNull
+        public static List<a> f(@Nullable List<gf4> list) {
+            InterceptResult invokeL;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
+                ArrayList arrayList = new ArrayList();
+                if (list != null && !list.isEmpty()) {
+                    for (gf4 gf4Var : list) {
+                        if (gf4Var != null) {
+                            a aVar = new a(gf4Var.g);
+                            if (gf4Var.r) {
+                                str = "independent";
+                            } else {
+                                str = "normal";
+                            }
+                            aVar.d(str);
+                            aVar.e(gf4Var.i);
+                            arrayList.add(aVar);
+                        }
+                    }
+                }
+                return arrayList;
+            }
+            return (List) invokeL.objValue;
+        }
+
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public String b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.b;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public long c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.c;
+            }
+            return invokeV.longValue;
+        }
+
+        public void d(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+                this.b = str;
+            }
+        }
+
+        public void e(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+                this.c = j;
             }
         }
     }
 
-    @Override // com.baidu.tieba.yg4
-    public JSONObject d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("version", nh4.b().d());
-                jSONObject.put("tipmsgs", jSONObject2);
-                JSONObject jSONObject3 = new JSONObject();
-                xh4.b();
-                jSONObject3.put("version", xh4.c());
-                jSONObject.put("web_degrade_strategy", jSONObject3);
-                JSONObject jSONObject4 = new JSONObject();
-                jSONObject4.put("version", th4.a().b());
-                jSONObject.put("pkg_preload", jSONObject4);
-                JSONObject jSONObject5 = new JSONObject();
-                jSONObject5.put("version", jh4.b().c());
-                jSONObject.put("pkg_clean_strategy", jSONObject5);
-                JSONObject jSONObject6 = new JSONObject();
-                jSONObject6.put("version", mh4.a().b());
-                jSONObject.put("getpkg_retry_switch", jSONObject6);
-                JSONObject jSONObject7 = new JSONObject();
-                jSONObject7.put("version", zh4.d());
-                jSONObject.put("update_expire_time", jSONObject7);
-                JSONObject jSONObject8 = new JSONObject();
-                jSONObject8.put("version", rh4.f().h());
-                jSONObject.put("page_tips", jSONObject8);
-                if (vh4.a) {
-                    JSONObject jSONObject9 = new JSONObject();
-                    jSONObject9.put("version", vh4.b);
-                    jSONObject.put("heartbeat", jSONObject9);
+    /* loaded from: classes7.dex */
+    public static class b extends hh4.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        @Nullable
+        public String[] e;
+        @Nullable
+        public List<a> f;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(String str) {
+            super(str);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                JSONObject jSONObject10 = new JSONObject();
-                jSONObject10.put("version", oh4.a().b());
-                jSONObject.put("local_debug", jSONObject10);
-                JSONObject jSONObject11 = new JSONObject();
-                jSONObject11.put("version", ad4.a().a());
-                jSONObject.put(ad4.a().c(), jSONObject11);
-                if (wh4.b()) {
-                    JSONObject jSONObject12 = new JSONObject();
-                    jSONObject12.put("version", wh4.a());
-                    jSONObject.put("api_description", jSONObject12);
-                }
-                JSONObject jSONObject13 = new JSONObject();
-                jSONObject13.put("version", yh4.b().c());
-                jSONObject.put("tts", jSONObject13);
-                new JSONObject().put("version", ph4.a().c());
-                jSONObject.put("no_history_apps", jSONObject13);
-                JSONObject jSONObject14 = new JSONObject();
-                jSONObject14.put("version", bi4.d());
-                jSONObject.put("app_inner_preload", jSONObject14);
-                JSONObject jSONObject15 = new JSONObject();
-                jSONObject15.put("version", uh4.a().b());
-                jSONObject.put("simple_control_item", jSONObject15);
-            } catch (JSONException unused) {
             }
-            return jSONObject;
         }
-        return (JSONObject) invokeV.objValue;
+
+        @Nullable
+        public String[] i() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.e;
+            }
+            return (String[]) invokeV.objValue;
+        }
+
+        @Nullable
+        public List<a> j() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.f;
+            }
+            return (List) invokeV.objValue;
+        }
+
+        public boolean k() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                String[] strArr = this.e;
+                if (strArr != null && strArr.length != 0) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public void l(@Nullable String[] strArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, strArr) == null) {
+                this.e = strArr;
+            }
+        }
+
+        public void m(@Nullable List<a> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+                this.f = list;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @WorkerThread
+    public kh4(List<b> list, @Nullable jj4 jj4Var) {
+        super((List<? extends hh4.a>) list, jj4Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list, jj4Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((List<? extends hh4.a>) objArr2[0], (jj4) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.hh4
+    public void g(@NonNull Map<String, PMSAppInfo> map, @NonNull Map<String, ff4> map2, @NonNull hh4.a aVar, @Nullable jj4 jj4Var) {
+        int j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, map, map2, aVar, jj4Var) == null) {
+            super.g(map, map2, aVar, jj4Var);
+            if (!(aVar instanceof b)) {
+                return;
+            }
+            b bVar = (b) aVar;
+            if (bVar.i() != null && bVar.j() == null && (j = de4.i().j(bVar.b())) >= 0) {
+                bVar.m(a.f(de4.i().k(bVar.b(), j)));
+            }
+        }
     }
 }

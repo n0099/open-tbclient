@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.c11;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,39 +8,22 @@ public class q21 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(float f) {
-        InterceptResult invokeF;
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65536, null, f)) == null) {
-            return c11.c.a(pe0.b(), f);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            StringBuilder sb = new StringBuilder();
+            int length = str.length();
+            for (int i = 0; i < length; i++) {
+                char charAt = str.charAt(i);
+                if (charAt > 31 && charAt < 127) {
+                    sb.append(charAt);
+                } else {
+                    sb.append(String.format("\\u%04x", Integer.valueOf(charAt)));
+                }
+            }
+            return sb.toString();
         }
-        return invokeF.intValue;
-    }
-
-    public static int b(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) {
-            return c11.c.a(pe0.b(), f);
-        }
-        return invokeF.intValue;
-    }
-
-    public static int c(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65538, null, f)) == null) {
-            return Math.round(f / 1.5f);
-        }
-        return invokeF.intValue;
-    }
-
-    public static int d(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65539, null, f)) == null) {
-            return b(f / 1.5f);
-        }
-        return invokeF.intValue;
+        return (String) invokeL.objValue;
     }
 }

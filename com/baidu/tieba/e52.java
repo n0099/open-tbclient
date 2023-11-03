@@ -1,47 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.webkit.ValueCallback;
+import androidx.annotation.NonNull;
 /* loaded from: classes5.dex */
-public class e52 implements f52 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface e52 {
+    void addJavascriptInterface(@NonNull Object obj, @NonNull String str);
 
-    @Override // com.baidu.tieba.f52
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
+    void continueTimer();
 
-    @Override // com.baidu.tieba.f52
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
+    void evaluateJavascript(String str, ValueCallback<String> valueCallback);
 
-    @Override // com.baidu.tieba.f52
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
+    String getContainerId();
 
-    public e52() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    String getUrl();
+
+    boolean isDestroyed();
+
+    boolean isWebView();
+
+    void onJSLoaded();
+
+    void suspendTimer();
 }

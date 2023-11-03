@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -16,11 +17,10 @@ import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
-import com.baidu.searchbox.player.kernel.YYVideoKernel;
+import com.baidu.searchbox.player.layer.AbsLayer;
 import com.baidu.searchbox.player.model.BasicVideoSeries;
 import com.baidu.searchbox.player.model.BasicVideoSeriesKt;
 import com.baidu.searchbox.player.model.OptionState;
-import com.baidu.searchbox.player.util.YYUtil;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UrlManager;
@@ -28,14 +28,14 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.LiveRoomEntranceButton;
 import com.baidu.tbadk.widget.CardLiveLabelView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.az4;
-import com.baidu.tieba.cr5;
-import com.baidu.tieba.hh9;
 import com.baidu.tieba.log.TbLog;
+import com.baidu.tieba.mu9;
 import com.baidu.tieba.pb.mixplayer.TbLiveMixPlayerConfig;
 import com.baidu.tieba.pb.mixplayer.TbMixPlayerView;
 import com.baidu.tieba.play.OnStatusChangedListener;
 import com.baidu.tieba.play.TbVideoView;
+import com.baidu.tieba.sz4;
+import com.baidu.tieba.ws5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -56,14 +56,14 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.math.MathKt__MathJVMKt;
 import kotlin.text.StringsKt__StringsJVMKt;
-@Metadata(d1 = {"\u0000\u0084\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u000e\n\u0002\u0010\u0007\n\u0002\b\u0005\u0018\u00002\u00020\u0001:\u0002[\\B\u001b\b\u0007\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\n\b\u0002\u0010\u0004\u001a\u0004\u0018\u00010\u0005¢\u0006\u0002\u0010\u0006J\u0006\u0010>\u001a\u00020?J\b\u0010@\u001a\u00020AH\u0002J\b\u0010B\u001a\u00020AH\u0002J\b\u0010C\u001a\u00020AH\u0002J\b\u0010D\u001a\u00020AH\u0002J\b\u0010E\u001a\u00020AH\u0002J\b\u0010F\u001a\u00020AH\u0002J\u0010\u0010G\u001a\u00020A2\u0006\u0010H\u001a\u00020IH\u0002J\u0010\u0010J\u001a\u00020A2\u0006\u0010K\u001a\u00020IH\u0002J\b\u0010L\u001a\u00020AH\u0002J\b\u0010M\u001a\u00020AH\u0002J\u0006\u0010N\u001a\u00020AJ\u0006\u0010O\u001a\u00020AJ\u0006\u0010P\u001a\u00020AJ\u0006\u0010Q\u001a\u00020AJ\b\u0010R\u001a\u00020AH\u0002J\u000e\u0010S\u001a\u00020A2\u0006\u0010T\u001a\u000207J\u0018\u0010U\u001a\u00020A2\u0006\u0010V\u001a\u00020\u000e2\u0006\u0010W\u001a\u00020XH\u0002J\u0010\u0010Y\u001a\u00020A2\u0006\u0010$\u001a\u00020%H\u0002J\u0006\u0010Z\u001a\u00020AR\u001b\u0010\u0007\u001a\u00020\b8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u000b\u0010\f\u001a\u0004\b\t\u0010\nR\u001b\u0010\r\u001a\u00020\u000e8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0011\u0010\f\u001a\u0004\b\u000f\u0010\u0010R\u001b\u0010\u0012\u001a\u00020\b8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0014\u0010\f\u001a\u0004\b\u0013\u0010\nR\u001b\u0010\u0015\u001a\u00020\u00168BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0019\u0010\f\u001a\u0004\b\u0017\u0010\u0018R\u001b\u0010\u001a\u001a\u00020\u001b8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u001e\u0010\f\u001a\u0004\b\u001c\u0010\u001dR\u001b\u0010\u001f\u001a\u00020 8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b#\u0010\f\u001a\u0004\b!\u0010\"R\u001a\u0010$\u001a\u00020%X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b&\u0010'\"\u0004\b(\u0010)R\u001c\u0010*\u001a\u0004\u0018\u00010+X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b,\u0010-\"\u0004\b.\u0010/R\u001c\u00100\u001a\u0004\u0018\u000101X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b2\u00103\"\u0004\b4\u00105R\u001c\u00106\u001a\u0004\u0018\u000107X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b8\u00109\"\u0004\b:\u0010;R\u000e\u0010<\u001a\u00020=X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006]"}, d2 = {"Lcom/baidu/tieba/pb/mixplayer/TbMixPlayerView;", "Landroid/widget/RelativeLayout;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "liveCloseCover", "Landroid/widget/ImageView;", "getLiveCloseCover", "()Landroid/widget/ImageView;", "liveCloseCover$delegate", "Lkotlin/Lazy;", "liveCloseCoverMask", "Landroid/view/View;", "getLiveCloseCoverMask", "()Landroid/view/View;", "liveCloseCoverMask$delegate", "liveCloseIcon", "getLiveCloseIcon", "liveCloseIcon$delegate", "liveLabelView", "Lcom/baidu/tbadk/widget/CardLiveLabelView;", "getLiveLabelView", "()Lcom/baidu/tbadk/widget/CardLiveLabelView;", "liveLabelView$delegate", "liveLoading", "Landroid/widget/ProgressBar;", "getLiveLoading", "()Landroid/widget/ProgressBar;", "liveLoading$delegate", "liveRoomEntranceButton", "Lcom/baidu/tbadk/coreExtra/view/LiveRoomEntranceButton;", "getLiveRoomEntranceButton", "()Lcom/baidu/tbadk/coreExtra/view/LiveRoomEntranceButton;", "liveRoomEntranceButton$delegate", "liveStatus", "Lcom/baidu/tieba/pb/mixplayer/TbLiveMixPlayerConfig$LiveStatus;", "getLiveStatus", "()Lcom/baidu/tieba/pb/mixplayer/TbLiveMixPlayerConfig$LiveStatus;", "setLiveStatus", "(Lcom/baidu/tieba/pb/mixplayer/TbLiveMixPlayerConfig$LiveStatus;)V", "onClickCallback", "Lcom/baidu/tieba/pb/mixplayer/TbMixPlayerView$ClickCallback;", "getOnClickCallback", "()Lcom/baidu/tieba/pb/mixplayer/TbMixPlayerView$ClickCallback;", "setOnClickCallback", "(Lcom/baidu/tieba/pb/mixplayer/TbMixPlayerView$ClickCallback;)V", "playerStatusCallBack", "Lcom/baidu/tieba/pb/mixplayer/TbMixPlayerView$PlayerStatusCallBack;", "getPlayerStatusCallBack", "()Lcom/baidu/tieba/pb/mixplayer/TbMixPlayerView$PlayerStatusCallBack;", "setPlayerStatusCallBack", "(Lcom/baidu/tieba/pb/mixplayer/TbMixPlayerView$PlayerStatusCallBack;)V", "tbMixPlayerConfig", "Lcom/baidu/tieba/pb/mixplayer/TbMixPlayerConfig;", "getTbMixPlayerConfig", "()Lcom/baidu/tieba/pb/mixplayer/TbMixPlayerConfig;", "setTbMixPlayerConfig", "(Lcom/baidu/tieba/pb/mixplayer/TbMixPlayerConfig;)V", "tbVideoView", "Lcom/baidu/tieba/play/TbVideoView;", "getPlayerHeight", "", "initClickListener", "", "initLiveCloseCover", "initLiveCloseCoverMask", "initLiveCloseIcon", "initLiveLabelView", "initLiveLoading", "initLivePlayer", "liveMixPlayerConfig", "Lcom/baidu/tieba/pb/mixplayer/TbLiveMixPlayerConfig;", "initLiveRoomEntranceButton", "tbLiveMixPlayerConfig", "initVideoView", "loadLiveCloseCover", DownloadStatisticConstants.UBC_TYPE_PAUSE, "play", "release", DownloadStatisticConstants.UBC_TYPE_RESUME, "setLiveViewScale", "setMixPlayerConfig", "mixPlayerConfig", "setMixPlayerViewSize", "view", "aspectRadio", "", "setViewByLiveStatus", "stop", "ClickCallback", "PlayerStatusCallBack", "pb_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000\u0084\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u000f\n\u0002\u0010\u0007\n\u0002\b\u0005\u0018\u00002\u00020\u0001:\u0002\\]B\u001b\b\u0007\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\n\b\u0002\u0010\u0004\u001a\u0004\u0018\u00010\u0005¢\u0006\u0002\u0010\u0006J\u0006\u0010>\u001a\u00020?J\b\u0010@\u001a\u00020AH\u0002J\b\u0010B\u001a\u00020AH\u0002J\b\u0010C\u001a\u00020AH\u0002J\b\u0010D\u001a\u00020AH\u0002J\b\u0010E\u001a\u00020AH\u0002J\b\u0010F\u001a\u00020AH\u0002J\u0010\u0010G\u001a\u00020A2\u0006\u0010H\u001a\u00020IH\u0002J\u0010\u0010J\u001a\u00020A2\u0006\u0010K\u001a\u00020IH\u0002J\b\u0010L\u001a\u00020AH\u0002J\u0010\u0010M\u001a\u00020A2\u0006\u0010N\u001a\u00020\bH\u0002J\u0006\u0010O\u001a\u00020AJ\u0006\u0010P\u001a\u00020AJ\u0006\u0010Q\u001a\u00020AJ\u0006\u0010R\u001a\u00020AJ\b\u0010S\u001a\u00020AH\u0002J\u000e\u0010T\u001a\u00020A2\u0006\u0010U\u001a\u000207J\u0018\u0010V\u001a\u00020A2\u0006\u0010W\u001a\u00020\u000e2\u0006\u0010X\u001a\u00020YH\u0002J\u0010\u0010Z\u001a\u00020A2\u0006\u0010$\u001a\u00020%H\u0002J\u0006\u0010[\u001a\u00020AR\u001b\u0010\u0007\u001a\u00020\b8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u000b\u0010\f\u001a\u0004\b\t\u0010\nR\u001b\u0010\r\u001a\u00020\u000e8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0011\u0010\f\u001a\u0004\b\u000f\u0010\u0010R\u001b\u0010\u0012\u001a\u00020\b8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0014\u0010\f\u001a\u0004\b\u0013\u0010\nR\u001b\u0010\u0015\u001a\u00020\u00168BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0019\u0010\f\u001a\u0004\b\u0017\u0010\u0018R\u001b\u0010\u001a\u001a\u00020\u001b8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u001e\u0010\f\u001a\u0004\b\u001c\u0010\u001dR\u001b\u0010\u001f\u001a\u00020 8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b#\u0010\f\u001a\u0004\b!\u0010\"R\u001a\u0010$\u001a\u00020%X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b&\u0010'\"\u0004\b(\u0010)R\u001c\u0010*\u001a\u0004\u0018\u00010+X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b,\u0010-\"\u0004\b.\u0010/R\u001c\u00100\u001a\u0004\u0018\u000101X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b2\u00103\"\u0004\b4\u00105R\u001c\u00106\u001a\u0004\u0018\u000107X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b8\u00109\"\u0004\b:\u0010;R\u000e\u0010<\u001a\u00020=X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006^"}, d2 = {"Lcom/baidu/tieba/pb/mixplayer/TbMixPlayerView;", "Landroid/widget/RelativeLayout;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "liveCloseCover", "Landroid/widget/ImageView;", "getLiveCloseCover", "()Landroid/widget/ImageView;", "liveCloseCover$delegate", "Lkotlin/Lazy;", "liveCloseCoverMask", "Landroid/view/View;", "getLiveCloseCoverMask", "()Landroid/view/View;", "liveCloseCoverMask$delegate", "liveCloseIcon", "getLiveCloseIcon", "liveCloseIcon$delegate", "liveLabelView", "Lcom/baidu/tbadk/widget/CardLiveLabelView;", "getLiveLabelView", "()Lcom/baidu/tbadk/widget/CardLiveLabelView;", "liveLabelView$delegate", "liveLoading", "Landroid/widget/ProgressBar;", "getLiveLoading", "()Landroid/widget/ProgressBar;", "liveLoading$delegate", "liveRoomEntranceButton", "Lcom/baidu/tbadk/coreExtra/view/LiveRoomEntranceButton;", "getLiveRoomEntranceButton", "()Lcom/baidu/tbadk/coreExtra/view/LiveRoomEntranceButton;", "liveRoomEntranceButton$delegate", "liveStatus", "Lcom/baidu/tieba/pb/mixplayer/TbLiveMixPlayerConfig$LiveStatus;", "getLiveStatus", "()Lcom/baidu/tieba/pb/mixplayer/TbLiveMixPlayerConfig$LiveStatus;", "setLiveStatus", "(Lcom/baidu/tieba/pb/mixplayer/TbLiveMixPlayerConfig$LiveStatus;)V", "onClickCallback", "Lcom/baidu/tieba/pb/mixplayer/TbMixPlayerView$ClickCallback;", "getOnClickCallback", "()Lcom/baidu/tieba/pb/mixplayer/TbMixPlayerView$ClickCallback;", "setOnClickCallback", "(Lcom/baidu/tieba/pb/mixplayer/TbMixPlayerView$ClickCallback;)V", "playerStatusCallBack", "Lcom/baidu/tieba/pb/mixplayer/TbMixPlayerView$PlayerStatusCallBack;", "getPlayerStatusCallBack", "()Lcom/baidu/tieba/pb/mixplayer/TbMixPlayerView$PlayerStatusCallBack;", "setPlayerStatusCallBack", "(Lcom/baidu/tieba/pb/mixplayer/TbMixPlayerView$PlayerStatusCallBack;)V", "tbMixPlayerConfig", "Lcom/baidu/tieba/pb/mixplayer/TbMixPlayerConfig;", "getTbMixPlayerConfig", "()Lcom/baidu/tieba/pb/mixplayer/TbMixPlayerConfig;", "setTbMixPlayerConfig", "(Lcom/baidu/tieba/pb/mixplayer/TbMixPlayerConfig;)V", "tbVideoView", "Lcom/baidu/tieba/play/TbVideoView;", "getPlayerHeight", "", "initClickListener", "", "initLiveCloseCover", "initLiveCloseCoverMask", "initLiveCloseIcon", "initLiveLabelView", "initLiveLoading", "initLivePlayer", "liveMixPlayerConfig", "Lcom/baidu/tieba/pb/mixplayer/TbLiveMixPlayerConfig;", "initLiveRoomEntranceButton", "tbLiveMixPlayerConfig", "initVideoView", "loadLiveCover", "coverView", DownloadStatisticConstants.UBC_TYPE_PAUSE, "play", "release", DownloadStatisticConstants.UBC_TYPE_RESUME, "setLiveViewScale", "setMixPlayerConfig", "mixPlayerConfig", "setMixPlayerViewSize", "view", "aspectRadio", "", "setViewByLiveStatus", "stop", "ClickCallback", "PlayerStatusCallBack", "pb_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes7.dex */
 public final class TbMixPlayerView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TbVideoView a;
     public final Lazy b;
-    public hh9 c;
+    public mu9 c;
     public a d;
     public b e;
     public TbLiveMixPlayerConfig.LiveStatus f;
@@ -145,7 +145,7 @@ public final class TbMixPlayerView extends RelativeLayout {
     public static final class d extends CustomTarget<Bitmap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbMixPlayerView a;
+        public final /* synthetic */ ImageView a;
 
         @Override // com.bumptech.glide.request.target.Target
         public void onLoadCleared(Drawable drawable) {
@@ -154,12 +154,12 @@ public final class TbMixPlayerView extends RelativeLayout {
             }
         }
 
-        public d(TbMixPlayerView tbMixPlayerView) {
+        public d(ImageView imageView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tbMixPlayerView};
+                Object[] objArr = {imageView};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -169,14 +169,14 @@ public final class TbMixPlayerView extends RelativeLayout {
                     return;
                 }
             }
-            this.a = tbMixPlayerView;
+            this.a = imageView;
         }
 
         public void onResourceReady(Bitmap resource, Transition<? super Bitmap> transition) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, resource, transition) == null) {
                 Intrinsics.checkNotNullParameter(resource, "resource");
-                this.a.getLiveCloseCover().setImageBitmap(cr5.a(resource, 50, false));
+                this.a.setImageBitmap(ws5.a(resource, 50, false));
             }
         }
 
@@ -502,43 +502,11 @@ public final class TbMixPlayerView extends RelativeLayout {
         this(context, (i & 2) != 0 ? null : attributeSet);
     }
 
-    public final void i(TbLiveMixPlayerConfig tbLiveMixPlayerConfig) {
+    public final void r(View view2, float f) {
+        ViewGroup.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, tbLiveMixPlayerConfig) == null) {
-            BasicVideoSeries basicVideoSeries$default = BasicVideoSeriesKt.toBasicVideoSeries$default(tbLiveMixPlayerConfig.a().mFlv, false, 1, null);
-            basicVideoSeries$default.setKernelType(YYVideoKernel.KERNEL_TYPE_YY);
-            YYUtil.setYYBufferSize(basicVideoSeries$default, 8192);
-            basicVideoSeries$default.setPreRenderOptionState(OptionState.ENABLE);
-            this.a.setVideoSeries(basicVideoSeries$default, true);
-        }
-    }
-
-    public final void setLiveStatus(TbLiveMixPlayerConfig.LiveStatus liveStatus) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, liveStatus) == null) {
-            Intrinsics.checkNotNullParameter(liveStatus, "<set-?>");
-            this.f = liveStatus;
-        }
-    }
-
-    public final void setOnClickCallback(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, aVar) == null) {
-            this.d = aVar;
-        }
-    }
-
-    public final void setPlayerStatusCallBack(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, bVar) == null) {
-            this.e = bVar;
-        }
-    }
-
-    public final void setTbMixPlayerConfig(hh9 hh9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, hh9Var) == null) {
-            this.c = hh9Var;
+        if ((interceptable == null || interceptable.invokeLF(1048595, this, view2, f) == null) && f > 0.0f && (layoutParams = view2.getLayoutParams()) != null) {
+            layoutParams.height = MathKt__MathJVMKt.roundToInt(BdUtilHelper.getEquipmentWidth(getContext(), true) / f);
         }
     }
 
@@ -548,9 +516,9 @@ public final class TbMixPlayerView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            hh9 hh9Var = this$0.c;
-            if (hh9Var instanceof TbLiveMixPlayerConfig) {
-                tbLiveMixPlayerConfig = (TbLiveMixPlayerConfig) hh9Var;
+            mu9 mu9Var = this$0.c;
+            if (mu9Var instanceof TbLiveMixPlayerConfig) {
+                tbLiveMixPlayerConfig = (TbLiveMixPlayerConfig) mu9Var;
             } else {
                 tbLiveMixPlayerConfig = null;
             }
@@ -572,8 +540,7 @@ public final class TbMixPlayerView extends RelativeLayout {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public final ImageView getLiveCloseCover() {
+    private final ImageView getLiveCloseCover() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
@@ -630,7 +597,7 @@ public final class TbMixPlayerView extends RelativeLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.gh9
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lu9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -694,20 +661,20 @@ public final class TbMixPlayerView extends RelativeLayout {
         return (b) invokeV.objValue;
     }
 
-    public final hh9 getTbMixPlayerConfig() {
+    public final mu9 getTbMixPlayerConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.c;
         }
-        return (hh9) invokeV.objValue;
+        return (mu9) invokeV.objValue;
     }
 
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             addView(this.a, new RelativeLayout.LayoutParams(-1, -1));
-            this.a.setVideoStatusChangeListener(new OnStatusChangedListener() { // from class: com.baidu.tieba.fh9
+            this.a.setVideoStatusChangeListener(new OnStatusChangedListener() { // from class: com.baidu.tieba.ku9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -727,7 +694,7 @@ public final class TbMixPlayerView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             DefaultLog.getInstance().i("TbMixPlayer", "释放-release");
-            this.a.M();
+            this.a.O();
             b bVar = this.e;
             if (bVar != null) {
                 bVar.onRelease();
@@ -739,7 +706,7 @@ public final class TbMixPlayerView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             DefaultLog.getInstance().i("TbMixPlayer", "停止-stop");
-            this.a.T();
+            this.a.V();
             b bVar = this.e;
             if (bVar != null) {
                 bVar.onStop();
@@ -782,7 +749,7 @@ public final class TbMixPlayerView extends RelativeLayout {
                         getLiveCloseIcon().setVisibility(0);
                         getLiveCloseCover().setVisibility(0);
                         getLiveCloseCoverMask().setVisibility(0);
-                        m();
+                        m(getLiveCloseCover());
                     }
                 } else {
                     getLiveLabelView().setVisibility(0);
@@ -799,7 +766,7 @@ public final class TbMixPlayerView extends RelativeLayout {
                 getLiveCloseIcon().setVisibility(8);
                 getLiveLabelView().setVisibility(8);
                 getLiveRoomEntranceButton().setVisibility(8);
-                m();
+                m(getLiveCloseCover());
             }
             this.f = liveStatus;
         }
@@ -825,22 +792,6 @@ public final class TbMixPlayerView extends RelativeLayout {
         layoutParams.bottomMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X005);
         addView(getLiveCloseIcon(), layoutParams);
         SkinManager.setImageResource(getLiveCloseIcon(), R.drawable.icon_live_stop_play);
-    }
-
-    public final void m() {
-        TbLiveMixPlayerConfig tbLiveMixPlayerConfig;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            hh9 hh9Var = this.c;
-            if (hh9Var instanceof TbLiveMixPlayerConfig) {
-                tbLiveMixPlayerConfig = (TbLiveMixPlayerConfig) hh9Var;
-            } else {
-                tbLiveMixPlayerConfig = null;
-            }
-            if (tbLiveMixPlayerConfig != null) {
-                d dVar = (d) Glide.with(this).asBitmap().load(tbLiveMixPlayerConfig.a().cover).into((RequestBuilder<Bitmap>) new d(this));
-            }
-        }
     }
 
     public final void n() {
@@ -906,21 +857,59 @@ public final class TbMixPlayerView extends RelativeLayout {
         TbLiveMixPlayerConfig tbLiveMixPlayerConfig;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            hh9 hh9Var = this.c;
-            if (hh9Var instanceof TbLiveMixPlayerConfig) {
-                tbLiveMixPlayerConfig = (TbLiveMixPlayerConfig) hh9Var;
+            mu9 mu9Var = this.c;
+            if (mu9Var instanceof TbLiveMixPlayerConfig) {
+                tbLiveMixPlayerConfig = (TbLiveMixPlayerConfig) mu9Var;
             } else {
                 tbLiveMixPlayerConfig = null;
             }
             if (tbLiveMixPlayerConfig != null) {
-                az4 az4Var = tbLiveMixPlayerConfig.a().mContainerSize;
-                az4 az4Var2 = tbLiveMixPlayerConfig.a().mPlayerSize;
-                if (az4Var != null && az4Var2 != null && !az4Var.c() && !az4Var2.c()) {
-                    r(this, (az4Var.b() * 1.0f) / az4Var.a());
+                sz4 sz4Var = tbLiveMixPlayerConfig.a().mContainerSize;
+                sz4 sz4Var2 = tbLiveMixPlayerConfig.a().mPlayerSize;
+                if (sz4Var != null && sz4Var2 != null && !sz4Var.c() && !sz4Var2.c()) {
+                    r(this, (sz4Var.b() * 1.0f) / sz4Var.a());
                 } else {
                     r(this, 1.78f);
                 }
             }
+        }
+    }
+
+    public final void i(TbLiveMixPlayerConfig tbLiveMixPlayerConfig) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, tbLiveMixPlayerConfig) == null) {
+            BasicVideoSeries basicVideoSeries$default = BasicVideoSeriesKt.toBasicVideoSeries$default(tbLiveMixPlayerConfig.a().mFlv, false, 1, null);
+            basicVideoSeries$default.setPreRenderOptionState(OptionState.ENABLE);
+            this.a.setVideoSeries(basicVideoSeries$default, true);
+        }
+    }
+
+    public final void setLiveStatus(TbLiveMixPlayerConfig.LiveStatus liveStatus) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, liveStatus) == null) {
+            Intrinsics.checkNotNullParameter(liveStatus, "<set-?>");
+            this.f = liveStatus;
+        }
+    }
+
+    public final void setOnClickCallback(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, aVar) == null) {
+            this.d = aVar;
+        }
+    }
+
+    public final void setPlayerStatusCallBack(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, bVar) == null) {
+            this.e = bVar;
+        }
+    }
+
+    public final void setTbMixPlayerConfig(mu9 mu9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, mu9Var) == null) {
+            this.c = mu9Var;
         }
     }
 
@@ -938,7 +927,23 @@ public final class TbMixPlayerView extends RelativeLayout {
         }
     }
 
-    public final void setMixPlayerConfig(hh9 mixPlayerConfig) {
+    public final void m(ImageView imageView) {
+        TbLiveMixPlayerConfig tbLiveMixPlayerConfig;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, imageView) == null) {
+            mu9 mu9Var = this.c;
+            if (mu9Var instanceof TbLiveMixPlayerConfig) {
+                tbLiveMixPlayerConfig = (TbLiveMixPlayerConfig) mu9Var;
+            } else {
+                tbLiveMixPlayerConfig = null;
+            }
+            if (tbLiveMixPlayerConfig != null) {
+                d dVar = (d) Glide.with(this).asBitmap().load(tbLiveMixPlayerConfig.a().cover).into((RequestBuilder<Bitmap>) new d(imageView));
+            }
+        }
+    }
+
+    public final void setMixPlayerConfig(mu9 mixPlayerConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, mixPlayerConfig) == null) {
             Intrinsics.checkNotNullParameter(mixPlayerConfig, "mixPlayerConfig");
@@ -955,15 +960,113 @@ public final class TbMixPlayerView extends RelativeLayout {
                 f();
                 h();
                 this.f = TbLiveMixPlayerConfig.LiveStatus.INIT;
-            }
-        }
-    }
+                this.a.v();
+                this.a.F(new AbsLayer(this) { // from class: com.baidu.tieba.pb.mixplayer.TbMixPlayerView$setMixPlayerConfig$1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final Lazy a;
+                    public final /* synthetic */ TbMixPlayerView b;
 
-    public final void r(View view2, float f) {
-        ViewGroup.LayoutParams layoutParams;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLF(1048595, this, view2, f) == null) && f > 0.0f && (layoutParams = view2.getLayoutParams()) != null) {
-            layoutParams.height = MathKt__MathJVMKt.roundToInt(BdUtilHelper.getEquipmentWidth(getContext(), true) / f);
+                    @Override // com.baidu.searchbox.player.interfaces.INeuron
+                    public int[] getSubscribeEvent() {
+                        InterceptResult invokeV;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                            return null;
+                        }
+                        return (int[]) invokeV.objValue;
+                    }
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.b = this;
+                        this.a = LazyKt__LazyJVMKt.lazy(new Function0<FrameLayout>(this) { // from class: com.baidu.tieba.pb.mixplayer.TbMixPlayerView$setMixPlayerConfig$1$liveVideoCoverView$2
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+                            public final /* synthetic */ TbMixPlayerView this$0;
+
+                            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                            {
+                                super(0);
+                                Interceptable interceptable3 = $ic;
+                                if (interceptable3 != null) {
+                                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                                    newInitContext2.initArgs = r2;
+                                    Object[] objArr2 = {this};
+                                    interceptable3.invokeUnInit(65536, newInitContext2);
+                                    int i3 = newInitContext2.flag;
+                                    if ((i3 & 1) != 0) {
+                                        int i4 = i3 & 2;
+                                        super(((Integer) newInitContext2.callArgs[0]).intValue());
+                                        newInitContext2.thisArg = this;
+                                        interceptable3.invokeInitBody(65536, newInitContext2);
+                                        return;
+                                    }
+                                }
+                                this.this$0 = this;
+                            }
+
+                            /* JADX DEBUG: Method merged with bridge method */
+                            /* JADX WARN: Can't rename method to resolve collision */
+                            @Override // kotlin.jvm.functions.Function0
+                            public final FrameLayout invoke() {
+                                InterceptResult invokeV;
+                                Interceptable interceptable3 = $ic;
+                                if (interceptable3 == null || (invokeV = interceptable3.invokeV(1048576, this)) == null) {
+                                    FrameLayout frameLayout = new FrameLayout(this.this$0.getContext());
+                                    ImageView imageView = new ImageView(this.this$0.getContext());
+                                    imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                                    frameLayout.setTag(imageView);
+                                    frameLayout.addView(imageView);
+                                    View view2 = new View(this.this$0.getContext());
+                                    frameLayout.addView(view2);
+                                    EMManager.from(view2).setBackGroundColor(R.color.CAM_X0605);
+                                    return frameLayout;
+                                }
+                                return (FrameLayout) invokeV.objValue;
+                            }
+                        });
+                    }
+
+                    public final FrameLayout a() {
+                        InterceptResult invokeV;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                            return (FrameLayout) this.a.getValue();
+                        }
+                        return (FrameLayout) invokeV.objValue;
+                    }
+
+                    @Override // com.baidu.searchbox.player.layer.ILayer
+                    public View getContentView() {
+                        InterceptResult invokeV;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                            TbMixPlayerView tbMixPlayerView = this.b;
+                            Object tag = a().getTag();
+                            if (tag == null) {
+                                throw new NullPointerException("null cannot be cast to non-null type android.widget.ImageView");
+                            }
+                            tbMixPlayerView.m((ImageView) tag);
+                            return a();
+                        }
+                        return (View) invokeV.objValue;
+                    }
+                }, 0);
+            }
         }
     }
 }

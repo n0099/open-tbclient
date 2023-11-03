@@ -1,141 +1,142 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.VideoRecommentPlayActivityConfig;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.tieba.im.data.GroupMsgData;
+import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.message.PushMessage;
+import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.xp8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class bq8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdTypeRecyclerView a;
-    public ArrayList<yh> b;
-    public List<lh> c;
-    public xp8 d;
-    public xp8 e;
-    public xp8 f;
-    public zp8 g;
-    public zp8 h;
-    public zp8 i;
 
-    public bq8(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes5.dex */
+    public class a implements xp8.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.xp8.c
+        public boolean a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return true;
             }
+            return invokeL.booleanValue;
         }
-        this.c = new LinkedList();
-        if (tbPageContext != null && bdTypeRecyclerView != null) {
-            this.a = bdTypeRecyclerView;
-            b(tbPageContext);
-        }
-    }
 
-    public void a(int i) {
-        BdTypeRecyclerView bdTypeRecyclerView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (bdTypeRecyclerView = this.a) != null) {
-            bdTypeRecyclerView.removeItem(i);
-        }
-    }
-
-    public void e(ii iiVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, iiVar) == null) {
-            for (lh lhVar : this.c) {
-                if (lhVar != null) {
-                    lhVar.setOnAdapterItemClickListener(iiVar);
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
     }
 
-    public void f(ArrayList<yh> arrayList) {
+    public static GroupNewsPojo a(ChatMessage chatMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, arrayList) == null) {
-            this.a.setData(arrayList);
-            this.b = arrayList;
-        }
-    }
-
-    public void g(ji jiVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, jiVar) == null) {
-            for (lh lhVar : this.c) {
-                if (lhVar != null) {
-                    lhVar.setOnAdapterItemLongClickListener(jiVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, chatMessage)) == null) {
+            String content = chatMessage.getContent();
+            if (TextUtils.isEmpty(content)) {
+                return null;
+            }
+            try {
+                if (content.startsWith(PreferencesUtil.LEFT_MOUNT)) {
+                    return null;
                 }
+                String optString = new JSONObject(content).optString("eventId");
+                if (TextUtils.isEmpty(optString)) {
+                    return null;
+                }
+                GroupNewsPojo groupNewsPojo = new GroupNewsPojo(chatMessage, optString);
+                groupNewsPojo.setOriginalPushMsg(chatMessage);
+                return groupNewsPojo;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return null;
             }
         }
+        return (GroupNewsPojo) invokeL.objValue;
     }
 
-    public void h(bk6 bk6Var) {
+    public static LinkedList<GroupNewsPojo> b(LinkedList<ChatMessage> linkedList) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bk6Var) == null) {
-            this.i.x(bk6Var);
-            this.h.x(bk6Var);
-            this.g.x(bk6Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, linkedList)) == null) {
+            if (linkedList != null && linkedList.size() != 0) {
+                LinkedList<GroupNewsPojo> linkedList2 = new LinkedList<>();
+                Iterator<ChatMessage> it = linkedList.iterator();
+                while (it.hasNext()) {
+                    GroupNewsPojo a2 = a(it.next());
+                    if (a2 != null) {
+                        linkedList2.add(a2);
+                    }
+                }
+                return linkedList2;
+            }
+            return null;
+        }
+        return (LinkedList) invokeL.objValue;
+    }
+
+    public static void c(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, xp8.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, groupMsgData, imMessageCenterPojo, bVar) == null) {
+            xp8.d(groupMsgData, imMessageCenterPojo, bVar, new a(), false);
         }
     }
 
-    public final void b(TbPageContext tbPageContext) {
+    public static void d(GroupMsgData groupMsgData) {
+        LinkedList<GroupNewsPojo> b;
+        PushMessage newInstance;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) {
-            xp8 xp8Var = new xp8(tbPageContext, vp8.D);
-            this.d = xp8Var;
-            xp8Var.u(VideoRecommentPlayActivityConfig.FROM_AGREE_PAGE);
-            xp8 xp8Var2 = new xp8(tbPageContext, vp8.E);
-            this.e = xp8Var2;
-            xp8Var2.u(VideoRecommentPlayActivityConfig.FROM_AGREE_PAGE);
-            xp8 xp8Var3 = new xp8(tbPageContext, vp8.F);
-            this.f = xp8Var3;
-            xp8Var3.u(VideoRecommentPlayActivityConfig.FROM_AGREE_PAGE);
-            zp8 zp8Var = new zp8(tbPageContext, vp8.I);
-            this.g = zp8Var;
-            zp8Var.u(VideoRecommentPlayActivityConfig.FROM_REPLY_PAGE);
-            zp8 zp8Var2 = new zp8(tbPageContext, vp8.H);
-            this.h = zp8Var2;
-            zp8Var2.u(VideoRecommentPlayActivityConfig.FROM_REPLY_PAGE);
-            zp8 zp8Var3 = new zp8(tbPageContext, vp8.G);
-            this.i = zp8Var3;
-            zp8Var3.u(VideoRecommentPlayActivityConfig.FROM_REPLY_PAGE);
-            this.c.add(this.d);
-            this.c.add(this.e);
-            this.c.add(this.g);
-            this.c.add(this.h);
-            this.c.add(this.i);
-            this.c.add(this.f);
-            this.a.addAdapters(this.c);
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.getAdapter().notifyDataSetChanged();
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            for (lh lhVar : this.c) {
+        if ((interceptable == null || interceptable.invokeL(65539, null, groupMsgData) == null) && (b = b(groupMsgData.getListMessage())) != null && !b.isEmpty()) {
+            long j = 0;
+            LinkedList<GroupNewsPojo> linkedList = new LinkedList<>();
+            Iterator<GroupNewsPojo> it = b.iterator();
+            while (it.hasNext()) {
+                GroupNewsPojo next = it.next();
+                if (!TextUtils.isEmpty(next.getNotice_id())) {
+                    long parseLong = Long.parseLong(next.getNotice_id());
+                    if (parseLong > j) {
+                        j = parseLong;
+                    }
+                }
+            }
+            pq8.c().i(linkedList);
+            ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
+            imMessageCenterPojo.setGid(String.valueOf(groupMsgData.getGroupInfo().getGroupId()));
+            imMessageCenterPojo.setIs_hidden(1);
+            imMessageCenterPojo.setCustomGroupType(-2);
+            imMessageCenterPojo.setPulled_msgId(j);
+            vq8.f().k(imMessageCenterPojo);
+            Iterator<GroupNewsPojo> it2 = b.iterator();
+            while (it2.hasNext()) {
+                GroupNewsPojo next2 = it2.next();
+                if (next2 != null && (newInstance = PushMessage.newInstance(next2)) != null) {
+                    MessageManager.getInstance().dispatchResponsedMessageToUI(newInstance);
+                }
             }
         }
     }

@@ -2,15 +2,12 @@ package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import rx.internal.operators.CachedObservable$ReplayProducer;
 /* loaded from: classes6.dex */
-public final class h7c<T> extends w8c implements i6c<T> {
+public abstract class h7c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void c(CachedObservable$ReplayProducer<T> cachedObservable$ReplayProducer);
+    public abstract boolean a();
 
-    public abstract void d();
-
-    public abstract void e(CachedObservable$ReplayProducer<T> cachedObservable$ReplayProducer);
+    public abstract h7c b(Runnable runnable);
 }

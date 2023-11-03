@@ -35,11 +35,11 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.data.IconData;
 import com.baidu.tbadk.switchs.NickNameActivitySwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aq4;
-import com.baidu.tieba.cd9;
-import com.baidu.tieba.k4;
+import com.baidu.tieba.a5;
+import com.baidu.tieba.hq9;
 import com.baidu.tieba.pushdialog.PushDialogActivity;
-import com.baidu.tieba.zp4;
+import com.baidu.tieba.qq4;
+import com.baidu.tieba.rq4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -103,8 +103,8 @@ public class ThreadUserInfoLayout extends LinearLayout {
         public void onClick(View view2) {
             String url;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ViewHelper.checkUpIsLogin(this.a.q) && this.a.p != null && this.a.p.getAuthor() != null && this.a.p.getAuthor().getTShowInfoNew() != null && ListUtils.getItem(this.a.p.getAuthor().getTShowInfoNew(), 0) != null && (url = this.a.p.getAuthor().getTShowInfoNew().get(0).getUrl()) != null && (k4.a(this.a.q) instanceof TbPageContext)) {
-                UrlManager.getInstance().dealOneLink((TbPageContext) k4.a(this.a.q), new String[]{url});
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ViewHelper.checkUpIsLogin(this.a.q) && this.a.p != null && this.a.p.getAuthor() != null && this.a.p.getAuthor().getTShowInfoNew() != null && ListUtils.getItem(this.a.p.getAuthor().getTShowInfoNew(), 0) != null && (url = this.a.p.getAuthor().getTShowInfoNew().get(0).getUrl()) != null && (a5.a(this.a.q) instanceof TbPageContext)) {
+                UrlManager.getInstance().dealOneLink((TbPageContext) a5.a(this.a.q), new String[]{url});
             }
         }
     }
@@ -238,10 +238,10 @@ public class ThreadUserInfoLayout extends LinearLayout {
         if (threadData != null && threadData.getAuthor() != null && threadData.getAuthor().getAlaUserData() != null) {
             AlaUserInfoData alaUserData = threadData.getAuthor().getAlaUserData();
             if (this.k != null) {
-                zp4 zp4Var = new zp4();
-                zp4Var.a = alaUserData;
-                zp4Var.b = 1;
-                this.k.setTag(zp4Var);
+                qq4 qq4Var = new qq4();
+                qq4Var.a = alaUserData;
+                qq4Var.b = 1;
+                this.k.setTag(qq4Var);
                 if (alaUserData.anchor_live == 0) {
                     this.k.setVisibility(8);
                     return;
@@ -412,13 +412,13 @@ public class ThreadUserInfoLayout extends LinearLayout {
             this.e = (UserIconBox) inflate.findViewById(R.id.card_home_page_normal_thread_user_icon);
             this.f = (TextView) inflate.findViewById(R.id.thread_info_reply_time);
             this.g = (TextView) inflate.findViewById(R.id.thread_info_address);
-            this.h = inflate.findViewById(R.id.obfuscated_res_0x7f090904);
+            this.h = inflate.findViewById(R.id.obfuscated_res_0x7f090925);
             this.n = findViewById(R.id.divider_forum_name);
             this.o = (TextView) findViewById(R.id.thread_info_forum_name);
             this.i = (TextView) inflate.findViewById(R.id.card_home_page_normal_thread_share_intro);
             this.j = (TextView) inflate.findViewById(R.id.thread_user_info_has_concern_lable);
             this.l = (FrameLayout) inflate.findViewById(R.id.ala_live_info_content_layout);
-            View a2 = aq4.b().a(this.q, 1);
+            View a2 = rq4.b().a(this.q, 1);
             this.k = a2;
             if (a2 != null) {
                 a2.setVisibility(8);
@@ -631,9 +631,9 @@ public class ThreadUserInfoLayout extends LinearLayout {
                 String name_show = this.p.getAuthor().getName_show();
                 String userName = this.p.getAuthor().getUserName();
                 if (NickNameActivitySwitch.isOn() && name_show != null && !name_show.equals(userName)) {
-                    this.c.setText(cd9.b(this.q, this.c.getText().toString()));
+                    this.c.setText(hq9.b(this.q, this.c.getText().toString()));
                     this.c.setGravity(16);
-                    this.c.setTag(R.id.tag_nick_name_activity, cd9.a());
+                    this.c.setTag(R.id.tag_nick_name_activity, hq9.a());
                     SkinManager.setViewTextColor(this.c, R.color.CAM_X0312, 1);
                 }
             }
@@ -718,7 +718,7 @@ public class ThreadUserInfoLayout extends LinearLayout {
             if (threadData2.middle_page_num > 0 && threadData2.middle_page_pass_flag == 0) {
                 str = getContext().getString(R.string.select_video_list);
             } else {
-                str = StringHelper.cutChineseAndEnglishWithSuffix(str2, 12, "...") + getResources().getString(R.string.obfuscated_res_0x7f0f0785);
+                str = StringHelper.cutChineseAndEnglishWithSuffix(str2, 12, "...") + getResources().getString(R.string.obfuscated_res_0x7f0f0787);
             }
             this.o.setText(str);
             this.o.setVisibility(0);

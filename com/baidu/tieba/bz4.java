@@ -1,21 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.FrsPage.YuleActivity;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.SeniorLottery;
 /* loaded from: classes5.dex */
 public class bz4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
+    public zx4 a;
+    public List<lw4> b;
+    public List<mw4> c;
+    public List<yx4> d;
 
     public bz4() {
         Interceptable interceptable = $ic;
@@ -31,58 +30,36 @@ public class bz4 {
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public void a(SeniorLottery seniorLottery) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void d(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, seniorLottery) != null) || seniorLottery == null) {
             return;
         }
-        try {
-            jSONObject.optLong("activity_id");
-            jSONObject.optInt("activity_type");
-            this.a = jSONObject.optString("activity_url");
-            this.b = jSONObject.optString("activity_all_icon");
-            this.c = jSONObject.optString("activity_half_icon");
-        } catch (Exception e) {
-            BdLog.e(e.toString());
+        zx4 zx4Var = new zx4();
+        this.a = zx4Var;
+        zx4Var.a(seniorLottery.theme);
+        this.b = new ArrayList();
+        int size = seniorLottery.award_info.size();
+        for (int i = 0; i < size; i++) {
+            lw4 lw4Var = new lw4();
+            lw4Var.a(seniorLottery.award_info.get(i));
+            this.b.add(lw4Var);
         }
-    }
-
-    public void e(YuleActivity yuleActivity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, yuleActivity) != null) || yuleActivity == null) {
-            return;
+        String str = seniorLottery.myaward;
+        this.c = new ArrayList();
+        int size2 = seniorLottery.luck_users.size();
+        for (int i2 = 0; i2 < size2; i2++) {
+            mw4 mw4Var = new mw4();
+            mw4Var.a(seniorLottery.luck_users.get(i2));
+            this.c.add(mw4Var);
         }
-        yuleActivity.activity_id.longValue();
-        yuleActivity.activity_type.intValue();
-        this.a = yuleActivity.activity_url;
-        this.b = yuleActivity.activity_all_icon;
-        this.c = yuleActivity.activity_half_icon;
+        String str2 = seniorLottery.act_desc;
+        this.d = new ArrayList();
+        int size3 = seniorLottery.act_regular.size();
+        for (int i3 = 0; i3 < size3; i3++) {
+            yx4 yx4Var = new yx4();
+            yx4Var.a(seniorLottery.act_regular.get(i3));
+            this.d.add(yx4Var);
+        }
     }
 }

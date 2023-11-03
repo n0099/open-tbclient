@@ -1,194 +1,334 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
-import android.os.Build;
-import android.os.Process;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.res.Resources;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.tieba.rm0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class q81 {
+public class q81 extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Class a;
-    public Class b;
-    public Method c;
-    public Method d;
-    public Method e;
-    public Method f;
-    public boolean g;
+    public d a;
 
-    public q81() {
+    /* loaded from: classes7.dex */
+    public interface d {
+        void a(List<rm0.a> list);
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ List a;
+        public final /* synthetic */ AdBaseModel b;
+        public final /* synthetic */ q81 c;
+
+        public a(q81 q81Var, List list, AdBaseModel adBaseModel) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q81Var, list, adBaseModel};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = q81Var;
+            this.a = list;
+            this.b = adBaseModel;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.c.a != null) {
+                    this.c.a.a(this.a);
+                }
+                this.c.g(this.b, this.a);
+                this.c.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AdBaseModel a;
+        public final /* synthetic */ q81 b;
+
+        public b(q81 q81Var, AdBaseModel adBaseModel) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q81Var, adBaseModel};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = q81Var;
+            this.a = adBaseModel;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.b.dismiss();
+                pe0.c(this.a.g.c, this.b.getContext());
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rm0.a a;
+        public final /* synthetic */ List b;
+        public final /* synthetic */ TextView c;
+        public final /* synthetic */ TextView d;
+        public final /* synthetic */ q81 e;
+
+        public c(q81 q81Var, rm0.a aVar, List list, TextView textView, TextView textView2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q81Var, aVar, list, textView, textView2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = q81Var;
+            this.a = aVar;
+            this.b = list;
+            this.c = textView;
+            this.d = textView2;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.a.c()) {
+                    this.a.f(false);
+                    if (this.b.contains(this.a)) {
+                        ky0.j(this.b, this.a);
+                    }
+                    if (this.b.size() == 0) {
+                        this.c.setText(view2.getContext().getResources().getText(R.string.nad_dislike_dislike));
+                    }
+                    this.d.setTextColor(view2.getContext().getResources().getColor(R.color.NAD_FC1));
+                    return;
+                }
+                this.a.f(true);
+                if (!this.b.contains(this.a)) {
+                    ky0.b(this.b, this.a);
+                }
+                this.d.setTextColor(view2.getContext().getResources().getColor(R.color.NAD_FC13));
+                this.c.setText(view2.getContext().getResources().getText(R.string.nad_dislike_done));
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public q81(Context context, @NonNull AdBaseModel adBaseModel) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, adBaseModel};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        e();
+        f(adBaseModel);
     }
 
-    public static boolean g() {
-        InterceptResult invokeV;
+    public final void g(AdBaseModel adBaseModel, List<rm0.a> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            int i = Build.VERSION.SDK_INT;
-            if (i >= 23) {
-                return Process.is64Bit();
-            }
-            if (i < 21) {
-                return false;
-            }
-            String[] strArr = Build.SUPPORTED_64_BIT_ABIS;
-            if (strArr.length <= 0) {
-                return false;
-            }
-            return Build.CPU_ABI.equals(strArr[0]);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void a(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-            try {
-                this.f.invoke(obj, new Object[0]);
-            } catch (Throwable th) {
-                th.printStackTrace();
-            }
-        }
-    }
-
-    @SuppressLint({"PrivateApi"})
-    public final Object c(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file)) == null) {
-            try {
-                return this.c.invoke(null, file);
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return null;
-            }
-        }
-        return invokeL.objValue;
-    }
-
-    @TargetApi(21)
-    public boolean b(Object obj, String str, File file) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, str, file)) == null) {
-            try {
-                if (((Integer) this.e.invoke(null, obj, file, str)).intValue() != 1) {
-                    return false;
-                }
-                return true;
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return false;
-            }
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public int d(Object obj, String[] strArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, obj, strArr)) == null) {
-            try {
-                System.currentTimeMillis();
-                return ((Integer) this.d.invoke(null, obj, strArr)).intValue();
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return -1;
-            }
-        }
-        return invokeLL.intValue;
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || !v81.d()) {
+        if ((interceptable != null && interceptable.invokeLL(1048580, this, adBaseModel, list) != null) || adBaseModel == null) {
             return;
         }
-        try {
-            Class<?> a = v81.a("com.android.internal.content.NativeLibraryHelper$Handle");
-            this.a = a;
-            Method b = v81.b(a, "create", File.class);
-            this.c = b;
-            b.setAccessible(true);
-            Method b2 = v81.b(this.a, "close", new Class[0]);
-            this.f = b2;
-            b2.setAccessible(true);
-            Class<?> a2 = v81.a("com.android.internal.content.NativeLibraryHelper");
-            this.b = a2;
-            Method b3 = v81.b(a2, "copyNativeBinaries", this.a, File.class, String.class);
-            this.e = b3;
-            b3.setAccessible(true);
-            Method b4 = v81.b(this.b, "findSupportedAbi", this.a, String[].class);
-            this.d = b4;
-            b4.setAccessible(true);
-            this.g = true;
-        } catch (Throwable th) {
-            th.printStackTrace();
+        az0.e(new ez0().e(e(list)).g(adBaseModel.f.d).f(gf0.a().g()));
+    }
+
+    public final List<rm0.a> d(AdBaseModel adBaseModel) {
+        InterceptResult invokeL;
+        rm0 rm0Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adBaseModel)) == null) {
+            if (adBaseModel != null && (rm0Var = adBaseModel.g) != null) {
+                return rm0Var.b;
+            }
+            return null;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public void h(d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, dVar) == null) {
+            this.a = dVar;
         }
     }
 
-    public boolean f(String str, File file) {
-        InterceptResult invokeLL;
-        String[] strArr;
-        String str2;
+    public final void c(AdBaseModel adBaseModel) {
+        int i;
+        rm0 rm0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, file)) == null) {
-            Object c = c(new File(str));
-            if (c == null) {
-                return false;
-            }
-            if (Build.VERSION.SDK_INT >= 21) {
-                if (g()) {
-                    strArr = Build.SUPPORTED_64_BIT_ABIS;
-                } else {
-                    strArr = Build.SUPPORTED_32_BIT_ABIS;
+        if (interceptable == null || interceptable.invokeL(1048576, this, adBaseModel) == null) {
+            ArrayList arrayList = new ArrayList();
+            ViewGroup viewGroup = null;
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.nad_dialog_menu_new_dislike, (ViewGroup) null);
+            TextView textView = (TextView) inflate.findViewById(R.id.tv_bottom);
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f091578);
+            textView.setText(getContext().getString(R.string.nad_dislike_dislike));
+            textView.setOnClickListener(new a(this, arrayList, adBaseModel));
+            inflate.setBackground(inflate.getContext().getResources().getDrawable(R.drawable.nad_bg_bottom_popup_ffffff));
+            Resources resources = inflate.getContext().getResources();
+            int i2 = R.color.NAD_FC1;
+            textView.setTextColor(resources.getColor(R.color.NAD_FC1));
+            findViewById.setBackgroundColor(inflate.getContext().getResources().getColor(R.color.NAD_FC96));
+            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.layout_enum);
+            LayoutInflater from = LayoutInflater.from(inflate.getContext());
+            TextView textView2 = (TextView) inflate.findViewById(R.id.tv_why_show_ad);
+            if (adBaseModel != null && (rm0Var = adBaseModel.g) != null && !TextUtils.isEmpty(rm0Var.c)) {
+                if (!TextUtils.isEmpty(adBaseModel.g.a)) {
+                    textView2.setText(adBaseModel.g.a);
                 }
+                textView2.setVisibility(0);
+                textView2.setOnClickListener(new b(this, adBaseModel));
             } else {
-                strArr = new String[]{Build.CPU_ABI, Build.CPU_ABI2};
+                textView2.setVisibility(8);
             }
-            int d = d(c, strArr);
-            if (d == -114) {
-                a(c);
-                return true;
+            List<rm0.a> d2 = d(adBaseModel);
+            if (d2 == null) {
+                linearLayout.setVisibility(8);
+                return;
             }
-            if (d >= 0 && d < strArr.length) {
-                str2 = strArr[d];
-            } else {
-                str2 = null;
+            int min = Math.min(d2.size(), 7);
+            int i3 = 0;
+            while (i3 < min) {
+                rm0.a aVar = (rm0.a) ky0.d(d2, i3);
+                if (aVar != null && !TextUtils.isEmpty(aVar.a())) {
+                    View inflate2 = from.inflate(R.layout.nad_item_menu_new_dislike, viewGroup);
+                    TextView textView3 = (TextView) inflate2.findViewById(R.id.tv_enum);
+                    textView3.setText(aVar.a());
+                    textView3.setTextColor(inflate.getContext().getResources().getColor(i2));
+                    i = i3;
+                    inflate2.setOnClickListener(new c(this, aVar, arrayList, textView, textView3));
+                    linearLayout.addView(inflate2);
+                } else {
+                    i = i3;
+                }
+                i3 = i + 1;
+                viewGroup = null;
+                i2 = R.color.NAD_FC1;
             }
-            boolean b = b(c, str2, file);
-            a(c);
-            return b;
+            setContentView(inflate);
         }
-        return invokeLL.booleanValue;
+    }
+
+    public String e(List<rm0.a> list) {
+        InterceptResult invokeL;
+        rm0.a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
+            if (list == null) {
+                return "{}";
+            }
+            String str = "";
+            for (int i = 0; i < list.size(); i++) {
+                if (((rm0.a) ky0.d(list, i)) != null) {
+                    if (!TextUtils.isEmpty(str)) {
+                        str = str + "," + aVar.b();
+                    } else {
+                        str = str + aVar.b();
+                    }
+                }
+            }
+            if (TextUtils.isEmpty(str)) {
+                return "{}";
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final void f(@NonNull AdBaseModel adBaseModel) {
+        Window window;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, adBaseModel) != null) || (window = getWindow()) == null) {
+            return;
+        }
+        window.requestFeature(1);
+        c(adBaseModel);
+        window.getDecorView().setPadding(0, 0, 0, 0);
+        WindowManager.LayoutParams attributes = window.getAttributes();
+        attributes.width = -1;
+        attributes.height = -2;
+        attributes.windowAnimations = R.style.obfuscated_res_0x7f1003e6;
+        attributes.gravity = 80;
+        window.setAttributes(attributes);
+        window.setBackgroundDrawableResource(17170445);
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            Window window = getWindow();
+            if (window == null) {
+                l11.b(this);
+                return;
+            }
+            window.setFlags(8, 8);
+            l11.b(this);
+            m21.a(window);
+            window.clearFlags(8);
+        }
     }
 }

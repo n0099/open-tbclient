@@ -5,7 +5,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.v2;
+import com.baidu.tieba.l3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.faceunity.gles.GeneratedTexture;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
-public class Gdx2DPixmap implements v2 {
+public class Gdx2DPixmap implements l3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
@@ -181,7 +181,7 @@ public class Gdx2DPixmap implements v2 {
         }
     }
 
-    @Override // com.baidu.tieba.v2
+    @Override // com.baidu.tieba.l3
     public void dispose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {

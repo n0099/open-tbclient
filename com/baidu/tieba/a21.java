@@ -1,124 +1,68 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import android.graphics.Rect;
-import android.text.TextPaint;
+import android.os.Build;
+import android.provider.Settings;
 import android.text.TextUtils;
-import android.view.TouchDelegate;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewParent;
-import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.c11;
+import com.baidu.android.util.devices.RomUtils;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.load.engine.GlideException;
 /* loaded from: classes5.dex */
 public class a21 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ float b;
-        public final /* synthetic */ View c;
-        public final /* synthetic */ View d;
-
-        public a(Context context, float f, View view2, View view3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, Float.valueOf(f), view2, view3};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-            this.b = f;
-            this.c = view2;
-            this.d = view3;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Rect rect = new Rect();
-                int a = c11.c.a(this.a, this.b);
-                this.c.getHitRect(rect);
-                rect.left -= a;
-                rect.right += a;
-                rect.top -= a;
-                rect.bottom += a;
-                this.d.setTouchDelegate(new TouchDelegate(rect, this.c));
-            }
-        }
-    }
-
-    public static void a(Context context, View view2, float f) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65536, null, new Object[]{context, view2, Float.valueOf(f)}) != null) || view2 == null) {
-            return;
-        }
-        ViewParent parent = view2.getParent();
-        if (!View.class.isInstance(parent)) {
-            return;
-        }
-        View view3 = (View) parent;
-        view3.post(new a(context, f, view2, view3));
-    }
-
-    public static String b(String str, String str2, float f, TextPaint textPaint) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, Float.valueOf(f), textPaint})) == null) {
-            if (TextUtils.isEmpty(str2)) {
-                str2 = "";
-            }
-            if (TextUtils.isEmpty(str)) {
-                str = "";
-            }
-            if (textPaint == null) {
-                textPaint = new TextPaint();
-            }
-            CharSequence ellipsize = TextUtils.ellipsize(str, textPaint, f - textPaint.measureText(GlideException.IndentedAppendable.INDENT + str2), TextUtils.TruncateAt.END);
-            if (!TextUtils.isEmpty(ellipsize)) {
-                return ellipsize.toString() + GlideException.IndentedAppendable.INDENT + str2;
-            }
-            return str2;
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static boolean c(View view2) {
+    public static int a(@NonNull Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-            if (view2 == null || !view2.isShown()) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
+            if (g(activity)) {
+                return c(activity);
             }
-            Rect rect = new Rect();
-            if (!view2.getGlobalVisibleRect(rect)) {
-                return false;
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int c(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            int identifier = context.getResources().getIdentifier("navigation_bar_height", EMABTest.TYPE_DIMEN, "android");
+            if (identifier > 0) {
+                return context.getResources().getDimensionPixelSize(identifier);
             }
-            long height = rect.height() * rect.width();
-            long height2 = view2.getHeight() * view2.getWidth();
-            if (height2 <= 0 || height * 100 < height2 * 50) {
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    @RequiresApi(api = 17)
+    public static int d(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            if (h(context)) {
+                return 0;
+            }
+            return a((Activity) context);
+        }
+        return invokeL.intValue;
+    }
+
+    public static boolean g(@NonNull Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, activity)) == null) {
+            View findViewById = activity.findViewById(16908336);
+            if (findViewById == null || findViewById.getVisibility() != 0) {
                 return false;
             }
             return true;
@@ -126,55 +70,65 @@ public class a21 {
         return invokeL.booleanValue;
     }
 
-    public static void d(@NonNull Context context, @NonNull ViewGroup.MarginLayoutParams marginLayoutParams, String str) {
+    @RequiresApi(api = 17)
+    public static boolean h(@NonNull Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, context, marginLayoutParams, str) == null) {
-            int[] iArr = {0, 0, 0, 0};
-            if (!TextUtils.isEmpty(str)) {
-                String[] split = str.split("_");
-                if (split.length == 4) {
-                    for (int i = 0; i < 4; i++) {
-                        try {
-                            iArr[i] = Integer.parseInt(split[i]);
-                        } catch (NumberFormatException unused) {
-                            iArr[i] = 0;
-                        }
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            if (Settings.Global.getInt(context.getContentResolver(), b(), 0) == 0) {
+                return false;
             }
-            marginLayoutParams.setMargins(c11.c.a(context, iArr[0]), c11.c.a(context, iArr[1]), c11.c.a(context, iArr[2]), c11.c.a(context, iArr[3]));
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    public static void e(@NonNull RelativeLayout.LayoutParams layoutParams, @NonNull int i) {
+    @NonNull
+    public static String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, layoutParams, i) == null) && i > 0) {
-            if ((i & 1) == 1) {
-                layoutParams.addRule(10);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            String str = Build.BRAND;
+            if (TextUtils.isEmpty(str) || str.equalsIgnoreCase("HUAWEI")) {
+                return "navigationbar_is_min";
             }
-            if ((i & 2) == 2) {
-                layoutParams.addRule(12);
+            if (str.equalsIgnoreCase(RomUtils.ROM_XIAOMI)) {
+                return "force_fsg_nav_bar";
             }
-            if ((i & 4) == 4) {
-                layoutParams.addRule(9);
+            if (!str.equalsIgnoreCase("VIVO") && !str.equalsIgnoreCase("OPPO")) {
+                return "navigationbar_is_min";
             }
-            if ((i & 8) == 8) {
-                layoutParams.addRule(11);
-            }
-            if ((i & 16) == 16) {
-                layoutParams.addRule(14);
-            }
-            if ((i & 32) == 32) {
-                layoutParams.addRule(15);
-            }
+            return "navigation_gesture_on";
         }
+        return (String) invokeV.objValue;
     }
 
-    public static void f(@Nullable View view2) {
+    public static boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65541, null, view2) != null) || view2 == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            int i = Build.VERSION.SDK_INT;
+            if (i != 29 && i != 30) {
+                return false;
+            }
+            return true;
         }
-        view2.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
+        return invokeV.booleanValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            String d = gf0.c().a().d();
+            if (TextUtils.isEmpty(d)) {
+                return false;
+            }
+            if (!d.contains("MI 8") && !d.contains("MI 9")) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

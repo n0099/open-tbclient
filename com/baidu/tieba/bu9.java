@@ -1,136 +1,44 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.browser.BrowserHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PersonBarActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
-import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tieba.redtip.PersonRedTipManager;
+import com.baidu.tieba.fq9;
+import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
+import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bu9 implements csa {
+public class bu9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public int b;
-    public int c;
-    public boolean d;
 
-    public bu9(TbPageContext tbPageContext) {
+    public static eu9 a(TbPageContext tbPageContext, IBaseDialogData iBaseDialogData) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tbPageContext, iBaseDialogData)) == null) {
+            if (tbPageContext == null || tbPageContext.getPageActivity() == null || iBaseDialogData == null || iBaseDialogData.getType() != 1) {
+                return null;
             }
-        }
-        this.b = 1;
-        this.c = 2;
-        this.d = false;
-        this.a = tbPageContext;
-    }
-
-    @Override // com.baidu.tieba.csa
-    public void a(View view2, yx6 yx6Var) {
-        int i;
-        int i2;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, view2, yx6Var) != null) || yx6Var == null) {
-            return;
-        }
-        UserData userData = null;
-        Bundle bundle = yx6Var.b;
-        if (bundle != null && (userData = (UserData) bundle.getSerializable(UserData.TYPE_USER)) != null) {
-            if (TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), userData.getUserId())) {
-                i = 1;
+            StatisticItem statisticItem = new StatisticItem(fq9.a.a);
+            int i = 0;
+            int from = iBaseDialogData.getFrom();
+            if (from != 0) {
+                if (from != 1) {
+                    if (from == 2) {
+                        i = 4;
+                    }
+                } else {
+                    i = 3;
+                }
             } else {
                 i = 2;
             }
-            this.b = i;
-            if (userData.isGod()) {
-                i2 = 1;
-            } else {
-                i2 = 2;
-            }
-            this.c = i2;
-            if (this.b == 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            this.d = z;
+            statisticItem.param("obj_type", i);
+            TiebaStatic.log(statisticItem);
+            return new cu9(tbPageContext, (CustomDialogData) iBaseDialogData);
         }
-        switch (yx6Var.a) {
-            case 2:
-                if (!ViewHelper.checkUpIsLogin(this.a.getPageActivity())) {
-                    return;
-                }
-                UrlManager.getInstance().dealOneLink(this.a, new String[]{TbConfig.URL_MEMBER_BUY});
-                return;
-            case 3:
-                if (userData == null) {
-                    return;
-                }
-                BrowserHelper.startWebActivity(this.a.getPageActivity(), this.a.getString(R.string.user_icon_web_view_title), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + userData.getUserId() + "&opacity=0", true, true, true);
-                return;
-            case 4:
-                if (userData == null) {
-                    return;
-                }
-                if (yx6Var instanceof ar9) {
-                    TiebaStatic.log(new StatisticItem("c11586"));
-                } else {
-                    TiebaStatic.log(new StatisticItem("c11597").param("obj_locate", 2).param("obj_type", this.b).param("obj_source", this.c));
-                }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.a.getPageActivity(), true, userData.getUserId(), userData.getSex()).updateFollowNum(userData.getConcernNum(), userData.getPortrait())));
-                return;
-            case 5:
-                PersonRedTipManager.getInstance().updateRedTipState(2, false, this.d);
-                if (userData == null) {
-                    return;
-                }
-                TiebaStatic.log(new StatisticItem("c11597").param("obj_locate", 3).param("obj_type", this.b).param("obj_source", this.c));
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.a.getPageActivity(), false, userData.getUserId(), userData.getSex())));
-                return;
-            case 6:
-                if (userData == null) {
-                    return;
-                }
-                TiebaStatic.log(new StatisticItem("c11597").param("obj_locate", 1).param("obj_type", this.b).param("obj_source", this.c));
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPostActivityConfig(this.a.getPageActivity(), userData.getUserId(), userData.getSex(), userData.getPortrait())));
-                return;
-            case 7:
-                if (userData == null) {
-                    return;
-                }
-                TiebaStatic.log(new StatisticItem("c11597").param("obj_locate", 4).param("obj_type", this.b).param("obj_source", this.c));
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonBarActivityConfig(this.a.getPageActivity(), userData.getLike_bars(), userData.getUserId(), userData.getSex())));
-                return;
-            default:
-                return;
-        }
+        return (eu9) invokeLL.objValue;
     }
 }

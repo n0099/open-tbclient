@@ -1,25 +1,22 @@
 package com.baidu.tieba;
 
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.ubc.Flow;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class vb3 {
+public final class vb3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Object a;
-    public final Flow b;
+    public FrameLayout a;
 
-    public vb3(Object obj, Flow flow) {
+    public vb3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {obj, flow};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,25 +26,38 @@ public class vb3 {
                 return;
             }
         }
-        this.a = obj;
-        this.b = flow;
+        this.a = null;
     }
 
-    public Flow a() {
-        InterceptResult invokeV;
+    public void a(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, viewGroup) != null) || viewGroup == null) {
+            return;
         }
-        return (Flow) invokeV.objValue;
+        if (this.a == null) {
+            FrameLayout frameLayout = new FrameLayout(viewGroup.getContext());
+            this.a = frameLayout;
+            frameLayout.setBackgroundResource(R.color.obfuscated_res_0x7f060451);
+        }
+        viewGroup.removeView(this.a);
+        viewGroup.addView(this.a, new FrameLayout.LayoutParams(-1, -1));
     }
 
-    public Object b() {
-        InterceptResult invokeV;
+    public void b(ViewGroup viewGroup) {
+        FrameLayout frameLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) && viewGroup != null && (frameLayout = this.a) != null) {
+            viewGroup.removeView(frameLayout);
+            this.a = null;
         }
-        return invokeV.objValue;
+    }
+
+    public void c(int i) {
+        FrameLayout frameLayout;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) || (frameLayout = this.a) == null) {
+            return;
+        }
+        frameLayout.setVisibility(i);
     }
 }

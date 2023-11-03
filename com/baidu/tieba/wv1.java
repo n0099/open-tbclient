@@ -1,40 +1,161 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.internal.Sets;
+import java.util.List;
+import java.util.Set;
+import okhttp3.Headers;
+import okhttp3.HttpUrl;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public abstract class wv1 extends tt1 {
+public class wv1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final Set<String> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.tt1
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "System" : (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wv1(@NonNull rt1 rt1Var) {
-        super(rt1Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {rt1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((rt1) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948283927, "Lcom/baidu/tieba/wv1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948283927, "Lcom/baidu/tieba/wv1;");
                 return;
             }
         }
+        a = rm1.a;
+        b = Sets.newHashSet("localhost", "127.0.0.1");
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return nj3.b();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return str + "_" + System.currentTimeMillis();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static JSONObject c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                if (!TextUtils.isEmpty(str)) {
+                    jSONObject.put("cancelTag", str);
+                }
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    @Nullable
+    public static String e(@Nullable String str) {
+        InterceptResult invokeL;
+        HttpUrl parse;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (!TextUtils.isEmpty(str) && (parse = HttpUrl.parse(str)) != null) {
+                return parse.host();
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean b(@Nullable HttpUrl httpUrl) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, httpUrl)) == null) {
+            boolean i = x63.i();
+            if (!np2.g0().D()) {
+                i = false;
+            }
+            if (httpUrl == null) {
+                return false;
+            }
+            if ((i && HttpUrl.defaultPort(httpUrl.scheme()) != httpUrl.port()) || b.contains(httpUrl.host().toLowerCase())) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static HttpUrl f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            HttpUrl parse = HttpUrl.parse(str);
+            if (f63.K().w() == null) {
+                if (!b(parse)) {
+                    return null;
+                }
+                return parse;
+            } else if (f23.o()) {
+                return parse;
+            } else {
+                if (!b(parse)) {
+                    return null;
+                }
+                return parse;
+            }
+        }
+        return (HttpUrl) invokeL.objValue;
+    }
+
+    public static JSONObject g(Headers headers) throws JSONException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, headers)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (headers == null) {
+                return jSONObject;
+            }
+            for (String str : headers.names()) {
+                if (!TextUtils.isEmpty(str)) {
+                    List<String> values = headers.values(str);
+                    StringBuilder sb = new StringBuilder();
+                    int size = values.size();
+                    for (int i = 0; i < size; i++) {
+                        sb.append(values.get(i));
+                        if (i == size - 1) {
+                            break;
+                        }
+                        sb.append(",");
+                    }
+                    jSONObject.put(str, sb.toString());
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
     }
 }

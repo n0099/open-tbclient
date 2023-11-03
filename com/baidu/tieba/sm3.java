@@ -1,46 +1,39 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
-import com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppPhoneLoginDialog;
-import com.baidu.tieba.bm3;
-import com.baidu.tieba.io3;
-import com.baidu.tieba.tm3;
-import com.baidu.tieba.xm3;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public interface sm3 {
-    String a(Context context);
+public class sm3 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public Map<String, String> b;
 
-    String b(Context context);
+    /* loaded from: classes8.dex */
+    public interface a {
+        void a(sm3 sm3Var);
 
-    void c(Context context, Bundle bundle, cm1 cm1Var);
+        void b(sm3 sm3Var);
 
-    qm3 d(Context context);
+        void onFinish();
 
-    void e(Activity activity, String str, String str2, rm3 rm3Var);
+        void onStart();
+    }
 
-    void f(Context context, io3.d dVar);
-
-    boolean g(Context context);
-
-    String getBduss(Context context);
-
-    void h(em1 em1Var);
-
-    void i(Context context, tm3.d dVar);
-
-    void j(Context context, SwanAppPhoneLoginDialog.g gVar, String str);
-
-    String k(Context context);
-
-    void l(Activity activity, String str, String str2, rm3 rm3Var);
-
-    void m(Activity activity, String str, xn3 xn3Var);
-
-    void n(String str, ArrayList<String> arrayList, xm3.c cVar);
-
-    void o(bm3.a aVar, String str, List<String> list);
+    public sm3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

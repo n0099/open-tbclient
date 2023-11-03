@@ -1,250 +1,170 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.UrlResponseInfo;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.TreeMap;
-import java.util.concurrent.atomic.AtomicLong;
+import kotlin.jvm.JvmField;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.FrsPage.HeadCardCover;
+import tbclient.FrsPage.HeaderCard;
+import tbclient.QuizCard;
+import tbclient.ThemeColorInfo;
+import tbclient.ThreadInfo;
 /* loaded from: classes7.dex */
-public final class o6b extends UrlResponseInfo {
+public final class o6b implements oi {
     public static /* synthetic */ Interceptable $ic;
+    @JvmField
+    public static final BdUniqueId f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<String> a;
-    public final int b;
-    public final String c;
-    public final boolean d;
-    public final String e;
-    public final String f;
-    public final AtomicLong g;
-    public final a h;
+    public String a;
+    public List<ThreadInfo> b;
+    public ThemeColorInfo c;
+    public m6b d;
+    public n6b e;
 
-    /* loaded from: classes7.dex */
-    public static final class a extends UrlResponseInfo.HeaderBlock {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final List<Map.Entry<String, String>> a;
-        public Map<String, List<String>> b;
-
-        public a(List<Map.Entry<String, String>> list) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947985614, "Lcom/baidu/tieba/o6b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {list};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = list;
-        }
-
-        public List<Map.Entry<String, String>> a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a;
-            }
-            return (List) invokeV.objValue;
-        }
-
-        public Map<String, List<String>> b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                Map<String, List<String>> map = this.b;
-                if (map != null) {
-                    return map;
-                }
-                TreeMap treeMap = new TreeMap(String.CASE_INSENSITIVE_ORDER);
-                for (Map.Entry<String, String> entry : this.a) {
-                    ArrayList arrayList = new ArrayList();
-                    if (treeMap.containsKey(entry.getKey())) {
-                        arrayList.addAll((Collection) treeMap.get(entry.getKey()));
-                    }
-                    arrayList.add(entry.getValue());
-                    treeMap.put(entry.getKey(), Collections.unmodifiableList(arrayList));
-                }
-                Map<String, List<String>> unmodifiableMap = Collections.unmodifiableMap(treeMap);
-                this.b = unmodifiableMap;
-                return unmodifiableMap;
-            }
-            return (Map) invokeV.objValue;
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    @Deprecated
-    public o6b(List<String> list, int i, String str, List<Map.Entry<String, String>> list2, boolean z, String str2, String str3) {
-        this(list, i, str, list2, z, str2, str3, 0L);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list, Integer.valueOf(i), str, list2, Boolean.valueOf(z), str2, str3};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((List) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2], (List) objArr2[3], ((Boolean) objArr2[4]).booleanValue(), (String) objArr2[5], (String) objArr2[6], ((Long) objArr2[7]).longValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947985614, "Lcom/baidu/tieba/o6b;");
                 return;
             }
         }
+        BdUniqueId gen = BdUniqueId.gen();
+        Intrinsics.checkNotNullExpressionValue(gen, "gen()");
+        f = gen;
     }
 
-    public o6b(List<String> list, int i, String str, List<Map.Entry<String, String>> list2, boolean z, String str2, String str3, long j) {
+    public o6b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list, Integer.valueOf(i), str, list2, Boolean.valueOf(z), str2, str3, Long.valueOf(j)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = Collections.unmodifiableList(list);
-        this.b = i;
-        this.c = str;
-        this.h = new a(Collections.unmodifiableList(list2));
-        this.d = z;
-        this.e = str2;
-        this.f = str3;
-        this.g = new AtomicLong(j);
     }
 
-    @Override // com.baidu.turbonet.net.UrlResponseInfo
-    public List<Map.Entry<String, String>> a() {
+    public final ThemeColorInfo a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.h.a();
+            return this.c;
         }
-        return (List) invokeV.objValue;
+        return (ThemeColorInfo) invokeV.objValue;
     }
 
-    @Override // com.baidu.turbonet.net.UrlResponseInfo
-    public int b() {
+    public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.turbonet.net.UrlResponseInfo
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+            return this.a;
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.turbonet.net.UrlResponseInfo
-    public String d() {
+    public final m6b c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return (m6b) invokeV.objValue;
+    }
+
+    public final n6b d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.e;
         }
-        return (String) invokeV.objValue;
+        return (n6b) invokeV.objValue;
     }
 
-    @Override // com.baidu.turbonet.net.UrlResponseInfo
-    public long e() {
+    public final List<ThreadInfo> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.g.get();
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // com.baidu.turbonet.net.UrlResponseInfo
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            List<String> list = this.a;
-            return list.get(list.size() - 1);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public Map<String, List<String>> g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.h.b();
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public List<String> i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.a;
+            return this.b;
         }
         return (List) invokeV.objValue;
     }
 
-    public boolean k() {
+    @Override // com.baidu.tieba.oi
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return f;
         }
-        return invokeV.booleanValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public void j(long j) {
+    public final void f(HeaderCard headerCard) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            this.g.set(j);
+        if ((interceptable != null && interceptable.invokeL(1048581, this, headerCard) != null) || headerCard == null) {
+            return;
+        }
+        this.a = headerCard.card_title;
+        this.b = headerCard.thread_list;
+        QuizCard quizCard = headerCard.quiz_card;
+        if (quizCard != null) {
+            n6b n6bVar = new n6b();
+            this.e = n6bVar;
+            if (n6bVar != null) {
+                n6bVar.h(quizCard);
+            }
+        }
+        this.c = headerCard.card_background;
+        HeadCardCover headCardCover = headerCard.cover;
+        if (headCardCover != null) {
+            m6b m6bVar = new m6b();
+            this.d = m6bVar;
+            if (m6bVar != null) {
+                m6bVar.d(headCardCover);
+            }
         }
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public final void g(tbclient.Personalized.HeaderCard headerCard) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return String.format(Locale.ROOT, "UrlResponseInfo@[%s][%s]: urlChain = %s, httpStatus = %d %s, headers = %s, wasCached = %b, negotiatedProtocol = %s, proxyServer= %s, receivedByteCount = %d", Integer.toHexString(System.identityHashCode(this)), f(), i().toString(), Integer.valueOf(b()), c(), a().toString(), Boolean.valueOf(k()), d(), h(), Long.valueOf(e()));
+        if ((interceptable != null && interceptable.invokeL(1048582, this, headerCard) != null) || headerCard == null) {
+            return;
         }
-        return (String) invokeV.objValue;
+        this.a = headerCard.card_title;
+        this.b = headerCard.thread_list;
+        QuizCard quizCard = headerCard.quiz_card;
+        if (quizCard != null) {
+            n6b n6bVar = new n6b();
+            this.e = n6bVar;
+            if (n6bVar != null) {
+                n6bVar.h(quizCard);
+            }
+        }
+        this.c = headerCard.card_background;
+        tbclient.Personalized.HeadCardCover headCardCover = headerCard.cover;
+        if (headCardCover != null) {
+            m6b m6bVar = new m6b();
+            this.d = m6bVar;
+            if (m6bVar != null) {
+                m6bVar.e(headCardCover);
+            }
+        }
     }
 }

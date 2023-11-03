@@ -81,9 +81,9 @@ public class SwipeBackLayout extends FrameLayout {
 
     /* loaded from: classes.dex */
     public interface b {
-        void E0();
+        void C0();
 
-        void Y();
+        void U();
     }
 
     /* loaded from: classes.dex */

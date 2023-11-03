@@ -1,40 +1,40 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
 public class evb {
     public static /* synthetic */ Interceptable $ic;
+    public static ExecutorService a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947749208, "Lcom/baidu/tieba/evb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947749208, "Lcom/baidu/tieba/evb;");
+                return;
+            }
         }
+        a = new ThreadPoolExecutor(4, 1024, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue());
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public static void a(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            return "SecurityComp10105310: " + str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void c(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-            Log.e(a(str), str2);
-        }
-    }
-
-    public static void d(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
-            Log.i(a(str), str2);
+        if (interceptable == null || interceptable.invokeL(65537, null, runnable) == null) {
+            a.execute(runnable);
         }
     }
 }

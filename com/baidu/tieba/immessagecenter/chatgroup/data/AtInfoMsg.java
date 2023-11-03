@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class AtInfoMsg extends OrmObject implements Serializable {
@@ -49,6 +50,22 @@ public class AtInfoMsg extends OrmObject implements Serializable {
             return this.msgKey;
         }
         return (String) invokeV.objValue;
+    }
+
+    public JSONObject toJSONObject() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("msg_id", this.msgId);
+                jSONObject.put("msg_key", this.msgKey);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 
     public void parseJson(JSONObject jSONObject) {

@@ -1,71 +1,33 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import java.util.HashMap;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.ThemeColorInfo;
 /* loaded from: classes8.dex */
-public final class sp6 {
+public final class sp6 implements gb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final List<ThemeColorInfo> b;
-    public final boolean c;
+    public final HashMap<String, String> a;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof sp6) {
-                sp6 sp6Var = (sp6) obj;
-                return Intrinsics.areEqual(this.a, sp6Var.a) && Intrinsics.areEqual(this.b, sp6Var.b) && this.c == sp6Var.c;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r1v3, resolved type: boolean */
-    /* JADX WARN: Multi-variable type inference failed */
-    public int hashCode() {
+    @Override // com.baidu.tieba.gb7
+    public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int hashCode = ((this.a.hashCode() * 31) + this.b.hashCode()) * 31;
-            boolean z = this.c;
-            int i = z;
-            if (z != 0) {
-                i = 1;
-            }
-            return hashCode + i;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? TbadkCoreStatisticKey.KEY_VIRTUAL_IMAGE_SHOW : (String) invokeV.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "TitleTagsItem(titleText=" + this.a + ", tags=" + this.b + ", isTitleBold=" + this.c + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public sp6(String titleText, List<ThemeColorInfo> tags, boolean z) {
+    public sp6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {titleText, tags, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -75,41 +37,61 @@ public final class sp6 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(titleText, "titleText");
-        Intrinsics.checkNotNullParameter(tags, "tags");
-        this.a = titleText;
-        this.b = tags;
-        this.c = z;
+        this.a = new HashMap<>();
     }
 
-    public /* synthetic */ sp6(String str, List list, boolean z, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(str, list, (i & 4) != 0 ? false : z);
-    }
-
-    public final List<ThemeColorInfo> a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.gb7
+    public Map<String, String> a(d57 businessInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            Map<String, String> a = businessInfo.a();
+            HashMap<String, String> hashMap = this.a;
+            String str = a.get("has_customstate");
+            String str2 = "";
+            if (str == null) {
+                str = "";
+            }
+            hashMap.put("obj_source", str);
+            if (Intrinsics.areEqual(a.get("has_customstate"), "1")) {
+                HashMap<String, String> hashMap2 = this.a;
+                String str3 = a.get("customstate_name");
+                if (str3 == null) {
+                    str3 = "";
+                }
+                hashMap2.put("obj_name", str3);
+            }
+            HashMap<String, String> hashMap3 = this.a;
+            String str4 = a.get("user_id");
+            if (str4 != null) {
+                str2 = str4;
+            }
+            hashMap3.put(TiebaStatic.Params.FRIEND_UID, str2);
             return this.a;
         }
-        return (String) invokeV.objValue;
+        return (Map) invokeL.objValue;
     }
 
-    public final boolean c() {
-        InterceptResult invokeV;
+    public final sp6 b(String locate) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, locate)) == null) {
+            Intrinsics.checkNotNullParameter(locate, "locate");
+            this.a.put("obj_locate", locate);
+            return this;
         }
-        return invokeV.booleanValue;
+        return (sp6) invokeL.objValue;
+    }
+
+    public final sp6 d(String type) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, type)) == null) {
+            Intrinsics.checkNotNullParameter(type, "type");
+            this.a.put("obj_type", type);
+            return this;
+        }
+        return (sp6) invokeL.objValue;
     }
 }

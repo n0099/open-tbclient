@@ -6,94 +6,110 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class gg4 extends ve4<mg4> {
+public class gg4 {
     public static /* synthetic */ Interceptable $ic;
+    public static gg4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String d;
+    public wf4 a;
 
-    @Override // com.baidu.tieba.ve4
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getpkg" : (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gg4(String str, kd4 kd4Var, vg4 vg4Var) {
-        super(kd4Var, vg4Var);
+    public gg4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, kd4Var, vg4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((kd4) objArr2[0], (vg4) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = str;
+        this.a = new wf4();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ve4
-    /* renamed from: w */
-    public mg4 t(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public static gg4 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) {
-            return wi4.i(this.d, jSONObject);
-        }
-        return (mg4) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ve4
-    /* renamed from: u */
-    public boolean e(mg4 mg4Var) {
-        InterceptResult invokeL;
-        List<pe4> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, mg4Var)) == null) {
-            if (mg4Var == null || (list = mg4Var.a) == null) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            gg4 gg4Var = b;
+            if (gg4Var != null) {
+                return gg4Var;
             }
-            for (pe4 pe4Var : list) {
-                if (!pe4Var.a()) {
-                    return false;
+            synchronized (gg4.class) {
+                if (b == null) {
+                    b = new gg4();
                 }
             }
-            return true;
+            return b;
+        }
+        return (gg4) invokeV.objValue;
+    }
+
+    public sf4 a(ig4 ig4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ig4Var)) == null) {
+            if (ig4Var == null) {
+                return null;
+            }
+            return new ng4(ig4Var, false);
+        }
+        return (sf4) invokeL.objValue;
+    }
+
+    public synchronized boolean c(String str) {
+        InterceptResult invokeL;
+        boolean e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            synchronized (this) {
+                e = this.a.e(str);
+            }
+            return e;
         }
         return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ve4
-    /* renamed from: v */
-    public je4 s(mg4 mg4Var) {
+    public synchronized boolean d(String str) {
         InterceptResult invokeL;
+        boolean f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, mg4Var)) == null) {
-            this.a.E();
-            xi4 xi4Var = new xi4();
-            o(mg4Var.a, xi4Var);
-            if (xi4Var.n() == 0) {
-                this.a.F();
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            synchronized (this) {
+                f = this.a.f(str);
             }
-            this.a.G(xi4Var);
-            af4.d(mg4Var, this.a);
-            return null;
+            return f;
         }
-        return (je4) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public synchronized void e(eg4 eg4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, eg4Var) == null) {
+            synchronized (this) {
+                this.a.c(eg4Var);
+            }
+        }
+    }
+
+    public synchronized <T> void f(ig4<T> ig4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, ig4Var) == null) {
+            synchronized (this) {
+                ig4Var.s(false);
+                this.a.h(ig4Var);
+            }
+        }
+    }
+
+    public synchronized void g(eg4 eg4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, eg4Var) == null) {
+            synchronized (this) {
+                this.a.i(eg4Var);
+            }
+        }
     }
 }

@@ -63,21 +63,21 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
     }
 
     private void E(Context context) {
-        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d049f, this);
-        this.cu = (ImageView) findViewById(R.id.obfuscated_res_0x7f09144d);
-        this.cv = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09128d);
-        this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f091292);
-        this.cx = (TextView) findViewById(R.id.obfuscated_res_0x7f091294);
-        this.cy = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f091295);
-        this.cz = (TextView) findViewById(R.id.obfuscated_res_0x7f091291);
-        this.cA = (TextView) findViewById(R.id.obfuscated_res_0x7f09128c);
-        DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f091290);
+        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d04b2, this);
+        this.cu = (ImageView) findViewById(R.id.obfuscated_res_0x7f09148b);
+        this.cv = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0912cb);
+        this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912d0);
+        this.cx = (TextView) findViewById(R.id.obfuscated_res_0x7f0912d2);
+        this.cy = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f0912d3);
+        this.cz = (TextView) findViewById(R.id.obfuscated_res_0x7f0912cf);
+        this.cA = (TextView) findViewById(R.id.obfuscated_res_0x7f0912ca);
+        DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f0912ce);
         this.cB = drawDownloadProgressBar;
         drawDownloadProgressBar.setTextSize(15);
-        this.cC = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0912e8);
-        this.cD = (TextView) findViewById(R.id.obfuscated_res_0x7f0912e7);
-        this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f0912eb);
-        this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0912d9);
+        this.cC = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091326);
+        this.cD = (TextView) findViewById(R.id.obfuscated_res_0x7f091325);
+        this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f091329);
+        this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091317);
     }
 
     private KsAppDownloadListener getAppDownloadListener() {
@@ -175,7 +175,7 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        com.kwad.components.core.c.a.a.a(new a.C0619a(getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(view2 == this.cB ? 1 : 2).aj(view2 == this.cB).a(new a.b() { // from class: com.kwad.components.ad.draw.view.playend.DrawVideoTailFrame.2
+        com.kwad.components.core.c.a.a.a(new a.C0625a(getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(view2 == this.cB ? 1 : 2).aj(view2 == this.cB).a(new a.b() { // from class: com.kwad.components.ad.draw.view.playend.DrawVideoTailFrame.2
             @Override // com.kwad.components.core.c.a.a.b
             public final void onAdClicked() {
                 if (DrawVideoTailFrame.this.aJ != null) {

@@ -37,7 +37,7 @@ import com.baidu.searchbox.downloads.DownloadConstants;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.searchbox.ng.browser.explore.model.WebAddress;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.a0;
+import com.baidu.tieba.b0;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -605,16 +605,16 @@ public final class DownloadManagerExt implements NoProGuard {
                 for (int i3 = 0; i3 < arrayList.size(); i3++) {
                     final String str2 = arrayList.get(i3);
                     if (str2 != null) {
-                        DownloadMediaHelper.deleteMediaFile(AppRuntime.getAppContext(), str2, "", new a0() { // from class: com.baidu.searchbox.download.manager.DownloadManagerExt.5
-                            @Override // com.baidu.tieba.a0
+                        DownloadMediaHelper.deleteMediaFile(AppRuntime.getAppContext(), str2, "", new b0() { // from class: com.baidu.searchbox.download.manager.DownloadManagerExt.5
+                            @Override // com.baidu.tieba.b0
                             public void onFailed(int i4) {
                             }
 
-                            @Override // com.baidu.tieba.a0
+                            @Override // com.baidu.tieba.b0
                             public void onRefused() {
                             }
 
-                            @Override // com.baidu.tieba.a0
+                            @Override // com.baidu.tieba.b0
                             public void onPermitted(Object obj) {
                                 DownloadManagerExt.this.deleteOneDatabaseRecord(hashMap, str2);
                             }

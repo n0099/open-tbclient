@@ -21,12 +21,12 @@ import com.baidu.tbadk.core.data.ThemeCardInUserData;
 import com.baidu.tbadk.coreExtra.data.BazhuGradeData;
 import com.baidu.tbadk.coreExtra.data.NewGodData;
 import com.baidu.tbadk.coreExtra.data.PrivSetsData;
-import com.baidu.tieba.a65;
-import com.baidu.tieba.ad;
-import com.baidu.tieba.boa;
-import com.baidu.tieba.hc5;
+import com.baidu.tieba.c1b;
+import com.baidu.tieba.cd5;
+import com.baidu.tieba.fd5;
 import com.baidu.tieba.im.data.GroupInfoData;
-import com.baidu.tieba.kc5;
+import com.baidu.tieba.qd;
+import com.baidu.tieba.u65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,7 +52,7 @@ import tbclient.ThemeColorInfo;
 import tbclient.TshowInfo;
 import tbclient.User;
 /* loaded from: classes5.dex */
-public class MetaData extends OrmObject implements Serializable, a65 {
+public class MetaData extends OrmObject implements Serializable, u65 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -2658065756886586092L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -141,10 +141,10 @@ public class MetaData extends OrmObject implements Serializable, a65 {
     public String tiebaUid;
     public int type;
     public String uk;
-    public hc5 userGrowthData;
+    public cd5 userGrowthData;
     public String userId;
     public String userName;
-    public kc5 userWorldCupData;
+    public fd5 userWorldCupData;
     public String virtualUserUrl;
 
     public void setImBjhAvatar(String str) {
@@ -401,7 +401,7 @@ public class MetaData extends OrmObject implements Serializable, a65 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.a65
+    @Override // com.baidu.tieba.u65
     public int getFansNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -547,7 +547,7 @@ public class MetaData extends OrmObject implements Serializable, a65 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.a65
+    @Override // com.baidu.tieba.u65
     public boolean getIsLike() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -656,7 +656,7 @@ public class MetaData extends OrmObject implements Serializable, a65 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.a65
+    @Override // com.baidu.tieba.u65
     public int getLikeStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -723,7 +723,7 @@ public class MetaData extends OrmObject implements Serializable, a65 {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.a65
+    @Override // com.baidu.tieba.u65
     public String getPortrait() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -851,16 +851,16 @@ public class MetaData extends OrmObject implements Serializable, a65 {
         return (String) invokeV.objValue;
     }
 
-    public hc5 getUserGrowthData() {
+    public cd5 getUserGrowthData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048644, this)) == null) {
             return this.userGrowthData;
         }
-        return (hc5) invokeV.objValue;
+        return (cd5) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.a65
+    @Override // com.baidu.tieba.u65
     public String getUserId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -901,13 +901,13 @@ public class MetaData extends OrmObject implements Serializable, a65 {
         return (UserTbVipInfoData) invokeV.objValue;
     }
 
-    public kc5 getUserWorldCupData() {
+    public fd5 getUserWorldCupData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048649, this)) == null) {
             return this.userWorldCupData;
         }
-        return (kc5) invokeV.objValue;
+        return (fd5) invokeV.objValue;
     }
 
     public String getVirtualUserUrl() {
@@ -975,7 +975,7 @@ public class MetaData extends OrmObject implements Serializable, a65 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.a65
+    @Override // com.baidu.tieba.u65
     public boolean isGod() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1055,7 +1055,7 @@ public class MetaData extends OrmObject implements Serializable, a65 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048722, this)) == null) {
             BazhuGradeData bazhuGradeData = this.mBazhuGrade;
-            if (bazhuGradeData == null || ad.isEmpty(bazhuGradeData.getDesc())) {
+            if (bazhuGradeData == null || qd.isEmpty(bazhuGradeData.getDesc())) {
                 return false;
             }
             if (this.is_bawu == 1 && "manager".equals(this.bawu_type)) {
@@ -1167,7 +1167,7 @@ public class MetaData extends OrmObject implements Serializable, a65 {
         }
     }
 
-    @Override // com.baidu.tieba.a65
+    @Override // com.baidu.tieba.u65
     public void setFansNum(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048677, this, i) == null) {
@@ -1282,7 +1282,7 @@ public class MetaData extends OrmObject implements Serializable, a65 {
         }
     }
 
-    @Override // com.baidu.tieba.a65
+    @Override // com.baidu.tieba.u65
     public void setIsFromNetWork(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048694, this, z) == null) {
@@ -1354,7 +1354,7 @@ public class MetaData extends OrmObject implements Serializable, a65 {
         }
     }
 
-    @Override // com.baidu.tieba.a65
+    @Override // com.baidu.tieba.u65
     public void setLikeStatus(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048703, this, i) == null) {
@@ -1446,10 +1446,10 @@ public class MetaData extends OrmObject implements Serializable, a65 {
         }
     }
 
-    public void setUserGrowthData(hc5 hc5Var) {
+    public void setUserGrowthData(cd5 cd5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048716, this, hc5Var) == null) {
-            this.userGrowthData = hc5Var;
+        if (interceptable == null || interceptable.invokeL(1048716, this, cd5Var) == null) {
+            this.userGrowthData = cd5Var;
         }
     }
 
@@ -1630,7 +1630,7 @@ public class MetaData extends OrmObject implements Serializable, a65 {
                     for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
                         JSONObject optJSONObject15 = optJSONArray4.optJSONObject(i4);
                         if (optJSONObject15 != null) {
-                            builder.img_info = boa.j(optJSONObject15);
+                            builder.img_info = c1b.j(optJSONObject15);
                             this.tags.add(builder.build(true));
                         }
                     }
@@ -1745,9 +1745,9 @@ public class MetaData extends OrmObject implements Serializable, a65 {
                 this.mRelation = jSONObject.optInt("relation");
                 optJSONObject12 = jSONObject.optJSONObject("user_growth");
                 if (optJSONObject12 != null) {
-                    hc5 hc5Var = new hc5();
-                    this.userGrowthData = hc5Var;
-                    hc5Var.f(optJSONObject12);
+                    cd5 cd5Var = new cd5();
+                    this.userGrowthData = cd5Var;
+                    cd5Var.f(optJSONObject12);
                 }
                 optJSONObject13 = jSONObject.optJSONObject("theme_tail");
                 if (optJSONObject13 == null) {
@@ -1757,9 +1757,9 @@ public class MetaData extends OrmObject implements Serializable, a65 {
                 }
                 optJSONObject14 = jSONObject.optJSONObject("world_cup_info");
                 if (optJSONObject14 != null) {
-                    kc5 kc5Var = new kc5();
-                    this.userWorldCupData = kc5Var;
-                    kc5Var.a(optJSONObject14);
+                    fd5 fd5Var = new fd5();
+                    this.userWorldCupData = fd5Var;
+                    fd5Var.a(optJSONObject14);
                 }
                 optJSONArray7 = jSONObject.optJSONArray("pendants");
                 if (optJSONArray7 == null) {
@@ -2084,18 +2084,18 @@ public class MetaData extends OrmObject implements Serializable, a65 {
         }
         this.ipAddress = user.ip_address;
         if (user.user_growth != null) {
-            hc5 hc5Var = new hc5();
-            this.userGrowthData = hc5Var;
-            hc5Var.g(user.user_growth);
+            cd5 cd5Var = new cd5();
+            this.userGrowthData = cd5Var;
+            cd5Var.g(user.user_growth);
         }
         if (user.theme_tail != null) {
             this.smallTailThemeData = new SmallTailThemeData(user.theme_tail);
         } else {
             this.smallTailThemeData = SmallTailThemeData.DEFAULT;
         }
-        kc5 kc5Var = new kc5();
-        this.userWorldCupData = kc5Var;
-        kc5Var.b(user.world_cup_info);
+        fd5 fd5Var = new fd5();
+        this.userWorldCupData = fd5Var;
+        fd5Var.b(user.world_cup_info);
         this.pendants = user.pendants;
     }
 }

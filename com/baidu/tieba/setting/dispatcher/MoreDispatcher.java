@@ -2,7 +2,7 @@ package com.baidu.tieba.setting.dispatcher;
 
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.tieba.l4a;
+import com.baidu.tieba.qha;
 import com.baidu.tieba.setting.more.MoreActivity;
 import com.baidu.tieba.setting.more.MsgRemindActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class MoreDispatcher implements l4a {
+public class MoreDispatcher implements qha {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String JUMP_TO_PAGE = "toPage";
     public static final String PAGE_SETTING_NOTIFACTION = "notification";
@@ -31,7 +31,7 @@ public class MoreDispatcher implements l4a {
         }
     }
 
-    @Override // com.baidu.tieba.l4a
+    @Override // com.baidu.tieba.qha
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {

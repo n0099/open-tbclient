@@ -7,8 +7,8 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.lub;
-import com.baidu.tieba.mub;
+import com.baidu.tieba.m7c;
+import com.baidu.tieba.n7c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -631,7 +631,7 @@ public class HuaweiApi<TOption extends Api.ApiOptions> {
             AnyClient anyClient;
             String str;
             ResponseHeader responseHeader;
-            mub mubVar;
+            n7c n7cVar;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(65537, this, requestHandler, exc) == null) {
                 boolean z = true;
@@ -643,39 +643,39 @@ public class HuaweiApi<TOption extends Api.ApiOptions> {
                         try {
                             str = new JSONObject().toString();
                             try {
-                                mubVar = this.mTaskApiCallWrapper.getTaskCompletionSource();
+                                n7cVar = this.mTaskApiCallWrapper.getTaskCompletionSource();
                                 try {
                                     taskApiCall = this.mTaskApiCallWrapper.getTaskApiCall();
                                 } catch (RuntimeException e2) {
                                     e = e2;
                                     HMSLog.e(HuaweiApi.TAG, "<notifyCpException> " + e.getMessage());
-                                    if ((anyClient != null || responseHeader == null || str == null || mubVar == null || taskApiCall == null) ? false : false) {
+                                    if ((anyClient != null || responseHeader == null || str == null || n7cVar == null || taskApiCall == null) ? false : false) {
                                     }
                                 }
                             } catch (RuntimeException e3) {
                                 e = e3;
-                                mubVar = null;
+                                n7cVar = null;
                             }
                         } catch (RuntimeException e4) {
                             e = e4;
                             str = null;
-                            mubVar = null;
+                            n7cVar = null;
                         }
                     } catch (RuntimeException e5) {
                         e = e5;
                         str = null;
                         responseHeader = null;
-                        mubVar = null;
+                        n7cVar = null;
                         HMSLog.e(HuaweiApi.TAG, "<notifyCpException> " + e.getMessage());
-                        if ((anyClient != null || responseHeader == null || str == null || mubVar == null || taskApiCall == null) ? false : false) {
+                        if ((anyClient != null || responseHeader == null || str == null || n7cVar == null || taskApiCall == null) ? false : false) {
                         }
                     }
                 } catch (RuntimeException e6) {
                     e = e6;
                     anyClient = null;
                 }
-                if ((anyClient != null || responseHeader == null || str == null || mubVar == null || taskApiCall == null) ? false : false) {
-                    taskApiCall.onResponse(anyClient, responseHeader, str, mubVar);
+                if ((anyClient != null || responseHeader == null || str == null || n7cVar == null || taskApiCall == null) ? false : false) {
+                    taskApiCall.onResponse(anyClient, responseHeader, str, n7cVar);
                 } else {
                     HMSLog.e(HuaweiApi.TAG, "<notifyCpException> isNotify is false, Can not notify CP.");
                 }
@@ -948,55 +948,55 @@ public class HuaweiApi<TOption extends Api.ApiOptions> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void innerDisconnect(HuaweiApi<?> huaweiApi, mub<Boolean> mubVar) {
+    public void innerDisconnect(HuaweiApi<?> huaweiApi, n7c<Boolean> n7cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65547, this, huaweiApi, mubVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(65547, this, huaweiApi, n7cVar) == null) {
             HMSLog.i(TAG, "innerDisconnect.");
             try {
                 huaweiApi.getClient(RequestManager.getHandler().getLooper(), null).disconnect();
-                mubVar.d(Boolean.TRUE);
+                n7cVar.d(Boolean.TRUE);
             } catch (Exception e) {
                 HMSLog.w(TAG, "disconnect the binder failed for:" + e.getMessage());
             }
         }
     }
 
-    private <TResult, TClient extends AnyClient> lub<TResult> sendRequest(TaskApiCall<TClient, TResult> taskApiCall) {
+    private <TResult, TClient extends AnyClient> m7c<TResult> sendRequest(TaskApiCall<TClient, TResult> taskApiCall) {
         InterceptResult invokeL;
-        mub mubVar;
+        n7c n7cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, this, taskApiCall)) == null) {
             if (taskApiCall.getToken() == null) {
-                mubVar = new mub();
+                n7cVar = new n7c();
             } else {
-                mubVar = new mub(taskApiCall.getToken());
+                n7cVar = new n7c(taskApiCall.getToken());
             }
-            RequestManager.getHandler().post(new RequestRunnable(this, new TaskApiCallWrapper(taskApiCall, mubVar)));
-            return mubVar.b();
+            RequestManager.getHandler().post(new RequestRunnable(this, new TaskApiCallWrapper(taskApiCall, n7cVar)));
+            return n7cVar.b();
         }
-        return (lub) invokeL.objValue;
+        return (m7c) invokeL.objValue;
     }
 
     @Deprecated
-    public lub<Boolean> disconnectService() {
+    public m7c<Boolean> disconnectService() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            mub mubVar = new mub();
+            n7c n7cVar = new n7c();
             RequestManager.getInstance();
-            RequestManager.getHandler().post(new Runnable(this, this, mubVar) { // from class: com.huawei.hms.common.HuaweiApi.1
+            RequestManager.getHandler().post(new Runnable(this, this, n7cVar) { // from class: com.huawei.hms.common.HuaweiApi.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ HuaweiApi this$0;
                 public final /* synthetic */ HuaweiApi val$api;
-                public final /* synthetic */ mub val$taskCompletionSource;
+                public final /* synthetic */ n7c val$taskCompletionSource;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, this, mubVar};
+                        Object[] objArr = {this, this, n7cVar};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -1008,7 +1008,7 @@ public class HuaweiApi<TOption extends Api.ApiOptions> {
                     }
                     this.this$0 = this;
                     this.val$api = this;
-                    this.val$taskCompletionSource = mubVar;
+                    this.val$taskCompletionSource = n7cVar;
                 }
 
                 @Override // java.lang.Runnable
@@ -1020,9 +1020,9 @@ public class HuaweiApi<TOption extends Api.ApiOptions> {
                     this.this$0.innerDisconnect(this.val$api, this.val$taskCompletionSource);
                 }
             });
-            return mubVar.b();
+            return n7cVar.b();
         }
-        return (lub) invokeV.objValue;
+        return (m7c) invokeV.objValue;
     }
 
     public Activity getActivity() {
@@ -1101,7 +1101,7 @@ public class HuaweiApi<TOption extends Api.ApiOptions> {
         return (String) invokeV.objValue;
     }
 
-    public <TResult, TClient extends AnyClient> lub<TResult> doWrite(TaskApiCall<TClient, TResult> taskApiCall) {
+    public <TResult, TClient extends AnyClient> m7c<TResult> doWrite(TaskApiCall<TClient, TResult> taskApiCall) {
         InterceptResult invokeL;
         String subAppID;
         Interceptable interceptable = $ic;
@@ -1109,9 +1109,9 @@ public class HuaweiApi<TOption extends Api.ApiOptions> {
             this.isFirstReqSent = true;
             if (taskApiCall == null) {
                 HMSLog.e(TAG, "in doWrite:taskApiCall is null");
-                mub mubVar = new mub();
-                mubVar.c(new ApiException(Status.FAILURE));
-                return mubVar.b();
+                n7c n7cVar = new n7c();
+                n7cVar.c(new ApiException(Status.FAILURE));
+                return n7cVar.b();
             }
             if (TextUtils.isEmpty(this.mSubAppInfo.getSubAppID())) {
                 subAppID = this.mAppID;
@@ -1124,7 +1124,7 @@ public class HuaweiApi<TOption extends Api.ApiOptions> {
             }
             return sendRequest(taskApiCall);
         }
-        return (lub) invokeL.objValue;
+        return (m7c) invokeL.objValue;
     }
 
     @Deprecated

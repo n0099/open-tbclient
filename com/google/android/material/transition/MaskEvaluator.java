@@ -8,7 +8,7 @@ import android.os.Build;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.ShapeAppearancePathProvider;
 import com.google.android.material.transition.MaterialContainerTransform;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class MaskEvaluator {
     public ShapeAppearanceModel currentShapeAppearanceModel;
     public final Path path = new Path();

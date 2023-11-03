@@ -1,26 +1,35 @@
 package com.baidu.tieba;
 
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.v8engine.event.EventTargetImpl;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class b04 {
+public class b04 extends mt2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static int b;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
+    public EventTargetImpl d;
+    public yz3 e;
 
-    public static int c() {
+    @Override // com.baidu.tieba.mt2
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return 102400;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
     static {
@@ -36,45 +45,69 @@ public class b04 {
                 return;
             }
         }
-        a = am1.a;
-        b = -1;
+        f = rm1.a;
     }
 
-    public static int b() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b04(EventTargetImpl eventTargetImpl, JSONObject jSONObject) {
+        super(null, jSONObject);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b < 0) {
-                wo2.g0().getSwitch("minigame_code_cache_max_count", 20);
-                b = 20;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {eventTargetImpl, jSONObject};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((CallbackHandler) objArr2[0], (JSONObject) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return b;
         }
-        return invokeV.intValue;
+        this.d = eventTargetImpl;
     }
 
-    public static long d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.mt2
+    public void b(String str, JSONObject jSONObject) {
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return b() * 6 * 1048576;
-        }
-        return invokeV.longValue;
-    }
-
-    public static a04 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            a04 a04Var = new a04();
-            a04Var.a = b();
-            a04Var.b = c();
-            a04Var.c = d();
-            if (a) {
-                Log.d("GameCodeCacheSwitcher", "getCodeCacheConfig() maxCount: " + a04Var.a + " ,sizeLimit: " + a04Var.b);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
+            String optString = this.b.optString(str);
+            yz3 yz3Var = this.e;
+            if (yz3Var != null) {
+                yz3Var.p(optString, jSONObject);
             }
-            return a04Var;
+            if (!this.d.hasEventListener(optString)) {
+                return;
+            }
+            JSEvent jSEvent = new JSEvent(optString);
+            if (jSONObject != null) {
+                jSEvent.data = jSONObject;
+            }
+            if (f && !"onTimeUpdate".equals(str)) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("type = ");
+                sb.append(str);
+                sb.append("  result = ");
+                if (jSONObject != null) {
+                    str2 = jSONObject.toString();
+                } else {
+                    str2 = StringUtil.NULL_STRING;
+                }
+                sb.append(str2);
+                Log.d("AudioCallbackForV8", sb.toString());
+            }
+            this.d.dispatchEvent(jSEvent);
         }
-        return (a04) invokeV.objValue;
+    }
+
+    public void e(yz3 yz3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yz3Var) == null) {
+            this.e = yz3Var;
+        }
     }
 }

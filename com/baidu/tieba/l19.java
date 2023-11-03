@@ -1,75 +1,62 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.m9;
-import com.baidu.tieba.mainentrance.RequestSearchPersonHistoryReadMessage;
-import com.baidu.tieba.mainentrance.ResponseSearchPersonHistoryReadMessage;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.im.db.pojo.GroupChatRoomPojo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class l19 implements CustomMessageTask.CustomRunnable<Object> {
+public final class l19 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public l19() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947890165, "Lcom/baidu/tieba/l19;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947890165, "Lcom/baidu/tieba/l19;");
         }
     }
 
-    public static final List<String> a(List<m9.b<String>> list) {
+    @JvmStatic
+    public static final String a(List<? extends GroupChatRoomPojo> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            LinkedList linkedList = new LinkedList();
-            if (list != null) {
-                for (m9.b<String> bVar : list) {
-                    String str = bVar.a;
-                    if (!TextUtils.isEmpty(str)) {
-                        linkedList.add(str);
-                    }
-                }
+            if (ListUtils.isEmpty(list)) {
+                return null;
             }
-            return linkedList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage != null && (customMessage instanceof RequestSearchPersonHistoryReadMessage)) {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                if (currentAccount == null) {
-                    currentAccount = "";
-                }
-                gz4.k();
-                List<String> a = a(fd.b(gz4.m("tb.searchperson_history", currentAccount)));
-                ResponseSearchPersonHistoryReadMessage responseSearchPersonHistoryReadMessage = new ResponseSearchPersonHistoryReadMessage();
-                responseSearchPersonHistoryReadMessage.datas.addAll(a);
-                return responseSearchPersonHistoryReadMessage;
+            ArrayList arrayList = new ArrayList();
+            Intrinsics.checkNotNull(list);
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                GroupChatRoomPojo groupChatRoomPojo = list.get(i);
+                HashMap hashMap = new HashMap();
+                hashMap.put("room_id", Long.valueOf(groupChatRoomPojo.getRoomId()));
+                hashMap.put("msg_id", String.valueOf(groupChatRoomPojo.getLatestMsgId()));
+                hashMap.put("time", Long.valueOf(groupChatRoomPojo.getLastExitChatRoomTime()));
+                arrayList.add(hashMap);
             }
-            return null;
+            if (ListUtils.isEmpty(arrayList)) {
+                return null;
+            }
+            return DataExt.toJson(arrayList);
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 }

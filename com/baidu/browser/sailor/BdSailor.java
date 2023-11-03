@@ -17,7 +17,7 @@ import com.baidu.browser.sailor.platform.nativeability.BdGeoLocationInfo;
 import com.baidu.browser.sailor.webkit.loader.BdWebkitManager;
 import com.baidu.browser.sailor.webkit.loader.IWebkitLoaderListener;
 import com.baidu.browser.sailor.webkit.update.BdZeusUpdate;
-import com.baidu.tieba.pr;
+import com.baidu.tieba.gs;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -333,14 +333,14 @@ public class BdSailor implements INoProGuard {
         return (BdSailorSettings) invokeV.objValue;
     }
 
-    public pr getStatic() {
+    public gs getStatic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             BdSailorPlatform.getInstance();
             return BdSailorPlatform.getStatic();
         }
-        return (pr) invokeV.objValue;
+        return (gs) invokeV.objValue;
     }
 
     public String getZeusVersionName() {

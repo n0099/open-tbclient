@@ -6,13 +6,13 @@ import java.lang.reflect.WildcardType;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaType;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class ReflectJavaType implements JavaType {
     public static final Factory Factory = new Factory(null);
 
     public abstract Type getReflectType();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Factory {
         public Factory() {
         }

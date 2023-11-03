@@ -1,7 +1,7 @@
 package com.baidu.searchbox.abtest.ioc;
 
 import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.tieba.r3;
+import com.baidu.tieba.h4;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public interface AbTestService {
@@ -9,7 +9,7 @@ public interface AbTestService {
 
     String getExpInfos();
 
-    ArrayList<r3> getExperimentInfoList();
+    ArrayList<h4> getExperimentInfoList();
 
     double getSwitch(String str, double d);
 

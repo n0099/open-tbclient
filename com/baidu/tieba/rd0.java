@@ -1,45 +1,72 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.app.Activity;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
-/* loaded from: classes7.dex */
-public class rd0 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
+public final class rd0 extends ak0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public long b;
+    public long c;
 
-    public static String a(String str, Map<String, String> map, Map<String, String> map2, String str2) {
-        InterceptResult invokeLLLL;
-        String str3;
-        String str4;
+    public rd0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, str, map, map2, str2)) == null) {
-            if (map != null) {
-                str3 = map.get(str);
-                if (TextUtils.isEmpty(str3)) {
-                    str3 = map.get("default");
-                }
-            } else {
-                str3 = null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (!TextUtils.isEmpty(str3)) {
-                str = str3;
-            }
-            if (map2 != null) {
-                str4 = map2.get(str);
-            } else {
-                str4 = null;
-            }
-            if (TextUtils.equals(str4, "__CMD_NONE__")) {
-                return null;
-            }
-            if (!TextUtils.isEmpty(str4)) {
-                return str4;
-            }
-            return str2;
         }
-        return (String) invokeLLLL.objValue;
+        this.a = true;
+        this.b = 0L;
+        this.c = 0L;
+    }
+
+    public final void f() {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ClogBuilder k = new ClogBuilder().y(ClogBuilder.LogType.CHECK).u(ClogBuilder.Page.NA_SPLASH).k("4");
+            if (this.a) {
+                str = "4003";
+            } else {
+                str = "4002";
+            }
+            az0.e(k.l(str).m(String.valueOf(this.c)));
+        }
+    }
+
+    @Override // com.baidu.tieba.ak0, com.baidu.tieba.dk0
+    public void onBackgroundToForeground(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+            if (!this.a) {
+                this.c = System.currentTimeMillis() - this.b;
+            }
+            if (gf0.a().o()) {
+                f();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ak0, com.baidu.tieba.dk0
+    public void onForegroundToBackground(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+            this.a = false;
+            this.b = System.currentTimeMillis();
+        }
     }
 }

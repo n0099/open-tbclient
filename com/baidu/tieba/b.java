@@ -7,7 +7,8 @@ public /* synthetic */ class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static /* synthetic */ int a(long j) {
-        return (int) (j ^ (j >>> 32));
+    public static /* synthetic */ int a(double d) {
+        long doubleToLongBits = Double.doubleToLongBits(d);
+        return (int) (doubleToLongBits ^ (doubleToLongBits >>> 32));
     }
 }

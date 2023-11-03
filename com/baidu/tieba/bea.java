@@ -1,18 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ActHot;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class bea {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+    public boolean a;
+    public double b;
+    public List<String> c;
+    public int d;
+    public int e;
 
     public bea() {
         Interceptable interceptable = $ic;
@@ -28,31 +33,38 @@ public class bea {
         }
     }
 
-    public void a(ActHot actHot) {
+    public static bea a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, actHot) != null) || actHot == null) {
-            return;
-        }
-        String str = actHot.bsize;
-        if (str != null) {
-            try {
-                String[] split = str.split(",");
-                this.a = JavaTypesHelper.toInt(split[0], 1);
-                this.b = JavaTypesHelper.toInt(split[1], 1);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
+            bea beaVar = new bea();
+            if (jSONObject.optInt("label_measure") == 2) {
+                z = true;
+            } else {
+                z = false;
+            }
+            beaVar.a = z;
+            beaVar.b = jSONObject.optDouble("show_width_scale", 1.0d);
+            ArrayList arrayList = new ArrayList();
+            JSONArray optJSONArray = jSONObject.optJSONArray("thread_pic_list");
+            if (optJSONArray != null) {
+                int length = optJSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                    if (optJSONObject != null) {
+                        ic9.a(arrayList, optJSONObject.optString("pic"));
+                    }
+                }
+            }
+            beaVar.c = arrayList;
+            beaVar.d = jSONObject.optInt("width");
+            beaVar.e = jSONObject.optInt("height");
+            return beaVar;
         }
-        if (this.a <= 0) {
-            this.a = 1;
-        }
-        if (this.b <= 0) {
-            this.b = 1;
-        }
-        String str2 = actHot.img_src;
-        String str3 = actHot.link;
-        String str4 = actHot.author_name;
-        String str5 = actHot.img_des;
-        actHot.img_type.intValue();
+        return (bea) invokeL.objValue;
     }
 }

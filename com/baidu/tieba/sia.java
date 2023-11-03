@@ -1,52 +1,51 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import android.content.Context;
+import android.os.Build;
+import com.baidu.adp.lib.util.DeviceInfoHelper;
+import com.baidu.android.common.security.AESUtil;
+import com.baidu.ar.constants.HttpConstants;
+import com.baidu.mobstat.Config;
+import com.baidu.searchbox.unitedscheme.SchemeDescPatchListener;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.DeviceInfoUtil;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class sia extends CustomMessageListener {
+public class sia {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final gha b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sia(MainTabActivity mainTabActivity, gha ghaVar) {
-        super(2921348);
+    public static String a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, ghaVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            ph phVar = new ph();
+            String version = TbConfig.getVersion();
+            if (TbConfig.getVersionType() == 1 && !qd.isEmpty(TbConfig.getSubVersion())) {
+                version = version + "." + TbConfig.getSubVersion();
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(HttpRequest.CLIENT_TYPE, "Android");
+                jSONObject.put(HttpConstants.HTTP_ENGINE_VERSION, "1.0.14");
+                jSONObject.put("uid", TbadkCoreApplication.getCurrentAccount());
+                jSONObject.put("shoubai_cuid", TbadkCoreApplication.getInst().getCuidGalaxy2());
+                jSONObject.put("_client_version", version);
+                jSONObject.put("cuid", TbadkCoreApplication.getInst().getCuid());
+                jSONObject.put(HttpRequest.OS_VERSION, DeviceInfoHelper.getOsVersion());
+                jSONObject.put(Config.DEVICE_PART, DeviceInfoHelper.getModel() + " " + Build.BRAND + " " + DeviceInfoUtil.getDevicesManufacturer() + " " + Build.BOARD + " " + Build.HARDWARE);
+                jSONObject.put(SchemeDescPatchListener.PATCH, phVar.a(context));
+                return jd.j(AESUtil.encrypt("tbpatch-iv-value", "tbpatch1tbpatch2tbpatch3tbpatch4", jSONObject.toString().getBytes()));
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "";
             }
         }
-        this.a = mainTabActivity;
-        this.b = ghaVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        gha ghaVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean) && (ghaVar = this.b) != null && ghaVar.A() != null) {
-            if (!((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                this.b.A().getTabWrapper().animate().translationY(this.b.A().getTabWrapper().getHeight()).setDuration(200L).start();
-            } else {
-                this.b.A().getTabWrapper().animate().translationY(0.0f).setDuration(400L).start();
-            }
-        }
+        return (String) invokeL.objValue;
     }
 }

@@ -1,113 +1,84 @@
 package com.baidu.tieba;
 
+import android.util.SparseArray;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileFilter;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-import java.util.regex.Pattern;
+import java.util.HashMap;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class ea9 {
+public final class ea9 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ea9 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThreadPoolExecutor a;
-
-    /* loaded from: classes5.dex */
-    public static class a implements FileFilter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.io.FileFilter
-        public boolean accept(File file) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
-                return Pattern.matches("cpu[0-9]", file.getName());
-            }
-            return invokeL.booleanValue;
-        }
-    }
+    public final SparseArray<da9<ChatMsg, e89<?>>> a;
+    public final HashMap<Class<? extends ChatMsg>, Integer> b;
 
     public ea9() {
-        int i;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        int c = c();
-        c = c <= 0 ? 1 : c;
-        if (c > 4) {
-            i = 4;
-        } else {
-            i = c;
-        }
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i, i, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue());
-        this.a = threadPoolExecutor;
-        threadPoolExecutor.allowCoreThreadTimeOut(true);
+        this.a = new SparseArray<>();
+        this.b = new HashMap<>();
     }
 
-    public static ea9 b() {
-        InterceptResult invokeV;
+    public final void a(int i, da9<ChatMsg, e89<?>> converter) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (ea9.class) {
-                    if (b == null) {
-                        b = new ea9();
-                    }
-                }
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, converter) == null) {
+            Intrinsics.checkNotNullParameter(converter, "converter");
+            this.a.put(i, converter);
+        }
+    }
+
+    public final void b(Class<? extends ChatMsg> sdkMsg, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sdkMsg, i) == null) {
+            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
+            this.b.put(sdkMsg, Integer.valueOf(i));
+        }
+    }
+
+    public final ChatMsg c(e89<?> tbMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbMsg)) == null) {
+            Intrinsics.checkNotNullParameter(tbMsg, "tbMsg");
+            da9<ChatMsg, e89<?>> da9Var = this.a.get(tbMsg.e().d());
+            if (da9Var == null) {
+                return null;
             }
-            return b;
+            return da9Var.b(tbMsg);
         }
-        return (ea9) invokeV.objValue;
+        return (ChatMsg) invokeL.objValue;
     }
 
-    public final int c() {
-        InterceptResult invokeV;
+    public final e89<?> d(ChatMsg sdkMsg) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            try {
-                return new File("/sys/devices/system/cpu/").listFiles(new a()).length;
-            } catch (Exception unused) {
-                return 1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, sdkMsg)) == null) {
+            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
+            Integer num = this.b.get(sdkMsg.getClass());
+            if (num == null) {
+                return null;
             }
+            da9<ChatMsg, e89<?>> da9Var = this.a.get(num.intValue());
+            if (da9Var == null) {
+                return null;
+            }
+            return da9Var.a(sdkMsg);
         }
-        return invokeV.intValue;
-    }
-
-    public void a(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            this.a.execute(runnable);
-        }
+        return (e89) invokeL.objValue;
     }
 }

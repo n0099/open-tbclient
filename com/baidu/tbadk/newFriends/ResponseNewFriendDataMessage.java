@@ -1,24 +1,24 @@
 package com.baidu.tbadk.newFriends;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.hd8;
+import com.baidu.tieba.fq8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ResponseNewFriendDataMessage extends CustomResponsedMessage<hd8> {
+public class ResponseNewFriendDataMessage extends CustomResponsedMessage<fq8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ResponseNewFriendDataMessage(hd8 hd8Var) {
-        super(2001305, hd8Var);
+    public ResponseNewFriendDataMessage(fq8 fq8Var) {
+        super(2001305, fq8Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {hd8Var};
+            Object[] objArr = {fq8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {

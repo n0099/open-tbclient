@@ -1,28 +1,130 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.view.ViewGroup;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.widget.timepicker.pickerview.listener.OnTimeSelectListener;
-import com.baidu.tieba.view.NavigationBarCoverTip;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.download.center.clearcache.DiskUpdateListener;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public interface c95 {
-    boolean a();
+public class c95 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final Map<ShareDialogConfig.From, Integer> e;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public String c;
+    public List<Integer> d;
 
-    int b();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947629610, "Lcom/baidu/tieba/c95;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947629610, "Lcom/baidu/tieba/c95;");
+                return;
+            }
+        }
+        HashMap hashMap = new HashMap();
+        e = hashMap;
+        hashMap.put(ShareDialogConfig.From.Recommend, 1);
+        e.put(ShareDialogConfig.From.Concern, 2);
+        e.put(ShareDialogConfig.From.PB, 3);
+        e.put(ShareDialogConfig.From.FRS, 4);
+        e.put(ShareDialogConfig.From.PersonPolymeric, 5);
+        e.put(ShareDialogConfig.From.VideoMiddlePageHorizontal, 6);
+        e.put(ShareDialogConfig.From.VideoMiddlePageVertical, 7);
+        e.put(ShareDialogConfig.From.HomeVideoTab, 8);
+        e.put(ShareDialogConfig.From.HomeGameTab, 9);
+    }
 
-    void c();
+    public c95() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
-    Dialog d(int i, TbPageContext tbPageContext, OnTimeSelectListener onTimeSelectListener, boolean z);
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
 
-    NavigationBarCoverTip e(Activity activity, ViewGroup viewGroup);
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (System.currentTimeMillis() / 1000 >= this.a && System.currentTimeMillis() / 1000 <= this.b) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
-    void f(int i, TbPageContext tbPageContext, ViewGroup viewGroup, boolean z);
+    public boolean c(ShareDialogConfig.From from) {
+        InterceptResult invokeL;
+        Integer num;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, from)) == null) {
+            if (this.d == null || (num = e.get(from)) == null || !this.d.contains(num)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
 
-    int g();
+    public void d(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        this.a = jSONObject.optInt(DiskUpdateListener.BEGIN_TIME);
+        this.b = jSONObject.optInt("end_time");
+        this.c = jSONObject.optString("text");
+        e(jSONObject.optString("page_list"));
+    }
 
-    void h(boolean z, long j);
-
-    void i(boolean z, int i, int i2);
+    public final void e(String str) {
+        String[] split;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || qd.isEmpty(str) || (split = str.split(",")) == null) {
+            return;
+        }
+        for (String str2 : split) {
+            int i = JavaTypesHelper.toInt(str2, -1);
+            if (i != -1) {
+                if (this.d == null) {
+                    this.d = new ArrayList();
+                }
+                this.d.add(Integer.valueOf(i));
+            }
+        }
+    }
 }

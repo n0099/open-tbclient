@@ -12,7 +12,7 @@ import com.baidu.ar.d.e;
 import com.baidu.ar.mdl.ARMdlInterfaceJNI;
 import com.baidu.ar.statistic.StatisticApi;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class StretchDetector extends com.baidu.ar.b.a.a {
     public static final String TAG = "StretchDetector";
     public int oU = -1;

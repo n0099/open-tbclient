@@ -8,30 +8,30 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.zb8;
+import com.baidu.tieba.xo8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class MsgIceBreakItemAdapter extends MsgCommonItemAdapter<zb8> {
+public class MsgIceBreakItemAdapter extends MsgCommonItemAdapter<xo8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class MsgIceBreakViewHolder extends MsgCommonItemAdapter.MsgViewHolder<zb8> {
+    public static class MsgIceBreakViewHolder extends MsgCommonItemAdapter.MsgViewHolder<xo8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public MsgIceBreakViewHolder(View view2, zb8 zb8Var) {
-            super(view2, zb8Var);
+        public MsgIceBreakViewHolder(View view2, xo8 xo8Var) {
+            super(view2, xo8Var);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view2, zb8Var};
+                Object[] objArr = {view2, xo8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -68,35 +68,35 @@ public class MsgIceBreakItemAdapter extends MsgCommonItemAdapter<zb8> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
-    /* renamed from: G */
-    public MsgCommonItemAdapter.MsgViewHolder<zb8> onCreateViewHolder(ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.bi
+    /* renamed from: H */
+    public MsgCommonItemAdapter.MsgViewHolder<xo8> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            zb8 zb8Var = new zb8(this.a);
-            return new MsgIceBreakViewHolder(zb8Var.g(), zb8Var);
+            xo8 xo8Var = new xo8(this.a);
+            return new MsgIceBreakViewHolder(xo8Var.x(), xo8Var);
         }
         return (MsgCommonItemAdapter.MsgViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.tieba.lh
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.tieba.bi
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
-        x(i, view2, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
+        y(i, view2, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view2;
     }
 
     @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter
-    public View x(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<zb8> msgViewHolder) {
+    public View y(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<xo8> msgViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
             super.onFillViewHolder(i, view2, viewGroup, chatMessage, msgViewHolder);
-            zb8 a = msgViewHolder.a();
-            a.z(this.b);
-            a.A(chatMessage);
-            a.y(TbadkCoreApplication.getInst().getSkinType());
+            xo8 a = msgViewHolder.a();
+            a.D(this.b);
+            a.E(chatMessage);
+            a.C(TbadkCoreApplication.getInst().getSkinType());
             return view2;
         }
         return (View) invokeCommon.objValue;

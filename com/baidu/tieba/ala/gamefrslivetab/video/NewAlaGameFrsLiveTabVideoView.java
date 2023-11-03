@@ -37,17 +37,17 @@ import com.baidu.tbadk.data.ShareFromPBMsgData;
 import com.baidu.tbadk.loading.LoadingView;
 import com.baidu.tbadk.util.WebviewHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ad;
 import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.gi5;
-import com.baidu.tieba.mh6;
-import com.baidu.tieba.nh6;
-import com.baidu.tieba.oh6;
-import com.baidu.tieba.ph6;
-import com.baidu.tieba.rh6;
-import com.baidu.tieba.sh6;
+import com.baidu.tieba.ij6;
+import com.baidu.tieba.jj6;
+import com.baidu.tieba.kj6;
+import com.baidu.tieba.lj6;
+import com.baidu.tieba.nj6;
+import com.baidu.tieba.oj6;
+import com.baidu.tieba.qd;
+import com.baidu.tieba.qt5;
 import com.baidu.tieba.util.TopicListUtil;
-import com.baidu.tieba.wr5;
+import com.baidu.tieba.vj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -67,7 +67,7 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
     public NavigationBar c;
     public TbWebView d;
     public LoadingView e;
-    public gi5 f;
+    public vj5 f;
     public boolean g;
     public String h;
     public int i;
@@ -185,19 +185,19 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
     }
 
     /* loaded from: classes5.dex */
-    public class d implements sh6 {
+    public class d implements oj6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewAlaGameFrsLiveTabVideoView a;
 
-        @Override // com.baidu.tieba.sh6
+        @Override // com.baidu.tieba.oj6
         public /* synthetic */ void b(int i, int i2, int i3, int i4) {
-            rh6.b(this, i, i2, i3, i4);
+            nj6.b(this, i, i2, i3, i4);
         }
 
-        @Override // com.baidu.tieba.sh6
-        public /* synthetic */ void c(int i, int i2, int i3, int i4) {
-            rh6.a(this, i, i2, i3, i4);
+        @Override // com.baidu.tieba.oj6
+        public /* synthetic */ void d(int i, int i2, int i3, int i4) {
+            nj6.a(this, i, i2, i3, i4);
         }
 
         public d(NewAlaGameFrsLiveTabVideoView newAlaGameFrsLiveTabVideoView) {
@@ -218,7 +218,7 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
             this.a = newAlaGameFrsLiveTabVideoView;
         }
 
-        @Override // com.baidu.tieba.sh6
+        @Override // com.baidu.tieba.oj6
         public void onScrollChanged(int i, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4) != null) || Math.abs(i2 - this.a.i) <= 50) {
@@ -261,13 +261,13 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.L();
+                this.a.K();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class f implements mh6 {
+    public class f implements ij6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewAlaGameFrsLiveTabVideoView a;
@@ -290,7 +290,7 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
             this.a = newAlaGameFrsLiveTabVideoView;
         }
 
-        @Override // com.baidu.tieba.mh6
+        @Override // com.baidu.tieba.ij6
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -309,7 +309,7 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
     }
 
     /* loaded from: classes5.dex */
-    public class g implements oh6 {
+    public class g implements kj6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewAlaGameFrsLiveTabVideoView a;
@@ -332,7 +332,7 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
             this.a = newAlaGameFrsLiveTabVideoView;
         }
 
-        @Override // com.baidu.tieba.oh6
+        @Override // com.baidu.tieba.kj6
         public void a(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
@@ -342,7 +342,7 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
     }
 
     /* loaded from: classes5.dex */
-    public class h implements nh6 {
+    public class h implements jj6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewAlaGameFrsLiveTabVideoView a;
@@ -365,7 +365,7 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
             this.a = newAlaGameFrsLiveTabVideoView;
         }
 
-        @Override // com.baidu.tieba.nh6
+        @Override // com.baidu.tieba.jj6
         public void onPageFinished(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
@@ -379,7 +379,7 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
     }
 
     /* loaded from: classes5.dex */
-    public class i implements ph6 {
+    public class i implements lj6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewAlaGameFrsLiveTabVideoView a;
@@ -402,7 +402,7 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
             this.a = newAlaGameFrsLiveTabVideoView;
         }
 
-        @Override // com.baidu.tieba.ph6
+        @Override // com.baidu.tieba.lj6
         public void a(WebView webView, WebResourceRequest webResourceRequest, int i, CharSequence charSequence) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLIL(1048576, this, webView, webResourceRequest, i, charSequence) == null) {
@@ -542,7 +542,7 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
     public final boolean w(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, str)) == null) {
             if (!str.contains("nohead:url") && !str.contains("booktown")) {
                 return false;
             }
@@ -582,11 +582,11 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
     }
 
     @Override // com.baidu.tieba.ala.gamefrslivetab.video.IGameFrsLiveTabVideoView
-    public View G(LayoutInflater layoutInflater, ViewGroup viewGroup) {
+    public View H(LayoutInflater layoutInflater, ViewGroup viewGroup) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, layoutInflater, viewGroup)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0101, (ViewGroup) null);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, layoutInflater, viewGroup)) == null) {
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0103, (ViewGroup) null);
             this.b = inflate;
             inflate.setDrawingCacheEnabled(false);
             return this.b;
@@ -614,7 +614,7 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
                     if (StringHelper.equals(matchStringFromURL3, "1")) {
                         new HotTopicActivityConfig(this.a.getActivity()).createNormalConfig(matchStringFromURL, matchStringFromURL2, matchStringFromURL3, null).start();
                     } else {
-                        wr5.f(this.a.getPageContext(), matchStringFromURL, matchStringFromURL2);
+                        qt5.f(this.a.getPageContext(), matchStringFromURL, matchStringFromURL2);
                     }
                 } else {
                     BrowserHelper.startWebActivity(this.a.getActivity(), matchStringFromURL2, str);
@@ -625,37 +625,10 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ala.gamefrslivetab.video.IGameFrsLiveTabVideoView
-    public void u(BaseFragment baseFragment) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, baseFragment) == null) {
-            this.a = baseFragment;
-            NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.view_navigation_bar);
-            this.c = navigationBar;
-            if (this.k) {
-                i2 = 0;
-            } else {
-                i2 = 8;
-            }
-            navigationBar.setVisibility(i2);
-            if (this.k) {
-                this.c.onChangeSkinType(this.a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-                this.c.showBottomLine(true);
-                this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new c(this));
-                this.c.setmBackImageViewBg(R.drawable.icon_return_bg_s, R.drawable.icon_return_bg);
-            }
-            TbWebView tbWebView = (TbWebView) this.b.findViewById(R.id.obfuscated_res_0x7f092a0e);
-            this.d = tbWebView;
-            tbWebView.setOnScrollChangeListener(new d(this));
-            s();
-        }
-    }
-
     public final boolean v(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, str)) == null) {
             if (!str.contains(UrlSchemaHelper.SCHEMA_TYPE_BEAUTY_PIC) || !str.contains("data=")) {
                 return false;
             }
@@ -682,12 +655,39 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
         return invokeL.booleanValue;
     }
 
-    public final boolean H(String str) {
+    @Override // com.baidu.tieba.ala.gamefrslivetab.video.IGameFrsLiveTabVideoView
+    public void x(BaseFragment baseFragment) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048603, this, baseFragment) == null) {
+            this.a = baseFragment;
+            NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.view_navigation_bar);
+            this.c = navigationBar;
+            if (this.k) {
+                i2 = 0;
+            } else {
+                i2 = 8;
+            }
+            navigationBar.setVisibility(i2);
+            if (this.k) {
+                this.c.onChangeSkinType(this.a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+                this.c.showBottomLine(true);
+                this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new c(this));
+                this.c.setmBackImageViewBg(R.drawable.icon_return_bg_s, R.drawable.icon_return_bg);
+            }
+            TbWebView tbWebView = (TbWebView) this.b.findViewById(R.id.obfuscated_res_0x7f092a6d);
+            this.d = tbWebView;
+            tbWebView.setOnScrollChangeListener(new d(this));
+            r();
+        }
+    }
+
+    public final boolean G(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
             if (this.a.isAdded() && str.contains(UrlSchemaHelper.SCHEMA_TYPE_SHARE)) {
-                String urlDecode = ad.getUrlDecode(str);
+                String urlDecode = qd.getUrlDecode(str);
                 if (!urlDecode.contains("data=")) {
                     return false;
                 }
@@ -740,7 +740,7 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (!E(str) && !w(str) && !D(str) && !C(str) && !F(str) && !B(str) && !v(str) && !H(str)) {
+            if (!E(str) && !w(str) && !D(str) && !C(str) && !F(str) && !B(str) && !v(str) && !G(str)) {
                 return false;
             }
             return true;
@@ -748,7 +748,7 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
         return invokeL.booleanValue;
     }
 
-    public void L() {
+    public void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             if (this.g) {
@@ -828,19 +828,19 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
     }
 
     public void q() {
-        gi5 gi5Var;
+        vj5 vj5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048598, this) == null) && (gi5Var = this.f) != null) {
-            gi5Var.dettachView(this.b);
+        if ((interceptable == null || interceptable.invokeV(1048598, this) == null) && (vj5Var = this.f) != null) {
+            vj5Var.dettachView(this.b);
             this.f = null;
         }
     }
 
     @Override // com.baidu.tieba.ala.gamefrslivetab.video.IGameFrsLiveTabVideoView
-    public NavigationBar r() {
+    public NavigationBar u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
             return this.c;
         }
         return (NavigationBar) invokeV.objValue;
@@ -881,11 +881,11 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
         BaseFragment baseFragment;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (baseFragment = this.a) != null && baseFragment.isAdded()) {
-            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e4f);
+            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e61);
             if (this.f == null) {
-                gi5 gi5Var = new gi5(this.a.getActivity(), new e(this));
-                this.f = gi5Var;
-                gi5Var.onChangeSkinType();
+                vj5 vj5Var = new vj5(this.a.getActivity(), new e(this));
+                this.f = vj5Var;
+                vj5Var.onChangeSkinType();
             }
             this.d.setVisibility(8);
             this.f.l(string);
@@ -894,10 +894,10 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
         }
     }
 
-    public final void s() {
+    public final void r() {
         TbWebView tbWebView;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048600, this) != null) || (tbWebView = this.d) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048599, this) != null) || (tbWebView = this.d) == null) {
             return;
         }
         tbWebView.setOnLoadUrlListener(new f(this));

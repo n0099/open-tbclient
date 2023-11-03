@@ -30,7 +30,7 @@ import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.searchbox.dns.transmit.model.DnsModel;
-import com.baidu.tieba.v20;
+import com.baidu.tieba.m30;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -187,7 +187,7 @@ public class McastManagerImpl {
                 createMcastMethodIntent.putExtra(Constants.EXTRA_EMOJI_PACKAGE_ID, iMEmojiReplyRequestInfo.emojiPackageId);
                 createMcastMethodIntent.putExtra("emoji_content", iMEmojiReplyRequestInfo.emojiContent);
                 try {
-                    v20.e(this.mContext).d(this.mContext, createMcastMethodIntent);
+                    m30.e(this.mContext).d(this.mContext, createMcastMethodIntent);
                     return;
                 } catch (Exception unused) {
                     if (iMEmojiReplyListener != null) {

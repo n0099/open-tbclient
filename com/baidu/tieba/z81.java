@@ -1,80 +1,70 @@
 package com.baidu.tieba;
 
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
+import android.text.style.DynamicDrawableSpan;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IStatisticManager;
-import com.baidu.nps.interfa.IStatisticManager_StatisticManager_Provider;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
-public class z81 {
+public final class z81 extends DynamicDrawableSpan {
     public static /* synthetic */ Interceptable $ic;
-    public static z81 b;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject
-    public xe1<IStatisticManager> a;
+    public int a;
+    public final Drawable b;
+    public final int c;
+    public final int d;
 
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ve1 b2 = ve1.b();
-            this.a = b2;
-            b2.a(new IStatisticManager_StatisticManager_Provider());
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948313718, "Lcom/baidu/tieba/z81;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948313718, "Lcom/baidu/tieba/z81;");
-                return;
-            }
-        }
-        b = new z81();
-    }
-
-    public z81() {
+    public z81(Drawable rawDrawable, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {rawDrawable, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        c();
+        Intrinsics.checkNotNullParameter(rawDrawable, "rawDrawable");
+        this.b = rawDrawable;
+        this.c = i;
+        this.d = i2;
     }
 
-    public static z81 a() {
-        InterceptResult invokeV;
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
+            Intrinsics.checkNotNullParameter(canvas, "canvas");
+            Intrinsics.checkNotNullParameter(paint, "paint");
+            canvas.save();
+            canvas.translate(f, ((i5 - paint.getFontMetricsInt().bottom) - this.b.getBounds().height()) + this.a);
+            this.b.draw(canvas);
+            canvas.restore();
         }
-        return (z81) invokeV.objValue;
     }
 
-    public IStatisticManager b() {
+    @Override // android.text.style.DynamicDrawableSpan
+    public Drawable getDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.get();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int i = this.d;
+            int intrinsicWidth = (this.b.getIntrinsicWidth() * i) / this.b.getIntrinsicHeight();
+            this.a = (this.c - i) / 2;
+            this.b.setBounds(0, 0, intrinsicWidth, i);
+            return this.b;
         }
-        return (IStatisticManager) invokeV.objValue;
+        return (Drawable) invokeV.objValue;
     }
 }

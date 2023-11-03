@@ -224,7 +224,7 @@ public class TbRichTextCommInfo extends OrmObject {
     }
 
     @Nullable
-    public Map<String, Object> N() {
+    public Map<String, Object> O() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -234,7 +234,7 @@ public class TbRichTextCommInfo extends OrmObject {
     }
 
     @Nullable
-    public String O() {
+    public String P() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -243,7 +243,7 @@ public class TbRichTextCommInfo extends OrmObject {
         return (String) invokeV.objValue;
     }
 
-    public int P() {
+    public int Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -252,7 +252,7 @@ public class TbRichTextCommInfo extends OrmObject {
         return invokeV.intValue;
     }
 
-    public String Q() {
+    public String R() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -261,7 +261,7 @@ public class TbRichTextCommInfo extends OrmObject {
         return (String) invokeV.objValue;
     }
 
-    public String R() {
+    public String S() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -270,7 +270,7 @@ public class TbRichTextCommInfo extends OrmObject {
         return (String) invokeV.objValue;
     }
 
-    public String S() {
+    public String T() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -279,7 +279,7 @@ public class TbRichTextCommInfo extends OrmObject {
         return (String) invokeV.objValue;
     }
 
-    public String T() {
+    public String U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -289,7 +289,7 @@ public class TbRichTextCommInfo extends OrmObject {
     }
 
     @Nullable
-    public PbContent U() {
+    public PbContent V() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -298,7 +298,7 @@ public class TbRichTextCommInfo extends OrmObject {
         return (PbContent) invokeV.objValue;
     }
 
-    public int V() {
+    public int W() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -307,7 +307,7 @@ public class TbRichTextCommInfo extends OrmObject {
         return invokeV.intValue;
     }
 
-    public int W() {
+    public int X() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -316,7 +316,7 @@ public class TbRichTextCommInfo extends OrmObject {
         return invokeV.intValue;
     }
 
-    public void Y() {
+    public void Z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             String str = this.a;
@@ -357,7 +357,7 @@ public class TbRichTextCommInfo extends OrmObject {
         return (String) invokeV.objValue;
     }
 
-    public void X(@Nullable PbContent pbContent) {
+    public void Y(@Nullable PbContent pbContent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, pbContent) == null) {
             this.o = pbContent;

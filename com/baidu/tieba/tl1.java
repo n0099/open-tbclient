@@ -1,83 +1,84 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
-import com.vivo.identifier.IdentifierIdClient;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.zip.GZIPInputStream;
+import java.util.zip.GZIPOutputStream;
 /* loaded from: classes8.dex */
-public class tl1 implements kl1 {
+public abstract class tl1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sl1 a;
-    public String b;
-    public rl1 c;
 
-    public tl1() {
+    public static void a(InputStream inputStream, OutputStream outputStream) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65536, null, inputStream, outputStream) == null) {
+            GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(outputStream);
+            byte[] bArr = new byte[2048];
+            while (true) {
+                int read = inputStream.read(bArr, 0, 2048);
+                if (read != -1) {
+                    gZIPOutputStream.write(bArr, 0, read);
+                } else {
+                    gZIPOutputStream.flush();
+                    gZIPOutputStream.finish();
+                    gZIPOutputStream.close();
+                    return;
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.kl1
-    public String a() {
-        InterceptResult invokeV;
+    public static void c(InputStream inputStream, OutputStream outputStream) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.b)) {
-                this.b = this.a.a(0, null);
-            }
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.kl1
-    public void a(Context context, ll1 ll1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ll1Var) == null) {
-            this.a = new sl1(context);
-            if (b()) {
-                this.c = new rl1(this);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, this.c);
-            }
-            if (ll1Var != null) {
-                ll1Var.a();
+        if (interceptable == null || interceptable.invokeLL(65538, null, inputStream, outputStream) == null) {
+            GZIPInputStream gZIPInputStream = new GZIPInputStream(inputStream);
+            byte[] bArr = new byte[2048];
+            while (true) {
+                int read = gZIPInputStream.read(bArr, 0, 2048);
+                if (read != -1) {
+                    outputStream.write(bArr, 0, read);
+                } else {
+                    gZIPInputStream.close();
+                    return;
+                }
             }
         }
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
-        String str;
+    public static byte[] b(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            try {
-                Class<?> cls = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
-                str = (String) cls.getMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class, String.class).invoke(cls, IdentifierIdClient.SYS_IDENTIFIERID_SUPPORTED, "0");
-            } catch (Throwable unused) {
-                str = null;
-            }
-            if ("1".equals(str)) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            a(byteArrayInputStream, byteArrayOutputStream);
+            byte[] byteArray = byteArrayOutputStream.toByteArray();
+            byteArrayOutputStream.flush();
+            byteArrayOutputStream.close();
+            byteArrayInputStream.close();
+            return byteArray;
         }
-        return invokeV.booleanValue;
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static byte[] d(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            c(byteArrayInputStream, byteArrayOutputStream);
+            byte[] byteArray = byteArrayOutputStream.toByteArray();
+            byteArrayOutputStream.flush();
+            byteArrayOutputStream.close();
+            byteArrayInputStream.close();
+            return byteArray;
+        }
+        return (byte[]) invokeL.objValue;
     }
 }

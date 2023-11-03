@@ -1,25 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tbadk.data.QmFilterItem;
+import com.baidu.tieba.external.sticker.data.QmStickerItem;
 /* loaded from: classes9.dex */
-public final class yq6 extends gq6 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface yq6 {
 
-    public yq6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+    /* loaded from: classes9.dex */
+    public interface a {
+        void onProgress(long j);
     }
+
+    /* loaded from: classes9.dex */
+    public interface b {
+        boolean a(String str);
+
+        boolean b();
+    }
+
+    /* loaded from: classes9.dex */
+    public interface c {
+        void a(boolean z, String str);
+    }
+
+    boolean a(QmFilterItem qmFilterItem);
+
+    boolean b(QmStickerItem qmStickerItem);
+
+    boolean c();
+
+    boolean d();
+
+    hf6 e();
+
+    ef6 f();
+
+    void g(c cVar);
+
+    boolean onDestroy();
+
+    boolean onPause();
+
+    boolean onResume();
+
+    boolean startRecord();
+
+    boolean stopRecord();
 }

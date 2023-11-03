@@ -1,161 +1,130 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Bundle;
+import com.baidu.adp.log.DefaultLog;
+import com.baidu.adp.titan.TitanDownloadService;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.pms.bean.PackageInfo;
+import com.baidu.tieba.log.TbLog;
+import com.baidu.titan.sdk.internal.util.Files;
+import com.baidu.titan.sdk.loader.LoaderHead;
+import com.baidu.titan.sdk.loader.LoaderManager;
+import com.baidu.titan.sdk.pm.PatchInstallInfo;
+import com.baidu.titan.sdk.pm.PatchManager;
+import com.baidu.titan.sdk.pm.PatchMetaInfo;
+import com.baidu.titan.sdk.pm.TitanPaths;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes8.dex */
 public class uh {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public float b;
-    public float c;
-    public float d;
-    public int e;
-    public int f;
-    public int g;
-    public float h;
-    public float i;
-    public float j;
-    public float k;
-    public int l;
 
-    public uh() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes8.dex */
+    public class a implements PatchManager.PatchInstallObserver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qh a;
+        public final /* synthetic */ PackageInfo b;
+        public final /* synthetic */ boolean c;
+
+        public a(qh qhVar, PackageInfo packageInfo, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qhVar, packageInfo, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qhVar;
+            this.b = packageInfo;
+            this.c = z;
+        }
+
+        @Override // com.baidu.titan.sdk.pm.PatchManager.PatchInstallObserver
+        public void onPatchInstalled(int i, Bundle bundle) {
+            int i2;
+            LoaderHead createFromJson;
+            PatchMetaInfo createFromPatch;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, bundle) == null) {
+                if (i != 0 && i != 1) {
+                    i2 = -1;
+                } else {
+                    i2 = 0;
+                }
+                String str = "install-resut:" + i;
+                qh qhVar = this.a;
+                if (qhVar != null) {
+                    qhVar.onResult(this.b.packageName, i2, str);
+                }
+                DefaultLog.getInstance().i(TitanDownloadService.TAG, "patch install result = " + i + "patch version = " + this.b.version + " packageInfo:" + this.b);
+                if (i2 == 0) {
+                    uh.c(this.b);
+                } else {
+                    DefaultLog.getInstance().e(TitanDownloadService.TAG, "last patch is:" + LoaderManager.getInstance().getCurrentPatchInfo());
+                }
+                if (!this.c) {
+                    int loadState = LoaderManager.getInstance().getLoadState();
+                    if (loadState == -4 || loadState == -1) {
+                        File headFile = TitanPaths.getHeadFile();
+                        if (headFile.exists() && (createFromJson = LoaderHead.createFromJson(Files.getFileStringContent(headFile))) != null && (createFromPatch = PatchMetaInfo.createFromPatch(new PatchInstallInfo(TitanPaths.getPatchDir(createFromJson.patchHash)).getPatchFile())) != null && createFromPatch.loadPolicy == 1) {
+                            LoaderManager.getInstance().loadInTime();
+                        }
+                    }
+                }
             }
         }
-        this.a = 8.0f;
-        this.b = 15.0f;
-        this.c = 4.0f;
-        this.d = 60.0f;
-        this.e = 150;
-        this.f = 150;
-        this.g = 500;
-        this.h = 0.4f;
-        this.i = 1.0f;
-        this.j = 20.0f;
-        this.k = 10.0f;
-        this.l = 360;
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public static void b(Context context, qh qhVar, PackageInfo packageInfo, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.l;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, qhVar, packageInfo, Boolean.valueOf(z)}) == null) {
+            TbLog defaultLog = DefaultLog.getInstance();
+            defaultLog.i(TitanDownloadService.TAG, "install file: " + packageInfo.filePath);
+            PatchManager.getInstance().installPatch(Uri.fromFile(new File(packageInfo.filePath)), null, new a(qhVar, packageInfo, z));
         }
-        return invokeV.intValue;
     }
 
-    public float b() {
-        InterceptResult invokeV;
+    public static void c(PackageInfo packageInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.j;
+        if (interceptable == null || interceptable.invokeL(65538, null, packageInfo) == null) {
+            sh d = sh.d();
+            if (packageInfo != null) {
+                long j = packageInfo.updateVersion;
+                if (j != 0) {
+                    d.j(j);
+                    Context appContext = AppRuntime.getAppContext();
+                    if (appContext != null) {
+                        try {
+                            android.content.pm.PackageInfo packageInfo2 = appContext.getPackageManager().getPackageInfo(appContext.getPackageName(), 0);
+                            if (packageInfo2 != null) {
+                                d.h(packageInfo2.versionCode);
+                            }
+                        } catch (PackageManager.NameNotFoundException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+                int i = packageInfo.errNo;
+                if (i == 0 || i == -2) {
+                    d.i(System.currentTimeMillis());
+                }
+            }
+            d.l();
         }
-        return invokeV.floatValue;
-    }
-
-    public float c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return invokeV.floatValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public float e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.h;
-        }
-        return invokeV.floatValue;
-    }
-
-    public float f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.c;
-        }
-        return invokeV.floatValue;
-    }
-
-    public float g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.d;
-        }
-        return invokeV.floatValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.g;
-        }
-        return invokeV.intValue;
-    }
-
-    public float i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.k;
-        }
-        return invokeV.floatValue;
-    }
-
-    public float j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.a;
-        }
-        return invokeV.floatValue;
-    }
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public float l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.i;
-        }
-        return invokeV.floatValue;
     }
 }

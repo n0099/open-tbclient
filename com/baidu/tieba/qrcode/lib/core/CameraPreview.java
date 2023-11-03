@@ -9,7 +9,7 @@ import android.view.TextureView;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.my9;
+import com.baidu.tieba.rba;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class CameraPreview extends TextureView implements TextureView.SurfaceTextureListener {
     public static /* synthetic */ Interceptable $ic;
     public static final String h;
@@ -25,7 +25,7 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
     public Camera a;
     public boolean b;
     public boolean c;
-    public my9 d;
+    public rba d;
     public SurfaceTexture e;
     public Runnable f;
     public Camera.AutoFocusCallback g;
@@ -37,7 +37,7 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,7 +73,7 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b implements Camera.AutoFocusCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -112,7 +112,7 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -163,10 +163,10 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
     }
 
     public void f() {
-        my9 my9Var;
+        rba rbaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (my9Var = this.d) != null) {
-            my9Var.i();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (rbaVar = this.d) != null) {
+            rbaVar.i();
         }
     }
 
@@ -212,9 +212,9 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, camera) == null) {
             this.a = camera;
             if (camera != null) {
-                my9 my9Var = new my9(getContext());
-                this.d = my9Var;
-                my9Var.h(this.a);
+                rba rbaVar = new rba(getContext());
+                this.d = rbaVar;
+                rbaVar.h(this.a);
                 if (this.b) {
                     requestLayout();
                 } else {
@@ -262,8 +262,8 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
         if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
             int defaultSize = TextureView.getDefaultSize(getSuggestedMinimumWidth(), i);
             int defaultSize2 = TextureView.getDefaultSize(getSuggestedMinimumHeight(), i2);
-            my9 my9Var = this.d;
-            if (my9Var != null && my9Var.e() != null) {
+            rba rbaVar = this.d;
+            if (rbaVar != null && rbaVar.e() != null) {
                 Point e = this.d.e();
                 float f = defaultSize;
                 float f2 = defaultSize2;

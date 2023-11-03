@@ -1,29 +1,13 @@
 package com.baidu.tieba;
 /* loaded from: classes8.dex */
 public interface u90 {
+    void onError(int i);
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void b(u90 u90Var);
-    }
+    void onPause();
 
-    /* loaded from: classes8.dex */
-    public interface b {
-        boolean d(u90 u90Var, int i, int i2);
-    }
+    void onResume();
 
-    /* loaded from: classes8.dex */
-    public interface c {
-        boolean e(u90 u90Var, int i, int i2, Object obj);
-    }
+    void onStart();
 
-    /* loaded from: classes8.dex */
-    public interface d {
-        void c(u90 u90Var);
-    }
-
-    /* loaded from: classes8.dex */
-    public interface e {
-        void a(u90 u90Var);
-    }
+    void v(int i, String str);
 }

@@ -1,102 +1,102 @@
 package org.chromium.base;
 
-import com.baidu.tieba.g3c;
+import com.baidu.tieba.hgc;
 /* loaded from: classes2.dex */
 public final class R {
 
     /* loaded from: classes2.dex */
-    public static final class anim extends g3c.a {
+    public static final class anim extends hgc.a {
     }
 
     /* loaded from: classes2.dex */
-    public static final class animator extends g3c.b {
+    public static final class animator extends hgc.b {
     }
 
     /* loaded from: classes2.dex */
-    public static final class array extends g3c.c {
+    public static final class array extends hgc.c {
     }
 
     /* loaded from: classes2.dex */
-    public static final class attr extends g3c.d {
+    public static final class attr extends hgc.d {
     }
 
     /* loaded from: classes2.dex */
-    public static final class bool extends g3c.e {
+    public static final class bool extends hgc.e {
     }
 
     /* loaded from: classes2.dex */
-    public static final class color extends g3c.f {
+    public static final class color extends hgc.f {
     }
 
     /* loaded from: classes2.dex */
-    public static final class dimen extends g3c.g {
+    public static final class dimen extends hgc.g {
     }
 
     /* loaded from: classes2.dex */
-    public static final class drawable extends g3c.h {
+    public static final class drawable extends hgc.h {
     }
 
     /* loaded from: classes2.dex */
-    public static final class font extends g3c.i {
+    public static final class font extends hgc.i {
     }
 
     /* loaded from: classes2.dex */
-    public static final class fraction extends g3c.j {
+    public static final class fraction extends hgc.j {
     }
 
     /* loaded from: classes2.dex */
-    public static final class id extends g3c.k {
+    public static final class id extends hgc.k {
     }
 
     /* loaded from: classes2.dex */
-    public static final class integer extends g3c.l {
+    public static final class integer extends hgc.l {
     }
 
     /* loaded from: classes2.dex */
-    public static final class interpolator extends g3c.m {
+    public static final class interpolator extends hgc.m {
     }
 
     /* loaded from: classes2.dex */
-    public static final class layout extends g3c.n {
+    public static final class layout extends hgc.n {
     }
 
     /* loaded from: classes2.dex */
-    public static final class menu extends g3c.o {
+    public static final class menu extends hgc.o {
     }
 
     /* loaded from: classes2.dex */
-    public static final class mipmap extends g3c.p {
+    public static final class mipmap extends hgc.p {
     }
 
     /* loaded from: classes2.dex */
-    public static final class plurals extends g3c.q {
+    public static final class plurals extends hgc.q {
     }
 
     /* loaded from: classes2.dex */
-    public static final class raw extends g3c.r {
+    public static final class raw extends hgc.r {
     }
 
     /* loaded from: classes2.dex */
-    public static final class string extends g3c.s {
+    public static final class string extends hgc.s {
     }
 
     /* loaded from: classes2.dex */
-    public static final class style extends g3c.t {
+    public static final class style extends hgc.t {
     }
 
     /* loaded from: classes2.dex */
-    public static final class styleable extends g3c.u {
+    public static final class styleable extends hgc.u {
     }
 
     /* loaded from: classes2.dex */
-    public static final class transition extends g3c.v {
+    public static final class transition extends hgc.v {
     }
 
     /* loaded from: classes2.dex */
-    public static final class xml extends g3c.w {
+    public static final class xml extends hgc.w {
     }
 
     public static void onResourcesLoaded(int i) {
-        g3c.a(i);
+        hgc.a(i);
     }
 }

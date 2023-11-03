@@ -9,8 +9,8 @@ import android.os.Looper;
 import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tieba.b7;
-import com.baidu.tieba.sr5;
+import com.baidu.tieba.mt5;
+import com.baidu.tieba.r7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +26,7 @@ public class AppLaunchInfoFetcher {
 
     /* loaded from: classes5.dex */
     public interface a {
-        void onFinish(sr5 sr5Var);
+        void onFinish(mt5 mt5Var);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -107,7 +107,7 @@ public class AppLaunchInfoFetcher {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, message)) == null) {
             if (message != null && (obj = message.obj) != null) {
-                Object d = b7.d(obj, "intent");
+                Object d = r7.d(obj, "intent");
                 if (d instanceof Intent) {
                     return (Intent) d;
                 }
@@ -118,7 +118,7 @@ public class AppLaunchInfoFetcher {
     }
 
     @TargetApi(23)
-    public static sr5 b(Context context) {
+    public static mt5 b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
@@ -126,14 +126,14 @@ public class AppLaunchInfoFetcher {
             if (appTasks != null) {
                 for (ActivityManager.AppTask appTask : appTasks) {
                     if (appTask != null && appTask.getTaskInfo() != null && appTask.getTaskInfo().baseIntent != null && appTask.getTaskInfo().baseIntent.getComponent() != null) {
-                        return new sr5(Type.ACTIVITY, appTask.getTaskInfo().baseIntent);
+                        return new mt5(Type.ACTIVITY, appTask.getTaskInfo().baseIntent);
                     }
                 }
                 return null;
             }
             return null;
         }
-        return (sr5) invokeL.objValue;
+        return (mt5) invokeL.objValue;
     }
 
     public static Type d(Message message) {
@@ -159,11 +159,11 @@ public class AppLaunchInfoFetcher {
         return (Type) invokeL.objValue;
     }
 
-    public static sr5 c() {
+    public static mt5 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            Object d = b7.d(Looper.myQueue(), "mMessages");
+            Object d = r7.d(Looper.myQueue(), "mMessages");
             if (d instanceof Message) {
                 Message message = (Message) d;
                 int i = 0;
@@ -172,12 +172,12 @@ public class AppLaunchInfoFetcher {
                     Intent a2 = a(message);
                     Type d2 = d(message);
                     if (a2 != null && a2.getComponent() != null) {
-                        return new sr5(Type.ACTIVITY, a2);
+                        return new mt5(Type.ACTIVITY, a2);
                     }
                     if (d2 != Type.UNKNOWN) {
-                        return new sr5(d2, null);
+                        return new mt5(d2, null);
                     }
-                    Object d3 = b7.d(message, "next");
+                    Object d3 = r7.d(message, "next");
                     if (d3 instanceof Message) {
                         message = (Message) d3;
                     } else {
@@ -187,27 +187,27 @@ public class AppLaunchInfoFetcher {
             }
             return null;
         }
-        return (sr5) invokeV.objValue;
+        return (mt5) invokeV.objValue;
     }
 
     public static void e(Context context, List<a> list) {
-        sr5 sr5Var;
+        mt5 mt5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, list) == null) {
             try {
                 if (Build.VERSION.SDK_INT >= 23) {
-                    sr5Var = b(context);
+                    mt5Var = b(context);
                 } else {
-                    sr5Var = null;
+                    mt5Var = null;
                 }
-                if (sr5Var == null) {
-                    sr5Var = c();
+                if (mt5Var == null) {
+                    mt5Var = c();
                 }
-                if (sr5Var == null) {
-                    sr5Var = new sr5(Type.UNKNOWN, null);
+                if (mt5Var == null) {
+                    mt5Var = new mt5(Type.UNKNOWN, null);
                 }
                 for (a aVar : list) {
-                    aVar.onFinish(sr5Var);
+                    aVar.onFinish(mt5Var);
                 }
             } catch (Throwable th) {
                 BdLog.e(th);

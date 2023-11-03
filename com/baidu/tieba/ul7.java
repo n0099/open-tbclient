@@ -1,67 +1,83 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.itemtab.card.CardItemRecentUpdateLayout;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class ul7 extends wr<bm7> {
+public final class ul7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CardItemRecentUpdateLayout f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ul7(Context context) {
-        super(context);
+    public static final int a(long j, long j2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            long currentTimeMillis = System.currentTimeMillis() / 1000;
+            if (currentTimeMillis < j) {
+                return 1;
             }
+            if (currentTimeMillis > j2) {
+                return 3;
+            }
+            return 2;
         }
-        this.f = new CardItemRecentUpdateLayout(context);
+        return invokeCommon.intValue;
     }
 
-    @Override // com.baidu.tieba.wr
-    public View k() {
-        InterceptResult invokeV;
+    public static final boolean b(Object bindData) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bindData)) == null) {
+            Intrinsics.checkNotNullParameter(bindData, "bindData");
+            if (bindData instanceof e57) {
+                Map<String, String> a = ((e57) bindData).e().a().a();
+                int i = JavaTypesHelper.toInt(a.get("thread_type"), 0);
+                if (JavaTypesHelper.toInt(a.get("is_livepost"), 0) == 1) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                long j = JavaTypesHelper.toLong(a.get("task_start_time"), 0L);
+                long j2 = JavaTypesHelper.toLong(a.get("task_end_time"), 0L);
+                if (i == 41 && z && a(j, j2) == 2) {
+                    return true;
+                }
+            }
+            return false;
         }
-        return (View) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qs
-    /* renamed from: t */
-    public void onBindDataToView(bm7 bm7Var) {
+    public static final boolean c(Object bindData) {
+        InterceptResult invokeL;
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bm7Var) == null) {
-            this.f.setData(bm7Var.c());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bindData)) == null) {
+            Intrinsics.checkNotNullParameter(bindData, "bindData");
+            if (bindData instanceof e57) {
+                Map<String, String> a = ((e57) bindData).e().a().a();
+                int i = JavaTypesHelper.toInt(a.get("thread_type"), 0);
+                if (JavaTypesHelper.toInt(a.get("is_official"), 0) == 2) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (JavaTypesHelper.toInt(a.get("frs_toplive_force"), 0) == 1) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                if ((i == 49 || i == 69) && z && z2) {
+                    return true;
+                }
+            }
+            return false;
         }
-    }
-
-    @Override // com.baidu.tieba.rs
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            this.f.onChangeSkinType(tbPageContext, i);
-        }
+        return invokeL.booleanValue;
     }
 }

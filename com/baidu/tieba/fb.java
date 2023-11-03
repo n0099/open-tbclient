@@ -1,175 +1,152 @@
 package com.baidu.tieba;
 
-import android.view.animation.Animation;
-import com.baidu.adp.lib.safe.SafeHandler;
+import android.net.SSLCertificateSocketFactory;
+import android.os.Build;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.net.UnknownHostException;
+import java.security.cert.X509Certificate;
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLPeerUnverifiedException;
+import javax.net.ssl.SSLSession;
+import javax.net.ssl.SSLSocket;
+import javax.net.ssl.SSLSocketFactory;
+import okhttp3.CertificatePinner;
+import okhttp3.Handshake;
+import okhttp3.internal.tls.OkHostnameVerifier;
 /* loaded from: classes5.dex */
-public abstract class fb implements Animation.AnimationListener {
+public class fb extends SSLSocketFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public HostnameVerifier b;
+    public HttpsURLConnection c;
 
-    public void a(Animation animation) {
+    @Override // javax.net.SocketFactory
+    public Socket createSocket() throws IOException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
         }
+        return (Socket) invokeV.objValue;
     }
 
-    public void b(Animation animation) {
+    @Override // javax.net.SocketFactory
+    public Socket createSocket(String str, int i) throws IOException, UnknownHostException {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
+            return null;
         }
+        return (Socket) invokeLI.objValue;
     }
 
-    public void c(Animation animation) {
+    @Override // javax.net.SocketFactory
+    public Socket createSocket(String str, int i, InetAddress inetAddress, int i2) throws IOException, UnknownHostException {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Integer.valueOf(i), inetAddress, Integer.valueOf(i2)})) == null) {
+            return null;
         }
+        return (Socket) invokeCommon.objValue;
     }
 
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Animation a;
-        public final /* synthetic */ fb b;
-
-        public a(fb fbVar, Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fbVar, animation};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = fbVar;
-            this.a = animation;
+    @Override // javax.net.SocketFactory
+    public Socket createSocket(InetAddress inetAddress, int i) throws IOException {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, inetAddress, i)) == null) {
+            return null;
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.c(this.a);
-            }
-        }
+        return (Socket) invokeLI.objValue;
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Animation a;
-        public final /* synthetic */ fb b;
-
-        public b(fb fbVar, Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fbVar, animation};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = fbVar;
-            this.a = animation;
+    @Override // javax.net.SocketFactory
+    public Socket createSocket(InetAddress inetAddress, int i, InetAddress inetAddress2, int i2) throws IOException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{inetAddress, Integer.valueOf(i), inetAddress2, Integer.valueOf(i2)})) == null) {
+            return null;
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.a(this.a);
-            }
-        }
+        return (Socket) invokeCommon.objValue;
     }
 
-    /* loaded from: classes5.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Animation a;
-        public final /* synthetic */ fb b;
-
-        public c(fb fbVar, Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fbVar, animation};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = fbVar;
-            this.a = animation;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.b(this.a);
-            }
-        }
+    @Override // javax.net.ssl.SSLSocketFactory
+    public String[] getDefaultCipherSuites() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new String[0] : (String[]) invokeV.objValue;
     }
 
-    public fb() {
+    @Override // javax.net.ssl.SSLSocketFactory
+    public String[] getSupportedCipherSuites() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? new String[0] : (String[]) invokeV.objValue;
+    }
+
+    public fb(HttpsURLConnection httpsURLConnection) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {httpsURLConnection};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = fb.class.getSimpleName();
+        this.b = HttpsURLConnection.getDefaultHostnameVerifier();
+        this.c = httpsURLConnection;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
+    @Override // javax.net.ssl.SSLSocketFactory
+    public Socket createSocket(Socket socket, String str, int i, boolean z) throws IOException {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, animation) == null) {
-            SafeHandler.getInst().post(new b(this, animation));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{socket, str, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            String requestProperty = this.c.getRequestProperty("Host");
+            if (requestProperty != null) {
+                str = requestProperty;
+            }
+            InetAddress inetAddress = socket.getInetAddress();
+            if (z) {
+                socket.close();
+            }
+            SSLCertificateSocketFactory sSLCertificateSocketFactory = (SSLCertificateSocketFactory) SSLCertificateSocketFactory.getDefault(0);
+            SSLSocket sSLSocket = (SSLSocket) sSLCertificateSocketFactory.createSocket(inetAddress, i);
+            sSLSocket.setEnabledProtocols(sSLSocket.getSupportedProtocols());
+            if (Build.VERSION.SDK_INT >= 17) {
+                sSLCertificateSocketFactory.setHostname(sSLSocket, str);
+            } else {
+                try {
+                    sSLSocket.getClass().getMethod("setHostname", String.class).invoke(sSLSocket, str);
+                } catch (Exception e) {
+                    Log.w(this.a, " SNI Setting failed", e);
+                }
+            }
+            SSLSession session = sSLSocket.getSession();
+            if (this.b.verify(str, session)) {
+                return sSLSocket;
+            }
+            X509Certificate x509Certificate = (X509Certificate) Handshake.get(session).peerCertificates().get(0);
+            throw new SSLPeerUnverifiedException("Hostname " + str + " not verified:\n    certificate: " + CertificatePinner.pin(x509Certificate) + "\n    DN: " + x509Certificate.getSubjectDN().getName() + "\n    subjectAltNames: " + OkHostnameVerifier.allSubjectAltNames(x509Certificate));
         }
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, animation) == null) {
-            SafeHandler.getInst().post(new c(this, animation));
-        }
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, animation) == null) {
-            SafeHandler.getInst().post(new a(this, animation));
-        }
+        return (Socket) invokeCommon.objValue;
     }
 }

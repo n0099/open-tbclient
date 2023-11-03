@@ -8,10 +8,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class j02 extends wy1 {
+public class j02 extends nz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ez1 a;
+    public float a;
+    public float b;
 
     public j02() {
         Interceptable interceptable = $ic;
@@ -27,26 +28,23 @@ public class j02 extends wy1 {
         }
     }
 
-    @Override // com.baidu.tieba.wy1
-    public void a(xy1 xy1Var, Canvas canvas) {
-        ez1 ez1Var;
+    @Override // com.baidu.tieba.nz1
+    public void a(oz1 oz1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, xy1Var, canvas) == null) && (ez1Var = this.a) != null && ez1Var.d()) {
-            if (this.a.c()) {
-                xy1Var.c.setShader(this.a.b());
-                return;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, oz1Var, canvas) == null) {
+            if (oz1Var.a() == 0) {
+                oz1Var.b(canvas.save());
             }
-            xy1Var.m = this.a.a();
-            xy1Var.c.setColor(this.a.a());
-            xy1Var.b.setShader(null);
+            canvas.scale(this.a, this.b);
         }
     }
 
-    @Override // com.baidu.tieba.wy1
+    @Override // com.baidu.tieba.nz1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
-            this.a = new ez1(jSONArray);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 1) {
+            this.a = (float) jSONArray.optDouble(0);
+            this.b = (float) jSONArray.optDouble(1);
         }
     }
 }

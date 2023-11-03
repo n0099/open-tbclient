@@ -12,7 +12,7 @@ import com.google.zxing.maxicode.decoder.DecodedBitStreamParser;
 import com.huawei.hms.common.internal.TransactionIdCreater;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class Code128Reader extends OneDReader {
     public static final int CODE_CODE_A = 101;
     public static final int CODE_CODE_B = 100;

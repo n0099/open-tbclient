@@ -1,81 +1,90 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.faceshop.forumpackage.adapter.ForumEmotionEmptyViewHolder;
-import com.baidu.tieba.faceshop.forumpackage.view.ForumEmotionEmptyView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.IOException;
+import java.util.zip.ZipException;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class j07 extends lh<k07, ForumEmotionEmptyViewHolder> {
+public final class j07 extends BdAsyncTask<Void, Void, Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public g07 b;
-    public l07 c;
+    public final String a;
+    public final String b;
+    public final a c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j07(TbPageContext<?> tbPageContext, l07 l07Var, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(boolean z);
+    }
+
+    @JvmOverloads
+    public j07(String dataPath, String desPath, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, l07Var, bdUniqueId};
+            Object[] objArr = {dataPath, desPath, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.c = l07Var;
+        Intrinsics.checkNotNullParameter(dataPath, "dataPath");
+        Intrinsics.checkNotNullParameter(desPath, "desPath");
+        this.a = dataPath;
+        this.b = desPath;
+        this.c = aVar;
+    }
+
+    public void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            super.onPostExecute(Boolean.valueOf(z));
+            a aVar = this.c;
+            if (aVar != null) {
+                aVar.a(z);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public /* bridge */ /* synthetic */ void onPostExecute(Boolean bool) {
+        b(bool.booleanValue());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
-    /* renamed from: s */
-    public ForumEmotionEmptyViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Boolean doInBackground(Void... params) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            ForumEmotionEmptyView forumEmotionEmptyView = new ForumEmotionEmptyView(this.a);
-            forumEmotionEmptyView.b(TbadkCoreApplication.getInst().getSkinType());
-            return new ForumEmotionEmptyViewHolder(this.a, forumEmotionEmptyView);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, params)) == null) {
+            Intrinsics.checkNotNullParameter(params, "params");
+            z35.c(new File(this.a), this.b);
+            boolean z = false;
+            try {
+                z35.c(new File(this.a), this.b);
+                z = true;
+            } catch (ZipException e) {
+                BdLog.e(e);
+            } catch (IOException e2) {
+                BdLog.e(e2);
+            }
+            return Boolean.valueOf(z);
         }
-        return (ForumEmotionEmptyViewHolder) invokeL.objValue;
-    }
-
-    public void u(g07 g07Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, g07Var) == null) {
-            this.b = g07Var;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, k07 k07Var, ForumEmotionEmptyViewHolder forumEmotionEmptyViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, k07Var, forumEmotionEmptyViewHolder})) == null) {
-            forumEmotionEmptyViewHolder.b(k07Var, i, this.c, this.b);
-            return forumEmotionEmptyViewHolder.getView();
-        }
-        return (View) invokeCommon.objValue;
+        return (Boolean) invokeL.objValue;
     }
 }

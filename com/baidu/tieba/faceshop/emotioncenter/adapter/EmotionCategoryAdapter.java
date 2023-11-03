@@ -13,15 +13,15 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lh;
-import com.baidu.tieba.zz6;
+import com.baidu.tieba.bi;
+import com.baidu.tieba.p17;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class EmotionCategoryAdapter extends lh<zz6, EmotionCategoryViewHolder> {
+public class EmotionCategoryAdapter extends bi<p17, EmotionCategoryViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -64,12 +64,12 @@ public class EmotionCategoryAdapter extends lh<zz6, EmotionCategoryViewHolder> {
                 return;
             }
             this.b = (TextView) view2.findViewById(R.id.emotion_title);
-            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0909be);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0909ce);
-            this.b.setText(this.a.getResources().getText(R.string.obfuscated_res_0x7f0f0643));
+            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0909df);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0909ef);
+            this.b.setText(this.a.getResources().getText(R.string.obfuscated_res_0x7f0f0645));
             this.c.setVisibility(8);
             this.d.setVisibility(8);
-            this.e = this.a.findViewById(R.id.obfuscated_res_0x7f090662);
+            this.e = this.a.findViewById(R.id.obfuscated_res_0x7f090681);
         }
 
         public void b(int i) {
@@ -103,13 +103,13 @@ public class EmotionCategoryAdapter extends lh<zz6, EmotionCategoryViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
-    /* renamed from: s */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: t */
     public EmotionCategoryViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            EmotionCategoryViewHolder emotionCategoryViewHolder = new EmotionCategoryViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0298, viewGroup, false));
+            EmotionCategoryViewHolder emotionCategoryViewHolder = new EmotionCategoryViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d029e, viewGroup, false));
             emotionCategoryViewHolder.b(TbadkCoreApplication.getInst().getSkinType());
             return emotionCategoryViewHolder;
         }
@@ -117,12 +117,12 @@ public class EmotionCategoryAdapter extends lh<zz6, EmotionCategoryViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, zz6 zz6Var, EmotionCategoryViewHolder emotionCategoryViewHolder) {
+    @Override // com.baidu.tieba.bi
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, p17 p17Var, EmotionCategoryViewHolder emotionCategoryViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, zz6Var, emotionCategoryViewHolder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, p17Var, emotionCategoryViewHolder})) == null) {
             return emotionCategoryViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

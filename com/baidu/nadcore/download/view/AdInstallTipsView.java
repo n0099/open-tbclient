@@ -12,11 +12,11 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a21;
-import com.baidu.tieba.th0;
-import com.baidu.tieba.vh0;
+import com.baidu.tieba.ki0;
+import com.baidu.tieba.mi0;
+import com.baidu.tieba.r21;
 /* loaded from: classes3.dex */
-public class AdInstallTipsView extends LinearLayout implements vh0, View.OnClickListener {
+public class AdInstallTipsView extends LinearLayout implements mi0, View.OnClickListener {
     public ImageView a;
     public TextView b;
     public FrameLayout c;
@@ -25,7 +25,7 @@ public class AdInstallTipsView extends LinearLayout implements vh0, View.OnClick
     public FrameLayout f;
     public TextView g;
     public CountDownTextView h;
-    public th0<AdInstallTipsView> i;
+    public ki0<AdInstallTipsView> i;
     public a j;
 
     /* loaded from: classes3.dex */
@@ -55,7 +55,7 @@ public class AdInstallTipsView extends LinearLayout implements vh0, View.OnClick
         setBackground(getResources().getDrawable(R.drawable.nad_install_tips_bg));
         setOrientation(0);
         setGravity(16);
-        this.i = new th0<>(this);
+        this.i = new ki0<>(this);
     }
 
     public final void b(View view2) {
@@ -84,7 +84,7 @@ public class AdInstallTipsView extends LinearLayout implements vh0, View.OnClick
         this.c.setOnClickListener(this);
         this.f.setOnClickListener(this);
         setOnClickListener(this);
-        a21.a(getContext(), this.c, 10.0f);
+        r21.a(getContext(), this.c, 10.0f);
     }
 
     @Override // android.view.View.OnClickListener

@@ -1,5 +1,5 @@
 package kotlin.reflect.jvm.internal.impl.descriptors;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface DeclarationDescriptorVisitor<R, D> {
     R visitClassDescriptor(ClassDescriptor classDescriptor, D d);
 

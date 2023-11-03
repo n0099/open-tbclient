@@ -1,234 +1,88 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.FrameHelper;
-import com.baidu.adp.framework.controller.CustomRule;
-import com.baidu.adp.framework.controller.MessageRule;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.message.Message;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.framework.message.SocketMessage;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.framework.task.HttpMessageTask;
-import com.baidu.adp.framework.task.MessageTask;
-import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class y5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LinkedList<u5> a;
-    public final LinkedList<a6> b;
-    public final LinkedList<CustomRule> c;
-    public final LinkedList<t5> d;
-    public final LinkedList<z5> e;
-    public final LinkedList<s5> f;
-    public final LinkedList<v5> g;
 
-    public y5() {
+    public static void d() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+        }
+    }
+
+    public static void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+        }
+    }
+
+    public static void a(String str, int i, int i2, String str2, int i3, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2, Integer.valueOf(i3), str3}) == null) {
+            b(str, i, -1L, i2, str2, i3, str3);
+        }
+    }
+
+    public static void b(String str, int i, long j, int i2, String str2, int i3, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), str2, Integer.valueOf(i3), str3}) == null) {
+            StringBuilder sb = new StringBuilder(50);
+            if (i != 0 && i2 != 0) {
+                sb.append("cmd = ");
+                sb.append(i);
+                sb.append("\t");
+                sb.append("sequence = ");
+                sb.append(i2);
+                sb.append("\t");
             }
-        }
-        this.a = new LinkedList<>();
-        this.b = new LinkedList<>();
-        this.c = new LinkedList<>();
-        this.d = new LinkedList<>();
-        this.e = new LinkedList<>();
-        this.f = new LinkedList<>();
-        this.g = new LinkedList<>();
-    }
-
-    public void a(v5 v5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, v5Var) == null) {
-            this.g.add(v5Var);
-        }
-    }
-
-    public CustomResponsedMessage<?> f(CustomResponsedMessage<?> customResponsedMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, customResponsedMessage)) == null) {
-            return (CustomResponsedMessage) j(this.f, customResponsedMessage);
-        }
-        return (CustomResponsedMessage) invokeL.objValue;
-    }
-
-    public HttpResponsedMessage h(HttpResponsedMessage httpResponsedMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, httpResponsedMessage)) == null) {
-            return (HttpResponsedMessage) j(this.d, httpResponsedMessage);
-        }
-        return (HttpResponsedMessage) invokeL.objValue;
-    }
-
-    public SocketResponsedMessage l(SocketResponsedMessage socketResponsedMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, socketResponsedMessage)) == null) {
-            return (SocketResponsedMessage) j(this.e, socketResponsedMessage);
-        }
-        return (SocketResponsedMessage) invokeL.objValue;
-    }
-
-    public void n(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, bdUniqueId) == null) {
-            int size = this.g.size();
-            for (int i = 0; i < size; i++) {
-                this.g.get(i).h(bdUniqueId);
-            }
-        }
-    }
-
-    public void b(MessageRule<?, ?> messageRule) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, messageRule) != null) || messageRule == null) {
-            return;
-        }
-        BdUtilHelper.checkMainThread();
-        if (messageRule instanceof u5) {
-            FrameHelper.f(this.a, (u5) messageRule);
-        } else if (messageRule instanceof a6) {
-            FrameHelper.f(this.b, (a6) messageRule);
-        } else if (messageRule instanceof CustomRule) {
-            FrameHelper.f(this.c, (CustomRule) messageRule);
-        } else {
-            BdLog.e("rule invalid");
-        }
-    }
-
-    public void c(w5<?> w5Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, w5Var) != null) || w5Var == null) {
-            return;
-        }
-        BdUtilHelper.checkMainThread();
-        if (w5Var instanceof t5) {
-            FrameHelper.f(this.d, (t5) w5Var);
-        } else if (w5Var instanceof z5) {
-            FrameHelper.f(this.e, (z5) w5Var);
-        } else if (w5Var instanceof s5) {
-            FrameHelper.f(this.f, (s5) w5Var);
-        } else {
-            BdLog.e("rule invalid");
-        }
-    }
-
-    public void d(MessageRule<?, ?> messageRule) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, messageRule) != null) || messageRule == null) {
-            return;
-        }
-        BdUtilHelper.checkMainThread();
-        if (messageRule instanceof u5) {
-            this.a.remove(messageRule);
-        } else if (messageRule instanceof a6) {
-            this.b.remove(messageRule);
-        } else if (messageRule instanceof CustomRule) {
-            this.c.remove(messageRule);
-        } else {
-            BdLog.e("rule invalid");
-        }
-    }
-
-    public CustomMessage<?> e(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, customMessage, customMessageTask)) == null) {
-            return (CustomMessage) i(this.c, customMessage, customMessageTask);
-        }
-        return (CustomMessage) invokeLL.objValue;
-    }
-
-    public HttpMessage g(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, httpMessage, httpMessageTask)) == null) {
-            return (HttpMessage) i(this.a, httpMessage, httpMessageTask);
-        }
-        return (HttpMessage) invokeLL.objValue;
-    }
-
-    public SocketMessage k(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, socketMessage, socketMessageTask)) == null) {
-            return (SocketMessage) i(this.b, socketMessage, socketMessageTask);
-        }
-        return (SocketMessage) invokeLL.objValue;
-    }
-
-    public void m(int i, BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048588, this, i, bdUniqueId) == null) {
-            int size = this.g.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                this.g.get(i2).g(i, bdUniqueId);
-            }
-        }
-    }
-
-    public final <M extends Message<?>, T extends MessageTask> M i(LinkedList<? extends MessageRule<M, T>> linkedList, M m, T t) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, linkedList, m, t)) == null) {
-            if (linkedList == null) {
-                return null;
-            }
-            int size = linkedList.size();
-            for (int i = 0; i < size && m != null; i++) {
-                try {
-                    m = linkedList.get(i).rule(m, t);
-                } catch (Exception e) {
-                    BdLog.e(e, true);
+            sb.append(str3);
+            try {
+                LinkedList linkedList = new LinkedList();
+                linkedList.add("lib");
+                linkedList.add(str);
+                if (i != 0) {
+                    linkedList.add("cmd");
+                    linkedList.add(Integer.valueOf(i));
                 }
+                if (!TextUtils.isEmpty(str2)) {
+                    linkedList.add("act");
+                    linkedList.add(str2);
+                }
+                if (i3 != 0) {
+                    linkedList.add("result");
+                    linkedList.add(Integer.valueOf(i3));
+                }
+                if (!TextUtils.isEmpty(str3)) {
+                    linkedList.add("comment");
+                    linkedList.add(str3);
+                }
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
-            return m;
         }
-        return (M) invokeLLL.objValue;
     }
 
-    public final <M extends ResponsedMessage<?>> M j(LinkedList<? extends w5<M>> linkedList, M m) {
-        InterceptResult invokeLL;
+    public static void c(String str, Message<?> message, int i, String str2, int i2, String str3) {
+        long j;
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, linkedList, m)) == null) {
-            if (linkedList == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, message, Integer.valueOf(i), str2, Integer.valueOf(i2), str3}) == null) {
+            if (message != null) {
+                i3 = message.getCmd();
+                j = message.getClientLogID();
+            } else {
+                j = 0;
+                i3 = 0;
             }
-            int size = linkedList.size();
-            for (int i = 0; i < size && m != null; i++) {
-                try {
-                    m = linkedList.get(i).h(m);
-                } catch (Exception e) {
-                    BdLog.e("rule error = " + e.getMessage());
-                }
-            }
-            return m;
+            b(str, i3, j, i, str2, i2, str3);
         }
-        return (M) invokeLL.objValue;
     }
 }

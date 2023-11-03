@@ -24,9 +24,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eg5;
-import com.baidu.tieba.hra;
-import com.baidu.tieba.mu6;
+import com.baidu.tieba.cw6;
+import com.baidu.tieba.i4b;
+import com.baidu.tieba.th5;
 import com.baidu.tieba.video.LiveConfig;
 import com.baidu.tieba.videoplay.view.EnterLiveRoomBtn;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -44,7 +44,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.StringCompanionObject;
 @Metadata(d1 = {"\u0000z\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u000e\u0018\u0000 <2\u00020\u00012\u00020\u00022\u00020\u0003:\u0003<=>B\u0017\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\b\u0010\u0006\u001a\u0004\u0018\u00010\u0007¢\u0006\u0002\u0010\bJ\u000e\u0010-\u001a\u00020.2\u0006\u0010\u000b\u001a\u00020\fJ\u0006\u0010/\u001a\u00020.J\u0010\u00100\u001a\u0002012\u0006\u00102\u001a\u00020\u001aH\u0002J\u0010\u00103\u001a\u00020.2\u0006\u00104\u001a\u00020(H\u0016J\u0012\u00105\u001a\u00020.2\b\u00106\u001a\u0004\u0018\u00010&H\u0016J\u0006\u00107\u001a\u00020.J\u0010\u00108\u001a\u00020.2\u0006\u00109\u001a\u00020(H\u0002J\b\u0010:\u001a\u00020.H\u0002J\u0006\u0010;\u001a\u00020.R\u000e\u0010\t\u001a\u00020\nX\u0082\u0004¢\u0006\u0002\n\u0000R\u001c\u0010\u000b\u001a\u0004\u0018\u00010\fX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\r\u0010\u000e\"\u0004\b\u000f\u0010\u0010R\u000e\u0010\u0011\u001a\u00020\u0012X\u0082\u0004¢\u0006\u0002\n\u0000R\u001c\u0010\u0013\u001a\u0004\u0018\u00010\u0014X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0015\u0010\u0016\"\u0004\b\u0017\u0010\u0018R\u000e\u0010\u0019\u001a\u00020\u001aX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u001b\u001a\u00020\u001aX\u0082\u0004¢\u0006\u0002\n\u0000R\u001c\u0010\u001c\u001a\u0004\u0018\u00010\u001dX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001e\u0010\u001f\"\u0004\b \u0010!R\u000e\u0010\"\u001a\u00020\nX\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010#\u001a\u0004\u0018\u00010$X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010%\u001a\u00020&X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010'\u001a\u00020(X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010)\u001a\u0004\u0018\u00010*X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010+\u001a\u0004\u0018\u00010,X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006?"}, d2 = {"Lcom/baidu/tieba/videoplay/view/EnterLiveRoomBtn;", "Landroid/widget/LinearLayout;", "Landroid/view/View$OnClickListener;", "Lcom/baidu/tieba/edgefloat/IChangeSkinType;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "cancelSpan", "Landroid/text/style/ClickableSpan;", "config", "Lcom/baidu/tieba/video/LiveConfig;", "getConfig", "()Lcom/baidu/tieba/video/LiveConfig;", "setConfig", "(Lcom/baidu/tieba/video/LiveConfig;)V", "countDownCallback", "Lcom/baidu/tieba/videoplay/view/EnterLiveRoomBtn$CountDownTimer$CountDownCallback;", "countDownTimerTask", "Lcom/baidu/tieba/videoplay/view/EnterLiveRoomBtn$CountDownTimer;", "getCountDownTimerTask", "()Lcom/baidu/tieba/videoplay/view/EnterLiveRoomBtn$CountDownTimer;", "setCountDownTimerTask", "(Lcom/baidu/tieba/videoplay/view/EnterLiveRoomBtn$CountDownTimer;)V", "descriptionAutoEnter", "", "descriptionClickEnter", "enterLiveRoomCallback", "Lcom/baidu/tieba/videoplay/view/EnterLiveRoomBtn$EnterLiveRoomCallback;", "getEnterLiveRoomCallback", "()Lcom/baidu/tieba/videoplay/view/EnterLiveRoomBtn$EnterLiveRoomCallback;", "setEnterLiveRoomCallback", "(Lcom/baidu/tieba/videoplay/view/EnterLiveRoomBtn$EnterLiveRoomCallback;)V", "enterSpan", "imgIcon", "Landroid/widget/ImageView;", "root", "Landroid/view/View;", WriteMulitImageActivityConfig.SKIN_TYPE, "", "timer", "Ljava/util/Timer;", "tvDescription", "Landroid/widget/TextView;", "bindViewData", "", "cancel", "getSpanText", "Landroid/text/SpannableString;", "text", "onChangeSkinType", "type", "onClick", "v", MissionEvent.MESSAGE_DESTROY, "setCountDownStyle", "currentTime", "setSingleClickStyle", "start", "Companion", "CountDownTimer", "EnterLiveRoomCallback", "VideoPlay_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes8.dex */
-public final class EnterLiveRoomBtn extends LinearLayout implements View.OnClickListener, mu6 {
+public final class EnterLiveRoomBtn extends LinearLayout implements View.OnClickListener, cw6 {
     public static /* synthetic */ Interceptable $ic;
     public static final int n;
     public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +60,7 @@ public final class EnterLiveRoomBtn extends LinearLayout implements View.OnClick
     public a j;
     public final ClickableSpan k;
     public final ClickableSpan l;
-    public final a.InterfaceC0497a m;
+    public final a.InterfaceC0509a m;
 
     /* loaded from: classes8.dex */
     public interface b {
@@ -75,11 +75,11 @@ public final class EnterLiveRoomBtn extends LinearLayout implements View.OnClick
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
         public boolean b;
-        public InterfaceC0497a c;
+        public InterfaceC0509a c;
 
         /* renamed from: com.baidu.tieba.videoplay.view.EnterLiveRoomBtn$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public interface InterfaceC0497a {
+        public interface InterfaceC0509a {
             void a(int i);
 
             void onFinish();
@@ -105,28 +105,28 @@ public final class EnterLiveRoomBtn extends LinearLayout implements View.OnClick
         }
 
         public static final void a(a this$0) {
-            InterfaceC0497a interfaceC0497a;
-            InterfaceC0497a interfaceC0497a2;
+            InterfaceC0509a interfaceC0509a;
+            InterfaceC0509a interfaceC0509a2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65537, null, this$0) == null) {
                 Intrinsics.checkNotNullParameter(this$0, "this$0");
                 int i = this$0.a - 1;
                 this$0.a = i;
                 if (i < 0) {
-                    if (!this$0.b && (interfaceC0497a2 = this$0.c) != null) {
-                        interfaceC0497a2.onFinish();
+                    if (!this$0.b && (interfaceC0509a2 = this$0.c) != null) {
+                        interfaceC0509a2.onFinish();
                     }
                     this$0.cancel();
-                } else if (!this$0.b && (interfaceC0497a = this$0.c) != null) {
-                    interfaceC0497a.a(i);
+                } else if (!this$0.b && (interfaceC0509a = this$0.c) != null) {
+                    interfaceC0509a.a(i);
                 }
             }
         }
 
-        public final void b(InterfaceC0497a interfaceC0497a) {
+        public final void b(InterfaceC0509a interfaceC0509a) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0497a) == null) {
-                this.c = interfaceC0497a;
+            if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0509a) == null) {
+                this.c = interfaceC0509a;
             }
         }
 
@@ -146,7 +146,7 @@ public final class EnterLiveRoomBtn extends LinearLayout implements View.OnClick
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.sra
+                UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.t4b
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -213,8 +213,8 @@ public final class EnterLiveRoomBtn extends LinearLayout implements View.OnClick
                 } else {
                     str = null;
                 }
-                hra.g("sp_live_cancel_id_", str);
-                hra.f("sp_live_click_cancel_key");
+                i4b.g("sp_live_cancel_id_", str);
+                i4b.f("sp_live_click_cancel_key");
                 this.a.d();
                 this.a.g();
             }
@@ -222,7 +222,7 @@ public final class EnterLiveRoomBtn extends LinearLayout implements View.OnClick
     }
 
     /* loaded from: classes8.dex */
-    public static final class d implements a.InterfaceC0497a {
+    public static final class d implements a.InterfaceC0509a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EnterLiveRoomBtn a;
@@ -245,7 +245,7 @@ public final class EnterLiveRoomBtn extends LinearLayout implements View.OnClick
             this.a = enterLiveRoomBtn;
         }
 
-        @Override // com.baidu.tieba.videoplay.view.EnterLiveRoomBtn.a.InterfaceC0497a
+        @Override // com.baidu.tieba.videoplay.view.EnterLiveRoomBtn.a.InterfaceC0509a
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeI(1048576, this, i) != null) {
@@ -254,7 +254,7 @@ public final class EnterLiveRoomBtn extends LinearLayout implements View.OnClick
             this.a.setCountDownStyle(i);
         }
 
-        @Override // com.baidu.tieba.videoplay.view.EnterLiveRoomBtn.a.InterfaceC0497a
+        @Override // com.baidu.tieba.videoplay.view.EnterLiveRoomBtn.a.InterfaceC0509a
         public void onFinish() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -387,28 +387,28 @@ public final class EnterLiveRoomBtn extends LinearLayout implements View.OnClick
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
-        String string = TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0680);
+        String string = TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0682);
         Intrinsics.checkNotNullExpressionValue(string, "getInst().getString(R.st…ter_live_room_count_down)");
         this.a = string;
-        String string2 = TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0464);
+        String string2 = TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0466);
         Intrinsics.checkNotNullExpressionValue(string2, "getInst().getString(R.st…ng.click_enter_live_room)");
         this.b = string2;
         this.f = -1;
         this.k = new c(this);
         this.l = new e(this);
         this.m = new d(this);
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02c7, (ViewGroup) this, true);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02cd, (ViewGroup) this, true);
         Intrinsics.checkNotNullExpressionValue(inflate, "from(context).inflate(R.…_room_layout, this, true)");
         this.c = inflate;
         setOrientation(0);
         setGravity(17);
         int i3 = n;
         setPadding(0, i3, 0, i3);
-        TextView textView = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0904c4);
+        TextView textView = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0904e0);
         this.d = textView;
         if (textView != null) {
             textView.setMovementMethod(LinkMovementMethod.getInstance());
-            ImageView imageView = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0904cd);
+            ImageView imageView = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0904e9);
             this.e = imageView;
             if (imageView != null) {
                 imageView.setOnClickListener(this);
@@ -473,7 +473,7 @@ public final class EnterLiveRoomBtn extends LinearLayout implements View.OnClick
                 config.setCurrentRealHitStrategy(1);
                 g();
             } else if (config.getType() == 2) {
-                if (hra.d(config)) {
+                if (i4b.d(config)) {
                     setCountDownStyle(config.getWaitSecond());
                     config.setCurrentRealHitStrategy(2);
                     return;
@@ -516,7 +516,7 @@ public final class EnterLiveRoomBtn extends LinearLayout implements View.OnClick
             if (z) {
                 LiveConfig liveConfig2 = this.i;
                 Intrinsics.checkNotNull(liveConfig2);
-                if (hra.d(liveConfig2)) {
+                if (i4b.d(liveConfig2)) {
                     LiveConfig liveConfig3 = this.i;
                     Intrinsics.checkNotNull(liveConfig3);
                     setCountDownStyle(liveConfig3.getWaitSecond());
@@ -551,7 +551,7 @@ public final class EnterLiveRoomBtn extends LinearLayout implements View.OnClick
             if (z) {
                 LiveConfig liveConfig2 = this.i;
                 Intrinsics.checkNotNull(liveConfig2);
-                if (hra.d(liveConfig2)) {
+                if (i4b.d(liveConfig2)) {
                     this.g = new Timer();
                     LiveConfig liveConfig3 = this.i;
                     Intrinsics.checkNotNull(liveConfig3);
@@ -568,7 +568,7 @@ public final class EnterLiveRoomBtn extends LinearLayout implements View.OnClick
                         timer.schedule(this.j, 1000L, 1000L);
                     }
                     TbSingleton.getInstance().autoInLiveRoomTimes++;
-                    hra.f("sp_live_day_show_auto_in_key");
+                    i4b.f("sp_live_day_show_auto_in_key");
                     return;
                 }
             }
@@ -576,14 +576,14 @@ public final class EnterLiveRoomBtn extends LinearLayout implements View.OnClick
         }
     }
 
-    @Override // com.baidu.tieba.mu6
+    @Override // com.baidu.tieba.cw6
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048585, this, i) == null) && this.f != i) {
             this.f = i;
             ImageView imageView = this.e;
             if (imageView != null) {
-                eg5.a(imageView, "enter_live_room_animation.png");
+                th5.a(imageView, "enter_live_room_animation.png");
             }
             EMManager.from(this.c).setCorner(R.string.J_X01).setBorderWidth(R.dimen.L_X01).setBorderColor(R.color.CAM_X0619).setBackGroundColor(R.color.CAM_X0604);
             EMManager.from(this.d).setTextStyle(R.string.F_X01).setTextColor(R.color.CAM_X0101);

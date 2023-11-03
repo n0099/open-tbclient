@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vca;
+import com.baidu.tieba.aqa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -96,7 +96,7 @@ public class BdToastHelper {
                 if (contentBean2 != null) {
                     if (TbadkApplication.getInst().getSkinType() == 4) {
                         if (StringUtils.isNotNull(contentBean2.getTextColorDark())) {
-                            foregroundColorSpan = new ForegroundColorSpan(vca.f(contentBean2.getTextColorDark()));
+                            foregroundColorSpan = new ForegroundColorSpan(aqa.f(contentBean2.getTextColorDark()));
                         } else {
                             if (contentBean2.getHasColor() == 1) {
                                 foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305));
@@ -111,7 +111,7 @@ public class BdToastHelper {
                         }
                     } else {
                         if (StringUtils.isNotNull(contentBean2.getTextColor())) {
-                            foregroundColorSpan = new ForegroundColorSpan(vca.f(contentBean2.getTextColor()));
+                            foregroundColorSpan = new ForegroundColorSpan(aqa.f(contentBean2.getTextColor()));
                         } else {
                             if (contentBean2.getHasColor() == 1) {
                                 foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305));
@@ -239,7 +239,7 @@ public class BdToastHelper {
             if (toastSpannableString != null) {
                 BdToast makeText = BdToast.makeText(TbadkCoreApplication.getInst().getContext(), toastSpannableString);
                 setToastIcon(makeText, bdToastData);
-                int f = vca.f(bdToastData.getBackground());
+                int f = aqa.f(bdToastData.getBackground());
                 if (f != 0 && f != Integer.MAX_VALUE) {
                     makeText.setBackgroundColor(f);
                 }

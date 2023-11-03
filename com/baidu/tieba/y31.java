@@ -1,90 +1,202 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.ActivityNotFoundException;
+import android.content.ClipData;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Environment;
+import android.os.Parcelable;
+import android.provider.MediaStore;
+import android.webkit.ValueCallback;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.core.content.FileProvider;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.nadcore.webpanel.PanelScrollView;
-import com.baidu.nadcore.webpanel.model.AdData;
-import com.baidu.nadcore.webview.view.AbsNadBrowserView;
-import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.searchbox.pms.db.PackageTable;
+import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
+import com.baidu.nadcore.webarch.permission.NadPermissionActivity;
+import com.baidu.tieba.u21;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebChromeClient;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
-import org.json.JSONObject;
-/* loaded from: classes8.dex */
-public final class y31 extends z31 {
+import com.baidu.webkit.sdk.PermissionRequest;
+import java.io.File;
+import java.util.ArrayList;
+/* loaded from: classes9.dex */
+public class y31 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final String c;
-    public final String d;
-    public final Object e;
-    public v31 f;
-    public q31 g;
-    public x31 h;
-    public boolean i;
-    public final a41 j;
+    public ValueCallback<Uri> a;
+    public String b;
+    public ValueCallback<Uri[]> c;
+    public x31 d;
+    public boolean e;
+    public boolean f;
+    public Activity g;
+    public boolean h;
 
-    /* loaded from: classes8.dex */
-    public static final class a extends fi0<y21> {
+    /* loaded from: classes9.dex */
+    public class a implements u21.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
         public final /* synthetic */ y31 b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(y31 y31Var, Class cls) {
-            super(cls);
+        public a(y31 y31Var, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {y31Var, cls};
+                Object[] objArr = {y31Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Class) newInitContext.callArgs[0]);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.b = y31Var;
+            this.a = i;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fi0
-        public void onEvent(y21 event) {
-            AbsNadBrowserView m;
+        @Override // com.baidu.tieba.u21.b
+        @RequiresApi(api = 21)
+        public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
+            boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
-                Intrinsics.checkNotNullParameter(event, "event");
-                if (!TextUtils.isEmpty(event.a()) && (m = this.b.j.m()) != null) {
-                    AbsNadBrowserView.C(m, event.a(), null, 2, null);
+            if ((interceptable == null || interceptable.invokeILL(1048576, this, i, strArr, iArr) == null) && i == this.a) {
+                if (iArr.length == 0) {
+                    z = false;
+                } else {
+                    z = true;
                 }
+                for (int i2 : iArr) {
+                    if (i2 == -1) {
+                        z = false;
+                    }
+                }
+                if (z) {
+                    this.b.h = false;
+                    y31 y31Var = this.b;
+                    y31Var.s(y31Var.k(), 11);
+                } else if (this.b.c != null) {
+                    this.b.c.onReceiveValue(null);
+                }
+                x21.b().d(this.a);
             }
         }
     }
 
-    public y31(a41 container) {
+    /* loaded from: classes9.dex */
+    public class b implements u21.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ y31 a;
+
+        public b(y31 y31Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y31Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = y31Var;
+        }
+
+        @Override // com.baidu.tieba.u21.b
+        public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeILL(1048576, this, i, strArr, iArr) == null) && i == 4099) {
+                if (iArr.length == 0) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                for (int i2 : iArr) {
+                    if (i2 == -1) {
+                        z = false;
+                    }
+                }
+                if (z) {
+                    this.a.h = true;
+                    y31 y31Var = this.a;
+                    y31Var.s(y31Var.j(), 11);
+                }
+                x21.b().d(4099);
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class c implements u21.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ y31 a;
+
+        public c(y31 y31Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y31Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = y31Var;
+        }
+
+        @Override // com.baidu.tieba.u21.b
+        public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeILL(1048576, this, i, strArr, iArr) == null) && i == 4099) {
+                if (iArr.length == 0) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                for (int i2 : iArr) {
+                    if (i2 == -1) {
+                        z = false;
+                    }
+                }
+                if (z) {
+                    this.a.h = true;
+                    this.a.g.startActivityForResult(this.a.h(), 11);
+                }
+                x21.b().d(4099);
+            }
+        }
+    }
+
+    public y31(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {container};
+            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -94,288 +206,343 @@ public final class y31 extends z31 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(container, "container");
-        this.j = container;
-        this.a = "bdmedialive://bdmedialive/common/closeWebview";
-        this.b = "bdmedialive://bdmedialive/common/panelSwitchHalfScreen";
-        this.c = "bdmedialive://bdmedialive/common/panelSwitchFullScreen";
-        this.d = "nadcorevendor://vendor/ad/webPanelControl";
-        this.e = new Object();
+        this.h = false;
+        this.g = activity;
     }
 
-    public final void l(int i) {
-        LinearLayout e;
+    public boolean s(Intent intent, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && (e = this.j.e()) != null) {
-            ViewGroup.LayoutParams layoutParams = e.getLayoutParams();
-            layoutParams.height = i;
-            e.setLayoutParams(layoutParams);
-        }
-    }
-
-    public final void n(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.i = z;
-        }
-    }
-
-    public final void o(q31 helper) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, helper) == null) {
-            Intrinsics.checkNotNullParameter(helper, "helper");
-            this.g = helper;
-        }
-    }
-
-    public final void p(v31 v31Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, v31Var) == null) {
-            this.f = v31Var;
-        }
-    }
-
-    public final void q(x31 x31Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, x31Var) == null) {
-            this.h = x31Var;
-        }
-    }
-
-    @Override // com.baidu.tieba.z31
-    public boolean c(b41 container, String url) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, container, url)) == null) {
-            Intrinsics.checkNotNullParameter(container, "container");
-            Intrinsics.checkNotNullParameter(url, "url");
-            if (TextUtils.isEmpty(url)) {
-                return false;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048588, this, intent, i)) == null) {
+            try {
+                try {
+                    this.g.startActivityForResult(intent, i);
+                    return true;
+                } catch (ActivityNotFoundException unused) {
+                    g();
+                    return false;
+                }
+            } catch (ActivityNotFoundException unused2) {
+                this.f = true;
+                this.g.startActivityForResult(m(), i);
+                return true;
             }
-            if (TextUtils.equals(this.a, url)) {
-                g();
-                return true;
-            } else if (TextUtils.equals(this.b, url)) {
-                s();
-                return true;
-            } else if (TextUtils.equals(this.c, url)) {
-                r();
-                return true;
-            } else if (!StringsKt__StringsJVMKt.startsWith$default(url, this.d, false, 2, null)) {
-                return false;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ValueCallback<Uri> valueCallback = this.a;
+            if (valueCallback != null) {
+                valueCallback.onReceiveValue(null);
+            }
+            ValueCallback<Uri[]> valueCallback2 = this.c;
+            if (valueCallback2 != null) {
+                valueCallback2.onReceiveValue(null);
+            }
+        }
+    }
+
+    public final Intent n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return new Intent("android.provider.MediaStore.RECORD_SOUND");
+        }
+        return (Intent) invokeV.objValue;
+    }
+
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final Intent h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (b41.a(this.g)) {
+                return new Intent("android.media.action.VIDEO_CAPTURE");
+            }
+            Intent intent = new Intent(this.g.getApplicationContext(), NadPermissionActivity.class);
+            intent.putExtra("request_code", 4099);
+            intent.putExtra("permissions", new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE});
+            x21.b().a(4099, new c(this));
+            return intent;
+        }
+        return (Intent) invokeV.objValue;
+    }
+
+    public final Intent m() {
+        InterceptResult invokeV;
+        x31 x31Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            Intent intent = new Intent("android.intent.action.GET_CONTENT");
+            intent.addCategory("android.intent.category.OPENABLE");
+            intent.setType("*/*");
+            Intent l = l(i(), h(), n());
+            l.putExtra("android.intent.extra.INTENT", intent);
+            if (Build.VERSION.SDK_INT >= 21 && (x31Var = this.d) != null) {
+                l.putExtra("android.intent.extra.INTENT", x31Var.a());
+            }
+            return l;
+        }
+        return (Intent) invokeV.objValue;
+    }
+
+    public Intent i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (b41.a(this.g) && b41.b(this.g)) {
+                return j();
+            }
+            Intent intent = new Intent(this.g.getApplicationContext(), NadPermissionActivity.class);
+            intent.putExtra("request_code", 4099);
+            String[] strArr = {PermissionRequest.RESOURCE_VIDEO_CAPTURE, "android.permission.WRITE_EXTERNAL_STORAGE"};
+            if (Build.VERSION.SDK_INT >= 29 && !Environment.isExternalStorageLegacy()) {
+                strArr = new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE};
+            }
+            intent.putExtra("permissions", strArr);
+            x21.b().a(4099, new b(this));
+            return intent;
+        }
+        return (Intent) invokeV.objValue;
+    }
+
+    @SuppressLint({"NewApi", "ObsoleteSdkInt"})
+    public final Intent j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+            File externalFilesDir = gf0.b().getExternalFilesDir(Environment.DIRECTORY_DCIM);
+            File file = new File(externalFilesDir.getAbsolutePath() + File.separator + "nad-browser-photos");
+            file.mkdirs();
+            this.b = file.getAbsolutePath() + File.separator + System.currentTimeMillis() + ".jpg";
+            if (Build.VERSION.SDK_INT >= 24) {
+                intent.putExtra("output", FileProvider.getUriForFile(gf0.b(), gf0.c().a().w(), new File(this.b)));
             } else {
-                return f(new de0(url));
+                intent.putExtra("output", Uri.fromFile(new File(this.b)));
+            }
+            if (Build.VERSION.SDK_INT >= 19) {
+                intent.setFlags(3);
+            }
+            return intent;
+        }
+        return (Intent) invokeV.objValue;
+    }
+
+    @RequiresApi(api = 21)
+    @SuppressLint({"ObsoleteSdkInt"})
+    public final Intent k() {
+        InterceptResult invokeV;
+        String[] strArr;
+        String str;
+        boolean z;
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            x31 x31Var = this.d;
+            if (x31Var != null) {
+                strArr = x31Var.b();
+            } else {
+                strArr = null;
+            }
+            String str2 = "*/*";
+            if (strArr == null || strArr.length <= 0) {
+                str = "*/*";
+            } else {
+                str = strArr[0];
+            }
+            if (str != null && !str.trim().isEmpty()) {
+                str2 = str;
+            }
+            ArrayList arrayList = new ArrayList();
+            x31 x31Var2 = this.d;
+            if (x31Var2 != null && x31Var2.getMode() == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (str2.equals(BdUploadHandler.IMAGE_MIME_TYPE)) {
+                arrayList.add(j());
+            } else if (str2.equals(BdUploadHandler.VIDEO_MIME_TYPE)) {
+                arrayList.add(new Intent("android.media.action.VIDEO_CAPTURE"));
+            } else if (str2.equals(BdUploadHandler.AUDIO_MIME_TYPE)) {
+                arrayList.add(n());
+            }
+            if (arrayList.isEmpty()) {
+                arrayList.add(j());
+                arrayList.add(h());
+                arrayList.add(n());
+            }
+            if (str2.equals(BdUploadHandler.IMAGE_MIME_TYPE)) {
+                intent = new Intent("android.intent.action.PICK", MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, BdUploadHandler.IMAGE_MIME_TYPE);
+                if (Build.VERSION.SDK_INT >= 18 && z) {
+                    intent.putExtra("android.intent.extra.ALLOW_MULTIPLE", true);
+                }
+            } else {
+                Intent intent2 = new Intent("android.intent.action.GET_CONTENT");
+                if (Build.VERSION.SDK_INT >= 18 && z) {
+                    intent2.putExtra("android.intent.extra.ALLOW_MULTIPLE", true);
+                }
+                intent2.setType(str2);
+                intent = intent2;
+            }
+            Intent intent3 = new Intent("android.intent.action.CHOOSER");
+            if (!arrayList.isEmpty()) {
+                intent3.putExtra("android.intent.extra.INITIAL_INTENTS", (Parcelable[]) arrayList.toArray(new Intent[0]));
+            }
+            intent3.putExtra("android.intent.extra.INTENT", intent);
+            return intent3;
+        }
+        return (Intent) invokeV.objValue;
+    }
+
+    public final Intent l(Intent... intentArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, intentArr)) == null) {
+            Intent intent = new Intent("android.intent.action.CHOOSER");
+            intent.putExtra("android.intent.extra.INITIAL_INTENTS", intentArr);
+            intent.putExtra("android.intent.extra.TITLE", gf0.b().getResources().getString(R.string.nad_choose_upload));
+            return intent;
+        }
+        return (Intent) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r6v2, resolved type: android.webkit.ValueCallback<android.net.Uri[]> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public void p(int i, Intent intent) {
+        Uri uri;
+        Uri fromFile;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048585, this, i, intent) == null) {
+            if (this.h) {
+                this.h = false;
+                return;
+            }
+            if (i == -1 && intent == null && this.b == null) {
+                i = 0;
+            }
+            if (i == 0 && this.f) {
+                this.f = false;
+                return;
+            }
+            if (intent != null && i == -1) {
+                try {
+                    uri = intent.getData();
+                } catch (Throwable th) {
+                    th.printStackTrace();
+                    return;
+                }
+            } else {
+                uri = null;
+            }
+            if (uri == null && intent == null && i == -1) {
+                File file = new File(this.b);
+                if (file.exists()) {
+                    if (Build.VERSION.SDK_INT >= 24) {
+                        fromFile = FileProvider.getUriForFile(gf0.b(), gf0.c().a().w(), file);
+                    } else {
+                        fromFile = Uri.fromFile(file);
+                    }
+                    uri = fromFile;
+                    gf0.b().sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE", uri));
+                }
+            }
+            if (this.c != null) {
+                ArrayList arrayList = new ArrayList();
+                if (uri != null) {
+                    arrayList.add(uri);
+                } else if (intent != null && intent.getClipData() != null) {
+                    ClipData clipData = intent.getClipData();
+                    for (int i2 = 0; i2 < clipData.getItemCount(); i2++) {
+                        arrayList.add(clipData.getItemAt(i2).getUri());
+                    }
+                }
+                this.c.onReceiveValue(arrayList.toArray(new Uri[0]));
+            }
+            if (this.a != null) {
+                this.a.onReceiveValue(uri);
+            }
+            this.e = true;
+            this.f = false;
+        }
+    }
+
+    @RequiresApi(api = 21)
+    public boolean q(@NonNull ValueCallback<Uri[]> valueCallback, @NonNull x31 x31Var) {
+        InterceptResult invokeLL;
+        String str;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, valueCallback, x31Var)) == null) {
+            this.c = valueCallback;
+            this.d = x31Var;
+            String[] b2 = x31Var.b();
+            if (b2 != null && b2.length > 0) {
+                str = b2[0];
+            } else {
+                str = "*/*";
+            }
+            ArrayList arrayList = new ArrayList();
+            if (str.equals(BdUploadHandler.IMAGE_MIME_TYPE)) {
+                if (!b41.a(this.g)) {
+                    arrayList.add(PermissionRequest.RESOURCE_VIDEO_CAPTURE);
+                }
+                if (Build.VERSION.SDK_INT >= 29 && !Environment.isExternalStorageLegacy()) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (!b41.b(this.g) && z) {
+                    arrayList.add("android.permission.WRITE_EXTERNAL_STORAGE");
+                }
+            } else if (str.equals(BdUploadHandler.VIDEO_MIME_TYPE) && !b41.a(this.g)) {
+                arrayList.add(PermissionRequest.RESOURCE_VIDEO_CAPTURE);
+            }
+            if (arrayList.isEmpty()) {
+                if (!b41.a(this.g)) {
+                    arrayList.add(PermissionRequest.RESOURCE_VIDEO_CAPTURE);
+                }
+                if (!b41.b(this.g)) {
+                    arrayList.add("android.permission.WRITE_EXTERNAL_STORAGE");
+                }
+            }
+            if (arrayList.size() > 0) {
+                r(4099, (String[]) arrayList.toArray(new String[0]));
+                return true;
+            }
+            try {
+                return s(k(), 11);
+            } catch (Exception unused) {
+                return false;
             }
         }
         return invokeLL.booleanValue;
     }
 
-    public final void i(int i, boolean z) {
+    public final void r(int i, String[] strArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            AbsNadBrowserView m = this.j.m();
-            if (z) {
-                if (i == 1) {
-                    if (m != null) {
-                        AbsNadBrowserView.C(m, "javascript:window.onDxdInvoke({'key':'1','value':'start'})", null, 2, null);
-                    }
-                } else if (i == 2 && m != null) {
-                    AbsNadBrowserView.C(m, "javascript:window.onDxdInvoke({'key':'2','value':'start'})", null, 2, null);
-                }
-            } else if (i == 1) {
-                if (m != null) {
-                    AbsNadBrowserView.C(m, "javascript:window.onDxdInvoke({'key':'1','value':'end'})", null, 2, null);
-                }
-            } else if (i == 2) {
-                l31.b.b(true);
-                if (m != null) {
-                    AbsNadBrowserView.C(m, "javascript:window.onDxdInvoke({'key':'2','value':'end'})", null, 2, null);
-                }
+        if (interceptable == null || interceptable.invokeIL(1048587, this, i, strArr) == null) {
+            Intent intent = new Intent(this.g.getApplicationContext(), NadPermissionActivity.class);
+            intent.putExtra("request_code", i);
+            intent.putExtra("permissions", strArr);
+            x21.b().a(i, new a(this, i));
+            try {
+                l11.c(this.g, intent);
+            } catch (Exception unused) {
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.z31
-    public void d(b41 container, String url) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, container, url) == null) {
-            Intrinsics.checkNotNullParameter(container, "container");
-            Intrinsics.checkNotNullParameter(url, "url");
-            AbsNadBrowserView m = container.m();
-            if (m != null) {
-                AbsNadBrowserView.C(m, "javascript:window.onDxdInvoke({'key':'0'})", null, 2, null);
-            }
-        }
-    }
-
-    public final boolean f(de0 de0Var) {
-        InterceptResult invokeL;
-        boolean z;
-        q31 q31Var;
-        q31 q31Var2;
-        q31 q31Var3;
-        q31 q31Var4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, de0Var)) == null) {
-            HashMap<String, String> d = de0Var.d();
-            Intrinsics.checkNotNullExpressionValue(d, "model.params");
-            String str = (String) vx0.b(d, "params");
-            if (TextUtils.isEmpty(str)) {
-                return true;
-            }
-            JSONObject c = ux0.c(str);
-            Intrinsics.checkNotNullExpressionValue(c, "JSONUtils.newJSONObject(paramsJson)");
-            String optString = c.optString("type");
-            if (c.optInt(PackageTable.DISABLE, 0) == 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (optString != null) {
-                switch (optString.hashCode()) {
-                    case -2119262164:
-                        if (optString.equals("slideUp") && (q31Var = this.g) != null) {
-                            q31Var.j(z);
-                            break;
-                        }
-                        break;
-                    case -796944909:
-                        if (optString.equals("slideDown") && (q31Var2 = this.g) != null) {
-                            q31Var2.i(z);
-                            break;
-                        }
-                        break;
-                    case -102095252:
-                        if (optString.equals("slideControl") && (q31Var3 = this.g) != null) {
-                            q31Var3.h(z);
-                            break;
-                        }
-                        break;
-                    case 1538155302:
-                        if (optString.equals("topAreaClick") && (q31Var4 = this.g) != null) {
-                            q31Var4.k(z);
-                            break;
-                        }
-                        break;
-                }
-            }
-            String str2 = (String) vx0.b(d, WebChromeClient.KEY_ARG_CALLBACK);
-            if (!TextUtils.isEmpty(str2)) {
-                Map<String, String> v = me0.v(optString, c.optInt(PackageTable.DISABLE, 0));
-                vx0.e(v, WebChromeClient.KEY_ARG_CALLBACK, str2);
-                AbsNadBrowserView m = this.j.m();
-                if (m != null) {
-                    AbsNadBrowserView.C(m, me0.p(v), null, 2, null);
-                }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void g() {
-        v31 v31Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (v31Var = this.f) != null) {
-            v31Var.a(1);
-        }
-    }
-
-    public final boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.i;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void j() {
-        AbsNadBrowserView m;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (m = this.j.m()) != null) {
-            AbsNadBrowserView.C(m, "javascript:window.onDxdInvoke({'key':'3'})", null, 2, null);
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            bi0.a().d(this.e, 1, new a(this, y21.class));
-        }
-    }
-
-    public final void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            bi0.a().a(this.e);
-        }
-    }
-
-    public final void m(int i) {
-        LinearLayout e;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048585, this, i) == null) && (e = this.j.e()) != null && (e.getLayoutParams() instanceof FrameLayout.LayoutParams)) {
-            ViewGroup.LayoutParams layoutParams = e.getLayoutParams();
-            if (layoutParams != null) {
-                FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) layoutParams;
-                layoutParams2.topMargin = i;
-                e.setLayoutParams(layoutParams2);
-                return;
-            }
-            throw new NullPointerException("null cannot be cast to non-null type android.widget.FrameLayout.LayoutParams");
-        }
-    }
-
-    public final void r() {
-        AdData adData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            q31 q31Var = this.g;
-            if (q31Var != null) {
-                l(q31Var.f() + PanelScrollView.B);
-                m(0);
-                di0 a2 = bi0.a();
-                x31 x31Var = this.h;
-                if (x31Var != null) {
-                    adData = x31Var.a();
-                } else {
-                    adData = null;
-                }
-                a2.b(new s31(3, adData));
-                this.i = true;
-            }
-            x31 x31Var2 = this.h;
-            if (x31Var2 != null) {
-                e41.a(ClogBuilder.LogType.DAZZLE_TRANS_SLIDING_COUNT, "", MapBundleKey.OfflineMapKey.OFFLINE_UPDATE, x31Var2.f());
-            }
-            l31.b.b(true);
-        }
-    }
-
-    public final void s() {
-        AdData adData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            q31 q31Var = this.g;
-            if (q31Var != null) {
-                l((q31Var.f() - q31Var.e()) + PanelScrollView.B);
-                m(q31Var.e());
-                di0 a2 = bi0.a();
-                x31 x31Var = this.h;
-                if (x31Var != null) {
-                    adData = x31Var.a();
-                } else {
-                    adData = null;
-                }
-                a2.b(new s31(4, adData));
-                this.i = true;
-            }
-            x31 x31Var2 = this.h;
-            if (x31Var2 != null) {
-                e41.a(ClogBuilder.LogType.DAZZLE_TRANS_SLIDING_COUNT, "", "down", x31Var2.f());
-            }
-            l31.b.b(false);
         }
     }
 }

@@ -12,14 +12,14 @@ import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Slider extends BaseSlider<Slider, OnChangeListener, OnSliderTouchListener> {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface OnChangeListener extends BaseOnChangeListener<Slider> {
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface OnSliderTouchListener extends BaseOnSliderTouchListener<Slider> {
     }
 
@@ -157,7 +157,7 @@ public class Slider extends BaseSlider<Slider, OnChangeListener, OnSliderTouchLi
     }
 
     public Slider(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040698);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0406a3);
     }
 
     @Override // com.google.android.material.slider.BaseSlider, android.view.View, android.view.KeyEvent.Callback

@@ -1,115 +1,82 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.validation.js.BaseInterpreter;
-import com.baidu.validation.utils.ValidationLog;
 /* loaded from: classes7.dex */
 public class ogb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public Bitmap b;
+    public Rect c;
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ogb a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-546332479, "Lcom/baidu/tieba/ogb$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-546332479, "Lcom/baidu/tieba/ogb$b;");
-                    return;
-                }
-            }
-            a = new ogb(null);
-        }
-    }
-
-    public ogb() {
+    public ogb(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = context;
+        this.c = new Rect();
     }
 
-    public /* synthetic */ ogb(a aVar) {
-        this();
-    }
-
-    public static ogb b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (ogb) invokeV.objValue;
-    }
-
-    public static String d(String str) {
+    public boolean b(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            String[] split = str.split("_");
-            StringBuilder sb = new StringBuilder();
-            sb.append("com.baidu.validation.js.interpreter.");
-            for (String str2 : split) {
-                char[] charArray = str2.toCharArray();
-                if (charArray[0] >= 'a' && charArray[0] <= 'z') {
-                    charArray[0] = (char) (charArray[0] - ' ');
-                }
-                sb.append(new String(charArray));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
+            if (motionEvent == null) {
+                return false;
             }
-            return sb.toString();
+            Rect rect = this.c;
+            int i = rect.left;
+            int i2 = rect.right;
+            int i3 = rect.top;
+            int i4 = rect.bottom;
+            if (motionEvent.getX(0) < i || motionEvent.getX(0) > i2 || motionEvent.getY(0) < i3 || motionEvent.getY(0) > i4) {
+                return false;
+            }
+            return true;
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public BaseInterpreter a(String str) {
-        InterceptResult invokeL;
+    public void a(Canvas canvas, float f, float f2) {
+        Bitmap bitmap;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? c(str) : (BaseInterpreter) invokeL.objValue;
-    }
-
-    public final BaseInterpreter c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                BaseInterpreter baseInterpreter = (BaseInterpreter) Class.forName(d(str)).newInstance();
-                baseInterpreter.setName(str);
-                return baseInterpreter;
-            } catch (Exception e) {
-                ValidationLog.e(e);
-                return null;
-            }
+        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{canvas, Float.valueOf(f), Float.valueOf(f2)}) != null) || (bitmap = this.b) == null) {
+            return;
         }
-        return (BaseInterpreter) invokeL.objValue;
+        this.c.left = (int) (f - (bitmap.getWidth() / 2));
+        this.c.right = (int) (f + (this.b.getWidth() / 2));
+        this.c.top = (int) (f2 - (this.b.getHeight() / 2));
+        this.c.bottom = (int) (f2 + (this.b.getHeight() / 2));
+        canvas.drawBitmap(this.b, (Rect) null, this.c, (Paint) null);
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.b = BitmapHelper.getResBitmap(this.a, i);
+        }
     }
 }

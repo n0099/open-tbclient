@@ -1,227 +1,202 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.graphics.drawable.Drawable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.Set;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public abstract class dy0 implements SharedPreferences {
+public final class dy0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final SharedPreferences a;
+    public final String a;
+    public final String b;
+    public final boolean c;
+    public final int d;
+    public final String e;
+    public final int f;
+    public final Drawable g;
+    public final Drawable h;
+    public final Drawable i;
+    public final float j;
+    public final int k;
 
-    public abstract SharedPreferences c(String str, int i);
-
-    public abstract void i(String str, String str2, boolean z);
-
-    public void j(String str) {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this != obj) {
+                if (obj instanceof dy0) {
+                    dy0 dy0Var = (dy0) obj;
+                    return Intrinsics.areEqual(this.a, dy0Var.a) && Intrinsics.areEqual(this.b, dy0Var.b) && this.c == dy0Var.c && this.d == dy0Var.d && Intrinsics.areEqual(this.e, dy0Var.e) && this.f == dy0Var.f && Intrinsics.areEqual(this.g, dy0Var.g) && Intrinsics.areEqual(this.h, dy0Var.h) && Intrinsics.areEqual(this.i, dy0Var.i) && Float.compare(this.j, dy0Var.j) == 0 && this.k == dy0Var.k;
+                }
+                return false;
+            }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    public dy0(String str, int i) {
+    /* JADX DEBUG: Multi-variable search result rejected for r2v4, resolved type: boolean */
+    /* JADX WARN: Multi-variable type inference failed */
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            String str = this.a;
+            int hashCode = (str != null ? str.hashCode() : 0) * 31;
+            String str2 = this.b;
+            int hashCode2 = (hashCode + (str2 != null ? str2.hashCode() : 0)) * 31;
+            boolean z = this.c;
+            int i = z;
+            if (z != 0) {
+                i = 1;
+            }
+            int i2 = (((hashCode2 + i) * 31) + this.d) * 31;
+            String str3 = this.e;
+            int hashCode3 = (((i2 + (str3 != null ? str3.hashCode() : 0)) * 31) + this.f) * 31;
+            Drawable drawable = this.g;
+            int hashCode4 = (hashCode3 + (drawable != null ? drawable.hashCode() : 0)) * 31;
+            Drawable drawable2 = this.h;
+            int hashCode5 = (hashCode4 + (drawable2 != null ? drawable2.hashCode() : 0)) * 31;
+            Drawable drawable3 = this.i;
+            return ((((hashCode5 + (drawable3 != null ? drawable3.hashCode() : 0)) * 31) + Float.floatToIntBits(this.j)) * 31) + this.k;
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return "NadRichTextParams(type=" + this.a + ", mainText=" + this.b + ", isMainTextBold=" + this.c + ", mainTextColor=" + this.d + ", linkText=" + this.e + ", linkTextColor=" + this.f + ", linkIcon=" + this.g + ", downloadLinkIcon=" + this.h + ", downloadCompleteLinkIcon=" + this.i + ", singleLineDisplayWidth=" + this.j + ", maxLines=" + this.k + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public dy0(String type, String mainText, boolean z, int i, String linkText, int i2, Drawable drawable, Drawable drawable2, Drawable drawable3, float f, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i)};
+            newInitContext.initArgs = r3;
+            Object[] objArr = {type, mainText, Boolean.valueOf(z), Integer.valueOf(i), linkText, Integer.valueOf(i2), drawable, drawable2, drawable3, Float.valueOf(f), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = c(str, i);
+        Intrinsics.checkNotNullParameter(type, "type");
+        Intrinsics.checkNotNullParameter(mainText, "mainText");
+        Intrinsics.checkNotNullParameter(linkText, "linkText");
+        this.a = type;
+        this.b = mainText;
+        this.c = z;
+        this.d = i;
+        this.e = linkText;
+        this.f = i2;
+        this.g = drawable;
+        this.h = drawable2;
+        this.i = drawable3;
+        this.j = f;
+        this.k = i3;
     }
 
-    @Override // android.content.SharedPreferences
-    public boolean contains(String str) {
-        InterceptResult invokeL;
+    public final Drawable a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return this.a.contains(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.i;
         }
-        return invokeL.booleanValue;
+        return (Drawable) invokeV.objValue;
     }
 
-    @Override // android.content.SharedPreferences
-    public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
+    public final Drawable b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, onSharedPreferenceChangeListener) == null) {
-            this.a.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.h;
         }
+        return (Drawable) invokeV.objValue;
     }
 
-    @Override // android.content.SharedPreferences
-    public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
+    public final Drawable c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, onSharedPreferenceChangeListener) == null) {
-            this.a.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.g;
         }
+        return (Drawable) invokeV.objValue;
     }
 
-    public void d(String str, boolean z) {
+    public final String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
-            this.a.edit().putBoolean(str, z).apply();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void e(String str, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048579, this, str, f) == null) {
-            this.a.edit().putFloat(str, f).apply();
-        }
-    }
-
-    public void f(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, str, i) == null) {
-            this.a.edit().putInt(str, i).apply();
-        }
-    }
-
-    public void g(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048582, this, str, j) == null) {
-            this.a.edit().putLong(str, j).apply();
-        }
-    }
-
-    @Override // android.content.SharedPreferences
-    public boolean getBoolean(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, z)) == null) {
-            try {
-                return this.a.getBoolean(str, z);
-            } catch (ClassCastException e) {
-                j(e.getMessage());
-                return z;
-            }
-        }
-        return invokeLZ.booleanValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public float getFloat(String str, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048585, this, str, f)) == null) {
-            try {
-                return this.a.getFloat(str, f);
-            } catch (ClassCastException e) {
-                j(e.getMessage());
-                return f;
-            }
-        }
-        return invokeLF.floatValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public int getInt(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048586, this, str, i)) == null) {
-            try {
-                return this.a.getInt(str, i);
-            } catch (ClassCastException e) {
-                j(e.getMessage());
-                return i;
-            }
-        }
-        return invokeLI.intValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public long getLong(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048587, this, str, j)) == null) {
-            try {
-                return this.a.getLong(str, j);
-            } catch (ClassCastException e) {
-                j(e.getMessage());
-                return j;
-            }
-        }
-        return invokeLJ.longValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    @Nullable
-    public String getString(String str, @Nullable String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, str, str2)) == null) {
-            try {
-                return this.a.getString(str, str2);
-            } catch (ClassCastException e) {
-                j(e.getMessage());
-                return str2;
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    @Nullable
-    public Set<String> getStringSet(String str, @Nullable Set<String> set) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, str, set)) == null) {
-            try {
-                return this.a.getStringSet(str, set);
-            } catch (ClassCastException e) {
-                j(e.getMessage());
-                return set;
-            }
-        }
-        return (Set) invokeLL.objValue;
-    }
-
-    public void h(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048590, this, str, str2) == null) {
-            this.a.edit().putString(str, str2).apply();
-        }
-    }
-
-    @Override // android.content.SharedPreferences
-    public SharedPreferences.Editor edit() {
+    public final int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a.edit();
+            return this.f;
         }
-        return (SharedPreferences.Editor) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // android.content.SharedPreferences
-    public Map<String, ?> getAll() {
+    public final String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            try {
-                return this.a.getAll();
-            } catch (Exception e) {
-                j(e.getMessage());
-                return null;
-            }
+            return this.k;
         }
-        return (Map) invokeV.objValue;
+        return invokeV.intValue;
+    }
+
+    public final float h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.j;
+        }
+        return invokeV.floatValue;
+    }
+
+    public final String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
     }
 }

@@ -1,331 +1,132 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.graphics.drawable.BitmapDrawable;
-import android.view.KeyEvent;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.GridView;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListAdapter;
-import android.widget.PopupWindow;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
+import android.util.Base64;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStreamReader;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.zip.GZIPInputStream;
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class wj2 extends PopupWindow {
+public class wj2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final byte[] b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public String[] b;
-    public int c;
-    public e d;
-    public mi2 e;
 
-    /* loaded from: classes8.dex */
-    public interface e {
-        void a();
-
-        void b(int i);
-
-        void c(String str);
-
-        void d();
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ GridView a;
-        public final /* synthetic */ AdapterView.OnItemClickListener b;
-
-        /* loaded from: classes8.dex */
-        public class a implements View.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                    int intValue = ((Integer) view2.getTag()).intValue();
-                    b bVar = this.a;
-                    bVar.b.onItemClick(bVar.a, view2, intValue, intValue);
-                }
-            }
-        }
-
-        public b(wj2 wj2Var, GridView gridView, AdapterView.OnItemClickListener onItemClickListener) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948272426, "Lcom/baidu/tieba/wj2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wj2Var, gridView, onItemClickListener};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = gridView;
-            this.b = onItemClickListener;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int childCount = this.a.getChildCount();
-                if (childCount > 0) {
-                    this.a.setClickable(false);
-                    for (int i = 0; i < childCount; i++) {
-                        View childAt = this.a.getChildAt(i);
-                        childAt.setTag(Integer.valueOf(i));
-                        childAt.setOnClickListener(new a(this));
-                    }
-                    return;
-                }
-                this.a.setOnItemClickListener(this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class a implements AdapterView.OnItemClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wj2 a;
-
-        public a(wj2 wj2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wj2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = wj2Var;
-        }
-
-        @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) && i >= 0 && i <= this.a.b.length) {
-                if (i == 11) {
-                    if (this.a.d != null) {
-                        this.a.d.d();
-                    }
-                } else if (this.a.d != null) {
-                    this.a.d.c(this.a.b[i]);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wj2 a;
-
-        public c(wj2 wj2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wj2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = wj2Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class d extends mi2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wj2 a;
-
-        public d(wj2 wj2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wj2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = wj2Var;
-        }
-
-        @Override // com.baidu.tieba.mi2, com.baidu.tieba.ni2
-        public boolean onKeyDown(int i, KeyEvent keyEvent) {
-            InterceptResult invokeIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, keyEvent)) == null) {
-                if (i == 4) {
-                    this.a.dismiss();
-                    return true;
-                }
-                return false;
-            }
-            return invokeIL.booleanValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wj2(@NonNull Activity activity, int i, @NonNull e eVar) {
-        super(activity);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, Integer.valueOf(i), eVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948272426, "Lcom/baidu/tieba/wj2;");
                 return;
             }
         }
-        this.b = new String[12];
-        this.e = new d(this);
-        this.d = eVar;
-        c(i);
-        d(activity);
+        a = rm1.a;
+        b = new byte[]{31, -117};
     }
 
-    public final void c(int i) {
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW, THROW, INVOKE, MOVE_EXCEPTION, INVOKE, THROW, INVOKE, MOVE_EXCEPTION, MOVE_EXCEPTION, THROW, THROW, THROW, INVOKE, MOVE_EXCEPTION, INVOKE, THROW, INVOKE, MOVE_EXCEPTION, MOVE_EXCEPTION] complete} */
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    public static File a(byte[] bArr, File file) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            int i2 = 0;
-            while (i2 < 9) {
-                int i3 = i2 + 1;
-                this.b[i2] = String.valueOf(i3);
-                i2 = i3;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, file)) == null) {
+            if (bArr != null && bArr.length >= 2 && file != null && file.exists()) {
+                byte[] bArr2 = b;
+                bArr[0] = bArr2[0];
+                bArr[1] = bArr2[1];
+                try {
+                    ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
+                    GZIPInputStream gZIPInputStream = new GZIPInputStream(byteArrayInputStream);
+                    InputStreamReader inputStreamReader = new InputStreamReader(gZIPInputStream);
+                    BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                    try {
+                        StringBuilder sb = new StringBuilder();
+                        while (true) {
+                            String readLine = bufferedReader.readLine();
+                            if (readLine == null) {
+                                break;
+                            }
+                            sb.append(readLine);
+                        }
+                        if (a) {
+                            Log.d("SwanAppCloneModule", "first char:" + sb.charAt(0));
+                        }
+                        String string = new JSONObject(sb.toString()).getString(yj2.l);
+                        if (a) {
+                            Log.d("SwanAppCloneModule", string);
+                        }
+                        byte[] doFinal = b(2).doFinal(Base64.decode(string, 0));
+                        File file2 = new File(file, yj2.l);
+                        new FileOutputStream(file2).write(doFinal);
+                        if (a) {
+                            Log.d("SwanAppCloneModule", file2.getAbsolutePath());
+                        }
+                        bufferedReader.close();
+                        inputStreamReader.close();
+                        gZIPInputStream.close();
+                        byteArrayInputStream.close();
+                        return file2;
+                    } finally {
+                    }
+                } catch (Exception e) {
+                    if (a) {
+                        e.printStackTrace();
+                    }
+                }
             }
-            if (i == 1) {
-                this.b[9] = "X";
-            } else if (i == 0) {
-                this.b[9] = "";
-            } else if (i == 2) {
-                this.b[9] = ".";
-            }
-            this.b[10] = "0";
+            return null;
         }
+        return (File) invokeLL.objValue;
     }
 
-    public final void d(@NonNull Activity activity) {
+    public static Cipher b(int i) throws Exception {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-            this.a = activity;
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(activity).inflate(R.layout.obfuscated_res_0x7f0d00bb, (ViewGroup) null);
-            this.c = activity.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070159);
-            linearLayout.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-            GridView gridView = (GridView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091270);
-            gridView.setAdapter((ListAdapter) new vj2(activity, this.b));
-            jj3.a0(new b(this, gridView, new a(this)));
-            ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090742);
-            imageView.setOnClickListener(new c(this));
-            imageView.setClickable(true);
-            setContentView(linearLayout);
-            setWidth(-1);
-            setHeight(this.c);
-            setBackgroundDrawable(new BitmapDrawable());
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING");
+            cipher.init(i, new SecretKeySpec(c("la32118_p9d8#*!6)".getBytes()).substring(16).getBytes(), "AES"), new IvParameterSpec("2081147213143090".getBytes()));
+            return cipher;
         }
+        return (Cipher) invokeI.objValue;
     }
 
-    @Override // android.widget.PopupWindow
-    public void dismiss() {
+    public static String c(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.dismiss();
-            Activity activity = this.a;
-            if (activity instanceof SwanAppActivity) {
-                ((SwanAppActivity) activity).G0(this.e);
-            }
-            e eVar = this.d;
-            if (eVar != null) {
-                eVar.a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.reset();
+                messageDigest.update(bArr);
+                return jm4.T(messageDigest.digest(), "", false);
+            } catch (NoSuchAlgorithmException e) {
+                if (a) {
+                    e.printStackTrace();
+                    return null;
+                }
+                return null;
             }
         }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && !isShowing()) {
-            showAtLocation(this.a.getWindow().getDecorView(), 80, 0, 0);
-            Activity activity = this.a;
-            if (activity instanceof SwanAppActivity) {
-                ((SwanAppActivity) activity).u0(this.e);
-            }
-            e eVar = this.d;
-            if (eVar != null) {
-                eVar.b(this.c);
-            }
-        }
+        return (String) invokeL.objValue;
     }
 }

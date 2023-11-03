@@ -1,227 +1,189 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.MessageQueue;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
-import com.baidu.searchbox.performance.speed.SpeedStats;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.schemeaction.SchemeActionHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tbadk.core.dialog.yun.strategy.FrequenceDialogStrategy;
+import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.tbadk.data.DialogStrategiesData;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import kotlin.collections.CollectionsKt__IterablesKt;
+import kotlin.collections.CollectionsKt___CollectionsKt;
+import kotlin.collections.SetsKt___SetsKt;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class p25 {
+public final class p25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public int c;
-    public String d;
-    public boolean e;
-    public Handler f;
 
-    /* loaded from: classes7.dex */
-    public class a implements MessageQueue.IdleHandler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.o25.a(java.lang.String):void] */
+    public static final /* synthetic */ void a(List list) {
+        c(list);
+    }
 
-        public a(p25 p25Var, Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p25Var, activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.o25.a(java.lang.String):void] */
+    public static final /* synthetic */ void b(List list, List list2) {
+        d(list, list2);
+    }
+
+    public static final void c(List<? extends DialogStrategiesData> list) {
+        Map<String, Object> data;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, list) == null) {
+            for (DialogStrategiesData dialogStrategiesData : list) {
+                try {
+                    DialogStrategiesData.StrategiesConfigData e = e(dialogStrategiesData, "NEW_FREQUENCE_STRATEGY");
+                    if (e != null && (data = e.P()) != null) {
+                        Intrinsics.checkNotNullExpressionValue(data, "data");
+                        FrequenceDialogStrategy.Data data2 = (FrequenceDialogStrategy.Data) DataExt.toEntity(data, FrequenceDialogStrategy.Data.class);
+                        if (data2 != null) {
+                            m25 m25Var = m25.a;
+                            String dialogName = dialogStrategiesData.getDialogName();
+                            Intrinsics.checkNotNullExpressionValue(dialogName, "it.dialogName");
+                            int b = m25Var.b(dialogName);
+                            int i = data2.frequenceClearVersion;
+                            if (i != b) {
+                                TbLog yunDialogLog = YunDialogLog.getInstance();
+                                yunDialogLog.i(YunDialogManager.LOG_KEY, "云弹窗 " + dialogStrategiesData.getDialogName() + " 频次重置版本更新，准备重置频次");
+                                m25 m25Var2 = m25.a;
+                                String dialogName2 = dialogStrategiesData.getDialogName();
+                                Intrinsics.checkNotNullExpressionValue(dialogName2, "it.dialogName");
+                                m25Var2.f(dialogName2, i);
+                            }
+                        }
+                    }
+                } catch (Exception e2) {
+                    if (!TbadkCoreApplication.getInst().isDebugMode()) {
+                        TbLog yunDialogLog2 = YunDialogLog.getInstance();
+                        yunDialogLog2.e(YunDialogManager.LOG_KEY, "新版云弹窗频次重置策略异常" + e2.getMessage());
+                        e2.printStackTrace();
+                    } else {
+                        throw e2;
+                    }
                 }
             }
-            this.a = activity;
         }
+    }
 
-        @Override // android.os.MessageQueue.IdleHandler
-        public boolean queueIdle() {
-            InterceptResult invokeV;
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (p25.a().c == 1) {
-                    i = 8;
+    /* JADX WARN: Code restructure failed: missing block: B:40:0x00e6, code lost:
+        if (f(r3, r4) == true) goto L39;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static final void d(List<? extends DialogStrategiesData> list, List<? extends DialogStrategiesData> list2) {
+        DialogStrategiesData.StrategiesConfigData strategiesConfigData;
+        Object obj;
+        Object obj2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, list, list2) == null) {
+            ArrayList arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(list, 10));
+            for (DialogStrategiesData dialogStrategiesData : list) {
+                arrayList.add(dialogStrategiesData.getDialogName());
+            }
+            Set set = CollectionsKt___CollectionsKt.toSet(arrayList);
+            ArrayList arrayList2 = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(list2, 10));
+            for (DialogStrategiesData dialogStrategiesData2 : list2) {
+                arrayList2.add(dialogStrategiesData2.getDialogName());
+            }
+            for (String name : SetsKt___SetsKt.plus(set, (Iterable) CollectionsKt___CollectionsKt.toSet(arrayList2))) {
+                Iterator<T> it = list.iterator();
+                while (true) {
+                    strategiesConfigData = null;
+                    if (it.hasNext()) {
+                        obj = it.next();
+                        if (Intrinsics.areEqual(((DialogStrategiesData) obj).getDialogName(), name)) {
+                            break;
+                        }
+                    } else {
+                        obj = null;
+                        break;
+                    }
+                }
+                DialogStrategiesData dialogStrategiesData3 = (DialogStrategiesData) obj;
+                Iterator<T> it2 = list2.iterator();
+                while (true) {
+                    if (it2.hasNext()) {
+                        obj2 = it2.next();
+                        if (Intrinsics.areEqual(((DialogStrategiesData) obj2).getDialogName(), name)) {
+                            break;
+                        }
+                    } else {
+                        obj2 = null;
+                        break;
+                    }
+                }
+                DialogStrategiesData dialogStrategiesData4 = (DialogStrategiesData) obj2;
+                if (dialogStrategiesData3 == null || dialogStrategiesData4 == null) {
+                    YunDialogLog.getInstance().i(YunDialogManager.LOG_KEY, "本地或远程没有弹窗 " + name + " ，准备重置频次");
+                    n25 n25Var = n25.a;
+                    Intrinsics.checkNotNullExpressionValue(name, "name");
+                    n25Var.b(name);
+                }
+                boolean z = true;
+                if (dialogStrategiesData3 != null && (r3 = e(dialogStrategiesData3, "FREQUENCE_STRATEGY")) != null) {
+                    if (dialogStrategiesData4 != null) {
+                        strategiesConfigData = e(dialogStrategiesData4, "FREQUENCE_STRATEGY");
+                    }
+                }
+                z = false;
+                if (z) {
+                    YunDialogLog.getInstance().i(YunDialogManager.LOG_KEY, "云弹窗 " + name + " 频次配置更新，准备重置频次");
+                    n25 n25Var2 = n25.a;
+                    Intrinsics.checkNotNullExpressionValue(name, "name");
+                    n25Var2.b(name);
+                }
+            }
+        }
+    }
+
+    public static final DialogStrategiesData.StrategiesConfigData e(DialogStrategiesData dialogStrategiesData, String str) {
+        InterceptResult invokeLL;
+        Object obj;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, dialogStrategiesData, str)) == null) {
+            List<DialogStrategiesData.StrategiesConfigData> dialogStrategy = dialogStrategiesData.getDialogStrategy();
+            Intrinsics.checkNotNullExpressionValue(dialogStrategy, "dialogStrategy");
+            Iterator<T> it = dialogStrategy.iterator();
+            while (true) {
+                if (it.hasNext()) {
+                    obj = it.next();
+                    if (Intrinsics.areEqual(str, ((DialogStrategiesData.StrategiesConfigData) obj).getType())) {
+                        break;
+                    }
                 } else {
-                    i = -1;
+                    obj = null;
+                    break;
                 }
-                if (p25.a().c == 2) {
-                    i = 9;
-                }
-                if (!this.a.getClass().getSimpleName().equals("PbActivity")) {
-                    SpeedStats.getInstance().onSchemeOrPushStatsEnd(this.a, i, p25.a().d);
-                    return false;
+            }
+            return (DialogStrategiesData.StrategiesConfigData) obj;
+        }
+        return (DialogStrategiesData.StrategiesConfigData) invokeLL.objValue;
+    }
+
+    public static final boolean f(DialogStrategiesData.StrategiesConfigData strategiesConfigData, DialogStrategiesData.StrategiesConfigData strategiesConfigData2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, strategiesConfigData, strategiesConfigData2)) == null) {
+            if (strategiesConfigData2 != null) {
+                if (!Intrinsics.areEqual(strategiesConfigData.P().get("startTimestamp"), strategiesConfigData2.P().get("startTimestamp")) || !Intrinsics.areEqual(strategiesConfigData.P().get("endTimestamp"), strategiesConfigData2.P().get("endTimestamp")) || !Intrinsics.areEqual(strategiesConfigData.P().get("frequence"), strategiesConfigData2.P().get("frequence"))) {
+                    return true;
                 }
                 return false;
             }
-            return invokeV.booleanValue;
+            return false;
         }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ MessageQueue.IdleHandler a;
-        public final /* synthetic */ p25 b;
-
-        public b(p25 p25Var, MessageQueue.IdleHandler idleHandler) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p25Var, idleHandler};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = p25Var;
-            this.a = idleHandler;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.d(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class c {
-        public static /* synthetic */ Interceptable $ic;
-        public static final p25 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-567990505, "Lcom/baidu/tieba/p25$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-567990505, "Lcom/baidu/tieba/p25$c;");
-                    return;
-                }
-            }
-            a = new p25();
-        }
-    }
-
-    public p25() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.c = 0;
-        this.e = false;
-    }
-
-    public static p25 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return c.a;
-        }
-        return (p25) invokeV.objValue;
-    }
-
-    public final Handler b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f == null) {
-                this.f = new Handler(Looper.getMainLooper());
-            }
-            return this.f;
-        }
-        return (Handler) invokeV.objValue;
-    }
-
-    public void c(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) == null) {
-            int i = 0;
-            if (TbadkCoreApplication.getInst().isMainProcess(false) && intent != null && intent.getComponent() != null) {
-                String dataString = intent.getDataString();
-                String className = intent.getComponent().getClassName();
-                if ("com.baidu.tieba.tblauncher.SchemaRouteActivity".equals(className)) {
-                    this.c = !ad.isEmpty(dataString) ? 1 : 0;
-                    this.d = dataString;
-                } else if (SpeedStats.PUSH_ACTIVITY.equals(className)) {
-                    if (!ad.isEmpty(dataString)) {
-                        i = 2;
-                    }
-                    this.c = i;
-                    this.d = dataString;
-                } else {
-                    this.c = 0;
-                }
-            }
-        }
-    }
-
-    public void d(MessageQueue.IdleHandler idleHandler) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, idleHandler) != null) || idleHandler == null || this.e) {
-            return;
-        }
-        if (Looper.myLooper() != Looper.getMainLooper()) {
-            b().post(new b(this, idleHandler));
-            return;
-        }
-        Looper.myQueue().addIdleHandler(idleHandler);
-        this.e = true;
-    }
-
-    public void e(Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, activity) != null) || activity == null) {
-            return;
-        }
-        if (a().c != 1 && a().c != 2) {
-            return;
-        }
-        String name = activity.getClass().getName();
-        if (q25.a().d() && !SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME.equals(name) && !SpeedStats.PUSH_ACTIVITY.equals(name) && !"com.baidu.tieba.tblauncher.SchemaRouteActivity".equals(name)) {
-            if (SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(name) && !SchemeActionHelper.isToMaintab(activity.getIntent())) {
-                return;
-            }
-            a().d(new a(this, activity));
-        }
+        return invokeLL.booleanValue;
     }
 }

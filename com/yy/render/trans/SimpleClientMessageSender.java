@@ -5,9 +5,9 @@ import android.text.TextUtils;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.mobstat.Config;
 import com.baidu.nps.main.manager.Bundle;
-import com.baidu.tieba.byb;
-import com.baidu.tieba.eyb;
-import com.baidu.tieba.vxb;
+import com.baidu.tieba.cbc;
+import com.baidu.tieba.fbc;
+import com.baidu.tieba.wac;
 import com.yy.render.IRemoteRender;
 import com.yy.render.ITransDataListener;
 import com.yy.render.RenderEngine;
@@ -28,7 +28,7 @@ public abstract class SimpleClientMessageSender {
         @Override // com.yy.render.ITransDataListener
         public void transBitmap(String str, Bitmap bitmap) {
             boolean z;
-            eyb.a aVar = eyb.b;
+            fbc.a aVar = fbc.b;
             String b = SimpleClientMessageSender.this.b();
             aVar.g(b, "[client](transBitmap) channelId:" + str);
             if (str != null && str.length() != 0) {
@@ -44,7 +44,7 @@ public abstract class SimpleClientMessageSender {
         @Override // com.yy.render.ITransDataListener
         public String transBitmapForStr(String str, Bitmap bitmap) {
             boolean z;
-            eyb.a aVar = eyb.b;
+            fbc.a aVar = fbc.b;
             String b = SimpleClientMessageSender.this.b();
             aVar.g(b, "[client](transBitmapForStr) channelId:" + str);
             if (str != null && str.length() != 0) {
@@ -61,7 +61,7 @@ public abstract class SimpleClientMessageSender {
         @Override // com.yy.render.ITransDataListener
         public void transBundle(String str, android.os.Bundle bundle) {
             boolean z;
-            eyb.a aVar = eyb.b;
+            fbc.a aVar = fbc.b;
             String b = SimpleClientMessageSender.this.b();
             aVar.g(b, "[client](transBundle) channelId:" + str);
             if (str != null && str.length() != 0) {
@@ -77,7 +77,7 @@ public abstract class SimpleClientMessageSender {
         @Override // com.yy.render.ITransDataListener
         public String transBundleForStr(String str, android.os.Bundle bundle) {
             boolean z;
-            eyb.a aVar = eyb.b;
+            fbc.a aVar = fbc.b;
             String b = SimpleClientMessageSender.this.b();
             aVar.g(b, "[client](transBundleForStr) channelId:" + str);
             if (str != null && str.length() != 0) {
@@ -94,7 +94,7 @@ public abstract class SimpleClientMessageSender {
         @Override // com.yy.render.ITransDataListener
         public void transData(String str, String str2) {
             boolean z;
-            eyb.a aVar = eyb.b;
+            fbc.a aVar = fbc.b;
             String b = SimpleClientMessageSender.this.b();
             aVar.g(b, "[client](transData) channelId:" + str + ", data:" + str2);
             boolean z2 = false;
@@ -113,7 +113,7 @@ public abstract class SimpleClientMessageSender {
         @Override // com.yy.render.ITransDataListener
         public String transDataForStr(String str, String str2) {
             boolean z;
-            eyb.a aVar = eyb.b;
+            fbc.a aVar = fbc.b;
             String b = SimpleClientMessageSender.this.b();
             aVar.g(b, "[client](transDataForStr) channelId:" + str + ", data:" + str2);
             boolean z2 = false;
@@ -150,14 +150,14 @@ public abstract class SimpleClientMessageSender {
     public abstract void k(String str);
 
     /* loaded from: classes10.dex */
-    public static final class a implements vxb {
+    public static final class a implements wac {
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public a() {
         }
 
-        @Override // com.baidu.tieba.vxb
+        @Override // com.baidu.tieba.wac
         public void a(String str) {
-            eyb.a aVar = eyb.b;
+            fbc.a aVar = fbc.b;
             String b = SimpleClientMessageSender.this.b();
             aVar.d(b, "[client] service crash ex: " + str);
             SimpleClientMessageSender.this.a();
@@ -171,7 +171,7 @@ public abstract class SimpleClientMessageSender {
     }
 
     public final void a() {
-        eyb.b.g(this.a, "[client](close)");
+        fbc.b.g(this.a, "[client](close)");
         RenderEngine.r.a().C(this.d);
         m();
         this.b = null;
@@ -183,17 +183,17 @@ public abstract class SimpleClientMessageSender {
 
     public final boolean c(Class<?> cls) {
         boolean z = false;
-        if (!byb.class.isAssignableFrom(cls)) {
-            eyb.b.g(this.a, "[client](init)register error clazz type");
+        if (!cbc.class.isAssignableFrom(cls)) {
+            fbc.b.g(this.a, "[client](init)register error clazz type");
             return false;
         }
         boolean w = RenderEngine.r.a().w();
         boolean x = RenderEngine.r.a().x();
         IRemoteRender t = RenderEngine.r.a().t();
-        eyb.b.g(this.a, "[client](init) isSucc: " + w + ", isSdkOk: " + x);
+        fbc.b.g(this.a, "[client](init) isSucc: " + w + ", isSdkOk: " + x);
         if (x && w) {
             if (t == null) {
-                eyb.b.g(this.a, "[client](init) binder is null");
+                fbc.b.g(this.a, "[client](init) binder is null");
                 return false;
             }
             StringBuilder sb = new StringBuilder();
@@ -210,12 +210,12 @@ public abstract class SimpleClientMessageSender {
                     z = t2.registerDataListener(this.e, sb2, this.c);
                 } catch (Exception e) {
                     String str = "register ex: " + e.getMessage();
-                    eyb.b.d(this.a, "[client](init) register ex: " + e.getMessage());
+                    fbc.b.d(this.a, "[client](init) register ex: " + e.getMessage());
                     e.printStackTrace();
                 }
             }
             if (z) {
-                eyb.b.d(this.a, "[client](init) add crash listener");
+                fbc.b.d(this.a, "[client](init) add crash listener");
                 RenderEngine.r.a().q(this.d);
             }
         }
@@ -224,17 +224,17 @@ public abstract class SimpleClientMessageSender {
 
     public final void l(String str) {
         if (TextUtils.isEmpty(this.e)) {
-            eyb.b.g(this.a, "[client](sendDataToServer) channelId is empty or null");
+            fbc.b.g(this.a, "[client](sendDataToServer) channelId is empty or null");
             return;
         }
         IRemoteRender iRemoteRender = this.b;
         if (iRemoteRender == null) {
-            eyb.b.g(this.a, "[client](sendDataToServer) binder is null");
+            fbc.b.g(this.a, "[client](sendDataToServer) binder is null");
         } else if (iRemoteRender != null) {
             try {
                 iRemoteRender.sendData(this.e, str);
             } catch (Exception e) {
-                eyb.a aVar = eyb.b;
+                fbc.a aVar = fbc.b;
                 String str2 = this.a;
                 aVar.d(str2, "[client](sendDataToServer) ex: " + e.getMessage());
                 e.printStackTrace();
@@ -256,7 +256,7 @@ public abstract class SimpleClientMessageSender {
             }
             return bool.booleanValue();
         } catch (Exception e) {
-            eyb.a aVar = eyb.b;
+            fbc.a aVar = fbc.b;
             String str = this.a;
             aVar.d(str, "[client](unRegister) ex: " + e.getMessage());
             e.printStackTrace();

@@ -5,13 +5,14 @@ import com.baidu.adp.framework.controller.CustomRule;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.atomData.AlbumFloatActivityConfig;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.atomData.WorkPublishActivityConfig;
 import com.baidu.tbadk.core.atomData.WorkPublishManager;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteVoteActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tieba.a5;
 import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.tieba.k4;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.tbadkCore.writeModel.WriteMsgHolder;
 import com.baidu.tieba.write.webwrite.WebWriteActivity;
@@ -71,8 +72,8 @@ public class WriteActivityImmediateStatic {
                                     z = false;
                                 }
                                 String simpleName = ((IntentConfig) data).getContext().getClass().getSimpleName();
-                                if ("FrsActivity".equals(simpleName) || "MainTabActivity".equals(simpleName) || z) {
-                                    WriteMsgHolder.setCurrentWriteActivityFromTag(k4.a(((IntentConfig) data).getContext()).getUniqueId());
+                                if ("FrsActivity".equals(simpleName) || "MainTabActivity".equals(simpleName) || PbActivityConfig.VALUE_FROM_FRS_NEW.equals(simpleName) || z) {
+                                    WriteMsgHolder.setCurrentWriteActivityFromTag(a5.a(((IntentConfig) data).getContext()).getUniqueId());
                                     WriteMsgHolder.setFromPersonCenter(false);
                                 }
                             }

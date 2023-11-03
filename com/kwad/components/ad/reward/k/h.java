@@ -253,17 +253,17 @@ public final class h extends d implements View.OnClickListener {
     }
 
     private void initView() {
-        this.pV = (ViewGroup) this.uL.findViewById(R.id.obfuscated_res_0x7f0913b2);
-        this.it = (KSCornerImageView) this.uL.findViewById(R.id.obfuscated_res_0x7f0913ad);
-        this.eQ = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f0913b4);
-        this.iu = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f09139c);
-        this.nI = (KsPriceView) this.uL.findViewById(R.id.obfuscated_res_0x7f0913af);
-        this.uM = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f0913b1);
-        this.uN = (KsStyledTextButton) this.uL.findViewById(R.id.obfuscated_res_0x7f091397);
-        this.uR = (ImageView) this.uL.findViewById(R.id.obfuscated_res_0x7f0913ae);
-        this.uQ = this.uL.findViewById(R.id.obfuscated_res_0x7f09139a);
-        this.uO = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f091399);
-        this.uP = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f09139b);
+        this.pV = (ViewGroup) this.uL.findViewById(R.id.obfuscated_res_0x7f0913f0);
+        this.it = (KSCornerImageView) this.uL.findViewById(R.id.obfuscated_res_0x7f0913eb);
+        this.eQ = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f0913f2);
+        this.iu = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f0913da);
+        this.nI = (KsPriceView) this.uL.findViewById(R.id.obfuscated_res_0x7f0913ed);
+        this.uM = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f0913ef);
+        this.uN = (KsStyledTextButton) this.uL.findViewById(R.id.obfuscated_res_0x7f0913d5);
+        this.uR = (ImageView) this.uL.findViewById(R.id.obfuscated_res_0x7f0913ec);
+        this.uQ = this.uL.findViewById(R.id.obfuscated_res_0x7f0913d8);
+        this.uO = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f0913d7);
+        this.uP = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f0913d9);
         ViewGroup viewGroup = this.pV;
         if (viewGroup != null) {
             viewGroup.setOnClickListener(this);

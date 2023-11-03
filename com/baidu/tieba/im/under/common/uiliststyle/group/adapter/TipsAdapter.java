@@ -16,7 +16,7 @@ import com.baidu.tieba.im.base.core.uilist.BaseSysAdapter;
 import com.baidu.tieba.im.base.core.uilist.BaseViewHolder;
 import com.baidu.tieba.im.lib.socket.msg.TbTipsSysMsg;
 import com.baidu.tieba.im.under.common.uiliststyle.group.item.TipsSysItem;
-import com.baidu.tieba.wi8;
+import com.baidu.tieba.uv8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -55,8 +55,8 @@ public class TipsAdapter extends BaseSysAdapter<TipsSysItem, Holder> {
                     return;
                 }
             }
-            this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0925a3);
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0916e5);
+            this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0925fa);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091726);
         }
     }
 
@@ -84,24 +84,24 @@ public class TipsAdapter extends BaseSysAdapter<TipsSysItem, Holder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.base.core.uilist.BaseSysAdapter
     @NonNull
-    /* renamed from: Q */
-    public Holder L(@NonNull ViewGroup viewGroup) {
+    /* renamed from: R */
+    public Holder M(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d03ed, viewGroup, false));
+            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0400, viewGroup, false));
         }
         return (Holder) invokeL.objValue;
     }
 
-    public void S(long j) {
+    public void T(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
             this.l = j;
         }
     }
 
-    public void T(long j) {
+    public void U(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
             this.m = j;
@@ -110,8 +110,8 @@ public class TipsAdapter extends BaseSysAdapter<TipsSysItem, Holder> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.base.core.uilist.BaseSysAdapter
-    /* renamed from: R */
-    public void N(int i, @NonNull ViewGroup viewGroup, @NonNull TipsSysItem tipsSysItem, @NonNull Holder holder, @NonNull List<Object> list, int i2) {
+    /* renamed from: S */
+    public void O(int i, @NonNull ViewGroup viewGroup, @NonNull TipsSysItem tipsSysItem, @NonNull Holder holder, @NonNull List<Object> list, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), viewGroup, tipsSysItem, holder, list, Integer.valueOf(i2)}) == null) {
             TbTipsSysMsg tbMsg = tipsSysItem.getTbMsg();
@@ -119,7 +119,7 @@ public class TipsAdapter extends BaseSysAdapter<TipsSysItem, Holder> {
             EMManager.from(holder.a).setTextColor(R.color.CAM_X0101).setTextSize(R.dimen.T_X09);
             holder.a.setText(tbMsg.getTips());
             if (-7014 == tbMsg.getType()) {
-                wi8.d("c15095", 1, this.l, this.m, TbadkCoreApplication.getCurrentAccount());
+                uv8.d("c15095", 1, this.l, this.m, TbadkCoreApplication.getCurrentAccount());
             }
         }
     }

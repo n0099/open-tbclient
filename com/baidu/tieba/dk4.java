@@ -1,74 +1,49 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.AttributeSet;
-import android.view.LayoutInflater;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.AnimRes;
+import androidx.annotation.IdRes;
+import androidx.annotation.Nullable;
+import com.baidu.swan.support.v4.app.Fragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class dk4 {
+public abstract class dk4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a implements LayoutInflater.Factory {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final gk4 a;
+    public abstract dk4 a(@IdRes int i, Fragment fragment);
 
-        public a(gk4 gk4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gk4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gk4Var;
-        }
+    public abstract dk4 b(@IdRes int i, Fragment fragment, @Nullable String str);
 
-        @Override // android.view.LayoutInflater.Factory
-        public View onCreateView(String str, Context context, AttributeSet attributeSet) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, context, attributeSet)) == null) {
-                return this.a.onCreateView(null, str, context, attributeSet);
-            }
-            return (View) invokeLLL.objValue;
-        }
+    public abstract dk4 c(Fragment fragment, String str);
 
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return getClass().getName() + "{" + this.a + "}";
-            }
-            return (String) invokeV.objValue;
-        }
-    }
+    public abstract dk4 d(@Nullable String str);
 
-    public static void a(LayoutInflater layoutInflater, gk4 gk4Var) {
-        a aVar;
+    public abstract int e();
+
+    public abstract int f();
+
+    public abstract dk4 g(Fragment fragment);
+
+    public abstract dk4 h(Fragment fragment);
+
+    public abstract dk4 i(@AnimRes int i, @AnimRes int i2);
+
+    public abstract dk4 j(Fragment fragment);
+
+    public dk4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, layoutInflater, gk4Var) == null) {
-            if (gk4Var != null) {
-                aVar = new a(gk4Var);
-            } else {
-                aVar = null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            layoutInflater.setFactory(aVar);
         }
     }
 }

@@ -1,6 +1,10 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
 import android.util.Log;
+import android.util.Pair;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,15 +13,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ox1 implements mx1 {
+public class ox1 extends gx1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static volatile ox1 c;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<mx1> a;
+
+    @Override // com.baidu.tieba.ku1
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "LogApi" : (String) invokeV.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -32,81 +40,77 @@ public class ox1 implements mx1 {
                 return;
             }
         }
-        b = am1.a;
+        f = rm1.a;
     }
 
-    public ox1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ox1(@NonNull iu1 iu1Var) {
+        super(iu1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {iu1Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((iu1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        ArrayList arrayList = new ArrayList();
-        this.a = arrayList;
-        arrayList.add(new nx1());
     }
 
-    public static ox1 c() {
-        InterceptResult invokeV;
+    public static String A(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (ox1.class) {
-                    if (c == null) {
-                        c = new ox1();
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, obj)) == null) {
+            if (obj instanceof String) {
+                String str = (String) obj;
+                if (!TextUtils.isEmpty(str)) {
+                    return str;
                 }
-            }
-            return c;
-        }
-        return (ox1) invokeV.objValue;
-    }
-
-    public synchronized void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                if (b) {
-                    Log.d("Api-Marker", "release: ");
+                return "log info is invalid";
+            } else if (obj instanceof JSONObject) {
+                JSONObject jSONObject = (JSONObject) obj;
+                if (jSONObject.length() != 0) {
+                    return jSONObject.toString();
                 }
-                if (c == null) {
-                    return;
-                }
-                c = null;
+                return "log info is invalid";
+            } else {
+                return "log info is invalid";
             }
         }
+        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.mx1
-    public void a(String str) {
+    @SuppressLint({"BDThrowableCheck"})
+    public static void y(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (b) {
-                Log.d("Api-Marker", "markStart: " + str);
-            }
-            for (int i = 0; i < this.a.size(); i++) {
-                this.a.get(i).a(str);
-            }
+        if ((interceptable != null && interceptable.invokeL(65539, null, str) != null) || str == null || str.length() <= 3145728) {
+            return;
         }
+        throw new IllegalArgumentException("params过大，len=" + str.length() + "\n" + str.substring(0, 204800));
     }
 
-    @Override // com.baidu.tieba.mx1
-    public void b(String str) {
+    public hy1 z(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            if (b) {
-                Log.d("Api-Marker", "markEnd: " + str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (f) {
+                Log.d("LogApi", "start logToFile action, params = " + str);
+                y(str);
             }
-            for (int i = 0; i < this.a.size(); i++) {
-                this.a.get(i).b(str);
+            Pair<hy1, JSONObject> t = t(str);
+            if (!((hy1) t.first).isSuccess()) {
+                return (hy1) t.first;
             }
+            JSONObject jSONObject = (JSONObject) t.second;
+            g32.k(jSONObject.optString("tag", "logToFile-swanjsLog"), A(jSONObject.opt("data")));
+            return hy1.f();
         }
+        return (hy1) invokeL.objValue;
     }
 }

@@ -41,7 +41,7 @@ import com.baidu.searchbox.net.DownloadProxyHttpClient;
 import com.baidu.searchbox.net.IProxyHttpClient;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xw;
+import com.baidu.tieba.ox;
 import com.baidu.ubc.UBC;
 import com.baidubce.http.Headers;
 import java.io.File;
@@ -503,10 +503,10 @@ public class DownloadThread extends Thread {
                 }
                 return null;
             }
-            return this.mContext.getString(R.string.obfuscated_res_0x7f0f059d);
+            return this.mContext.getString(R.string.obfuscated_res_0x7f0f059f);
         }
-        xw.u();
-        return this.mContext.getString(R.string.obfuscated_res_0x7f0f05e7);
+        ox.u();
+        return this.mContext.getString(R.string.obfuscated_res_0x7f0f05e9);
     }
 
     private void handleExceptionalStatus(State state, InnerState innerState, HttpResponse httpResponse) throws StopRequest, RetryDownload {
@@ -553,7 +553,7 @@ public class DownloadThread extends Thread {
                 DownloadInfo downloadInfo = this.mInfo;
                 doCloudPauseStatisticJob(downloadInfo.mId, downloadInfo.mFileName, i, downloadInfo.mExtraInfo, state.mRedirectUris);
             }
-            xw.e(this.mInfo.mId, i, str);
+            ox.e(this.mInfo.mId, i, str);
             str2 = this.mInfo.mExtraInfo;
         }
         DownloadMessageSender.logDownloadFail(state.mFilename, state.mMimeType, i, state.mRequestUri, state.mReferer, state.mRedirectCount, state.mCountRetry, str2);
@@ -802,14 +802,14 @@ public class DownloadThread extends Thread {
                 }
                 try {
                     if (DownloadHelper.getAvailableBytes(DownloadHelper.getFilesystemRoot(state.mFilename)) < i) {
-                        saveErrorRecord(498, this.mContext.getString(R.string.obfuscated_res_0x7f0f05e9), state, null);
-                        throw new StopRequest(498, this.mContext.getString(R.string.obfuscated_res_0x7f0f05e9), e);
+                        saveErrorRecord(498, this.mContext.getString(R.string.obfuscated_res_0x7f0f05eb), state, null);
+                        throw new StopRequest(498, this.mContext.getString(R.string.obfuscated_res_0x7f0f05eb), e);
                     }
                     saveErrorRecord(Downloads.Impl.STATUS_FILE_ERROR_9, "while writing destination file: " + e.toString(), state, null);
                     throw new StopRequest(Downloads.Impl.STATUS_FILE_ERROR_9, "while writing destination file: " + e.toString(), e);
                 } catch (Exception unused) {
-                    saveErrorRecord(498, this.mContext.getString(R.string.obfuscated_res_0x7f0f05e9) + "[1]", state, null);
-                    throw new StopRequest(498, this.mContext.getString(R.string.obfuscated_res_0x7f0f05e9), e);
+                    saveErrorRecord(498, this.mContext.getString(R.string.obfuscated_res_0x7f0f05eb) + "[1]", state, null);
+                    throw new StopRequest(498, this.mContext.getString(R.string.obfuscated_res_0x7f0f05eb), e);
                 }
             }
         }
@@ -893,7 +893,7 @@ public class DownloadThread extends Thread {
                         Log.v("DownloadManager", "writing " + this.mInfo.mUri + " to " + state.mFilename);
                     }
                     updateDatabaseFromHeaders(state, innerState);
-                    xw.f(this.mInfo.mId);
+                    ox.f(this.mInfo.mId);
                 } catch (FileNotFoundException e2) {
                     saveErrorRecord(Downloads.Impl.STATUS_FILE_ERROR_10, "while opening destination file: " + e2.toString(), state, innerState);
                     throw new StopRequest(Downloads.Impl.STATUS_FILE_ERROR_10, "while opening destination file: " + e2.toString(), e2);
@@ -1231,8 +1231,8 @@ public class DownloadThread extends Thread {
         }
     }
 
-    /* JADX WARN: Not initialized variable reg: 13, insn: 0x03a2: IF  (r13 I:??[int, boolean, OBJECT, ARRAY, byte, short, char]) == (0 ??[int, boolean, OBJECT, ARRAY, byte, short, char])  -> B:161:0x03a7, block:B:159:0x03a2 */
-    /* JADX WARN: Not initialized variable reg: 14, insn: 0x03a7: IF  (r14 I:??[int, boolean, OBJECT, ARRAY, byte, short, char]) == (0 ??[int, boolean, OBJECT, ARRAY, byte, short, char])  -> B:163:0x03ac, block:B:161:0x03a7 */
+    /* JADX WARN: Not initialized variable reg: 13, insn: 0x03a1: IF  (r13 I:??[int, boolean, OBJECT, ARRAY, byte, short, char]) == (0 ??[int, boolean, OBJECT, ARRAY, byte, short, char])  -> B:161:0x03a6, block:B:159:0x03a1 */
+    /* JADX WARN: Not initialized variable reg: 14, insn: 0x03a6: IF  (r14 I:??[int, boolean, OBJECT, ARRAY, byte, short, char]) == (0 ??[int, boolean, OBJECT, ARRAY, byte, short, char])  -> B:163:0x03ab, block:B:161:0x03a6 */
     @Override // java.lang.Thread, java.lang.Runnable
     @SuppressLint({"InvalidWakeLockTag", "WakelockTimeout"})
     public void run() {
@@ -1254,15 +1254,172 @@ public class DownloadThread extends Thread {
                             Log.v("DownloadManager", "initiating download for " + this.mInfo.mUri);
                         }
                         downloadProxyHttpClient = new DownloadProxyHttpClient(userAgent());
-                    } catch (StopRequest e) {
-                        e = e;
+                        try {
+                            downloadProxyHttpClient.getParams().setBooleanParameter(ClientPNames.HANDLE_REDIRECTS, false);
+                            boolean z = false;
+                            while (!z) {
+                                if (Constants.LOGV) {
+                                    Log.i("DownloadManager", "Initiating request for download " + this.mInfo.mId);
+                                }
+                                String str = state.mRequestUri;
+                                downloadProxyHttpClient.setUrl(str);
+                                HttpGet httpGet = new HttpGet();
+                                try {
+                                    executeDownload(state, downloadProxyHttpClient, httpGet, str);
+                                    httpGet.abort();
+                                    if (this.mResponse != null && this.mResponse.getEntity() != null && this.mResponse.getEntity().getContent() != null) {
+                                        try {
+                                            this.mResponse.getEntity().getContent().close();
+                                        } catch (Exception e) {
+                                            if (DEBUG) {
+                                                Log.v("DownloadManager", e.getMessage());
+                                            }
+                                        }
+                                    }
+                                    z = true;
+                                } catch (RetryDownload e2) {
+                                    e2.printStackTrace();
+                                    httpGet.abort();
+                                    if (this.mResponse != null && this.mResponse.getEntity() != null && this.mResponse.getEntity().getContent() != null) {
+                                        try {
+                                            this.mResponse.getEntity().getContent().close();
+                                        } catch (Exception e3) {
+                                            if (DEBUG) {
+                                                Log.v("DownloadManager", e3.getMessage());
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            if (Constants.LOGV) {
+                                Log.v("DownloadManager", "download completed for " + this.mInfo.mUri);
+                            }
+                            finalizeDestinationFile(state);
+                            if (wakeLock2 != null) {
+                                wakeLock2.release();
+                            }
+                            downloadProxyHttpClient.close();
+                            cleanupDestination(state, 200);
+                            ContentValues contentValues = new ContentValues();
+                            if (state.mDownloadMod > 0) {
+                                JSONObject jSONObject = new JSONObject();
+                                try {
+                                    jSONObject.put(IDownloadApp.Impl.get().getNovelSegmentStatus(), IDownloadApp.Impl.get().getNovelStatusDownloadEnd());
+                                    jSONObject.put(IDownloadApp.Impl.get().getNovelStatusTimestamp(), System.currentTimeMillis());
+                                } catch (JSONException e4) {
+                                    e4.printStackTrace();
+                                }
+                                contentValues.put("extra_info", jSONObject.toString());
+                                String str2 = state.mBoundary;
+                                if (str2 != null && !str2.isEmpty()) {
+                                    contentValues.put(Downloads.Impl.COLUMN_BOUNDARY, state.mBoundary);
+                                }
+                                contentValues.put(Downloads.Impl.COLUMN_DOWNLOAD_MOD, Integer.valueOf(state.mDownloadMod));
+                            }
+                            try {
+                                this.mContext.getContentResolver().update(this.mInfo.getAllDownloadsUri(), contentValues, null, null);
+                            } catch (Exception e5) {
+                                e5.printStackTrace();
+                            }
+                            handleDownloadStatistic(200, state, "");
+                            notifyDownloadCompleted(200, state.mCountRetry, state.mRetryAfter, state.mRedirectCount, state.mGotData, state.mFilename, state.mNewUri, state.mMimeType);
+                            DSUtils.mCurrentThreadNum--;
+                            if (Downloads.Impl.isStatusCompleted(200)) {
+                                return;
+                            }
+                        } catch (StopRequest e6) {
+                            e = e6;
+                            if (Constants.LOGV) {
+                                Log.w("DownloadManager", "Aborting request for download " + this.mInfo.mId + ": " + e.getMessage());
+                            }
+                            int i2 = e.mFinalStatus;
+                            displayMsg(this.mInfo, i2, e);
+                            String message = e.getMessage();
+                            if (wakeLock2 != null) {
+                                wakeLock2.release();
+                            }
+                            if (downloadProxyHttpClient != null) {
+                                downloadProxyHttpClient.close();
+                            }
+                            cleanupDestination(state, i2);
+                            ContentValues contentValues2 = new ContentValues();
+                            if (state.mDownloadMod > 0) {
+                                JSONObject jSONObject2 = new JSONObject();
+                                try {
+                                    jSONObject2.put(IDownloadApp.Impl.get().getNovelSegmentStatus(), IDownloadApp.Impl.get().getNovelStatusDownloadEnd());
+                                    jSONObject2.put(IDownloadApp.Impl.get().getNovelStatusTimestamp(), System.currentTimeMillis());
+                                } catch (JSONException e7) {
+                                    e7.printStackTrace();
+                                }
+                                contentValues2.put("extra_info", jSONObject2.toString());
+                                String str3 = state.mBoundary;
+                                if (str3 != null && !str3.isEmpty()) {
+                                    contentValues2.put(Downloads.Impl.COLUMN_BOUNDARY, state.mBoundary);
+                                }
+                                contentValues2.put(Downloads.Impl.COLUMN_DOWNLOAD_MOD, Integer.valueOf(state.mDownloadMod));
+                            }
+                            try {
+                                this.mContext.getContentResolver().update(this.mInfo.getAllDownloadsUri(), contentValues2, null, null);
+                            } catch (Exception e8) {
+                                e8.printStackTrace();
+                            }
+                            handleDownloadStatistic(i2, state, message);
+                            notifyDownloadCompleted(i2, state.mCountRetry, state.mRetryAfter, state.mRedirectCount, state.mGotData, state.mFilename, state.mNewUri, state.mMimeType);
+                            DSUtils.mCurrentThreadNum--;
+                            if (Downloads.Impl.isStatusCompleted(i2)) {
+                                return;
+                            }
+                            this.mInfo.mHasActiveThread = false;
+                        } catch (Throwable th2) {
+                            th = th2;
+                            Log.w("DownloadManager", "Exception for id " + this.mInfo.mId + ": " + th);
+                            displayMsg(this.mInfo, Downloads.Impl.STATUS_UNKNOWN_ERROR, th);
+                            String message2 = th.getMessage();
+                            if (wakeLock2 != null) {
+                                wakeLock2.release();
+                            }
+                            if (downloadProxyHttpClient != null) {
+                                downloadProxyHttpClient.close();
+                            }
+                            cleanupDestination(state, Downloads.Impl.STATUS_UNKNOWN_ERROR);
+                            ContentValues contentValues3 = new ContentValues();
+                            if (state.mDownloadMod > 0) {
+                                JSONObject jSONObject3 = new JSONObject();
+                                try {
+                                    jSONObject3.put(IDownloadApp.Impl.get().getNovelSegmentStatus(), IDownloadApp.Impl.get().getNovelStatusDownloadEnd());
+                                    jSONObject3.put(IDownloadApp.Impl.get().getNovelStatusTimestamp(), System.currentTimeMillis());
+                                } catch (JSONException e9) {
+                                    e9.printStackTrace();
+                                }
+                                contentValues3.put("extra_info", jSONObject3.toString());
+                                String str4 = state.mBoundary;
+                                if (str4 != null && !str4.isEmpty()) {
+                                    contentValues3.put(Downloads.Impl.COLUMN_BOUNDARY, state.mBoundary);
+                                }
+                                contentValues3.put(Downloads.Impl.COLUMN_DOWNLOAD_MOD, Integer.valueOf(state.mDownloadMod));
+                            }
+                            try {
+                                this.mContext.getContentResolver().update(this.mInfo.getAllDownloadsUri(), contentValues3, null, null);
+                            } catch (Exception e10) {
+                                e10.printStackTrace();
+                            }
+                            handleDownloadStatistic(Downloads.Impl.STATUS_UNKNOWN_ERROR, state, message2);
+                            notifyDownloadCompleted(Downloads.Impl.STATUS_UNKNOWN_ERROR, state.mCountRetry, state.mRetryAfter, state.mRedirectCount, state.mGotData, state.mFilename, state.mNewUri, state.mMimeType);
+                            DSUtils.mCurrentThreadNum--;
+                            if (Downloads.Impl.isStatusCompleted(Downloads.Impl.STATUS_UNKNOWN_ERROR)) {
+                                return;
+                            }
+                            this.mInfo.mHasActiveThread = false;
+                        }
+                    } catch (StopRequest e11) {
+                        e = e11;
                         downloadProxyHttpClient = null;
-                    } catch (Throwable th2) {
-                        th = th2;
+                    } catch (Throwable th3) {
+                        th = th3;
                         downloadProxyHttpClient = null;
                     }
-                } catch (Throwable th3) {
-                    th = th3;
+                } catch (Throwable th4) {
+                    th = th4;
                     if (wakeLock != null) {
                         wakeLock.release();
                     }
@@ -1270,26 +1427,26 @@ public class DownloadThread extends Thread {
                         iProxyHttpClient.close();
                     }
                     cleanupDestination(state, i);
-                    ContentValues contentValues = new ContentValues();
+                    ContentValues contentValues4 = new ContentValues();
                     if (state.mDownloadMod > 0) {
-                        JSONObject jSONObject = new JSONObject();
+                        JSONObject jSONObject4 = new JSONObject();
                         try {
-                            jSONObject.put(IDownloadApp.Impl.get().getNovelSegmentStatus(), IDownloadApp.Impl.get().getNovelStatusDownloadEnd());
-                            jSONObject.put(IDownloadApp.Impl.get().getNovelStatusTimestamp(), System.currentTimeMillis());
-                        } catch (JSONException e2) {
-                            e2.printStackTrace();
+                            jSONObject4.put(IDownloadApp.Impl.get().getNovelSegmentStatus(), IDownloadApp.Impl.get().getNovelStatusDownloadEnd());
+                            jSONObject4.put(IDownloadApp.Impl.get().getNovelStatusTimestamp(), System.currentTimeMillis());
+                        } catch (JSONException e12) {
+                            e12.printStackTrace();
                         }
-                        contentValues.put("extra_info", jSONObject.toString());
-                        String str = state.mBoundary;
-                        if (str != null && !str.isEmpty()) {
-                            contentValues.put(Downloads.Impl.COLUMN_BOUNDARY, state.mBoundary);
+                        contentValues4.put("extra_info", jSONObject4.toString());
+                        String str5 = state.mBoundary;
+                        if (str5 != null && !str5.isEmpty()) {
+                            contentValues4.put(Downloads.Impl.COLUMN_BOUNDARY, state.mBoundary);
                         }
-                        contentValues.put(Downloads.Impl.COLUMN_DOWNLOAD_MOD, Integer.valueOf(state.mDownloadMod));
+                        contentValues4.put(Downloads.Impl.COLUMN_DOWNLOAD_MOD, Integer.valueOf(state.mDownloadMod));
                     }
                     try {
-                        this.mContext.getContentResolver().update(this.mInfo.getAllDownloadsUri(), contentValues, null, null);
-                    } catch (Exception e3) {
-                        e3.printStackTrace();
+                        this.mContext.getContentResolver().update(this.mInfo.getAllDownloadsUri(), contentValues4, null, null);
+                    } catch (Exception e13) {
+                        e13.printStackTrace();
                     }
                     handleDownloadStatistic(i, state, "");
                     notifyDownloadCompleted(i, state.mCountRetry, state.mRetryAfter, state.mRedirectCount, state.mGotData, state.mFilename, state.mNewUri, state.mMimeType);
@@ -1299,171 +1456,14 @@ public class DownloadThread extends Thread {
                     }
                     throw th;
                 }
-            } catch (StopRequest e4) {
-                e = e4;
+            } catch (StopRequest e14) {
+                e = e14;
                 wakeLock2 = null;
                 downloadProxyHttpClient = null;
-            } catch (Throwable th4) {
-                th = th4;
-                wakeLock2 = null;
-                downloadProxyHttpClient = null;
-            }
-            try {
-                downloadProxyHttpClient.getParams().setBooleanParameter(ClientPNames.HANDLE_REDIRECTS, false);
-                boolean z = false;
-                while (!z) {
-                    if (Constants.LOGV) {
-                        Log.i("DownloadManager", "Initiating request for download " + this.mInfo.mId);
-                    }
-                    String str2 = state.mRequestUri;
-                    downloadProxyHttpClient.setUrl(str2);
-                    HttpGet httpGet = new HttpGet();
-                    try {
-                        executeDownload(state, downloadProxyHttpClient, httpGet, str2);
-                        httpGet.abort();
-                        if (this.mResponse != null && this.mResponse.getEntity() != null && this.mResponse.getEntity().getContent() != null) {
-                            try {
-                                this.mResponse.getEntity().getContent().close();
-                            } catch (Exception e5) {
-                                if (DEBUG) {
-                                    Log.v("DownloadManager", e5.getMessage());
-                                }
-                            }
-                        }
-                        z = true;
-                    } catch (RetryDownload e6) {
-                        e6.printStackTrace();
-                        httpGet.abort();
-                        if (this.mResponse != null && this.mResponse.getEntity() != null && this.mResponse.getEntity().getContent() != null) {
-                            try {
-                                this.mResponse.getEntity().getContent().close();
-                            } catch (Exception e7) {
-                                if (DEBUG) {
-                                    Log.v("DownloadManager", e7.getMessage());
-                                }
-                            }
-                        }
-                    }
-                }
-                if (Constants.LOGV) {
-                    Log.v("DownloadManager", "download completed for " + this.mInfo.mUri);
-                }
-                finalizeDestinationFile(state);
-                if (wakeLock2 != null) {
-                    wakeLock2.release();
-                }
-                downloadProxyHttpClient.close();
-                cleanupDestination(state, 200);
-                ContentValues contentValues2 = new ContentValues();
-                if (state.mDownloadMod > 0) {
-                    JSONObject jSONObject2 = new JSONObject();
-                    try {
-                        jSONObject2.put(IDownloadApp.Impl.get().getNovelSegmentStatus(), IDownloadApp.Impl.get().getNovelStatusDownloadEnd());
-                        jSONObject2.put(IDownloadApp.Impl.get().getNovelStatusTimestamp(), System.currentTimeMillis());
-                    } catch (JSONException e8) {
-                        e8.printStackTrace();
-                    }
-                    contentValues2.put("extra_info", jSONObject2.toString());
-                    String str3 = state.mBoundary;
-                    if (str3 != null && !str3.isEmpty()) {
-                        contentValues2.put(Downloads.Impl.COLUMN_BOUNDARY, state.mBoundary);
-                    }
-                    contentValues2.put(Downloads.Impl.COLUMN_DOWNLOAD_MOD, Integer.valueOf(state.mDownloadMod));
-                }
-                try {
-                    this.mContext.getContentResolver().update(this.mInfo.getAllDownloadsUri(), contentValues2, null, null);
-                } catch (Exception e9) {
-                    e9.printStackTrace();
-                }
-                handleDownloadStatistic(200, state, "");
-                notifyDownloadCompleted(200, state.mCountRetry, state.mRetryAfter, state.mRedirectCount, state.mGotData, state.mFilename, state.mNewUri, state.mMimeType);
-                DSUtils.mCurrentThreadNum--;
-                if (Downloads.Impl.isStatusCompleted(200)) {
-                    return;
-                }
-            } catch (StopRequest e10) {
-                e = e10;
-                if (Constants.LOGV) {
-                    Log.w("DownloadManager", "Aborting request for download " + this.mInfo.mId + ": " + e.getMessage());
-                }
-                int i2 = e.mFinalStatus;
-                displayMsg(this.mInfo, i2, e);
-                String message = e.getMessage();
-                if (wakeLock2 != null) {
-                    wakeLock2.release();
-                }
-                if (downloadProxyHttpClient != null) {
-                    downloadProxyHttpClient.close();
-                }
-                cleanupDestination(state, i2);
-                ContentValues contentValues3 = new ContentValues();
-                if (state.mDownloadMod > 0) {
-                    JSONObject jSONObject3 = new JSONObject();
-                    try {
-                        jSONObject3.put(IDownloadApp.Impl.get().getNovelSegmentStatus(), IDownloadApp.Impl.get().getNovelStatusDownloadEnd());
-                        jSONObject3.put(IDownloadApp.Impl.get().getNovelStatusTimestamp(), System.currentTimeMillis());
-                    } catch (JSONException e11) {
-                        e11.printStackTrace();
-                    }
-                    contentValues3.put("extra_info", jSONObject3.toString());
-                    String str4 = state.mBoundary;
-                    if (str4 != null && !str4.isEmpty()) {
-                        contentValues3.put(Downloads.Impl.COLUMN_BOUNDARY, state.mBoundary);
-                    }
-                    contentValues3.put(Downloads.Impl.COLUMN_DOWNLOAD_MOD, Integer.valueOf(state.mDownloadMod));
-                }
-                try {
-                    this.mContext.getContentResolver().update(this.mInfo.getAllDownloadsUri(), contentValues3, null, null);
-                } catch (Exception e12) {
-                    e12.printStackTrace();
-                }
-                handleDownloadStatistic(i2, state, message);
-                notifyDownloadCompleted(i2, state.mCountRetry, state.mRetryAfter, state.mRedirectCount, state.mGotData, state.mFilename, state.mNewUri, state.mMimeType);
-                DSUtils.mCurrentThreadNum--;
-                if (Downloads.Impl.isStatusCompleted(i2)) {
-                    return;
-                }
-                this.mInfo.mHasActiveThread = false;
             } catch (Throwable th5) {
                 th = th5;
-                Log.w("DownloadManager", "Exception for id " + this.mInfo.mId + ": " + th);
-                displayMsg(this.mInfo, Downloads.Impl.STATUS_UNKNOWN_ERROR, th);
-                String message2 = th.getMessage();
-                if (wakeLock2 != null) {
-                    wakeLock2.release();
-                }
-                if (downloadProxyHttpClient != null) {
-                    downloadProxyHttpClient.close();
-                }
-                cleanupDestination(state, Downloads.Impl.STATUS_UNKNOWN_ERROR);
-                ContentValues contentValues4 = new ContentValues();
-                if (state.mDownloadMod > 0) {
-                    JSONObject jSONObject4 = new JSONObject();
-                    try {
-                        jSONObject4.put(IDownloadApp.Impl.get().getNovelSegmentStatus(), IDownloadApp.Impl.get().getNovelStatusDownloadEnd());
-                        jSONObject4.put(IDownloadApp.Impl.get().getNovelStatusTimestamp(), System.currentTimeMillis());
-                    } catch (JSONException e13) {
-                        e13.printStackTrace();
-                    }
-                    contentValues4.put("extra_info", jSONObject4.toString());
-                    String str5 = state.mBoundary;
-                    if (str5 != null && !str5.isEmpty()) {
-                        contentValues4.put(Downloads.Impl.COLUMN_BOUNDARY, state.mBoundary);
-                    }
-                    contentValues4.put(Downloads.Impl.COLUMN_DOWNLOAD_MOD, Integer.valueOf(state.mDownloadMod));
-                }
-                try {
-                    this.mContext.getContentResolver().update(this.mInfo.getAllDownloadsUri(), contentValues4, null, null);
-                } catch (Exception e14) {
-                    e14.printStackTrace();
-                }
-                handleDownloadStatistic(Downloads.Impl.STATUS_UNKNOWN_ERROR, state, message2);
-                notifyDownloadCompleted(Downloads.Impl.STATUS_UNKNOWN_ERROR, state.mCountRetry, state.mRetryAfter, state.mRedirectCount, state.mGotData, state.mFilename, state.mNewUri, state.mMimeType);
-                DSUtils.mCurrentThreadNum--;
-                if (Downloads.Impl.isStatusCompleted(Downloads.Impl.STATUS_UNKNOWN_ERROR)) {
-                    return;
-                }
-                this.mInfo.mHasActiveThread = false;
+                wakeLock2 = null;
+                downloadProxyHttpClient = null;
             }
             this.mInfo.mHasActiveThread = false;
         } catch (Throwable th6) {

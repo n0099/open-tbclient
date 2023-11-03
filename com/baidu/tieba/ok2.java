@@ -1,54 +1,20 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import org.json.JSONObject;
+import android.os.Bundle;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class ok2 extends jj2<zl2> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ok2 extends dk2 {
 
-    @Override // com.baidu.tieba.jj2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "onSurfaceChanged" : (String) invokeV.objValue;
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a(Bundle bundle);
+
+        void onRelease();
     }
 
-    public ok2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void k(String str, Map<String, String> map);
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jj2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull zl2 zl2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, zl2Var) == null) {
-            String str = command.what;
-            d(zl2Var, str, "" + command.obj, true);
-            Object obj = command.obj;
-            if (obj instanceof JSONObject) {
-                JSONObject jSONObject = (JSONObject) obj;
-                zl2Var.onSurfaceChanged(jSONObject.optInt("width"), jSONObject.optInt("height"));
-            }
-        }
-    }
+    void release();
+
+    void w(a aVar);
 }

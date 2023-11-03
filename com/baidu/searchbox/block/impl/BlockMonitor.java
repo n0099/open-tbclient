@@ -8,7 +8,7 @@ import com.baidu.searchbox.aperf.param.ThreadCollector;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.ruka.ioc.IBlockMonitor;
-import com.baidu.tieba.xpb;
+import com.baidu.tieba.y2c;
 import com.github.anrwatchdog.ANRError;
 import java.text.SimpleDateFormat;
 import java.util.LinkedHashMap;
@@ -23,14 +23,14 @@ public class BlockMonitor implements IBlockMonitor {
     public static final SimpleDateFormat TIME_FORMATTER = new SimpleDateFormat("MM-dd HH:mm:ss.SSS", Locale.US);
     public static String sBlockTimeStamp;
     public boolean mMonitorStarted = false;
-    public xpb mBlockWatchDog = null;
+    public y2c mBlockWatchDog = null;
 
     /* loaded from: classes3.dex */
-    public static class BlockListenerImpl implements xpb.f {
+    public static class BlockListenerImpl implements y2c.f {
         public BlockListenerImpl() {
         }
 
-        @Override // com.baidu.tieba.xpb.f
+        @Override // com.baidu.tieba.y2c.f
         public void onAppNotResponding(ANRError aNRError) {
             Log.d(BlockMonitor.TAG, "BlockWatchDog catch block", aNRError);
             BlockMonitor.collectData(aNRError.getSTStackMap());
@@ -44,9 +44,9 @@ public class BlockMonitor implements IBlockMonitor {
 
     @Override // com.baidu.searchbox.ruka.ioc.IBlockMonitor
     public void stopBlockMonitor() {
-        xpb xpbVar;
-        if (this.mMonitorStarted && (xpbVar = this.mBlockWatchDog) != null) {
-            xpbVar.interrupt();
+        y2c y2cVar;
+        if (this.mMonitorStarted && (y2cVar = this.mBlockWatchDog) != null) {
+            y2cVar.interrupt();
             this.mMonitorStarted = false;
         }
     }
@@ -100,9 +100,9 @@ public class BlockMonitor implements IBlockMonitor {
             return;
         }
         this.mMonitorStarted = true;
-        xpb xpbVar = new xpb(i);
-        this.mBlockWatchDog = xpbVar;
-        xpbVar.e();
+        y2c y2cVar = new y2c(i);
+        this.mBlockWatchDog = y2cVar;
+        y2cVar.e();
         this.mBlockWatchDog.d(true);
         this.mBlockWatchDog.c(new BlockListenerImpl());
         if (AppConfig.isDebug()) {

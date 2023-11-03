@@ -35,7 +35,7 @@ import kotlin.reflect.jvm.internal.impl.types.TypeSubstitution;
 import kotlin.reflect.jvm.internal.impl.types.TypeSubstitutor;
 import kotlin.reflect.jvm.internal.impl.types.Variance;
 import kotlin.reflect.jvm.internal.impl.utils.SmartList;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class FunctionDescriptorImpl extends DeclarationDescriptorNonRootImpl implements FunctionDescriptor {
     public ReceiverParameterDescriptor dispatchReceiverParameter;
     public ReceiverParameterDescriptor extensionReceiverParameter;
@@ -301,7 +301,7 @@ public abstract class FunctionDescriptorImpl extends DeclarationDescriptorNonRoo
 
     public abstract FunctionDescriptorImpl createSubstitutedCopy(DeclarationDescriptor declarationDescriptor, FunctionDescriptor functionDescriptor, CallableMemberDescriptor.Kind kind, Name name, Annotations annotations, SourceElement sourceElement);
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public class CopyConfiguration implements FunctionDescriptor.CopyBuilder<FunctionDescriptor> {
         public Annotations additionalAnnotations;
         public boolean copyOverrides;

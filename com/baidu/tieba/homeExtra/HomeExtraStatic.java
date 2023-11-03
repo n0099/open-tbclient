@@ -4,9 +4,9 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.eka;
-import com.baidu.tieba.qu7;
-import com.baidu.tieba.tu7;
+import com.baidu.tieba.jxa;
+import com.baidu.tieba.l78;
+import com.baidu.tieba.o78;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +20,7 @@ public class HomeExtraStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a implements CustomMessageTask.CustomRunnable<eka.a> {
+    public class a implements CustomMessageTask.CustomRunnable<jxa.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -40,11 +40,11 @@ public class HomeExtraStatic {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<eka.a> run(CustomMessage<eka.a> customMessage) {
+        public CustomResponsedMessage<jxa.a> run(CustomMessage<jxa.a> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                return new CustomResponsedMessage<>(2156671, new tu7());
+                return new CustomResponsedMessage<>(2156671, new o78());
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -63,7 +63,7 @@ public class HomeExtraStatic {
                 return;
             }
         }
-        MessageManager.getInstance().registerTask(new qu7());
+        MessageManager.getInstance().registerTask(new l78());
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001407, Boolean.TRUE));
         CustomMessageTask customMessageTask = new CustomMessageTask(2156671, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);

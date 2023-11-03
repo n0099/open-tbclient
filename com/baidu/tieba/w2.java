@@ -1,45 +1,10 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import java.nio.Buffer;
+import java.nio.IntBuffer;
 /* loaded from: classes8.dex */
-public class w2 {
-    public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static boolean b;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface w2 extends v2 {
+    void G(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, Buffer buffer);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448319090, "Lcom/baidu/tieba/w2;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448319090, "Lcom/baidu/tieba/w2;");
-        }
-    }
-
-    public static synchronized void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            synchronized (w2.class) {
-                if (b) {
-                    return;
-                }
-                b = true;
-                if (a) {
-                    return;
-                }
-                new f3().d("gdx");
-            }
-        }
-    }
+    void c(int i, IntBuffer intBuffer);
 }

@@ -33,7 +33,7 @@ import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.types.TypeUtils;
 import kotlin.text.StringsKt__StringNumberConversionsKt;
 import kotlin.text.StringsKt__StringsKt;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class JavaToKotlinClassMap {
     public static final ClassId FUNCTION_N_CLASS_ID;
     public static final FqName FUNCTION_N_FQ_NAME;
@@ -49,7 +49,7 @@ public final class JavaToKotlinClassMap {
     public static final HashMap<FqNameUnsafe, FqName> mutableToReadOnly;
     public static final HashMap<FqNameUnsafe, FqName> readOnlyToMutable;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class PlatformMutabilityMapping {
         public final ClassId javaClass;
         public final ClassId kotlinMutable;

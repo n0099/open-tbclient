@@ -1,230 +1,161 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.rotation.NadSensorAbsHelper;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.nadcore.player.helper.NetUtils;
+import com.baidu.nadcore.video.plugin.videoplayer.model.ClarityUrlList;
+import com.baidu.tieba.dq0;
+import com.baidu.tieba.sj0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.Pair;
+import kotlin.jvm.JvmName;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsKt;
+@JvmName(name = "VideoClarity")
 /* loaded from: classes7.dex */
-public final class ox0 extends NadSensorAbsHelper {
+public final class ox0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Float[] g;
-    public Boolean[] h;
-    public Integer[] i;
-    public Float[] j;
-    public float k;
-    public float l;
-    public float m;
 
-    @Override // com.baidu.nadcore.rotation.NadSensorAbsHelper
-    public int d() {
-        InterceptResult invokeV;
+    public static final Pair<Integer, Integer> a(int i, int i2, int i3) {
+        InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 2;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.nadcore.rotation.NadSensorAbsHelper
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 9;
-        }
-        return invokeV.intValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ox0(Context context, px0 listener) {
-        super(context, listener);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, listener};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (px0) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65536, null, i, i2, i3)) == null) {
+            if (i <= 0) {
+                return new Pair<>(0, Integer.valueOf(i2));
             }
+            if (i >= i3) {
+                return new Pair<>(Integer.valueOf(i3 - 1), Integer.valueOf(i2));
+            }
+            return new Pair<>(Integer.valueOf(i), Integer.valueOf(i2));
         }
-        Intrinsics.checkNotNullParameter(context, "context");
-        Intrinsics.checkNotNullParameter(listener, "listener");
-        Float valueOf = Float.valueOf(-1.0f);
-        this.g = new Float[]{valueOf, valueOf, valueOf};
-        Boolean bool = Boolean.FALSE;
-        this.h = new Boolean[]{bool, bool, bool};
-        this.i = new Integer[]{45, 45, 45, 45, 45, 45};
-        Float valueOf2 = Float.valueOf(0.0f);
-        this.j = new Float[]{valueOf2, valueOf2, valueOf2};
+        return (Pair) invokeIII.objValue;
     }
 
-    public final float r(int i, float f) {
+    public static final Pair<Integer, Integer> b(int i, Pair<Integer, Integer> pair, int i2, int i3, double d, ClarityUrlList clarityUrlList, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) {
-            float floatValue = this.g[i].floatValue();
-            if (this.h[i].booleanValue()) {
-                if (floatValue == -1.0f) {
-                    this.g[i] = Float.valueOf(f);
-                    floatValue = f;
-                }
-            } else {
-                floatValue = 180.0f;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), pair, Integer.valueOf(i2), Integer.valueOf(i3), Double.valueOf(d), clarityUrlList, Integer.valueOf(i4)})) == null) {
+            if (i < 0) {
+                return c(pair, i2, i3, d);
             }
-            int i2 = i * 2;
-            int intValue = this.i[i2].intValue();
-            float intValue2 = this.i[i2 + 1].intValue() + floatValue;
-            float f2 = floatValue - intValue;
-            if (f > intValue2) {
-                f = intValue2;
-            }
-            if (f < f2) {
-                f = f2;
-            }
-            if (intValue2 == f2) {
-                return 0.0f;
-            }
-            return (f - f2) / (intValue2 - f2);
+            return e(clarityUrlList.size(), i, i4, i2);
         }
-        return invokeCommon.floatValue;
+        return (Pair) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.nadcore.rotation.NadSensorAbsHelper
-    public void i(SensorEvent sensorEvent) {
-        Sensor sensor;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sensorEvent) == null) && sensorEvent != null && (sensor = sensorEvent.sensor) != null && sensor.getType() == 9) {
-            float[] fArr = sensorEvent.values;
-            float f = fArr[0];
-            float f2 = fArr[1];
-            float f3 = fArr[2];
-            float abs = Math.abs(this.k - f);
-            float abs2 = Math.abs(this.l - f2);
-            float abs3 = Math.abs(this.m - f3);
-            if (abs > 0.01d || abs2 > 0.01d || abs3 > 0.01d) {
-                p(f, f2, f3);
-            }
-            this.k = f;
-            this.l = f2;
-            this.m = f3;
-        }
-    }
-
-    @Override // com.baidu.nadcore.rotation.NadSensorAbsHelper
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.o();
-            Float valueOf = Float.valueOf(-1.0f);
-            this.g = new Float[]{valueOf, valueOf, valueOf};
-        }
-    }
-
-    public final void p(float f, float f2, float f3) {
-        px0 b;
-        px0 b2;
-        px0 b3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            float floatValue = this.j[0].floatValue() * 9.80665f;
-            float abs = Math.abs(f3);
-            if (abs >= 0.0f && abs <= floatValue) {
-                float r = r(0, q(0, f, f2, f3));
-                px0 b4 = b();
-                if (b4 != null) {
-                    b4.b(r);
-                }
-                if (r == 0.0f) {
-                    px0 b5 = b();
-                    if (b5 != null) {
-                        b5.e(0);
-                    }
-                } else if (r == 1.0f && (b3 = b()) != null) {
-                    b3.e(1);
-                }
-            }
-            float floatValue2 = this.j[1].floatValue() * 9.80665f;
-            float abs2 = Math.abs(f2);
-            if (abs2 >= 0.0f && abs2 <= floatValue2) {
-                float r2 = r(1, q(1, f, f2, f3));
-                px0 b6 = b();
-                if (b6 != null) {
-                    b6.c(r2);
-                }
-                if (r2 == 0.0f) {
-                    px0 b7 = b();
-                    if (b7 != null) {
-                        b7.f(0);
-                    }
-                } else if (r2 == 1.0f && (b2 = b()) != null) {
-                    b2.f(1);
-                }
-            }
-            float floatValue3 = this.j[2].floatValue() * 9.80665f;
-            float abs3 = Math.abs(f);
-            if (abs3 >= 0.0f && abs3 <= floatValue3) {
-                float r3 = r(2, q(2, f, f2, f3));
-                px0 b8 = b();
-                if (b8 != null) {
-                    b8.d(r3);
-                }
-                if (r3 == 0.0f) {
-                    px0 b9 = b();
-                    if (b9 != null) {
-                        b9.g(0);
-                    }
-                } else if (r3 == 1.0f && (b = b()) != null) {
-                    b.g(1);
-                }
-            }
-        }
-    }
-
-    public final float q(int i, float f, float f2, float f3) {
+    public static final Pair<Integer, Integer> c(Pair<Integer, Integer> defaultClarity, int i, int i2, double d) {
         InterceptResult invokeCommon;
-        double degrees;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        return 180.0f;
-                    }
-                    degrees = Math.toDegrees(Math.atan2(f, f3));
-                } else {
-                    degrees = Math.toDegrees(Math.atan2(f2, f3));
-                }
-            } else {
-                degrees = Math.toDegrees(Math.atan2(f, f2));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{defaultClarity, Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d)})) == null) {
+            Intrinsics.checkNotNullParameter(defaultClarity, "defaultClarity");
+            if (!NetUtils.c()) {
+                return a(defaultClarity.getFirst().intValue(), 2, i);
             }
-            return 180.0f - ((float) degrees);
+            return d(i2, i, d, defaultClarity.getSecond().intValue());
         }
-        return invokeCommon.floatValue;
+        return (Pair) invokeCommon.objValue;
     }
 
-    public final void s(int i, int i2, int i3, float f, boolean z) {
+    public static final Pair<Integer, Integer> d(int i, int i2, double d, int i3) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f), Boolean.valueOf(z)}) == null) {
-            int i4 = i * 2;
-            this.i[i4] = Integer.valueOf(i2);
-            this.i[i4 + 1] = Integer.valueOf(i3);
-            this.j[i] = Float.valueOf(f);
-            this.h[i] = Boolean.valueOf(z);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d), Integer.valueOf(i3)})) == null) {
+            if (!eq0.g()) {
+                return a(i3, 4, i2);
+            }
+            sj0 a = sj0.a.a();
+            Intrinsics.checkNotNullExpressionValue(a, "IPlayerSpeedScoreManager.Impl.getInstance()");
+            float staticDeviceScore = a.getStaticDeviceScore();
+            boolean z = false;
+            if (staticDeviceScore > 0 && staticDeviceScore < 0.3d) {
+                z = true;
+            }
+            if (z) {
+                return a(i, 3, i2);
+            }
+            if (d > 5.6f) {
+                return a(i, 6, i2);
+            }
+            return a(i3, 4, i2);
         }
+        return (Pair) invokeCommon.objValue;
+    }
+
+    public static final uv0 g(ClarityUrlList list, int i, double d, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{list, Integer.valueOf(i), Double.valueOf(d), Boolean.valueOf(z)})) == null) {
+            Intrinsics.checkNotNullParameter(list, "list");
+            Pair<Integer, Integer> a = eq0.a(list);
+            int size = list.size();
+            Pair<Integer, Integer> h = h(z, list, b(i, a, size, size - 1, d, list, 0));
+            uv0 uv0Var = new uv0();
+            uv0Var.a = h.getFirst().intValue();
+            uv0Var.b = h.getSecond().intValue();
+            return uv0Var;
+        }
+        return (uv0) invokeCommon.objValue;
+    }
+
+    public static final Pair<Integer, Integer> e(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2, i3, i4)) == null) {
+            if (i <= i2) {
+                return a(i3, 4, i4);
+            }
+            return a((i4 - i2) - 1, 1, i4);
+        }
+        return (Pair) invokeIIII.objValue;
+    }
+
+    public static final int f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
+            if (i != -2) {
+                return i;
+            }
+            if (Intrinsics.areEqual(eq0.c(), dq0.a.a)) {
+                return px0.f();
+            }
+            return i;
+        }
+        return invokeI.intValue;
+    }
+
+    public static final Pair<Integer, Integer> h(boolean z, ClarityUrlList list, Pair<Integer, Integer> selectedClarity) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Boolean.valueOf(z), list, selectedClarity})) == null) {
+            Intrinsics.checkNotNullParameter(list, "list");
+            Intrinsics.checkNotNullParameter(selectedClarity, "selectedClarity");
+            if (!z) {
+                ClarityUrlList.c cVar = list.get(selectedClarity.getFirst().intValue());
+                Intrinsics.checkNotNullExpressionValue(cVar, "list[result.first]");
+                String selectKey = cVar.c();
+                String d = eq0.d();
+                Intrinsics.checkNotNullExpressionValue(selectKey, "selectKey");
+                if (StringsKt__StringsKt.contains$default((CharSequence) d, (CharSequence) selectKey, false, 2, (Object) null)) {
+                    int i = 0;
+                    for (ClarityUrlList.c entity : list) {
+                        String d2 = eq0.d();
+                        Intrinsics.checkNotNullExpressionValue(entity, "entity");
+                        String c = entity.c();
+                        Intrinsics.checkNotNullExpressionValue(c, "entity.key");
+                        if (!StringsKt__StringsKt.contains$default((CharSequence) d2, (CharSequence) c, false, 2, (Object) null)) {
+                            return new Pair<>(Integer.valueOf(i), 0);
+                        }
+                        i++;
+                    }
+                    return selectedClarity;
+                }
+                return selectedClarity;
+            }
+            return selectedClarity;
+        }
+        return (Pair) invokeCommon.objValue;
     }
 }

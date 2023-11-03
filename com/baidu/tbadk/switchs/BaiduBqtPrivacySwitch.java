@@ -4,7 +4,7 @@ import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.tieba.debugtool.annotation.Modify;
-import com.baidu.tieba.t9;
+import com.baidu.tieba.ja;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +18,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 @Service
 @Metadata(d1 = {"\u0000(\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0001\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0002\b\u0003\b\u0007\u0018\u0000 \u000e2\u00020\u0001:\u0001\u000eB\u0005¢\u0006\u0002\u0010\u0002J\u0010\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0006H\u0014J\n\u0010\u0007\u001a\u0004\u0018\u00010\bH\u0014J\b\u0010\t\u001a\u00020\u0006H\u0014J\b\u0010\n\u001a\u00020\u0006H\u0014J\b\u0010\u000b\u001a\u00020\fH\u0014J\b\u0010\r\u001a\u00020\u0006H\u0014¨\u0006\u000f"}, d2 = {"Lcom/baidu/tbadk/switchs/BaiduBqtPrivacySwitch;", "Lcom/baidu/adp/lib/featureSwitch/AbstractSwitch;", "()V", "changeSettingByType", "", "type", "", "getCrashKeys", "", "getDefaultType", "getMaxCrashTimes", "getName", "", "getOffType", "Companion", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class BaiduBqtPrivacySwitch extends t9 {
+public final class BaiduBqtPrivacySwitch extends ja {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Companion Companion;
     public static final String KEY_SWITCH = "splash_ad_baidu_bqt_switch";
@@ -48,14 +48,14 @@ public final class BaiduBqtPrivacySwitch extends t9 {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Companion.isOpen() : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.t9
+    @Override // com.baidu.tieba.ja
     public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
-    /* JADX DEBUG: Possible override for method com.baidu.tieba.t9.getCrashKeys()[Ljava/lang/String; */
+    /* JADX DEBUG: Possible override for method com.baidu.tieba.ja.getCrashKeys()[Ljava/lang/String; */
     public Void getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -65,7 +65,7 @@ public final class BaiduBqtPrivacySwitch extends t9 {
         return (Void) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.t9
+    @Override // com.baidu.tieba.ja
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -75,7 +75,7 @@ public final class BaiduBqtPrivacySwitch extends t9 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.t9
+    @Override // com.baidu.tieba.ja
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -85,14 +85,14 @@ public final class BaiduBqtPrivacySwitch extends t9 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.t9
+    @Override // com.baidu.tieba.ja
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? KEY_SWITCH : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.t9
+    @Override // com.baidu.tieba.ja
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -155,9 +155,9 @@ public final class BaiduBqtPrivacySwitch extends t9 {
         }
     }
 
-    @Override // com.baidu.tieba.t9
+    @Override // com.baidu.tieba.ja
     /* renamed from: getCrashKeys */
-    public /* bridge */ /* synthetic */ String[] mo130getCrashKeys() {
+    public /* bridge */ /* synthetic */ String[] mo131getCrashKeys() {
         return (String[]) getCrashKeys();
     }
 }

@@ -1,348 +1,146 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
-import androidx.constraintlayout.motion.widget.Key;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.tieba.ls2;
+import com.baidu.tieba.ms2;
+import com.baidu.tieba.ns2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import org.json.JSONException;
-import org.json.JSONObject;
-@SuppressLint({"SwanCommentWar"})
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class js2 implements ov2 {
+public class js2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public is2 b;
-    public String c;
-    public String d;
-    public double e;
-    public double f;
-    public int g;
-    public int h;
-    public b i;
-    public c j;
-    public a k;
+    public final List<ls2> a;
 
-    @SuppressLint({"SwanCommentWar"})
-    /* loaded from: classes6.dex */
-    public static class a implements ov2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public double a;
-        public double b;
-
-        @Override // com.baidu.tieba.ov2
-        public boolean isValid() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947893792, "Lcom/baidu/tieba/js2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = 0.5d;
-            this.b = 1.0d;
-        }
-
-        @Override // com.baidu.tieba.ov2
-        public void a(JSONObject jSONObject) throws JSONException {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947893792, "Lcom/baidu/tieba/js2;");
                 return;
             }
-            this.a = Math.abs(jSONObject.optDouble("x", 0.5d));
-            double d = 1.0d;
-            this.b = Math.abs(jSONObject.optDouble("y", 1.0d));
-            double d2 = this.a;
-            if (d2 < 0.0d) {
-                d2 = 0.0d;
-            } else if (d2 > 1.0d) {
-                d2 = 1.0d;
-            }
-            this.a = d2;
-            double d3 = this.b;
-            if (d3 < 0.0d) {
-                d = 0.0d;
-            } else if (d3 <= 1.0d) {
-                d = d3;
-            }
-            this.b = d;
         }
-    }
-
-    @SuppressLint({"SwanCommentWar"})
-    /* loaded from: classes6.dex */
-    public static class b extends d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public float f;
-        public String g;
-        public int h;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(js2 js2Var) {
-            super(js2Var);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {js2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((js2) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = 0.0f;
-            this.g = "BYCLICK";
-            this.h = -1;
-        }
-
-        @Override // com.baidu.tieba.js2.d, com.baidu.tieba.ov2
-        public void a(JSONObject jSONObject) throws JSONException {
-            String str;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-                return;
-            }
-            super.a(jSONObject);
-            this.f = (float) jSONObject.optDouble("borderRadius", 0.0d);
-            jSONObject.optDouble("borderWidth", 0.0d);
-            if (jSONObject.has(CriusAttrConstants.DISPLAY)) {
-                str = jSONObject.optString(CriusAttrConstants.DISPLAY);
-            } else {
-                str = "BYCLICK";
-            }
-            this.g = str;
-            this.h = cs2.a(jSONObject.optString("bgColor"), -1);
-            cs2.a(jSONObject.optString("borderColor"), this.h);
-        }
-    }
-
-    @SuppressLint({"SwanCommentWar"})
-    /* loaded from: classes6.dex */
-    public static class c extends d implements ov2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public float f;
-        public float g;
-        public float h;
-        public int i;
-        public float j;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(js2 js2Var) {
-            super(js2Var);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {js2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((js2) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = 0.0f;
-            this.g = 0.0f;
-            this.h = 0.0f;
-            this.i = 0;
-            this.j = 0.0f;
-        }
-
-        @Override // com.baidu.tieba.js2.d, com.baidu.tieba.ov2
-        public void a(JSONObject jSONObject) throws JSONException {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-                return;
-            }
-            super.a(jSONObject);
-            this.f = cs2.b(jSONObject.optDouble("x", 0.0d));
-            float b = cs2.b(jSONObject.optDouble("y", 0.0d));
-            this.g = b;
-            if (this.f == 0.0f && b == 0.0f) {
-                this.f = cs2.b(jSONObject.optDouble("anchorX", 0.0d));
-                this.g = cs2.b(jSONObject.optDouble("anchorY", 0.0d));
-            }
-            this.h = (float) jSONObject.optDouble("borderWidth", 0.0d);
-            this.i = cs2.a(jSONObject.optString("borderColor"), 0);
-            this.j = (float) jSONObject.optDouble("borderRadius", 0.0d);
-        }
-    }
-
-    @SuppressLint({"SwanCommentWar"})
-    /* loaded from: classes6.dex */
-    public static class d implements ov2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public int b;
-        public float c;
-        public int d;
-        public float e;
-
-        public d(js2 js2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {js2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = "";
-            this.b = -16777216;
-            this.c = cs2.b(10.0d);
-            this.d = 0;
-            this.e = 0.0f;
-        }
-
-        @Override // com.baidu.tieba.ov2
-        public void a(JSONObject jSONObject) throws JSONException {
-            float b;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null || !jSONObject.has("content")) {
-                return;
-            }
-            this.a = jSONObject.optString("content");
-            this.b = cs2.a(jSONObject.optString("color"), -16777216);
-            if (jSONObject.has(TtmlNode.ATTR_TTS_FONT_SIZE)) {
-                b = Math.abs(cs2.b(jSONObject.optDouble(TtmlNode.ATTR_TTS_FONT_SIZE, 10.0d)));
-            } else {
-                b = cs2.b(10.0d);
-            }
-            this.c = b;
-            this.d = cs2.a(jSONObject.optString("bgColor"), 0);
-            this.e = cs2.b(jSONObject.optDouble(CriusAttrConstants.PADDING, 0.0d));
-            if (jSONObject.has(TtmlNode.ATTR_TTS_TEXT_ALIGN)) {
-                jSONObject.optString(TtmlNode.ATTR_TTS_TEXT_ALIGN);
-            }
-        }
-
-        @Override // com.baidu.tieba.ov2
-        public boolean isValid() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return !TextUtils.isEmpty(this.a);
-            }
-            return invokeV.booleanValue;
-        }
+        b = rm1.a;
     }
 
     public js2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = "";
-        this.c = "";
-        this.d = "";
-        this.e = 0.0d;
-        this.f = 1.0d;
-        this.g = -1;
-        this.h = -1;
+        this.a = new ArrayList();
+        e();
     }
 
-    @Override // com.baidu.tieba.ov2
-    public void a(JSONObject jSONObject) throws JSONException {
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        is2 is2Var = new is2();
-        this.b = is2Var;
-        is2Var.a(jSONObject);
-        if (!this.b.isValid()) {
-            return;
-        }
-        String optString = jSONObject.optString("markerId");
-        this.a = optString;
-        if (TextUtils.isEmpty(optString)) {
-            this.a = jSONObject.optString("id");
-        }
-        this.c = jSONObject.optString("title");
-        this.d = jSONObject.optString("iconPath");
-        this.e = jSONObject.optDouble("rotate", 0.0d);
-        this.f = Math.abs(jSONObject.optDouble(Key.ALPHA, 1.0d));
-        int i2 = -1;
-        if (jSONObject.has("width")) {
-            i = Math.abs(gj3.g(jSONObject.optInt("width")));
-        } else {
-            i = -1;
-        }
-        this.g = i;
-        if (jSONObject.has("height")) {
-            i2 = Math.abs(gj3.g(jSONObject.optInt("height")));
-        }
-        this.h = i2;
-        jSONObject.optInt("zIndex", 0);
-        b bVar = new b(this);
-        this.i = bVar;
-        bVar.a(jSONObject.optJSONObject("callout"));
-        c cVar = new c(this);
-        this.j = cVar;
-        cVar.a(jSONObject.optJSONObject("label"));
-        a aVar = new a();
-        this.k = aVar;
-        aVar.a(jSONObject.optJSONObject("anchor"));
-    }
-
-    @Override // com.baidu.tieba.ov2
-    public boolean isValid() {
+    @NonNull
+    public List<ls2> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            is2 is2Var = this.b;
-            if (is2Var != null && is2Var.isValid()) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return Collections.unmodifiableList(this.a);
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && d()) {
+            g32.c("SwanLocalABTestAutoRegister", "test 'first install updateCore delay' register failed'");
+        }
+    }
+
+    @Nullable
+    public final ms2 a(@NonNull String str, int i, int i2, @NonNull String str2, @NonNull Object obj) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2, obj})) == null) {
+            ms2.a aVar = new ms2.a();
+            aVar.e(str);
+            aVar.g(i);
+            aVar.c(i2);
+            aVar.b(str2);
+            aVar.f(obj);
+            ms2 a = aVar.a();
+            if (a == null) {
+                if (b) {
+                    Log.e("SwanLocalABTestAutoRegister", "build branch(" + str + ") fail: " + aVar.d().getMessage());
+                    return null;
+                }
+                return null;
             }
-            return false;
+            return a;
+        }
+        return (ms2) invokeCommon.objValue;
+    }
+
+    @Nullable
+    public final ns2 b(int i, @NonNull String str, @NonNull Object obj) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, obj)) == null) {
+            ns2.a aVar = new ns2.a();
+            aVar.e(i);
+            aVar.d(str);
+            aVar.b(obj);
+            ns2 a = aVar.a();
+            if (a == null) {
+                if (b) {
+                    Log.e("SwanLocalABTestAutoRegister", "build switch(" + str + ") fail: " + aVar.c().getMessage());
+                }
+                return null;
+            }
+            return a;
+        }
+        return (ns2) invokeILL.objValue;
+    }
+
+    public final boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ns2 b2 = b(3, "swan_local_first_installation_update_core_delay", 0L);
+            if (b2 == null) {
+                return false;
+            }
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(a("local_1000", 0, 20, "control group", 0L));
+            arrayList.add(a("local_1001", 1, 20, "test group 1", 100L));
+            arrayList.add(a("local_1002", 1, 20, "test group 2", 500L));
+            arrayList.add(a("local_1003", 1, 20, "test group 3", 1000L));
+            arrayList.add(a("local_1004", 1, 20, "test group 4", 2000L));
+            ls2.a aVar = new ls2.a();
+            aVar.c(b2);
+            aVar.a(arrayList);
+            ls2 b3 = aVar.b();
+            if (b3 == null) {
+                return false;
+            }
+            return this.a.add(b3);
         }
         return invokeV.booleanValue;
     }

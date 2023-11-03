@@ -1,97 +1,87 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
-import com.baidu.searchbox.pms.callback.PackageCallback;
-import com.baidu.searchbox.pms.init.RequestParams;
+import android.content.pm.Signature;
+import android.util.Base64;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 /* loaded from: classes7.dex */
-public class mg extends RequestParams.Channel {
+public final class mg {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mg() {
-        super("137", true, (PackageCallback) new qg(null));
+    public static byte[] a(Signature[] signatureArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], ((Boolean) objArr[1]).booleanValue(), (PackageCallback) objArr[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, signatureArr)) == null) {
+            if (signatureArr != null) {
+                int i = 0;
+                for (Signature signature : signatureArr) {
+                    i += signature.toByteArray().length;
+                }
+                byte[] bArr = new byte[i];
+                int i2 = 0;
+                for (Signature signature2 : signatureArr) {
+                    byte[] byteArray = signature2.toByteArray();
+                    System.arraycopy(byteArray, 0, bArr, i2, byteArray.length);
+                    i2 += byteArray.length;
+                }
+                return bArr;
             }
+            return null;
         }
+        return (byte[]) invokeL.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mg(String str, DefaultDownloadCallback defaultDownloadCallback) {
-        super("137", str, new qg(defaultDownloadCallback));
+    public static String b(byte[] bArr) {
+        InterceptResult invokeL;
+        NoSuchAlgorithmException e;
+        String str;
+        byte[] digest;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, defaultDownloadCallback};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1], (PackageCallback) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            if (bArr == null) {
+                return null;
             }
+            try {
+                digest = MessageDigest.getInstance("MD5").digest(bArr);
+            } catch (NoSuchAlgorithmException e2) {
+                e = e2;
+                str = null;
+            }
+            if (digest == null) {
+                return null;
+            }
+            str = Base64.encodeToString(digest, 0);
+            if (str != null) {
+                try {
+                    str = str.replaceAll("\\s", "").replaceAll("\\\\", "rg").replaceAll("/", "lg");
+                } catch (NoSuchAlgorithmException e3) {
+                    e = e3;
+                    if (BdLog.isDebugMode()) {
+                        e.printStackTrace();
+                    }
+                    return str;
+                }
+            }
+            return str;
         }
+        return (String) invokeL.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mg(String str, DefaultDownloadCallback defaultDownloadCallback, sg sgVar) {
-        super("137", str, new qg(defaultDownloadCallback, sgVar));
+    public static String c(Signature[] signatureArr) {
+        InterceptResult invokeL;
+        byte[] a;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, defaultDownloadCallback, sgVar};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1], (PackageCallback) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, signatureArr)) == null) {
+            if (signatureArr != null && (a = a(signatureArr)) != null) {
+                return b(a);
             }
+            return null;
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mg(List<String> list, DefaultDownloadCallback defaultDownloadCallback) {
-        super("137", list, new qg(defaultDownloadCallback));
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list, defaultDownloadCallback};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (List) objArr2[1], (PackageCallback) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
+        return (String) invokeL.objValue;
     }
 }

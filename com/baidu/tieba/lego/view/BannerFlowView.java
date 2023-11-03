@@ -13,12 +13,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.viewpager.ListViewPager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e09;
-import com.baidu.tieba.e65;
-import com.baidu.tieba.f09;
-import com.baidu.tieba.g65;
-import com.baidu.tieba.nz8;
-import com.baidu.tieba.yh;
+import com.baidu.tieba.a75;
+import com.baidu.tieba.id9;
+import com.baidu.tieba.jd9;
+import com.baidu.tieba.oi;
+import com.baidu.tieba.rc9;
+import com.baidu.tieba.y65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -31,17 +31,17 @@ public class BannerFlowView extends FrameLayout {
     public ListViewPager a;
     public View b;
     public IndicatorView c;
-    public f09 d;
-    public e09 e;
+    public jd9 d;
+    public id9 e;
     public c f;
 
     /* loaded from: classes7.dex */
-    public interface c extends nz8 {
+    public interface c extends rc9 {
         void onPageSelected(int i);
     }
 
     /* loaded from: classes7.dex */
-    public class a implements nz8 {
+    public class a implements rc9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BannerFlowView a;
@@ -64,7 +64,7 @@ public class BannerFlowView extends FrameLayout {
             this.a = bannerFlowView;
         }
 
-        @Override // com.baidu.tieba.nz8
+        @Override // com.baidu.tieba.rc9
         public void a(int i) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && this.a.f != null) {
@@ -72,7 +72,7 @@ public class BannerFlowView extends FrameLayout {
             }
         }
 
-        @Override // com.baidu.tieba.nz8
+        @Override // com.baidu.tieba.rc9
         public void b(float f) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) && this.a.f != null) {
@@ -178,7 +178,7 @@ public class BannerFlowView extends FrameLayout {
         }
     }
 
-    public void setData(List<yh> list) {
+    public void setData(List<oi> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             this.a.removeAllViews();
@@ -200,11 +200,11 @@ public class BannerFlowView extends FrameLayout {
         }
     }
 
-    public void setOnItemClickListener(e65.a<g65, e09.a> aVar) {
-        e09 e09Var;
+    public void setOnItemClickListener(y65.a<a75, id9.a> aVar) {
+        id9 id9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) && (e09Var = this.e) != null) {
-            e09Var.f(aVar);
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) && (id9Var = this.e) != null) {
+            id9Var.f(aVar);
         }
     }
 
@@ -228,7 +228,7 @@ public class BannerFlowView extends FrameLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SkinManager.setBackgroundResource(this.b, R.drawable.obfuscated_res_0x7f080342);
+            SkinManager.setBackgroundResource(this.b, R.drawable.obfuscated_res_0x7f080346);
             this.c.setSelector(SkinManager.getDrawable(R.drawable.icon_diandian_white_s));
             this.c.setDrawable(SkinManager.getDrawable(R.drawable.icon_diandian_white_n));
         }
@@ -243,8 +243,8 @@ public class BannerFlowView extends FrameLayout {
             this.c = indicatorView;
             indicatorView.setSpacing(0);
             b();
-            this.d = new f09(context, this.a, this.c, null);
-            this.e = new e09(context, g65.a);
+            this.d = new jd9(context, this.a, this.c, null);
+            this.e = new id9(context, a75.a);
             this.d.m(5000L);
             this.d.l(context, this.e);
             this.d.q(new b(this));

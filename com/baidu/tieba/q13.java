@@ -1,129 +1,100 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.Nullable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Modifier;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class q13 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public JSONObject g;
+    public String h;
+    public hy1 i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948038934, "Lcom/baidu/tieba/q13;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948038934, "Lcom/baidu/tieba/q13;");
-                return;
-            }
-        }
-        a = am1.a;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static void a(int i, String str, String str2, @Nullable Bundle bundle) {
+    public q13() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), str, str2, bundle}) == null) {
-            p13 b = b(str);
-            if (b == null) {
-                if (!a) {
-                    c(i, str2, null);
-                    return;
-                }
-                throw new RuntimeException("Messenger创建代理类失败");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if (a) {
-                Log.d("MDelegate-Delegation", "exec call messenger delegation: " + str);
-            }
-            if (bundle == null) {
-                bundle = new Bundle();
-            }
-            b.a = bundle;
-            b.b = i;
-            b.c = str2;
-            b.b(bundle);
         }
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public static p13 b(@Nullable String str) {
-        InterceptResult invokeL;
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                if (a) {
-                    Log.e("MDelegate-Delegation", "create delegation with null delegate name");
-                }
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            hy1 hy1Var = this.i;
+            if (hy1Var != null && !hy1Var.isSuccess()) {
+                return true;
             }
-            try {
-                Class<?> cls = Class.forName(str);
-                if (cls == null) {
-                    if (!a) {
-                        return null;
-                    }
-                    throw new RuntimeException("Messenger代理类不存在：" + str);
-                }
-                int modifiers = cls.getModifiers();
-                if (p13.class.isAssignableFrom(cls) && !cls.isInterface() && !Modifier.isAbstract(modifiers)) {
-                    Constructor<?> declaredConstructor = cls.getDeclaredConstructor(new Class[0]);
-                    declaredConstructor.setAccessible(true);
-                    Object newInstance = declaredConstructor.newInstance(new Object[0]);
-                    if (!(newInstance instanceof p13)) {
-                        if (!a) {
-                            return null;
-                        }
-                        throw new RuntimeException("Messenger代理类不是:" + p13.class.getName());
-                    }
-                    return (p13) newInstance;
-                }
-                if (!a) {
-                    return null;
-                }
-                throw new RuntimeException("Messenger代理类不合法：" + str);
-            } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | NoSuchMethodException | InvocationTargetException e) {
-                if (!a) {
-                    return null;
-                }
-                e.printStackTrace();
-                throw new RuntimeException(e);
-            }
+            return false;
         }
-        return (p13) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static void c(int i, String str, @Nullable Bundle bundle) {
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeILL(65539, null, i, str, bundle) != null) || x13.a(str)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.d) && !TextUtils.isEmpty(this.f) && !TextUtils.isEmpty(this.e)) {
+                return true;
+            }
+            return false;
         }
-        if (a) {
-            Log.d("MDelegate-Delegation", "send result to client: " + i + " observer: " + str);
+        return invokeV.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        String a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("SwanPluginFunPageModel{providerAppKey='");
+            sb.append(this.a);
+            sb.append('\'');
+            sb.append(", providerRootPath='");
+            sb.append(this.c);
+            sb.append('\'');
+            sb.append(", providerVersion='");
+            sb.append(this.d);
+            sb.append('\'');
+            sb.append(", componentId='");
+            sb.append(this.f);
+            sb.append('\'');
+            sb.append(", cb='");
+            sb.append(this.h);
+            sb.append('\'');
+            sb.append(", pageParams=");
+            sb.append(this.g);
+            sb.append(", swanApiResult=");
+            hy1 hy1Var = this.i;
+            if (hy1Var == null) {
+                a = null;
+            } else {
+                a = hy1Var.a();
+            }
+            sb.append(a);
+            sb.append('}');
+            return sb.toString();
         }
-        Bundle bundle2 = new Bundle();
-        bundle2.putString("key_observer_id", str);
-        if (bundle != null) {
-            bundle2.putBundle("key_result_data", bundle);
-        }
-        if (i == -1000) {
-            i23.f(bundle2);
-        } else {
-            i23.e(i, bundle2);
-        }
+        return (String) invokeV.objValue;
     }
 }

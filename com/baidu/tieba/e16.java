@@ -1,22 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.ad.AbsDataRecorder;
+import android.text.TextPaint;
+import android.text.style.ClickableSpan;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class e16 extends AbsDataRecorder {
+public abstract class e16 extends ClickableSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e16() {
-        super(AbsDataRecorder.Scene.RECOMMEND);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -24,21 +21,18 @@ public class e16 extends AbsDataRecorder {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((AbsDataRecorder.Scene) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = new ArrayList();
     }
 
-    public List<String> d() {
-        InterceptResult invokeV;
+    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
+    public void updateDrawState(TextPaint ds) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ds) == null) {
+            Intrinsics.checkNotNullParameter(ds, "ds");
+            ds.setColor(TbadkApplication.getInst().getResources().getColor(R.color.CAM_X0303));
         }
-        return (List) invokeV.objValue;
     }
 }

@@ -1,207 +1,156 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.na7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.util.ArrayList;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.LinkedBlockingDeque;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class gga extends fga {
+public final class gga implements na7.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile iga g;
-    public volatile boolean h;
-    public int i;
+    public final gb7 a;
+    public final BdUniqueId b;
+    public String c;
 
-    /* loaded from: classes6.dex */
-    public class a implements ThreadFactory {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-
-        public a(gga ggaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ggaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = 0;
-        }
-
-        @Override // java.util.concurrent.ThreadFactory
-        public Thread newThread(Runnable runnable) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                Thread thread = new Thread(runnable);
-                thread.setName("VideoUploadThread@" + this.a);
-                this.a = this.a + 1;
-                return thread;
-            }
-            return (Thread) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ RandomAccessFile a;
-        public final /* synthetic */ ArrayList b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ int d;
-        public final /* synthetic */ String e;
-        public final /* synthetic */ int f;
-        public final /* synthetic */ CountDownLatch g;
-        public final /* synthetic */ gga h;
-
-        public b(gga ggaVar, RandomAccessFile randomAccessFile, ArrayList arrayList, int i, int i2, String str, int i3, CountDownLatch countDownLatch) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ggaVar, randomAccessFile, arrayList, Integer.valueOf(i), Integer.valueOf(i2), str, Integer.valueOf(i3), countDownLatch};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.h = ggaVar;
-            this.a = randomAccessFile;
-            this.b = arrayList;
-            this.c = i;
-            this.d = i2;
-            this.e = str;
-            this.f = i3;
-            this.g = countDownLatch;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                iga h = this.h.h(this.a, ((Integer) this.b.get(this.c)).intValue(), this.d, this.e);
-                if (h != null) {
-                    if (h.b != 0) {
-                        this.h.g.b = h.b;
-                        this.h.g.c = h.c;
-                    }
-                    if (!StringUtils.isNull(h.a)) {
-                        this.h.g.a = h.a;
-                    }
-                    synchronized (this.h) {
-                        gga.k(this.h);
-                        this.h.d((int) (((this.h.i * 50.0f) / this.f) + 30.0f));
-                    }
-                }
-                this.g.countDown();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gga(String str, int i, int i2, long j, String str2) {
-        super(str, i, i2, j, str2);
+    public gga(gb7 statStrategy, BdUniqueId pageId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), str2};
+            Object[] objArr = {statStrategy, pageId};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Long) objArr2[3]).longValue(), (String) objArr2[4]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = new iga();
+        Intrinsics.checkNotNullParameter(statStrategy, "statStrategy");
+        Intrinsics.checkNotNullParameter(pageId, "pageId");
+        this.a = statStrategy;
+        this.b = pageId;
+        this.c = "";
     }
 
-    public static /* synthetic */ int k(gga ggaVar) {
-        int i = ggaVar.i;
-        ggaVar.i = i + 1;
-        return i;
-    }
-
-    @Override // com.baidu.tieba.fga
-    public void a() {
+    @Override // com.baidu.tieba.na7.c
+    public void a(za7<?> data, ya7<?, ?> template, int i) {
+        ja7 ja7Var;
+        Map<String, String> hashMap;
+        e57<?> e57Var;
+        Map<String, String> a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.h = true;
-        }
-    }
-
-    @Override // com.baidu.tieba.fga
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!this.h && this.g.b == 0 && StringUtils.isNull(this.g.a)) {
-                return false;
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, data, template, i) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            Intrinsics.checkNotNullParameter(template, "template");
+            if (data instanceof ja7) {
+                ja7Var = (ja7) data;
+            } else {
+                ja7Var = null;
             }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.fga
-    public iga g(ArrayList<Integer> arrayList, String str, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, arrayList, str, i)) == null) {
-            int size = arrayList.size();
-            CountDownLatch countDownLatch = new CountDownLatch(size);
-            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(3, 3, 2L, TimeUnit.SECONDS, new LinkedBlockingDeque(), new a(this));
-            try {
-                RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.b), "r");
-                for (int i2 = 0; i2 < size; i2++) {
-                    threadPoolExecutor.execute(new b(this, randomAccessFile, arrayList, i2, i, str, size, countDownLatch));
+            if (ja7Var == null) {
+                return;
+            }
+            StatisticItem statisticItem = new StatisticItem(this.a.getKey());
+            int i2 = i + 1;
+            statisticItem.param(TiebaStatic.Params.OBJ_FLOOR, i2);
+            d57 d57Var = new d57();
+            d57 d57Var2 = ja7Var.b;
+            if (d57Var2 != null) {
+                d57Var = d57Var2;
+            }
+            for (Map.Entry<String, String> entry : this.a.a(d57Var).entrySet()) {
+                statisticItem.param(entry.getKey(), entry.getValue());
+            }
+            v67 v67Var = ja7Var.a;
+            if (v67Var != null && (a = v67Var.a()) != null) {
+                for (Map.Entry<String, String> entry2 : a.entrySet()) {
+                    statisticItem.param(entry2.getKey(), entry2.getValue());
                 }
-                try {
-                    countDownLatch.await();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+            }
+            String d = tpa.d(d57Var.a().get("thread_id"), null, null, null);
+            wpa.g().d(this.b, d, statisticItem);
+            xc8.c(d);
+            v67 v67Var2 = ja7Var.a;
+            if (v67Var2 == null || (hashMap = v67Var2.a()) == null) {
+                hashMap = new HashMap<>();
+            }
+            d57Var.a().put("position_from_1", String.valueOf(i2));
+            if (d57Var.a().containsKey("growth_level")) {
+                cha chaVar = new cha();
+                ib7.a.b(new m77(chaVar.getKey(), chaVar.a(d57Var), hashMap, null, null, 24, null));
+            }
+            if (d57Var.a().containsKey("recommend_info_business_id")) {
+                xga xgaVar = new xga();
+                ib7.a.b(new m77(xgaVar.getKey(), xgaVar.a(d57Var), hashMap, null, null, 24, null));
+            }
+            if (Intrinsics.areEqual(d57Var.a().get("thread_type"), "0")) {
+                kga kgaVar = new kga();
+                ib7.a.b(new m77(kgaVar.getKey(), kgaVar.a(d57Var), hashMap, null, null, 24, null));
+            }
+            if (Intrinsics.areEqual(d57Var.a().get("is_video_card"), "1")) {
+                fha fhaVar = new fha();
+                ib7.a.b(new m77(fhaVar.getKey(), fhaVar.a(d57Var), hashMap, null, null, 24, null));
+            }
+            if (Intrinsics.areEqual(d57Var.a().get("has_forum_rec_label"), "1") && !Intrinsics.areEqual(d57Var.a().get("thread_id"), this.c)) {
+                StatisticItem statisticItem2 = new StatisticItem(CommonStatisticKey.KEY_FORUM_REC_THREAD_SHOW);
+                statisticItem2.addParam("tid", d57Var.a().get("thread_id")).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("fid", d57Var.a().get("forum_id"));
+                TiebaStatic.log(statisticItem2);
+                String str = d57Var.a().get("thread_id");
+                if (str == null) {
+                    str = "";
                 }
-                threadPoolExecutor.shutdown();
-                try {
-                    randomAccessFile.close();
-                } catch (IOException e2) {
-                    e2.printStackTrace();
+                this.c = str;
+            }
+            if (Intrinsics.areEqual(d57Var.a().get("is_live_card"), "1")) {
+                pga pgaVar = new pga();
+                Map<String, String> map = hashMap;
+                ib7.a.b(new m77(pgaVar.getKey(), pgaVar.a(d57Var), map, null, null, 24, null));
+                nga ngaVar = new nga();
+                ib7.a.b(new m77(ngaVar.getKey(), ngaVar.a(d57Var), map, null, null, 24, null));
+            }
+            if (Intrinsics.areEqual(d57Var.a().get("is_tie_plus_ad_thread"), "1")) {
+                aha.d(d57Var.a());
+            }
+            if ((data instanceof n57) && (e57Var = ((n57) data).c) != null) {
+                for (za7<? extends Object> za7Var : e57Var.c()) {
+                    if (za7Var.b() instanceof r47) {
+                        for (d57 d57Var3 : ((r47) za7Var.b()).h()) {
+                            if (Intrinsics.areEqual(d57Var3.a().get("rich_text_type"), "tie_plus")) {
+                                aha.c(d57Var3.a());
+                            }
+                        }
+                    }
                 }
-                return this.g;
-            } catch (FileNotFoundException unused) {
-                return this.g;
+            }
+            if (Intrinsics.areEqual(d57Var.a().get("has_du_xin_xuan_reply"), "1")) {
+                aha.b(d57Var.a());
+            }
+            if (Intrinsics.areEqual(d57Var.a().get("thread_type"), "74")) {
+                sga sgaVar = new sga();
+                ib7.a.b(new m77(sgaVar.getKey(), sgaVar.a(d57Var), hashMap, null, null, 24, null));
             }
         }
-        return (iga) invokeLLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.na7.c
+    public void b(RecyclerView rv) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rv) == null) {
+            Intrinsics.checkNotNullParameter(rv, "rv");
+            wpa.g().h(this.b, false);
+        }
     }
 }

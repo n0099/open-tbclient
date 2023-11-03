@@ -3,25 +3,39 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.util.zip.GZIPOutputStream;
 /* loaded from: classes6.dex */
 public class j30 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile i30 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized i30 a() {
-        InterceptResult invokeV;
-        i30 i30Var;
+    public static byte[] a(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (j30.class) {
-                if (a == null) {
-                    a = new i30();
-                }
-                i30Var = a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
+            byte[] bArr2 = null;
+            if (bArr == null) {
+                return null;
             }
-            return i30Var;
+            try {
+                if (bArr.length <= 0) {
+                    return null;
+                }
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
+                gZIPOutputStream.write(bArr);
+                gZIPOutputStream.finish();
+                gZIPOutputStream.close();
+                bArr2 = byteArrayOutputStream.toByteArray();
+                byteArrayOutputStream.close();
+                return bArr2;
+            } catch (IOException e) {
+                e.printStackTrace();
+                return bArr2;
+            }
         }
-        return (i30) invokeV.objValue;
+        return (byte[]) invokeL.objValue;
     }
 }

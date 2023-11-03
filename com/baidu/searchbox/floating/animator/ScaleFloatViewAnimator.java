@@ -38,7 +38,7 @@ public final class ScaleFloatViewAnimator implements FloatViewAnimator {
     }
 
     /* renamed from: enterAnim$lambda-0  reason: not valid java name */
-    public static final void m85enterAnim$lambda0(WindowManager.LayoutParams params, WeakReference viewRef, WindowManager windowManager, ValueAnimator valueAnimator) {
+    public static final void m86enterAnim$lambda0(WindowManager.LayoutParams params, WeakReference viewRef, WindowManager windowManager, ValueAnimator valueAnimator) {
         Intrinsics.checkNotNullParameter(params, "$params");
         Intrinsics.checkNotNullParameter(viewRef, "$viewRef");
         Intrinsics.checkNotNullParameter(windowManager, "$windowManager");
@@ -69,7 +69,7 @@ public final class ScaleFloatViewAnimator implements FloatViewAnimator {
             return null;
         }
         ValueAnimator duration = ValueAnimator.ofObject(new RectEvaluator(), startValue(view2, params, windowManager), endValue(view2, params, windowManager)).setDuration(this.mDuration);
-        duration.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ai1
+        duration.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ri1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -77,7 +77,7 @@ public final class ScaleFloatViewAnimator implements FloatViewAnimator {
             public final void onAnimationUpdate(ValueAnimator valueAnimator) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                    ScaleFloatViewAnimator.m85enterAnim$lambda0(params, viewRef, windowManager, valueAnimator);
+                    ScaleFloatViewAnimator.m86enterAnim$lambda0(params, viewRef, windowManager, valueAnimator);
                 }
             }
         });

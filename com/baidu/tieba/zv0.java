@@ -1,24 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.player.event.SystemEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
-public final class zv0 extends uv0 {
+public class zv0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.ss0
-    public int[] getSubscribeEvent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new int[]{1} : (int[]) invokeV.objValue;
-    }
+    public String a;
+    public String b;
+    public boolean c;
+    public int d;
 
     public zv0() {
         Interceptable interceptable = $ic;
@@ -30,38 +24,18 @@ public final class zv0 extends uv0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.d = -1;
     }
 
-    @Override // com.baidu.tieba.uv0, com.baidu.tieba.ss0
-    public void n(sr0 event) {
-        yo0 it;
-        boolean z;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
-            Intrinsics.checkNotNullParameter(event, "event");
-            if (Intrinsics.areEqual(SystemEvent.ACTION_VOLUME_CHANGED, event.c()) && (it = i()) != null) {
-                Intrinsics.checkNotNullExpressionValue(it, "player");
-                if (!it.Y() && !it.P()) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                if (z) {
-                    it = null;
-                }
-                if (it != null) {
-                    int g = event.g(5);
-                    Intrinsics.checkNotNullExpressionValue(it, "it");
-                    kq0 z2 = it.z();
-                    Intrinsics.checkNotNullExpressionValue(z2, "it.playerCallbackManager");
-                    eq0 c = z2.c();
-                    if (c != null) {
-                        c.a(g);
-                    }
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "VideoPrepareModel{videoUrl='" + this.a + "', interactUrl='" + this.b + "', isNeedPrepare=" + this.c + ", playerStageType=" + this.d + '}';
         }
+        return (String) invokeV.objValue;
     }
 }

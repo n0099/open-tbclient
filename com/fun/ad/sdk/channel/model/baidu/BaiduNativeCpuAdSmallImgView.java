@@ -124,15 +124,15 @@ public class BaiduNativeCpuAdSmallImgView extends LinearLayout {
                 if (TextUtils.isEmpty(iBasicCPUData.getBrandName())) {
                     this.c.setText(iBasicCPUData.getBrandName());
                 } else {
-                    this.c.setText(R.string.obfuscated_res_0x7f0f08bd);
+                    this.c.setText(R.string.obfuscated_res_0x7f0f08c9);
                 }
                 GlideHelper.get().load(getContext(), iBasicCPUData.getAdLogoUrl(), this.d);
                 if (iBasicCPUData.isNeedDownloadApp()) {
                     button = this.e;
-                    i = R.string.obfuscated_res_0x7f0f08a8;
+                    i = R.string.obfuscated_res_0x7f0f08b4;
                 } else {
                     button = this.e;
-                    i = R.string.obfuscated_res_0x7f0f08aa;
+                    i = R.string.obfuscated_res_0x7f0f08b6;
                 }
                 button.setText(i);
             } else {
@@ -162,11 +162,11 @@ public class BaiduNativeCpuAdSmallImgView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onFinishInflate();
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0900ae);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900bc);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090114);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900ef);
-            this.e = (Button) findViewById(R.id.obfuscated_res_0x7f0900aa);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0900c1);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900cf);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090127);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090102);
+            this.e = (Button) findViewById(R.id.obfuscated_res_0x7f0900bd);
         }
     }
 }

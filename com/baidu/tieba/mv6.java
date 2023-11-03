@@ -1,177 +1,82 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.FrsTabItemData;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.core.util.PvThread;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.log.TbLog;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import tbclient.ForumGuide.LikeForum;
-import tbclient.PrivateForumInfo;
-import tbclient.ThemeColorInfo;
+import kotlin.jvm.JvmStatic;
 /* loaded from: classes7.dex */
-public class mv6 extends jw4 implements ul5 {
+public final class mv6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final mv6 a;
+    public static long b;
+    public static int c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String d;
-    public String e;
-    public int f;
-    public int g;
-    public int h;
-    public String i;
-    public int j;
-    public int k;
-    public int l;
-    public PrivateForumInfo m;
-    public int n;
-    public long o;
-    public long p;
-    public ArrayList<FrsTabItemData> q;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947986172, "Lcom/baidu/tieba/mv6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947986172, "Lcom/baidu/tieba/mv6;");
+                return;
+            }
+        }
+        a = new mv6();
+    }
 
     public mv6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        d(1);
     }
 
-    public String e() {
-        InterceptResult invokeV;
+    @JvmStatic
+    public static final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.i;
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && b > 0) {
+            SharedPrefHelper.getInstance().putLong("key_last_page_pause_time", ((System.nanoTime() - b) / 1000000) / 1000);
         }
-        return (String) invokeV.objValue;
     }
 
-    public long f() {
+    public final boolean a() {
         InterceptResult invokeV;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.p;
-        }
-        return invokeV.longValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.n;
-        }
-        return invokeV.intValue;
-    }
-
-    public String getId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public long l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.o;
-        }
-        return invokeV.longValue;
-    }
-
-    public ArrayList<FrsTabItemData> m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.q;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public int o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.h;
-        }
-        return invokeV.intValue;
-    }
-
-    public int p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.j;
-        }
-        return invokeV.intValue;
-    }
-
-    public int r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.k;
-        }
-        return invokeV.intValue;
-    }
-
-    public int t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.l;
-        }
-        return invokeV.intValue;
-    }
-
-    public int u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.g;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean v() {
-        InterceptResult invokeV;
-        PrivateForumInfo privateForumInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            if (this.k == 1 && this.l == 1 && (privateForumInfo = this.m) != null && privateForumInfo.private_forum_status.intValue() == 1) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (c == 0) {
+                if (UbsABTestHelper.isExistSid("12.48_client_time_page_count_a")) {
+                    i = 1;
+                } else {
+                    i = 2;
+                }
+                c = i;
+            }
+            if (c == 1) {
                 return true;
             }
             return false;
@@ -179,66 +84,73 @@ public class mv6 extends jw4 implements ul5 {
         return invokeV.booleanValue;
     }
 
-    public void A(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.g = i;
-        }
-    }
-
-    public void C(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public void x(LikeForum likeForum) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048593, this, likeForum) != null) || likeForum == null) {
-            return;
-        }
-        y(likeForum, null);
-    }
-
-    public void z(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048595, this, j) == null) {
-            this.p = j;
-        }
-    }
-
-    public boolean q() {
+    public final boolean b() {
         InterceptResult invokeV;
-        PrivateForumInfo privateForumInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (this.k == 1 && this.l == 1 && (privateForumInfo = this.m) != null && privateForumInfo.private_forum_status.intValue() == 1 && this.m.private_forum_audit_status.intValue() == 2) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return SharedPrefHelper.getInstance().getBoolean("key_is_last_client_uploaded", true);
         }
         return invokeV.booleanValue;
     }
 
-    public void y(LikeForum likeForum, Context context) {
+    public final void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048594, this, likeForum, context) != null) || likeForum == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            long j = b;
+            if (j > 0) {
+                c(j);
+                b = 0L;
+            }
         }
-        try {
-            this.d = String.valueOf(likeForum.forum_id);
-            this.e = likeForum.forum_name;
-            this.g = likeForum.is_sign.intValue();
-            this.f = likeForum.level_id.intValue();
-            this.i = likeForum.avatar;
-            this.o = likeForum.sort_value.longValue();
-            this.h = likeForum.hot_num.intValue();
-            ThemeColorInfo themeColorInfo = likeForum.theme_color;
-            likeForum.need_trans.booleanValue();
-            this.q = new ArrayList<>();
-        } catch (Exception e) {
-            BdLog.detailException(e);
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            h();
+            if (b == 0) {
+                b = System.nanoTime();
+                g(false);
+                DefaultLog.getInstance().i("ClientDurationHelper", "processUseDuration setIsUploaded false");
+            }
+        }
+    }
+
+    @JvmStatic
+    public static final void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65539, null, z) == null) {
+            SharedPrefHelper.getInstance().putBoolean("key_is_last_client_uploaded", z);
+        }
+    }
+
+    public final void c(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            long nanoTime = ((System.nanoTime() - j) / 1000000) / 1000;
+            if (PermissionUtil.isAgreePrivacyPolicy()) {
+                i(nanoTime);
+                g(true);
+                DefaultLog.getInstance().i("ClientDurationHelper", "processUseDuration setIsUploaded true");
+            }
+        }
+    }
+
+    public final void i(long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeJ(1048582, this, j) == null) && j >= TbadkCoreApplication.getInst().getUseTimeInterval()) {
+            new PvThread("use", String.valueOf(j)).start();
+            TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), "use", null, 1, "st_param", String.valueOf(j));
+        }
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && !b() && PermissionUtil.isAgreePrivacyPolicy()) {
+            long j = SharedPrefHelper.getInstance().getLong("key_last_page_pause_time", 0L);
+            i(j);
+            TbLog defaultLog = DefaultLog.getInstance();
+            defaultLog.i("ClientDurationHelper", "trySupplementClientTime pauseTime=" + j);
         }
     }
 }

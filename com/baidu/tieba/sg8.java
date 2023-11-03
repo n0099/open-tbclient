@@ -1,228 +1,87 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.WorkerThread;
-import com.baidu.adp.lib.safe.UiUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.im.db.pojo.GroupChatRoomPojo;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.AdapterViewHolder;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnListData;
+import com.baidu.tieba.homepage.tabfeed.view.SpecialTopicLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class sg8 {
+public class sg8 extends bi<SpecialColumnListData, AdapterViewHolder<SpecialTopicLayout>> implements ag8 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile sg8 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public String b;
 
-    /* loaded from: classes8.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Long a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ long d;
-
-        public a(sg8 sg8Var, Long l, String str, String str2, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sg8Var, l, str, str2, Long.valueOf(j)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = l;
-            this.b = str;
-            this.c = str2;
-            this.d = j;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                qd8.j().t(TbadkCoreApplication.getCurrentAccount(), this.a.longValue(), this.b, this.c, this.d);
-            }
+    public void x(ui uiVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, uiVar) == null) {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Long a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ boolean d;
-
-        public b(sg8 sg8Var, Long l, String str, String str2, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sg8Var, l, str, str2, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = l;
-            this.b = str;
-            this.c = str2;
-            this.d = z;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                qd8.j().w(TbadkCoreApplication.getCurrentAccount(), this.a.longValue(), this.b, this.c, !this.d);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Long a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ long d;
-
-        public c(sg8 sg8Var, Long l, String str, String str2, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sg8Var, l, str, str2, Long.valueOf(j)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = l;
-            this.b = str;
-            this.c = str2;
-            this.d = j;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                qd8.j().y(TbadkCoreApplication.getCurrentAccount(), this.a.longValue(), this.b, this.c, this.d);
-            }
-        }
-    }
-
-    public sg8() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sg8(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), SpecialColumnListData.TYPE);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = tbPageContext;
     }
 
-    public static sg8 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ag8
+    public void h(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (sg8.class) {
-                    if (a == null) {
-                        a = new sg8();
-                    }
-                }
-            }
-            return a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.b = str;
         }
-        return (sg8) invokeV.objValue;
     }
 
-    public long a(@NonNull Long l) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: t */
+    public AdapterViewHolder<SpecialTopicLayout> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, l)) == null) {
-            GroupChatRoomPojo f = qd8.j().f(TbadkCoreApplication.getCurrentAccount(), l.longValue());
-            if (f != null) {
-                return f.getTopTime();
-            }
-            return 0L;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            SpecialTopicLayout specialTopicLayout = new SpecialTopicLayout(this.a);
+            specialTopicLayout.setShowMore(true);
+            return new AdapterViewHolder<>(specialTopicLayout);
         }
-        return invokeL.longValue;
+        return (AdapterViewHolder) invokeL.objValue;
     }
 
-    @WorkerThread
-    public boolean d(@NonNull Long l) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, SpecialColumnListData specialColumnListData, AdapterViewHolder<SpecialTopicLayout> adapterViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l)) == null) {
-            GroupChatRoomPojo f = qd8.j().f(TbadkCoreApplication.getCurrentAccount(), l.longValue());
-            if (f == null || f.O() == 0) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, specialColumnListData, adapterViewHolder})) == null) {
+            SpecialTopicLayout a = adapterViewHolder.a();
+            a.setTabCode(this.b);
+            a.onBindDataToView(specialColumnListData);
+            return adapterViewHolder.getView();
         }
-        return invokeL.booleanValue;
-    }
-
-    @WorkerThread
-    public boolean c(@NonNull Long l, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l, j)) == null) {
-            GroupChatRoomPojo f = qd8.j().f(TbadkCoreApplication.getCurrentAccount(), l.longValue());
-            if (f != null && f.getDeleteTime() != 0 && j <= f.getDeleteTime()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLJ.booleanValue;
-    }
-
-    public void e(@NonNull Long l, @NonNull String str, @NonNull String str2, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{l, str, str2, Long.valueOf(j)}) == null) {
-            UiUtils.runOnBgThread(new a(this, l, str, str2, j));
-        }
-    }
-
-    public void f(@NonNull Long l, @NonNull String str, @NonNull String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{l, str, str2, Boolean.valueOf(z)}) == null) {
-            UiUtils.runOnBgThread(new b(this, l, str, str2, z));
-        }
-    }
-
-    public void g(@NonNull Long l, @NonNull String str, @NonNull String str2, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{l, str, str2, Long.valueOf(j)}) == null) {
-            UiUtils.runOnBgThread(new c(this, l, str, str2, j));
-        }
+        return (View) invokeCommon.objValue;
     }
 }

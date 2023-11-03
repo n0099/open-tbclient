@@ -1,22 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.yun.YunDialogDataManager;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tbadk.util.DataExt;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.ArrayMap;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public final class u15 {
+public class u15 {
     public static /* synthetic */ Interceptable $ic;
-    public static final u15 a;
+    public static final Map<String, Class<? extends g15>> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,49 +33,44 @@ public final class u15 {
                 return;
             }
         }
-        a = new u15();
-    }
-
-    public u15() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        a = new ArrayMap();
+        if (l25.a.a()) {
+            a.put("WebViewYunDialog", t15.class);
+        } else {
+            a.put("WebViewYunDialog", s15.class);
+        }
+        a.put("userIcon", r15.class);
+        a.put("userGrowth", q15.class);
+        a.put("newGod", m15.class);
+        a.put("operateNew", n15.class);
+        a.put("homeLiveRemind", l15.class);
+        a.put("topNotify", o15.class);
+        a.put("updateDialog", p15.class);
+        a.put("lcUpdateDialog", k15.class);
+        h15 h15Var = new h15();
+        pf1<i15> pf1Var = h15Var.a;
+        if (pf1Var != null && !ListUtils.isEmpty(pf1Var.getList())) {
+            for (i15 i15Var : h15Var.a.getList()) {
+                a.put(i15Var.name(), i15Var.a());
             }
         }
     }
 
-    public final void a(String json) {
-        boolean z;
-        List entityList;
+    public static void a(@NonNull Context context, @NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, json) == null) {
-            Intrinsics.checkNotNullParameter(json, "json");
-            String k = YunDialogDataManager.k();
-            m9<String> n = gz4.n("tb.dialog_strategies_data", TbadkCoreApplication.getCurrentAccount(), k);
-            if (n != null) {
-                String str = n.get(k);
-                if (str != null) {
-                    if (str.length() > 0) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    if (!z) {
-                        str = null;
-                    }
-                    if (str != null && (entityList = DataExt.toEntityList(str, DialogStrategiesData.class)) != null) {
-                        List entityList2 = DataExt.toEntityList(json, DialogStrategiesData.class);
-                        v15.a(entityList2);
-                        v15.b(entityList, entityList2);
-                    }
+        if (interceptable == null || interceptable.invokeLLL(65537, null, context, str, str2) == null) {
+            u05 b = u05.b(str, str2);
+            try {
+                String a2 = b.a("yun_dialogClass");
+                if (TextUtils.isEmpty(a2)) {
+                    return;
                 }
-                n.a(k, json);
+                a.get(a2).getConstructor(new Class[0]).newInstance(new Object[0]).a(context, b);
+            } catch (Exception e) {
+                TbLog yunDialogLog = YunDialogLog.getInstance();
+                yunDialogLog.e(YunDialogManager.LOG_KEY, "云弹窗 " + str + " 渲染失败：" + e.getMessage());
+                YunDialogManager.unMarkShowingDialogName(str);
+                e.printStackTrace();
             }
         }
     }

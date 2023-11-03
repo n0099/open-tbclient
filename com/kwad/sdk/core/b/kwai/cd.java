@@ -9,7 +9,7 @@ public final class cd {
     @InvokeBy(invokerClass = dd.class, methodId = "registerHolder")
     public static void tl() {
         dd.tm().put(m.a.class, new as());
-        dd.tm().put(a.C0657a.class, new bw());
+        dd.tm().put(a.C0663a.class, new bw());
         dd.tm().put(u.a.class, new ar());
         dd.tm().put(com.kwad.sdk.core.report.g.class, new au());
         dd.tm().put(com.kwad.sdk.core.report.m.class, new em());

@@ -1,95 +1,135 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class my0 implements py0 {
+public class my0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final StringBuilder a;
 
-    @Override // com.baidu.tieba.py0
-    public void a() {
+    public static boolean d(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, obj)) == null) ? obj == null : invokeL.booleanValue;
+    }
+
+    public static void i(Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, exc) == null) {
         }
     }
 
-    public my0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new StringBuilder();
-    }
-
-    @Override // com.baidu.tieba.py0
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.py0
-    public <T extends py0> T b(String str, String str2) {
+    public static <K, V> boolean a(Map<K, V> map, K k) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            return (T) d(str, str2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, map, k)) == null) {
+            if (d(map)) {
+                return false;
+            }
+            try {
+                return map.containsKey(k);
+            } catch (Exception e) {
+                i(e);
+                return false;
+            }
         }
-        return (T) invokeLL.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public <T extends py0> T c(String str, Object obj) {
+    public static <K, V> V b(Map<K, V> map, K k) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, obj)) == null) {
-            return (T) d(str, obj);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, map, k)) == null) {
+            if (d(map)) {
+                return null;
+            }
+            try {
+                return map.get(k);
+            } catch (Exception e) {
+                i(e);
+                return null;
+            }
         }
-        return (T) invokeLL.objValue;
+        return (V) invokeLL.objValue;
     }
 
-    public <T extends py0> T d(String str, Object obj) {
+    public static <K, V> boolean f(Map<K, V> map, Map<? extends K, ? extends V> map2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, obj)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return this;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, map, map2)) == null) {
+            if (d(map)) {
+                return false;
             }
-            if (obj != null) {
-                try {
-                    if (!TextUtils.isEmpty(String.valueOf(obj))) {
-                        if (this.a.length() > 0) {
-                            this.a.append('&');
-                        }
-                        StringBuilder sb = this.a;
-                        sb.append(str);
-                        sb.append('=');
-                        sb.append(obj);
-                    }
-                } catch (Exception unused) {
-                }
+            try {
+                map.putAll(map2);
+                return true;
+            } catch (Exception e) {
+                i(e);
+                return false;
             }
-            return this;
         }
-        return (T) invokeLL.objValue;
+        return invokeLL.booleanValue;
+    }
+
+    public static <K, V> V g(Map<K, V> map, K k) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, map, k)) == null) {
+            if (d(map)) {
+                return null;
+            }
+            try {
+                return map.remove(k);
+            } catch (Exception e) {
+                i(e);
+                return null;
+            }
+        }
+        return (V) invokeLL.objValue;
+    }
+
+    public static <K, V> boolean c(Map<K, V> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, map)) == null) {
+            if (!d(map) && !map.isEmpty()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static <K, V> int h(Map<K, V> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, map)) == null) {
+            if (d(map)) {
+                return 0;
+            }
+            return map.size();
+        }
+        return invokeL.intValue;
+    }
+
+    public static <K, V> boolean e(Map<K, V> map, K k, V v) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, map, k, v)) == null) {
+            if (d(map)) {
+                return false;
+            }
+            try {
+                map.put(k, v);
+                return true;
+            } catch (Exception e) {
+                i(e);
+                return false;
+            }
+        }
+        return invokeLLL.booleanValue;
     }
 }

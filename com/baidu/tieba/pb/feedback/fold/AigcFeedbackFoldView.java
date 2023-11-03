@@ -168,7 +168,7 @@ public final class AigcFeedbackFoldView extends RelativeLayout {
             }
             EMManager.from(getBinding().b).setTextSize(R.dimen.T_X09).setTextColor(R.color.CAM_X0304);
             getBinding().b.setText("点击展开");
-            getBinding().c.k(R.drawable.obfuscated_res_0x7f080812);
+            getBinding().c.k(R.drawable.obfuscated_res_0x7f08081c);
         }
     }
 

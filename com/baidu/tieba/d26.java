@@ -1,46 +1,40 @@
 package com.baidu.tieba;
 
-import android.database.sqlite.SQLiteDatabase;
-import android.text.TextUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.content.Context;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.Map;
 /* loaded from: classes5.dex */
 public class d26 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile SQLiteDatabase a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized void a() {
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            synchronized (d26.class) {
-                bd.b(a);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            return b(str, null);
         }
+        return invokeL.booleanValue;
     }
 
-    public static synchronized SQLiteDatabase b() {
-        InterceptResult invokeV;
+    public static boolean b(String str, @Nullable Context context) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (d26.class) {
-                try {
-                } catch (Exception e) {
-                    TiebaStatic.printDBExceptionLog(e, "RelationshipDbManager.getRelationshipDataBase", new Object[0]);
-                }
-                if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                    return null;
-                }
-                if (a != null && a.isOpen()) {
-                    return a;
-                }
-                a = new c26(TbadkCoreApplication.getInst().getApp()).getWritableDatabase();
-                return a;
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, context)) == null) {
+            return c(str, context, null);
         }
-        return (SQLiteDatabase) invokeV.objValue;
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean c(String str, @Nullable Context context, @Nullable Map<String, Object> map) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, context, map)) == null) {
+            return pe0.e(str, context, map, null);
+        }
+        return invokeLLL.booleanValue;
     }
 }

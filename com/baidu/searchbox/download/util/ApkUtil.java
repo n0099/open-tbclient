@@ -54,9 +54,9 @@ import com.baidu.searchbox.schemedispatch.monitor.OpenAppManager;
 import com.baidu.searchbox.util.BaiduIdentityManager;
 import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
 import com.baidu.tieba.R;
-import com.baidu.tieba.mr;
-import com.baidu.tieba.vw;
-import com.baidu.tieba.xw;
+import com.baidu.tieba.ds;
+import com.baidu.tieba.mx;
+import com.baidu.tieba.ox;
 import com.google.android.material.internal.CollapsingTextHelper;
 import com.huawei.hms.common.internal.TransactionIdCreater;
 import java.io.File;
@@ -113,7 +113,7 @@ public class ApkUtil {
     }
 
     public static boolean enableShowInstallPermissionDialog() {
-        if (BdBoxActivityManager.isForeground() && vw.h()) {
+        if (BdBoxActivityManager.isForeground() && mx.h()) {
             return true;
         }
         return false;
@@ -151,7 +151,7 @@ public class ApkUtil {
                         jSONObject.put("pkg", str);
                     } catch (Exception unused3) {
                     }
-                    xw.x("file", DownloadStatisticConstants.UBC_TYPE_FINISH_INSTALL, "other", "auto", "app", jSONObject);
+                    ox.x("file", DownloadStatisticConstants.UBC_TYPE_FINISH_INSTALL, "other", "auto", "app", jSONObject);
                     ApkUtil.doInstalledCloudStatisticJob(jSONObject.toString());
                 } else if (ApkUtil.mInstallPKGMap != null && ApkUtil.mInstallPKGMap.containsKey(str)) {
                     if (queryInstalledApk.containsKey(str3) && ApkUtil.filesEquals((String) ApkUtil.mInstallPKGMap.get(str), str2)) {
@@ -162,7 +162,7 @@ public class ApkUtil {
                                 jSONObject2.put("pkg", str);
                             } catch (Exception unused4) {
                             }
-                            xw.x("file", DownloadStatisticConstants.UBC_TYPE_FINISH_INSTALL, "other", "auto", "app", jSONObject2);
+                            ox.x("file", DownloadStatisticConstants.UBC_TYPE_FINISH_INSTALL, "other", "auto", "app", jSONObject2);
                             ApkUtil.doInstalledCloudStatisticJob(l.longValue());
                             ApkUtil.deleteDownload(context, l.longValue());
                             return;
@@ -176,7 +176,7 @@ public class ApkUtil {
                                 jSONObject3.put("pkg", str);
                             } catch (Exception unused5) {
                             }
-                            xw.x("file", DownloadStatisticConstants.UBC_TYPE_FINISH_INSTALL, "other", "auto", "app", jSONObject3);
+                            ox.x("file", DownloadStatisticConstants.UBC_TYPE_FINISH_INSTALL, "other", "auto", "app", jSONObject3);
                             ApkUtil.doInstallHijackCloudStatisticJob(entry.getValue().longValue());
                             return;
                         }
@@ -248,7 +248,7 @@ public class ApkUtil {
             @Override // com.baidu.searchbox.feed.ad.util.InterceptCallback
             public void onResult(boolean z) {
                 if (!z) {
-                    UniversalToast.makeText(AppRuntime.getAppContext(), (int) R.string.obfuscated_res_0x7f0f05e5).setDuration(3).showToast();
+                    UniversalToast.makeText(AppRuntime.getAppContext(), (int) R.string.obfuscated_res_0x7f0f05e7).setDuration(3).showToast();
                 }
             }
         });
@@ -773,8 +773,8 @@ public class ApkUtil {
             public void run() {
                 try {
                     if (ApkUtil.access$700()) {
-                        vw.c(BdBoxActivityManager.getTopActivity(), vw.b, new vw.g() { // from class: com.baidu.searchbox.download.util.ApkUtil.9.1
-                            @Override // com.baidu.tieba.vw.g
+                        mx.c(BdBoxActivityManager.getTopActivity(), mx.b, new mx.g() { // from class: com.baidu.searchbox.download.util.ApkUtil.9.1
+                            @Override // com.baidu.tieba.mx.g
                             public void onRequestPermissionsResult(boolean z) {
                             }
                         }, 102);
@@ -813,7 +813,7 @@ public class ApkUtil {
 
     public static void openApp(Context context, String str, String str2, String str3, String str4, String str5, InterceptCallback interceptCallback) {
         if (!TextUtils.isEmpty(str2) && context != null) {
-            mr.b().h(str, str2, true, interceptCallback, OpenAppManager.isNoAlertSwitchOn("h5"), new InvokeStatistic().addExtPackage(str2).setPage("package").setFrom(str3).addSContent(str4).addurl(str5));
+            ds.b().h(str, str2, true, interceptCallback, OpenAppManager.isNoAlertSwitchOn("h5"), new InvokeStatistic().addExtPackage(str2).setPage("package").setFrom(str3).addSContent(str4).addurl(str5));
         } else if (interceptCallback != null) {
             interceptCallback.onResult(false);
         }

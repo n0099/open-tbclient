@@ -1,8 +1,30 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.network.outback.core.Request;
-import okhttp3.Dns;
+import com.baidu.searchbox.player.model.YYOption;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface l10 {
-    Dns a(Request request, k10 k10Var);
+public final class l10 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947889886, "Lcom/baidu/tieba/l10;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947889886, "Lcom/baidu/tieba/l10;");
+                return;
+            }
+        }
+        a = Boolean.parseBoolean(YYOption.IsLive.VALUE_TRUE);
+    }
 }

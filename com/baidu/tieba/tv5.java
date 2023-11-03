@@ -1,21 +1,24 @@
 package com.baidu.tieba;
 
+import android.database.DataSetObservable;
+import android.database.DataSetObserver;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes8.dex */
-public class tv5 {
+public abstract class tv5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public List<String> c;
-    public String d;
-    public String e;
+    public DataSetObservable a;
+
+    public abstract int a();
+
+    public abstract View b(int i, ViewGroup viewGroup);
 
     public tv5() {
         Interceptable interceptable = $ic;
@@ -30,41 +33,35 @@ public class tv5 {
                 return;
             }
         }
-        this.c = new ArrayList();
+        this.a = new DataSetObservable();
     }
 
-    public void a(String str) {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.c.add(str);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.notifyChanged();
         }
     }
 
-    public void b(String str) {
+    public void d(DataSetObserver dataSetObserver) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.d = str;
+        if (interceptable == null || interceptable.invokeL(1048579, this, dataSetObserver) == null) {
+            try {
+                this.a.registerObserver(dataSetObserver);
+            } catch (Throwable th) {
+                BdLog.e(th, true);
+            }
         }
     }
 
-    public void c(String str) {
+    public void e(DataSetObserver dataSetObserver) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.e = str;
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.b = str;
+        if (interceptable == null || interceptable.invokeL(1048580, this, dataSetObserver) == null) {
+            try {
+                this.a.unregisterObserver(dataSetObserver);
+            } catch (Throwable th) {
+                BdLog.e(th, true);
+            }
         }
     }
 }

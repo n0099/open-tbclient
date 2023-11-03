@@ -1,24 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.NewErrorData;
-import com.baidu.tbadk.core.util.NetWork;
+import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
+import android.webkit.DownloadListener;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.IntentConstants;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class lu4 {
+public class lu4 implements DownloadListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public NetWork a;
-    public NewErrorData b;
+    public final Activity a;
 
-    public lu4() {
+    public lu4(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,69 +32,19 @@ public class lu4 {
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.a = new NetWork();
+        this.a = activity;
     }
 
-    public void b() {
-        NetWork netWork;
+    @Override // android.webkit.DownloadListener
+    public void onDownloadStart(String str, String str2, String str3, String str4, long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (netWork = this.a) != null) {
-            netWork.cancelNetConnect();
+        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j)}) != null) || StringUtils.isNull(str)) {
+            return;
         }
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            NetWork netWork = this.a;
-            if (netWork != null) {
-                return netWork.getErrorString();
-            }
-            return null;
+        Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(str));
+        if (!UtilHelper.isHaveActivityCanHandleIntent(intent)) {
+            return;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String postNetData = this.a.postNetData();
-            NewErrorData newErrorData = new NewErrorData();
-            this.b = newErrorData;
-            newErrorData.parserJson(postNetData);
-            return postNetData;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            NetWork netWork = this.a;
-            if (netWork != null) {
-                return netWork.getNetContext().getResponse().isRequestSuccess();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            this.a.addPostData(str, str2);
-        }
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.a.setUrl(str);
-        }
+        this.a.startActivity(intent);
     }
 }

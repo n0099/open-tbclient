@@ -1,44 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.zfc;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.SplitOrderConfigResult;
+import com.yy.transvod.player.mediacodec.MediaSample;
 /* loaded from: classes7.dex */
-public class mec {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public SplitOrderConfigResult a;
-    public zfc.b b;
+public interface mec {
+    void a();
 
-    public mec(SplitOrderConfigResult splitOrderConfigResult, zfc.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {splitOrderConfigResult, bVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = splitOrderConfigResult;
-        this.b = bVar;
-    }
+    void b(int i);
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "PaySplitOrderInfo{splitOrderConfigResult=" + this.a + ", splitsplitOrderViewParamsId=" + this.b + '}';
-        }
-        return (String) invokeV.objValue;
-    }
+    void d(String str, Object obj, int i, boolean z);
+
+    void e(boolean z);
+
+    void f(MediaSample mediaSample);
 }

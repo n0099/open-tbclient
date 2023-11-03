@@ -6,7 +6,7 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.sq;
+import com.baidu.tieba.jr;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,7 +36,7 @@ public class BdRootActivity extends Activity {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return sq.a().getResources();
+            return jr.a().getResources();
         }
         return (Resources) invokeV.objValue;
     }
@@ -46,7 +46,7 @@ public class BdRootActivity extends Activity {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
-            return sq.a().getSharedPreferences(str, i);
+            return jr.a().getSharedPreferences(str, i);
         }
         return (SharedPreferences) invokeLI.objValue;
     }

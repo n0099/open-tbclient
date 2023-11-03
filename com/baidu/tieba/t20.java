@@ -1,56 +1,102 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.network.outback.core.MediaType;
+import com.baidu.searchbox.network.outback.core.Request;
+import com.baidu.searchbox.network.outback.core.RequestBody;
+import com.baidu.searchbox.network.outback.core.Response;
+import com.baidu.searchbox.network.support.cookie.Cookie;
+import com.baidu.searchbox.network.support.cookie.CookieHandler;
+import com.baidu.searchbox.network.support.cookie.CookieJar;
+import com.baidu.tieba.f20;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class t20 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "liteUBC";
-    public static final boolean b;
+public final class t20 implements f20 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final CookieJar a;
+    public k20 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948129175, "Lcom/baidu/tieba/t20;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948129175, "Lcom/baidu/tieba/t20;");
+    public t20(CookieJar cookieJar, k20 k20Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cookieJar, k20Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b = j20.d().b();
+        this.a = cookieJar;
+        this.b = k20Var;
     }
 
-    public static void a(String str, String str2) {
+    @Override // com.baidu.tieba.f20
+    public Response a(f20.a aVar) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) && b) {
-            String str3 = a;
-            Log.d(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
+            Request request = aVar.request();
+            request.getNetworkStatRecord().startTs = System.currentTimeMillis();
+            Request.Builder newBuilder = request.newBuilder();
+            newBuilder.removeHeader("bdapp-support-brotli");
+            RequestBody body = request.body();
+            if (body != null) {
+                MediaType contentType = body.contentType();
+                if (contentType != null) {
+                    newBuilder.header("Content-Type", contentType.toString());
+                }
+                long contentLength = body.contentLength();
+                if (contentLength != -1) {
+                    newBuilder.header("Content-Length", Long.toString(contentLength));
+                    newBuilder.removeHeader("Transfer-Encoding");
+                } else {
+                    newBuilder.header("Transfer-Encoding", "chunked");
+                    newBuilder.removeHeader("Content-Length");
+                }
+            }
+            List<Cookie> loadForRequest = this.a.loadForRequest(request.url());
+            if (!loadForRequest.isEmpty()) {
+                newBuilder.header("Cookie", b(loadForRequest));
+            }
+            if (request.header("User-Agent") == null && this.b.C() != null) {
+                newBuilder.header("User-Agent", this.b.C());
+            }
+            Response a = aVar.a(newBuilder.build());
+            CookieHandler.receiveHeaders(this.a, request, a.headers());
+            return a.newBuilder().request(request).build();
         }
+        return (Response) invokeL.objValue;
     }
 
-    public static void c(String str, String str2) {
+    public final String b(List<Cookie> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && b) {
-            String str3 = a;
-            Log.i(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
+            StringBuilder sb = new StringBuilder();
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                if (i > 0) {
+                    sb.append("; ");
+                }
+                Cookie cookie = list.get(i);
+                sb.append(cookie.name());
+                sb.append('=');
+                sb.append(cookie.value());
+            }
+            return sb.toString();
         }
-    }
-
-    public static void b(String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) && b) {
-            String str3 = a;
-            Log.e(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2, th);
-        }
+        return (String) invokeL.objValue;
     }
 }

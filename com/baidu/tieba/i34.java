@@ -1,75 +1,81 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tieba.qz3;
+import com.baidu.tieba.vy2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Service
 /* loaded from: classes6.dex */
-public class i34 {
+public class i34 implements nn1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zc2 a;
 
-    public i34(zc2 zc2Var) {
+    /* loaded from: classes6.dex */
+    public class a implements qz3.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vy2.k a;
+
+        public a(i34 i34Var, vy2.k kVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i34Var, kVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = kVar;
+        }
+
+        @Override // com.baidu.tieba.qz3.d
+        public void onFail(String str) {
+            vy2.k kVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (kVar = this.a) != null) {
+                kVar.onFail(str);
+            }
+        }
+
+        @Override // com.baidu.tieba.qz3.d
+        public void onSuccess() {
+            vy2.k kVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (kVar = this.a) != null) {
+                kVar.onSuccess();
+            }
+        }
+    }
+
+    public i34() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {zc2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = zc2Var;
-    }
-
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                str = "";
-            }
-            a(str, "keyboardcomplete");
         }
     }
 
-    public void c(String str) {
+    @Override // com.baidu.tieba.nn1
+    public void a(String str, vy2.k kVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                str = "";
-            }
-            a(str, "keyboardconfirm");
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                str = "";
-            }
-            a(str, "keyboardinput");
-        }
-    }
-
-    public final void a(String str, String str2) {
-        zc2 zc2Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) && (zc2Var = this.a) != null && zc2Var.m() != null && this.a.m().hasEventListener(str2)) {
-            k34 k34Var = new k34();
-            k34Var.value = str;
-            JSEvent jSEvent = new JSEvent(str2);
-            jSEvent.data = k34Var;
-            this.a.m().dispatchEvent(jSEvent);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, kVar) == null) {
+            tz3.p().j(str, new a(this, kVar));
         }
     }
 }

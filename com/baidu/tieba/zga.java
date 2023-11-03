@@ -1,22 +1,92 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.tbadkCore.data.WorksInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
-public class zga implements s35 {
+public final class zga implements gb7, n67, db7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yga a;
+    public boolean a;
+
+    @Override // com.baidu.tieba.db7
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "position_from_1" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gb7
+    public String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes9.dex */
+    public static final class a implements l77 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zga a;
+
+        public a(zga zgaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zgaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zgaVar;
+        }
+
+        @Override // com.baidu.tieba.l77
+        public void a(Map<String, String> map) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+                Intrinsics.checkNotNullParameter(map, "map");
+                if (!Intrinsics.areEqual(map.get("is_tie_plus_ad_thread"), "1")) {
+                    return;
+                }
+                ThreadData threadData = new ThreadData();
+                threadData.tiePlusCostUrl = map.get("tie_plus_cost_url");
+                threadData.tid = map.get("thread_id");
+                threadData.setFid(JavaTypesHelper.toLong(map.get("forum_id"), 0L));
+                threadData.tiePlusMonitorClickUrl = map.get("tie_plus_monitor_click_url");
+                int i = 1;
+                threadData.isTiebaPlusAdThread = true;
+                threadData.threadType = JavaTypesHelper.toInt(map.get("thread_type"), 0);
+                if (Intrinsics.areEqual(map.get("is_video_work"), "1")) {
+                    WorksInfoData worksInfoData = new WorksInfoData();
+                    worksInfoData.isWorks = true;
+                    threadData.worksInfoData = worksInfoData;
+                }
+                threadData.tiebaPlusOrderId = map.get("tie_plus_order_id");
+                threadData.tiebaPlusToken = map.get("tie_plus_token");
+                threadData.tiebaPlusExtraParam = map.get("tie_plus_extra_param");
+                if (this.a.a) {
+                    i = 2;
+                }
+                ff8.c(threadData, map.get("source"), JavaTypesHelper.toInt(map.get("position_from_1"), 0), i);
+            }
+        }
+    }
 
     public zga() {
         Interceptable interceptable = $ic;
@@ -32,81 +102,36 @@ public class zga implements s35 {
         }
     }
 
-    @Override // com.baidu.tieba.s35
-    public Class<?> d() {
+    @Override // com.baidu.tieba.n67
+    public l77 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return MainTabActivity.class;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return new a(this);
         }
-        return (Class) invokeV.objValue;
+        return (l77) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.s35
-    public String f() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.gb7
+    public Map<String, String> a(d57 businessInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return MainTabActivity.class.getName();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            hashMap.putAll(businessInfo.a());
+            return hashMap;
         }
-        return (String) invokeV.objValue;
+        return (Map) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.s35
-    public int getCurrentTabType() {
-        InterceptResult invokeV;
+    public final zga f(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            yga ygaVar = this.a;
-            if (ygaVar != null) {
-                return ygaVar.getCurrentTabType();
-            }
-            return -1;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            this.a = z;
+            return this;
         }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.s35
-    public void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (currentAccount != null && currentAccount.length() > 0) {
-                b(context, 1);
-            } else {
-                b(context, 0);
-            }
-        }
-    }
-
-    public void g(yga ygaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, ygaVar) == null) {
-            this.a = ygaVar;
-        }
-    }
-
-    @Override // com.baidu.tieba.s35
-    public void b(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i) == null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(context).createNormalCfg(i)));
-        }
-    }
-
-    @Override // com.baidu.tieba.s35
-    public void c(Context context, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(context).createNormalCfg(i, z)));
-        }
-    }
-
-    @Override // com.baidu.tieba.s35
-    public void e(Context context, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(context).createRefreshCfg(i, z)));
-        }
+        return (zga) invokeZ.objValue;
     }
 }

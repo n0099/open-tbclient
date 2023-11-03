@@ -1,233 +1,159 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.util.gson.Holder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.executors.CallerThreadExecutor;
-import com.facebook.common.executors.UiThreadImmediateExecutorService;
-import com.facebook.common.references.CloseableReference;
-import com.facebook.datasource.BaseDataSubscriber;
-import com.facebook.datasource.DataSource;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.controller.AbstractDraweeController;
-import com.facebook.drawee.drawable.ScalingUtils;
-import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
-import com.facebook.drawee.view.SimpleDraweeView;
-import com.facebook.imagepipeline.image.CloseableBitmap;
-import com.facebook.imagepipeline.image.CloseableImage;
-import com.facebook.imagepipeline.request.ImageRequest;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.internal.C$Gson$Types;
+import com.google.gson.reflect.TypeToken;
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
+import java.util.Collection;
+import java.util.List;
+import kotlin.collections.CollectionsKt__CollectionsJVMKt;
+import kotlin.collections.CollectionsKt__CollectionsKt;
+import kotlin.collections.CollectionsKt___CollectionsKt;
+import kotlin.jvm.JvmClassMappingKt;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.internal.Reflection;
+import kotlin.reflect.KClass;
+import kotlin.reflect.KClassifier;
+import kotlin.reflect.KParameter;
+import kotlin.reflect.full.KClasses;
+import kotlin.reflect.jvm.ReflectJvmMapping;
 /* loaded from: classes8.dex */
 public final class uu5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948223508, "Lcom/baidu/tieba/uu5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948223508, "Lcom/baidu/tieba/uu5;");
-                return;
-            }
-        }
-        a = new a(null);
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tbadk.util.gson.KotlinReflectiveTypeAdapterFactory.create(com.google.gson.Gson, com.google.gson.reflect.TypeToken<T>):com.google.gson.TypeAdapter<T>] */
+    public static final /* synthetic */ Object a(KParameter kParameter) {
+        return e(kParameter);
     }
 
-    /* loaded from: classes8.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @SuppressLint({"UseCompatLoadingForDrawables"})
-        public final Drawable a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return TbadkCoreApplication.getInst().getDrawable(SkinManager.getResourceId(R.drawable.pic_use_header_28_n));
-            }
-            return (Drawable) invokeV.objValue;
-        }
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tbadk.util.gson.KotlinReflectiveTypeAdapterFactory.create(com.google.gson.Gson, com.google.gson.reflect.TypeToken<T>):com.google.gson.TypeAdapter<T>] */
+    public static final /* synthetic */ KClass d(TypeToken typeToken) {
+        return h(typeToken);
     }
 
-    /* loaded from: classes8.dex */
-    public static final class b extends BaseDataSubscriber<CloseableReference<CloseableImage>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ su5 a;
-
-        public b(su5 su5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {su5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = su5Var;
-        }
-
-        @Override // com.facebook.datasource.BaseDataSubscriber
-        public void onFailureImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dataSource) == null) {
-                Intrinsics.checkNotNullParameter(dataSource, "dataSource");
-                this.a.b();
-            }
-        }
-
-        @Override // com.facebook.datasource.BaseDataSubscriber
-        public void onNewResultImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
-            CloseableReference<CloseableImage> result;
-            Bitmap underlyingBitmap;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSource) == null) {
-                Intrinsics.checkNotNullParameter(dataSource, "dataSource");
-                if (dataSource.isFinished() && (result = dataSource.getResult()) != null) {
-                    su5 su5Var = this.a;
-                    CloseableReference<CloseableImage> mo168clone = result.mo168clone();
-                    Intrinsics.checkNotNullExpressionValue(mo168clone, "clone()");
-                    try {
-                        CloseableImage closeableImage = mo168clone.get();
-                        if ((closeableImage instanceof CloseableBitmap) && (underlyingBitmap = ((CloseableBitmap) closeableImage).getUnderlyingBitmap()) != null && !underlyingBitmap.isRecycled() && underlyingBitmap.getConfig() != null) {
-                            Bitmap tempBitmap = underlyingBitmap.copy(underlyingBitmap.getConfig(), false);
-                            Intrinsics.checkNotNullExpressionValue(tempBitmap, "tempBitmap");
-                            su5Var.a(tempBitmap);
-                        }
-                    } finally {
-                        result.close();
-                        mo168clone.close();
-                    }
-                }
-            }
-        }
-    }
-
-    public uu5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public void a(String url, SimpleDraweeView imageView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, url, imageView) == null) {
-            Intrinsics.checkNotNullParameter(url, "url");
-            Intrinsics.checkNotNullParameter(imageView, "imageView");
-            GenericDraweeHierarchyBuilder fadeDuration = new GenericDraweeHierarchyBuilder(imageView.getResources()).setActualImageScaleType(ScalingUtils.ScaleType.FIT_CENTER).setFadeDuration(0);
-            AbstractDraweeController build = Fresco.newDraweeControllerBuilder().setUri(url).setAutoPlayAnimations(true).build();
-            Drawable a2 = a.a();
-            if (a2 != null) {
-                fadeDuration.setPlaceholderImage(a2);
-            }
-            imageView.setHierarchy(fadeDuration.build());
-            imageView.setController(build);
-        }
-    }
-
-    public final void b(String str, su5 su5Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, su5Var) == null) && !TextUtils.isEmpty(str) && su5Var != null) {
-            Fresco.getImagePipeline().fetchDecodedImage(ImageRequestBuilder.newBuilderWithSource(Uri.parse(str)).build(), TbadkCoreApplication.getInst()).subscribe(new b(su5Var), UiThreadImmediateExecutorService.getInstance());
-        }
-    }
-
-    public final Bitmap c(String str) {
+    public static final <T> KClass<T> h(TypeToken<T> typeToken) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            Bitmap bitmap = null;
-            if (TextUtils.isEmpty(str)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, typeToken)) == null) {
+            Class<? super T> rawType = typeToken.getRawType();
+            if (rawType != null) {
+                return JvmClassMappingKt.getKotlinClass(rawType);
+            }
+            throw new NullPointerException("null cannot be cast to non-null type java.lang.Class<T of com.baidu.tbadk.util.gson.KotlinReflectiveTypeAdapterFactoryKt.toKClass>");
+        }
+        return (KClass) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tbadk.util.gson.KotlinReflectiveTypeAdapterFactory.create(com.google.gson.Gson, com.google.gson.reflect.TypeToken<T>):com.google.gson.TypeAdapter<T>] */
+    public static final /* synthetic */ List b(KParameter kParameter, Class cls) {
+        return f(kParameter, cls);
+    }
+
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tbadk.util.gson.KotlinReflectiveTypeAdapterFactory.create(com.google.gson.Gson, com.google.gson.reflect.TypeToken<T>):com.google.gson.TypeAdapter<T>] */
+    public static final /* synthetic */ TypeToken c(TypeToken typeToken, KParameter kParameter) {
+        return g(typeToken, kParameter);
+    }
+
+    public static final Object e(KParameter kParameter) {
+        InterceptResult invokeL;
+        KClass kClass;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, kParameter)) == null) {
+            if (kParameter.getType().isMarkedNullable()) {
                 return null;
             }
-            DataSource<CloseableReference<CloseableImage>> fetchImageFromBitmapCache = Fresco.getImagePipeline().fetchImageFromBitmapCache(ImageRequest.fromUri(Uri.parse(str)), CallerThreadExecutor.getInstance());
-            try {
-                CloseableReference<CloseableImage> result = fetchImageFromBitmapCache.getResult();
-                if (result == null) {
-                    return null;
-                }
-                CloseableBitmap closeableBitmap = (CloseableBitmap) result.get();
-                if (closeableBitmap != null) {
-                    bitmap = closeableBitmap.getUnderlyingBitmap();
-                }
-                CloseableReference.closeSafely(result);
-                return bitmap;
-            } finally {
-                fetchImageFromBitmapCache.close();
+            KClassifier classifier = kParameter.getType().getClassifier();
+            if (classifier instanceof KClass) {
+                kClass = (KClass) classifier;
+            } else {
+                kClass = null;
             }
+            if (kClass == null) {
+                return null;
+            }
+            if (!KClasses.isSubclassOf(kClass, Reflection.getOrCreateKotlinClass(Collection.class)) && !KClasses.isSubclassOf(kClass, Reflection.getOrCreateKotlinClass(Object[].class))) {
+                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(String.class))) {
+                    return "";
+                }
+                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Boolean.TYPE))) {
+                    return Boolean.FALSE;
+                }
+                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Byte.TYPE))) {
+                    return (byte) 0;
+                }
+                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Character.TYPE))) {
+                    return (char) 0;
+                }
+                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Double.TYPE))) {
+                    return Double.valueOf(0.0d);
+                }
+                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Float.TYPE))) {
+                    return Float.valueOf(0.0f);
+                }
+                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Integer.class))) {
+                    return 0;
+                }
+                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Long.TYPE))) {
+                    return 0L;
+                }
+                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Short.TYPE))) {
+                    return (short) 0;
+                }
+                return Holder.OBJECT;
+            }
+            return Holder.ARRAY;
         }
-        return (Bitmap) invokeL.objValue;
+        return invokeL.objValue;
     }
 
-    public void d(String str, su5 su5Var) {
-        Bitmap c;
+    public static final <T> List<String> f(KParameter kParameter, Class<T> cls) {
+        InterceptResult invokeLL;
+        Field field;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048579, this, str, su5Var) != null) || su5Var == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, kParameter, cls)) == null) {
+            String name = kParameter.getName();
+            if (name == null) {
+                return CollectionsKt__CollectionsKt.emptyList();
+            }
+            SerializedName serializedName = null;
+            try {
+                field = cls.getDeclaredField(name);
+            } catch (NoSuchFieldException unused) {
+                field = null;
+            }
+            if (field != null) {
+                serializedName = (SerializedName) field.getAnnotation(SerializedName.class);
+            }
+            if (field != null && !Modifier.isTransient(field.getModifiers())) {
+                if (serializedName != null) {
+                    return CollectionsKt___CollectionsKt.plus((Collection) CollectionsKt__CollectionsJVMKt.listOf(serializedName.value()), (Object[]) serializedName.alternate());
+                }
+                return CollectionsKt__CollectionsJVMKt.listOf(name);
+            }
+            return CollectionsKt__CollectionsKt.emptyList();
         }
-        if (Fresco.getImagePipeline().isInBitmapMemoryCache(ImageRequest.fromUri(str)) && (c = c(str)) != null) {
-            su5Var.a(c);
-        } else {
-            b(str, su5Var);
-        }
+        return (List) invokeLL.objValue;
     }
 
-    public void e(String str) {
+    public static final TypeToken<?> g(TypeToken<?> typeToken, KParameter kParameter) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            Fresco.getImagePipeline().prefetchToBitmapCache(ImageRequest.fromUri(str), TbadkCoreApplication.getInst());
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, typeToken, kParameter)) == null) {
+            TypeToken<?> resolveParameterType = TypeToken.get(C$Gson$Types.resolve(typeToken.getType(), typeToken.getRawType(), ReflectJvmMapping.getJavaType(kParameter.getType())));
+            Intrinsics.checkNotNullExpressionValue(resolveParameterType, "resolveParameterType");
+            return resolveParameterType;
         }
+        return (TypeToken) invokeLL.objValue;
     }
 }

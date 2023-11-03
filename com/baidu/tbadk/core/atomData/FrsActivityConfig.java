@@ -19,13 +19,13 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.ad;
-import com.baidu.tieba.cs5;
-import com.baidu.tieba.er7;
 import com.baidu.tieba.frs.mc.FrsNetModel;
-import com.baidu.tieba.t6a;
+import com.baidu.tieba.qd;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
-import com.baidu.tieba.tz9;
+import com.baidu.tieba.wt5;
+import com.baidu.tieba.yca;
+import com.baidu.tieba.yja;
+import com.baidu.tieba.z38;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -103,6 +103,7 @@ public class FrsActivityConfig extends IntentConfig {
     public static final String TOAST_DATA = "toast_data";
     public static final String YUELAOU_LOCATE = "yuelaou_locate";
     public transient /* synthetic */ FieldHolder $fh;
+    public Class<?> mActivityClass;
     public BdUniqueId mPageId;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -123,12 +124,13 @@ public class FrsActivityConfig extends IntentConfig {
                 return;
             }
         }
+        this.mActivityClass = null;
         Intent intent = getIntent();
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
         BdUniqueId gen = BdUniqueId.gen();
         this.mPageId = gen;
         intent.putExtra(FRS_PAGE_ID, gen);
-        t6a.b("frs");
+        yja.b("frs");
     }
 
     public FrsActivityConfig createBackSpecialCfg(String str, String str2, boolean z, boolean z2) {
@@ -214,108 +216,126 @@ public class FrsActivityConfig extends IntentConfig {
     }
 
     @Override // com.baidu.tbadk.core.frameworkData.IntentConfig
+    public Class<?> getActivityClass() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mActivityClass;
+        }
+        return (Class) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.frameworkData.IntentConfig
     public void preJump() {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            Intent intent = getIntent();
-            String stringExtra = intent.getStringExtra("name");
-            String stringExtra2 = intent.getStringExtra("from");
-            Uri uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI);
-            if (uri != null) {
-                stringExtra = uri.getQueryParameter("name");
-                stringExtra2 = uri.getQueryParameter("from");
-                if (StringUtils.isNull(stringExtra)) {
-                    stringExtra = uri.getQueryParameter(TiebaStatic.Params.H5_FORUM_NAME);
-                }
-            }
-            int intExtra = intent.getIntExtra(FRS_CALL_FROM, 0);
-            long longExtra = intent.getLongExtra(FRS_HOT_THREAD_ID, 0L);
-            String stringExtra3 = intent.getStringExtra("yuelaou_locate");
-            if (TextUtils.isEmpty(stringExtra3)) {
-                stringExtra3 = "";
-            }
-            int i2 = -1;
-            FrsRequestData frsRequestData = new FrsRequestData();
-            if (FRS_FROM_FREQUENTLT_FORUM_NEW_THREAD.equals(stringExtra2)) {
-                i2 = 3;
-            } else if (FRS_FROM_FREQUENTLY_FORUM_POST_THREAD.equals(stringExtra2)) {
-                i2 = 6;
-            }
-            if (UbsABTestHelper.isFrsNewAreaTabSortTestA() && FrsTabTestHelper.HAVE_NOT_RECORD_SORT != FrsTabTestHelper.getFrsNewAreaTabSort()) {
-                frsRequestData.Z(er7.d(FrsTabTestHelper.getFrsNewAreaTabSort()));
-            }
-            frsRequestData.setSortType(er7.d(i2));
-            if (i2 == 5) {
-                frsRequestData.c0(1);
-            } else {
-                frsRequestData.c0(0);
-            }
-            frsRequestData.N("forum_name", ad.getUrlEncode(stringExtra));
-            frsRequestData.N("client_type", "2");
-            frsRequestData.setPn(1);
-            frsRequestData.setCallFrom(intExtra);
-            er7.e(i2, frsRequestData);
-            frsRequestData.k0("2");
-            frsRequestData.l0("-2");
-            frsRequestData.e0(stringExtra);
-            frsRequestData.s0(1);
-            frsRequestData.W(0);
-            frsRequestData.r0(BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst()));
-            frsRequestData.q0(BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst()));
-            frsRequestData.p0(BdUtilHelper.getEquipmentDensity(TbadkCoreApplication.getInst()));
-            if (TbImageHelper.getInstance().isShowBigImage()) {
-                i = 2;
-            } else {
-                i = 1;
-            }
-            frsRequestData.u0(i);
-            if (uri != null) {
-                frsRequestData.o0(uri.toString());
-            }
-            frsRequestData.g0(null);
-            frsRequestData.t0(stringExtra3);
-            frsRequestData.f0(JavaTypesHelper.toLong(cs5.a(), 0L));
-            frsRequestData.setStType(stringExtra2);
-            frsRequestData.b0(1);
-            frsRequestData.setNeedCache(true);
-            frsRequestData.setUpdateType(3);
-            frsRequestData.a0(longExtra);
-            er7.e(i2, frsRequestData);
-            frsRequestData.i0(1);
-            frsRequestData.setPushTid(intent.getStringExtra(MainTabActivityConfig.PUSH_TID));
-            if (ThreadData.isRecAppLoaded.get() && tz9.m().b() != null) {
-                int d = tz9.m().b().d(stringExtra, false);
-                int e = tz9.m().b().e(stringExtra, false);
-                if (frsRequestData.S() == 1) {
-                    d++;
-                } else if (frsRequestData.S() == 2) {
-                    e++;
-                }
-                frsRequestData.m0(d);
-                frsRequestData.h0(e);
-            }
-            FrsNetModel frsNetModel = new FrsNetModel(null, frsRequestData);
-            frsNetModel.setUniqueId(this.mPageId);
-            frsNetModel.p0(frsNetModel);
-            TbadkCoreApplication.getInst().getFrsModeArray().put(this.mPageId.getId(), frsNetModel);
-            frsNetModel.loadData();
-            frsRequestData.setPushTid(null);
+        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || UbsABTestHelper.isNewFrs()) {
+            return;
         }
+        Intent intent = getIntent();
+        String stringExtra = intent.getStringExtra("name");
+        String stringExtra2 = intent.getStringExtra("from");
+        Uri uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI);
+        if (uri != null) {
+            stringExtra = uri.getQueryParameter("name");
+            stringExtra2 = uri.getQueryParameter("from");
+            if (StringUtils.isNull(stringExtra)) {
+                stringExtra = uri.getQueryParameter(TiebaStatic.Params.H5_FORUM_NAME);
+            }
+        }
+        int intExtra = intent.getIntExtra(FRS_CALL_FROM, 0);
+        long longExtra = intent.getLongExtra(FRS_HOT_THREAD_ID, 0L);
+        String stringExtra3 = intent.getStringExtra("yuelaou_locate");
+        if (TextUtils.isEmpty(stringExtra3)) {
+            stringExtra3 = "";
+        }
+        int i2 = -1;
+        FrsRequestData frsRequestData = new FrsRequestData();
+        if (FRS_FROM_FREQUENTLT_FORUM_NEW_THREAD.equals(stringExtra2)) {
+            i2 = 3;
+        } else if (FRS_FROM_FREQUENTLY_FORUM_POST_THREAD.equals(stringExtra2)) {
+            i2 = 6;
+        }
+        if (UbsABTestHelper.isFrsNewAreaTabSortTestA() && FrsTabTestHelper.HAVE_NOT_RECORD_SORT != FrsTabTestHelper.getFrsNewAreaTabSort()) {
+            frsRequestData.a0(z38.d(FrsTabTestHelper.getFrsNewAreaTabSort()));
+        }
+        frsRequestData.setSortType(z38.d(i2));
+        if (i2 == 5) {
+            frsRequestData.d0(1);
+        } else {
+            frsRequestData.d0(0);
+        }
+        frsRequestData.O("forum_name", qd.getUrlEncode(stringExtra));
+        frsRequestData.O("client_type", "2");
+        frsRequestData.setPn(1);
+        frsRequestData.setCallFrom(intExtra);
+        z38.e(i2, frsRequestData);
+        frsRequestData.l0("2");
+        frsRequestData.m0("-2");
+        frsRequestData.f0(stringExtra);
+        frsRequestData.t0(1);
+        frsRequestData.X(0);
+        frsRequestData.s0(BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst()));
+        frsRequestData.r0(BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst()));
+        frsRequestData.q0(BdUtilHelper.getEquipmentDensity(TbadkCoreApplication.getInst()));
+        if (TbImageHelper.getInstance().isShowBigImage()) {
+            i = 2;
+        } else {
+            i = 1;
+        }
+        frsRequestData.v0(i);
+        if (uri != null) {
+            frsRequestData.p0(uri.toString());
+        }
+        frsRequestData.h0(null);
+        frsRequestData.u0(stringExtra3);
+        frsRequestData.g0(JavaTypesHelper.toLong(wt5.a(), 0L));
+        frsRequestData.setStType(stringExtra2);
+        frsRequestData.c0(1);
+        frsRequestData.setNeedCache(true);
+        frsRequestData.setUpdateType(3);
+        frsRequestData.b0(longExtra);
+        z38.e(i2, frsRequestData);
+        frsRequestData.j0(1);
+        frsRequestData.setPushTid(intent.getStringExtra(MainTabActivityConfig.PUSH_TID));
+        if (ThreadData.isRecAppLoaded.get() && yca.m().b() != null) {
+            int d = yca.m().b().d(stringExtra, false);
+            int e = yca.m().b().e(stringExtra, false);
+            if (frsRequestData.T() == 1) {
+                d++;
+            } else if (frsRequestData.T() == 2) {
+                e++;
+            }
+            frsRequestData.n0(d);
+            frsRequestData.i0(e);
+        }
+        FrsNetModel frsNetModel = new FrsNetModel(null, frsRequestData);
+        frsNetModel.setUniqueId(this.mPageId);
+        frsNetModel.q0(frsNetModel);
+        TbadkCoreApplication.getInst().getFrsModeArray().put(this.mPageId.getId(), frsNetModel);
+        frsNetModel.loadData();
+        frsRequestData.setPushTid(null);
     }
 
     public void setAchievementUrl(String str) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && (intent = getIntent()) != null) {
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) && (intent = getIntent()) != null) {
             intent.putExtra(KEY_ACHIEVEMENT_URL, str);
+        }
+    }
+
+    public void setActivityClass(Class<?> cls) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, cls) == null) {
+            this.mActivityClass = cls;
         }
     }
 
     public FrsActivityConfig setCallFrom(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
             getIntent().putExtra(FRS_CALL_FROM, i);
             return this;
         }
@@ -325,7 +345,7 @@ public class FrsActivityConfig extends IntentConfig {
     public FrsActivityConfig setDefaultGameTabId(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
             getIntent().putExtra(FRS_GAME_DEFAULT_TAB_ID, i);
             return this;
         }
@@ -335,7 +355,7 @@ public class FrsActivityConfig extends IntentConfig {
     public FrsActivityConfig setFakeThreadId(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048588, this, j)) == null) {
             getIntent().putExtra(FRS_FAKE_THREAD_ID, j);
             return this;
         }
@@ -345,7 +365,7 @@ public class FrsActivityConfig extends IntentConfig {
     public void setFrsCallFromByItemPosition(int i) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048587, this, i) == null) && (intent = getIntent()) != null) {
+        if ((interceptable == null || interceptable.invokeI(1048589, this, i) == null) && (intent = getIntent()) != null) {
             intent.putExtra(FRS_CALL_FROM_BY_ITEM_POSITION, i);
         }
     }
@@ -353,7 +373,7 @@ public class FrsActivityConfig extends IntentConfig {
     public void setGroupListLocateRoomId(long j) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048588, this, j) == null) && (intent = getIntent()) != null) {
+        if ((interceptable == null || interceptable.invokeJ(1048590, this, j) == null) && (intent = getIntent()) != null) {
             intent.putExtra(LOCATE_ROOM_ID, j);
         }
     }
@@ -361,7 +381,7 @@ public class FrsActivityConfig extends IntentConfig {
     public void setIsShowImGroupList(int i) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048589, this, i) == null) && (intent = getIntent()) != null) {
+        if ((interceptable == null || interceptable.invokeI(1048591, this, i) == null) && (intent = getIntent()) != null) {
             boolean z = true;
             if (i != 1) {
                 z = false;
@@ -373,7 +393,7 @@ public class FrsActivityConfig extends IntentConfig {
     public void setJumpTabId(int i) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048590, this, i) == null) && (intent = getIntent()) != null) {
+        if ((interceptable == null || interceptable.invokeI(1048592, this, i) == null) && (intent = getIntent()) != null) {
             intent.putExtra(KEY_JUMP_TAB_ID, i);
         }
     }
@@ -381,14 +401,14 @@ public class FrsActivityConfig extends IntentConfig {
     public void setPushTid(String str) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048591, this, str) == null) && (intent = getIntent()) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048593, this, str) == null) && (intent = getIntent()) != null) {
             intent.putExtra(MainTabActivityConfig.PUSH_TID, str);
         }
     }
 
     public void setRoomId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
             getIntent().putExtra(LOCATE_ROOM_ID, j);
         }
     }
@@ -396,7 +416,7 @@ public class FrsActivityConfig extends IntentConfig {
     public void setToastData(String str) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048593, this, str) == null) && (intent = getIntent()) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048595, this, str) == null) && (intent = getIntent()) != null) {
             intent.putExtra(TOAST_DATA, str);
         }
     }
@@ -404,7 +424,7 @@ public class FrsActivityConfig extends IntentConfig {
     public void setUri(Uri uri) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048594, this, uri) == null) && (intent = getIntent()) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048596, this, uri) == null) && (intent = getIntent()) != null) {
             intent.putExtra(IntentConfig.KEY_URI, uri);
         }
     }

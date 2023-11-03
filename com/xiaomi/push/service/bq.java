@@ -54,32 +54,32 @@ public class bq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m805a() {
+    public void m809a() {
         this.f948a = System.currentTimeMillis();
         this.f949a.a(1);
         this.b = 0;
     }
 
     public void a(boolean z) {
-        if (!this.f949a.m750a()) {
+        if (!this.f949a.m754a()) {
             com.xiaomi.channel.commonutils.logger.b.c("should not reconnect as no client or network.");
         } else if (z) {
-            if (!this.f949a.m751a(1)) {
+            if (!this.f949a.m755a(1)) {
                 this.b++;
             }
             this.f949a.a(1);
             XMPushService xMPushService = this.f949a;
             xMPushService.getClass();
             xMPushService.a(new XMPushService.e());
-        } else if (this.f949a.m751a(1)) {
+        } else if (this.f949a.m755a(1)) {
         } else {
             int a = a();
             this.b++;
-            com.xiaomi.channel.commonutils.logger.b.m182a("schedule reconnect in " + a + "ms");
+            com.xiaomi.channel.commonutils.logger.b.m186a("schedule reconnect in " + a + "ms");
             XMPushService xMPushService2 = this.f949a;
             xMPushService2.getClass();
             xMPushService2.a(new XMPushService.e(), (long) a);
-            if (this.b == 2 && fg.m477a().m482a()) {
+            if (this.b == 2 && fg.m481a().m486a()) {
                 ap.b();
             }
             if (this.b == 3) {

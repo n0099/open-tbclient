@@ -3,7 +3,7 @@ package com.google.zxing.aztec;
 import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.DetectorResult;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class AztecDetectorResult extends DetectorResult {
     public final boolean compact;
     public final int nbDatablocks;

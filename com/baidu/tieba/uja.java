@@ -1,53 +1,42 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.aperf.param.IAperfOverlayContext;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes8.dex */
-public class uja extends CustomMessageListener {
+public class uja implements IAperfOverlayContext {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public uja(MainTabActivity mainTabActivity, gha ghaVar) {
-        super(2016493);
+    public uja() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, ghaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = mainTabActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        gc5 gc5Var;
+    @Override // com.baidu.searchbox.aperf.param.IAperfOverlayContext
+    public String getAppVersion() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof gc5) && (gc5Var = (gc5) customResponsedMessage.getData()) != null && !StringUtils.isNull(gc5Var.a)) {
-            kr5.h(gc5Var);
-            if (StringUtils.isNull(gc5Var.c)) {
-                UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{gc5Var.a});
-            } else {
-                UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{gc5Var.a, gc5Var.c});
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return TbConfig.getVersion();
         }
+        return (String) invokeV.objValue;
     }
 }

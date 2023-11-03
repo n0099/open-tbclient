@@ -1,227 +1,87 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.core.container.NgWebView;
-import com.baidu.tieba.a53;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
 /* loaded from: classes5.dex */
-public class ar3 implements jr1 {
+public class ar3 implements rq3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public cl3 a;
+    public br3 a;
+    public boolean b;
+    public boolean c;
+    public boolean d;
 
-    @Override // com.baidu.tieba.jr1
-    public void d(String str, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, context) == null) {
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements a53.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanAppActivity a;
-        public final /* synthetic */ String b;
-
-        public a(ar3 ar3Var, SwanAppActivity swanAppActivity, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ar3Var, swanAppActivity, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = swanAppActivity;
-            this.b = str;
-        }
-
-        @Override // com.baidu.tieba.a53.a
-        public void a(a53 a53Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, a53Var) == null) {
-                ot2.d(a53Var.c(), this.a, this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends mi2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanAppActivity a;
-        public final /* synthetic */ ar3 b;
-
-        public b(ar3 ar3Var, SwanAppActivity swanAppActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ar3Var, swanAppActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ar3Var;
-            this.a = swanAppActivity;
-        }
-
-        @Override // com.baidu.tieba.mi2, com.baidu.tieba.ni2
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.a.j();
-                this.a.G0(this);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947624743, "Lcom/baidu/tieba/ar3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947624743, "Lcom/baidu/tieba/ar3;");
-                return;
-            }
-        }
-        boolean z = am1.a;
-    }
-
-    public ar3() {
+    public ar3(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        c(context);
     }
 
-    @Override // com.baidu.tieba.jr1
-    public void a(NgWebView ngWebView) {
+    public final void c(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ngWebView) == null) {
-            ngWebView.doSelectionCancel();
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && this.a == null) {
+            this.a = br3.a(context);
         }
     }
 
-    @Override // com.baidu.tieba.jr1
-    public void b(NgWebView ngWebView, String str) {
-        SwanAppActivity w;
+    @Override // com.baidu.tieba.rq3
+    public void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ngWebView, str) == null) && (w = o53.K().w()) != null && !TextUtils.isEmpty(str)) {
-            this.a = new cl3(ngWebView.covertToView());
-            int[] g = g(w);
-            int[] h = h(w);
-            for (int i = 0; i < g.length; i++) {
-                this.a.e(g[i], h[i]);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a != null && this.b && d()) {
+            this.b = false;
+            if (this.a.c()) {
+                this.a.e(12, 0);
+                this.a.e(13, 0);
+                return;
             }
-            this.a.r(new a(this, w, str));
-            this.a.t();
-            w.u0(new b(this, w));
+            this.a.d(12, 0);
+            this.a.d(13, 0);
         }
     }
 
-    @Override // com.baidu.tieba.jr1
-    public void c(NgWebView ngWebView, int i, int i2, int i3, int i4, String str, boolean z) {
+    @Override // com.baidu.tieba.rq3
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{ngWebView, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, Boolean.valueOf(z)}) == null) {
-            ngWebView.updateAndShowPopupWindow(i3, i4, i, i2, str, true);
-            if (z) {
-                i("show", null, null);
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && this.a != null && !this.b && d()) {
+            this.b = true;
+            if (this.a.c()) {
+                this.a.e(12, i);
+                this.a.e(13, i);
+                return;
             }
+            this.a.d(12, i);
+            this.a.d(13, i);
         }
     }
 
-    @Override // com.baidu.tieba.jr1
-    public void e(String str, Context context) {
+    public final boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048580, this, str, context) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        kj3.b(context).c(str);
-        i("click", CommandUBCHelper.COMMAND_UBC_TYPE_COPY, null);
-    }
-
-    public int[] g(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
-            int[] iArr = {7, 6, 8};
-            if (!ri3.a(context, "android.permission.SET_WALLPAPER")) {
-                int[] iArr2 = new int[2];
-                System.arraycopy(iArr, 0, iArr2, 0, 2);
-                return iArr2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (!this.d) {
+                this.d = true;
+                this.c = this.a.g();
             }
-            return iArr;
+            return this.c;
         }
-        return (int[]) invokeL.objValue;
-    }
-
-    public int[] h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
-            int[] iArr = {R.string.obfuscated_res_0x7f0f14e0, R.string.obfuscated_res_0x7f0f14e2, R.string.obfuscated_res_0x7f0f14e6};
-            if (!ri3.a(context, "android.permission.SET_WALLPAPER")) {
-                int[] iArr2 = new int[2];
-                System.arraycopy(iArr, 0, iArr2, 0, 2);
-                return iArr2;
-            }
-            return iArr;
-        }
-        return (int[]) invokeL.objValue;
-    }
-
-    public void i(@NonNull String str, @Nullable String str2, @Nullable String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048583, this, str, str2, str3) == null) {
-            rc3 rc3Var = new rc3();
-            rc3Var.a = "tool";
-            rc3Var.f = o53.K().getAppId();
-            rc3Var.c = "miniapp";
-            rc3Var.g = "text";
-            rc3Var.b = str;
-            rc3Var.e = str2;
-            if (!TextUtils.isEmpty(str3)) {
-                rc3Var.a("query", str3);
-            }
-            ic3.x("810", rc3Var);
-        }
+        return invokeV.booleanValue;
     }
 }

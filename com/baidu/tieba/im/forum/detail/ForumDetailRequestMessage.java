@@ -17,6 +17,7 @@ public class ForumDetailRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long forumId;
+    public int isNewFrs;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumDetailRequestMessage() {
@@ -36,6 +37,7 @@ public class ForumDetailRequestMessage extends NetMessage {
             }
         }
         this.forumId = 0L;
+        this.isNewFrs = 0;
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
@@ -49,6 +51,7 @@ public class ForumDetailRequestMessage extends NetMessage {
             }
             GetForumDetailReqIdl.Builder builder2 = new GetForumDetailReqIdl.Builder();
             builder.forum_id = Long.valueOf(this.forumId);
+            builder.is_newfrs = Integer.valueOf(this.isNewFrs);
             builder2.data = builder.build(false);
             return builder2.build(false);
         }

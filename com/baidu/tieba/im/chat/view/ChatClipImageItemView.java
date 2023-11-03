@@ -16,10 +16,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.cg;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.gf;
-import com.baidu.tieba.jf;
-import com.baidu.tieba.mf;
+import com.baidu.tieba.wf;
+import com.baidu.tieba.zf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,11 +27,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
-public class ChatClipImageItemView extends GifView implements jf.a {
+public class ChatClipImageItemView extends GifView implements zf.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean M;
-    public jf N;
+    public zf N;
     public final Path O;
     public boolean P;
     public a Q;
@@ -41,7 +41,7 @@ public class ChatClipImageItemView extends GifView implements jf.a {
         void a(Canvas canvas);
     }
 
-    @Override // com.baidu.tieba.jf.a
+    @Override // com.baidu.tieba.zf.a
     public void b(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
@@ -150,19 +150,19 @@ public class ChatClipImageItemView extends GifView implements jf.a {
                 }
             }
             if (!z) {
-                this.N = new mf();
+                this.N = new cg();
             } else {
-                this.N = new gf();
+                this.N = new wf();
             }
             this.mArgs.n = true;
             this.N.t(this);
-            jf jfVar = this.N;
-            this.mDrawer = jfVar;
-            jfVar.r(this.mArgs);
+            zf zfVar = this.N;
+            this.mDrawer = zfVar;
+            zfVar.r(this.mArgs);
         }
     }
 
-    @Override // com.baidu.tieba.jf.a
+    @Override // com.baidu.tieba.zf.a
     public Path a(RectF rectF) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -173,7 +173,7 @@ public class ChatClipImageItemView extends GifView implements jf.a {
             float width = rectF.width();
             float height = rectF.height();
             this.O.reset();
-            this.O.set(r(width, height, 1.0f));
+            this.O.set(s(width, height, 1.0f));
             return this.O;
         }
         return (Path) invokeL.objValue;
@@ -234,11 +234,11 @@ public class ChatClipImageItemView extends GifView implements jf.a {
             } else {
                 z2 = false;
             }
-            jf jfVar = this.N;
+            zf zfVar = this.N;
             if (!z2 && !z) {
                 z3 = false;
             }
-            jfVar.u(z3);
+            zfVar.u(z3);
             return bdImage;
         }
         return (BdImage) invokeV.objValue;
@@ -263,7 +263,7 @@ public class ChatClipImageItemView extends GifView implements jf.a {
         }
     }
 
-    public final Path r(float f, float f2, float f3) {
+    public final Path s(float f, float f2, float f3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {

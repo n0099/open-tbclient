@@ -54,43 +54,43 @@ public final class R {
 
     /* loaded from: classes4.dex */
     public static final class drawable {
-        public static final int bdvideoplayer_back = 0x7f08026d;
-        public static final int bdvideoplayer_btn_net_error_retry_selector = 0x7f08026e;
-        public static final int bdvideoplayer_mute_off = 0x7f08027b;
-        public static final int bdvideoplayer_mute_on = 0x7f08027c;
-        public static final int bdvideoplayer_net_error_retry_bg = 0x7f08027d;
-        public static final int bdvideoplayer_net_error_retry_bg_pressed = 0x7f08027e;
-        public static final int bdvideoplayer_pause = 0x7f08027f;
-        public static final int bdvideoplayer_play = 0x7f080280;
-        public static final int bdvideoplayer_quick_share_item = 0x7f080281;
-        public static final int bdvideoplayer_seekbar_thumb = 0x7f080282;
-        public static final int bdvideoplayer_switch_land = 0x7f080283;
-        public static final int bdvideoplayer_zeus_full_refresh_enable = 0x7f080284;
-        public static final int bdvideoplayer_zeus_full_refresh_normal = 0x7f080285;
-        public static final int bdvideoplayer_zeus_full_refresh_selector = 0x7f080286;
+        public static final int bdvideoplayer_back = 0x7f080271;
+        public static final int bdvideoplayer_btn_net_error_retry_selector = 0x7f080272;
+        public static final int bdvideoplayer_mute_off = 0x7f08027f;
+        public static final int bdvideoplayer_mute_on = 0x7f080280;
+        public static final int bdvideoplayer_net_error_retry_bg = 0x7f080281;
+        public static final int bdvideoplayer_net_error_retry_bg_pressed = 0x7f080282;
+        public static final int bdvideoplayer_pause = 0x7f080283;
+        public static final int bdvideoplayer_play = 0x7f080284;
+        public static final int bdvideoplayer_quick_share_item = 0x7f080285;
+        public static final int bdvideoplayer_seekbar_thumb = 0x7f080286;
+        public static final int bdvideoplayer_switch_land = 0x7f080287;
+        public static final int bdvideoplayer_zeus_full_refresh_enable = 0x7f080288;
+        public static final int bdvideoplayer_zeus_full_refresh_normal = 0x7f080289;
+        public static final int bdvideoplayer_zeus_full_refresh_selector = 0x7f08028a;
     }
 
     /* loaded from: classes4.dex */
     public static final class id {
-        public static final int bdvideoplayer_seekbar = 0x7f0903c4;
-        public static final int bt_retry = 0x7f0904a0;
-        public static final int center = 0x7f090696;
-        public static final int left = 0x7f0914e8;
-        public static final int main_duration_text = 0x7f0916c5;
-        public static final int main_progress_text = 0x7f0916cb;
-        public static final int main_view_seekbar = 0x7f0916d7;
-        public static final int play_error_layout_retry = 0x7f091cd7;
-        public static final int progress = 0x7f091d9d;
-        public static final int right = 0x7f091f3f;
-        public static final int time = 0x7f092570;
-        public static final int tv_error = 0x7f092720;
+        public static final int bdvideoplayer_seekbar = 0x7f0903dd;
+        public static final int bt_retry = 0x7f0904bc;
+        public static final int center = 0x7f0906b5;
+        public static final int left = 0x7f091527;
+        public static final int main_duration_text = 0x7f091705;
+        public static final int main_progress_text = 0x7f09170b;
+        public static final int main_view_seekbar = 0x7f091717;
+        public static final int play_error_layout_retry = 0x7f091d1e;
+        public static final int progress = 0x7f091de4;
+        public static final int right = 0x7f091f86;
+        public static final int time = 0x7f0925c7;
+        public static final int tv_error = 0x7f09277f;
     }
 
     /* loaded from: classes4.dex */
     public static final class layout {
-        public static final int bdvideoplayer_layout_kernel_error = 0x7f0d0171;
-        public static final int bdvideoplayer_layout_net_error = 0x7f0d0172;
-        public static final int bdvideoplayer_seek_bar_view = 0x7f0d0173;
+        public static final int bdvideoplayer_layout_kernel_error = 0x7f0d0173;
+        public static final int bdvideoplayer_layout_net_error = 0x7f0d0174;
+        public static final int bdvideoplayer_seek_bar_view = 0x7f0d0175;
     }
 
     /* loaded from: classes4.dex */

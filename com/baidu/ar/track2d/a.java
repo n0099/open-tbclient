@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import com.baidu.ar.c;
 import com.baidu.ar.d;
 import java.lang.ref.WeakReference;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class a extends d implements ITrack2D {
     public WeakReference<ITrack2D> mj;
     public ITrack2DStateChangedListener xR;

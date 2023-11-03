@@ -3,7 +3,7 @@ package com.google.zxing.common;
 import com.google.zxing.DecodeHintType;
 import java.nio.charset.Charset;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class StringUtils {
     public static final boolean ASSUME_SHIFT_JIS;
     public static final String EUC_JP = "EUC_JP";

@@ -23,42 +23,42 @@ public final class DangerousPermissionContentUtils {
         switch (permissionGroupName.hashCode()) {
             case -1639857183:
                 if (permissionGroupName.equals("android.permission-group.CONTACTS")) {
-                    str = resources.getString(R.string.obfuscated_res_0x7f0f1061);
+                    str = resources.getString(R.string.obfuscated_res_0x7f0f1073);
                     break;
                 }
                 str = null;
                 break;
             case -1410061184:
                 if (permissionGroupName.equals("android.permission-group.PHONE")) {
-                    str = resources.getString(R.string.obfuscated_res_0x7f0f1063);
+                    str = resources.getString(R.string.obfuscated_res_0x7f0f1075);
                     break;
                 }
                 str = null;
                 break;
             case -1140935117:
                 if (permissionGroupName.equals("android.permission-group.CAMERA")) {
-                    str = resources.getString(R.string.obfuscated_res_0x7f0f1045);
+                    str = resources.getString(R.string.obfuscated_res_0x7f0f1057);
                     break;
                 }
                 str = null;
                 break;
             case 828638019:
                 if (permissionGroupName.equals("android.permission-group.LOCATION")) {
-                    str = resources.getString(R.string.obfuscated_res_0x7f0f1052);
+                    str = resources.getString(R.string.obfuscated_res_0x7f0f1064);
                     break;
                 }
                 str = null;
                 break;
             case 852078861:
                 if (permissionGroupName.equals("android.permission-group.STORAGE")) {
-                    str = resources.getString(R.string.obfuscated_res_0x7f0f1068);
+                    str = resources.getString(R.string.obfuscated_res_0x7f0f107a);
                     break;
                 }
                 str = null;
                 break;
             case 1581272376:
                 if (permissionGroupName.equals("android.permission-group.MICROPHONE")) {
-                    str = resources.getString(R.string.obfuscated_res_0x7f0f1060);
+                    str = resources.getString(R.string.obfuscated_res_0x7f0f1072);
                     break;
                 }
                 str = null;
@@ -70,7 +70,7 @@ public final class DangerousPermissionContentUtils {
         if (str == null) {
             return null;
         }
-        String string = resources.getString(R.string.obfuscated_res_0x7f0f1065);
+        String string = resources.getString(R.string.obfuscated_res_0x7f0f1077);
         Intrinsics.checkNotNullExpressionValue(string, "resource.getString(R.string.permission_title_end)");
         return str + string;
     }
@@ -87,32 +87,32 @@ public final class DangerousPermissionContentUtils {
                 if (!permissionGroupName.equals("android.permission-group.CONTACTS")) {
                     return null;
                 }
-                return resources.getString(R.string.obfuscated_res_0x7f0f105a);
+                return resources.getString(R.string.obfuscated_res_0x7f0f106c);
             case -1410061184:
                 if (!permissionGroupName.equals("android.permission-group.PHONE")) {
                     return null;
                 }
-                return resources.getString(R.string.obfuscated_res_0x7f0f105c);
+                return resources.getString(R.string.obfuscated_res_0x7f0f106e);
             case -1140935117:
                 if (!permissionGroupName.equals("android.permission-group.CAMERA")) {
                     return null;
                 }
-                return resources.getString(R.string.obfuscated_res_0x7f0f1054);
+                return resources.getString(R.string.obfuscated_res_0x7f0f1066);
             case 828638019:
                 if (!permissionGroupName.equals("android.permission-group.LOCATION")) {
                     return null;
                 }
-                return resources.getString(R.string.obfuscated_res_0x7f0f1056);
+                return resources.getString(R.string.obfuscated_res_0x7f0f1068);
             case 852078861:
                 if (!permissionGroupName.equals("android.permission-group.STORAGE")) {
                     return null;
                 }
-                return resources.getString(R.string.obfuscated_res_0x7f0f105f);
+                return resources.getString(R.string.obfuscated_res_0x7f0f1071);
             case 1581272376:
                 if (!permissionGroupName.equals("android.permission-group.MICROPHONE")) {
                     return null;
                 }
-                return resources.getString(R.string.obfuscated_res_0x7f0f1058);
+                return resources.getString(R.string.obfuscated_res_0x7f0f106a);
             default:
                 return null;
         }

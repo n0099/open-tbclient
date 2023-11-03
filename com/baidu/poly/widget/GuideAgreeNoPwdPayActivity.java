@@ -12,11 +12,11 @@ import com.baidu.appsearchlib.Info;
 import com.baidu.platform.comapi.UIMsg;
 import com.baidu.poly.wallet.paychannel.IChannelAuth;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dc1;
-import com.baidu.tieba.fb1;
-import com.baidu.tieba.gc1;
-import com.baidu.tieba.nd1;
-import com.baidu.tieba.xa1;
+import com.baidu.tieba.ee1;
+import com.baidu.tieba.ob1;
+import com.baidu.tieba.uc1;
+import com.baidu.tieba.wb1;
+import com.baidu.tieba.xc1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -45,13 +45,13 @@ public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClick
     }
 
     /* loaded from: classes3.dex */
-    public class b extends xa1<JSONObject> {
+    public class b extends ob1<JSONObject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GuideAgreeNoPwdPayActivity a;
 
         /* loaded from: classes3.dex */
-        public class a extends xa1<JSONObject> {
+        public class a extends ob1<JSONObject> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
@@ -75,15 +75,15 @@ public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClick
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.xa1
+            @Override // com.baidu.tieba.ob1
             /* renamed from: d */
             public void c(JSONObject jSONObject) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) {
                     return;
                 }
-                this.a.a.m(jSONObject);
-                this.a.a.k();
+                this.a.a.n(jSONObject);
+                this.a.a.l();
             }
         }
 
@@ -105,19 +105,19 @@ public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClick
             this.a = guideAgreeNoPwdPayActivity;
         }
 
-        @Override // com.baidu.tieba.xa1
+        @Override // com.baidu.tieba.ob1
         public void b(Throwable th, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, th, str) == null) {
                 this.a.h.c();
                 this.a.h.setEnable(true);
                 this.a.h.setPressed(false);
-                nd1.f(this.a.getApplicationContext(), UIMsg.UI_TIP_SERVER_ERROR);
+                ee1.f(this.a.getApplicationContext(), UIMsg.UI_TIP_SERVER_ERROR);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.xa1
+        @Override // com.baidu.tieba.ob1
         /* renamed from: d */
         public void c(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -130,14 +130,14 @@ public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClick
                 if (TextUtils.equals(optString, "BAIDU-ALIPAY-WISE") && !TextUtils.isEmpty(optString2)) {
                     GuideAgreeNoPwdPayActivity.j.aLiAuth(this.a, optString2, new a(this));
                 } else {
-                    nd1.f(this.a.getApplicationContext(), UIMsg.UI_TIP_SERVER_ERROR);
+                    ee1.f(this.a.getApplicationContext(), UIMsg.UI_TIP_SERVER_ERROR);
                 }
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class a extends xa1<JSONObject> {
+    public class a extends ob1<JSONObject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GuideAgreeNoPwdPayActivity a;
@@ -161,7 +161,7 @@ public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClick
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.xa1
+        @Override // com.baidu.tieba.ob1
         /* renamed from: d */
         public void c(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -169,12 +169,12 @@ public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClick
                 if (!jSONObject.optBoolean("needAgreementGuide")) {
                     this.a.finish();
                 } else {
-                    this.a.n();
+                    this.a.o();
                 }
             }
         }
 
-        @Override // com.baidu.tieba.xa1
+        @Override // com.baidu.tieba.ob1
         public void b(Throwable th, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, th, str) == null) {
@@ -234,7 +234,7 @@ public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClick
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            k();
+            l();
             finish();
         }
     }
@@ -242,12 +242,12 @@ public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClick
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            nd1.e(this, R.drawable.obfuscated_res_0x7f0807d3, "加载中");
-            fb1.j().k(this.a, this.c, this.b, new a(this));
+            ee1.e(this, R.drawable.obfuscated_res_0x7f0807dd, "加载中");
+            wb1.j().k(this.a, this.c, this.b, new a(this));
         }
     }
 
-    public final void k() {
+    public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             try {
@@ -258,7 +258,7 @@ public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClick
         }
     }
 
-    public final void n() {
+    public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.e.setVisibility(0);
@@ -266,14 +266,14 @@ public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClick
         }
     }
 
-    public final void j() {
+    public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.e = findViewById(R.id.obfuscated_res_0x7f091d01);
-            this.f = findViewById(R.id.obfuscated_res_0x7f091d02);
-            this.g = findViewById(R.id.obfuscated_res_0x7f091ced);
-            this.h = (ProgressButton) findViewById(R.id.obfuscated_res_0x7f09016a);
-            this.i = findViewById(R.id.obfuscated_res_0x7f091cf5);
+            this.e = findViewById(R.id.obfuscated_res_0x7f091d48);
+            this.f = findViewById(R.id.obfuscated_res_0x7f091d49);
+            this.g = findViewById(R.id.obfuscated_res_0x7f091d34);
+            this.h = (ProgressButton) findViewById(R.id.obfuscated_res_0x7f09017d);
+            this.i = findViewById(R.id.obfuscated_res_0x7f091d3c);
             this.h.setText("立即开启小额免密支付");
             this.g.setOnClickListener(this);
             this.h.setOnClickListener(this);
@@ -281,27 +281,27 @@ public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClick
         }
     }
 
-    public final void l(String str, String str2, String str3) {
+    public final void m(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, str3) == null) {
-            nd1.e(this, R.drawable.obfuscated_res_0x7f0807d3, "加载中");
-            fb1.j().l(str, str2, str3, new b(this));
+            ee1.e(this, R.drawable.obfuscated_res_0x7f0807dd, "加载中");
+            wb1.j().l(str, str2, str3, new b(this));
         }
     }
 
-    public final void m(JSONObject jSONObject) {
+    public final void n(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
             if (jSONObject != null && TextUtils.equals(jSONObject.optString("code"), "10000")) {
-                gc1.e(new dc1("202"));
+                xc1.e(new uc1("202"));
                 runOnUiThread(new c(this));
             } else if (jSONObject != null && TextUtils.equals(jSONObject.optString("code"), "60001")) {
-                gc1.e(new dc1("203"));
+                xc1.e(new uc1("203"));
                 h();
-                nd1.f(this, "开通失败，请重试");
+                ee1.f(this, "开通失败，请重试");
             } else {
                 h();
-                nd1.f(this, "网络异常，请重试");
+                ee1.f(this, "网络异常，请重试");
             }
         }
     }
@@ -310,15 +310,15 @@ public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClick
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f091ced) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f091d34) {
                 finish();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f09016a) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f09017d) {
                 this.h.b();
                 this.h.setEnable(false);
                 this.h.setPressed(true);
-                gc1.e(new dc1(Info.kBaiduPIDValue));
-                l(this.a, this.c, this.b);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091cf5) {
+                xc1.e(new uc1(Info.kBaiduPIDValue));
+                m(this.a, this.c, this.b);
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d3c) {
                 finish();
             }
         }
@@ -329,8 +329,8 @@ public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d003e);
-            j();
+            setContentView(R.layout.obfuscated_res_0x7f0d0040);
+            k();
             PolyActivity.g = null;
             Intent intent = getIntent();
             this.a = intent.getStringExtra("key_bduss");

@@ -1,121 +1,63 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.JsonWriter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.channel.ModuleConfigGdt;
-import com.fun.ad.sdk.internal.api.PidLoader;
-import com.fun.ad.sdk.internal.api.PidLoaderCreator;
-import com.fun.ad.sdk.internal.api.config.Ssp;
+import java.io.IOException;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class hmb implements PidLoaderCreator {
+public class hmb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ModuleConfigGdt a;
 
-    public hmb(ModuleConfigGdt moduleConfigGdt) {
+    public static void a(JsonWriter jsonWriter, Object obj) throws IOException {
+        Object opt;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {moduleConfigGdt};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLL(65536, null, jsonWriter, obj) == null) {
+            if (obj != null && obj != JSONObject.NULL) {
+                if (obj instanceof JSONArray) {
+                    JSONArray jSONArray = (JSONArray) obj;
+                    jsonWriter.beginArray();
+                    int length = jSONArray.length();
+                    for (int i = 0; i < length; i++) {
+                        Object opt2 = jSONArray.opt(i);
+                        if (opt2 != null) {
+                            a(jsonWriter, opt2);
+                        }
+                    }
+                    jsonWriter.endArray();
+                    return;
+                } else if (obj instanceof JSONObject) {
+                    JSONObject jSONObject = (JSONObject) obj;
+                    jsonWriter.beginObject();
+                    Iterator<String> keys = jSONObject.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        if (!TextUtils.isEmpty(next) && (opt = jSONObject.opt(next)) != null) {
+                            jsonWriter.name(next);
+                            a(jsonWriter, opt);
+                        }
+                    }
+                    jsonWriter.endObject();
+                    return;
+                } else if (obj instanceof Number) {
+                    jsonWriter.value((Number) obj);
+                    return;
+                } else if (obj instanceof String) {
+                    jsonWriter.value((String) obj);
+                    return;
+                } else if (obj instanceof Boolean) {
+                    jsonWriter.value(((Boolean) obj).booleanValue());
+                    return;
+                } else {
+                    jsonWriter.value(obj.toString());
+                    return;
+                }
             }
+            jsonWriter.nullValue();
         }
-        this.a = moduleConfigGdt;
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @Override // com.fun.ad.sdk.internal.api.PidLoaderCreator
-    public PidLoader create(Ssp.Pid pid) {
-        InterceptResult invokeL;
-        char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
-            String str = pid.type;
-            str.hashCode();
-            switch (str.hashCode()) {
-                case -942661506:
-                    if (str.equals(FunAdType.GDT_SPLASH)) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -596233886:
-                    if (str.equals(FunAdType.GDT_NATIVE_EXPRESS)) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 114133351:
-                    if (str.equals(FunAdType.GDT_UNIFIED_BANNER)) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 125016359:
-                    if (str.equals(FunAdType.GDT_UNIFIED_INTERSTITIAL)) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 425812868:
-                    if (str.equals(FunAdType.GDT_NATIVE_UNIFIED)) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 543046357:
-                    if (str.equals(FunAdType.GDT_REWARD_VIDEO)) {
-                        c = 5;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1990506825:
-                    if (str.equals(FunAdType.GDT_FULLSCREEN_VIDEO)) {
-                        c = 6;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    return new anb(pid);
-                case 1:
-                    return new omb(pid);
-                case 2:
-                    return new bnb(pid);
-                case 3:
-                    return new cnb(pid, this.a);
-                case 4:
-                    return new umb(pid);
-                case 5:
-                    return new zmb(pid, this.a);
-                case 6:
-                    return new nmb(pid, this.a);
-                default:
-                    return null;
-            }
-        }
-        return (PidLoader) invokeL.objValue;
     }
 }

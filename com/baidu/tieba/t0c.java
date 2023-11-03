@@ -1,77 +1,43 @@
 package com.baidu.tieba;
 
-import android.os.Message;
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import android.content.Context;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.huawei.hms.support.api.entity.auth.AuthCode;
-import com.yy.transvod.player.log.TLog;
-import java.lang.ref.WeakReference;
-import java.util.Locale;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicLong;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.win.opensdk.PBError;
+import com.win.opensdk.PBVideo;
+import com.win.opensdk.PBVideoListener;
 /* loaded from: classes8.dex */
-public class t0c {
+public class t0c extends ReporterPidLoader<PBVideo> {
     public static /* synthetic */ Interceptable $ic;
-    public static int u;
     public transient /* synthetic */ FieldHolder $fh;
-    public Timer a;
-    public int b;
-    public AtomicInteger c;
-    public WeakReference<p0c> d;
-    public boolean e;
-    public boolean f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
-    public int k;
-    public int l;
-    public long m;
-    public long n;
-    public long o;
-    public long p;
-    public AtomicLong q;
-    public AtomicLong r;
-    public AtomicLong s;
-    public AtomicBoolean t;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948128834, "Lcom/baidu/tieba/t0c;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948128834, "Lcom/baidu/tieba/t0c;");
-        }
-    }
 
     /* loaded from: classes8.dex */
-    public class a extends TimerTask {
+    public class a implements PBVideoListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ t0c a;
+        public boolean a;
+        public boolean b;
+        public final /* synthetic */ PBVideo c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ t0c e;
 
-        public a(t0c t0cVar) {
+        public a(t0c t0cVar, PBVideo pBVideo, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {t0cVar};
+                Object[] objArr = {t0cVar, pBVideo, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -81,264 +47,147 @@ public class t0c {
                     return;
                 }
             }
-            this.a = t0cVar;
+            this.e = t0cVar;
+            this.c = pBVideo;
+            this.d = str;
         }
 
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
+        @Override // com.win.opensdk.PBListener
+        public void onClicked() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!this.a.e) {
-                    t0c.k(this.a);
-                    int i = ((System.currentTimeMillis() - this.a.r.get()) > 600L ? 1 : ((System.currentTimeMillis() - this.a.r.get()) == 600L ? 0 : -1));
-                    if (i <= 0 || this.a.f || this.a.g == -1 || this.a.r.get() == 0) {
-                        if (i < 0 && this.a.f) {
-                            this.a.g = -1;
-                            this.a.f = false;
-                            this.a.v(AuthCode.StatusCode.PERMISSION_NOT_AUTHORIZED);
-                        }
-                    } else {
-                        this.a.f = true;
-                        this.a.v(AuthCode.StatusCode.PERMISSION_NOT_AUTHORIZED);
-                    }
-                    if (this.a.b % 20 == 0) {
-                        this.a.v(6000);
-                        this.a.k = 0;
-                    }
-                    if (this.a.b % 20 == 0) {
-                        this.a.v(6001);
-                        this.a.l = 0;
-                    }
-                    if (this.a.b % 30 == 0 && this.a.t.get()) {
-                        long currentTimeMillis = System.currentTimeMillis() - this.a.q.get();
-                        if (currentTimeMillis > 2000 && this.a.q.get() >= this.a.r.get() && this.a.r.get() > 0) {
-                            TLog.g(this, "[draw] may block, elapse " + currentTimeMillis + "ms after drawStart");
-                            this.a.t.set(false);
-                        }
-                    }
-                    if (this.a.b % 50 == 0 && this.a.s.get() > 1500) {
-                        TLog.g(this, "[draw] max cost: " + this.a.s.get());
-                        this.a.s.set(0L);
-                    }
-                    if (this.a.b % 50 != 0) {
-                        return;
-                    }
-                    this.a.v(AuthCode.StatusCode.PERMISSION_NOT_EXIST);
-                    this.a.m = 0L;
-                    this.a.n = 0L;
-                    this.a.b = 0;
-                    return;
-                }
-                this.a.e = false;
-                this.a.m = 0L;
-                this.a.n = 0L;
-                this.a.l = 0;
+                LogPrinter.d();
+                this.e.onAdClicked((t0c) this.c, this.b, this.d);
+                this.b = true;
+            }
+        }
+
+        @Override // com.win.opensdk.PBListener
+        public void onFail(PBError pBError) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pBError) == null) {
+                LogPrinter.e("onFail errorCode: " + pBError.getCode() + ", errorMessage: " + pBError.getMsg(), new Object[0]);
+                this.e.onError(pBError.getCode(), pBError.getMsg());
+            }
+        }
+
+        @Override // com.win.opensdk.PBListener
+        public void onLoaded() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                LogPrinter.d();
+                this.e.onAdLoaded(this.c, new String[0]);
+            }
+        }
+
+        @Override // com.win.opensdk.PBVideoListener
+        public void onRewardedAdClosed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                LogPrinter.d();
+                this.e.onAdClose(this.c);
+            }
+        }
+
+        @Override // com.win.opensdk.PBVideoListener
+        public void onRewardedAdOpened() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                LogPrinter.d();
+                this.e.onAdShow((t0c) this.c, this.a, this.d);
+                this.a = true;
+            }
+        }
+
+        @Override // com.win.opensdk.PBVideoListener
+        public void onRewardedShowFail(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+                LogPrinter.d();
+                this.e.onAdError(this.c, 0, str);
+            }
+        }
+
+        @Override // com.win.opensdk.PBVideoListener
+        public void onUserEarnedReward(boolean z, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
+                LogPrinter.d();
+                this.e.onRewardedVideo(this.c, z, this.d);
             }
         }
     }
 
-    public t0c() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t0c(Ssp.Pid pid) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.REWARD), pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = 0;
-        this.c = new AtomicInteger(0);
-        this.d = new WeakReference<>(null);
-        this.e = true;
-        this.f = false;
-        this.g = -1;
-        this.h = 0;
-        this.i = 0;
-        this.j = 0;
-        this.k = 0;
-        this.l = 0;
-        this.m = 0L;
-        this.n = 0L;
-        this.o = 0L;
-        this.p = 0L;
-        this.q = new AtomicLong(0L);
-        this.r = new AtomicLong(0L);
-        this.s = new AtomicLong(0L);
-        this.t = new AtomicBoolean(false);
     }
 
-    public static /* synthetic */ int k(t0c t0cVar) {
-        int i = t0cVar.b;
-        t0cVar.b = i + 1;
-        return i;
-    }
-
-    public void A(long j) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            this.r.set(j);
-            long j2 = this.r.get() - this.q.get();
-            if (j2 >= this.s.get()) {
-                this.s.set(j2);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
+            onLoadStart(funAdSlot);
+            String tid = getTid(String.valueOf(System.currentTimeMillis()));
+            PBVideo pBVideo = new PBVideo(context.getApplicationContext(), this.mPid.pid);
+            pBVideo.setVideoListener(new a(this, pBVideo, tid));
+            pBVideo.load();
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
+        PBVideo pBVideo;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (pBVideo = (PBVideo) obj) != null) {
+            pBVideo.destroy();
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean isAdAvailable(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            PBVideo pBVideo = (PBVideo) obj;
+            if (pBVideo != null && pBVideo.isReady()) {
+                return true;
             }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public void B(long j) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.q.set(j);
-            this.t.set(true);
-        }
-    }
-
-    public void C(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.k = i;
-        }
-    }
-
-    public void D(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.g = i;
-        }
-    }
-
-    public void s(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.n += i;
-        }
-    }
-
-    public void t(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.m += i;
-        }
-    }
-
-    public void x(p0c p0cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, p0cVar) == null) {
-            this.d = new WeakReference<>(p0cVar);
-        }
-    }
-
-    public void z(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.h = i;
-            v(6002);
-        }
-    }
-
-    public void y(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048587, this, i, i2) == null) {
-            this.i = i;
-            this.j = i2;
-            v(AuthCode.StatusCode.CERT_FINGERPRINT_ERROR);
-        }
-    }
-
-    public static int w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
-            return u;
-        }
-        return invokeV.intValue;
-    }
-
-    public void F() {
-        Timer timer;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (timer = this.a) != null) {
-            timer.cancel();
-            this.a = null;
-            this.e = true;
-            this.p = 0L;
-            this.o = 0L;
-        }
-    }
-
-    public void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.l++;
-        }
-    }
-
-    public void E(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.c.set(i);
-            TLog.g(this, String.format(Locale.getDefault(), "QualityMonitor playTaskId %d", Integer.valueOf(this.c.get())));
-            TLog.g(this, "QualityMonitor start");
-            if (this.a == null) {
-                Timer timer = new Timer();
-                this.a = timer;
-                timer.schedule(new a(this), 1000L, 100L);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
+            PBVideo pBVideo = (PBVideo) obj;
+            onShowStart(pBVideo);
+            if (!pBVideo.isReady()) {
+                LogPrinter.e("Ad isn't ready now", new Object[0]);
+                return false;
             }
-            TLog.g(this, "QualityMonitor start");
+            pBVideo.show();
+            return true;
         }
-    }
-
-    public final void v(int i) {
-        p0c p0cVar;
-        float currentTimeMillis;
-        float currentTimeMillis2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048585, this, i) != null) || (p0cVar = this.d.get()) == null) {
-            return;
-        }
-        Message message = null;
-        switch (i) {
-            case 6000:
-                message = Message.obtain(null, 6000, this.k, 0);
-                break;
-            case 6001:
-                if (this.p == 0) {
-                    currentTimeMillis = 2.0f;
-                } else {
-                    currentTimeMillis = (float) ((System.currentTimeMillis() - this.p) / 1000);
-                }
-                int i2 = (int) (this.l / currentTimeMillis);
-                u = i2;
-                message = Message.obtain(null, 6001, i2, 0);
-                this.p = System.currentTimeMillis();
-                break;
-            case 6002:
-                message = Message.obtain(null, 6002, this.h, 0);
-                break;
-            case AuthCode.StatusCode.CERT_FINGERPRINT_ERROR /* 6003 */:
-                message = Message.obtain(null, AuthCode.StatusCode.CERT_FINGERPRINT_ERROR, this.i, this.j);
-                TLog.g(this, String.format(Locale.getDefault(), "QualityMonitor output size %d * %d  , taskId %d", Integer.valueOf(this.i), Integer.valueOf(this.j), Integer.valueOf(this.c.get())));
-                break;
-            case AuthCode.StatusCode.PERMISSION_NOT_EXIST /* 6004 */:
-                if (this.o == 0) {
-                    currentTimeMillis2 = 5.0f;
-                } else {
-                    currentTimeMillis2 = (float) ((System.currentTimeMillis() - this.o) / 1000);
-                }
-                message = Message.obtain(null, AuthCode.StatusCode.PERMISSION_NOT_EXIST, (int) (((float) (this.m * 8)) / currentTimeMillis2), (int) (((float) (this.n * 8)) / currentTimeMillis2));
-                this.o = System.currentTimeMillis();
-                break;
-            case AuthCode.StatusCode.PERMISSION_NOT_AUTHORIZED /* 6005 */:
-                message = Message.obtain(null, AuthCode.StatusCode.PERMISSION_NOT_AUTHORIZED, this.f ? 1 : 0, this.g);
-                break;
-            case AuthCode.StatusCode.PERMISSION_EXPIRED /* 6006 */:
-                message = Message.obtain(null, AuthCode.StatusCode.PERMISSION_EXPIRED, 1, this.g);
-                break;
-        }
-        p0cVar.a(message, this.c.get());
+        return invokeLLLL.booleanValue;
     }
 }

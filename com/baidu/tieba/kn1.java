@@ -1,16 +1,20 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class kn1 implements fp1 {
+@Autowired
+/* loaded from: classes7.dex */
+public class kn1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public hq1 a;
 
     public kn1() {
         Interceptable interceptable = $ic;
@@ -26,21 +30,26 @@ public class kn1 implements fp1 {
         }
     }
 
-    @Override // com.baidu.tieba.fp1
-    public void a(Context context, int i) {
+    @NonNull
+    public hq1 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, context, i) == null) {
-            de3.a().putInt("fontSizeLevel", i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a == null) {
+                this.a = b();
+            }
+            return this.a;
         }
+        return (hq1) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.fp1
-    public int b(Context context) {
-        InterceptResult invokeL;
+    @Inject(force = false)
+    public hq1 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            return de3.a().getInt("fontSizeLevel", 1);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new bn3();
         }
-        return invokeL.intValue;
+        return (hq1) invokeV.objValue;
     }
 }

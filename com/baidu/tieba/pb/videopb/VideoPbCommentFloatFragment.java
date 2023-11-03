@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.videopb;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.PbCommentFloatActivityConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vt6;
+import com.baidu.tieba.lv6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,20 +15,20 @@ public class VideoPbCommentFloatFragment extends AbsVideoPbFragment {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // com.baidu.tieba.pb.videopb.AbsVideoPbFragment
-    public int N3() {
+    public boolean H4() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d09e5 : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.pb.videopb.AbsVideoPbFragment
-    public boolean o4() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.pb.videopb.AbsVideoPbFragment
+    public int f4() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.obfuscated_res_0x7f0d09fe : invokeV.intValue;
     }
 
     public VideoPbCommentFloatFragment() {
@@ -46,27 +46,27 @@ public class VideoPbCommentFloatFragment extends AbsVideoPbFragment {
     }
 
     @Override // com.baidu.tieba.pb.videopb.AbsVideoPbFragment
-    public int L3() {
+    public void F4() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.F4();
+            lv6 lv6Var = this.a0;
+            if (lv6Var != null) {
+                lv6Var.i(null);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.pb.videopb.AbsVideoPbFragment
+    public int d4() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (getActivity() == null || getActivity().getIntent() == null) {
                 return 0;
             }
             return getActivity().getIntent().getIntExtra(PbCommentFloatActivityConfig.KEY_FROM_VIDEO_PAGE_TYPE, 0);
         }
         return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.pb.videopb.AbsVideoPbFragment
-    public void m4() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.m4();
-            vt6 vt6Var = this.a0;
-            if (vt6Var != null) {
-                vt6Var.i(null);
-            }
-        }
     }
 }

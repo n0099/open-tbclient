@@ -1,67 +1,98 @@
 package com.baidu.tieba;
 
-import android.database.DataSetObservable;
-import android.database.DataSetObserver;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
+import android.net.Uri;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.TimeHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Date;
+import java.util.regex.Pattern;
 /* loaded from: classes9.dex */
-public abstract class zt5 {
+public class zt5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Pattern a;
+    public static final Pattern b;
     public transient /* synthetic */ FieldHolder $fh;
-    public DataSetObservable a;
 
-    public abstract int a();
-
-    public abstract View b(int i, ViewGroup viewGroup);
-
-    public zt5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948371502, "Lcom/baidu/tieba/zt5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948371502, "Lcom/baidu/tieba/zt5;");
                 return;
             }
         }
-        this.a = new DataSetObservable();
+        a = Pattern.compile("http[s]?://tieba\\.baidu\\.com/f(.*)&jump_tieba_native=1(.*)");
+        b = Pattern.compile("http[s]?://tieba\\.baidu\\.com/p/([\\d]+)\\?pid=([\\d]+)&tid=([\\d]+)&threadtype=([\\d]+)&jump_type=(.*)&jump_tieba_native=1");
     }
 
-    public void c() {
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.notifyChanged();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            Date date = new Date(SharedPrefHelper.getInstance().getLong("show_login_dialog_strategy_key", 0L));
+            long currentTimeMillis = System.currentTimeMillis();
+            Date date2 = new Date(currentTimeMillis);
+            SharedPrefHelper.getInstance().putLong("show_login_dialog_strategy_key", currentTimeMillis);
+            return !TimeHelper.isSameDay(date, date2);
         }
+        return invokeV.booleanValue;
     }
 
-    public void d(DataSetObserver dataSetObserver) {
+    public static boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, dataSetObserver) == null) {
-            try {
-                this.a.registerObserver(dataSetObserver);
-            } catch (Throwable th) {
-                BdLog.e(th, true);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (qd.isEmpty(str)) {
+                return false;
             }
+            return a.matcher(str.toLowerCase()).find();
         }
+        return invokeL.booleanValue;
     }
 
-    public void e(DataSetObserver dataSetObserver) {
+    public static boolean c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, dataSetObserver) == null) {
-            try {
-                this.a.unregisterObserver(dataSetObserver);
-            } catch (Throwable th) {
-                BdLog.e(th, true);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (qd.isEmpty(str)) {
+                return false;
             }
+            return b.matcher(str.toLowerCase()).find();
         }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (qd.isEmpty(str)) {
+                return false;
+            }
+            return "person".equalsIgnoreCase(Uri.parse(str).getAuthority());
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (!b(str) && !c(str) && !d(str)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

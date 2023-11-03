@@ -1,80 +1,94 @@
 package com.baidu.tieba;
 
-import com.baidu.mobads.sdk.api.IBasicCPUData;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
-import java.lang.reflect.Field;
-import org.json.JSONObject;
+import com.baidu.ubc.service.IPCService;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class hlb extends BaseAdRipper {
+public class hlb implements tlb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public vlb a;
+    public IPCService b;
+    public wlb c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hlb(Ssp.Pid pid) {
-        super(pid);
+    public hlb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
-    public RippedAd getRippedAdInternal(Object obj) {
-        InterceptResult invokeL;
-        Object invoke;
+    @Override // com.baidu.tieba.tlb
+    public qlb a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            try {
-                if (obj instanceof IBasicCPUData) {
-                    Object findField = ReflectionUtils.findField("java.lang.Object", obj);
-                    Object findField2 = ReflectionUtils.findField("com.baidu.mobads.sdk.internal.aq", obj);
-                    if (findField2 == null) {
-                        findField2 = ReflectionUtils.findField("com.baidu.mobads.sdk.internal.ap", obj);
-                    }
-                    if (findField == null || findField2 == null || (invoke = ReflectionUtils.invoke(findField2, "b", new Class[]{Object.class, String.class, Object[].class}, findField, "getNativeResonse", new Object[0])) == null) {
-                        return null;
-                    }
-                    Field declaredField = invoke.getClass().getDeclaredField("x");
-                    declaredField.setAccessible(true);
-                    Object obj2 = declaredField.get(invoke);
-                    if (obj2 instanceof JSONObject) {
-                        JSONObject jSONObject = (JSONObject) obj2;
-                        JSONObject optJSONObject = jSONObject.optJSONObject("apo");
-                        RippedAd.Builder builder = new RippedAd.Builder();
-                        builder.setCorporation(jSONObject.optString("publisher")).setTitle(jSONObject.optString("tit")).setDescription(jSONObject.optString("desc")).setImageUrl(jSONObject.optString("w_picurl")).setIconUrl(jSONObject.optString("icon")).setClickUrl(jSONObject.optString("curl")).setVideoUrl(jSONObject.optString("vurl")).setAppName(jSONObject.optString("appname")).setAppPkg(jSONObject.optString("apk_name")).setAppUrl(jSONObject.optString("app_store_link"));
-                        if (optJSONObject != null) {
-                            builder.setDeepLinkUrl(optJSONObject.optString("page"));
-                        }
-                        return builder.build();
-                    }
-                    return null;
-                }
-                return null;
-            } catch (Exception e) {
-                LogPrinter.e(e);
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a == null) {
+                this.a = new vlb();
             }
+            return this.a;
         }
-        return (RippedAd) invokeL.objValue;
+        return (qlb) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.tlb
+    public slb b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.b == null) {
+                this.b = new IPCService();
+            }
+            return this.b;
+        }
+        return (slb) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.tlb
+    public skb c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return olb.b();
+        }
+        return (skb) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.tlb
+    public wkb d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return olb.c();
+        }
+        return (wkb) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.tlb
+    public rlb e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.c == null) {
+                this.c = new wlb();
+            }
+            return this.c;
+        }
+        return (rlb) invokeV.objValue;
     }
 }

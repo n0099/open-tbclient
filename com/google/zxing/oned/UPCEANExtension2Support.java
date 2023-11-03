@@ -8,7 +8,7 @@ import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitArray;
 import java.util.EnumMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class UPCEANExtension2Support {
     public final int[] decodeMiddleCounters = new int[4];
     public final StringBuilder decodeRowStringBuffer = new StringBuilder();

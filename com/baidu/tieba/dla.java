@@ -1,186 +1,229 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.themeCenter.background.DressItemData;
-import com.baidu.tieba.themeCenter.bubble.all.BubbleItemView;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.http.statistics.NetworkStatRecord;
+import com.baidu.searchbox.retrieve.inter.upload.IUploadTask;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import com.baidu.yalog.Logger;
+import com.baidu.yalog.LoggerManager;
+import java.util.ArrayList;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class dla extends BaseAdapter {
+public class dla {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean d;
+    public static final String e;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Object> a;
-    public TbPageContext<?> b;
-    public cla c;
+    public long a;
+    public volatile boolean b;
+    public long c;
 
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return 2;
-        }
-        return invokeV.intValue;
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes5.dex */
-    public static class a {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
+        public static final dla a;
         public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public BubbleItemView b;
-        public BubbleItemView c;
-        public View d;
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-856665326, "Lcom/baidu/tieba/dla$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-856665326, "Lcom/baidu/tieba/dla$b;");
+                    return;
                 }
             }
+            a = new dla(null);
         }
     }
 
-    public dla(TbPageContext<?> tbPageContext, cla claVar) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947709776, "Lcom/baidu/tieba/dla;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947709776, "Lcom/baidu/tieba/dla;");
+                return;
+            }
+        }
+        d = rka.a;
+        e = dla.class.getSimpleName();
+    }
+
+    public static dla a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
+        }
+        return (dla) invokeV.objValue;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (!this.b || System.currentTimeMillis() - this.c > com.baidu.mobads.sdk.internal.bj.e) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public dla() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, claVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = tbPageContext;
-        this.c = claVar;
-    }
-
-    public void a(List<Object> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            this.a = list;
+        String b2 = ska.b("fulllog_switch", null);
+        if (!TextUtils.isEmpty(b2)) {
+            this.b = Boolean.valueOf(b2).booleanValue();
         }
+        this.c = Long.parseLong(ska.b("fulllog_switch_push_time", Long.toString(System.currentTimeMillis())));
     }
 
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
+    public /* synthetic */ dla(a aVar) {
+        this();
+    }
+
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            List<Object> list = this.a;
-            if (list != null && list.size() > 0 && i >= 0 && i < this.a.size()) {
-                return this.a.get(i);
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            Logger logger = LoggerManager.getLogger("net");
+            logger.e("1809", "netLog", str);
+            logger.flush(true);
+            if (g()) {
+                e(false);
             }
-            return null;
         }
-        return invokeI.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    public void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            if (getItem(i) != null) {
-                return i;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && g()) {
+            Logger logger = LoggerManager.getLogger("net");
+            logger.d("1809", "netLog", str);
+            logger.flush(true);
+            e(false);
+        }
+    }
+
+    public final boolean d(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+            if (j - this.a > 60000) {
+                return true;
             }
-            return -1L;
+            return false;
         }
-        return invokeI.longValue;
+        return invokeJ.booleanValue;
     }
 
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        InterceptResult invokeI;
+    public final void e(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return getItem(i) instanceof List ? 1 : 0;
-        }
-        return invokeI.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<Object> list = this.a;
-            if (list != null) {
-                return list.size();
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            boolean d2 = d(currentTimeMillis);
+            if (d2) {
+                this.a = currentTimeMillis;
             }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
-            Object item = getItem(i);
-            if (view2 != null) {
-                aVar = (a) view2.getTag();
-            } else if (getItemViewType(i) == 0) {
-                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0139, viewGroup, false);
-                aVar = new a();
-                aVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ed8);
-                view2.setTag(aVar);
-            } else {
-                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0191, viewGroup, false);
-                aVar = new a();
-                aVar.b = (BubbleItemView) view2.findViewById(R.id.obfuscated_res_0x7f0903e2);
-                aVar.c = (BubbleItemView) view2.findViewById(R.id.obfuscated_res_0x7f0903e3);
-                aVar.d = view2.findViewById(R.id.obfuscated_res_0x7f090918);
-                view2.setTag(aVar);
-            }
-            if (item != null) {
-                if (getItemViewType(i) == 0) {
-                    aVar.a.setText(item.toString());
-                } else {
-                    List list = (List) item;
-                    aVar.b.d((DressItemData) list.get(0));
-                    aVar.b.setController(this.c);
-                    aVar.b.setFromBubbleGroup(true);
-                    if (list.size() > 1) {
-                        aVar.c.d((DressItemData) list.get(1));
-                        aVar.c.setController(this.c);
-                        aVar.c.setFromBubbleGroup(true);
-                    } else {
-                        aVar.c.e();
-                    }
-                    if (getItem(i + 1) instanceof List) {
-                        aVar.d.setVisibility(8);
-                    } else {
-                        aVar.d.setVisibility(0);
+            if (z || d2) {
+                String b2 = ska.b("fulllog_switch_push_time", Long.toString(System.currentTimeMillis()));
+                ArrayList arrayList = new ArrayList();
+                arrayList.add("net");
+                IUploadTask iUploadTask = (IUploadTask) ServiceManager.getService(IUploadTask.SERVICE_REFERENCE);
+                if (iUploadTask != null) {
+                    long j = currentTimeMillis - 5184000000L;
+                    long j2 = currentTimeMillis + 3600000;
+                    iUploadTask.activeUploadSnapShot("netLog", b2, arrayList, null, 10240L, j, j2, true, null);
+                    if (d) {
+                        String str = e;
+                        Log.i(str, "dataId" + b2 + "   isMatchTimeInterval(curTime) == true");
+                        String str2 = e;
+                        Log.i(str2, "startTime==" + j + "endTime==" + j2);
                     }
                 }
             }
-            this.b.getLayoutMode().onModeChanged(view2);
-            return view2;
         }
-        return (View) invokeILL.objValue;
+    }
+
+    public boolean f(NetworkStatRecord networkStatRecord) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, networkStatRecord)) == null) {
+            int c = ska.c();
+            if (networkStatRecord.exception == null && networkStatRecord.receiveHeaderTs - networkStatRecord.sendHeaderTs < c && networkStatRecord.realResponseLength <= 1048576 && networkStatRecord.requestBodyLength <= 1048576) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized boolean h(JSONObject jSONObject, JSONObject jSONObject2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, jSONObject, jSONObject2)) == null) {
+            synchronized (this) {
+                if (jSONObject != null) {
+                    String optString = jSONObject.optString("type");
+                    String optString2 = jSONObject.optString("fulllog");
+                    if (TextUtils.equals(optString, "fulllog_network")) {
+                        if (TextUtils.equals(optString2, "1")) {
+                            long currentTimeMillis = System.currentTimeMillis();
+                            this.a = currentTimeMillis;
+                            this.c = currentTimeMillis;
+                            this.b = true;
+                            e(true);
+                            if (d) {
+                                Log.i(e, "Start online real full network log!");
+                            }
+                            ska.e("fulllog_switch_push_time", Long.toString(System.currentTimeMillis()));
+                        } else if (TextUtils.equals(optString2, "0")) {
+                            this.b = false;
+                            if (d) {
+                                Log.i(e, "Stop online real full network log!");
+                            }
+                        }
+                        ska.e("fulllog_switch", String.valueOf(this.b));
+                    }
+                }
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
     }
 }

@@ -1,16 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.ala.data.SdkLiveInfoData;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class j66 {
+public class j66 implements or1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SdkLiveInfoData a;
+
+    @Override // com.baidu.tieba.or1
+    public void a(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.or1
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     public j66() {
         Interceptable interceptable = $ic;
@@ -23,16 +43,6 @@ public class j66 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    public void a(JSONObject jSONObject, String str) {
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, str) == null) && jSONObject != null && (optJSONObject = jSONObject.optJSONObject("live_info")) != null) {
-            SdkLiveInfoData sdkLiveInfoData = new SdkLiveInfoData();
-            this.a = sdkLiveInfoData;
-            sdkLiveInfoData.fromJson(optJSONObject, str);
         }
     }
 }

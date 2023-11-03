@@ -4,7 +4,7 @@ import kotlin.Lazy;
 import kotlin.reflect.jvm.internal.impl.descriptors.ModuleDescriptor;
 import kotlin.reflect.jvm.internal.impl.load.java.lazy.types.JavaTypeResolver;
 import kotlin.reflect.jvm.internal.impl.storage.StorageManager;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class LazyJavaResolverContext {
     public final JavaResolverComponents components;
     public final Lazy defaultTypeQualifiers$delegate;

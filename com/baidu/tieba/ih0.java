@@ -1,18 +1,12 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.RadioButton;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.content.res.Resources;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.download.scheduled.NadScheduledConfirmView;
-import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.nadcore.download.consts.AdDownloadAction;
+import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,258 +14,144 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
+import java.text.DecimalFormat;
 /* loaded from: classes6.dex */
-public class ih0 {
+public class ih0 extends fh0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public WeakReference<oh0<?>> e;
+    @Nullable
+    public DecimalFormat f;
 
     /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ih0 a;
-
-        public a(ih0 ih0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ih0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ih0Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                ih0 ih0Var = this.a;
-                ih0Var.a = !ih0Var.a;
-                if (view2 instanceof RadioButton) {
-                    ((RadioButton) view2).setChecked(this.a.a);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ Dialog c;
-        public final /* synthetic */ ih0 d;
-
-        public b(ih0 ih0Var, String str, String str2, Dialog dialog) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ih0Var, str, str2, dialog};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = ih0Var;
-            this.a = str;
-            this.b = str2;
-            this.c = dialog;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                jh0.b().c(this.a, this.d.a);
-                ih0 ih0Var = this.d;
-                ih0Var.f(true, this.b, ih0Var.a);
-                this.c.dismiss();
-                if (this.d.a) {
-                    View inflate = LayoutInflater.from(pe0.b()).inflate(R.layout.nad_scheduled_confirm_toast_view, (ViewGroup) null);
-                    ((TextView) inflate.findViewById(R.id.nad_scheduled_confirm_toast_view)).setText(pe0.b().getResources().getString(R.string.nad_scheduled_dialog_toast_text));
-                    Toast toast = new Toast(view2.getContext());
-                    toast.setView(inflate);
-                    toast.setGravity(17, 0, 0);
-                    toast.show();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements DialogInterface.OnCancelListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ ih0 c;
-
-        public c(ih0 ih0Var, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ih0Var, str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = ih0Var;
-            this.a = str;
-            this.b = str2;
-        }
-
-        @Override // android.content.DialogInterface.OnCancelListener
-        public void onCancel(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                jh0.b().c(this.a, false);
-                ih0 ih0Var = this.c;
-                ih0Var.f(false, this.b, ih0Var.a);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements DialogInterface.OnDismissListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public d(ih0 ih0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ih0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.content.DialogInterface.OnDismissListener
-        public void onDismiss(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                bi0.a().b(new mh0(false));
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class e {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ih0 a;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-718673321, "Lcom/baidu/tieba/ih0$e;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-718673445, "Lcom/baidu/tieba/ih0$a;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-718673321, "Lcom/baidu/tieba/ih0$e;");
+                    classClinitInterceptable.invokePostClinit(-718673445, "Lcom/baidu/tieba/ih0$a;");
                     return;
                 }
             }
-            a = new ih0(null);
+            int[] iArr = new int[AdDownloadStatus.values().length];
+            a = iArr;
+            try {
+                iArr[AdDownloadStatus.NONE.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[AdDownloadStatus.DOWNLOADING.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[AdDownloadStatus.PAUSE.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[AdDownloadStatus.COMPLETED.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                a[AdDownloadStatus.INSTALLED.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                a[AdDownloadStatus.FAILED.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
+            }
         }
     }
 
-    public ih0() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ih0(@NonNull vg0 vg0Var, @NonNull oh0<?> oh0Var) {
+        super(vg0Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vg0Var, oh0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((vg0) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.e = null;
+        s(oh0Var);
     }
 
-    public static ih0 d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.fh0, com.baidu.tieba.nh0
+    public void a(@NonNull AdDownloadAction adDownloadAction, @NonNull vg0 vg0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return e.a;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, adDownloadAction, vg0Var) == null) {
+            super.a(adDownloadAction, vg0Var);
+            t();
         }
-        return (ih0) invokeV.objValue;
     }
 
-    public /* synthetic */ ih0(a aVar) {
-        this();
-    }
-
-    public void e(String str, String str2, Context context) {
+    public void s(oh0<?> oh0Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048576, this, str, str2, context) != null) || !(context instanceof Activity)) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oh0Var) == null) {
+            this.e = new WeakReference<>(oh0Var);
+            t();
+        }
+    }
+
+    public void t() {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.e == null) {
             return;
         }
-        Dialog dialog = new Dialog(context, R.style.obfuscated_res_0x7f10010c);
-        NadScheduledConfirmView nadScheduledConfirmView = new NadScheduledConfirmView(context);
-        this.a = true;
-        nadScheduledConfirmView.setOnWifiBtnClickListener(new a(this));
-        nadScheduledConfirmView.setOnPosBtnClickListener(new b(this, str, str2, dialog));
-        dialog.setContentView(nadScheduledConfirmView);
-        dialog.setCanceledOnTouchOutside(true);
-        dialog.setCancelable(true);
-        dialog.setOnCancelListener(new c(this, str, str2));
-        dialog.setOnDismissListener(new d(this));
-        dialog.show();
-        bi0.a().b(new mh0(true));
-    }
-
-    public final void f(boolean z, String str, boolean z2) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, Boolean.valueOf(z2)}) == null) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.u(ClogBuilder.Page.SCHEDULED_DOWNLOAD);
-            clogBuilder.y(ClogBuilder.LogType.NAVIDEO_POP_CLOSE);
-            clogBuilder.p(str);
-            clogBuilder.j("ScheduledPop");
-            String str3 = "0";
-            if (z) {
-                str2 = "0";
-            } else {
-                str2 = "1";
-            }
-            if (z2) {
-                str3 = "1";
-            }
-            clogBuilder.k(str2);
-            clogBuilder.l(str3);
-            jy0.e(clogBuilder);
+        Resources resources = gf0.b().getResources();
+        String string = resources.getString(R.string.nad_download_start);
+        switch (a.a[this.a.c.ordinal()]) {
+            case 1:
+                if (TextUtils.isEmpty(this.a.p.d)) {
+                    str = resources.getString(R.string.nad_download_start);
+                } else {
+                    str = this.a.p.d;
+                }
+                string = str;
+                break;
+            case 2:
+                DecimalFormat decimalFormat = this.f;
+                if (decimalFormat == null) {
+                    decimalFormat = new DecimalFormat("#.#%");
+                }
+                string = decimalFormat.format(this.a.i);
+                break;
+            case 3:
+                string = resources.getString(R.string.nad_download_continue);
+                break;
+            case 4:
+                string = resources.getString(R.string.nad_download_install);
+                break;
+            case 5:
+                string = resources.getString(R.string.nad_download_open);
+                break;
+            case 6:
+                string = resources.getString(R.string.nad_download_failed_retry);
+                break;
         }
+        oh0<?> oh0Var = this.e.get();
+        if (oh0Var == null) {
+            return;
+        }
+        oh0Var.b(string, this.a);
     }
 }

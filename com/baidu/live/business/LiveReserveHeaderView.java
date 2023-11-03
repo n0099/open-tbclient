@@ -13,9 +13,9 @@ import com.baidu.live.business.base.LiveBaseItemView;
 import com.baidu.live.business.model.data.LiveFeedReserveHeaderInfo;
 import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b80;
-import com.baidu.tieba.f80;
-import com.baidu.tieba.o50;
+import com.baidu.tieba.f60;
+import com.baidu.tieba.s80;
+import com.baidu.tieba.w80;
 /* loaded from: classes3.dex */
 public class LiveReserveHeaderView extends LiveBaseItemView {
     public View h;
@@ -46,8 +46,8 @@ public class LiveReserveHeaderView extends LiveBaseItemView {
     }
 
     public final void d() {
-        b80.h(this.i, 1, 13.0f);
-        b80.f(this.j, o50.c(getContext().getResources(), 12.0f), o50.c(getContext().getResources(), 12.0f));
+        s80.h(this.i, 1, 13.0f);
+        s80.f(this.j, f60.c(getContext().getResources(), 12.0f), f60.c(getContext().getResources(), 12.0f));
     }
 
     public String getTip() {
@@ -59,9 +59,9 @@ public class LiveReserveHeaderView extends LiveBaseItemView {
     }
 
     public final void e() {
-        View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05cf, this);
+        View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05e4, this);
         this.h = inflate.findViewById(R.id.layout_bg);
-        this.i = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0927ac);
+        this.i = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09280b);
         this.j = (ImageView) inflate.findViewById(R.id.iv_arrow);
         d();
         GradientDrawable gradientDrawable = new GradientDrawable();
@@ -75,17 +75,17 @@ public class LiveReserveHeaderView extends LiveBaseItemView {
         if (view2 != null) {
             Drawable background = view2.getBackground();
             if (background instanceof GradientDrawable) {
-                ((GradientDrawable) background).setColor(f80.f().a(getContext(), this.c, "color_F5F5F53"));
+                ((GradientDrawable) background).setColor(w80.f().a(getContext(), this.c, "color_F5F5F53"));
                 this.h.setBackgroundDrawable(background);
             }
         }
         TextView textView = this.i;
         if (textView != null) {
-            textView.setTextColor(f80.f().a(getContext(), this.c, "color_white4"));
+            textView.setTextColor(w80.f().a(getContext(), this.c, "color_white4"));
         }
         ImageView imageView = this.j;
         if (imageView != null) {
-            imageView.setImageResource(f80.f().p(this.c));
+            imageView.setImageResource(w80.f().p(this.c));
         }
     }
 }

@@ -39,7 +39,7 @@ public final class ApkCheckerKt {
     public static boolean isChecking;
 
     /* renamed from: showRiskDialog$lambda-3  reason: not valid java name */
-    public static final void m75showRiskDialog$lambda3(DialogInterface dialogInterface) {
+    public static final void m76showRiskDialog$lambda3(DialogInterface dialogInterface) {
     }
 
     public static final void onCheckSuccess(Function1<? super Boolean, Unit> function1, boolean z) {
@@ -50,10 +50,10 @@ public final class ApkCheckerKt {
     }
 
     /* renamed from: reqPermissionAndDelete$lambda-6  reason: not valid java name */
-    public static final void m73reqPermissionAndDelete$lambda6(final CategoryInfoData data, boolean z) {
+    public static final void m74reqPermissionAndDelete$lambda6(final CategoryInfoData data, boolean z) {
         Intrinsics.checkNotNullParameter(data, "$data");
         if (z) {
-            ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.tieba.vh1
+            ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.tieba.mi1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -61,7 +61,7 @@ public final class ApkCheckerKt {
                 public final void run() {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                        ApkCheckerKt.m74reqPermissionAndDelete$lambda6$lambda5(CategoryInfoData.this);
+                        ApkCheckerKt.m75reqPermissionAndDelete$lambda6$lambda5(CategoryInfoData.this);
                     }
                 }
             }, "reqPermissionAndDelete", 2);
@@ -81,14 +81,14 @@ public final class ApkCheckerKt {
 
     public static final void onCheckFailed(Function0<Unit> function0) {
         isChecking = false;
-        UniversalToast.makeText(AppRuntime.getAppContext()).setText(AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f05b9)).show();
+        UniversalToast.makeText(AppRuntime.getAppContext()).setText(AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f05bb)).show();
         if (function0 != null) {
             function0.invoke();
         }
     }
 
     public static final void reqPermissionAndDelete(final CategoryInfoData categoryInfoData) {
-        DownloadHelper.checkExternalStorage(new File(categoryInfoData.mDownloadPath).getAbsolutePath(), true, new ExternalStorageCallBack() { // from class: com.baidu.tieba.nh1
+        DownloadHelper.checkExternalStorage(new File(categoryInfoData.mDownloadPath).getAbsolutePath(), true, new ExternalStorageCallBack() { // from class: com.baidu.tieba.ei1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -96,14 +96,14 @@ public final class ApkCheckerKt {
             public final void onResult(boolean z) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                    ApkCheckerKt.m73reqPermissionAndDelete$lambda6(CategoryInfoData.this, z);
+                    ApkCheckerKt.m74reqPermissionAndDelete$lambda6(CategoryInfoData.this, z);
                 }
             }
         }, true);
     }
 
     /* renamed from: reqPermissionAndDelete$lambda-6$lambda-5  reason: not valid java name */
-    public static final void m74reqPermissionAndDelete$lambda6$lambda5(CategoryInfoData data) {
+    public static final void m75reqPermissionAndDelete$lambda6$lambda5(CategoryInfoData data) {
         Intrinsics.checkNotNullParameter(data, "$data");
         DownloadManagerExt.getInstance().deleteDownload(true, data.mId);
     }
@@ -116,7 +116,7 @@ public final class ApkCheckerKt {
         if (needDirectInstall(categoryInfoData)) {
             onCheckSuccess(function1, true);
         } else {
-            DownloadHelper.checkExternalStorage(new File(categoryInfoData.mDownloadPath).getAbsolutePath(), true, new ExternalStorageCallBack() { // from class: com.baidu.tieba.sh1
+            DownloadHelper.checkExternalStorage(new File(categoryInfoData.mDownloadPath).getAbsolutePath(), true, new ExternalStorageCallBack() { // from class: com.baidu.tieba.ji1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -124,7 +124,7 @@ public final class ApkCheckerKt {
                 public final void onResult(boolean z2) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeZ(1048576, this, z2) == null) {
-                        ApkCheckerKt.m72checkApk$lambda0(activity, categoryInfoData, z, function1, z2);
+                        ApkCheckerKt.m73checkApk$lambda0(activity, categoryInfoData, z, function1, z2);
                     }
                 }
             }, true);
@@ -191,14 +191,14 @@ public final class ApkCheckerKt {
     }
 
     /* renamed from: checkApk$lambda-0  reason: not valid java name */
-    public static final void m72checkApk$lambda0(Activity activity, CategoryInfoData categoryInfoData, boolean z, Function1 function1, boolean z2) {
+    public static final void m73checkApk$lambda0(Activity activity, CategoryInfoData categoryInfoData, boolean z, Function1 function1, boolean z2) {
         if (z2) {
             startCheckApk(activity, categoryInfoData, z, function1);
         }
     }
 
     public static final Function0<Unit> showCheckingToast(Activity activity) {
-        Drawable drawable = activity.getDrawable(R.drawable.obfuscated_res_0x7f080f8e);
+        Drawable drawable = activity.getDrawable(R.drawable.obfuscated_res_0x7f080fa2);
         if (drawable != null) {
             RotateDrawable rotateDrawable = (RotateDrawable) drawable;
             final ObjectAnimator ofInt = ObjectAnimator.ofInt(rotateDrawable, "level", 0, 10000);
@@ -209,7 +209,7 @@ public final class ApkCheckerKt {
             makeText.setDuration(30);
             makeText.setLeftIcon(rotateDrawable);
             makeText.setTemplate(ToastTemplate.T2);
-            makeText.setText(activity.getString(R.string.obfuscated_res_0x7f0f05c6));
+            makeText.setText(activity.getString(R.string.obfuscated_res_0x7f0f05c8));
             Function0<Unit> function0 = new Function0<Unit>() { // from class: com.baidu.searchbox.download.apkcheck.ApkCheckerKt$showCheckingToast$cancelAction$1
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -239,8 +239,8 @@ public final class ApkCheckerKt {
 
     public static final void showRiskDialog(final Activity activity, final CategoryInfoData categoryInfoData) {
         if (!activity.isFinishing() && !activity.isDestroyed()) {
-            BdAlertDialog.Builder message = new BdAlertDialog.Builder(activity).setTitle(R.string.obfuscated_res_0x7f0f05bc).setMessage(R.string.obfuscated_res_0x7f0f05ba);
-            String string = activity.getString(R.string.obfuscated_res_0x7f0f0e69);
+            BdAlertDialog.Builder message = new BdAlertDialog.Builder(activity).setTitle(R.string.obfuscated_res_0x7f0f05be).setMessage(R.string.obfuscated_res_0x7f0f05bc);
+            String string = activity.getString(R.string.obfuscated_res_0x7f0f0e7b);
             Intrinsics.checkNotNullExpressionValue(string, "activity.getString(R.string.no)");
             BdAlertDialog.Builder button = message.setButton(new BdAlertDialog.ButtonItem(string, new BdAlertDialog.OnItemClickListener() { // from class: com.baidu.searchbox.download.apkcheck.ApkCheckerKt$showRiskDialog$1
                 @Override // com.baidu.android.ext.widget.dialog.BdAlertDialog.OnItemClickListener
@@ -249,7 +249,7 @@ public final class ApkCheckerKt {
                     ApkCheckUBCManagerKt.apkCheckCloseDialogEvent();
                 }
             }));
-            String string2 = activity.getString(R.string.obfuscated_res_0x7f0f05bb);
+            String string2 = activity.getString(R.string.obfuscated_res_0x7f0f05bd);
             Intrinsics.checkNotNullExpressionValue(string2, "activity.getString(R.str…ad_apk_check_risk_delete)");
             button.setButton(new BdAlertDialog.ButtonItem(string2, (int) R.color.obfuscated_res_0x7f0601ee, new BdAlertDialog.OnItemClickListener() { // from class: com.baidu.searchbox.download.apkcheck.ApkCheckerKt$showRiskDialog$2
                 @Override // com.baidu.android.ext.widget.dialog.BdAlertDialog.OnItemClickListener
@@ -261,10 +261,10 @@ public final class ApkCheckerKt {
                     } else {
                         ((IDeleteUnSafeApk) activity2).delUnSafeApk(categoryInfoData);
                     }
-                    UniversalToast.makeText(AppRuntime.getAppContext()).setText(AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f05b8)).show();
+                    UniversalToast.makeText(AppRuntime.getAppContext()).setText(AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f05ba)).show();
                     ApkCheckUBCManagerKt.apkCheckDelEvent();
                 }
-            })).setOnCancelListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.uh1
+            })).setOnCancelListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.li1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -272,10 +272,10 @@ public final class ApkCheckerKt {
                 public final void onCancel(DialogInterface dialogInterface) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                        ApkCheckerKt.m75showRiskDialog$lambda3(dialogInterface);
+                        ApkCheckerKt.m76showRiskDialog$lambda3(dialogInterface);
                     }
                 }
-            }).setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.xh1
+            }).setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.oi1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

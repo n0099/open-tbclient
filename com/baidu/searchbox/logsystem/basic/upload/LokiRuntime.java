@@ -4,8 +4,8 @@ import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext;
 import com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityNeedContext;
-import com.baidu.tieba.j7a;
-import com.baidu.tieba.x6a;
+import com.baidu.tieba.cka;
+import com.baidu.tieba.oka;
 @Autowired
 /* loaded from: classes4.dex */
 public class LokiRuntime {
@@ -63,11 +63,11 @@ public class LokiRuntime {
 
     @Inject(force = false)
     public static ILokiIdentityContext getIdentityContext() {
-        return x6a.a();
+        return cka.a();
     }
 
     @Inject
     public static ILokiIdentityNeedContext getIdentityNeedContext() {
-        return j7a.a();
+        return oka.a();
     }
 }

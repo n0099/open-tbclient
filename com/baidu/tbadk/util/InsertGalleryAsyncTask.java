@@ -15,8 +15,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.i6;
-import com.baidu.tieba.wc;
+import com.baidu.tieba.md;
+import com.baidu.tieba.y6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -156,8 +156,8 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, a> {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, this, str, str2, i)) == null) {
-            int b = i6.d().b().b();
-            int b2 = i6.d().c().b();
+            int b = y6.d().b().b();
+            int b2 = y6.d().c().b();
             boolean z = false;
             for (int i2 = 0; i2 < i; i2++) {
                 try {
@@ -312,7 +312,7 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, a> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, str)) == null) {
-            wc.k(str);
+            md.k(str);
             return new File(str);
         }
         return (File) invokeL.objValue;

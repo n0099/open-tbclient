@@ -1,351 +1,378 @@
 package com.baidu.tieba;
 
+import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
+import android.util.Log;
+import android.view.View;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.GlobalBuildConfig;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.data.VisitedForumData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class aw9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean y;
     public transient /* synthetic */ FieldHolder $fh;
-    public String A;
-    public String B;
-    public String C;
-    public String D;
-    public String E;
-    public String F;
-    public String G;
-    public String H;
-    public String a;
-    public String b;
-    public String c;
+    public final b a;
+    public boolean b;
+    public boolean c;
     public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
+    public int e;
+    public int f;
+    public boolean g;
+    public int h;
+    public boolean i;
     public int j;
-    public String k;
-    public String l;
-    public String m;
-    public String n;
-    public String o;
-    public String p;
-    public String q;
-    public String r;
-    public String s;
-    public String t;
-    public String u;
-    public String v;
-    public String w;
-    public int x;
-    public int y;
-    public String z;
+    public int k;
+    public final Handler l;
+    public boolean m;
+    public final Runnable n;
+    public long o;
+    public long p;
+    public long q;
+    public boolean r;
+    public int s;
+    public final int t;
+    public final BdTypeListView u;
+    public int v;
+    public int w;
+    public boolean x;
 
     /* loaded from: classes5.dex */
-    public static class a {
+    public interface b {
+        void a(int i);
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ aw9 a;
 
-        public static String a(String str) {
-            InterceptResult invokeL;
+        public a(aw9 aw9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-                if (TextUtils.isEmpty(str)) {
-                    return "";
-                }
-                char c = 65535;
-                int hashCode = str.hashCode();
-                if (hashCode != 1567) {
-                    if (hashCode != 1568) {
-                        if (hashCode != 1570) {
-                            if (hashCode != 1576) {
-                                if (hashCode != 1599) {
-                                    switch (hashCode) {
-                                        case 49:
-                                            if (str.equals("1")) {
-                                                c = 0;
-                                                break;
-                                            }
-                                            break;
-                                        case 50:
-                                            if (str.equals("2")) {
-                                                c = 2;
-                                                break;
-                                            }
-                                            break;
-                                        case 51:
-                                            if (str.equals("3")) {
-                                                c = 4;
-                                                break;
-                                            }
-                                            break;
-                                        case 52:
-                                            if (str.equals("4")) {
-                                                c = 3;
-                                                break;
-                                            }
-                                            break;
-                                        default:
-                                            switch (hashCode) {
-                                                case 54:
-                                                    if (str.equals("6")) {
-                                                        c = 7;
-                                                        break;
-                                                    }
-                                                    break;
-                                                case 55:
-                                                    if (str.equals("7")) {
-                                                        c = 1;
-                                                        break;
-                                                    }
-                                                    break;
-                                                case 56:
-                                                    if (str.equals("8")) {
-                                                        c = '\b';
-                                                        break;
-                                                    }
-                                                    break;
-                                                case 57:
-                                                    if (str.equals("9")) {
-                                                        c = '\t';
-                                                        break;
-                                                    }
-                                                    break;
-                                            }
-                                    }
-                                } else if (str.equals("21")) {
-                                    c = '\f';
-                                }
-                            } else if (str.equals("19")) {
-                                c = '\n';
-                            }
-                        } else if (str.equals("13")) {
-                            c = 11;
-                        }
-                    } else if (str.equals("11")) {
-                        c = 6;
-                    }
-                } else if (str.equals("10")) {
-                    c = 5;
-                }
-                switch (c) {
-                    case 0:
-                    case 1:
-                        return "a002";
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                    case 6:
-                        return "a006";
-                    case 7:
-                        return "a005";
-                    case '\b':
-                    case '\t':
-                    case '\n':
-                        return "a020";
-                    case 11:
-                        return "a023";
-                    case '\f':
-                        return "a088";
-                    default:
-                        return "";
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aw9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return (String) invokeL.objValue;
+            this.a = aw9Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            this.a.r = true;
+            if (aw9.y) {
+                Log.d("PbEnterFrsTipShowRule-C", "completeStayPageTime = true");
+            }
+            this.a.o();
         }
     }
 
-    public aw9() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947629734, "Lcom/baidu/tieba/aw9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947629734, "Lcom/baidu/tieba/aw9;");
+                return;
+            }
+        }
+        y = GlobalBuildConfig.isDebug();
+    }
+
+    public final boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (!this.r || !this.x) {
+                return true;
+            }
+            if (this.c) {
+                return g();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.m = false;
+            this.l.removeCallbacks(this.n);
+            this.p += System.currentTimeMillis() - this.q;
+        }
+    }
+
+    public aw9(BdTypeListView bdTypeListView, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdTypeListView, bVar};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.z = "index";
+        this.s = 0;
+        this.t = UtilHelper.getDimenPixelSize(R.dimen.tbds144);
+        this.v = -1;
+        this.w = -1;
+        this.u = bdTypeListView;
+        this.a = bVar;
+        this.l = new Handler(Looper.getMainLooper());
+        this.n = new a(this);
     }
 
-    public StatisticItem a(StatisticItem statisticItem) {
-        InterceptResult invokeL;
-        String str;
-        String str2;
-        String str3;
+    public final int c(List<oi> list, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, statisticItem)) == null) {
-            if (statisticItem != null) {
-                if (!StringUtils.isNull(this.a)) {
-                    statisticItem.param("obj_locate", this.a);
-                    statisticItem.param("page_type", a.a(this.a));
-                    if (this.a.equals("21")) {
-                        statisticItem.param(TiebaStatic.Params.BHV_ID, TbSingleton.getInstance().getCurrentClickTime());
-                    }
-                    if (this.a.equals("13") && !StringUtils.isNull(this.i) && this.z.equals(this.i)) {
-                        statisticItem.param(TiebaStatic.Params.BHV_ID, TbSingleton.getInstance().getCurrentClickTime());
-                    }
-                }
-                if (!StringUtils.isNull(this.c)) {
-                    statisticItem.param("tid", this.c);
-                }
-                if (!StringUtils.isNull(this.d)) {
-                    statisticItem.param("fid", this.d);
-                }
-                if (!StringUtils.isNull(this.e)) {
-                    statisticItem.param("uid", this.e);
-                }
-                if (!StringUtils.isNull(this.f)) {
-                    statisticItem.param("obj_source", this.f);
-                } else {
-                    statisticItem.param("obj_source", 0);
-                }
-                if (!StringUtils.isNull(this.g)) {
-                    statisticItem.param("obj_param1", this.g);
-                } else {
-                    statisticItem.param("obj_param1", 0);
-                }
-                if (!StringUtils.isNull(this.h)) {
-                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, this.h);
-                }
-                if (!StringUtils.isNull(this.i)) {
-                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, this.i);
-                }
-                int i = this.j;
-                if (i > 0) {
-                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, i);
-                }
-                if (!StringUtils.isNull(this.k)) {
-                    statisticItem.param("obj_id", this.k);
-                }
-                if (!StringUtils.isNull(this.l)) {
-                    statisticItem.param("ab_tag", this.l);
-                } else {
-                    statisticItem.param("ab_tag", 0);
-                }
-                if (!StringUtils.isNull(this.n)) {
-                    statisticItem.param(TiebaStatic.Params.TOPIC_TYPE, this.n);
-                }
-                if (!StringUtils.isNull(this.o)) {
-                    statisticItem.param("extra", this.o);
-                } else {
-                    statisticItem.param("extra", 0);
-                }
-                if (!StringUtils.isNull(this.p)) {
-                    statisticItem.param(TiebaStatic.Params.IS_VERTICAL, this.p);
-                }
-                if (!StringUtils.isNull(this.q)) {
-                    statisticItem.param(TiebaStatic.Params.OBJ_FLOOR, this.q);
-                }
-                if (!StringUtils.isNull(this.r)) {
-                    statisticItem.param("resource_id", this.r);
-                }
-                if (!StringUtils.isNull(this.s)) {
-                    statisticItem.param("group_id", this.s);
-                }
-                int i2 = this.x;
-                if (i2 > 0) {
-                    statisticItem.param("request_num", i2);
-                }
-                int i3 = this.y;
-                if (i3 > 0) {
-                    statisticItem.param("video_num", i3);
-                }
-                if (!StringUtils.isNull(this.A)) {
-                    statisticItem.addParam("obj_type", this.A);
-                }
-                if (!StringUtils.isNull(this.B)) {
-                    statisticItem.param(TiebaStatic.Params.OBJ_TO, this.B);
-                }
-                if (!StringUtils.isNull(this.C)) {
-                    statisticItem.param(TiebaStatic.YYParams.YYSID, this.C);
-                }
-                if (!StringUtils.isNull(this.D)) {
-                    statisticItem.param(TiebaStatic.YYParams.YYSSID, this.D);
-                }
-                if (!StringUtils.isNull(this.E)) {
-                    statisticItem.param("yyuid", this.E);
-                }
-                if (!StringUtils.isNull(this.F)) {
-                    statisticItem.param(TiebaStatic.YYParams.YYLIVEID, this.F);
-                }
-                if (!StringUtils.isNull(this.G)) {
-                    statisticItem.param("template_id", this.G);
-                }
-                if (!StringUtils.isNull(this.H)) {
-                    statisticItem.param("hdid", this.H);
-                }
-                String str4 = "";
-                if (StringUtils.isNull(this.w)) {
-                    str = "";
-                } else {
-                    str = this.w;
-                }
-                statisticItem.param("obj_extra", str);
-                if (StringUtils.isNull(this.t)) {
-                    str2 = "";
-                } else {
-                    str2 = this.t;
-                }
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM4, str2);
-                if (StringUtils.isNull(this.u)) {
-                    str3 = "";
-                } else {
-                    str3 = this.u;
-                }
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, str3);
-                if (!StringUtils.isNull(this.v)) {
-                    str4 = this.v;
-                }
-                statisticItem.param("nid", str4);
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, list, z)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return -1;
             }
-            return statisticItem;
+            int i = 0;
+            for (int i2 = 0; i2 < list.size(); i2++) {
+                if ((list.get(i2) instanceof ura) && list.get(i2).getType() == ura.X0 && (i = i + 1) == this.s) {
+                    return i2;
+                }
+            }
+            if (z) {
+                return -1;
+            }
+            return list.size() - 1;
         }
-        return (StatisticItem) invokeL.objValue;
+        return invokeLZ.intValue;
     }
 
-    public aw9 b() {
+    public void i(boolean z, int i) {
+        BdTypeListView bdTypeListView;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) != null) || !this.i || i == 3 || (bdTypeListView = this.u) == null) {
+            return;
+        }
+        this.w = c(bdTypeListView.getData(), z);
+        if (y) {
+            Log.d("PbEnterFrsTipShowRule-C", "onDataSet mTargetIndex = " + this.w);
+        }
+    }
+
+    public void m(@Nullable ForumData forumData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048586, this, forumData) == null) && forumData != null && !TextUtils.isEmpty(forumData.getId())) {
+            e(forumData);
+            f();
+            d();
+        }
+    }
+
+    public final void d() {
+        int b2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.g = true;
+            this.h = 0;
+            this.f = this.e;
+            VisitedForumData q = kx6.o().q(this.d);
+            if (q != null) {
+                if (y) {
+                    Log.d("PbEnterFrsTipShowRule-C", "lastVisitedTime = " + q.getVisitedTime());
+                    Log.d("PbEnterFrsTipShowRule-C", "lastPostNum = " + q.getPostNum());
+                }
+                b2 = q.getPostNum();
+                this.h = JavaTypesHelper.toInt(q.getVisitedTime(), 0);
+            } else {
+                b2 = zv9.a().b(this.d);
+            }
+            if (b2 < 0) {
+                b2 = 0;
+            }
+            int i = this.e - b2;
+            this.f = i;
+            if (i <= 0) {
+                this.f = 0;
+            }
+            if (this.f < this.k) {
+                this.g = false;
+            }
+            if (y) {
+                Log.d("PbEnterFrsTipShowRule-C", "满足新贴数条件 = " + this.g);
+            }
+        }
+    }
+
+    public final void e(@Nullable ForumData forumData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, forumData) == null) {
+            boolean z = true;
+            if (forumData.isLike() != 1) {
+                z = false;
+            }
+            this.c = z;
+            this.d = forumData.getId();
+            this.e = forumData.getPost_num();
+            if (y) {
+                Log.d("PbEnterFrsTipShowRule-C", "newForumPostNum" + this.e);
+            }
+            if (this.c && zv9.a().b(this.d) < 0) {
+                zv9.a().e(forumData.getId(), forumData.getPost_num());
+            }
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.o = sz9.h(this.c) * 1000;
+            this.s = sz9.e(this.c);
+            this.j = sz9.d();
+            this.k = sz9.b();
+            this.i = true;
+            n();
+        }
+    }
+
+    public final boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            aw9 aw9Var = new aw9();
-            aw9Var.a = this.a;
-            aw9Var.b = this.b;
-            aw9Var.c = this.c;
-            aw9Var.d = this.d;
-            aw9Var.e = this.e;
-            aw9Var.f = this.f;
-            aw9Var.g = this.g;
-            aw9Var.h = this.h;
-            aw9Var.i = this.i;
-            aw9Var.k = this.k;
-            aw9Var.l = this.l;
-            aw9Var.m = this.m;
-            aw9Var.n = this.n;
-            aw9Var.q = this.q;
-            aw9Var.r = this.r;
-            aw9Var.s = this.s;
-            aw9Var.t = this.t;
-            aw9Var.u = this.u;
-            aw9Var.v = this.v;
-            aw9Var.x = this.x;
-            aw9Var.y = this.y;
-            aw9Var.H = this.H;
-            return aw9Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (!this.g) {
+                if (y) {
+                    Log.d("PbEnterFrsTipShowRule-C", "新贴数 拦截");
+                }
+                return true;
+            } else if (((int) (System.currentTimeMillis() / 1000)) - this.h < this.j * 86400) {
+                if (y) {
+                    Log.d("PbEnterFrsTipShowRule-C", "距离上次浏览时间 拦截");
+                }
+                return true;
+            } else {
+                return false;
+            }
         }
-        return (aw9) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.m = true;
+            d();
+            this.l.removeCallbacks(this.n);
+            this.q = System.currentTimeMillis();
+            if (!this.r) {
+                if (this.o > 0) {
+                    n();
+                    return;
+                }
+                return;
+            }
+            o();
+        }
+    }
+
+    public final void o() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && !this.b && this.i) {
+            if (h()) {
+                if (y) {
+                    Log.d("PbEnterFrsTipShowRule", "tryToShowTip = false");
+                    return;
+                }
+                return;
+            }
+            if (y) {
+                Log.d("PbEnterFrsTipShowRule-C", "tryToShowTip = hasShown");
+            }
+            this.b = true;
+            b bVar = this.a;
+            if (bVar != null) {
+                bVar.a(this.f);
+            }
+        }
+    }
+
+    public void l(int i, int i2) {
+        BdTypeListView bdTypeListView;
+        View childAt;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeII(1048585, this, i, i2) != null) || (bdTypeListView = this.u) == null || this.b || !this.i || this.w < 0 || (childAt = bdTypeListView.getChildAt(i2 - 1)) == null) {
+            return;
+        }
+        if (this.v <= 0) {
+            this.v = this.u.getHeight() - this.t;
+        }
+        if (this.v <= 0) {
+            return;
+        }
+        if (this.x) {
+            o();
+            return;
+        }
+        int headerViewsCount = this.w + this.u.getHeaderViewsCount();
+        int i3 = (i + i2) - 1;
+        if (i3 > headerViewsCount) {
+            if (i3 - 1 == headerViewsCount && childAt.getTop() > this.v) {
+                return;
+            }
+            this.x = true;
+            if (y) {
+                Log.d("PbEnterFrsTipShowRule-C", "completeGuideFloor = true");
+            }
+            o();
+        }
+    }
+
+    public final void n() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && !this.b && this.i && this.m) {
+            this.l.removeCallbacks(this.n);
+            long j = this.o - this.p;
+            if (y) {
+                Log.d("PbEnterFrsTipShowRule", "remainTime = " + j);
+            }
+            if (j <= 0) {
+                this.l.post(this.n);
+            } else {
+                this.l.postDelayed(this.n, j);
+            }
+        }
     }
 }

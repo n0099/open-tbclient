@@ -1,15 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.content.Intent;
 /* loaded from: classes5.dex */
-public class ebb {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ebb {
+    void a(int i, Intent intent);
 
-    public abstract String a();
-
-    public abstract void b();
-
-    public abstract void c();
+    Integer[] b();
 }

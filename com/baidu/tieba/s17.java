@@ -1,137 +1,173 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.helper.CommonOnClickKt;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.GreyUtil;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.functions.Function2;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class s17 implements h77<s17> {
+public class s17 extends PopupWindow implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final Function2<View, String, Unit> c;
-    public final n47 d;
+    public TextView a;
+    public TextView b;
+    public TextView c;
+    public View d;
+    public View e;
+    public View f;
+    public LinearLayout g;
+    public u17 h;
+    public Context i;
 
-    @Override // com.baidu.tieba.h77
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "feed_entrybar" : (String) invokeV.objValue;
-    }
+    /* loaded from: classes8.dex */
+    public class a implements View.OnTouchListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ s17 a;
 
-    public s17 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (s17) invokeV.objValue;
-    }
+        public a(s17 s17Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s17Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = s17Var;
+        }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (this == obj) {
+        @Override // android.view.View.OnTouchListener
+        public boolean onTouch(View view2, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+                int top = this.a.d.findViewById(R.id.obfuscated_res_0x7f09107a).getTop();
+                int y = (int) motionEvent.getY();
+                if (motionEvent.getAction() == 1 && y < top) {
+                    this.a.dismiss();
+                }
                 return true;
             }
-            if (obj instanceof s17) {
-                s17 s17Var = (s17) obj;
-                return Intrinsics.areEqual(this.a, s17Var.a) && Intrinsics.areEqual(this.b, s17Var.b) && Intrinsics.areEqual(this.c, s17Var.c) && Intrinsics.areEqual(this.d, s17Var.d);
-            }
-            return false;
+            return invokeLL.booleanValue;
         }
-        return invokeL.booleanValue;
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            int hashCode = ((((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c.hashCode()) * 31;
-            n47 n47Var = this.d;
-            return hashCode + (n47Var == null ? 0 : n47Var.hashCode());
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "CardForumEnterUiState(forumName=" + this.a + ", jumpSchema=" + this.b + ", onClick=" + this.c + ", statData=" + this.d + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @JvmOverloads
-    public s17(String forumName, String jumpSchema, Function2<? super View, ? super String, Unit> onClick, n47 n47Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public s17(Context context, int i) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {forumName, jumpSchema, onClick, n47Var};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(forumName, "forumName");
-        Intrinsics.checkNotNullParameter(jumpSchema, "jumpSchema");
-        Intrinsics.checkNotNullParameter(onClick, "onClick");
-        this.a = forumName;
-        this.b = jumpSchema;
-        this.c = onClick;
-        this.d = n47Var;
+        b(context, i);
+        this.i = context;
+        e();
+        c(TbadkCoreApplication.getInst().getSkinType());
+        this.a.setOnClickListener(this);
+        this.b.setOnClickListener(this);
+        this.c.setOnClickListener(this);
     }
 
-    public /* synthetic */ s17(String str, String str2, Function2 function2, n47 n47Var, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(str, str2, (i & 4) != 0 ? CommonOnClickKt.b() : function2, (i & 8) != 0 ? null : n47Var);
-    }
-
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.h77
-    public /* bridge */ /* synthetic */ s17 b() {
-        c();
-        return this;
-    }
-
-    public final String d() {
-        InterceptResult invokeV;
+    public void d(u17 u17Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, u17Var) == null) {
+            this.h = u17Var;
         }
-        return (String) invokeV.objValue;
     }
 
-    public final String e() {
-        InterceptResult invokeV;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            dismiss();
+            u17 u17Var = this.h;
+            if (u17Var == null) {
+                return;
+            }
+            if (view2 == this.a) {
+                u17Var.b();
+            } else if (view2 == this.b) {
+                u17Var.a();
+            }
         }
-        return (String) invokeV.objValue;
     }
 
-    public final Function2<View, String, Unit> f() {
-        InterceptResult invokeV;
+    public final void b(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, context, i) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d029d, (ViewGroup) null);
+            this.d = inflate;
+            this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0927f8);
+            this.b = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f0927bc);
+            this.c = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f092759);
+            this.g = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f09107a);
+            this.e = this.d.findViewById(R.id.obfuscated_res_0x7f09157a);
+            this.f = this.d.findViewById(R.id.obfuscated_res_0x7f09157b);
+            if (i == 1) {
+                SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0105);
+            } else {
+                SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0204);
+            }
         }
-        return (Function2) invokeV.objValue;
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            SkinManager.setBackgroundResource(this.g, R.color.CAM_X0201);
+            SkinManager.setBackgroundResource(this.e, R.color.CAM_X0204);
+            SkinManager.setBackgroundResource(this.f, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0107);
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (Build.VERSION.SDK_INT >= 22) {
+                setAttachedInDecor(false);
+            }
+            setContentView(this.d);
+            GreyUtil.grey(this);
+            setWidth(-1);
+            setHeight(BdUtilHelper.getEquipmentHeight(this.i));
+            setFocusable(true);
+            setBackgroundDrawable(new ColorDrawable(getContentView().getResources().getColor(R.color.black_alpha50)));
+            this.d.setOnTouchListener(new a(this));
+        }
     }
 }

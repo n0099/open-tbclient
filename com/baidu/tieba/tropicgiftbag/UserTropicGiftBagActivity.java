@@ -70,7 +70,7 @@ public class UserTropicGiftBagActivity extends BaseActivity {
                 TbPageContext<?> pageContext = this.a.getPageContext();
                 if (view2.getId() == this.a.e.getId()) {
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
-                    this.a.S0(2);
+                    this.a.O0(2);
                     this.a.finish();
                 }
                 if (view2.getId() == this.a.i.getId()) {
@@ -96,7 +96,7 @@ public class UserTropicGiftBagActivity extends BaseActivity {
         this.j = new a(this);
     }
 
-    public final void R0() {
+    public final void N0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.e.setOnClickListener(this.j);
@@ -136,7 +136,7 @@ public class UserTropicGiftBagActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onResume();
-            S0(1);
+            O0(1);
         }
     }
 
@@ -146,17 +146,17 @@ public class UserTropicGiftBagActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d005c);
+            setContentView(R.layout.obfuscated_res_0x7f0d005e);
             initView();
-            R0();
+            N0();
         }
     }
 
-    public final void S0(int i) {
+    public final void O0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_BACK_USER);
-            statisticItem.param("obj_name", getResources().getString(R.string.obfuscated_res_0x7f0f148d));
+            statisticItem.param("obj_name", getResources().getString(R.string.obfuscated_res_0x7f0f14a4));
             statisticItem.param("obj_type", i);
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
             TiebaStatic.log(statisticItem);
@@ -166,17 +166,17 @@ public class UserTropicGiftBagActivity extends BaseActivity {
     public final void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f0926cd);
+            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f09272c);
             this.a = roundRelativeLayout;
             roundRelativeLayout.setAllCornerRound(BdUtilHelper.getDimens(this, R.dimen.tbds32));
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0926ce);
-            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0929a0);
-            this.g = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091545);
-            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091546);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0921bc);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0921bd);
-            this.e = (Button) findViewById(R.id.obfuscated_res_0x7f0926cf);
-            this.i = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09073b);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09272d);
+            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0929ff);
+            this.g = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091584);
+            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091585);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092205);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092206);
+            this.e = (Button) findViewById(R.id.obfuscated_res_0x7f09272e);
+            this.i = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09075a);
         }
     }
 
@@ -185,18 +185,18 @@ public class UserTropicGiftBagActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             super.onChangeSkinType(i);
-            SkinManager.setImageResource(this.f, R.drawable.obfuscated_res_0x7f080d2a);
+            SkinManager.setImageResource(this.f, R.drawable.obfuscated_res_0x7f080d3e);
             this.f.setSkinType(i);
-            SkinManager.setImageResource(this.g, R.drawable.obfuscated_res_0x7f080d2b);
+            SkinManager.setImageResource(this.g, R.drawable.obfuscated_res_0x7f080d3f);
             this.g.setSkinType(i);
-            SkinManager.setImageResource(this.h, R.drawable.obfuscated_res_0x7f080d2c);
+            SkinManager.setImageResource(this.h, R.drawable.obfuscated_res_0x7f080d40);
             this.h.setSkinType(i);
             SkinManager.setBackgroundColor(this.a, R.color.CAM_X0205);
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
             SkinManager.setViewTextColorSelector(this.e, R.color.CAM_X0302, R.color.cp_link_tip_a_alpha50);
-            SkinManager.setImageResource(this.i, R.drawable.obfuscated_res_0x7f080b0b);
+            SkinManager.setImageResource(this.i, R.drawable.obfuscated_res_0x7f080b1a);
             this.i.setSkinType(i);
         }
     }

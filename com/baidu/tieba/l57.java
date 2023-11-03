@@ -1,78 +1,113 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Collection;
-import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsJVMKt;
-import kotlin.collections.CollectionsKt__CollectionsKt;
-import kotlin.collections.CollectionsKt___CollectionsKt;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.Agree;
-import tbclient.FeedSocialComponent;
 /* loaded from: classes7.dex */
 public final class l57 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final String b;
+    public final int c;
+    public final String d;
 
-    public static final void a(FeedSocialComponent feedSocialComponent, List<h77<?>> dataList, k37 feedExtraData, r47 videoSchemaData) {
-        boolean z;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65536, null, feedSocialComponent, dataList, feedExtraData, videoSchemaData) == null) {
-            Intrinsics.checkNotNullParameter(feedSocialComponent, "<this>");
-            Intrinsics.checkNotNullParameter(dataList, "dataList");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            Intrinsics.checkNotNullParameter(videoSchemaData, "videoSchemaData");
-            l47 l47Var = new l47();
-            Agree agree = feedSocialComponent.agree;
-            if (agree != null) {
-                Integer num = agree.agree_type;
-                Intrinsics.checkNotNullExpressionValue(num, "agree.agree_type");
-                l47Var.e = num.intValue();
-                Integer num2 = feedSocialComponent.agree.has_agree;
-                Intrinsics.checkNotNullExpressionValue(num2, "agree.has_agree");
-                if (num2.intValue() > 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                l47Var.f = z;
-                l47Var.g = feedSocialComponent.agree.agree_num.longValue();
-                Long l = feedSocialComponent.agree.diff_agree_num;
-                Intrinsics.checkNotNullExpressionValue(l, "agree.diff_agree_num");
-                l47Var.h = l.longValue();
-                Long l2 = feedSocialComponent.agree.disagree_num;
-                Intrinsics.checkNotNullExpressionValue(l2, "agree.disagree_num");
-                l47Var.i = l2.longValue();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            l47Var.a = feedSocialComponent.share_num.intValue();
-            l47Var.b = feedSocialComponent.comment_num.intValue();
-            l47Var.c = String.valueOf(feedSocialComponent.tid);
-            Long fid = feedSocialComponent.fid;
-            Intrinsics.checkNotNullExpressionValue(fid, "fid");
-            l47Var.d = fid.longValue();
-            l47Var.l = feedExtraData.a();
-            videoSchemaData.h(l47Var.f);
-            videoSchemaData.g(l47Var.g);
-            String str = l47Var.l.a().get("user_id");
-            if (str == null) {
-                str = "";
+            if (obj instanceof l57) {
+                l57 l57Var = (l57) obj;
+                return Intrinsics.areEqual(this.a, l57Var.a) && Intrinsics.areEqual(this.b, l57Var.b) && this.c == l57Var.c && Intrinsics.areEqual(this.d, l57Var.d);
             }
-            videoSchemaData.k(str);
-            String str2 = l47Var.l.a().get("has_concerned_user");
-            if (str2 == null) {
-                str2 = "0";
-            }
-            videoSchemaData.i(str2);
-            l47Var.j = videoSchemaData;
-            List listOf = CollectionsKt__CollectionsKt.listOf((Object[]) new n47[]{l37.d(feedExtraData, "comment_btn_click", null, 2, null), l37.d(feedExtraData, "comment_btn_click2", null, 2, null), l37.d(feedExtraData, "comment_btn_click3", null, 2, null), l37.d(feedExtraData, "bottom_comment_click_selector1", null, 2, null)});
-            List listOf2 = CollectionsKt__CollectionsJVMKt.listOf(l37.d(feedExtraData, "bottom_share_click_selector1", null, 2, null));
-            List listOf3 = CollectionsKt__CollectionsJVMKt.listOf(l37.d(feedExtraData, "bottom_agree_click_selector1", null, 2, null));
-            p27 p27Var = new p27(l47Var, null, null, null, null, null, null, 126, null);
-            p27Var.o(CollectionsKt___CollectionsKt.plus((Collection) p27Var.h(), (Iterable) listOf));
-            p27Var.q(CollectionsKt___CollectionsKt.plus((Collection) p27Var.n(), (Iterable) listOf2));
-            p27Var.p(CollectionsKt___CollectionsKt.plus((Collection) p27Var.m(), (Iterable) listOf3));
-            dataList.add(new i77(p27Var, "social_bar"));
+            return false;
         }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            int hashCode = ((((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c) * 31;
+            String str = this.d;
+            return hashCode + (str == null ? 0 : str.hashCode());
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "CardVirtualHeadImageData(imgUrl=" + this.a + ", bgValue=" + this.b + ", bgType=" + this.c + ", cornerUrl=" + this.d + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public l57(String imgUrl, String bgValue, int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {imgUrl, bgValue, Integer.valueOf(i), str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(imgUrl, "imgUrl");
+        Intrinsics.checkNotNullParameter(bgValue, "bgValue");
+        this.a = imgUrl;
+        this.b = bgValue;
+        this.c = i;
+        this.d = str;
+    }
+
+    public final int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
     }
 }

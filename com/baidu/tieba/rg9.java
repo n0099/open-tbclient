@@ -1,44 +1,38 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
-import android.view.MotionEvent;
-import android.view.View;
+import android.location.Address;
+import com.baidu.adp.lib.lbs.BdLocationMananger;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.location.LocationCallback;
+import com.baidu.searchbox.live.interfaces.location.LocationInfo;
+import com.baidu.searchbox.live.interfaces.service.LiveLocationService;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class rg9 implements View.OnTouchListener {
+/* loaded from: classes8.dex */
+public class rg9 implements LiveLocationService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public long b;
-    public long c;
-    public b d;
-    public long e;
-    public Handler f;
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a();
-
-        void b();
-    }
-
-    /* loaded from: classes7.dex */
-    public class a extends Handler {
+    /* loaded from: classes8.dex */
+    public class a implements BdLocationMananger.LocationCallBack {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rg9 a;
+        public final /* synthetic */ LocationCallback a;
+        public final /* synthetic */ rg9 b;
 
-        public a(rg9 rg9Var) {
+        public a(rg9 rg9Var, LocationCallback locationCallback) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {rg9Var};
+                Object[] objArr = {rg9Var, locationCallback};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -48,81 +42,94 @@ public class rg9 implements View.OnTouchListener {
                     return;
                 }
             }
-            this.a = rg9Var;
+            this.b = rg9Var;
+            this.a = locationCallback;
         }
 
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
+        @Override // com.baidu.adp.lib.lbs.BdLocationMananger.LocationCallBack
+        public void onLocationGeted(int i, String str, Address address) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                int i = message.what;
-                if (i != 2) {
-                    if (i == 1 && this.a.a == 1) {
-                        if (this.a.d != null) {
-                            this.a.d.a();
-                        }
-                        this.a.a = 0;
-                        this.a.b = 0L;
-                        this.a.c = 0L;
-                        return;
+            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, address) == null) {
+                try {
+                    if (this.a != null) {
+                        this.a.onReceiveLocation(this.b.b(address));
                     }
-                    return;
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-                this.a.a = 0;
-                this.a.b = 0L;
-                this.a.c = 0L;
             }
         }
     }
 
-    public rg9(b bVar) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948120805, "Lcom/baidu/tieba/rg9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948120805, "Lcom/baidu/tieba/rg9;");
+                return;
+            }
+        }
+        BdLocationMananger.getInstance().addWhiteList(rg9.class);
+    }
+
+    public rg9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = 0;
-        this.b = 0L;
-        this.c = 0L;
-        this.e = 500L;
-        this.f = new a(this);
-        this.d = bVar;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view2, MotionEvent motionEvent) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.searchbox.live.interfaces.service.LiveLocationService
+    public LocationInfo getLocationInfo() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-            if (motionEvent.getAction() == 0) {
-                if (this.d == null) {
-                    return false;
-                }
-                int i = this.a + 1;
-                this.a = i;
-                if (i == 1) {
-                    this.b = System.currentTimeMillis();
-                    this.f.sendEmptyMessageDelayed(1, this.e);
-                } else if (i == 2) {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    this.c = currentTimeMillis;
-                    if (currentTimeMillis - this.b < this.e) {
-                        this.d.b();
-                    }
-                    this.f.sendEmptyMessage(2);
-                }
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return b(BdLocationMananger.getInstance().getAddress(false, (BdLocationMananger.LocationCallBack) null));
         }
-        return invokeLL.booleanValue;
+        return (LocationInfo) invokeV.objValue;
+    }
+
+    public final LocationInfo b(Address address) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, address)) == null) {
+            LocationInfo locationInfo = new LocationInfo();
+            if (address != null) {
+                locationInfo.setCity(address.getLocality());
+                locationInfo.setLatitude(address.getLatitude());
+                locationInfo.setLongitude(address.getLongitude());
+                locationInfo.setProvince(address.getAdminArea());
+                locationInfo.setCounty(address.getCountryName());
+            }
+            return locationInfo;
+        }
+        return (LocationInfo) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.LiveLocationService
+    public void requestLocate(LocationCallback locationCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, locationCallback) == null) {
+            if (!UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst())) {
+                if (locationCallback != null) {
+                    locationCallback.onReceiveLocation(new LocationInfo());
+                    return;
+                }
+                return;
+            }
+            BdLocationMananger.getInstance().getAddress(false, (BdLocationMananger.LocationCallBack) new a(this, locationCallback));
+        }
     }
 }

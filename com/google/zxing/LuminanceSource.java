@@ -2,7 +2,7 @@ package com.google.zxing;
 
 import com.baidu.android.common.others.IStringUtil;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class LuminanceSource {
     public final int height;
     public final int width;

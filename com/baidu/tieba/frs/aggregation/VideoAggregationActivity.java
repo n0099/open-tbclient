@@ -101,7 +101,7 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d005d);
+            setContentView(R.layout.obfuscated_res_0x7f0d005f);
             this.c = getIntent().getStringExtra("PARAM_FROM");
             this.b = getIntent().getStringExtra("PARAM_FID");
             String stringExtra = getIntent().getStringExtra("st_type");
@@ -109,8 +109,8 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
             if (TextUtils.isEmpty(this.b)) {
                 finish();
             }
-            this.a = VideoAggregationFragment.g2(this.b, this.c, stringExtra, stringExtra2);
-            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f0907bc, this.a).commit();
+            this.a = VideoAggregationFragment.y2(this.b, this.c, stringExtra, stringExtra2);
+            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f0907db, this.a).commit();
         }
     }
 
@@ -121,7 +121,7 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, keyEvent)) == null) {
             if (keyEvent != null && (videoAggregationFragment = this.a) != null) {
-                if (videoAggregationFragment.k2(i)) {
+                if (videoAggregationFragment.C2(i)) {
                     return true;
                 }
                 return super.onKeyDown(i, keyEvent);

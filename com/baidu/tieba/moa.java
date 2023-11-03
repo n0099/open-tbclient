@@ -1,250 +1,513 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class moa {
+public class moa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public int e;
-    public int f;
+    public ArrayList<ez4> a;
+    public ArrayList<a> b;
+    public ArrayList<b> c;
+    public boolean d;
+    public long e;
+    public ArrayList<d> f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947980778, "Lcom/baidu/tieba/moa;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947980778, "Lcom/baidu/tieba/moa;");
-        }
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof moa) {
-                moa moaVar = (moa) obj;
-                return Intrinsics.areEqual(this.a, moaVar.a) && Intrinsics.areEqual(this.b, moaVar.b) && Intrinsics.areEqual(this.c, moaVar.c) && Intrinsics.areEqual(this.d, moaVar.d) && this.e == moaVar.e && this.f == moaVar.f;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? (((((((((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c.hashCode()) * 31) + this.d.hashCode()) * 31) + this.e) * 31) + this.f : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return "VideoAdUiData(name=" + this.a + ", portrait=" + this.b + ", description=" + this.c + ", buttonDesc=" + this.d + ", buttonType=" + this.e + ", channel=" + this.f + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public moa() {
-        this("", null, null, null, 0, 0, 62, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this((String) objArr[0], (String) objArr[1], (String) objArr[2], (String) objArr[3], ((Integer) objArr[4]).intValue(), ((Integer) objArr[5]).intValue(), ((Integer) objArr[6]).intValue(), (DefaultConstructorMarker) objArr[7]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public moa(String name, String portrait, String description, String buttonDesc, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {name, portrait, description, buttonDesc, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(name, "name");
-        Intrinsics.checkNotNullParameter(portrait, "portrait");
-        Intrinsics.checkNotNullParameter(description, "description");
-        Intrinsics.checkNotNullParameter(buttonDesc, "buttonDesc");
-        this.a = name;
-        this.b = portrait;
-        this.c = description;
-        this.d = buttonDesc;
-        this.e = i;
-        this.f = i2;
-    }
-
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public /* synthetic */ moa(String str, String str2, String str3, String str4, int i, int i2, int i3, DefaultConstructorMarker defaultConstructorMarker) {
-        this(r12, r1, r0, r2, r3, r11);
-        String str5;
-        String str6;
-        int i4;
-        int i5;
-        if ((i3 & 1) != 0) {
-            str5 = "";
-        } else {
-            str5 = str;
-        }
-        if ((i3 & 2) != 0) {
-            str6 = "";
-        } else {
-            str6 = str2;
-        }
-        String str7 = (i3 & 4) == 0 ? str3 : "";
-        String str8 = (i3 & 8) != 0 ? "了解详情" : str4;
-        if ((i3 & 16) != 0) {
-            i4 = 0;
-        } else {
-            i4 = i;
-        }
-        if ((i3 & 32) != 0) {
-            i5 = 0;
-        } else {
-            i5 = i2;
-        }
-    }
-
-    public final String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public final int c() {
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
+            return true;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    public final String d() {
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
+        public boolean d;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public String b;
+        public boolean c;
+        public int d;
+        public String e;
+        public String f;
+        public String g;
+        public String h;
+        public String i;
+        public long j;
+        public long k;
+        public String l;
+        public int m;
+        public int n;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public String b;
+        public String c;
+        public long d;
+        public long e;
+        public String f;
+        public String g;
+        public String h;
+        public String i;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public int b;
+        public String c;
+        public String d;
+        public ArrayList<c> e;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public moa() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new ArrayList<>();
+        this.b = new ArrayList<>();
+        this.c = new ArrayList<>();
+        this.f = new ArrayList<>();
+        this.d = true;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        ArrayList<a> arrayList;
+        ArrayList<b> arrayList2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (!this.d) {
+                return true;
+            }
+            ArrayList<ez4> arrayList3 = this.a;
+            if ((arrayList3 == null || arrayList3.size() == 0) && (((arrayList = this.b) == null || arrayList.size() == 0) && ((arrayList2 = this.c) == null || arrayList2.size() == 0))) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public ArrayList<a> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (String) invokeV.objValue;
+        return (ArrayList) invokeV.objValue;
     }
 
-    public final String e() {
+    public ArrayList<b> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public ArrayList<ez4> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.a;
         }
-        return (String) invokeV.objValue;
+        return (ArrayList) invokeV.objValue;
     }
 
-    public final String f() {
+    public long f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.e;
+        }
+        return invokeV.longValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            JSONArray jSONArray = new JSONArray();
+            JSONArray jSONArray2 = new JSONArray();
+            try {
+                if (this.a != null && this.a.size() != 0) {
+                    Iterator<ez4> it = this.a.iterator();
+                    while (it.hasNext()) {
+                        ez4 next = it.next();
+                        if (next != null) {
+                            JSONObject jSONObject2 = new JSONObject();
+                            jSONObject2.put("pic_url_bigger", next.a());
+                            jSONObject2.put("link", next.b());
+                            jSONArray2.put(jSONObject2);
+                        }
+                    }
+                    jSONObject.put("banner", jSONArray2);
+                }
+                jSONObject.put("prevtime", this.e);
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+            }
+            if (this.f != null && this.f.size() != 0) {
+                Iterator<d> it2 = this.f.iterator();
+                while (it2.hasNext()) {
+                    d next2 = it2.next();
+                    if (next2 != null) {
+                        JSONObject jSONObject3 = new JSONObject();
+                        jSONObject3.put("title", next2.a);
+                        jSONObject3.put("type", next2.b);
+                        jSONObject3.put("pic", next2.c);
+                        jSONObject3.put("link", next2.d);
+                        ArrayList<c> arrayList = next2.e;
+                        if (arrayList != null && arrayList.size() != 0) {
+                            JSONArray jSONArray3 = new JSONArray();
+                            Iterator<c> it3 = arrayList.iterator();
+                            while (it3.hasNext()) {
+                                c next3 = it3.next();
+                                if (next3 != null) {
+                                    JSONObject jSONObject4 = new JSONObject();
+                                    jSONObject4.put("forum_id", next3.a);
+                                    jSONObject4.put("forum_name", next3.b);
+                                    jSONObject4.put("avatar", next3.c);
+                                    jSONObject4.put("explain", next3.f);
+                                    jSONObject4.put("desc", next3.g);
+                                    jSONObject4.put("tag", next3.h);
+                                    jSONObject4.put("thread_num", next3.e);
+                                    jSONObject4.put("member_count", next3.d);
+                                    jSONObject4.put("link", next3.i);
+                                    jSONArray3.put(jSONObject4);
+                                }
+                            }
+                            jSONObject3.put("forum_list", jSONArray3);
+                            jSONArray.put(jSONObject3);
+                        }
+                        jSONArray.put(jSONObject3);
+                    }
+                }
+                JSONObject jSONObject5 = new JSONObject();
+                jSONObject5.put("new_list", jSONArray);
+                jSONObject.put("new_recommend_topic", jSONObject5);
+                return jSONObject.toString();
+            }
+            return jSONObject.toString();
         }
         return (String) invokeV.objValue;
     }
 
-    public final void g(String str) {
+    public final void h(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.d = str;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, jSONArray) == null) && jSONArray != null) {
+            try {
+                if (jSONArray.length() != 0) {
+                    for (int i = 0; i < jSONArray.length(); i++) {
+                        JSONObject jSONObject = jSONArray.getJSONObject(i);
+                        if (jSONObject != null) {
+                            String optString = jSONObject.optString("pic_url_bigger", "");
+                            String optString2 = jSONObject.optString("link", "");
+                            String optString3 = jSONObject.optString("template_id", "");
+                            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
+                                ez4 ez4Var = new ez4();
+                                ez4Var.d(optString);
+                                ez4Var.e(optString2);
+                                ez4Var.f(optString3);
+                                this.a.add(ez4Var);
+                            }
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+            }
         }
     }
 
-    public final void h(int i) {
+    /* JADX WARN: Type inference failed for: r2v11 */
+    /* JADX WARN: Type inference failed for: r2v3, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r2v8 */
+    public final void i(JSONArray jSONArray) {
+        int optInt;
+        JSONArray optJSONArray;
+        int i;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.e = i;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONArray) == null) && jSONArray != null) {
+            try {
+                if (jSONArray.length() != 0) {
+                    boolean z = false;
+                    int i2 = 0;
+                    int i3 = 0;
+                    while (i2 < jSONArray.length()) {
+                        JSONObject jSONObject = jSONArray.getJSONObject(i2);
+                        if (jSONObject != null && (optInt = jSONObject.optInt("type", -1)) != -1) {
+                            boolean z2 = true;
+                            String str2 = "";
+                            if (optInt == 1) {
+                                i3++;
+                                a aVar = new a();
+                                aVar.a = jSONObject.optString("title", "");
+                                aVar.b = jSONObject.optString("link", "");
+                                aVar.c = jSONObject.optString("pic", "");
+                                aVar.d = z;
+                                this.b.add(aVar);
+                            } else if (optInt == 3) {
+                                i3++;
+                                a aVar2 = new a();
+                                aVar2.a = jSONObject.optString("title", "");
+                                aVar2.b = jSONObject.optString("link", "");
+                                aVar2.c = jSONObject.optString("pic", "");
+                                aVar2.d = true;
+                                this.b.add(aVar2);
+                            } else if ((optInt == 2 || optInt == 0) && (optJSONArray = jSONObject.optJSONArray("forum_list")) != null && optJSONArray.length() != 0) {
+                                b bVar = new b();
+                                bVar.a = true;
+                                int i4 = i2 - i3;
+                                bVar.m = i4;
+                                if (optInt == 2) {
+                                    bVar.c = true;
+                                } else {
+                                    bVar.c = z;
+                                }
+                                bVar.l = jSONObject.optString("link", "");
+                                bVar.b = jSONObject.optString("title", "");
+                                this.c.add(bVar);
+                                int i5 = 0;
+                                ?? r2 = z;
+                                while (i5 < optJSONArray.length()) {
+                                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i5);
+                                    if (jSONObject2 == null) {
+                                        i = i2;
+                                        str = str2;
+                                    } else {
+                                        b bVar2 = new b();
+                                        if (optInt == 2) {
+                                            bVar2.c = z2;
+                                        } else {
+                                            bVar2.c = r2;
+                                        }
+                                        bVar2.a = r2;
+                                        bVar2.m = i4;
+                                        bVar2.n = i5;
+                                        bVar2.d = jSONObject2.optInt("forum_id", r2);
+                                        bVar2.e = jSONObject2.optString("forum_name", str2);
+                                        bVar2.f = jSONObject2.optString("avatar", str2);
+                                        bVar2.h = jSONObject2.optString("explain", str2);
+                                        bVar2.i = jSONObject2.optString("desc", str2);
+                                        bVar2.g = jSONObject2.optString("tag", str2);
+                                        i = i2;
+                                        bVar2.j = jSONObject2.optLong("member_count", 0L);
+                                        bVar2.k = jSONObject2.optLong("thread_num", 0L);
+                                        str = str2;
+                                        bVar2.l = jSONObject2.optString("link", str);
+                                        this.c.add(bVar2);
+                                    }
+                                    i5++;
+                                    str2 = str;
+                                    i2 = i;
+                                    r2 = 0;
+                                    z2 = true;
+                                }
+                            }
+                        }
+                        i2++;
+                        z = false;
+                    }
+                }
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+            }
         }
     }
 
-    public final void i(int i) {
+    public void j(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.f = i;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            if (str != null && str.length() >= 1) {
+                try {
+                    k(new JSONObject(str));
+                    l(str);
+                    return;
+                } catch (Exception e) {
+                    this.d = false;
+                    BdLog.e(e.toString());
+                    return;
+                }
+            }
+            this.d = false;
         }
     }
 
-    public final void j(String str) {
+    public void k(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.c = str;
+        if ((interceptable != null && interceptable.invokeL(1048586, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-    }
-
-    public final void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.a = str;
+        try {
+            h(jSONObject.optJSONArray("banner"));
+            this.e = jSONObject.optLong("prevtime");
+            JSONObject optJSONObject = jSONObject.optJSONObject("new_recommend_topic");
+            if (optJSONObject == null) {
+                return;
+            }
+            i(optJSONObject.optJSONArray("new_list"));
+        } catch (Exception e) {
+            this.d = false;
+            BdLog.e(e.toString());
         }
     }
 
     public final void l(String str) {
+        JSONArray optJSONArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.b = str;
+        if ((interceptable != null && interceptable.invokeL(1048587, this, str) != null) || str == null) {
+            return;
+        }
+        try {
+            JSONObject optJSONObject = new JSONObject(str).optJSONObject("new_recommend_topic");
+            if (optJSONObject != null && (optJSONArray = optJSONObject.optJSONArray("new_list")) != null && optJSONArray.length() != 0) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    JSONObject jSONObject = optJSONArray.getJSONObject(i);
+                    if (jSONObject != null) {
+                        d dVar = new d();
+                        this.f.add(dVar);
+                        dVar.e = new ArrayList<>();
+                        dVar.a = jSONObject.optString("title", "");
+                        dVar.b = jSONObject.optInt("type", -1);
+                        dVar.c = jSONObject.optString("pic", "");
+                        dVar.d = jSONObject.optString("link", "");
+                        JSONArray optJSONArray2 = jSONObject.optJSONArray("forum_list");
+                        if (optJSONArray2 != null && optJSONArray2.length() != 0) {
+                            for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                                JSONObject jSONObject2 = optJSONArray2.getJSONObject(i2);
+                                if (jSONObject2 != null) {
+                                    c cVar = new c();
+                                    cVar.a = jSONObject2.optInt("forum_id", 0);
+                                    cVar.b = jSONObject2.optString("forum_name", "");
+                                    cVar.c = jSONObject2.optString("avatar", "");
+                                    cVar.f = jSONObject2.optString("explain", "");
+                                    cVar.g = jSONObject2.optString("desc", "");
+                                    cVar.h = jSONObject2.optString("tag", "");
+                                    cVar.d = jSONObject2.optLong("member_count", 0L);
+                                    cVar.e = jSONObject2.optLong("thread_num", 0L);
+                                    cVar.i = jSONObject2.optString("link", "");
+                                    dVar.e.add(cVar);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            BdLog.e(e.toString());
+        }
+    }
+
+    public void m(ArrayList<ez4> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, arrayList) == null) {
+            this.a = arrayList;
+        }
+    }
+
+    public void n(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
+            this.e = j;
         }
     }
 }

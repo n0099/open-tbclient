@@ -5,7 +5,7 @@ import kotlin.jvm.internal.FunctionReference;
 import kotlin.jvm.internal.Reflection;
 import kotlin.reflect.KDeclarationContainer;
 import kotlin.reflect.jvm.internal.impl.name.ClassId;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final /* synthetic */ class FindClassInModuleKt$findNonGenericClassAcrossDependencies$typeParametersCount$1 extends FunctionReference implements Function1<ClassId, ClassId> {
     public static final FindClassInModuleKt$findNonGenericClassAcrossDependencies$typeParametersCount$1 INSTANCE = new FindClassInModuleKt$findNonGenericClassAcrossDependencies$typeParametersCount$1();
 

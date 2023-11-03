@@ -16,7 +16,7 @@ import com.google.zxing.client.result.ExpandedProductParsedResult;
 import com.vivo.push.BuildConfig;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class EANManufacturerOrgSupport {
     public final List<int[]> ranges = new ArrayList();
     public final List<String> countryIdentifiers = new ArrayList();

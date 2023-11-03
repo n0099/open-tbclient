@@ -1,55 +1,67 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Bundle;
+import com.baidu.tieba.na7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class kk7 {
+import java.util.LinkedHashMap;
+import java.util.Map;
+import kotlin.collections.MapsKt__MapsKt;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes7.dex */
+public final class kk7 implements na7.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+    public final Bundle a;
 
-    public kk7(int i, int i2) {
+    public kk7(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            Object[] objArr = {bundle};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.b = i2;
+        Intrinsics.checkNotNullParameter(bundle, "bundle");
+        this.a = bundle;
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.na7.b
+    public void a(za7<?> data, int i) {
+        ja7 ja7Var;
+        Map<String, String> emptyMap;
+        Map<String, String> emptyMap2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (1 == this.b) {
-                return true;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, data, i) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            if (data instanceof ja7) {
+                ja7Var = (ja7) data;
+            } else {
+                ja7Var = null;
             }
-            return false;
+            if (ja7Var == null) {
+                return;
+            }
+            v67 v67Var = ja7Var.a;
+            if (v67Var == null || (emptyMap = v67Var.a()) == null) {
+                emptyMap = MapsKt__MapsKt.emptyMap();
+            }
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            linkedHashMap.put("get_position", String.valueOf(i + 1));
+            d57 d57Var = ja7Var.b;
+            if (d57Var == null || (emptyMap2 = d57Var.a()) == null) {
+                emptyMap2 = MapsKt__MapsKt.emptyMap();
+            }
+            ib7.a.d(new bb7("card_click_other", emptyMap, linkedHashMap, emptyMap2), new ok7(this.a));
         }
-        return invokeV.booleanValue;
     }
 }

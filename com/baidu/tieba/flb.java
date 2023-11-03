@@ -1,166 +1,289 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.sdk.api.SplashAd;
-import com.baidu.searchbox.player.model.YYOption;
-import com.baidu.tieba.ylb;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.AdReporter;
-import java.util.HashMap;
+import com.baidu.ubc.UBCManager;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class flb<A extends ylb> extends ReporterPidLoader<A> {
+public class flb {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
+    public static volatile flb c;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public flb(FunAdType funAdType, Ssp.Pid pid) {
-        this(funAdType, pid, true);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {funAdType, pid};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947769389, "Lcom/baidu/tieba/flb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947769389, "Lcom/baidu/tieba/flb;");
                 return;
             }
         }
+        b = dlb.m();
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public flb(FunAdType funAdType, Ssp.Pid pid, boolean z) {
-        this(funAdType, pid, z, false);
+    public flb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {funAdType, pid, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = qf1.g();
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public flb(FunAdType funAdType, Ssp.Pid pid, boolean z, boolean z2) {
-        this(funAdType, pid, z, z2, false);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {funAdType, pid, Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue(), ((Boolean) objArr2[4]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public flb(FunAdType funAdType, Ssp.Pid pid, boolean z, boolean z2, boolean z3) {
-        super(funAdType, pid, z, z2, z3);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {funAdType, pid, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue(), ((Boolean) objArr2[4]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.ReporterPidLoader
-    public AdReporter<A> createAdReporter() {
+    public static flb a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new rkb(this.mPid) : (AdReporter) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (flb.class) {
+                    if (c == null) {
+                        c = new flb();
+                    }
+                }
+            }
+            return c;
+        }
+        return (flb) invokeV.objValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public double getAdBiddingPrices(Object obj) {
-        InterceptResult invokeL;
+    public void b(String str, int i, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+        if ((interceptable != null && interceptable.invokeLIL(1048576, this, str, i, str2) != null) || !this.a || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || i == 0) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str);
+            jSONObject.put("dbOverNum", i);
+            jSONObject.put("tableName", str2);
+            c("logDiscard", "database", jSONObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void l(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048586, this, str, str2, str3) == null) && this.a && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str)) {
             try {
-                return Double.parseDouble(((ylb) obj).a()) / 100.0d;
-            } catch (Exception unused) {
-                return 0.0d;
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str2);
+                jSONObject.put("size", str3);
+                c("logSize", str, jSONObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
-        return invokeL.doubleValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void setAdBiddingResult(Object obj, String str, double d, double d2, boolean z, int i) {
-        int i2;
-        String str2;
+    public final void c(String str, String str2, JSONObject jSONObject) {
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{obj, str, Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            ylb ylbVar = (ylb) obj;
-            String valueOf = String.valueOf(d2 * 100.0d);
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, jSONObject) == null) {
+            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            if (b) {
+                if (jSONObject != null) {
+                    str3 = jSONObject.toString();
+                } else {
+                    str3 = "";
+                }
+                Log.d("UBCQualityStatics", "Quality event: type=" + str + ", value=" + str2 + ",ext=" + str3);
+            }
+            try {
+                JSONObject jSONObject2 = new JSONObject();
+                if (!TextUtils.isEmpty(str)) {
+                    jSONObject2.put("type", str);
+                }
+                if (!TextUtils.isEmpty(str2)) {
+                    jSONObject2.put("value", str2);
+                }
+                if (jSONObject != null) {
+                    jSONObject2.put("ext", jSONObject);
+                }
+                uBCManager.onEvent("1876", jSONObject2);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void d(String str, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) != null) || !this.a || TextUtils.isEmpty(str) || i == 0) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str);
+            jSONObject.put("fileNum", i);
+            c("logDiscard", "fileNum", jSONObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void e(String str, int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLIII(1048579, this, str, i, i2, i3) != null) || !this.a || TextUtils.isEmpty(str)) {
+            return;
+        }
+        if (i == 0 && i2 == 0 && i3 == 0) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str);
+            if (i != 0) {
+                jSONObject.put("flowExpired", i);
+            }
+            if (i2 != 0) {
+                jSONObject.put("eventExpired", i2);
+            }
+            if (i3 != 0) {
+                jSONObject.put("flowInterrupt", i3);
+            }
+            c("logDiscard", "timeExpired", jSONObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || !this.a || TextUtils.isEmpty(str)) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str);
+            c("logDiscard", "realLog", jSONObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || !this.a || TextUtils.isEmpty(str)) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("exception", str);
+            c("sqlError", null, jSONObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) != null) || !this.a || TextUtils.isEmpty(str)) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("exception", str);
+            c("sendFail", "bodyError", jSONObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void k(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048585, this, i) != null) || !this.a) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("errno", i);
+            c("sendFail", "backend", jSONObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void g(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048581, this, str, str2, str3) == null) && this.a && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str);
+                jSONObject.put("size", str2);
+                jSONObject.put("logId", str3);
+                c("logSize", "single", jSONObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void i(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048583, this, str, str2) != null) || !this.a) {
+            return;
+        }
+        if (TextUtils.isEmpty(str2) && TextUtils.isEmpty(str)) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            if (!TextUtils.isEmpty(str)) {
+                jSONObject.put("msg", str);
+            }
+            if (!TextUtils.isEmpty(str2)) {
+                jSONObject.put("exception", str2);
+            }
+            c("sendFail", "requestError", jSONObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void m(boolean z, long j) {
+        int q;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
             if (z) {
-                ylbVar.a(valueOf);
-                return;
-            }
-            HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put(SplashAd.KEY_BIDFAIL_ECPM, Integer.valueOf((int) (d * 100.0d)));
-            if (str.equals(FunAdSdk.PLATFORM_CSJ)) {
-                i2 = 1;
-            } else if (str.equals(FunAdSdk.PLATFORM_GDT)) {
-                i2 = 2;
-            } else if (str.equals(FunAdSdk.PLATFORM_KS)) {
-                i2 = 3;
-            } else if (str.equals(FunAdSdk.PLATFORM_SIG)) {
-                i2 = 4;
-            } else if (str.equals("baidu") && !this.mPid.isBidding) {
-                i2 = 9;
+                q = ikb.o().r();
             } else {
-                i2 = 10;
+                q = ikb.o().q();
             }
-            hashMap.put(SplashAd.KEY_BIDFAIL_ADN, Integer.valueOf(i2));
-            if (i == 3) {
-                str2 = YYOption.UrlProtocol.USER;
-            } else if (i == 5) {
-                str2 = "900";
+            if (z) {
+                str = "uploadReal";
             } else {
-                str2 = "203";
+                str = "uploadNonReal";
             }
-            ylbVar.a(str2, hashMap);
+            if (j > q) {
+                l(str, String.valueOf(q), String.valueOf(j));
+            }
         }
     }
 }

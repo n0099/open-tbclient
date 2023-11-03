@@ -7,17 +7,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class v7 implements l7 {
+public class v7 implements b8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public boolean a;
 
-    public v7(String str) {
+    public v7(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,65 +27,65 @@ public class v7 implements l7 {
                 return;
             }
         }
-        this.a = str;
+        this.a = z;
     }
 
-    @Override // com.baidu.tieba.l7
-    public Object a(u8 u8Var) {
+    @Override // com.baidu.tieba.b8
+    public Object a(k9 k9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, u8Var)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k9Var)) == null) {
+            return Boolean.valueOf(this.a);
         }
         return invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.l7
-    public Object b(u8 u8Var) {
+    @Override // com.baidu.tieba.b8
+    public Object b(k9 k9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u8Var)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k9Var)) == null) {
+            return Boolean.valueOf(this.a);
         }
         return invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.l7
-    public Object c(u8 u8Var) {
+    @Override // com.baidu.tieba.b8
+    public Object c(k9 k9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, u8Var)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k9Var)) == null) {
+            return Boolean.valueOf(this.a);
         }
         return invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.l7
-    public Object d(u8 u8Var) {
+    @Override // com.baidu.tieba.b8
+    public Object d(k9 k9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, u8Var)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, k9Var)) == null) {
+            return Boolean.valueOf(this.a);
         }
         return invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.l7
-    public Object e(u8 u8Var) {
+    @Override // com.baidu.tieba.b8
+    public Object e(k9 k9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, u8Var)) == null) {
-            return d(u8Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, k9Var)) == null) {
+            return d(k9Var);
         }
         return invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.l7
-    public Object f(u8 u8Var) {
+    @Override // com.baidu.tieba.b8
+    public Object f(k9 k9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, u8Var)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, k9Var)) == null) {
+            return Boolean.valueOf(this.a);
         }
         return invokeL.objValue;
     }

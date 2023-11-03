@@ -9,7 +9,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.hh6;
+import com.baidu.tieba.dj6;
 import com.baidu.tieba.setting.model.MsgRemindHelper;
 import com.baidu.tieba.setting.model.MsgRemindModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -89,8 +89,8 @@ public final class MsgRemindHelper {
             }
         }
         a = new MsgRemindHelper();
-        b = MapsKt__MapsKt.mutableMapOf(TuplesKt.to("collectThreadsUpdate", 36), TuplesKt.to("followUserEssenceUpdate", 34), TuplesKt.to("officialPush", 6));
-        c = MapsKt__MapsKt.mutableMapOf(TuplesKt.to("collectThreadsUpdate", MsgRemindHelper$nameToMethod$1.INSTANCE), TuplesKt.to("followUserEssenceUpdate", MsgRemindHelper$nameToMethod$2.INSTANCE), TuplesKt.to("officialPush", MsgRemindHelper$nameToMethod$3.INSTANCE));
+        b = MapsKt__MapsKt.mutableMapOf(TuplesKt.to("collectThreadsUpdate", 36), TuplesKt.to("followUserEssenceUpdate", 34), TuplesKt.to("officialPush", 6), TuplesKt.to("forumBroadcast", 7));
+        c = MapsKt__MapsKt.mutableMapOf(TuplesKt.to("collectThreadsUpdate", MsgRemindHelper$nameToMethod$1.INSTANCE), TuplesKt.to("followUserEssenceUpdate", MsgRemindHelper$nameToMethod$2.INSTANCE), TuplesKt.to("officialPush", MsgRemindHelper$nameToMethod$3.INSTANCE), TuplesKt.to("forumBroadcast", MsgRemindHelper$nameToMethod$4.INSTANCE));
     }
 
     public MsgRemindHelper() {
@@ -125,7 +125,7 @@ public final class MsgRemindHelper {
                 String str2 = "1";
                 if (areEqual) {
                     boolean areEqual2 = Intrinsics.areEqual(str, "1");
-                    if (num.intValue() == 6) {
+                    if (num.intValue() == 6 || num.intValue() == 7) {
                         areEqual2 = !areEqual2;
                     }
                     f(b2, num.intValue(), areEqual2, MsgRemindHelper$handlePushNotificationPermission$1.INSTANCE);
@@ -154,7 +154,7 @@ public final class MsgRemindHelper {
             Intrinsics.checkNotNullParameter(params, "$params");
             WeakReference<WebView> weakReference = d;
             if (weakReference != null && (webView = weakReference.get()) != null) {
-                hh6.a().d(webView, "pushNotificationPermission", new HashMap<>(params));
+                dj6.a().d(webView, "pushNotificationPermission", new HashMap<>(params));
             }
         }
     }
@@ -162,7 +162,7 @@ public final class MsgRemindHelper {
     public final void d(final Map<String, ? extends Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map) == null) {
-            UiUtils.post(new Runnable() { // from class: com.baidu.tieba.g5a
+            UiUtils.post(new Runnable() { // from class: com.baidu.tieba.lia
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -183,7 +183,7 @@ public final class MsgRemindHelper {
         if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{pageContext, Integer.valueOf(i), Boolean.valueOf(z), callback}) == null) {
             Intrinsics.checkNotNullParameter(pageContext, "pageContext");
             Intrinsics.checkNotNullParameter(callback, "callback");
-            new MsgRemindModel(pageContext).S(i, z, new a(callback));
+            new MsgRemindModel(pageContext).T(i, z, new a(callback));
         }
     }
 

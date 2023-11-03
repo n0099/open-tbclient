@@ -1,244 +1,36 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.k6c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.Executor;
-import java.util.concurrent.RejectedExecutionException;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
-import rx.internal.schedulers.ScheduledAction;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import com.huawei.hms.common.internal.TransactionIdCreater;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import javax.security.auth.x500.X500Principal;
+import org.apache.commons.codec.net.RFC1522Codec;
 /* loaded from: classes7.dex */
-public final class m8c extends k6c {
+public class m8c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Executor a;
+    public final String a;
+    public final int b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public char[] g;
 
-    /* loaded from: classes7.dex */
-    public static final class a extends k6c.a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Executor a;
-        public final kbc b;
-        public final ConcurrentLinkedQueue<ScheduledAction> c;
-        public final AtomicInteger d;
-        public final ScheduledExecutorService e;
-
-        /* renamed from: com.baidu.tieba.m8c$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class C0383a implements u6c {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ lbc a;
-            public final /* synthetic */ a b;
-
-            public C0383a(a aVar, lbc lbcVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, lbcVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = lbcVar;
-            }
-
-            @Override // com.baidu.tieba.u6c
-            public void call() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.b.b.d(this.a);
-                }
-            }
-        }
-
-        /* loaded from: classes7.dex */
-        public class b implements u6c {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ lbc a;
-            public final /* synthetic */ u6c b;
-            public final /* synthetic */ o6c c;
-            public final /* synthetic */ a d;
-
-            public b(a aVar, lbc lbcVar, u6c u6cVar, o6c o6cVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, lbcVar, u6cVar, o6cVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.d = aVar;
-                this.a = lbcVar;
-                this.b = u6cVar;
-                this.c = o6cVar;
-            }
-
-            @Override // com.baidu.tieba.u6c
-            public void call() {
-                Interceptable interceptable = $ic;
-                if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.isUnsubscribed()) {
-                    return;
-                }
-                o6c b = this.d.b(this.b);
-                this.a.a(b);
-                if (b.getClass() == ScheduledAction.class) {
-                    ((ScheduledAction) b).add(this.c);
-                }
-            }
-        }
-
-        public a(Executor executor) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {executor};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = executor;
-            this.c = new ConcurrentLinkedQueue<>();
-            this.d = new AtomicInteger();
-            this.b = new kbc();
-            this.e = n8c.a();
-        }
-
-        @Override // com.baidu.tieba.k6c.a
-        public o6c b(u6c u6cVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, u6cVar)) == null) {
-                if (isUnsubscribed()) {
-                    return nbc.c();
-                }
-                ScheduledAction scheduledAction = new ScheduledAction(xac.q(u6cVar), this.b);
-                this.b.a(scheduledAction);
-                this.c.offer(scheduledAction);
-                if (this.d.getAndIncrement() == 0) {
-                    try {
-                        this.a.execute(this);
-                    } catch (RejectedExecutionException e) {
-                        this.b.d(scheduledAction);
-                        this.d.decrementAndGet();
-                        xac.j(e);
-                        throw e;
-                    }
-                }
-                return scheduledAction;
-            }
-            return (o6c) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.k6c.a
-        public o6c c(u6c u6cVar, long j, TimeUnit timeUnit) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{u6cVar, Long.valueOf(j), timeUnit})) == null) {
-                if (j <= 0) {
-                    return b(u6cVar);
-                }
-                if (isUnsubscribed()) {
-                    return nbc.c();
-                }
-                u6c q = xac.q(u6cVar);
-                lbc lbcVar = new lbc();
-                lbc lbcVar2 = new lbc();
-                lbcVar2.a(lbcVar);
-                this.b.a(lbcVar2);
-                o6c a = nbc.a(new C0383a(this, lbcVar2));
-                ScheduledAction scheduledAction = new ScheduledAction(new b(this, lbcVar2, q, a));
-                lbcVar.a(scheduledAction);
-                try {
-                    scheduledAction.add(this.e.schedule(scheduledAction, j, timeUnit));
-                    return a;
-                } catch (RejectedExecutionException e) {
-                    xac.j(e);
-                    throw e;
-                }
-            }
-            return (o6c) invokeCommon.objValue;
-        }
-
-        @Override // com.baidu.tieba.o6c
-        public boolean isUnsubscribed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.b.isUnsubscribed();
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.o6c
-        public void unsubscribe() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.b.unsubscribe();
-                this.c.clear();
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                while (!this.b.isUnsubscribed()) {
-                    ScheduledAction poll = this.c.poll();
-                    if (poll == null) {
-                        return;
-                    }
-                    if (!poll.isUnsubscribed()) {
-                        if (!this.b.isUnsubscribed()) {
-                            poll.run();
-                        } else {
-                            this.c.clear();
-                            return;
-                        }
-                    }
-                    if (this.d.decrementAndGet() == 0) {
-                        return;
-                    }
-                }
-                this.c.clear();
-            }
-        }
-    }
-
-    public m8c(Executor executor) {
+    public m8c(X500Principal x500Principal) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {executor};
+            Object[] objArr = {x500Principal};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -248,16 +40,429 @@ public final class m8c extends k6c {
                 return;
             }
         }
-        this.a = executor;
+        String name = x500Principal.getName("RFC2253");
+        this.a = name;
+        this.b = name.length();
     }
 
-    @Override // com.baidu.tieba.k6c
-    public k6c.a createWorker() {
+    public final int a(int i) {
+        InterceptResult invokeI;
+        int i2;
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            int i4 = i + 1;
+            if (i4 < this.b) {
+                char c = this.g[i];
+                if (c >= '0' && c <= '9') {
+                    i2 = c - TransactionIdCreater.FILL_BYTE;
+                } else if (c >= 'a' && c <= 'f') {
+                    i2 = c - 'W';
+                } else if (c >= 'A' && c <= 'F') {
+                    i2 = c - '7';
+                } else {
+                    throw new IllegalStateException("Malformed DN: " + this.a);
+                }
+                char c2 = this.g[i4];
+                if (c2 >= '0' && c2 <= '9') {
+                    i3 = c2 - TransactionIdCreater.FILL_BYTE;
+                } else if (c2 >= 'a' && c2 <= 'f') {
+                    i3 = c2 - 'W';
+                } else if (c2 >= 'A' && c2 <= 'F') {
+                    i3 = c2 - '7';
+                } else {
+                    throw new IllegalStateException("Malformed DN: " + this.a);
+                }
+                return (i2 << 4) + i3;
+            }
+            throw new IllegalStateException("Malformed DN: " + this.a);
+        }
+        return invokeI.intValue;
+    }
+
+    public List<String> d(String str) {
+        InterceptResult invokeL;
+        String h;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            this.c = 0;
+            this.d = 0;
+            this.e = 0;
+            this.f = 0;
+            this.g = this.a.toCharArray();
+            List<String> emptyList = Collections.emptyList();
+            String g = g();
+            if (g == null) {
+                return emptyList;
+            }
+            do {
+                int i = this.c;
+                if (i < this.b) {
+                    char c = this.g[i];
+                    if (c != '\"') {
+                        if (c != '#') {
+                            if (c != '+' && c != ',' && c != ';') {
+                                h = b();
+                            } else {
+                                h = "";
+                            }
+                        } else {
+                            h = f();
+                        }
+                    } else {
+                        h = h();
+                    }
+                    if (str.equalsIgnoreCase(g)) {
+                        if (emptyList.isEmpty()) {
+                            emptyList = new ArrayList<>();
+                        }
+                        emptyList.add(h);
+                    }
+                    int i2 = this.c;
+                    if (i2 < this.b) {
+                        char[] cArr = this.g;
+                        if (cArr[i2] != ',' && cArr[i2] != ';' && cArr[i2] != '+') {
+                            throw new IllegalStateException("Malformed DN: " + this.a);
+                        }
+                        this.c++;
+                        g = g();
+                    }
+                }
+                return emptyList;
+            } while (g != null);
+            throw new IllegalStateException("Malformed DN: " + this.a);
+        }
+        return (List) invokeL.objValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x00ab, code lost:
+        return new java.lang.String(r1, r2, r8.f - r2);
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this.a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int i = this.c;
+            this.d = i;
+            this.e = i;
+            while (true) {
+                int i2 = this.c;
+                if (i2 >= this.b) {
+                    char[] cArr = this.g;
+                    int i3 = this.d;
+                    return new String(cArr, i3, this.e - i3);
+                }
+                char[] cArr2 = this.g;
+                char c = cArr2[i2];
+                if (c != ' ') {
+                    if (c == ';') {
+                        break;
+                    } else if (c != '\\') {
+                        if (c == '+' || c == ',') {
+                            break;
+                        }
+                        int i4 = this.e;
+                        this.e = i4 + 1;
+                        cArr2[i4] = cArr2[i2];
+                        this.c = i2 + 1;
+                    } else {
+                        int i5 = this.e;
+                        this.e = i5 + 1;
+                        cArr2[i5] = c();
+                        this.c++;
+                    }
+                } else {
+                    int i6 = this.e;
+                    this.f = i6;
+                    this.c = i2 + 1;
+                    this.e = i6 + 1;
+                    cArr2[i6] = WebvttCueParser.CHAR_SPACE;
+                    while (true) {
+                        int i7 = this.c;
+                        if (i7 >= this.b) {
+                            break;
+                        }
+                        char[] cArr3 = this.g;
+                        if (cArr3[i7] != ' ') {
+                            break;
+                        }
+                        int i8 = this.e;
+                        this.e = i8 + 1;
+                        cArr3[i8] = WebvttCueParser.CHAR_SPACE;
+                        this.c = i7 + 1;
+                    }
+                    int i9 = this.c;
+                    if (i9 == this.b) {
+                        break;
+                    }
+                    char[] cArr4 = this.g;
+                    if (cArr4[i9] == ',' || cArr4[i9] == '+' || cArr4[i9] == ';') {
+                        break;
+                    }
+                }
+            }
+            char[] cArr5 = this.g;
+            int i10 = this.d;
+            return new String(cArr5, i10, this.e - i10);
         }
-        return (k6c.a) invokeV.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public final char c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int i = this.c + 1;
+            this.c = i;
+            if (i != this.b) {
+                char[] cArr = this.g;
+                char c = cArr[i];
+                if (c != ' ' && c != '%' && c != '\\' && c != '_' && c != '\"' && c != '#') {
+                    switch (c) {
+                        case '*':
+                        case '+':
+                        case ',':
+                            break;
+                        default:
+                            switch (c) {
+                                case ';':
+                                case '<':
+                                case '=':
+                                case '>':
+                                    break;
+                                default:
+                                    return e();
+                            }
+                    }
+                }
+                return cArr[i];
+            }
+            throw new IllegalStateException("Unexpected end of DN: " + this.a);
+        }
+        return invokeV.charValue;
+    }
+
+    public final char e() {
+        InterceptResult invokeV;
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int a = a(this.c);
+            this.c++;
+            if (a < 128) {
+                return (char) a;
+            }
+            if (a < 192 || a > 247) {
+                return RFC1522Codec.SEP;
+            }
+            if (a <= 223) {
+                i2 = a & 31;
+                i = 1;
+            } else if (a <= 239) {
+                i = 2;
+                i2 = a & 15;
+            } else {
+                i = 3;
+                i2 = a & 7;
+            }
+            for (int i3 = 0; i3 < i; i3++) {
+                int i4 = this.c + 1;
+                this.c = i4;
+                if (i4 == this.b || this.g[i4] != '\\') {
+                    return RFC1522Codec.SEP;
+                }
+                int i5 = i4 + 1;
+                this.c = i5;
+                int a2 = a(i5);
+                this.c++;
+                if ((a2 & 192) != 128) {
+                    return RFC1522Codec.SEP;
+                }
+                i2 = (i2 << 6) + (a2 & 63);
+            }
+            return (char) i2;
+        }
+        return invokeV.charValue;
+    }
+
+    public final String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            int i = this.c + 1;
+            this.c = i;
+            this.d = i;
+            this.e = i;
+            while (true) {
+                int i2 = this.c;
+                if (i2 != this.b) {
+                    char[] cArr = this.g;
+                    if (cArr[i2] == '\"') {
+                        this.c = i2 + 1;
+                        while (true) {
+                            int i3 = this.c;
+                            if (i3 >= this.b || this.g[i3] != ' ') {
+                                break;
+                            }
+                            this.c = i3 + 1;
+                        }
+                        char[] cArr2 = this.g;
+                        int i4 = this.d;
+                        return new String(cArr2, i4, this.e - i4);
+                    }
+                    if (cArr[i2] == '\\') {
+                        cArr[this.e] = c();
+                    } else {
+                        cArr[this.e] = cArr[i2];
+                    }
+                    this.c++;
+                    this.e++;
+                } else {
+                    throw new IllegalStateException("Unexpected end of DN: " + this.a);
+                }
+            }
+        } else {
+            return (String) invokeV.objValue;
+        }
+    }
+
+    public final String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            int i = this.c;
+            if (i + 4 < this.b) {
+                this.d = i;
+                this.c = i + 1;
+                while (true) {
+                    int i2 = this.c;
+                    if (i2 == this.b) {
+                        break;
+                    }
+                    char[] cArr = this.g;
+                    if (cArr[i2] == '+' || cArr[i2] == ',' || cArr[i2] == ';') {
+                        break;
+                    } else if (cArr[i2] == ' ') {
+                        this.e = i2;
+                        this.c = i2 + 1;
+                        while (true) {
+                            int i3 = this.c;
+                            if (i3 >= this.b || this.g[i3] != ' ') {
+                                break;
+                            }
+                            this.c = i3 + 1;
+                        }
+                    } else {
+                        if (cArr[i2] >= 'A' && cArr[i2] <= 'F') {
+                            cArr[i2] = (char) (cArr[i2] + WebvttCueParser.CHAR_SPACE);
+                        }
+                        this.c++;
+                    }
+                }
+                this.e = this.c;
+                int i4 = this.e;
+                int i5 = this.d;
+                int i6 = i4 - i5;
+                if (i6 >= 5 && (i6 & 1) != 0) {
+                    int i7 = i6 / 2;
+                    byte[] bArr = new byte[i7];
+                    int i8 = i5 + 1;
+                    for (int i9 = 0; i9 < i7; i9++) {
+                        bArr[i9] = (byte) a(i8);
+                        i8 += 2;
+                    }
+                    return new String(this.g, this.d, i6);
+                }
+                throw new IllegalStateException("Unexpected end of DN: " + this.a);
+            }
+            throw new IllegalStateException("Unexpected end of DN: " + this.a);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            while (true) {
+                int i = this.c;
+                if (i >= this.b || this.g[i] != ' ') {
+                    break;
+                }
+                this.c = i + 1;
+            }
+            int i2 = this.c;
+            if (i2 == this.b) {
+                return null;
+            }
+            this.d = i2;
+            this.c = i2 + 1;
+            while (true) {
+                int i3 = this.c;
+                if (i3 >= this.b) {
+                    break;
+                }
+                char[] cArr = this.g;
+                if (cArr[i3] == '=' || cArr[i3] == ' ') {
+                    break;
+                }
+                this.c = i3 + 1;
+            }
+            int i4 = this.c;
+            if (i4 < this.b) {
+                this.e = i4;
+                if (this.g[i4] == ' ') {
+                    while (true) {
+                        int i5 = this.c;
+                        if (i5 >= this.b) {
+                            break;
+                        }
+                        char[] cArr2 = this.g;
+                        if (cArr2[i5] == '=' || cArr2[i5] != ' ') {
+                            break;
+                        }
+                        this.c = i5 + 1;
+                    }
+                    char[] cArr3 = this.g;
+                    int i6 = this.c;
+                    if (cArr3[i6] != '=' || i6 == this.b) {
+                        throw new IllegalStateException("Unexpected end of DN: " + this.a);
+                    }
+                }
+                this.c++;
+                while (true) {
+                    int i7 = this.c;
+                    if (i7 >= this.b || this.g[i7] != ' ') {
+                        break;
+                    }
+                    this.c = i7 + 1;
+                }
+                int i8 = this.e;
+                int i9 = this.d;
+                if (i8 - i9 > 4) {
+                    char[] cArr4 = this.g;
+                    if (cArr4[i9 + 3] == '.' && (cArr4[i9] == 'O' || cArr4[i9] == 'o')) {
+                        char[] cArr5 = this.g;
+                        int i10 = this.d + 1;
+                        if (cArr5[i10] == 'I' || cArr5[i10] == 'i') {
+                            char[] cArr6 = this.g;
+                            int i11 = this.d + 2;
+                            if (cArr6[i11] == 'D' || cArr6[i11] == 'd') {
+                                this.d += 4;
+                            }
+                        }
+                    }
+                }
+                char[] cArr7 = this.g;
+                int i12 = this.d;
+                return new String(cArr7, i12, this.e - i12);
+            }
+            throw new IllegalStateException("Unexpected end of DN: " + this.a);
+        }
+        return (String) invokeV.objValue;
     }
 }

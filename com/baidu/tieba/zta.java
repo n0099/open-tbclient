@@ -1,199 +1,86 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.log.DefaultLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.view.headcard.data.QuizCardRespondedMessage;
+import android.content.Context;
+import android.location.Address;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+import com.baidu.adp.lib.lbs.BdLocationMananger;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.pass.ecommerce.bean.SuggestAddrField;
+import com.baidu.searchbox.ui.animview.praise.ComboPraiseManager;
+import com.baidu.tbadk.core.util.GreyUtil;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.tbadkCore.location.LocationData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.QuizInfo;
 /* loaded from: classes9.dex */
-public final class zta {
+public class zta {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public a b;
-    public BdUniqueId c;
-    public final b d;
 
-    /* loaded from: classes9.dex */
-    public interface a {
-        void a(QuizInfo quizInfo, sta staVar);
-
-        void onError(int i, String str);
-    }
-
-    /* loaded from: classes9.dex */
-    public static final class b extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zta a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(zta ztaVar) {
-            super(CmdConfigHttp.CMD_HTTP_FORUM_QUIZ_CARD_RESULT);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ztaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static void a(NetWork netWork, WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, netWork, writeData) == null) && writeData != null && writeData.isHasLocationData()) {
+            netWork.addPostData("is_location", "2");
+            Address address = BdLocationMananger.getInstance().getAddress(false);
+            if (address != null) {
+                netWork.addPostData(SuggestAddrField.KEY_LAT, String.valueOf(address.getLatitude()));
+                netWork.addPostData(SuggestAddrField.KEY_LNG, String.valueOf(address.getLongitude()));
             }
-            this.a = ztaVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003579 && (httpResponsedMessage instanceof QuizCardRespondedMessage)) {
-                    QuizCardRespondedMessage quizCardRespondedMessage = (QuizCardRespondedMessage) httpResponsedMessage;
-                    if (quizCardRespondedMessage.getError() != 0) {
-                        a a = this.a.a();
-                        if (a != null) {
-                            int error = quizCardRespondedMessage.getError();
-                            String errorString = quizCardRespondedMessage.getErrorString();
-                            Intrinsics.checkNotNullExpressionValue(errorString, "responsedMessage.errorString");
-                            a.onError(error, errorString);
-                        }
-                        TbLog defaultLog = DefaultLog.getInstance();
-                        String b = this.a.b();
-                        defaultLog.i(b, "请求结束，返回错误，错误码为：" + quizCardRespondedMessage.getError());
-                        return;
-                    }
-                    TbLog defaultLog2 = DefaultLog.getInstance();
-                    String b2 = this.a.b();
-                    defaultLog2.i(b2, "请求结束，返回数据，quzi：" + quizCardRespondedMessage.getQuizInfo() + "，dialog：" + quizCardRespondedMessage.getDialogData());
-                    a a2 = this.a.a();
-                    if (a2 != null) {
-                        a2.a(quizCardRespondedMessage.getQuizInfo(), quizCardRespondedMessage.getDialogData());
-                        return;
-                    }
-                    return;
-                }
-                a a3 = this.a.a();
-                if (a3 != null) {
-                    a3.onError(-1, "");
-                }
-                DefaultLog.getInstance().i(this.a.b(), "请求结束，数据不合法");
+            LocationData b = tsa.a().b();
+            if (b != null) {
+                netWork.addPostData("name", b.getFormatted_address());
+                netWork.addPostData(ComboPraiseManager.PRAISE_SOURCE_PREFIX_HN_SN, b.getSn());
             }
         }
     }
 
-    public zta() {
+    public static void b(Context context, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLLLL(65537, null, context, str, str2, str3) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.post_write_or_reply_lay, (ViewGroup) null);
+            inflate.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(BdUtilHelper.getDimens(context, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
+            View findViewById = inflate.findViewById(R.id.experience_score);
+            TextView textView = (TextView) inflate.findViewById(R.id.success_text);
+            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.pre_msg);
+            SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0101);
+            TextView textView3 = (TextView) inflate.findViewById(R.id.color_msg);
+            SkinManager.setViewTextColor(textView3, (int) R.color.CAM_X0305);
+            ImageView imageView = (ImageView) inflate.findViewById(R.id.success_img);
+            if (imageView != null) {
+                imageView.setBackgroundDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.icon_pure_toast_succeed40_svg, R.color.CAM_X0101, null));
             }
-        }
-        this.a = "QuizInfoModel";
-        this.d = new b(this);
-        e();
-    }
-
-    public final a a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (a) invokeV.objValue;
-    }
-
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.d);
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            BdUniqueId bdUniqueId = this.c;
-            if (bdUniqueId != null) {
-                this.d.setTag(bdUniqueId);
-                this.d.setSelfListener(true);
+            if (StringUtils.isNull(str)) {
+                str = context.getString(R.string.send_success);
             }
-            MessageManager.getInstance().registerListener(this.d);
-        }
-    }
-
-    public final void c(String quizId, String product, String quizOptionId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, quizId, product, quizOptionId) == null) {
-            Intrinsics.checkNotNullParameter(quizId, "quizId");
-            Intrinsics.checkNotNullParameter(product, "product");
-            Intrinsics.checkNotNullParameter(quizOptionId, "quizOptionId");
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_HTTP_FORUM_QUIZ_CARD_RESULT);
-            httpMessage.addParam("quiz_id", quizId);
-            httpMessage.addParam("product", product);
-            httpMessage.addParam("quiz_option_id", quizOptionId);
-            BdUniqueId bdUniqueId = this.c;
-            if (bdUniqueId != null) {
-                httpMessage.setTag(bdUniqueId);
+            textView.setText(str);
+            if (str2 != null || str3 != null) {
+                findViewById.setVisibility(0);
+                textView2.setText(str2);
+                textView3.setText(str3);
             }
-            MessageManager.getInstance().sendMessage(httpMessage);
+            c(context, inflate);
         }
     }
 
-    public final void e() {
+    public static void c(Context context, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_FORUM_QUIZ_CARD_RESULT, TbConfig.SERVER_ADDRESS + "c/f/matchActivity/quiz");
-            tbHttpMessageTask.setResponsedClass(QuizCardRespondedMessage.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public final void g(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            this.b = aVar;
-        }
-    }
-
-    public final void h(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) {
-            this.c = bdUniqueId;
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, view2) == null) {
+            Toast toast = new Toast(context);
+            toast.setView(view2);
+            toast.setGravity(17, 0, 0);
+            toast.setDuration(3000);
+            GreyUtil.grey(toast);
+            toast.show();
         }
     }
 }

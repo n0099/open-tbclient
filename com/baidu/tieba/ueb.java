@@ -1,32 +1,24 @@
 package com.baidu.tieba;
 
-import android.media.MediaMetadataRetriever;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.Closeable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class ueb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(MediaMetadataRetriever mediaMetadataRetriever) {
+    public ueb() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, mediaMetadataRetriever) == null) && mediaMetadataRetriever != null) {
-            try {
-                mediaMetadataRetriever.release();
-            } catch (Exception e) {
-                veb.g(e);
-            }
-        }
-    }
-
-    public static void b(Closeable closeable) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, closeable) == null) && closeable != null) {
-            try {
-                closeable.close();
-            } catch (Throwable th) {
-                veb.d(th.getMessage());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }

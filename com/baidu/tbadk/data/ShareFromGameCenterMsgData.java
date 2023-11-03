@@ -5,6 +5,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.tbadk.core.util.ForumBroadcastHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -127,7 +128,7 @@ public class ShareFromGameCenterMsgData extends ShareFromPBMsgData {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("forumName", this.forumName);
+                jSONObject.put(ForumBroadcastHelper.KEY_PARMARS_FORUM_NAME, this.forumName);
                 jSONObject.put("postID", this.postId);
                 jSONObject.put("themeContent", this.content);
                 jSONObject.put("themeID", this.threadId);

@@ -1,64 +1,88 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.m77;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.person.holder.PersonCenterIntervalHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class j2a implements m77 {
+public class j2a extends bi<e2a, PersonCenterIntervalHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public j2a() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j2a(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.l77
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return m77.a.b(this);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.l77
-    public Map<String, String> a(v27 v27Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: t */
+    public PersonCenterIntervalHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, v27Var)) == null) {
-            return m77.a.a(this, v27Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new PersonCenterIntervalHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d048b, viewGroup, false));
         }
-        return (Map) invokeL.objValue;
+        return (PersonCenterIntervalHolder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.m77
-    public String c(v27 businessInfo) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.bi
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, e2a e2aVar, PersonCenterIntervalHolder personCenterIntervalHolder) {
+        u(i, view2, viewGroup, e2aVar, personCenterIntervalHolder);
+        return view2;
+    }
+
+    public View u(int i, View view2, ViewGroup viewGroup, e2a e2aVar, PersonCenterIntervalHolder personCenterIntervalHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            if (!Intrinsics.areEqual(businessInfo.a().get("thread_type"), "74")) {
-                return "";
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, e2aVar, personCenterIntervalHolder})) == null) {
+            if (e2aVar != null && personCenterIntervalHolder != null) {
+                int skinType = TbadkCoreApplication.getInst().getSkinType();
+                if (personCenterIntervalHolder.a != skinType) {
+                    personCenterIntervalHolder.a = skinType;
+                    SkinManager.setBackgroundResource(personCenterIntervalHolder.b, e2aVar.c);
+                }
+                ViewGroup.LayoutParams layoutParams = personCenterIntervalHolder.b.getLayoutParams();
+                int i2 = e2aVar.a;
+                if (i2 > 0) {
+                    layoutParams.height = i2;
+                }
+                int i3 = e2aVar.b;
+                if (i3 > 0) {
+                    layoutParams.width = i3;
+                }
+                personCenterIntervalHolder.b.setLayoutParams(layoutParams);
+                personCenterIntervalHolder.b.setOnClickListener(null);
             }
-            return "live_mix_card_comment_click";
+            return view2;
         }
-        return (String) invokeL.objValue;
+        return (View) invokeCommon.objValue;
     }
 }

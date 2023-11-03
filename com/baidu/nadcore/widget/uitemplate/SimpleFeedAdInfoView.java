@@ -12,7 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatRatingBar;
 import com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wm0;
+import com.baidu.tieba.nn0;
 /* loaded from: classes3.dex */
 public class SimpleFeedAdInfoView extends SimpleAdInfoView {
     public TextView j;
@@ -85,11 +85,11 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
     }
 
     @Override // com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView
-    public void setAdInfo(wm0 wm0Var) {
-        super.setAdInfo(wm0Var);
+    public void setAdInfo(nn0 nn0Var) {
+        super.setAdInfo(nn0Var);
         if (this.j != null) {
-            if (!TextUtils.isEmpty(wm0Var.c)) {
-                this.j.setText(wm0Var.c);
+            if (!TextUtils.isEmpty(nn0Var.c)) {
+                this.j.setText(nn0Var.c);
                 this.j.setVisibility(0);
             } else {
                 this.j.setVisibility(8);
@@ -97,7 +97,7 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
         }
         TextView textView = this.l;
         if (textView != null) {
-            double d = wm0Var.e;
+            double d = nn0Var.e;
             if (d != -1.0d) {
                 textView.setText(String.valueOf(d));
                 this.l.setVisibility(0);
@@ -107,7 +107,7 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
         }
         AppCompatRatingBar appCompatRatingBar = this.k;
         if (appCompatRatingBar != null) {
-            double d2 = wm0Var.e;
+            double d2 = nn0Var.e;
             if (d2 != -1.0d) {
                 appCompatRatingBar.setRating((float) d2);
                 this.k.setVisibility(0);

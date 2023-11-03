@@ -9,8 +9,8 @@ import androidx.annotation.Nullable;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c11;
-import com.baidu.tieba.vm0;
+import com.baidu.tieba.mn0;
+import com.baidu.tieba.t11;
 /* loaded from: classes3.dex */
 public class NadExpressThreeImgOperateView extends NadExpressNaBaseView {
     public int k;
@@ -35,13 +35,13 @@ public class NadExpressThreeImgOperateView extends NadExpressNaBaseView {
     }
 
     @Override // com.baidu.nadcore.widget.view.NadExpressNaBaseView
-    public void g(LayoutInflater layoutInflater, vm0 vm0Var) {
+    public void g(LayoutInflater layoutInflater, mn0 mn0Var) {
         int i = R.layout.nad_tpl_triple_image;
-        if (vm0Var != null) {
-            if (vm0Var.a(AdBaseModel.STYLE.THREE_IMAGE) != 0) {
-                i = vm0Var.a(AdBaseModel.STYLE.THREE_IMAGE);
+        if (mn0Var != null) {
+            if (mn0Var.a(AdBaseModel.STYLE.THREE_IMAGE) != 0) {
+                i = mn0Var.a(AdBaseModel.STYLE.THREE_IMAGE);
             }
-            vm0.a aVar = vm0Var.e;
+            mn0.a aVar = mn0Var.e;
             if (aVar != null) {
                 this.k = aVar.a;
                 this.l = aVar.b;
@@ -56,8 +56,8 @@ public class NadExpressThreeImgOperateView extends NadExpressNaBaseView {
         this(context, attributeSet, i, null);
     }
 
-    public NadExpressThreeImgOperateView(Context context, AttributeSet attributeSet, int i, vm0 vm0Var) {
-        super(context, attributeSet, i, vm0Var);
+    public NadExpressThreeImgOperateView(Context context, AttributeSet attributeSet, int i, mn0 mn0Var) {
+        super(context, attributeSet, i, mn0Var);
         this.k = 15;
         this.l = 15;
         this.m = 0;
@@ -70,7 +70,7 @@ public class NadExpressThreeImgOperateView extends NadExpressNaBaseView {
         this.p = (AdImageView) findViewById(R.id.nad_feed_template_tripe_image_two_id);
         this.q = (AdImageView) findViewById(R.id.nad_feed_template_tripe_image_three_id);
         Resources resources = context.getResources();
-        this.r = (((((c11.c.e(context) - c11.c.a(getContext(), this.k)) - c11.c.a(getContext(), this.l)) - c11.c.a(getContext(), this.m)) - c11.c.a(getContext(), this.n)) - (resources.getDimensionPixelSize(R.dimen.NAD_F_M_W_X024) * 2)) / 3;
+        this.r = (((((t11.c.e(context) - t11.c.a(getContext(), this.k)) - t11.c.a(getContext(), this.l)) - t11.c.a(getContext(), this.m)) - t11.c.a(getContext(), this.n)) - (resources.getDimensionPixelSize(R.dimen.NAD_F_M_W_X024) * 2)) / 3;
         this.s = Math.round((this.r / ((int) resources.getDimension(R.dimen.nad_template_p1_w))) * ((int) resources.getDimension(R.dimen.nad_template_p1_h)));
         AdImageView adImageView = this.o;
         if (adImageView != null) {

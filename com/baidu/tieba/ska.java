@@ -1,193 +1,92 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.themeCenter.background.BackgroundItemView;
-import com.baidu.tieba.themeCenter.background.DressItemData;
+import android.content.SharedPreferences;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes8.dex */
-public class ska extends BaseAdapter {
-    public static /* synthetic */ Interceptable $ic;
+public class ska {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 1500;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Object> a;
-    public TbPageContext<?> b;
-    public vka c;
 
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return 2;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948155680, "Lcom/baidu/tieba/ska;")) == null) {
+            return;
         }
-        return invokeV.intValue;
-    }
-
-    /* loaded from: classes8.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public BackgroundItemView b;
-        public BackgroundItemView c;
-        public BackgroundItemView d;
-        public View e;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public ska(TbPageContext<?> tbPageContext, vka vkaVar) {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, vkaVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.b = tbPageContext;
-        this.c = vkaVar;
-    }
-
-    public void a(List<Object> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            this.a = list;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948155680, "Lcom/baidu/tieba/ska;");
         }
     }
 
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
+    public static int a(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            List<Object> list = this.a;
-            if (list != null && list.size() > 0 && i >= 0 && i < this.a.size()) {
-                return this.a.get(i);
-            }
-            return null;
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            if (getItem(i) != null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
+            if (TextUtils.isEmpty(str)) {
                 return i;
             }
-            return -1L;
+            try {
+                return BdBaseApplication.getInst().getApp().getSharedPreferences("network_config_prefs", 0).getInt(str, i);
+            } catch (Exception unused) {
+                return i;
+            }
         }
-        return invokeI.longValue;
+        return invokeLI.intValue;
     }
 
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        InterceptResult invokeI;
+    public static String b(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return getItem(i) instanceof List ? 1 : 0;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str2;
+            }
+            try {
+                return BdBaseApplication.getInst().getApp().getSharedPreferences("network_config_prefs", 0).getString(str, str2);
+            } catch (Exception unused) {
+                return str2;
+            }
         }
-        return invokeI.intValue;
+        return (String) invokeLL.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public static int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<Object> list = this.a;
-            if (list != null) {
-                return list.size();
-            }
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return a;
         }
         return invokeV.intValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        a aVar;
+    public static void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
-            Object item = getItem(i);
-            if (view2 != null) {
-                aVar = (a) view2.getTag();
-            } else if (getItemViewType(i) == 0) {
-                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0139, viewGroup, false);
-                aVar = new a();
-                aVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ed8);
-                view2.setTag(aVar);
-            } else {
-                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d013f, viewGroup, false);
-                aVar = new a();
-                aVar.b = (BackgroundItemView) view2.findViewById(R.id.obfuscated_res_0x7f0903e2);
-                aVar.c = (BackgroundItemView) view2.findViewById(R.id.obfuscated_res_0x7f0903e3);
-                aVar.d = (BackgroundItemView) view2.findViewById(R.id.obfuscated_res_0x7f0903e4);
-                aVar.e = view2.findViewById(R.id.obfuscated_res_0x7f090918);
-                view2.setTag(aVar);
-            }
-            if (item != null) {
-                if (getItemViewType(i) == 0) {
-                    aVar.a.setText(item.toString());
-                } else {
-                    List list = (List) item;
-                    aVar.b.e((DressItemData) list.get(0));
-                    aVar.b.setController(this.c);
-                    if (list.size() > 2) {
-                        aVar.c.e((DressItemData) list.get(1));
-                        aVar.d.e((DressItemData) list.get(2));
-                        aVar.c.setController(this.c);
-                        aVar.d.setController(this.c);
-                    } else if (list.size() > 1) {
-                        aVar.c.e((DressItemData) list.get(1));
-                        aVar.c.setController(this.c);
-                        aVar.d.f();
-                    } else {
-                        aVar.c.f();
-                        aVar.d.f();
-                    }
-                    if (getItem(i + 1) instanceof List) {
-                        aVar.e.setVisibility(8);
-                    } else {
-                        aVar.e.setVisibility(0);
-                    }
-                }
-            }
-            this.b.getLayoutMode().onModeChanged(view2);
-            return view2;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            a = a("threshold_to_store_log", 1500);
         }
-        return (View) invokeILL.objValue;
+    }
+
+    public static void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            try {
+                SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("network_config_prefs", 0).edit();
+                edit.putString(str, str2);
+                edit.apply();
+            } catch (Exception unused) {
+            }
+        }
     }
 }

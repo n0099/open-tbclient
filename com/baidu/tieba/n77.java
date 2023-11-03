@@ -1,8 +1,5 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,39 +7,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 import java.util.Map;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
 public final class n77 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
+    public static final l77 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947955451, "Lcom/baidu/tieba/n77;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947955451, "Lcom/baidu/tieba/n77;");
-                return;
-            }
-        }
-        a = new a(null);
-    }
-
     /* loaded from: classes7.dex */
-    public static final class a {
+    public static final class a implements l77 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
+        @Override // com.baidu.tieba.l77
+        public void a(Map<String, String> map) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+                Intrinsics.checkNotNullParameter(map, "map");
+            }
         }
 
         public a() {
@@ -58,46 +41,30 @@ public final class n77 {
                 }
             }
         }
+    }
 
-        public final void a(n47 n47Var) {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, n47Var) == null) && n47Var != null) {
-                n47Var.a().a(n47Var.b());
-                String c = n47Var.c();
-                if (c != null && c.length() != 0) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                if (z) {
-                    return;
-                }
-                StatisticItem statisticItem = new StatisticItem(n47Var.c());
-                for (Map.Entry<String, String> entry : n47Var.b().entrySet()) {
-                    statisticItem.param(entry.getKey(), entry.getValue());
-                }
-                for (Map.Entry<String, String> entry2 : n47Var.d().entrySet()) {
-                    statisticItem.param(entry2.getKey(), entry2.getValue());
-                }
-                TiebaStatic.log(statisticItem);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947955451, "Lcom/baidu/tieba/n77;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947955451, "Lcom/baidu/tieba/n77;");
+                return;
             }
         }
+        a = new a();
+    }
 
-        public final void b(n47 statData, int i) {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, statData, i) == null) {
-                Intrinsics.checkNotNullParameter(statData, "statData");
-                if (statData.e().length() > 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (z && (statData.b() instanceof HashMap)) {
-                    ((HashMap) statData.b()).put(statData.e(), String.valueOf(i));
-                }
-            }
+    public static final l77 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a;
         }
+        return (l77) invokeV.objValue;
     }
 }

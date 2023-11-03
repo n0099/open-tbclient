@@ -1,96 +1,91 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.tieba.xi2;
+import android.os.Bundle;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.CookieManager;
 /* loaded from: classes5.dex */
-public class ao1 implements fq1 {
+public class ao1 implements tp1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.fq1
-    public boolean a(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
+    /* loaded from: classes5.dex */
+    public static class a extends ProviderDelegation {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.fq1
-    public void b(@NonNull Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-        }
-    }
+        /* renamed from: com.baidu.tieba.ao1$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class C0236a implements al3<Bundle> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.fq1
-    public void c(@NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-        }
-    }
+            public C0236a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
 
-    @Override // com.baidu.tieba.fq1
-    public void e(p53 p53Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, p53Var) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.fq1
-    public void g(p53 p53Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, p53Var) == null) {
-        }
-    }
-
-    public ao1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.al3
+            /* renamed from: a */
+            public Bundle create() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("baidu_cookie", ao1.b());
+                    return bundle;
+                }
+                return (Bundle) invokeV.objValue;
             }
         }
-    }
 
-    @Override // com.baidu.tieba.fq1
-    public void d(@NonNull CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, callbackHandler) == null) {
-            callbackHandler.handleSchemeDispatchCallback("", "");
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+        public Bundle execCall(Bundle bundle) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+                return (Bundle) xk3.b(new C0236a(this));
+            }
+            return (Bundle) invokeL.objValue;
         }
     }
 
-    @Override // com.baidu.tieba.fq1
-    public String f(@NonNull Context context) {
-        InterceptResult invokeL;
+    public static String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
-            return context.getString(R.string.obfuscated_res_0x7f0f018c);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return CookieManager.getInstance().getCookie(".baidu.com");
         }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.fq1
-    public void h(@NonNull Activity activity, String str, String str2, wi2 wi2Var, xi2.b bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLLL(1048583, this, activity, str, str2, wi2Var, bVar) == null) && bVar != null) {
-            bVar.a();
-        }
+        return (String) invokeV.objValue;
     }
 }

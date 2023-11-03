@@ -1,41 +1,40 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mainTab.FragmentDelegate;
-import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tbadk.mainTab.FragmentTabStructure;
-import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsLiveFragment;
+import com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.live.interfaces.service.AccountManagerService;
+import com.baidu.searchbox.live.interfaces.service.AppInfoService;
+import com.baidu.searchbox.live.interfaces.service.RouterService;
+import com.baidu.searchbox.live.interfaces.service.ToastService;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class k96 extends FragmentDelegate {
+/* loaded from: classes7.dex */
+public class k96 implements ILiveFeedPageInvoke {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlaFrsLiveFragment a;
+    public AccountManagerService a;
+    public AppInfoService b;
+    public ToastService c;
+    public RouterService d;
 
-    @Override // com.baidu.tbadk.mainTab.FragmentDelegate
-    public boolean isAvailable() {
+    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke
+    public String getIID() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "" : (String) invokeV.objValue;
     }
 
-    public k96(boolean z) {
+    public k96() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -45,76 +44,67 @@ public class k96 extends FragmentDelegate {
                 return;
             }
         }
-        AlaFrsLiveFragment alaFrsLiveFragment = new AlaFrsLiveFragment();
-        this.a = alaFrsLiveFragment;
-        alaFrsLiveFragment.q2(z);
-        getFragmentTabStructure().frag = this.a;
+        this.a = (AccountManagerService) ServiceManager.getService(AccountManagerService.Companion.getSERVICE_REFERENCE());
+        this.b = (AppInfoService) ServiceManager.getService(AppInfoService.Companion.getSERVICE_REFERENCE());
+        this.c = (ToastService) ServiceManager.getService(ToastService.Companion.getSERVICE_REFERENCE());
+        this.d = (RouterService) ServiceManager.getService(RouterService.Companion.getSERVICE_REFERENCE());
     }
 
-    public void a(String str) {
-        AlaFrsLiveFragment alaFrsLiveFragment;
+    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke
+    public String getCuid() {
+        InterceptResult invokeV;
+        AppInfoService appInfoService;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (alaFrsLiveFragment = this.a) != null) {
-            alaFrsLiveFragment.m2(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a != null && (appInfoService = this.b) != null) {
+                return this.a.getSocialEncryption(appInfoService.getCuid(), "baiduuid_");
+            }
+            return "";
         }
+        return (String) invokeV.objValue;
     }
 
-    public void b(String str) {
-        AlaFrsLiveFragment alaFrsLiveFragment;
+    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke
+    public String getUIMode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && (alaFrsLiveFragment = this.a) != null) {
-            alaFrsLiveFragment.n2(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (TbadkCoreApplication.getInst().getSkinType() == 4) {
+                return "dark";
+            }
+            return "day";
         }
+        return (String) invokeV.objValue;
     }
 
-    public void c(String str) {
-        AlaFrsLiveFragment alaFrsLiveFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (alaFrsLiveFragment = this.a) != null) {
-            alaFrsLiveFragment.o2(str);
-        }
-    }
-
-    public void d(int i) {
-        AlaFrsLiveFragment alaFrsLiveFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && (alaFrsLiveFragment = this.a) != null) {
-            alaFrsLiveFragment.p2(i);
-        }
-    }
-
-    public void e(boolean z) {
-        AlaFrsLiveFragment alaFrsLiveFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && (alaFrsLiveFragment = this.a) != null) {
-            alaFrsLiveFragment.r2(z);
-        }
-    }
-
-    @Override // com.baidu.tbadk.mainTab.FragmentDelegate
-    public TbFragmentTabIndicator getTabIndicator(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
-            this.mIndicator = fragmentTabIndicator;
-            fragmentTabIndicator.setTextSize(2.0f);
-            return this.mIndicator;
-        }
-        return (TbFragmentTabIndicator) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tbadk.mainTab.FragmentDelegate
-    public FragmentTabStructure createFragmentTabStructure() {
+    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke
+    public String getUK() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            FragmentTabStructure fragmentTabStructure = new FragmentTabStructure();
-            fragmentTabStructure.type = 2;
-            fragmentTabStructure.textResId = R.string.ala_live;
-            fragmentTabStructure.showIconType = FragmentTabStructure.SHOWTEXT;
-            return fragmentTabStructure;
+            AccountManagerService accountManagerService = this.a;
+            if (accountManagerService != null) {
+                return accountManagerService.getAccount().getUk();
+            }
+            return "";
         }
-        return (FragmentTabStructure) invokeV.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke
+    public void invokeScheme(Context context, String str) {
+        RouterService routerService;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, context, str) == null) && context != null && !TextUtils.isEmpty(str) && (routerService = this.d) != null) {
+            routerService.invokeScheme(context, str);
+        }
+    }
+
+    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke
+    public void showToast(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048581, this, context, str) == null) && this.c != null && context != null && !TextUtils.isEmpty(str)) {
+            this.c.showNormal(context, str, 0);
+        }
     }
 }

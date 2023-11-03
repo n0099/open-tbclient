@@ -7,6 +7,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.tbadk.core.atomData.EditHeadActivityConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -213,7 +214,7 @@ public class BrandMsg extends NormalMsg {
                 } else {
                     this.mDescreiption = DEFAULT_DESC;
                 }
-                this.mImgUrl = jSONObject.optString("image_url");
+                this.mImgUrl = jSONObject.optString(EditHeadActivityConfig.IMAGE_URL);
                 if (jSONObject.has(GameGuideConfigInfo.KEY_BUTTON_TEXT)) {
                     this.mButtonText = jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
                 }

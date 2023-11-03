@@ -248,8 +248,8 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW] complete} */
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x00a5 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x00a6  */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x00a4 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x00a5  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -298,21 +298,41 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
                         return false;
                     }
                     Runnable runnable = new Runnable() { // from class: com.facebook.soloader.UnpackingSoSource.1
+                        /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, INVOKE] complete} */
+                        /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW, THROW, INVOKE, MOVE_EXCEPTION, INVOKE, THROW, INVOKE, MOVE_EXCEPTION, MOVE_EXCEPTION, THROW, THROW, THROW, INVOKE, MOVE_EXCEPTION, INVOKE, THROW, INVOKE, MOVE_EXCEPTION, MOVE_EXCEPTION] complete} */
+                        /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW] complete} */
+                        /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
                         @Override // java.lang.Runnable
                         public void run() {
                             try {
                                 Log.v(UnpackingSoSource.TAG, "starting syncer worker");
                                 RandomAccessFile randomAccessFile2 = new RandomAccessFile(file2, "rw");
-                                randomAccessFile2.write(bArr);
-                                randomAccessFile2.setLength(randomAccessFile2.getFilePointer());
-                                randomAccessFile2.close();
-                                RandomAccessFile randomAccessFile3 = new RandomAccessFile(new File(UnpackingSoSource.this.soDirectory, UnpackingSoSource.MANIFEST_FILE_NAME), "rw");
-                                dsoManifest.write(randomAccessFile3);
-                                randomAccessFile3.close();
-                                SysUtil.fsyncRecursive(UnpackingSoSource.this.soDirectory);
-                                UnpackingSoSource.writeState(file, (byte) 1);
-                                Log.v(UnpackingSoSource.TAG, "releasing dso store lock for " + UnpackingSoSource.this.soDirectory + " (from syncer thread)");
-                                fileLocker.close();
+                                try {
+                                    randomAccessFile2.write(bArr);
+                                    randomAccessFile2.setLength(randomAccessFile2.getFilePointer());
+                                    randomAccessFile2.close();
+                                    RandomAccessFile randomAccessFile3 = new RandomAccessFile(new File(UnpackingSoSource.this.soDirectory, UnpackingSoSource.MANIFEST_FILE_NAME), "rw");
+                                    try {
+                                        dsoManifest.write(randomAccessFile3);
+                                        randomAccessFile3.close();
+                                        SysUtil.fsyncRecursive(UnpackingSoSource.this.soDirectory);
+                                        UnpackingSoSource.writeState(file, (byte) 1);
+                                        Log.v(UnpackingSoSource.TAG, "releasing dso store lock for " + UnpackingSoSource.this.soDirectory + " (from syncer thread)");
+                                        fileLocker.close();
+                                    } finally {
+                                    }
+                                } catch (Throwable th2) {
+                                    try {
+                                        throw th2;
+                                    } catch (Throwable th3) {
+                                        try {
+                                            randomAccessFile2.close();
+                                        } catch (Throwable th4) {
+                                            th2.addSuppressed(th4);
+                                        }
+                                        throw th3;
+                                    }
+                                }
                             } catch (IOException e) {
                                 throw new RuntimeException(e);
                             }

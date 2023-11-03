@@ -1,44 +1,23 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.PendingIntent;
-import android.content.ActivityNotFoundException;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.content.IntentSender;
-import android.content.ServiceConnection;
-import android.net.Uri;
-import android.os.Bundle;
-import android.os.IBinder;
-import android.util.Log;
+import android.graphics.SurfaceTexture;
+import android.opengl.GLES20;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.session.XRSessionAnchor;
-import com.baidu.platform.comapi.map.NodeType;
-import com.baidu.searchbox.IntentConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.ArCoreApk;
-import com.google.ar.core.exceptions.FatalException;
-import java.util.ArrayDeque;
-import java.util.Queue;
-import java.util.concurrent.atomic.AtomicReference;
+import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
+import com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer;
+import com.faceunity.gles.GeneratedTexture;
 /* loaded from: classes9.dex */
-public class yqb {
+public class yqb extends MediaBaseRenderer implements nrb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Queue<Runnable> a;
-    public Context b;
-    public volatile int c;
-    public com.google.a.b.a.a.a.a d;
-    public BroadcastReceiver e;
-    public Context f;
-    public final ServiceConnection g;
-    public final AtomicReference<pqb> h;
+    public int a;
+    public int[] b;
+    public int c;
+    public float d;
 
     public yqb() {
         Interceptable interceptable = $ic;
@@ -50,199 +29,82 @@ public class yqb {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static Bundle l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putCharSequence("package.name", XRSessionAnchor.apkinfo);
-            return bundle;
-        }
-        return (Bundle) invokeV.objValue;
-    }
-
-    public final void p() {
-        pqb andSet;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (andSet = this.h.getAndSet(null)) != null) {
-            andSet.a();
-        }
-    }
-
-    public final synchronized void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            synchronized (this) {
-                Log.i("ARCore-InstallService", "Install service disconnected");
-                this.c = frb.a;
-                this.d = null;
-                p();
-            }
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public yqb(byte b) {
-        this();
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Byte.valueOf(b)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this();
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayDeque();
-        this.c = frb.a;
-        this.g = new arb(this);
-        this.h = new AtomicReference<>();
+        this.b = new int[1];
     }
 
-    public static void b(Activity activity, Bundle bundle, zqb zqbVar) {
+    public void a(hrb hrbVar, SurfaceTexture surfaceTexture) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, activity, bundle, zqbVar) == null) {
-            PendingIntent pendingIntent = (PendingIntent) bundle.getParcelable("resolution.intent");
-            if (pendingIntent != null) {
-                try {
-                    activity.startIntentSenderForResult(pendingIntent.getIntentSender(), NodeType.E_STREET_POI, new Intent(activity, activity.getClass()), 0, 0, 0);
-                    return;
-                } catch (IntentSender.SendIntentException e) {
-                    zqbVar.b(new FatalException("Installation Intent failed", e));
-                    return;
-                }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, hrbVar, surfaceTexture) == null) {
+            int i = this.mSurfaceViewHeight;
+            int i2 = this.mSurfaceViewWidth;
+            float f = this.mRatio;
+            int i3 = i - ((int) (i2 * f));
+            if (f != 0.0f && f != (i * 1.0f) / i2 && i3 > 0) {
+                b();
+                GLES20.glBindFramebuffer(36160, this.c);
+                GLES20.glFramebufferTexture2D(36160, 36064, 3553, this.a, 0);
+                GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+                GLES20.glClear(16640);
+                this.mFullScreen2D.setScaleAndTranslate(1.0f, 1.0f, 0.0f, (i3 * (-1.0680001f)) / this.mSurfaceViewHeight);
+                this.mFullScreen2D.drawFrame(this.mTextureId, this.mMtx);
+                this.mFullScreen2D.setScaleAndTranslate(1.0f, 1.0f, 0.0f, 0.0f);
+                GLES20.glBindFramebuffer(36160, 0);
+                hrbVar.h(this.mFullScreen2D, this.a, GlUtil.IDENTITY_MATRIX);
+            } else if (this.mTextureMode == 1) {
+                hrbVar.h(this.mFullScreen2D, this.mTextureId, this.mMtx);
+            } else {
+                hrbVar.h(this.mFullScreenEXT, this.mTextureId, this.mMtx);
             }
-            Log.e("ARCore-InstallService", "Did not get pending intent.");
-            zqbVar.b(new FatalException("Installation intent failed to unparcel."));
+            hrbVar.f(surfaceTexture);
         }
     }
 
-    public final synchronized void k(Runnable runnable) {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, runnable) == null) {
-            synchronized (this) {
-                int i = this.c - 1;
-                if (i != 0) {
-                    if (i != 1) {
-                        if (i == 2) {
-                            runnable.run();
-                        }
-                        return;
-                    }
-                    this.a.offer(runnable);
-                    return;
-                }
-                throw new com.google.ar.core.ab();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (this.d != this.mRatio) {
+                c();
             }
-        }
-    }
-
-    public static void n(Activity activity, zqb zqbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, activity, zqbVar) == null) {
-            try {
-                activity.startActivity(new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse("market://details?id=com.google.ar.core")));
-            } catch (ActivityNotFoundException e) {
-                zqbVar.b(new FatalException("Failed to launch installer.", e));
+            if (this.a == 0) {
+                this.a = this.mFullScreen2D.createTexture2DObject();
+                int i = this.mSurfaceViewWidth;
+                GLES20.glTexImage2D(3553, 0, GeneratedTexture.FORMAT, i, (int) (i * this.mRatio), 0, GeneratedTexture.FORMAT, 5121, null);
+                GLES20.glBindTexture(3553, 0);
+                GLES20.glGenFramebuffers(1, this.b, 0);
+                this.c = this.b[0];
+                this.d = this.mRatio;
             }
         }
     }
 
-    public synchronized void e(Context context, ArCoreApk.a aVar) {
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, context, aVar) == null) {
-            synchronized (this) {
-                try {
-                    k(new brb(this, context, aVar));
-                } catch (com.google.ar.core.ab unused) {
-                    Log.e("ARCore-InstallService", "Play Store install service could not be bound.");
-                    aVar.a(ArCoreApk.Availability.UNKNOWN_ERROR);
-                }
-            }
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a == 0) {
+            return;
+        }
+        GLES20.glDeleteFramebuffers(1, this.b, 0);
+        GLES20.glDeleteTextures(1, new int[]{this.a}, 0);
+        this.a = 0;
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.IMediaLifeCycleIncludeGlThread
+    public void onDestroyInGlThread() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.onDestroyInGlThread();
+            c();
         }
     }
 
-    public synchronized void a() {
+    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.IMediaLifeCycleIncludeGlThread
+    public void onPauseInGlThread() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                p();
-                int i = this.c - 1;
-                if (i == 1 || i == 2) {
-                    this.b.unbindService(this.g);
-                    this.b = null;
-                    this.c = frb.a;
-                }
-                if (this.e != null) {
-                    this.f.unregisterReceiver(this.e);
-                }
-            }
-        }
-    }
-
-    public void c(Activity activity, zqb zqbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, zqbVar) == null) {
-            pqb pqbVar = new pqb(activity, zqbVar);
-            pqb andSet = this.h.getAndSet(pqbVar);
-            if (andSet != null) {
-                andSet.a();
-            }
-            pqbVar.start();
-            if (this.e == null) {
-                crb crbVar = new crb(this, zqbVar);
-                this.e = crbVar;
-                this.f = activity;
-                activity.registerReceiver(crbVar, new IntentFilter("com.google.android.play.core.install.ACTION_INSTALL_STATUS"));
-            }
-            try {
-                k(new drb(this, activity, zqbVar));
-            } catch (com.google.ar.core.ab unused) {
-                Log.w("ARCore-InstallService", "requestInstall bind failed, launching fullscreen.");
-                n(activity, zqbVar);
-            }
-        }
-    }
-
-    public synchronized void d(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            synchronized (this) {
-                this.b = context;
-                if (context.bindService(new Intent("com.google.android.play.core.install.BIND_INSTALL_SERVICE").setPackage("com.android.vending"), this.g, 1)) {
-                    this.c = frb.b;
-                    return;
-                }
-                this.c = frb.a;
-                this.b = null;
-                Log.w("ARCore-InstallService", "bindService returned false.");
-                context.unbindService(this.g);
-            }
-        }
-    }
-
-    public final synchronized void f(IBinder iBinder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, iBinder) == null) {
-            synchronized (this) {
-                com.google.a.b.a.a.a.a a = com.google.a.b.a.a.a.b.a(iBinder);
-                Log.i("ARCore-InstallService", "Install service connected");
-                this.d = a;
-                this.c = frb.c;
-                for (Runnable runnable : this.a) {
-                    runnable.run();
-                }
-            }
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onPauseInGlThread();
+            c();
         }
     }
 }

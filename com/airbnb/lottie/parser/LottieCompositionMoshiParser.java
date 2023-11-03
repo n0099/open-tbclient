@@ -12,7 +12,6 @@ import com.airbnb.lottie.model.layer.Layer;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.utils.Logger;
 import com.airbnb.lottie.utils.Utils;
-import com.baidu.tieba.fr;
 import com.fun.ad.sdk.FunAdSdk;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -21,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class LottieCompositionMoshiParser {
-    public static final JsonReader.Options NAMES = JsonReader.Options.of("w", "h", "ip", "op", fr.a, "v", "layers", "assets", "fonts", "chars", "markers");
+    public static final JsonReader.Options NAMES = JsonReader.Options.of("w", "h", "ip", "op", "fr", "v", "layers", "assets", "fonts", "chars", "markers");
     public static JsonReader.Options ASSETS_NAMES = JsonReader.Options.of("id", "layers", "w", "h", "p", "u");
     public static final JsonReader.Options FONT_NAMES = JsonReader.Options.of("list");
     public static final JsonReader.Options MARKER_NAMES = JsonReader.Options.of(FunAdSdk.PLATFORM_CM, "tm", "dr");

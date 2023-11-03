@@ -1,15 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.App;
+@Service
 /* loaded from: classes7.dex */
-public class l18 extends lk6 {
+public class l18 implements i15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.i15
+    public String name() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "frsGroupChatGuide" : (String) invokeV.objValue;
+    }
 
     public l18() {
         Interceptable interceptable = $ic;
@@ -25,15 +34,13 @@ public class l18 extends lk6 {
         }
     }
 
-    public void d(App app) {
+    @Override // com.baidu.tieba.i15
+    public Class<? extends g15> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, app) != null) || app == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return k18.class;
         }
-        if (this.a == null) {
-            this.a = new AdvertAppInfo();
-        }
-        this.a.l(app);
-        this.position = this.a.position;
+        return (Class) invokeV.objValue;
     }
 }

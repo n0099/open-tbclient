@@ -152,15 +152,15 @@ public class MediaTrack implements Parcelable, Cloneable {
             try {
                 MediaTrack mediaTrack = (MediaTrack) super.clone();
                 if (this.superpositionHeader != null) {
-                    mediaTrack.superpositionHeader = this.superpositionHeader.m49clone();
+                    mediaTrack.superpositionHeader = this.superpositionHeader.m50clone();
                 }
                 if (this.superpositionFooter != null) {
-                    mediaTrack.superpositionFooter = this.superpositionFooter.m49clone();
+                    mediaTrack.superpositionFooter = this.superpositionFooter.m50clone();
                 }
                 if (this.mediaSegments != null) {
                     ArrayList arrayList = new ArrayList();
                     for (MediaSegment mediaSegment : this.mediaSegments) {
-                        arrayList.add(mediaSegment.m49clone());
+                        arrayList.add(mediaSegment.m50clone());
                     }
                     mediaTrack.mediaSegments = arrayList;
                 }
@@ -186,7 +186,7 @@ public class MediaTrack implements Parcelable, Cloneable {
                 if (this.mediaAEffectKeyData != null) {
                     mediaTrack.mediaAEffectKeyData = new ArrayList();
                     for (MediaAEffectKeyData mediaAEffectKeyData : this.mediaAEffectKeyData) {
-                        mediaTrack.mediaAEffectKeyData.add(mediaAEffectKeyData.m48clone());
+                        mediaTrack.mediaAEffectKeyData.add(mediaAEffectKeyData.m49clone());
                     }
                 }
                 return mediaTrack;

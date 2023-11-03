@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.task.TbSocketMessageTask;
-import com.baidu.tieba.ad;
-import com.baidu.tieba.sq5;
-import com.baidu.tieba.xda;
+import com.baidu.tieba.cra;
+import com.baidu.tieba.ms5;
+import com.baidu.tieba.qd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -73,7 +73,7 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
                 if (responsedMessage.getOrginalMessage() != null) {
                     Object extra = responsedMessage.getOrginalMessage().getExtra();
                     if (extra instanceof ConcernPageRequestMessage) {
-                        z = ad.isEmpty(((ConcernPageRequestMessage) extra).getPageTag());
+                        z = qd.isEmpty(((ConcernPageRequestMessage) extra).getPageTag());
                     }
                 }
                 if (responsedMessage.getError() != 0) {
@@ -113,31 +113,31 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
         this.c = new a(this, CmdConfigHttp.CMD_CONCERN_PAGE, 309474);
         setUniqueId(bdUniqueId);
         registerHttpTask();
-        Q();
+        R();
         registerListener(this.c);
     }
 
-    public void R(b bVar) {
+    public void S(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
             this.a = bVar;
         }
     }
 
-    public void P(String str, sq5 sq5Var) {
+    public void Q(String str, ms5 ms5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, sq5Var) != null) || this.b) {
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, ms5Var) != null) || this.b) {
             return;
         }
         this.b = true;
         ConcernPageRequestMessage concernPageRequestMessage = new ConcernPageRequestMessage();
         concernPageRequestMessage.setPageTag(str);
         concernPageRequestMessage.setTag(getUniqueId());
-        concernPageRequestMessage.setAdInfo(sq5Var);
+        concernPageRequestMessage.setAdInfo(ms5Var);
         sendMessage(concernPageRequestMessage);
     }
 
-    public final void Q() {
+    public final void R() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             TbSocketMessageTask tbSocketMessageTask = new TbSocketMessageTask(309474);
@@ -177,7 +177,7 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
     public final void registerHttpTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CONCERN_PAGE, xda.a(TbConfig.URL_CONCERN_PAGE, 309474));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CONCERN_PAGE, cra.a(TbConfig.URL_CONCERN_PAGE, 309474));
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setResponsedClass(ConcernPageHttpResMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);

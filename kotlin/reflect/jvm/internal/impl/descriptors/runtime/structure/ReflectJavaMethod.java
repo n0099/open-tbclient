@@ -11,7 +11,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.runtime.structure.ReflectJav
 import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaAnnotationArgument;
 import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaMethod;
 import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaValueParameter;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class ReflectJavaMethod extends ReflectJavaMember implements JavaMethod {
     public final Method member;
 

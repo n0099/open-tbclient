@@ -1,194 +1,212 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
 import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import androidx.annotation.NonNull;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.ala.atomdata.AlaSDKShareEmptyActivityConfig;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.service.ShareService;
+import com.baidu.searchbox.live.shell.list.basic.MixYYFakeShell;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.pb.pb.foldcomment.FoldCommentActivity;
-import com.baidu.tieba.pb.pb.sub.adapter.SubPbReplyAdapter;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class vh9 {
+public class vh9 implements ShareService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FoldCommentActivity a;
-    public BdTypeListView b;
-    public nl9 c;
-    public pl9 d;
-    public View.OnClickListener e;
-    public View.OnClickListener f;
-    public TbRichTextView.z g;
-    public tg9 h;
-    public View.OnLongClickListener i;
-    public SubPbReplyAdapter j;
-    public wh9 k;
-    public List<lh> l;
-    public ye9 m;
-    public ArrayList<yh> n;
+    public ShareService.IOnSocialListener a;
+    public CustomMessageListener b;
 
-    public vh9(FoldCommentActivity foldCommentActivity, BdTypeListView bdTypeListView) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948240930, "Lcom/baidu/tieba/vh9;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948240930, "Lcom/baidu/tieba/vh9;");
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.ShareService
+    public boolean canShareInLandScreen() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.ShareService
+    public void clean() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.ShareService
+    public boolean isShowing() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* loaded from: classes8.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vh9 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(vh9 vh9Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vh9Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vh9Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer)) {
+                Integer num = (Integer) customResponsedMessage.getData();
+                if (this.a.a != null) {
+                    if (num.intValue() == 1) {
+                        this.a.a.onComplete("");
+                    } else if (num.intValue() == 2) {
+                        this.a.a.onError("");
+                    } else if (num.intValue() == 3) {
+                        this.a.a.onCancel("");
+                    }
+                    this.a.a = null;
+                }
+                MessageManager.getInstance().unRegisterListener(this.a.b);
+            }
+        }
+    }
+
+    public vh9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {foldCommentActivity, bdTypeListView};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.l = new ArrayList();
-        this.n = new ArrayList<>();
-        this.a = foldCommentActivity;
-        this.b = bdTypeListView;
+        this.a = null;
+        this.b = new a(this, 2921550);
     }
 
-    public void a() {
+    public final void a(Context context, View view2, String str, String str2, String str3, String str4, String str5, ShareService.IOnSocialListener iOnSocialListener) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SubPbReplyAdapter subPbReplyAdapter = new SubPbReplyAdapter(this.a, on9.b);
-            this.j = subPbReplyAdapter;
-            subPbReplyAdapter.u(false);
-            this.l.add(this.j);
-            FoldCommentActivity foldCommentActivity = this.a;
-            wh9 wh9Var = new wh9(foldCommentActivity, pea.X0, foldCommentActivity.getPageContext());
-            this.k = wh9Var;
-            wh9Var.a0(this.c);
-            this.k.b0(this.d);
-            this.k.d0(this.a);
-            this.k.k(this.e);
-            this.k.e(this.f);
-            this.k.n(this.g);
-            this.k.c0(this.h);
-            this.k.d(this.i);
-            this.l.add(this.k);
-            this.b.addAdapters(this.l);
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b.getAdapter2() != null) {
-            this.b.getAdapter2().notifyDataSetChanged();
-        }
-    }
-
-    public void c(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.f = onClickListener;
-        }
-    }
-
-    public void d(boolean z) {
-        wh9 wh9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && (wh9Var = this.k) != null) {
-            wh9Var.setFromCDN(z);
-        }
-    }
-
-    public void e(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.e = onClickListener;
-        }
-    }
-
-    public void f(boolean z) {
-        wh9 wh9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && (wh9Var = this.k) != null) {
-            wh9Var.Z(z);
-        }
-    }
-
-    public void g(TbRichTextView.z zVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, zVar) == null) {
-            this.g = zVar;
-        }
-    }
-
-    public void h(View.OnLongClickListener onLongClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, onLongClickListener) == null) {
-            this.i = onLongClickListener;
-        }
-    }
-
-    public void j(nl9 nl9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, nl9Var) == null) {
-            this.c = nl9Var;
-        }
-    }
-
-    public void k(pl9 pl9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, pl9Var) == null) {
-            this.d = pl9Var;
-        }
-    }
-
-    public void l(tg9 tg9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, tg9Var) == null) {
-            this.h = tg9Var;
-        }
-    }
-
-    public void i(ye9 ye9Var) {
-        wh9 wh9Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ye9Var) == null) {
-            this.m = ye9Var;
-            wh9 wh9Var2 = this.k;
-            if (wh9Var2 != null) {
-                wh9Var2.q(ye9Var);
-            }
-            this.n.clear();
-            ye9 ye9Var2 = this.m;
-            if (ye9Var2 != null && ye9Var2.F() != null && this.m.F().size() > 0) {
-                on9 on9Var = new on9();
-                on9Var.b(ye9Var.F().size());
-                this.n.add(on9Var);
-                Iterator<pea> it = this.m.F().iterator();
-                while (it.hasNext()) {
-                    pea next = it.next();
-                    if (next.getType() != pea.W0) {
-                        this.n.add(next);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, view2, str, str2, str3, str4, str5, iOnSocialListener}) == null) {
+            ShareItem shareItem = new ShareItem();
+            shareItem.title = str;
+            shareItem.content = str2;
+            shareItem.imageUrl = str4;
+            shareItem.linkUrl = str3;
+            try {
+                JSONObject jSONObject = new JSONObject(str5);
+                String optString = jSONObject.optString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_YY_ANCHOR_BDUID);
+                shareItem.voiceRoomId = jSONObject.optLong(MixYYFakeShell.ROOM_ID_YY);
+                shareItem.voiceRoomShareType = jSONObject.optString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_VOICE_ROOM_TYPE);
+                if (TextUtils.isEmpty(optString)) {
+                    String optString2 = jSONObject.optString("liveId");
+                    String optString3 = jSONObject.optString("userId");
+                    shareItem.extData = optString2;
+                    shareItem.extLiveInfo = optString3;
+                } else {
+                    if (jSONObject.optInt("yy_show_tieba_entrance", 1) == 1) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    if (z) {
+                        shareItem.mYyAnchorBdUid = optString;
                     }
                 }
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            if (ye9Var != null && ye9Var.O() != null && ye9Var.O().getAuthor() != null && (wh9Var = this.k) != null) {
-                wh9Var.o(ye9Var.O().getAuthor().getUserId());
+            this.a = iOnSocialListener;
+            MessageManager.getInstance().registerListener(this.b);
+            if (context == null) {
+                context = TbadkCoreApplication.getInst();
             }
-            if (this.m != null) {
-                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_PB_HAS_FOLD_ICON_SHOW);
-                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                statisticItem.param("fid", this.m.l());
-                statisticItem.param("fname", this.m.m());
-                statisticItem.param("tid", this.m.Q());
-                TiebaStatic.log(statisticItem);
-            }
-            this.b.setData(this.n);
-            this.b.getAdapter2().notifyDataSetChanged();
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaSDKShareEmptyActivityConfig(context, shareItem, 0, 1)));
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.ShareService
+    public void startShare(Context context, View view2, String str, String str2, String str3, String str4, String str5, ShareService.IOnSocialListener iOnSocialListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, view2, str, str2, str3, str4, str5, iOnSocialListener}) == null) {
+            a(context, view2, str, str2, str3, str4, str5, iOnSocialListener);
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.ShareService
+    public void startShare(Context context, View view2, String str, String str2, String str3, String str4, String str5, String str6, ShareService.IOnSocialListener iOnSocialListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, view2, str, str2, str3, str4, str5, str6, iOnSocialListener}) == null) {
+            startShare(context, view2, str, str2, str3, str4, str5, iOnSocialListener);
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.ShareService
+    public void startShare(@NonNull Context context, @NonNull View view2, String str, String str2, String str3, String str4, @NonNull String str5, String str6, String str7, int i, String str8, ShareService.IOnSocialListener iOnSocialListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{context, view2, str, str2, str3, str4, str5, str6, str7, Integer.valueOf(i), str8, iOnSocialListener}) == null) {
+            startShare(context, view2, str, str2, str3, str4, str5, iOnSocialListener);
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.ShareService
+    public void startShare(@NonNull Context context, @NonNull View view2, String str, String str2, String str3, String str4, @NonNull String str5, String str6, String str7, int i, String str8, String str9, ShareService.IOnSocialListener iOnSocialListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{context, view2, str, str2, str3, str4, str5, str6, str7, Integer.valueOf(i), str8, str9, iOnSocialListener}) == null) {
+            startShare(context, view2, str, str2, str3, str4, str5, iOnSocialListener);
         }
     }
 }

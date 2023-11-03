@@ -1,154 +1,256 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.os.Bundle;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.IMConstants;
-import com.baidu.searchbox.download.statistics.ApkStaticNetService;
-import com.baidu.searchbox.downloadcenter.service.DownloadCenterFunConstants;
-import com.baidu.searchbox.settings.base.UpdatePackageDownloadInfo;
-import com.baidu.tbadk.TbSingleton;
+import android.content.SharedPreferences;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.TbMd5;
-import com.baidu.tbadk.coreExtra.data.CombineDownload;
-import com.baidu.tbadk.coreExtra.data.VersionData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.WebChromeClient;
-import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
-import java.util.Date;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.atomic.AtomicBoolean;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class sz5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final sz5 k;
     public transient /* synthetic */ FieldHolder $fh;
+    public AtomicBoolean a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
+    public int i;
+    public int j;
 
-    public static String a() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948168731, "Lcom/baidu/tieba/sz5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948168731, "Lcom/baidu/tieba/sz5;");
+                return;
+            }
+        }
+        k = new sz5();
+    }
+
+    public sz5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new AtomicBoolean(false);
+    }
+
+    public static sz5 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            try {
-                String versionName = TbadkCoreApplication.getInst().getVersionName();
-                String string = SharedPrefHelper.getInstance().getString(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, "");
-                if (TextUtils.isEmpty(versionName)) {
-                    return null;
-                }
-                if (versionName.equals(string)) {
-                    return SharedPrefHelper.getInstance().getString("apk_md5", "");
-                }
-                SharedPrefHelper.getInstance().putString(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, versionName);
-                String aPKMd5 = TbMd5.getAPKMd5(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 0));
-                SharedPrefHelper.getInstance().putString("apk_md5", aPKMd5);
-                return aPKMd5;
-            } catch (PackageManager.NameNotFoundException e) {
-                BdLog.detailException(e);
-                return null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return k;
         }
-        return (String) invokeV.objValue;
+        return (sz5) invokeV.objValue;
     }
 
-    public static void b(Context context, VersionData versionData) {
-        String str;
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, context, versionData) == null) {
-            try {
-                str = TbMd5.creatSignInt(TbadkCoreApplication.getInst().getContext().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 64));
-            } catch (PackageManager.NameNotFoundException e) {
-                BdLog.detailException(e);
-                str = "-1";
-                Intent intent = new Intent("com.baidu.appsearch.extinvoker.LAUNCH");
-                intent.setFlags(268435488);
-                intent.putExtra("id", TbadkCoreApplication.getInst().getContext().getPackageName());
-                intent.putExtra("backup", "0");
-                intent.putExtra(WebChromeClient.KEY_FUNCTION_NAME, "11");
-                Bundle bundle = new Bundle();
-                bundle.putInt("versioncode", versionData.getNewVersionCode());
-                bundle.putLong("patch_size", JavaTypesHelper.toLong(versionData.getPatchSize(), 0L));
-                bundle.putString(UpdatePackageDownloadInfo.JSON_KEY_PATCH_URL, versionData.getPatch());
-                bundle.putString(DownloadCenterFunConstants.DOWNLOAD_MARKET_SNAME, context.getString(R.string.obfuscated_res_0x7f0f029e));
-                bundle.putString("packagename", TbadkCoreApplication.getInst().getContext().getPackageName());
-                bundle.putString(ApkStaticNetService.STATIC_DOWNLOAD_URL, versionData.getUrl());
-                bundle.putString("versionname", versionData.getNewVersion());
-                bundle.putString(IMConstants.SHARE_ICON_URL, versionData.getTiebaIconUrl());
-                bundle.putString("updatetime", ad.getDateStringDay(new Date(System.currentTimeMillis())));
-                bundle.putString("size", versionData.getSize());
-                bundle.putString("signmd5", str);
-                bundle.putString("tj", str + context.getString(R.string.obfuscated_res_0x7f0f029e));
-                intent.putExtra("extra_client_downloadinfo", bundle);
-                context.startActivity(intent);
-            } catch (NumberFormatException e2) {
-                BdLog.detailException(e2);
-                str = "-1";
-                Intent intent2 = new Intent("com.baidu.appsearch.extinvoker.LAUNCH");
-                intent2.setFlags(268435488);
-                intent2.putExtra("id", TbadkCoreApplication.getInst().getContext().getPackageName());
-                intent2.putExtra("backup", "0");
-                intent2.putExtra(WebChromeClient.KEY_FUNCTION_NAME, "11");
-                Bundle bundle2 = new Bundle();
-                bundle2.putInt("versioncode", versionData.getNewVersionCode());
-                bundle2.putLong("patch_size", JavaTypesHelper.toLong(versionData.getPatchSize(), 0L));
-                bundle2.putString(UpdatePackageDownloadInfo.JSON_KEY_PATCH_URL, versionData.getPatch());
-                bundle2.putString(DownloadCenterFunConstants.DOWNLOAD_MARKET_SNAME, context.getString(R.string.obfuscated_res_0x7f0f029e));
-                bundle2.putString("packagename", TbadkCoreApplication.getInst().getContext().getPackageName());
-                bundle2.putString(ApkStaticNetService.STATIC_DOWNLOAD_URL, versionData.getUrl());
-                bundle2.putString("versionname", versionData.getNewVersion());
-                bundle2.putString(IMConstants.SHARE_ICON_URL, versionData.getTiebaIconUrl());
-                bundle2.putString("updatetime", ad.getDateStringDay(new Date(System.currentTimeMillis())));
-                bundle2.putString("size", versionData.getSize());
-                bundle2.putString("signmd5", str);
-                bundle2.putString("tj", str + context.getString(R.string.obfuscated_res_0x7f0f029e));
-                intent2.putExtra("extra_client_downloadinfo", bundle2);
-                context.startActivity(intent2);
-            }
-            Intent intent22 = new Intent("com.baidu.appsearch.extinvoker.LAUNCH");
-            intent22.setFlags(268435488);
-            intent22.putExtra("id", TbadkCoreApplication.getInst().getContext().getPackageName());
-            intent22.putExtra("backup", "0");
-            intent22.putExtra(WebChromeClient.KEY_FUNCTION_NAME, "11");
-            Bundle bundle22 = new Bundle();
-            bundle22.putInt("versioncode", versionData.getNewVersionCode());
-            bundle22.putLong("patch_size", JavaTypesHelper.toLong(versionData.getPatchSize(), 0L));
-            bundle22.putString(UpdatePackageDownloadInfo.JSON_KEY_PATCH_URL, versionData.getPatch());
-            bundle22.putString(DownloadCenterFunConstants.DOWNLOAD_MARKET_SNAME, context.getString(R.string.obfuscated_res_0x7f0f029e));
-            bundle22.putString("packagename", TbadkCoreApplication.getInst().getContext().getPackageName());
-            bundle22.putString(ApkStaticNetService.STATIC_DOWNLOAD_URL, versionData.getUrl());
-            bundle22.putString("versionname", versionData.getNewVersion());
-            bundle22.putString(IMConstants.SHARE_ICON_URL, versionData.getTiebaIconUrl());
-            bundle22.putString("updatetime", ad.getDateStringDay(new Date(System.currentTimeMillis())));
-            bundle22.putString("size", versionData.getSize());
-            bundle22.putString("signmd5", str);
-            bundle22.putString("tj", str + context.getString(R.string.obfuscated_res_0x7f0f029e));
-            intent22.putExtra("extra_client_downloadinfo", bundle22);
-            context.startActivity(intent22);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
+        return invokeV.intValue;
     }
 
-    public static boolean c(Context context, CombineDownload combineDownload) {
-        InterceptResult invokeLL;
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, combineDownload)) == null) {
-            if (combineDownload == null || tda.b(context, combineDownload.getAppProc()) || TextUtils.isEmpty(combineDownload.getAppUrl())) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("tieba_pic_ad_req_num", 3);
+        }
+        return invokeV.intValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("video_flow_first_floor", 4);
+        }
+        return invokeV.intValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("video_flow_floor_interval", 7);
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.g == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("ad_photo_browser_insert_mode", -1) != 1) {
                 return false;
             }
             return true;
         }
-        return invokeLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public static void d() {
+    public boolean h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, null) == null) && TbSingleton.getInstance().getSyncModel() != null) {
-            l95 syncModel = TbSingleton.getInstance().getSyncModel();
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), TbSingleton.getInstance().getSyncModel().v(), syncModel.j())));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.b == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (this.j == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (this.h == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (this.d == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (this.i == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if (this.f == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            if (this.e == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void m(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, jSONObject) == null) {
+            boolean z = this.a.get();
+            if (jSONObject != null && !z) {
+                this.a.set(true);
+                this.b = jSONObject.optInt("tieba_lazy_launch_switch", 1);
+                this.c = jSONObject.optInt("tieba_lazy_launch_internal", 60);
+                jSONObject.optInt("tieba_max_fake_progress", 50);
+                jSONObject.optInt("tieba_max_fake_time", 60);
+                jSONObject.optLong("tieba_max_fake_speed", 768000L);
+                SharedPreferences sharedPreferences = TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0);
+                this.j = jSONObject.optInt("tieba_video_mobile_net_autoplay", 1);
+                this.g = jSONObject.optInt("tieba_12.4_download_path", 1);
+                jSONObject.optInt("tieba_landing_page_type_switch", -1);
+                this.d = jSONObject.optInt("tieba_fix_apk_install_status_switch", 1);
+                this.e = jSONObject.optInt("tieba_12.2_download_ad_discard", -1);
+                this.f = jSONObject.optInt("tieba_12.3_ad_discard_optimize", -1);
+                jSONObject.optString("tieba_follow_up_cmatch_switchs", "");
+                jSONObject.optInt("tieba_follow_up_expire_time", 7);
+                jSONObject.optInt("tieba_follow_up_max_remind_times", 3);
+                jSONObject.optInt("tieba_follow_up_gap_time", 5);
+                this.h = jSONObject.optInt("tieba_video_ad_jump_switch", 0);
+                this.i = jSONObject.optInt("hide_landing_page_ad_download_tip", 0);
+                SharedPreferences.Editor edit = sharedPreferences.edit();
+                edit.putInt("video_flow_first_floor", jSONObject.optInt("video_flow_first_floor", 4));
+                edit.putInt("video_flow_floor_interval", jSONObject.optInt("video_flow_floor_interval", 7));
+                int optInt = jSONObject.optInt("ad_photo_browser_insert_mode", -1);
+                if (optInt != -1) {
+                    edit.putInt("ad_photo_browser_insert_mode", optInt);
+                }
+                int optInt2 = jSONObject.optInt("tieba_pic_ad_req_num", -1);
+                if (optInt2 != -1) {
+                    edit.putInt("tieba_pic_ad_req_num", optInt2);
+                }
+                edit.commit();
+            }
         }
     }
 }

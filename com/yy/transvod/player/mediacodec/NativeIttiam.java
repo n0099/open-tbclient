@@ -1,11 +1,11 @@
 package com.yy.transvod.player.mediacodec;
 
 import android.media.MediaFormat;
-import com.baidu.tieba.s1c;
+import com.baidu.tieba.tec;
 import java.lang.ref.WeakReference;
 import java.nio.ByteBuffer;
 /* loaded from: classes10.dex */
-public final class NativeIttiam extends s1c {
+public final class NativeIttiam extends tec {
     public long c = 0;
 
     /* loaded from: classes10.dex */

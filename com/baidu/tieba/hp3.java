@@ -1,170 +1,139 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
+import android.util.Log;
+import com.baidu.swan.bdtls.impl.model.Bdtls$Alert;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import okhttp3.Response;
 /* loaded from: classes6.dex */
 public class hp3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(boolean z, byte[] bArr);
-    }
-
-    /* loaded from: classes6.dex */
-    public class a extends ResponseCallback<byte[]> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
-
-        /* renamed from: com.baidu.tieba.hp3$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class RunnableC0309a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ byte[] a;
-            public final /* synthetic */ a b;
-
-            public RunnableC0309a(a aVar, byte[] bArr) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, bArr};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = bArr;
+    public static void a(String str) {
+        int i;
+        int i2;
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+            if (cp3.a) {
+                Log.d("BDTLS", "bdtls success");
             }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                b bVar;
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = this.b.a) != null) {
-                    bVar.a(true, this.a);
-                }
-            }
-        }
-
-        /* loaded from: classes6.dex */
-        public class b implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public b(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                b bVar;
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = this.a.a) != null) {
-                    bVar.a(false, null);
-                }
-            }
-        }
-
-        public a(hp3 hp3Var, b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hp3Var, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            rp3 m = ip3.l().m();
+            if (m == null) {
+                if (cp3.a) {
+                    Log.d("BDTLS", "bdtls ubc data is null");
                     return;
                 }
+                return;
             }
-            this.a = bVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: a */
-        public void onSuccess(byte[] bArr, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, bArr, i) == null) {
-                ji3.l(new RunnableC0309a(this, bArr), "HandshakeRequest");
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                ji3.l(new b(this), "HandshakeRequest");
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public byte[] parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
-                return response.body().bytes();
-            }
-            return (byte[]) invokeLI.objValue;
-        }
-    }
-
-    public hp3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            try {
+                int i4 = -1;
+                if (m.d() != null) {
+                    i = m.d().intValue();
+                } else {
+                    i = -1;
+                }
+                if (m.f() != null) {
+                    i2 = m.f().intValue();
+                } else {
+                    i2 = -1;
+                }
+                if (m.e() != null) {
+                    i3 = m.e().intValue();
+                } else {
+                    i3 = -1;
+                }
+                if (m.g() != null) {
+                    i4 = m.g().intValue();
+                }
+                if (cp3.a) {
+                    Log.d("BDTLS", "bdtls ubc get data");
+                }
+                jd3 jd3Var = new jd3();
+                jd3Var.b = str;
+                jd3Var.a("dh_group_id", Integer.valueOf(i));
+                jd3Var.a("dh_secret", Integer.valueOf(i2));
+                jd3Var.a("dh_pub_c", Integer.valueOf(i3));
+                jd3Var.a("dh_pub_s", Integer.valueOf(i4));
+                if (cp3.a) {
+                    Log.d("BDTLS", "bdtls ubc create event");
+                }
+                zc3.d(jd3Var);
+            } catch (Exception e) {
+                if (cp3.a) {
+                    Log.d("BDTLS", "bdtls ubc exception=" + e.getMessage());
+                    e.printStackTrace();
+                }
             }
         }
     }
 
-    public void a(byte[] bArr, b bVar) {
+    public static void b(rp3 rp3Var, Bdtls$Alert bdtls$Alert) {
+        String str;
+        int i;
+        int i2;
+        int i3;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, bArr, bVar) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("Content-Type", "application/octet-stream");
-            hashMap.put("Bdtls", "Bdtls");
-            tc4.g().postByteRequest().url(mo3.b).cookieManager(wo2.q().a()).headers(hashMap).content(bArr).build().executeAsync(new a(this, bVar));
+        if (interceptable == null || interceptable.invokeLL(65537, null, rp3Var, bdtls$Alert) == null) {
+            if (cp3.a) {
+                Log.d("BDTLS", "bdtls ubc");
+            }
+            if (rp3Var != null && bdtls$Alert != null) {
+                try {
+                    if (bdtls$Alert.getLevel() == 1) {
+                        str = "warning";
+                    } else {
+                        str = "fatal_error";
+                    }
+                    int i4 = -1;
+                    if (rp3Var.d() != null) {
+                        i = rp3Var.d().intValue();
+                    } else {
+                        i = -1;
+                    }
+                    if (rp3Var.f() != null) {
+                        i2 = rp3Var.f().intValue();
+                    } else {
+                        i2 = -1;
+                    }
+                    if (rp3Var.e() != null) {
+                        i3 = rp3Var.e().intValue();
+                    } else {
+                        i3 = -1;
+                    }
+                    if (rp3Var.g() != null) {
+                        i4 = rp3Var.g().intValue();
+                    }
+                    if (bdtls$Alert.getDescription() != null) {
+                        str2 = new String(bdtls$Alert.getDescription().toByteArray());
+                    } else {
+                        str2 = "";
+                    }
+                    if (cp3.a) {
+                        Log.d("BDTLS", "bdtls ubc get data");
+                    }
+                    jd3 jd3Var = new jd3();
+                    jd3Var.b = "alert";
+                    jd3Var.e = str;
+                    jd3Var.a("dh_group_id", Integer.valueOf(i));
+                    jd3Var.a("dh_secret", Integer.valueOf(i2));
+                    jd3Var.a("dh_pub_c", Integer.valueOf(i3));
+                    jd3Var.a("dh_pub_s", Integer.valueOf(i4));
+                    jd3Var.a("alert_msg", str2);
+                    if (cp3.a) {
+                        Log.d("BDTLS", "bdtls ubc create event");
+                    }
+                    zc3.d(jd3Var);
+                } catch (Exception e) {
+                    if (cp3.a) {
+                        Log.d("BDTLS", "bdtls ubc exception=" + e.getMessage());
+                        e.printStackTrace();
+                    }
+                }
+            } else if (cp3.a) {
+                Log.d("BDTLS", "bdtls ubc data is null");
+            }
         }
     }
 }

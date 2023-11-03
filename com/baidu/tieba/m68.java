@@ -1,163 +1,86 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.PbListView;
-import com.baidu.tbadk.pageInfo.TbPageTag;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.sapi2.PassportSDK;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.sapi2.callback.AccountToolsCallback;
+import com.baidu.sapi2.dto.AccountToolsDTO;
+import com.baidu.sapi2.result.SapiResult;
+import com.baidu.sapi2.utils.ToastUtil;
+import com.baidu.searchbox.yy.gameassist.interfaces.LoginModifyPwdServices;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
 /* loaded from: classes7.dex */
-public class m68 {
+public class m68 implements LoginModifyPwdServices {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final k68 a;
-    public View b;
-    public BdTypeRecyclerView c;
-    public PbListView d;
 
     /* loaded from: classes7.dex */
-    public interface a {
+    public class a implements AccountToolsCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Function1 a;
+
+        public a(m68 m68Var, Function1 function1) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m68Var, function1};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = function1;
+        }
+
+        @Override // com.baidu.sapi2.callback.SapiWebCallback
+        public void onFinish(SapiResult sapiResult) {
+            Function1 function1;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, sapiResult) == null) && (function1 = this.a) != null) {
+                function1.invoke(sapiResult.getResultMsg());
+            }
+        }
     }
 
-    public m68(a aVar, View view2, TbPageContext tbPageContext) {
+    public m68() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, view2, tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.searchbox.yy.gameassist.interfaces.LoginModifyPwdServices
+    public void openModifyPwd(@NonNull Context context, @Nullable Function1<? super String, Unit> function1) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, function1) == null) {
+            AccountToolsDTO accountToolsDTO = new AccountToolsDTO();
+            accountToolsDTO.context = context;
+            accountToolsDTO.toolsType = 5;
+            if (!SapiAccountManager.getInstance().isLogin()) {
+                ToastUtil.show(R.string.obfuscated_res_0x7f0f1122 + "");
                 return;
             }
-        }
-        this.b = view2;
-        BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090ceb);
-        this.c = bdTypeRecyclerView;
-        bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(bdTypeRecyclerView.getContext()));
-        this.c.setFadingEdgeLength(0);
-        this.c.setOverScrollMode(2);
-        PbListView pbListView = new PbListView(tbPageContext.getPageActivity());
-        this.d = pbListView;
-        pbListView.a();
-        this.d.s(R.color.CAM_X0205);
-        this.d.w(BdUtilHelper.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds182));
-        this.d.B();
-        this.d.L(R.dimen.tbfontsize33);
-        this.d.F(R.color.CAM_X0110);
-        this.c.setNextPage(this.d);
-        this.d.P(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-        this.d.g();
-        this.d.H(tbPageContext.getResources().getString(R.string.list_no_more));
-        c();
-        this.a = new k68(tbPageContext, this.c);
-    }
-
-    public View a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            BdTypeRecyclerView bdTypeRecyclerView = this.c;
-            if (bdTypeRecyclerView == null) {
-                return false;
-            }
-            return !ListUtils.isEmpty(bdTypeRecyclerView.getData());
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.c.scrollToPosition(0);
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new gd7());
-            this.c.setData(arrayList);
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            PbListView pbListView = this.d;
-            if (pbListView != null) {
-                pbListView.J(SkinManager.getColor(R.color.CAM_X0107));
-                this.d.e(skinType);
-            }
-            BdTypeRecyclerView bdTypeRecyclerView = this.c;
-            if (bdTypeRecyclerView != null && bdTypeRecyclerView.getAdapter() != null) {
-                this.c.getAdapter().notifyDataSetChanged();
-            }
-        }
-    }
-
-    public void e(List<yh> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, list) != null) || ListUtils.isEmpty(list)) {
-            return;
-        }
-        this.c.setData(list);
-    }
-
-    public void f(TbPageTag tbPageTag) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, tbPageTag) == null) {
-            this.a.a(tbPageTag);
-        }
-    }
-
-    public void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            if (z) {
-                this.c.setVisibility(0);
-            } else {
-                this.c.setVisibility(8);
-            }
-        }
-    }
-
-    public void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            id7 id7Var = new id7();
-            id7Var.a = 401;
-            id7Var.b = z;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, id7Var));
+            PassportSDK.getInstance().loadAccountTools(accountToolsDTO, new a(this, function1));
         }
     }
 }

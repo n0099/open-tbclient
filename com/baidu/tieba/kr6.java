@@ -1,31 +1,37 @@
 package com.baidu.tieba;
 
-import android.os.Trace;
-import com.baidu.tbadk.core.GlobalBuildConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class kr6 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65536, null) != null) || !GlobalBuildConfig.isDebug()) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947922746, "Lcom/baidu/tieba/kr6;")) == null) {
             return;
         }
-        Trace.endSection();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947922746, "Lcom/baidu/tieba/kr6;");
+        }
     }
 
-    public static final void b(String name) {
+    public static final boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, name) == null) {
-            Intrinsics.checkNotNullParameter(name, "name");
-            if (!GlobalBuildConfig.isDebug()) {
-                return;
-            }
-            Trace.beginSection(name);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a;
         }
+        return invokeV.booleanValue;
     }
 }

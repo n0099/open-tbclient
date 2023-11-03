@@ -1,155 +1,183 @@
 package com.baidu.tieba;
 
-import androidx.core.app.NotificationCompat;
-import com.baidu.adp.lib.util.BdLog;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.pb.pb.main.PbCommenFloorItemViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class dx9 {
+public class dx9 extends tv9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<a> a;
-    public mx4 b;
 
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public String b;
-        public long c;
-        public String d;
-        public String e;
-        public long f;
-        public int g;
-        public int h;
-        public String i;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public dx9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dx9(g1a g1aVar, BdUniqueId bdUniqueId) {
+        super(g1aVar, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {g1aVar, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((g1a) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = new mx4();
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    public final void D0(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<a> list = this.a;
-            if (list != null && list.size() != 0) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(1048576, this, pbCommenFloorItemViewHolder) == null) {
+            I0(pbCommenFloorItemViewHolder.F0);
         }
-        return invokeV.booleanValue;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public final void E0(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            mx4 mx4Var = this.b;
-            if (mx4Var != null && mx4Var.b() == 1) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pbCommenFloorItemViewHolder) == null) {
+            I0(pbCommenFloorItemViewHolder.C0);
         }
-        return invokeV.booleanValue;
     }
 
-    public void c(JSONObject jSONObject) {
-        JSONArray jSONArray;
-        String str;
-        int i;
+    public final void F0(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            String str2 = "";
-            if (jSONObject == null) {
-                return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pbCommenFloorItemViewHolder) == null) {
+            I0(pbCommenFloorItemViewHolder.s);
+        }
+    }
+
+    public final void G0(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, pbCommenFloorItemViewHolder) == null) && (view2 = pbCommenFloorItemViewHolder.J) != null) {
+            view2.setVisibility(4);
+        }
+    }
+
+    public final void H0(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, pbCommenFloorItemViewHolder) == null) {
+            TextView textView = pbCommenFloorItemViewHolder.D;
+            if (textView != null) {
+                textView.setVisibility(8);
             }
-            try {
-                this.b.i(jSONObject.getJSONObject("page"));
-                JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
-                if (optJSONArray != null && optJSONArray.length() != 0) {
-                    this.a.clear();
-                    int i2 = 0;
-                    while (i2 < optJSONArray.length()) {
-                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
-                        if (jSONObject2 == null) {
-                            jSONArray = optJSONArray;
-                            str = str2;
-                            i = i2;
-                        } else {
-                            JSONObject jSONObject3 = jSONObject2.getJSONObject(NotificationCompat.CarExtender.KEY_AUTHOR);
-                            String optString = jSONObject3.optString("name_show", str2);
-                            jSONObject3.optString("name", str2);
-                            long optLong = jSONObject2.optLong("pid", 0L);
-                            String optString2 = jSONObject2.optString("title", str2);
-                            long optLong2 = jSONObject2.optLong("time", 0L) * 1000;
-                            String optString3 = jSONObject2.optString("content", str2);
-                            String optString4 = jSONObject2.optString("fname", str2);
-                            long optLong3 = jSONObject2.optLong("tid", 0L);
-                            jSONArray = optJSONArray;
-                            int optInt = jSONObject2.optInt("is_floor", 0);
-                            str = str2;
-                            int optInt2 = jSONObject2.optInt("is_replay", 0);
-                            i = i2;
-                            if (jSONObject2.optInt("thread_type", 0) != 33) {
-                                a aVar = new a();
-                                aVar.a = optLong;
-                                aVar.b = optString2;
-                                aVar.c = optLong2;
-                                aVar.d = optString3;
-                                aVar.e = optString4;
-                                aVar.f = optLong3;
-                                aVar.g = optInt;
-                                aVar.h = optInt2;
-                                aVar.i = optString;
-                                this.a.add(aVar);
-                            }
-                        }
-                        i2 = i + 1;
-                        optJSONArray = jSONArray;
-                        str2 = str;
-                    }
+            TextView textView2 = pbCommenFloorItemViewHolder.m;
+            if (textView2 != null) {
+                textView2.setVisibility(8);
+            }
+        }
+    }
+
+    public final void J0(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, pbCommenFloorItemViewHolder) == null) {
+            I0(pbCommenFloorItemViewHolder.w);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.tv9, com.baidu.tieba.bi
+    /* renamed from: p0 */
+    public PbCommenFloorItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, viewGroup)) == null) {
+            PbCommenFloorItemViewHolder onCreateViewHolder = super.onCreateViewHolder(viewGroup);
+            K0(onCreateViewHolder);
+            return onCreateViewHolder;
+        }
+        return (PbCommenFloorItemViewHolder) invokeL.objValue;
+    }
+
+    public final void I0(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && view2 != null && (view2.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
+            marginLayoutParams.rightMargin = BdUtilHelper.getDimens(this.mContext, R.dimen.M_W_X007);
+            marginLayoutParams.leftMargin = BdUtilHelper.getDimens(this.mContext, R.dimen.M_W_X007);
+            view2.setLayoutParams(marginLayoutParams);
+        }
+    }
+
+    public final void L0(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, pbCommenFloorItemViewHolder) == null) {
+            View findViewById = pbCommenFloorItemViewHolder.getView().findViewById(R.id.obfuscated_res_0x7f0927d1);
+            if (findViewById != null) {
+                SkinManager.setBackgroundColor(findViewById, R.color.CAM_X0204);
+            }
+            View findViewById2 = pbCommenFloorItemViewHolder.getView().findViewById(R.id.obfuscated_res_0x7f0927d0);
+            if (findViewById2 != null) {
+                SkinManager.setViewTextColor(findViewById2, R.color.CAM_X0105, 1);
+            }
+        }
+    }
+
+    public final void K0(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
+        RelativeLayout.LayoutParams layoutParams;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, pbCommenFloorItemViewHolder) == null) {
+            RelativeLayout relativeLayout = (RelativeLayout) pbCommenFloorItemViewHolder.getView().findViewById(R.id.obfuscated_res_0x7f091bb8);
+            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d07cf, (ViewGroup) null);
+            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, -2);
+            if (relativeLayout != null) {
+                relativeLayout.addView(inflate, 0, layoutParams2);
+            }
+            LinearLayout linearLayout = (LinearLayout) pbCommenFloorItemViewHolder.getView().findViewById(R.id.obfuscated_res_0x7f091206);
+            if (linearLayout != null) {
+                if (linearLayout.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+                    layoutParams = (RelativeLayout.LayoutParams) linearLayout.getLayoutParams();
+                } else {
+                    layoutParams = new RelativeLayout.LayoutParams(-1, -2);
                 }
-            } catch (Exception e) {
-                BdLog.d(e.getMessage());
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f091fd7);
+                linearLayout.setLayoutParams(layoutParams);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.tv9, com.baidu.tieba.vv9, com.baidu.tieba.bi
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        q0(i, view2, viewGroup, (ura) obj, (PbCommenFloorItemViewHolder) viewHolder);
+        return view2;
+    }
+
+    @Override // com.baidu.tieba.tv9
+    public View q0(int i, View view2, ViewGroup viewGroup, ura uraVar, PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i), view2, viewGroup, uraVar, pbCommenFloorItemViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, uraVar, pbCommenFloorItemViewHolder);
+            F0(pbCommenFloorItemViewHolder);
+            H0(pbCommenFloorItemViewHolder);
+            D0(pbCommenFloorItemViewHolder);
+            E0(pbCommenFloorItemViewHolder);
+            J0(pbCommenFloorItemViewHolder);
+            G0(pbCommenFloorItemViewHolder);
+            L0(pbCommenFloorItemViewHolder);
+            c1a.w("c14887");
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
     }
 }

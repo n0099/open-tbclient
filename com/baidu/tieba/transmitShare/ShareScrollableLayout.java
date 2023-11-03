@@ -10,7 +10,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rma;
+import com.baidu.tieba.sza;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class ShareScrollableLayout extends LinearLayout implements rma {
+public class ShareScrollableLayout extends LinearLayout implements sza {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
@@ -27,7 +27,7 @@ public class ShareScrollableLayout extends LinearLayout implements rma {
     public int b;
     public int c;
 
-    @Override // com.baidu.tieba.rma
+    @Override // com.baidu.tieba.sza
     @NonNull
     public View getView() {
         InterceptResult invokeV;
@@ -57,7 +57,7 @@ public class ShareScrollableLayout extends LinearLayout implements rma {
         d();
     }
 
-    @Override // com.baidu.tieba.rma
+    @Override // com.baidu.tieba.sza
     public void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -115,7 +115,7 @@ public class ShareScrollableLayout extends LinearLayout implements rma {
         d();
     }
 
-    @Override // com.baidu.tieba.rma
+    @Override // com.baidu.tieba.sza
     public void b(int i, @NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, view2) == null) {
@@ -146,7 +146,7 @@ public class ShareScrollableLayout extends LinearLayout implements rma {
         }
     }
 
-    @Override // android.view.ViewGroup, com.baidu.tieba.rma
+    @Override // android.view.ViewGroup, com.baidu.tieba.sza
     public void removeAllViews() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -155,7 +155,7 @@ public class ShareScrollableLayout extends LinearLayout implements rma {
         }
     }
 
-    @Override // com.baidu.tieba.rma
+    @Override // com.baidu.tieba.sza
     public void setItemParams(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) {

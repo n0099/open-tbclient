@@ -1,154 +1,82 @@
 package com.baidu.tieba;
 
-import android.graphics.BitmapFactory;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.widget.ImageView.BdImage;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import okio.BufferedSource;
-import okio.Okio;
 /* loaded from: classes9.dex */
-public final class yxa {
+public class yxa {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext<?> a;
+    public View b;
+    public TextView c;
+    public TbImageView d;
+    public TextView e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948346919, "Lcom/baidu/tieba/yxa;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948346919, "Lcom/baidu/tieba/yxa;");
+    public yxa(TbPageContext<?> tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new a(null);
+        this.a = tbPageContext;
+        b();
     }
 
-    /* loaded from: classes9.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
+    public void d(DressItemData dressItemData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, dressItemData) != null) || dressItemData == null) {
+            return;
         }
+        this.c.setText(dressItemData.getTitle());
+        this.d.startLoad(dressItemData.getPermissionImgUrl(), 10, false);
+        this.e.setText(dressItemData.getDescription());
+    }
 
-        /* renamed from: com.baidu.tieba.yxa$a$a  reason: collision with other inner class name */
-        /* loaded from: classes9.dex */
-        public static final class C0539a extends BdAsyncTask<Void, Void, Boolean> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ String a;
-            public final /* synthetic */ Function1<BdImage, Unit> b;
-            public final /* synthetic */ int c;
-            public final /* synthetic */ int d;
-
-            public C0539a(String str, Function1<? super BdImage, Unit> function1, int i, int i2) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {str, function1, Integer.valueOf(i), Integer.valueOf(i2)};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = str;
-                this.b = function1;
-                this.c = i;
-                this.d = i2;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-            public Boolean doInBackground(Void... params) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, params)) == null) {
-                    Intrinsics.checkNotNullParameter(params, "params");
-                    File file = new File(this.a);
-                    if (!file.exists()) {
-                        this.b.invoke(null);
-                        return Boolean.FALSE;
-                    }
-                    BitmapFactory.Options options = new BitmapFactory.Options();
-                    int i = 1;
-                    options.inJustDecodeBounds = true;
-                    BitmapFactory.decodeFile(this.a, options);
-                    options.inPreferredConfig = TbConfig.BitmapConfig;
-                    while (true) {
-                        int i2 = i * 2;
-                        if (options.outWidth / i2 <= this.c && options.outHeight / i2 <= this.d) {
-                            break;
-                        }
-                        i = i2;
-                    }
-                    options.inJustDecodeBounds = false;
-                    options.inSampleSize = i;
-                    BufferedSource buffer = Okio.buffer(Okio.source(file));
-                    this.b.invoke(new BdImage(BitmapFactory.decodeStream(buffer.inputStream(), null, options)));
-                    try {
-                        buffer.close();
-                    } catch (Exception unused) {
-                    }
-                    return Boolean.TRUE;
-                }
-                return (Boolean) invokeL.objValue;
-            }
+    public View a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
+        return (View) invokeV.objValue;
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            wp5.a(this.a, this.b);
         }
+    }
 
-        public static /* synthetic */ void b(a aVar, String str, int i, int i2, Function1 function1, int i3, Object obj) {
-            if ((i3 & 2) != 0) {
-                i = 160;
-            }
-            if ((i3 & 4) != 0) {
-                i2 = 160;
-            }
-            aVar.a(str, i, i2, function1);
-        }
-
-        public final void a(String localPath, int i, int i2, Function1<? super BdImage, Unit> callback) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{localPath, Integer.valueOf(i), Integer.valueOf(i2), callback}) == null) {
-                Intrinsics.checkNotNullParameter(localPath, "localPath");
-                Intrinsics.checkNotNullParameter(callback, "callback");
-                new C0539a(localPath, callback, i, i2).execute(new Void[0]);
-            }
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d013f, (ViewGroup) null);
+            this.b = inflate;
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092504);
+            this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0903f8);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092503);
+            c();
         }
     }
 }

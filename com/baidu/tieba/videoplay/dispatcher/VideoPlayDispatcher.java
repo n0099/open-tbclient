@@ -9,10 +9,11 @@ import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoRecommentPlayActivityConfig;
 import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.data.YyExtData;
+import com.baidu.tbadk.core.util.ForumBroadcastHelper;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
-import com.baidu.tieba.l4a;
-import com.baidu.tieba.rr5;
+import com.baidu.tieba.lt5;
+import com.baidu.tieba.qha;
 import com.baidu.tieba.video.UserItemData;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +24,7 @@ import com.tencent.connect.share.QzonePublish;
 import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class VideoPlayDispatcher implements l4a {
+public class VideoPlayDispatcher implements qha {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -41,9 +42,9 @@ public class VideoPlayDispatcher implements l4a {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:38:0x0186  */
-    /* JADX WARN: Removed duplicated region for block: B:40:0x0196  */
-    @Override // com.baidu.tieba.l4a
+    /* JADX WARN: Removed duplicated region for block: B:38:0x0185  */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x0195  */
+    @Override // com.baidu.tieba.qha
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -83,7 +84,7 @@ public class VideoPlayDispatcher implements l4a {
             videoItemData.agree_num = jSONObject.optString("agreeNum");
             videoItemData.share_num = jSONObject.optString("shareNum");
             videoItemData.forum_id = jSONObject.optString("forumId");
-            videoItemData.forum_name = jSONObject.optString("forumName");
+            videoItemData.forum_name = jSONObject.optString(ForumBroadcastHelper.KEY_PARMARS_FORUM_NAME);
             videoItemData.highLightPostId = jSONObject.optString("hightlightAnchorPid");
             boolean equals = "1".equals(jSONObject.optString("showComment"));
             if (!TextUtils.isEmpty(videoItemData.highLightPostId)) {
@@ -123,12 +124,11 @@ public class VideoPlayDispatcher implements l4a {
                     jSONObject3 = null;
                 }
                 if (jSONObject3 != null) {
-                    Rect rect2 = new Rect();
-                    rect2.left = jSONObject3.optInt("l");
-                    rect2.top = jSONObject3.optInt("t");
-                    rect2.right = jSONObject3.optInt("r");
-                    rect2.bottom = jSONObject3.optInt("b");
-                    rect = rect2;
+                    rect = new Rect();
+                    rect.left = jSONObject3.optInt("l");
+                    rect.top = jSONObject3.optInt("t");
+                    rect.right = jSONObject3.optInt("r");
+                    rect.bottom = jSONObject3.optInt("b");
                     if (!TextUtils.isEmpty(videoItemData.video_url)) {
                         new VideoRecommentPlayActivityConfig(context, arrayList, (String) null, VideoRecommentPlayActivityConfig.FROM_REPLY_PAGE, z2).start();
                         return;
@@ -141,7 +141,8 @@ public class VideoPlayDispatcher implements l4a {
                     } else {
                         str = VideoPlayActivityConfig.FROM_H5_SEARCH;
                     }
-                    rr5.d(context, arrayList, videoItemData.nid, z, 0, rect, "from_nani_video", "personalize_page", "", str, "", z2, false, JavaTypesHelper.toLong(videoItemData.forum_id, 0L));
+                    Rect rect2 = rect;
+                    lt5.f(context, arrayList, videoItemData.nid, z, 0, rect2, "from_nani_video", "personalize_page", "", str, "", z2, "1".equals(jSONObject.optString("isFrsVideoTab")), false, JavaTypesHelper.toLong(videoItemData.forum_id, 0L), "1".equals(jSONObject.optString("isTopThread")));
                     return;
                 }
             }

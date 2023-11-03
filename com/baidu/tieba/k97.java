@@ -1,59 +1,89 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.t07;
+import android.text.Layout;
+import android.text.Spannable;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
+import android.view.MotionEvent;
+import android.widget.TextView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes6.dex */
-public final class k97 {
+/* loaded from: classes7.dex */
+public final class k97 extends LinkMovementMethod {
     public static /* synthetic */ Interceptable $ic;
+    public static final k97 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final t07.c a;
-    public final View b;
 
-    public k97(Context context) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947868000, "Lcom/baidu/tieba/k97;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947868000, "Lcom/baidu/tieba/k97;");
+                return;
+            }
+        }
+        a = new k97();
+    }
+
+    public k97() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        Intrinsics.checkNotNullParameter(context, "context");
-        t07.c b = t07.a().b();
-        this.a = b;
-        View create = b.create(context);
-        Intrinsics.checkNotNullExpressionValue(create, "resolver.create(context)");
-        this.b = create;
     }
 
-    public final void a(List<String> list) {
+    @Override // android.text.method.LinkMovementMethod, android.text.method.ScrollingMovementMethod, android.text.method.BaseMovementMethod, android.text.method.MovementMethod
+    public boolean onTouchEvent(TextView widget, Spannable buffer, MotionEvent event) {
+        InterceptResult invokeLLL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            this.a.a(this.b, list);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, widget, buffer, event)) == null) {
+            Intrinsics.checkNotNullParameter(widget, "widget");
+            Intrinsics.checkNotNullParameter(buffer, "buffer");
+            Intrinsics.checkNotNullParameter(event, "event");
+            int action = event.getAction();
+            if (action == 0 || action == 1) {
+                int x = ((int) event.getX()) - widget.getTotalPaddingLeft();
+                int y = ((int) event.getY()) - widget.getTotalPaddingTop();
+                int scrollX = x + widget.getScrollX();
+                int scrollY = y + widget.getScrollY();
+                Layout layout = widget.getLayout();
+                int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical(scrollY), scrollX);
+                ClickableSpan[] links = (ClickableSpan[]) buffer.getSpans(offsetForHorizontal, offsetForHorizontal, ClickableSpan.class);
+                Intrinsics.checkNotNullExpressionValue(links, "links");
+                if (links.length == 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (!z) {
+                    ClickableSpan clickableSpan = links[0];
+                    if (action == 1 && clickableSpan != null) {
+                        clickableSpan.onClick(widget);
+                    }
+                    return true;
+                }
+            }
+            return false;
         }
-    }
-
-    public final View b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (View) invokeV.objValue;
+        return invokeLLL.booleanValue;
     }
 }

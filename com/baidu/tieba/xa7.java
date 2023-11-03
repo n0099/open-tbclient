@@ -1,70 +1,71 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.forumMember.member.FrsEmpertyItemViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
-public class xa7 extends yc7<bd7, FrsEmpertyItemViewHolder> {
+import java.lang.ref.WeakReference;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes9.dex */
+public class xa7 implements ka7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public WeakReference<Runnable> a;
+    public boolean b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xa7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext, bdUniqueId);
+    public xa7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
-    /* renamed from: G */
-    public FrsEmpertyItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final boolean b() {
+        InterceptResult invokeV;
+        Runnable runnable;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            return new FrsEmpertyItemViewHolder(new View(this.mContext));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            WeakReference<Runnable> weakReference = this.a;
+            if (weakReference != null) {
+                runnable = weakReference.get();
+            } else {
+                runnable = null;
+            }
+            if (runnable != null) {
+                runnable.run();
+            }
+            if (runnable != null) {
+                return true;
+            }
+            return false;
         }
-        return (FrsEmpertyItemViewHolder) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public View H(int i, View view2, ViewGroup viewGroup, bd7 bd7Var, FrsEmpertyItemViewHolder frsEmpertyItemViewHolder) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.ka7
+    public final void a(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, bd7Var, frsEmpertyItemViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) bd7Var, (bd7) frsEmpertyItemViewHolder);
-            frsEmpertyItemViewHolder.b(bd7Var.b());
-            frsEmpertyItemViewHolder.a(bd7Var.a());
-            return view2;
+        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+            Intrinsics.checkNotNullParameter(runnable, "runnable");
+            this.b = true;
+            this.a = new WeakReference<>(runnable);
         }
-        return (View) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.yc7, com.baidu.tieba.lh
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        H(i, view2, viewGroup, (bd7) obj, (FrsEmpertyItemViewHolder) viewHolder);
-        return view2;
+    public final void e(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) {
+            Intrinsics.checkNotNullParameter(runnable, "runnable");
+            this.a = new WeakReference<>(runnable);
+        }
     }
 }

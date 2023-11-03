@@ -1,11 +1,10 @@
 package com.baidu.tieba;
 
+import android.net.Uri;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.apps.core.prefetch.statistics.item.RecordType;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.searchbox.dns.transmit.transmitter.exception.ExceptionMessage;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,63 +12,151 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.facebook.binaryresource.BinaryResource;
+import com.facebook.binaryresource.FileBinaryResource;
+import com.facebook.cache.common.CacheKey;
+import com.facebook.cache.common.WriterCallbacks;
+import com.facebook.datasource.DataSource;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.imagepipeline.cache.DefaultCacheKeyFactory;
+import com.facebook.imagepipeline.core.ImagePipeline;
+import com.facebook.imagepipeline.core.ImagePipelineFactory;
+import com.facebook.imagepipeline.request.ImageRequest;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes7.dex */
-public class qa2 implements ra2 {
+public class qa2 implements ja2, pa2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<ta2> a;
-    public boolean b;
+    public ra2 b;
+
+    @Override // com.baidu.tieba.ja2
+    public boolean isClosed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
+    public class a implements ta2 {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ka2 a;
+
+        @Override // com.baidu.tieba.ta2
+        public void a(ImageRequest imageRequest) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, imageRequest) == null) {
+            }
+        }
+
+        public a(qa2 qa2Var, ka2 ka2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qa2Var, ka2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ka2Var;
+        }
+
+        @Override // com.baidu.tieba.ta2
+        public void b(ImageRequest imageRequest) {
+            ka2 ka2Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageRequest) == null) && (ka2Var = this.a) != null) {
+                ka2Var.onFinished();
+            }
+        }
+
+        @Override // com.baidu.tieba.ta2
+        public void onCancel(String str) {
+            ka2 ka2Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (ka2Var = this.a) != null) {
+                ka2Var.onFinished();
+            }
+        }
+
+        @Override // com.baidu.tieba.ta2
+        public void c(ImageRequest imageRequest, Throwable th) {
+            ka2 ka2Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, imageRequest, th) == null) && (ka2Var = this.a) != null) {
+                ka2Var.onFinished();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements ra2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(qa2 qa2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qa2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.ra2
+        public CacheKey a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                if (TextUtils.isEmpty(str)) {
+                    return null;
+                }
+                return DefaultCacheKeyFactory.getInstance().getEncodedCacheKey(ImageRequest.fromUri(Uri.parse(str)), null);
+            }
+            return (CacheKey) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public static qa2 a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-496045302, "Lcom/baidu/tieba/qa2$a;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-496045240, "Lcom/baidu/tieba/qa2$c;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-496045302, "Lcom/baidu/tieba/qa2$a;");
+                    classClinitInterceptable.invokePostClinit(-496045240, "Lcom/baidu/tieba/qa2$c;");
                     return;
                 }
             }
-            int[] iArr = new int[RecordType.values().length];
-            a = iArr;
-            try {
-                iArr[RecordType.APP_ID.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[RecordType.APP_VERSION.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[RecordType.PREFETCH_TYPE.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[RecordType.PREFETCH_EVENT.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-            try {
-                a[RecordType.PREFETCH_OTHER_MSG.ordinal()] = 5;
-            } catch (NoSuchFieldError unused5) {
-            }
-            try {
-                a[RecordType.PREFETCH_PRELINK.ordinal()] = 6;
-            } catch (NoSuchFieldError unused6) {
-            }
+            a = new qa2(null);
         }
     }
 
@@ -86,135 +173,146 @@ public class qa2 implements ra2 {
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = false;
+        this.b = new b(this);
     }
 
-    public void a(String str, UbcFlowEvent ubcFlowEvent) {
+    public static qa2 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, ubcFlowEvent) != null) || !b(str)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return c.a;
         }
-        uy2.q(PrefetchEvent.MODULE, str).F(ubcFlowEvent);
+        return (qa2) invokeV.objValue;
     }
 
-    public void d(String str, boolean z) {
-        String str2;
+    public /* synthetic */ qa2(a aVar) {
+        this();
+    }
+
+    @Override // com.baidu.tieba.ja2
+    public void a(String str, File file, ka2 ka2Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(1048579, this, str, z) != null) || !b(str)) {
+        if ((interceptable != null && interceptable.invokeLLL(1048576, this, str, file, ka2Var) != null) || TextUtils.isEmpty(str)) {
             return;
         }
-        HybridUbcFlow q = uy2.q(PrefetchEvent.MODULE, str);
+        boolean z = false;
+        if (file != null && file.exists()) {
+            z = b(str, file);
+        }
         if (z) {
-            str2 = "success";
+            ka2Var.onFinished();
         } else {
-            str2 = "fail";
+            e(str, new a(this, ka2Var));
         }
-        q.E("value", str2);
     }
 
-    public void e(String str, ta2 ta2Var) {
+    public final boolean b(String str, File file) {
+        InterceptResult invokeLL;
+        FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048580, this, str, ta2Var) != null) || !b(str)) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, file)) == null) {
+            CacheKey a2 = this.b.a(str);
+            boolean z = false;
+            FileInputStream fileInputStream2 = null;
+            try {
+                try {
+                    fileInputStream = new FileInputStream(file);
+                } catch (IOException e) {
+                    e = e;
+                }
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                BinaryResource insert = Fresco.getImagePipelineFactory().getMainFileCache().insert(a2, WriterCallbacks.from(fileInputStream));
+                if (insert != null) {
+                    if (insert.size() > 0) {
+                        z = true;
+                    }
+                }
+                jm4.d(fileInputStream);
+                return z;
+            } catch (IOException e2) {
+                e = e2;
+                fileInputStream2 = fileInputStream;
+                if (pa2.a) {
+                    Log.e("HybridIntercept", Log.getStackTraceString(e));
+                }
+                jm4.d(fileInputStream2);
+                return false;
+            } catch (Throwable th2) {
+                th = th2;
+                fileInputStream2 = fileInputStream;
+                jm4.d(fileInputStream2);
+                throw th;
+            }
         }
-        c(uy2.q(PrefetchEvent.MODULE, str), ta2Var);
+        return invokeLL.booleanValue;
     }
 
-    public final boolean b(String str) {
+    public final DataSource<Void> e(String str, ta2 ta2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, ta2Var)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                ImagePipeline imagePipeline = Fresco.getImagePipeline();
+                ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(Uri.parse(str));
+                if (ta2Var != null) {
+                    newBuilderWithSource.setRequestListener(np2.B().a(ta2Var));
+                }
+                return imagePipeline.prefetchToDiskCache(newBuilderWithSource.build(), null);
+            }
+            if (ta2Var != null) {
+                ta2Var.c(null, new Exception(ExceptionMessage.URL_EMPTY));
+            }
+            return null;
+        }
+        return (DataSource) invokeLL.objValue;
+    }
+
+    public final File c(String str) {
+        InterceptResult invokeL;
+        BinaryResource resource;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            CacheKey a2 = this.b.a(str);
+            if (a2 == null) {
+                return null;
+            }
+            if (ImagePipelineFactory.getInstance().getMainFileCache().hasKey(a2)) {
+                BinaryResource resource2 = ImagePipelineFactory.getInstance().getMainFileCache().getResource(a2);
+                if (resource2 == null) {
+                    return null;
+                }
+                return ((FileBinaryResource) resource2).getFile();
+            } else if (!ImagePipelineFactory.getInstance().getSmallImageFileCache().hasKey(a2) || (resource = ImagePipelineFactory.getInstance().getSmallImageFileCache().getResource(a2)) == null) {
+                return null;
+            } else {
+                return ((FileBinaryResource) resource).getFile();
+            }
+        }
+        return (File) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ja2
+    public InputStream get(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return !TextUtils.isEmpty(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, str) != null) || !b(str)) {
-            return;
-        }
-        uy2.s(PrefetchEvent.MODULE, str);
-        uy2.q(PrefetchEvent.MODULE, str);
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && b(str) && !this.b) {
-            this.b = true;
-            HybridUbcFlow q = uy2.q(PrefetchEvent.MODULE, str);
-            g(q);
-            q.A();
-            uy2.s(PrefetchEvent.MODULE, str);
-        }
-    }
-
-    public final void c(HybridUbcFlow hybridUbcFlow, ta2 ta2Var) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, hybridUbcFlow, ta2Var) == null) && hybridUbcFlow != null && ta2Var != null) {
-            switch (a.a[ta2Var.a.ordinal()]) {
-                case 1:
-                    hybridUbcFlow.D("app_id", ta2Var.b);
-                    return;
-                case 2:
-                    hybridUbcFlow.D("app_version", ta2Var.b);
-                    return;
-                case 3:
-                    if (ta2Var.c) {
-                        str = "hot";
-                    } else {
-                        str = "cold";
-                    }
-                    hybridUbcFlow.E("type", str);
-                    return;
-                case 4:
-                    hybridUbcFlow.E("source", ta2Var.b);
-                    return;
-                case 5:
-                    hybridUbcFlow.D("msg", ta2Var.b);
-                    return;
-                case 6:
-                    synchronized (this.a) {
-                        this.a.add(ta2Var);
-                    }
-                    return;
-                default:
-                    return;
-            }
-        }
-    }
-
-    public final void g(HybridUbcFlow hybridUbcFlow) {
-        List<ta2> list;
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, hybridUbcFlow) == null) && hybridUbcFlow != null && (list = this.a) != null && list.size() > 0) {
-            JSONObject jSONObject = new JSONObject();
-            JSONArray jSONArray = new JSONArray();
-            synchronized (this.a) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            File c2 = c(str);
+            if (c2 != null && c2.exists()) {
                 try {
-                    for (ta2 ta2Var : this.a) {
-                        String str2 = ta2Var.b;
-                        JSONObject jSONObject2 = new JSONObject();
-                        jSONObject2.put("url", str2);
-                        if (ta2Var.c) {
-                            str = "1";
-                        } else {
-                            str = "0";
-                        }
-                        jSONObject2.put("link", str);
-                        jSONArray.put(jSONObject2);
+                    return new FileInputStream(c2);
+                } catch (IOException e) {
+                    if (pa2.a) {
+                        Log.e("HybridIntercept", Log.getStackTraceString(e));
+                        return null;
                     }
-                    jSONObject.put("links", jSONArray);
-                } catch (JSONException unused) {
+                    return null;
                 }
-                this.a.clear();
             }
-            if (jSONObject.length() > 0) {
-                hybridUbcFlow.D("prelink", jSONObject.toString());
-            }
+            return null;
         }
+        return (InputStream) invokeL.objValue;
     }
 }

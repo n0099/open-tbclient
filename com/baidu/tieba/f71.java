@@ -1,174 +1,167 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
+import android.graphics.Rect;
+import android.view.MotionEvent;
+import android.view.TouchDelegate;
 import android.view.View;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
+import android.view.ViewConfiguration;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.widget.bubble.BubbleManager;
-import com.baidu.nadcore.widget.bubble.BubblePosition;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class f71 extends d71 {
+public class f71 extends TouchDelegate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public j71 c;
+    public final Map<View, a> a;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public f71() {
-        this(new j71());
+    /* loaded from: classes5.dex */
+    public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Rect a;
+        public int b;
+        public int c;
+        public int d;
+        public int e;
+        public int f;
+        public Rect g;
+        public boolean h;
+
+        public a(f71 f71Var, Rect rect, int i, int i2, int i3, int i4) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {f71Var, rect, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i5 = newInitContext.flag;
+                if ((i5 & 1) != 0) {
+                    int i6 = i5 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = i;
+            this.a = rect;
+            this.d = i2;
+            this.c = i3;
+            this.e = i4;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f71(View view2, int i, int i2, int i3, int i4) {
+        super(new Rect(), view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this((j71) newInitContext.callArgs[0]);
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Rect) objArr2[0], (View) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new HashMap();
+        a(view2, i, i2, i3, i4);
     }
 
-    public j71 h() {
-        InterceptResult invokeV;
+    public void a(View view2, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            this.a.put(view2, new a(this, new Rect(), i, i2, i3, i4));
         }
-        return (j71) invokeV.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f71(j71 j71Var) {
-        super(j71Var);
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {j71Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((g71) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            for (Map.Entry<View, a> entry : this.a.entrySet()) {
+                View key = entry.getKey();
+                int[] iArr = new int[2];
+                key.getLocationOnScreen(iArr);
+                int measuredWidth = key.getMeasuredWidth();
+                int measuredHeight = key.getMeasuredHeight();
+                a value = entry.getValue();
+                Rect rect = value.a;
+                rect.left = iArr[0] - value.b;
+                rect.right = iArr[0] + measuredWidth + value.c;
+                rect.top = iArr[1] - value.d;
+                rect.bottom = iArr[1] + measuredHeight + value.e;
+                value.f = ViewConfiguration.get(key.getContext()).getScaledTouchSlop();
+                Rect rect2 = new Rect(value.a);
+                value.g = rect2;
+                int i = value.f;
+                rect2.inset(-i, -i);
             }
         }
-        this.c = j71Var;
     }
 
-    public f71 i(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-            super.a(z);
-            return this;
-        }
-        return (f71) invokeZ.objValue;
-    }
-
-    public f71 k(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            super.c(i);
-            return this;
-        }
-        return (f71) invokeI.objValue;
-    }
-
-    public f71 n(BubblePosition bubblePosition) {
+    @Override // android.view.TouchDelegate
+    public boolean onTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bubblePosition)) == null) {
-            super.e(bubblePosition);
-            return this;
-        }
-        return (f71) invokeL.objValue;
-    }
-
-    public f71 o(BubbleManager.b bVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bVar)) == null) {
-            super.f(bVar);
-            return this;
-        }
-        return (f71) invokeL.objValue;
-    }
-
-    public f71 p(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f)) == null) {
-            super.g(f);
-            return this;
-        }
-        return (f71) invokeF.objValue;
-    }
-
-    public f71 q(CharSequence charSequence) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, charSequence)) == null) {
-            this.c.f().D(charSequence);
-            return this;
-        }
-        return (f71) invokeL.objValue;
-    }
-
-    public f71 j(View view2, ViewGroup viewGroup) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, viewGroup)) == null) {
-            super.b(view2, viewGroup);
-            return this;
-        }
-        return (f71) invokeLL.objValue;
-    }
-
-    public f71 l(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048580, this, i, i2)) == null) {
-            super.d(i, i2);
-            return this;
-        }
-        return (f71) invokeII.objValue;
-    }
-
-    public f71 m(int i, float f) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) {
-            this.c.s(i, f);
-            return this;
-        }
-        return (f71) invokeCommon.objValue;
-    }
-
-    public f71 r(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048586, this, i, i2)) == null) {
-            try {
-                this.c.f().E(i, i2);
-                return this;
-            } catch (Exception e) {
-                pf0.h("BubbleTextBuilder", "", e);
-                this.c.f().E(Color.parseColor("#CC000000"), Color.parseColor("#CC000000"));
-                return this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
+            b();
+            int rawX = (int) motionEvent.getRawX();
+            int rawY = (int) motionEvent.getRawY();
+            boolean z = false;
+            boolean z2 = false;
+            boolean z3 = true;
+            for (Map.Entry<View, a> entry : this.a.entrySet()) {
+                View key = entry.getKey();
+                if (key.getVisibility() != 0) {
+                    break;
+                }
+                a value = entry.getValue();
+                int action = motionEvent.getAction();
+                if (action != 0) {
+                    if (action != 1 && action != 2) {
+                        if (action == 3) {
+                            z2 = value.h;
+                            value.h = false;
+                        }
+                    } else {
+                        z2 = value.h;
+                        if (z2 && !value.g.contains(rawX, rawY)) {
+                            z3 = false;
+                        }
+                    }
+                } else if (value.a.contains(rawX, rawY)) {
+                    value.h = true;
+                    z2 = true;
+                } else {
+                    value.h = false;
+                    z2 = false;
+                }
+                if (z2) {
+                    if (z3) {
+                        motionEvent.setLocation(key.getWidth() / 2, key.getHeight() / 2);
+                    } else {
+                        float f = -(value.f * 2);
+                        motionEvent.setLocation(f, f);
+                    }
+                    z = key.dispatchTouchEvent(motionEvent);
+                    continue;
+                }
+                if (z) {
+                    break;
+                }
             }
+            return z;
         }
-        return (f71) invokeII.objValue;
+        return invokeL.booleanValue;
     }
 }

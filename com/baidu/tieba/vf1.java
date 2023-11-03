@@ -1,318 +1,198 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.text.TextUtils;
-import android.view.KeyEvent;
-import android.view.View;
-import android.widget.RelativeLayout;
+import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
+import android.os.RemoteException;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sdk.container.filedownloader.MaterialLoadErrorCode;
-import com.baidu.sdk.container.filedownloader.MaterialLoader;
-import com.baidu.sdk.container.gif.GifAnimView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.FileInputStream;
-import org.json.JSONObject;
+import java.io.FileDescriptor;
+import java.util.ArrayList;
+import java.util.HashSet;
 /* loaded from: classes8.dex */
-public class vf1 extends uf1 {
+public abstract class vf1 implements IBinder, IBinder.DeathRecipient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FileInputStream j0;
-    public GifAnimView r0;
+    public volatile IBinder a;
+    public HashSet<IBinder.DeathRecipient> b;
+    public Object c;
 
-    @Override // com.baidu.tieba.uf1
-    public void F() {
+    public static void b(String str, Exception exc) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, exc) == null) {
         }
     }
 
-    @Override // com.baidu.sdk.container.widget.AdView.a
-    public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-        }
-    }
+    public abstract IBinder c() throws RemoteException;
 
-    @Override // com.baidu.tieba.uf1, com.baidu.sdk.container.widget.AdView.a
-    public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.sdk.container.widget.AdView.a
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, keyEvent)) == null) {
-            return false;
-        }
-        return invokeIL.booleanValue;
-    }
-
-    @Override // com.baidu.sdk.container.widget.AdView.a
-    public void onLayoutComplete(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
-        }
-    }
-
-    @Override // com.baidu.sdk.container.widget.AdView.a
-    public void onWindowFocusChanged(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-        }
-    }
-
-    @Override // com.baidu.sdk.container.widget.AdView.a
-    public void onWindowVisibilityChanged(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class a implements yf1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vf1 a;
-
-        @Override // com.baidu.tieba.yf1
-        public void onLoadingStarted(String str, View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, view2) == null) {
-            }
-        }
-
-        public a(vf1 vf1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vf1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = vf1Var;
-        }
-
-        @Override // com.baidu.tieba.yf1
-        public void a(String str, View view2, MaterialLoadErrorCode materialLoadErrorCode) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, view2, materialLoadErrorCode) == null) {
-                this.a.O("cache gif, load failed");
-            }
-        }
-
-        @Override // com.baidu.tieba.yf1
-        public void onLoadingComplete(String str, View view2, Bitmap bitmap) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, view2, bitmap) == null) {
-                vf1 vf1Var = this.a;
-                vf1Var.c0(MaterialLoader.k(vf1Var.a).l(str));
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements cg1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.cg1
-        public void callback() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
-        }
-
-        public b(vf1 vf1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vf1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vf1 a;
-
-        public c(vf1 vf1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vf1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = vf1Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.N();
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class d implements dg1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vf1 a;
-
-        public d(vf1 vf1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vf1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = vf1Var;
-        }
-
-        @Override // com.baidu.tieba.dg1
-        public void onAdPresent() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.R();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vf1(Context context, JSONObject jSONObject) {
-        super(context, jSONObject);
+    public vf1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (JSONObject) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.r = "gif";
+        this.b = new HashSet<>();
+        this.c = new Object();
     }
 
-    @Override // com.baidu.tieba.uf1
-    public void B() {
-        GifAnimView gifAnimView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (gifAnimView = this.r0) != null) {
-            gifAnimView.setOnClickListener(null);
-        }
-    }
-
-    @Override // com.baidu.tieba.uf1, com.baidu.tieba.fg1
-    public View a() {
+    public final IBinder a() throws RemoteException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return super.a();
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.uf1
-    public void E() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b != 2) {
-            GifAnimView gifAnimView = new GifAnimView(this.a, new b(this));
-            this.r0 = gifAnimView;
-            gifAnimView.setGifImage(this.j0);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-            this.r0.setLayoutParams(layoutParams);
-            this.r0.setShowDimension(this.k.getWidth(), this.k.getHeight());
-            this.r0.setAlpha(255);
-            this.r0.setOnClickListener(new c(this));
-            this.r0.i();
-            l(this.r0, layoutParams);
-            this.r0.requestLayout();
-            this.r0.j = new d(this);
-            super.E();
-        }
-    }
-
-    public final void c0(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            try {
-                this.j0 = new FileInputStream(str);
-                P();
-            } catch (Exception unused) {
-            }
-            Y();
-        }
-    }
-
-    @Override // com.baidu.tieba.uf1, com.baidu.tieba.fg1
-    public void load() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.load();
-            String optString = this.i.optString("cached_path");
-            if (!TextUtils.isEmpty(optString)) {
-                c0(optString);
-                return;
-            }
-            try {
-                if (!this.h.c(this.t, MaterialLoader.MaterialCacheType.VIDEO)) {
-                    MaterialLoader.k(this.a).f(this.t, new a(this));
-                } else {
-                    c0(this.h.b(this.t, MaterialLoader.MaterialCacheType.VIDEO));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this.c) {
+                IBinder iBinder = this.a;
+                if (iBinder != null) {
+                    return iBinder;
                 }
-            } catch (Throwable unused) {
-                O("gif渲染失败");
+                IBinder c = c();
+                this.a = c;
+                if (c != null) {
+                    c.linkToDeath(this, 0);
+                    return c;
+                }
+                throw new RemoteException();
             }
         }
+        return (IBinder) invokeV.objValue;
+    }
+
+    @Override // android.os.IBinder
+    public String getInterfaceDescriptor() throws RemoteException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return a().getInterfaceDescriptor();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // android.os.IBinder
+    public boolean isBinderAlive() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            try {
+                return a().isBinderAlive();
+            } catch (RemoteException e) {
+                b("MultiProcess", e);
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.os.IBinder
+    public boolean pingBinder() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            try {
+                return a().pingBinder();
+            } catch (RemoteException e) {
+                b("MultiProcess", e);
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.os.IBinder.DeathRecipient
+    public void binderDied() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this.c) {
+                IBinder iBinder = this.a;
+                if (iBinder != null) {
+                    iBinder.unlinkToDeath(this, 0);
+                    this.a = null;
+                }
+                ArrayList<IBinder.DeathRecipient> arrayList = new ArrayList();
+                synchronized (this.b) {
+                    arrayList.addAll(this.b);
+                }
+                for (IBinder.DeathRecipient deathRecipient : arrayList) {
+                    deathRecipient.binderDied();
+                }
+            }
+        }
+    }
+
+    @Override // android.os.IBinder
+    public void dump(FileDescriptor fileDescriptor, String[] strArr) throws RemoteException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, fileDescriptor, strArr) == null) {
+            a().dump(fileDescriptor, strArr);
+        }
+    }
+
+    @Override // android.os.IBinder
+    public void dumpAsync(FileDescriptor fileDescriptor, String[] strArr) throws RemoteException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, fileDescriptor, strArr) == null) {
+            a().dumpAsync(fileDescriptor, strArr);
+        }
+    }
+
+    @Override // android.os.IBinder
+    public void linkToDeath(IBinder.DeathRecipient deathRecipient, int i) throws RemoteException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048583, this, deathRecipient, i) == null) {
+            synchronized (this.b) {
+                this.b.add(deathRecipient);
+            }
+        }
+    }
+
+    @Override // android.os.IBinder
+    public boolean unlinkToDeath(IBinder.DeathRecipient deathRecipient, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048587, this, deathRecipient, i)) == null) {
+            synchronized (this.b) {
+                this.b.remove(deathRecipient);
+            }
+            if (this.a != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    @Override // android.os.IBinder
+    public IInterface queryLocalInterface(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            try {
+                return a().queryLocalInterface(str);
+            } catch (RemoteException e) {
+                b("MultiProcess", e);
+                return null;
+            }
+        }
+        return (IInterface) invokeL.objValue;
+    }
+
+    @Override // android.os.IBinder
+    public boolean transact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), parcel, parcel2, Integer.valueOf(i2)})) == null) {
+            return a().transact(i, parcel, parcel2, i2);
+        }
+        return invokeCommon.booleanValue;
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.ala.atomdata.AlaNewSquareSubListActivityConfig;
 import com.baidu.ala.data.AlaSquareTabInfo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.o86;
+import com.baidu.tieba.ja6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -17,7 +17,7 @@ import java.util.List;
 public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubListActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public o86 a;
+    public ja6 a;
     public AlaSquareTabInfo b;
     public String c;
     public String d;
@@ -43,9 +43,9 @@ public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
-            o86 o86Var = this.a;
-            if (o86Var != null) {
-                o86Var.i();
+            ja6 ja6Var = this.a;
+            if (ja6Var != null) {
+                ja6Var.i();
             }
         }
     }
@@ -59,7 +59,7 @@ public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubLis
         }
     }
 
-    public final void M0(Intent intent) {
+    public final void J0(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, intent) == null) {
             this.b = (AlaSquareTabInfo) intent.getParcelableExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_ENTRY_DATA);
@@ -96,9 +96,9 @@ public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            o86 o86Var = this.a;
-            if (o86Var != null) {
-                o86Var.h(getPageContext(), i);
+            ja6 ja6Var = this.a;
+            if (ja6Var != null) {
+                ja6Var.h(getPageContext(), i);
             }
         }
     }
@@ -108,9 +108,9 @@ public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new o86(getPageContext(), true);
+            this.a = new ja6(getPageContext(), true);
             if (getIntent() != null) {
-                M0(getIntent());
+                J0(getIntent());
             } else {
                 finish();
             }

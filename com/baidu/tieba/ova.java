@@ -1,22 +1,17 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.net.VpnService;
-import androidx.fragment.app.Fragment;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class ova {
+public final class ova extends g15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Fragment a;
-    public Activity b;
-    public nva c;
 
     public ova() {
         Interceptable interceptable = $ic;
@@ -32,69 +27,13 @@ public class ova {
         }
     }
 
-    public static ova c(Fragment fragment) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.g15
+    public void a(Context context, u05 data) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, fragment)) == null) {
-            ova ovaVar = new ova();
-            ovaVar.a = fragment;
-            return ovaVar;
-        }
-        return (ova) invokeL.objValue;
-    }
-
-    public void a(int i, int i2, Intent intent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIIL(1048576, this, i, i2, intent) != null) || i != 25069) {
-            return;
-        }
-        if (i2 == -1) {
-            nva nvaVar = this.c;
-            if (nvaVar != null) {
-                nvaVar.a();
-                return;
-            }
-            return;
-        }
-        nva nvaVar2 = this.c;
-        if (nvaVar2 != null) {
-            nvaVar2.b();
-        }
-    }
-
-    public void b(nva nvaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nvaVar) == null) {
-            this.c = nvaVar;
-            Fragment fragment = this.a;
-            if (fragment != null) {
-                Intent prepare = VpnService.prepare(fragment.getContext());
-                if (prepare != null) {
-                    this.a.startActivityForResult(prepare, 25069);
-                    return;
-                }
-                nva nvaVar2 = this.c;
-                if (nvaVar2 != null) {
-                    nvaVar2.a();
-                    return;
-                }
-                return;
-            }
-            Activity activity = this.b;
-            if (activity != null) {
-                Intent prepare2 = VpnService.prepare(activity);
-                if (prepare2 != null) {
-                    this.b.startActivityForResult(prepare2, 25069);
-                    return;
-                }
-                nva nvaVar3 = this.c;
-                if (nvaVar3 != null) {
-                    nvaVar3.a();
-                    return;
-                }
-                return;
-            }
-            throw new IllegalArgumentException("Can not request VPN permission because no Fragment or Activity, please use static function with()");
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, data) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(data, "data");
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921818));
         }
     }
 }

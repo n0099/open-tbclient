@@ -38,13 +38,13 @@ public final class InteractionRadioGroupIteminfoKt$getItemInfo$1 implements View
     }
 
     /* renamed from: fetchView$lambda-0  reason: not valid java name */
-    public static final void m95fetchView$lambda0(String switchDebugKey, CompoundButton compoundButton, boolean z) {
+    public static final void m96fetchView$lambda0(String switchDebugKey, CompoundButton compoundButton, boolean z) {
         Intrinsics.checkNotNullParameter(switchDebugKey, "$switchDebugKey");
         InteractionSpHelperByDebug.INSTANCE.putBoolean(switchDebugKey, z);
     }
 
     /* renamed from: fetchView$lambda-1  reason: not valid java name */
-    public static final void m96fetchView$lambda1(RadioGroup radioGroup, String debugBranchKey, RadioGroup radioGroup2, int i) {
+    public static final void m97fetchView$lambda1(RadioGroup radioGroup, String debugBranchKey, RadioGroup radioGroup2, int i) {
         Intrinsics.checkNotNullParameter(radioGroup, "$radioGroup");
         Intrinsics.checkNotNullParameter(debugBranchKey, "$debugBranchKey");
         InteractionSpHelperKt.putDebugSwitcherValue(debugBranchKey, ((RadioButton) radioGroup.findViewById(i)).getTag());
@@ -66,7 +66,7 @@ public final class InteractionRadioGroupIteminfoKt$getItemInfo$1 implements View
         linearLayout.addView(checkBox);
         checkBox.setChecked(InteractionSpHelperByDebug.INSTANCE.getBoolean(this.$switchDebugKey, false));
         final String str = this.$switchDebugKey;
-        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tieba.ii1
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tieba.zi1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -74,7 +74,7 @@ public final class InteractionRadioGroupIteminfoKt$getItemInfo$1 implements View
             public final void onCheckedChanged(CompoundButton compoundButton, boolean z) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLZ(1048576, this, compoundButton, z) == null) {
-                    InteractionRadioGroupIteminfoKt$getItemInfo$1.m95fetchView$lambda0(str, compoundButton, z);
+                    InteractionRadioGroupIteminfoKt$getItemInfo$1.m96fetchView$lambda0(str, compoundButton, z);
                 }
             }
         });
@@ -104,7 +104,7 @@ public final class InteractionRadioGroupIteminfoKt$getItemInfo$1 implements View
             radioButton.setChecked(true);
         }
         final String str2 = this.$debugBranchKey;
-        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() { // from class: com.baidu.tieba.ji1
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() { // from class: com.baidu.tieba.aj1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -112,7 +112,7 @@ public final class InteractionRadioGroupIteminfoKt$getItemInfo$1 implements View
             public final void onCheckedChanged(RadioGroup radioGroup2, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLI(1048576, this, radioGroup2, i) == null) {
-                    InteractionRadioGroupIteminfoKt$getItemInfo$1.m96fetchView$lambda1(radioGroup, str2, radioGroup2, i);
+                    InteractionRadioGroupIteminfoKt$getItemInfo$1.m97fetchView$lambda1(radioGroup, str2, radioGroup2, i);
                 }
             }
         });

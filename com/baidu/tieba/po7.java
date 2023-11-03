@@ -1,58 +1,77 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tieba.ak5;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.FrsFragment;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class po7 extends o05 {
+public class po7 extends bi<xo7, CardViewHolder<cp7>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public View.OnClickListener b;
 
-    public po7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public po7(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext.getPageActivity(), bdUniqueId, bdUniqueId2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = tbPageContext;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: t */
+    public CardViewHolder<cp7> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            cp7 cp7Var = new cp7(this.a);
+            cp7Var.x(this.b);
+            return new CardViewHolder<>(cp7Var);
+        }
+        return (CardViewHolder) invokeL.objValue;
+    }
+
+    public void x(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
+            this.b = onClickListener;
         }
     }
 
-    @Override // com.baidu.tieba.o05
-    public void a(@NonNull Context context, @NonNull c05 c05Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, xo7 xo7Var, CardViewHolder<cp7> cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, c05Var) == null) {
-            if (!(context instanceof FrsActivity)) {
-                YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "展示群聊引导弹窗失败：当前Activity非FrsActivity");
-                YunDialogManager.unMarkShowingDialogName("frsGroupChatGuide");
-                return;
-            }
-            FrsFragment r1 = ((FrsActivity) context).r1();
-            if (r1 == null) {
-                YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "展示群聊引导弹窗失败：当前FrsFragment为空");
-                YunDialogManager.unMarkShowingDialogName("frsGroupChatGuide");
-                return;
-            }
-            ak5.b m4 = r1.m4();
-            if (m4 == null) {
-                YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "展示群聊引导弹窗失败：当前OptFragment为空");
-                YunDialogManager.unMarkShowingDialogName("frsGroupChatGuide");
-            } else if (!m4.o1()) {
-                r1.p5(true);
-                YunDialogManager.unMarkShowingDialogName("frsGroupChatGuide");
-            }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, xo7Var, cardViewHolder})) == null) {
+            cardViewHolder.a().k(xo7Var);
+            return cardViewHolder.getView();
         }
+        return (View) invokeCommon.objValue;
     }
 }

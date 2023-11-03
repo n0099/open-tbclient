@@ -1,85 +1,154 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.im.biz.aibot.AibotChatRepo;
-import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.data.ThreadRecommendInfoData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.TreeSet;
-import kotlin.collections.CollectionsKt__IterablesKt;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
+import java.util.List;
+import tbclient.HotThreadList.DataRes;
+import tbclient.HotThreadList.HotThreadListResIdl;
+import tbclient.ThreadInfo;
 /* loaded from: classes5.dex */
-public final class cb8 {
+public class cb8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final cb8 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947669104, "Lcom/baidu/tieba/cb8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static List<oi> a(List<ThreadData> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+            if (list == null) {
+                return null;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947669104, "Lcom/baidu/tieba/cb8;");
-                return;
+            ArrayList arrayList = new ArrayList();
+            int i = 0;
+            for (ThreadData threadData : list) {
+                int[] imageWidthAndHeight = threadData.getImageWidthAndHeight();
+                if (threadData.getType() == ThreadData.TYPE_NORMAL) {
+                    threadData.position = i;
+                    hz4 hz4Var = new hz4();
+                    hz4Var.t = threadData;
+                    hz4Var.position = i;
+                    hz4Var.r = true;
+                    hz4Var.setSupportType(BaseCardInfo.SupportType.TOP);
+                    arrayList.add(hz4Var);
+                    hz4 hz4Var2 = new hz4();
+                    hz4Var2.t = threadData;
+                    hz4Var2.position = i;
+                    if (threadData.isBJHNormalThreadType()) {
+                        hz4Var2.f = true;
+                    } else if (threadData.picCount() == 1) {
+                        hz4Var2.d = true;
+                        hz4Var2.u = imageWidthAndHeight[0];
+                        hz4Var2.v = imageWidthAndHeight[1];
+                    } else if (threadData.picCount() >= 2) {
+                        hz4Var2.e = true;
+                    } else {
+                        hz4Var2.b = true;
+                    }
+                    hz4Var2.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                    arrayList.add(hz4Var2);
+                    d(threadData, arrayList, i);
+                    hz4 hz4Var3 = new hz4();
+                    hz4Var3.g = true;
+                    hz4Var3.t = threadData;
+                    hz4Var3.position = i;
+                    hz4Var3.setSupportType(BaseCardInfo.SupportType.BOTTOM);
+                    arrayList.add(hz4Var3);
+                } else if (threadData.getType() == ThreadData.TYPE_VIDEO) {
+                    threadData.position = i;
+                    hz4 hz4Var4 = new hz4();
+                    hz4Var4.t = threadData;
+                    hz4Var4.position = i;
+                    hz4Var4.r = true;
+                    hz4Var4.setSupportType(BaseCardInfo.SupportType.TOP);
+                    arrayList.add(hz4Var4);
+                    hz4 hz4Var5 = new hz4();
+                    hz4Var5.t = threadData;
+                    hz4Var5.position = i;
+                    hz4Var5.i = true;
+                    hz4Var5.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                    arrayList.add(hz4Var5);
+                    d(threadData, arrayList, i);
+                    hz4 hz4Var6 = new hz4();
+                    hz4Var6.g = true;
+                    hz4Var6.t = threadData;
+                    hz4Var6.position = i;
+                    hz4Var6.setSupportType(BaseCardInfo.SupportType.BOTTOM);
+                    arrayList.add(hz4Var6);
+                } else {
+                    threadData.setSupportType(BaseCardInfo.SupportType.TOP);
+                }
+                i++;
+                threadData.setSupportType(BaseCardInfo.SupportType.TOP);
             }
+            return arrayList;
         }
-        a = new cb8();
+        return (List) invokeL.objValue;
     }
 
-    public cb8() {
+    public static List<oi> b(List<ThreadInfo> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
+            if (list == null) {
+                return null;
             }
+            ArrayList arrayList = new ArrayList(list.size());
+            for (ThreadInfo threadInfo : list) {
+                ThreadData threadData = new ThreadData();
+                threadData.isFromHotRankTab = true;
+                threadData.parserProtobuf(threadInfo);
+                e(threadData);
+                arrayList.add(threadData);
+            }
+            return a(arrayList);
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public static List<oi> c(HotThreadListResIdl hotThreadListResIdl) {
+        InterceptResult invokeL;
+        DataRes dataRes;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, hotThreadListResIdl)) == null) {
+            if (hotThreadListResIdl != null && (dataRes = hotThreadListResIdl.data) != null && !ListUtils.isEmpty(dataRes.thread_info)) {
+                return b(hotThreadListResIdl.data.thread_info);
+            }
+            return null;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public static void d(ThreadData threadData, ArrayList<oi> arrayList, int i) {
+        ThreadRecommendInfoData threadRecommendInfoData;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLI(65539, null, threadData, arrayList, i) == null) && threadData != null && arrayList != null && (threadRecommendInfoData = (ThreadRecommendInfoData) ListUtils.getItem(threadData.getThreadRecommendInfoDataList(), 0)) != null && !TextUtils.isEmpty(threadRecommendInfoData.recommendReason)) {
+            hz4 hz4Var = new hz4();
+            hz4Var.s = true;
+            hz4Var.t = threadData;
+            hz4Var.position = i;
+            hz4Var.setSupportType(BaseCardInfo.SupportType.EXTEND);
+            arrayList.add(hz4Var);
         }
     }
 
-    public final void a(AibotChatRepo repo, JSONObject params, ef8 fetchMsgCallback) {
+    public static void e(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, repo, params, fetchMsgCallback) == null) {
-            Intrinsics.checkNotNullParameter(repo, "repo");
-            Intrinsics.checkNotNullParameter(params, "params");
-            Intrinsics.checkNotNullParameter(fetchMsgCallback, "fetchMsgCallback");
-            repo.f0(params.optLong("beginMsgId"), params.optLong("endMsgId"), params.optInt("count"), fetchMsgCallback);
-        }
-    }
-
-    public final HashMap<String, Object> b(TreeSet<TbBaseMsg> fetchedMsgs, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fetchedMsgs, j)) == null) {
-            Intrinsics.checkNotNullParameter(fetchedMsgs, "fetchedMsgs");
-            ArrayList arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(fetchedMsgs, 10));
-            for (TbBaseMsg tbBaseMsg : fetchedMsgs) {
-                arrayList.add(jf8.c(tbBaseMsg, false));
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, threadData) == null) {
+            String lengthLimitName = threadData.getLengthLimitName();
+            String formatTimeForHomeC = StringHelper.getFormatTimeForHomeC(threadData.getLast_time_int() * 1000);
+            if (!TextUtils.isEmpty(lengthLimitName) && !TextUtils.isEmpty(formatTimeForHomeC)) {
+                lengthLimitName = lengthLimitName + "   " + formatTimeForHomeC;
             }
-            HashMap<String, Object> hashMap = new HashMap<>();
-            String a2 = lw.a(DataExt.toJson(arrayList));
-            Intrinsics.checkNotNullExpressionValue(a2, "getEncodeValue(mapList.toJson())");
-            hashMap.put("msgs", a2);
-            hashMap.put("chatType", "AISingleChat");
-            hashMap.put("chatId", Long.valueOf(j));
-            return hashMap;
+            threadData.setThreadExtendInfo(lengthLimitName);
         }
-        return (HashMap) invokeLJ.objValue;
     }
 }

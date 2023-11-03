@@ -104,7 +104,7 @@ public class AccountOperationConfig {
 
     public static Builder getDefaultBuilder() {
         try {
-            return new Builder().setInfoTextColor(-16777216, -16777216).setLoginBtnTextColor(-16777216, -16777216).setOtherLoginBtnTextColor(-16777216, -16777216).setOneKeyBtnText(AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f0079)).setCommonBtnText(AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f0076)).setOneKeyBtnBackgroud(AppRuntime.getAppContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f0800b9)).setCommonBtnBackgroud(AppRuntime.getAppContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f0800b9)).setLoginSrc(AccountConstants.LOGIN_TYPE_NATIVE_SRC_HOMEPAGE).setSupportGuest(false);
+            return new Builder().setInfoTextColor(-16777216, -16777216).setLoginBtnTextColor(-16777216, -16777216).setOtherLoginBtnTextColor(-16777216, -16777216).setOneKeyBtnText(AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f0079)).setCommonBtnText(AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f0076)).setOneKeyBtnBackgroud(AppRuntime.getAppContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f0800bc)).setCommonBtnBackgroud(AppRuntime.getAppContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f0800bc)).setLoginSrc(AccountConstants.LOGIN_TYPE_NATIVE_SRC_HOMEPAGE).setSupportGuest(false);
         } catch (Throwable unused) {
             return new Builder();
         }

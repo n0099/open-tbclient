@@ -1,109 +1,90 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.tbadk.core.atomData.MissonDetailsActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class wp8 extends lh<vp8, CardViewHolder<aq8>> {
+public class wp8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public bk6 b;
-    public String c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wp8(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getContext(), bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes8.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
+        public long d;
+        public String e;
+        public long f;
+        public String g;
+        public long h;
+        public int i;
+        public int j;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
+            this.a = null;
+            this.b = null;
+            this.c = null;
+            this.f = 0L;
+            this.g = null;
+            this.h = 0L;
+            this.i = 0;
+            this.j = 0;
         }
-        this.a = tbPageContext;
     }
 
-    @Override // com.baidu.tieba.lh
-    public ii getOnAdapterItemClickListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return super.getOnAdapterItemClickListener();
-        }
-        return (ii) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
-    /* renamed from: s */
-    public CardViewHolder<aq8> onCreateViewHolder(ViewGroup viewGroup) {
+    public static a a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            aq8 aq8Var = new aq8(this.a, viewGroup);
-            bk6 bk6Var = this.b;
-            if (bk6Var != null) {
-                aq8Var.l(bk6Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            return new CardViewHolder<>(aq8Var);
-        }
-        return (CardViewHolder) invokeL.objValue;
-    }
-
-    public void u(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    public void x(bk6 bk6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bk6Var) == null) {
-            this.b = bk6Var;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, vp8 vp8Var, CardViewHolder<aq8> cardViewHolder) {
-        InterceptResult invokeCommon;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vp8Var, cardViewHolder})) == null) {
-            if (vp8Var != null && cardViewHolder != null && cardViewHolder.a() != null) {
-                cardViewHolder.a().A(this.c);
-                aq8 a = cardViewHolder.a();
-                if (i == 0) {
-                    z = true;
-                } else {
-                    z = false;
+            a aVar = new a();
+            try {
+                JSONArray jSONArray = new JSONArray(str);
+                if (jSONArray.length() > 0) {
+                    JSONObject optJSONObject = jSONArray.optJSONObject(0);
+                    aVar.a = optJSONObject.optString(TableDefine.UserInfoColumns.COLUMN_HEAD_URL);
+                    aVar.b = optJSONObject.optString("user_id");
+                    aVar.c = optJSONObject.optString("nick_name");
+                    aVar.d = optJSONObject.optLong("caller_time");
+                    aVar.e = optJSONObject.optString("caller_content");
+                    aVar.f = optJSONObject.optLong("thread_id");
+                    aVar.g = optJSONObject.optString(MissonDetailsActivityConfig.THREAD_TITLE);
+                    optJSONObject.optString("forum_name");
+                    aVar.h = optJSONObject.optLong("post_id");
+                    aVar.i = optJSONObject.optInt("msg_type");
+                    aVar.j = optJSONObject.optInt("remind_count");
                 }
-                a.B(z);
-                cardViewHolder.a().j(vp8Var);
-                return cardViewHolder.getView();
+                return aVar;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return null;
             }
-            return null;
         }
-        return (View) invokeCommon.objValue;
+        return (a) invokeL.objValue;
     }
 }

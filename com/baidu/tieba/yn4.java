@@ -1,209 +1,221 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.aiapps.TbAiappsLaunchUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.yf3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.DecryptCode.DataRes;
 /* loaded from: classes9.dex */
-public class yn4 {
+public class yn4 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final String l;
-    public static final String m;
-    public static final String n;
-    public static final String o;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
+    public final Context a;
+    public RelativeLayout b;
+    public TextView c;
+    public ImageView d;
     public String e;
-    public String f;
-    public String g;
-    public String h;
-    public int i;
-    public String j;
-    public Integer k;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948335914, "Lcom/baidu/tieba/yn4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes9.dex */
+    public class a implements yf3.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yn4 a;
+
+        public a(yn4 yn4Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yn4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948335914, "Lcom/baidu/tieba/yn4;");
-                return;
+            this.a = yn4Var;
+        }
+
+        @Override // com.baidu.tieba.yf3.b
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                this.a.k();
             }
         }
-        l = TbadkCoreApplication.getInst().getString(R.string.tb_token);
-        m = TbadkCoreApplication.getInst().getString(R.string.tb_ai_apps_tips);
-        n = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f03d2);
-        o = TbadkCoreApplication.getInst().getString(R.string.check_immediately);
     }
 
-    public yn4() {
+    /* loaded from: classes9.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yn4 a;
+
+        public b(yn4 yn4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yn4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = yn4Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.b();
+                this.a.d();
+            }
+        }
+    }
+
+    public yn4(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = "";
-        this.b = "";
-        this.c = "";
-        this.d = "";
-        this.e = "";
-        this.f = "";
-        this.g = "";
-        this.h = "";
+        this.a = context;
+        e();
     }
 
-    public String a() {
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.e = str;
+            TextView textView = this.c;
+            if (textView != null) {
+                textView.setText(str);
+            }
+        }
+    }
+
+    public void i(boolean z) {
+        RelativeLayout relativeLayout;
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && (relativeLayout = this.b) != null) {
+            if (z) {
+                i = 0;
+            } else {
+                i = 8;
+            }
+            relativeLayout.setVisibility(i);
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048586, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f0923b3) {
+            k();
+        }
+    }
+
+    public RelativeLayout a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.b;
         }
-        return (String) invokeV.objValue;
+        return (RelativeLayout) invokeV.objValue;
     }
 
-    public String d() {
-        InterceptResult invokeV;
+    public void b() {
+        ImageView imageView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (imageView = this.d) != null && imageView.getVisibility() == 0) {
+            this.d.setVisibility(8);
         }
-        return (String) invokeV.objValue;
     }
 
-    public String e() {
-        InterceptResult invokeV;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            f63.M().postDelayed(new b(this), 3000L);
         }
-        return (String) invokeV.objValue;
     }
 
-    public String f() {
-        InterceptResult invokeV;
+    public void d() {
+        TextView textView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.d;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (textView = this.c) != null && textView.getVisibility() == 0) {
+            this.c.setVisibility(8);
         }
-        return (String) invokeV.objValue;
     }
 
-    public int g() {
-        InterceptResult invokeV;
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.i;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            yf3.e().j("#com.baidu.swan.videoplayer&MediaMuteViewLayer");
         }
-        return invokeV.intValue;
     }
 
-    public void h(DataRes dataRes) {
-        String str;
-        String str2;
-        String str3;
-        String str4;
+    public void h() {
+        ImageView imageView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, dataRes) == null) {
-            int intValue = dataRes.type.intValue();
-            this.i = intValue;
-            if (intValue != 0 && intValue != 1) {
-                if (intValue == 2) {
-                    this.a = dataRes.title;
-                    this.d = dataRes.url;
-                    return;
-                } else if (intValue != 4 && intValue == 3) {
-                    this.d = dataRes.url;
-                    this.a = dataRes.title;
-                    this.b = dataRes.img;
-                    this.c = dataRes.tips;
-                    this.e = dataRes.btn_sure;
-                    this.f = dataRes.btn_cancel;
-                    return;
-                } else {
-                    return;
-                }
-            }
-            if (StringUtils.isNull(dataRes.title)) {
-                str = l;
-            } else {
-                str = dataRes.title;
-            }
-            this.a = str;
-            this.b = dataRes.img;
-            if (StringUtils.isNull(dataRes.tips)) {
-                str2 = m;
-            } else {
-                str2 = dataRes.tips;
-            }
-            this.c = str2;
-            if (!StringUtils.isNull(dataRes.url)) {
-                try {
-                    JSONObject jSONObject = new JSONObject(dataRes.url);
-                    this.g = jSONObject.optString("appid");
-                    this.h = jSONObject.optString("appname");
-                    String optString = jSONObject.optString("url");
-                    Integer valueOf = Integer.valueOf(jSONObject.optInt("is_game"));
-                    this.k = valueOf;
-                    this.d = TbAiappsLaunchUtil.getSmartLink(this.g, optString, "9104", valueOf);
-                    this.j = jSONObject.optString("naws_app_id");
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (StringUtils.isNull(dataRes.btn_sure)) {
-                str3 = o;
-            } else {
-                str3 = dataRes.btn_sure;
-            }
-            this.e = str3;
-            if (StringUtils.isNull(dataRes.btn_cancel)) {
-                str4 = n;
-            } else {
-                str4 = dataRes.btn_cancel;
-            }
-            this.f = str4;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (imageView = this.d) != null && imageView.getVisibility() == 8) {
+            this.d.setVisibility(0);
+            c();
+        }
+    }
+
+    public void k() {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && !TextUtils.isEmpty(this.e) && (textView = this.c) != null && textView.getVisibility() == 8) {
+            this.c.setVisibility(0);
+            c();
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0956, (ViewGroup) null);
+            this.b = relativeLayout;
+            relativeLayout.setVisibility(8);
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923b4);
+            this.c = textView;
+            textView.setVisibility(8);
+            ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0923b3);
+            this.d = imageView;
+            imageView.setOnClickListener(this);
+            this.d.setVisibility(8);
+            yf3.e().d("#com.baidu.swan.videoplayer&MediaMuteViewLayer", new a(this));
         }
     }
 }

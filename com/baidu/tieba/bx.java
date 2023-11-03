@@ -1,93 +1,93 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.util.devices.DeviceUtil;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class bx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
 
-    public static String a() {
+    public bx() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        d();
+    }
+
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return ax.a().a("expInfo.txt");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
         return (String) invokeV.objValue;
     }
 
-    public static String b() {
-        InterceptResult invokeV;
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return ax.a().a("sapFile.txt");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return ax.a().a("v1_.txt");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return ax.a().a("v2_.txt");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            return ax.a().a("v3_" + i + "_.txt");
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public static void f(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, jSONObject) == null) && jSONObject != null) {
-            ax.a().b("expInfo.txt", jSONObject.toString());
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            Context appContext = AppRuntime.getAppContext();
+            this.a = c(appContext);
+            this.b = b(appContext);
         }
     }
 
-    public static void g(JSONObject jSONObject) {
+    public final String b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, null, jSONObject) == null) && jSONObject != null) {
-            ax.a().b("sapFile.txt", jSONObject.toString());
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            int displayWidth = DeviceUtil.ScreenInfo.getDisplayWidth(context);
+            int displayHeight = DeviceUtil.ScreenInfo.getDisplayHeight(context);
+            int densityDpi = DeviceUtil.ScreenInfo.getDensityDpi(context);
+            StringBuffer stringBuffer = new StringBuffer();
+            stringBuffer.append(displayWidth);
+            stringBuffer.append("_");
+            stringBuffer.append(displayHeight);
+            stringBuffer.append("_");
+            stringBuffer.append("android");
+            stringBuffer.append("_");
+            stringBuffer.append(this.a);
+            stringBuffer.append("_");
+            stringBuffer.append(densityDpi);
+            return stringBuffer.toString();
         }
+        return (String) invokeL.objValue;
     }
 
-    public static void h(JSONObject jSONObject) {
+    public String c(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65543, null, jSONObject) == null) && jSONObject != null) {
-            ax.a().b("v1_.txt", jSONObject.toString());
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            String appVersion = tw.c().getAppVersion();
+            if (!TextUtils.isEmpty(appVersion)) {
+                return appVersion;
+            }
+            try {
+                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "0.8";
+            }
         }
-    }
-
-    public static void i(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65544, null, jSONObject) == null) && jSONObject != null) {
-            ax.a().b("v2_.txt", jSONObject.toString());
-        }
-    }
-
-    public static void j(JSONObject jSONObject, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65545, null, jSONObject, i) == null) && jSONObject != null) {
-            fx a = ax.a();
-            a.b("v3_" + i + "_.txt", jSONObject.toString());
-        }
+        return (String) invokeL.objValue;
     }
 }

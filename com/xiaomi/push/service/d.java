@@ -45,10 +45,10 @@ public class d {
     }
 
     public static void a(Context context, StatusBarNotification statusBarNotification, int i) {
-        if (!com.xiaomi.push.j.m713a(context) || i <= 0 || statusBarNotification == null || Build.VERSION.SDK_INT < 20) {
+        if (!com.xiaomi.push.j.m717a(context) || i <= 0 || statusBarNotification == null || Build.VERSION.SDK_INT < 20) {
             return;
         }
-        a(new a(statusBarNotification.getKey(), SystemClock.elapsedRealtime(), i, ay.m792a(statusBarNotification.getNotification())));
+        a(new a(statusBarNotification.getKey(), SystemClock.elapsedRealtime(), i, ay.m796a(statusBarNotification.getNotification())));
     }
 
     public static void a(a aVar) {

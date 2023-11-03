@@ -1,47 +1,71 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.chromium.net.NetError;
 /* loaded from: classes8.dex */
-public class t8a {
+public class t8a implements SensorEventListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
 
-    public static boolean a(Intent intent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, intent)) == null) {
-            if (intent == null) {
-                return false;
-            }
-            return intent.getBooleanExtra(SpeedStatsUtils.UBC_VALUE_SPLASH, false);
-        }
-        return invokeL.booleanValue;
+    /* loaded from: classes8.dex */
+    public interface a {
+        void a(int i);
     }
 
-    public static boolean b(Intent intent) {
-        InterceptResult invokeL;
+    @Override // android.hardware.SensorEventListener
+    public void onAccuracyChanged(Sensor sensor, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, intent)) == null) {
-            if (intent == null) {
-                return false;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, sensor, i) == null) {
+        }
+    }
+
+    public t8a(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            boolean booleanExtra = intent.getBooleanExtra(FrsActivityConfig.FROM_SHORT_CUT, false);
-            if (booleanExtra) {
-                String stringExtra = intent.getStringExtra("fname");
-                if (!StringUtils.isNull(stringExtra)) {
-                    TiebaStatic.log(new StatisticItem("c11897").param("fname", stringExtra));
+        }
+        this.a = aVar;
+    }
+
+    @Override // android.hardware.SensorEventListener
+    public void onSensorChanged(SensorEvent sensorEvent) {
+        float[] fArr;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sensorEvent) == null) && sensorEvent != null && (fArr = sensorEvent.values) != null && fArr.length >= 3) {
+            float f = -fArr[0];
+            float f2 = -fArr[1];
+            float f3 = -fArr[2];
+            if ((f * f) + (f2 * f2) >= f3 * f3) {
+                int round = 90 - Math.round(((float) Math.atan2(-f2, f)) * 57.29578f);
+                if (round >= 360) {
+                    round += NetError.ERR_HTTP2_INADEQUATE_TRANSPORT_SECURITY;
+                }
+                if (round < 0) {
+                    round += 360;
+                }
+                a aVar = this.a;
+                if (aVar != null) {
+                    aVar.a(round);
                 }
             }
-            return booleanExtra;
         }
-        return invokeL.booleanValue;
     }
 }

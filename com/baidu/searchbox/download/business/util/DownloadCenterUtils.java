@@ -45,8 +45,8 @@ import com.baidu.searchbox.download.util.FileClassifyHelper;
 import com.baidu.searchbox.download.util.LocalDataScanHelper;
 import com.baidu.searchbox.launch.LaunchStatsUtils;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.a0;
-import com.baidu.tieba.vw;
+import com.baidu.tieba.b0;
+import com.baidu.tieba.mx;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import java.io.File;
@@ -187,14 +187,14 @@ public class DownloadCenterUtils {
         }
     }
 
-    public static void deleteDownloadInfo(CategoryInfoData categoryInfoData, a0 a0Var) {
+    public static void deleteDownloadInfo(CategoryInfoData categoryInfoData, b0 b0Var) {
         if (categoryInfoData.mIsLocal) {
-            DownloadMediaHelper.deleteMediaFile(AppRuntime.getAppContext(), categoryInfoData.mDownloadPath, categoryInfoData.mMimeType, a0Var);
+            DownloadMediaHelper.deleteMediaFile(AppRuntime.getAppContext(), categoryInfoData.mDownloadPath, categoryInfoData.mMimeType, b0Var);
             return;
         }
         DownloadManagerExt.getInstance().deleteDownloadFile(categoryInfoData.mId);
-        if (a0Var != null) {
-            a0Var.onPermitted(1);
+        if (b0Var != null) {
+            b0Var.onPermitted(1);
         }
     }
 
@@ -584,7 +584,7 @@ public class DownloadCenterUtils {
             sb.append("',");
         }
         String str = ((("mimetype IN (" + sb.substring(0, sb.length() - 1) + SmallTailInfo.EMOTION_SUFFIX) + " AND extra_info IS NOT NULL") + " AND is_visible_in_downloads_ui != '0'") + " AND status = '200'";
-        if (!vw.d(vw.a)) {
+        if (!mx.d(mx.a)) {
             str = str + getFilterPrivateFileSql();
         }
         Cursor query = sQLiteDatabase.query("downloads", new String[]{"_id", "extra_info"}, str, null, null, null, null);
@@ -637,7 +637,7 @@ public class DownloadCenterUtils {
             sb.append("',");
         }
         String str = "status= ? AND is_visible_in_downloads_ui= ? AND deleted!= ? AND mimetype IN (" + sb.substring(0, sb.length() - 1) + SmallTailInfo.EMOTION_SUFFIX;
-        if (!vw.d(vw.a)) {
+        if (!mx.d(mx.a)) {
             str = str + (" AND (_data like '%" + DownloadHelper.getDownloadDirectory(AppRuntime.getAppContext()).getParentFile().getParent() + "%' OR _data like '%" + AppRuntime.getAppContext().getFilesDir().getParent() + "%' OR _data IS NOT NULL)");
         }
         String str2 = str;
@@ -772,7 +772,7 @@ public class DownloadCenterUtils {
         Cursor cursor = null;
         sb.append(FileClassifyHelper.getSQliteSelectionByCategory(i, null));
         String sb2 = sb.toString();
-        if (!vw.d(vw.a)) {
+        if (!mx.d(mx.a)) {
             sb2 = sb2 + (" AND (_data like '%" + DownloadHelper.getDownloadDirectory(AppRuntime.getAppContext()).getParentFile().getParent() + "%' OR _data like '%" + AppRuntime.getAppContext().getFilesDir().getParent() + "%' OR _data IS NULL)");
         }
         try {
@@ -805,7 +805,7 @@ public class DownloadCenterUtils {
         try {
             try {
                 String str = "status= ? AND is_visible_in_downloads_ui= ? AND deleted!= ? AND lower(mimetype)= ?";
-                if (!vw.d(vw.a)) {
+                if (!mx.d(mx.a)) {
                     str = "status= ? AND is_visible_in_downloads_ui= ? AND deleted!= ? AND lower(mimetype)= ?" + (" AND (_data like '%" + DownloadHelper.getDownloadDirectory(AppRuntime.getAppContext()).getParentFile().getParent() + "%' OR _data like '%" + AppRuntime.getAppContext().getFilesDir().getParent() + "%' OR _data IS NULL)");
                 }
                 cursor = AppRuntime.getAppContext().getContentResolver().query(Downloads.Impl.CONTENT_URI, new String[]{"_data"}, str, new String[]{String.valueOf(200), String.valueOf(1), String.valueOf(1), "application/vnd.apple.mpegurl"}, "status asc LIMIT 0," + i);
@@ -877,7 +877,7 @@ public class DownloadCenterUtils {
             sb.append("',");
         }
         String str3 = str2 + sb.substring(0, sb.length() - 1) + SmallTailInfo.EMOTION_SUFFIX;
-        if (!vw.d(vw.a)) {
+        if (!mx.d(mx.a)) {
             str3 = str3 + (" AND (_data like '%" + DownloadHelper.getDownloadDirectory(AppRuntime.getAppContext()).getParentFile().getParent() + "%' OR _data like '%" + AppRuntime.getAppContext().getFilesDir().getParent() + "%' OR _data IS NULL)");
         }
         String str4 = str3;
@@ -2773,9 +2773,9 @@ public class DownloadCenterUtils {
         }
     }
 
-    public static void updateDownloadTitle(String str, CategoryInfoData categoryInfoData, a0 a0Var) {
+    public static void updateDownloadTitle(String str, CategoryInfoData categoryInfoData, b0 b0Var) {
         if (categoryInfoData.mIsLocal) {
-            updateLocalDataTitle(str, categoryInfoData, a0Var);
+            updateLocalDataTitle(str, categoryInfoData, b0Var);
             long queryDownloadDataByPath = queryDownloadDataByPath(str);
             if (queryDownloadDataByPath > -1) {
                 IDownloadApp.Impl.get().updateDownloadTitle(categoryInfoData.mFileName, categoryInfoData.mDownloadPath, queryDownloadDataByPath);
@@ -2785,16 +2785,16 @@ public class DownloadCenterUtils {
         }
         IDownloadApp.Impl.get().updateDownloadTitle(categoryInfoData.mFileName, categoryInfoData.mDownloadPath, categoryInfoData.mId);
         if (!DownloadHelper.getFileTypeString(categoryInfoData.mDownloadPath, categoryInfoData.mMimeType).equals("image") && FileClassifyHelper.getCategory(categoryInfoData.mDownloadPath, categoryInfoData.mMimeType) != 4) {
-            if (a0Var != null) {
-                a0Var.onPermitted(1);
+            if (b0Var != null) {
+                b0Var.onPermitted(1);
                 return;
             }
             return;
         }
-        updateLocalDataTitle(str, categoryInfoData, a0Var);
+        updateLocalDataTitle(str, categoryInfoData, b0Var);
     }
 
-    public static void updateLocalDataTitle(String str, CategoryInfoData categoryInfoData, a0 a0Var) {
+    public static void updateLocalDataTitle(String str, CategoryInfoData categoryInfoData, b0 b0Var) {
         Uri contentUri;
         ContentValues contentValues = new ContentValues();
         String str2 = categoryInfoData.mFileName;
@@ -2805,9 +2805,9 @@ public class DownloadCenterUtils {
         } else {
             contentUri = MediaStore.Files.getContentUri(LaunchStatsUtils.EXTERNAL_LAUNCH);
         }
-        MediaFileProcessor.g(AppRuntime.getAppContext(), contentUri, contentValues, "_data = ?", new String[]{str}, a0Var);
-        if (a0Var != null) {
-            a0Var.onPermitted(1);
+        MediaFileProcessor.g(AppRuntime.getAppContext(), contentUri, contentValues, "_data = ?", new String[]{str}, b0Var);
+        if (b0Var != null) {
+            b0Var.onPermitted(1);
         }
     }
 

@@ -1,7 +1,7 @@
 package com.huawei.hms.common.internal;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.mub;
+import com.baidu.tieba.n7c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,16 +12,16 @@ public class TaskApiCallWrapper<TResult> extends BaseContentWrapper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TaskApiCall<? extends AnyClient, TResult> mTaskApiCall;
-    public final mub<TResult> mTaskCompletionSource;
+    public final n7c<TResult> mTaskCompletionSource;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TaskApiCallWrapper(TaskApiCall<? extends AnyClient, TResult> taskApiCall, mub<TResult> mubVar) {
+    public TaskApiCallWrapper(TaskApiCall<? extends AnyClient, TResult> taskApiCall, n7c<TResult> n7cVar) {
         super(1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {taskApiCall, mubVar};
+            Object[] objArr = {taskApiCall, n7cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,7 +33,7 @@ public class TaskApiCallWrapper<TResult> extends BaseContentWrapper {
             }
         }
         this.mTaskApiCall = taskApiCall;
-        this.mTaskCompletionSource = mubVar;
+        this.mTaskCompletionSource = n7cVar;
     }
 
     public TaskApiCall<? extends AnyClient, TResult> getTaskApiCall() {
@@ -45,12 +45,12 @@ public class TaskApiCallWrapper<TResult> extends BaseContentWrapper {
         return (TaskApiCall) invokeV.objValue;
     }
 
-    public mub<TResult> getTaskCompletionSource() {
+    public n7c<TResult> getTaskCompletionSource() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mTaskCompletionSource;
         }
-        return (mub) invokeV.objValue;
+        return (n7c) invokeV.objValue;
     }
 }

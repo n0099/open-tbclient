@@ -1,20 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes8.dex */
-public class s76 extends BaseCardInfo {
+public class s76 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
+    public static HashMap<Integer, Integer> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public fk6 a;
 
     static {
         InterceptResult invokeClinit;
@@ -29,30 +25,30 @@ public class s76 extends BaseCardInfo {
                 return;
             }
         }
-        b = BdUniqueId.gen();
+        a = new HashMap<>();
     }
 
-    public s76() {
+    public static void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeI(65537, null, i) == null) {
+            if (a.containsKey(Integer.valueOf(i))) {
+                a.put(Integer.valueOf(i), Integer.valueOf(a.get(Integer.valueOf(i)).intValue() + 1));
+            } else {
+                a.put(Integer.valueOf(i), 2);
             }
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yh
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public static int b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (a.containsKey(Integer.valueOf(i))) {
+                return a.get(Integer.valueOf(i)).intValue();
+            }
+            a.put(Integer.valueOf(i), 1);
+            return 1;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return invokeI.intValue;
     }
 }

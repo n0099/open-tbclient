@@ -1,38 +1,91 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.nio.ByteBuffer;
+import android.content.Intent;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
+import com.baidu.tbadk.data.AtSelectData;
+import java.util.ArrayList;
+import java.util.LinkedList;
 /* loaded from: classes7.dex */
-public class peb {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface peb {
+    void A();
 
-    public static double a(ByteBuffer byteBuffer, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, byteBuffer, i)) == null) {
-            if (byteBuffer == null || i == 0) {
-                return 0.0d;
-            }
-            byteBuffer.position(i);
-            byteBuffer.flip();
-            byte[] bArr = new byte[i];
-            byteBuffer.get(bArr);
-            byteBuffer.position(i);
-            byteBuffer.flip();
-            double d = 0.0d;
-            for (int i2 = 0; i2 < i; i2 += 2) {
-                int i3 = (bArr[i2] & 255) + ((bArr[i2 + 1] & 255) << 8);
-                if (i3 >= 32768) {
-                    i3 = 65535 - i3;
-                }
-                d += i3 * i3;
-            }
-            double d2 = (d / i) / 2.0d;
-            return Math.abs(d2 > 0.0d ? Math.log10(d2) * 10.0d : 0.0d);
-        }
-        return invokeLI.doubleValue;
-    }
+    void B();
+
+    void C(xd5 xd5Var);
+
+    void D();
+
+    LinkedList<n65> E();
+
+    void a(String str);
+
+    void b();
+
+    void c();
+
+    void e(boolean z);
+
+    void f(int i, boolean z);
+
+    void g();
+
+    int h();
+
+    void i();
+
+    boolean j();
+
+    void k(boolean z);
+
+    void m();
+
+    void n(@Nullable ArrayList<AtSelectData> arrayList);
+
+    void o(boolean z);
+
+    void onActivityResult(int i, int i2, Intent intent);
+
+    boolean onBackPressed();
+
+    void onChangeSkinType(int i);
+
+    void onCreate(Bundle bundle);
+
+    void onDestroy();
+
+    void onNewIntent(Intent intent);
+
+    void onPause();
+
+    void onResume();
+
+    void onSaveInstanceState(Bundle bundle);
+
+    void onStart();
+
+    void onStop();
+
+    void p(boolean z);
+
+    void r();
+
+    void s();
+
+    @NonNull
+    PermissionJudgePolicy t();
+
+    void u();
+
+    void v();
+
+    void w();
+
+    void x(int[] iArr);
+
+    void y(boolean z);
+
+    void z(xd5 xd5Var);
 }

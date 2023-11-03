@@ -5,7 +5,7 @@ import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static b aW(String str) {
         File file = new File(str, "targets.json");

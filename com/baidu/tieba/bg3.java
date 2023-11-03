@@ -1,12 +1,14 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.provider.Settings;
 import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.zf3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,18 +17,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bg3 extends m73 {
+public abstract class bg3 extends d83 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bg3(m63 m63Var) {
-        super(m63Var, "/swanAPI/getAutoRotationSync");
+    public bg3(d73 d73Var, String str) {
+        super(d73Var, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {m63Var};
+            Object[] objArr = {d73Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,58 +42,49 @@ public class bg3 extends m73 {
         }
     }
 
-    @Override // com.baidu.tieba.m73
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, p53 p53Var) {
-        InterceptResult invokeLLLL;
-        boolean z;
+    public boolean j(Context context, g63 g63Var, UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, p53Var)) == null) {
-            if (p53Var == null) {
-                p22.c("getAutoRotationSync", "none swanApp");
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, g63Var, unitedSchemeEntity)) == null) {
+            if (g63Var == null) {
+                g32.c("battery", "none swanApp");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-                if (m73.b) {
-                    Log.e("SwanAppAction", "getAutoRotationSync --- illegal swanApp");
+                if (d83.b) {
+                    Log.d("SwanAppAction", "getBatteryInfo --- illegal swanApp");
                 }
                 return false;
             } else if (context == null) {
-                p22.c("getAutoRotationSync", "none context");
+                g32.c("battery", "none context");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-                if (m73.b) {
-                    Log.e("SwanAppAction", "getAutoRotationSync --- illegal context");
+                if (d83.b) {
+                    Log.d("SwanAppAction", "getBatteryInfo --- illegal context");
                 }
                 return false;
             } else {
-                try {
-                    int i = Settings.System.getInt(context.getApplicationContext().getContentResolver(), "accelerometer_rotation");
-                    if (m73.b) {
-                        Log.d("SwanAppAction", "getAutoRotationSync --- isRotateOn: " + i);
-                    }
-                    JSONObject jSONObject = new JSONObject();
-                    if (i != 0) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    try {
-                        jSONObject.put("isRotateOn", z);
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-                        return true;
-                    } catch (JSONException unused) {
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "json exception");
-                        if (m73.b) {
-                            Log.e("SwanAppAction", "getAutoRotationSync --- json exception");
-                        }
-                        return false;
-                    }
-                } catch (Exception e) {
-                    if (m73.b) {
-                        e.printStackTrace();
-                        Log.e("SwanAppAction", "getAutoRotationSync --- can't get setting");
-                    }
-                    return false;
-                }
+                return true;
             }
         }
-        return invokeLLLL.booleanValue;
+        return invokeLLL.booleanValue;
+    }
+
+    @Nullable
+    public JSONObject k(@NonNull zf3.a aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                int i = 100;
+                if (aVar.a <= 100) {
+                    i = aVar.a;
+                }
+                jSONObject.put("level", String.valueOf(i));
+                jSONObject.put("isCharging", aVar.b);
+                return jSONObject;
+            } catch (JSONException unused) {
+                return null;
+            }
+        }
+        return (JSONObject) invokeL.objValue;
     }
 }

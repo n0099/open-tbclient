@@ -1,9 +1,11 @@
 package com.baidu.tieba.forumMember.bawu;
 
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ia7;
+import com.baidu.tieba.kn7;
+import com.baidu.tieba.zm7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,13 +16,14 @@ import tbclient.BawuTeam;
 import tbclient.GetBawuInfo.DataRes;
 import tbclient.GetBawuInfo.GetBawuInfoResIdl;
 import tbclient.GetBawuInfo.ManagerApplyInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class BawuTeamSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String cacheKey;
     public boolean isNeedUpdateCache;
     public BawuTeam mBawuTeamInfo;
+    public kn7 mComplaintBarlordData;
     public int mIsPrivateForum;
     public ManagerApplyInfo mManagerApplyInfo;
 
@@ -57,7 +60,7 @@ public class BawuTeamSocketResponseMessage extends SocketResponsedMessage {
         if (bawuTeamRequestMessage != null) {
             this.cacheKey = "" + bawuTeamRequestMessage.getForumId();
         }
-        new ia7().c(this.cacheKey, bArr);
+        new zm7().c(this.cacheKey, bArr);
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -79,7 +82,15 @@ public class BawuTeamSocketResponseMessage extends SocketResponsedMessage {
             if (dataRes != null) {
                 this.mBawuTeamInfo = dataRes.bawu_team_info;
                 this.mIsPrivateForum = dataRes.is_private_forum.intValue();
-                this.mManagerApplyInfo = getBawuInfoResIdl.data.manager_apply_info;
+                DataRes dataRes2 = getBawuInfoResIdl.data;
+                this.mManagerApplyInfo = dataRes2.manager_apply_info;
+                if (dataRes2.manager_complain_info != null) {
+                    kn7 kn7Var = new kn7();
+                    this.mComplaintBarlordData = kn7Var;
+                    kn7Var.c(getBawuInfoResIdl.data.manager_complain_info);
+                } else {
+                    this.mComplaintBarlordData = null;
+                }
                 this.isNeedUpdateCache = true;
             }
             return getBawuInfoResIdl;
@@ -96,10 +107,19 @@ public class BawuTeamSocketResponseMessage extends SocketResponsedMessage {
         return (BawuTeam) invokeV.objValue;
     }
 
-    public ManagerApplyInfo getManagerApplyInfo() {
+    public kn7 getComplaintBarlordData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mComplaintBarlordData;
+        }
+        return (kn7) invokeV.objValue;
+    }
+
+    public ManagerApplyInfo getManagerApplyInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.mManagerApplyInfo;
         }
         return (ManagerApplyInfo) invokeV.objValue;
@@ -108,7 +128,7 @@ public class BawuTeamSocketResponseMessage extends SocketResponsedMessage {
     public int isPrivateForum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.mIsPrivateForum;
         }
         return invokeV.intValue;
@@ -116,14 +136,14 @@ public class BawuTeamSocketResponseMessage extends SocketResponsedMessage {
 
     public void setBawuTeamInfo(BawuTeam bawuTeam) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bawuTeam) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, bawuTeam) == null) {
             this.mBawuTeamInfo = bawuTeam;
         }
     }
 
     public void setManagerApplyInfo(ManagerApplyInfo managerApplyInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, managerApplyInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, managerApplyInfo) == null) {
             this.mManagerApplyInfo = managerApplyInfo;
         }
     }

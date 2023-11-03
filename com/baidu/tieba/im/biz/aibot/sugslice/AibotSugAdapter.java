@@ -7,8 +7,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ea8;
-import com.baidu.tieba.vca;
+import com.baidu.tieba.aqa;
+import com.baidu.tieba.cn8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,17 +23,17 @@ public final class AibotSugAdapter extends ImSugAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // com.baidu.tieba.im.biz.aibot.sugslice.ImSugAdapter
-    public boolean r() {
+    public boolean s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return true;
         }
         return invokeV.booleanValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AibotSugAdapter(Context context, ea8 processor) {
+    public AibotSugAdapter(Context context, cn8 processor) {
         super(context, processor);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -45,7 +45,7 @@ public final class AibotSugAdapter extends ImSugAdapter {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (ea8) objArr2[1]);
+                super((Context) objArr2[0], (cn8) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -56,12 +56,22 @@ public final class AibotSugAdapter extends ImSugAdapter {
     }
 
     @Override // com.baidu.tieba.im.biz.aibot.sugslice.ImSugAdapter
+    public SugSourceType A() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return SugSourceType.AI_BOT;
+        }
+        return (SugSourceType) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.im.biz.aibot.sugslice.ImSugAdapter
     public boolean m(View container) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, container)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, container)) == null) {
             Intrinsics.checkNotNullParameter(container, "container");
-            EMManager.from(container).setCorner(R.string.J_X01).setBackGroundRealColor(vca.a(SkinManager.getColor(R.color.CAM_X0614), 1.0f));
+            EMManager.from(container).setCorner(R.string.J_X01).setBackGroundRealColor(aqa.a(SkinManager.getColor(R.color.CAM_X0614), 1.0f));
             return true;
         }
         return invokeL.booleanValue;
@@ -71,21 +81,11 @@ public final class AibotSugAdapter extends ImSugAdapter {
     public boolean n(TextView container) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, container)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, container)) == null) {
             Intrinsics.checkNotNullParameter(container, "container");
             container.setTextColor(SkinManager.getColor(R.color.CAM_X0101));
             return true;
         }
         return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.im.biz.aibot.sugslice.ImSugAdapter
-    public SugSourceType z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return SugSourceType.AI_BOT;
-        }
-        return (SugSourceType) invokeV.objValue;
     }
 }

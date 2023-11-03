@@ -1,21 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: ApiReplaceUtil.java */
+/* compiled from: PollingModel.java */
 /* loaded from: classes5.dex */
 public final /* synthetic */ class d45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean $default$forceApi(ApiReplaceUtil.Getter.Action action) {
-        InterceptResult invokeL;
+    public static void a(PollingModel.d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, action)) == null) {
-            return false;
+        if (interceptable == null || interceptable.invokeL(65536, null, dVar) == null) {
         }
-        return invokeL.booleanValue;
     }
 }

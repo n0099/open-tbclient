@@ -27,7 +27,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class HttpRequest<T extends HttpRequestBuilder> {
     public static final String EXT_HEADER_MULTIPLE_CONNECT_DELAY_TIME_MS = "Multiple-Connect-Delay-Time";
     public static final String EXT_HEADER_MULTIPLE_CONNECT_NUM = "Multiple-Connect-Num";

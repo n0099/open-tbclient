@@ -1,144 +1,70 @@
 package com.baidu.tieba;
 
-import android.os.Message;
+import android.content.DialogInterface;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b0c;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.transvod.player.common.ConcurrentLinkedQueueX;
-import com.yy.transvod.player.log.TLog;
-import java.nio.ByteBuffer;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.kwad.sdk.api.KsNativeAd;
 /* loaded from: classes8.dex */
-public abstract class t1c extends n1c implements b0c.a {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String n = "t1c";
+public class t1c extends b2c {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b0c l;
-    public ConcurrentLinkedQueueX<ByteBuffer> m;
+    public boolean a;
+    public boolean b;
+    public final /* synthetic */ f1c c;
+    public final /* synthetic */ q1c d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948129795, "Lcom/baidu/tieba/t1c;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948129795, "Lcom/baidu/tieba/t1c;");
-        }
-    }
-
-    @Override // com.baidu.tieba.b0c.a
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    public void onStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    public abstract void y();
-
-    public t1c() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.m = new ConcurrentLinkedQueueX<>();
-        this.l = new k0c(n);
-    }
-
-    public t1c(boolean z) {
+    public t1c(q1c q1cVar, f1c f1cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
+            Object[] objArr = {q1cVar, f1cVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.m = new ConcurrentLinkedQueueX<>();
-        if (z) {
-            this.l = new j0c(n);
-        } else {
-            this.l = new k0c(n);
+        this.d = q1cVar;
+        this.c = f1cVar;
+    }
+
+    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
+    public boolean handleDownloadDialog(DialogInterface.OnClickListener onClickListener) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, onClickListener)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
+    public void onAdClicked(View view2, KsNativeAd ksNativeAd) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, ksNativeAd) == null) {
+            LogPrinter.d();
+            this.d.onAdClicked((q1c) this.c, this.b, new String[0]);
+            this.b = true;
         }
     }
 
-    public void a() {
+    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
+    public void onAdShow(KsNativeAd ksNativeAd) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TLog.g(this, "ThreadFilter.setup enter.");
-            this.l.b(this);
-            this.l.start();
-            TLog.g(this, "ThreadFilter.setup leave.");
-        }
-    }
-
-    @Override // com.baidu.tieba.b0c.a
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            TLog.g(this, "ThreadFilter.onResume enter.");
-            if (!this.f.isEmpty()) {
-                this.l.f(2102);
-            }
-            TLog.g(this, "ThreadFilter.onResume leave.");
-        }
-    }
-
-    public void onStop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            TLog.l(this, "ThreadFilter.onStop mFreeQueue.size() = " + this.m.getElementCount());
-        }
-    }
-
-    @Override // com.baidu.tieba.n1c
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            TLog.g(this, "ThreadFilter.release enter.");
-            this.l.c();
-            TLog.g(this, "ThreadFilter.release leave.");
-        }
-    }
-
-    public void handleMessage(Message message) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) && message.what == 2102) {
-            if (this.e.g() == 6) {
-                y();
-                return;
-            }
-            this.l.g(2102);
-            TLog.l(this, String.format("player is not running. mCurrentState:%s", i0c.a[this.e.g()]));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ksNativeAd) == null) {
+            LogPrinter.d();
+            this.d.onAdShow((q1c) this.c, this.a, new String[0]);
+            this.a = true;
         }
     }
 }

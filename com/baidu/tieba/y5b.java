@@ -1,94 +1,90 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.util.SparseArray;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.ByteBuffer;
-import java.nio.channels.ReadableByteChannel;
-import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes8.dex */
-public final class y5b implements ReadableByteChannel {
+/* loaded from: classes9.dex */
+public class y5b {
     public static /* synthetic */ Interceptable $ic;
+    public static y5b b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final InputStream a;
-    public final AtomicBoolean b;
+    public SparseArray<CloudMusicData.MusicTagList.MusicList> a;
 
-    public y5b(@NonNull InputStream inputStream) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948282563, "Lcom/baidu/tieba/y5b;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948282563, "Lcom/baidu/tieba/y5b;");
+        }
+    }
+
+    public y5b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = new AtomicBoolean(true);
-        this.a = inputStream;
+        this.a = new SparseArray<>();
     }
 
-    public static ReadableByteChannel a(@NonNull InputStream inputStream) {
-        InterceptResult invokeL;
+    public static synchronized y5b b() {
+        InterceptResult invokeV;
+        y5b y5bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inputStream)) == null) {
-            if (inputStream instanceof FileInputStream) {
-                return ((FileInputStream) inputStream).getChannel();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (y5b.class) {
+                if (b == null) {
+                    b = new y5b();
+                }
+                y5bVar = b;
             }
-            return new y5b(inputStream);
+            return y5bVar;
         }
-        return (ReadableByteChannel) invokeL.objValue;
+        return (y5b) invokeV.objValue;
     }
 
-    @Override // java.nio.channels.Channel, java.io.Closeable, java.lang.AutoCloseable
-    public void close() throws IOException {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.compareAndSet(true, false)) {
-            this.a.close();
-        }
-    }
-
-    @Override // java.nio.channels.Channel
-    public boolean isOpen() {
+    public CloudMusicData.MusicTagList.MusicList a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b.get();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.get(4096);
         }
-        return invokeV.booleanValue;
+        return (CloudMusicData.MusicTagList.MusicList) invokeV.objValue;
     }
 
-    @Override // java.nio.channels.ReadableByteChannel
-    public int read(ByteBuffer byteBuffer) throws IOException {
-        InterceptResult invokeL;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteBuffer)) == null) {
-            if (byteBuffer.hasArray()) {
-                int read = this.a.read(byteBuffer.array(), byteBuffer.arrayOffset() + byteBuffer.position(), byteBuffer.remaining());
-                if (read > 0) {
-                    byteBuffer.position(byteBuffer.position() + read);
-                    return read;
-                }
-                return read;
-            }
-            byte[] bArr = new byte[Math.min(16384, Math.min(Math.max(this.a.available(), 4096), byteBuffer.remaining()))];
-            int read2 = this.a.read(bArr);
-            if (read2 > 0) {
-                byteBuffer.put(bArr, 0, read2);
-            }
-            return read2;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a = null;
+            b = null;
         }
-        return invokeL.intValue;
+    }
+
+    public void d(CloudMusicData.MusicTagList.MusicList musicList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, musicList) == null) {
+            this.a.put(4096, musicList);
+        }
     }
 }

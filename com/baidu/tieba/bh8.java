@@ -1,99 +1,39 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import android.os.Bundle;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tieba.yg8;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tieba.browser.TbWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class bh8<T> {
+public final class bh8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hh8<T> a;
-    public yg8 b;
-    public zg8 c;
-    public T d;
-    public b e;
+    public final BaseFragment a;
+    public boolean b;
+    public String c;
+    public String d;
+    public final vt4 e;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void b();
-
-        void onCancel();
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements zg8 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ bh8 b;
-
-        public a(bh8 bh8Var, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bh8Var, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = bh8Var;
-            this.a = context;
-        }
-
-        @Override // com.baidu.tieba.zg8
-        public void a() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.b != null) {
-                BdUtilHelper.hideSoftKeyPad(this.a, this.b.a.j());
-                if (this.b.a != null) {
-                    this.b.a.h();
-                }
-                this.b.b.dismiss();
-                if (this.b.e != null) {
-                    this.b.e.onCancel();
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.zg8
-        public void b(String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && this.b.b != null) {
-                BdUtilHelper.hideSoftKeyPad(this.a, this.b.a.j());
-                if (this.b.a != null) {
-                    this.b.a.h();
-                }
-                this.b.b.dismiss();
-                if (this.b.e != null) {
-                    this.b.e.b();
-                }
-            }
-        }
-    }
-
-    public bh8(Context context, hh8<T> hh8Var) {
+    public bh8(BaseFragment fragment) {
+        ut4 ut4Var;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, hh8Var};
+            Object[] objArr = {fragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -103,108 +43,101 @@ public class bh8<T> {
                 return;
             }
         }
-        e(context);
-        f(context, hh8Var);
+        Intrinsics.checkNotNullParameter(fragment, "fragment");
+        this.a = fragment;
+        if (fragment instanceof ut4) {
+            ut4Var = (ut4) fragment;
+        } else {
+            ut4Var = null;
+        }
+        this.e = new vt4(ut4Var);
     }
 
-    public final void e(Context context) {
+    @SuppressLint({"UseRequireInsteadOfGet"})
+    public final void b(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.c = new a(this, context);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            Bundle arguments = this.a.getArguments();
+            if (arguments != null) {
+                this.b = arguments.getBoolean("tab_is_second_tab");
+                this.d = arguments.getString("tab_code");
+                this.c = arguments.getString("tab_name");
+            } else if (bundle != null) {
+                this.b = bundle.getBoolean("tab_is_second_tab");
+                this.d = bundle.getString("tab_code");
+                this.c = bundle.getString("tab_name");
+            }
         }
     }
 
-    public /* synthetic */ void h(Context context) {
-        if (g(context, this.b.getWindow().getDecorView().findViewById(16908290))) {
-            BdUtilHelper.hideSoftKeyPad(context, this.a.j());
+    public final void a(TbWebView tbWebView) {
+        HashMap<String, kc5> colourHeaderConfig;
+        kc5 kc5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, tbWebView) == null) && !this.b && !StringUtils.isNull(this.c) && (colourHeaderConfig = TbSingleton.getInstance().getColourHeaderConfig()) != null && (kc5Var = colourHeaderConfig.get(this.c)) != null) {
+            List<String> h5ImageUrlList = kc5Var.k();
+            Intrinsics.checkNotNullExpressionValue(h5ImageUrlList, "h5ImageUrlList");
+            JSONArray jSONArray = new JSONArray();
+            for (String str : h5ImageUrlList) {
+                jSONArray.put(str);
+            }
+            tbWebView.J("head_img", jSONArray);
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.e.b();
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            YunDialogManager.onHidden(s05.h);
+            YunDialogManager.onHidden(s05.a(this.d));
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            d();
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || this.b) {
             return;
         }
-        hh8<T> hh8Var = this.a;
-        if (hh8Var != null) {
-            hh8Var.h();
-        }
-        this.b.dismiss();
-    }
-
-    public void i(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.e = bVar;
+        if (this.a.isPrimary()) {
+            e();
+        } else {
+            d();
         }
     }
 
-    public final boolean d() {
-        InterceptResult invokeV;
+    @SuppressLint({"UseRequireInsteadOfGet"})
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.d != null) {
-                return true;
-            }
-            return false;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.a.getContext() == null) {
+            return;
         }
-        return invokeV.booleanValue;
+        Context context = this.a.getContext();
+        Intrinsics.checkNotNull(context);
+        YunDialogManager.onShow(context, s05.h);
+        Context context2 = this.a.getContext();
+        Intrinsics.checkNotNull(context2);
+        YunDialogManager.onShow(context2, s05.a(this.d));
     }
 
-    public void k() {
+    public final void h(TbWebView webView) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.b != null && d()) {
-            this.b.show();
-        }
-    }
-
-    public final void f(final Context context, hh8<T> hh8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, hh8Var) == null) {
-            this.a = hh8Var;
-            hh8Var.n(this.c);
-            yg8 yg8Var = new yg8(context, R.style.obfuscated_res_0x7f10010d);
-            this.b = yg8Var;
-            yg8Var.setContentView(this.a.j());
-            this.b.a(new yg8.a() { // from class: com.baidu.tieba.xg8
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // com.baidu.tieba.yg8.a
-                public final void onClick() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        bh8.this.h(context);
-                    }
-                }
-            });
-            Window window = this.b.getWindow();
-            window.addFlags(512);
-            WindowManager.LayoutParams attributes = window.getAttributes();
-            attributes.y = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen._bottom_enter_anim_place_holder_height);
-            window.setAttributes(attributes);
-            window.setWindowAnimations(R.style.obfuscated_res_0x7f100420);
-            window.setGravity(80);
-            window.setLayout(-1, -2);
-        }
-    }
-
-    public final boolean g(Context context, View view2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, view2)) == null) {
-            if (view2 == null) {
-                return false;
-            }
-            int[] iArr = new int[2];
-            view2.getLocationOnScreen(iArr);
-            if (iArr[1] >= context.getResources().getDisplayMetrics().heightPixels / 2) {
-                return false;
-            }
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public void j(T t, MetaData metaData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, t, metaData) == null) {
-            this.d = t;
-            this.a.o(t, metaData);
+        if (interceptable == null || interceptable.invokeL(1048583, this, webView) == null) {
+            Intrinsics.checkNotNullParameter(webView, "webView");
+            a(webView);
         }
     }
 }

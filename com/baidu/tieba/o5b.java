@@ -1,88 +1,206 @@
 package com.baidu.tieba;
 
+import android.media.CamcorderProfile;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.impl.CronetBidirectionalStream;
-import java.nio.ByteBuffer;
-import org.chromium.base.NativeLibraryLoadedStatus;
-import org.chromium.base.annotations.CheckDiscard;
-import org.chromium.base.natives.GEN_JNI;
-@CheckDiscard("crbug.com/993421")
+import java.util.Objects;
 /* loaded from: classes7.dex */
-public final class o5b implements CronetBidirectionalStream.f {
+public class o5b implements Comparable<o5b> {
     public static /* synthetic */ Interceptable $ic;
-    public static CronetBidirectionalStream.f a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public final int b;
+    public int c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947984653, "Lcom/baidu/tieba/o5b;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947984653, "Lcom/baidu/tieba/o5b;");
-        }
-    }
-
-    public o5b() {
+    public o5b(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = 30;
+        this.a = i;
+        this.b = i2;
+    }
+
+    public o5b(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        this.c = 30;
+        this.a = i;
+        this.b = i2;
+        this.c = i3;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(@NonNull o5b o5bVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, o5bVar)) == null) {
+            int i = this.a;
+            int i2 = this.b;
+            int i3 = i * i2;
+            int i4 = o5bVar.a;
+            int i5 = o5bVar.b;
+            if (i3 == i4 * i5) {
+                return this.c - o5bVar.c;
+            }
+            return (i * i2) - (i4 * i5);
+        }
+        return invokeL.intValue;
+    }
+
+    public boolean f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            return g(this, i);
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.c = i;
         }
     }
 
-    public static CronetBidirectionalStream.f c() {
+    public CamcorderProfile b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (GEN_JNI.TESTING_ENABLED) {
-                CronetBidirectionalStream.f fVar = a;
-                if (fVar != null) {
-                    return fVar;
-                }
-                if (GEN_JNI.REQUIRE_MOCK) {
-                    throw new UnsupportedOperationException("No mock found for the native implementation for com.baidu.turbonet.net.impl.CronetBidirectionalStream.Natives. The current configuration requires all native implementations to have a mock instance.");
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.a == 720 && this.b == 480) {
+                return CamcorderProfile.get(4);
             }
-            NativeLibraryLoadedStatus.checkLoaded(false);
-            return new o5b();
+            if (this.a == 1280 && this.b == 720) {
+                return CamcorderProfile.get(5);
+            }
+            if (this.a == 1920 && this.b == 1080) {
+                return CamcorderProfile.get(6);
+            }
+            if (this.a == 3840 && this.b == 2160) {
+                return CamcorderProfile.get(8);
+            }
+            return CamcorderProfile.get(5);
         }
-        return (CronetBidirectionalStream.f) invokeV.objValue;
+        return (CamcorderProfile) invokeV.objValue;
     }
 
-    @Override // com.baidu.turbonet.net.impl.CronetBidirectionalStream.f
-    public void a(long j, CronetBidirectionalStream cronetBidirectionalStream, boolean z) {
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), cronetBidirectionalStream, Boolean.valueOf(z)}) == null) {
-            GEN_JNI.com_baidu_turbonet_net_impl_CronetBidirectionalStream_destroy(j, cronetBidirectionalStream, z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.turbonet.net.impl.CronetBidirectionalStream.f
-    public boolean b(long j, CronetBidirectionalStream cronetBidirectionalStream, ByteBuffer[] byteBufferArr, int[] iArr, int[] iArr2, boolean z) {
-        InterceptResult invokeCommon;
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), cronetBidirectionalStream, byteBufferArr, iArr, iArr2, Boolean.valueOf(z)})) == null) {
-            return GEN_JNI.com_baidu_turbonet_net_impl_CronetBidirectionalStream_writevData(j, cronetBidirectionalStream, byteBufferArr, iArr, iArr2, z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
         }
-        return invokeCommon.booleanValue;
+        return invokeV.intValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
+            if (obj == null) {
+                return false;
+            }
+            if (this == obj) {
+                return true;
+            }
+            if (!(obj instanceof o5b)) {
+                return false;
+            }
+            o5b o5bVar = (o5b) obj;
+            if (this.a != o5bVar.a || this.b != o5bVar.b || this.c != o5bVar.c) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean g(o5b o5bVar, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, o5bVar, i)) == null) {
+            if (o5bVar.e() == 720 && o5bVar.d() == 480) {
+                return CamcorderProfile.hasProfile(i, 2002);
+            }
+            if (o5bVar.e() == 1280 && o5bVar.d() == 720) {
+                return CamcorderProfile.hasProfile(i, 2003);
+            }
+            if (o5bVar.e() == 1920 && o5bVar.d() == 1080) {
+                return CamcorderProfile.hasProfile(i, 2004);
+            }
+            if (o5bVar.e() == 3840 && o5bVar.d() == 2160) {
+                return CamcorderProfile.hasProfile(i, 2005);
+            }
+            return false;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return Objects.hash(Integer.valueOf(e()), Integer.valueOf(d()), Integer.valueOf(c()));
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.a + "x" + this.b + " " + this.c + "p";
+        }
+        return (String) invokeV.objValue;
     }
 }

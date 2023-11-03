@@ -1,121 +1,117 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.tbadk.TbConfig;
+import android.content.SharedPreferences;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nps.utils.Constant;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.debugtool.annotation.ModifyClass;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.NotificationHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tieba.util.AdApkInstallHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.Serializable;
-import java.util.HashMap;
-@ModifyClass
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class hd5 {
+public class hd5 implements ld5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947819888, "Lcom/baidu/tieba/hd5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947819888, "Lcom/baidu/tieba/hd5;");
-                return;
+    public hd5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        a = TbConfig.TIEBA_ADDRESS + "mo/q/hybrid-main-service/creativeToolsList";
     }
 
-    public static FrameLayout a(Context context) {
+    @Override // com.baidu.tieba.ld5
+    public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
+            nda n = nda.n();
+            if (i == 3) {
+                n.v(downloadData);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016484, downloadData));
+            } else {
+                n.B(downloadData);
+            }
+            id5.a(downloadData);
+            nda.n().y(downloadData);
+        }
+    }
+
+    @Override // com.baidu.tieba.ld5
+    public void onFileDownloadSucceed(DownloadData downloadData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) != null) || downloadData == null) {
+            return;
+        }
+        String[] tag = downloadData.getTag();
+        if (tag != null && tag.length == 3) {
+            String str = tag[0];
+            String str2 = tag[1];
+            TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), "dl_game_success", "click", 1, "dev_id", downloadData.getId(), "ref_id", str, "is_detail", tag[2], "ref_type", str2);
+        }
+        id5.c(downloadData);
+        NotificationHelper.cancelNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId());
+        nda.n().y(downloadData);
+        if (downloadData.isNeedInvokeApk()) {
+            AdApkInstallHelper.a(pda.m(downloadData.getId().replace(".", "_") + Constant.FILE.SUFFIX.BUNDLE_SUFFIX), downloadData);
+        }
+    }
+
+    @Override // com.baidu.tieba.ld5
+    public boolean onFileDownloaded(DownloadData downloadData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            FrameLayout frameLayout = new FrameLayout(context);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-            layoutParams.rightMargin = BdUtilHelper.getDimens(context, R.dimen.M_W_X006);
-            frameLayout.setLayoutParams(layoutParams);
-            EMManager.from(frameLayout).setBorderWidth(R.dimen.L_X02).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0209);
-            ImageView imageView = new ImageView(context);
-            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(BdUtilHelper.getDimens(context, R.dimen.tbds138), BdUtilHelper.getDimens(context, R.dimen.tbds31));
-            layoutParams2.setMargins(BdUtilHelper.getDimens(context, R.dimen.M_W_X004), BdUtilHelper.getDimens(context, R.dimen.M_H_X002), BdUtilHelper.getDimens(context, R.dimen.M_W_X004), BdUtilHelper.getDimens(context, R.dimen.M_H_X002));
-            imageView.setLayoutParams(layoutParams2);
-            SkinManager.setImageResource(imageView, R.drawable.icon_ai_write_rukou);
-            frameLayout.addView(imageView);
-            b(context, frameLayout);
-            return frameLayout;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
+            if (downloadData == null) {
+                return false;
+            }
+            downloadData.setStatusMsg(null);
+            return true;
         }
-        return (FrameLayout) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static void b(Context context, FrameLayout frameLayout) {
+    @Override // com.baidu.tieba.ld5
+    public boolean onPreDownload(DownloadData downloadData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, context, frameLayout) == null) && qk5.c("key_ai_write_button_first_show_red_dot", true)) {
-            if (qk5.g("key_ai_write_button_first_show_red_dot_time", 0L) == 0) {
-                qk5.o("key_ai_write_button_first_show_red_dot_time", System.currentTimeMillis());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
+            if (downloadData == null) {
+                return false;
             }
-            if (System.currentTimeMillis() - qk5.g("key_ai_write_button_first_show_red_dot_time", System.currentTimeMillis()) < 1209600000) {
-                ImageView imageView = new ImageView(context);
-                imageView.setId(R.id.ai_write_button_red_dot);
-                imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(BdUtilHelper.getDimens(context, R.dimen.tbds18), BdUtilHelper.getDimens(context, R.dimen.tbds18));
-                layoutParams.setMargins((BdUtilHelper.getDimens(context, R.dimen.tbds138) + (BdUtilHelper.getDimens(context, R.dimen.M_W_X004) * 2)) - BdUtilHelper.getDimens(context, R.dimen.tbds18), 0, 0, 0);
-                SkinManager.setImageResource(imageView, R.drawable.icon_news_red_dot);
-                frameLayout.addView(imageView, layoutParams);
-            }
+            downloadData.setStatusMsg(null);
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    public static String c(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.ld5
+    public void onFileUpdateProgress(DownloadData downloadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            return a + "?customfullscreen=1&nonavigationbar=1&type=" + str + "&fid=" + str2;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, downloadData) != null) || downloadData == null) {
+            return;
         }
-        return (String) invokeLL.objValue;
-    }
-
-    public static void e(@Nullable String str, @NonNull String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
-            HashMap<String, Serializable> hashMap = new HashMap<>();
-            if (!TextUtils.isEmpty(str)) {
-                hashMap.put("pbReply", str);
-            }
-            if (TextUtils.isEmpty(str2)) {
-                str2 = "";
-            }
-            tt4 j = tt4.j(TbadkCoreApplication.getInst().getCurrentActivity(), c("reply", str2));
-            j.f(hashMap);
-            j.p();
+        SharedPreferences sharedPreferences = TbadkCoreApplication.getInst().getSharedPreferences("app_download_progress", 0);
+        long j = sharedPreferences.getLong(downloadData.getId(), 0L);
+        if (j <= 1 || (downloadData.getSize() > 1 && j != downloadData.getSize())) {
+            SharedPreferences.Editor edit = sharedPreferences.edit();
+            edit.putLong(downloadData.getId(), downloadData.getSize());
+            edit.commit();
         }
-    }
-
-    public static void d(@NonNull View view2) {
-        View findViewById;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2) == null) && (findViewById = view2.findViewById(R.id.ai_write_button_red_dot)) != null) {
-            findViewById.setVisibility(8);
-            qk5.m("key_ai_write_button_first_show_red_dot", false);
-        }
+        nda.n().C(downloadData);
+        nda.n().y(downloadData);
     }
 }

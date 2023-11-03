@@ -1,29 +1,8 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.mm.opensdk.modelbase.BaseResp;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 /* loaded from: classes5.dex */
-public class ec9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public BaseResp b;
-
-    public ec9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+public interface ec9<T extends ICardInfo> {
+    void doLoad(T t, TbPageContext tbPageContext);
 }

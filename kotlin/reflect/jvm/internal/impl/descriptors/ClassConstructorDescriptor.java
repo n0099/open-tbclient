@@ -1,7 +1,7 @@
 package kotlin.reflect.jvm.internal.impl.descriptors;
 
 import kotlin.reflect.jvm.internal.impl.types.TypeSubstitutor;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface ClassConstructorDescriptor extends ConstructorDescriptor {
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.FunctionDescriptor, kotlin.reflect.jvm.internal.impl.descriptors.CallableMemberDescriptor, kotlin.reflect.jvm.internal.impl.descriptors.CallableDescriptor, kotlin.reflect.jvm.internal.impl.descriptors.DeclarationDescriptor
     ClassConstructorDescriptor getOriginal();

@@ -14,9 +14,9 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.nba;
-import com.baidu.tieba.qba;
+import com.baidu.tieba.soa;
 import com.baidu.tieba.stamp.model.msg.GetStampResponseMessage;
+import com.baidu.tieba.voa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,7 +28,7 @@ public class FetchStampModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public qba b;
+    public voa b;
     public int c;
     public BdResourceCallback<BdImage> d;
     public String e;
@@ -67,9 +67,9 @@ public class FetchStampModel extends BdBaseModel {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003522 && (httpResponsedMessage instanceof GetStampResponseMessage)) {
-                List<nba> stampList = ((GetStampResponseMessage) httpResponsedMessage).getStampList();
+                List<soa> stampList = ((GetStampResponseMessage) httpResponsedMessage).getStampList();
                 if (httpResponsedMessage.getError() == 0) {
-                    this.a.Q(stampList);
+                    this.a.R(stampList);
                 }
             }
         }
@@ -79,15 +79,15 @@ public class FetchStampModel extends BdBaseModel {
     public class b extends BdResourceCallback<BdImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nba a;
+        public final /* synthetic */ soa a;
         public final /* synthetic */ FetchStampModel b;
 
-        public b(FetchStampModel fetchStampModel, nba nbaVar) {
+        public b(FetchStampModel fetchStampModel, soa soaVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fetchStampModel, nbaVar};
+                Object[] objArr = {fetchStampModel, soaVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -98,7 +98,7 @@ public class FetchStampModel extends BdBaseModel {
                 }
             }
             this.b = fetchStampModel;
-            this.a = nbaVar;
+            this.a = soaVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -114,12 +114,12 @@ public class FetchStampModel extends BdBaseModel {
         }
     }
 
-    public FetchStampModel(TbPageContext tbPageContext, qba qbaVar) {
+    public FetchStampModel(TbPageContext tbPageContext, voa voaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, qbaVar};
+            Object[] objArr = {tbPageContext, voaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -132,12 +132,12 @@ public class FetchStampModel extends BdBaseModel {
         this.c = 10;
         this.f = new a(this, CmdConfigHttp.CMD_FETCH_STAMP, true);
         this.a = tbPageContext;
-        this.b = qbaVar;
-        P();
+        this.b = voaVar;
+        Q();
         registerListener();
     }
 
-    public final void P() {
+    public final void Q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FETCH_STAMP, TbConfig.SERVER_ADDRESS + "c/s/getIconToast");
@@ -161,23 +161,23 @@ public class FetchStampModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public final void Q(List<nba> list) {
-        nba nbaVar;
+    public final void R(List<soa> list) {
+        soa soaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || list == null || list.size() <= 0 || (nbaVar = list.get(0)) == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || list == null || list.size() <= 0 || (soaVar = list.get(0)) == null) {
             return;
         }
-        String a2 = nbaVar.a();
+        String a2 = soaVar.a();
         this.e = a2;
         if (StringUtils.isNull(a2)) {
             return;
         }
         if (this.d == null) {
-            this.d = new b(this, nbaVar);
+            this.d = new b(this, soaVar);
         }
         BdImage bdImage = (BdImage) BdResourceLoader.getInstance().loadResourceFromMemery(this.e, this.c, new Object[0]);
         if (bdImage != null && bdImage.isValidNow()) {
-            this.b.a(nbaVar);
+            this.b.a(soaVar);
         } else if (this.a != null) {
             BdResourceLoader.getInstance().loadResource(this.e, this.c, this.d, this.a.getUniqueId());
         }

@@ -1,172 +1,81 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+@Deprecated
 /* loaded from: classes7.dex */
-public abstract class n6c<T> implements i6c<T>, o6c {
+public abstract class n6c implements k6c {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<String, n6c> a;
+    public static final Object b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final b9c a;
-    public final n6c<?> b;
-    public j6c c;
-    public long d;
 
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public n6c() {
-        this(null, false);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this((n6c) objArr[0], ((Boolean) objArr[1]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947955854, "Lcom/baidu/tieba/n6c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947955854, "Lcom/baidu/tieba/n6c;");
                 return;
             }
         }
+        a = new HashMap();
+        b = new Object();
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public n6c(n6c<?> n6cVar) {
-        this(n6cVar, true);
+    public n6c() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {n6cVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((n6c) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
     }
 
-    public final void e(long j) {
+    public static n6c c(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            if (j >= 0) {
-                synchronized (this) {
-                    if (this.c != null) {
-                        this.c.request(j);
-                        return;
-                    }
-                    c(j);
-                    return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            Context applicationContext = context.getApplicationContext();
+            if (applicationContext != null) {
+                context = applicationContext;
+            }
+            return d(context, context.getPackageName());
+        }
+        return (n6c) invokeL.objValue;
+    }
+
+    public static n6c d(Context context, String str) {
+        InterceptResult invokeLL;
+        n6c n6cVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
+            synchronized (b) {
+                n6cVar = a.get(str);
+                if (n6cVar == null) {
+                    n6cVar = new t6c(context, str);
+                    a.put(str, n6cVar);
                 }
             }
-            throw new IllegalArgumentException("number requested cannot be negative: " + j);
+            return n6cVar;
         }
-    }
-
-    public void f(j6c j6cVar) {
-        long j;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, j6cVar) == null) {
-            synchronized (this) {
-                j = this.d;
-                this.c = j6cVar;
-                if (this.b != null && j == Long.MIN_VALUE) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-            }
-            if (z) {
-                this.b.f(this.c);
-            } else if (j == Long.MIN_VALUE) {
-                this.c.request(Long.MAX_VALUE);
-            } else {
-                this.c.request(j);
-            }
-        }
-    }
-
-    public n6c(n6c<?> n6cVar, boolean z) {
-        b9c b9cVar;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {n6cVar, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.d = Long.MIN_VALUE;
-        this.b = n6cVar;
-        if (z && n6cVar != null) {
-            b9cVar = n6cVar.a;
-        } else {
-            b9cVar = new b9c();
-        }
-        this.a = b9cVar;
-    }
-
-    public final void b(o6c o6cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, o6cVar) == null) {
-            this.a.a(o6cVar);
-        }
-    }
-
-    public final void c(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            long j2 = this.d;
-            if (j2 == Long.MIN_VALUE) {
-                this.d = j;
-                return;
-            }
-            long j3 = j2 + j;
-            if (j3 < 0) {
-                this.d = Long.MAX_VALUE;
-            } else {
-                this.d = j3;
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.o6c
-    public final boolean isUnsubscribed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a.isUnsubscribed();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.o6c
-    public final void unsubscribe() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.a.unsubscribe();
-        }
+        return (n6c) invokeLL.objValue;
     }
 }

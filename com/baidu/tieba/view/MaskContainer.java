@@ -11,7 +11,7 @@ import android.widget.FrameLayout;
 import androidx.core.view.OneShotPreDrawListener;
 import androidx.core.view.ViewGroupKt;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.asa;
+import com.baidu.tieba.b5b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,15 +56,15 @@ public final class MaskContainer extends FrameLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ View a;
-        public final /* synthetic */ asa b;
+        public final /* synthetic */ b5b b;
         public final /* synthetic */ ViewGroup c;
 
-        public a(View view2, asa asaVar, ViewGroup viewGroup) {
+        public a(View view2, b5b b5bVar, ViewGroup viewGroup) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view2, asaVar, viewGroup};
+                Object[] objArr = {view2, b5bVar, viewGroup};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -75,7 +75,7 @@ public final class MaskContainer extends FrameLayout {
                 }
             }
             this.a = view2;
-            this.b = asaVar;
+            this.b = b5bVar;
             this.c = viewGroup;
         }
 
@@ -116,7 +116,7 @@ public final class MaskContainer extends FrameLayout {
         setWillNotDraw(false);
     }
 
-    public final void a(ViewGroup rootView, asa step) {
+    public final void a(ViewGroup rootView, b5b step) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, rootView, step) == null) {
             Intrinsics.checkNotNullParameter(rootView, "rootView");

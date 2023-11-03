@@ -1,38 +1,97 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
 /* loaded from: classes5.dex */
-public class ei5 {
+public class ei5 extends hi5<fi5, gi5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static di5 a(View view2, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65536, null, view2, z)) == null) {
-            if (view2 == null) {
-                return null;
-            }
-            if (view2 instanceof LinearLayout) {
-                return new fi5();
-            }
-            if (view2 instanceof RelativeLayout) {
-                return new hi5();
-            }
-            if (!(view2 instanceof FrameLayout)) {
-                return null;
-            }
-            if (z) {
-                return new ii5();
-            }
-            return new bi5();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947735320, "Lcom/baidu/tieba/ei5;")) == null) {
+            return;
         }
-        return (di5) invokeLZ.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947735320, "Lcom/baidu/tieba/ei5;");
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ei5(fi5 fi5Var) {
+        super(fi5Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {fi5Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((ni5) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.hi5
+    /* renamed from: b */
+    public Bitmap a(Canvas canvas, Paint paint, int i, Bitmap bitmap, gi5 gi5Var) {
+        InterceptResult invokeCommon;
+        Bitmap decodeStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, paint, Integer.valueOf(i), bitmap, gi5Var})) == null) {
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = false;
+            options.inSampleSize = i;
+            options.inMutable = true;
+            options.inBitmap = bitmap;
+            Bitmap bitmap2 = null;
+            try {
+                ((fi5) this.a).reset();
+                try {
+                    decodeStream = BitmapFactory.decodeStream(((fi5) this.a).a(), null, options);
+                } catch (IllegalArgumentException unused) {
+                    BitmapFactory.Options options2 = new BitmapFactory.Options();
+                    options2.inJustDecodeBounds = false;
+                    options2.inSampleSize = i;
+                    options2.inMutable = true;
+                    decodeStream = BitmapFactory.decodeStream(((fi5) this.a).a(), null, options2);
+                }
+            } catch (IOException e) {
+                e = e;
+            }
+            try {
+                paint.setXfermode(null);
+                canvas.drawBitmap(decodeStream, 0.0f, 0.0f, paint);
+                return decodeStream;
+            } catch (IOException e2) {
+                e = e2;
+                bitmap2 = decodeStream;
+                e.printStackTrace();
+                return bitmap2;
+            }
+        }
+        return (Bitmap) invokeCommon.objValue;
     }
 }

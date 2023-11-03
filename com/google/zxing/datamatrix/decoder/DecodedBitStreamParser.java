@@ -15,7 +15,7 @@ import java.util.Collection;
 import kotlin.text.Typography;
 import org.apache.commons.codec.net.RFC1522Codec;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class DecodedBitStreamParser {
     public static final char[] C40_BASIC_SET_CHARS = {'*', '*', '*', WebvttCueParser.CHAR_SPACE, TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
     public static final char[] C40_SHIFT2_SET_CHARS;
@@ -23,7 +23,7 @@ public final class DecodedBitStreamParser {
     public static final char[] TEXT_SHIFT2_SET_CHARS;
     public static final char[] TEXT_SHIFT3_SET_CHARS;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum Mode {
         PAD_ENCODE,
         ASCII_ENCODE,
@@ -35,7 +35,7 @@ public final class DecodedBitStreamParser {
     }
 
     /* renamed from: com.google.zxing.datamatrix.decoder.DecodedBitStreamParser$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$zxing$datamatrix$decoder$DecodedBitStreamParser$Mode;
 

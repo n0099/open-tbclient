@@ -1,119 +1,91 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.media.MediaCodec;
-import android.media.MediaFormat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.transvod.player.log.TLog;
-import com.yy.transvod.player.mediacodec.MediaInfo;
-import com.yy.transvod.player.mediacodec.MediaSample;
-import com.yy.transvod.player.mediafilter.MediaCodecFilter;
-import java.nio.Buffer;
-import java.nio.ByteBuffer;
-@TargetApi(16)
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.kwad.sdk.api.KsFullScreenVideoAd;
 /* loaded from: classes6.dex */
-public final class h1c extends MediaCodecFilter {
+public class h1c implements KsFullScreenVideoAd.FullScreenVideoAdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
+    public final /* synthetic */ b1c c;
+    public final /* synthetic */ e1c d;
 
-    public h1c(int i) {
+    public h1c(e1c e1cVar, b1c b1cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {e1cVar, b1cVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = i;
+        this.d = e1cVar;
+        this.c = b1cVar;
     }
 
-    @Override // com.yy.transvod.player.mediafilter.MediaCodecFilter
-    public int N(long j) {
-        InterceptResult invokeJ;
-        MediaInfo mediaInfo;
+    @Override // com.kwad.sdk.api.KsFullScreenVideoAd.FullScreenVideoAdInteractionListener
+    public void onAdClicked() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            int dequeueOutputBuffer = this.B.dequeueOutputBuffer(this.C, j);
-            if (dequeueOutputBuffer >= 0) {
-                ByteBuffer byteBuffer = this.E[dequeueOutputBuffer];
-                int remaining = byteBuffer.remaining();
-                MediaCodec.BufferInfo bufferInfo = this.C;
-                if (remaining != bufferInfo.size) {
-                    Buffer position = byteBuffer.position(bufferInfo.offset);
-                    MediaCodec.BufferInfo bufferInfo2 = this.C;
-                    position.limit(bufferInfo2.offset + bufferInfo2.size);
-                }
-                MediaSample c = this.r.c();
-                if (c != null && (mediaInfo = c.i) != null) {
-                    mediaInfo.c(this.q);
-                    c.i.k = byteBuffer;
-                    this.u++;
-                    x0c.c(c, 6);
-                    synchronized (this.k) {
-                        if (this.d != null) {
-                            this.d.f(c);
-                        }
-                    }
-                    this.B.releaseOutputBuffer(dequeueOutputBuffer, false);
-                } else {
-                    return -1;
-                }
-            } else if (dequeueOutputBuffer == -3) {
-                this.E = this.B.getOutputBuffers();
-                TLog.g(this, "output buffers have been changed.");
-            } else if (dequeueOutputBuffer == -2) {
-                MediaFormat outputFormat = this.B.getOutputFormat();
-                TLog.g(this, "output format has been changed from " + this.p + " to " + outputFormat);
-                this.p = outputFormat;
-                MediaInfo mediaInfo2 = this.q;
-                mediaInfo2.a = 1;
-                mediaInfo2.j = outputFormat.getInteger("sample-rate");
-                this.q.h = this.p.getInteger("channel-count");
-                MediaInfo mediaInfo3 = this.q;
-                mediaInfo3.f = (mediaInfo3.h << 1) * 2048;
-                synchronized (this.k) {
-                    if (this.d != null) {
-                        this.d.d("setFormat", outputFormat, this.a, false);
-                    }
-                }
-            }
-            if (dequeueOutputBuffer < 0) {
-                return 0;
-            }
-            return 1;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LogPrinter.d();
+            this.d.onAdClicked((e1c) this.c, this.b, new String[0]);
+            this.b = true;
         }
-        return invokeJ.intValue;
     }
 
-    @Override // com.baidu.tieba.k1c
-    public void z(MediaFormat mediaFormat, int i) {
+    @Override // com.kwad.sdk.api.KsFullScreenVideoAd.FullScreenVideoAdInteractionListener
+    public void onPageDismiss() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaFormat, i) == null) {
-            this.w = false;
-            this.r.e(true);
-            this.p = mediaFormat;
-            if (mediaFormat != null) {
-                MediaCodec mediaCodec = this.B;
-                if (mediaCodec != null) {
-                    mediaCodec.stop();
-                    this.B.release();
-                    this.B = null;
-                }
-                this.a = i;
-                this.B = J(null, mediaFormat);
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LogPrinter.d();
+            this.d.onAdClose(this.c);
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsFullScreenVideoAd.FullScreenVideoAdInteractionListener
+    public void onSkippedVideo() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            LogPrinter.d();
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsFullScreenVideoAd.FullScreenVideoAdInteractionListener
+    public void onVideoPlayEnd() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            LogPrinter.d();
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsFullScreenVideoAd.FullScreenVideoAdInteractionListener
+    public void onVideoPlayError(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            LogPrinter.e("onVideoPlayError code:%d extra:%d", Integer.valueOf(i), Integer.valueOf(i2));
+            this.d.onAdError(this.c, i, String.valueOf(i2));
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsFullScreenVideoAd.FullScreenVideoAdInteractionListener
+    public void onVideoPlayStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            LogPrinter.d();
+            this.d.onAdShow((e1c) this.c, this.a, new String[0]);
+            this.a = true;
         }
     }
 }

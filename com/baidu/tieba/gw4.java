@@ -1,6 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,17 +10,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.ChatroomSignInfo;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public final class gw4 {
+public class gw4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a d;
+    public static final Set<String> i;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
-    public final String b;
-    public final String c;
+    public String a;
+    public int b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public boolean h;
 
     static {
         InterceptResult invokeClinit;
@@ -33,127 +39,149 @@ public final class gw4 {
                 return;
             }
         }
-        d = new a(null);
+        i = new HashSet();
     }
 
-    public boolean equals(Object obj) {
+    public gw4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof gw4) {
-                gw4 gw4Var = (gw4) obj;
-                return this.a == gw4Var.a && Intrinsics.areEqual(this.b, gw4Var.b) && Intrinsics.areEqual(this.c, gw4Var.c);
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return i.contains(str);
         }
         return invokeL.booleanValue;
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
+    public static void b(AdvertAppInfo advertAppInfo) {
+        gw4 gw4Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (((b.a(this.a) * 31) + this.b.hashCode()) * 31) + this.c.hashCode() : invokeV.intValue;
+        if ((interceptable == null || interceptable.invokeL(65539, null, advertAppInfo) == null) && advertAppInfo != null && (gw4Var = advertAppInfo.i) != null && !gw4Var.h && !a(gw4Var.g)) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.y(ClogBuilder.LogType.SHOW).v(advertAppInfo.j).q(String.valueOf(advertAppInfo.position + 1)).r(gw4Var.d).s(gw4Var.e).t(gw4Var.c).w(String.valueOf(gw4Var.b)).p(advertAppInfo.g);
+            az0.e(clogBuilder);
+            dc9.b(dc9.a(advertAppInfo));
+            gw4Var.h = true;
+            i.add(gw4Var.g);
+        }
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public static void d(AdvertAppInfo advertAppInfo) {
+        gw4 gw4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "ChatRoomGuideData(chatRoomId=" + this.a + ", jumpSchema=" + this.b + ", guideText=" + this.c + ')';
+        if ((interceptable == null || interceptable.invokeL(65541, null, advertAppInfo) == null) && advertAppInfo != null && (gw4Var = advertAppInfo.i) != null && !gw4Var.h && !a(gw4Var.g)) {
+            advertAppInfo.j = advertAppInfo.i.a;
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.y(ClogBuilder.LogType.SHOW).v(advertAppInfo.j).q(String.valueOf(advertAppInfo.position + 1)).w(String.valueOf(advertAppInfo.i.b)).p(advertAppInfo.i.g);
+            az0.e(clogBuilder);
+            dc9.b(dc9.a(advertAppInfo));
+            gw4 gw4Var2 = advertAppInfo.i;
+            gw4Var2.h = true;
+            i.add(gw4Var2.g);
         }
-        return (String) invokeV.objValue;
     }
 
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
+    public static void g(tra traVar) {
+        gw4 gw4Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65544, null, traVar) == null) && traVar != null && traVar.getAdvertAppInfo() != null && (gw4Var = traVar.getAdvertAppInfo().i) != null && !gw4Var.h && !a(gw4Var.g)) {
+            traVar.j1 = gw4Var.d;
+            traVar.k1 = gw4Var.e;
+            traVar.i1 = gw4Var.c;
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.y(ClogBuilder.LogType.SHOW).q(String.valueOf(traVar.o1 + 1)).w(String.valueOf(traVar.m1)).v(gw4Var.a).r(gw4Var.d).s(gw4Var.e).t(gw4Var.c).p(gw4Var.g);
+            az0.e(clogBuilder);
+            gw4Var.h = true;
+            i.add(gw4Var.g);
         }
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public static void c(gw4 gw4Var, int i2, boolean z) {
+        ClogBuilder.LogType logType;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{gw4Var, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) && gw4Var != null && !gw4Var.h && !a(gw4Var.g)) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            if (z) {
+                logType = ClogBuilder.LogType.STOCK;
+            } else {
+                logType = ClogBuilder.LogType.SHOW;
             }
+            clogBuilder.y(logType).v(gw4Var.a).q(String.valueOf(i2 + 1)).r(gw4Var.d).s(gw4Var.e).t(gw4Var.c).w(String.valueOf(gw4Var.b)).p(gw4Var.g);
+            az0.e(clogBuilder);
+            gw4Var.h = true;
+            i.add(gw4Var.g);
         }
+    }
 
-        public final gw4 a(ChatroomSignInfo chatroomSignInfo) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chatroomSignInfo)) == null) {
-                Intrinsics.checkNotNullParameter(chatroomSignInfo, "chatroomSignInfo");
-                Long l = chatroomSignInfo.chatroom_id;
-                Intrinsics.checkNotNullExpressionValue(l, "chatroomSignInfo.chatroom_id");
-                long longValue = l.longValue();
-                String str = chatroomSignInfo.jump_scheme;
-                Intrinsics.checkNotNullExpressionValue(str, "chatroomSignInfo.jump_scheme");
-                String str2 = chatroomSignInfo.guide_text;
-                Intrinsics.checkNotNullExpressionValue(str2, "chatroomSignInfo.guide_text");
-                return new gw4(longValue, str, str2);
+    public static void f(gw4 gw4Var, int i2, boolean z) {
+        ClogBuilder.LogType logType;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{gw4Var, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) && gw4Var != null && !gw4Var.h && !a(gw4Var.g)) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            if (z) {
+                logType = ClogBuilder.LogType.STOCK;
+            } else {
+                logType = ClogBuilder.LogType.SHOW;
             }
-            return (gw4) invokeL.objValue;
+            clogBuilder.y(logType).v(gw4Var.a).q(String.valueOf(i2 + 1)).w(String.valueOf(gw4Var.b)).p(gw4Var.g);
+            az0.e(clogBuilder);
+            gw4Var.h = true;
+            i.add(gw4Var.g);
         }
     }
 
-    public gw4(long j, String jumpSchema, String guideText) {
+    public static void h(gw4 gw4Var, int i2, boolean z) {
+        ClogBuilder.LogType logType;
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), jumpSchema, guideText};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{gw4Var, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) && gw4Var != null && !gw4Var.h && !a(gw4Var.g)) {
+            boolean equals = "PB_BANNER".equals(gw4Var.a);
+            ClogBuilder clogBuilder = new ClogBuilder();
+            if (z) {
+                logType = ClogBuilder.LogType.STOCK;
+            } else {
+                logType = ClogBuilder.LogType.SHOW;
             }
+            ClogBuilder y = clogBuilder.y(logType);
+            int i4 = -1;
+            if (equals) {
+                i3 = -1;
+            } else {
+                i3 = i2 + 1;
+            }
+            ClogBuilder q = y.q(String.valueOf(i3));
+            if (!equals) {
+                i4 = gw4Var.b;
+            }
+            q.w(String.valueOf(i4)).v(gw4Var.a).r(gw4Var.d).s(gw4Var.e).t(gw4Var.c).p(gw4Var.g);
+            az0.e(clogBuilder);
+            gw4Var.h = true;
+            i.add(gw4Var.g);
         }
-        Intrinsics.checkNotNullParameter(jumpSchema, "jumpSchema");
-        Intrinsics.checkNotNullParameter(guideText, "guideText");
-        this.a = j;
-        this.b = jumpSchema;
-        this.c = guideText;
     }
 
-    public final long a() {
-        InterceptResult invokeV;
+    public static void e(hm6 hm6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if ((interceptable == null || interceptable.invokeL(65542, null, hm6Var) == null) && hm6Var != null && hm6Var.c() != null && hm6Var.c().i != null && !hm6Var.c().i.h && !a(hm6Var.c().i.g)) {
+            hm6Var.c().j = hm6Var.c().i.a;
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.y(ClogBuilder.LogType.SHOW).v(hm6Var.c().j).q(String.valueOf(hm6Var.c().position + 1)).w(String.valueOf(hm6Var.c().i.b)).p(hm6Var.c().i.g);
+            az0.e(clogBuilder);
+            dc9.b(dc9.a(hm6Var.c()));
+            hm6Var.c().i.h = true;
+            i.add(hm6Var.c().i.g);
         }
-        return invokeV.longValue;
-    }
-
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
     }
 }

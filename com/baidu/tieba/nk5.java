@@ -1,11 +1,10 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.mutiprocess.IEvent;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.android.imsdk.chatmessage.response.SendMsgResponse;
 /* loaded from: classes7.dex */
 public interface nk5 {
-    void a();
+    void a(ChatMsg chatMsg);
 
-    void b(IEvent iEvent);
-
-    void c(mk5 mk5Var);
+    void b(int i, String str, SendMsgResponse sendMsgResponse);
 }

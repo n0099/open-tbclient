@@ -3,7 +3,7 @@ package com.baidu.tieba.pushdialog.data;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hy9;
+import com.baidu.tieba.mba;
 import com.baidu.tieba.pushdialog.PushDialogStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,7 +16,7 @@ import tbclient.GetLockWindowMsg.GetLockWindowMsgResIdl;
 public class PushDialogSocketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hy9 mData;
+    public mba mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PushDialogSocketResMsg(int i) {
@@ -49,9 +49,9 @@ public class PushDialogSocketResMsg extends SocketResponsedMessage {
                 setError(getLockWindowMsgResIdl.error.errorno.intValue());
                 setErrorString(getLockWindowMsgResIdl.error.usermsg);
                 if (getLockWindowMsgResIdl.data != null) {
-                    hy9 hy9Var = new hy9();
-                    this.mData = hy9Var;
-                    hy9Var.e(getLockWindowMsgResIdl.data);
+                    mba mbaVar = new mba();
+                    this.mData = mbaVar;
+                    mbaVar.e(getLockWindowMsgResIdl.data);
                 }
                 return getLockWindowMsgResIdl;
             } catch (IOException unused) {
@@ -61,12 +61,12 @@ public class PushDialogSocketResMsg extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public hy9 getData() {
+    public mba getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mData;
         }
-        return (hy9) invokeV.objValue;
+        return (mba) invokeV.objValue;
     }
 }

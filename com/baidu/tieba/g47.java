@@ -1,161 +1,87 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.text.SpannableStringBuilder;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.functions.Function2;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class g47 {
+public final class g47 extends r47 implements n47 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public final String c;
-    public final String d;
-    public n47 e;
-    public n47 f;
+    public final SpannableStringBuilder f;
+    public final boolean g;
+    public final j57 h;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof g47) {
-                g47 g47Var = (g47) obj;
-                return this.a == g47Var.a && this.b == g47Var.b && Intrinsics.areEqual(this.c, g47Var.c) && Intrinsics.areEqual(this.d, g47Var.d) && Intrinsics.areEqual(this.e, g47Var.e) && Intrinsics.areEqual(this.f, g47Var.f);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v14 */
-    /* JADX WARN: Type inference failed for: r0v15 */
-    /* JADX WARN: Type inference failed for: r0v3, types: [int] */
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            boolean z = this.a;
-            ?? r0 = z;
-            if (z) {
-                r0 = 1;
-            }
-            int hashCode = ((((((r0 * 31) + this.b) * 31) + this.c.hashCode()) * 31) + this.d.hashCode()) * 31;
-            n47 n47Var = this.e;
-            int hashCode2 = (hashCode + (n47Var == null ? 0 : n47Var.hashCode())) * 31;
-            n47 n47Var2 = this.f;
-            return hashCode2 + (n47Var2 != null ? n47Var2.hashCode() : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return "PersonAttentionData(isLike=" + this.a + ", likeStatus=" + this.b + ", userId=" + this.c + ", portrait=" + this.d + ", followStatData=" + this.e + ", unfollowStatData=" + this.f + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public g47(boolean z, int i, String userId, String portrait, n47 n47Var, n47 n47Var2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g47(SpannableStringBuilder titleBuilder, boolean z, j57 readStatus) {
+        super(null, null, 3, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i), userId, portrait, n47Var, n47Var2};
+            Object[] objArr = {titleBuilder, Boolean.valueOf(z), readStatus};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Function2) objArr2[0], (Function1) objArr2[1], ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(userId, "userId");
-        Intrinsics.checkNotNullParameter(portrait, "portrait");
-        this.a = z;
-        this.b = i;
-        this.c = userId;
-        this.d = portrait;
-        this.e = n47Var;
-        this.f = n47Var2;
+        Intrinsics.checkNotNullParameter(titleBuilder, "titleBuilder");
+        Intrinsics.checkNotNullParameter(readStatus, "readStatus");
+        this.f = titleBuilder;
+        this.g = z;
+        this.h = readStatus;
     }
 
-    public final n47 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.n47
+    public boolean c(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            this.h.b(true);
+            return false;
         }
-        return (n47) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    public final int b() {
+    public final j57 i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+            return this.h;
         }
-        return invokeV.intValue;
+        return (j57) invokeV.objValue;
     }
 
-    public final String c() {
+    public final SpannableStringBuilder j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
+            return this.f;
         }
-        return (String) invokeV.objValue;
+        return (SpannableStringBuilder) invokeV.objValue;
     }
 
-    public final n47 d() {
+    public final boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f;
-        }
-        return (n47) invokeV.objValue;
-    }
-
-    public final String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a;
+            return this.g;
         }
         return invokeV.booleanValue;
-    }
-
-    public final void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    public final void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.b = i;
-        }
     }
 }

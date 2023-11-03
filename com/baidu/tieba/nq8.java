@@ -1,66 +1,217 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
-import android.graphics.Rect;
-import android.os.Build;
-import android.util.DisplayMetrics;
-import android.view.View;
-import android.widget.PopupWindow;
-import com.baidu.tbadk.core.util.UtilHelper;
+import android.content.ContentValues;
+import android.database.Cursor;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.im.db.pojo.ChatSysNotifyPojo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public final class nq8 extends PopupWindow {
+public class nq8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int[] a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nq8(View contentView, int i, int i2, boolean z) {
-        super(contentView, i, i2, z);
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final nq8 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-566977642, "Lcom/baidu/tieba/nq8$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-566977642, "Lcom/baidu/tieba/nq8$b;");
+                    return;
+                }
+            }
+            a = new nq8(null);
+        }
+    }
+
+    public nq8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {contentView, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((View) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Boolean) objArr2[3]).booleanValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(contentView, "contentView");
+        this.a = new int[]{1, 2, 3, 4};
+        a();
     }
 
-    @Override // android.widget.PopupWindow
-    public void showAsDropDown(View view2) {
-        Integer num;
-        Resources resources;
-        DisplayMetrics displayMetrics;
+    public final void c() {
+        int[] iArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                Rect rect = new Rect();
-                if (view2 != null) {
-                    view2.getGlobalVisibleRect(rect);
-                }
-                if (view2 != null && (resources = view2.getResources()) != null && (displayMetrics = resources.getDisplayMetrics()) != null) {
-                    num = Integer.valueOf(displayMetrics.heightPixels - rect.bottom);
-                } else {
-                    num = null;
-                }
-                if (num != null) {
-                    setHeight(num.intValue() + UtilHelper.getStatusBarHeight());
-                }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            for (int i : this.a) {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("scene", Integer.valueOf(i));
+                tq8.e().f("tb_chat_sys_notify", null, contentValues);
             }
-            super.showAsDropDown(view2);
+        }
+    }
+
+    public /* synthetic */ nq8(a aVar) {
+        this();
+    }
+
+    public static nq8 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (nq8) invokeV.objValue;
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !d() && tq8.e().d("CREATE TABLE IF NOT EXISTS tb_chat_sys_notify(scene INTEGER, content TEXT DEFAULT '没有最新消息', unread_num INTEGER DEFAULT 0);")) {
+            c();
+        }
+    }
+
+    public final boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            new LinkedList();
+            Cursor cursor = null;
+            boolean z = false;
+            try {
+                try {
+                    cursor = tq8.e().g("select * from sqlite_master where type='table'", null);
+                } catch (Exception e) {
+                    TiebaStatic.printDBExceptionLog(e, "ChatSysNotifyDao.isExistsTable", new Object[0]);
+                    e.printStackTrace();
+                }
+                if (cursor == null) {
+                    return false;
+                }
+                cursor.moveToFirst();
+                while (true) {
+                    if (!cursor.moveToNext()) {
+                        break;
+                    } else if ("tb_chat_sys_notify".equals(cursor.getString(cursor.getColumnIndex("name")))) {
+                        z = true;
+                        break;
+                    }
+                }
+                return z;
+            } finally {
+                rd.a(null);
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public List<ChatSysNotifyPojo> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            Cursor cursor = null;
+            try {
+                try {
+                    cursor = tq8.e().g("select * from tb_chat_sys_notify", null);
+                    if (cursor != null) {
+                        while (cursor.moveToNext()) {
+                            ChatSysNotifyPojo chatSysNotifyPojo = new ChatSysNotifyPojo();
+                            chatSysNotifyPojo.setType(cursor.getInt(cursor.getColumnIndex("scene")));
+                            chatSysNotifyPojo.setUnread(cursor.getInt(cursor.getColumnIndex("unread_num")));
+                            chatSysNotifyPojo.setContent(cursor.getString(cursor.getColumnIndex("content")));
+                            arrayList.add(chatSysNotifyPojo);
+                        }
+                    }
+                } catch (Exception e) {
+                    TiebaStatic.printDBExceptionLog(e, "ChatSysNotifyDao.queryAll", new Object[0]);
+                    e.printStackTrace();
+                }
+                return arrayList;
+            } finally {
+                rd.a(cursor);
+            }
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public ChatSysNotifyPojo f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            ChatSysNotifyPojo chatSysNotifyPojo = new ChatSysNotifyPojo();
+            chatSysNotifyPojo.setType(i);
+            Cursor cursor = null;
+            try {
+                try {
+                    cursor = tq8.e().g("select * from tb_chat_sys_notify where scene=?", new String[]{String.valueOf(i)});
+                    if (cursor != null) {
+                        cursor.moveToFirst();
+                        chatSysNotifyPojo.setUnread(cursor.getInt(cursor.getColumnIndex("unread_num")));
+                        chatSysNotifyPojo.setContent(cursor.getString(cursor.getColumnIndex("content")));
+                    }
+                } catch (Exception e) {
+                    TiebaStatic.printDBExceptionLog(e, "ChatSysNotifyDao.queryByScene", new Object[0]);
+                    e.printStackTrace();
+                }
+                return chatSysNotifyPojo;
+            } finally {
+                rd.a(cursor);
+            }
+        }
+        return (ChatSysNotifyPojo) invokeI.objValue;
+    }
+
+    public void g(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
+            h(i, "", i2);
+        }
+    }
+
+    public synchronized void h(int i, @Nullable String str, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
+            synchronized (this) {
+                ContentValues contentValues = new ContentValues();
+                if (!StringUtils.isNull(str)) {
+                    contentValues.put("content", str);
+                }
+                if (i2 >= 0) {
+                    contentValues.put("unread_num", Integer.valueOf(i2));
+                }
+                tq8.e().i("tb_chat_sys_notify", contentValues, "scene=?", new String[]{String.valueOf(i)});
+            }
         }
     }
 }

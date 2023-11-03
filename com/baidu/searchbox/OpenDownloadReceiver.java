@@ -41,7 +41,7 @@ import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.searchbox.ng.browser.init.BlinkInitHelper;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xw;
+import com.baidu.tieba.ox;
 import java.io.File;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -71,7 +71,7 @@ public class OpenDownloadReceiver extends BroadcastReceiver {
                         UiThreadUtil.runOnUiThread(new Runnable() { // from class: com.baidu.searchbox.OpenDownloadReceiver.4.1.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                UniversalToast.makeText(AnonymousClass4.this.val$context.getApplicationContext(), (int) R.string.obfuscated_res_0x7f0f05e5).setDuration(3).showToast();
+                                UniversalToast.makeText(AnonymousClass4.this.val$context.getApplicationContext(), (int) R.string.obfuscated_res_0x7f0f05e7).setDuration(3).showToast();
                             }
                         });
                     }
@@ -149,7 +149,7 @@ public class OpenDownloadReceiver extends BroadcastReceiver {
             context.startActivity(intent);
             return true;
         } catch (ActivityNotFoundException unused) {
-            UniversalToast.makeText(context.getApplicationContext(), (int) R.string.obfuscated_res_0x7f0f05e5).setDuration(3).showToast();
+            UniversalToast.makeText(context.getApplicationContext(), (int) R.string.obfuscated_res_0x7f0f05e7).setDuration(3).showToast();
             return false;
         }
     }
@@ -234,7 +234,7 @@ public class OpenDownloadReceiver extends BroadcastReceiver {
                 if (ApkCloudStatisticsUtils.enableAppsearchCloudStatic()) {
                     doCloudStatisticJob(parseId, str3, str4, str2);
                 }
-                xw.j(parseId);
+                ox.j(parseId);
             }
         }
     }

@@ -1,14 +1,25 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.AwardUser;
+import tbclient.GetBigday.BigdayInfo;
 /* loaded from: classes8.dex */
 public class uv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public int c;
+    public long d;
+    public int e;
+    public long f;
+    public long g;
 
     public uv4() {
         Interceptable interceptable = $ic;
@@ -24,14 +35,58 @@ public class uv4 {
         }
     }
 
-    public void a(AwardUser awardUser) {
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, awardUser) != null) || awardUser == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!StringUtils.isNULL(this.a) && this.d > 0) {
+                int i = this.e;
+                if (i == 1 || i == 3) {
+                    long j = this.f;
+                    if (j > 0) {
+                        long j2 = this.g;
+                        if (j2 > 0 && j2 > j) {
+                            return true;
+                        }
+                        return false;
+                    }
+                    return false;
+                }
+                return false;
+            }
+            return false;
         }
-        awardUser.user_id.longValue();
-        String str = awardUser.user_name;
-        String str2 = awardUser.award_name;
-        awardUser.award_time.intValue();
+        return invokeV.booleanValue;
+    }
+
+    public void b(BigdayInfo bigdayInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bigdayInfo) == null) && bigdayInfo != null && !StringUtils.isNULL(bigdayInfo.img_url) && bigdayInfo.id.longValue() > 0) {
+            if ((bigdayInfo.position.intValue() == 1 || bigdayInfo.position.intValue() == 3) && bigdayInfo.start_time.longValue() > 0 && bigdayInfo.end_time.longValue() > 0 && bigdayInfo.end_time.longValue() > bigdayInfo.start_time.longValue()) {
+                this.a = bigdayInfo.img_url;
+                this.b = bigdayInfo.jump_url;
+                this.c = bigdayInfo.img_colour.intValue();
+                this.d = bigdayInfo.id.longValue();
+                this.e = bigdayInfo.position.intValue();
+                this.f = bigdayInfo.start_time.longValue();
+                this.g = bigdayInfo.end_time.longValue();
+            }
+        }
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (!(obj instanceof uv4)) {
+                return false;
+            }
+            uv4 uv4Var = (uv4) obj;
+            if (!uv4Var.a() || !a() || this.d != uv4Var.d || !StringHelper.equals(this.a, uv4Var.a) || (((this.b != null || uv4Var.b != null) && !StringHelper.equals(this.b, uv4Var.b)) || this.c != uv4Var.c || this.e != uv4Var.e || this.f != uv4Var.f || this.g != uv4Var.g)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

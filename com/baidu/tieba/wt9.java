@@ -1,60 +1,128 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Handler;
+import android.os.Message;
+import android.view.MotionEvent;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes8.dex */
-public class wt9 extends BaseCardInfo {
+public class wt9 implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public List<yh> b;
+    public int a;
+    public long b;
+    public long c;
+    public b d;
+    public long e;
+    public Handler f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948282253, "Lcom/baidu/tieba/wt9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948282253, "Lcom/baidu/tieba/wt9;");
-                return;
-            }
-        }
-        c = BdUniqueId.gen();
+    /* loaded from: classes8.dex */
+    public interface b {
+        void a();
+
+        void b();
     }
 
-    public wt9() {
+    /* loaded from: classes8.dex */
+    public class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wt9 a;
+
+        public a(wt9 wt9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wt9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = wt9Var;
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                int i = message.what;
+                if (i != 2) {
+                    if (i == 1 && this.a.a == 1) {
+                        if (this.a.d != null) {
+                            this.a.d.a();
+                        }
+                        this.a.a = 0;
+                        this.a.b = 0L;
+                        this.a.c = 0L;
+                        return;
+                    }
+                    return;
+                }
+                this.a.a = 0;
+                this.a.b = 0L;
+                this.a.c = 0L;
+            }
+        }
+    }
+
+    public wt9(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 0;
+        this.b = 0L;
+        this.c = 0L;
+        this.e = 500L;
+        this.f = new a(this);
+        this.d = bVar;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yh
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view2, MotionEvent motionEvent) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return c;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+            if (motionEvent.getAction() == 0) {
+                if (this.d == null) {
+                    return false;
+                }
+                int i = this.a + 1;
+                this.a = i;
+                if (i == 1) {
+                    this.b = System.currentTimeMillis();
+                    this.f.sendEmptyMessageDelayed(1, this.e);
+                } else if (i == 2) {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    this.c = currentTimeMillis;
+                    if (currentTimeMillis - this.b < this.e) {
+                        this.d.b();
+                    }
+                    this.f.sendEmptyMessage(2);
+                }
+            }
+            return true;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 }

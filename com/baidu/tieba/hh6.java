@@ -1,76 +1,47 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.SuppressLint;
+import android.os.Build;
+import android.webkit.ValueCallback;
+import android.webkit.WebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Method;
+import java.util.List;
 /* loaded from: classes6.dex */
 public final class hh6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final eh6 a;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final hh6 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-747123819, "Lcom/baidu/tieba/hh6$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-747123819, "Lcom/baidu/tieba/hh6$b;");
-                    return;
-                }
-            }
-            a = new hh6(null);
-        }
-    }
-
-    public hh6() {
+    public static void a(WebView webView, List<String> list) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLL(65536, null, webView, list) == null) {
+            try {
+                Method declaredMethod = WebView.class.getDeclaredMethod("setSafeBrowsingWhitelist", List.class, ValueCallback.class);
+                declaredMethod.setAccessible(true);
+                declaredMethod.invoke(webView, list, null);
+            } catch (Throwable th) {
+                th.printStackTrace();
             }
         }
-        this.a = (eh6) ServiceManager.getService(eh6.a);
     }
 
-    @NonNull
-    public static eh6 a() {
-        InterceptResult invokeV;
+    @SuppressLint({"WebViewApiAvailability"})
+    public static void b(WebView webView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a.a;
+        if (interceptable == null || interceptable.invokeL(65537, null, webView) == null) {
+            int i = Build.VERSION.SDK_INT;
+            if (i == 26) {
+                webView.setImportantForAutofill(2);
+                webView.getSettings().setSafeBrowsingEnabled(false);
+            } else if (i >= 27) {
+                List<String> a = hg6.a();
+                try {
+                    WebView.setSafeBrowsingWhitelist(a, null);
+                } catch (Throwable unused) {
+                    a(webView, a);
+                }
+            }
         }
-        return (eh6) invokeV.objValue;
-    }
-
-    public /* synthetic */ hh6(a aVar) {
-        this();
     }
 }

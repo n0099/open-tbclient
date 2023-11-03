@@ -1,45 +1,18 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import androidx.annotation.UiThread;
-import com.baidu.searchbox.unitedscheme.TypedCallbackHandler;
-import com.baidu.swan.apps.core.SwanAppWebViewManager;
-import com.baidu.tieba.xr1;
+import java.util.concurrent.ExecutorService;
+import org.json.JSONArray;
 /* loaded from: classes9.dex */
-public interface yr1<T extends xr1> extends TypedCallbackHandler {
-    @UiThread
-    void L();
+public interface yr1 {
+    ExecutorService d();
 
-    void R(c72 c72Var);
+    void e(String str, int i, JSONArray jSONArray);
 
-    String Y();
+    void f(String str, int i);
 
-    String a();
+    void g(String str, String str2, int i, String str3, int i2);
 
-    void attachActivity(Activity activity);
+    void i(String str, int i, String str2);
 
-    void b(d42 d42Var);
-
-    void b0();
-
-    void destroy();
-
-    SwanAppWebViewManager.d getConfig();
-
-    String getUserAgent();
-
-    T getWebView();
-
-    void loadUrl(String str);
-
-    void onJSLoaded();
-
-    void onPause();
-
-    void onResume();
-
-    @UiThread
-    void p();
-
-    void r(c72 c72Var);
+    void n(String str, String str2, int i, String str3, long j, int i2);
 }

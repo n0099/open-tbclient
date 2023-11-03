@@ -1,38 +1,33 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.content.Context;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.BaseAdapter;
-import androidx.core.view.InputDeviceCompat;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.internal.StringCompanionObject;
 /* loaded from: classes7.dex */
-public abstract class oj7 extends BaseAdapter {
+public final class oj7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sj7 a;
-    public boolean b;
+    public final Context a;
+    public final or7 b;
+    public final TextView c;
 
-    public abstract int b();
-
-    public abstract Object c(int i);
-
-    public abstract int d();
-
-    public abstract long e(int i);
-
-    public abstract View g(int i, View view2, ViewGroup viewGroup);
-
-    public abstract void j(int i);
-
-    public oj7() {
+    public oj7(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,171 +37,41 @@ public abstract class oj7 extends BaseAdapter {
                 return;
             }
         }
-        this.b = true;
+        Intrinsics.checkNotNullParameter(context, "context");
+        this.a = context;
+        this.b = new or7();
+        TextView textView = new TextView(this.a);
+        textView.setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.T_X08));
+        textView.setGravity(17);
+        this.c = textView;
     }
 
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        InterceptResult invokeV;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (h()) {
-                return 2;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b.e();
+        }
+    }
+
+    public final void b(int i, ViewGroup tipContainer) {
+        String string;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, tipContainer) == null) {
+            Intrinsics.checkNotNullParameter(tipContainer, "tipContainer");
+            TextView textView = this.c;
+            if (i > 0) {
+                StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
+                String string2 = TbadkCoreApplication.getInst().getString(R.string.recommend_frs_refresh_return);
+                Intrinsics.checkNotNullExpressionValue(string2, "getInst().getString(R.st…mmend_frs_refresh_return)");
+                string = String.format(string2, Arrays.copyOf(new Object[]{Integer.valueOf(i)}, 1));
+                Intrinsics.checkNotNullExpressionValue(string, "format(format, *args)");
+            } else {
+                string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1455);
             }
-            return 1;
+            textView.setText(string);
+            SkinManager.setBackgroundResource(this.c, R.color.CAM_X0302);
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0112);
+            this.b.h(this.c, tipContainer, new ViewGroup.LayoutParams(-1, BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0703f7)), 2000);
         }
-        return invokeV.intValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            sj7 sj7Var = this.a;
-            if (sj7Var != null && sj7Var.b() && b() - 1 > this.a.getArrowIndex()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final View a(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            sj7 sj7Var = this.a;
-            if (sj7Var == null) {
-                return view2;
-            }
-            if (view2 == null || view2 != sj7Var.getArrowView()) {
-                view2 = this.a.getArrowView();
-                if (view2.getLayoutParams() == null) {
-                    view2.setLayoutParams(new AbsListView.LayoutParams(-1, d()));
-                }
-            }
-            this.a.a(view2);
-            return view2;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    public int f(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            sj7 sj7Var = this.a;
-            if (sj7Var != null && sj7Var.b()) {
-                int arrowIndex = this.a.getArrowIndex();
-                if (i < arrowIndex) {
-                    return i;
-                }
-                if (i == arrowIndex) {
-                    return -1;
-                }
-                return i - 1;
-            }
-            return i;
-        }
-        return invokeI.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            if (h()) {
-                int f = f(i);
-                if (f >= 0) {
-                    return c(f);
-                }
-                return c(i);
-            }
-            return c(i);
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            if (h()) {
-                int f = f(i);
-                if (f >= 0) {
-                    return e(f);
-                }
-                return e(i);
-            }
-            return e(i);
-        }
-        return invokeI.longValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        InterceptResult invokeI;
-        int arrowIndex;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            if (!h() || (arrowIndex = this.a.getArrowIndex()) <= 0 || i != arrowIndex) {
-                return 0;
-            }
-            return 1;
-        }
-        return invokeI.intValue;
-    }
-
-    public void i(sj7 sj7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, sj7Var) == null) {
-            this.a = sj7Var;
-        }
-    }
-
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            this.b = z;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        int b;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (h()) {
-                if (this.b) {
-                    b = this.a.getArrowIndex();
-                } else {
-                    sj7 sj7Var = this.a;
-                    if (sj7Var != null && sj7Var.b()) {
-                        b = b();
-                    } else {
-                        return b();
-                    }
-                }
-                return b + 1;
-            }
-            return b();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048587, this, i, view2, viewGroup)) == null) {
-            if (getItemViewType(i) == 0) {
-                return g(f(i), view2, viewGroup);
-            }
-            return a(view2);
-        }
-        return (View) invokeILL.objValue;
     }
 }

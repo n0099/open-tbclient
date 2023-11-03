@@ -37,8 +37,8 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.view.spanGroup.UrlParserHttpResponseMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.io6;
-import com.baidu.tieba.qva;
+import com.baidu.tieba.cra;
+import com.baidu.tieba.r8b;
 import com.baidu.tieba.tbadkCore.location.LocationModel;
 import com.baidu.tieba.write.accountAccess.AccountAccessActivity;
 import com.baidu.tieba.write.album.AlbumActivity;
@@ -58,7 +58,8 @@ import com.baidu.tieba.write.write.work.classdialog.model.GetSelectClassHttpResM
 import com.baidu.tieba.write.write.work.guide.WorkVideoGuideActivity;
 import com.baidu.tieba.write.write.work.selecttag.SelectTagActivity;
 import com.baidu.tieba.write.write.work.topic.model.GetRecommendTopicHttpResMessage;
-import com.baidu.tieba.xda;
+import com.baidu.tieba.y6;
+import com.baidu.tieba.yp6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -156,11 +157,11 @@ public class WriteActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<io6> run(CustomMessage<Object> customMessage) {
+        public CustomResponsedMessage<yp6> run(CustomMessage<Object> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                return new CustomResponsedMessage<>(2001449, new qva());
+                return new CustomResponsedMessage<>(2001449, new r8b());
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -198,14 +199,14 @@ public class WriteActivityStatic {
         TbadkCoreApplication.getInst().RegisterIntent(AddLinkActivityConfig.class, AddLinkActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(ShareFriendActivityConfig.class, ShareFriendActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(QuestionTagChooseActivityConfig.class, QuestionTagChooseActivity.class);
-        LocationModel.T();
+        LocationModel.U();
         c();
         UrlManager.getInstance().registerSchema(UrlSchemaHelper.SCHEMA_TYPE_FEED_BACK, new a());
         d();
-        xda.h(309450, GetRepostForumSocketResMessage.class, false, false);
-        xda.c(309450, CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, TbConfig.CMD_GET_REPOST_FORUM_LIST, GetRepostForumHttpResMessage.class, false, false, true, false);
-        xda.c(309713, CmdConfigHttp.CMD_GET_SELECT_CLASS, TbConfig.URL_GET_WORKS_TAGS, GetSelectClassHttpResMessage.class, false, false, true, false);
-        xda.c(309719, CmdConfigHttp.CMD_GET_RECOMMEND_TOPIC, TbConfig.URL_GET_RECOMMEND_TOPIC, GetRecommendTopicHttpResMessage.class, false, false, true, false);
+        cra.h(309450, GetRepostForumSocketResMessage.class, false, false);
+        cra.c(309450, CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, TbConfig.CMD_GET_REPOST_FORUM_LIST, GetRepostForumHttpResMessage.class, false, false, true, false);
+        cra.c(309713, CmdConfigHttp.CMD_GET_SELECT_CLASS, TbConfig.URL_GET_WORKS_TAGS, GetSelectClassHttpResMessage.class, false, false, true, false);
+        cra.c(309719, CmdConfigHttp.CMD_GET_RECOMMEND_TOPIC, TbConfig.URL_GET_RECOMMEND_TOPIC, GetRecommendTopicHttpResMessage.class, false, false, true, false);
     }
 
     public WriteActivityStatic() {
@@ -248,8 +249,11 @@ public class WriteActivityStatic {
             CustomMessageTask customMessageTask = new CustomMessageTask(2001449, new c());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_URL_PARSER_MESSAGE, xda.a(TbConfig.URL_URL_PARSER, 309686));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_URL_PARSER_MESSAGE, cra.a(TbConfig.URL_URL_PARSER, 309686));
             tbHttpMessageTask.setResponsedClass(UrlParserHttpResponseMessage.class);
+            tbHttpMessageTask.setTimeOut(y6.d().b());
+            tbHttpMessageTask.setRetry(y6.d().a());
+            tbHttpMessageTask.setConnectTimeOut(y6.d().c());
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
     }

@@ -1,114 +1,103 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.feed.component.uistate.CardLiveUiStateKt;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes8.dex */
-public final class x37 {
+/* loaded from: classes9.dex */
+public final class x37 extends h47 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final int c;
-    public final int d;
+    public final t67 g;
+    public final List<m77> h;
+    public final Function2<Context, x37, Unit> i;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public x37() {
-        this(null, null, 0, 0, 15, null);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948249517, "Lcom/baidu/tieba/x37;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948249517, "Lcom/baidu/tieba/x37;");
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x37(t67 liveData, List<m77> clickStatDataList, Map<String, String> businessInfo, Map<String, String> logInfo, Function2<? super Context, ? super x37, Unit> onLiveClick) {
+        super(businessInfo, logInfo, null, null, 12, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r3;
+            Object[] objArr = {liveData, clickStatDataList, businessInfo, logInfo, onLiveClick};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this((String) objArr[0], (String) objArr[1], ((Integer) objArr[2]).intValue(), ((Integer) objArr[3]).intValue(), ((Integer) objArr[4]).intValue(), (DefaultConstructorMarker) objArr[5]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof x37) {
-                x37 x37Var = (x37) obj;
-                return Intrinsics.areEqual(this.a, x37Var.a) && Intrinsics.areEqual(this.b, x37Var.b) && this.c == x37Var.c && this.d == x37Var.d;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (((((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c) * 31) + this.d : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "IconData(day=" + this.a + ", dark=" + this.b + ", width=" + this.c + ", height=" + this.d + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public x37(String day, String dark, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {day, dark, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Map) objArr2[0], (Map) objArr2[1], (Function2) objArr2[2], (Function1) objArr2[3], ((Integer) objArr2[4]).intValue(), (DefaultConstructorMarker) objArr2[5]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(day, "day");
-        Intrinsics.checkNotNullParameter(dark, "dark");
-        this.a = day;
-        this.b = dark;
-        this.c = i;
-        this.d = i2;
+        Intrinsics.checkNotNullParameter(liveData, "liveData");
+        Intrinsics.checkNotNullParameter(clickStatDataList, "clickStatDataList");
+        Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+        Intrinsics.checkNotNullParameter(logInfo, "logInfo");
+        Intrinsics.checkNotNullParameter(onLiveClick, "onLiveClick");
+        this.g = liveData;
+        this.h = clickStatDataList;
+        this.i = onLiveClick;
     }
 
-    public /* synthetic */ x37(String str, String str2, int i, int i2, int i3, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i3 & 1) != 0 ? "" : str, (i3 & 2) != 0 ? "" : str2, (i3 & 4) != 0 ? 0 : i, (i3 & 8) != 0 ? 0 : i2);
+    public /* synthetic */ x37(t67 t67Var, List list, Map map, Map map2, Function2 function2, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(t67Var, (i & 2) != 0 ? new ArrayList() : list, map, map2, (i & 16) != 0 ? CardLiveUiStateKt.a() : function2);
     }
 
-    public final String a() {
+    public final List<m77> l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            return this.h;
         }
-        return (String) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public final String b() {
+    public final t67 m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            return this.g;
         }
-        return (String) invokeV.objValue;
+        return (t67) invokeV.objValue;
+    }
+
+    public final Function2<Context, x37, Unit> n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.i;
+        }
+        return (Function2) invokeV.objValue;
     }
 }

@@ -32,7 +32,7 @@ public class SimpleFloatingRePlayElement extends AbsElement {
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // kotlin.jvm.functions.Function0
         public final View invoke() {
-            View inflate = LayoutInflater.from(SimpleFloatingRePlayElement.this.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0170, (ViewGroup) null);
+            View inflate = LayoutInflater.from(SimpleFloatingRePlayElement.this.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0172, (ViewGroup) null);
             Intrinsics.checkNotNull(inflate);
             return inflate;
         }
@@ -81,7 +81,7 @@ public class SimpleFloatingRePlayElement extends AbsElement {
     @Override // com.baidu.searchbox.player.element.AbsElement
     public void initElement() {
         getView().setId(ViewCompat.generateViewId());
-        getView().findViewById(R.id.obfuscated_res_0x7f091cdf).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ci1
+        getView().findViewById(R.id.obfuscated_res_0x7f091d26).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ti1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -89,7 +89,7 @@ public class SimpleFloatingRePlayElement extends AbsElement {
             public final void onClick(View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                    SimpleFloatingRePlayElement.m89initElement$lambda0(SimpleFloatingRePlayElement.this, view2);
+                    SimpleFloatingRePlayElement.m90initElement$lambda0(SimpleFloatingRePlayElement.this, view2);
                 }
             }
         });
@@ -109,7 +109,7 @@ public class SimpleFloatingRePlayElement extends AbsElement {
     }
 
     /* renamed from: initElement$lambda-0  reason: not valid java name */
-    public static final void m89initElement$lambda0(SimpleFloatingRePlayElement this$0, View view2) {
+    public static final void m90initElement$lambda0(SimpleFloatingRePlayElement this$0, View view2) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         this$0.onRePlayViewClick();
     }

@@ -1,22 +1,68 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.app.Activity;
+import com.baidu.nadcore.player.strategy.IVideoUpdateStrategy;
+import com.baidu.nadcore.video.videoplayer.ui.full.BdThumbSeekBar;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
-public interface yu0 {
-    void a(@Nullable ts0 ts0Var);
+public class yu0 extends hv0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(@NonNull vs0 vs0Var);
+    public yu0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void c(int i, @NonNull ss0 ss0Var);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yu0(Activity activity) {
+        super(activity);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(activity, "activity");
+    }
 
-    void d(@NonNull sr0 sr0Var);
-
-    void e(ss0 ss0Var);
-
-    void f(@NonNull vs0 vs0Var);
-
-    String getType();
-
-    void release();
+    @Override // com.baidu.tieba.hv0
+    public void c0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            qp0 bindPlayer = y();
+            Intrinsics.checkNotNullExpressionValue(bindPlayer, "bindPlayer");
+            IVideoUpdateStrategy i1 = bindPlayer.i1();
+            Intrinsics.checkNotNullExpressionValue(i1, "bindPlayer.strategy");
+            if (!i1.f()) {
+                BdThumbSeekBar mThumbSeekBar = this.l;
+                Intrinsics.checkNotNullExpressionValue(mThumbSeekBar, "mThumbSeekBar");
+                mThumbSeekBar.setVisibility(4);
+                return;
+            }
+            super.c0();
+        }
+    }
 }

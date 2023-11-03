@@ -1,131 +1,163 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import android.opengl.Matrix;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.mario.gldraw2d.params.MirrorType;
+import com.baidu.mario.gldraw2d.params.ScaleType;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class r90 {
-    public static /* synthetic */ Interceptable $ic;
-    public static String c;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String a = "r90";
     public transient /* synthetic */ FieldHolder $fh;
-    public SharedPreferences a;
-    public Set<String> b;
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948076320, "Lcom/baidu/tieba/r90;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948076320, "Lcom/baidu/tieba/r90;");
+        }
     }
 
-    /* loaded from: classes7.dex */
-    public static class b {
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
-        public static r90 a;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-504416542, "Lcom/baidu/tieba/r90$b;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-504416573, "Lcom/baidu/tieba/r90$a;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-504416542, "Lcom/baidu/tieba/r90$b;");
+                    classClinitInterceptable.invokePostClinit(-504416573, "Lcom/baidu/tieba/r90$a;");
                     return;
                 }
             }
-            a = new r90(null);
+            int[] iArr = new int[ScaleType.values().length];
+            a = iArr;
+            try {
+                iArr[ScaleType.FIT_XY.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[ScaleType.FIT_CENTER.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[ScaleType.CENTER_CROP.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[ScaleType.EQUAL_SCALE.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948076320, "Lcom/baidu/tieba/r90;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948076320, "Lcom/baidu/tieba/r90;");
-                return;
-            }
-        }
-        c = SharedPrefHelper.getSharedPrefKeyWithAccount("advert_hide_list");
-    }
-
-    public r90() {
+    public static void a(float[] fArr, MirrorType mirrorType) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLL(65537, null, fArr, mirrorType) == null) {
+            if (fArr == null) {
+                Log.e(a, "mirrorDraw2DMVP mvpMatrix == NULLLLLLL!!!");
+            }
+            if (mirrorType == MirrorType.HORIZONTALLY) {
+                Matrix.rotateM(fArr, 0, 180.0f, 0.0f, 1.0f, 0.0f);
+            } else if (mirrorType == MirrorType.VERTICALLY) {
+                Matrix.rotateM(fArr, 0, 180.0f, 1.0f, 0.0f, 0.0f);
+                fArr[6] = 0.0f;
+                fArr[9] = 0.0f;
             }
         }
-        this.a = TbadkCoreApplication.getInst().getSharedPreferences("mcn_advert_hide_list", 0);
     }
 
-    public static r90 b() {
-        InterceptResult invokeV;
+    public static void b(float[] fArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b.a;
+        if (interceptable == null || interceptable.invokeL(65538, null, fArr) == null) {
+            Matrix.setIdentityM(fArr, 0);
         }
-        return (r90) invokeV.objValue;
     }
 
-    public /* synthetic */ r90(a aVar) {
-        this();
-    }
-
-    public boolean a(String str) {
-        InterceptResult invokeL;
+    public static void c(float[] fArr, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return false;
+        if (interceptable == null || interceptable.invokeLF(65539, null, fArr, f) == null) {
+            if (fArr == null) {
+                Log.e(a, "rotateDraw2DMVP mvpMatrix == NULLLLLLL!!!");
             }
-            if (this.b == null) {
-                this.b = this.a.getStringSet(c, null);
-            }
-            Set<String> set = this.b;
-            if (set == null) {
-                return false;
-            }
-            return set.contains(str);
+            Matrix.rotateM(fArr, 0, f, 0.0f, 0.0f, 1.0f);
         }
-        return invokeL.booleanValue;
     }
 
-    public void c(String str) {
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x0062, code lost:
+        if (r0 > r5) goto L32;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x0067, code lost:
+        if (r0 > r5) goto L30;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x0069, code lost:
+        r5 = r5 / r0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x006d, code lost:
+        r8 = r0 / r5;
+        r5 = 1.0f;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void d(float[] fArr, m90 m90Var, l90 l90Var, ScaleType scaleType, float f) {
+        float f2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || StringUtils.isNull(str)) {
-            return;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{fArr, m90Var, l90Var, scaleType, Float.valueOf(f)}) == null) {
+            if (fArr == null) {
+                Log.e(a, "scaleDraw2DMVP mvpMatrix == NULLLLLLL!!!");
+            } else if (m90Var != null && m90Var.e() > 0 && m90Var.b() > 0) {
+                if (l90Var != null && l90Var.c() > 0 && l90Var.b() > 0) {
+                    float e = (m90Var.e() * 1.0f) / m90Var.b();
+                    float c = (l90Var.c() * 1.0f) / l90Var.b();
+                    int i = a.a[scaleType.ordinal()];
+                    if (i != 1) {
+                        if (i != 2) {
+                            if (i != 3) {
+                                if (i == 4) {
+                                    f2 = f;
+                                }
+                            }
+                        }
+                        Matrix.scaleM(fArr, 0, f, f2, 1.0f);
+                        return;
+                    }
+                    f2 = 1.0f;
+                    f = 1.0f;
+                    Matrix.scaleM(fArr, 0, f, f2, 1.0f);
+                    return;
+                }
+                Log.e(a, "scaleDraw2DMVP draw target error!!!");
+            } else {
+                Log.e(a, "scaleDraw2DMVP source texture error!!!");
+            }
         }
-        Set<String> stringSet = this.a.getStringSet(c, null);
-        this.b = stringSet;
-        if (stringSet == null) {
-            this.b = new HashSet();
+    }
+
+    public static void e(float[] fArr, float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{fArr, Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            Matrix.translateM(fArr, 0, f, f2, 1.0f);
         }
-        this.b.add(str);
-        this.a.edit().putStringSet(c, this.b).commit();
     }
 }

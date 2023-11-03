@@ -186,7 +186,7 @@ public class AddressListActivity extends BaseAddressActivity<AddressPresenter> i
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         AddressStatUtil.statAddressOption(StatKey.ADDRLIST_ENTER);
-        setContentView(R.layout.obfuscated_res_0x7f0d056e);
+        setContentView(R.layout.obfuscated_res_0x7f0d0583);
         ViewUtility.enableStatusBarTint(this, getResources().getColor(R.color.obfuscated_res_0x7f060a92));
         AddressManageDTO addressManageDTO = this.addressManageDTO;
         if (addressManageDTO != null) {
@@ -239,8 +239,8 @@ public class AddressListActivity extends BaseAddressActivity<AddressPresenter> i
         }
         BaseOptionActivity.lastClickTime = currentTimeMillis;
         if (view2 != this.addAddrBtn && view2 != this.addAddrBtnAtEmptyView) {
-            if (view2.getId() != R.id.obfuscated_res_0x7f09202b && view2.getId() != R.id.obfuscated_res_0x7f0920cb) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f092099) {
+            if (view2.getId() != R.id.obfuscated_res_0x7f092074 && view2.getId() != R.id.obfuscated_res_0x7f092114) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f0920e2) {
                     this.loadTimeoutView.setVisibility(8);
                     loadAddrList();
                     return;
@@ -299,17 +299,17 @@ public class AddressListActivity extends BaseAddressActivity<AddressPresenter> i
 
     private void showLoadTimeView() {
         if (this.loadTimeoutView == null) {
-            ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f092098);
+            ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f0920e1);
             this.loadTimeoutView = viewStub.inflate();
             viewStub.setVisibility(0);
-            this.retryLoadAddrListBtn = findViewById(R.id.obfuscated_res_0x7f092099);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0920b0);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f092099);
+            this.retryLoadAddrListBtn = findViewById(R.id.obfuscated_res_0x7f0920e2);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0920f9);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0920e2);
             this.retryLoadAddrListBtn.setOnClickListener(this);
             if (this.isDarkMode) {
                 this.loadTimeoutView.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609d7));
                 textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609f3));
-                this.retryLoadAddrListBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f08130d);
+                this.retryLoadAddrListBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f081324);
                 textView2.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060a37));
             }
         }
@@ -396,24 +396,24 @@ public class AddressListActivity extends BaseAddressActivity<AddressPresenter> i
 
     private void initView() {
         Drawable drawable;
-        this.addrListBg = findViewById(R.id.obfuscated_res_0x7f09202a);
-        TitleBarView titleBarView = (TitleBarView) findViewById(R.id.obfuscated_res_0x7f09204d);
+        this.addrListBg = findViewById(R.id.obfuscated_res_0x7f092073);
+        TitleBarView titleBarView = (TitleBarView) findViewById(R.id.obfuscated_res_0x7f092096);
         this.titleBarView = titleBarView;
         titleBarView.setTitle("我的地址");
-        this.addrListLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09202e);
-        this.bottomBackLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092051);
-        this.loadingView = (SweepLightLoadingView) findViewById(R.id.obfuscated_res_0x7f09202f);
-        this.addAddrBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f092010);
-        this.addrListView = (ListView) findViewById(R.id.obfuscated_res_0x7f09204f);
-        View inflate = LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d0571, (ViewGroup) null);
-        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09202c);
+        this.addrListLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f092077);
+        this.bottomBackLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09209a);
+        this.loadingView = (SweepLightLoadingView) findViewById(R.id.obfuscated_res_0x7f092078);
+        this.addAddrBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f092059);
+        this.addrListView = (ListView) findViewById(R.id.obfuscated_res_0x7f092098);
+        View inflate = LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d0586, (ViewGroup) null);
+        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092075);
         this.addrListCountTv = textView;
         if (this.isDarkMode) {
-            textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f0812c3);
+            textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f0812da);
             this.addrListCountTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060a0b));
         }
         this.addrListView.addHeaderView(inflate);
-        View inflate2 = LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d0570, (ViewGroup) null);
+        View inflate2 = LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d0585, (ViewGroup) null);
         if (this.isDarkMode) {
             inflate2.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609d8));
         }
@@ -433,26 +433,26 @@ public class AddressListActivity extends BaseAddressActivity<AddressPresenter> i
         }
         ViewUtility.setViewClickAlpha(this.addAddrBtn, 0.2f);
         this.addAddrBtn.setOnClickListener(this);
-        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09202b);
+        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f092074);
         imageView.setOnClickListener(this);
         if (this.isDarkMode) {
             this.addrListBg.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609d8));
             this.titleBarView.setDarkMode();
             this.addrListLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609d8));
-            this.addAddrBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f0812c9);
+            this.addAddrBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f0812e0);
             this.addAddrBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609e3));
             this.bottomBackLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609e5));
-            findViewById(R.id.obfuscated_res_0x7f092052).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060a91));
+            findViewById(R.id.obfuscated_res_0x7f09209b).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060a91));
             imageView.setColorFilter(getResources().getColor(R.color.obfuscated_res_0x7f0609e6));
         }
-        this.addAddrBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f0812c8);
+        this.addAddrBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f0812df);
         AddressManageDTO addressManageDTO2 = this.addressManageDTO;
         if (addressManageDTO2 != null) {
             if (addressManageDTO2.showBottomBack) {
                 this.bottomBackLayout.setVisibility(0);
                 Drawable drawable2 = this.addressManageDTO.backBtnDrawable;
                 if (drawable2 == null) {
-                    drawable2 = getResources().getDrawable(R.drawable.obfuscated_res_0x7f081321);
+                    drawable2 = getResources().getDrawable(R.drawable.obfuscated_res_0x7f081338);
                 }
                 imageView.setImageDrawable(drawable2);
             } else {
@@ -460,7 +460,7 @@ public class AddressListActivity extends BaseAddressActivity<AddressPresenter> i
                 TitleBarView titleBarView2 = this.titleBarView;
                 Drawable drawable3 = this.addressManageDTO.backBtnDrawable;
                 if (drawable3 == null) {
-                    drawable3 = getResources().getDrawable(R.drawable.obfuscated_res_0x7f081321);
+                    drawable3 = getResources().getDrawable(R.drawable.obfuscated_res_0x7f081338);
                 }
                 titleBarView2.setLeftBtn(drawable3, this);
             }
@@ -566,27 +566,27 @@ public class AddressListActivity extends BaseAddressActivity<AddressPresenter> i
             ((AddressPresenter) this.presenter).delAddress(optString);
         } else if (1003 == i) {
             ((ClipboardManager) getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD)).setPrimaryClip(ClipData.newPlainText("address", this.optionJsonObj.optString("name") + "\n" + this.optionJsonObj.optString("mobile") + "\n" + getOptionRegionStr()));
-            ToastUtil.show(R.drawable.obfuscated_res_0x7f08130e, "复制成功");
+            ToastUtil.show(R.drawable.obfuscated_res_0x7f081325, "复制成功");
         }
     }
 
     private void showEmpty() {
         if (this.emptyView == null) {
-            ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f092092);
+            ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f0920db);
             this.emptyView = viewStub.inflate();
             viewStub.setVisibility(0);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09204e);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f09206f);
-            this.addAddrImageAtEmptyView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09206e);
-            this.addAddrBtnAtEmptyView = (TextView) findViewById(R.id.obfuscated_res_0x7f092011);
-            TextView textView3 = (TextView) findViewById(R.id.obfuscated_res_0x7f092029);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092097);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0920b8);
+            this.addAddrImageAtEmptyView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0920b7);
+            this.addAddrBtnAtEmptyView = (TextView) findViewById(R.id.obfuscated_res_0x7f09205a);
+            TextView textView3 = (TextView) findViewById(R.id.obfuscated_res_0x7f092072);
             this.addAddrBtnAtEmptyView.setOnClickListener(this);
             if (this.isDarkMode) {
                 this.emptyView.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609ec));
                 textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609ef));
                 textView2.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609f1));
                 this.addAddrImageAtEmptyView.setColorFilter(getResources().getColor(R.color.obfuscated_res_0x7f0609ed));
-                this.addAddrBtnAtEmptyView.setBackgroundResource(R.drawable.obfuscated_res_0x7f0812c9);
+                this.addAddrBtnAtEmptyView.setBackgroundResource(R.drawable.obfuscated_res_0x7f0812e0);
                 this.addAddrBtnAtEmptyView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609ea));
                 textView3.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609ef));
             }
@@ -623,7 +623,7 @@ public class AddressListActivity extends BaseAddressActivity<AddressPresenter> i
         setLoadingViewVisibility(8);
         if (i != 1000) {
             if (!TextUtils.isEmpty(str)) {
-                ToastUtil.show(R.drawable.obfuscated_res_0x7f081303, str);
+                ToastUtil.show(R.drawable.obfuscated_res_0x7f08131a, str);
                 return;
             }
             return;

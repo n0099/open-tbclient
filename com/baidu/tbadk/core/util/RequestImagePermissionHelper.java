@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.util;
 
 import android.app.Activity;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.sp.PreferenceUtils;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
@@ -11,7 +12,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import kotlin.Metadata;
+import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
@@ -39,14 +42,22 @@ public final class RequestImagePermissionHelper {
     }
 
     @JvmStatic
-    public static final void doRequest(Activity activity) {
+    @JvmOverloads
+    public static final boolean doRequest(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, activity) == null) {
-            Companion.doRequest(activity);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) ? Companion.doRequest(activity) : invokeL.booleanValue;
     }
 
-    @Metadata(d1 = {"\u0000\u0018\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u0010\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0006H\u0007¨\u0006\u0007"}, d2 = {"Lcom/baidu/tbadk/core/util/RequestImagePermissionHelper$Companion;", "", "()V", "doRequest", "", "activity", "Landroid/app/Activity;", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+    @JvmStatic
+    @JvmOverloads
+    public static final boolean doRequest(Activity activity, PermissionJudgePolicy.OnPermissionsGrantedListener onPermissionsGrantedListener) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, activity, onPermissionsGrantedListener)) == null) ? Companion.doRequest(activity, onPermissionsGrantedListener) : invokeLL.booleanValue;
+    }
+
+    @Metadata(d1 = {"\u0000\u001e\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u001c\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u00062\n\b\u0002\u0010\u0007\u001a\u0004\u0018\u00010\bH\u0007¨\u0006\t"}, d2 = {"Lcom/baidu/tbadk/core/util/RequestImagePermissionHelper$Companion;", "", "()V", "doRequest", "", "activity", "Landroid/app/Activity;", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "Lcom/baidu/tbadk/core/util/permission/PermissionJudgePolicy$OnPermissionsGrantedListener;", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes4.dex */
     public static final class Companion {
         public static /* synthetic */ Interceptable $ic;
@@ -54,6 +65,18 @@ public final class RequestImagePermissionHelper {
 
         public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
             this();
+        }
+
+        @JvmStatic
+        @JvmOverloads
+        public final boolean doRequest(Activity activity) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) {
+                Intrinsics.checkNotNullParameter(activity, "activity");
+                return doRequest$default(this, activity, null, 2, null);
+            }
+            return invokeL.booleanValue;
         }
 
         public Companion() {
@@ -70,21 +93,34 @@ public final class RequestImagePermissionHelper {
             }
         }
 
+        public static /* synthetic */ boolean doRequest$default(Companion companion, Activity activity, PermissionJudgePolicy.OnPermissionsGrantedListener onPermissionsGrantedListener, int i, Object obj) {
+            if ((i & 2) != 0) {
+                onPermissionsGrantedListener = null;
+            }
+            return companion.doRequest(activity, onPermissionsGrantedListener);
+        }
+
         @JvmStatic
-        public final void doRequest(Activity activity) {
+        @JvmOverloads
+        public final boolean doRequest(Activity activity, PermissionJudgePolicy.OnPermissionsGrantedListener onPermissionsGrantedListener) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, onPermissionsGrantedListener)) == null) {
                 Intrinsics.checkNotNullParameter(activity, "activity");
                 PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
                 permissionJudgePolicy.clearRequestPermissionList();
                 permissionJudgePolicy.appendRequestPermission(activity, "android.permission.WRITE_EXTERNAL_STORAGE");
-                if (permissionJudgePolicy.startRequestPermission(activity)) {
-                    if (PreferenceUtils.getBoolean("imagepicker_tost_show", false) && !PermissionUtil.shouldShowRequestPermissionRationale(activity, "android.permission.WRITE_EXTERNAL_STORAGE")) {
-                        BdToast.makeText(activity, "请到设置-隐私-照片开启照片权限").show();
-                    }
-                    PreferenceUtils.setBoolean("imagepicker_tost_show", true);
+                permissionJudgePolicy.setOnPermissionsGrantedListener(onPermissionsGrantedListener);
+                if (!permissionJudgePolicy.startRequestPermission(activity)) {
+                    return false;
                 }
+                if (PreferenceUtils.getBoolean("imagepicker_tost_show", false) && !PermissionUtil.shouldShowRequestPermissionRationale(activity, "android.permission.WRITE_EXTERNAL_STORAGE")) {
+                    BdToast.makeText(activity, "请到设置-隐私-照片开启照片权限").show();
+                }
+                PreferenceUtils.setBoolean("imagepicker_tost_show", true);
+                return true;
             }
+            return invokeLL.booleanValue;
         }
     }
 

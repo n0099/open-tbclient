@@ -1,36 +1,35 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.widget.DragImageView;
-import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Service
 /* loaded from: classes6.dex */
-public interface g0a extends IAdBaseAsyncController {
-    View b(@NonNull String str, boolean z);
+public final class g0a extends uaa {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    AdvertAppInfo d(@NonNull String str);
+    @Override // com.baidu.tieba.yaa
+    public String name() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "pb_to_personalize" : (String) invokeV.objValue;
+    }
 
-    void e(@NonNull String str, @NonNull AdvertAppInfo advertAppInfo);
-
-    boolean f(@NonNull String str);
-
-    void g(@NonNull sq5 sq5Var);
-
-    int getAdCount();
-
-    void h(@NonNull TbPageContext tbPageContext, @NonNull DragImageView.h hVar, boolean z);
-
-    void j(@NonNull String str);
-
-    void k(@NonNull AdvertAppInfo advertAppInfo);
-
-    void l();
-
-    boolean n();
-
-    void o(String str);
-
-    void onDestroy();
+    public g0a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

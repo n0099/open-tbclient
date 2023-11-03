@@ -1,16 +1,16 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tieba.xr1;
+import android.content.Context;
+import com.baidu.swan.apps.core.container.NgWebView;
 /* loaded from: classes5.dex */
-public interface as1<T extends xr1> extends yr1<T> {
-    void F();
+public interface as1 {
+    void a(NgWebView ngWebView);
 
-    boolean c();
+    void b(NgWebView ngWebView, String str);
 
-    void f(boolean z);
+    void c(NgWebView ngWebView, int i, int i2, int i3, int i4, String str, boolean z);
 
-    void h(View.OnClickListener onClickListener);
+    void d(String str, Context context);
 
-    void removeFromParent();
+    void e(String str, Context context);
 }

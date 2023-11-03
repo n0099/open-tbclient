@@ -1,107 +1,47 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.widget.ImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.DataOutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.util.Map;
 /* loaded from: classes5.dex */
-public class ec1 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "https://etrade.baidu.com/sgw/common/pingd/trace";
+public class ec1 extends Handler {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947729430, "Lcom/baidu/tieba/ec1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947729430, "Lcom/baidu/tieba/ec1;");
-                return;
-            }
-        }
-        if (eb1.a() != 1) {
-            a = "http://sandbox.y.nuomi.com/c/uniongw/o/common/pingd/trace";
-        }
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ec1() {
+        super(Looper.getMainLooper());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public void a(za1 za1Var, ya1 ya1Var, xa1 xa1Var) {
-        DataOutputStream dataOutputStream;
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, za1Var, ya1Var, xa1Var) == null) {
-            try {
-                HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(a).openConnection();
-                for (Map.Entry<String, String> entry : za1Var.c().entrySet()) {
-                    httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
-                }
-                httpURLConnection.setDoInput(true);
-                httpURLConnection.setDoOutput(true);
-                httpURLConnection.setRequestMethod("POST");
-                httpURLConnection.setUseCaches(false);
-                httpURLConnection.setConnectTimeout(5000);
-                httpURLConnection.setReadTimeout(5000);
-                StringBuilder sb = new StringBuilder();
-                for (Map.Entry<String, String> entry2 : ya1Var.c().entrySet()) {
-                    String encode = URLEncoder.encode(entry2.getValue(), "utf-8");
-                    sb.append(entry2.getKey());
-                    sb.append("=");
-                    sb.append(encode);
-                    sb.append("&");
-                }
-                byte[] bytes = sb.toString().getBytes();
-                httpURLConnection.setRequestProperty("Content-Length", String.valueOf(bytes.length));
-                httpURLConnection.connect();
-                dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
-                try {
-                    dataOutputStream.write(bytes);
-                    dataOutputStream.flush();
-                    int responseCode = httpURLConnection.getResponseCode();
-                    if (xa1Var != null) {
-                        if (responseCode >= 200 && responseCode <= 299) {
-                            xa1Var.c(null);
-                        } else {
-                            xa1Var.a(null, 119501, null);
-                        }
-                    }
-                    nc1.a(dataOutputStream);
-                } catch (Throwable unused) {
-                    if (xa1Var != null) {
-                        try {
-                            xa1Var.a(null, 119501, null);
-                        } catch (Throwable th) {
-                            nc1.a(dataOutputStream);
-                            throw th;
-                        }
-                    }
-                    nc1.a(dataOutputStream);
-                }
-            } catch (Throwable unused2) {
-                dataOutputStream = null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+            super.handleMessage(message);
+            fc1 fc1Var = (fc1) message.obj;
+            ImageView imageView = fc1Var.a;
+            if (((String) imageView.getTag()).equals(fc1Var.b)) {
+                imageView.setImageBitmap(fc1Var.c);
+            } else {
+                gd1.g("不是最新数据");
             }
         }
     }

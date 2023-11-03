@@ -1,80 +1,57 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.Item;
-import tbclient.RecommendForumInfo;
-import tbclient.SearchSug.DataRes;
-import tbclient.SugLiveInfo;
-import tbclient.SugRankingInfo;
 /* loaded from: classes5.dex */
 public class e29 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static List<yh> a(DataRes dataRes, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, dataRes, str)) == null) {
-            if (dataRes == null) {
-                return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947682589, "Lcom/baidu/tieba/e29;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            ArrayList arrayList = new ArrayList();
-            List<RecommendForumInfo> list = dataRes.forum_cards;
-            if (list != null && list.size() > 0) {
-                for (int i = 0; i < list.size(); i++) {
-                    if (list.get(i) != null) {
-                        a29 a29Var = new a29();
-                        a29Var.i(list.get(i));
-                        a29Var.l(true);
-                        arrayList.add(a29Var);
-                    }
-                }
-            } else {
-                RecommendForumInfo recommendForumInfo = dataRes.forum_card;
-                if (recommendForumInfo != null) {
-                    a29 a29Var2 = new a29();
-                    a29Var2.i(recommendForumInfo);
-                    a29Var2.l(false);
-                    arrayList.add(a29Var2);
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947682589, "Lcom/baidu/tieba/e29;");
+                return;
             }
-            Item item = dataRes.item_card;
-            if (item != null) {
-                b29 b29Var = new b29();
-                b29Var.g(item);
-                arrayList.add(b29Var);
-            }
-            for (SugLiveInfo sugLiveInfo : dataRes.live_card) {
-                c29 c29Var = new c29();
-                c29Var.m(str);
-                c29Var.l(sugLiveInfo);
-                arrayList.add(c29Var);
-            }
-            SugRankingInfo sugRankingInfo = dataRes.ranking_card;
-            if (sugRankingInfo != null) {
-                d29 d29Var = new d29();
-                d29Var.f(str);
-                d29Var.e(sugRankingInfo);
-                arrayList.add(d29Var);
-            }
-            int size = arrayList.size();
-            for (String str2 : dataRes.list) {
-                z19 z19Var = new z19();
-                z19Var.c(str);
-                z19Var.d(str2);
-                if (!StringUtils.isNull(str2) && !StringUtils.isNull(str) && str2.trim().equals(str.trim())) {
-                    arrayList.add(size, z19Var);
-                } else {
-                    arrayList.add(z19Var);
-                }
-            }
-            return arrayList;
         }
-        return (List) invokeLL.objValue;
+        a = String.valueOf(TbadkCoreApplication.getCurrentAccountId());
+    }
+
+    public static void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            b(str, null);
+        }
+    }
+
+    public static void b(String str, BdSwitchView.SwitchState switchState) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, switchState) == null) {
+            StatisticItem param = new StatisticItem(str).param("uid", a);
+            if (switchState != null) {
+                if (switchState == BdSwitchView.SwitchState.OFF) {
+                    i = 1;
+                } else {
+                    i = 2;
+                }
+                param.param("obj_type", i);
+            }
+            TiebaStatic.log(param);
+        }
     }
 }

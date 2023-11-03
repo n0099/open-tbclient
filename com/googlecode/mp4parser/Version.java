@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.LineNumberReader;
 import java.util.logging.Logger;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Version {
     public static final Logger LOG = Logger.getLogger(Version.class.getName());
     public static final String VERSION;

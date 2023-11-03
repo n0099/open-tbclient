@@ -1,29 +1,15 @@
 package com.baidu.tieba;
+
+import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
 /* loaded from: classes6.dex */
 public interface iu3 {
-    long a();
+    void a(DownloadInfo downloadInfo);
 
-    void b(boolean z);
+    void b();
 
-    boolean c();
+    DownloadInfo c(String str);
 
-    boolean d();
+    void close();
 
-    String e();
-
-    long f();
-
-    String g();
-
-    long h();
-
-    Long i();
-
-    boolean j();
-
-    boolean k();
-
-    String l();
-
-    String m();
+    void d(DownloadInfo downloadInfo);
 }

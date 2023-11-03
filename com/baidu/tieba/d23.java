@@ -1,22 +1,26 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import com.tencent.open.SocialOperation;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.UUID;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class d23 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, ProviderDelegation> a;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,56 +36,91 @@ public class d23 {
                 return;
             }
         }
-        a = new ConcurrentHashMap();
-        c(pt1.a());
-        c(wo2.s().d());
+        a = rm1.a;
     }
 
-    public d23() {
+    public static String a(String str, long j, String str2) {
+        InterceptResult invokeCommon;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Long.valueOf(j), str2})) == null) {
+            g63 M = g63.M();
+            if (M == null) {
+                str3 = "";
+            } else {
+                str3 = jy1.a(M.P());
+            }
+            String[] strArr = {str3, str, String.valueOf(j), str2};
+            Arrays.sort(strArr);
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < 4; i++) {
+                sb.append(strArr[i]);
+            }
+            try {
+                return yi3.c("SHA-1", sb.toString().getBytes(), false);
+            } catch (NoSuchAlgorithmException e) {
+                if (!a) {
+                    return "";
+                }
+                Log.e("SwanPluginHostSign", "getSignature occurs exception:", e);
+                return "";
             }
         }
+        return (String) invokeCommon.objValue;
     }
 
-    @Nullable
-    public static ProviderDelegation a(@NonNull Class<? extends ProviderDelegation> cls) {
-        InterceptResult invokeL;
+    public static boolean c(String str, String str2, hf4 hf4Var) {
+        InterceptResult invokeLLL;
+        int length;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cls)) == null) {
-            return a.get(cls.getName());
-        }
-        return (ProviderDelegation) invokeL.objValue;
-    }
-
-    @Nullable
-    public static ProviderDelegation b(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            return a.get(str);
-        }
-        return (ProviderDelegation) invokeL.objValue;
-    }
-
-    public static void c(@Nullable Map<Class, Object> map) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, map) == null) && map != null) {
-            for (Class cls : map.keySet()) {
-                if (cls != null) {
-                    Object obj = map.get(cls);
-                    if (obj instanceof ProviderDelegation) {
-                        a.put(cls.getName(), (ProviderDelegation) obj);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, hf4Var)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && hf4Var != null) {
+                String str3 = hf4Var.q;
+                if (TextUtils.isEmpty(str3)) {
+                    return false;
+                }
+                try {
+                    JSONArray optJSONArray = new JSONObject(str3).optJSONArray(str);
+                    if (optJSONArray == null || (length = optJSONArray.length()) == 0) {
+                        return false;
                     }
+                    ArrayList arrayList = new ArrayList();
+                    for (int i = 0; i < length; i++) {
+                        String optString = optJSONArray.optString(i);
+                        if (!TextUtils.isEmpty(optString)) {
+                            arrayList.add(optString);
+                        }
+                    }
+                    return x63.b(new URI(str2).getHost(), arrayList);
+                } catch (URISyntaxException | JSONException e) {
+                    y13.b(Log.getStackTraceString(e));
                 }
             }
+            return false;
         }
+        return invokeLLL.booleanValue;
+    }
+
+    public static String b(hf4 hf4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, hf4Var)) == null) {
+            if (hf4Var == null) {
+                return "";
+            }
+            String str = hf4Var.p;
+            JSONObject jSONObject = new JSONObject();
+            String uuid = UUID.randomUUID().toString();
+            long currentTimeMillis = System.currentTimeMillis() / 1000;
+            try {
+                jSONObject.put("noncestr", uuid);
+                jSONObject.put("timestamp", currentTimeMillis);
+                jSONObject.put(SocialOperation.GAME_SIGNATURE, a(uuid, currentTimeMillis, str));
+            } catch (JSONException e) {
+                y13.b(Log.getStackTraceString(e));
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeL.objValue;
     }
 }

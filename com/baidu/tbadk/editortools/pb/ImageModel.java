@@ -120,7 +120,7 @@ public class ImageModel extends BdBaseModel {
         this.b = null;
     }
 
-    public boolean S(String str) {
+    public boolean T(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {

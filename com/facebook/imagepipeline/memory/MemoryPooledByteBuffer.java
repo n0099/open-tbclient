@@ -25,7 +25,7 @@ public class MemoryPooledByteBuffer implements PooledByteBuffer {
             z = false;
         }
         Preconditions.checkArgument(z);
-        this.mBufRef = closeableReference.mo168clone();
+        this.mBufRef = closeableReference.mo172clone();
         this.mSize = i;
     }
 

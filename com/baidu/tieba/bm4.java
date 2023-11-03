@@ -1,27 +1,31 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Environment;
-import android.text.TextUtils;
+import android.util.SparseIntArray;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bm4 implements cm4<String> {
+public class bm4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public JSONArray a;
+    public SparseIntArray b;
+    public ArrayList<String> c;
+    public long d;
+    public long e;
+    public String f;
+    public boolean g;
 
-    public bm4(Context context) {
+    public bm4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,65 +35,79 @@ public class bm4 implements cm4<String> {
                 return;
             }
         }
-        this.a = context.getApplicationContext();
+        this.g = false;
+        this.a = new JSONArray();
+        this.b = new SparseIntArray();
+        this.c = new ArrayList<>();
+        this.d = 0L;
+        this.e = 0L;
+        this.f = "0";
+    }
+
+    public final void a(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            this.a.put(jSONObject);
+        }
+    }
+
+    public boolean b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (this.a.toString().getBytes().length >= i) {
+                return true;
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
     }
 
     public final void e(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || !TextUtils.equals("mounted", Environment.getExternalStorageState()) || !km4.a(this.a, "android.permission.WRITE_EXTERNAL_STORAGE")) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && !this.c.contains(str)) {
+            this.c.add(str);
         }
-        im4.d(str, new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".uuid"));
     }
 
-    @Override // com.baidu.tieba.cm4
-    public boolean a() {
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b.clear();
+            this.c.clear();
+            this.a = null;
+        }
+    }
+
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!TextUtils.equals("mounted", Environment.getExternalStorageState()) || !km4.a(this.a, com.kuaishou.weapon.p0.h.i)) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.a.length() == 0) {
                 return true;
             }
-            return !new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".uuid").exists();
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cm4
-    /* renamed from: b */
-    public String get() {
-        InterceptResult invokeV;
+    public final void f(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return c();
+        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
+            this.b.put(i, i2);
         }
-        return (String) invokeV.objValue;
     }
 
-    public final String c() {
-        InterceptResult invokeV;
+    public final void g(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!TextUtils.equals("mounted", Environment.getExternalStorageState()) || !km4.a(this.a, com.kuaishou.weapon.p0.h.i)) {
-                return null;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            long j3 = this.d;
+            if ((j < j3 || j3 == 0) && j != 0) {
+                this.d = j;
             }
-            File file = new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".uuid");
-            if (!file.exists()) {
-                return null;
+            if (j2 > this.e) {
+                this.e = j2;
             }
-            return im4.c(file);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cm4
-    /* renamed from: d */
-    public void put(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            e(str);
         }
     }
 }

@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.boa;
-import com.baidu.tieba.sp6;
+import com.baidu.tieba.c1b;
+import com.baidu.tieba.ir6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -230,10 +230,10 @@ public final class TitleTagsView extends LinearLayout {
 
     public final void d(ThemeColorInfo themeColorInfo) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, themeColorInfo) == null) && !TextUtils.isEmpty(boa.g(themeColorInfo))) {
+        if ((interceptable == null || interceptable.invokeL(1048579, this, themeColorInfo) == null) && !TextUtils.isEmpty(c1b.g(themeColorInfo))) {
             TbImageView tbImageView = new TbImageView(getContext());
             tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(boa.i(themeColorInfo), boa.h(themeColorInfo));
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(c1b.i(themeColorInfo), c1b.h(themeColorInfo));
             layoutParams.leftMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X002);
             getTagViewList().add(tbImageView);
             addView(tbImageView, layoutParams);
@@ -248,7 +248,7 @@ public final class TitleTagsView extends LinearLayout {
         }
     }
 
-    public final void c(sp6 titleTags) {
+    public final void c(ir6 titleTags) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, titleTags) == null) {
             Intrinsics.checkNotNullParameter(titleTags, "titleTags");
@@ -293,7 +293,7 @@ public final class TitleTagsView extends LinearLayout {
             while (it.hasNext()) {
                 ThemeColorInfo info = it.next();
                 Intrinsics.checkNotNullExpressionValue(info, "info");
-                String g = boa.g(info);
+                String g = c1b.g(info);
                 if (!TextUtils.isEmpty(g)) {
                     TbImageView tbImageView = getTagViewList().get(i);
                     Intrinsics.checkNotNullExpressionValue(tbImageView, "tagViewList[i]");

@@ -1,139 +1,69 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-/* loaded from: classes7.dex */
-public class r5a extends Thread {
+/* loaded from: classes8.dex */
+public class r5a extends bi<b7a, CardViewHolder<c8a>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public final String b;
-    public Process c;
-    public BufferedReader d;
-    public FileOutputStream e;
-    public a f;
+    public TbPageContext<?> a;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a();
-    }
-
-    public r5a(String str, String str2, boolean z) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public r5a(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity(), b7a.c);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Boolean.valueOf(z)};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = true;
-        this.d = null;
-        this.e = null;
-        try {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss", Locale.ENGLISH);
-            this.e = new FileOutputStream(new File(str, str2 + "-" + simpleDateFormat.format(new Date()) + ".txt"), true);
-        } catch (FileNotFoundException e) {
-            BdLog.e(Log.getStackTraceString(e));
-        }
-        if (z) {
-            this.b = "logcat -v threadtime *:v -d";
-        } else {
-            this.b = "logcat -v threadtime *:v";
-        }
+        this.a = tbPageContext;
     }
 
-    public final void a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: t */
+    public CardViewHolder<c8a> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Process process = this.c;
-            if (process != null) {
-                process.destroy();
-                this.c = null;
-            }
-            BufferedReader bufferedReader = this.d;
-            if (bufferedReader != null) {
-                try {
-                    bufferedReader.close();
-                    this.d = null;
-                } catch (IOException e) {
-                    BdLog.e(Log.getStackTraceString(e));
-                }
-            }
-            FileOutputStream fileOutputStream = this.e;
-            if (fileOutputStream != null) {
-                try {
-                    fileOutputStream.close();
-                } catch (IOException e2) {
-                    BdLog.e(Log.getStackTraceString(e2));
-                }
-                this.e = null;
-            }
-            a aVar = this.f;
-            if (aVar != null) {
-                aVar.a();
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new CardViewHolder<>(new c8a(this.a));
         }
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    public void b(a aVar) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, b7a b7aVar, CardViewHolder<c8a> cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f = aVar;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, b7aVar, cardViewHolder})) == null) {
+            cardViewHolder.a().k(b7aVar);
+            cardViewHolder.a().l(this.a, TbadkCoreApplication.getInst().getSkinType());
+            return cardViewHolder.getView();
         }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a = false;
-            a();
-            interrupt();
-        }
-    }
-
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        String readLine;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            try {
-                try {
-                    this.c = Runtime.getRuntime().exec(this.b);
-                    this.d = new BufferedReader(new InputStreamReader(this.c.getInputStream()), 1024);
-                    while (this.a && (readLine = this.d.readLine()) != null && this.a) {
-                        if (readLine.length() != 0 && this.e != null) {
-                            FileOutputStream fileOutputStream = this.e;
-                            fileOutputStream.write((readLine + "\n").getBytes());
-                        }
-                    }
-                    BdLog.d("collector complete.");
-                } catch (IOException e) {
-                    BdLog.e(Log.getStackTraceString(e));
-                }
-            } finally {
-                a();
-            }
-        }
+        return (View) invokeCommon.objValue;
     }
 }

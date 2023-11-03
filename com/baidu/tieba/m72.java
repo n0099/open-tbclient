@@ -1,42 +1,77 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class m72 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public m72() {
+    public static synchronized l72 a(@NonNull String str) {
+        InterceptResult invokeL;
+        l72 q72Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public l72 a(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, context, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    return new n72(context);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            synchronized (m72.class) {
+                char c = 65535;
+                switch (str.hashCode()) {
+                    case 48:
+                        if (str.equals("0")) {
+                            c = 0;
+                            break;
+                        }
+                        break;
+                    case 49:
+                        if (str.equals("1")) {
+                            c = 1;
+                            break;
+                        }
+                        break;
+                    case 50:
+                        if (str.equals("2")) {
+                            c = 2;
+                            break;
+                        }
+                        break;
+                    case 51:
+                        if (str.equals("3")) {
+                            c = 3;
+                            break;
+                        }
+                        break;
+                    case 52:
+                        if (str.equals("4")) {
+                            c = 4;
+                            break;
+                        }
+                        break;
                 }
-                return new p72(context);
+                if (c != 0) {
+                    if (c != 1) {
+                        if (c != 2) {
+                            if (c != 3) {
+                                if (c != 4) {
+                                    q72Var = new k72();
+                                } else {
+                                    q72Var = new o72();
+                                }
+                            } else {
+                                q72Var = new n72();
+                            }
+                        } else {
+                            q72Var = new p72();
+                        }
+                    } else {
+                        q72Var = new j72();
+                    }
+                } else {
+                    q72Var = new q72();
+                }
             }
-            return new n72(context);
+            return q72Var;
         }
-        return (l72) invokeLI.objValue;
+        return (l72) invokeL.objValue;
     }
 }

@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ChatRoomInfo extends OrmObject implements Serializable {
@@ -373,5 +374,36 @@ public class ChatRoomInfo extends OrmObject implements Serializable {
         if (interceptable == null || interceptable.invokeI(1048611, this, i) == null) {
             this.unreadNum = i;
         }
+    }
+
+    public JSONObject toJSONObject() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("room_id", this.roomId);
+                jSONObject.put("is_show", this.isShow);
+                jSONObject.put(BigdayActivityConfig.JUMP_URL, this.jumpUrl);
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("forum_id", this.forumId);
+                jSONObject2.put("forum_name", this.forumName);
+                jSONObject2.put("group_id", this.groupId);
+                jSONObject2.put("name", this.name);
+                jSONObject2.put("avatar", this.avatar);
+                jSONObject2.put("unread_num", this.unreadNum);
+                jSONObject.put("room_info", jSONObject2);
+                if (this.mNewMessage != null) {
+                    jSONObject.put("msg_info", this.mNewMessage.toJSONObject());
+                }
+                if (this.atInfo != null) {
+                    jSONObject.put("at_info", this.atInfo.toJSONObject());
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

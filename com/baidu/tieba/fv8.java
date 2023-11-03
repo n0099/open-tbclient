@@ -1,152 +1,384 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.switchs.SpriteTypeWriterSwitch;
-import com.baidu.tieba.impersonal.components.uistate.MsgEvents;
-import com.baidu.tieba.impersonal.data.VoiceMsgContent;
-import com.baidu.tieba.impersonal.sprite.SpriteMsgProcessor;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.safe.UiUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsKt;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes6.dex */
 public final class fv8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final fv8 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947777697, "Lcom/baidu/tieba/fv8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static final void a(final String filePath, final int i, final int i2, final dv8 callback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{filePath, Integer.valueOf(i), Integer.valueOf(i2), callback}) == null) {
+            Intrinsics.checkNotNullParameter(filePath, "filePath");
+            Intrinsics.checkNotNullParameter(callback, "callback");
+            UiUtils.runOnBgThread(new Runnable() { // from class: com.baidu.tieba.yu8
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        fv8.b(filePath, i, i2, callback);
+                    }
+                }
+            });
+        }
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x00b8 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x00ba */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:80:0x014c */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x0073 A[Catch: all -> 0x0126, Exception -> 0x012a, TryCatch #12 {Exception -> 0x012a, all -> 0x0126, blocks: (B:7:0x0039, B:9:0x004f, B:20:0x0073, B:21:0x0079, B:24:0x0089, B:47:0x00d6, B:51:0x00e7, B:53:0x00ee, B:54:0x00f7, B:15:0x0059), top: B:89:0x0039 }] */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0087  */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x00e5  */
+    /* JADX WARN: Type inference failed for: r7v0 */
+    /* JADX WARN: Type inference failed for: r7v12, types: [int] */
+    /* JADX WARN: Type inference failed for: r7v17 */
+    /* JADX WARN: Type inference failed for: r7v18 */
+    /* JADX WARN: Type inference failed for: r7v19 */
+    /* JADX WARN: Type inference failed for: r7v2 */
+    /* JADX WARN: Type inference failed for: r7v4, types: [java.io.ByteArrayInputStream] */
+    /* JADX WARN: Type inference failed for: r7v5, types: [java.io.ByteArrayInputStream] */
+    /* JADX WARN: Type inference failed for: r7v6 */
+    /* JADX WARN: Type inference failed for: r7v9 */
+    /* JADX WARN: Type inference failed for: r9v0 */
+    /* JADX WARN: Type inference failed for: r9v1 */
+    /* JADX WARN: Type inference failed for: r9v10 */
+    /* JADX WARN: Type inference failed for: r9v11 */
+    /* JADX WARN: Type inference failed for: r9v14, types: [android.graphics.Bitmap] */
+    /* JADX WARN: Type inference failed for: r9v15 */
+    /* JADX WARN: Type inference failed for: r9v2, types: [java.io.FileOutputStream] */
+    /* JADX WARN: Type inference failed for: r9v3, types: [java.io.FileOutputStream] */
+    /* JADX WARN: Type inference failed for: r9v5, types: [android.graphics.Bitmap] */
+    /* JADX WARN: Type inference failed for: r9v6 */
+    /* JADX WARN: Type inference failed for: r9v7 */
+    /* JADX WARN: Type inference failed for: r9v8 */
+    /* JADX WARN: Type inference failed for: r9v9 */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static final void b(final String filePath, int i, int i2, final dv8 callback) {
+        ByteArrayOutputStream byteArrayOutputStream;
+        ?? r7;
+        Object obj;
+        Bitmap bitmap;
+        BitmapFactory.Options options;
+        int i3;
+        int i4;
+        Bitmap.CompressFormat compressFormat;
+        int ceil;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{filePath, Integer.valueOf(i), Integer.valueOf(i2), callback}) == null) {
+            Intrinsics.checkNotNullParameter(filePath, "$filePath");
+            Intrinsics.checkNotNullParameter(callback, "$callback");
+            final String str = filePath + "_backup";
+            Bitmap bitmap2 = null;
+            try {
+                byteArrayOutputStream = new ByteArrayOutputStream();
+                try {
+                    options = new BitmapFactory.Options();
+                    options.inJustDecodeBounds = false;
+                    bitmap = BitmapFactory.decodeFile(filePath, options);
+                    try {
+                        i3 = options.outWidth;
+                        i4 = options.outHeight;
+                        compressFormat = Bitmap.CompressFormat.JPEG;
+                        String str2 = options.outMimeType;
+                        Intrinsics.checkNotNullExpressionValue(str2, "options.outMimeType");
+                        if (StringsKt__StringsJVMKt.endsWith$default(str2, "png", false, 2, null)) {
+                            compressFormat = Bitmap.CompressFormat.PNG;
+                        }
+                    } catch (Exception e) {
+                        e = e;
+                        obj = null;
+                        bitmap2 = bitmap;
+                        bitmap = obj;
+                        r7 = obj;
+                        try {
+                            e.printStackTrace();
+                            g(bitmap2, r7, byteArrayOutputStream, bitmap);
+                            UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.vu8
+                                public static /* synthetic */ Interceptable $ic;
+                                public transient /* synthetic */ FieldHolder $fh;
+
+                                @Override // java.lang.Runnable
+                                public final void run() {
+                                    Interceptable interceptable2 = $ic;
+                                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                        fv8.f(dv8.this, filePath);
+                                    }
+                                }
+                            });
+                            return;
+                        } catch (Throwable th) {
+                            th = th;
+                            g(bitmap2, r7, byteArrayOutputStream, bitmap);
+                            throw th;
+                        }
+                    } catch (Throwable th2) {
+                        th = th2;
+                        r7 = 0;
+                        bitmap2 = bitmap;
+                        bitmap = r7;
+                        g(bitmap2, r7, byteArrayOutputStream, bitmap);
+                        throw th;
+                    }
+                } catch (Exception e2) {
+                    e = e2;
+                    obj = null;
+                } catch (Throwable th3) {
+                    th = th3;
+                    r7 = 0;
+                }
+            } catch (Exception e3) {
+                e = e3;
+                byteArrayOutputStream = null;
+                obj = null;
+            } catch (Throwable th4) {
+                th = th4;
+                byteArrayOutputStream = null;
+                r7 = 0;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947777697, "Lcom/baidu/tieba/fv8;");
+            try {
+                try {
+                    try {
+                        if (i4 <= i && i4 <= i2) {
+                            ceil = 1;
+                            if (ceil > 1) {
+                                options.inSampleSize = ceil;
+                                bitmap = BitmapFactory.decodeFile(filePath, options);
+                            }
+                            bitmap.compress(compressFormat, 100, byteArrayOutputStream);
+                            r7 = byteArrayOutputStream.toByteArray().length;
+                            if (r7 > 5242880) {
+                                if (ceil > 1) {
+                                    ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
+                                    Bitmap decodeStream = BitmapFactory.decodeStream(byteArrayInputStream);
+                                    FileOutputStream fileOutputStream = new FileOutputStream(new File(str));
+                                    if (decodeStream.compress(compressFormat, 100, fileOutputStream)) {
+                                        fileOutputStream.flush();
+                                    }
+                                    UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.wu8
+                                        public static /* synthetic */ Interceptable $ic;
+                                        public transient /* synthetic */ FieldHolder $fh;
+
+                                        @Override // java.lang.Runnable
+                                        public final void run() {
+                                            Interceptable interceptable2 = $ic;
+                                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                                fv8.c(dv8.this, str);
+                                            }
+                                        }
+                                    });
+                                    g(decodeStream, byteArrayInputStream, byteArrayOutputStream, fileOutputStream);
+                                    g(decodeStream, byteArrayInputStream, byteArrayOutputStream, fileOutputStream);
+                                    return;
+                                }
+                                UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.xu8
+                                    public static /* synthetic */ Interceptable $ic;
+                                    public transient /* synthetic */ FieldHolder $fh;
+
+                                    @Override // java.lang.Runnable
+                                    public final void run() {
+                                        Interceptable interceptable2 = $ic;
+                                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                            fv8.d(dv8.this, filePath);
+                                        }
+                                    }
+                                });
+                                g(bitmap, null, byteArrayOutputStream, null);
+                                g(bitmap, null, byteArrayOutputStream, null);
+                                return;
+                            }
+                            int i5 = 90;
+                            while (byteArrayOutputStream.toByteArray().length > 5242880) {
+                                byteArrayOutputStream.reset();
+                                bitmap.compress(compressFormat, i5, byteArrayOutputStream);
+                                i5 -= 10;
+                            }
+                            ByteArrayInputStream byteArrayInputStream2 = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
+                            Bitmap decodeStream2 = BitmapFactory.decodeStream(byteArrayInputStream2);
+                            FileOutputStream fileOutputStream2 = new FileOutputStream(new File(str));
+                            if (decodeStream2.compress(compressFormat, 100, fileOutputStream2)) {
+                                fileOutputStream2.flush();
+                            }
+                            UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.av8
+                                public static /* synthetic */ Interceptable $ic;
+                                public transient /* synthetic */ FieldHolder $fh;
+
+                                @Override // java.lang.Runnable
+                                public final void run() {
+                                    Interceptable interceptable2 = $ic;
+                                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                        fv8.e(dv8.this, str);
+                                    }
+                                }
+                            });
+                            g(decodeStream2, byteArrayInputStream2, byteArrayOutputStream, fileOutputStream2);
+                            g(decodeStream2, byteArrayInputStream2, byteArrayOutputStream, fileOutputStream2);
+                            return;
+                        }
+                        if (r7 > 5242880) {
+                        }
+                    } catch (Exception e4) {
+                        e = e4;
+                        Bitmap bitmap3 = bitmap;
+                        bitmap = 0;
+                        bitmap2 = bitmap3;
+                        r7 = r7;
+                        e.printStackTrace();
+                        g(bitmap2, r7, byteArrayOutputStream, bitmap);
+                        UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.vu8
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+
+                            @Override // java.lang.Runnable
+                            public final void run() {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                    fv8.f(dv8.this, filePath);
+                                }
+                            }
+                        });
+                        return;
+                    } catch (Throwable th5) {
+                        th = th5;
+                        Bitmap bitmap4 = bitmap;
+                        bitmap = 0;
+                        bitmap2 = bitmap4;
+                        g(bitmap2, r7, byteArrayOutputStream, bitmap);
+                        throw th;
+                    }
+                } catch (Exception e5) {
+                    e = e5;
+                    bitmap2 = 1;
+                    r7 = r7;
+                    bitmap = bitmap;
+                    e.printStackTrace();
+                    g(bitmap2, r7, byteArrayOutputStream, bitmap);
+                    UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.vu8
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+
+                        @Override // java.lang.Runnable
+                        public final void run() {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                fv8.f(dv8.this, filePath);
+                            }
+                        }
+                    });
+                    return;
+                } catch (Throwable th6) {
+                    th = th6;
+                    bitmap2 = 1;
+                    g(bitmap2, r7, byteArrayOutputStream, bitmap);
+                    throw th;
+                }
+            } catch (Exception e6) {
+                e = e6;
+                bitmap = 0;
+                bitmap2 = 1;
+                r7 = r7;
+                bitmap = bitmap;
+                e.printStackTrace();
+                g(bitmap2, r7, byteArrayOutputStream, bitmap);
+                UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.vu8
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            fv8.f(dv8.this, filePath);
+                        }
+                    }
+                });
                 return;
+            } catch (Throwable th7) {
+                th = th7;
+                bitmap = 0;
+                bitmap2 = 1;
+                g(bitmap2, r7, byteArrayOutputStream, bitmap);
+                throw th;
             }
+            ceil = (int) Math.ceil(i3 / i);
+            int ceil2 = (int) Math.ceil(i4 / i2);
+            if (ceil <= ceil2) {
+                ceil = ceil2;
+            }
+            if (ceil > 1) {
+            }
+            bitmap.compress(compressFormat, 100, byteArrayOutputStream);
+            r7 = byteArrayOutputStream.toByteArray().length;
         }
-        a = new fv8();
     }
 
-    public fv8() {
+    public static final void c(dv8 callback, String toFilePath) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeLL(65538, null, callback, toFilePath) == null) {
+            Intrinsics.checkNotNullParameter(callback, "$callback");
+            Intrinsics.checkNotNullParameter(toFilePath, "$toFilePath");
+            callback.onFinish(toFilePath);
         }
     }
 
-    public final h77<?> a(jw8 jw8Var, av8<?> av8Var, SpriteMsgProcessor.e eVar, boolean z) {
-        InterceptResult invokeCommon;
-        String str;
-        String str2;
-        String str3;
-        boolean z2;
+    public static final void d(dv8 callback, String filePath) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{jw8Var, av8Var, eVar, Boolean.valueOf(z)})) == null) {
-            Object f = av8Var.f();
-            Class<?> cls = null;
-            if (f instanceof bv8) {
-                if (av8Var.e().e()) {
-                    str3 = "text_right";
-                } else {
-                    str3 = "text_left";
-                }
-                su8 su8Var = new su8(av8Var, str3);
-                if (SpriteTypeWriterSwitch.Companion.isOn() && eVar.a() == 3 && z && !av8Var.e().e()) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                su8Var.k(z2);
-                su8Var.h(MsgEvents.a.b(jw8Var));
-                return su8Var;
-            } else if (f instanceof xu8) {
-                return new ru8(av8Var, "loading_left");
-            } else {
-                if (f instanceof VoiceMsgContent) {
-                    if (av8Var.e().e()) {
-                        str2 = "voice_right";
-                    } else {
-                        str2 = "voice_left";
-                    }
-                    tu8 tu8Var = new tu8(av8Var, str2);
-                    tu8Var.g(MsgEvents.a.a());
-                    return tu8Var;
-                } else if (f instanceof wu8) {
-                    if (av8Var.e().e()) {
-                        str = "image_right";
-                    } else {
-                        str = "image_left";
-                    }
-                    return new qu8(av8Var, str);
-                } else if (!TbadkCoreApplication.getInst().isDebugMode()) {
-                    return null;
-                } else {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("unknown msg content ");
-                    Object f2 = av8Var.f();
-                    if (f2 != null) {
-                        cls = f2.getClass();
-                    }
-                    sb.append(cls);
-                    throw new IllegalStateException(sb.toString());
-                }
-            }
+        if (interceptable == null || interceptable.invokeLL(65539, null, callback, filePath) == null) {
+            Intrinsics.checkNotNullParameter(callback, "$callback");
+            Intrinsics.checkNotNullParameter(filePath, "$filePath");
+            callback.onFinish(filePath);
         }
-        return (h77) invokeCommon.objValue;
     }
 
-    public final List<h77<?>> b(jw8 repo, List<? extends vu8> list, SpriteMsgProcessor.e loadType) {
-        InterceptResult invokeLLL;
+    public static final void e(dv8 callback, String toFilePath) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, repo, list, loadType)) == null) {
-            Intrinsics.checkNotNullParameter(repo, "repo");
-            Intrinsics.checkNotNullParameter(list, "list");
-            Intrinsics.checkNotNullParameter(loadType, "loadType");
-            ArrayList arrayList = new ArrayList();
-            int i = 0;
-            for (Object obj : list) {
-                int i2 = i + 1;
-                if (i < 0) {
-                    CollectionsKt__CollectionsKt.throwIndexOverflow();
-                }
-                vu8 vu8Var = (vu8) obj;
-                if (vu8Var instanceof av8) {
-                    fv8 fv8Var = a;
-                    av8<?> av8Var = (av8) vu8Var;
-                    boolean z = true;
-                    if (i != list.size() - 1) {
-                        z = false;
-                    }
-                    h77<?> a2 = fv8Var.a(repo, av8Var, loadType, z);
-                    if (a2 != null) {
-                        arrayList.add(a2);
-                    }
-                } else if (TbadkCoreApplication.getInst().isDebugMode()) {
-                    throw new IllegalStateException("unknown msg template " + vu8Var.getClass());
-                }
-                i = i2;
-            }
-            return arrayList;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, callback, toFilePath) == null) {
+            Intrinsics.checkNotNullParameter(callback, "$callback");
+            Intrinsics.checkNotNullParameter(toFilePath, "$toFilePath");
+            callback.onFinish(toFilePath);
         }
-        return (List) invokeLLL.objValue;
+    }
+
+    public static final void f(dv8 callback, String filePath) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, callback, filePath) == null) {
+            Intrinsics.checkNotNullParameter(callback, "$callback");
+            Intrinsics.checkNotNullParameter(filePath, "$filePath");
+            callback.onFinish(filePath);
+        }
+    }
+
+    public static final void g(Bitmap bitmap, ByteArrayInputStream byteArrayInputStream, ByteArrayOutputStream byteArrayOutputStream, FileOutputStream fileOutputStream) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65542, null, bitmap, byteArrayInputStream, byteArrayOutputStream, fileOutputStream) == null) {
+            if (bitmap != null && !bitmap.isRecycled()) {
+                bitmap.recycle();
+            }
+            if (byteArrayOutputStream != null) {
+                byteArrayOutputStream.close();
+            }
+            if (byteArrayInputStream != null) {
+                byteArrayInputStream.close();
+            }
+            if (fileOutputStream != null) {
+                fileOutputStream.close();
+            }
+        }
     }
 }

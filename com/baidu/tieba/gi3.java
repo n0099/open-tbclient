@@ -1,115 +1,237 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.android.util.io.DocumentOpenUtil;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.util.BaiduIdentityManager;
+import com.baidu.swan.apps.favordata.SwanFavorItemData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class gi3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static String f = "%s/%s";
+        public static String g = "%s-%s/%s";
+        public static String h = "(Baidu; P1 %s)";
+        public static String i = "%s/%s";
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
+        public String d;
+        public String e;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-774918853, "Lcom/baidu/tieba/gi3$a;")) == null) {
+                return;
             }
-            if (!TextUtils.equals(DocumentOpenUtil.PDF_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.DOCUMENT_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.SHEET_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.PRESENT_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.WORD_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.EXCEL_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.PPT_TYPE, str)) {
-                return false;
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return true;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-774918853, "Lcom/baidu/tieba/gi3$a;");
+            }
         }
-        return invokeL.booleanValue;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public final boolean e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return TextUtils.equals(BaiduIdentityManager.VALUE_OSNAME, this.c);
+            }
+            return invokeV.booleanValue;
+        }
+
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                String format = String.format(f, this.a, this.b);
+                String format2 = String.format(g, this.a, this.c, this.d);
+                String format3 = String.format(i, this.c, this.d);
+                String format4 = String.format(h, this.e);
+                if (e()) {
+                    return String.format("%s %s %s %s", format, format2, format3, format4);
+                }
+                return String.format("%s %s %s", format, format2, format4);
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public a b(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                this.a = str;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a c(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+                this.c = str;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a d(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+                this.d = str;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a f(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+                this.e = str;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a g(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+                this.b = str;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
-        String str2;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947794840, "Lcom/baidu/tieba/gi3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947794840, "Lcom/baidu/tieba/gi3;");
+                return;
+            }
+        }
+        a = rm1.a;
+    }
+
+    public static Context a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return np2.c();
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            String str = Build.VERSION.RELEASE;
             if (TextUtils.isEmpty(str)) {
-                return "";
+                return com.baidu.mobads.sdk.internal.cj.d;
             }
-            String lowerCase = str.toLowerCase();
-            char c = 65535;
-            switch (lowerCase.hashCode()) {
-                case 99640:
-                    if (lowerCase.equals("doc")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case 110834:
-                    if (lowerCase.equals("pdf")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case 111220:
-                    if (lowerCase.equals("ppt")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case 118783:
-                    if (lowerCase.equals("xls")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case 3088960:
-                    if (lowerCase.equals(DocumentOpenUtil.DOCX)) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 3447940:
-                    if (lowerCase.equals(DocumentOpenUtil.PPTX)) {
-                        c = 6;
-                        break;
-                    }
-                    break;
-                case 3682393:
-                    if (lowerCase.equals(DocumentOpenUtil.XLSX)) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    str2 = DocumentOpenUtil.PDF_TYPE;
-                    break;
-                case 1:
-                    str2 = DocumentOpenUtil.WORD_TYPE;
-                    break;
-                case 2:
-                    str2 = DocumentOpenUtil.DOCUMENT_TYPE;
-                    break;
-                case 3:
-                    str2 = DocumentOpenUtil.EXCEL_TYPE;
-                    break;
-                case 4:
-                    str2 = DocumentOpenUtil.SHEET_TYPE;
-                    break;
-                case 5:
-                    str2 = DocumentOpenUtil.PPT_TYPE;
-                    break;
-                case 6:
-                    str2 = DocumentOpenUtil.PRESENT_TYPE;
-                    break;
-                default:
-                    str2 = "";
-                    break;
-            }
-            if (!a(str2)) {
-                return "";
-            }
-            return str2;
+            return str.replace("_", "-");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return e(SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return e("swan");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            String a2 = np2.n().a();
+            a aVar = new a();
+            aVar.b(str);
+            aVar.g(sm1.a());
+            aVar.c(a2);
+            aVar.d(f());
+            aVar.f(b());
+            return aVar.a();
         }
         return (String) invokeL.objValue;
+    }
+
+    public static String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (!TextUtils.isEmpty(b)) {
+                return b;
+            }
+            try {
+                String str = a().getPackageManager().getPackageInfo(a().getPackageName(), 0).versionName;
+                b = str;
+                return str;
+            } catch (PackageManager.NameNotFoundException e) {
+                if (a) {
+                    e.printStackTrace();
+                    return "0.8";
+                }
+                return "0.8";
+            }
+        }
+        return (String) invokeV.objValue;
     }
 }

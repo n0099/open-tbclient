@@ -1,17 +1,62 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.apps.media.audio.service.BgMusicPlayState;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public interface ws2 {
-    void onGetCurrentSong(String str);
+public class ws2 extends ss2 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public zs2 z;
 
-    void onGetDownloadProgress(int i);
+    public ws2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void onGetDuration(int i);
+    @Override // com.baidu.tieba.x12, com.baidu.tieba.fw2
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.z != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
-    void onGetPosition(int i, int i2);
-
-    void onInvokeFailed();
-
-    void onStateChanged(BgMusicPlayState bgMusicPlayState);
+    @Override // com.baidu.tieba.ss2, com.baidu.tieba.x12, com.baidu.tieba.fw2
+    public void a(JSONObject jSONObject) throws JSONException {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        super.a(jSONObject);
+        jSONObject.optString("cb");
+        double optDouble = jSONObject.optDouble("latitude");
+        double optDouble2 = jSONObject.optDouble("longitude");
+        jSONObject.optString("guideKey");
+        jSONObject.optString("guideIcon");
+        if (!Double.isNaN(optDouble) && !Double.isNaN(optDouble2) && optDouble >= -90.0d && optDouble <= 90.0d && optDouble2 >= -180.0d && optDouble2 <= 180.0d) {
+            zs2 zs2Var = new zs2();
+            this.z = zs2Var;
+            zs2Var.a(jSONObject);
+        }
+    }
 }

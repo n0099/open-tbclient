@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.NetMessageHelper;
-import com.baidu.tieba.wp4;
+import com.baidu.tieba.nq4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import tbclient.AdNewLog.DataReq;
 public class AdBillingLogReqMsg extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wp4 mReqData;
+    public nq4 mReqData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AdBillingLogReqMsg() {
@@ -39,13 +39,13 @@ public class AdBillingLogReqMsg extends NetMessage {
     }
 
     private void fillReqData(DataReq.Builder builder) {
-        wp4 wp4Var;
+        nq4 nq4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, this, builder) != null) || (wp4Var = this.mReqData) == null) {
+        if ((interceptable != null && interceptable.invokeL(65537, this, builder) != null) || (nq4Var = this.mReqData) == null) {
             return;
         }
-        builder.token = wp4Var.d;
-        int i = wp4Var.f;
+        builder.token = nq4Var.d;
+        int i = nq4Var.f;
         if (i >= 0) {
             builder.da_locate = String.valueOf(i);
         }
@@ -53,10 +53,10 @@ public class AdBillingLogReqMsg extends NetMessage {
         if (i2 >= 0) {
             builder.da_from = Integer.valueOf(i2);
         }
-        wp4 wp4Var2 = this.mReqData;
-        builder.extra_param = wp4Var2.e;
-        builder.order_id = wp4Var2.c;
-        int i3 = wp4Var2.a;
+        nq4 nq4Var2 = this.mReqData;
+        builder.extra_param = nq4Var2.e;
+        builder.order_id = nq4Var2.c;
+        int i3 = nq4Var2.a;
         if (i3 >= 0) {
             builder.da_type = String.valueOf(i3);
         }
@@ -82,10 +82,10 @@ public class AdBillingLogReqMsg extends NetMessage {
         return invokeZ.objValue;
     }
 
-    public void setReqData(wp4 wp4Var) {
+    public void setReqData(nq4 nq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wp4Var) == null) {
-            this.mReqData = wp4Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nq4Var) == null) {
+            this.mReqData = nq4Var;
         }
     }
 }

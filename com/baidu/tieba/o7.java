@@ -1,5 +1,7 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -7,86 +9,85 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class o7 implements l7 {
+public class o7 extends DiskFileOperate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
+    public String a;
+    public String b;
 
-    public o7(long j) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public o7(String str, String str2, DiskFileOperate.Action action) {
+        super(str, str2, action);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {str, str2, action};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1], (DiskFileOperate.Action) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = j;
+        this.a = null;
+        this.b = "UTF-8";
     }
 
-    @Override // com.baidu.tieba.l7
-    public Object a(u8 u8Var) {
-        InterceptResult invokeL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, u8Var)) == null) {
-            return Long.valueOf(this.a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.l7
-    public Object b(u8 u8Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
+    public byte[] buildFormatData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u8Var)) == null) {
-            return Long.valueOf(this.a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            String str = this.a;
+            if (str != null) {
+                try {
+                    return str.getBytes(this.b);
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                }
+            }
+            return null;
         }
-        return invokeL.objValue;
+        return (byte[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.l7
-    public Object c(u8 u8Var) {
-        InterceptResult invokeL;
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, u8Var)) == null) {
-            return Long.valueOf(this.a);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.a = str;
         }
-        return invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.l7
-    public Object d(u8 u8Var) {
+    @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
+    public boolean formatData(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, u8Var)) == null) {
-            return Long.valueOf(this.a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bArr)) == null) {
+            if (bArr == null) {
+                return false;
+            }
+            try {
+                this.a = new String(bArr, this.b);
+                return true;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
+            }
         }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.l7
-    public Object e(u8 u8Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, u8Var)) == null) {
-            return d(u8Var);
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.l7
-    public Object f(u8 u8Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, u8Var)) == null) {
-            return Long.valueOf(this.a);
-        }
-        return invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

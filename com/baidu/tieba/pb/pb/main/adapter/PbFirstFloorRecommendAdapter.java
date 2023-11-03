@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.bi;
 import com.baidu.tieba.core.widget.recommendcard.RecommendCardView;
-import com.baidu.tieba.lh;
 import com.baidu.tieba.pb.data.PbFirstFloorRecommendData;
 import com.baidu.tieba.pb.pb.main.adapter.PbFirstFloorRecommendAdapter;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -32,7 +32,7 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000B\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0005\u0018\u0000 \u00172\u0014\u0012\u0006\u0012\u0004\u0018\u00010\u0002\u0012\b\u0012\u00060\u0003R\u00020\u00000\u0001:\u0002\u0017\u0018B\u0019\u0012\b\u0010\u0004\u001a\u0004\u0018\u00010\u0005\u0012\b\u0010\u0006\u001a\u0004\u0018\u00010\u0007¢\u0006\u0002\u0010\bJ\u0016\u0010\t\u001a\u00020\n2\u0006\u0010\u000b\u001a\u00020\f2\u0006\u0010\r\u001a\u00020\u0002J\u0014\u0010\u000e\u001a\u00060\u0003R\u00020\u00002\u0006\u0010\u000f\u001a\u00020\u0010H\u0014J6\u0010\u0011\u001a\u00020\u00122\u0006\u0010\u0013\u001a\u00020\u00142\u0006\u0010\u0015\u001a\u00020\u00122\u0006\u0010\u000f\u001a\u00020\u00102\b\u0010\r\u001a\u0004\u0018\u00010\u00022\n\u0010\u0016\u001a\u00060\u0003R\u00020\u0000H\u0014¨\u0006\u0019"}, d2 = {"Lcom/baidu/tieba/pb/pb/main/adapter/PbFirstFloorRecommendAdapter;", "Lcom/baidu/adp/widget/ListView/AbsDelegateAdapter;", "Lcom/baidu/tieba/pb/data/PbFirstFloorRecommendData;", "Lcom/baidu/tieba/pb/pb/main/adapter/PbFirstFloorRecommendAdapter$PbFirstFloorRecommendViewHolder;", "context", "Landroid/content/Context;", "type", "Lcom/baidu/adp/BdUniqueId;", "(Landroid/content/Context;Lcom/baidu/adp/BdUniqueId;)V", "eventStat", "", "statisticItem", "Lcom/baidu/tbadk/core/util/StatisticItem;", "data", "onCreateViewHolder", "parent", "Landroid/view/ViewGroup;", "onFillViewHolder", "Landroid/view/View;", CriusAttrConstants.POSITION, "", "convertView", "viewHolder", "Companion", "PbFirstFloorRecommendViewHolder", "pb_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes7.dex */
-public final class PbFirstFloorRecommendAdapter extends lh<PbFirstFloorRecommendData, PbFirstFloorRecommendViewHolder> {
+public final class PbFirstFloorRecommendAdapter extends bi<PbFirstFloorRecommendData, PbFirstFloorRecommendViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -107,7 +107,7 @@ public final class PbFirstFloorRecommendAdapter extends lh<PbFirstFloorRecommend
                 }
                 StatisticItem param = new StatisticItem("c14071").param(TiebaStatic.Params.OBJ_PARAM2, 1);
                 Intrinsics.checkNotNullExpressionValue(param, "StatisticItem(PbStatisti…_PARAM2, CLICK_ROOT_AREA)");
-                this$0.t(param, pbFirstFloorRecommendData);
+                this$0.u(param, pbFirstFloorRecommendData);
             }
         }
 
@@ -120,7 +120,7 @@ public final class PbFirstFloorRecommendAdapter extends lh<PbFirstFloorRecommend
                 }
                 StatisticItem param = new StatisticItem("c14071").param(TiebaStatic.Params.OBJ_PARAM2, 1);
                 Intrinsics.checkNotNullExpressionValue(param, "StatisticItem(PbStatisti…_PARAM2, CLICK_ROOT_AREA)");
-                this$0.t(param, pbFirstFloorRecommendData);
+                this$0.u(param, pbFirstFloorRecommendData);
             }
         }
 
@@ -133,7 +133,7 @@ public final class PbFirstFloorRecommendAdapter extends lh<PbFirstFloorRecommend
                 }
                 StatisticItem param = new StatisticItem("c14071").param(TiebaStatic.Params.OBJ_PARAM2, 2);
                 Intrinsics.checkNotNullExpressionValue(param, "StatisticItem(PbStatisti…, CLICK_LEFT_BOTTOM_AREA)");
-                this$0.t(param, pbFirstFloorRecommendData);
+                this$0.u(param, pbFirstFloorRecommendData);
             }
         }
 
@@ -145,7 +145,7 @@ public final class PbFirstFloorRecommendAdapter extends lh<PbFirstFloorRecommend
             this.a.setText(this.d.mContext.getText(R.string.related_recommendation));
             RecommendCardView recommendCardView = this.b;
             final PbFirstFloorRecommendAdapter pbFirstFloorRecommendAdapter = this.d;
-            recommendCardView.setRootOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lk9
+            recommendCardView.setRootOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.qx9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -159,7 +159,7 @@ public final class PbFirstFloorRecommendAdapter extends lh<PbFirstFloorRecommend
             });
             RecommendCardView recommendCardView2 = this.b;
             final PbFirstFloorRecommendAdapter pbFirstFloorRecommendAdapter2 = this.d;
-            recommendCardView2.setRightButtonOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.nk9
+            recommendCardView2.setRightButtonOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.sx9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -173,7 +173,7 @@ public final class PbFirstFloorRecommendAdapter extends lh<PbFirstFloorRecommend
             });
             RecommendCardView recommendCardView3 = this.b;
             final PbFirstFloorRecommendAdapter pbFirstFloorRecommendAdapter3 = this.d;
-            recommendCardView3.setBottomGroupOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ok9
+            recommendCardView3.setBottomGroupOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tx9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -219,13 +219,13 @@ public final class PbFirstFloorRecommendAdapter extends lh<PbFirstFloorRecommend
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.lh
+    @Override // com.baidu.tieba.bi
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, PbFirstFloorRecommendData pbFirstFloorRecommendData, PbFirstFloorRecommendViewHolder pbFirstFloorRecommendViewHolder) {
-        x(i, view2, viewGroup, pbFirstFloorRecommendData, pbFirstFloorRecommendViewHolder);
+        y(i, view2, viewGroup, pbFirstFloorRecommendData, pbFirstFloorRecommendViewHolder);
         return view2;
     }
 
-    public final void t(StatisticItem statisticItem, PbFirstFloorRecommendData data) {
+    public final void u(StatisticItem statisticItem, PbFirstFloorRecommendData data) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, statisticItem, data) == null) {
             Intrinsics.checkNotNullParameter(statisticItem, "statisticItem");
@@ -235,8 +235,8 @@ public final class PbFirstFloorRecommendAdapter extends lh<PbFirstFloorRecommend
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
-    /* renamed from: u */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: x */
     public PbFirstFloorRecommendViewHolder onCreateViewHolder(ViewGroup parent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -274,7 +274,7 @@ public final class PbFirstFloorRecommendAdapter extends lh<PbFirstFloorRecommend
         return (PbFirstFloorRecommendViewHolder) invokeL.objValue;
     }
 
-    public View x(int i, View convertView, ViewGroup parent, PbFirstFloorRecommendData pbFirstFloorRecommendData, PbFirstFloorRecommendViewHolder viewHolder) {
+    public View y(int i, View convertView, ViewGroup parent, PbFirstFloorRecommendData pbFirstFloorRecommendData, PbFirstFloorRecommendViewHolder viewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), convertView, parent, pbFirstFloorRecommendData, viewHolder})) == null) {
@@ -283,7 +283,7 @@ public final class PbFirstFloorRecommendAdapter extends lh<PbFirstFloorRecommend
             Intrinsics.checkNotNullParameter(viewHolder, "viewHolder");
             if (pbFirstFloorRecommendData != null) {
                 viewHolder.a(pbFirstFloorRecommendData);
-                t(new StatisticItem("c14070"), pbFirstFloorRecommendData);
+                u(new StatisticItem("c14070"), pbFirstFloorRecommendData);
             }
             viewHolder.onChangeSkinType();
             return convertView;

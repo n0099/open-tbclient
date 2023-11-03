@@ -1,51 +1,40 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.pb.data.ThreadPublishHttpResMeesage;
-import com.baidu.tieba.pb.data.ThreadPublishReqMessage;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.live.interfaces.service.AppInfoService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class rf9 {
+/* loaded from: classes8.dex */
+public class rf9 extends bg1<AppInfoService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
 
-    public rf9(TbPageContext tbPageContext) {
+    public rf9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = tbPageContext;
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VOTE_THREAD_PULISH, xda.a(TbConfig.URL_THREAD_PUBLISH, 309644));
-        tbHttpMessageTask.setResponsedClass(ThreadPublishHttpResMeesage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void a(long j, long j2) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bg1
+    /* renamed from: a */
+    public AppInfoService createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            ThreadPublishReqMessage threadPublishReqMessage = new ThreadPublishReqMessage();
-            threadPublishReqMessage.tid = j;
-            threadPublishReqMessage.fid = j2;
-            threadPublishReqMessage.setTag(this.a.getUniqueId());
-            MessageManager.getInstance().sendMessage(threadPublishReqMessage);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new sf9();
         }
+        return (AppInfoService) invokeV.objValue;
     }
 }

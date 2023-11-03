@@ -1,15 +1,13 @@
 package com.baidu.tieba;
-
-import android.graphics.drawable.Drawable;
 /* loaded from: classes6.dex */
-public interface fw5 {
-    void setLastUpdatedLabel(CharSequence charSequence);
+public interface fw5 extends xp5 {
+    void R1(String str, boolean z);
 
-    void setLoadingDrawable(Drawable drawable);
+    boolean goBack();
 
-    void setPullLabel(CharSequence charSequence);
+    void onDestroy();
 
-    void setRefreshingLabel(CharSequence charSequence);
+    void onPause();
 
-    void setReleaseLabel(CharSequence charSequence);
+    void onResume();
 }

@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.atomData.GamePersonalChatActivityConfig;
 import com.baidu.tbadk.core.dialog.TBAlertBuilder;
 import com.baidu.tbadk.core.dialog.TBAlertConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yb8;
+import com.baidu.tieba.wo8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,10 +32,10 @@ public class GamePersonalChatActivity extends PersonalChatActivity {
     public CustomMessageListener r0;
 
     @Override // com.baidu.tieba.immessagecenter.im.chat.PersonalChatActivity, com.baidu.tieba.im.chat.MsglistActivity
-    public boolean T1(yb8 yb8Var) {
+    public boolean U1(wo8 wo8Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yb8Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, wo8Var)) == null) {
             return true;
         }
         return invokeL.booleanValue;
@@ -45,17 +45,17 @@ public class GamePersonalChatActivity extends PersonalChatActivity {
     public boolean W1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return true;
         }
         return invokeV.booleanValue;
     }
 
     @Override // com.baidu.tieba.im.chat.MsglistActivity
-    public boolean X1() {
+    public boolean Y1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -96,7 +96,7 @@ public class GamePersonalChatActivity extends PersonalChatActivity {
                 return;
             }
             if (((Integer) ((HashMap) customResponsedMessage.getData()).get("show_dialog")).intValue() == 1) {
-                this.a.A3();
+                this.a.E3();
             } else {
                 this.a.finish();
             }
@@ -201,11 +201,18 @@ public class GamePersonalChatActivity extends PersonalChatActivity {
         this.r0 = new b(this, 2921718);
     }
 
+    public void D3(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.h0 = str;
+        }
+    }
+
     @Override // com.baidu.tieba.immessagecenter.im.chat.PersonalChatActivity, com.baidu.tieba.im.chat.MsglistActivity
     public boolean V1(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bundle)) == null) {
             registerListener(this.j0);
             registerListener(this.r0);
             return super.V1(bundle);
@@ -216,33 +223,40 @@ public class GamePersonalChatActivity extends PersonalChatActivity {
     @Override // com.baidu.tieba.immessagecenter.im.chat.PersonalChatActivity, com.baidu.tieba.im.chat.MsglistActivity, com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
             this.u = true;
             this.J = false;
             super.onCreate(bundle);
         }
     }
 
-    public void z3(String str) {
+    public final void C3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.h0 = str;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (!this.i0.isEmpty()) {
+                HashMap hashMap = new HashMap();
+                List<String> list = this.i0;
+                hashMap.put("key", list.get(list.size() - 1));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921719, hashMap));
+            } else if (this.b.getVisibility()) {
+                E3();
+            }
         }
     }
 
-    public final void A3() {
+    public final void E3() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.i0.isEmpty()) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || !this.i0.isEmpty()) {
             return;
         }
-        new TBAlertBuilder(getPageContext().getPageActivity()).setTitle(R.string.game_back_tip).setDesc(R.string.cancel_game_match).setDescLightStyle(true).setOperateBtn(new TBAlertConfig.OperateBtnConfig((int) R.string.obfuscated_res_0x7f0f0596, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.OperateBtnConfig((int) R.string.obfuscated_res_0x7f0f11ea, TBAlertConfig.OperateBtnStyle.MAIN, new c(this))).setAutoClose().setCancelable(false).show();
+        new TBAlertBuilder(getPageContext().getPageActivity()).setTitle(R.string.game_back_tip).setDesc(R.string.cancel_game_match).setDescLightStyle(true).setOperateBtn(new TBAlertConfig.OperateBtnConfig((int) R.string.obfuscated_res_0x7f0f0598, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.OperateBtnConfig((int) R.string.obfuscated_res_0x7f0f11fe, TBAlertConfig.OperateBtnStyle.MAIN, new c(this))).setAutoClose().setCancelable(false).show();
     }
 
     @Override // com.baidu.tieba.immessagecenter.im.chat.PersonalChatActivity, com.baidu.tieba.im.chat.MsglistActivity
-    public void Y1() {
+    public void a2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.Y1();
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.a2();
             if (!TextUtils.isEmpty(this.h0)) {
                 this.c.sendTextMessage(this.h0);
                 this.h0 = null;
@@ -251,9 +265,9 @@ public class GamePersonalChatActivity extends PersonalChatActivity {
     }
 
     @Override // com.baidu.tieba.immessagecenter.im.chat.PersonalChatActivity
-    public void Z2() {
+    public void d3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.b = new GamePersonalChatView(this, this.c.getIsAcceptNotify(), GamePersonalChatActivityConfig.getIntentParam(getIntent()));
         }
     }
@@ -261,8 +275,8 @@ public class GamePersonalChatActivity extends PersonalChatActivity {
     @Override // com.baidu.tieba.immessagecenter.im.chat.PersonalChatActivity, com.baidu.tieba.im.chat.CommonPersonalChatActivity, com.baidu.tieba.im.chat.MsglistActivity, com.baidu.tbadk.core.BaseFragmentActivity, androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            A3();
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            E3();
         }
     }
 
@@ -270,27 +284,13 @@ public class GamePersonalChatActivity extends PersonalChatActivity {
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048585, this, i, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048587, this, i, keyEvent)) == null) {
             if (i == 4 && (this.b.getVisibility() || !this.i0.isEmpty())) {
-                y3();
+                C3();
                 return true;
             }
             return super.onKeyDown(i, keyEvent);
         }
         return invokeIL.booleanValue;
-    }
-
-    public final void y3() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            if (!this.i0.isEmpty()) {
-                HashMap hashMap = new HashMap();
-                List<String> list = this.i0;
-                hashMap.put("key", list.get(list.size() - 1));
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921719, hashMap));
-            } else if (this.b.getVisibility()) {
-                A3();
-            }
-        }
     }
 }

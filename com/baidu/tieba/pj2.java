@@ -1,16 +1,8 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.mj2;
-import com.baidu.tieba.wj2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,87 +10,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class pj2 implements mj2 {
+public class pj2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean j;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public String b;
-    public String c;
-    public x42 d;
-    public Handler e;
-    public wj2 f;
-    public f g;
-    public int h;
-    public wj2.e i;
 
-    /* loaded from: classes7.dex */
-    public interface f {
-        void a();
-
-        void b(int i);
-
-        void c(String str);
-
-        void d();
-    }
-
-    public void release() {
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? "guide_pull_toast" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ pj2 b;
+        public final /* synthetic */ String a;
 
-        public a(pj2 pj2Var, int i) {
+        public a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pj2Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = pj2Var;
-            this.a = i;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            this.b.D0(this.a);
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pj2 a;
-
-        public b(pj2 pj2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pj2Var};
+                Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -108,171 +46,14 @@ public class pj2 implements mj2 {
                     return;
                 }
             }
-            this.a = pj2Var;
+            this.a = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            this.a.v0();
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ int d;
-        public final /* synthetic */ pj2 e;
-
-        public c(pj2 pj2Var, int i, int i2, int i3, int i4) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pj2Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = pj2Var;
-            this.a = i;
-            this.b = i2;
-            this.c = i3;
-            this.d = i4;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            this.e.B0(this.a, this.b, this.c, this.d);
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pj2 a;
-
-        public d(pj2 pj2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pj2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pj2Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            this.a.A0();
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class e implements wj2.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pj2 a;
-
-        public e(pj2 pj2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pj2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pj2Var;
-        }
-
-        @Override // com.baidu.tieba.wj2.e
-        public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                e("onKeyboardHide", null);
-                if (this.a.g != null) {
-                    this.a.g.a();
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.wj2.e
-        public void d() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                e("onDeletePressed", null);
-                if (this.a.g != null) {
-                    this.a.g.d();
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.wj2.e
-        public void b(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                e("onKeyboardShow", "height: " + i);
-                if (this.a.g != null) {
-                    this.a.g.b(i);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.wj2.e
-        public void c(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                e("onInput", "inputText: " + str);
-                if (this.a.g != null) {
-                    this.a.g.c(str);
-                }
-            }
-        }
-
-        public final void e(String str, @Nullable String str2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) && pj2.j) {
-                String str3 = ("【" + this.a.j0() + "-" + this.a.hashCode() + "】\t") + "【" + str + "】";
-                if (!TextUtils.isEmpty(str2)) {
-                    str3 = str3 + str2;
-                }
-                Log.i("【KeyboardCallback】", str3);
+                ue3.a().putString("swan_guide_toast", this.a);
             }
         }
     }
@@ -290,197 +71,142 @@ public class pj2 implements mj2 {
                 return;
             }
         }
-        j = am1.a;
+        a = rm1.a;
     }
 
-    public final void A0() {
-        x42 x42Var;
+    public static void a(JSONObject jSONObject, JSONObject jSONObject2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (x42Var = this.d) != null && this.h != 0) {
-            this.h = 0;
-            if (x42Var.E3().getScrollY() > 0) {
-                this.d.E3().setScrollY(0);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.mj2
-    @Nullable
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.mj2
-    @Nullable
-    public String j0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Nullable
-    public final Activity u0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            p53 M = p53.M();
-            if (M == null) {
-                return null;
-            }
-            return M.O();
-        }
-        return (Activity) invokeV.objValue;
-    }
-
-    public final void v0() {
-        wj2 wj2Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || (wj2Var = this.f) == null) {
-            return;
-        }
-        wj2Var.dismiss();
-        this.f = null;
-    }
-
-    public void w0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.e.post(new b(this));
-        }
-    }
-
-    public void x0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.e.post(new d(this));
-        }
-    }
-
-    public pj2(ZeusPluginFactory.Invoker invoker, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {invoker, str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.i = new e(this);
-        if (invoker != null) {
-            this.c = (String) invoker.get("id");
-        }
-        this.a = wo2.c();
-        this.b = str;
-        this.e = new Handler(this.a.getMainLooper());
-        this.d = t0();
-    }
-
-    @Override // com.baidu.tieba.mj2
-    public void A(@NonNull mj2.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            if (p53.M() == null) {
-                aVar.a(false);
-            } else {
-                aVar.a(true);
-            }
-        }
-    }
-
-    public void C0(@NonNull f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) {
-            this.g = fVar;
-        }
-    }
-
-    public final void D0(int i) {
-        Activity u0;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048580, this, i) != null) || (u0 = u0()) == null) {
-            return;
-        }
-        wj2 wj2Var = new wj2(u0, i, this.i);
-        this.f = wj2Var;
-        wj2Var.e();
-    }
-
-    public void z0(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.e.post(new a(this, i));
-        }
-    }
-
-    public final void B0(int i, int i2, int i3, int i4) {
-        int i5;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4) != null) || this.d == null) {
-            return;
-        }
-        xr1 i6 = cr2.V().i();
-        if (this.h != i3 && i6 != null) {
-            this.h = i3;
-            int height = ((this.d.E3().getHeight() - i) - i2) + i6.getWebViewScrollY() + gj3.k(this.a);
-            if (i4 > height) {
-                i4 = height;
-            }
-            int i7 = height - i3;
-            int scrollY = this.d.E3().getScrollY();
-            if (i7 < 0) {
-                i5 = i4 - i7;
-            } else {
-                if (i4 > i7) {
-                    scrollY = i4 - i7;
+        if ((interceptable == null || interceptable.invokeLL(65537, null, jSONObject, jSONObject2) == null) && jSONObject != null && jSONObject2 != null) {
+            try {
+                if (!TextUtils.equals(jSONObject.optString("bbasp_guide_reset", "0"), jSONObject2.optString("bbasp_guide_reset", "-1"))) {
+                    jSONObject.put("bbasp_guide_shown_count", "0");
+                    jSONObject.put("bbasp_guide_last_time", "0");
+                    jSONObject.put("bbasp_guide_image_index", "0");
+                } else {
+                    jSONObject.put("bbasp_guide_shown_count", jSONObject2.optString("bbasp_guide_shown_count", "0"));
+                    jSONObject.put("bbasp_guide_last_time", jSONObject2.optString("bbasp_guide_last_time", "0"));
                 }
-                i5 = scrollY;
+                if (!TextUtils.equals(jSONObject.optString("bbaspg_guide_reset", "0"), jSONObject2.optString("bbaspg_guide_reset", "-1"))) {
+                    jSONObject.put("bbaspg_guide_shown_count", "0");
+                    jSONObject.put("bbaspg_guide_last_time", "0");
+                    jSONObject.put("bbaspg_guide_image_index", "0");
+                    return;
+                }
+                jSONObject.put("bbaspg_guide_shown_count", jSONObject2.optString("bbaspg_guide_shown_count", "0"));
+                jSONObject.put("bbaspg_guide_last_time", jSONObject2.optString("bbaspg_guide_last_time", "0"));
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
             }
-            this.d.E3().setScrollY(i5);
         }
     }
 
-    @Nullable
-    public final x42 t0() {
-        InterceptResult invokeV;
+    public static void b(JSONObject jSONObject, JSONObject jSONObject2) {
+        JSONArray optJSONArray;
+        JSONArray optJSONArray2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            y42 W = cr2.V().W();
-            if (W == null) {
-                return null;
-            }
-            int k = W.k();
-            for (int i = 0; i < k; i++) {
-                v42 j2 = W.j(i);
-                if (j2 instanceof x42) {
-                    x42 x42Var = (x42) j2;
-                    if (TextUtils.equals(x42Var.A3(), this.b)) {
-                        return x42Var;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, jSONObject, jSONObject2) == null) && jSONObject != null && jSONObject2 != null && (optJSONArray = jSONObject2.optJSONArray("custom_guide_list")) != null && optJSONArray.length() > 0 && (optJSONArray2 = jSONObject.optJSONArray("custom_guide_list")) != null && optJSONArray2.length() > 0) {
+            int length = optJSONArray2.length();
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = optJSONArray2.optJSONObject(i);
+                String optString = optJSONObject.optString("appid", "");
+                String optString2 = optJSONObject.optString("reset", "0");
+                int length2 = optJSONArray.length();
+                int i2 = 0;
+                while (true) {
+                    if (i2 < length2) {
+                        JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i2);
+                        String optString3 = optJSONObject2.optString("appid", "-1");
+                        String optString4 = optJSONObject2.optString("reset", "0");
+                        if (TextUtils.equals(optString3, optString)) {
+                            try {
+                                if (!TextUtils.equals(optString4, optString2)) {
+                                    optJSONObject.put("shown_count", "0");
+                                    optJSONObject.put("last_time", "0");
+                                    optJSONObject.put("image_index", "0");
+                                } else {
+                                    optJSONObject.put("shown_count", jSONObject2.optString("shown_count", "0"));
+                                    optJSONObject.put("last_time", jSONObject2.optString("last_time", "0"));
+                                    optJSONObject.put("image_index", jSONObject2.optString("image_index", "0"));
+                                }
+                            } catch (JSONException e) {
+                                if (a) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        } else {
+                            i2++;
+                        }
                     }
                 }
             }
-            return null;
         }
-        return (x42) invokeV.objValue;
     }
 
-    public void y0(int i, int i2, int i3, int i4) {
+    public static JSONObject d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048589, this, i, i2, i3, i4) == null) {
-            this.e.post(new c(this, i, i2, i3, i4));
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            String string = ue3.a().getString("swan_guide_toast", "");
+            if (TextUtils.isEmpty(string)) {
+                return null;
+            }
+            try {
+                return new JSONObject(string);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
         }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            String string = ue3.a().getString("guide_toast_version", "0");
+            if (a) {
+                Log.d("SwanAppGuideToast", "version = " + string);
+            }
+            return string;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void f(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, jSONObject) == null) {
+            if (a) {
+                Log.d("SwanAppGuideToast", "processGuide guideObject = " + jSONObject);
+            }
+            if (jSONObject == null) {
+                return;
+            }
+            String optString = jSONObject.optString("version");
+            JSONObject optJSONObject = jSONObject.optJSONObject("data");
+            if (optJSONObject != null && !TextUtils.equals(e(), optString)) {
+                JSONObject d = d();
+                if (d == null) {
+                    g(optJSONObject.toString());
+                    return;
+                }
+                a(optJSONObject, d);
+                b(optJSONObject, d);
+                g(optJSONObject.toString());
+                ue3.a().putString("guide_toast_version", optString);
+            }
+        }
+    }
+
+    public static void g(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65543, null, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        aj3.k(new a(str), "swanGuideUpdateRunnable");
     }
 }

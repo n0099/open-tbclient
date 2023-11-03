@@ -1,236 +1,258 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.webkit.JavascriptInterface;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.Gson;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.model.NativeOperationParams;
-import tv.athena.revenue.payui.webview.UrlPageParams;
+import java.io.IOException;
+import java.io.InputStream;
+import org.brotli.dec.BrotliRuntimeException;
 /* loaded from: classes7.dex */
-public class pgc {
+public final class pgc {
     public static /* synthetic */ Interceptable $ic;
-    public static Gson c;
     public transient /* synthetic */ FieldHolder $fh;
-    public c a;
-    public Handler b;
+    public final byte[] a;
+    public final int[] b;
+    public final wgc c;
+    public InputStream d;
+    public boolean e;
+    public long f;
+    public int g;
+    public int h;
+    public int i;
 
-    /* loaded from: classes7.dex */
-    public interface c {
-        void b(NativeOperationParams nativeOperationParams);
-
-        void c(UrlPageParams urlPageParams);
-
-        void e(UrlPageParams urlPageParams);
-
-        String getToken();
-    }
-
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ UrlPageParams b;
-        public final /* synthetic */ pgc c;
-
-        public a(pgc pgcVar, int i, UrlPageParams urlPageParams) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pgcVar, Integer.valueOf(i), urlPageParams};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = pgcVar;
-            this.a = i;
-            this.b = urlPageParams;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c.a != null) {
-                if (this.a == 1) {
-                    this.c.a.e(this.b);
-                }
-                if (this.a == 3) {
-                    this.c.a.c(this.b);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ pgc c;
-
-        public b(pgc pgcVar, int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pgcVar, Integer.valueOf(i), str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = pgcVar;
-            this.a = i;
-            this.b = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c.a != null) {
-                this.c.a.b(new NativeOperationParams(this.a, this.b));
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948062525, "Lcom/baidu/tieba/pgc;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948062525, "Lcom/baidu/tieba/pgc;");
-                return;
-            }
-        }
-        c = new Gson();
-    }
-
-    @JavascriptInterface
-    public String getToken() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            c cVar = this.a;
-            if (cVar != null) {
-                return cVar.getToken();
-            }
-            RLog.error("YYPaySdkJsInterface", "getToken() mOnJsCallInterface null", new Object[0]);
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public pgc(c cVar) {
+    public pgc() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cVar};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new Handler(Looper.getMainLooper());
-        this.a = cVar;
+        this.a = new byte[4160];
+        this.b = new int[1040];
+        this.c = new wgc();
+        this.i = 0;
     }
 
-    public final void b(Runnable runnable) {
+    public static void a(pgc pgcVar, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            if (Looper.myLooper() == Looper.getMainLooper()) {
-                runnable.run();
-            } else {
-                this.b.post(runnable);
+        if ((interceptable != null && interceptable.invokeLZ(65537, null, pgcVar, z) != null) || !pgcVar.e) {
+            return;
+        }
+        int i = ((pgcVar.h << 2) + ((pgcVar.g + 7) >> 3)) - 8;
+        int i2 = pgcVar.i;
+        if (i <= i2) {
+            if (z && i != i2) {
+                throw new BrotliRuntimeException("Unused bytes after end");
+            }
+            return;
+        }
+        throw new BrotliRuntimeException("Read after end");
+    }
+
+    public static void e(pgc pgcVar, InputStream inputStream) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, pgcVar, inputStream) == null) {
+            if (pgcVar.d == null) {
+                wgc.b(pgcVar.c, pgcVar.a, pgcVar.b);
+                pgcVar.d = inputStream;
+                pgcVar.f = 0L;
+                pgcVar.g = 64;
+                pgcVar.h = 1024;
+                pgcVar.e = false;
+                h(pgcVar);
+                return;
+            }
+            throw new IllegalStateException("Bit reader already has associated input stream");
+        }
+    }
+
+    public static void b(pgc pgcVar) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, pgcVar) == null) {
+            InputStream inputStream = pgcVar.d;
+            pgcVar.d = null;
+            if (inputStream != null) {
+                inputStream.close();
             }
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:24:0x0069  */
-    /* JADX WARN: Removed duplicated region for block: B:35:? A[RETURN, SYNTHETIC] */
-    @JavascriptInterface
+    public static void d(pgc pgcVar) {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, pgcVar) == null) && (i = pgcVar.g) >= 32) {
+            int[] iArr = pgcVar.b;
+            int i2 = pgcVar.h;
+            pgcVar.h = i2 + 1;
+            pgcVar.f = (iArr[i2] << 32) | (pgcVar.f >>> 32);
+            pgcVar.g = i - 32;
+        }
+    }
+
+    public static int f(pgc pgcVar) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, pgcVar)) == null) {
+            if (pgcVar.e) {
+                i = (pgcVar.i + 3) >> 2;
+            } else {
+                i = 1024;
+            }
+            return i - pgcVar.h;
+        }
+        return invokeL.intValue;
+    }
+
+    public static void g(pgc pgcVar) {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65543, null, pgcVar) == null) && (i = (64 - pgcVar.g) & 7) != 0 && i(pgcVar, i) != 0) {
+            throw new BrotliRuntimeException("Corrupted padding bits");
+        }
+    }
+
+    public static void h(pgc pgcVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, pgcVar) == null) {
+            j(pgcVar);
+            a(pgcVar, false);
+            d(pgcVar);
+            d(pgcVar);
+        }
+    }
+
+    public static void k(pgc pgcVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65547, null, pgcVar) == null) && pgcVar.g == 64) {
+            h(pgcVar);
+        }
+    }
+
+    public static void c(pgc pgcVar, byte[] bArr, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLII(65539, null, pgcVar, bArr, i, i2) == null) {
+            if ((pgcVar.g & 7) == 0) {
+                while (true) {
+                    int i3 = pgcVar.g;
+                    if (i3 == 64 || i2 == 0) {
+                        break;
+                    }
+                    bArr[i] = (byte) (pgcVar.f >>> i3);
+                    pgcVar.g = i3 + 8;
+                    i2--;
+                    i++;
+                }
+                if (i2 == 0) {
+                    return;
+                }
+                int min = Math.min(f(pgcVar), i2 >> 2);
+                if (min > 0) {
+                    int i4 = min << 2;
+                    System.arraycopy(pgcVar.a, pgcVar.h << 2, bArr, i, i4);
+                    i += i4;
+                    i2 -= i4;
+                    pgcVar.h += min;
+                }
+                if (i2 == 0) {
+                    return;
+                }
+                if (f(pgcVar) > 0) {
+                    d(pgcVar);
+                    while (i2 != 0) {
+                        long j = pgcVar.f;
+                        int i5 = pgcVar.g;
+                        bArr[i] = (byte) (j >>> i5);
+                        pgcVar.g = i5 + 8;
+                        i2--;
+                        i++;
+                    }
+                    a(pgcVar, false);
+                    return;
+                }
+                while (i2 > 0) {
+                    try {
+                        int read = pgcVar.d.read(bArr, i, i2);
+                        if (read != -1) {
+                            i += read;
+                            i2 -= read;
+                        } else {
+                            throw new BrotliRuntimeException("Unexpected end of input");
+                        }
+                    } catch (IOException e) {
+                        throw new BrotliRuntimeException("Failed to read input", e);
+                    }
+                }
+                return;
+            }
+            throw new BrotliRuntimeException("Unaligned copyBytes");
+        }
+    }
+
+    public static int i(pgc pgcVar, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, pgcVar, i)) == null) {
+            d(pgcVar);
+            long j = pgcVar.f;
+            int i2 = pgcVar.g;
+            int i3 = ((int) (j >>> i2)) & ((1 << i) - 1);
+            pgcVar.g = i2 + i;
+            return i3;
+        }
+        return invokeLI.intValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x003b, code lost:
+        r4.e = true;
+        r4.i = r1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x0040, code lost:
+        r1 = r1 + 3;
+     */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void callAndroid(int i, String str) {
-        String str2;
-        UrlPageParams urlPageParams;
+    public static void j(pgc pgcVar) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-            RLog.info("YYPaySdkJsInterface", "callAndroid: code=" + i);
-            switch (i) {
-                case 1:
-                case 3:
-                    if (i == 1) {
-                        str2 = "CODE_OPEN_URL_PAGE";
-                    } else {
-                        str2 = "CODE_UPFATE_TOP_INFO";
-                    }
-                    UrlPageParams urlPageParams2 = null;
-                    try {
-                        urlPageParams = (UrlPageParams) c.fromJson(str, (Class<Object>) UrlPageParams.class);
-                        try {
-                            RLog.info("YYPaySdkJsInterface", "%s params: %s", str2, urlPageParams);
-                        } catch (Throwable th) {
-                            th = th;
-                            urlPageParams2 = urlPageParams;
-                            RLog.error("YYPaySdkJsInterface", str2 + " error,", th);
-                            urlPageParams = urlPageParams2;
-                            if (this.a == null) {
-                            }
-                        }
-                    } catch (Throwable th2) {
-                        th = th2;
-                    }
-                    if (this.a == null) {
-                        b(new a(this, i, urlPageParams));
-                        return;
-                    }
-                    return;
-                case 2:
-                default:
-                    return;
-                case 4:
-                case 5:
-                case 6:
-                case 7:
-                case 8:
-                case 9:
-                case 10:
-                    if (this.a != null) {
-                        b(new b(this, i, str));
-                        return;
-                    }
-                    return;
+        if ((interceptable != null && interceptable.invokeL(65546, null, pgcVar) != null) || (i = pgcVar.h) <= 1015) {
+            return;
+        }
+        if (pgcVar.e) {
+            if (f(pgcVar) >= -2) {
+                return;
+            }
+            throw new BrotliRuntimeException("No more input");
+        }
+        int i2 = i << 2;
+        int i3 = 4096 - i2;
+        byte[] bArr = pgcVar.a;
+        System.arraycopy(bArr, i2, bArr, 0, i3);
+        pgcVar.h = 0;
+        while (true) {
+            if (i3 >= 4096) {
+                break;
+            }
+            try {
+                int read = pgcVar.d.read(pgcVar.a, i3, 4096 - i3);
+                if (read <= 0) {
+                    break;
+                }
+                i3 += read;
+            } catch (IOException e) {
+                throw new BrotliRuntimeException("Failed to read input", e);
             }
         }
+        wgc.a(pgcVar.c, i3 >> 2);
     }
 }

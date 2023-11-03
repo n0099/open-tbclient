@@ -1,69 +1,118 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.Collection;
+import org.json.JSONArray;
+import org.json.JSONException;
 /* loaded from: classes8.dex */
-public class vo7 implements e15 {
+public class vo7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public vo7() {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            SharedPrefHelper.getInstance().putString(SharedPrefHelper.getSharedPrefKeyWithAccount("search_forum_history"), "");
+        }
+    }
+
+    public static void b(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65537, null, str) != null) || StringUtils.isNull(str)) {
+            return;
+        }
+        String string = SharedPrefHelper.getInstance().getString(SharedPrefHelper.getSharedPrefKeyWithAccount("search_forum_history"), "");
+        if (!StringUtils.isNull(string)) {
+            try {
+                JSONArray jSONArray = new JSONArray(string);
+                if (jSONArray.length() <= 0) {
+                    return;
+                }
+                ArrayList arrayList = new ArrayList();
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    Object obj = jSONArray.get(i);
+                    if (!str.equals(obj)) {
+                        arrayList.add((String) obj);
+                    }
+                }
+                SharedPrefHelper.getInstance().putString(SharedPrefHelper.getSharedPrefKeyWithAccount("search_forum_history"), new JSONArray((Collection) arrayList).toString());
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }
 
-    @Override // com.baidu.tieba.e15
-    @NonNull
-    public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
-        InterceptResult invokeLLL;
+    public static void d(String str) {
+        JSONArray jSONArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogStrategiesData, map, map2)) == null) {
-            HashMap hashMap = new HashMap(map);
-            hashMap.put("dialogName", "frsGuide");
-            hashMap.putAll(map);
-            hashMap.putAll(map2);
-            return hashMap;
+        if ((interceptable != null && interceptable.invokeL(65539, null, str) != null) || StringUtils.isNull(str)) {
+            return;
         }
-        return (Map) invokeLLL.objValue;
+        String string = SharedPrefHelper.getInstance().getString(SharedPrefHelper.getSharedPrefKeyWithAccount("search_forum_history"), "");
+        try {
+            if (StringUtils.isNull(string)) {
+                jSONArray = new JSONArray();
+            } else {
+                jSONArray = new JSONArray(string);
+            }
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(str);
+            int i = 1;
+            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                Object obj = jSONArray.get(i2);
+                if ((obj instanceof String) && !str.equals(obj)) {
+                    arrayList.add((String) obj);
+                    i++;
+                }
+                if (i == 6) {
+                    break;
+                }
+            }
+            SharedPrefHelper.getInstance().putString(SharedPrefHelper.getSharedPrefKeyWithAccount("search_forum_history"), new JSONArray((Collection) arrayList).toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
-    @Override // com.baidu.tieba.e15
-    public boolean b(@NonNull Map<String, Object> map) {
-        InterceptResult invokeL;
+    public static ArrayList<String> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            if (!(TbadkCoreApplication.getInst().getCurrentActivity() instanceof FrsActivity)) {
-                YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "吧主弹窗策略校验失败：当前Activity非FrsActivity");
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            String string = SharedPrefHelper.getInstance().getString(SharedPrefHelper.getSharedPrefKeyWithAccount("search_forum_history"), "");
+            ArrayList<String> arrayList = null;
+            if (StringUtils.isNull(string)) {
+                return null;
             }
-            boolean z = !SharedPrefHelper.getInstance().getBoolean("has_guide_popup_window_been_shown", false);
-            if (!z) {
-                YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "吧主弹窗策略校验失败：已经显示过");
+            try {
+                JSONArray jSONArray = new JSONArray(string);
+                if (jSONArray.length() <= 0) {
+                    return null;
+                }
+                ArrayList<String> arrayList2 = new ArrayList<>();
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    try {
+                        Object obj = jSONArray.get(i);
+                        if (obj instanceof String) {
+                            arrayList2.add((String) obj);
+                        }
+                    } catch (JSONException e) {
+                        e = e;
+                        arrayList = arrayList2;
+                        e.printStackTrace();
+                        return arrayList;
+                    }
+                }
+                return arrayList2;
+            } catch (JSONException e2) {
+                e = e2;
             }
-            return z;
+        } else {
+            return (ArrayList) invokeV.objValue;
         }
-        return invokeL.booleanValue;
     }
 }

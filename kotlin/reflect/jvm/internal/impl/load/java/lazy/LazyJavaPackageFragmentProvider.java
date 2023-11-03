@@ -13,7 +13,7 @@ import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaPackage;
 import kotlin.reflect.jvm.internal.impl.name.FqName;
 import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.storage.CacheWithNotNullValues;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class LazyJavaPackageFragmentProvider implements PackageFragmentProvider {
     public final LazyJavaResolverContext c;
     public final CacheWithNotNullValues<FqName, LazyJavaPackageFragment> packageFragments;

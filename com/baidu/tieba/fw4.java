@@ -1,21 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.CartoonThread;
 /* loaded from: classes6.dex */
 public class fw4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile fw4 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public int b;
+    public float a;
+    public float b;
+    public float c;
+    public boolean d;
 
     public fw4() {
         Interceptable interceptable = $ic;
@@ -31,43 +30,65 @@ public class fw4 {
         }
     }
 
-    public long a() {
+    public static fw4 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (e == null) {
+                synchronized (fw4.class) {
+                    if (e == null) {
+                        e = new fw4();
+                    }
+                }
+            }
+            return e;
+        }
+        return (fw4) invokeV.objValue;
+    }
+
+    public float b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return this.b;
         }
-        return invokeV.longValue;
+        return invokeV.floatValue;
     }
 
-    public int b() {
+    public float c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+            return this.c;
         }
-        return invokeV.intValue;
+        return invokeV.floatValue;
     }
 
-    public void c(JSONObject jSONObject) {
+    public float d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
-        try {
-            this.a = jSONObject.optLong(MangaBrowserActivityConfig.CARTOON_ID);
-            this.b = jSONObject.optInt(MangaBrowserActivityConfig.CHAPTER_ID);
-        } catch (Exception e) {
-            BdLog.e(e.toString());
-        }
+        return invokeV.floatValue;
     }
 
-    public void d(CartoonThread cartoonThread) {
+    public boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, cartoonThread) != null) || cartoonThread == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
         }
-        this.a = cartoonThread.cartoon_id.longValue();
-        this.b = cartoonThread.chapter_id.intValue();
+        return invokeV.booleanValue;
+    }
+
+    public void f(float f, float f2, float f3, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)}) == null) {
+            this.a = f;
+            this.b = f2;
+            this.c = f3;
+            this.d = z;
+        }
     }
 }

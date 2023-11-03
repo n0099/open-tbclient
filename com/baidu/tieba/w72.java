@@ -1,16 +1,17 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes8.dex */
 public class w72 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
+    public static AtomicInteger b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -26,56 +27,36 @@ public class w72 {
                 return;
             }
         }
-        a = am1.a;
+        a = rm1.a;
+        b = new AtomicInteger(0);
     }
 
-    public static boolean a(n42 n42Var, String str) {
-        InterceptResult invokeLL;
-        p53 c0;
-        r72 a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, n42Var, str)) == null) {
-            if (a) {
-                Log.d("MasterIsolationHelper", "JS CALL - " + str);
-            }
-            boolean z = false;
-            if (o13.D()) {
-                return false;
-            }
-            if (n42Var != null && !TextUtils.isEmpty(n42Var.getContainerId())) {
-                if (e82.i().k(n42Var.getContainerId())) {
-                    return true;
-                }
-                if (!p92.h()) {
-                    return false;
-                }
-                String containerId = n42Var.getContainerId();
-                if (!v72.a(containerId) || (c0 = p53.c0()) == null || !b(n42Var) || (a2 = y72.b().a()) == null) {
-                    return false;
-                }
-                String h = a2.h();
-                if (TextUtils.isEmpty(h)) {
-                    return false;
-                }
-                z = (TextUtils.equals(a2.i().a(), n42Var.getContainerId()) && TextUtils.equals(h, c0.b)) ? true : true;
-                if (a && z) {
-                    Log.w("MasterIsolationHelper", "master id - " + containerId + ",can not call API - " + str + ", intercept for preload/prefetch");
-                }
-            }
-            return z;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean b(n42 n42Var) {
+    public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, n42Var)) == null) {
-            if ((n42Var instanceof xc2) && ((xc2) n42Var).getInvokeSourceType() == 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (str != null && str.startsWith("localDebug")) {
                 return true;
             }
             return false;
         }
         return invokeL.booleanValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            int andIncrement = b.getAndIncrement();
+            String str = "localDebug";
+            if (andIncrement >= 1) {
+                str = "localDebug" + andIncrement;
+            }
+            if (a) {
+                Log.i("DaemonIdGenerator", "next daemon id - " + str);
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
     }
 }

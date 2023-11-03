@@ -1,80 +1,79 @@
 package com.baidu.tieba;
 
-import android.graphics.Typeface;
-import android.text.TextUtils;
-import com.baidu.live.LiveFeedPageSdk;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.Hashtable;
+import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 /* loaded from: classes7.dex */
 public class n50 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final Hashtable<String, Typeface> a;
-    public static final String b;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "lcpsdk";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947953312, "Lcom/baidu/tieba/n50;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947953312, "Lcom/baidu/tieba/n50;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947953312, "Lcom/baidu/tieba/n50;")) == null) {
+            return;
         }
-        a = new Hashtable<>();
-        b = LiveFeedPageSdk.getInstance().getApplication().getFilesDir().getAbsolutePath() + File.separator + "font/";
-        new File(b).mkdirs();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947953312, "Lcom/baidu/tieba/n50;");
+        }
     }
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
+    public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            try {
-                return new File(str).exists();
-            } catch (Exception unused) {
-                return false;
-            }
+        if ((interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) && m50.a) {
+            String str3 = a;
+            Log.d(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
         }
-        return invokeL.booleanValue;
     }
 
-    public static Typeface b(String str) {
-        InterceptResult invokeL;
-        Typeface typeface;
+    public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            synchronized (a) {
-                if (!a.containsKey(str)) {
-                    String str2 = b + str;
-                    if (a(str2)) {
-                        try {
-                            a.put(str, Typeface.createFromFile(str2));
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-                if (a.get(str) == null) {
-                    typeface = Typeface.DEFAULT;
-                } else {
-                    typeface = a.get(str);
-                }
-            }
-            return typeface;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && m50.a) {
+            String str3 = a;
+            Log.e(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
         }
-        return (Typeface) invokeL.objValue;
+    }
+
+    public static void d(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && m50.a) {
+            String str3 = a;
+            Log.i(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
+        }
+    }
+
+    public static void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) && m50.a) {
+            String str3 = a;
+            Log.v(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
+        }
+    }
+
+    public static void f(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) && m50.a) {
+            String str3 = a;
+            Log.w(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
+        }
+    }
+
+    public static void c(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65539, null, str, str2, th) == null) && m50.a) {
+            String str3 = a;
+            Log.e(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2, th);
+        }
     }
 }

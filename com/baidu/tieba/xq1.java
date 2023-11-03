@@ -1,7 +1,10 @@
 package com.baidu.tieba;
-/* loaded from: classes8.dex */
-public interface xq1 {
-    void a(boolean z);
 
-    boolean b();
+import android.content.ContentValues;
+import androidx.annotation.Nullable;
+import java.util.List;
+/* loaded from: classes9.dex */
+public interface xq1 {
+    @Nullable
+    List<ContentValues> a();
 }

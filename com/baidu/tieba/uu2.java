@@ -1,10 +1,7 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.telephony.PhoneStateListener;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,8 +10,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class uu2 extends ru2 {
+public class uu2 extends PhoneStateListener {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,46 +28,55 @@ public class uu2 extends ru2 {
                 return;
             }
         }
-        boolean z = am1.a;
+        a = rm1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public uu2(String str) {
-        super(str);
+    public uu2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.ru2
-    public boolean a(hu2 hu2Var, ju2 ju2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, p53 p53Var) {
-        InterceptResult invokeCommon;
+    @Override // android.telephony.PhoneStateListener
+    public void onCallStateChanged(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{hu2Var, ju2Var, context, unitedSchemeEntity, callbackHandler, p53Var})) == null) {
-            p22.i("video", "sendDanmu, video id:" + ju2Var.j + " slave id: " + ju2Var.c);
-            d(hu2Var, ju2Var.t, unitedSchemeEntity, callbackHandler);
-            return true;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public final void d(hu2 hu2Var, String str, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hu2Var, str, unitedSchemeEntity, callbackHandler) == null) {
-            hu2Var.r(str);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+            super.onCallStateChanged(i, str);
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (a) {
+                            Log.e("PhoneStateListener", "invalid state");
+                            return;
+                        }
+                        return;
+                    }
+                    wu2.k().n();
+                    if (a) {
+                        Log.i("PhoneStateListener", "接听");
+                        return;
+                    }
+                    return;
+                }
+                wu2.k().n();
+                if (a) {
+                    Log.i("PhoneStateListener", "响铃:" + str);
+                    return;
+                }
+                return;
+            }
+            wu2.k().o();
+            if (a) {
+                Log.i("PhoneStateListener", "挂断");
+            }
         }
     }
 }

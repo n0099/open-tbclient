@@ -1,69 +1,24 @@
 package com.baidu.tieba;
 
-import androidx.fragment.app.Fragment;
-import com.baidu.tieba.hma;
-import com.baidu.tieba.tracker.Monitor;
-import com.baidu.tieba.tracker.core.data.EventParams;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Arrays;
-import kotlin.Pair;
-import kotlin.collections.MapsKt__MapsKt;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class oma {
+public final class oma extends qpa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a(Fragment fragment, Pair<String, String>... params) {
-        pma pmaVar;
-        mma<pma> c;
+    public oma() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, fragment, params) == null) {
-            Intrinsics.checkNotNullParameter(fragment, "<this>");
-            Intrinsics.checkNotNullParameter(params, "params");
-            if (fragment instanceof pma) {
-                pmaVar = (pma) fragment;
-            } else {
-                pmaVar = null;
-            }
-            if (pmaVar != null && (c = Monitor.a.c(pmaVar)) != null) {
-                c.b(MapsKt__MapsKt.mapOf((Pair[]) Arrays.copyOf(params, params.length)));
-            }
-        }
-    }
-
-    public static final void b(Fragment fragment, Pair<String, ? extends Object>... params) {
-        pma pmaVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, fragment, params) == null) {
-            Intrinsics.checkNotNullParameter(fragment, "<this>");
-            Intrinsics.checkNotNullParameter(params, "params");
-            if (fragment instanceof pma) {
-                pmaVar = (pma) fragment;
-            } else {
-                pmaVar = null;
-            }
-            if (pmaVar != null) {
-                Monitor.a.a(fragment, pmaVar, hma.c.a).e().fillTrackParams(new EventParams((Pair[]) Arrays.copyOf(params, params.length)));
-            }
-        }
-    }
-
-    public static final void c(Fragment fragment, Pair<String, String>... params) {
-        pma pmaVar;
-        mma<pma> c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, fragment, params) == null) {
-            Intrinsics.checkNotNullParameter(fragment, "<this>");
-            Intrinsics.checkNotNullParameter(params, "params");
-            if (fragment instanceof pma) {
-                pmaVar = (pma) fragment;
-            } else {
-                pmaVar = null;
-            }
-            if (pmaVar != null && (c = Monitor.a.c(pmaVar)) != null) {
-                c.g(MapsKt__MapsKt.mapOf((Pair[]) Arrays.copyOf(params, params.length)));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }

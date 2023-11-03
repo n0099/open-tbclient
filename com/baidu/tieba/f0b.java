@@ -1,102 +1,73 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.editortools.EditorBar;
-import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class f0b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public no6 b;
 
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f0b a;
+    public static byte[] a(List<String> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+            if (list == null) {
+                return null;
+            }
+            StringBuilder sb = new StringBuilder();
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                sb.append(list.get(i));
+                sb.append("\n");
+            }
+            return sb.toString().getBytes();
+        }
+        return (byte[]) invokeL.objValue;
+    }
 
-        public a(f0b f0bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {f0bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static byte[] b(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            return jSONObject.toString().getBytes();
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static boolean c(byte[] bArr, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, str)) == null) {
+            if (bArr == null) {
+                return false;
+            }
+            bb bbVar = new bb();
+            bbVar.b().s(str);
+            bbVar.b().q(HttpMessageTask.HTTP_METHOD.POST);
+            bbVar.b().c("", bArr);
+            new za(bbVar).m(3, -1, -1);
+            int i = bbVar.c().b;
+            byte[] bArr2 = bbVar.c().i;
+            if (bArr2 == null || i != 200) {
+                return false;
+            }
+            try {
+                if (new JSONObject(new String(bArr2, "utf-8")).optJSONObject("error").optInt("errno") != 0) {
+                    return false;
                 }
-            }
-            this.a = f0bVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.b.h();
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
             }
         }
-    }
-
-    public f0b(TbPageContext tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = tbPageContext;
-    }
-
-    public void b() {
-        no6 no6Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (no6Var = this.b) != null) {
-            no6Var.h();
-        }
-    }
-
-    public void c(EditorTools editorTools) {
-        EditorBar editorBar;
-        View s;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editorTools) != null) || editorTools == null || (editorBar = editorTools.a) == null || this.a == null || (s = editorBar.s(26)) == null) {
-            return;
-        }
-        if (this.b == null) {
-            no6 no6Var = new no6(this.a, s);
-            this.b = no6Var;
-            no6Var.L(R.drawable.bg_tip_blue_down);
-            this.b.o(32);
-            this.b.l(2);
-            this.b.m(new a(this));
-            int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070359);
-            int dimensionPixelSize2 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701e8);
-            int dimensionPixelSize3 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224);
-            this.b.E(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize2);
-            this.b.Q(0);
-            this.b.R(-dimensionPixelSize3);
-            this.b.n(3000);
-        }
-        this.b.T(this.a.getResources().getString(R.string.hot_topic_tip), "key_show_hottopic_tip");
+        return invokeLL.booleanValue;
     }
 }

@@ -7,7 +7,7 @@ import com.google.gson.stream.MalformedJsonException;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class JsonParser {
     public static JsonElement parseReader(JsonReader jsonReader) throws JsonIOException, JsonSyntaxException {
         boolean isLenient = jsonReader.isLenient();

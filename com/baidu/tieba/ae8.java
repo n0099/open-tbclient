@@ -1,194 +1,136 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteException;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.IMConstants;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.unified.SourceConstant;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
-import com.baidu.tieba.im.message.chat.PersonalChatMessage;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.module.frs.FrsService;
+import com.baidu.tieba.bu;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ae8 extends nd8 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static nd8 d = null;
-    public static String e = "tb_private_msg_";
+public class ae8 extends bi<pm6, ThreadCardViewHolder<pm6>> implements s16 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BdUniqueId a;
+    public TbPageContext<?> b;
+    public String c;
+    public ui d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947612405, "Lcom/baidu/tieba/ae8;")) == null) {
-            return;
+    /* loaded from: classes5.dex */
+    public class a implements yi {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ae8 a;
+
+        public a(ae8 ae8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ae8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ae8Var;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947612405, "Lcom/baidu/tieba/ae8;");
+
+        @Override // com.baidu.tieba.yi
+        public void b(View view2, oi oiVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+            pm6 pm6Var;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, oiVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                if (oiVar instanceof pm6) {
+                    pm6Var = (pm6) oiVar;
+                } else {
+                    pm6Var = null;
+                }
+                if (pm6Var != null) {
+                    ((FrsService) ServiceManager.getService(FrsService.Companion.getServiceReference())).navToVoiceRoom(this.a.b, pm6Var.X());
+                }
+            }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ae8() {
-        super("tb_private_msg_", PersonalChatMessage.class);
+    public ae8(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], (Class) objArr[1]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = tbPageContext;
     }
 
-    public static synchronized ae8 w() {
-        InterceptResult invokeV;
-        ae8 ae8Var;
+    @Override // com.baidu.tieba.s16
+    public void g(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (ae8.class) {
-                if (d == null) {
-                    d = new ae8();
-                }
-                ae8Var = (ae8) d;
-            }
-            return ae8Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.c = str;
         }
-        return (ae8) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r11v0, resolved type: int */
-    /* JADX WARN: Multi-variable type inference failed */
-    public CommonMsgPojo x(String str, int i) {
-        InterceptResult invokeLI;
-        Cursor cursor;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: u */
+    public ThreadCardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
-            Cursor cursor2 = null;
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                try {
-                    cursor = vd8.e().g("select * from " + (e + str) + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
-                    try {
-                        CommonMsgPojo commonMsgPojo = new CommonMsgPojo();
-                        if (cursor != null && cursor.moveToNext()) {
-                            commonMsgPojo.setGid(str);
-                            commonMsgPojo.setUid(cursor.getString(cursor.getColumnIndex("uid")));
-                            commonMsgPojo.setUser_info(cursor.getString(cursor.getColumnIndex(SourceConstant.SOURCE_USER_INFO)));
-                            commonMsgPojo.setToUid(cursor.getString(cursor.getColumnIndex("to_uid")));
-                            commonMsgPojo.setToUser_info(cursor.getString(cursor.getColumnIndex("to_user_info")));
-                            commonMsgPojo.setContent(cursor.getString(cursor.getColumnIndex("content")));
-                            commonMsgPojo.setCreate_time(cursor.getLong(cursor.getColumnIndex("create_time")));
-                            commonMsgPojo.setExt(cursor.getString(cursor.getColumnIndex("ext")));
-                            commonMsgPojo.setMid(cursor.getLong(cursor.getColumnIndex("mid")));
-                            commonMsgPojo.setMsg_status(cursor.getInt(cursor.getColumnIndex(IMConstants.MSG_STATUS)));
-                            commonMsgPojo.setMsg_type(cursor.getInt(cursor.getColumnIndex("msg_type")));
-                            commonMsgPojo.setRid(cursor.getLong(cursor.getColumnIndex("rid")));
-                            commonMsgPojo.setRead_flag(cursor.getInt(cursor.getColumnIndex("read_flag")));
-                            commonMsgPojo.setIs_delete(cursor.getInt(cursor.getColumnIndex("is_delete")));
-                            commonMsgPojo.setIsFriend(cursor.getInt(cursor.getColumnIndex("is_friend")));
-                            bd.a(cursor);
-                            return commonMsgPojo;
-                        }
-                    } catch (SQLiteException e2) {
-                        e = e2;
-                        TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMsgContextByMsgType", new Object[0]);
-                        e.printStackTrace();
-                        b(str);
-                        bd.a(cursor);
-                        return null;
-                    } catch (Exception e3) {
-                        e = e3;
-                        TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMsgContextByMsgType", new Object[0]);
-                        e.printStackTrace();
-                        bd.a(cursor);
-                        return null;
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    cursor2 = i;
-                    bd.a(cursor2);
-                    throw th;
-                }
-            } catch (SQLiteException e4) {
-                e = e4;
-                cursor = null;
-            } catch (Exception e5) {
-                e = e5;
-                cursor = null;
-            } catch (Throwable th2) {
-                th = th2;
-                bd.a(cursor2);
-                throw th;
-            }
-            bd.a(cursor);
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            bu.b bVar = new bu.b(this.b.getPageActivity(), false);
+            bVar.n(new ku(this.b, this.a));
+            bVar.l().i(0);
+            ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.d));
+            threadCardViewHolder.i(this.a);
+            setOnAdapterItemClickListener(new a(this));
+            return threadCardViewHolder;
         }
-        return (CommonMsgPojo) invokeLI.objValue;
+        return (ThreadCardViewHolder) invokeL.objValue;
     }
 
-    public boolean y(long j, long j2, String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: x */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, pm6 pm6Var, ThreadCardViewHolder<pm6> threadCardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str})) == null) {
-            if (StringUtils.isNull(str)) {
-                return false;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, pm6Var, threadCardViewHolder})) == null) {
+            if (threadCardViewHolder == null) {
+                return null;
             }
-            Boolean bool = Boolean.FALSE;
-            if (j == 0 || TbadkCoreApplication.getCurrentAccount() == null) {
-                return false;
-            }
-            String valueOf = String.valueOf(j);
-            String str2 = e + valueOf;
-            if (this.c == null) {
-                this.c = i();
-            }
-            if (!this.c.contains(valueOf)) {
-                b(valueOf);
-                this.c.add(valueOf);
-            }
-            try {
-                try {
-                    ContentValues contentValues = new ContentValues();
-                    contentValues.put("content", str);
-                    if (vd8.e().i(str2, contentValues, "mid=?", new String[]{String.valueOf(j2)}) == 1) {
-                        bool = Boolean.TRUE;
-                    }
-                } catch (Exception e2) {
-                    TiebaStatic.printDBExceptionLog(e2, "PersonalMsgDao.updateGamePlayMsg", new Object[0]);
-                    e2.printStackTrace();
-                    bool = Boolean.FALSE;
-                }
-                bd.a(null);
-                bd.c(null);
-                return bool.booleanValue();
-            } catch (Throwable th) {
-                bd.a(null);
-                bd.c(null);
-                throw th;
-            }
+            threadCardViewHolder.a().s(i);
+            threadCardViewHolder.a().b(this.c);
+            pm6Var.setSupportType(BaseCardInfo.SupportType.CONTENT);
+            threadCardViewHolder.e(pm6Var);
+            threadCardViewHolder.a().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
+            return threadCardViewHolder.getView();
         }
-        return invokeCommon.booleanValue;
+        return (View) invokeCommon.objValue;
     }
 }

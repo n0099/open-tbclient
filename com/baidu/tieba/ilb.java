@@ -1,84 +1,40 @@
 package com.baidu.tieba;
 
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import java.lang.reflect.Field;
-import org.json.JSONObject;
+import com.baidu.ubc.UBCManager;
 /* loaded from: classes6.dex */
-public class ilb extends nlb {
+public class ilb extends bg1<UBCManager> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ilb(Ssp.Pid pid) {
-        super(pid);
+    public ilb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.nlb
-    public JSONObject c(Object obj) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bg1
+    /* renamed from: a */
+    public UBCManager createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            try {
-                if (obj instanceof blb) {
-                    Field declaredField = obj.getClass().getSuperclass().getDeclaredField("mAdProd");
-                    declaredField.setAccessible(true);
-                    Object obj2 = declaredField.get(obj);
-                    if (obj2 == null) {
-                        return null;
-                    }
-                    Field declaredField2 = obj2.getClass().getSuperclass().getDeclaredField("k");
-                    declaredField2.setAccessible(true);
-                    Object obj3 = declaredField2.get(obj2);
-                    if (obj3 == null) {
-                        return null;
-                    }
-                    Field declaredField3 = obj3.getClass().getDeclaredField("adProdTemplate");
-                    declaredField3.setAccessible(true);
-                    Object obj4 = declaredField3.get(obj3);
-                    if (obj4 == null) {
-                        return null;
-                    }
-                    Field declaredField4 = obj4.getClass().getSuperclass().getDeclaredField("f");
-                    declaredField4.setAccessible(true);
-                    Object obj5 = declaredField4.get(obj4);
-                    if (obj5 == null) {
-                        return null;
-                    }
-                    Field declaredField5 = obj5.getClass().getDeclaredField("p");
-                    declaredField5.setAccessible(true);
-                    Object obj6 = declaredField5.get(obj5);
-                    if (obj6 instanceof JSONObject) {
-                        return (JSONObject) obj6;
-                    }
-                    return null;
-                }
-                return null;
-            } catch (Exception unused) {
-                LogPrinter.d();
-                return null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new jlb();
         }
-        return (JSONObject) invokeL.objValue;
+        return (UBCManager) invokeV.objValue;
     }
 }

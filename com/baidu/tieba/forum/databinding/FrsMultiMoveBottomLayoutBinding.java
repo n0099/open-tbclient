@@ -1,0 +1,104 @@
+package com.baidu.tieba.forum.databinding;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.viewbinding.ViewBinding;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
+public final class FrsMultiMoveBottomLayoutBinding implements ViewBinding {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public final View a;
+    @NonNull
+    public final View b;
+    @NonNull
+    public final TextView c;
+    @NonNull
+    public final TextView d;
+    @NonNull
+    public final RelativeLayout e;
+
+    public FrsMultiMoveBottomLayoutBinding(@NonNull View view2, @NonNull View view3, @NonNull TextView textView, @NonNull TextView textView2, @NonNull RelativeLayout relativeLayout) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2, view3, textView, textView2, relativeLayout};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = view2;
+        this.b = view3;
+        this.c = textView;
+        this.d = textView2;
+        this.e = relativeLayout;
+    }
+
+    @NonNull
+    public static FrsMultiMoveBottomLayoutBinding a(@NonNull View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            int i = R.id.obfuscated_res_0x7f09094d;
+            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f09094d);
+            if (findViewById != null) {
+                i = R.id.obfuscated_res_0x7f090d72;
+                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d72);
+                if (textView != null) {
+                    i = R.id.obfuscated_res_0x7f090d73;
+                    TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d73);
+                    if (textView2 != null) {
+                        i = R.id.obfuscated_res_0x7f09189e;
+                        RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09189e);
+                        if (relativeLayout != null) {
+                            return new FrsMultiMoveBottomLayoutBinding(view2, findViewById, textView, textView2, relativeLayout);
+                        }
+                    }
+                }
+            }
+            throw new NullPointerException("Missing required view with ID: ".concat(view2.getResources().getResourceName(i)));
+        }
+        return (FrsMultiMoveBottomLayoutBinding) invokeL.objValue;
+    }
+
+    @NonNull
+    public static FrsMultiMoveBottomLayoutBinding b(@NonNull LayoutInflater layoutInflater, @NonNull ViewGroup viewGroup) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, layoutInflater, viewGroup)) == null) {
+            if (viewGroup != null) {
+                layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d03a8, viewGroup);
+                return a(viewGroup);
+            }
+            throw new NullPointerException("parent");
+        }
+        return (FrsMultiMoveBottomLayoutBinding) invokeLL.objValue;
+    }
+
+    @Override // androidx.viewbinding.ViewBinding
+    @NonNull
+    public View getRoot() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (View) invokeV.objValue;
+    }
+}

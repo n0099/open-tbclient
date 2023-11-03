@@ -1,255 +1,116 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire2.FieldEncoding;
-import com.squareup.wire2.Message;
-import com.squareup.wire2.Message.a;
-import com.squareup.wire2.ProtoAdapter;
-import com.squareup.wire2.WireField;
-import java.io.IOException;
-import java.lang.reflect.Field;
-import java.util.Collections;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import com.fun.ad.sdk.internal.api.reporter.Reporter;
 /* loaded from: classes5.dex */
-public final class exb<M extends Message<M, B>, B extends Message.a<M, B>> extends ProtoAdapter<M> {
+public class exb {
     public static /* synthetic */ Interceptable $ic;
+    public static final j2c<Reporter> a;
+    public static final j2c<Reporter> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Class<M> a;
-    public final Class<B> b;
-    public final Map<Integer, zwb<M, B>> c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public exb(Class<M> cls, Class<B> cls2, Map<Integer, zwb<M, B>> map) {
-        super(FieldEncoding.LENGTH_DELIMITED, cls);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cls, cls2, map};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FieldEncoding) objArr2[0], (Class) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947751130, "Lcom/baidu/tieba/exb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947751130, "Lcom/baidu/tieba/exb;");
                 return;
             }
         }
-        this.a = cls;
-        this.b = cls2;
-        this.c = map;
+        a = new a();
+        b = new b();
     }
 
-    public static <M extends Message<M, B>, B extends Message.a<M, B>> exb<M, B> a(Class<M> cls) {
-        InterceptResult invokeL;
-        Field[] declaredFields;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cls)) == null) {
-            Class e = e(cls);
-            LinkedHashMap linkedHashMap = new LinkedHashMap();
-            for (Field field : cls.getDeclaredFields()) {
-                WireField wireField = (WireField) field.getAnnotation(WireField.class);
-                if (wireField != null) {
-                    linkedHashMap.put(Integer.valueOf(wireField.tag()), new zwb(wireField, field, e));
+    /* loaded from: classes5.dex */
+    public static class a extends j2c<Reporter> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            return new exb<>(cls, e, Collections.unmodifiableMap(linkedHashMap));
         }
-        return (exb) invokeL.objValue;
+
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        /* JADX WARN: Type inference failed for: r1v0, types: [com.fun.ad.sdk.internal.api.reporter.Reporter, java.lang.Object] */
+        @Override // com.baidu.tieba.j2c
+        public Reporter a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new jxb("https://rpe.xdplt.com/evt/", true);
+            }
+            return invokeV.objValue;
+        }
     }
 
-    public static <M extends Message<M, B>, B extends Message.a<M, B>> Class<B> e(Class<M> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cls)) == null) {
-            try {
-                return (Class<B>) Class.forName(cls.getName() + "$Builder");
-            } catch (ClassNotFoundException unused) {
-                throw new IllegalArgumentException("No builder class found for message type " + cls.getName());
-            }
-        }
-        return (Class) invokeL.objValue;
-    }
+    /* loaded from: classes5.dex */
+    public static class b extends j2c<Reporter> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: d */
-    public int encodedSize(M m) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, m)) == null) {
-            int i = m.cachedSerializedSize;
-            if (i != 0) {
-                return i;
-            }
-            int i2 = 0;
-            for (zwb<M, B> zwbVar : this.c.values()) {
-                Object b = zwbVar.b(m);
-                if (b != null) {
-                    i2 += zwbVar.a().encodedSizeWithTag(zwbVar.c, b);
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            int size = i2 + m.unknownFields().size();
-            m.cachedSerializedSize = size;
-            return size;
         }
-        return invokeL.intValue;
-    }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: b */
-    public M decode(bxb bxbVar) throws IOException {
-        InterceptResult invokeL;
-        ProtoAdapter<?> i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bxbVar)) == null) {
-            B f = f();
-            long c = bxbVar.c();
-            while (true) {
-                int f2 = bxbVar.f();
-                if (f2 != -1) {
-                    zwb<M, B> zwbVar = this.c.get(Integer.valueOf(f2));
-                    if (zwbVar != null) {
-                        try {
-                            if (zwbVar.f()) {
-                                i = zwbVar.a();
-                            } else {
-                                i = zwbVar.i();
-                            }
-                            zwbVar.j(f, i.decode(bxbVar));
-                        } catch (ProtoAdapter.EnumConstantNotFoundException e) {
-                            f.addUnknownField(f2, FieldEncoding.VARINT, Long.valueOf(e.value));
-                        }
-                    } else {
-                        FieldEncoding g = bxbVar.g();
-                        f.addUnknownField(f2, g, g.rawProtoAdapter().decode(bxbVar));
-                    }
-                } else {
-                    bxbVar.d(c);
-                    return (M) f.build();
-                }
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        /* JADX WARN: Type inference failed for: r1v0, types: [com.fun.ad.sdk.internal.api.reporter.Reporter, java.lang.Object] */
+        @Override // com.baidu.tieba.j2c
+        public Reporter a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new gxb("https://rpd.xdplt.com/evt/");
             }
-        } else {
-            return (M) invokeL.objValue;
+            return invokeV.objValue;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: h */
-    public String toString(M m) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, m)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (zwb<M, B> zwbVar : this.c.values()) {
-                Object b = zwbVar.b(m);
-                if (b != null) {
-                    sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                    sb.append(zwbVar.b);
-                    sb.append('=');
-                    if (zwbVar.f) {
-                        b = "██";
-                    }
-                    sb.append(b);
-                }
-            }
-            sb.replace(0, 2, this.a.getSimpleName() + '{');
-            sb.append('}');
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: c */
-    public void encode(cxb cxbVar, M m) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cxbVar, m) == null) {
-            for (zwb<M, B> zwbVar : this.c.values()) {
-                Object b = zwbVar.b(m);
-                if (b != null) {
-                    zwbVar.a().encodeWithTag(cxbVar, zwbVar.c, b);
-                }
-            }
-            cxbVar.k(m.unknownFields());
-        }
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
-            if ((obj instanceof exb) && ((exb) obj).a == this.a) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public B f() {
+    /* JADX WARN: Type inference failed for: r1v7, types: [T, java.lang.Object] */
+    public static Reporter a() {
         InterceptResult invokeV;
+        Reporter reporter;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            try {
-                return this.b.newInstance();
-            } catch (IllegalAccessException | InstantiationException e) {
-                throw new AssertionError(e);
-            }
-        }
-        return (B) invokeV.objValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.a.hashCode();
-        }
-        return invokeV.intValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: g */
-    public M redact(M m) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, m)) == null) {
-            Message.a<M, B> newBuilder = m.newBuilder();
-            for (zwb<M, B> zwbVar : this.c.values()) {
-                if (zwbVar.f && zwbVar.a == WireField.Label.REQUIRED) {
-                    throw new UnsupportedOperationException(String.format("Field '%s' in %s is required and cannot be redacted.", zwbVar.b, this.javaType.getName()));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            j2c<Reporter> j2cVar = a;
+            synchronized (j2cVar) {
+                if (j2cVar.a == null) {
+                    j2cVar.a = j2cVar.a();
                 }
-                boolean isAssignableFrom = Message.class.isAssignableFrom(zwbVar.i().javaType);
-                if (!zwbVar.f && (!isAssignableFrom || zwbVar.a.isRepeated())) {
-                    if (isAssignableFrom && zwbVar.a.isRepeated()) {
-                        gxb.k((List) zwbVar.e(newBuilder), zwbVar.i());
-                    }
-                } else {
-                    Object e = zwbVar.e(newBuilder);
-                    if (e != null) {
-                        zwbVar.h(newBuilder, zwbVar.a().redact(e));
-                    }
-                }
+                reporter = j2cVar.a;
             }
-            newBuilder.clearUnknownFields();
-            return newBuilder.build();
+            return reporter;
         }
-        return (M) invokeL.objValue;
+        return (Reporter) invokeV.objValue;
     }
 }

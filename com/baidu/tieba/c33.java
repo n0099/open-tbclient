@@ -1,15 +1,12 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.text.SpannableString;
-import android.text.TextUtils;
-import android.util.Log;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.os.Bundle;
+import android.os.Message;
+import android.os.RemoteException;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.p33;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.tieba.w23;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,24 +14,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayDeque;
+import java.util.Deque;
 /* loaded from: classes5.dex */
-public class c33 {
+public class c33 implements w23.c {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
-    public static c33 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bitmap a;
-    public HashMap<String, d33> b;
-    public List<String> c;
+    public final Deque<Message> a;
+
+    @Override // com.baidu.tieba.w23.c
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.w23.c
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -49,7 +49,7 @@ public class c33 {
                 return;
             }
         }
-        d = am1.a;
+        boolean z = rm1.a;
     }
 
     public c33() {
@@ -65,156 +65,62 @@ public class c33 {
                 return;
             }
         }
-        this.b = new HashMap<>();
-        this.c = new ArrayList();
+        this.a = new ArrayDeque();
     }
 
-    public static c33 c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.w23.c
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (e == null) {
-                synchronized (c33.class) {
-                    if (e == null) {
-                        e = new c33();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            b33 Q = b33.Q();
+            while (Q.O() && !this.a.isEmpty()) {
+                Message peek = this.a.peek();
+                if (peek == null || e(peek)) {
+                    this.a.poll();
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.w23.c
+    public void b(@NonNull y23 y23Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, y23Var) == null) {
+            Message h = y23Var.h();
+            h.arg1 = SwanAppProcessInfo.current().index;
+            if (f63.K().E()) {
+                Object obj = h.obj;
+                if (obj instanceof Bundle) {
+                    Bundle bundle = (Bundle) obj;
+                    if (!bundle.containsKey("ai_apps_id")) {
+                        bundle.putString("ai_apps_id", f63.K().getAppId());
                     }
                 }
             }
-            return e;
+            if (!e(h) && y23Var.n()) {
+                this.a.offer(h);
+                b33.Q().c0();
+            }
         }
-        return (c33) invokeV.objValue;
     }
 
-    public List<String> b() {
-        InterceptResult invokeV;
+    public final boolean e(Message message) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public Bitmap d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (Bitmap) invokeV.objValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<String> list = this.c;
-            if (list != null && list.size() > 0) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, message)) == null) {
+            b33 Q = b33.Q();
+            if (message != null && Q.O()) {
+                try {
+                    Q.S().send(message);
+                    return true;
+                } catch (RemoteException e) {
+                    Q.U();
+                    g32.l("SwanMsgSenderOfClient", " sendMsgToService msg = " + message.toString(), e);
+                    return false;
+                }
             }
             return false;
         }
-        return invokeV.booleanValue;
-    }
-
-    public Bitmap a(String str) {
-        InterceptResult invokeL;
-        d33 d33Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            HashMap<String, d33> hashMap = this.b;
-            if (hashMap != null && (d33Var = hashMap.get(str)) != null) {
-                return d33Var.a();
-            }
-            return null;
-        }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            if (d) {
-                Log.d("EmojiInfoManager", "get emoji info from " + str);
-            }
-            File file = new File(str);
-            if (file.exists() && file.isDirectory()) {
-                String E = sl4.E(new File(str + File.separator + "emoji.json"));
-                if (TextUtils.isEmpty(E)) {
-                    if (d) {
-                        Log.d("EmojiInfoManager", "读取emoji配置文件失败");
-                        return;
-                    }
-                    return;
-                }
-                try {
-                    JSONArray optJSONArray = new JSONObject(E).optJSONArray("packages");
-                    if (optJSONArray == null) {
-                        return;
-                    }
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(0);
-                    if (optJSONObject == null) {
-                        return;
-                    }
-                    String optString = optJSONObject.optString("package_icon");
-                    if (!TextUtils.isEmpty(optString)) {
-                        this.a = BitmapFactory.decodeFile(str + File.separator + optString);
-                    }
-                    JSONArray optJSONArray2 = optJSONObject.optJSONArray("emoticons");
-                    this.c.clear();
-                    this.b.clear();
-                    if (optJSONArray2 != null) {
-                        int length = optJSONArray2.length();
-                        for (int i = 0; i < length; i++) {
-                            JSONObject jSONObject = (JSONObject) optJSONArray2.get(i);
-                            String optString2 = jSONObject.optString("id");
-                            String optString3 = jSONObject.optString("text");
-                            String optString4 = jSONObject.optString("icon");
-                            Bitmap decodeFile = BitmapFactory.decodeFile(str + File.separator + optString4);
-                            if (!TextUtils.isEmpty(optString3) && decodeFile != null) {
-                                this.c.add(optString3);
-                                this.b.put(optString3, new d33(optString2, optString3, decodeFile));
-                            }
-                        }
-                    }
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                }
-            } else if (d) {
-                Log.d("EmojiInfoManager", "文件路径错误");
-            }
-        }
-    }
-
-    public SpannableString g(Context context, CharSequence charSequence, TextView textView) {
-        InterceptResult invokeLLL;
-        Object aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, context, charSequence, textView)) == null) {
-            if (d) {
-                Log.d("EmojiInfoManager", "parseEmotion in UI thread, use cache");
-            }
-            SpannableString spannableString = new SpannableString(charSequence);
-            Matcher matcher = Pattern.compile("\\[([一-龥\\w])+\\]").matcher(spannableString);
-            while (matcher.find()) {
-                String group = matcher.group();
-                int start = matcher.start();
-                Bitmap a = c().a(group);
-                if (a == null) {
-                    break;
-                }
-                int textSize = (int) ((textView.getTextSize() * 11.0f) / 10.0f);
-                Bitmap createScaledBitmap = Bitmap.createScaledBitmap(a, textSize, textSize, true);
-                if (createScaledBitmap != null) {
-                    if (textView instanceof EditText) {
-                        aVar = new p33.b(context.getApplicationContext(), createScaledBitmap);
-                    } else {
-                        aVar = new p33.a(context.getApplicationContext(), createScaledBitmap);
-                    }
-                    spannableString.setSpan(aVar, start, group.length() + start, 33);
-                }
-            }
-            return spannableString;
-        }
-        return (SpannableString) invokeLLL.objValue;
+        return invokeL.booleanValue;
     }
 }

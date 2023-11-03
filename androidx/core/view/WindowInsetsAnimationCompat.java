@@ -179,16 +179,16 @@ public final class WindowInsetsAnimationCompat {
 
         @NonNull
         public static WindowInsets forwardToViewIfNeeded(@NonNull View view2, @NonNull WindowInsets windowInsets) {
-            if (view2.getTag(R.id.obfuscated_res_0x7f0923ef) != null) {
+            if (view2.getTag(R.id.obfuscated_res_0x7f092446) != null) {
                 return windowInsets;
             }
             return view2.onApplyWindowInsets(windowInsets);
         }
 
         public static void setCallback(@NonNull View view2, @Nullable Callback callback) {
-            Object tag = view2.getTag(R.id.obfuscated_res_0x7f0923ef);
+            Object tag = view2.getTag(R.id.obfuscated_res_0x7f092446);
             if (callback == null) {
-                view2.setTag(R.id.obfuscated_res_0x7f09242c, null);
+                view2.setTag(R.id.obfuscated_res_0x7f092483, null);
                 if (tag == null) {
                     view2.setOnApplyWindowInsetsListener(null);
                     return;
@@ -196,7 +196,7 @@ public final class WindowInsetsAnimationCompat {
                 return;
             }
             View.OnApplyWindowInsetsListener createProxyListener = createProxyListener(view2, callback);
-            view2.setTag(R.id.obfuscated_res_0x7f09242c, createProxyListener);
+            view2.setTag(R.id.obfuscated_res_0x7f092483, createProxyListener);
             if (tag == null) {
                 view2.setOnApplyWindowInsetsListener(createProxyListener);
             }
@@ -232,7 +232,7 @@ public final class WindowInsetsAnimationCompat {
 
         @Nullable
         public static Callback getCallback(View view2) {
-            Object tag = view2.getTag(R.id.obfuscated_res_0x7f09242c);
+            Object tag = view2.getTag(R.id.obfuscated_res_0x7f092483);
             if (tag instanceof Impl21OnApplyWindowInsetsListener) {
                 return ((Impl21OnApplyWindowInsetsListener) tag).mCallback;
             }

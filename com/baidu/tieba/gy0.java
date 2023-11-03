@@ -1,19 +1,66 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
-public class gy0 {
+public abstract class gy0 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile gy0 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ConcurrentHashMap<String, dy0> a;
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void b(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
+        }
+    }
+
+    public void c(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f) == null) {
+        }
+    }
+
+    public void d(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
+        }
+    }
+
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+        }
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        }
+    }
+
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        }
+    }
 
     public gy0() {
         Interceptable interceptable = $ic;
@@ -25,52 +72,7 @@ public class gy0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ConcurrentHashMap<>();
-    }
-
-    public static gy0 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (gy0.class) {
-                    if (b == null) {
-                        b = new gy0();
-                    }
-                }
-            }
-            return b;
-        }
-        return (gy0) invokeV.objValue;
-    }
-
-    @NonNull
-    public dy0 b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (str == null) {
-                str = "";
-            }
-            dy0 dy0Var = (dy0) vx0.b(this.a, str);
-            if (dy0Var == null) {
-                synchronized (gy0.class) {
-                    dy0Var = (dy0) vx0.b(this.a, str);
-                    if (dy0Var == null) {
-                        if (TextUtils.isEmpty(str)) {
-                            dy0Var = fy0.a().a();
-                        } else {
-                            dy0Var = fy0.a().b(str);
-                        }
-                        vx0.e(this.a, str, dy0Var);
-                    }
-                }
-            }
-            return dy0Var;
-        }
-        return (dy0) invokeL.objValue;
     }
 }

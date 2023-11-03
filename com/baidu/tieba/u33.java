@@ -1,52 +1,45 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.tieba.v33;
+import android.graphics.Bitmap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class u33 extends p13 {
+public final class u33 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Bitmap a;
 
-    public u33() {
+    public u33(String id, String text, Bitmap img) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {id, text, img};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(id, "id");
+        Intrinsics.checkNotNullParameter(text, "text");
+        Intrinsics.checkNotNullParameter(img, "img");
+        this.a = img;
     }
 
-    @Override // com.baidu.tieba.p13
-    public void b(Bundle params) {
-        v33.a b;
-        v33.a b2;
+    public final Bitmap a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, params) == null) {
-            Intrinsics.checkNotNullParameter(params, "params");
-            String string = params.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_OPEN_ID);
-            String string2 = params.getString("swanId");
-            String string3 = params.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
-            String string4 = params.getString("hostName");
-            if (ProcessUtils.isMainProcess()) {
-                if (string != null && (b2 = v33.c.b()) != null) {
-                    b2.a(string, string3, string4);
-                }
-                if (string2 != null && (b = v33.c.b()) != null) {
-                    b.b(string2, string3, string4);
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (Bitmap) invokeV.objValue;
     }
 }

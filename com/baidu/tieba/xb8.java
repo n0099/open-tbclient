@@ -1,5 +1,7 @@
 package com.baidu.tieba;
-/* loaded from: classes8.dex */
-public interface xb8 extends pd {
-    void s();
+
+import com.baidu.adp.BdUniqueId;
+/* loaded from: classes9.dex */
+public interface xb8 {
+    boolean a(BdUniqueId bdUniqueId, String str, String str2, String str3);
 }

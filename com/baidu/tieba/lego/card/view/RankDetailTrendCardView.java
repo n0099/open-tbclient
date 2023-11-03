@@ -15,9 +15,9 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.co5;
 import com.baidu.tieba.lego.card.model.RankDetailTrendCard;
-import com.baidu.tieba.my8;
+import com.baidu.tieba.qb9;
+import com.baidu.tieba.wp5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -71,7 +71,7 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !ViewHelper.checkUpIsLogin(this.b.getContext())) {
                 return;
             }
-            my8 a = my8.a();
+            qb9 a = qb9.a();
             RankDetailTrendCard rankDetailTrendCard = this.a;
             a.e(rankDetailTrendCard, rankDetailTrendCard.getPostUrl(), null, null);
         }
@@ -147,7 +147,7 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
     public void v(RankDetailTrendCard rankDetailTrendCard, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, rankDetailTrendCard, i) == null) {
-            co5.a(this.i, getRootView());
+            wp5.a(this.i, getRootView());
             SkinManager.setBackgroundResource(this.m, R.drawable.addresslist_item_bg);
             SkinManager.setViewTextColor(this.o, (int) R.color.CAM_X0108);
             SkinManager.setViewTextColor(this.p, (int) R.color.CAM_X0105);
@@ -269,15 +269,15 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01e0, (ViewGroup) null);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01e5, (ViewGroup) null);
             this.m = linearLayout;
-            this.n = (TbImageView) n(linearLayout, R.id.obfuscated_res_0x7f0914ef);
-            this.o = (TextView) n(this.m, R.id.obfuscated_res_0x7f0911b1);
-            this.p = (TextView) n(this.m, R.id.obfuscated_res_0x7f0926ca);
-            this.q = (TbImageView) n(this.m, R.id.obfuscated_res_0x7f0926c8);
-            this.r = (TextView) n(this.m, R.id.obfuscated_res_0x7f0926c9);
-            this.s = (TextView) n(this.m, R.id.obfuscated_res_0x7f0904ec);
-            HeadImageView headImageView = (HeadImageView) n(this.m, R.id.obfuscated_res_0x7f090f05);
+            this.n = (TbImageView) n(linearLayout, R.id.obfuscated_res_0x7f09152e);
+            this.o = (TextView) n(this.m, R.id.obfuscated_res_0x7f0911ef);
+            this.p = (TextView) n(this.m, R.id.obfuscated_res_0x7f092729);
+            this.q = (TbImageView) n(this.m, R.id.obfuscated_res_0x7f092727);
+            this.r = (TextView) n(this.m, R.id.obfuscated_res_0x7f092728);
+            this.s = (TextView) n(this.m, R.id.obfuscated_res_0x7f090508);
+            HeadImageView headImageView = (HeadImageView) n(this.m, R.id.obfuscated_res_0x7f090f3c);
             this.t = headImageView;
             headImageView.setIsRound(true);
             return this.m;

@@ -1,58 +1,65 @@
 package com.baidu.tieba;
 
-import android.text.TextPaint;
-import android.text.style.ClickableSpan;
-import android.view.View;
-import androidx.core.content.ContextCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.media.AudioManager;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class lx0 extends ClickableSpan {
+public class lx0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final boolean b;
 
-    @Override // android.text.style.ClickableSpan
-    public void onClick(View widget) {
+    @Nullable
+    public static AudioManager a(@Nullable Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, widget) == null) {
-            Intrinsics.checkNotNullParameter(widget, "widget");
-        }
-    }
-
-    public lx0(int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (context == null) {
+                return null;
+            }
+            try {
+                return (AudioManager) context.getSystemService("audio");
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
             }
         }
-        this.a = i;
-        this.b = z;
+        return (AudioManager) invokeL.objValue;
     }
 
-    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-    public void updateDrawState(TextPaint ds) {
+    public static int b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ds) == null) {
-            Intrinsics.checkNotNullParameter(ds, "ds");
-            if (this.a != -1) {
-                ds.setColor(ContextCompat.getColor(pe0.b(), this.a));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            AudioManager a = a(context);
+            if (a != null) {
+                return a.getStreamMaxVolume(3);
             }
-            ds.setUnderlineText(this.b);
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            AudioManager a = a(context);
+            if (a != null) {
+                return a.getStreamVolume(3);
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public static void d(Context context, int i) {
+        AudioManager a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65539, null, context, i) == null) && (a = a(context)) != null) {
+            a.setStreamVolume(3, i, 8);
         }
     }
 }

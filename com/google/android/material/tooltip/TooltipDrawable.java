@@ -28,12 +28,12 @@ import com.google.android.material.shape.MarkerEdgeTreatment;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.OffsetEdgeTreatment;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawableHelper.TextDrawableDelegate {
     @StyleRes
     public static final int DEFAULT_STYLE = 2131755951;
     @AttrRes
-    public static final int DEFAULT_THEME_ATTR = 2130970528;
+    public static final int DEFAULT_THEME_ATTR = 2130970657;
     public int arrowSize;
     @NonNull
     public final View.OnLayoutChangeListener attachedViewLayoutChangeListener;

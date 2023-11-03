@@ -72,7 +72,7 @@ public final class SignatureEnhancement {
     public final AnnotationTypeQualifierResolver annotationTypeQualifierResolver;
     public final Jsr305State jsr305State;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class PartEnhancementResult {
         public final boolean containsFunctionN;
         public final KotlinType type;
@@ -446,12 +446,12 @@ public final class SignatureEnhancement {
 
                 /* renamed from: invoke  reason: avoid collision after fix types in other method */
                 public final boolean invoke2(UnwrappedType unwrappedType) {
-                    ClassifierDescriptor mo2106getDeclarationDescriptor = unwrappedType.getConstructor().mo2106getDeclarationDescriptor();
-                    if (mo2106getDeclarationDescriptor == null) {
+                    ClassifierDescriptor mo2110getDeclarationDescriptor = unwrappedType.getConstructor().mo2110getDeclarationDescriptor();
+                    if (mo2110getDeclarationDescriptor == null) {
                         return false;
                     }
-                    Intrinsics.checkExpressionValueIsNotNull(mo2106getDeclarationDescriptor, "it.constructor.declarati… ?: return@contains false");
-                    if (!Intrinsics.areEqual(mo2106getDeclarationDescriptor.getName(), JavaToKotlinClassMap.INSTANCE.getFUNCTION_N_FQ_NAME().shortName()) || !Intrinsics.areEqual(DescriptorUtilsKt.fqNameOrNull(mo2106getDeclarationDescriptor), JavaToKotlinClassMap.INSTANCE.getFUNCTION_N_FQ_NAME())) {
+                    Intrinsics.checkExpressionValueIsNotNull(mo2110getDeclarationDescriptor, "it.constructor.declarati… ?: return@contains false");
+                    if (!Intrinsics.areEqual(mo2110getDeclarationDescriptor.getName(), JavaToKotlinClassMap.INSTANCE.getFUNCTION_N_FQ_NAME().shortName()) || !Intrinsics.areEqual(DescriptorUtilsKt.fqNameOrNull(mo2110getDeclarationDescriptor), JavaToKotlinClassMap.INSTANCE.getFUNCTION_N_FQ_NAME())) {
                         return false;
                     }
                     return true;
@@ -537,7 +537,7 @@ public final class SignatureEnhancement {
                     boolean z4 = true;
                     if (!(list instanceof Collection) || !list.isEmpty()) {
                         for (FqName fqName : list) {
-                            if (Annotations.this.mo2101findAnnotation(fqName) != null) {
+                            if (Annotations.this.mo2105findAnnotation(fqName) != null) {
                                 z3 = true;
                                 continue;
                             } else {

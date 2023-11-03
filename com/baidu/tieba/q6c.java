@@ -1,70 +1,148 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.io.StringWriter;
+import java.io.UnsupportedEncodingException;
+import java.io.Writer;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class q6c {
+public final class q6c {
     public static /* synthetic */ Interceptable $ic;
-    public static final q6c a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public k6c b() {
-        InterceptResult invokeV;
+    public static void a(Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
+        if (!(interceptable == null || interceptable.invokeL(65536, null, closeable) == null) || closeable == null) {
+            return;
         }
-        return (k6c) invokeV.objValue;
+        try {
+            closeable.close();
+        } catch (IOException unused) {
+            Log.e("Utils", "Exception when closing the 'Closeable'.");
+        }
     }
 
-    public u6c c(u6c u6cVar) {
-        InterceptResult invokeL;
+    public static void b(Reader reader, Writer writer) throws IOException {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u6cVar)) == null) ? u6cVar : (u6c) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeLL(65537, null, reader, writer) == null) {
+            c(reader, writer, new char[4096]);
+        }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948045227, "Lcom/baidu/tieba/q6c;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948045227, "Lcom/baidu/tieba/q6c;");
+    public static void c(Reader reader, Writer writer, char[] cArr) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLLL(65538, null, reader, writer, cArr) != null) {
+            return;
+        }
+        while (true) {
+            int read = reader.read(cArr);
+            if (-1 == read) {
                 return;
             }
+            writer.write(cArr, 0, read);
         }
-        a = new q6c();
     }
 
-    public q6c() {
+    public static Map<String, String> d(Map<String, String> map) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
+            HashMap hashMap = new HashMap();
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                hashMap.put(e(entry.getKey()), entry.getValue());
             }
+            return hashMap;
         }
+        return (Map) invokeL.objValue;
     }
 
-    public static q6c a() {
-        InterceptResult invokeV;
+    public static String e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            int i = 0;
+            if (str.length() > 0) {
+                while (str.charAt(i) == '/') {
+                    i++;
+                }
+            }
+            return "/" + str.substring(i);
         }
-        return (q6c) invokeV.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static h6c f(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
+            if (str != null) {
+                char c = 65535;
+                int hashCode = str.hashCode();
+                if (hashCode != 2155) {
+                    if (hashCode != 2177) {
+                        if (hashCode != 2627) {
+                            if (hashCode == 2644 && str.equals("SG")) {
+                                c = 3;
+                            }
+                        } else if (str.equals("RU")) {
+                            c = 2;
+                        }
+                    } else if (str.equals("DE")) {
+                        c = 1;
+                    }
+                } else if (str.equals("CN")) {
+                    c = 0;
+                }
+                if (c == 0) {
+                    return h6c.c;
+                }
+                if (c == 1) {
+                    return h6c.d;
+                }
+                if (c == 2) {
+                    return h6c.e;
+                }
+                if (c == 3) {
+                    return h6c.f;
+                }
+            }
+            if (str2 != null) {
+                if (str2.contains("connect-drcn")) {
+                    return h6c.c;
+                }
+                if (str2.contains("connect-dre")) {
+                    return h6c.d;
+                }
+                if (str2.contains("connect-drru")) {
+                    return h6c.e;
+                }
+                if (str2.contains("connect-dra")) {
+                    return h6c.f;
+                }
+            }
+            return h6c.b;
+        }
+        return (h6c) invokeLL.objValue;
+    }
+
+    public static String g(InputStream inputStream, String str) throws UnsupportedEncodingException, IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, inputStream, str)) == null) {
+            StringWriter stringWriter = new StringWriter();
+            b(new InputStreamReader(inputStream, str), stringWriter);
+            return stringWriter.toString();
+        }
+        return (String) invokeLL.objValue;
     }
 }

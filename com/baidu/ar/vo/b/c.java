@@ -7,7 +7,7 @@ import com.baidu.ar.callback.ICallbackWith;
 import com.baidu.ar.slam.TrackModel;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class c implements a, b {
     public static final String TAG = "c";
     public static final float[] yI = {-1.0f, 0.0f, 0.0f, 0.0f, 0.0f, -1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f};

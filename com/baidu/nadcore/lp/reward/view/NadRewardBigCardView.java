@@ -24,28 +24,28 @@ import com.baidu.nadcore.widget.txt.UnifyTextView;
 import com.baidu.searchbox.common.security.PermissionStorage;
 import com.baidu.searchbox.dns.transmit.model.DnsModel;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b01;
-import com.baidu.tieba.bi0;
-import com.baidu.tieba.bm0;
-import com.baidu.tieba.c11;
-import com.baidu.tieba.e01;
-import com.baidu.tieba.eg0;
-import com.baidu.tieba.fi0;
-import com.baidu.tieba.fk0;
-import com.baidu.tieba.fm0;
-import com.baidu.tieba.id0;
-import com.baidu.tieba.jk0;
-import com.baidu.tieba.jm0;
-import com.baidu.tieba.jy0;
-import com.baidu.tieba.kd0;
-import com.baidu.tieba.p31;
-import com.baidu.tieba.pc0;
-import com.baidu.tieba.pm0;
+import com.baidu.tieba.al0;
+import com.baidu.tieba.an0;
+import com.baidu.tieba.az0;
+import com.baidu.tieba.be0;
+import com.baidu.tieba.g41;
+import com.baidu.tieba.gd0;
+import com.baidu.tieba.gn0;
+import com.baidu.tieba.nn0;
+import com.baidu.tieba.on0;
+import com.baidu.tieba.p11;
+import com.baidu.tieba.pe0;
+import com.baidu.tieba.pn0;
+import com.baidu.tieba.s01;
+import com.baidu.tieba.si0;
+import com.baidu.tieba.sm0;
+import com.baidu.tieba.t11;
+import com.baidu.tieba.v01;
+import com.baidu.tieba.vg0;
+import com.baidu.tieba.wi0;
+import com.baidu.tieba.wk0;
 import com.baidu.tieba.wm0;
-import com.baidu.tieba.xm0;
-import com.baidu.tieba.y01;
-import com.baidu.tieba.yd0;
-import com.baidu.tieba.ym0;
+import com.baidu.tieba.zd0;
 import com.baidu.webkit.sdk.WebChromeClient;
 import java.util.List;
 import kotlin.Lazy;
@@ -75,9 +75,9 @@ public final class NadRewardBigCardView extends FrameLayout {
     public final Lazy l;
     public final Lazy m;
     public final Lazy n;
-    public p31 o;
-    public pm0 p;
-    public id0 q;
+    public g41 o;
+    public gn0 p;
+    public zd0 q;
     public Function1<? super Float, Unit> r;
     public final Lazy s;
 
@@ -161,13 +161,13 @@ public final class NadRewardBigCardView extends FrameLayout {
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
             String str;
-            xm0 b;
+            on0 b;
             NadRewardBigCardView nadRewardBigCardView = NadRewardBigCardView.this;
             String str2 = ClogBuilder.Area.ARROW.type;
             Intrinsics.checkNotNullExpressionValue(str2, "ClogBuilder.Area.ARROW.type");
             ClogBuilder.LogType logType = ClogBuilder.LogType.CLICK;
-            pm0 pm0Var = NadRewardBigCardView.this.p;
-            if (pm0Var != null && (b = pm0Var.b()) != null) {
+            gn0 gn0Var = NadRewardBigCardView.this.p;
+            if (gn0Var != null && (b = gn0Var.b()) != null) {
                 str = b.d();
             } else {
                 str = null;
@@ -189,7 +189,7 @@ public final class NadRewardBigCardView extends FrameLayout {
         public boolean onTouch(View v, MotionEvent event) {
             boolean z;
             String str;
-            xm0 b;
+            on0 b;
             Intrinsics.checkNotNullParameter(v, "v");
             Intrinsics.checkNotNullParameter(event, "event");
             int action = event.getAction();
@@ -203,13 +203,13 @@ public final class NadRewardBigCardView extends FrameLayout {
                         z = false;
                     }
                     if (rawY - this.a < -60 && z) {
-                        pm0 pm0Var = NadRewardBigCardView.this.p;
-                        if (pm0Var != null && (b = pm0Var.b()) != null) {
+                        gn0 gn0Var = NadRewardBigCardView.this.p;
+                        if (gn0Var != null && (b = gn0Var.b()) != null) {
                             str = b.d();
                         } else {
                             str = null;
                         }
-                        yd0.c(str, NadRewardBigCardView.this.getContext());
+                        pe0.c(str, NadRewardBigCardView.this.getContext());
                         NadRewardBigCardView nadRewardBigCardView = NadRewardBigCardView.this;
                         String str2 = ClogBuilder.Area.SWIPE_UP.type;
                         Intrinsics.checkNotNullExpressionValue(str2, "ClogBuilder.Area.SWIPE_UP.type");
@@ -226,26 +226,21 @@ public final class NadRewardBigCardView extends FrameLayout {
     }
 
     /* loaded from: classes3.dex */
-    public static final class c extends fi0<pc0> {
+    public static final class c extends wi0<gd0> {
         public c(Class cls) {
             super(cls);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fi0
-        public void onEvent(pc0 event) {
+        @Override // com.baidu.tieba.wi0
+        public void onEvent(gd0 event) {
             Intrinsics.checkNotNullParameter(event, "event");
-            if (!(!Intrinsics.areEqual(event.a, "4"))) {
-                pm0 pm0Var = NadRewardBigCardView.this.p;
-                if (pm0Var == null || pm0Var.o()) {
-                    if (event.h) {
-                        pm0 pm0Var2 = NadRewardBigCardView.this.p;
-                        if (pm0Var2 == null) {
-                            return;
-                        }
-                        NadRewardBigCardView.this.setDetailButton(pm0Var2);
-                        return;
-                    }
+            if (!Intrinsics.areEqual(event.a, "4")) {
+                return;
+            }
+            gn0 gn0Var = NadRewardBigCardView.this.p;
+            if (gn0Var == null || gn0Var.o()) {
+                if (!event.h) {
                     String str = event.g;
                     if (str != null) {
                         NadRewardBigCardView.this.getDetailBtnText().setText(str);
@@ -255,7 +250,7 @@ public final class NadRewardBigCardView extends FrameLayout {
                         if (background != null) {
                             GradientDrawable gradientDrawable = (GradientDrawable) background;
                             gradientDrawable.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
-                            gradientDrawable.setColors(new int[]{y01.a(event.d, R.color.nad_reward_big_card_btn_color), y01.a(event.e, R.color.nad_reward_big_card_btn_color)});
+                            gradientDrawable.setColors(new int[]{p11.a(event.d, R.color.nad_reward_big_card_btn_color), p11.a(event.e, R.color.nad_reward_big_card_btn_color)});
                             NadRewardBigCardView.this.getDetailBtn().setBackground(gradientDrawable);
                         } else {
                             throw new NullPointerException("null cannot be cast to non-null type android.graphics.drawable.GradientDrawable");
@@ -268,7 +263,13 @@ public final class NadRewardBigCardView extends FrameLayout {
                         str2 = "0";
                     }
                     nadRewardBigCardView.l("", logType, "4", str2);
+                    return;
                 }
+                gn0 gn0Var2 = NadRewardBigCardView.this.p;
+                if (gn0Var2 == null) {
+                    return;
+                }
+                NadRewardBigCardView.this.setDetailButton(gn0Var2);
             }
         }
     }
@@ -276,22 +277,22 @@ public final class NadRewardBigCardView extends FrameLayout {
     /* loaded from: classes3.dex */
     public static final class d implements View.OnClickListener {
         public final /* synthetic */ UnifyTextView a;
-        public final /* synthetic */ pm0 b;
+        public final /* synthetic */ gn0 b;
 
-        public d(UnifyTextView unifyTextView, pm0 pm0Var) {
+        public d(UnifyTextView unifyTextView, gn0 gn0Var) {
             this.a = unifyTextView;
-            this.b = pm0Var;
+            this.b = gn0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
             String str;
-            wm0 wm0Var;
-            b01 a = e01.a();
+            nn0 nn0Var;
+            s01 a = v01.a();
             Context context = this.a.getContext();
-            pm0 pm0Var = this.b;
-            if (pm0Var != null && (wm0Var = pm0Var.i) != null) {
-                str = wm0Var.f;
+            gn0 gn0Var = this.b;
+            if (gn0Var != null && (nn0Var = gn0Var.i) != null) {
+                str = nn0Var.f;
             } else {
                 str = null;
             }
@@ -302,22 +303,22 @@ public final class NadRewardBigCardView extends FrameLayout {
     /* loaded from: classes3.dex */
     public static final class e implements View.OnClickListener {
         public final /* synthetic */ UnifyTextView a;
-        public final /* synthetic */ pm0 b;
+        public final /* synthetic */ gn0 b;
 
-        public e(UnifyTextView unifyTextView, pm0 pm0Var) {
+        public e(UnifyTextView unifyTextView, gn0 gn0Var) {
             this.a = unifyTextView;
-            this.b = pm0Var;
+            this.b = gn0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
             String str;
-            wm0 wm0Var;
-            b01 a = e01.a();
+            nn0 nn0Var;
+            s01 a = v01.a();
             Context context = this.a.getContext();
-            pm0 pm0Var = this.b;
-            if (pm0Var != null && (wm0Var = pm0Var.i) != null) {
-                str = wm0Var.d;
+            gn0 gn0Var = this.b;
+            if (gn0Var != null && (nn0Var = gn0Var.i) != null) {
+                str = nn0Var.d;
             } else {
                 str = null;
             }
@@ -329,25 +330,25 @@ public final class NadRewardBigCardView extends FrameLayout {
     public static final class f implements View.OnClickListener {
         public final /* synthetic */ UnifyTextView a;
         public final /* synthetic */ NadRewardBigCardView b;
-        public final /* synthetic */ pm0 c;
+        public final /* synthetic */ gn0 c;
 
-        public f(UnifyTextView unifyTextView, NadRewardBigCardView nadRewardBigCardView, pm0 pm0Var) {
+        public f(UnifyTextView unifyTextView, NadRewardBigCardView nadRewardBigCardView, gn0 gn0Var) {
             this.a = unifyTextView;
             this.b = nadRewardBigCardView;
-            this.c = pm0Var;
+            this.c = gn0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
             String str;
-            wm0 wm0Var;
-            wm0.c cVar;
+            nn0 nn0Var;
+            nn0.c cVar;
             NadRewardBigCardView nadRewardBigCardView = this.b;
             String str2 = ClogBuilder.Area.APP_PRIVACY.type;
             Intrinsics.checkNotNullExpressionValue(str2, "ClogBuilder.Area.APP_PRIVACY.type");
             ClogBuilder.LogType logType = ClogBuilder.LogType.FREE_CLICK;
-            pm0 pm0Var = this.c;
-            if (pm0Var != null && (wm0Var = pm0Var.i) != null && (cVar = wm0Var.g) != null) {
+            gn0 gn0Var = this.c;
+            if (gn0Var != null && (nn0Var = gn0Var.i) != null && (cVar = nn0Var.g) != null) {
                 str = cVar.b;
             } else {
                 str = null;
@@ -360,25 +361,25 @@ public final class NadRewardBigCardView extends FrameLayout {
     public static final class g implements View.OnClickListener {
         public final /* synthetic */ UnifyTextView a;
         public final /* synthetic */ NadRewardBigCardView b;
-        public final /* synthetic */ pm0 c;
+        public final /* synthetic */ gn0 c;
 
-        public g(UnifyTextView unifyTextView, NadRewardBigCardView nadRewardBigCardView, pm0 pm0Var) {
+        public g(UnifyTextView unifyTextView, NadRewardBigCardView nadRewardBigCardView, gn0 gn0Var) {
             this.a = unifyTextView;
             this.b = nadRewardBigCardView;
-            this.c = pm0Var;
+            this.c = gn0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
             String str;
-            wm0 wm0Var;
-            wm0.b bVar;
+            nn0 nn0Var;
+            nn0.b bVar;
             NadRewardBigCardView nadRewardBigCardView = this.b;
             String str2 = ClogBuilder.Area.APP_PERMISSION.type;
             Intrinsics.checkNotNullExpressionValue(str2, "ClogBuilder.Area.APP_PERMISSION.type");
             ClogBuilder.LogType logType = ClogBuilder.LogType.FREE_CLICK;
-            pm0 pm0Var = this.c;
-            if (pm0Var != null && (wm0Var = pm0Var.i) != null && (bVar = wm0Var.h) != null) {
+            gn0 gn0Var = this.c;
+            if (gn0Var != null && (nn0Var = gn0Var.i) != null && (bVar = nn0Var.h) != null) {
                 str = bVar.b;
             } else {
                 str = null;
@@ -391,25 +392,25 @@ public final class NadRewardBigCardView extends FrameLayout {
     public static final class h implements View.OnClickListener {
         public final /* synthetic */ UnifyTextView a;
         public final /* synthetic */ NadRewardBigCardView b;
-        public final /* synthetic */ pm0 c;
+        public final /* synthetic */ gn0 c;
 
-        public h(UnifyTextView unifyTextView, NadRewardBigCardView nadRewardBigCardView, pm0 pm0Var) {
+        public h(UnifyTextView unifyTextView, NadRewardBigCardView nadRewardBigCardView, gn0 gn0Var) {
             this.a = unifyTextView;
             this.b = nadRewardBigCardView;
-            this.c = pm0Var;
+            this.c = gn0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
             String str;
-            wm0 wm0Var;
-            wm0.a aVar;
+            nn0 nn0Var;
+            nn0.a aVar;
             NadRewardBigCardView nadRewardBigCardView = this.b;
             String str2 = ClogBuilder.Area.APP_FEATURE.type;
             Intrinsics.checkNotNullExpressionValue(str2, "ClogBuilder.Area.APP_FEATURE.type");
             ClogBuilder.LogType logType = ClogBuilder.LogType.FREE_CLICK;
-            pm0 pm0Var = this.c;
-            if (pm0Var != null && (wm0Var = pm0Var.i) != null && (aVar = wm0Var.i) != null) {
+            gn0 gn0Var = this.c;
+            if (gn0Var != null && (nn0Var = gn0Var.i) != null && (aVar = nn0Var.i) != null) {
                 str = aVar.b;
             } else {
                 str = null;
@@ -420,22 +421,22 @@ public final class NadRewardBigCardView extends FrameLayout {
 
     /* loaded from: classes3.dex */
     public static final class i implements View.OnClickListener {
-        public final /* synthetic */ pm0 b;
+        public final /* synthetic */ gn0 b;
 
-        public i(pm0 pm0Var) {
-            this.b = pm0Var;
+        public i(gn0 gn0Var) {
+            this.b = gn0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
             String str;
-            xm0 b;
+            on0 b;
             NadRewardBigCardView nadRewardBigCardView = NadRewardBigCardView.this;
             String str2 = ClogBuilder.Area.AVATAR.type;
             Intrinsics.checkNotNullExpressionValue(str2, "ClogBuilder.Area.AVATAR.type");
             ClogBuilder.LogType logType = ClogBuilder.LogType.CLICK;
-            pm0 pm0Var = this.b;
-            if (pm0Var != null && (b = pm0Var.b()) != null) {
+            gn0 gn0Var = this.b;
+            if (gn0Var != null && (b = gn0Var.b()) != null) {
                 str = b.d();
             } else {
                 str = null;
@@ -446,22 +447,22 @@ public final class NadRewardBigCardView extends FrameLayout {
 
     /* loaded from: classes3.dex */
     public static final class j implements View.OnClickListener {
-        public final /* synthetic */ pm0 b;
+        public final /* synthetic */ gn0 b;
 
-        public j(pm0 pm0Var) {
-            this.b = pm0Var;
+        public j(gn0 gn0Var) {
+            this.b = gn0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
             String str;
-            xm0 b;
+            on0 b;
             NadRewardBigCardView nadRewardBigCardView = NadRewardBigCardView.this;
             String str2 = ClogBuilder.Area.NAME.type;
             Intrinsics.checkNotNullExpressionValue(str2, "ClogBuilder.Area.NAME.type");
             ClogBuilder.LogType logType = ClogBuilder.LogType.CLICK;
-            pm0 pm0Var = this.b;
-            if (pm0Var != null && (b = pm0Var.b()) != null) {
+            gn0 gn0Var = this.b;
+            if (gn0Var != null && (b = gn0Var.b()) != null) {
                 str = b.d();
             } else {
                 str = null;
@@ -472,22 +473,22 @@ public final class NadRewardBigCardView extends FrameLayout {
 
     /* loaded from: classes3.dex */
     public static final class k implements View.OnClickListener {
-        public final /* synthetic */ pm0 b;
+        public final /* synthetic */ gn0 b;
 
-        public k(pm0 pm0Var) {
-            this.b = pm0Var;
+        public k(gn0 gn0Var) {
+            this.b = gn0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
             String str;
-            xm0 b;
+            on0 b;
             NadRewardBigCardView nadRewardBigCardView = NadRewardBigCardView.this;
             String str2 = ClogBuilder.Area.AD_BTN_DETAIL.type;
             Intrinsics.checkNotNullExpressionValue(str2, "ClogBuilder.Area.AD_BTN_DETAIL.type");
             ClogBuilder.LogType logType = ClogBuilder.LogType.CLICK;
-            pm0 pm0Var = this.b;
-            if (pm0Var != null && (b = pm0Var.b()) != null) {
+            gn0 gn0Var = this.b;
+            if (gn0Var != null && (b = gn0Var.b()) != null) {
                 str = b.d();
             } else {
                 str = null;
@@ -498,36 +499,36 @@ public final class NadRewardBigCardView extends FrameLayout {
 
     /* loaded from: classes3.dex */
     public static final class l implements View.OnClickListener {
-        public l(pm0 pm0Var) {
+        public l(gn0 gn0Var) {
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
-            id0 id0Var = NadRewardBigCardView.this.q;
-            if (id0Var != null) {
-                id0Var.l();
+            zd0 zd0Var = NadRewardBigCardView.this.q;
+            if (zd0Var != null) {
+                zd0Var.m();
             }
         }
     }
 
     /* loaded from: classes3.dex */
     public static final class m implements View.OnClickListener {
-        public final /* synthetic */ pm0 b;
+        public final /* synthetic */ gn0 b;
 
-        public m(pm0 pm0Var) {
-            this.b = pm0Var;
+        public m(gn0 gn0Var) {
+            this.b = gn0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
             String str;
-            xm0 b;
+            on0 b;
             NadRewardBigCardView nadRewardBigCardView = NadRewardBigCardView.this;
             String str2 = ClogBuilder.Area.TITTLE.type;
             Intrinsics.checkNotNullExpressionValue(str2, "ClogBuilder.Area.TITTLE.type");
             ClogBuilder.LogType logType = ClogBuilder.LogType.CLICK;
-            pm0 pm0Var = this.b;
-            if (pm0Var != null && (b = pm0Var.b()) != null) {
+            gn0 gn0Var = this.b;
+            if (gn0Var != null && (b = gn0Var.b()) != null) {
                 str = b.d();
             } else {
                 str = null;
@@ -550,7 +551,7 @@ public final class NadRewardBigCardView extends FrameLayout {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
             public final AdImageView invoke() {
-                View findViewById = NadRewardBigCardView.this.findViewById(R.id.obfuscated_res_0x7f090319);
+                View findViewById = NadRewardBigCardView.this.findViewById(R.id.obfuscated_res_0x7f09032e);
                 Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.avatar)");
                 return (AdImageView) findViewById;
             }
@@ -578,7 +579,7 @@ public final class NadRewardBigCardView extends FrameLayout {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
             public final UnifyTextView invoke() {
-                View findViewById = NadRewardBigCardView.this.findViewById(R.id.obfuscated_res_0x7f0925a7);
+                View findViewById = NadRewardBigCardView.this.findViewById(R.id.obfuscated_res_0x7f0925fe);
                 Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.title)");
                 return (UnifyTextView) findViewById;
             }
@@ -773,7 +774,7 @@ public final class NadRewardBigCardView extends FrameLayout {
             }
         });
         LayoutInflater from = LayoutInflater.from(context);
-        fk0 a2 = jk0.a();
+        wk0 a2 = al0.a();
         Intrinsics.checkNotNullExpressionValue(a2, "NadRewardVideoLpRuntime.getUIProvider()");
         from.inflate(a2.s(), this);
     }
@@ -782,23 +783,23 @@ public final class NadRewardBigCardView extends FrameLayout {
         this(context, (i3 & 2) != 0 ? null : attributeSet, (i3 & 4) != 0 ? 0 : i2);
     }
 
-    private final void setAvatar(pm0 pm0Var) {
+    private final void setAvatar(gn0 gn0Var) {
         String str;
-        xm0 b2;
+        on0 b2;
         AdImageView avatar = getAvatar();
         avatar.setBorder(1.0f, avatar.getResources().getColor(R.color.nad_reward_big_card_avatar_stroke));
-        if (pm0Var != null && (b2 = pm0Var.b()) != null) {
+        if (gn0Var != null && (b2 = gn0Var.b()) != null) {
             str = b2.a();
         } else {
             str = null;
         }
-        avatar.s(str);
-        avatar.setOnClickListener(new i(pm0Var));
+        avatar.r(str);
+        avatar.setOnClickListener(new i(gn0Var));
     }
 
-    private final void setButton(pm0 pm0Var) {
-        setDetailButton(pm0Var);
-        setDownloadButton(pm0Var);
+    private final void setButton(gn0 gn0Var) {
+        setDetailButton(gn0Var);
+        setDownloadButton(gn0Var);
     }
 
     public final void n(float f2) {
@@ -813,13 +814,13 @@ public final class NadRewardBigCardView extends FrameLayout {
         this.r = callback;
     }
 
-    public final void setData(pm0 pm0Var) {
-        this.p = pm0Var;
-        setAvatar(pm0Var);
-        setBrandName(pm0Var);
-        setTitle(pm0Var);
-        setButton(pm0Var);
-        setAppInfo(pm0Var);
+    public final void setData(gn0 gn0Var) {
+        this.p = gn0Var;
+        setAvatar(gn0Var);
+        setBrandName(gn0Var);
+        setTitle(gn0Var);
+        setButton(gn0Var);
+        setAppInfo(gn0Var);
         o();
         j();
         k();
@@ -837,9 +838,9 @@ public final class NadRewardBigCardView extends FrameLayout {
             getBigCardPopupAnimator().start();
             return;
         }
-        p31 p31Var = this.o;
-        if (p31Var != null) {
-            p31Var.f();
+        g41 g41Var = this.o;
+        if (g41Var != null) {
+            g41Var.f();
         }
     }
 
@@ -873,8 +874,8 @@ public final class NadRewardBigCardView extends FrameLayout {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private final void setAppInfo(pm0 pm0Var) {
-        wm0 wm0Var;
+    private final void setAppInfo(gn0 gn0Var) {
+        nn0 nn0Var;
         String str;
         boolean z;
         UnifyTextView unifyTextView;
@@ -892,53 +893,53 @@ public final class NadRewardBigCardView extends FrameLayout {
         String str5;
         boolean z7;
         UnifyTextView unifyTextView5;
-        wm0 wm0Var2;
-        wm0.a aVar;
+        nn0 nn0Var2;
+        nn0.a aVar;
         String str6;
         boolean z8;
-        wm0 wm0Var3;
-        wm0.a aVar2;
-        wm0 wm0Var4;
-        wm0.a aVar3;
+        nn0 nn0Var3;
+        nn0.a aVar2;
+        nn0 nn0Var4;
+        nn0.a aVar3;
         String str7;
-        wm0 wm0Var5;
-        wm0.b bVar;
+        nn0 nn0Var5;
+        nn0.b bVar;
         String str8;
         boolean z9;
-        wm0 wm0Var6;
-        wm0.b bVar2;
-        wm0 wm0Var7;
-        wm0.b bVar3;
+        nn0 nn0Var6;
+        nn0.b bVar2;
+        nn0 nn0Var7;
+        nn0.b bVar3;
         String str9;
-        wm0 wm0Var8;
-        wm0.c cVar;
+        nn0 nn0Var8;
+        nn0.c cVar;
         String str10;
         boolean z10;
-        wm0 wm0Var9;
-        wm0.c cVar2;
-        wm0 wm0Var10;
-        wm0.c cVar3;
+        nn0 nn0Var9;
+        nn0.c cVar2;
+        nn0 nn0Var10;
+        nn0.c cVar3;
         String str11;
-        wm0 wm0Var11;
-        wm0 wm0Var12;
+        nn0 nn0Var11;
+        nn0 nn0Var12;
         String str12;
-        wm0 wm0Var13;
-        wm0 wm0Var14;
+        nn0 nn0Var13;
+        nn0 nn0Var14;
         LinearLayout appInfoView = getAppInfoView();
         String str13 = null;
-        if (pm0Var != null) {
-            wm0Var = pm0Var.i;
+        if (gn0Var != null) {
+            nn0Var = gn0Var.i;
         } else {
-            wm0Var = null;
+            nn0Var = null;
         }
-        if (kd0.a(wm0Var)) {
+        if (be0.a(nn0Var)) {
             appInfoView.setVisibility(0);
         } else {
             appInfoView.setVisibility(8);
         }
         UnifyTextView version = getVersion();
-        if (pm0Var != null && (wm0Var14 = pm0Var.i) != null) {
-            str = wm0Var14.f;
+        if (gn0Var != null && (nn0Var14 = gn0Var.i) != null) {
+            str = nn0Var14.f;
         } else {
             str = null;
         }
@@ -956,17 +957,17 @@ public final class NadRewardBigCardView extends FrameLayout {
             unifyTextView = null;
         }
         if (unifyTextView != null) {
-            if (pm0Var != null && (wm0Var13 = pm0Var.i) != null) {
-                str12 = wm0Var13.f;
+            if (gn0Var != null && (nn0Var13 = gn0Var.i) != null) {
+                str12 = nn0Var13.f;
             } else {
                 str12 = null;
             }
             version.setTextWithUnifiedPadding(str12, TextView.BufferType.NORMAL);
-            version.setOnClickListener(new d(version, pm0Var));
+            version.setOnClickListener(new d(version, gn0Var));
         }
         UnifyTextView developerName = getDeveloperName();
-        if (pm0Var != null && (wm0Var12 = pm0Var.i) != null) {
-            str2 = wm0Var12.d;
+        if (gn0Var != null && (nn0Var12 = gn0Var.i) != null) {
+            str2 = nn0Var12.d;
         } else {
             str2 = null;
         }
@@ -983,16 +984,16 @@ public final class NadRewardBigCardView extends FrameLayout {
             unifyTextView2 = null;
         }
         if (unifyTextView2 != null) {
-            if (pm0Var != null && (wm0Var11 = pm0Var.i) != null) {
-                str11 = wm0Var11.d;
+            if (gn0Var != null && (nn0Var11 = gn0Var.i) != null) {
+                str11 = nn0Var11.d;
             } else {
                 str11 = null;
             }
             developerName.setTextWithUnifiedPadding(str11, TextView.BufferType.NORMAL);
-            developerName.setOnClickListener(new e(developerName, pm0Var));
+            developerName.setOnClickListener(new e(developerName, gn0Var));
         }
         UnifyTextView privacyView = getPrivacyView();
-        if (pm0Var != null && (wm0Var10 = pm0Var.i) != null && (cVar3 = wm0Var10.g) != null) {
+        if (gn0Var != null && (nn0Var10 = gn0Var.i) != null && (cVar3 = nn0Var10.g) != null) {
             str3 = cVar3.a;
         } else {
             str3 = null;
@@ -1003,7 +1004,7 @@ public final class NadRewardBigCardView extends FrameLayout {
             z3 = true;
         }
         if (!z3) {
-            if (pm0Var != null && (wm0Var9 = pm0Var.i) != null && (cVar2 = wm0Var9.g) != null) {
+            if (gn0Var != null && (nn0Var9 = gn0Var.i) != null && (cVar2 = nn0Var9.g) != null) {
                 str10 = cVar2.b;
             } else {
                 str10 = null;
@@ -1023,16 +1024,16 @@ public final class NadRewardBigCardView extends FrameLayout {
                     unifyTextView3 = null;
                 }
                 if (unifyTextView3 != null) {
-                    if (pm0Var != null && (wm0Var8 = pm0Var.i) != null && (cVar = wm0Var8.g) != null) {
+                    if (gn0Var != null && (nn0Var8 = gn0Var.i) != null && (cVar = nn0Var8.g) != null) {
                         str9 = cVar.a;
                     } else {
                         str9 = null;
                     }
                     privacyView.setTextWithUnifiedPadding(str9, TextView.BufferType.NORMAL);
-                    privacyView.setOnClickListener(new f(privacyView, this, pm0Var));
+                    privacyView.setOnClickListener(new f(privacyView, this, gn0Var));
                 }
                 UnifyTextView permissionView = getPermissionView();
-                if (pm0Var == null && (wm0Var7 = pm0Var.i) != null && (bVar3 = wm0Var7.h) != null) {
+                if (gn0Var == null && (nn0Var7 = gn0Var.i) != null && (bVar3 = nn0Var7.h) != null) {
                     str4 = bVar3.a;
                 } else {
                     str4 = null;
@@ -1043,7 +1044,7 @@ public final class NadRewardBigCardView extends FrameLayout {
                     z5 = true;
                 }
                 if (!z5) {
-                    if (pm0Var != null && (wm0Var6 = pm0Var.i) != null && (bVar2 = wm0Var6.h) != null) {
+                    if (gn0Var != null && (nn0Var6 = gn0Var.i) != null && (bVar2 = nn0Var6.h) != null) {
                         str8 = bVar2.b;
                     } else {
                         str8 = null;
@@ -1063,16 +1064,16 @@ public final class NadRewardBigCardView extends FrameLayout {
                             unifyTextView4 = null;
                         }
                         if (unifyTextView4 != null) {
-                            if (pm0Var != null && (wm0Var5 = pm0Var.i) != null && (bVar = wm0Var5.h) != null) {
+                            if (gn0Var != null && (nn0Var5 = gn0Var.i) != null && (bVar = nn0Var5.h) != null) {
                                 str7 = bVar.a;
                             } else {
                                 str7 = null;
                             }
                             permissionView.setTextWithUnifiedPadding(str7, TextView.BufferType.NORMAL);
-                            permissionView.setOnClickListener(new g(permissionView, this, pm0Var));
+                            permissionView.setOnClickListener(new g(permissionView, this, gn0Var));
                         }
                         UnifyTextView featureView = getFeatureView();
-                        if (pm0Var == null && (wm0Var4 = pm0Var.i) != null && (aVar3 = wm0Var4.i) != null) {
+                        if (gn0Var == null && (nn0Var4 = gn0Var.i) != null && (aVar3 = nn0Var4.i) != null) {
                             str5 = aVar3.a;
                         } else {
                             str5 = null;
@@ -1083,7 +1084,7 @@ public final class NadRewardBigCardView extends FrameLayout {
                             z7 = true;
                         }
                         if (!z7) {
-                            if (pm0Var != null && (wm0Var3 = pm0Var.i) != null && (aVar2 = wm0Var3.i) != null) {
+                            if (gn0Var != null && (nn0Var3 = gn0Var.i) != null && (aVar2 = nn0Var3.i) != null) {
                                 str6 = aVar2.b;
                             } else {
                                 str6 = null;
@@ -1103,11 +1104,11 @@ public final class NadRewardBigCardView extends FrameLayout {
                             unifyTextView5 = null;
                         }
                         if (unifyTextView5 != null) {
-                            if (pm0Var != null && (wm0Var2 = pm0Var.i) != null && (aVar = wm0Var2.i) != null) {
+                            if (gn0Var != null && (nn0Var2 = gn0Var.i) != null && (aVar = nn0Var2.i) != null) {
                                 str13 = aVar.a;
                             }
                             featureView.setTextWithUnifiedPadding(str13, TextView.BufferType.NORMAL);
-                            featureView.setOnClickListener(new h(featureView, this, pm0Var));
+                            featureView.setOnClickListener(new h(featureView, this, gn0Var));
                             return;
                         }
                         return;
@@ -1119,7 +1120,7 @@ public final class NadRewardBigCardView extends FrameLayout {
                 if (unifyTextView4 != null) {
                 }
                 UnifyTextView featureView2 = getFeatureView();
-                if (pm0Var == null) {
+                if (gn0Var == null) {
                 }
                 str5 = null;
                 if (str5 == null) {
@@ -1140,7 +1141,7 @@ public final class NadRewardBigCardView extends FrameLayout {
         if (unifyTextView3 != null) {
         }
         UnifyTextView permissionView2 = getPermissionView();
-        if (pm0Var == null) {
+        if (gn0Var == null) {
         }
         str4 = null;
         if (str4 == null) {
@@ -1154,7 +1155,7 @@ public final class NadRewardBigCardView extends FrameLayout {
         if (unifyTextView4 != null) {
         }
         UnifyTextView featureView22 = getFeatureView();
-        if (pm0Var == null) {
+        if (gn0Var == null) {
         }
         str5 = null;
         if (str5 == null) {
@@ -1169,14 +1170,14 @@ public final class NadRewardBigCardView extends FrameLayout {
         }
     }
 
-    private final void setBrandName(pm0 pm0Var) {
+    private final void setBrandName(gn0 gn0Var) {
         String str;
         boolean z;
-        xm0 b2;
-        xm0 b3;
+        on0 b2;
+        on0 b3;
         UnifyTextView brandName = getBrandName();
         String str2 = null;
-        if (pm0Var != null && (b3 = pm0Var.b()) != null) {
+        if (gn0Var != null && (b3 = gn0Var.b()) != null) {
             str = b3.b();
         } else {
             str = null;
@@ -1187,22 +1188,22 @@ public final class NadRewardBigCardView extends FrameLayout {
             z = true;
         }
         if (!z) {
-            if (pm0Var != null && (b2 = pm0Var.b()) != null) {
+            if (gn0Var != null && (b2 = gn0Var.b()) != null) {
                 str2 = b2.b();
             }
             brandName.setText(str2);
         }
-        brandName.setOnClickListener(new j(pm0Var));
+        brandName.setOnClickListener(new j(gn0Var));
     }
 
-    private final void setTitle(pm0 pm0Var) {
+    private final void setTitle(gn0 gn0Var) {
         String str;
         boolean z;
-        xm0 b2;
-        xm0 b3;
+        on0 b2;
+        on0 b3;
         UnifyTextView title = getTitle();
         String str2 = null;
-        if (pm0Var != null && (b3 = pm0Var.b()) != null) {
+        if (gn0Var != null && (b3 = gn0Var.b()) != null) {
             str = b3.g();
         } else {
             str = null;
@@ -1213,44 +1214,44 @@ public final class NadRewardBigCardView extends FrameLayout {
             z = true;
         }
         if (!z) {
-            if (pm0Var != null && (b2 = pm0Var.b()) != null) {
+            if (gn0Var != null && (b2 = gn0Var.b()) != null) {
                 str2 = b2.g();
             }
             title.setText(str2);
         }
-        title.setOnClickListener(new m(pm0Var));
+        title.setOnClickListener(new m(gn0Var));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final void setDetailButton(pm0 pm0Var) {
+    public final void setDetailButton(gn0 gn0Var) {
         String str;
         boolean z;
         String str2;
         String str3;
-        xm0 b2;
-        xm0 b3;
-        fm0 fm0Var;
-        fm0 fm0Var2;
-        xm0 b4;
+        on0 b2;
+        on0 b3;
+        wm0 wm0Var;
+        wm0 wm0Var2;
+        on0 b4;
         View detailBtn = getDetailBtn();
         Resources resources = detailBtn.getResources();
-        fk0 a2 = jk0.a();
+        wk0 a2 = al0.a();
         Intrinsics.checkNotNullExpressionValue(a2, "NadRewardVideoLpRuntime.getUIProvider()");
         float dimension = resources.getDimension(a2.i());
         GradientDrawable gradientDrawable = new GradientDrawable();
         String str4 = null;
-        if (pm0Var != null && (b4 = pm0Var.b()) != null) {
+        if (gn0Var != null && (b4 = gn0Var.b()) != null) {
             str = b4.c();
         } else {
             str = null;
         }
-        gradientDrawable.setColor(y01.a(str, R.color.nad_reward_big_card_btn_color));
+        gradientDrawable.setColor(p11.a(str, R.color.nad_reward_big_card_btn_color));
         gradientDrawable.setCornerRadius(dimension);
         Unit unit = Unit.INSTANCE;
         detailBtn.setBackground(gradientDrawable);
         boolean z2 = true;
-        if (pm0Var != null) {
-            z = pm0Var.o();
+        if (gn0Var != null) {
+            z = gn0Var.o();
         } else {
             z = true;
         }
@@ -1259,17 +1260,17 @@ public final class NadRewardBigCardView extends FrameLayout {
         } else {
             detailBtn.setVisibility(8);
         }
-        detailBtn.setOnClickListener(new k(pm0Var));
+        detailBtn.setOnClickListener(new k(gn0Var));
         TextView detailBtnText = getDetailBtnText();
-        if (pm0Var != null && (fm0Var2 = pm0Var.m) != null && fm0Var2.g) {
+        if (gn0Var != null && (wm0Var2 = gn0Var.m) != null && wm0Var2.g) {
             String str5 = ClogBuilder.Area.OPEN_BUTTON.type;
             Intrinsics.checkNotNullExpressionValue(str5, "ClogBuilder.Area.OPEN_BUTTON.type");
             m(this, str5, ClogBuilder.LogType.FREE_SHOW, null, null, 12, null);
         }
-        if (pm0Var != null && (fm0Var = pm0Var.m) != null && fm0Var.g) {
+        if (gn0Var != null && (wm0Var = gn0Var.m) != null && wm0Var.g) {
             str3 = detailBtnText.getContext().getString(R.string.nad_reward_detail_btn_open_app);
         } else {
-            if (pm0Var != null && (b3 = pm0Var.b()) != null) {
+            if (gn0Var != null && (b3 = gn0Var.b()) != null) {
                 str2 = b3.e();
             } else {
                 str2 = null;
@@ -1278,7 +1279,7 @@ public final class NadRewardBigCardView extends FrameLayout {
                 z2 = false;
             }
             if (!z2) {
-                if (pm0Var != null && (b2 = pm0Var.b()) != null) {
+                if (gn0Var != null && (b2 = gn0Var.b()) != null) {
                     str4 = b2.e();
                 }
             } else {
@@ -1289,56 +1290,56 @@ public final class NadRewardBigCardView extends FrameLayout {
         detailBtnText.setText(str3);
     }
 
-    private final void setDownloadButton(pm0 pm0Var) {
+    private final void setDownloadButton(gn0 gn0Var) {
         String str;
         boolean z;
         boolean z2;
         Object obj;
-        bm0 bm0Var;
+        sm0 sm0Var;
         String str2;
-        fm0 fm0Var;
-        jm0 jm0Var;
-        fm0 fm0Var2;
-        fm0 fm0Var3;
-        bm0 bm0Var2;
-        ym0 c2;
-        xm0 b2;
-        id0 id0Var = this.q;
-        if (id0Var != null) {
-            id0Var.j();
+        wm0 wm0Var;
+        an0 an0Var;
+        wm0 wm0Var2;
+        wm0 wm0Var3;
+        sm0 sm0Var2;
+        pn0 c2;
+        on0 b2;
+        zd0 zd0Var = this.q;
+        if (zd0Var != null) {
+            zd0Var.k();
         }
         String str3 = null;
         this.q = null;
         NadMiniVideoDownloadView downloadButton = getDownloadButton();
         Resources resources = downloadButton.getResources();
-        fk0 a2 = jk0.a();
+        wk0 a2 = al0.a();
         Intrinsics.checkNotNullExpressionValue(a2, "NadRewardVideoLpRuntime.getUIProvider()");
         float dimension = resources.getDimension(a2.i());
         GradientDrawable gradientDrawable = new GradientDrawable();
-        if (pm0Var != null && (b2 = pm0Var.b()) != null) {
+        if (gn0Var != null && (b2 = gn0Var.b()) != null) {
             str = b2.c();
         } else {
             str = null;
         }
-        gradientDrawable.setColor(y01.a(str, R.color.nad_reward_big_card_btn_color));
+        gradientDrawable.setColor(p11.a(str, R.color.nad_reward_big_card_btn_color));
         gradientDrawable.setCornerRadius(dimension);
         Unit unit = Unit.INSTANCE;
         downloadButton.setBackground(gradientDrawable);
         downloadButton.setBorderRadius(dimension);
         downloadButton.setProgressColor(ContextCompat.getColor(downloadButton.getContext(), R.color.nad_reward_big_card_btn_download_progress));
-        if (pm0Var != null && (c2 = pm0Var.c()) != null) {
+        if (gn0Var != null && (c2 = gn0Var.c()) != null) {
             z = c2.e();
         } else {
             z = false;
         }
         downloadButton.setIconArrowSwitch(z);
-        if (pm0Var != null) {
-            z2 = pm0Var.p();
+        if (gn0Var != null) {
+            z2 = gn0Var.p();
         } else {
             z2 = false;
         }
         boolean z3 = true;
-        if ((!z2 || pm0Var == null || (fm0Var3 = pm0Var.m) == null || (bm0Var2 = fm0Var3.p) == null || !bm0Var2.e) ? false : false) {
+        if ((!z2 || gn0Var == null || (wm0Var3 = gn0Var.m) == null || (sm0Var2 = wm0Var3.p) == null || !sm0Var2.e) ? false : false) {
             downloadButton.setVisibility(0);
             obj = downloadButton;
         } else {
@@ -1346,33 +1347,33 @@ public final class NadRewardBigCardView extends FrameLayout {
             obj = null;
         }
         if (obj != null) {
-            if (pm0Var != null && (fm0Var2 = pm0Var.m) != null) {
-                bm0Var = fm0Var2.p;
+            if (gn0Var != null && (wm0Var2 = gn0Var.m) != null) {
+                sm0Var = wm0Var2.p;
             } else {
-                bm0Var = null;
+                sm0Var = null;
             }
-            if (pm0Var != null && (jm0Var = pm0Var.f) != null) {
-                str2 = jm0Var.d;
+            if (gn0Var != null && (an0Var = gn0Var.f) != null) {
+                str2 = an0Var.d;
             } else {
                 str2 = null;
             }
-            if (pm0Var != null && (fm0Var = pm0Var.m) != null) {
-                str3 = fm0Var.t;
+            if (gn0Var != null && (wm0Var = gn0Var.m) != null) {
+                str3 = wm0Var.t;
             }
-            eg0 d2 = eg0.d(bm0Var, str2, str3);
+            vg0 d2 = vg0.d(sm0Var, str2, str3);
             Intrinsics.checkNotNullExpressionValue(d2, "AdDownloadBean.from(adMo….enhanceModel?.btnScheme)");
             d2.q.a = ClogBuilder.Page.WELFAREBIGCARD.type;
-            id0 id0Var2 = new id0(d2, getDownloadButton());
-            this.q = id0Var2;
-            Intrinsics.checkNotNull(id0Var2);
-            id0Var2.y();
+            zd0 zd0Var2 = new zd0(d2, getDownloadButton());
+            this.q = zd0Var2;
+            Intrinsics.checkNotNull(zd0Var2);
+            zd0Var2.z();
         }
-        downloadButton.setOnClickListener(new l(pm0Var));
+        downloadButton.setOnClickListener(new l(gn0Var));
     }
 
     public final void i(String str, ClogBuilder.LogType logType, String str2) {
         m(this, str, logType, null, null, 12, null);
-        yd0.c(str2, getContext());
+        pe0.c(str2, getContext());
     }
 
     public final void j() {
@@ -1382,11 +1383,11 @@ public final class NadRewardBigCardView extends FrameLayout {
         ViewGroup.LayoutParams layoutParams = arrow.getLayoutParams();
         if (layoutParams != null) {
             FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) layoutParams;
-            pm0 pm0Var = this.p;
-            if (pm0Var != null && pm0Var.o()) {
-                a2 = c11.c.a(arrow.getContext(), 10.0f);
+            gn0 gn0Var = this.p;
+            if (gn0Var != null && gn0Var.o()) {
+                a2 = t11.c.a(arrow.getContext(), 10.0f);
             } else {
-                a2 = c11.c.a(arrow.getContext(), 25.0f);
+                a2 = t11.c.a(arrow.getContext(), 25.0f);
             }
             layoutParams2.bottomMargin = a2;
             arrow.setLayoutParams(layoutParams2);
@@ -1403,7 +1404,7 @@ public final class NadRewardBigCardView extends FrameLayout {
     }
 
     public final void o() {
-        bi0.a().c(this, new c(pc0.class));
+        si0.a().c(this, new c(gd0.class));
     }
 
     public final void p() {
@@ -1413,12 +1414,12 @@ public final class NadRewardBigCardView extends FrameLayout {
     public final void l(String str, ClogBuilder.LogType logType, String str2, String str3) {
         String str4;
         boolean z;
-        jm0 jm0Var;
+        an0 an0Var;
         ClogBuilder u = new ClogBuilder().j(str).y(logType).u(ClogBuilder.Page.WELFAREBIGCARD);
-        pm0 pm0Var = this.p;
+        gn0 gn0Var = this.p;
         List<MonitorUrl> list = null;
-        if (pm0Var != null && (jm0Var = pm0Var.f) != null) {
-            str4 = jm0Var.d;
+        if (gn0Var != null && (an0Var = gn0Var.f) != null) {
+            str4 = an0Var.d;
         } else {
             str4 = null;
         }
@@ -1438,13 +1439,13 @@ public final class NadRewardBigCardView extends FrameLayout {
         if (z2) {
             p.l(str3);
         }
-        jy0.e(p);
+        az0.e(p);
         if (logType == ClogBuilder.LogType.CLICK) {
-            pm0 pm0Var2 = this.p;
-            if (pm0Var2 != null) {
-                list = pm0Var2.e;
+            gn0 gn0Var2 = this.p;
+            if (gn0Var2 != null) {
+                list = gn0Var2.e;
             }
-            kd0.b(list);
+            be0.b(list);
         }
     }
 }

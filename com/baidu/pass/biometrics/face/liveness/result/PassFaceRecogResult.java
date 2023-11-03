@@ -18,12 +18,12 @@ public class PassFaceRecogResult extends PassBiometricResult {
     public String callbackkey;
     public JSONObject extraJson;
     public String video;
-    public static final String ERROR_MSG_LIVENESS_RECOGNIZE_TIME_OUT = ResUtils.getString(R.string.obfuscated_res_0x7f0f0f69);
-    public static final String ERROR_MSG_CONTRAST_FAIL = ResUtils.getString(R.string.obfuscated_res_0x7f0f0f64);
-    public static final String ERROR_MSG_FACE_SDK_INIT_FAIL = ResUtils.getString(R.string.obfuscated_res_0x7f0f0f66);
-    public static final String ERROR_MSG_OPEN_CAMERA_FAILURE = ResUtils.getString(R.string.obfuscated_res_0x7f0f0f6e);
-    public static final String ERROR_MSG_IMAGE_FILE_EMPTY = ResUtils.getString(R.string.obfuscated_res_0x7f0f0f67);
-    public static final String ERROR_MSG_MAY_BE_NO_CAMERA_PERMISSION = ResUtils.getString(R.string.obfuscated_res_0x7f0f0f6a);
+    public static final String ERROR_MSG_LIVENESS_RECOGNIZE_TIME_OUT = ResUtils.getString(R.string.obfuscated_res_0x7f0f0f7b);
+    public static final String ERROR_MSG_CONTRAST_FAIL = ResUtils.getString(R.string.obfuscated_res_0x7f0f0f76);
+    public static final String ERROR_MSG_FACE_SDK_INIT_FAIL = ResUtils.getString(R.string.obfuscated_res_0x7f0f0f78);
+    public static final String ERROR_MSG_OPEN_CAMERA_FAILURE = ResUtils.getString(R.string.obfuscated_res_0x7f0f0f80);
+    public static final String ERROR_MSG_IMAGE_FILE_EMPTY = ResUtils.getString(R.string.obfuscated_res_0x7f0f0f79);
+    public static final String ERROR_MSG_MAY_BE_NO_CAMERA_PERMISSION = ResUtils.getString(R.string.obfuscated_res_0x7f0f0f7c);
     public String imgdigests = "";
     public String faceimage = "";
     public String originalImage = "";

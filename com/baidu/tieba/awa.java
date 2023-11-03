@@ -1,43 +1,71 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import android.view.View;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
-import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
-import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.BdDimDialog;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.vcode.VcodeTool;
-import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.write.accountAccess.AccountAccessActivity;
+import com.baidu.tieba.stamp.view.NewStyleStampDialogView;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class awa {
+public class awa extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final bwa a;
-    public final NewWriteModel b;
-    public boolean c;
-    public final NewWriteModel.d d;
+    public final MainTabActivity a;
+    public final zua b;
 
     /* loaded from: classes5.dex */
-    public class a implements NewWriteModel.d {
+    public class a implements voa<soa> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ awa a;
+
+        /* renamed from: com.baidu.tieba.awa$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class RunnableC0238a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ soa a;
+            public final /* synthetic */ a b;
+
+            public RunnableC0238a(a aVar, soa soaVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, soaVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = soaVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                soa soaVar;
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (soaVar = this.a) != null) {
+                    this.b.a.m(soaVar);
+                }
+            }
+        }
 
         public a(awa awaVar) {
             Interceptable interceptable = $ic;
@@ -57,158 +85,247 @@ public class awa {
             this.a = awaVar;
         }
 
-        @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
-        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, m85 m85Var, WriteData writeData, AntiData antiData) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.voa
+        /* renamed from: b */
+        public void a(soa soaVar) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, m85Var, writeData, antiData}) == null) && this.a.a != null && this.a.b != null && this.a.b.d0() != null) {
-                this.a.a.p(false);
-                if (writeData == null) {
-                    writeData = this.a.b.d0();
-                }
-                WriteData writeData2 = writeData;
-                if (!z) {
-                    if (writeData2 != null && m85Var != null && !TextUtils.isEmpty(m85Var.d())) {
-                        writeData2.setVcodeMD5(m85Var.b());
-                        writeData2.setVcodeUrl(m85Var.c());
-                        writeData2.setVcodeExtra(m85Var.a());
-                        this.a.a.g().setVisible(false);
-                        if (VcodeTool.needVcode(m85Var.d())) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.a.a.g().getActivity(), 12006, writeData2, false, m85Var.d())));
-                            return;
-                        } else {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.a.a.g().getActivity(), writeData2, 12006)));
-                            return;
-                        }
-                    } else if (postWriteCallBackData != null && postWriteCallBackData.isSensitiveError()) {
-                        Intent intent = new Intent();
-                        Bundle bundle = new Bundle();
-                        bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
-                        intent.putExtras(bundle);
-                        BaseActivity g = this.a.a.g();
-                        this.a.a.g();
-                        g.setResult(0, intent);
-                        this.a.a.g().finish();
-                        return;
-                    } else {
-                        if (postWriteCallBackData != null) {
-                            uga.b(this.a.a.g().getActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
-                            BaseActivity g2 = this.a.a.g();
-                            this.a.a.g();
-                            g2.setResult(0, null);
-                        }
-                        this.a.a.g().finish();
-                        return;
-                    }
-                }
-                this.a.c = true;
-                if (postWriteCallBackData == null) {
-                    uga.b(this.a.a.g().getActivity(), this.a.a.g().getResources().getString(R.string.send_success), null, null);
-                } else {
-                    uga.b(this.a.a.g().getActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
-                }
-                Intent intent2 = new Intent();
-                Bundle bundle2 = new Bundle();
-                bundle2.putSerializable("post_write_callback_data", postWriteCallBackData);
-                intent2.putExtras(bundle2);
-                BaseActivity g3 = this.a.a.g();
-                this.a.a.g();
-                g3.setResult(-1, intent2);
-                this.a.a.g().finish();
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, soaVar) == null) {
+                this.a.a.runOnUiThread(new RunnableC0238a(this, soaVar));
             }
         }
     }
 
-    public awa(bwa bwaVar, NewWriteModel newWriteModel) {
+    /* loaded from: classes5.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ BdDimDialog a;
+
+        public b(awa awaVar, BdDimDialog bdDimDialog) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {awaVar, bdDimDialog};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bdDimDialog;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ BdDimDialog a;
+        public final /* synthetic */ awa b;
+
+        public c(awa awaVar, BdDimDialog bdDimDialog) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {awaVar, bdDimDialog};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = awaVar;
+            this.a = bdDimDialog;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.dismiss();
+                UrlManager.getInstance().dealOneLink(this.b.a.getPageContext(), new String[]{"https://tieba.baidu.com/mo/q/icon/panelIcon?opacity=0&user_id=" + TbadkCoreApplication.getCurrentAccount()});
+                this.b.n();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class d implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ BdDimDialog a;
+        public final /* synthetic */ soa b;
+        public final /* synthetic */ awa c;
+
+        public d(awa awaVar, BdDimDialog bdDimDialog, soa soaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {awaVar, bdDimDialog, soaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = awaVar;
+            this.a = bdDimDialog;
+            this.b = soaVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.dismiss();
+                uoa uoaVar = new uoa();
+                soa soaVar = this.b;
+                if (soaVar != null) {
+                    uoaVar.g(soaVar.a());
+                    uoaVar.h(this.b.b());
+                }
+                new toa(this.c.a, uoaVar).a();
+                this.c.p();
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public awa(MainTabActivity mainTabActivity, lua luaVar) {
+        super(2001384);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bwaVar, newWriteModel};
+            Object[] objArr = {mainTabActivity, luaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a aVar = new a(this);
-        this.d = aVar;
-        this.a = bwaVar;
-        this.b = newWriteModel;
-        newWriteModel.l0(aVar);
+        this.a = mainTabActivity;
+        this.b = mainTabActivity.e;
     }
 
-    public void h(String str) {
-        bwa bwaVar;
+    public final void l() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (bwaVar = this.a) != null) {
-            bwaVar.q(true);
-            this.a.r(false);
-            this.a.j().loadUrl(str);
-        }
-    }
-
-    public void d() {
-        bwa bwaVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bwaVar = this.a) != null) {
-            bwaVar.s(500);
-        }
-    }
-
-    public void e() {
-        bwa bwaVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bwaVar = this.a) != null) {
-            bwaVar.p(false);
-        }
-    }
-
-    public boolean f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (this.a == null || str == null) {
-                return false;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            MainTabActivity mainTabActivity = this.a;
+            if (mainTabActivity.E == null) {
+                mainTabActivity.E = new yoa(mainTabActivity.getPageContext(), new a(this));
             }
-            if (str.equals(AccountAccessActivity.g)) {
-                this.a.g().finish();
-                return true;
-            } else if (str.equals(AccountAccessActivity.h)) {
-                this.a.o(0, UtilHelper.getImmersiveStickyBarHeight(), 0, 0);
-                if (this.a.h() != this.a.i()) {
-                    bwa bwaVar = this.a;
-                    bwaVar.n(bwaVar.h());
-                    this.a.t();
+            this.a.E.b();
+        }
+    }
+
+    public final void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_STAMP_SHARE_DIALOG).param("obj_type", 2).param("obj_source", 3).param("obj_locate", 3));
+        }
+    }
+
+    public final void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_STAMP_SHARE_DIALOG).param("obj_type", 1).param("obj_source", 3).param("obj_locate", 3));
+        }
+    }
+
+    public final void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_CLICK).param("obj_locate", 31));
+        }
+    }
+
+    public final void m(soa soaVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, soaVar) == null) && !this.a.F && TbadkCoreApplication.isLogin() && this.a.z.intValue() == 8) {
+            NewStyleStampDialogView newStyleStampDialogView = new NewStyleStampDialogView(this.a);
+            newStyleStampDialogView.setStampData(soaVar);
+            BdDimDialog bdDimDialog = new BdDimDialog(this.a);
+            bdDimDialog.setContentView(newStyleStampDialogView);
+            bdDimDialog.show();
+            o();
+            this.a.F = true;
+            newStyleStampDialogView.getImgStampDialogCancelView().setOnClickListener(new b(this, bdDimDialog));
+            newStyleStampDialogView.getStampDialogLookView().setOnClickListener(new c(this, bdDimDialog));
+            newStyleStampDialogView.getStampDialogShareView().setOnClickListener(new d(this, bdDimDialog, soaVar));
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        zua zuaVar;
+        zua zuaVar2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
+            int intValue = this.a.z.intValue();
+            this.a.z = (Integer) customResponsedMessage.getData();
+            if (this.a.z.intValue() == 1) {
+                zua zuaVar3 = this.b;
+                if (zuaVar3 != null && zuaVar3.a() != null) {
+                    this.b.a().a();
                 }
-                this.a.j().setVisibility(0);
-                return true;
-            } else if (str.equals(AccountAccessActivity.i)) {
-                g();
-                return true;
-            } else if (str.equals(AccountAccessActivity.j) || str.equals(AccountAccessActivity.k)) {
-                this.a.g().finish();
-                UrlManager.getInstance().dealOneLink(this.a.g().getPageContext(), new String[]{UrlSchemaHelper.SCHEMA_TYPE_FEED_BACK});
-                return true;
-            } else {
-                return true;
+            } else if (intValue == 1 && (zuaVar = this.b) != null && zuaVar.a() != null) {
+                this.b.a().f();
             }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.a != null && this.b != null) {
-            if (!BdUtilHelper.isNetOk()) {
-                this.a.g().showToast(R.string.obfuscated_res_0x7f0f0e4f);
-                this.a.g().finish();
+            if (this.a.z.intValue() == 21 && (zuaVar2 = this.b) != null && zuaVar2.a() != null) {
+                this.b.a().c();
+            }
+            if (this.a.z.intValue() == 8) {
+                st5.d().k(true);
+                zua zuaVar4 = this.b;
+                if (zuaVar4 != null && zuaVar4.a() != null) {
+                    this.b.a().b();
+                }
+                if (!this.a.F) {
+                    l();
+                }
+                if (TbadkCoreApplication.isLogin() && !nt5.b()) {
+                    MainTabActivity mainTabActivity = this.a;
+                    if (mainTabActivity.K && mainTabActivity.J) {
+                        new nt5().c(this.a.getPageContext().getPageActivity());
+                        return;
+                    }
+                    return;
+                }
                 return;
             }
-            this.a.p(true);
-            this.b.o0();
+            st5.d().k(false);
+            yoa yoaVar = this.a.E;
+            if (yoaVar != null) {
+                yoaVar.a();
+                this.a.E = null;
+            }
         }
     }
 }

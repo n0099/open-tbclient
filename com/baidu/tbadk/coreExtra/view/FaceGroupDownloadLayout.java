@@ -23,8 +23,8 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.qb5;
 import com.baidu.tieba.tbadkCore.data.FaceGroupInfoData;
-import com.baidu.tieba.wa5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -99,7 +99,7 @@ public class FaceGroupDownloadLayout extends RelativeLayout implements View.OnCl
                 if (this.a.f.getId().equals(faceGroupInfoData.getId())) {
                     this.a.f.updateStatus(faceGroupInfoData.getStatus());
                     this.a.f.setProgress(faceGroupInfoData.getProgress());
-                    this.a.m();
+                    this.a.n();
                 }
             }
         }
@@ -163,7 +163,7 @@ public class FaceGroupDownloadLayout extends RelativeLayout implements View.OnCl
         c(context);
     }
 
-    public void n(boolean z) {
+    public void o(boolean z) {
         int i;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeZ(1048587, this, z) != null) || this.f == null) {
@@ -228,7 +228,7 @@ public class FaceGroupDownloadLayout extends RelativeLayout implements View.OnCl
         }
     }
 
-    public final void m() {
+    public final void n() {
         FaceGroupInfoData faceGroupInfoData;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || (faceGroupInfoData = this.f) == null) {
@@ -239,14 +239,14 @@ public class FaceGroupDownloadLayout extends RelativeLayout implements View.OnCl
         if (i != 1) {
             if (i != 2) {
                 if (i != 3) {
-                    this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f05b6));
+                    this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f05b8));
                     return;
                 }
                 this.e.setProgress(this.f.getProgress());
                 this.e.setText(String.format(getResources().getString(R.string.item_download_progress), Integer.valueOf(this.f.getProgress())));
                 return;
             }
-            this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0718));
+            this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f071a));
             return;
         }
         this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0105));
@@ -273,7 +273,7 @@ public class FaceGroupDownloadLayout extends RelativeLayout implements View.OnCl
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            k();
+            l();
         }
     }
 
@@ -284,7 +284,7 @@ public class FaceGroupDownloadLayout extends RelativeLayout implements View.OnCl
             return;
         }
         if (faceGroupInfoData.getStatus() == FaceGroupInfoData.Status.FAIL || this.f.getStatus() == FaceGroupInfoData.Status.NEW) {
-            j();
+            k();
         }
     }
 
@@ -295,7 +295,7 @@ public class FaceGroupDownloadLayout extends RelativeLayout implements View.OnCl
         }
     }
 
-    public final void j() {
+    public final void k() {
         FaceGroupInfoData faceGroupInfoData;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || (faceGroupInfoData = this.f) == null) {
@@ -304,14 +304,14 @@ public class FaceGroupDownloadLayout extends RelativeLayout implements View.OnCl
         MessageManager.getInstance().sendMessage(new CustomMessage(2921702, faceGroupInfoData));
     }
 
-    public final void k() {
+    public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             MessageManager.getInstance().unRegisterListener(this.i);
         }
     }
 
-    public void l(ImageUrlData imageUrlData) {
+    public void m(ImageUrlData imageUrlData) {
         FaceGroupInfoData faceGroupInfoData;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, imageUrlData) == null) {
@@ -326,12 +326,12 @@ public class FaceGroupDownloadLayout extends RelativeLayout implements View.OnCl
                 int dimens = (((getResources().getDisplayMetrics().widthPixels - BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds94)) - BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds180)) - BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds75)) - BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds200);
                 TextPaint paint = this.c.getPaint();
                 String name = this.f.getName();
-                this.c.setText(wa5.a(name, "..." + j, dimens, paint));
+                this.c.setText(qb5.a(name, "..." + j, dimens, paint));
                 CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921699, Boolean.class, this.f.getId());
                 if (runTask != null && ((Boolean) runTask.getData()).booleanValue()) {
                     this.f.updateStatus(FaceGroupInfoData.Status.FINISH);
                 }
-                m();
+                n();
                 return;
             }
             this.f = null;

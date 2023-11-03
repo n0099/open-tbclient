@@ -1,19 +1,24 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import android.app.Activity;
+import android.os.Bundle;
 /* loaded from: classes5.dex */
-public interface dk0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "rewardCriusPop");
+public interface dk0 extends ek0 {
+    void onActivityCreated(Activity activity, Bundle bundle);
 
-    void a(bk0 bk0Var);
+    void onActivityDestroyed(Activity activity);
 
-    void b(pm0 pm0Var, Context context);
+    void onActivityPaused(Activity activity);
 
-    View getView();
+    void onActivityResumed(Activity activity);
 
-    void release();
+    void onActivitySaveInstanceState(Activity activity, Bundle bundle);
 
-    void show();
+    void onActivityStarted(Activity activity);
+
+    void onActivityStopped(Activity activity);
+
+    void onBackgroundToForeground(Activity activity);
+
+    void onForegroundToBackground(Activity activity);
 }

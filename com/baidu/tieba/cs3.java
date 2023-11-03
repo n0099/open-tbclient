@@ -1,76 +1,39 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONArray;
+import com.facebook.imagepipeline.listener.RequestListener;
+@Service
 /* loaded from: classes5.dex */
-public class cs3 implements cl4 {
+public class cs3 implements sa2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947685286, "Lcom/baidu/tieba/cs3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947685286, "Lcom/baidu/tieba/cs3;");
-                return;
-            }
-        }
-        a = am1.a;
-    }
 
     public cs3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.cl4
-    public boolean a(JSONArray jSONArray) {
+    @Override // com.baidu.tieba.sa2
+    public RequestListener a(ta2 ta2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONArray)) == null) {
-            if (a) {
-                Log.d("OpenBehaviorUploader", "upload stat data -> " + jSONArray.toString());
-            }
-            hs3 hs3Var = new hs3();
-            HashMap hashMap = new HashMap(2);
-            hashMap.put("cuid", uk4.h().getDeviceId(AppRuntime.getApplication()));
-            hashMap.put("uuid", uk4.h().o(AppRuntime.getApplication()));
-            gs3.d().g(hashMap, jSONArray.toString().getBytes(), null, hs3Var);
-            if (a) {
-                Log.d("OpenBehaviorUploader", "errorCode : " + hs3Var.a);
-                Log.d("OpenBehaviorUploader", "errorMsg : " + hs3Var.b);
-            }
-            int i = hs3Var.a;
-            if (i != 1 && i != 2 && i != 4) {
-                return true;
-            }
-            nl4.a();
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ta2Var)) == null) {
+            return new bs3(ta2Var);
         }
-        return invokeL.booleanValue;
+        return (RequestListener) invokeL.objValue;
     }
 }

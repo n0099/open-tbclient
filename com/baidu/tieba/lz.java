@@ -1,82 +1,44 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.math.BigInteger;
-import javax.crypto.BadPaddingException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class lz {
+public class lz {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(BigInteger bigInteger) {
+    public static JSONObject a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bigInteger)) == null) ? (bigInteger.bitLength() + 7) >> 3 : invokeL.intValue;
-    }
-
-    public static BigInteger b(byte[] bArr, BigInteger bigInteger) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, bigInteger)) == null) {
-            BigInteger bigInteger2 = new BigInteger(1, bArr);
-            if (bigInteger2.compareTo(bigInteger) < 0) {
-                return bigInteger2;
-            }
-            throw new BadPaddingException("Message is larger than modulus");
-        }
-        return (BigInteger) invokeLL.objValue;
-    }
-
-    public static byte[] c(BigInteger bigInteger, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, bigInteger, i)) == null) {
-            byte[] byteArray = bigInteger.toByteArray();
-            int length = byteArray.length;
-            if (length == i) {
-                return byteArray;
-            }
-            if (length == i + 1 && byteArray[0] == 0) {
-                byte[] bArr = new byte[i];
-                System.arraycopy(byteArray, 1, bArr, 0, i);
-                return bArr;
-            } else if (length >= i) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (b(str)) {
                 return null;
-            } else {
-                byte[] bArr2 = new byte[i];
-                System.arraycopy(byteArray, 0, bArr2, i - length, length);
-                return bArr2;
+            }
+            try {
+                return new JSONObject(str);
+            } catch (Throwable unused) {
+                return null;
             }
         }
-        return (byte[]) invokeLI.objValue;
+        return (JSONObject) invokeL.objValue;
     }
 
-    public static byte[] d(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
+    public static boolean b(String str) {
+        InterceptResult invokeL;
+        int length;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, bArr, i, i2)) == null) {
-            if (i == 0 && i2 == bArr.length) {
-                return bArr;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (str != null && (length = str.length()) != 0) {
+                for (int i = 0; i < length; i++) {
+                    if (!Character.isWhitespace(str.charAt(i))) {
+                        return false;
+                    }
+                }
             }
-            byte[] bArr2 = new byte[i2];
-            System.arraycopy(bArr, i, bArr2, 0, i2);
-            return bArr2;
+            return true;
         }
-        return (byte[]) invokeLII.objValue;
-    }
-
-    public static byte[] e(byte[] bArr, tz tzVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, tzVar)) == null) ? f(bArr, tzVar.b(), tzVar.a()) : (byte[]) invokeLL.objValue;
-    }
-
-    public static byte[] f(byte[] bArr, BigInteger bigInteger, BigInteger bigInteger2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, bArr, bigInteger, bigInteger2)) == null) ? c(b(bArr, bigInteger).modPow(bigInteger2, bigInteger), a(bigInteger)) : (byte[]) invokeLLL.objValue;
+        return invokeL.booleanValue;
     }
 }

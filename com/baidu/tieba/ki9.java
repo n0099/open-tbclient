@@ -1,92 +1,58 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class ki9 extends ek9 {
+import tbclient.GetVipInfo.VipBannerItem;
+/* loaded from: classes7.dex */
+public class ki9 implements w25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView c;
+    public String a;
+    public String b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ki9(BaseFragmentActivity baseFragmentActivity, View view2) {
-        super(baseFragmentActivity, view2);
+    public ki9(VipBannerItem vipBannerItem) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity, view2};
+            Object[] objArr = {vipBannerItem};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((BaseFragmentActivity) objArr2[0], (View) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = null;
-    }
-
-    @Override // com.baidu.tieba.ek9
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09101e);
-            this.c = textView;
-            textView.setVisibility(8);
+        if (vipBannerItem == null) {
+            return;
         }
+        this.a = vipBannerItem.img_url;
+        this.b = vipBannerItem.link;
     }
 
-    public TextView d() {
+    @Override // com.baidu.tieba.w25
+    public String getPicLinkUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.w25
+    public String getPicUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+            return this.a;
         }
-        return (TextView) invokeV.objValue;
-    }
-
-    public void e(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData) == null) && threadData != null && threadData.getPushStatusData() != null) {
-            int status = threadData.getPushStatusData().getStatus();
-            if (status == 1) {
-                f(true);
-            } else if (status == 2) {
-                f(false);
-            }
-        }
-    }
-
-    public void f(boolean z) {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048579, this, z) != null) || (textView = this.c) == null) {
-            return;
-        }
-        if (z) {
-            textView.setText(R.string.obfuscated_res_0x7f0f11b7);
-            SkinManager.setViewTextColor(this.c, (int) R.drawable.obfuscated_res_0x7f08129a);
-            SkinManager.setBackgroundResource(this.c, R.drawable.push_bg_selector);
-            this.c.setClickable(true);
-        } else {
-            textView.setText(R.string.obfuscated_res_0x7f0f02b3);
-            SkinManager.setBackgroundResource(this.c, R.drawable.label_bg_gray80);
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0109);
-            this.c.setClickable(false);
-        }
-        this.c.setVisibility(0);
+        return (String) invokeV.objValue;
     }
 }

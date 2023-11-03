@@ -9,7 +9,7 @@ import com.baidu.ar.ihttp.Downloader;
 import com.baidu.ar.ihttp.HttpException;
 import com.baidu.ar.ihttp.IProgressCallback;
 import java.io.File;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class c extends com.baidu.ar.e.a<String, Void> {
     public IProgressCallback qN;
     public ARCaseBundleInfo xx;

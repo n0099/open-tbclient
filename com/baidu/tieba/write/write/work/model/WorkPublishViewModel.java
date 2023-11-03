@@ -10,9 +10,9 @@ import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tbadk.data.VideoCategoryClassData;
-import com.baidu.tieba.sda;
 import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 import com.baidu.tieba.write.write.work.model.WorkPublishViewModel;
+import com.baidu.tieba.xqa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -130,7 +130,7 @@ public final class WorkPublishViewModel extends ViewModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             MutableLiveData<Boolean> mutableLiveData = this.l;
-            if (d() && e()) {
+            if (c() && e()) {
                 z = true;
             } else {
                 z = false;
@@ -154,7 +154,7 @@ public final class WorkPublishViewModel extends ViewModel {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            sda.B("");
+            xqa.B("");
         }
     }
 
@@ -242,11 +242,11 @@ public final class WorkPublishViewModel extends ViewModel {
     public final void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            sda.q(new sda.i() { // from class: com.baidu.tieba.w4b
+            xqa.q(new xqa.i() { // from class: com.baidu.tieba.xhb
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.sda.i
+                @Override // com.baidu.tieba.xqa.i
                 public final void a(String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
@@ -260,11 +260,11 @@ public final class WorkPublishViewModel extends ViewModel {
     public final void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            sda.B(i());
+            xqa.B(i());
         }
     }
 
-    public final boolean d() {
+    public final boolean c() {
         InterceptResult invokeV;
         boolean z;
         int i;

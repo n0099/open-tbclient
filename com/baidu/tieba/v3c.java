@@ -1,47 +1,42 @@
 package com.baidu.tieba;
 
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.ar.core.InstallActivity;
+import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
 /* loaded from: classes8.dex */
-public final class v3c {
+public final class v3c implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte[] a;
-    public int[] b;
+    public final /* synthetic */ InstallActivity a;
 
-    public v3c() {
+    public v3c(InstallActivity installActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {installActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = installActivity;
     }
 
-    public static void a(v3c v3cVar, int i) {
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65537, null, v3cVar, i) == null) {
-            for (int i2 = 0; i2 < i; i2++) {
-                int[] iArr = v3cVar.b;
-                byte[] bArr = v3cVar.a;
-                int i3 = i2 * 4;
-                iArr[i2] = ((bArr[i3 + 3] & 255) << 24) | (bArr[i3] & 255) | ((bArr[i3 + 1] & 255) << 8) | ((bArr[i3 + 2] & 255) << 16);
-            }
+        if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+            return;
         }
-    }
-
-    public static void b(v3c v3cVar, byte[] bArr, int[] iArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, v3cVar, bArr, iArr) == null) {
-            v3cVar.a = bArr;
-            v3cVar.b = iArr;
-        }
+        this.a.j(new UnavailableUserDeclinedInstallationException());
     }
 }

@@ -1,89 +1,98 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Matrix;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes7.dex */
 public class l3b {
     public static /* synthetic */ Interceptable $ic;
+    public static Set<String> a;
+    public static Set<String> b;
+    public static Set<String> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Matrix a;
-    public Bitmap b;
 
-    public l3b(Bitmap bitmap) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bitmap};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947893358, "Lcom/baidu/tieba/l3b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947893358, "Lcom/baidu/tieba/l3b;");
                 return;
             }
         }
-        this.b = bitmap;
-        this.a = new Matrix();
+        a = new HashSet();
+        b = new HashSet();
+        c = new HashSet();
     }
 
-    public void a(Canvas canvas) {
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, canvas) != null) || canvas == null) {
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            b.add(str);
+        }
+    }
+
+    public static void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            c.add(str);
+        }
+    }
+
+    public static void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            a.add(str);
+        }
+    }
+
+    public static void e(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65541, null, str) != null) || b.size() == 0) {
             return;
         }
-        canvas.drawBitmap(this.b, this.a, null);
+        d(str, b);
+        b.clear();
     }
 
-    public Matrix b() {
-        InterceptResult invokeV;
+    public static void f(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if ((interceptable != null && interceptable.invokeL(65542, null, str) != null) || c.size() == 0) {
+            return;
         }
-        return (Matrix) invokeV.objValue;
+        d(str, c);
+        c.clear();
     }
 
-    public Bitmap c() {
-        InterceptResult invokeV;
+    public static void g(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if ((interceptable != null && interceptable.invokeL(65543, null, str) != null) || a.size() == 0) {
+            return;
         }
-        return (Bitmap) invokeV.objValue;
+        d(str, a);
+        a.clear();
     }
 
-    public int d() {
-        InterceptResult invokeV;
+    public static void d(String str, Set<String> set) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Bitmap bitmap = this.b;
-            if (bitmap == null) {
-                return 0;
-            }
-            return bitmap.getHeight();
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, set) == null) {
+            StatisticItem statisticItem = new StatisticItem("c14295");
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("obj_locate", str);
+            statisticItem.param("obj_type", set.size());
+            TiebaStatic.log(statisticItem);
         }
-        return invokeV.intValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Bitmap bitmap = this.b;
-            if (bitmap == null) {
-                return 0;
-            }
-            return bitmap.getWidth();
-        }
-        return invokeV.intValue;
     }
 }

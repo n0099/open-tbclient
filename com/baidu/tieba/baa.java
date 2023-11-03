@@ -1,79 +1,178 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.sprite.funnysprite.data.SpriteTipHttpResponseMessage;
-import com.baidu.tieba.sprite.homepage.HomeSpriteEdgeFloatManager;
-import com.baidu.tieba.sprite.tips.HomePageSpriteBottomTipView;
+import com.baidu.pass.ecommerce.StatKey;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.collections.CollectionsKt__CollectionsJVMKt;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class baa implements aaa {
+public class baa implements il9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public daa b;
 
-    public baa() {
+    public baa(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = str;
+        this.b = new daa(str);
     }
 
-    @Override // com.baidu.tieba.aaa
-    public boolean a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.il9
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return bka.i.a().h();
+        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || !m(str)) {
+            return;
         }
-        return invokeV.booleanValue;
+        e0b.d().j(this.a, e0b.i(VideoPlatformStatic.c(), this.b.d(), this.b.b()));
     }
 
-    @Override // com.baidu.tieba.aaa
-    public void d() {
+    @Override // com.baidu.tieba.il9
+    public void k(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && HomeSpriteEdgeFloatManager.l.c().W()) {
-            HomeSpriteEdgeFloatManager.l.c().a0();
+        if ((interceptable != null && interceptable.invokeL(1048586, this, str) != null) || !m(str)) {
+            return;
         }
+        this.b.k();
+        this.b.j();
+        this.b.a(new s9a(401, "write", -4399, ""));
     }
 
-    @Override // com.baidu.tieba.aaa
-    public void hide() {
+    @Override // com.baidu.tieba.il9
+    public void b(String str, int i, int i2, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            HomeSpriteEdgeFloatManager.l.c().Q();
+        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2}) != null) || !m(str)) {
+            return;
         }
+        this.b.f();
+        this.b.i();
+        this.b.k();
+        this.b.a(new s9a(i, "write", i2, str2));
     }
 
-    @Override // com.baidu.tieba.aaa
-    public void b(eca hotEventShowData) {
+    @Override // com.baidu.tieba.il9
+    public void c(String str, int i, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hotEventShowData) == null) {
-            Intrinsics.checkNotNullParameter(hotEventShowData, "hotEventShowData");
-            HomeSpriteEdgeFloatManager.l.c().X(hotEventShowData);
+        if ((interceptable != null && interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, str, i, str2) != null) || !m(str)) {
+            return;
         }
+        this.b.f();
+        this.b.a(new s9a(i, StatKey.EDITADDR_TAG_STAGE_EDIT, i, str2));
     }
 
-    @Override // com.baidu.tieba.aaa
-    public void c(Activity context, SpriteTipHttpResponseMessage response, HomePageSpriteBottomTipView spriteTipView) {
+    @Override // com.baidu.tieba.il9
+    public void f(String str, int i, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, response, spriteTipView) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(response, "response");
-            Intrinsics.checkNotNullParameter(spriteTipView, "spriteTipView");
-            xz4.g(CollectionsKt__CollectionsJVMKt.listOf(new ula(context, response, spriteTipView, null, 8, null)));
+        if ((interceptable != null && interceptable.invokeLIL(1048581, this, str, i, str2) != null) || !m(str)) {
+            return;
         }
+        this.b.f();
+        this.b.a(new s9a(i, "record", i, str2));
+    }
+
+    @Override // com.baidu.tieba.il9
+    public boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (!m(str)) {
+                return false;
+            }
+            return this.b.g();
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.il9
+    public boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            return this.b.h();
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.il9
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048585, this, str) != null) || !m(str)) {
+            return;
+        }
+        this.b.k();
+        this.b.a(new s9a(301, "write", -4399, ""));
+    }
+
+    public final boolean m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            if (TextUtils.equals(this.a, str) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.a)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.il9
+    public void g(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLIL(1048582, this, str, i, str2) != null) || !m(str)) {
+            return;
+        }
+        this.b.f();
+        this.b.i();
+        this.b.k();
+        this.b.a(new s9a(402, "write", i, str2));
+    }
+
+    @Override // com.baidu.tieba.il9
+    public void h(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048583, this, str, str2) != null) || !m(str)) {
+            return;
+        }
+        this.b.a(new s9a(503, str2, -4399, ""));
+    }
+
+    @Override // com.baidu.tieba.il9
+    public void i(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) != null) || !m(str)) {
+            return;
+        }
+        this.b.a(new s9a(501, str2, -4399, ""));
+    }
+
+    @Override // com.baidu.tieba.il9
+    public void l(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLIL(1048587, this, str, i, str2) != null) || !m(str)) {
+            return;
+        }
+        if (i != 103 && i != 105 && i != 106 && i != 107 && i != 104) {
+            this.b.a(new s9a(i, str2, -4399, ""));
+            return;
+        }
+        this.b.f();
+        this.b.a(new s9a(i, str2, i, VideoPlatformStatic.g(i)));
     }
 }

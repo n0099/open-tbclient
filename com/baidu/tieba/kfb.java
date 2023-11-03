@@ -1,69 +1,44 @@
 package com.baidu.tieba;
 
-import android.graphics.PointF;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
+import com.baidu.mobstat.Config;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class kfb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static float a(PointF pointF, PointF pointF2) {
-        InterceptResult invokeLL;
+    public static void a(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull yd5 yd5Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, pointF, pointF2)) == null) {
-            if (pointF != null && pointF2 != null) {
-                float b = ((pointF.x * pointF2.x) + (pointF.y * pointF2.y)) / (b(pointF) * b(pointF2));
-                if (b <= 1.0f && b >= -1.0f) {
-                    return ((pointF.x * pointF2.y) - (pointF2.x * pointF.y) > 0.0f ? 1 : -1) * (360.0f - ((float) Math.toDegrees(Math.acos(b))));
-                }
+        if (interceptable == null || interceptable.invokeLLLL(65536, null, tbPageContext, editorTools, yd5Var, str) == null) {
+            if ("e1".equals(str)) {
+                sfb.h(tbPageContext, editorTools, yd5Var);
+            } else if (Config.SESSTION_TRACK_END_TIME.equals(str)) {
+                sfb.j(tbPageContext, editorTools, yd5Var);
+            } else if ("e3".equals(str)) {
+                sfb.k(tbPageContext, editorTools, yd5Var);
+            } else if ("e4".equals(str)) {
+                sfb.g(tbPageContext, editorTools, yd5Var);
+            } else if ("e5".equals(str)) {
+                sfb.d(editorTools, yd5Var);
+            } else if ("e6".equals(str)) {
+                sfb.a(tbPageContext, editorTools, yd5Var);
+            } else if ("e7".equals(str)) {
+                sfb.l(tbPageContext, editorTools, yd5Var);
+            } else if ("e8".equals(str)) {
+                sfb.b(tbPageContext, editorTools, yd5Var);
+            } else if ("e9".equals(str)) {
+                sfb.i(tbPageContext, editorTools);
+            } else if ("e10".equals(str)) {
+                sfb.c(tbPageContext, editorTools, yd5Var);
+            } else if ("e11".equals(str)) {
+                sfb.f(tbPageContext, editorTools, yd5Var);
+            } else if ("e12".equals(str)) {
+                sfb.e(tbPageContext, editorTools, yd5Var);
             }
-            return 0.0f;
         }
-        return invokeLL.floatValue;
-    }
-
-    public static float b(PointF pointF) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, pointF)) == null) {
-            float f = pointF.x;
-            float f2 = pointF.y;
-            return (float) Math.sqrt((f * f) + (f2 * f2));
-        }
-        return invokeL.floatValue;
-    }
-
-    public static float c(PointF pointF, PointF pointF2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, pointF, pointF2)) == null) {
-            float f = pointF.x;
-            float f2 = pointF2.x;
-            float f3 = pointF.y;
-            float f4 = pointF2.y;
-            return (float) Math.sqrt(((f - f2) * (f - f2)) + ((f3 - f4) * (f3 - f4)));
-        }
-        return invokeLL.floatValue;
-    }
-
-    public static PointF d(PointF pointF, PointF pointF2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, pointF, pointF2)) == null) ? new PointF(pointF2.x - pointF.x, pointF2.y - pointF.y) : (PointF) invokeLL.objValue;
-    }
-
-    public static float e(PointF pointF, PointF pointF2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, pointF, pointF2)) == null) {
-            if (pointF == null || pointF2 == null) {
-                return 1.0f;
-            }
-            return b(pointF2) / b(pointF);
-        }
-        return invokeLL.floatValue;
     }
 }

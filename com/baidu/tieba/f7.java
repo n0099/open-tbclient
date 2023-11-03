@@ -1,5 +1,7 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.gif.NSGif;
+import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -7,86 +9,49 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class f7 implements l7 {
+public class f7 implements c7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
 
-    public f7(boolean z) {
+    public f7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = z;
     }
 
-    @Override // com.baidu.tieba.l7
-    public Object a(u8 u8Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.c7
+    public BdImage a(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, u8Var)) == null) {
-            return Boolean.valueOf(this.a);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
+            NSGif f = NSGif.f(bArr, i, i2);
+            if (f == null) {
+                return null;
+            }
+            return new BdImage(f);
         }
-        return invokeL.objValue;
+        return (BdImage) invokeLII.objValue;
     }
 
-    @Override // com.baidu.tieba.l7
-    public Object b(u8 u8Var) {
+    @Override // com.baidu.tieba.c7
+    public BdImage get(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u8Var)) == null) {
-            return Boolean.valueOf(this.a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            NSGif e = NSGif.e(str);
+            if (e == null) {
+                return null;
+            }
+            return new BdImage(e);
         }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.l7
-    public Object c(u8 u8Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, u8Var)) == null) {
-            return Boolean.valueOf(this.a);
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.l7
-    public Object d(u8 u8Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, u8Var)) == null) {
-            return Boolean.valueOf(this.a);
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.l7
-    public Object e(u8 u8Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, u8Var)) == null) {
-            return d(u8Var);
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.l7
-    public Object f(u8 u8Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, u8Var)) == null) {
-            return Boolean.valueOf(this.a);
-        }
-        return invokeL.objValue;
+        return (BdImage) invokeL.objValue;
     }
 }

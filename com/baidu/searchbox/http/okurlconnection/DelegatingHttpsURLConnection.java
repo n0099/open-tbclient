@@ -17,7 +17,7 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSocketFactory;
 import okhttp3.Handshake;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class DelegatingHttpsURLConnection extends HttpsURLConnection {
     public final HttpURLConnection delegate;
 

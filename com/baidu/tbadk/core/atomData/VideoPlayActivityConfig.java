@@ -31,6 +31,7 @@ public class VideoPlayActivityConfig extends IntentConfig {
     public static final String FROM_VIDEO_ACCOUNT_ATTENTION_TAB = "video_attention_tab";
     public static final String FROM_VIDEO_ACCOUNT_TAB = "video_channel_tab";
     public static final String FROM_VIDEO_MIDDLE_VIDEO = "from_video_middle_video";
+    public static final String FRS_TOP_THREAD_TYPE = "frs_top_thread_type";
     public static final String IS_FROM_BJH_PB = "is_from_bjh_pb";
     public static final String IS_NEED_SHOW_SECOND_FLOOR = "is_need_show_second_floor";
     public static final String IS_SCROLLED = "is_scrolled";
@@ -246,16 +247,24 @@ public class VideoPlayActivityConfig extends IntentConfig {
         }
     }
 
+    public void setIsTopThread(boolean z) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && (intent = getIntent()) != null) {
+            intent.putExtra("frs_top_thread_type", z);
+        }
+    }
+
     public void setNid(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && getIntent() != null) {
             getIntent().putExtra("key_nid", str);
         }
     }
 
     public void setParamIsVertail(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048582, this, z) == null) && getIntent() != null) {
             getIntent().putExtra(PARAM_IS_VERTAIL, z);
         }
     }
@@ -263,14 +272,14 @@ public class VideoPlayActivityConfig extends IntentConfig {
     public void setUri(Uri uri) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, uri) == null) && (intent = getIntent()) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048583, this, uri) == null) && (intent = getIntent()) != null) {
             intent.putExtra(IntentConfig.KEY_URI, uri);
         }
     }
 
     public void setVideoShowIndex(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             getIntent().putExtra("video_show_index", i);
         }
     }

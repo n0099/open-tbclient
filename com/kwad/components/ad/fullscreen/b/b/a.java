@@ -83,7 +83,7 @@ public final class a extends com.kwad.components.ad.reward.presenter.c.a impleme
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.fl = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091313);
+        this.fl = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091351);
     }
 
     @Override // com.kwad.components.ad.reward.presenter.c.a, com.kwad.sdk.mvp.Presenter

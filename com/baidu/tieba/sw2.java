@@ -1,66 +1,103 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import android.graphics.Bitmap;
+import com.baidu.tieba.dr2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class sw2 extends rw2 {
+public class sw2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sw2(m63 m63Var) {
-        super(m63Var, "/swanAPI/cancelRequest");
+    public static JSONObject a(qw2 qw2Var, boolean z, Bitmap bitmap, boolean z2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {m63Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((m63) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{qw2Var, Boolean.valueOf(z), bitmap, Boolean.valueOf(z2)})) == null) {
+            JSONObject e = pw2.e();
+            if (qw2Var != null) {
+                try {
+                    e.put("page", qw2Var.b);
+                } catch (JSONException e2) {
+                    if (g63.v) {
+                        e2.printStackTrace();
+                    }
+                }
             }
+            e.put("firstPage", z2);
+            if (z && bitmap != null) {
+                e.put("image", pw2.c(bitmap));
+            }
+            return e;
+        }
+        return (JSONObject) invokeCommon.objValue;
+    }
+
+    public static JSONObject b(qw2 qw2Var) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, qw2Var)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (qw2Var != null) {
+                try {
+                    if (qw2Var.g == 0) {
+                        str = "0";
+                    } else {
+                        str = "1";
+                    }
+                    jSONObject.put("isH5Componet", str);
+                } catch (JSONException e) {
+                    if (g63.v) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static void c(qw2 qw2Var, int i, boolean z, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{qw2Var, Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+            d(qw2Var, i, false, null, z, i2);
         }
     }
 
-    @Override // com.baidu.tieba.m73
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, p53 p53Var) {
-        InterceptResult invokeLLLL;
+    public static void d(qw2 qw2Var, int i, boolean z, Bitmap bitmap, boolean z2, int i2) {
+        dr2.a X;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, p53Var)) == null) {
-            if (p53Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
-                return false;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{qw2Var, Integer.valueOf(i), Boolean.valueOf(z), bitmap, Boolean.valueOf(z2), Integer.valueOf(i2)}) == null) {
+            zh3 zh3Var = new zh3();
+            zh3Var.k(5L);
+            zh3Var.i(i);
+            if (!uc3.d || z2) {
+                zh3Var.f(a(qw2Var, z, bitmap, z2).toString());
             }
-            JSONObject a = m73.a(unitedSchemeEntity, "params");
-            if (a == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal params");
-                return false;
+            String valueOf = String.valueOf(i2);
+            hd3 hd3Var = new hd3();
+            hd3Var.p(zh3Var);
+            hd3Var.q(zc3.n(f63.K().k()));
+            hd3Var.m(f63.K().getAppId());
+            hd3Var.s = qw2Var.b;
+            hd3Var.n(false);
+            g63 c0 = g63.c0();
+            if (c0 == null) {
+                X = null;
+            } else {
+                X = c0.X();
             }
-            String optString = a.optString("cancelTag");
-            if (TextUtils.isEmpty(optString)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal cancelTag");
-                return false;
+            if (!uc3.d || z2) {
+                hd3Var.s(valueOf);
+                hd3Var.r(X);
+                hd3Var.e(b(qw2Var));
+                hd3Var.e(gc3.d().e());
+                hd3Var.e(gc3.d().g());
             }
-            SwanAppNetworkUtils.a(tc4.g().getOkHttpClient(), optString);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-            return true;
+            zc3.R(hd3Var);
         }
-        return invokeLLLL.booleanValue;
     }
 }

@@ -1,23 +1,17 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class as2 extends bs2 {
+public class as2 implements xr2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int[] A;
-    public ArrayList<is2> z;
+    @Nullable
+    public od2 a;
 
     public as2() {
         Interceptable interceptable = $ic;
@@ -29,54 +23,42 @@ public class as2 extends bs2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.A = new int[]{0, 0, 0, 0};
-    }
-
-    @Override // com.baidu.tieba.bs2, com.baidu.tieba.g12, com.baidu.tieba.ov2
-    public void a(JSONObject jSONObject) throws JSONException {
-        JSONArray jSONArray;
-        JSONArray jSONArray2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        super.a(jSONObject);
-        if (jSONObject.has("points") && (jSONArray2 = jSONObject.getJSONArray("points")) != null && jSONArray2.length() > 0) {
-            int length = jSONArray2.length();
-            this.z = new ArrayList<>(length);
-            for (int i = 0; i < length; i++) {
-                JSONObject jSONObject2 = jSONArray2.getJSONObject(i);
-                if (jSONObject2 != null) {
-                    is2 is2Var = new is2();
-                    is2Var.a(jSONObject2);
-                    if (is2Var.isValid()) {
-                        this.z.add(is2Var);
-                    }
-                }
-            }
-        }
-        if (jSONObject.has(CriusAttrConstants.PADDING) && (jSONArray = jSONObject.getJSONArray(CriusAttrConstants.PADDING)) != null && jSONArray.length() > 0) {
-            int min = Math.min(jSONArray.length(), 4);
-            for (int i2 = 0; i2 < min; i2++) {
-                this.A[i2] = gj3.g(jSONArray.optInt(i2));
             }
         }
     }
 
-    @Override // com.baidu.tieba.g12, com.baidu.tieba.ov2
-    public boolean isValid() {
-        InterceptResult invokeV;
-        ArrayList<is2> arrayList;
+    @Override // com.baidu.tieba.xr2
+    public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.b) && (arrayList = this.z) != null && arrayList.size() > 0) {
-                return true;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            a();
+            od2 od2Var = this.a;
+            if (od2Var != null) {
+                od2Var.suspendTimer();
             }
-            return false;
         }
-        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.xr2
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            a();
+            od2 od2Var = this.a;
+            if (od2Var != null) {
+                od2Var.continueTimer();
+            }
+        }
+    }
+
+    public final void a() {
+        c82 X;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            od2 od2Var = this.a;
+            if ((od2Var == null || od2Var.isDestroyed()) && (X = ad2.V().X()) != null && (X.e() instanceof od2)) {
+                this.a = (od2) X.e();
+            }
+        }
     }
 }

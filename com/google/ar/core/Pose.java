@@ -1,14 +1,14 @@
 package com.google.ar.core;
 
-import com.baidu.tieba.nqb;
+import com.baidu.tieba.o3c;
 import java.util.Locale;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Pose {
-    public final nqb a;
+    public final o3c a;
     public final float[] b;
 
     static {
-        nqb nqbVar = nqb.e;
+        o3c o3cVar = o3c.e;
     }
 
     public String toString() {

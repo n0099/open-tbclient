@@ -1,39 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.tieba.er5;
+import com.baidu.tieba.fr5;
 /* loaded from: classes6.dex */
-public class gr5 {
-    public static /* synthetic */ Interceptable $ic;
-    public static long a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface gr5<Q extends er5, P extends fr5> {
+    int a();
 
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return b(500);
-        }
-        return invokeV.booleanValue;
-    }
+    Q b();
 
-    public static boolean b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            long j = a;
-            if (j > currentTimeMillis) {
-                a = currentTimeMillis;
-                return false;
-            } else if (currentTimeMillis - j < i) {
-                return true;
-            } else {
-                a = currentTimeMillis;
-                return false;
-            }
-        }
-        return invokeI.booleanValue;
-    }
+    String c();
+
+    P d();
+
+    int e();
 }

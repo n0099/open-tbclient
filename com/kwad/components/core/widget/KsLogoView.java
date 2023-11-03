@@ -109,7 +109,7 @@ public class KsLogoView extends LinearLayout {
             }
         };
         if (z) {
-            setBackgroundResource(R.drawable.obfuscated_res_0x7f080ec9);
+            setBackgroundResource(R.drawable.obfuscated_res_0x7f080edd);
         }
         init(context);
     }
@@ -117,17 +117,17 @@ public class KsLogoView extends LinearLayout {
     private void init(Context context) {
         TextView textView;
         int i;
-        LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d04c1, this);
-        this.Py = (TextView) findViewById(R.id.obfuscated_res_0x7f09132f);
-        this.Pz = (ImageView) findViewById(R.id.obfuscated_res_0x7f09132e);
+        LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d04d4, this);
+        this.Py = (TextView) findViewById(R.id.obfuscated_res_0x7f09136d);
+        this.Pz = (ImageView) findViewById(R.id.obfuscated_res_0x7f09136c);
         boolean z = getBackground() == null;
         this.Px = z;
         if (z) {
-            this.Pz.setImageDrawable(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e80));
+            this.Pz.setImageDrawable(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e94));
             textView = this.Py;
             i = -6513508;
         } else {
-            this.Pz.setImageDrawable(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e81));
+            this.Pz.setImageDrawable(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e95));
             textView = this.Py;
             i = -1711276033;
         }
@@ -136,11 +136,11 @@ public class KsLogoView extends LinearLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void qg() {
-        this.Pz.setImageDrawable(getContext().getResources().getDrawable(this.Px ? R.drawable.obfuscated_res_0x7f080e80 : R.drawable.obfuscated_res_0x7f080e81));
+        this.Pz.setImageDrawable(getContext().getResources().getDrawable(this.Px ? R.drawable.obfuscated_res_0x7f080e94 : R.drawable.obfuscated_res_0x7f080e95));
     }
 
     public final void T(AdTemplate adTemplate) {
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f09132d);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f09136b);
         AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
         String str = this.Px ? bQ.adBaseInfo.adGrayMarkIcon : bQ.adBaseInfo.adMarkIcon;
         if (TextUtils.isEmpty(str) && TextUtils.isEmpty(bQ.adBaseInfo.adSourceDescription)) {

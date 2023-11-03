@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,38 +9,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.TreeMap;
-import java.util.TreeSet;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 /* loaded from: classes5.dex */
 public class f3c {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile f3c c;
+    public static final Object a;
+    public static final SimpleDateFormat b;
+    public static final SimpleDateFormat c;
     public transient /* synthetic */ FieldHolder $fh;
-    public TreeMap<Integer, a> a;
-    public TreeMap<Integer, TreeSet<String>> b;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947714643, "Lcom/baidu/tieba/f3c;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947714643, "Lcom/baidu/tieba/f3c;");
-        }
-    }
 
     /* loaded from: classes5.dex */
-    public static class a {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public boolean b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -51,165 +38,110 @@ public class f3c {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = false;
-            this.b = false;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                File[] g = c3c.g();
+                if (g != null && g.length > 0) {
+                    synchronized (f3c.a) {
+                        for (File file : g) {
+                            if (currentTimeMillis - file.lastModified() > com.baidu.mobads.sdk.internal.bj.e) {
+                                file.delete();
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 
-    public f3c() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947714643, "Lcom/baidu/tieba/f3c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947714643, "Lcom/baidu/tieba/f3c;");
                 return;
             }
         }
-        this.a = new TreeMap<>();
-        this.b = new TreeMap<>();
+        a = new Object();
+        b = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss.SSS", Locale.US);
+        c = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
     }
 
-    public static f3c c() {
-        InterceptResult invokeV;
+    public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (f3c.class) {
-                    if (c == null) {
-                        c = new f3c();
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            e3c.b().post(new a());
+        }
+    }
+
+    public static String c(String str) {
+        InterceptResult invokeL;
+        String d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            synchronized (a) {
+                d = d("looper", str);
+            }
+            return d;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String d(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            String str3 = "";
+            BufferedWriter bufferedWriter = null;
+            try {
+                File c2 = c3c.c();
+                long currentTimeMillis = System.currentTimeMillis();
+                str3 = c2.getAbsolutePath() + "/" + str + "-" + b.format(Long.valueOf(currentTimeMillis)) + ".log";
+                BufferedWriter bufferedWriter2 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(str3, true), "UTF-8"));
+                try {
+                    bufferedWriter2.write("\r\n");
+                    bufferedWriter2.write("**********************");
+                    bufferedWriter2.write("\r\n");
+                    bufferedWriter2.write(c.format(Long.valueOf(currentTimeMillis)) + "(write log time)");
+                    bufferedWriter2.write("\r\n");
+                    bufferedWriter2.write("\r\n");
+                    bufferedWriter2.write(str2);
+                    bufferedWriter2.write("\r\n");
+                    bufferedWriter2.flush();
+                    bufferedWriter2.close();
+                } catch (Throwable th) {
+                    th = th;
+                    bufferedWriter = bufferedWriter2;
+                    try {
+                        Log.e("LogWriter", "save: ", th);
+                        return str3;
+                    } finally {
+                        if (bufferedWriter != null) {
+                            try {
+                                bufferedWriter.close();
+                            } catch (Exception e) {
+                                Log.e("LogWriter", "save: ", e);
+                            }
+                        }
                     }
                 }
+            } catch (Throwable th2) {
+                th = th2;
             }
-            return c;
+            return str3;
         }
-        return (f3c) invokeV.objValue;
-    }
-
-    public synchronized int a() {
-        InterceptResult invokeV;
-        int size;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                size = this.b.size();
-            }
-            return size;
-        }
-        return invokeV.intValue;
-    }
-
-    public synchronized int d() {
-        InterceptResult invokeV;
-        int size;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                size = this.a.size();
-            }
-            return size;
-        }
-        return invokeV.intValue;
-    }
-
-    public synchronized int b() {
-        InterceptResult invokeV;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this) {
-                i = 0;
-                for (Map.Entry<Integer, TreeSet<String>> entry : this.b.entrySet()) {
-                    i += entry.getValue().size();
-                }
-            }
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    public synchronized int f() {
-        InterceptResult invokeV;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this) {
-                i = 0;
-                for (Map.Entry<Integer, a> entry : this.a.entrySet()) {
-                    if (entry.getValue().a && entry.getValue().b) {
-                        i++;
-                    }
-                }
-            }
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    public synchronized int i() {
-        InterceptResult invokeV;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            synchronized (this) {
-                i = 0;
-                for (Map.Entry<Integer, a> entry : this.a.entrySet()) {
-                    if (entry.getValue().a) {
-                        i++;
-                    }
-                }
-            }
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    public synchronized void e(c1c c1cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, c1cVar) == null) {
-            synchronized (this) {
-                if (c1cVar != null) {
-                    if (!this.a.containsKey(Integer.valueOf(c1cVar.hashCode()))) {
-                        this.a.put(Integer.valueOf(c1cVar.hashCode()), new a());
-                    }
-                }
-            }
-        }
-    }
-
-    public synchronized void h(c1c c1cVar) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, c1cVar) == null) {
-            synchronized (this) {
-                if (c1cVar != null) {
-                    if (this.a.containsKey(Integer.valueOf(c1cVar.hashCode())) && (aVar = this.a.get(Integer.valueOf(c1cVar.hashCode()))) != null) {
-                        aVar.a = false;
-                        aVar.b = false;
-                    }
-                }
-            }
-        }
-    }
-
-    public synchronized void g(c1c c1cVar, int i, boolean z) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{c1cVar, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            synchronized (this) {
-                if (c1cVar != null) {
-                    if (this.a.containsKey(Integer.valueOf(c1cVar.hashCode())) && (aVar = this.a.get(Integer.valueOf(c1cVar.hashCode()))) != null) {
-                        aVar.a = true;
-                        aVar.b = z;
-                    }
-                }
-            }
-        }
+        return (String) invokeLL.objValue;
     }
 }

@@ -1,79 +1,87 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
+import com.baidu.nadcore.thread.executor.BaseExecutorCell;
+import com.baidu.nadcore.thread.task.ElasticTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.internal.CollapsingTextHelper;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
-@Service
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
-public final class d01 extends zd0 {
+public abstract class d01 extends BaseExecutorCell {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean d;
 
-    @Override // com.baidu.tieba.zd0
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "toast" : (String) invokeV.objValue;
-    }
-
-    public d01() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d01(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.d = false;
+    }
+
+    @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!this.d || e() >= this.b) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (this.d) {
+                Log.w(d(), "This executor cell is already opened.");
+                return;
+            }
+            this.d = true;
+            this.c.setKeepAliveTime(5000L, TimeUnit.MILLISECONDS);
         }
     }
 
-    @Override // com.baidu.tieba.zd0
-    public boolean b(Context context, de0 schemeModel, Map<String, Object> map, he0 he0Var) {
-        InterceptResult invokeLLLL;
-        String c;
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, schemeModel, map, he0Var)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(schemeModel, "schemeModel");
-            super.b(context, schemeModel, map, he0Var);
-            HashMap<String, String> d = schemeModel.d();
-            Intrinsics.checkNotNullExpressionValue(d, "schemeModel.params");
-            c01 c01Var = new c01(d);
-            if (TextUtils.isEmpty(c01Var.c())) {
-                return true;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (!this.d) {
+                Log.w(d(), "This executor cell is already shutdown.");
+                return;
             }
-            if (c01Var.b() >= 0 && c01Var.b() < c01Var.c().length()) {
-                StringBuilder sb = new StringBuilder();
-                String c2 = c01Var.c();
-                int b = c01Var.b();
-                if (c2 != null) {
-                    String substring = c2.substring(0, b);
-                    Intrinsics.checkNotNullExpressionValue(substring, "(this as java.lang.Strin…ing(startIndex, endIndex)");
-                    sb.append(substring);
-                    sb.append(CollapsingTextHelper.ELLIPSIS_NORMAL);
-                    c = sb.toString();
-                } else {
-                    throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
-                }
-            } else {
-                c = c01Var.c();
-            }
-            e01.a().b(context, c, c01Var.a());
-            return true;
+            this.d = false;
+            this.c.setKeepAliveTime(100L, TimeUnit.MILLISECONDS);
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
+    public void g(ElasticTask elasticTask) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, elasticTask) == null) {
+            super.g(elasticTask);
+            if (this.d) {
+                p01.f().k();
+            }
+        }
     }
 }

@@ -1,52 +1,70 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.database.ContentObserver;
+import android.os.Handler;
 import android.text.TextUtils;
-import android.util.Pair;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import androidx.annotation.AnyThread;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.Nullable;
+import androidx.annotation.UiThread;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
-import com.baidu.tieba.pp2;
-import com.baidu.tieba.ua3;
-import com.baidu.tieba.vu1;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.api.module.favorite.ShowFavoriteGuideApi;
+import com.baidu.swan.menu.PopupWindow;
+import com.baidu.tieba.m52;
+import com.baidu.tieba.su1;
+import com.baidu.tieba.wv2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Timer;
+import java.util.TimerTask;
 /* loaded from: classes8.dex */
-public class uu1 extends tt1 implements vu1.c {
+public class uu1 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile uu1 i;
     public transient /* synthetic */ FieldHolder $fh;
+    public PopupWindow a;
+    public Timer b;
+    public SwanAppActivity c;
+    public m52 d;
+    public ContentObserver e;
+    public dj2 f;
+    public su1 g;
+    public j h;
 
-    @Override // com.baidu.tieba.tt1
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "LocationService" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.tt1
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "GetLocationApi" : (String) invokeV.objValue;
+    /* loaded from: classes8.dex */
+    public interface j {
+        void e(boolean z);
     }
 
     /* loaded from: classes8.dex */
-    public class b implements ik3<sa3<ua3.e>> {
+    public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ uu1 b;
+        public final /* synthetic */ ShowFavoriteGuideApi.GuideType a;
+        public final /* synthetic */ Activity b;
+        public final /* synthetic */ uu1 c;
 
         /* loaded from: classes8.dex */
-        public class a implements pp2.a {
+        public class a implements wv2.h {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -60,35 +78,41 @@ public class uu1 extends tt1 implements vu1.c {
                         int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
+                        return;
                     }
                 }
+                this.a = bVar;
             }
 
-            @Override // com.baidu.tieba.pp2.a
-            public void a(o83 o83Var) {
+            @Override // com.baidu.tieba.wv2.h
+            public void onFail() {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, o83Var) == null) {
-                    HashMap hashMap = new HashMap();
-                    hashMap.put("data", o83Var.a().toString());
-                    cr2.V().v(new qf2("locationChange", hashMap));
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    if (this.a.c.h != null) {
+                        this.a.c.h.e(false);
+                    }
+                    g32.i("FavoriteGuideHelper", "add favorite result=false");
                 }
             }
 
-            @Override // com.baidu.tieba.pp2.a
-            public void onFailed(int i) {
+            @Override // com.baidu.tieba.wv2.h
+            public void onSuccess() {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                    vc3.b("startLocationUpdate", 4000, "sdk's errCode is " + i, -1, "");
+                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                    if (this.a.c.h != null) {
+                        this.a.c.h.e(true);
+                    }
+                    g32.i("FavoriteGuideHelper", "add favorite result=true");
                 }
             }
         }
 
-        public b(uu1 uu1Var, String str) {
+        public b(uu1 uu1Var, ShowFavoriteGuideApi.GuideType guideType, Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {uu1Var, str};
+                Object[] objArr = {uu1Var, guideType, activity};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -98,44 +122,123 @@ public class uu1 extends tt1 implements vu1.c {
                     return;
                 }
             }
-            this.b = uu1Var;
-            this.a = str;
+            this.c = uu1Var;
+            this.a = guideType;
+            this.b = activity;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ik3
-        /* renamed from: b */
-        public void a(sa3<ua3.e> sa3Var) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            String str;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sa3Var) == null) {
-                if (!na3.h(sa3Var)) {
-                    int b = sa3Var.b();
-                    vc3.b("startLocationUpdate", 5000, na3.f(b), b, na3.f(b));
-                    this.b.d(this.a, new qx1(b, na3.f(b)));
-                } else if (!jj3.M()) {
-                    vc3.b("startLocationUpdate", 5004, "user no permission", 10005, na3.f(10005));
-                    this.b.d(this.a, new qx1(10005, na3.f(10005)));
-                } else {
-                    this.b.d(this.a, new qx1(0));
-                    wo2.I().f(new a(this));
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                wv2.h(this.b, new a(this));
+                this.c.k();
+                if (this.c.b != null) {
+                    this.c.b.cancel();
                 }
+                ShowFavoriteGuideApi.GuideType guideType = this.a;
+                if (guideType == ShowFavoriteGuideApi.GuideType.WEAK) {
+                    str = "flow_add";
+                } else {
+                    str = "flow_close_add";
+                }
+                ShowFavoriteGuideApi.G(guideType, str, "click");
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public class a implements ik3<sa3<ua3.e>> {
+    public class f extends ContentObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c a;
+        public final /* synthetic */ g63 a;
+        public final /* synthetic */ ShowFavoriteGuideApi.GuideType b;
+        public final /* synthetic */ uu1 c;
+
+        /* loaded from: classes8.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ f a;
+
+            public a(f fVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {fVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = fVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && ed2.n(this.a.a.b)) {
+                    f fVar = this.a;
+                    if (fVar.b == ShowFavoriteGuideApi.GuideType.NORMAL && fVar.c.h != null) {
+                        this.a.c.h.e(true);
+                    }
+                    this.a.c.k();
+                }
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public f(uu1 uu1Var, Handler handler, g63 g63Var, ShowFavoriteGuideApi.GuideType guideType) {
+            super(handler);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uu1Var, handler, g63Var, guideType};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Handler) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = uu1Var;
+            this.a = g63Var;
+            this.b = guideType;
+        }
+
+        @Override // android.database.ContentObserver
+        public void onChange(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                super.onChange(z);
+                aj3.h().execute(new a(this));
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ShowFavoriteGuideApi.GuideType a;
         public final /* synthetic */ uu1 b;
 
-        public a(uu1 uu1Var, c cVar) {
+        public a(uu1 uu1Var, ShowFavoriteGuideApi.GuideType guideType) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {uu1Var, cVar};
+                Object[] objArr = {uu1Var, guideType};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -146,210 +249,487 @@ public class uu1 extends tt1 implements vu1.c {
                 }
             }
             this.b = uu1Var;
-            this.a = cVar;
+            this.a = guideType;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ik3
-        /* renamed from: b */
-        public void a(sa3<ua3.e> sa3Var) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sa3Var) == null) {
-                this.b.A(sa3Var, this.a, false);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.b.k();
+                if (this.b.h != null) {
+                    this.b.h.e(false);
+                }
+                ShowFavoriteGuideApi.G(this.a, "flow_close_close", "click");
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public static class c {
+    public class c implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public boolean b;
-        public String c;
+        public final /* synthetic */ ViewTreeObserver a;
+        public final /* synthetic */ p52 b;
+        public final /* synthetic */ o52 c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ g63 e;
+        public final /* synthetic */ uu1 f;
 
-        public c() {
+        public c(uu1 uu1Var, ViewTreeObserver viewTreeObserver, p52 p52Var, o52 o52Var, String str, g63 g63Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uu1Var, viewTreeObserver, p52Var, o52Var, str, g63Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.f = uu1Var;
+            this.a = viewTreeObserver;
+            this.b = p52Var;
+            this.c = o52Var;
+            this.d = str;
+            this.e = g63Var;
         }
 
-        public static c b(String str) {
-            InterceptResult invokeL;
+        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+        public void onGlobalLayout() {
+            o52 o52Var;
+            ViewTreeObserver viewTreeObserver;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-                if (TextUtils.isEmpty(str)) {
-                    return null;
-                }
-                c cVar = new c();
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    String optString = jSONObject.optString("type");
-                    cVar.a = optString;
-                    if (TextUtils.isEmpty(optString)) {
-                        cVar.a = "wgs84";
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.f.a == null && (viewTreeObserver = this.a) != null && viewTreeObserver.isAlive()) {
+                    this.a.removeOnGlobalLayoutListener(this);
+                } else if (this.f.d != this.b.m() || (((o52Var = this.c) != null && !TextUtils.equals(this.d, o52Var.A3())) || (!this.e.x0() && xj3.J()))) {
+                    this.f.k();
+                    ViewTreeObserver viewTreeObserver2 = this.a;
+                    if (viewTreeObserver2 != null && viewTreeObserver2.isAlive()) {
+                        this.a.removeOnGlobalLayoutListener(this);
                     }
-                    cVar.b = jSONObject.optBoolean("altitude");
-                    String optString2 = jSONObject.optString("cb");
-                    cVar.c = optString2;
-                    if (TextUtils.isEmpty(optString2)) {
-                        return null;
-                    }
-                    return cVar;
-                } catch (JSONException e) {
-                    p22.d("GetLocationApi", "# parseFromJSON error", e);
-                    return null;
                 }
             }
-            return (c) invokeL.objValue;
-        }
-
-        public boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if ((TextUtils.equals(this.a, "wgs84") || TextUtils.equals(this.a, "gcj02") || TextUtils.equals(this.a, "bd09ll")) && !TextUtils.isEmpty(this.c)) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeV.booleanValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public uu1(@NonNull rt1 rt1Var) {
-        super(rt1Var);
+    /* loaded from: classes8.dex */
+    public class d extends TimerTask {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ g63 a;
+        public final /* synthetic */ uu1 b;
+
+        public d(uu1 uu1Var, g63 g63Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uu1Var, g63Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = uu1Var;
+            this.a = g63Var;
+        }
+
+        @Override // java.util.TimerTask, java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.k();
+                if (this.b.h != null) {
+                    this.b.h.e(ed2.n(this.a.b));
+                }
+                if (this.b.b != null) {
+                    this.b.b.cancel();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class e implements su1.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ uu1 a;
+
+        public e(uu1 uu1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uu1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = uu1Var;
+        }
+
+        @Override // com.baidu.tieba.su1.a
+        public void b(int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || i != 1) {
+                return;
+            }
+            this.a.k();
+        }
+
+        @Override // com.baidu.tieba.su1.a
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.k();
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class g extends dj2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ g63 a;
+        public final /* synthetic */ uu1 b;
+
+        public g(uu1 uu1Var, g63 g63Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uu1Var, g63Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = uu1Var;
+            this.a = g63Var;
+        }
+
+        @Override // com.baidu.tieba.dj2, com.baidu.tieba.ej2
+        public void a() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a != null && this.b.a.z()) {
+                this.b.k();
+            }
+        }
+
+        @Override // com.baidu.tieba.dj2, com.baidu.tieba.ej2
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                g32.i("FavoriteGuideHelper", "call onActivityDestroyed");
+                this.b.k();
+                if (this.b.c != null && this.b.f != null) {
+                    this.b.c.G0(this.b.f);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.dj2, com.baidu.tieba.ej2
+        public void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                super.e();
+                g32.i("FavoriteGuideHelper", "swanId=" + this.a.b + ", nowId=" + g63.h0());
+                if (!TextUtils.equals(this.a.b, g63.h0())) {
+                    this.b.k();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class h implements m52.p {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ uu1 a;
+
+        public h(uu1 uu1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uu1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = uu1Var;
+        }
+
+        @Override // com.baidu.tieba.m52.p
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.k();
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class i implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ uu1 a;
+
+        public i(uu1 uu1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uu1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = uu1Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a.a != null) {
+                    this.a.a.r();
+                    this.a.a = null;
+                }
+                if (this.a.e != null) {
+                    AppRuntime.getAppContext().getContentResolver().unregisterContentObserver(this.a.e);
+                    this.a.e = null;
+                }
+                if (this.a.c != null && this.a.f != null) {
+                    this.a.c.G0(this.a.f);
+                }
+                if (this.a.d != null) {
+                    this.a.d.M2(null);
+                }
+            }
+        }
+    }
+
+    public uu1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {rt1Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((rt1) newInitContext.callArgs[0]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public final void A(sa3<ua3.e> sa3Var, c cVar, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048576, this, sa3Var, cVar, z) == null) {
-            p22.i("GetLocationApi", "authorized result is " + sa3Var);
-            if (na3.h(sa3Var)) {
-                vu1.d().e(cVar, this, z);
-                return;
-            }
-            int b2 = sa3Var.b();
-            vc3.b(GameAssistConstKt.METHOD_GET_LOCATION, 5000, na3.f(b2), b2, na3.f(b2));
-            d(cVar.c, new qx1(b2, na3.f(b2)));
-        }
-    }
-
-    public qx1 B(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            r("#startLocationUpdate", false);
-            p53 c0 = p53.c0();
-            if (c0 == null) {
-                vc3.b("startLocationUpdate", 2001, "SwanApp is null", 1001, "SwanApp is null");
-                return new qx1(1001, "SwanApp is null");
-            }
-            Pair<qx1, JSONObject> t = t(str);
-            qx1 qx1Var = (qx1) t.first;
-            if (!qx1Var.isSuccess()) {
-                return qx1Var;
-            }
-            String optString = ((JSONObject) t.second).optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                vc3.b("startLocationUpdate", 1001, "empty cb", 201, "empty cb");
-                p22.c("GetLocationApi", "empty cb");
-                return new qx1(201, "empty cb");
-            }
-            c0.f0().g(i(), "mapp_location", new b(this, optString));
-            return qx1.f();
-        }
-        return (qx1) invokeL.objValue;
-    }
-
-    public qx1 z(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            r("#getLocation", false);
-            p53 c0 = p53.c0();
-            if (c0 == null) {
-                vc3.b(GameAssistConstKt.METHOD_GET_LOCATION, 2001, "SwanApp is null", 1001, "SwanApp is null");
-                return new qx1(1001, "SwanApp is null");
-            }
-            Pair<qx1, JSONObject> t = t(str);
-            qx1 qx1Var = (qx1) t.first;
-            if (!qx1Var.isSuccess()) {
-                return qx1Var;
-            }
-            c b2 = c.b(((JSONObject) t.second).toString());
-            if (b2 != null && b2.a()) {
-                if (TextUtils.isEmpty(b2.c)) {
-                    vc3.b(GameAssistConstKt.METHOD_GET_LOCATION, 1001, "empty cb", 201, "empty cb");
-                    p22.c("GetLocationApi", "empty cb");
-                    return new qx1(201, "empty cb");
-                }
-                c0.f0().g(i(), "mapp_location", new a(this, b2));
-                return qx1.f();
-            }
-            vc3.b(GameAssistConstKt.METHOD_GET_LOCATION, 1001, "params is invalid", 201, "params is invalid");
-            q("params is invalid", null, true);
-            return new qx1(201, "params is invalid");
-        }
-        return (qx1) invokeL.objValue;
-    }
-
-    public qx1 C() {
+    public static uu1 l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            wo2.I().e();
-            return qx1.f();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            if (i == null) {
+                synchronized (uu1.class) {
+                    if (i == null) {
+                        i = new uu1();
+                    }
+                }
+            }
+            return i;
         }
-        return (qx1) invokeV.objValue;
+        return (uu1) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.vu1.c
-    public void b(c cVar, int i) {
+    @AnyThread
+    public final synchronized void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, cVar, i) == null) {
-            p22.c("GetLocationApi", "request location error code : " + i);
-            d(cVar.c, new qx1(1001, String.valueOf(i)));
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this) {
+                ak3.e0(new i(this));
+            }
         }
     }
 
-    @Override // com.baidu.tieba.vu1.c
-    public void f(c cVar, String str) {
+    public final void m() {
+        tn1 k;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, cVar, str) == null) {
-            d(cVar.c, new qx1(10005, "system deny"));
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.g != null || (k = op2.k()) == null) {
+            return;
+        }
+        su1 tn1Var = k.getInstance();
+        this.g = tn1Var;
+        if (tn1Var != null) {
+            tn1Var.a(new e(this));
         }
     }
 
-    @Override // com.baidu.tieba.vu1.c
-    public void g(c cVar, o83 o83Var) {
+    public boolean n(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, cVar, o83Var) == null) {
-            d(cVar.c, new qx1(0, "success", o83Var.a()));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (!TextUtils.isEmpty(str) && ShowFavoriteGuideApi.GuideType.parse(str) != ShowFavoriteGuideApi.GuideType.NORMAL) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final synchronized void o(@NonNull Activity activity, @NonNull g63 g63Var, ShowFavoriteGuideApi.GuideType guideType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, activity, g63Var, guideType) == null) {
+            synchronized (this) {
+                this.e = new f(this, null, g63Var, guideType);
+                AppRuntime.getAppContext().getContentResolver().registerContentObserver(ed2.d(), false, this.e);
+                if (activity instanceof SwanAppActivity) {
+                    SwanAppActivity swanAppActivity = (SwanAppActivity) activity;
+                    this.c = swanAppActivity;
+                    if (this.f != null) {
+                        swanAppActivity.G0(this.f);
+                    }
+                    g gVar = new g(this, g63Var);
+                    this.f = gVar;
+                    this.c.u0(gVar);
+                }
+                p52 Y = this.c.Y();
+                if (Y == null) {
+                    return;
+                }
+                m52 m = Y.m();
+                this.d = m;
+                if (m == null) {
+                    return;
+                }
+                m.M2(new h(this));
+            }
+        }
+    }
+
+    @UiThread
+    public void p(@Nullable j jVar, @NonNull Activity activity, @NonNull g63 g63Var, @NonNull ShowFavoriteGuideApi.GuideType guideType, @Nullable String str, @Nullable String str2, long j2) {
+        int i2;
+        SwanAppActivity swanAppActivity;
+        p52 Y;
+        String A3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{jVar, activity, g63Var, guideType, str, str2, Long.valueOf(j2)}) == null) {
+            String str3 = str;
+            this.h = jVar;
+            k();
+            if (g63Var.x0()) {
+                m();
+                su1 su1Var = this.g;
+                if (su1Var != null) {
+                    su1Var.b(0);
+                }
+            }
+            o(activity, g63Var, guideType);
+            if (guideType == ShowFavoriteGuideApi.GuideType.TIPS) {
+                i2 = R.layout.obfuscated_res_0x7f0d00ad;
+            } else {
+                i2 = R.layout.obfuscated_res_0x7f0d00ac;
+            }
+            View inflate = LayoutInflater.from(activity).inflate(i2, (ViewGroup) null, false);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090b28);
+            if (textView != null && str3 != null) {
+                if (guideType.limit != -1 && str.length() > guideType.limit) {
+                    str3 = str3.substring(0, guideType.limit - 1) + "...";
+                }
+                textView.setText(str3);
+            }
+            View findViewById = activity.findViewById(R.id.obfuscated_res_0x7f092647);
+            if (guideType == ShowFavoriteGuideApi.GuideType.TIPS) {
+                if (findViewById != null) {
+                    int[] iArr = new int[2];
+                    findViewById.getLocationOnScreen(iArr);
+                    inflate.findViewById(R.id.obfuscated_res_0x7f090b25).setPadding(0, 0, ((xj3.o(null) - iArr[0]) - (findViewById.getWidth() / 2)) - xj3.g(7.0f), 0);
+                    this.a = new PopupWindow(inflate, -2, -2);
+                    SwanAppActivity swanAppActivity2 = this.c;
+                    if (swanAppActivity2 != null && !swanAppActivity2.isFinishing() && !this.c.isDestroyed() && findViewById.isAttachedToWindow()) {
+                        try {
+                            this.a.O(findViewById, 0, -xj3.g(3.0f));
+                        } catch (WindowManager.BadTokenException e2) {
+                            if (rm1.a) {
+                                Log.e("FavoriteGuideHelper", "Bad token when showing fav guide popup!");
+                                e2.printStackTrace();
+                            }
+                        }
+                    }
+                }
+            } else {
+                RelativeLayout relativeLayout = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090b27);
+                ViewGroup.LayoutParams layoutParams = relativeLayout.getLayoutParams();
+                int i3 = guideType.showWidth4px;
+                int g2 = xj3.g(7.0f);
+                int o = xj3.o(null);
+                int i4 = g2 * 2;
+                if (o - i3 < i4) {
+                    i3 = o - i4;
+                }
+                layoutParams.width = i3;
+                relativeLayout.setLayoutParams(layoutParams);
+                ak3.X((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090b29), str2, R.drawable.obfuscated_res_0x7f08015d);
+                ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090b26);
+                if (guideType == ShowFavoriteGuideApi.GuideType.WEAK) {
+                    imageView.setVisibility(8);
+                } else {
+                    imageView.setOnClickListener(new a(this, guideType));
+                }
+                ((Button) inflate.findViewById(R.id.obfuscated_res_0x7f090b24)).setOnClickListener(new b(this, guideType, activity));
+                PopupWindow popupWindow = new PopupWindow(inflate, -1, -2);
+                this.a = popupWindow;
+                popupWindow.M(16);
+                this.a.P(activity.getWindow().getDecorView(), 81, 0, (int) xj3.h(50.0f));
+            }
+            if ((guideType == ShowFavoriteGuideApi.GuideType.NORMAL || guideType == ShowFavoriteGuideApi.GuideType.TIPS) && (swanAppActivity = this.c) != null && (Y = swanAppActivity.Y()) != null && findViewById != null) {
+                o52 l = Y.l();
+                if (l == null) {
+                    A3 = "";
+                } else {
+                    A3 = l.A3();
+                }
+                ViewTreeObserver viewTreeObserver = findViewById.getViewTreeObserver();
+                viewTreeObserver.addOnGlobalLayoutListener(new c(this, viewTreeObserver, Y, l, A3, g63Var));
+            }
+            if (guideType == ShowFavoriteGuideApi.GuideType.TIPS || guideType == ShowFavoriteGuideApi.GuideType.WEAK) {
+                Timer timer = this.b;
+                if (timer != null) {
+                    timer.cancel();
+                }
+                Timer timer2 = new Timer();
+                this.b = timer2;
+                timer2.schedule(new d(this, g63Var), 1000 * j2);
+            }
+            ShowFavoriteGuideApi.G(guideType, "", "show");
         }
     }
 }

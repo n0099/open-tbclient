@@ -1,270 +1,261 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Pair;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebChromeClient;
-import org.json.JSONObject;
-/* loaded from: classes8.dex */
-public class x03 extends tt1 {
+import java.util.HashMap;
+/* loaded from: classes9.dex */
+public final class x03 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile x03 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<String, y03> a;
+    public HashMap<String, y03> b;
+    public HashMap<String, y03> c;
 
-    @Override // com.baidu.tieba.tt1
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "Plugin" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.tt1
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "SwanInvokeFunPageApi" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes8.dex */
-    public class a implements b72<a13> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x03 a;
-
-        public a(x03 x03Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x03Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = x03Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.b72
-        /* renamed from: b */
-        public void a(a13 a13Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, a13Var) != null) {
-                return;
-            }
-            this.a.D(a13Var);
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements b72<a13> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x03 a;
-
-        public b(x03 x03Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x03Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = x03Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.b72
-        /* renamed from: b */
-        public void a(a13 a13Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, a13Var) != null) {
-                return;
-            }
-            this.a.D(a13Var);
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c implements b72<a13> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x03 a;
-
-        public c(x03 x03Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x03Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = x03Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.b72
-        /* renamed from: b */
-        public void a(a13 a13Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, a13Var) != null) {
-                return;
-            }
-            this.a.D(a13Var);
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x03(@NonNull rt1 rt1Var) {
-        super(rt1Var);
+    public x03() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {rt1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((rt1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        c();
     }
 
-    public qx1 A(String str) {
-        InterceptResult invokeL;
+    public static x03 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            z03 C = C(str);
-            if (C.b()) {
-                h13.b(C.toString());
-                return C.i;
-            }
-            return new g13().l(C, new a(this));
-        }
-        return (qx1) invokeL.objValue;
-    }
-
-    public qx1 B(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            r("#invokePluginPayment", false);
-            z03 C = C(str);
-            if (C.b()) {
-                h13.b(C.toString());
-                return C.i;
-            }
-            return new f13().l(C, new c(this));
-        }
-        return (qx1) invokeL.objValue;
-    }
-
-    public qx1 z(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            r("#invokePluginChooseAddress", false);
-            z03 C = C(str);
-            if (C.b()) {
-                h13.b(C.toString());
-                return C.i;
-            }
-            return new e13().l(C, new b(this));
-        }
-        return (qx1) invokeL.objValue;
-    }
-
-    public final z03 C(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            z03 z03Var = new z03();
-            Pair<qx1, JSONObject> t = t(str);
-            z03Var.i = (qx1) t.first;
-            JSONObject jSONObject = (JSONObject) t.second;
-            if (jSONObject == null) {
-                return z03Var;
-            }
-            String optString = jSONObject.optString("pluginProvider");
-            if (TextUtils.isEmpty(optString)) {
-                z03Var.i = new qx1(201, "pluginProvider is empty");
-                return z03Var;
-            }
-            qe4 g = n13.g(optString);
-            if (g != null) {
-                String str2 = g.r;
-                if (!TextUtils.isEmpty(str2)) {
-                    String optString2 = jSONObject.optString("providerRootPath");
-                    if (TextUtils.isEmpty(optString2)) {
-                        z03Var.i = new qx1(201, "providerRootPath is empty");
-                        return z03Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (d == null) {
+                synchronized (x03.class) {
+                    if (d == null) {
+                        d = new x03();
                     }
-                    String optString3 = jSONObject.optString("slaveId");
-                    if (TextUtils.isEmpty(optString3)) {
-                        z03Var.i = new qx1(201, "slaveId is empty");
-                        return z03Var;
-                    }
-                    String optString4 = jSONObject.optString("componentId");
-                    if (TextUtils.isEmpty(optString4)) {
-                        z03Var.i = new qx1(201, "componentId is empty");
-                        return z03Var;
-                    }
-                    String str3 = "release";
-                    String optString5 = jSONObject.optString("pluginVersion", "release");
-                    if (!TextUtils.isEmpty(optString5)) {
-                        str3 = optString5;
-                    }
-                    JSONObject optJSONObject = jSONObject.optJSONObject(WebChromeClient.KEY_ARG_ARRAY);
-                    String optString6 = jSONObject.optString("cb");
-                    z03Var.a = str2;
-                    z03Var.b = optString;
-                    z03Var.c = optString2;
-                    z03Var.d = str3;
-                    z03Var.e = optString3;
-                    z03Var.f = optString4;
-                    z03Var.g = optJSONObject;
-                    z03Var.h = optString6;
-                    return z03Var;
                 }
             }
-            z03Var.i = new qx1(201, "pluginProvider exchange for truth app key，but empty");
-            return z03Var;
+            return d;
         }
-        return (z03) invokeL.objValue;
+        return (x03) invokeV.objValue;
     }
 
-    public final void D(a13 a13Var) {
+    public static synchronized void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, a13Var) == null) && a13Var != null) {
-            a13Var.b();
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            synchronized (x03.class) {
+                if (d != null) {
+                    d.e();
+                    d = null;
+                }
+            }
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (this.a == null) {
+                this.a = new HashMap<>();
+            }
+            if (this.b == null) {
+                this.b = new HashMap<>();
+            }
+            if (this.c == null) {
+                this.c = new HashMap<>();
+            }
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            HashMap<String, y03> hashMap = this.a;
+            if (hashMap != null) {
+                hashMap.clear();
+            }
+            HashMap<String, y03> hashMap2 = this.b;
+            if (hashMap2 != null) {
+                hashMap2.clear();
+            }
+            HashMap<String, y03> hashMap3 = this.c;
+            if (hashMap3 != null) {
+                hashMap3.clear();
+            }
+        }
+    }
+
+    public final void a(String str, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLJ(1048576, this, str, j) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        char c = 65535;
+        int hashCode = str.hashCode();
+        if (hashCode != 767526192) {
+            if (hashCode != 1331686101) {
+                if (hashCode == 1390184462 && str.equals("PageUpdateRender")) {
+                    c = 2;
+                }
+            } else if (str.equals("PageInitRender")) {
+                c = 1;
+            }
+        } else if (str.equals("PageSwitchCost")) {
+            c = 0;
+        }
+        if (c != 0) {
+            if (c != 1) {
+                if (c == 2) {
+                    ci3.f.d(Long.valueOf(j));
+                    return;
+                }
+                return;
+            }
+            ci3.e.d(Long.valueOf(j));
+            return;
+        }
+        ci3.d.d(Long.valueOf(j));
+    }
+
+    public void d(String str, String str2, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j)}) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && j >= 0) {
+            c();
+            char c = 65535;
+            switch (str2.hashCode()) {
+                case -1880922749:
+                    if (str2.equals("pageUpdateEnd")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+                case -964566145:
+                    if (str2.equals("pageSwitchStart")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case -410083667:
+                    if (str2.equals("pageInitRenderStart")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case 4028902:
+                    if (str2.equals("pageInitRenderEnd")) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case 627578634:
+                    if (str2.equals("pageUpdateStart")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 1719651128:
+                    if (str2.equals("pageSwitchEnd")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+            }
+            if (c != 0 && c != 1 && c != 2) {
+                if (c == 3 || c == 4 || c == 5) {
+                    g(str, str2, j);
+                    return;
+                }
+                return;
+            }
+            h(str, str2, j);
+        }
+    }
+
+    public final void g(String str, String str2, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Long.valueOf(j)}) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            y03 y03Var = null;
+            char c = 65535;
+            int hashCode = str2.hashCode();
+            if (hashCode != -1880922749) {
+                if (hashCode != 4028902) {
+                    if (hashCode == 1719651128 && str2.equals("pageSwitchEnd")) {
+                        c = 0;
+                    }
+                } else if (str2.equals("pageInitRenderEnd")) {
+                    c = 1;
+                }
+            } else if (str2.equals("pageUpdateEnd")) {
+                c = 2;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c == 2) {
+                        y03Var = this.c.remove(str);
+                    }
+                } else {
+                    y03Var = this.b.remove(str);
+                }
+            } else {
+                y03Var = this.a.remove(str);
+            }
+            if (y03Var == null) {
+                return;
+            }
+            y03Var.b(j);
+            a(y03Var.getType(), y03Var.a());
+        }
+    }
+
+    public final void h(String str, String str2, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Long.valueOf(j)}) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            y03 y03Var = null;
+            char c = 65535;
+            int hashCode = str2.hashCode();
+            if (hashCode != -964566145) {
+                if (hashCode != -410083667) {
+                    if (hashCode == 627578634 && str2.equals("pageUpdateStart")) {
+                        c = 2;
+                    }
+                } else if (str2.equals("pageInitRenderStart")) {
+                    c = 1;
+                }
+            } else if (str2.equals("pageSwitchStart")) {
+                c = 0;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c == 2 && (y03Var = this.c.get(str)) == null) {
+                        y03Var = new w03();
+                        this.c.put(str, y03Var);
+                    }
+                } else {
+                    y03Var = this.b.get(str);
+                    if (y03Var == null) {
+                        y03Var = new u03();
+                        this.b.put(str, y03Var);
+                    }
+                }
+            } else {
+                y03Var = this.a.get(str);
+                if (y03Var == null) {
+                    y03Var = new v03();
+                    this.a.put(str, y03Var);
+                }
+            }
+            if (y03Var != null) {
+                y03Var.c(j);
+            }
         }
     }
 }

@@ -1,205 +1,262 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.http.cookie.CookieManager;
-import com.baidu.searchbox.http.request.HttpRequestBuilder;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import com.baidu.tieba.a63;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import okhttp3.Interceptor;
-@Singleton
-@Service
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.nio.ByteBuffer;
+import java.nio.channels.Channels;
+import java.nio.channels.FileChannel;
+import java.nio.channels.FileLock;
+import java.nio.charset.Charset;
 /* loaded from: classes6.dex */
-public class jp2 implements gc4 {
+public class jp2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public jp2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947890909, "Lcom/baidu/tieba/jp2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947890909, "Lcom/baidu/tieba/jp2;");
+                return;
             }
         }
+        a = rm1.a;
     }
 
-    @Override // com.baidu.tieba.gc4
-    public CookieManager f() {
-        InterceptResult invokeV;
+    /* JADX WARN: Removed duplicated region for block: B:53:0x00bc A[Catch: all -> 0x00f3, TryCatch #2 {, blocks: (B:6:0x0007, B:8:0x0012, B:10:0x0016, B:13:0x001f, B:23:0x0077, B:24:0x007a, B:51:0x00b4, B:53:0x00bc, B:54:0x00d8, B:27:0x007f, B:28:0x0085, B:59:0x00e1, B:60:0x00e4, B:64:0x00f2, B:63:0x00e9, B:46:0x00a5, B:47:0x00a8, B:50:0x00ad), top: B:74:0x0007, inners: #0, #6, #10 }] */
+    /* JADX WARN: Removed duplicated region for block: B:72:0x00e1 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    @SuppressLint({"SwanDebugLog"})
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static synchronized String a(String str) {
+        InterceptResult invokeL;
+        BufferedReader bufferedReader;
+        String str2;
+        String stackTraceString;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return wo2.q().a();
-        }
-        return (CookieManager) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.gc4
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return a63.a.c(a());
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.gc4
-    public Context getAppContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return AppRuntime.getAppContext();
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.gc4
-    public int getReadTimeout() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return a63.a.c(a());
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.gc4
-    public String getUserAgent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            String g = SwanAppNetworkUtils.g();
-            if (TextUtils.isEmpty(g) && tc4.g().c()) {
-                return oh3.a();
-            }
-            return g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.gc4
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            wo2.g0().getSwitch("bbasm_framework_request_with_ua", true);
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.gc4
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName()) && qz2.c()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.gc4
-    public boolean isDebug() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return am1.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.gc4
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (nz2.a() == 2) {
-                return 128;
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.gc4
-    public List<Interceptor> l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new hx2());
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.gc4
-    public int m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return a63.a.c(a());
-        }
-        return invokeV.intValue;
-    }
-
-    public final a63.a a() {
-        InterceptResult invokeV;
-        a63.a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            p53 c0 = p53.c0();
-            if (c0 == null) {
-                if (am1.a) {
-                    Log.e("SwanNetworkImpl", "swanapp is null");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            synchronized (jp2.class) {
+                long currentTimeMillis = System.currentTimeMillis();
+                FileLock fileLock = null;
+                if (TextUtils.isEmpty(str) && a) {
+                    Log.w("SwanAppFile", "path name is empty");
+                    return null;
                 }
-                return null;
+                StringBuffer stringBuffer = new StringBuffer();
+                try {
+                    FileChannel channel = new RandomAccessFile(str, "rw").getChannel();
+                    FileLock lock = channel.lock(0L, Long.MAX_VALUE, true);
+                    try {
+                        bufferedReader = new BufferedReader(Channels.newReader(channel, Charset.defaultCharset().name()));
+                        while (true) {
+                            try {
+                                String readLine = bufferedReader.readLine();
+                                if (readLine == null) {
+                                    break;
+                                }
+                                stringBuffer.append(readLine);
+                            } catch (IOException e) {
+                                e = e;
+                                fileLock = lock;
+                                try {
+                                    Log.e("SwanAppFile", Log.getStackTraceString(e));
+                                    if (fileLock != null) {
+                                        try {
+                                            fileLock.release();
+                                        } catch (IOException e2) {
+                                            str2 = "SwanAppFile";
+                                            stackTraceString = Log.getStackTraceString(e2);
+                                            Log.e(str2, stackTraceString);
+                                            long currentTimeMillis2 = System.currentTimeMillis();
+                                            if (a) {
+                                            }
+                                            return stringBuffer.toString();
+                                        }
+                                    }
+                                    jm4.d(bufferedReader);
+                                    long currentTimeMillis22 = System.currentTimeMillis();
+                                    if (a) {
+                                    }
+                                    return stringBuffer.toString();
+                                } catch (Throwable th) {
+                                    th = th;
+                                    if (fileLock != null) {
+                                        try {
+                                            fileLock.release();
+                                        } catch (IOException e3) {
+                                            Log.e("SwanAppFile", Log.getStackTraceString(e3));
+                                            throw th;
+                                        }
+                                    }
+                                    jm4.d(bufferedReader);
+                                    throw th;
+                                }
+                            } catch (Throwable th2) {
+                                th = th2;
+                                fileLock = lock;
+                                if (fileLock != null) {
+                                }
+                                jm4.d(bufferedReader);
+                                throw th;
+                            }
+                        }
+                        if (a) {
+                            Log.d("SwanAppFile", "Read file: " + stringBuffer.toString());
+                        }
+                        if (lock != null) {
+                            try {
+                                lock.release();
+                            } catch (IOException e4) {
+                                str2 = "SwanAppFile";
+                                stackTraceString = Log.getStackTraceString(e4);
+                                Log.e(str2, stackTraceString);
+                                long currentTimeMillis222 = System.currentTimeMillis();
+                                if (a) {
+                                }
+                                return stringBuffer.toString();
+                            }
+                        }
+                        jm4.d(bufferedReader);
+                    } catch (IOException e5) {
+                        e = e5;
+                        bufferedReader = null;
+                    } catch (Throwable th3) {
+                        th = th3;
+                        bufferedReader = null;
+                    }
+                } catch (IOException e6) {
+                    e = e6;
+                    bufferedReader = null;
+                } catch (Throwable th4) {
+                    th = th4;
+                    bufferedReader = null;
+                }
+                long currentTimeMillis2222 = System.currentTimeMillis();
+                if (a) {
+                    Log.d("SwanAppFile", "Read file done: cost time = " + (currentTimeMillis2222 - currentTimeMillis) + "ms");
+                }
+                return stringBuffer.toString();
             }
-            SwanAppConfigData R = c0.R();
-            if (R != null && (aVar = R.h) != null) {
-                return aVar;
-            }
-            if (am1.a) {
-                Log.e("SwanNetworkImpl", "config or mNetworkConfig is null");
-            }
-            return null;
         }
-        return (a63.a) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.gc4
-    public void j(String str, HttpRequestBuilder httpRequestBuilder) {
+    /* JADX WARN: Removed duplicated region for block: B:51:0x00c2 A[Catch: all -> 0x00f5, TRY_LEAVE, TryCatch #2 {, blocks: (B:6:0x0007, B:8:0x0012, B:10:0x0016, B:28:0x007d, B:32:0x008b, B:49:0x00ba, B:51:0x00c2, B:31:0x0082, B:56:0x00e3, B:60:0x00f1, B:61:0x00f4, B:59:0x00e8, B:44:0x00a9, B:48:0x00b7, B:47:0x00ae), top: B:73:0x0007, inners: #1, #4, #6 }] */
+    /* JADX WARN: Removed duplicated region for block: B:71:0x00e3 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    @SuppressLint({"SwanDebugLog"})
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static synchronized boolean b(String str, String str2, boolean z) {
+        InterceptResult invokeLLZ;
+        FileChannel fileChannel;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048585, this, str, httpRequestBuilder) == null) && l22.u(str)) {
-            httpRequestBuilder.setHeader("x-u-id", am4.b(AppRuntime.getAppContext()).a());
-            try {
-                httpRequestBuilder.setHeader("x-c2-id", wo2.h0().i(AppRuntime.getAppContext()));
-            } catch (IllegalArgumentException unused) {
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, str, str2, z)) == null) {
+            synchronized (jp2.class) {
+                long currentTimeMillis = System.currentTimeMillis();
+                boolean z2 = false;
+                if (TextUtils.isEmpty(str) && a) {
+                    Log.w("SwanAppFile", "path name is null");
+                    return false;
+                }
+                FileLock fileLock = null;
+                try {
+                    File file = new File(str);
+                    File file2 = new File(file.getParent());
+                    if (!file2.exists()) {
+                        file2.mkdirs();
+                    }
+                    if (!file.exists()) {
+                        file.createNewFile();
+                    }
+                    FileChannel channel = new FileOutputStream(file, z).getChannel();
+                    try {
+                        fileLock = channel.lock();
+                        if (TextUtils.isEmpty(str2)) {
+                            str2 = "";
+                        }
+                        channel.write(ByteBuffer.wrap(str2.getBytes()));
+                        z2 = true;
+                        if (a) {
+                            Log.d("SwanAppFile", "Write file：" + str2);
+                        }
+                        if (fileLock != null) {
+                            try {
+                                fileLock.release();
+                            } catch (IOException e) {
+                                Log.e("SwanAppFile", Log.getStackTraceString(e));
+                            }
+                        }
+                        jm4.d(channel);
+                    } catch (IOException e2) {
+                        fileChannel = channel;
+                        e = e2;
+                        try {
+                            Log.e("SwanAppFile", Log.getStackTraceString(e));
+                            if (fileLock != null) {
+                                try {
+                                    fileLock.release();
+                                } catch (IOException e3) {
+                                    Log.e("SwanAppFile", Log.getStackTraceString(e3));
+                                }
+                            }
+                            jm4.d(fileChannel);
+                            long currentTimeMillis2 = System.currentTimeMillis();
+                            if (a) {
+                            }
+                            return z2;
+                        } catch (Throwable th) {
+                            th = th;
+                            if (fileLock != null) {
+                                try {
+                                    fileLock.release();
+                                } catch (IOException e4) {
+                                    Log.e("SwanAppFile", Log.getStackTraceString(e4));
+                                }
+                            }
+                            jm4.d(fileChannel);
+                            throw th;
+                        }
+                    } catch (Throwable th2) {
+                        fileChannel = channel;
+                        th = th2;
+                        if (fileLock != null) {
+                        }
+                        jm4.d(fileChannel);
+                        throw th;
+                    }
+                } catch (IOException e5) {
+                    e = e5;
+                    fileChannel = null;
+                } catch (Throwable th3) {
+                    th = th3;
+                    fileChannel = null;
+                }
+                long currentTimeMillis22 = System.currentTimeMillis();
+                if (a) {
+                    Log.d("SwanAppFile", "Write file done: cost time =" + (currentTimeMillis22 - currentTimeMillis) + "ms");
+                }
+                return z2;
             }
         }
+        return invokeLLZ.booleanValue;
     }
 }

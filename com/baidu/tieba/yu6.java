@@ -1,64 +1,54 @@
 package com.baidu.tieba;
 
-import android.graphics.BitmapFactory;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.widget.ImageView.BdImage;
+import android.annotation.SuppressLint;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
-import com.baidu.tbadk.imageManager.TbFaceManager;
+import com.baidu.tbadk.TiebaDatabase;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.TiebaMainDatabaseHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes9.dex */
-public class yu6 extends vd5 {
+public class yu6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.vd5
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "_local" : (String) invokeV.objValue;
-    }
+    /* loaded from: classes9.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final yu6 a;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.vd5
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "_local" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.vd5
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return 0;
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-248422510, "Lcom/baidu/tieba/yu6$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-248422510, "Lcom/baidu/tieba/yu6$a;");
+                    return;
+                }
+            }
+            a = new yu6();
         }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.vd5
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.vd5
-    public int l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
     }
 
     public yu6() {
@@ -71,80 +61,201 @@ public class yu6 extends vd5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        u();
     }
 
-    @Override // com.baidu.tieba.vd5
-    public int c() {
+    public static final yu6 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return TbFaceManager.i().m();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.a;
         }
-        return invokeV.intValue;
+        return (yu6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.vd5
-    public EmotionGroupType h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return EmotionGroupType.LOCAL;
-        }
-        return (EmotionGroupType) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.vd5
-    public String b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return TbFaceManager.i().n(i);
-        }
-        return (String) invokeI.objValue;
-    }
-
-    @Override // com.baidu.tieba.vd5
-    public boolean m(String str) {
+    public final ContentValues a(xu6 xu6Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            return TbFaceManager.i().p(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, xu6Var)) == null) {
+            if (xu6Var == null) {
+                return null;
+            }
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("pkg_name", xu6Var.a.pkgName);
+            contentValues.put("download_time", Long.valueOf(System.currentTimeMillis()));
+            contentValues.put(WriteActivityConfig.ITEM_INFO, g(xu6Var.a));
+            contentValues.put("item_source", Integer.valueOf(xu6Var.b));
+            contentValues.put("storage_location", Integer.valueOf(xu6Var.c));
+            return contentValues;
+        }
+        return (ContentValues) invokeL.objValue;
+    }
+
+    @SuppressLint({"Range"})
+    public final mc5 b(Cursor cursor) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cursor)) == null) {
+            if (cursor != null && !cursor.isClosed()) {
+                mc5 mc5Var = new mc5();
+                mc5Var.a = cursor.getString(cursor.getColumnIndex("pkg_name"));
+                cursor.getLong(cursor.getColumnIndex("download_time"));
+                mc5Var.c = cursor.getString(cursor.getColumnIndex(WriteActivityConfig.ITEM_INFO));
+                mc5Var.d = cursor.getInt(cursor.getColumnIndex("item_source"));
+                mc5Var.e = cursor.getInt(cursor.getColumnIndex("storage_location"));
+                return mc5Var;
+            }
+            return null;
+        }
+        return (mc5) invokeL.objValue;
+    }
+
+    public synchronized boolean c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            synchronized (this) {
+                boolean z = false;
+                if (qd.isEmpty(str)) {
+                    return false;
+                }
+                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
+                f.beginTransaction();
+                int delete = f.delete(TiebaMainDatabaseHelper.TABLE_NAME_DOWNLOAD_INFO, "pkg_name = ?", new String[]{str});
+                f.setTransactionSuccessful();
+                f.endTransaction();
+                if (delete >= 0) {
+                    z = true;
+                }
+                return z;
+            }
         }
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.vd5
-    public BdImage n(String str) {
-        InterceptResult invokeL;
+    public synchronized List<mc5> d() {
+        InterceptResult invokeV;
+        LinkedList linkedList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            return o(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (this) {
+                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
+                f.beginTransaction();
+                linkedList = new LinkedList();
+                Cursor rawQuery = f.rawQuery(String.format("SELECT * FROM %s ORDER BY %s DESC", TiebaMainDatabaseHelper.TABLE_NAME_DOWNLOAD_INFO, "download_time"), null);
+                while (rawQuery.moveToNext()) {
+                    mc5 b = b(rawQuery);
+                    if (b != null) {
+                        linkedList.add(b);
+                    }
+                }
+                f.setTransactionSuccessful();
+                rd.a(rawQuery);
+                f.endTransaction();
+            }
+            return linkedList;
         }
-        return (BdImage) invokeL.objValue;
+        return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.vd5
-    public BdImage o(String str) {
-        InterceptResult invokeL;
+    public final long f(SQLiteDatabase sQLiteDatabase, xu6 xu6Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            return TbFaceManager.i().k(str);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, sQLiteDatabase, xu6Var)) == null) {
+            try {
+                return sQLiteDatabase.insert(TiebaMainDatabaseHelper.TABLE_NAME_DOWNLOAD_INFO, null, a(xu6Var));
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return -1L;
+            }
         }
-        return (BdImage) invokeL.objValue;
+        return invokeLL.longValue;
     }
 
-    public final void u() {
+    public final String g(ItemData itemData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            super.q(7);
-            super.t(3);
-            BdImage bdImage = new BdImage(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.obfuscated_res_0x7f0808c2), false);
-            super.s(bdImage);
-            super.r(bdImage);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, itemData)) == null) {
+            if (itemData == null) {
+                return "";
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("item_id", itemData.itemId);
+                jSONObject.put("item_name", itemData.mTitle);
+                jSONObject.put("icon_size", itemData.mIconSize);
+                jSONObject.put("icon_url", itemData.mIconUrl);
+                if (!ListUtils.isEmpty(itemData.mTags)) {
+                    jSONObject.put("tags", new JSONArray((Collection) itemData.mTags));
+                }
+                jSONObject.put("score", itemData.mScore);
+                jSONObject.put("star", itemData.mStar);
+                jSONObject.put("button_name", itemData.buttonName);
+                jSONObject.put("button_link", itemData.buttonLink);
+                jSONObject.put("button_link_type", itemData.buttonLinkType);
+                jSONObject.put("apk_name", itemData.pkgName);
+                jSONObject.put("forum_name", itemData.forumName);
+                jSONObject.put("item_appid", itemData.appId);
+                if (itemData.apkDetail != null) {
+                    JSONObject jSONObject2 = new JSONObject();
+                    jSONObject2.put("developer", itemData.apkDetail.developer);
+                    jSONObject2.put("publisher", itemData.apkDetail.publisher);
+                    jSONObject2.put("version", itemData.apkDetail.version);
+                    jSONObject2.put("version_code", itemData.apkDetail.version_code);
+                    jSONObject2.put("update_time", itemData.apkDetail.update_time);
+                    jSONObject2.put("size", itemData.apkDetail.size);
+                    jSONObject2.put("need_network", itemData.apkDetail.need_network);
+                    jSONObject2.put("need_inner_buy", itemData.apkDetail.need_inner_buy);
+                    jSONObject2.put("authority_url", itemData.apkDetail.authority_url);
+                    jSONObject2.put("privacy_url", itemData.apkDetail.privacy_url);
+                    jSONObject2.put("pkg_source", itemData.apkDetail.pkg_source);
+                    jSONObject.put("apk_detail", jSONObject2);
+                }
+            } catch (JSONException unused) {
+            }
+            return jSONObject.toString();
         }
+        return (String) invokeL.objValue;
+    }
+
+    public final long h(SQLiteDatabase sQLiteDatabase, xu6 xu6Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, sQLiteDatabase, xu6Var)) == null) {
+            try {
+                return sQLiteDatabase.update(TiebaMainDatabaseHelper.TABLE_NAME_DOWNLOAD_INFO, a(xu6Var), "pkg_name = ?", new String[]{String.valueOf(xu6Var.a.pkgName)});
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return -1L;
+            }
+        }
+        return invokeLL.longValue;
+    }
+
+    public synchronized long i(xu6 xu6Var) {
+        InterceptResult invokeL;
+        long f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, xu6Var)) == null) {
+            synchronized (this) {
+                if (xu6Var == null) {
+                    return -1L;
+                }
+                SQLiteDatabase f2 = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
+                f2.beginTransaction();
+                Cursor rawQuery = f2.rawQuery("SELECT * FROM download_info where pkg_name = ?", new String[]{xu6Var.a.pkgName});
+                if (rawQuery.getCount() > 0) {
+                    f = h(f2, xu6Var);
+                } else {
+                    f = f(f2, xu6Var);
+                }
+                f2.setTransactionSuccessful();
+                rd.a(rawQuery);
+                f2.endTransaction();
+                return f;
+            }
+        }
+        return invokeL.longValue;
     }
 }

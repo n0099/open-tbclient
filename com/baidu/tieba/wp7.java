@@ -1,282 +1,87 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.util.SparseArray;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.KeyEventDealContainerView;
-import com.baidu.tbadk.core.view.MorePopupWindow;
-import com.baidu.tieba.frs.tab.HorizontalTabView;
-import com.baidu.tieba.frs.tab.TabItemView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.tieba.frs.FrsNoListItemViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class wp7 {
+public class wp7 extends pp7<xp7, FrsNoListItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinearLayout a;
-    public xe7 b;
-    public MorePopupWindow c;
-    public View d;
-    public SparseArray<sp7> e;
-    public Context f;
-    public sp7 g;
-    public e h;
-    public d i;
+    public TbPageContext<?> l;
+    public final int m;
 
-    /* loaded from: classes8.dex */
-    public interface d {
-        void a(TabItemView tabItemView);
-    }
-
-    /* loaded from: classes8.dex */
-    public interface e {
-        void a(int i);
-    }
-
-    /* loaded from: classes8.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wp7 a;
-
-        public a(wp7 wp7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wp7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = wp7Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                hb.c(this.a.c);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements KeyEventDealContainerView.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wp7 a;
-
-        @Override // com.baidu.tbadk.core.view.KeyEventDealContainerView.a
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
-        }
-
-        public b(wp7 wp7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wp7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = wp7Var;
-        }
-
-        @Override // com.baidu.tbadk.core.view.KeyEventDealContainerView.a
-        public void b() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a.c != null) {
-                hb.c(this.a.c);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c implements PopupWindow.OnDismissListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TabItemView a;
-        public final /* synthetic */ wp7 b;
-
-        public c(wp7 wp7Var, TabItemView tabItemView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wp7Var, tabItemView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = wp7Var;
-            this.a = tabItemView;
-        }
-
-        @Override // android.widget.PopupWindow.OnDismissListener
-        public void onDismiss() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.i != null) {
-                this.b.i.a(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public ImageView b;
-        public View c;
-        public View d;
-
-        public f() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public wp7(Context context, e eVar, d dVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wp7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, eVar, dVar};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = context;
-        this.h = eVar;
-        this.i = dVar;
-        this.e = new SparseArray<>();
-        LinearLayout linearLayout = new LinearLayout(context);
-        this.a = linearLayout;
-        linearLayout.setOrientation(1);
-        this.a.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-        View view2 = new View(context);
-        this.d = view2;
-        view2.setOnClickListener(new a(this));
+        this.m = (BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070422);
+        this.l = tbPageContext;
     }
 
-    public void c() {
-        MorePopupWindow morePopupWindow;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: H */
+    public FrsNoListItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (morePopupWindow = this.c) != null) {
-            try {
-                morePopupWindow.dismiss();
-            } catch (Exception e2) {
-                BdLog.e(e2);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.frs_no_list_item_view, viewGroup, false);
+            ViewGroup.LayoutParams generateLayoutParamsByParent = generateLayoutParamsByParent(viewGroup);
+            generateLayoutParamsByParent.width = -1;
+            generateLayoutParamsByParent.height = this.m;
+            inflate.setLayoutParams(generateLayoutParamsByParent);
+            return new FrsNoListItemViewHolder(inflate, viewGroup);
         }
+        return (FrsNoListItemViewHolder) invokeL.objValue;
     }
 
-    public e d() {
-        InterceptResult invokeV;
+    public View I(int i, View view2, ViewGroup viewGroup, xp7 xp7Var, FrsNoListItemViewHolder frsNoListItemViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.h;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, xp7Var, frsNoListItemViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) xp7Var, (xp7) frsNoListItemViewHolder);
+            if (xp7Var.a() == 6) {
+                frsNoListItemViewHolder.d.setTextOption(NoDataViewFactory.e.d(null, this.l.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f02f7)));
+            } else {
+                frsNoListItemViewHolder.d.setTextOption(NoDataViewFactory.e.d(null, this.l.getContext().getResources().getString(R.string.no_data_common_txt)));
+            }
+            frsNoListItemViewHolder.d.f(this.l, TbadkCoreApplication.getInst().getSkinType());
+            return view2;
         }
-        return (e) invokeV.objValue;
+        return (View) invokeCommon.objValue;
     }
 
-    public final void e(Activity activity, View view2, TabItemView tabItemView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, view2, tabItemView) == null) {
-            if (this.c == null) {
-                this.c = new MorePopupWindow(activity, this.a, view2, SkinManager.getDrawable(R.drawable.transparent_bg), new b(this));
-            }
-            this.c.setOnDismissListener(new c(this, tabItemView));
-        }
-    }
-
-    public void f(Activity activity, View view2, TabItemView tabItemView, xe7 xe7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048579, this, activity, view2, tabItemView, xe7Var) == null) {
-            this.b = xe7Var;
-            sp7 sp7Var = this.e.get(xe7Var.a);
-            this.g = sp7Var;
-            if (sp7Var == null) {
-                sp7 a2 = zp7.a(this.b.a);
-                this.g = a2;
-                a2.a(this.f, this);
-                this.e.put(this.b.a, this.g);
-            }
-            this.g.setData(xe7Var.b);
-            if (view2 instanceof HorizontalTabView) {
-                HorizontalTabView horizontalTabView = (HorizontalTabView) view2;
-                if (horizontalTabView.getmShowMenuCallBack() != null) {
-                    int[] iArr = new int[2];
-                    horizontalTabView.getLocationInWindow(iArr);
-                    BdUtilHelper.initDeviceData(horizontalTabView.getContext());
-                    int equipmentHeight = BdUtilHelper.getEquipmentHeight(horizontalTabView.getContext());
-                    int b2 = this.g.b();
-                    int measuredHeight = (equipmentHeight - iArr[1]) - horizontalTabView.getMeasuredHeight();
-                    if (measuredHeight < b2) {
-                        horizontalTabView.getmShowMenuCallBack().b(b2 - measuredHeight);
-                    }
-                }
-            }
-            this.a.removeAllViews();
-            this.a.addView(this.g.getView());
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-            SkinManager.setBackgroundResource(this.d, R.color.common_color_10050);
-            this.a.addView(this.d, layoutParams);
-            e(activity, view2, tabItemView);
-            MorePopupWindow morePopupWindow = this.c;
-            if (morePopupWindow != null) {
-                morePopupWindow.refresh();
-                this.c.setWidthAsWidthOfDeviceScreen(activity);
-                this.c.setHeight(-1);
-                this.c.showWindowInCustomPosition(0, 0);
-            }
-        }
+    @Override // com.baidu.tieba.pp7, com.baidu.tieba.bi
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        I(i, view2, viewGroup, (xp7) obj, (FrsNoListItemViewHolder) viewHolder);
+        return view2;
     }
 }

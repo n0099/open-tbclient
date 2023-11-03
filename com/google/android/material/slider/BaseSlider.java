@@ -59,7 +59,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOnChangeListener<S>, T extends BaseOnSliderTouchListener<S>> extends View {
     public static final String EXCEPTION_ILLEGAL_DISCRETE_VALUE = "Value(%s) must be equal to valueFrom(%s) plus a multiple of stepSize(%s) when using stepSize(%s)";
     public static final String EXCEPTION_ILLEGAL_STEP_SIZE = "The stepSize(%s) must be 0, or a factor of the valueFrom(%s)-valueTo(%s) range";
@@ -171,10 +171,10 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
         @NonNull
         private String startOrEndDescription(int i) {
             if (i == this.slider.getValues().size() - 1) {
-                return this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0c7b);
+                return this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0c8d);
             }
             if (i == 0) {
-                return this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0c7c);
+                return this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0c8e);
             }
             return "";
         }
@@ -936,7 +936,7 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
     }
 
     public BaseSlider(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040698);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0406a3);
     }
 
     private float getClampedValue(int i, float f) {
@@ -1199,6 +1199,24 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
         }
     }
 
+    private void warnAboutFloatingPointError() {
+        float f = this.stepSize;
+        if (f == 0.0f) {
+            return;
+        }
+        if (((int) f) != f) {
+            Log.w(TAG, String.format(WARNING_FLOATING_POINT_ERRROR, "stepSize", Float.valueOf(f)));
+        }
+        float f2 = this.valueFrom;
+        if (((int) f2) != f2) {
+            Log.w(TAG, String.format(WARNING_FLOATING_POINT_ERRROR, "valueFrom", Float.valueOf(f2)));
+        }
+        float f3 = this.valueTo;
+        if (((int) f3) != f3) {
+            Log.w(TAG, String.format(WARNING_FLOATING_POINT_ERRROR, "valueTo", Float.valueOf(f3)));
+        }
+    }
+
     private void createLabelPool() {
         if (this.labels.size() > this.values.size()) {
             List<TooltipDrawable> subList = this.labels.subList(this.values.size(), this.labels.size());
@@ -1253,24 +1271,6 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
             } else {
                 throw new IllegalStateException(String.format(EXCEPTION_ILLEGAL_VALUE, Float.toString(next.floatValue()), Float.toString(this.valueFrom), Float.toString(this.valueTo)));
             }
-        }
-    }
-
-    private void warnAboutFloatingPointError() {
-        float f = this.stepSize;
-        if (f == 0.0f) {
-            return;
-        }
-        if (((int) f) != f) {
-            Log.w(TAG, String.format(WARNING_FLOATING_POINT_ERRROR, "stepSize", Float.valueOf(f)));
-        }
-        float f2 = this.valueFrom;
-        if (((int) f2) != f2) {
-            Log.w(TAG, String.format(WARNING_FLOATING_POINT_ERRROR, "valueFrom", Float.valueOf(f2)));
-        }
-        float f3 = this.valueTo;
-        if (((int) f3) != f3) {
-            Log.w(TAG, String.format(WARNING_FLOATING_POINT_ERRROR, "valueTo", Float.valueOf(f3)));
         }
     }
 

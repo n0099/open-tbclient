@@ -1,5 +1,7 @@
 package com.baidu.tieba;
+
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes7.dex */
-public interface oi extends pi {
-    void d(boolean z, int i, int i2, int i3, int i4);
+public interface oi {
+    BdUniqueId getType();
 }

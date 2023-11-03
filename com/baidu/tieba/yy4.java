@@ -1,56 +1,71 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
-import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import tbclient.VideoInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.GeneralResource;
 /* loaded from: classes9.dex */
-public class yy4 {
+public class yy4 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public int c;
 
-    public static VideoInfo a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
-            if (jSONObject != null) {
-                VideoInfo.Builder builder = new VideoInfo.Builder();
-                builder.video_md5 = jSONObject.optString(VideoFinishResult.KEY_VIDEO_MD5);
-                builder.video_url = jSONObject.optString("video_url");
-                builder.video_duration = Integer.valueOf(jSONObject.optInt(AdWebVideoActivityConfig.KEY_VIDEO_DURATION));
-                builder.video_width = Integer.valueOf(jSONObject.optInt("video_width"));
-                builder.video_height = Integer.valueOf(jSONObject.optInt("video_height"));
-                builder.thumbnail_url = jSONObject.optString("thumbnail_url");
-                builder.thumbnail_width = Integer.valueOf(jSONObject.optInt("thumbnail_width"));
-                builder.thumbnail_height = Integer.valueOf(jSONObject.optInt("thumbnail_height"));
-                builder.video_length = Integer.valueOf(jSONObject.optInt("video_length"));
-                builder.play_count = Integer.valueOf(jSONObject.optInt("play_count"));
-                builder.media_subtitle = jSONObject.optString("media_subtitle");
-                builder.video_desc = new ArrayList();
-                JSONArray optJSONArray = jSONObject.optJSONArray("video_desc");
-                if (optJSONArray != null) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        builder.video_desc.add(xy4.a(optJSONArray.optJSONObject(i)));
-                    }
-                }
-                builder.video_select_flag = Integer.valueOf(jSONObject.optInt("video_select_flag"));
-                builder.video_type = Integer.valueOf(jSONObject.optInt("video_type"));
-                builder.is_vertical = Integer.valueOf(jSONObject.optInt(TiebaStatic.Params.IS_VERTICAL));
-                builder.video_h265 = xy4.a(jSONObject.optJSONObject("video_h265"));
-                builder.mcn_lead_page = jSONObject.optString("mcn_lead_page");
-                builder.mcn_ad_card = ix4.a(jSONObject.optJSONObject("mcn_ad_card"));
-                builder.wth_mid_loc = Double.valueOf(jSONObject.optDouble("wth_mid_loc"));
-                builder.hth_mid_loc = Double.valueOf(jSONObject.optDouble("hth_mid_loc"));
-                return builder.build(true);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948346485, "Lcom/baidu/tieba/yy4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return null;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948346485, "Lcom/baidu/tieba/yy4;");
+                return;
+            }
         }
-        return (VideoInfo) invokeL.objValue;
+        d = BdUniqueId.gen();
+    }
+
+    public yy4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.oi
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return d;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void c(GeneralResource generalResource) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, generalResource) == null) && generalResource != null) {
+            this.a = generalResource.res_image;
+            this.b = generalResource.res_link;
+            this.c = generalResource.res_floor.intValue();
+        }
     }
 }

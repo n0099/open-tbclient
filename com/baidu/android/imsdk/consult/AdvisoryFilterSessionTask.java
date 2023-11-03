@@ -120,14 +120,10 @@ public class AdvisoryFilterSessionTask extends TaskManager.Task {
         long optLong;
         int optInt;
         String optString;
-        ArrayList arrayList;
-        long optLong2;
-        int optInt2;
         String optString2;
-        String optString3;
+        int optInt2;
         int optInt3;
-        int optInt4;
-        long optLong3;
+        long optLong2;
         int i2;
         int i3;
         long j;
@@ -136,7 +132,7 @@ public class AdvisoryFilterSessionTask extends TaskManager.Task {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, jSONArray)) == null) {
             JSONArray jSONArray2 = jSONArray;
-            ArrayList arrayList2 = new ArrayList();
+            ArrayList arrayList = new ArrayList();
             if (jSONArray2 != null && jSONArray.length() != 0) {
                 String str3 = TAG;
                 LogUtils.d(TAG, "parseBusinessSessions size = " + jSONArray.length());
@@ -145,26 +141,26 @@ public class AdvisoryFilterSessionTask extends TaskManager.Task {
                     try {
                         JSONObject jSONObject = jSONArray2.getJSONObject(i5);
                         LogUtils.d(str3, "parseBusinessSessions json = " + jSONObject.toString());
-                        long optLong4 = jSONObject.optLong("sort_update_time_us");
+                        long optLong3 = jSONObject.optLong("sort_update_time_us");
                         long j3 = jSONObject.getLong("contacter_uk");
                         long j4 = jSONObject.getLong("contacter_bduid");
-                        long optLong5 = jSONObject.optLong("contacter_pa_uid", -1L);
+                        long optLong4 = jSONObject.optLong("contacter_pa_uid", -1L);
                         long j5 = jSONObject.getLong("unread_num");
                         i = i5;
                         try {
-                            optLong = jSONObject.optLong(TableDefine.MediaSessionColumns.COLUMN_LAST_MSGID);
-                            optInt = jSONObject.optInt("last_msgtype");
-                            optString = jSONObject.optString("last_content");
-                            arrayList = arrayList2;
+                            long optLong5 = jSONObject.optLong(TableDefine.MediaSessionColumns.COLUMN_LAST_MSGID);
+                            int optInt4 = jSONObject.optInt("last_msgtype");
+                            String optString3 = jSONObject.optString("last_content");
+                            ArrayList arrayList2 = arrayList;
                             try {
-                                optLong2 = jSONObject.optLong("last_time");
+                                optLong = jSONObject.optLong("last_time");
                                 int optInt5 = jSONObject.optInt("pa_classtype");
-                                optInt2 = jSONObject.optInt("pa_classshow");
-                                optString2 = jSONObject.optString("pa_classavatar");
-                                optString3 = jSONObject.optString("pa_classtitle");
-                                optInt3 = jSONObject.optInt("is_top", 0);
-                                optInt4 = jSONObject.optInt("is_block");
-                                optLong3 = jSONObject.optLong("block_timestamp");
+                                optInt = jSONObject.optInt("pa_classshow");
+                                optString = jSONObject.optString("pa_classavatar");
+                                optString2 = jSONObject.optString("pa_classtitle");
+                                optInt2 = jSONObject.optInt("is_top", 0);
+                                optInt3 = jSONObject.optInt("is_block");
+                                optLong2 = jSONObject.optLong("block_timestamp");
                                 int optInt6 = jSONObject.optInt("aggr_type");
                                 int optInt7 = jSONObject.optInt("stranger_type");
                                 str = str3;
@@ -179,97 +175,97 @@ public class AdvisoryFilterSessionTask extends TaskManager.Task {
                                 e = e;
                                 str = str3;
                             }
-                        } catch (Exception e2) {
-                            e = e2;
-                            str = str3;
-                        }
-                        try {
-                            int optInt8 = jSONObject.optInt("do_not_disturb");
-                            int optInt9 = jSONObject.optInt("chat_type");
-                            int i6 = i3;
-                            long optLong6 = jSONObject.optLong("last_msg_bduid");
-                            jSONObject.optLong("last_msg_uk");
-                            String optString4 = jSONObject.optString("desc");
-                            ChatMsg parseChatMsg = MessageParser.parseChatMsg(this.mContext, this.mCategory, optInt, this.mBusinessType, 0, optString);
-                            if (TextUtils.isEmpty(optString4)) {
-                                optString4 = getLastMsgDesc(parseChatMsg);
-                            }
-                            String str4 = optString4;
-                            if (optInt9 == 57 && !GroupMessageManagerImpl.getInstance(this.mContext).isValidGroup(parseChatMsg)) {
-                                arrayList2 = arrayList;
+                            try {
+                                int optInt8 = jSONObject.optInt("do_not_disturb");
+                                int optInt9 = jSONObject.optInt("chat_type");
+                                int i6 = i3;
+                                long optLong6 = jSONObject.optLong("last_msg_bduid");
+                                jSONObject.optLong("last_msg_uk");
+                                String optString4 = jSONObject.optString("desc");
+                                ChatMsg parseChatMsg = MessageParser.parseChatMsg(this.mContext, this.mCategory, optInt4, this.mBusinessType, 0, optString3);
+                                if (TextUtils.isEmpty(optString4)) {
+                                    optString4 = getLastMsgDesc(parseChatMsg);
+                                }
+                                String str4 = optString4;
+                                if (optInt9 == 57 && !GroupMessageManagerImpl.getInstance(this.mContext).isValidGroup(parseChatMsg)) {
+                                    arrayList = arrayList2;
+                                    str2 = str;
+                                } else {
+                                    long j6 = 0;
+                                    int i7 = (optLong4 > 0L ? 1 : (optLong4 == 0L ? 0 : -1));
+                                    if (i7 > 0) {
+                                        j = optLong4;
+                                    } else {
+                                        j = j3;
+                                    }
+                                    if (optInt9 == 57) {
+                                        i4 = optInt9;
+                                        ChatSession chatRecord = ChatMessageDBManager.getInstance(this.mContext).getChatRecord(new ChatObject(this.mContext, 1, j3));
+                                        if (chatRecord != null) {
+                                            j6 = chatRecord.getNewMsgSum();
+                                        }
+                                        j2 = j6;
+                                    } else {
+                                        i4 = optInt9;
+                                        j2 = j5;
+                                    }
+                                    int i8 = i4;
+                                    ChatSession chatSession = new ChatSession(this.mCategory, j, j4, "");
+                                    chatSession.setChatType(i8);
+                                    chatSession.setLastMsg(str4);
+                                    chatSession.setNewMsgSum(j2);
+                                    chatSession.setLastMsgId(optLong5);
+                                    chatSession.setLastMsgTime(optLong);
+                                    chatSession.setClassShow(optInt);
+                                    chatSession.setClassType(i2);
+                                    chatSession.setClassAvatar(optString);
+                                    chatSession.setClassTitle(optString2);
+                                    chatSession.setBusinessType(this.mBusinessType);
+                                    if (i7 > 0) {
+                                        chatSession.setPaid(optLong4);
+                                    }
+                                    chatSession.setMarkTop(optInt2);
+                                    chatSession.setShield(optInt3);
+                                    chatSession.setShieldTime(optLong2);
+                                    chatSession.setSortTime(optLong3);
+                                    chatSession.setIsStranger(i6);
+                                    try {
+                                        chatSession.setState(0);
+                                        chatSession.setIsClicked(1);
+                                        chatSession.setDisturb(optInt8);
+                                        chatSession.setContacterImuk(j3);
+                                        if (i8 == 57) {
+                                            chatSession.setLastMsgUid(optLong6);
+                                        }
+                                        arrayList = arrayList2;
+                                    } catch (Exception e2) {
+                                        e = e2;
+                                        arrayList = arrayList2;
+                                    }
+                                    try {
+                                        arrayList.add(addAdvisoryValue(jSONObject, chatSession));
+                                        str2 = str;
+                                    } catch (Exception e3) {
+                                        e = e3;
+                                        str2 = str;
+                                        LogUtils.e(str2, "parseBusinessSessions exception ", e);
+                                        i5 = i + 1;
+                                        jSONArray2 = jSONArray;
+                                        str3 = str2;
+                                    }
+                                }
+                            } catch (Exception e4) {
+                                e = e4;
+                                arrayList = arrayList2;
                                 str2 = str;
-                            } else {
-                                long j6 = 0;
-                                int i7 = (optLong5 > 0L ? 1 : (optLong5 == 0L ? 0 : -1));
-                                if (i7 > 0) {
-                                    j = optLong5;
-                                } else {
-                                    j = j3;
-                                }
-                                if (optInt9 == 57) {
-                                    i4 = optInt9;
-                                    ChatSession chatRecord = ChatMessageDBManager.getInstance(this.mContext).getChatRecord(new ChatObject(this.mContext, 1, j3));
-                                    if (chatRecord != null) {
-                                        j6 = chatRecord.getNewMsgSum();
-                                    }
-                                    j2 = j6;
-                                } else {
-                                    i4 = optInt9;
-                                    j2 = j5;
-                                }
-                                int i8 = i4;
-                                ChatSession chatSession = new ChatSession(this.mCategory, j, j4, "");
-                                chatSession.setChatType(i8);
-                                chatSession.setLastMsg(str4);
-                                chatSession.setNewMsgSum(j2);
-                                chatSession.setLastMsgId(optLong);
-                                chatSession.setLastMsgTime(optLong2);
-                                chatSession.setClassShow(optInt2);
-                                chatSession.setClassType(i2);
-                                chatSession.setClassAvatar(optString2);
-                                chatSession.setClassTitle(optString3);
-                                chatSession.setBusinessType(this.mBusinessType);
-                                if (i7 > 0) {
-                                    chatSession.setPaid(optLong5);
-                                }
-                                chatSession.setMarkTop(optInt3);
-                                chatSession.setShield(optInt4);
-                                chatSession.setShieldTime(optLong3);
-                                chatSession.setSortTime(optLong4);
-                                chatSession.setIsStranger(i6);
-                                try {
-                                    chatSession.setState(0);
-                                    chatSession.setIsClicked(1);
-                                    chatSession.setDisturb(optInt8);
-                                    chatSession.setContacterImuk(j3);
-                                    if (i8 == 57) {
-                                        chatSession.setLastMsgUid(optLong6);
-                                    }
-                                    arrayList2 = arrayList;
-                                } catch (Exception e3) {
-                                    e = e3;
-                                    arrayList2 = arrayList;
-                                }
-                                try {
-                                    arrayList2.add(addAdvisoryValue(jSONObject, chatSession));
-                                    str2 = str;
-                                } catch (Exception e4) {
-                                    e = e4;
-                                    str2 = str;
-                                    LogUtils.e(str2, "parseBusinessSessions exception ", e);
-                                    i5 = i + 1;
-                                    jSONArray2 = jSONArray;
-                                    str3 = str2;
-                                }
+                                LogUtils.e(str2, "parseBusinessSessions exception ", e);
+                                i5 = i + 1;
+                                jSONArray2 = jSONArray;
+                                str3 = str2;
                             }
                         } catch (Exception e5) {
                             e = e5;
-                            arrayList2 = arrayList;
-                            str2 = str;
-                            LogUtils.e(str2, "parseBusinessSessions exception ", e);
-                            i5 = i + 1;
-                            jSONArray2 = jSONArray;
-                            str3 = str2;
+                            str = str3;
                         }
                     } catch (Exception e6) {
                         e = e6;
@@ -281,7 +277,7 @@ public class AdvisoryFilterSessionTask extends TaskManager.Task {
                     str3 = str2;
                 }
             }
-            return arrayList2;
+            return arrayList;
         }
         return (List) invokeL.objValue;
     }

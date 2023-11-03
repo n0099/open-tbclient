@@ -8,9 +8,9 @@ import android.os.Looper;
 import android.os.Process;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.p6b;
-import com.baidu.tieba.q5b;
-import com.baidu.tieba.r5b;
+import com.baidu.tieba.qjb;
+import com.baidu.tieba.rib;
+import com.baidu.tieba.sib;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -114,7 +114,7 @@ public class CronetLibraryLoader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             if (d) {
-                return r5b.d().c();
+                return sib.d().c();
             }
             return 0L;
         }
@@ -150,14 +150,14 @@ public class CronetLibraryLoader {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return p6b.b(ContextUtils.getApplicationContext());
+            return qjb.b(ContextUtils.getApplicationContext());
         }
         return (String) invokeV.objValue;
     }
 
-    public static void a(Context context, q5b q5bVar) {
+    public static void a(Context context, rib ribVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, context, q5bVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, ribVar) == null) {
             synchronized (a) {
                 if (!d) {
                     ContextUtils.initApplicationContext(context);
@@ -167,12 +167,12 @@ public class CronetLibraryLoader {
                     e(new a());
                 }
                 if (!c) {
-                    if (q5bVar.w() != null) {
-                        q5bVar.w().a("turbonet");
+                    if (ribVar.w() != null) {
+                        ribVar.w().a("turbonet");
                     } else {
                         System.loadLibrary("turbonet");
                     }
-                    Log.i("CronetLibraryLoader", "TurboNet version: %s, arch: %s", r5b.d().b(), System.getProperty("os.arch"));
+                    Log.i("CronetLibraryLoader", "TurboNet version: %s, arch: %s", sib.d().b(), System.getProperty("os.arch"));
                     c = true;
                     e.open();
                 }
@@ -188,7 +188,7 @@ public class CronetLibraryLoader {
         NetworkChangeNotifier.init();
         NetworkChangeNotifier.registerToReceiveNotificationsAlways();
         e.block();
-        r5b.d().a();
+        sib.d().a();
         d = true;
         synchronized (f) {
             for (Runnable runnable : f) {

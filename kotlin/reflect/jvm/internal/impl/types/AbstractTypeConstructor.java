@@ -32,7 +32,7 @@ public abstract class AbstractTypeConstructor implements TypeConstructor {
 
     @Override // kotlin.reflect.jvm.internal.impl.types.TypeConstructor
     /* renamed from: getDeclarationDescriptor */
-    public abstract ClassifierDescriptor mo2106getDeclarationDescriptor();
+    public abstract ClassifierDescriptor mo2110getDeclarationDescriptor();
 
     public abstract SupertypeLoopChecker getSupertypeLoopChecker();
 
@@ -56,7 +56,7 @@ public abstract class AbstractTypeConstructor implements TypeConstructor {
             public final List<? extends KotlinType> invoke() {
                 KotlinTypeRefiner kotlinTypeRefiner;
                 kotlinTypeRefiner = AbstractTypeConstructor.ModuleViewTypeConstructor.this.kotlinTypeRefiner;
-                return KotlinTypeRefinerKt.refineTypes(kotlinTypeRefiner, AbstractTypeConstructor.this.mo2107getSupertypes());
+                return KotlinTypeRefinerKt.refineTypes(kotlinTypeRefiner, AbstractTypeConstructor.this.mo2111getSupertypes());
             }
         });
 
@@ -86,8 +86,8 @@ public abstract class AbstractTypeConstructor implements TypeConstructor {
 
         @Override // kotlin.reflect.jvm.internal.impl.types.TypeConstructor
         /* renamed from: getDeclarationDescriptor */
-        public ClassifierDescriptor mo2106getDeclarationDescriptor() {
-            return AbstractTypeConstructor.this.mo2106getDeclarationDescriptor();
+        public ClassifierDescriptor mo2110getDeclarationDescriptor() {
+            return AbstractTypeConstructor.this.mo2110getDeclarationDescriptor();
         }
 
         @Override // kotlin.reflect.jvm.internal.impl.types.TypeConstructor
@@ -113,7 +113,7 @@ public abstract class AbstractTypeConstructor implements TypeConstructor {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // kotlin.reflect.jvm.internal.impl.types.TypeConstructor
         /* renamed from: getSupertypes */
-        public List<KotlinType> mo2107getSupertypes() {
+        public List<KotlinType> mo2111getSupertypes() {
             return getRefinedSupertypes();
         }
     }
@@ -188,7 +188,7 @@ public abstract class AbstractTypeConstructor implements TypeConstructor {
         }
         AbstractTypeConstructor abstractTypeConstructor = (AbstractTypeConstructor) typeConstructor2;
         if (abstractTypeConstructor == null || (plus = CollectionsKt___CollectionsKt.plus((Collection) abstractTypeConstructor.supertypes.invoke().getAllSupertypes(), (Iterable) abstractTypeConstructor.getAdditionalNeighboursInSupertypeGraph(z))) == null) {
-            Collection<KotlinType> supertypes = typeConstructor.mo2107getSupertypes();
+            Collection<KotlinType> supertypes = typeConstructor.mo2111getSupertypes();
             Intrinsics.checkExpressionValueIsNotNull(supertypes, "supertypes");
             return supertypes;
         }
@@ -198,7 +198,7 @@ public abstract class AbstractTypeConstructor implements TypeConstructor {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.reflect.jvm.internal.impl.types.TypeConstructor
     /* renamed from: getSupertypes */
-    public List<KotlinType> mo2107getSupertypes() {
+    public List<KotlinType> mo2111getSupertypes() {
         return this.supertypes.invoke().getSupertypesWithoutCycles();
     }
 }

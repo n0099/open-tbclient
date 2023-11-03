@@ -1,83 +1,95 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import android.webkit.JavascriptInterface;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import android.app.Application;
+import android.net.Uri;
+import com.baidu.searchbox.unitedscheme.SchemeRouter;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
+import com.baidu.tieba.dr2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class ry3 {
+public final class ry3 extends my3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    @V8JavascriptField
-    public int height;
-    @V8JavascriptField
-    public int left;
-    @V8JavascriptField
-    public int realHeight;
-    @V8JavascriptField
-    public int realWidth;
-    @V8JavascriptField
-    public int top;
-    @V8JavascriptField
-    public int width;
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void i(String str);
-    }
-
-    public ry3(@NonNull xx1 xx1Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ry3() {
+        super("navigateToSwanGame");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {xx1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a(xx1Var);
     }
 
-    public void b(a aVar) {
+    @Override // com.baidu.tieba.my3
+    public hy1 a(JSONObject paramsJson, kj2 callback) {
+        InterceptResult invokeLL;
+        boolean z;
+        Uri parse;
+        dr2.a X;
+        String J;
+        dr2.a X2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.a = aVar;
-        }
-    }
-
-    @JavascriptInterface
-    public void onFieldChangedCallback(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (am1.a) {
-                Log.d("BannerAdStyle", "onFieldChangedCallback fieldName=" + str);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, paramsJson, callback)) == null) {
+            Intrinsics.checkNotNullParameter(paramsJson, "paramsJson");
+            Intrinsics.checkNotNullParameter(callback, "callback");
+            Application c = np2.c();
+            if (c == null) {
+                callback.onFail(202, "params may be error");
+                return null;
             }
-            a aVar = this.a;
-            if (aVar != null) {
-                aVar.i(str);
+            String optString = paramsJson.optString("appKey");
+            boolean z2 = false;
+            if (optString != null && optString.length() != 0) {
+                z = false;
+            } else {
+                z = true;
             }
+            if (z) {
+                callback.onFail(202, "params may be error");
+                return null;
+            }
+            JSONObject jSONObject = new JSONObject();
+            g63 c0 = g63.c0();
+            String str = "";
+            jSONObject.put("pre_source", (c0 == null || (X2 = c0.X()) == null || (r8 = X2.U()) == null) ? "" : "");
+            g63 c02 = g63.c0();
+            if (c02 != null && (X = c02.X()) != null && (J = X.J()) != null) {
+                str = J;
+            }
+            jSONObject.put("pre_appid", str);
+            paramsJson.put("ubc", jSONObject);
+            String e1 = er2.e1(optString, 1, paramsJson);
+            if ((e1 == null || e1.length() == 0) ? true : true) {
+                parse = null;
+            } else {
+                parse = Uri.parse(e1);
+            }
+            if (parse == null) {
+                callback.onFail(202, "params may be error");
+                return null;
+            }
+            if (SchemeRouter.invokeScheme(c, parse, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE)) {
+                callback.onSuccess(null);
+            } else {
+                callback.onFail(202, "params may be error");
+            }
+            return null;
         }
-    }
-
-    public final void a(@NonNull xx1 xx1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, xx1Var) == null) {
-            this.left = xx1Var.s("left", this.left);
-            this.top = xx1Var.s("top", this.top);
-            this.width = xx1Var.s("width", this.width);
-            this.height = xx1Var.s("height", this.height);
-        }
+        return (hy1) invokeLL.objValue;
     }
 }

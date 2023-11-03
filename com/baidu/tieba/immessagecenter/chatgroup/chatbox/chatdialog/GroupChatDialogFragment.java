@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,19 +31,19 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bm8;
-import com.baidu.tieba.fl8;
+import com.baidu.tieba.bz8;
+import com.baidu.tieba.ez8;
+import com.baidu.tieba.fy8;
 import com.baidu.tieba.immessagecenter.arch.utils.IMLog;
-import com.baidu.tieba.immessagecenter.chatgroup.data.ChatGroupInfo;
+import com.baidu.tieba.ky8;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.ml8;
-import com.baidu.tieba.nl8;
-import com.baidu.tieba.ol8;
-import com.baidu.tieba.pm8;
-import com.baidu.tieba.pma;
+import com.baidu.tieba.py8;
+import com.baidu.tieba.qy8;
+import com.baidu.tieba.qza;
+import com.baidu.tieba.ry8;
+import com.baidu.tieba.sz8;
 import com.baidu.tieba.tbadkCore.LikeReturnData;
-import com.baidu.tieba.ul8;
-import com.baidu.tieba.yl8;
+import com.baidu.tieba.xy8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -55,21 +54,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class GroupChatDialogFragment extends BottomSheetDialogFragment implements pma {
+public class GroupChatDialogFragment extends BottomSheetDialogFragment implements qza {
     public static /* synthetic */ Interceptable $ic;
-    public static BaManagerState x;
+    public static BaManagerState w;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public TbPageContext b;
-    public ml8 c;
+    public py8 c;
     @Nullable
-    public yl8 d;
+    public bz8 d;
     public BottomSheetDialog e;
-    public fl8 f;
-    public ol8 g;
+    public fy8 f;
+    public ry8 g;
     public long h;
     public String i;
     public long j;
@@ -77,16 +77,15 @@ public class GroupChatDialogFragment extends BottomSheetDialogFragment implement
     public BdUniqueId l;
     public ArrayList<Long> m;
     public boolean n;
-    public bm8 o;
+    public ez8 o;
     public String p;
-    public String q;
-    public String r;
-    public boolean s;
-    public CustomMessageListener t;
+    public boolean q;
+    public boolean r;
+    public CustomMessageListener s;
+    public final CustomMessageListener t;
     public final CustomMessageListener u;
-    public final CustomMessageListener v;
     @NonNull
-    public fl8.c w;
+    public fy8.c v;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
@@ -186,7 +185,7 @@ public class GroupChatDialogFragment extends BottomSheetDialogFragment implement
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304) {
-                this.a.v2();
+                this.a.K2();
             }
         }
     }
@@ -344,13 +343,13 @@ public class GroupChatDialogFragment extends BottomSheetDialogFragment implement
         public void run() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.f != null) {
-                this.a.f.q();
+                this.a.f.r();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class f implements fl8.c {
+    public class f implements fy8.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GroupChatDialogFragment a;
@@ -373,7 +372,7 @@ public class GroupChatDialogFragment extends BottomSheetDialogFragment implement
             this.a = groupChatDialogFragment;
         }
 
-        @Override // com.baidu.tieba.fl8.c
+        @Override // com.baidu.tieba.fy8.c
         public void a(List list, int i) {
             boolean z;
             Interceptable interceptable = $ic;
@@ -385,33 +384,33 @@ public class GroupChatDialogFragment extends BottomSheetDialogFragment implement
                         if (this.a.g.h().n() != null) {
                             this.a.g.h().n().setVisibility(0);
                         }
-                        if (list.get(0) != null && (list.get(0) instanceof pm8)) {
-                            pm8 pm8Var = (pm8) list.remove(0);
-                            this.a.g.l(pm8Var);
-                            if (!StringUtils.isNull(pm8Var.e())) {
-                                this.a.g.h().f().setText(pm8Var.e());
-                                if (this.a.u2(list)) {
-                                    this.a.r2(list, pm8Var.e());
+                        if (list.get(0) != null && (list.get(0) instanceof sz8)) {
+                            sz8 sz8Var = (sz8) list.remove(0);
+                            this.a.g.l(sz8Var);
+                            if (!StringUtils.isNull(sz8Var.e())) {
+                                this.a.g.h().f().setText(sz8Var.e());
+                                if (ky8.a.c(list)) {
+                                    ky8.a.a(list, sz8Var.e());
                                 }
                             }
                             GroupChatDialogFragment groupChatDialogFragment = this.a;
-                            if (pm8Var.b() != null && StringUtils.isNotNull(pm8Var.b())) {
+                            if (sz8Var.b() != null && StringUtils.isNotNull(sz8Var.b())) {
                                 z = true;
                             } else {
                                 z = false;
                             }
-                            groupChatDialogFragment.s = z;
+                            groupChatDialogFragment.r = z;
                             GroupChatDialogFragment groupChatDialogFragment2 = this.a;
-                            groupChatDialogFragment2.m2(groupChatDialogFragment2.s, pm8Var.b());
-                            if (pm8Var.f() != null && pm8Var.f().equals("1")) {
+                            groupChatDialogFragment2.E2(groupChatDialogFragment2.r, sz8Var.b());
+                            if (sz8Var.f() != null && sz8Var.f().equals("1")) {
                                 this.a.k = true;
                             }
-                            if (!StringUtils.isNull(pm8Var.c())) {
-                                this.a.g.q(pm8Var.c());
+                            if (!StringUtils.isNull(sz8Var.c())) {
+                                this.a.g.q(sz8Var.c());
                             }
-                            this.a.g.n(pm8Var);
+                            this.a.g.n(sz8Var);
                         }
-                        if (!this.a.s2(list)) {
+                        if (!ky8.a.b(list)) {
                             this.a.g.f().k();
                         } else if (this.a.g.i() != null) {
                             if (!this.a.n) {
@@ -427,10 +426,10 @@ public class GroupChatDialogFragment extends BottomSheetDialogFragment implement
                     } else {
                         this.a.g.f().k();
                     }
-                    BaManagerState unused = GroupChatDialogFragment.x = BaManagerState.NONE;
+                    BaManagerState unused = GroupChatDialogFragment.w = BaManagerState.NONE;
                     return;
                 }
-                BaManagerState unused2 = GroupChatDialogFragment.x = BaManagerState.NONE;
+                BaManagerState unused2 = GroupChatDialogFragment.w = BaManagerState.NONE;
                 this.a.g.o();
             }
         }
@@ -449,15 +448,31 @@ public class GroupChatDialogFragment extends BottomSheetDialogFragment implement
                 return;
             }
         }
-        x = BaManagerState.NONE;
+        w = BaManagerState.NONE;
     }
 
-    @Override // com.baidu.tieba.pma
-    @NonNull
-    public String I1() {
+    public String G2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.p;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void H2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            qy8.d(this.h, this.i, this.p, String.valueOf(this.j));
+        }
+    }
+
+    @Override // com.baidu.tieba.qza
+    @NonNull
+    public String Z1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             if ("frs".equals(this.p)) {
                 return "chatroom_frsList_landing_page";
             }
@@ -466,21 +481,32 @@ public class GroupChatDialogFragment extends BottomSheetDialogFragment implement
         return (String) invokeV.objValue;
     }
 
-    public void U1() {
-        fl8 fl8Var;
+    @Override // com.baidu.tieba.qza
+    @NonNull
+    public String getTraceId() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (fl8Var = this.f) != null && x != BaManagerState.REQUESTING) {
-            fl8Var.E(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.h), this.p);
-            x = BaManagerState.REQUESTING;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return Integer.toString(this.l.getId());
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void m2() {
+        fy8 fy8Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (fy8Var = this.f) != null && w != BaManagerState.REQUESTING) {
+            fy8Var.F(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.h), this.p);
+            w = BaManagerState.REQUESTING;
         }
     }
 
-    @Override // com.baidu.tieba.pma
+    @Override // com.baidu.tieba.qza
     @NonNull
-    public String V1() {
+    public String n2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             if ("frs".equals(this.p)) {
                 return "chatroom_frsList";
             }
@@ -489,53 +515,14 @@ public class GroupChatDialogFragment extends BottomSheetDialogFragment implement
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pma
-    @NonNull
-    public String getTraceId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return Integer.toString(this.l.getId());
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String o2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.p;
-        }
-        return (String) invokeV.objValue;
-    }
-
     @Override // androidx.fragment.app.Fragment
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             super.onPause();
-            fl8 fl8Var = this.f;
-            if (fl8Var != null) {
-                fl8Var.h();
-            }
-        }
-    }
-
-    public void p2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            z2();
-            nl8.a(this.h, this.i, this.r, this.q, String.valueOf(this.j));
-        }
-    }
-
-    public void z2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
-            if (this.p.equals("frs")) {
-                this.q = nl8.d;
-            } else if (this.p.equals("message_tab")) {
-                this.q = nl8.e;
+            fy8 fy8Var = this.f;
+            if (fy8Var != null) {
+                fy8Var.h();
             }
         }
     }
@@ -557,89 +544,83 @@ public class GroupChatDialogFragment extends BottomSheetDialogFragment implement
         this.l = BdUniqueId.gen();
         this.m = new ArrayList<>();
         this.n = false;
-        this.t = new a(this, 2001304);
-        this.u = new b(this, 2001266);
-        this.v = new c(this, 2921778);
-        this.w = new f(this);
+        this.q = false;
+        this.s = new a(this, 2001304);
+        this.t = new b(this, 2001266);
+        this.u = new c(this, 2921778);
+        this.v = new f(this);
+    }
+
+    public final void initData() {
+        Bundle arguments;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || (arguments = getArguments()) == null) {
+            return;
+        }
+        this.h = arguments.getLong("key_group_chat_forum_id", 0L);
+        this.i = arguments.getString("key_group_chat_forum_name", "");
+        this.j = arguments.getLong("key_group_chat_room_id", 0L);
+        this.p = arguments.getString("key_group_chat_souce", "frs");
+        this.k = arguments.getBoolean("key_group_chat_followed", false);
+        this.q = arguments.getBoolean("key_is_dialog", false);
+        Serializable serializable = arguments.getSerializable("key_group_chat_hot_list");
+        if (serializable != null && (serializable instanceof ArrayList)) {
+            this.m = (ArrayList) serializable;
+        }
     }
 
     @Override // androidx.fragment.app.Fragment
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             super.onDestroy();
             IMLog.getInstance().i("GroupChatDialogFragment", MissionEvent.MESSAGE_DESTROY);
-            fl8 fl8Var = this.f;
-            if (fl8Var != null) {
-                fl8Var.o();
+            fy8 fy8Var = this.f;
+            if (fy8Var != null) {
+                fy8Var.p();
             }
-            x = BaManagerState.NONE;
+            w = BaManagerState.NONE;
             this.n = false;
             if (this.p.equals("frs")) {
                 this.g.g().r();
             }
             dismissAllowingStateLoss();
-            MessageManager.getInstance().unRegisterListener(this.u);
-            MessageManager.getInstance().unRegisterListener(this.v);
             MessageManager.getInstance().unRegisterListener(this.t);
-        }
-    }
-
-    public GroupChatDialogFragment(long j, String str, long j2, List<Long> list, boolean z, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), str, Long.valueOf(j2), list, Boolean.valueOf(z), str2, str3};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+            MessageManager.getInstance().unRegisterListener(this.u);
+            if (this.q) {
+                MessageManager.getInstance().unRegisterListener(this.s);
             }
         }
-        this.h = 0L;
-        this.l = BdUniqueId.gen();
-        this.m = new ArrayList<>();
-        this.n = false;
-        this.t = new a(this, 2001304);
-        this.u = new b(this, 2001266);
-        this.v = new c(this, 2921778);
-        this.w = new f(this);
-        this.h = j;
-        this.i = str;
-        this.j = j2;
-        this.r = str2;
-        this.p = str3;
-        if (list != null) {
-            this.m.addAll(list);
-        }
-        this.k = z;
     }
 
-    public void n2(int i) {
-        yl8 yl8Var;
+    public void F2(int i) {
+        bz8 bz8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048581, this, i) != null) || (yl8Var = this.d) == null) {
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || (bz8Var = this.d) == null) {
             return;
         }
         if (i == 0) {
-            SkinManager.setBackgroundResource(yl8Var.x(), R.drawable.obfuscated_res_0x7f080fe9);
+            SkinManager.setBackgroundResource(bz8Var.x(), R.drawable.obfuscated_res_0x7f080fff);
         } else {
-            SkinManager.setBackgroundResource(yl8Var.x(), R.drawable.obfuscated_res_0x7f080fea);
+            SkinManager.setBackgroundResource(bz8Var.x(), R.drawable.obfuscated_res_0x7f081000);
+        }
+    }
+
+    public void N2(ez8 ez8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, ez8Var) == null) {
+            this.o = ez8Var;
         }
     }
 
     @Override // androidx.fragment.app.Fragment, android.content.ComponentCallbacks
     public void onConfigurationChanged(@NonNull Configuration configuration) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, configuration) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, configuration) == null) {
             super.onConfigurationChanged(configuration);
-            ol8 ol8Var = this.g;
-            if (ol8Var != null) {
-                ol8Var.i().l();
+            ry8 ry8Var = this.g;
+            if (ry8Var != null) {
+                ry8Var.i().l();
                 this.g.p();
             }
         }
@@ -650,7 +631,7 @@ public class GroupChatDialogFragment extends BottomSheetDialogFragment implement
     public Dialog onCreateDialog(@Nullable Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, bundle)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, bundle)) == null) {
             d dVar = new d(this, getContext(), R.style.obfuscated_res_0x7f1000fe);
             this.e = dVar;
             return dVar;
@@ -658,52 +639,13 @@ public class GroupChatDialogFragment extends BottomSheetDialogFragment implement
         return (Dialog) invokeL.objValue;
     }
 
-    public boolean s2(List list) {
-        InterceptResult invokeL;
+    public final void E2(boolean z, String str) {
+        bz8 bz8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, list)) == null) {
-            for (int i = 0; i < list.size(); i++) {
-                if (list.get(i) instanceof ChatGroupInfo) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean u2(List list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, list)) == null) {
-            int i = 0;
-            for (int i2 = 0; i2 < list.size(); i2++) {
-                if ((list.get(i2) instanceof ChatGroupInfo) && (i = i + 1) > 1) {
-                    return false;
-                }
-            }
-            if (i != 1) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void y2(bm8 bm8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, bm8Var) == null) {
-            this.o = bm8Var;
-        }
-    }
-
-    public final void m2(boolean z, String str) {
-        yl8 yl8Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZL(1048580, this, z, str) != null) || (yl8Var = this.d) == null) {
+        if ((interceptable != null && interceptable.invokeZL(1048576, this, z, str) != null) || (bz8Var = this.d) == null) {
             return;
         }
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) yl8Var.u().getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) bz8Var.u().getLayoutParams();
         RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.d.w().getLayoutParams();
         RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.d.p().getLayoutParams();
         if (z) {
@@ -715,7 +657,7 @@ public class GroupChatDialogFragment extends BottomSheetDialogFragment implement
             layoutParams3.topMargin = UtilHelper.getDimenPixelSize(R.dimen.tbds31);
         } else {
             this.d.f.setVisibility(8);
-            n2(TbadkCoreApplication.getInst().getSkinType());
+            F2(TbadkCoreApplication.getInst().getSkinType());
             layoutParams.removeRule(12);
             layoutParams.addRule(15);
             layoutParams2.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X009);
@@ -726,10 +668,28 @@ public class GroupChatDialogFragment extends BottomSheetDialogFragment implement
         this.d.w().setLayoutParams(layoutParams2);
     }
 
+    public void I2(xy8 xy8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, xy8Var) == null) {
+            this.f = new fy8(this.a, this.v);
+            ry8 ry8Var = new ry8(this, this.b, this.f, xy8Var, this.i, this.h, this.k, this.j, this.p);
+            this.g = ry8Var;
+            ry8Var.t();
+            this.g.r();
+            this.g.m();
+            this.g.p();
+            this.g.h().onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            if (this.q) {
+                this.g.s(J2());
+            }
+            this.g.k();
+        }
+    }
+
     @Override // androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
     public void onActivityCreated(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, bundle) == null) {
             super.onActivityCreated(bundle);
             IMLog.getInstance().i("GroupChatDialogFragment", "onActivityCreated start");
             this.a = getContext();
@@ -739,16 +699,18 @@ public class GroupChatDialogFragment extends BottomSheetDialogFragment implement
             } else if (activity instanceof BaseActivity) {
                 this.b = ((BaseActivity) activity).getPageContext();
             }
-            MessageManager.getInstance().registerListener(this.u);
-            MessageManager.getInstance().registerListener(this.v);
             MessageManager.getInstance().registerListener(this.t);
-            if (this.p.equals("frs")) {
-                q2(this.c);
-            } else if (this.p.equals("message_tab")) {
-                q2(this.d);
+            MessageManager.getInstance().registerListener(this.u);
+            if (this.q) {
+                MessageManager.getInstance().registerListener(this.s);
             }
-            v2();
-            w2();
+            if (this.p.equals("frs")) {
+                I2(this.c);
+            } else if (this.p.equals("message_tab")) {
+                I2(this.d);
+            }
+            K2();
+            L2();
             IMLog.getInstance().i("GroupChatDialogFragment", "onActivityCreated end");
         }
     }
@@ -756,13 +718,13 @@ public class GroupChatDialogFragment extends BottomSheetDialogFragment implement
     @Override // androidx.fragment.app.DialogFragment, android.content.DialogInterface.OnDismissListener
     public void onDismiss(@NonNull DialogInterface dialogInterface) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, dialogInterface) == null) {
+        if (interceptable == null || interceptable.invokeL(1048597, this, dialogInterface) == null) {
             super.onDismiss(dialogInterface);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2003023, "show_ok"));
             SafeHandler.getInst().post(new e(this));
-            ol8 ol8Var = this.g;
-            if (ol8Var != null) {
-                if (ol8Var.i() != null) {
+            ry8 ry8Var = this.g;
+            if (ry8Var != null) {
+                if (ry8Var.i() != null) {
                     this.g.i().o();
                 }
                 if (this.g.j() != null) {
@@ -772,122 +734,18 @@ public class GroupChatDialogFragment extends BottomSheetDialogFragment implement
             }
             if (this.p.equals("frs")) {
                 this.o.a(true);
-                ol8 ol8Var2 = this.g;
-                if (ol8Var2 != null && ol8Var2.g() != null) {
+                ry8 ry8Var2 = this.g;
+                if (ry8Var2 != null && ry8Var2.g() != null) {
                     this.g.g().m();
                 }
             }
         }
     }
 
-    public void q2(ul8 ul8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, ul8Var) == null) {
-            this.f = new fl8(this.a, this.w);
-            ol8 ol8Var = new ol8(this, this.b, this.f, ul8Var, this.i, this.h, this.k, this.j, this.p);
-            this.g = ol8Var;
-            ol8Var.t();
-            this.g.r();
-            this.g.m();
-            this.g.p();
-            this.g.h().onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            if (this.p.equals("frs")) {
-                this.g.s(t2());
-            }
-            this.g.k();
-        }
-    }
-
-    @Override // androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
-    public void onCreate(@Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
-            super.onCreate(bundle);
-            IMLog.getInstance().i("GroupChatDialogFragment", "onCreate");
-            if (bundle != null) {
-                if (this.h == 0) {
-                    this.h = bundle.getLong("key_group_chat_forum_id");
-                }
-                if (TextUtils.isEmpty(this.i)) {
-                    this.i = bundle.getString("key_group_chat_forum_name");
-                }
-                if (this.j == 0) {
-                    this.j = bundle.getLong("key_group_chat_room_id");
-                }
-                if (TextUtils.isEmpty(this.r)) {
-                    this.r = bundle.getString("key_group_chat_resource_from");
-                }
-                if (TextUtils.isEmpty(this.p)) {
-                    this.p = bundle.getString("key_group_chat_souce");
-                }
-                if (!this.k) {
-                    this.k = bundle.getBoolean("key_group_chat_followed");
-                }
-                if (this.m.isEmpty()) {
-                    this.m = (ArrayList) bundle.getSerializable("key_group_chat_hot_list");
-                }
-            }
-            if ("message_tab".equals(this.p)) {
-                setShowsDialog(false);
-            } else {
-                setShowsDialog(true);
-            }
-            Bundle arguments = getArguments();
-            if (arguments != null) {
-                arguments.getString("FROM");
-            }
-        }
-    }
-
-    @Override // androidx.fragment.app.Fragment
-    @Nullable
-    public View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048587, this, layoutInflater, viewGroup, bundle)) == null) {
-            TbLog iMLog = IMLog.getInstance();
-            iMLog.i("GroupChatDialogFragment", "onCreateView start, source = " + this.p);
-            View view2 = null;
-            if (this.p.equals("frs")) {
-                setShowsDialog(true);
-                view2 = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d03e2, (ViewGroup) null);
-            } else if ("message_tab".equals(this.p)) {
-                BottomSheetDialog bottomSheetDialog = this.e;
-                if (bottomSheetDialog != null && bottomSheetDialog.getWindow() != null) {
-                    this.e.getWindow().setDimAmount(0.0f);
-                }
-                setShowsDialog(false);
-                view2 = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0649, (ViewGroup) null);
-            }
-            TbLog iMLog2 = IMLog.getInstance();
-            iMLog2.i("GroupChatDialogFragment", "onCreateView end, source = " + this.p);
-            return view2;
-        }
-        return (View) invokeLLL.objValue;
-    }
-
-    @Override // androidx.fragment.app.Fragment
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            super.onResume();
-            IMLog.getInstance().i("GroupChatDialogFragment", "onResume start");
-            fl8 fl8Var = this.f;
-            if (fl8Var != null) {
-                fl8Var.p();
-            }
-            if ("message_tab".equals(this.p) || this.n) {
-                U1();
-            }
-            v2();
-            IMLog.getInstance().i("GroupChatDialogFragment", "onResume end");
-        }
-    }
-
-    public int t2() {
+    public int J2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             int height = ((WindowManager) this.a.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay().getHeight();
             int i = (height * 9) / 10;
             if (UtilHelper.isFoldScreen()) {
@@ -899,90 +757,126 @@ public class GroupChatDialogFragment extends BottomSheetDialogFragment implement
         return invokeV.intValue;
     }
 
-    public void v2() {
+    public void K2() {
+        ry8 ry8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            this.g.h().onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            this.g.f().h(TbadkCoreApplication.getInst().getSkinType());
-            if (!this.s) {
-                n2(TbadkCoreApplication.getInst().getSkinType());
-            }
+        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || (ry8Var = this.g) == null) {
+            return;
+        }
+        ry8Var.h().onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        this.g.f().h(TbadkCoreApplication.getInst().getSkinType());
+        if (!this.r) {
+            F2(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public final void w2() {
-        ol8 ol8Var;
+    public final void L2() {
+        ry8 ry8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048601, this) != null) || (ol8Var = this.g) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || (ry8Var = this.g) == null) {
             return;
         }
         if (this.f != null) {
-            ol8Var.f().i();
+            ry8Var.f().i();
             this.g.f().g();
-            U1();
+            m2();
         } else {
-            ol8Var.f().k();
+            ry8Var.f().k();
         }
-        p2();
+        H2();
+    }
+
+    @Override // androidx.fragment.app.Fragment
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+            super.onResume();
+            IMLog.getInstance().i("GroupChatDialogFragment", "onResume start");
+            fy8 fy8Var = this.f;
+            if (fy8Var != null) {
+                fy8Var.q();
+            }
+            if ("message_tab".equals(this.p) || this.n) {
+                m2();
+            }
+            K2();
+            IMLog.getInstance().i("GroupChatDialogFragment", "onResume end");
+        }
+    }
+
+    public void M2(long j, String str, long j2, List<Long> list, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j), str, Long.valueOf(j2), list, Boolean.valueOf(z)}) == null) {
+            this.j = j2;
+            this.h = j;
+            this.i = str;
+            this.k = z;
+            if (!ListUtils.isEmpty(list)) {
+                this.m.clear();
+                this.m.addAll(list);
+            }
+            H2();
+        }
     }
 
     @Override // androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
-    public void onSaveInstanceState(@NonNull Bundle bundle) {
+    public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, bundle) == null) {
-            super.onSaveInstanceState(bundle);
-            bundle.putLong("key_group_chat_forum_id", this.h);
-            bundle.putString("key_group_chat_forum_name", this.i);
-            bundle.putLong("key_group_chat_room_id", this.j);
-            bundle.putString("key_group_chat_resource_from", this.r);
-            bundle.putString("key_group_chat_souce", this.p);
-            bundle.putBoolean("key_group_chat_followed", this.k);
-            if (!ListUtils.isEmpty(this.m)) {
-                bundle.putSerializable("key_group_chat_hot_list", this.m);
+        if (interceptable == null || interceptable.invokeL(1048593, this, bundle) == null) {
+            super.onCreate(bundle);
+            IMLog.getInstance().i("GroupChatDialogFragment", "onCreate");
+            initData();
+            Bundle arguments = getArguments();
+            if (arguments != null) {
+                arguments.getString("FROM");
+            }
+            if (this.q) {
+                setShowsDialog(true);
+            } else {
+                setShowsDialog(false);
             }
         }
     }
 
     @Override // androidx.fragment.app.Fragment
+    @Nullable
+    public View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048595, this, layoutInflater, viewGroup, bundle)) == null) {
+            TbLog iMLog = IMLog.getInstance();
+            iMLog.i("GroupChatDialogFragment", "onCreateView start, source = " + this.p);
+            View view2 = null;
+            if (this.p.equals("frs")) {
+                view2 = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03f5, (ViewGroup) null);
+            } else if ("message_tab".equals(this.p)) {
+                BottomSheetDialog bottomSheetDialog = this.e;
+                if (bottomSheetDialog != null && bottomSheetDialog.getWindow() != null) {
+                    this.e.getWindow().setDimAmount(0.0f);
+                }
+                view2 = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d065e, (ViewGroup) null);
+            }
+            TbLog iMLog2 = IMLog.getInstance();
+            iMLog2.i("GroupChatDialogFragment", "onCreateView end, source = " + this.p);
+            return view2;
+        }
+        return (View) invokeLLL.objValue;
+    }
+
+    @Override // androidx.fragment.app.Fragment
     public void onViewCreated(@NonNull View view2, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048593, this, view2, bundle) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048600, this, view2, bundle) == null) {
             super.onViewCreated(view2, bundle);
             TbLog iMLog = IMLog.getInstance();
             iMLog.i("GroupChatDialogFragment", "onViewCreated start, source = " + this.p);
             if (this.p.equals("frs")) {
-                this.c = ml8.v(view2);
+                this.c = py8.v(view2);
             } else if (this.p.equals("message_tab")) {
-                this.d = yl8.v(view2);
+                this.d = bz8.v(view2);
             }
             TbLog iMLog2 = IMLog.getInstance();
             iMLog2.i("GroupChatDialogFragment", "onViewCreated end, source = " + this.p);
-        }
-    }
-
-    public void r2(List list, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048596, this, list, str) == null) && list.get(0) != null && (list.get(0) instanceof ChatGroupInfo)) {
-            ChatGroupInfo chatGroupInfo = (ChatGroupInfo) list.get(0);
-            if (chatGroupInfo.getRoomInfoList() != null && chatGroupInfo.getRoomInfoList().get(0) != null) {
-                chatGroupInfo.getRoomInfoList().get(0).setSingleListHotText(str);
-            }
-        }
-    }
-
-    public void x2(long j, String str, long j2, List<Long> list, boolean z, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{Long.valueOf(j), str, Long.valueOf(j2), list, Boolean.valueOf(z), str2}) == null) {
-            this.j = j2;
-            this.h = j;
-            this.i = str;
-            this.k = z;
-            this.r = str2;
-            if (!ListUtils.isEmpty(list)) {
-                this.m.clear();
-                this.m.addAll(list);
-            }
-            p2();
         }
     }
 }

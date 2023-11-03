@@ -34,27 +34,27 @@ public final class PermissionDialogProvider extends DebugDataGroupProvider {
     public final ArrayList<DebugItemInfo> mItemInfoList = new ArrayList<>();
 
     /* renamed from: getChildItemList$lambda-1$lambda-0  reason: not valid java name */
-    public static final void m61getChildItemList$lambda1$lambda0(int i, String[] strArr, int[] iArr) {
+    public static final void m62getChildItemList$lambda1$lambda0(int i, String[] strArr, int[] iArr) {
     }
 
     /* renamed from: getChildItemList$lambda-11$lambda-10  reason: not valid java name */
-    public static final void m63getChildItemList$lambda11$lambda10(int i, String[] strArr, int[] iArr) {
+    public static final void m64getChildItemList$lambda11$lambda10(int i, String[] strArr, int[] iArr) {
     }
 
     /* renamed from: getChildItemList$lambda-3$lambda-2  reason: not valid java name */
-    public static final void m65getChildItemList$lambda3$lambda2(int i, String[] strArr, int[] iArr) {
+    public static final void m66getChildItemList$lambda3$lambda2(int i, String[] strArr, int[] iArr) {
     }
 
     /* renamed from: getChildItemList$lambda-5$lambda-4  reason: not valid java name */
-    public static final void m67getChildItemList$lambda5$lambda4(int i, String[] strArr, int[] iArr) {
+    public static final void m68getChildItemList$lambda5$lambda4(int i, String[] strArr, int[] iArr) {
     }
 
     /* renamed from: getChildItemList$lambda-7$lambda-6  reason: not valid java name */
-    public static final void m69getChildItemList$lambda7$lambda6(int i, String[] strArr, int[] iArr) {
+    public static final void m70getChildItemList$lambda7$lambda6(int i, String[] strArr, int[] iArr) {
     }
 
     /* renamed from: getChildItemList$lambda-9$lambda-8  reason: not valid java name */
-    public static final void m71getChildItemList$lambda9$lambda8(int i, String[] strArr, int[] iArr) {
+    public static final void m72getChildItemList$lambda9$lambda8(int i, String[] strArr, int[] iArr) {
     }
 
     @Override // com.baidu.searchbox.debug.data.DebugDataGroupProvider
@@ -78,10 +78,10 @@ public final class PermissionDialogProvider extends DebugDataGroupProvider {
     }
 
     /* renamed from: getChildItemList$lambda-1  reason: not valid java name */
-    public static final void m60getChildItemList$lambda1(View view2) {
+    public static final void m61getChildItemList$lambda1(View view2) {
         String[] strArr = {h.c};
         if (!DangerousPermissionUtils.isPermissionGroupGranted(AppRuntime.getAppContext(), strArr)) {
-            DangerousPermissionUtils.requestPermissions("basic", AppRuntime.getAppContext(), strArr, 100, new DangerousPermissionManager.RequestSystemPermissionCallBack() { // from class: com.baidu.tieba.ch1
+            DangerousPermissionUtils.requestPermissions("basic", AppRuntime.getAppContext(), strArr, 100, new DangerousPermissionManager.RequestSystemPermissionCallBack() { // from class: com.baidu.tieba.th1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -89,7 +89,7 @@ public final class PermissionDialogProvider extends DebugDataGroupProvider {
                 public final void onRequestPermissionsResult(int i, String[] strArr2, int[] iArr) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeILL(1048576, this, i, strArr2, iArr) == null) {
-                        PermissionDialogProvider.m61getChildItemList$lambda1$lambda0(i, strArr2, iArr);
+                        PermissionDialogProvider.m62getChildItemList$lambda1$lambda0(i, strArr2, iArr);
                     }
                 }
             });
@@ -99,10 +99,10 @@ public final class PermissionDialogProvider extends DebugDataGroupProvider {
     }
 
     /* renamed from: getChildItemList$lambda-11  reason: not valid java name */
-    public static final void m62getChildItemList$lambda11(View view2) {
+    public static final void m63getChildItemList$lambda11(View view2) {
         String[] strArr = {h.i};
         if (!DangerousPermissionUtils.isPermissionGroupGranted(AppRuntime.getAppContext(), strArr)) {
-            DangerousPermissionUtils.requestPermissions("basic", AppRuntime.getAppContext(), strArr, 100, new DangerousPermissionManager.RequestSystemPermissionCallBack() { // from class: com.baidu.tieba.ih1
+            DangerousPermissionUtils.requestPermissions("basic", AppRuntime.getAppContext(), strArr, 100, new DangerousPermissionManager.RequestSystemPermissionCallBack() { // from class: com.baidu.tieba.zh1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -110,7 +110,7 @@ public final class PermissionDialogProvider extends DebugDataGroupProvider {
                 public final void onRequestPermissionsResult(int i, String[] strArr2, int[] iArr) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeILL(1048576, this, i, strArr2, iArr) == null) {
-                        PermissionDialogProvider.m63getChildItemList$lambda11$lambda10(i, strArr2, iArr);
+                        PermissionDialogProvider.m64getChildItemList$lambda11$lambda10(i, strArr2, iArr);
                     }
                 }
             });
@@ -120,10 +120,10 @@ public final class PermissionDialogProvider extends DebugDataGroupProvider {
     }
 
     /* renamed from: getChildItemList$lambda-3  reason: not valid java name */
-    public static final void m64getChildItemList$lambda3(View view2) {
+    public static final void m65getChildItemList$lambda3(View view2) {
         String[] strArr = {PermissionRequest.RESOURCE_VIDEO_CAPTURE};
         if (!DangerousPermissionUtils.isPermissionGroupGranted(AppRuntime.getAppContext(), strArr)) {
-            DangerousPermissionUtils.requestPermissions("basic", AppRuntime.getAppContext(), strArr, 100, new DangerousPermissionManager.RequestSystemPermissionCallBack() { // from class: com.baidu.tieba.jh1
+            DangerousPermissionUtils.requestPermissions("basic", AppRuntime.getAppContext(), strArr, 100, new DangerousPermissionManager.RequestSystemPermissionCallBack() { // from class: com.baidu.tieba.ai1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -131,7 +131,7 @@ public final class PermissionDialogProvider extends DebugDataGroupProvider {
                 public final void onRequestPermissionsResult(int i, String[] strArr2, int[] iArr) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeILL(1048576, this, i, strArr2, iArr) == null) {
-                        PermissionDialogProvider.m65getChildItemList$lambda3$lambda2(i, strArr2, iArr);
+                        PermissionDialogProvider.m66getChildItemList$lambda3$lambda2(i, strArr2, iArr);
                     }
                 }
             });
@@ -141,10 +141,10 @@ public final class PermissionDialogProvider extends DebugDataGroupProvider {
     }
 
     /* renamed from: getChildItemList$lambda-5  reason: not valid java name */
-    public static final void m66getChildItemList$lambda5(View view2) {
+    public static final void m67getChildItemList$lambda5(View view2) {
         String[] strArr = {PermissionRequest.RESOURCE_AUDIO_CAPTURE};
         if (!DangerousPermissionUtils.isPermissionGroupGranted(AppRuntime.getAppContext(), strArr)) {
-            DangerousPermissionUtils.requestPermissions("basic", AppRuntime.getAppContext(), strArr, 100, new DangerousPermissionManager.RequestSystemPermissionCallBack() { // from class: com.baidu.tieba.eh1
+            DangerousPermissionUtils.requestPermissions("basic", AppRuntime.getAppContext(), strArr, 100, new DangerousPermissionManager.RequestSystemPermissionCallBack() { // from class: com.baidu.tieba.vh1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -152,7 +152,7 @@ public final class PermissionDialogProvider extends DebugDataGroupProvider {
                 public final void onRequestPermissionsResult(int i, String[] strArr2, int[] iArr) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeILL(1048576, this, i, strArr2, iArr) == null) {
-                        PermissionDialogProvider.m67getChildItemList$lambda5$lambda4(i, strArr2, iArr);
+                        PermissionDialogProvider.m68getChildItemList$lambda5$lambda4(i, strArr2, iArr);
                     }
                 }
             });
@@ -162,10 +162,10 @@ public final class PermissionDialogProvider extends DebugDataGroupProvider {
     }
 
     /* renamed from: getChildItemList$lambda-7  reason: not valid java name */
-    public static final void m68getChildItemList$lambda7(View view2) {
+    public static final void m69getChildItemList$lambda7(View view2) {
         String[] strArr = {"android.permission.READ_CONTACTS"};
         if (!DangerousPermissionUtils.isPermissionGroupGranted(AppRuntime.getAppContext(), strArr)) {
-            DangerousPermissionUtils.requestPermissions("basic", AppRuntime.getAppContext(), strArr, 100, new DangerousPermissionManager.RequestSystemPermissionCallBack() { // from class: com.baidu.tieba.hh1
+            DangerousPermissionUtils.requestPermissions("basic", AppRuntime.getAppContext(), strArr, 100, new DangerousPermissionManager.RequestSystemPermissionCallBack() { // from class: com.baidu.tieba.yh1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -173,7 +173,7 @@ public final class PermissionDialogProvider extends DebugDataGroupProvider {
                 public final void onRequestPermissionsResult(int i, String[] strArr2, int[] iArr) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeILL(1048576, this, i, strArr2, iArr) == null) {
-                        PermissionDialogProvider.m69getChildItemList$lambda7$lambda6(i, strArr2, iArr);
+                        PermissionDialogProvider.m70getChildItemList$lambda7$lambda6(i, strArr2, iArr);
                     }
                 }
             });
@@ -183,10 +183,10 @@ public final class PermissionDialogProvider extends DebugDataGroupProvider {
     }
 
     /* renamed from: getChildItemList$lambda-9  reason: not valid java name */
-    public static final void m70getChildItemList$lambda9(View view2) {
+    public static final void m71getChildItemList$lambda9(View view2) {
         String[] strArr = {h.g};
         if (!DangerousPermissionUtils.isPermissionGroupGranted(AppRuntime.getAppContext(), strArr)) {
-            DangerousPermissionUtils.requestPermissions("basic", AppRuntime.getAppContext(), strArr, 100, new DangerousPermissionManager.RequestSystemPermissionCallBack() { // from class: com.baidu.tieba.lh1
+            DangerousPermissionUtils.requestPermissions("basic", AppRuntime.getAppContext(), strArr, 100, new DangerousPermissionManager.RequestSystemPermissionCallBack() { // from class: com.baidu.tieba.ci1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -194,7 +194,7 @@ public final class PermissionDialogProvider extends DebugDataGroupProvider {
                 public final void onRequestPermissionsResult(int i, String[] strArr2, int[] iArr) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeILL(1048576, this, i, strArr2, iArr) == null) {
-                        PermissionDialogProvider.m71getChildItemList$lambda9$lambda8(i, strArr2, iArr);
+                        PermissionDialogProvider.m72getChildItemList$lambda9$lambda8(i, strArr2, iArr);
                     }
                 }
             });
@@ -206,7 +206,7 @@ public final class PermissionDialogProvider extends DebugDataGroupProvider {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.debug.data.DebugDataGroupProvider
     public ArrayList<DebugItemInfo> getChildItemList() {
-        addItem(REQUEST_READ_PHPNE_STATE, new View.OnClickListener() { // from class: com.baidu.tieba.dh1
+        addItem(REQUEST_READ_PHPNE_STATE, new View.OnClickListener() { // from class: com.baidu.tieba.uh1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -214,11 +214,11 @@ public final class PermissionDialogProvider extends DebugDataGroupProvider {
             public final void onClick(View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                    PermissionDialogProvider.m60getChildItemList$lambda1(view2);
+                    PermissionDialogProvider.m61getChildItemList$lambda1(view2);
                 }
             }
         });
-        addItem(REQUEST_CAMER, new View.OnClickListener() { // from class: com.baidu.tieba.mh1
+        addItem(REQUEST_CAMER, new View.OnClickListener() { // from class: com.baidu.tieba.di1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -226,11 +226,11 @@ public final class PermissionDialogProvider extends DebugDataGroupProvider {
             public final void onClick(View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                    PermissionDialogProvider.m64getChildItemList$lambda3(view2);
+                    PermissionDialogProvider.m65getChildItemList$lambda3(view2);
                 }
             }
         });
-        addItem(REQUEST_MIC, new View.OnClickListener() { // from class: com.baidu.tieba.kh1
+        addItem(REQUEST_MIC, new View.OnClickListener() { // from class: com.baidu.tieba.bi1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -238,11 +238,11 @@ public final class PermissionDialogProvider extends DebugDataGroupProvider {
             public final void onClick(View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                    PermissionDialogProvider.m66getChildItemList$lambda5(view2);
+                    PermissionDialogProvider.m67getChildItemList$lambda5(view2);
                 }
             }
         });
-        addItem(REQUEST_CONTACTS, new View.OnClickListener() { // from class: com.baidu.tieba.fh1
+        addItem(REQUEST_CONTACTS, new View.OnClickListener() { // from class: com.baidu.tieba.wh1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -250,11 +250,11 @@ public final class PermissionDialogProvider extends DebugDataGroupProvider {
             public final void onClick(View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                    PermissionDialogProvider.m68getChildItemList$lambda7(view2);
+                    PermissionDialogProvider.m69getChildItemList$lambda7(view2);
                 }
             }
         });
-        addItem(REQUEST_LOCATION, new View.OnClickListener() { // from class: com.baidu.tieba.bh1
+        addItem(REQUEST_LOCATION, new View.OnClickListener() { // from class: com.baidu.tieba.sh1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -262,11 +262,11 @@ public final class PermissionDialogProvider extends DebugDataGroupProvider {
             public final void onClick(View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                    PermissionDialogProvider.m70getChildItemList$lambda9(view2);
+                    PermissionDialogProvider.m71getChildItemList$lambda9(view2);
                 }
             }
         });
-        addItem(REQUEST_STORAGE, new View.OnClickListener() { // from class: com.baidu.tieba.gh1
+        addItem(REQUEST_STORAGE, new View.OnClickListener() { // from class: com.baidu.tieba.xh1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -274,7 +274,7 @@ public final class PermissionDialogProvider extends DebugDataGroupProvider {
             public final void onClick(View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                    PermissionDialogProvider.m62getChildItemList$lambda11(view2);
+                    PermissionDialogProvider.m63getChildItemList$lambda11(view2);
                 }
             }
         });

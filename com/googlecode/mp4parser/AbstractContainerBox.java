@@ -7,7 +7,7 @@ import com.coremedia.iso.boxes.Container;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AbstractContainerBox extends BasicContainer implements Box {
     public ByteBuffer header;
     public boolean largeBox;

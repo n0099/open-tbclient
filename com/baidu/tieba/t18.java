@@ -1,106 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BdToken.activeConfig.ActiveCenterData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ActiveCenter;
+@Service
 /* loaded from: classes8.dex */
-public class t18 extends jk6 implements yk6 {
+public class t18 implements i15 {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: T  reason: collision with root package name */
-    public static final BdUniqueId f1161T;
     public transient /* synthetic */ FieldHolder $fh;
-    public int R;
-    public ActiveCenterData S;
 
-    @Override // com.baidu.tieba.yk6
-    public void J(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.yk6
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.yk6
-    public boolean s() {
+    @Override // com.baidu.tieba.i15
+    public String name() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948128462, "Lcom/baidu/tieba/t18;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948128462, "Lcom/baidu/tieba/t18;");
-                return;
-            }
-        }
-        f1161T = BdUniqueId.gen();
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "frsForumManage" : (String) invokeV.objValue;
     }
 
     public t18() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.yk6
-    public int getPosition() {
+    @Override // com.baidu.tieba.i15
+    public Class<? extends g15> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.R;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return s18.class;
         }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yh
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return f1161T;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void G(ActiveCenter activeCenter) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, activeCenter) == null) && activeCenter != null) {
-            ActiveCenterData activeCenterData = new ActiveCenterData();
-            this.S = activeCenterData;
-            activeCenterData.parseProto(activeCenter);
-        }
+        return (Class) invokeV.objValue;
     }
 }

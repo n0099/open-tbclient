@@ -1,45 +1,59 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import android.os.Handler;
+import android.os.HandlerThread;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class dl1 {
+public class dl1 extends HandlerThread {
     public static /* synthetic */ Interceptable $ic;
+    public static dl1 a;
+    public static Handler b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str, String str2) {
-        InterceptResult invokeLL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dl1() {
+        super("BackgroundThread", 10);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            try {
-                return PreferencesUtil.LEFT_MOUNT + Thread.currentThread().getName() + ZeusCrashHandler.NAME_SEPERATOR + Thread.currentThread().getId() + "] " + str2;
-            } catch (Throwable th) {
-                c(th);
-                return "";
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            try {
-                Log.d("SSOSDK", a("", str));
-            } catch (Throwable th) {
-                c(th);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], ((Integer) objArr[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static void c(Throwable th) {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, th) == null) {
-            zk1.d(th);
+        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && a == null) {
+            dl1 dl1Var = new dl1();
+            a = dl1Var;
+            dl1Var.start();
+            b = new Handler(a.getLooper());
         }
+    }
+
+    public static Handler b() {
+        InterceptResult invokeV;
+        Handler handler;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (dl1.class) {
+                a();
+                handler = b;
+            }
+            return handler;
+        }
+        return (Handler) invokeV.objValue;
     }
 }

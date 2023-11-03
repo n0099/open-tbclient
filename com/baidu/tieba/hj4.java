@@ -1,33 +1,62 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.annotation.IdRes;
-import androidx.annotation.Nullable;
+import android.content.SharedPreferences;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class hj4 {
+public class hj4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Nullable
-    public abstract View a(@IdRes int i);
-
-    public abstract boolean b();
-
-    public hj4() {
+    public static long a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            SharedPreferences a = pj4.a();
+            return a.getLong("latest_update_time" + i, 0L);
+        }
+        return invokeI.longValue;
+    }
+
+    public static long b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            SharedPreferences a = pj4.a();
+            return a.getLong("max_age" + i, 0L);
+        }
+        return invokeI.longValue;
+    }
+
+    public static boolean c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if ((System.currentTimeMillis() - a(i)) / 1000 > b(i)) {
+                return true;
             }
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public static void d(int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            SharedPreferences.Editor edit = pj4.a().edit();
+            edit.putLong("latest_update_time" + i, j).apply();
+        }
+    }
+
+    public static void e(int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            if (j <= 0 || j >= 259200) {
+                j = 0;
+            }
+            pj4.a().edit().putLong("max_age" + i, j).apply();
         }
     }
 }

@@ -1,41 +1,37 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.res.Resources;
-import android.util.Pair;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import android.util.Log;
+import android.webkit.JavascriptInterface;
+import android.widget.FrameLayout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.games.view.recommend.listmode.ListRecommendAdapter;
-import com.baidu.swan.games.view.recommend.listmode.ListRecommendDivider;
-import com.baidu.tieba.t43;
+import com.baidu.searchbox.v8engine.JSRuntime;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.searchbox.v8engine.event.EventTargetImpl;
+import com.baidu.swan.games.view.button.base.ApiButton;
+import com.baidu.tieba.c94;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class d94 extends w84 {
+public class d94 extends EventTargetImpl implements c94.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public t43 j;
-    public View k;
-    public View l;
-    public ImageView m;
-    public View n;
-    public RecyclerView o;
-    public ListRecommendAdapter p;
+    public ApiButton a;
+    @V8JavascriptField
+    public String image;
+    @V8JavascriptField
+    public c94 style;
+    @V8JavascriptField
+    public String text;
+    @V8JavascriptField
+    public String type;
 
     /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ d94 a;
@@ -58,20 +54,19 @@ public class d94 extends w84 {
             this.a = d94Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // java.lang.Runnable
+        public void run() {
+            ApiButton apiButton;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.a.c != null) {
-                    this.a.c.b();
-                }
-                this.a.B();
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (apiButton = this.a.a) != null) {
+                a94.d(apiButton);
+                this.a.a = null;
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements ListRecommendAdapter.a {
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ d94 a;
@@ -94,20 +89,18 @@ public class d94 extends w84 {
             this.a = d94Var;
         }
 
-        @Override // com.baidu.swan.games.view.recommend.listmode.ListRecommendAdapter.a
-        public void a(int i) {
+        @Override // java.lang.Runnable
+        public void run() {
+            ApiButton apiButton;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (this.a.c != null) {
-                    this.a.c.u(i);
-                }
-                this.a.y();
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (apiButton = this.a.a) != null) {
+                apiButton.hide();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class c implements View.OnClickListener {
+    public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ d94 a;
@@ -130,30 +123,29 @@ public class d94 extends w84 {
             this.a = d94Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // java.lang.Runnable
+        public void run() {
+            ApiButton apiButton;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.a.b != null && this.a.c != null) {
-                    this.a.c.o();
-                }
-                this.a.y();
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (apiButton = this.a.a) != null) {
+                apiButton.show();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class d implements View.OnClickListener {
+    public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d94 a;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ d94 b;
 
-        public d(d94 d94Var) {
+        public d(d94 d94Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {d94Var};
+                Object[] objArr = {d94Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -163,16 +155,41 @@ public class d94 extends w84 {
                     return;
                 }
             }
-            this.a = d94Var;
+            this.b = d94Var;
+            this.a = str;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
-                return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (rm1.a) {
+                    Log.d("BaseButtonProxy", "onFieldChangedCallback fieldName=" + this.a);
+                }
+                if (this.b.a == null) {
+                    return;
+                }
+                String str = this.a;
+                char c = 65535;
+                int hashCode = str.hashCode();
+                if (hashCode != 3556653) {
+                    if (hashCode == 100313435 && str.equals("image")) {
+                        c = 1;
+                    }
+                } else if (str.equals("text")) {
+                    c = 0;
+                }
+                if (c != 0) {
+                    if (c == 1) {
+                        d94 d94Var = this.b;
+                        d94Var.a.setImageUrl(d94Var.image);
+                        return;
+                    }
+                    return;
+                }
+                d94 d94Var2 = this.b;
+                d94Var2.a.setButtonText(d94Var2.text);
             }
-            this.a.y();
         }
     }
 
@@ -204,164 +221,163 @@ public class d94 extends w84 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.a.n.getLayoutParams();
-                layoutParams.width = this.a.l.getWidth();
-                int height = this.a.l.getHeight();
-                layoutParams.height = height;
-                layoutParams.topMargin = -height;
-                this.a.n.setVisibility(0);
+                d94 d94Var = this.a;
+                if (d94Var.a != null && !d94Var.A()) {
+                    this.a.a.i();
+                }
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d94(@NonNull Context context, @NonNull z84 z84Var) {
-        super(context, z84Var);
+    public d94(JsObject jsObject, qd2 qd2Var) {
+        super(qd2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, z84Var};
+            Object[] objArr = {jsObject, qd2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (z84) objArr2[1]);
+                super((JSRuntime) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.type = "text";
+        this.text = np2.c().getString(R.string.obfuscated_res_0x7f0f0135);
+        z(jsObject);
     }
 
-    @Override // com.baidu.tieba.w84, com.baidu.tieba.x84
-    public void e(e94 e94Var) {
+    @JavascriptInterface
+    public void onFieldChangedCallback(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, e94Var) == null) {
-            super.e(e94Var);
-            this.p.o(e94Var);
-            D();
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            ak3.e0(new d(this, str));
         }
     }
 
-    public final void A(View view2) {
+    public final boolean A() {
+        InterceptResult invokeV;
+        mw2 y;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            view2.setOnClickListener(new a(this));
-            this.p.n(new b(this));
-            this.k.findViewById(R.id.obfuscated_res_0x7f092370).setOnClickListener(new c(this));
-            this.m.setOnClickListener(new d(this));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a == null || this.style == null || (y = y()) == null || !a94.f(this.a, y)) {
+                return false;
+            }
+            return true;
         }
+        return invokeV.booleanValue;
     }
 
-    public final void B() {
+    @JavascriptInterface
+    public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            C();
-            t43 t43Var = this.j;
-            if (t43Var != null) {
-                t43Var.show();
-            }
+            ak3.e0(new a(this));
         }
     }
 
-    public final void y() {
-        t43 t43Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (t43Var = this.j) != null) {
-            t43Var.dismiss();
-        }
-    }
-
-    public final void C() {
-        int i;
+    @JavascriptInterface
+    public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            boolean a2 = wo2.M().a();
-            this.n.setVisibility(8);
-            ImageView imageView = this.m;
-            if (a2) {
-                i = R.drawable.obfuscated_res_0x7f0814db;
-            } else {
-                i = R.drawable.obfuscated_res_0x7f0814da;
-            }
-            imageView.setImageResource(i);
-            if (a2) {
-                this.l.post(new e(this));
-            }
+            ak3.e0(new b(this));
         }
     }
 
-    public final void D() {
-        boolean z;
-        float f;
+    @Override // com.baidu.tieba.c94.a
+    public void r() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            SwanAppActivity activity = cr2.V().getActivity();
-            if (activity != null && activity.j0()) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                f = 2.5f;
-            } else {
-                f = 5.0f;
-            }
-            float min = Math.min(f, this.o.getAdapter().getItemCount());
-            Resources resources = this.a.getResources();
-            float dimension = resources.getDimension(R.dimen.obfuscated_res_0x7f0708ae);
-            float dimension2 = resources.getDimension(R.dimen.obfuscated_res_0x7f0708ad);
-            float dimension3 = resources.getDimension(R.dimen.obfuscated_res_0x7f0708b9);
-            Pair<Integer, Integer> y = cr2.V().y();
-            this.o.getLayoutParams().width = (int) Math.min(dimension3, ((Integer) y.first).intValue());
-            this.o.getLayoutParams().height = (int) Math.min((int) ((min * (resources.getDimension(R.dimen.obfuscated_res_0x7f0708b5) + dimension)) + dimension2), ((Integer) y.second).intValue() * 0.67f);
-            this.o.requestLayout();
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            ak3.e0(new e(this));
         }
     }
 
-    @Override // com.baidu.tieba.w84
-    @SuppressLint({"InflateParams"})
-    public View i() {
+    @JavascriptInterface
+    public void show() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            ak3.e0(new c(this));
+        }
+    }
+
+    public boolean x() {
+        InterceptResult invokeV;
+        c94 c94Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.a == null || (c94Var = this.style) == null) {
+                return false;
+            }
+            c94Var.b(this);
+            mw2 y = y();
+            if (y == null || !a94.a(this.a, y)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final mw2 y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            View i = super.i();
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0948, (ViewGroup) null);
-            this.k = inflate;
-            this.l = inflate.findViewById(R.id.obfuscated_res_0x7f09236f);
-            this.n = this.k.findViewById(R.id.obfuscated_res_0x7f092372);
-            this.m = (ImageView) this.k.findViewById(R.id.obfuscated_res_0x7f09236e);
-            z();
-            RecyclerView recyclerView = (RecyclerView) this.k.findViewById(R.id.obfuscated_res_0x7f092371);
-            this.o = recyclerView;
-            recyclerView.setItemAnimator(null);
-            this.o.setLayoutManager(new LinearLayoutManager(this.a));
-            this.o.addItemDecoration(new ListRecommendDivider(this.a));
-            ListRecommendAdapter listRecommendAdapter = new ListRecommendAdapter(this.a);
-            this.p = listRecommendAdapter;
-            this.o.setAdapter(listRecommendAdapter);
-            A(i);
-            return i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            c94 c94Var = this.style;
+            if (c94Var == null || this.a == null) {
+                return null;
+            }
+            int g = xj3.g(c94Var.width);
+            int g2 = xj3.g(this.style.height);
+            int g3 = xj3.g(this.style.left);
+            int g4 = xj3.g(this.style.top);
+            int g5 = xj3.g(this.style.borderWidth) * 2;
+            if (g < g5) {
+                g = g5;
+            }
+            if (g2 < g5) {
+                g2 = g5;
+            }
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.a.getLayoutParams();
+            if (layoutParams != null && layoutParams.width == g && layoutParams.height == g2 && layoutParams.leftMargin == g3 && layoutParams.topMargin == g4) {
+                return null;
+            }
+            return new mw2(g3, g4, g, g2);
         }
-        return (View) invokeV.objValue;
+        return (mw2) invokeV.objValue;
     }
 
-    public final void z() {
+    public final void z(JsObject jsObject) {
+        c94 c94Var;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            t43.a aVar = new t43.a(this.a);
-            aVar.m(true);
-            aVar.f(true);
-            aVar.k(false);
-            aVar.j();
-            aVar.b();
-            aVar.p(17170445);
-            aVar.W(this.k);
-            aVar.t(false);
-            this.j = aVar.c();
-            yh3.b(cr2.V().getActivity(), this.j);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jsObject) == null) {
+            oy1 G = oy1.G(jsObject);
+            if (rm1.a) {
+                if (("parse jsObject = " + G) != null) {
+                    str = G.toString();
+                } else {
+                    str = null;
+                }
+                Log.d("BaseButtonProxy", str);
+            }
+            if (G == null) {
+                return;
+            }
+            this.type = G.D("type", this.type);
+            this.text = G.D("text", this.text);
+            this.image = G.D("image", this.image);
+            oy1 y = G.y("style", null);
+            if (y == null) {
+                c94Var = this.style;
+            } else {
+                c94Var = new c94(y);
+            }
+            this.style = c94Var;
         }
     }
 }

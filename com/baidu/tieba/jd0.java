@@ -1,97 +1,71 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.View;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class jd0 extends f81 {
+public class jd0 extends bg1<qf0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AdBaseModel a;
-    public View b;
-    public View.OnClickListener c;
 
-    public jd0(AdBaseModel adBaseModel, View view2) {
+    /* loaded from: classes6.dex */
+    public class a implements qf0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(jd0 jd0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jd0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.qf0
+        public String n() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return hd0.e();
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    public jd0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {adBaseModel, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = adBaseModel;
-        this.b = view2;
-    }
-
-    @Override // com.baidu.tieba.f81
-    public void a(String str) {
-        AdBaseModel adBaseModel;
-        jm0 jm0Var;
-        em0 em0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (adBaseModel = this.a) != null && (jm0Var = adBaseModel.f) != null && !TextUtils.isEmpty(jm0Var.d)) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(ClogBuilder.LogType.FREE_CLICK);
-            clogBuilder.j(str);
-            fm0 fm0Var = adBaseModel.m;
-            if (fm0Var != null && (em0Var = fm0Var.q) != null) {
-                clogBuilder.v(em0Var.a);
-            }
-            clogBuilder.p(adBaseModel.f.d);
-            jy0.e(clogBuilder);
-        }
-    }
-
-    @Override // com.baidu.tieba.f81
-    public void b(@NonNull rm0 rm0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rm0Var) == null) {
-            if (rm0Var.c) {
-                yd0.b(rm0Var.a);
-                g(ClogBuilder.LogType.CLICK, "detailbtn", this.a);
-            }
-            View.OnClickListener onClickListener = this.c;
-            if (onClickListener != null) {
-                onClickListener.onClick(this.b);
             }
         }
     }
 
-    public void h(View.OnClickListener onClickListener) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bg1
+    /* renamed from: a */
+    public qf0 createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.c = onClickListener;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
         }
-    }
-
-    public final void g(ClogBuilder.LogType logType, String str, AdBaseModel adBaseModel) {
-        jm0 jm0Var;
-        em0 em0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, logType, str, adBaseModel) == null) && adBaseModel != null && (jm0Var = adBaseModel.f) != null && !TextUtils.isEmpty(jm0Var.d)) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(logType);
-            clogBuilder.j(str);
-            fm0 fm0Var = adBaseModel.m;
-            if (fm0Var != null && (em0Var = fm0Var.q) != null) {
-                clogBuilder.v(em0Var.a);
-            }
-            clogBuilder.p(adBaseModel.f.d);
-            jy0.e(clogBuilder);
-        }
+        return (qf0) invokeV.objValue;
     }
 }

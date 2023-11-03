@@ -1,538 +1,98 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
-import android.transition.Transition;
-import android.transition.TransitionManager;
-import android.transition.TransitionSet;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.live.interfaces.defaultimpl.utils.MultiRatePlayUrlHelper;
+import com.baidu.searchbox.pms.db.PackageTable;
+import com.baidu.swan.apps.model.SwanAppBearInfo;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.swan.pms.PMSConstants;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.tieba.ah4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.internal.ETAG;
+import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class nj4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public interface f {
-        View getView();
-    }
-
-    /* loaded from: classes7.dex */
-    public static class a extends Transition.EpicenterCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Rect a;
-
-        public a(Rect rect) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rect};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rect;
-        }
-
-        @Override // android.transition.Transition.EpicenterCallback
-        public Rect onGetEpicenter(Transition transition) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, transition)) == null) {
-                return this.a;
-            }
-            return (Rect) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b implements ViewTreeObserver.OnPreDrawListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-        public final /* synthetic */ Transition b;
-        public final /* synthetic */ View c;
-        public final /* synthetic */ f d;
-        public final /* synthetic */ Map e;
-        public final /* synthetic */ Map f;
-        public final /* synthetic */ ArrayList g;
-
-        public b(View view2, Transition transition, View view3, f fVar, Map map, Map map2, ArrayList arrayList) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2, transition, view3, fVar, map, map2, arrayList};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = view2;
-            this.b = transition;
-            this.c = view3;
-            this.d = fVar;
-            this.e = map;
-            this.f = map2;
-            this.g = arrayList;
-        }
-
-        @Override // android.view.ViewTreeObserver.OnPreDrawListener
-        public boolean onPreDraw() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.a.getViewTreeObserver().removeOnPreDrawListener(this);
-                Transition transition = this.b;
-                if (transition != null) {
-                    transition.removeTarget(this.c);
-                }
-                View view2 = this.d.getView();
-                if (view2 != null) {
-                    if (!this.e.isEmpty()) {
-                        nj4.m(this.f, view2);
-                        this.f.keySet().retainAll(this.e.values());
-                        for (Map.Entry entry : this.e.entrySet()) {
-                            View view3 = (View) this.f.get((String) entry.getValue());
-                            if (view3 != null) {
-                                view3.setTransitionName((String) entry.getKey());
-                            }
-                        }
-                    }
-                    if (this.b != null) {
-                        nj4.h(this.g, view2);
-                        this.g.removeAll(this.f.values());
-                        this.g.add(this.c);
-                        nj4.c(this.b, this.g);
-                        return true;
-                    }
-                    return true;
-                }
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class c extends Transition.EpicenterCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Rect a;
-        public final /* synthetic */ e b;
-
-        public c(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = eVar;
-        }
-
-        @Override // android.transition.Transition.EpicenterCallback
-        public Rect onGetEpicenter(Transition transition) {
-            InterceptResult invokeL;
-            View view2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, transition)) == null) {
-                if (this.a == null && (view2 = this.b.a) != null) {
-                    this.a = nj4.n(view2);
-                }
-                return this.a;
-            }
-            return (Rect) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class d implements ViewTreeObserver.OnPreDrawListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-        public final /* synthetic */ Transition b;
-        public final /* synthetic */ ArrayList c;
-        public final /* synthetic */ Transition d;
-        public final /* synthetic */ ArrayList e;
-        public final /* synthetic */ Transition f;
-        public final /* synthetic */ ArrayList g;
-        public final /* synthetic */ Map h;
-        public final /* synthetic */ ArrayList i;
-        public final /* synthetic */ Transition j;
-        public final /* synthetic */ View k;
-
-        public d(View view2, Transition transition, ArrayList arrayList, Transition transition2, ArrayList arrayList2, Transition transition3, ArrayList arrayList3, Map map, ArrayList arrayList4, Transition transition4, View view3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r3;
-                Object[] objArr = {view2, transition, arrayList, transition2, arrayList2, transition3, arrayList3, map, arrayList4, transition4, view3};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = view2;
-            this.b = transition;
-            this.c = arrayList;
-            this.d = transition2;
-            this.e = arrayList2;
-            this.f = transition3;
-            this.g = arrayList3;
-            this.h = map;
-            this.i = arrayList4;
-            this.j = transition4;
-            this.k = view3;
-        }
-
-        @Override // android.view.ViewTreeObserver.OnPreDrawListener
-        public boolean onPreDraw() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.a.getViewTreeObserver().removeOnPreDrawListener(this);
-                Transition transition = this.b;
-                if (transition != null) {
-                    nj4.s(transition, this.c);
-                }
-                Transition transition2 = this.d;
-                if (transition2 != null) {
-                    nj4.s(transition2, this.e);
-                }
-                Transition transition3 = this.f;
-                if (transition3 != null) {
-                    nj4.s(transition3, this.g);
-                }
-                for (Map.Entry entry : this.h.entrySet()) {
-                    ((View) entry.getValue()).setTransitionName((String) entry.getKey());
-                }
-                int size = this.i.size();
-                for (int i = 0; i < size; i++) {
-                    this.j.excludeTarget((View) this.i.get(i), false);
-                }
-                this.j.excludeTarget(this.k, false);
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public View a;
-
-        public e() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public static void e(ViewGroup viewGroup, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, viewGroup, obj) == null) {
-            TransitionManager.beginDelayedTransition(viewGroup, (Transition) obj);
-        }
-    }
-
-    public static void t(Object obj, View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65555, null, obj, view2) == null) {
-            ((Transition) obj).setEpicenterCallback(new a(n(view2)));
-        }
-    }
-
-    public static void u(Transition transition, e eVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65556, null, transition, eVar) == null) && transition != null) {
-            transition.setEpicenterCallback(new c(eVar));
-        }
-    }
-
-    public static Object j(Object obj) {
+    public static PMSAppInfo a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, obj)) == null) {
-            if (obj != null) {
-                return ((Transition) obj).clone();
-            }
-            return obj;
-        }
-        return invokeL.objValue;
-    }
-
-    public static String o(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, view2)) == null) {
-            return view2.getTransitionName();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean q(List list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, list)) == null) {
-            if (list != null && !list.isEmpty()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static Object w(Object obj) {
-        InterceptResult invokeL;
-        Transition transition;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, obj)) == null) {
-            if (obj == null || (transition = (Transition) obj) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
+            if (jSONObject == null) {
                 return null;
             }
-            TransitionSet transitionSet = new TransitionSet();
-            transitionSet.addTransition(transition);
-            return transitionSet;
+            PMSAppInfo pMSAppInfo = new PMSAppInfo();
+            pMSAppInfo.appKey = jSONObject.optString(GameGuideConfigInfo.KEY_APP_KEY);
+            pMSAppInfo.appName = jSONObject.optString("app_name");
+            pMSAppInfo.description = jSONObject.optString("app_desc");
+            pMSAppInfo.appStatus = jSONObject.optInt("app_status");
+            pMSAppInfo.statusDetail = jSONObject.optString("status_detail");
+            pMSAppInfo.statusDesc = jSONObject.optString("status_desc");
+            pMSAppInfo.resumeDate = jSONObject.optString("resume_date");
+            pMSAppInfo.subjectInfo = jSONObject.optString("subject_info");
+            pMSAppInfo.maxAge = jSONObject.optLong("max_age");
+            pMSAppInfo.appCategory = jSONObject.optInt("sub_category");
+            pMSAppInfo.iconUrl = jSONObject.optString("icon_url");
+            pMSAppInfo.serviceCategory = jSONObject.optString("service_category");
+            pMSAppInfo.webViewDomains = jSONObject.optString("webview_domains");
+            pMSAppInfo.domainConfig = jSONObject.optString("domain_config");
+            pMSAppInfo.webAction = jSONObject.optString("web_action");
+            pMSAppInfo.domains = jSONObject.optString("domains");
+            pMSAppInfo.serverExt = jSONObject.optString("ext");
+            pMSAppInfo.appSign = jSONObject.optLong("app_sign");
+            pMSAppInfo.payProtected = jSONObject.optInt("pay_protected", PMSConstants.PayProtected.NO_PAY_PROTECTED.type);
+            pMSAppInfo.customerService = jSONObject.optInt("customer_service", PMSConstants.CustomerService.NO_CUSTOMER_SERVICE.type);
+            pMSAppInfo.globalNotice = jSONObject.optInt("global_notice", PMSConstants.CloudSwitch.NO_DISPLAY.value);
+            pMSAppInfo.globalPrivate = jSONObject.optInt("global_private", PMSConstants.CloudSwitch.NO_DISPLAY.value);
+            pMSAppInfo.paNumber = jSONObject.optString("pa_number");
+            String optString = p(pMSAppInfo.serverExt).optString("quick_app_key");
+            if (!TextUtils.isEmpty(optString)) {
+                pMSAppInfo.quickAppKey = optString;
+            }
+            JSONObject optJSONObject = p(pMSAppInfo.serverExt).optJSONObject(SwanAppBearInfo.BEAR_INFO);
+            if (optJSONObject != null) {
+                pMSAppInfo.bearInfo = optJSONObject.toString();
+            }
+            JSONArray optJSONArray = jSONObject.optJSONArray("plugins");
+            if (optJSONArray != null) {
+                pMSAppInfo.pluginInfo = optJSONArray.toString();
+            }
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("brand");
+            if (optJSONObject2 != null) {
+                pMSAppInfo.brandsInfo = optJSONObject2.toString();
+            }
+            rd4.b().k(jSONObject.optJSONArray("ban_page"), jSONObject.optString("ban_tips"), pMSAppInfo.appKey);
+            JSONObject optJSONObject3 = jSONObject.optJSONObject("scope_list");
+            boolean z = false;
+            if (jSONObject.optInt("service_degrade", 0) != 0) {
+                z = true;
+            }
+            rd4.b().s(pMSAppInfo, optJSONObject3, z);
+            pMSAppInfo.webUrl = jSONObject.optString("web_url");
+            pMSAppInfo.rank = jSONObject.optInt(MultiRatePlayUrlHelper.RANK);
+            pMSAppInfo.webPermit = jSONObject.optInt("web_permit");
+            pMSAppInfo.csProtocolVersion = PMSConstants.a.a();
+            pMSAppInfo.userActionApis = jSONObject.optString("user_action_apis");
+            return pMSAppInfo;
         }
-        return invokeL.objValue;
+        return (PMSAppInfo) invokeL.objValue;
     }
 
-    public static void c(Object obj, ArrayList<View> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, obj, arrayList) == null) {
-            Transition transition = (Transition) obj;
-            int i = 0;
-            if (transition instanceof TransitionSet) {
-                TransitionSet transitionSet = (TransitionSet) transition;
-                int transitionCount = transitionSet.getTransitionCount();
-                while (i < transitionCount) {
-                    c(transitionSet.getTransitionAt(i), arrayList);
-                    i++;
-                }
-            } else if (!p(transition) && q(transition.getTargets())) {
-                int size = arrayList.size();
-                while (i < size) {
-                    transition.addTarget(arrayList.get(i));
-                    i++;
-                }
-            }
-        }
-    }
-
-    public static void f(List<View> list, View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, list, view2) == null) {
-            int size = list.size();
-            if (k(list, view2, size)) {
-                return;
-            }
-            list.add(view2);
-            for (int i = size; i < list.size(); i++) {
-                View view3 = list.get(i);
-                if (view3 instanceof ViewGroup) {
-                    ViewGroup viewGroup = (ViewGroup) view3;
-                    int childCount = viewGroup.getChildCount();
-                    for (int i2 = 0; i2 < childCount; i2++) {
-                        View childAt = viewGroup.getChildAt(i2);
-                        if (!k(list, childAt, size)) {
-                            list.add(childAt);
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public static void s(Object obj, ArrayList<View> arrayList) {
-        List<View> targets;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65554, null, obj, arrayList) == null) {
-            Transition transition = (Transition) obj;
-            if (transition instanceof TransitionSet) {
-                TransitionSet transitionSet = (TransitionSet) transition;
-                int transitionCount = transitionSet.getTransitionCount();
-                for (int i = 0; i < transitionCount; i++) {
-                    s(transitionSet.getTransitionAt(i), arrayList);
-                }
-            } else if (!p(transition) && (targets = transition.getTargets()) != null && targets.size() == arrayList.size() && targets.containsAll(arrayList)) {
-                for (int size = arrayList.size() - 1; size >= 0; size--) {
-                    transition.removeTarget(arrayList.get(size));
-                }
-            }
-        }
-    }
-
-    public static void d(Object obj, Object obj2, View view2, f fVar, View view3, e eVar, Map<String, String> map, ArrayList<View> arrayList, Map<String, View> map2, Map<String, View> map3, ArrayList<View> arrayList2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{obj, obj2, view2, fVar, view3, eVar, map, arrayList, map2, map3, arrayList2}) == null) {
-            if (obj != null || obj2 != null) {
-                Transition transition = (Transition) obj;
-                if (transition != null) {
-                    transition.addTarget(view3);
-                }
-                if (obj2 != null) {
-                    v(obj2, view3, map2, arrayList2);
-                }
-                if (fVar != null) {
-                    view2.getViewTreeObserver().addOnPreDrawListener(new b(view2, transition, view3, fVar, map, map3, arrayList));
-                }
-                u(transition, eVar);
-            }
-        }
-    }
-
-    public static void i(View view2, View view3, Object obj, ArrayList<View> arrayList, Object obj2, ArrayList<View> arrayList2, Object obj3, ArrayList<View> arrayList3, Object obj4, ArrayList<View> arrayList4, Map<String, View> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{view2, view3, obj, arrayList, obj2, arrayList2, obj3, arrayList3, obj4, arrayList4, map}) == null) {
-            Transition transition = (Transition) obj;
-            Transition transition2 = (Transition) obj2;
-            Transition transition3 = (Transition) obj3;
-            Transition transition4 = (Transition) obj4;
-            if (transition4 != null) {
-                view2.getViewTreeObserver().addOnPreDrawListener(new d(view2, transition, arrayList, transition2, arrayList2, transition3, arrayList3, map, arrayList4, transition4, view3));
-            }
-        }
-    }
-
-    public static Object g(Object obj, View view2, ArrayList<View> arrayList, Map<String, View> map, View view3) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65542, null, obj, view2, arrayList, map, view3)) == null) {
-            if (obj != null) {
-                h(arrayList, view2);
-                if (map != null) {
-                    arrayList.removeAll(map.values());
-                }
-                if (arrayList.isEmpty()) {
-                    return null;
-                }
-                arrayList.add(view3);
-                c((Transition) obj, arrayList);
-                return obj;
-            }
-            return obj;
-        }
-        return invokeLLLLL.objValue;
-    }
-
-    public static void h(ArrayList<View> arrayList, View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65543, null, arrayList, view2) == null) && view2.getVisibility() == 0) {
-            if (view2 instanceof ViewGroup) {
-                ViewGroup viewGroup = (ViewGroup) view2;
-                if (viewGroup.isTransitionGroup()) {
-                    arrayList.add(viewGroup);
-                    return;
-                }
-                int childCount = viewGroup.getChildCount();
-                for (int i = 0; i < childCount; i++) {
-                    h(arrayList, viewGroup.getChildAt(i));
-                }
-                return;
-            }
-            arrayList.add(view2);
-        }
-    }
-
-    public static void m(Map<String, View> map, View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65548, null, map, view2) == null) && view2.getVisibility() == 0) {
-            String transitionName = view2.getTransitionName();
-            if (transitionName != null) {
-                map.put(transitionName, view2);
-            }
-            if (view2 instanceof ViewGroup) {
-                ViewGroup viewGroup = (ViewGroup) view2;
-                int childCount = viewGroup.getChildCount();
-                for (int i = 0; i < childCount; i++) {
-                    m(map, viewGroup.getChildAt(i));
-                }
-            }
-        }
-    }
-
-    public static boolean k(List<View> list, View view2, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65546, null, list, view2, i)) == null) {
-            for (int i2 = 0; i2 < i; i2++) {
-                if (list.get(i2) == view2) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeLLI.booleanValue;
-    }
-
-    public static void l(Object obj, View view2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65547, null, obj, view2, z) == null) {
-            ((Transition) obj).excludeTarget(view2, z);
-        }
-    }
-
-    public static Rect n(View view2) {
+    public static boolean b(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, view2)) == null) {
-            Rect rect = new Rect();
-            int[] iArr = new int[2];
-            view2.getLocationOnScreen(iArr);
-            rect.set(iArr[0], iArr[1], iArr[0] + view2.getWidth(), iArr[1] + view2.getHeight());
-            return rect;
-        }
-        return (Rect) invokeL.objValue;
-    }
-
-    public static boolean p(Transition transition) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, transition)) == null) {
-            if (q(transition.getTargetIds()) && q(transition.getTargetNames()) && q(transition.getTargetTypes())) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null || 1 != jSONObject.optInt("reset_env", 0)) {
                 return false;
             }
             return true;
@@ -540,61 +100,298 @@ public class nj4 {
         return invokeL.booleanValue;
     }
 
-    public static Object r(Object obj, Object obj2, Object obj3, boolean z) {
-        InterceptResult invokeCommon;
+    public static bf4 c(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65553, null, new Object[]{obj, obj2, obj3, Boolean.valueOf(z)})) == null) {
-            Transition transition = (Transition) obj;
-            Transition transition2 = (Transition) obj2;
-            Transition transition3 = (Transition) obj3;
-            if ((transition == null || transition2 == null) ? true : true) {
-                TransitionSet transitionSet = new TransitionSet();
-                if (transition != null) {
-                    transitionSet.addTransition(transition);
-                }
-                if (transition2 != null) {
-                    transitionSet.addTransition(transition2);
-                }
-                if (transition3 != null) {
-                    transitionSet.addTransition(transition3);
-                    return transitionSet;
-                }
-                return transitionSet;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            if (transition2 != null && transition != null) {
-                transition = new TransitionSet().addTransition(transition2).addTransition(transition).setOrdering(1);
-            } else if (transition2 != null) {
-                transition = transition2;
-            } else if (transition == null) {
-                transition = null;
-            }
-            if (transition3 != null) {
-                TransitionSet transitionSet2 = new TransitionSet();
-                if (transition != null) {
-                    transitionSet2.addTransition(transition);
-                }
-                transitionSet2.addTransition(transition3);
-                return transitionSet2;
-            }
-            return transition;
+            return (bf4) j(jSONObject, new bf4());
         }
-        return invokeCommon.objValue;
+        return (bf4) invokeL.objValue;
     }
 
-    public static void v(Object obj, View view2, Map<String, View> map, ArrayList<View> arrayList) {
+    public static df4 d(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65557, null, obj, view2, map, arrayList) == null) {
-            TransitionSet transitionSet = (TransitionSet) obj;
-            arrayList.clear();
-            arrayList.addAll(map.values());
-            List<View> targets = transitionSet.getTargets();
-            targets.clear();
-            int size = arrayList.size();
-            for (int i = 0; i < size; i++) {
-                f(targets, arrayList.get(i));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            arrayList.add(view2);
-            c(transitionSet, arrayList);
+            return (df4) j(jSONObject, new df4());
         }
+        return (df4) invokeL.objValue;
+    }
+
+    public static ch4 h(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            ch4 ch4Var = new ch4();
+            ch4Var.a = o(jSONObject);
+            return ch4Var;
+        }
+        return (ch4) invokeL.objValue;
+    }
+
+    public static hf4 o(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            hf4 hf4Var = new hf4();
+            j(jSONObject, hf4Var);
+            long optLong = jSONObject.optLong("max_age");
+            if (optLong < 0) {
+                optLong = 0;
+            }
+            hf4Var.o = optLong;
+            return hf4Var;
+        }
+        return (hf4) invokeL.objValue;
+    }
+
+    public static JSONObject p(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new JSONObject();
+            }
+            try {
+                return new JSONObject(str);
+            } catch (JSONException unused) {
+                return new JSONObject();
+            }
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static zg4 e(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            zg4 zg4Var = new zg4();
+            JSONArray optJSONArray = jSONObject.optJSONArray("list");
+            List<hf4> l = l(optJSONArray);
+            zg4Var.c = l;
+            if (l != null && l.contains(null)) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                k(zg4Var, optJSONArray);
+            } else {
+                zg4Var.a = 0;
+            }
+            return zg4Var;
+        }
+        return (zg4) invokeL.objValue;
+    }
+
+    public static ff4 m(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            ff4 ff4Var = (ff4) j(jSONObject, new ff4());
+            ff4Var.o = jSONObject.optInt("pkg_type");
+            ff4Var.p = jSONObject.optString("ext");
+            return ff4Var;
+        }
+        return (ff4) invokeL.objValue;
+    }
+
+    public static eh4 q(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            eh4 eh4Var = new eh4();
+            eh4Var.a = jSONObject.optLong("max_age");
+            long optLong = jSONObject.optLong("lastsynctime");
+            if (optLong > 0) {
+                mi4.c = optLong;
+            }
+            eh4Var.b = jSONObject;
+            return eh4Var;
+        }
+        return (eh4) invokeL.objValue;
+    }
+
+    public static ah4 f(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            ah4 ah4Var = new ah4();
+            ArrayList arrayList = new ArrayList();
+            JSONArray optJSONArray = jSONObject.optJSONArray("list");
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                    ah4.a aVar = new ah4.a();
+                    aVar.a = optJSONObject.optInt("errno");
+                    aVar.b = optJSONObject.optString("bundle_id");
+                    aVar.c = optJSONObject.optInt("category");
+                    aVar.d = m(optJSONObject.optJSONObject("main"));
+                    aVar.e = n(optJSONObject.optJSONArray("sub"));
+                    aVar.f = l(optJSONObject.optJSONArray("dep"));
+                    aVar.g = a(optJSONObject.optJSONObject("app_info"));
+                    rd4.b().p(aVar.b, optJSONObject, aVar.d, aVar.e);
+                    arrayList.add(aVar);
+                }
+            }
+            ah4Var.a = arrayList;
+            return ah4Var;
+        }
+        return (ah4) invokeL.objValue;
+    }
+
+    public static bh4 g(String str, JSONObject jSONObject) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            bh4 bh4Var = new bh4();
+            JSONObject optJSONObject = jSONObject.optJSONObject("pkg");
+            if (optJSONObject != null) {
+                bh4Var.a = m(optJSONObject.optJSONObject("main"));
+                bh4Var.b = n(optJSONObject.optJSONArray("sub"));
+                bh4Var.c = l(optJSONObject.optJSONArray("dep"));
+                rd4.b().p(str, optJSONObject, bh4Var.a, bh4Var.b);
+            }
+            bh4Var.d = d(jSONObject.optJSONObject("framework"));
+            bh4Var.f = c(jSONObject.optJSONObject(ETAG.KEY_EXTENSION));
+            bh4Var.e = a(jSONObject.optJSONObject("app_info"));
+            return bh4Var;
+        }
+        return (bh4) invokeLL.objValue;
+    }
+
+    public static dh4 i(String str, JSONObject jSONObject) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            dh4 dh4Var = new dh4();
+            JSONObject optJSONObject = jSONObject.optJSONObject("pkg");
+            if (optJSONObject != null) {
+                dh4Var.a = n(optJSONObject.optJSONArray("sub"));
+                rd4.b().p(str, optJSONObject, null, dh4Var.a);
+            }
+            return dh4Var;
+        }
+        return (dh4) invokeLL.objValue;
+    }
+
+    public static void k(zg4 zg4Var, JSONArray jSONArray) {
+        int optInt;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65546, null, zg4Var, jSONArray) != null) || jSONArray == null) {
+            return;
+        }
+        int length = jSONArray.length();
+        for (int i = 0; i < length; i++) {
+            JSONObject optJSONObject = jSONArray.optJSONObject(i);
+            if (optJSONObject != null && (optInt = optJSONObject.optInt("errno", 0)) != 0) {
+                String optString = optJSONObject.optString("bundle_id");
+                zg4Var.a = optInt;
+                zg4Var.b = String.format("%s : Not Exist.", optString);
+                return;
+            }
+        }
+    }
+
+    public static <T extends ef4> T j(JSONObject jSONObject, T t) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, jSONObject, t)) == null) {
+            if (jSONObject != null && t != null) {
+                t.g = jSONObject.optString("bundle_id");
+                t.h = jSONObject.optInt("category");
+                t.j = jSONObject.optString(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME);
+                t.i = jSONObject.optLong("version_code");
+                t.k = jSONObject.optLong("size");
+                t.l = jSONObject.optString(PackageTable.MD5);
+                t.m = jSONObject.optString("sign");
+                t.n = jSONObject.optString("download_url");
+                return t;
+            }
+            return null;
+        }
+        return (T) invokeLL.objValue;
+    }
+
+    public static List<hf4> l(JSONArray jSONArray) {
+        InterceptResult invokeL;
+        int length;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, jSONArray)) == null) {
+            if (jSONArray == null || (length = jSONArray.length()) <= 0) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                if (optJSONObject != null) {
+                    JSONObject optJSONObject2 = optJSONObject.optJSONObject("main");
+                    JSONObject optJSONObject3 = optJSONObject.optJSONObject("app_info");
+                    hf4 o = o(optJSONObject2);
+                    if (o != null && optJSONObject3 != null) {
+                        o.r = optJSONObject3.optString(GameGuideConfigInfo.KEY_APP_KEY);
+                        o.s = optJSONObject3.optString("app_name");
+                        o.q = optJSONObject3.optString("domains");
+                    }
+                    arrayList.add(o);
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public static List<gf4> n(JSONArray jSONArray) {
+        InterceptResult invokeL;
+        int length;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, jSONArray)) == null) {
+            if (jSONArray == null || (length = jSONArray.length()) <= 0) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                gf4 gf4Var = (gf4) j(optJSONObject, new gf4());
+                gf4Var.q = optJSONObject.optInt("pkg_type");
+                gf4Var.p = optJSONObject.optString("sub_path");
+                gf4Var.r = optJSONObject.optBoolean("independent");
+                gf4Var.s = optJSONObject.optString("ext");
+                arrayList.add(gf4Var);
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
     }
 }

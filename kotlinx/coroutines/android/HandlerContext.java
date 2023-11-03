@@ -35,12 +35,12 @@ public final class HandlerContext extends HandlerDispatcher implements Delay {
 
     private final void cancelOnRejection(CoroutineContext coroutineContext, Runnable runnable) {
         JobKt.cancel(coroutineContext, new CancellationException("The task was rejected, the handler underlying the dispatcher '" + this + "' was closed"));
-        Dispatchers.getIO().mo2346dispatch(coroutineContext, runnable);
+        Dispatchers.getIO().mo2350dispatch(coroutineContext, runnable);
     }
 
     @Override // kotlinx.coroutines.CoroutineDispatcher
     /* renamed from: dispatch */
-    public void mo2346dispatch(CoroutineContext coroutineContext, Runnable runnable) {
+    public void mo2350dispatch(CoroutineContext coroutineContext, Runnable runnable) {
         if (!this.handler.post(runnable)) {
             cancelOnRejection(coroutineContext, runnable);
         }
@@ -48,7 +48,7 @@ public final class HandlerContext extends HandlerDispatcher implements Delay {
 
     @Override // kotlinx.coroutines.Delay
     /* renamed from: scheduleResumeAfterDelay */
-    public void mo2347scheduleResumeAfterDelay(long j, final CancellableContinuation<? super Unit> cancellableContinuation) {
+    public void mo2351scheduleResumeAfterDelay(long j, final CancellableContinuation<? super Unit> cancellableContinuation) {
         final Runnable runnable = new Runnable() { // from class: kotlinx.coroutines.android.HandlerContext$scheduleResumeAfterDelay$$inlined$Runnable$1
             @Override // java.lang.Runnable
             public final void run() {
@@ -103,7 +103,7 @@ public final class HandlerContext extends HandlerDispatcher implements Delay {
     @Override // kotlinx.coroutines.android.HandlerDispatcher, kotlinx.coroutines.Delay
     public DisposableHandle invokeOnTimeout(long j, final Runnable runnable, CoroutineContext coroutineContext) {
         if (this.handler.postDelayed(runnable, RangesKt___RangesKt.coerceAtMost(j, 4611686018427387903L))) {
-            return new DisposableHandle() { // from class: com.baidu.tieba.k3c
+            return new DisposableHandle() { // from class: com.baidu.tieba.lgc
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

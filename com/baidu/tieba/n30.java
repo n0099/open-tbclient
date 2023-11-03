@@ -1,8 +1,10 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Handler;
+import android.os.Looper;
+import com.baidu.android.imsdk.db.DBTableDefine;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.searchbox.security.WarmTipsManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,176 +12,54 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class n30 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String g = "Flow";
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public final long c;
-    public long d;
-    public Context e;
-    public Map<String, String> f;
+    public final Map<String, String> a;
+    public final Map<String, String> b;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947951390, "Lcom/baidu/tieba/n30;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947951390, "Lcom/baidu/tieba/n30;");
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public final /* synthetic */ n30 c;
-
-        public a(n30 n30Var, String str, String str2) {
-            Interceptable interceptable = $ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947951390, "Lcom/baidu/tieba/n30;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n30Var, str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.c = n30Var;
-            this.a = str;
-            this.b = str2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.f.put(this.a, this.b);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947951390, "Lcom/baidu/tieba/n30;");
+                return;
             }
         }
+        c = AppConfig.isDebug();
     }
 
-    public n30(Context context, int i, int i2) {
+    public n30() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.d = 0L;
-        this.e = context;
-        this.a = i;
-        this.b = i2;
-        this.c = System.currentTimeMillis();
-        this.f = new ConcurrentHashMap();
-    }
-
-    public n30 b(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                m30.h(this.e).f().execute(new a(this, str, String.valueOf(i)));
-            }
-            if (v40.a) {
-                String str2 = g;
-                w40.a(str2, "flow addEvent id:" + str + ",value:" + i);
-            }
-            return this;
-        }
-        return (n30) invokeLI.objValue;
-    }
-
-    public n30 c(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                m30.h(this.e).f().execute(new a(this, str, String.valueOf(j)));
-            }
-            if (v40.a) {
-                String str2 = g;
-                w40.a(str2, "flow addEvent id:" + str + ",value:" + j);
-            }
-            return this;
-        }
-        return (n30) invokeLJ.objValue;
-    }
-
-    public n30 d(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && str2 != null) {
-                m30.h(this.e).f().execute(new a(this, str, str2));
-            }
-            if (v40.a) {
-                String str3 = g;
-                w40.a(str3, "flow addEvent id:" + str + ",value:" + str2);
-            }
-            return this;
-        }
-        return (n30) invokeLL.objValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.d = System.currentTimeMillis();
-            m30.h(this.e).e(this);
-        }
-    }
-
-    public Map<String, String> g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.f;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                for (Map.Entry<String, String> entry : this.f.entrySet()) {
-                    jSONObject.put(entry.getKey(), entry.getValue());
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeV.objValue;
+        new Handler(Looper.getMainLooper());
+        HashMap hashMap = new HashMap(2);
+        this.a = hashMap;
+        hashMap.put("click_searchbox", WarmTipsManager.WIDGET_HISSUG_EXT_VALUE);
+        this.a.put("click_feed_video", "video");
+        HashMap hashMap2 = new HashMap(2);
+        this.b = hashMap2;
+        hashMap2.put("click_searchbox", DBTableDefine.GroupInfoColumns.COLUMN_GROUP_HOMEPAGE);
+        this.b.put("click_feed_video", DBTableDefine.GroupInfoColumns.COLUMN_GROUP_HOMEPAGE);
+        new HashMap(2);
     }
 }

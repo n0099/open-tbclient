@@ -1,33 +1,20 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.os.Build;
 import android.webkit.JsPromptResult;
+import android.webkit.WebChromeClient;
 import android.webkit.WebView;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.browser.BaseWebViewActivity;
-import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bs4 implements gh6 {
+public class bs4 extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.gh6
-    public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        fh6.a(this, webView, str, jSONObject);
-    }
-
-    @Override // com.baidu.tieba.gh6
-    public /* synthetic */ void onDestroy() {
-        fh6.b(this);
-    }
+    public ksa a;
 
     public bs4() {
         Interceptable interceptable = $ic;
@@ -43,42 +30,41 @@ public class bs4 implements gh6 {
         }
     }
 
-    @Override // com.baidu.tieba.gh6
-    public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLLLL;
+    public final void a(WebView webView, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            if (CommonTbJsBridge.IS_DISABLE_GO_BACK.equals(str2)) {
-                jsPromptResult.confirm(c(webView).a());
-                return false;
+        if ((interceptable == null || interceptable.invokeLLL(1048576, this, webView, str, str2) == null) && webView != null && !qd.isEmpty(str) && !qd.isEmpty(str2)) {
+            if (Build.VERSION.SDK_INT >= 19) {
+                webView.evaluateJavascript("javascript:" + str + "('" + str2 + "')", null);
+                return;
             }
-            return false;
+            webView.loadUrl("javascript:" + str + "('" + str2 + "')");
         }
-        return invokeLLLLL.booleanValue;
     }
 
-    public ifa c(WebView webView) {
-        InterceptResult invokeL;
+    public void b(ksa ksaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webView)) == null) {
-            ifa ifaVar = new ifa();
-            Activity a = vg6.a(webView.getContext());
-            int i = 1;
-            if (a instanceof BaseWebViewActivity) {
-                ((BaseWebViewActivity) a).isDisableGoBack = true;
-            } else {
-                i = 0;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("resultCode", i);
-                ifaVar.o(jSONObject.toString());
-                return ifaVar;
-            } catch (JSONException e) {
-                BdLog.e(e);
-                return ifaVar;
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ksaVar) == null) {
+            this.a = ksaVar;
         }
-        return (ifa) invokeL.objValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
+        ksa ksaVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            if (!s85.a(str) && str2.startsWith("tiebaapp")) {
+                nsa nsaVar = new nsa();
+                nsaVar.w(rsa.b(str2));
+                nsaVar.y(301);
+                a(webView, nsaVar.c(), nsaVar.d());
+            }
+            if ((!s85.a(str) || (ksaVar = this.a) == null || !ksaVar.onJsPrompt(str2, jsPromptResult)) && jsPromptResult != null) {
+                jsPromptResult.cancel();
+            }
+            return true;
+        }
+        return invokeLLLLL.booleanValue;
     }
 }

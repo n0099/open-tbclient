@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.h6c;
+import android.os.Handler;
+import android.os.Looper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,67 +9,103 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes7.dex */
-public final class q7c<T> implements h6c.b<T, T> {
+public final class q7c {
     public static /* synthetic */ Interceptable $ic;
+    public static final q7c b;
+    public static final int c;
+    public static final int d;
+    public static final int e;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public n6c<? super T> a(n6c<? super T> n6cVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, n6cVar)) == null) ? n6cVar : (n6c) invokeL.objValue;
-    }
+    public final Executor a;
 
     /* loaded from: classes7.dex */
-    public static final class a {
+    public static class a implements Executor {
         public static /* synthetic */ Interceptable $ic;
-        public static final q7c<Object> a;
         public transient /* synthetic */ FieldHolder $fh;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-533373425, "Lcom/baidu/tieba/q7c$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-533373425, "Lcom/baidu/tieba/q7c$a;");
-                    return;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            a = new q7c<>();
         }
+
+        public /* synthetic */ a(byte b) {
+            this();
+        }
+
+        @Override // java.util.concurrent.Executor
+        public final void execute(Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+                new Handler(Looper.getMainLooper()).post(runnable);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948046188, "Lcom/baidu/tieba/q7c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948046188, "Lcom/baidu/tieba/q7c;");
+                return;
+            }
+        }
+        b = new q7c();
+        int availableProcessors = Runtime.getRuntime().availableProcessors();
+        c = availableProcessors;
+        d = availableProcessors + 1;
+        e = (availableProcessors * 2) + 1;
     }
 
     public q7c() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new a((byte) 0);
     }
 
-    public static <T> q7c<T> b() {
+    public static ExecutorService a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return (q7c<T>) a.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(d, e, 1L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+            threadPoolExecutor.allowCoreThreadTimeOut(true);
+            return threadPoolExecutor;
         }
-        return (q7c) invokeV.objValue;
+        return (ExecutorService) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.a7c
-    public /* bridge */ /* synthetic */ Object call(Object obj) {
-        n6c<? super T> n6cVar = (n6c) obj;
-        a(n6cVar);
-        return n6cVar;
+    public static Executor b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (Executor) invokeV.objValue;
     }
 }

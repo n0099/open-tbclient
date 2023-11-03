@@ -1,149 +1,132 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import androidx.lifecycle.SavedStateHandle;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.searchbox.live.ubc.FlowInfoHelper;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.tieba.dr2;
+import com.baidu.tieba.lc2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class mz2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final File b;
+    public static long a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947989892, "Lcom/baidu/tieba/mz2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947989892, "Lcom/baidu/tieba/mz2;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947989892, "Lcom/baidu/tieba/mz2;");
+        }
+    }
+
+    public static void a(String str, @Nullable gw2 gw2Var) {
+        g63 M;
+        dr2.a Z;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65537, null, str, gw2Var) != null) || (M = g63.M()) == null || (Z = M.Z()) == null) {
+            return;
+        }
+        HybridUbcFlow q = lz2.q("route", str);
+        q.D("appid", Z.I());
+        q.D("swan", lf3.i(Z.k0(), Z.H()));
+        q.D("net", SwanAppNetworkUtils.f().type);
+        q.D("appversion", Z.x1());
+        q.D("thirdversion", Z.y1());
+        q.D("mobile", wi3.c());
+        q.D("scheme", Z.X());
+        q.D("launchid", Z.W());
+        q.E("from", "swan");
+        q.D("web_widget_state", "0");
+        q.A();
+        if (gw2Var != null) {
+            q.E("na_multi_jump_dst_path", gw2Var.a());
+        }
+    }
+
+    public static void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            tw2.j(true);
+            lz2.s("route", str);
+            HybridUbcFlow q = lz2.q("route", str);
+            q.F(new UbcFlowEvent("na_first_receive_action"));
+            q.D("sub_state", "0");
+            a = System.currentTimeMillis();
+        }
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && TextUtils.equals(lz2.q("route", str).h("sub_state"), "1")) {
+            lz2.q("route", str).F(new UbcFlowEvent("na_end_sub_package_download"));
+        }
+    }
+
+    public static void c(int i, String str) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65539, null, i, str) == null) {
+            lo2.c(i);
+            HybridUbcFlow q = lz2.q("route", str);
+            if (i != 6 && i != 4 && i != 1) {
+                q.I(HybridUbcFlow.SubmitStrategy.ROUTE);
+            } else {
+                q.I(HybridUbcFlow.SubmitStrategy.ROUTE_NA);
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947989892, "Lcom/baidu/tieba/mz2;");
+            q.E("type", Integer.valueOf(i));
+            o52 J = tr2.V().J();
+            if (J != null) {
+                str2 = J.t3().a();
+            } else {
+                str2 = "";
+            }
+            q.E("na_multi_jump_src_path", str2);
+        }
+    }
+
+    public static void e(lc2.e eVar, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, eVar, str) == null) {
+            lz2.q("route", str).F(new UbcFlowEvent("na_pre_load_slave_ok"));
+            if (eVar == null) {
                 return;
             }
-        }
-        a = am1.a;
-        b = AppRuntime.getAppContext().getExternalCacheDir();
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b + File.separator + "swan_perf";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static JSONObject a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            JSONObject C = wo2.g0().C();
-            String k = wo2.g0().k();
-            try {
-                jSONObject.put("switch", C);
-                JSONArray jSONArray = null;
-                if (!TextUtils.isEmpty(k)) {
-                    jSONArray = new JSONArray();
-                    for (String str : k.split("-")) {
-                        jSONArray.put(str);
-                    }
-                }
-                jSONObject.put("sid", jSONArray);
-            } catch (JSONException e) {
-                e.printStackTrace();
+            ns1 ns1Var = eVar.a;
+            if (ns1Var != null) {
+                ns1Var.t(str);
             }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public static JSONObject c(List<UbcFlowEvent> list, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, list, jSONObject)) == null) {
-            JSONObject jSONObject2 = new JSONObject();
-            JSONArray jSONArray = new JSONArray();
-            for (UbcFlowEvent ubcFlowEvent : list) {
-                if (!ubcFlowEvent.b()) {
-                    try {
-                        JSONObject jSONObject3 = new JSONObject();
-                        jSONObject3.put("id", ubcFlowEvent.a);
-                        jSONObject3.put("time", ubcFlowEvent.g());
-                        jSONObject3.put("value", ubcFlowEvent.j());
-                        jSONArray.put(jSONObject3);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-            try {
-                jSONObject2.put(FlowInfoHelper.KEY_EVENTLIST, jSONArray);
-                jSONObject2.put(SavedStateHandle.VALUES, jSONObject);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-            }
-            return jSONObject2;
-        }
-        return (JSONObject) invokeLL.objValue;
-    }
-
-    public static void d(List<UbcFlowEvent> list, JSONObject jSONObject) {
-        p53 c0;
-        Map<String, String> t;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, list, jSONObject) == null) {
-            if (a) {
-                nk4.b().f();
-            }
-            if (!o13.E() || (c0 = p53.c0()) == null || (t = hj3.t(hj3.o(c0.X().X()))) == null || !TextUtils.equals(t.get("_SwanStartupPerf_"), "1")) {
-                return;
-            }
-            ArrayList arrayList = new ArrayList(list);
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("670", c(arrayList, jSONObject));
-                jSONObject2.put(DI.AB_NAME, a());
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            File file = new File(b, "swan_perf");
-            if (!file.exists() && !file.mkdirs()) {
-                return;
-            }
-            sl4.N(jSONObject2.toString(), new File(file, String.format(Locale.getDefault(), "perf_%s.json", Long.valueOf(System.currentTimeMillis() / 1000))));
+            HybridUbcFlow q = lz2.q("route", str);
+            UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("na_pre_load_slave_start");
+            ubcFlowEvent.h(eVar.d);
+            q.F(ubcFlowEvent);
+            UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("na_pre_load_slave_end");
+            ubcFlowEvent2.h(eVar.e);
+            q.F(ubcFlowEvent2);
         }
     }
 
-    public static void e(String str) {
+    public static void f(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            File file = new File(b, "swan_stability");
-            if (!sl4.m(file)) {
-                p22.k("StartupPerf", "创建目录失败 path" + file);
-                return;
-            }
-            sl4.N(str, new File(file, String.format(Locale.getDefault(), "stability_%s.json", Long.valueOf(System.currentTimeMillis() / 1000))));
+        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
+            HybridUbcFlow q = lz2.q("route", str);
+            q.F(new UbcFlowEvent("web_widget_first_screen_finish"));
+            q.D("web_widget_state", "1");
+            q.U();
         }
     }
 }

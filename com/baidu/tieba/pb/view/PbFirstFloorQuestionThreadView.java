@@ -18,9 +18,9 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.no6;
+import com.baidu.tieba.c1a;
+import com.baidu.tieba.dq6;
 import com.baidu.tieba.view.RoundRelativeLayout;
-import com.baidu.tieba.xn9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -36,7 +36,7 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
     public TbPageContext e;
     public boolean f;
     public boolean g;
-    public no6 h;
+    public dq6 h;
     public boolean i;
 
     /* loaded from: classes7.dex */
@@ -69,9 +69,9 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.h != null && this.a.h.i()) {
                     this.a.h.h();
-                    xn9.w("c14884");
+                    c1a.w("c14884");
                 }
-                xn9.w("c14885");
+                c1a.w("c14885");
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921724));
             }
         }
@@ -245,11 +245,11 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0795, (ViewGroup) this, true);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091e27);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091e24);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091e28);
-            this.d = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091e29);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07aa, (ViewGroup) this, true);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091e6e);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091e6b);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091e6f);
+            this.d = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091e70);
             i();
         }
     }
@@ -268,9 +268,9 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            no6 no6Var = new no6(this.e, this.c);
-            this.h = no6Var;
-            no6Var.L(R.drawable.ic_question_tip_arror);
+            dq6 dq6Var = new dq6(this.e, this.c);
+            this.h = dq6Var;
+            dq6Var.L(R.drawable.ic_question_tip_arror);
             this.h.x(true);
             this.h.N(true);
             this.h.l(2);
@@ -287,7 +287,7 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
             String string = getContext().getString(R.string.pb_ask_post_first_tip);
             this.h.m(new b(this));
             this.h.S(string);
-            xn9.w("c14883");
+            c1a.w("c14883");
         }
     }
 

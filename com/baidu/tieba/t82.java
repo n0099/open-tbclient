@@ -1,68 +1,417 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public abstract class t82 extends kd4 implements jf2 {
+public class t82 implements j82<i82>, r82 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean k;
+    public static final int l;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public int b;
+    public final o82 a;
+    public final LinkedList<gg2> b;
+    public final List<l82<i82>> c;
+    public s82 d;
+    public volatile boolean e;
+    public volatile boolean f;
+    public volatile boolean g;
+    public volatile boolean h;
+    public boolean i;
+    public final Object j;
 
-    public int K() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948135003, "Lcom/baidu/tieba/t82;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948135003, "Lcom/baidu/tieba/t82;");
+                return;
+            }
+        }
+        k = rm1.a;
+        l = 2;
+    }
+
+    @Override // com.baidu.tieba.k82
+    public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.g;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.k82
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.f;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.k82
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.j82
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.i;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.r82
+    public void onReady() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            this.e = true;
+        }
     }
 
     public t82() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        int K = K();
-        this.a = K;
-        this.b = K;
+        this.b = new LinkedList<>();
+        this.c = new LinkedList();
+        this.a = new o82(l);
+        this.j = new Object();
+        this.e = false;
+        this.f = false;
+        this.g = false;
+        this.i = false;
+        this.h = false;
     }
 
-    public int J() {
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048587, this) != null) || this.b.isEmpty() || !this.f) {
+            return;
+        }
+        synchronized (this.j) {
+            Iterator<gg2> it = this.b.iterator();
+            while (it.hasNext()) {
+                gg2 next = it.next();
+                if (k) {
+                    Log.d("SwanAppMasterProvider", "dispatchPendingEvents event: " + next.a);
+                }
+                ad2.V().V0(next);
+            }
+            this.b.clear();
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.k82
+    @SuppressLint({"BDThrowableCheck"})
+    /* renamed from: n */
+    public s82 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i = this.b;
-            if (i == 0) {
-                return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            if (!this.f) {
+                if (k) {
+                    Log.w("SwanAppMasterProvider", "master not final confirmed, has default - " + f());
+                    Log.w("SwanAppMasterProvider", Log.getStackTraceString(new RuntimeException("throw by debug")));
+                    return null;
+                }
+                return null;
             }
-            return i;
+            return this.d;
         }
-        return invokeV.intValue;
+        return (s82) invokeV.objValue;
     }
 
-    public t82 L(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.j82
+    public void b(String str, PrefetchEvent.c cVar, PMSAppInfo pMSAppInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            int i2 = this.b;
-            if ((i2 == 0 || this.a == i2) && i != 0 && i != this.b) {
-                this.b = i;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar, pMSAppInfo) == null) {
+            if (k) {
+                Log.i("SwanAppMasterProvider", "get a prefetch event - " + cVar);
             }
-            return this;
+            g32.i(PrefetchEvent.MODULE, "start prefetch master");
+            if (pMSAppInfo == null) {
+                if (k) {
+                    Log.w("SwanAppMasterProvider", "prefetch currentAppInfo is empty");
+                    return;
+                }
+                return;
+            }
+            String str2 = pMSAppInfo.appId;
+            if (TextUtils.isEmpty(str2)) {
+                if (k) {
+                    Log.w("SwanAppMasterProvider", "prefetch appId is empty");
+                }
+            } else if (this.f) {
+                g63 c0 = g63.c0();
+                if (c0 == null) {
+                    return;
+                }
+                if (TextUtils.equals(str2, c0.getAppId())) {
+                    g32.i(PrefetchEvent.MODULE, "prefetch after app start");
+                    this.d.r(str, cVar, pMSAppInfo);
+                    if (k) {
+                        Log.w("SwanAppMasterProvider", "prefetch after app start - " + str2);
+                    }
+                } else if (k) {
+                    Log.w("SwanAppMasterProvider", "can not prefetch after swan app start");
+                }
+            } else if (!this.e) {
+                if (k) {
+                    Log.w("SwanAppMasterProvider", "can not prefetch before default mater ready");
+                }
+            } else {
+                synchronized (this.j) {
+                    if (this.f) {
+                        return;
+                    }
+                    s82 d = this.a.d(str2);
+                    if (d == null) {
+                        d = k(false, this.i);
+                        this.a.f(d);
+                    }
+                    if (d.w(pMSAppInfo, cVar)) {
+                        this.a.c(str2);
+                        d = k(false, this.i);
+                        this.a.f(d);
+                    }
+                    this.a.g(Collections.singletonList(d));
+                    d.r(str, cVar, pMSAppInfo);
+                }
+            }
         }
-        return (t82) invokeI.objValue;
+    }
+
+    @Override // com.baidu.tieba.k82
+    public void c(l82<i82> l82Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l82Var) != null) || l82Var == null) {
+            return;
+        }
+        synchronized (this.j) {
+            if (this.f) {
+                if (k) {
+                    Log.d("SwanAppMasterProvider", "app already start , call back immediately");
+                }
+                l82Var.a(this.h, this.d);
+                return;
+            }
+            if (!this.c.contains(l82Var)) {
+                this.c.add(l82Var);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.j82
+    public void d(gg2 gg2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, gg2Var) == null) && gg2Var != null && !this.f) {
+            synchronized (this.j) {
+                this.b.add(gg2Var);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.j82
+    public void j(boolean z, r82 r82Var) {
+        s82 d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(1048585, this, z, r82Var) == null) {
+            if (!this.g) {
+                synchronized (this.j) {
+                    if (!this.g) {
+                        this.i = z;
+                        s82 k2 = k(true, z);
+                        k2.c(this);
+                        k2.c(r82Var);
+                        this.a.f(k2);
+                        this.g = true;
+                        return;
+                    }
+                }
+            }
+            if (k) {
+                Log.w("SwanAppMasterProvider", "call prepareDefault repeat");
+            }
+            if (this.f) {
+                d = this.d;
+            } else {
+                d = this.a.d("_default_id_");
+            }
+            if (d != null) {
+                d.c(r82Var);
+            }
+        }
+    }
+
+    public final void o(boolean z, s82 s82Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZL(1048590, this, z, s82Var) != null) || this.c.size() <= 0) {
+            return;
+        }
+        synchronized (this.j) {
+            for (l82<i82> l82Var : this.c) {
+                l82Var.a(z, s82Var);
+            }
+            this.c.clear();
+        }
+        if (k) {
+            Log.d("SwanAppMasterProvider", "is hit prefetch env - " + z);
+        }
+    }
+
+    public s82 k(boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            return new s82(z, z2);
+        }
+        return (s82) invokeCommon.objValue;
+    }
+
+    public final void m(boolean z, s82 s82Var, PMSAppInfo pMSAppInfo) {
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Boolean.valueOf(z), s82Var, pMSAppInfo}) == null) {
+            this.h = z;
+            this.d = s82Var;
+            s82Var.p(pMSAppInfo);
+            this.f = true;
+            l();
+            if (k) {
+                j = System.currentTimeMillis();
+            } else {
+                j = 0;
+            }
+            this.a.a(Collections.singletonList(s82Var));
+            if (k) {
+                long currentTimeMillis = System.currentTimeMillis();
+                Log.i("SwanAppMasterProvider", "clear useless master cost - " + (currentTimeMillis - j) + "ms");
+            }
+            o(z, s82Var);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.k82
+    @SuppressLint({"BDThrowableCheck"})
+    /* renamed from: p */
+    public s82 e(PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
+        long j;
+        String str;
+        s82 d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, pMSAppInfo)) == null) {
+            if (k) {
+                j = System.currentTimeMillis();
+            } else {
+                j = 0;
+            }
+            if (pMSAppInfo == null && k) {
+                Log.e("SwanAppMasterProvider", Log.getStackTraceString(new Exception("currentAppInfo can not be null")));
+            }
+            if (k) {
+                Log.w("SwanAppMasterProvider", "real start a swan app - " + pMSAppInfo);
+            }
+            if (!this.e && k) {
+                throw new RuntimeException("should call startApp after preload finished");
+            }
+            if (pMSAppInfo == null) {
+                str = null;
+            } else {
+                str = pMSAppInfo.appId;
+            }
+            if (this.f) {
+                return this.d;
+            }
+            synchronized (this.j) {
+                if (!this.f) {
+                    boolean z = false;
+                    if (!TextUtils.isEmpty(str) && pMSAppInfo != null) {
+                        d = this.a.d(str);
+                        if (d != null && d.n() && !d.w(pMSAppInfo, null)) {
+                            z = true;
+                        } else {
+                            d = this.a.d("_default_id_");
+                        }
+                        m(z, d, pMSAppInfo);
+                    }
+                    d = this.a.d("_default_id_");
+                    m(z, d, pMSAppInfo);
+                }
+            }
+            if (k) {
+                long currentTimeMillis = System.currentTimeMillis();
+                Log.i("SwanAppMasterProvider", "get right master cost - " + (currentTimeMillis - j) + "ms");
+                StringBuilder sb = new StringBuilder();
+                sb.append("final master id - ");
+                sb.append(this.d.i().a());
+                Log.i("SwanAppMasterProvider", sb.toString());
+            }
+            return this.d;
+        }
+        return (s82) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.k82
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            this.e = false;
+            this.f = false;
+            this.g = false;
+            this.i = false;
+            this.h = false;
+            this.d = null;
+            this.a.a(null);
+            synchronized (this.j) {
+                this.b.clear();
+                this.c.clear();
+            }
+            m82.c();
+            p82.b().d();
+        }
     }
 }

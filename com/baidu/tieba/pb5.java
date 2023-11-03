@@ -1,63 +1,181 @@
 package com.baidu.tieba;
 
-import androidx.annotation.CallSuper;
-import com.baidu.adp.lib.safe.UiUtils;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.nps.main.invoke.IInvokeCallback;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.data.IconStampData;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tieba.view.NewUserRewardDialogView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public abstract class pb5 implements IInvokeCallback {
+public class pb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public pb5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ NewUserRewardDialogView a;
+        public final /* synthetic */ zz4 b;
 
-    /* renamed from: onResult$lambda-0  reason: not valid java name */
-    public static final void m140onResult$lambda0(String toastText) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, toastText) == null) {
-            Intrinsics.checkNotNullParameter(toastText, "$toastText");
-            BdUtilHelper.showLongToast(TbadkCoreApplication.getInst(), toastText);
-        }
-    }
-
-    @Override // com.baidu.nps.main.invoke.IInvokeCallback
-    @CallSuper
-    public void onResult(int i, final String str, Object obj) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeILL(1048576, this, i, str, obj) == null) && i == -1400) {
-            if (str == null) {
-                str = "插件修复中...";
-            }
-            UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.mb5
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        pb5.m140onResult$lambda0(str);
-                    }
+        public a(NewUserRewardDialogView newUserRewardDialogView, zz4 zz4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {newUserRewardDialogView, zz4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-            });
+            }
+            this.a = newUserRewardDialogView;
+            this.b = zz4Var;
         }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.d();
+                this.b.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TbPageContext a;
+        public final /* synthetic */ zz4 b;
+        public final /* synthetic */ int c;
+
+        public b(TbPageContext tbPageContext, zz4 zz4Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tbPageContext, zz4Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tbPageContext;
+            this.b = zz4Var;
+            this.c = i;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                UrlManager.getInstance().dealOneLink(this.a, new String[]{"https://tieba.baidu.com/mo/q/icon/panelIcon?opacity=0&user_id=" + TbadkCoreApplication.getCurrentAccount()});
+                this.b.dismiss();
+                pb5.d(this.c);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ PostWriteCallBackData a;
+        public final /* synthetic */ TbPageContext b;
+
+        public c(PostWriteCallBackData postWriteCallBackData, TbPageContext tbPageContext) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {postWriteCallBackData, tbPageContext};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = postWriteCallBackData;
+            this.b = tbPageContext;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                uoa uoaVar = new uoa();
+                PostWriteCallBackData postWriteCallBackData = this.a;
+                if (postWriteCallBackData != null) {
+                    IconStampData iconStampData = postWriteCallBackData.getIconStampData();
+                    uoaVar.f(iconStampData.stampType);
+                    uoaVar.h(iconStampData.stampTitle);
+                }
+                new toa(this.b.getPageActivity(), uoaVar).a();
+                pb5.f();
+            }
+        }
+    }
+
+    public static void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_STAMP_SHARE_DIALOG).param("obj_type", 2).param("obj_source", 2).param("obj_locate", i));
+        }
+    }
+
+    public static void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) {
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_STAMP_SHARE_DIALOG).param("obj_type", 1).param("obj_source", 2).param("obj_locate", i));
+        }
+    }
+
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_CLICK).param("obj_locate", 31));
+        }
+    }
+
+    public static void c(TbPageContext tbPageContext, PostWriteCallBackData postWriteCallBackData, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLI(65538, null, tbPageContext, postWriteCallBackData, i) != null) || postWriteCallBackData == null || !nb5.a(postWriteCallBackData.getIconStampData())) {
+            return;
+        }
+        NewUserRewardDialogView newUserRewardDialogView = new NewUserRewardDialogView(tbPageContext.getPageActivity());
+        newUserRewardDialogView.setData(postWriteCallBackData.getIconStampData());
+        zz4 zz4Var = new zz4(tbPageContext.getPageActivity());
+        zz4Var.setContentViewSize(5);
+        zz4Var.setContentView(newUserRewardDialogView);
+        zz4Var.setCanceledOnTouchOutside(false);
+        zz4Var.setAnimRes(R.style.obfuscated_res_0x7f1003fb);
+        zz4Var.create(tbPageContext).show();
+        newUserRewardDialogView.setCloseListener(new a(newUserRewardDialogView, zz4Var));
+        newUserRewardDialogView.getNewsUserDialogLookView().setOnClickListener(new b(tbPageContext, zz4Var, i));
+        newUserRewardDialogView.getNewUserDialogShareView().setOnClickListener(new c(postWriteCallBackData, tbPageContext));
+        e(i);
     }
 }

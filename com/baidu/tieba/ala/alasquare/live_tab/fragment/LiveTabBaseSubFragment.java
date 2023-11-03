@@ -8,7 +8,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gi5;
+import com.baidu.tieba.vj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -19,7 +19,7 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public LinearLayout b;
-    public gi5 c;
+    public vj5 c;
     public boolean d;
     public boolean e;
     public int f;
@@ -85,35 +85,47 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
         this.j = new a(this, 2921442);
     }
 
-    public void c2() {
+    @Override // com.baidu.tbadk.core.BaseFragment
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            super.onChangeSkinType(i);
+            vj5 vj5Var = this.c;
+            if (vj5Var != null) {
+                vj5Var.onChangeSkinType();
+            }
+        }
+    }
+
+    public void u2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.b.setVisibility(8);
         }
     }
 
-    public void d2() {
+    public void v2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921441, Boolean.FALSE));
             this.e = true;
         }
     }
 
-    public void e2(String str, String str2) {
+    public void w2(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
             this.g = str;
             this.h = str2;
         }
     }
 
-    public void f2() {
+    public void x2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.b.setVisibility(0);
             if (this.c == null) {
-                this.c = new gi5(this.a, null);
+                this.c = new vj5(this.a, null);
             }
             this.c.d();
             this.c.h(R.drawable.new_pic_emotion_03);
@@ -122,18 +134,6 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
             if (this.c.getAttachedView() != null && this.c.getAttachedView().getParent() == null) {
                 this.b.addView(this.c.getAttachedView(), layoutParams);
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            super.onChangeSkinType(i);
-            gi5 gi5Var = this.c;
-            if (gi5Var != null) {
-                gi5Var.onChangeSkinType();
             }
         }
     }

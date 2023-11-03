@@ -241,13 +241,13 @@ public class AdInfoButton extends RelativeLayout {
             relativeLayout.setLayoutParams(new RelativeLayout.LayoutParams(-2, -2));
             ImageView imageView = new ImageView(context);
             this.b = imageView;
-            imageView.setId(R.id.obfuscated_res_0x7f0900b8);
+            imageView.setId(R.id.obfuscated_res_0x7f0900cb);
             int dimens = BdUtilHelper.getDimens(context, R.dimen.tbds42);
             this.b.setLayoutParams(new RelativeLayout.LayoutParams(dimens, dimens));
             relativeLayout.addView(this.b);
             this.c = new EMTextView(context);
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams2.addRule(1, R.id.obfuscated_res_0x7f0900b8);
+            layoutParams2.addRule(1, R.id.obfuscated_res_0x7f0900cb);
             layoutParams2.addRule(15);
             layoutParams2.leftMargin = BdUtilHelper.getDimens(context, R.dimen.M_W_X002);
             this.c.setLayoutParams(layoutParams2);
@@ -264,9 +264,9 @@ public class AdInfoButton extends RelativeLayout {
             EMManager.from(this.a).setCorner(R.string.J_X05).setCardType(0).setBackGroundColor(R.color.CAM_X0302);
             AdType adType = this.d;
             if (adType == AdType.DOWNLOAD) {
-                WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f0808a6, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
+                WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f0808b1, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
             } else if (adType == AdType.INFO) {
-                WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080989, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
+                WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080994, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
             }
             EMManager.from(this.c).setTextSize(R.dimen.T_X08).setTextColor(R.color.CAM_X0101);
         }

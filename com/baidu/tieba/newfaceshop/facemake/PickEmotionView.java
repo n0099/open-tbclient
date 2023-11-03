@@ -138,8 +138,8 @@ public class PickEmotionView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, emotionImageData, i) == null) {
             this.a.setLoadProcType(i);
-            this.a.y();
-            this.a.A(emotionImageData);
+            this.a.z();
+            this.a.B(emotionImageData);
         }
     }
 }

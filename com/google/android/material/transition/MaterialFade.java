@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import androidx.transition.TransitionValues;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class MaterialFade extends MaterialVisibility<FadeProvider> {
     public static final float DEFAULT_FADE_END_THRESHOLD_ENTER = 0.3f;
     public static final float DEFAULT_START_SCALE = 0.8f;

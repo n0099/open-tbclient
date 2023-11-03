@@ -1,5 +1,0 @@
-package com.baidu.tieba;
-/* loaded from: classes9.dex */
-public interface ygb {
-    void a(bhb bhbVar);
-}

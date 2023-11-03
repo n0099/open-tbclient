@@ -51,16 +51,16 @@ public class FrsBroadcastCopyGuideDialogView extends LinearLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0358, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0367, this);
             LinearLayout linearLayout = (LinearLayout) findViewById(R.id.frs_broadcast_guide_main);
             this.a = linearLayout;
-            this.c = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090c8a);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090c88);
-            this.e = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090eea);
+            this.c = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090cb8);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090cb6);
+            this.e = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090f21);
             this.f = (TextView) this.a.findViewById(R.id.to_next_tv);
-            this.c.setText(R.string.obfuscated_res_0x7f0f0788);
-            this.d.setText(R.string.obfuscated_res_0x7f0f0787);
-            this.f.setText(R.string.obfuscated_res_0x7f0f0491);
+            this.c.setText(R.string.forum_broadcast_copy_guide_title);
+            this.d.setText(R.string.forum_broadcast_copy_guide_hint);
+            this.f.setText(R.string.obfuscated_res_0x7f0f0493);
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0107);
             SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0302);

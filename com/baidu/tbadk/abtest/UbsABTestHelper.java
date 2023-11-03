@@ -125,11 +125,21 @@ public class UbsABTestHelper {
         return invokeV.booleanValue;
     }
 
+    @Modify(description = "12.50 内核播放器网络库是否优先走ipv6下载")
+    public static boolean isCyberPlayerNetUseIpv6() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+            return isExistSid(UsbAbTestConst.KEY_IJK_NET_IPV6_UPGRADE);
+        }
+        return invokeV.booleanValue;
+    }
+
     @Modify(description = "12.47 内核播放器是否实用ipv6流量播放")
     public static boolean isCyberPlayerUseIpv6() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
             return isExistSid(UsbAbTestConst.KEY_IJK_IPV6_UPGRADE);
         }
         return invokeV.booleanValue;
@@ -139,7 +149,7 @@ public class UbsABTestHelper {
     public static boolean isDuplicateRemovalFunAdABTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
             if (Build.VERSION.SDK_INT >= 21 && isExistSid(UsbAbTestConst.KEY_FUN_AD_SDK_DUPLICATE_REMOVAL)) {
                 return true;
             }
@@ -151,7 +161,7 @@ public class UbsABTestHelper {
     public static boolean isFeedLiveCardStyleA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
             return isExistSid(UsbAbTestConst.KEY_FEED_LIVE_CARD_STYLE_A);
         }
         return invokeV.booleanValue;
@@ -160,7 +170,7 @@ public class UbsABTestHelper {
     public static boolean isFirstLoginTestA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
             return isABTestByKeys(FirstLoginABTest.ABTEST_GROUP_KEY, FirstLoginABTest.FIRST_LOGIN_SID_A);
         }
         return invokeV.booleanValue;
@@ -169,7 +179,7 @@ public class UbsABTestHelper {
     public static boolean isFirstLoginTestB() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
             return isABTestByKeys(FirstLoginABTest.ABTEST_GROUP_KEY, FirstLoginABTest.FIRST_LOGIN_SID_B);
         }
         return invokeV.booleanValue;
@@ -179,7 +189,7 @@ public class UbsABTestHelper {
     public static boolean isFixHotSplashRule() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) {
             return isExistSid(UsbAbTestConst.KEY_HOT_SPLASH_FIX);
         }
         return invokeV.booleanValue;
@@ -189,7 +199,7 @@ public class UbsABTestHelper {
     public static boolean isFrsFunAdSdkTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
             if (Build.VERSION.SDK_INT >= 21 && isExistSid(UsbAbTestConst.KEY_FUN_AD_SDK_FRS)) {
                 return true;
             }
@@ -201,7 +211,7 @@ public class UbsABTestHelper {
     public static boolean isFrsNewAreaTabSortTestA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
             return isABTestByKeys(FrsNewAreaTabSortUbsABTest.ABTEST_GROUP_KEY, FrsNewAreaTabSortUbsABTest.FRS_NEW_AREA_TAB_SORT_SID_A);
         }
         return invokeV.booleanValue;
@@ -210,7 +220,7 @@ public class UbsABTestHelper {
     public static boolean isFrsTabLocationTestA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) {
             return isABTestByKeys(FrsTabLocationUbsABTest.ABTEST_GROUP_KEY, FrsTabLocationUbsABTest.FRS_TAB_LOCATION_SID_A);
         }
         return invokeV.booleanValue;
@@ -219,7 +229,7 @@ public class UbsABTestHelper {
     public static boolean isFrsTabLocationTestB() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) {
             return isABTestByKeys(FrsTabLocationUbsABTest.ABTEST_GROUP_KEY, FrsTabLocationUbsABTest.FRS_TAB_LOCATION_SID_B);
         }
         return invokeV.booleanValue;
@@ -228,7 +238,7 @@ public class UbsABTestHelper {
     public static boolean isFrsTabLocationTestC() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) {
             return isABTestByKeys(FrsTabLocationUbsABTest.ABTEST_GROUP_KEY, FrsTabLocationUbsABTest.FRS_TAB_LOCATION_SID_C);
         }
         return invokeV.booleanValue;
@@ -237,7 +247,7 @@ public class UbsABTestHelper {
     public static boolean isHomePagePromoteLoginUbsABTestA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65563, null)) == null) {
             return isABTestByKeys(HomePagePromoteLoginUbsABTest.ABTEST_GROUP_KEY, HomePagePromoteLoginUbsABTest.PROMOTE_LOGIN_SID_A);
         }
         return invokeV.booleanValue;
@@ -247,7 +257,7 @@ public class UbsABTestHelper {
     public static boolean isHotRankShowABTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65563, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65564, null)) == null) {
             return isExistSid(UsbAbTestConst.KEY_HOT_RANK_SHOW);
         }
         return invokeV.booleanValue;
@@ -256,7 +266,7 @@ public class UbsABTestHelper {
     public static boolean isImageViewerTestA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65564, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65565, null)) == null) {
             return isABTestByKeys(ImageViewerABTest.ABTEST_GROUP_KEY, ImageViewerABTest.IMAGE_VIEWER_SID_A);
         }
         return invokeV.booleanValue;
@@ -265,7 +275,7 @@ public class UbsABTestHelper {
     public static boolean isImageViewerTestB() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65565, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65566, null)) == null) {
             return isABTestByKeys(ImageViewerABTest.ABTEST_GROUP_KEY, ImageViewerABTest.IMAGE_VIEWER_SID_B);
         }
         return invokeV.booleanValue;
@@ -275,7 +285,7 @@ public class UbsABTestHelper {
     public static boolean isLiveCardGameShow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65566, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) {
             return isExistSid(UsbAbTestConst.KEY_LIVE_CARD_GAME_SHOW);
         }
         return invokeV.booleanValue;
@@ -285,7 +295,7 @@ public class UbsABTestHelper {
     public static boolean isNativeVideoAdsAutoPlayABTestA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) {
             return isExistSid(UsbAbTestConst.KEY_NATIVE_AD_AUTO_PLAY);
         }
         return invokeV.booleanValue;
@@ -295,7 +305,7 @@ public class UbsABTestHelper {
     public static boolean isNetABTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65569, null)) == null) {
             return isABTestByKeys(TbNetABTest.ABTEST_GROUP_KEY, TbNetABTest.TB_NET_SID_A);
         }
         return invokeV.booleanValue;
@@ -305,7 +315,7 @@ public class UbsABTestHelper {
     public static boolean isNickNameABTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65570, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) {
             return isExistSid(UsbAbTestConst.KEY_NICK_NAME);
         }
         return invokeV.booleanValue;
@@ -315,7 +325,7 @@ public class UbsABTestHelper {
     public static boolean isNoCachePb() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65571, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65573, null)) == null) {
             return isExistSid(UsbAbTestConst.KEY_PB_NO_CACHE_TEST);
         }
         return invokeV.booleanValue;
@@ -324,7 +334,7 @@ public class UbsABTestHelper {
     public static boolean isNonEcomAdDownloaderTestA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65574, null)) == null) {
             return isExistSid(UsbAbTestConst.KEY_NON_ECOM_AD_DOWNLOADER_A);
         }
         return invokeV.booleanValue;
@@ -333,7 +343,7 @@ public class UbsABTestHelper {
     public static boolean isNonEcomAdDownloaderTestB() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65573, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65575, null)) == null) {
             return isExistSid(UsbAbTestConst.KEY_NON_ECOM_AD_DOWNLOADER_B);
         }
         return invokeV.booleanValue;
@@ -343,7 +353,7 @@ public class UbsABTestHelper {
     public static boolean isPbCommentFunAdABTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65574, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65576, null)) == null) {
             if (Build.VERSION.SDK_INT >= 21 && isExistSid(UsbAbTestConst.KEY_FUN_AD_SDK_PB_COMMENT)) {
                 return true;
             }
@@ -356,7 +366,7 @@ public class UbsABTestHelper {
     public static boolean isPbPageBannerFunAdSdkTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65575, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65577, null)) == null) {
             if (Build.VERSION.SDK_INT >= 21 && isExistSid(UsbAbTestConst.KEY_FUN_AD_SDK_PB_BANNER)) {
                 return true;
             }
@@ -369,7 +379,7 @@ public class UbsABTestHelper {
     public static boolean isPbReplyOptimize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65576, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65578, null)) == null) {
             return isExistSid(UsbAbTestConst.KEY_PB_REPLY_OPTIMIZE);
         }
         return invokeV.booleanValue;
@@ -379,7 +389,7 @@ public class UbsABTestHelper {
     public static boolean isPersonCenterWebView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65577, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65579, null)) == null) {
             return isExistSid(UsbAbTestConst.KEY_PERSON_CENTER_H5_ABTEST);
         }
         return invokeV.booleanValue;
@@ -389,7 +399,7 @@ public class UbsABTestHelper {
     public static boolean isPersonalVideoTabFlowABTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65578, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65580, null)) == null) {
             return isExistSid(UsbAbTestConst.KEY_PERSONAL_VIDEO_TAB_FLOW);
         }
         return invokeV.booleanValue;
@@ -399,7 +409,7 @@ public class UbsABTestHelper {
     public static boolean isPersonalizeFunAdABTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65579, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65581, null)) == null) {
             if (Build.VERSION.SDK_INT >= 21 && isExistSid(UsbAbTestConst.KEY_FUN_AD_SDK_PERSONALIZE)) {
                 return true;
             }
@@ -412,7 +422,7 @@ public class UbsABTestHelper {
     public static boolean isPicPageFunAdInsert() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65580, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65582, null)) == null) {
             if (Build.VERSION.SDK_INT >= 21 && isExistSid(UsbAbTestConst.KEY_FUN_AD_SDK_PICPAGE_INSERT_BEAR)) {
                 return true;
             }
@@ -425,7 +435,7 @@ public class UbsABTestHelper {
     public static boolean isPicPageFunAdSdkTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65581, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65583, null)) == null) {
             if (Build.VERSION.SDK_INT >= 21 && isExistSid(UsbAbTestConst.KEY_FUN_AD_SDK_PICPAGE_BEAR)) {
                 return true;
             }
@@ -437,7 +447,7 @@ public class UbsABTestHelper {
     public static boolean isPushPermissionForumFollowTestA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65582, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65584, null)) == null) {
             return isExistSid(UsbAbTestConst.KEY_PUSH_PERMISSION_SCENE_FORUM_FOLLOW_A);
         }
         return invokeV.booleanValue;
@@ -446,7 +456,7 @@ public class UbsABTestHelper {
     public static boolean isPushPermissionForumFollowTestB() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65583, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65585, null)) == null) {
             return isExistSid(UsbAbTestConst.KEY_PUSH_PERMISSION_SCENE_FORUM_FOLLOW_B);
         }
         return invokeV.booleanValue;
@@ -456,7 +466,7 @@ public class UbsABTestHelper {
     public static boolean isQaHttpsTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65584, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65586, null)) == null) {
             return isABTestByKeys(HttpsABTest.ABTEST_GROUP_KEY, HttpsABTest.QA_HTTPS_SID_A);
         }
         return invokeV.booleanValue;
@@ -466,7 +476,7 @@ public class UbsABTestHelper {
     public static boolean isRecommendFeedTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65585, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65587, null)) == null) {
             return isExistSid(UsbAbTestConst.KEY_RECOMMEND_FEED_TEST);
         }
         return invokeV.booleanValue;
@@ -475,7 +485,7 @@ public class UbsABTestHelper {
     public static boolean isSearchWebView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65586, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65588, null)) == null) {
             return isExistSid(UsbAbTestConst.KEY_SEARCH_H5_TEST);
         }
         return invokeV.booleanValue;
@@ -484,7 +494,7 @@ public class UbsABTestHelper {
     public static boolean isShoubaiThreadTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65587, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65589, null)) == null) {
             return isExistSid(UsbAbTestConst.KEY_SHOU_BAI_THREAD_TEST);
         }
         return invokeV.booleanValue;
@@ -494,7 +504,7 @@ public class UbsABTestHelper {
     public static boolean isShowMyPageDownloadCard() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65588, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65590, null)) == null) {
             return isExistSid(UsbAbTestConst.KEY_MYPAGE_EXPOSED_REMIND_CARD);
         }
         return invokeV.booleanValue;
@@ -504,7 +514,7 @@ public class UbsABTestHelper {
     public static boolean isShowVideoPlayDanmuABTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65589, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65591, null)) == null) {
             return isExistSid(UsbAbTestConst.VIDEO_PLAY_DANMU_SHOW);
         }
         return invokeV.booleanValue;
@@ -514,7 +524,7 @@ public class UbsABTestHelper {
     public static boolean isUseTiebaNetABTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65590, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65592, null)) == null) {
             return isABTestByKeys(TbNetABTest.ABTEST_GROUP_KEY, TbNetABTest.TB_NET_SID_B);
         }
         return invokeV.booleanValue;
@@ -524,7 +534,7 @@ public class UbsABTestHelper {
     public static boolean isVideoSetUrlAgainABTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65591, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65593, null)) == null) {
             return isExistSid(UsbAbTestConst.KEY_VIDEO_SET_URL_AGAIN);
         }
         return invokeV.booleanValue;
@@ -534,7 +544,7 @@ public class UbsABTestHelper {
     public static boolean isVideoTabAutoPlay() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65592, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65594, null)) == null) {
             return isExistSid(UsbAbTestConst.KEY_VIDEOTAB_AUTO_PLAY);
         }
         return invokeV.booleanValue;
@@ -544,7 +554,7 @@ public class UbsABTestHelper {
     public static boolean isWriteProtobufABTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65593, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65595, null)) == null) {
             return isExistSid(UsbAbTestConst.KEY_WRITE_PROTO);
         }
         return invokeV.booleanValue;
@@ -562,7 +572,7 @@ public class UbsABTestHelper {
     public static boolean isExistSid(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, str)) == null) {
             UsbAbTestSwitch aBTestSwitchData = UbsABTestDataManager.getInstance().getABTestSwitchData(str);
             if (aBTestSwitchData != null && !TextUtils.isEmpty(aBTestSwitchData.uniquekey) && aBTestSwitchData.uniquekey.equalsIgnoreCase(str)) {
                 return true;
@@ -610,11 +620,31 @@ public class UbsABTestHelper {
         return invokeV.booleanValue;
     }
 
+    @Modify(description = "是否打开新的frs")
+    public static boolean isNewFrs() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65570, null)) == null) {
+            if (ABTestStaticData.Companion.isNewFrs() == -1) {
+                if (isExistSid(UsbAbTestConst.KEY_NEW_FRS_TEST)) {
+                    ABTestStaticData.Companion.setNewFrs(1);
+                } else {
+                    ABTestStaticData.Companion.setNewFrs(0);
+                }
+            }
+            if (ABTestStaticData.Companion.isNewFrs() != 1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
     @Modify(description = "是否打开新的发帖页面")
     public static boolean isNewWrite() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65569, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65571, null)) == null) {
             if (ABTestStaticData.Companion.isNewWrite() == -1) {
                 if (isExistSid(UsbAbTestConst.KEY_HOME_WRITE_TEST)) {
                     ABTestStaticData.Companion.setNewWrite(1);

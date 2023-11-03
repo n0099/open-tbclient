@@ -3,7 +3,7 @@ package com.baidu.yunjiasu.ping;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.baidu.tieba.b;
+import com.baidu.tieba.c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -103,7 +103,7 @@ public final class PingStatistics {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? (((((((((((((this.Address.hashCode() * 31) + b.a(this.PacketsRecv)) * 31) + b.a(this.PacketsSent)) * 31) + Float.floatToIntBits(this.PacketLoss)) * 31) + Float.floatToIntBits(this.MinRtt)) * 31) + Float.floatToIntBits(this.MaxRtt)) * 31) + Float.floatToIntBits(this.AvgRtt)) * 31) + Float.floatToIntBits(this.StdDevRtt) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? (((((((((((((this.Address.hashCode() * 31) + c.a(this.PacketsRecv)) * 31) + c.a(this.PacketsSent)) * 31) + Float.floatToIntBits(this.PacketLoss)) * 31) + Float.floatToIntBits(this.MinRtt)) * 31) + Float.floatToIntBits(this.MaxRtt)) * 31) + Float.floatToIntBits(this.AvgRtt)) * 31) + Float.floatToIntBits(this.StdDevRtt) : invokeV.intValue;
     }
 
     public PingStatistics(InetAddress Address, long j, long j2, float f, float f2, float f3, float f4, float f5) {

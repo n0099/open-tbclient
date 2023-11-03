@@ -1,21 +1,19 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.im.lib.socket.msg.data.BotsDTO;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class uu8 {
+public class uu8 implements sm8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
 
     public uu8() {
         Interceptable interceptable = $ic;
@@ -31,74 +29,53 @@ public class uu8 {
         }
     }
 
-    public final String a() {
-        InterceptResult invokeV;
+    public static rm8 c(Context context, RecyclerView recyclerView, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, context, recyclerView, i)) == null) {
+            return new rm8(context, recyclerView, new su8(), new tu8(), i, 1);
         }
-        return (String) invokeV.objValue;
+        return (rm8) invokeLLI.objValue;
     }
 
-    public final String b() {
-        InterceptResult invokeV;
+    public static qm8 e(Context context, RecyclerView recyclerView, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, context, recyclerView, i)) == null) {
+            return new qm8(context, recyclerView, new su8(), new tu8(), i, 1);
         }
-        return (String) invokeV.objValue;
+        return (qm8) invokeLLI.objValue;
     }
 
-    public final String c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.sm8
+    public rm8 b(Context context, RecyclerView recyclerView, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, recyclerView, i)) == null) {
+            return c(context, recyclerView, i);
         }
-        return (String) invokeV.objValue;
+        return (rm8) invokeLLI.objValue;
     }
 
-    public final void d(String contentExtra) {
-        boolean z;
+    public static rm8 d(Context context, RecyclerView recyclerView, int i, @Nullable BotsDTO.BotListDTO.SkillDTO skillDTO, @Nullable BotsDTO.BotListDTO.UserDTO userDTO) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, contentExtra) == null) {
-            Intrinsics.checkNotNullParameter(contentExtra, "contentExtra");
-            if (contentExtra.length() == 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                return;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(contentExtra);
-                jSONObject.optString("big_size");
-                this.b = jSONObject.optString("thumb_size");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, recyclerView, Integer.valueOf(i), skillDTO, userDTO})) == null) {
+            tu8 tu8Var = new tu8();
+            tu8Var.e(skillDTO);
+            tu8Var.f(userDTO);
+            return new rm8(context, recyclerView, new su8(), tu8Var, i, 2);
         }
+        return (rm8) invokeCommon.objValue;
     }
 
-    public final void e(String str) {
+    @Override // com.baidu.tieba.sm8
+    public rm8 a(Context context, RecyclerView recyclerView, int i, @Nullable BotsDTO.BotListDTO.SkillDTO skillDTO, @Nullable BotsDTO.BotListDTO.UserDTO userDTO) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.a = str;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, recyclerView, Integer.valueOf(i), skillDTO, userDTO})) == null) {
+            return d(context, recyclerView, i, skillDTO, userDTO);
         }
-    }
-
-    public final void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public final void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.c = str;
-        }
+        return (rm8) invokeCommon.objValue;
     }
 }

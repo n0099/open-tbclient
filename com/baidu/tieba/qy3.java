@@ -1,45 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class qy3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile py3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static JSONObject a(String str) {
-        InterceptResult invokeL;
+    public static synchronized py3 a() {
+        InterceptResult invokeV;
+        py3 py3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, str);
-                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, "fail");
-                jSONObject.put("errDes", cv3.a(str));
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (qy3.class) {
+                if (a == null) {
+                    a = new py3();
+                }
+                py3Var = a;
             }
-            return jSONObject;
+            return py3Var;
         }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public static JSONObject b(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("width", i);
-                jSONObject.put("height", i2);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeII.objValue;
+        return (py3) invokeV.objValue;
     }
 }

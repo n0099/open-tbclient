@@ -13,14 +13,14 @@ import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tieba.bb9;
-import com.baidu.tieba.ea9;
+import com.baidu.tieba.bo9;
+import com.baidu.tieba.do9;
 import com.baidu.tieba.faceshop.EmotionPackageData;
-import com.baidu.tieba.fb9;
-import com.baidu.tieba.ha9;
+import com.baidu.tieba.go9;
+import com.baidu.tieba.jn9;
+import com.baidu.tieba.ko9;
+import com.baidu.tieba.mn9;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.model.MyEmotionManagerModel;
-import com.baidu.tieba.wa9;
-import com.baidu.tieba.ya9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,12 +29,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class MyEmotionManagerFragment extends BaseFragment implements bb9<Pair<List<EmotionPackageData>, Integer>> {
+public class MyEmotionManagerFragment extends BaseFragment implements go9<Pair<List<EmotionPackageData>, Integer>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fb9 a;
+    public ko9 a;
     public MyEmotionManagerModel b;
-    public ya9 c;
+    public do9 c;
     public CustomMessageListener d;
     public CustomMessageListener e;
     public CustomMessageListener f;
@@ -47,13 +47,13 @@ public class MyEmotionManagerFragment extends BaseFragment implements bb9<Pair<L
 
         /* renamed from: com.baidu.tieba.newfaceshop.nativemotionmanager.MyEmotionManagerFragment$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0400a implements Runnable {
+        public class RunnableC0412a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CustomResponsedMessage a;
             public final /* synthetic */ a b;
 
-            public RunnableC0400a(a aVar, CustomResponsedMessage customResponsedMessage) {
+            public RunnableC0412a(a aVar, CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -79,13 +79,13 @@ public class MyEmotionManagerFragment extends BaseFragment implements bb9<Pair<L
                     String valueOf = String.valueOf(this.a.getData());
                     ArrayList arrayList = new ArrayList();
                     arrayList.add(valueOf);
-                    if (ha9.i().c(arrayList, true) && BdNetTypeUtil.isNetWorkAvailable()) {
+                    if (mn9.i().c(arrayList, true) && BdNetTypeUtil.isNetWorkAvailable()) {
                         if (this.b.a.b != null) {
                             this.b.a.b.loadData();
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921314));
                         }
                     } else if (this.b.a.b != null) {
-                        this.b.a.b.Z();
+                        this.b.a.b.a0();
                     }
                 }
             }
@@ -117,7 +117,7 @@ public class MyEmotionManagerFragment extends BaseFragment implements bb9<Pair<L
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
-                ea9.b().a(new RunnableC0400a(this, customResponsedMessage));
+                jn9.b().a(new RunnableC0412a(this, customResponsedMessage));
             }
         }
     }
@@ -191,7 +191,7 @@ public class MyEmotionManagerFragment extends BaseFragment implements bb9<Pair<L
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.b != null) {
-                this.a.b.d0();
+                this.a.b.e0();
             }
         }
     }
@@ -241,7 +241,7 @@ public class MyEmotionManagerFragment extends BaseFragment implements bb9<Pair<L
                 } else {
                     z = false;
                 }
-                myEmotionManagerFragment.g2(z);
+                myEmotionManagerFragment.y2(z);
             }
         }
     }
@@ -275,10 +275,10 @@ public class MyEmotionManagerFragment extends BaseFragment implements bb9<Pair<L
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (this.a.a != null) {
-                    this.a.a.m();
+                    this.a.a.l();
                 }
                 if (this.a.c != null) {
-                    this.a.g2(false);
+                    this.a.y2(false);
                 }
             }
         }
@@ -305,11 +305,11 @@ public class MyEmotionManagerFragment extends BaseFragment implements bb9<Pair<L
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
             MyEmotionManagerModel myEmotionManagerModel = this.b;
             if (myEmotionManagerModel != null) {
-                myEmotionManagerModel.a0();
+                myEmotionManagerModel.b0();
             }
             if (this.e != null) {
                 MessageManager.getInstance().unRegisterListener(this.e);
@@ -323,73 +323,40 @@ public class MyEmotionManagerFragment extends BaseFragment implements bb9<Pair<L
         }
     }
 
-    public void g2(boolean z) {
-        ya9 ya9Var;
+    public void A2(do9 do9Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && (ya9Var = this.c) != null) {
-            ya9Var.onUpdate(Boolean.valueOf(z));
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bb9
-    /* renamed from: h2 */
-    public void onSuccess(Pair<List<EmotionPackageData>, Integer> pair) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pair) == null) {
-            SafeHandler.getInst().post(new d(this, pair));
-        }
-    }
-
-    public void i2(ya9 ya9Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, ya9Var) == null) && ya9Var != null) {
-            this.c = ya9Var;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, do9Var) == null) && do9Var != null) {
+            this.c = do9Var;
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            fb9 fb9Var = this.a;
-            if (fb9Var != null) {
-                fb9Var.f(i);
+            ko9 ko9Var = this.a;
+            if (ko9Var != null) {
+                ko9Var.f(i);
             }
         }
     }
 
-    public final void f2() {
+    public void y2(boolean z) {
+        do9 do9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.loadData();
+        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && (do9Var = this.c) != null) {
+            do9Var.onUpdate(Boolean.valueOf(z));
         }
     }
 
-    @Override // com.baidu.tieba.bb9
-    public void m1() {
-        fb9 fb9Var;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.go9
+    /* renamed from: z2 */
+    public void onSuccess(Pair<List<EmotionPackageData>, Integer> pair) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (fb9Var = this.a) != null) {
-            fb9Var.g();
-        }
-    }
-
-    @Override // com.baidu.tieba.bb9
-    public void onFail() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            SafeHandler.getInst().post(new e(this));
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            super.onResume();
-            f2();
+        if (interceptable == null || interceptable.invokeL(1048586, this, pair) == null) {
+            SafeHandler.getInst().post(new d(this, pair));
         }
     }
 
@@ -397,17 +364,50 @@ public class MyEmotionManagerFragment extends BaseFragment implements bb9<Pair<L
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, layoutInflater, viewGroup, bundle)) == null) {
-            wa9.b().c();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater, viewGroup, bundle)) == null) {
+            bo9.b().c();
             registerListener(this.e);
             registerListener(this.f);
             registerListener(this.d);
-            this.a = new fb9(getPageContext());
+            this.a = new ko9(getPageContext());
             MyEmotionManagerModel myEmotionManagerModel = new MyEmotionManagerModel(getPageContext());
             this.b = myEmotionManagerModel;
-            myEmotionManagerModel.f0(this);
+            myEmotionManagerModel.g0(this);
             return this.a.c();
         }
         return (View) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.go9
+    public void onFail() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            SafeHandler.getInst().post(new e(this));
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.onResume();
+            x2();
+        }
+    }
+
+    public final void x2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.b.loadData();
+        }
+    }
+
+    @Override // com.baidu.tieba.go9
+    public void z1() {
+        ko9 ko9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (ko9Var = this.a) != null) {
+            ko9Var.g();
+        }
     }
 }

@@ -1,22 +1,19 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class fo1 implements op2 {
+/* loaded from: classes6.dex */
+public class fo1 implements cq1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.op2
-    @Nullable
-    public String a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.cq1
+    public void a(String str, f33 f33Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, f33Var) == null) {
+        }
     }
 
     public fo1() {

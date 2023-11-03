@@ -1,25 +1,88 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
+import android.app.AlertDialog;
 import android.text.TextUtils;
-import android.util.ArrayMap;
-import androidx.annotation.NonNull;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.ListAdapter;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdPageContext;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BDLayoutMode;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class c05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, String> a;
+    public String a;
+    public ArrayList<l05> b;
+    public AdapterView.OnItemClickListener c;
+    public ViewGroup d;
+    public BdListView e;
+    public k05 f;
+    public TextView g;
+    public TbPageContext<?> h;
+    public boolean i;
+    public AlertDialog j;
+    public AdapterView.OnItemClickListener k;
 
-    public c05() {
+    /* loaded from: classes5.dex */
+    public class a implements AdapterView.OnItemClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c05 a;
+
+        public a(c05 c05Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c05Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = c05Var;
+        }
+
+        @Override // android.widget.AdapterView.OnItemClickListener
+        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                if (this.a.c != null) {
+                    this.a.c.onItemClick(adapterView, view2, i, j);
+                }
+                this.a.f();
+            }
+        }
+    }
+
+    public c05(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,44 +92,193 @@ public class c05 {
                 return;
             }
         }
-        this.a = new ArrayMap();
+        this.i = false;
+        this.k = new a(this);
+        this.h = tbPageContext;
+        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.dialog_rich_layout, (ViewGroup) null);
+        this.d = viewGroup;
+        this.g = (TextView) viewGroup.findViewById(R.id.dialog_title_list);
+        this.e = (BdListView) this.d.findViewById(R.id.dialog_content_list);
+        this.f = new k05(this.h);
     }
 
-    @NonNull
-    public static c05 b(@NonNull String str, @NonNull String str2) {
+    public void i(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.f.b(z);
+        }
+    }
+
+    public c05 l(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            m(this.h.getResources().getString(i));
+            return this;
+        }
+        return (c05) invokeI.objValue;
+    }
+
+    public c05 m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            this.a = str;
+            return this;
+        }
+        return (c05) invokeL.objValue;
+    }
+
+    public void b(BdPageContext<?> bdPageContext) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bdPageContext) == null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            if (bdPageContext instanceof TbPageContext) {
+                TbPageContext tbPageContext = (TbPageContext) bdPageContext;
+                BDLayoutMode layoutMode = tbPageContext.getLayoutMode();
+                if (skinType == 4) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                layoutMode.setNightMode(z);
+                tbPageContext.getLayoutMode().onModeChanged(this.d);
+            }
+            this.d.setBackgroundResource(R.drawable.transparent_bg);
+        }
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            for (int i2 = 0; i2 < this.b.size(); i2++) {
+                if (i2 == i) {
+                    this.b.get(i2).e(true);
+                } else {
+                    this.b.get(i2).e(false);
+                }
+            }
+            this.f.c(this.b);
+        }
+    }
+
+    public void j(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            for (int i2 = 0; i2 < this.b.size(); i2++) {
+                if (i2 == i) {
+                    l05 l05Var = this.b.get(i2);
+                    l05Var.e(!l05Var.d());
+                }
+            }
+            this.f.c(this.b);
+        }
+    }
+
+    public c05 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.i) {
+                return this;
+            }
+            this.i = true;
+            if (!TextUtils.isEmpty(this.a)) {
+                this.g.setText(this.a);
+                this.g.setVisibility(0);
+            } else {
+                this.g.setVisibility(8);
+            }
+            this.e.setAdapter((ListAdapter) this.f);
+            this.f.c(this.b);
+            b(this.h);
+            return this;
+        }
+        return (c05) invokeV.objValue;
+    }
+
+    public void d() {
+        AlertDialog alertDialog;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (alertDialog = this.j) != null) {
+            xb.a(alertDialog, this.h.getPageActivity());
+        }
+    }
+
+    public View e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            d();
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            b(this.h);
+            k05 k05Var = this.f;
+            if (k05Var != null) {
+                k05Var.notifyDataSetChanged();
+            }
+        }
+    }
+
+    public c05 k(ArrayList<l05> arrayList, AdapterView.OnItemClickListener onItemClickListener) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            c05 c05Var = new c05();
-            if (!str2.startsWith("http") && !str2.startsWith("https")) {
-                if (str2.startsWith("dialoginternal://")) {
-                    Uri parse = Uri.parse(str2);
-                    for (String str3 : parse.getQueryParameterNames()) {
-                        String queryParameter = parse.getQueryParameter(str3);
-                        if (!TextUtils.isEmpty(str3) && !TextUtils.isEmpty(queryParameter)) {
-                            c05Var.a.put(str3, queryParameter);
-                        }
-                    }
-                    c05Var.a.put("yun_dialogClass", parse.getAuthority());
-                    c05Var.a.put("yun_dialogName", str);
-                    c05Var.a.put("yun_dialogUrl", str2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, arrayList, onItemClickListener)) == null) {
+            if (arrayList != null && arrayList.size() > 0) {
+                this.b = arrayList;
+                if (onItemClickListener != null) {
+                    this.c = onItemClickListener;
+                    this.e.setOnItemClickListener(this.k);
                 }
-            } else {
-                c05Var.a.put("yun_dialogClass", "WebViewYunDialog");
-                c05Var.a.put("yun_dialogName", str);
-                c05Var.a.put("yun_dialogUrl", str2);
             }
-            return c05Var;
+            return this;
         }
         return (c05) invokeLL.objValue;
     }
 
-    public String a(@NonNull String str) {
-        InterceptResult invokeL;
+    public c05 n() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return this.a.get(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if (this.i) {
+                AlertDialog alertDialog = this.j;
+                if (alertDialog != null) {
+                    xb.j(alertDialog, this.h);
+                    return this;
+                }
+                AlertDialog create = new AlertDialog.Builder(this.h.getPageActivity()).create();
+                this.j = create;
+                GreyUtil.grey(create);
+                this.j.setCanceledOnTouchOutside(true);
+                if (!xb.i(this.j, this.h.getPageActivity())) {
+                    return this;
+                }
+                Window window = this.j.getWindow();
+                window.addFlags(512);
+                WindowManager.LayoutParams attributes = window.getAttributes();
+                attributes.y = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen._bottom_enter_anim_place_holder_height);
+                window.setAttributes(attributes);
+                window.setWindowAnimations(R.style.obfuscated_res_0x7f100421);
+                window.setGravity(80);
+                window.setLayout(-1, -2);
+                window.setContentView(this.d);
+                return this;
+            }
+            throw new RuntimeException("Dialog must be created by function create()!");
         }
-        return (String) invokeL.objValue;
+        return (c05) invokeV.objValue;
     }
 }

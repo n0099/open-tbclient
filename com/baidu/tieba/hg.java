@@ -1,29 +1,19 @@
 package com.baidu.tieba;
 
+import com.baidu.nps.interfa.IThreadManager;
 import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.logsystem.exceptionhandler.impl.IExceptionHandlerContext;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
+import java.util.concurrent.Executor;
 @Service
 /* loaded from: classes6.dex */
-public class hg implements IExceptionHandlerContext {
+public class hg implements IThreadManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.searchbox.logsystem.exceptionhandler.impl.IExceptionHandlerContext
-    public long getAppLaunchStartTimeStamp() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0L;
-        }
-        return invokeV.longValue;
-    }
+    public Executor a;
 
     public hg() {
         Interceptable interceptable = $ic;
@@ -35,7 +25,17 @@ public class hg implements IExceptionHandlerContext {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = ExecutorUtilsExt.getElasticExecutor("NPS", 3);
+    }
+
+    @Override // com.baidu.nps.interfa.IThreadManager
+    public void run(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+            this.a.execute(runnable);
         }
     }
 }

@@ -21,7 +21,7 @@ import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.searchbox.http.request.GetRequest;
 import com.baidu.searchbox.security.WarmTipsManager;
 import com.baidu.searchbox.util.BaiduIdentityManager;
-import com.baidu.tieba.r3;
+import com.baidu.tieba.h4;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
@@ -140,13 +140,13 @@ public class ApkCloudStatisticsUtils {
     }
 
     public static String buildSid() {
-        ArrayList<r3> experimentInfoList = AbTestManager.getInstance().getExperimentInfoList();
+        ArrayList<h4> experimentInfoList = AbTestManager.getInstance().getExperimentInfoList();
         if (experimentInfoList != null && !experimentInfoList.isEmpty()) {
             StringBuilder sb = new StringBuilder();
-            for (r3 r3Var : experimentInfoList) {
-                sb.append(r3Var.c());
+            for (h4 h4Var : experimentInfoList) {
+                sb.append(h4Var.c());
                 sb.append("_");
-                sb.append(r3Var.b());
+                sb.append(h4Var.b());
                 sb.append("-");
             }
             return sb.substring(0, sb.length() - 1);

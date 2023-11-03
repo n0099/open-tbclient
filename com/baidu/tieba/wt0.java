@@ -1,31 +1,26 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.FrameLayout;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.player.kernel.EmptyKernel;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoAd;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
+import com.baidu.tieba.dt0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class wt0 extends rt0 {
+public class wt0 extends lw0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.rt0, com.baidu.tieba.cw0
-    public void onRelease() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-        }
-    }
+    public final HashMap<String, String> d;
+    public final HashMap<String, String> e;
 
     public wt0() {
         Interceptable interceptable = $ic;
@@ -37,268 +32,183 @@ public class wt0 extends rt0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.d = new HashMap<>();
+        this.e = new HashMap<>();
     }
 
-    @Override // com.baidu.tieba.rt0
-    public void A() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            rw0.d("player has released, cannot call setDataSourceAndPrepare!!!");
-        }
-    }
-
-    @Override // com.baidu.tieba.rt0
-    public void O() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            rw0.e(EmptyKernel.KERNEL_TYPE_EMPTY, "start()");
-        }
-    }
-
-    @Override // com.baidu.tieba.rt0
-    @NonNull
-    public View c() {
+    @Override // com.baidu.tieba.jt0
+    @Nullable
+    public int[] getSubscribeEvent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            rw0.e(EmptyKernel.KERNEL_TYPE_EMPTY, "getBVideoView()");
-            return new FrameLayout(xo0.b());
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return new int[]{2, 4, 6};
         }
-        return (View) invokeV.objValue;
+        return (int[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.rt0
-    public int d() {
+    @Override // com.baidu.tieba.lw0
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.m();
+            this.d.clear();
+            this.e.clear();
+        }
+    }
+
+    public final String s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            rw0.e(EmptyKernel.KERNEL_TYPE_EMPTY, "getBufferingPosition()");
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (i() == null) {
+                return "0";
+            }
+            return String.valueOf(i().D());
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.rt0
-    public int e() {
+    public final String t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            rw0.e(EmptyKernel.KERNEL_TYPE_EMPTY, "getDuration()");
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (i() == null) {
+                return "0";
+            }
+            return String.valueOf(i().E());
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.rt0
-    public int f() {
+    public final String v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            rw0.e(EmptyKernel.KERNEL_TYPE_EMPTY, "getDurationMs()");
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (!(i() instanceof qp0) || ((qp0) i()).g1() != 0) {
+                return "0";
+            }
+            return "1";
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.rt0
-    public int g() {
+    @Override // com.baidu.tieba.lw0, com.baidu.tieba.jt0
+    public void a(@NonNull js0 js0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, js0Var) == null) {
+            p(js0Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.lw0, com.baidu.tieba.jt0
+    public void d(@NonNull js0 js0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, js0Var) == null) {
+            p(js0Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.lw0, com.baidu.tieba.jt0
+    public void r(@NonNull js0 js0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, js0Var) == null) {
+            p(js0Var);
+        }
+    }
+
+    public final void p(@NonNull js0 js0Var) {
+        BdVideoSeries j1;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, js0Var) != null) || !w()) {
+            return;
+        }
+        sv0 sv0Var = new sv0();
+        sv0Var.h(js0.a(js0Var));
+        sv0Var.b(v());
+        sv0Var.c(s());
+        sv0Var.d(q());
+        sv0Var.e(u());
+        sv0Var.g(t());
+        qp0 qp0Var = (qp0) i();
+        if (qp0Var == null) {
+            j1 = null;
+        } else {
+            j1 = qp0Var.j1();
+        }
+        if (j1 != null) {
+            String extLog = j1.getExtLog();
+            String str = this.d.get(extLog);
+            String str2 = this.e.get(extLog);
+            if (str == null) {
+                JSONObject c = ly0.c(extLog);
+                String optString = c.optString("ad_extra_param");
+                String optString2 = c.optString(BdVideoAd.AD_VIDEO_DAPAGE);
+                this.d.put(extLog, optString);
+                this.e.put(extLog, optString2);
+                str2 = optString2;
+                str = optString;
+            }
+            sv0Var.f(str);
+            sv0Var.a(str2);
+        }
+        dt0.a.a().a(sv0Var);
+        dt0.a.a().b(sv0Var);
+        js0 js0Var2 = sv0Var.a;
+        if (js0Var2 != null) {
+            js0Var2.p();
+        }
+    }
+
+    public final String q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            rw0.e(EmptyKernel.KERNEL_TYPE_EMPTY, "getPosition()");
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (i() == null) {
+                return "0";
+            }
+            if (i().K() != null && i().K().e > 0) {
+                return String.valueOf(i().K().e);
+            }
+            return String.valueOf(i().s());
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.rt0
-    public int h() {
+    public final String u() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (i() == null) {
+                return "0";
+            }
+            if (i().K() != null) {
+                i = i().K().d;
+            } else {
+                i = 0;
+            }
+            return String.valueOf(i);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final boolean w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            rw0.e(EmptyKernel.KERNEL_TYPE_EMPTY, "getPositionMs()");
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (!(i() instanceof qp0)) {
+                return false;
+            }
+            qp0 qp0Var = (qp0) i();
+            if (qp0Var.j1() == null || TextUtils.isEmpty(qp0Var.j1().getExtLog())) {
+                return false;
+            }
+            return true;
         }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.rt0
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            rw0.e(EmptyKernel.KERNEL_TYPE_EMPTY, "onComplete()");
-        }
-    }
-
-    @Override // com.baidu.tieba.rt0
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            rw0.e(EmptyKernel.KERNEL_TYPE_EMPTY, "onError()");
-        }
-    }
-
-    @Override // com.baidu.tieba.rt0
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
-            rw0.e(EmptyKernel.KERNEL_TYPE_EMPTY, "onPrepared()");
-        }
-    }
-
-    @Override // com.baidu.tieba.rt0
-    public void B(String str, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj) == null) {
-            rw0.e(EmptyKernel.KERNEL_TYPE_EMPTY, "setExternalInfo(" + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + obj + SmallTailInfo.EMOTION_SUFFIX);
-        }
-    }
-
-    @Override // com.baidu.tieba.rt0
-    public void F(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
-            rw0.e(EmptyKernel.KERNEL_TYPE_EMPTY, "setOption(" + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2 + SmallTailInfo.EMOTION_SUFFIX);
-        }
-    }
-
-    @Override // com.baidu.tieba.rt0
-    public void C(@Nullable HashMap<String, String> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) {
-            rw0.e(EmptyKernel.KERNEL_TYPE_EMPTY, "setHttpHeader(" + hashMap + SmallTailInfo.EMOTION_SUFFIX);
-        }
-    }
-
-    @Override // com.baidu.tieba.rt0
-    public void D(zt0 zt0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, zt0Var) == null) {
-            rw0.e(EmptyKernel.KERNEL_TYPE_EMPTY, "setKernelCallBack(" + System.identityHashCode(zt0Var) + SmallTailInfo.EMOTION_SUFFIX);
-        }
-    }
-
-    @Override // com.baidu.tieba.rt0
-    public void E(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            rw0.e(EmptyKernel.KERNEL_TYPE_EMPTY, "setLooping(" + z + SmallTailInfo.EMOTION_SUFFIX);
-        }
-    }
-
-    @Override // com.baidu.tieba.rt0
-    public void G(@Nullable String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            rw0.e(EmptyKernel.KERNEL_TYPE_EMPTY, "setPlayConf(" + str + SmallTailInfo.EMOTION_SUFFIX);
-        }
-    }
-
-    @Override // com.baidu.tieba.rt0
-    public void H(@Nullable String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            rw0.e(EmptyKernel.KERNEL_TYPE_EMPTY, "setProxy(" + str + SmallTailInfo.EMOTION_SUFFIX);
-        }
-    }
-
-    @Override // com.baidu.tieba.rt0
-    public void J(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f) == null) {
-            rw0.e(EmptyKernel.KERNEL_TYPE_EMPTY, "setSpeed(" + f + SmallTailInfo.EMOTION_SUFFIX);
-        }
-    }
-
-    @Override // com.baidu.tieba.rt0
-    public void K(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            rw0.e(EmptyKernel.KERNEL_TYPE_EMPTY, "setUserAgent(" + str + SmallTailInfo.EMOTION_SUFFIX);
-        }
-    }
-
-    @Override // com.baidu.tieba.rt0
-    public void M(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            rw0.e(EmptyKernel.KERNEL_TYPE_EMPTY, "setVideoScalingMode(" + i + SmallTailInfo.EMOTION_SUFFIX);
-        }
-    }
-
-    @Override // com.baidu.tieba.rt0
-    public void S(@Nullable String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            rw0.e(EmptyKernel.KERNEL_TYPE_EMPTY, "updateFreeProxy(" + str + SmallTailInfo.EMOTION_SUFFIX);
-        }
-    }
-
-    @Override // com.baidu.tieba.rt0
-    public void b(@NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            rw0.e(EmptyKernel.KERNEL_TYPE_EMPTY, "changePlayUrl(" + str + SmallTailInfo.EMOTION_SUFFIX);
-        }
-    }
-
-    @Override // com.baidu.tieba.rt0
-    public void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
-            rw0.e(EmptyKernel.KERNEL_TYPE_EMPTY, "mute(" + z + SmallTailInfo.EMOTION_SUFFIX);
-        }
-    }
-
-    @Override // com.baidu.tieba.rt0, com.baidu.tieba.cw0
-    public boolean verify(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, str)) == null) {
-            return EmptyKernel.KERNEL_TYPE_EMPTY.equals(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.rt0
-    public void z(@Nullable String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
-            rw0.e(EmptyKernel.KERNEL_TYPE_EMPTY, "setClarityInfo(" + str + SmallTailInfo.EMOTION_SUFFIX);
-        }
-    }
-
-    @Override // com.baidu.tieba.rt0
-    public void L(String str, @NonNull HashMap<String, String> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, str, hashMap) == null) {
-            rw0.e(EmptyKernel.KERNEL_TYPE_EMPTY, "setVideoFormatOptions(" + str + SmallTailInfo.EMOTION_SUFFIX);
-        }
-    }
-
-    @Override // com.baidu.tieba.rt0
-    public void N(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048588, this, str, z) == null) {
-            rw0.e(EmptyKernel.KERNEL_TYPE_EMPTY, "player has released, cannot call setVideoUrl!!! isNeedChangeState = " + z);
-        }
-    }
-
-    @Override // com.baidu.tieba.rt0
-    public void y(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048605, this, i, i2) == null) {
-            rw0.e(EmptyKernel.KERNEL_TYPE_EMPTY, "seekTo(" + i + SmallTailInfo.EMOTION_SUFFIX);
-        }
-    }
-
-    @Override // com.baidu.tieba.rt0
-    public void q(int i, int i2, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048602, this, i, i2, obj) == null) {
-            rw0.e(EmptyKernel.KERNEL_TYPE_EMPTY, "onInfo(" + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + obj + SmallTailInfo.EMOTION_SUFFIX);
-        }
+        return invokeV.booleanValue;
     }
 }

@@ -1,27 +1,100 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
-public class x46 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes9.dex */
+public final class x46 extends bg1<s01> {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile w46 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized w46 a() {
-        InterceptResult invokeV;
-        w46 w46Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (x46.class) {
-                if (a == null) {
-                    a = new w46();
-                }
-                w46Var = a;
+    /* loaded from: classes9.dex */
+    public static final class a implements s01 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.s01
+        public void a(Context context, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, context, i) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
             }
-            return w46Var;
         }
-        return (w46) invokeV.objValue;
+
+        @Override // com.baidu.tieba.s01
+        public void c(Context context, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, context, i, i2) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.s01
+        public void b(Context context, String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, i) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
+                int i2 = 2000;
+                if (i != 0 && i == 1) {
+                    i2 = 3500;
+                }
+                BdUtilHelper.showToast(str, i2, false);
+            }
+        }
+
+        @Override // com.baidu.tieba.s01
+        public void showToast(Context context, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048579, this, context, str) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
+                BdUtilHelper.showToast(context, str);
+            }
+        }
+    }
+
+    public x46() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bg1
+    /* renamed from: a */
+    public s01 createService() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a();
+        }
+        return (s01) invokeV.objValue;
     }
 }

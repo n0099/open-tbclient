@@ -25,12 +25,12 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.LinearGradientView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ad;
-import com.baidu.tieba.br7;
-import com.baidu.tieba.hz4;
-import com.baidu.tieba.od7;
+import com.baidu.tieba.fq7;
+import com.baidu.tieba.qd;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.tieba.view.ImageOverlayView;
+import com.baidu.tieba.w38;
+import com.baidu.tieba.zz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -63,11 +63,11 @@ public class FrsPrivateShareDialogView extends LinearLayout {
     public TextView q;
     public FrsViewData r;
     public TbPageContext s;
-    public hz4 t;
+    public zz4 t;
     public ForumActiveInfo u;
     public String v;
-    public od7 w;
-    public od7.e x;
+    public fq7 w;
+    public fq7.e x;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -103,7 +103,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements od7.e {
+    public class b implements fq7.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsPrivateShareDialogView a;
@@ -126,7 +126,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
             this.a = frsPrivateShareDialogView;
         }
 
-        @Override // com.baidu.tieba.od7.e
+        @Override // com.baidu.tieba.fq7.e
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeI(1048576, this, i) != null) {
@@ -216,7 +216,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
             this.q.setVisibility(8);
         }
         if (frsViewData.getForum() != null) {
-            e(br7.c(frsViewData.getForum()));
+            e(w38.c(frsViewData.getForum()));
         }
         if (frsViewData.getForum() != null && frsViewData.getForum().getMember_num() > 3) {
             TextView textView2 = this.k;
@@ -247,7 +247,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
             }
         }
         if (this.w != null && (forumActiveInfo = this.u) != null) {
-            if (ad.isEmpty(forumActiveInfo.forum_share_url)) {
+            if (qd.isEmpty(forumActiveInfo.forum_share_url)) {
                 str = TbConfig.TIEBA_ADDRESS;
             } else {
                 str = this.u.forum_share_url;
@@ -260,81 +260,81 @@ public class FrsPrivateShareDialogView extends LinearLayout {
     public final void f(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d039d, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03af, this);
             LinearLayout linearLayout = (LinearLayout) findViewById(R.id.frs_private_share);
             this.b = linearLayout;
             SkinManager.setBackgroundResource(linearLayout, R.drawable.bg_frs_private_dialog);
-            RelativeLayout relativeLayout = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090d6f);
+            RelativeLayout relativeLayout = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090da3);
             this.m = relativeLayout;
             SkinManager.setBackgroundResource(relativeLayout, R.drawable.bg_frs_private_dialog);
-            LinearGradientView linearGradientView = (LinearGradientView) this.b.findViewById(R.id.obfuscated_res_0x7f090d73);
+            LinearGradientView linearGradientView = (LinearGradientView) this.b.findViewById(R.id.obfuscated_res_0x7f090da7);
             this.c = linearGradientView;
             linearGradientView.setCornerRadius(BdUtilHelper.getDimens(context, R.dimen.tbds30));
             this.c.setRoundMode(3);
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090d72);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090da6);
             this.d = tbImageView;
             tbImageView.setDefaultBgResource(R.color.transparent);
-            this.d.setDefaultResource(R.drawable.obfuscated_res_0x7f0811f4);
+            this.d.setDefaultResource(R.drawable.obfuscated_res_0x7f08120b);
             this.d.setRadius(BdUtilHelper.getDimens(this.s.getPageActivity(), R.dimen.tbds30));
             this.d.setConrers(3);
             h();
-            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090d69);
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090d9d);
             this.e = textView;
             SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
-            TextView textView2 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090d66);
+            TextView textView2 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090d9a);
             this.f = textView2;
             SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0106);
             ImageView imageView = (ImageView) this.b.findViewById(R.id.close_button);
             this.j = imageView;
             imageView.setOnClickListener(new a(this));
             SkinManager.setImageResource(this.j, R.drawable.icon_popup_shut_n);
-            this.l = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090d6c);
-            BarImageView barImageView = (BarImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090d6a);
+            this.l = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090da0);
+            BarImageView barImageView = (BarImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090d9e);
             this.g = barImageView;
             barImageView.setShowOval(true);
             this.g.setStrokeWith(BdUtilHelper.getDimens(this.s.getPageActivity(), R.dimen.tbds3));
             this.g.setStrokeColorResId(R.color.CAM_X0201);
-            this.h = (HeadImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091c99);
-            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090daa);
+            this.h = (HeadImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091ce0);
+            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090ddf);
             this.h.setDefaultBgResource(R.color.CAM_X0205);
             this.h.setIsRound(true);
             this.h.setTag(null);
             SkinManager.setBackgroundResource(this.i, R.drawable.username_text_bg);
-            TextView textView3 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090d6e);
+            TextView textView3 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090da2);
             this.k = textView3;
             SkinManager.setViewTextColor(textView3, (int) R.color.CAM_X0106);
             if (this.w == null) {
-                od7 od7Var = new od7(this.s);
-                this.w = od7Var;
-                od7Var.o(this.b, this.m, null);
+                fq7 fq7Var = new fq7(this.s);
+                this.w = fq7Var;
+                fq7Var.o(this.b, this.m, null);
                 this.w.s(this.x);
             }
-            this.n = (ImageOverlayView) this.b.findViewById(R.id.obfuscated_res_0x7f090d64);
+            this.n = (ImageOverlayView) this.b.findViewById(R.id.obfuscated_res_0x7f090d98);
             int dimens = BdUtilHelper.getDimens(getContext(), R.dimen.tbds68);
             this.n.a(5, dimens, dimens, 0, 0, BdUtilHelper.getDimens(getContext(), R.dimen.tbds16));
             this.n.setOrientation(true);
             this.n.setLoadImageType(12);
             this.n.d();
-            HeadImageView headImageView = (HeadImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090349);
+            HeadImageView headImageView = (HeadImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090362);
             this.o = headImageView;
             headImageView.setDefaultBgResource(R.color.CAM_X0205);
             this.o.setIsRound(true);
-            TextView textView4 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090da9);
+            TextView textView4 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090dde);
             this.p = textView4;
             SkinManager.setViewTextColor(textView4, (int) R.color.CAM_X0105);
-            TextView textView5 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090daa);
+            TextView textView5 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090ddf);
             this.q = textView5;
             SkinManager.setViewTextColor(textView5, (int) R.color.CAM_X0101);
         }
     }
 
-    public boolean d(FrsViewData frsViewData, TbPageContext tbPageContext, hz4 hz4Var) {
+    public boolean d(FrsViewData frsViewData, TbPageContext tbPageContext, zz4 zz4Var) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frsViewData, tbPageContext, hz4Var)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frsViewData, tbPageContext, zz4Var)) == null) {
             this.r = frsViewData;
             this.s = tbPageContext;
-            this.t = hz4Var;
+            this.t = zz4Var;
             this.u = frsViewData.getForumActiveInfo();
             f(this.a);
             c(frsViewData);

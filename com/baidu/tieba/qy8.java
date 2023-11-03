@@ -1,344 +1,103 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.NoDataView;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tieba.lego.card.model.ICardInfo;
-import com.baidu.tieba.lego.card.view.BaseLegoCardView;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes7.dex */
-public class qy8 extends ph {
-    public static /* synthetic */ Interceptable $ic;
+/* loaded from: classes8.dex */
+public class qy8 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "1";
+    public static String b = "2";
+    public static String c = "3";
+    public static String d = "1";
+    public static String e = "2";
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext i;
-    public List<ICardInfo> j;
-    public int k;
-    public boolean l;
-    public NoDataView m;
-    public FrameLayout n;
-    public NoDataViewFactory.e o;
-    public NoDataViewFactory.d p;
-    public NoDataViewFactory.c q;
-    public FrameLayout.LayoutParams r;
-    public String s;
-    public boolean t;
 
-    @Override // com.baidu.tieba.ph, android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qy8(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity());
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948108281, "Lcom/baidu/tieba/qy8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.k = 0;
-        this.l = true;
-        this.i = tbPageContext;
-    }
-
-    public final void D(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            if (this.t) {
-                int u = u(i - 1);
-                int u2 = u(i - 2);
-                B(u);
-                B(u2);
-                return;
-            }
-            int u3 = u(i + 1);
-            int u4 = u(i + 2);
-            B(u3);
-            B(u4);
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948108281, "Lcom/baidu/tieba/qy8;");
         }
     }
 
-    public final ICardInfo x(int i) {
-        InterceptResult invokeI;
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
-            for (ICardInfo iCardInfo : this.j) {
-                int adapterCount = iCardInfo.getAdapterCount();
-                if (i < adapterCount) {
-                    return iCardInfo.getAdapterItem(i);
-                }
-                i -= adapterCount;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if ("frs".equals(str)) {
+                return d;
             }
-            return null;
-        }
-        return (ICardInfo) invokeI.objValue;
-    }
-
-    public boolean A() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<ICardInfo> list = this.j;
-            if (list != null && list.size() == 0) {
-                return true;
+            if ("message_tab".equals(str)) {
+                return e;
             }
-            return false;
+            return "";
         }
-        return invokeV.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ph, android.widget.Adapter, com.baidu.tieba.zh
-    public int getCount() {
-        InterceptResult invokeV;
+    public static String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.k == 0 && this.l) {
-                return 1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if ("frs".equals(str)) {
+                return a;
             }
-            return this.k;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.ph, android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return uy8.a.size() + 1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.ph, android.widget.BaseAdapter, android.widget.Adapter
-    public boolean isEmpty() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            if (this.k == 0) {
-                return true;
+            if ("message_tab".equals(str)) {
+                return c;
             }
-            return false;
+            return c;
         }
-        return invokeV.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public void v() {
-        FrameLayout frameLayout;
-        NoDataView noDataView;
+    public static void c(long j, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && (frameLayout = this.n) != null && (noDataView = this.m) != null) {
-            frameLayout.removeView(noDataView);
-            this.m = null;
+        if (interceptable == null || interceptable.invokeJL(65539, null, j, str) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_GROUP_LIST_CREATE_CLICK);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("fid", j);
+            statisticItem.param("obj_locate", str);
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    public final int w() {
-        InterceptResult invokeV;
+    public static void e(long j, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            List<ICardInfo> list = this.j;
-            int i = 0;
-            if (list == null) {
-                return 0;
-            }
-            for (ICardInfo iCardInfo : list) {
-                i += iCardInfo.getAdapterCount();
-            }
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    public final void B(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            ICardInfo iCardInfo = this.j.get(i);
-            if (iCardInfo instanceof az8) {
-                ((az8) iCardInfo).doLoad(iCardInfo, this.i);
-            }
+        if (interceptable == null || interceptable.invokeJL(65541, null, j, str) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_GROUP_LIST_MANAGE_CLICK);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("fid", j);
+            statisticItem.param("obj_locate", str);
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    public void C(List<ICardInfo> list) {
+    public static void d(long j, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            List<ICardInfo> list2 = this.j;
-            if (list2 == null) {
-                this.j = new ArrayList();
-            } else {
-                list2.clear();
-            }
-            if (list != null) {
-                this.j.addAll(list);
-            }
-            this.k = w();
-            notifyDataSetChanged();
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), str, str2, str3}) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CHAT_GROUP_DIALOG_SHOW);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("fid", j);
+            statisticItem.param("fname", str);
+            statisticItem.param("obj_source", b(str2));
+            statisticItem.param("obj_locate", a(str2));
+            statisticItem.param("room_id", str3);
+            TiebaStatic.log(statisticItem);
         }
-    }
-
-    public void E(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.s = str;
-        }
-    }
-
-    public void G(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.l = z;
-        }
-    }
-
-    public void H(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.t = z;
-        }
-    }
-
-    @Override // com.baidu.tieba.ph, android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
-            ICardInfo x = x(i);
-            if (x != null) {
-                return uy8.a.get(x.getAdapterType());
-            }
-            return 0;
-        }
-        return invokeI.intValue;
-    }
-
-    public final int u(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
-            if (i < 0) {
-                i = 0;
-            }
-            if (i >= this.j.size()) {
-                return this.j.size() - 1;
-            }
-            return i;
-        }
-        return invokeI.intValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ph, android.widget.Adapter, com.baidu.tieba.zh
-    /* renamed from: z */
-    public ICardInfo getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
-            return x(i);
-        }
-        return (ICardInfo) invokeI.objValue;
-    }
-
-    public void F(NoDataViewFactory.d dVar, NoDataViewFactory.e eVar, NoDataViewFactory.c cVar, FrameLayout.LayoutParams layoutParams) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048581, this, dVar, eVar, cVar, layoutParams) == null) {
-            this.p = dVar;
-            this.o = eVar;
-            this.q = cVar;
-            this.r = layoutParams;
-            NoDataView noDataView = this.m;
-            if (noDataView != null) {
-                noDataView.setTextOption(eVar);
-                this.m.setImgOption(dVar);
-                this.m.setButtonOption(cVar);
-                if (layoutParams != null) {
-                    this.m.setLayoutParams(layoutParams);
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ph, android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048588, this, i, view2, viewGroup)) == null) {
-            if (this.l && A()) {
-                return t();
-            }
-            v();
-            D(i);
-            ICardInfo x = x(i);
-            BaseLegoCardView y = y(view2, x);
-            if (y != null) {
-                y.a = this.s;
-                y.h(x);
-            }
-            return y;
-        }
-        return (View) invokeILL.objValue;
-    }
-
-    public View t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            if (this.n == null) {
-                this.n = new FrameLayout(this.i.getPageActivity());
-            }
-            if (this.m == null) {
-                this.m = NoDataViewFactory.a(this.i.getPageActivity(), this.n, this.p, this.o, this.q);
-            }
-            this.m.setVisibility(0);
-            FrameLayout.LayoutParams layoutParams = this.r;
-            if (layoutParams != null) {
-                this.m.setLayoutParams(layoutParams);
-            }
-            this.n.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
-            this.m.f(this.i, TbadkCoreApplication.getInst().getSkinType());
-            return this.n;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public BaseLegoCardView y(View view2, ICardInfo iCardInfo) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, view2, iCardInfo)) == null) {
-            if (iCardInfo == null) {
-                return null;
-            }
-            if (view2 instanceof BaseLegoCardView) {
-                return (BaseLegoCardView) view2;
-            }
-            return (BaseLegoCardView) sy8.h().a(this.i, iCardInfo, 0);
-        }
-        return (BaseLegoCardView) invokeLL.objValue;
     }
 }

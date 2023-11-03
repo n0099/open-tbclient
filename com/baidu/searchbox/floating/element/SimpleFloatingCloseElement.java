@@ -57,7 +57,7 @@ public class SimpleFloatingCloseElement extends AbsElement {
     public final ImageView initImageView() {
         ImageView imageView = new ImageView(getContext());
         imageView.setLayoutParams(new ViewGroup.LayoutParams(UtilsKt.floatingImageViewSize(imageView), UtilsKt.floatingImageViewSize(imageView)));
-        imageView.setImageResource(R.drawable.obfuscated_res_0x7f080271);
+        imageView.setImageResource(R.drawable.obfuscated_res_0x7f080275);
         return imageView;
     }
 
@@ -88,7 +88,7 @@ public class SimpleFloatingCloseElement extends AbsElement {
     }
 
     /* renamed from: initElement$lambda-1$lambda-0  reason: not valid java name */
-    public static final void m87initElement$lambda1$lambda0(SimpleFloatingCloseElement this$0, View view2) {
+    public static final void m88initElement$lambda1$lambda0(SimpleFloatingCloseElement this$0, View view2) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         this$0.onClick();
     }
@@ -105,8 +105,8 @@ public class SimpleFloatingCloseElement extends AbsElement {
         view2.setId(ViewCompat.generateViewId());
         view2.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
         view2.setPadding(BdPlayerUtils.dp2px(view2, 4.0f), BdPlayerUtils.dp2px(view2, 1.0f), BdPlayerUtils.dp2px(view2, 4.0f), BdPlayerUtils.dp2px(view2, 1.0f));
-        view2.setBackgroundResource(R.drawable.obfuscated_res_0x7f080270);
-        view2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.di1
+        view2.setBackgroundResource(R.drawable.obfuscated_res_0x7f080274);
+        view2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ui1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -114,7 +114,7 @@ public class SimpleFloatingCloseElement extends AbsElement {
             public final void onClick(View view3) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view3) == null) {
-                    SimpleFloatingCloseElement.m87initElement$lambda1$lambda0(SimpleFloatingCloseElement.this, view3);
+                    SimpleFloatingCloseElement.m88initElement$lambda1$lambda0(SimpleFloatingCloseElement.this, view3);
                 }
             }
         });

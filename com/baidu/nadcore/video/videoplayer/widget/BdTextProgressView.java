@@ -7,12 +7,12 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.searchbox.player.widget.BdPlayerProgressView;
-import com.baidu.tieba.q21;
-import com.baidu.tieba.v61;
+import com.baidu.tieba.h31;
+import com.baidu.tieba.m71;
 /* loaded from: classes3.dex */
 public class BdTextProgressView extends View {
-    public static final int h = q21.a(120.0f);
-    public static final int i = q21.a(15.0f);
+    public static final int h = h31.a(120.0f);
+    public static final int i = h31.a(15.0f);
     public float a;
     public int b;
     public String c;
@@ -22,7 +22,7 @@ public class BdTextProgressView extends View {
     public final int g;
 
     static {
-        q21.a(2.0f);
+        h31.a(2.0f);
     }
 
     public String getPositionText() {
@@ -150,7 +150,7 @@ public class BdTextProgressView extends View {
         this.c = BdPlayerProgressView.DEFAULT_PROGRESS_TIME_TEXT;
         TypedArray typedArray = null;
         try {
-            typedArray = context.obtainStyledAttributes(attributeSet, v61.NadTextProgressView);
+            typedArray = context.obtainStyledAttributes(attributeSet, m71.NadTextProgressView);
             this.a = typedArray.getDimension(3, 15.0f);
             this.b = typedArray.getColor(1, -1);
             this.f = typedArray.getInt(0, 1);

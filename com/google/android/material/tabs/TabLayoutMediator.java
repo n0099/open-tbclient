@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.tabs.TabLayout;
 import java.lang.ref.WeakReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class TabLayoutMediator {
     @Nullable
     public RecyclerView.Adapter<?> adapter;
@@ -25,12 +25,12 @@ public final class TabLayoutMediator {
     @NonNull
     public final ViewPager2 viewPager;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface TabConfigurationStrategy {
         void onConfigureTab(@NonNull TabLayout.Tab tab, int i);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class PagerAdapterObserver extends RecyclerView.AdapterDataObserver {
         public PagerAdapterObserver() {
         }
@@ -66,7 +66,7 @@ public final class TabLayoutMediator {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class TabLayoutOnPageChangeCallback extends ViewPager2.OnPageChangeCallback {
         public int previousScrollState;
         public int scrollState;
@@ -120,7 +120,7 @@ public final class TabLayoutMediator {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class ViewPagerOnTabSelectedListener implements TabLayout.OnTabSelectedListener {
         public final boolean smoothScroll;
         public final ViewPager2 viewPager;

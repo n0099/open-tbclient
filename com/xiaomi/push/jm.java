@@ -36,13 +36,13 @@ public final class jm extends jn {
 
     @Override // com.xiaomi.push.jn
     /* renamed from: a */
-    public void mo720a(byte[] bArr, int i, int i2) {
+    public void mo724a(byte[] bArr, int i, int i2) {
         throw new UnsupportedOperationException("No writing allowed!");
     }
 
     @Override // com.xiaomi.push.jn
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] mo721a() {
+    public byte[] mo725a() {
         return this.f819a;
     }
 

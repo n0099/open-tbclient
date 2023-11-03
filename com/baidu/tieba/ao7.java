@@ -1,33 +1,24 @@
 package com.baidu.tieba;
 
-import android.widget.FrameLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tieba.ca;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class ao7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final FrsFragment a;
-    public ve7 b;
-    public TextView c;
-    public boolean d;
-    public int e;
+    public ca<byte[]> a;
 
-    public ao7(FrsFragment frsFragment) {
+    public ao7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {frsFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,93 +28,42 @@ public class ao7 {
                 return;
             }
         }
-        this.e = -1;
-        if (frsFragment != null) {
-            this.a = frsFragment;
-            if (UtilHelper.canUseStyleImmersiveSticky()) {
-                UtilHelper.getStatusBarHeight();
-                return;
-            }
-            return;
-        }
-        throw new NullPointerException("FrsFragment is null");
+        b();
     }
 
-    public void a(int i) {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if (i >= 0) {
-                d(true);
-                e(i);
-                return;
-            }
-            d(false);
-            e(i);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a == null) {
+            yz4.l();
+            this.a = yz4.i("tb.tbtiel_level_info");
         }
     }
 
-    public void d(boolean z) {
+    public byte[] a(String str) {
+        InterceptResult invokeL;
+        ca.b<byte[]> bVar;
+        byte[] bArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public void b() {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.d && (i = this.e) >= 0) {
-                f(i);
-            }
-            this.d = false;
-        }
-    }
-
-    public void c() {
-        ve7 ve7Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (ve7Var = this.b) != null) {
-            ve7Var.e();
-        }
-    }
-
-    public final void f(int i) {
-        ed7 R1;
-        FrameLayout w0;
-        String string;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048581, this, i) != null) || (R1 = this.a.R1()) == null || R1.h0() == null || (w0 = R1.w0()) == null) {
-            return;
-        }
-        if (this.c == null && this.a.getPageContext() != null) {
-            TextView textView = new TextView(this.a.getPageContext().getPageActivity());
-            this.c = textView;
-            textView.setTextSize(0, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b5));
-            this.c.setGravity(17);
-        }
-        if (this.c != null) {
-            if (i > 0) {
-                string = String.format(TbadkCoreApplication.getInst().getString(R.string.recommend_frs_refresh_return), Integer.valueOf(i));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            ca<byte[]> caVar = this.a;
+            if (caVar != null && str != null) {
+                bVar = caVar.h(str);
             } else {
-                string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f143f);
+                bVar = null;
             }
-            this.c.setText(string);
+            if (bVar == null || (bArr = bVar.b) == null) {
+                return null;
+            }
+            return bArr;
         }
-        SkinManager.setBackgroundResource(this.c, R.color.CAM_X0302);
-        SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0112);
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0703f7));
-        if (this.b == null) {
-            this.b = new ve7();
+        return (byte[]) invokeL.objValue;
+    }
+
+    public void c(String str, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr) == null) && !StringUtils.isNull(str)) {
+            b();
+            this.a.e(str, bArr, TbConfig.MILLS_7DAYS);
         }
-        this.b.h(this.c, w0, layoutParams, 2000);
-        this.e = -1;
     }
 }

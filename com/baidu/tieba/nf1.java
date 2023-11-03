@@ -1,16 +1,19 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class nf1 {
+public class nf1<T> implements pf1<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<T> a;
+    public lf1<List<T>> b;
+    public lf1<List<T>> c;
 
     public nf1() {
         Interceptable interceptable = $ic;
@@ -26,33 +29,45 @@ public class nf1 {
         }
     }
 
-    public fg1 a(Context context, of1 of1Var) {
-        InterceptResult invokeLL;
+    public static nf1 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, of1Var)) == null) {
-            if (of1Var != null && context != null) {
-                try {
-                    JSONObject a = of1Var.a();
-                    if (a != null) {
-                        String optString = a.optString("material_type");
-                        if ("image".equals(optString)) {
-                            return new wf1(context, a);
-                        }
-                        if ("gif".equals(optString)) {
-                            return new vf1(context, a);
-                        }
-                        if ("video".equals(optString)) {
-                            return new xf1(context, a);
-                        }
-                        return null;
-                    }
-                    return null;
-                } catch (Exception unused) {
-                    return null;
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new nf1();
+        }
+        return (nf1) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.pf1
+    public List<T> getList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            List<T> list = this.a;
+            if (list != null) {
+                return list;
+            }
+            lf1<List<T>> lf1Var = this.b;
+            if (lf1Var != null) {
+                List<T> list2 = lf1Var.get();
+                this.a = list2;
+                return list2;
+            }
+            lf1<List<T>> lf1Var2 = this.c;
+            if (lf1Var2 != null) {
+                return lf1Var2.get();
             }
             return null;
         }
-        return (fg1) invokeLL.objValue;
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.pf1
+    public void a(lf1<List<T>> lf1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, lf1Var) == null) {
+            this.b = lf1Var;
+            this.a = null;
+        }
     }
 }

@@ -4,6 +4,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.framework.task.MessageTask;
+import com.baidu.adp.lib.network.http.BdHttpStat;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.BdAlertData;
@@ -12,8 +13,7 @@ import com.baidu.tbadk.core.util.BdToastHelper;
 import com.baidu.tbadk.core.util.NetWorkState;
 import com.baidu.tbadk.core.util.TBAlertBuilderHelper;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.la;
-import com.baidu.tieba.ma;
+import com.baidu.tieba.bb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -89,18 +89,18 @@ public class TbHttpResponsedMessage extends HttpResponsedMessage {
     }
 
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage
-    public void logStatInBackground(int i, ma maVar) {
+    public void logStatInBackground(int i, bb bbVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048579, this, i, maVar) == null) && maVar.d().size() > 0) {
+        if ((interceptable == null || interceptable.invokeIL(1048579, this, i, bbVar) == null) && bbVar.d().size() > 0) {
             int i2 = 1;
-            la laVar = maVar.d().get(maVar.d().size() - 1);
-            NetWorkState.mErrorNums.addAndGet(maVar.d().size() - 1);
+            BdHttpStat bdHttpStat = bbVar.d().get(bbVar.d().size() - 1);
+            NetWorkState.mErrorNums.addAndGet(bbVar.d().size() - 1);
             NetWorkState.StatisticsData statisticsData = new NetWorkState.StatisticsData();
             statisticsData.mMode = getMode(BdNetTypeUtil.netType());
-            statisticsData.mSize = laVar.b;
-            statisticsData.mTime = laVar.f;
-            statisticsData.mTimesNum = laVar.e;
-            if (maVar.b().h() != HttpMessageTask.HTTP_METHOD.POST) {
+            statisticsData.mSize = bdHttpStat.downloadSize;
+            statisticsData.mTime = bdHttpStat.allCostTime;
+            statisticsData.mTimesNum = bdHttpStat.retry;
+            if (bbVar.b().h() != HttpMessageTask.HTTP_METHOD.POST) {
                 i2 = 2;
             }
             statisticsData.mMethod = i2;

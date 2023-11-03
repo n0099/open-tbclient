@@ -1,91 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
-import com.baidu.swan.game.ad.downloader.model.DownloadState;
-import com.baidu.tieba.nt3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes7.dex */
-public class mt3 implements nt3.a {
+public class mt3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile lt3 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ExecutorService a;
-    public final ut3 b;
-    public final DownloadInfo c;
-    public final a d;
-    public long e;
-    public volatile AtomicBoolean f;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void e(DownloadInfo downloadInfo);
-    }
-
-    public mt3(ExecutorService executorService, ut3 ut3Var, DownloadInfo downloadInfo, a aVar) {
+    public static synchronized lt3 a() {
+        InterceptResult invokeV;
+        lt3 lt3Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {executorService, ut3Var, downloadInfo, aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.e = System.currentTimeMillis();
-        this.f = new AtomicBoolean(false);
-        this.a = executorService;
-        this.b = ut3Var;
-        this.c = downloadInfo;
-        this.d = aVar;
-    }
-
-    @Override // com.baidu.tieba.nt3.a
-    public void a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c.getProgress() == this.c.getSize()) {
-            this.c.setPackageName(hv3.d(AppRuntime.getAppContext(), this.c.getPath()));
-            this.c.setStatus(DownloadState.DOWNLOADED.value());
-            this.b.b(this.c);
-            a aVar = this.d;
-            if (aVar != null) {
-                aVar.e(this.c);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.nt3.a
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.f.get()) {
-            synchronized (this) {
-                if (!this.f.get()) {
-                    this.f.set(true);
-                    long currentTimeMillis = System.currentTimeMillis();
-                    if (currentTimeMillis - this.e > 1000) {
-                        this.b.b(this.c);
-                        this.e = currentTimeMillis;
-                    }
-                    this.f.set(false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (mt3.class) {
+                if (a == null) {
+                    a = new lt3();
                 }
+                lt3Var = a;
             }
+            return lt3Var;
         }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.submit(new nt3(this.b, this.c, this));
-        }
+        return (lt3) invokeV.objValue;
     }
 }

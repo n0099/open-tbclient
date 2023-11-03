@@ -9,7 +9,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.net.FastRequest;
-import com.baidu.tieba.b;
+import com.baidu.tieba.c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -142,7 +142,7 @@ public final class RequestBotSkillHelper {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? (((((((this.botUk.hashCode() * 31) + b.a(this.skillId)) * 31) + this.tid.hashCode()) * 31) + this.pid.hashCode()) * 31) + this.token.hashCode() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? (((((((this.botUk.hashCode() * 31) + c.a(this.skillId)) * 31) + this.tid.hashCode()) * 31) + this.pid.hashCode()) * 31) + this.token.hashCode() : invokeV.intValue;
         }
 
         public String toString() {
@@ -291,16 +291,16 @@ public final class RequestBotSkillHelper {
             Intrinsics.checkNotNullParameter(botRequest, "botRequest");
             Intrinsics.checkNotNullParameter(callback, "callback");
             FastRequest c = c();
-            c.T(HttpMessageTask.HTTP_METHOD.POST);
-            c.O("scene", "thread");
-            c.O("bot_uk", botRequest.getBotUk());
-            c.O("skill_id", Long.valueOf(botRequest.getSkillId()));
-            c.O("thread_id", botRequest.getTid());
-            c.O("post_id", botRequest.getPid());
-            c.O("loading_post_token", botRequest.getToken());
-            c.O("source", "one_key_reply_post");
-            c.Q(callback);
-            c.P();
+            c.U(HttpMessageTask.HTTP_METHOD.POST);
+            c.P("scene", "thread");
+            c.P("bot_uk", botRequest.getBotUk());
+            c.P("skill_id", Long.valueOf(botRequest.getSkillId()));
+            c.P("thread_id", botRequest.getTid());
+            c.P("post_id", botRequest.getPid());
+            c.P("loading_post_token", botRequest.getToken());
+            c.P("source", "one_key_reply_post");
+            c.R(callback);
+            c.Q();
         }
     }
 

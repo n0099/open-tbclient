@@ -1,42 +1,27 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.media.MediaMetadataRetriever;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.InstallActivity;
-import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
 /* loaded from: classes8.dex */
-public final class uqb implements View.OnClickListener {
+public class uqb extends MediaMetadataRetriever {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ InstallActivity a;
 
-    public uqb(InstallActivity installActivity) {
+    public static long a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {installActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
+            try {
+                mediaMetadataRetriever.setDataSource(str);
+                return Integer.parseInt(mediaMetadataRetriever.extractMetadata(9));
+            } catch (Exception e) {
+                e.printStackTrace();
+                return 0L;
             }
         }
-        this.a = installActivity;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
-            return;
-        }
-        this.a.j(new UnavailableUserDeclinedInstallationException());
+        return invokeL.longValue;
     }
 }

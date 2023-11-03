@@ -1,140 +1,176 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.browser.sailor.BdSailor;
-import com.baidu.browser.sailor.util.BdZeusUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.browser.core.async.BdRunnable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.Log;
-import com.baidu.webkit.sdk.WebView;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 /* loaded from: classes8.dex */
-public final class tr {
+public class tr {
     public static /* synthetic */ Interceptable $ic;
-    public static final String d;
-    public static tr e;
+    public static tr f;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public WebView b;
-    public boolean c;
+    public ExecutorService a;
+    public ExecutorService b;
+    public Handler c;
+    public Handler d;
+    public List<sr> e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448318191, "Lcom/baidu/tieba/tr;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes8.dex */
+    public class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ tr a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(tr trVar, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {trVar, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448318191, "Lcom/baidu/tieba/tr;");
-                return;
+            this.a = trVar;
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                int i = message.what;
+                if (i != 0) {
+                    if (i != 1) {
+                        if (i == 2) {
+                            Object obj = message.obj;
+                            if (obj instanceof BdRunnable) {
+                                post((BdRunnable) obj);
+                            }
+                        }
+                    } else if (message.obj instanceof sr) {
+                        this.a.e.add((sr) message.obj);
+                    }
+                } else if (this.a.e != null) {
+                    Iterator it = this.a.e.iterator();
+                    while (it.hasNext()) {
+                        sr srVar = (sr) it.next();
+                        if (this.a.e(srVar)) {
+                            this.a.a.submit(srVar);
+                            it.remove();
+                        }
+                    }
+                }
             }
         }
-        d = BdSailor.class.getName();
     }
 
     public tr() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.e = new ArrayList();
+        this.a = Executors.newFixedThreadPool(5);
+        this.b = Executors.newSingleThreadExecutor();
+        this.c = new a(this, rr.a("threadpool").getLooper());
+        this.d = new Handler(Looper.getMainLooper());
+    }
+
+    public void h(BdRunnable bdRunnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bdRunnable) == null) {
+            this.d.post(bdRunnable);
         }
     }
 
-    public static tr a() {
+    public static tr f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            tr trVar = e;
-            if (trVar == null) {
-                e = new tr();
-            } else if (trVar.b != null && (trVar.c ^ BdZeusUtil.isWebkitLoaded())) {
-                Log.d(d, "BdWebViewSingleton, re-new instance need because of the kernel changed");
-                e.f();
-                e.e();
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (f == null) {
+                synchronized (tr.class) {
+                    if (f == null) {
+                        f = new tr();
+                    }
+                }
             }
-            return e;
+            return f;
         }
         return (tr) invokeV.objValue;
     }
 
-    public static void b() {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            tr a = a();
-            a.f();
-            a.a = null;
-            e = null;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c.removeMessages(0);
+            this.c.sendEmptyMessage(0);
         }
     }
 
-    public final boolean c() {
-        InterceptResult invokeV;
+    public final boolean e(sr srVar) {
+        InterceptResult invokeL;
+        List<BdRunnable> e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Log.d(d, "BdWebViewSingleton pauseTimer");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, srVar)) == null) {
+            if (srVar != null && (e = srVar.e()) != null) {
+                for (int i = 0; i < e.size(); i++) {
+                    BdRunnable bdRunnable = e.get(i);
+                    if (bdRunnable != null && !bdRunnable.d()) {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void g(BdRunnable bdRunnable) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdRunnable) == null) && bdRunnable != null) {
+            if (bdRunnable instanceof sr) {
+                if (e((sr) bdRunnable)) {
+                    this.a.submit(bdRunnable);
+                    return;
+                } else {
+                    this.c.obtainMessage(1, bdRunnable).sendToTarget();
+                    return;
+                }
+            }
             try {
-                e();
-                this.b.pauseTimers();
-                return true;
+                this.a.submit(bdRunnable);
+            } catch (Error e) {
+                bdRunnable.b(e);
             } catch (Exception e2) {
-                Log.printStackTrace(e2);
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Log.d(d, "BdWebViewSingleton resumeTimer");
-            try {
-                e();
-                this.b.resumeTimers();
-                return true;
-            } catch (Exception e2) {
-                Log.printStackTrace(e2);
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.b == null && this.a != null) {
-            if (BdZeusUtil.isWebkitLoaded()) {
-                this.c = true;
-            } else {
-                this.c = false;
-                Log.d(d, "BdWebViewSingleton init system webview,zeus was not load complete");
-            }
-            this.b = new WebView(this.a);
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            Log.w(d, "BdWebViewSingleton, old instance has been destroyed");
-            WebView webView = this.b;
-            if (webView != null) {
-                webView.destroy();
-                this.b = null;
+                bdRunnable.a(e2);
             }
         }
     }

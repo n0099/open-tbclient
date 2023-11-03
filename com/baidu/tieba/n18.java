@@ -1,14 +1,24 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Personalized.Resource;
+@Service
 /* loaded from: classes7.dex */
-public class n18 extends xk6 {
+public class n18 implements y15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.y15
+    public String name() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "NA_FRS_GROUP_CHAT_GUIDE_STRATEGY" : (String) invokeV.objValue;
+    }
 
     public n18() {
         Interceptable interceptable = $ic;
@@ -24,19 +34,13 @@ public class n18 extends xk6 {
         }
     }
 
-    public void c(Resource resource) {
+    @Override // com.baidu.tieba.y15
+    public w15 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, resource) != null) || resource == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new m18();
         }
-        this.a = resource.res_id.longValue();
-        this.b = resource.user_name;
-        this.c = resource.user_image;
-        this.d = resource.user_link;
-        this.e = resource.res_title;
-        this.f = resource.res_image;
-        this.g = resource.res_link;
-        this.h = resource.position.longValue();
-        this.i = resource.icon_text;
+        return (w15) invokeV.objValue;
     }
 }

@@ -27,7 +27,7 @@ import kotlin.reflect.jvm.internal.impl.types.TypeProjection;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeChecker;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeRefiner;
 import kotlin.reflect.jvm.internal.impl.types.typeUtil.TypeUtilsKt;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class RawTypeImpl extends FlexibleType implements RawType {
     public RawTypeImpl(SimpleType simpleType, SimpleType simpleType2) {
         this(simpleType, simpleType2, false);
@@ -50,17 +50,17 @@ public final class RawTypeImpl extends FlexibleType implements RawType {
 
     @Override // kotlin.reflect.jvm.internal.impl.types.FlexibleType, kotlin.reflect.jvm.internal.impl.types.KotlinType
     public MemberScope getMemberScope() {
-        ClassifierDescriptor mo2106getDeclarationDescriptor = getConstructor().mo2106getDeclarationDescriptor();
-        if (!(mo2106getDeclarationDescriptor instanceof ClassDescriptor)) {
-            mo2106getDeclarationDescriptor = null;
+        ClassifierDescriptor mo2110getDeclarationDescriptor = getConstructor().mo2110getDeclarationDescriptor();
+        if (!(mo2110getDeclarationDescriptor instanceof ClassDescriptor)) {
+            mo2110getDeclarationDescriptor = null;
         }
-        ClassDescriptor classDescriptor = (ClassDescriptor) mo2106getDeclarationDescriptor;
+        ClassDescriptor classDescriptor = (ClassDescriptor) mo2110getDeclarationDescriptor;
         if (classDescriptor != null) {
             MemberScope memberScope = classDescriptor.getMemberScope(RawSubstitution.INSTANCE);
             Intrinsics.checkExpressionValueIsNotNull(memberScope, "classDescriptor.getMemberScope(RawSubstitution)");
             return memberScope;
         }
-        throw new IllegalStateException(("Incorrect classifier: " + getConstructor().mo2106getDeclarationDescriptor()).toString());
+        throw new IllegalStateException(("Incorrect classifier: " + getConstructor().mo2110getDeclarationDescriptor()).toString());
     }
 
     /* JADX DEBUG: Method merged with bridge method */

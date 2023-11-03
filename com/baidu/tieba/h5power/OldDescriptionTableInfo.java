@@ -38,16 +38,16 @@ public class OldDescriptionTableInfo {
         LinkedHashSet linkedHashSet = new LinkedHashSet();
         mModuleSet = linkedHashSet;
         linkedHashSet.add(a.g);
+        mModuleSet.add("host");
+        mModuleSet.add(Config.DEVICE_PART);
         mModuleSet.add("account");
         mModuleSet.add(DI.ROUTER_NAME);
         mModuleSet.add("toast");
         mModuleSet.add(IMConstants.SERVICE_TYPE_SUBSCRIPTION);
         mModuleSet.add("system");
-        mModuleSet.add("host");
         mModuleSet.add("payment");
         mModuleSet.add("yabment");
         mModuleSet.add(LocalFilesFilterKt.FILTER_NAME_LOG);
-        mModuleSet.add(Config.DEVICE_PART);
         mModuleSet.add("share");
         mModuleSet.add("clipper");
         mModuleSet.add("activity");

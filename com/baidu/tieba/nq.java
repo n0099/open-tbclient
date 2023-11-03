@@ -1,20 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.view.View;
+import androidx.annotation.CallSuper;
+import com.baidu.bdtask.BDPTask;
+import com.baidu.bdtask.component.buoy.TaskBuoyViewData;
+import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Stack;
-import java.util.concurrent.locks.ReentrantLock;
-import kotlin.Unit;
 /* loaded from: classes7.dex */
-public final class nq<T> implements mq<T> {
+public class nq implements oq {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Stack<T> a;
-    public final ReentrantLock b;
 
     public nq() {
         Interceptable interceptable = $ic;
@@ -26,73 +24,22 @@ public final class nq<T> implements mq<T> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new Stack<>();
-        this.b = new ReentrantLock(true);
-    }
-
-    @Override // com.baidu.tieba.mq
-    public T a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ReentrantLock reentrantLock = this.b;
-            reentrantLock.lock();
-            try {
-                if (!c()) {
-                    return this.a.pop();
-                }
-                return null;
-            } finally {
-                reentrantLock.unlock();
-            }
-        }
-        return (T) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.mq
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ReentrantLock reentrantLock = this.b;
-            reentrantLock.lock();
-            try {
-                this.a.clear();
-                Unit unit = Unit.INSTANCE;
-            } finally {
-                reentrantLock.unlock();
             }
         }
     }
 
-    @Override // com.baidu.tieba.mq
-    public boolean c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.oq
+    @CallSuper
+    public void a(View view2, TaskInfo taskInfo, TaskBuoyViewData taskBuoyViewData) {
+        yn b;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ReentrantLock reentrantLock = this.b;
-            reentrantLock.lock();
-            try {
-                return this.a.isEmpty();
-            } finally {
-                reentrantLock.unlock();
+        if ((interceptable == null || interceptable.invokeLLL(1048576, this, view2, taskInfo, taskBuoyViewData) == null) && taskBuoyViewData.getTaskStatus().isFinished()) {
+            if (view2.getParent() != null) {
+                view2.setVisibility(8);
             }
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.mq
-    public void a(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-            ReentrantLock reentrantLock = this.b;
-            reentrantLock.lock();
-            try {
-                this.a.push(t);
-            } finally {
-                reentrantLock.unlock();
+            sp v = BDPTask.m.v();
+            if (v != null && (b = v.b()) != null) {
+                b.a(taskBuoyViewData.getScheme(), 3);
             }
         }
     }

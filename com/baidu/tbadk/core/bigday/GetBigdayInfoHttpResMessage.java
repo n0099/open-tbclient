@@ -3,9 +3,9 @@ package com.baidu.tbadk.core.bigday;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.cv4;
-import com.baidu.tieba.gz4;
-import com.baidu.tieba.m9;
+import com.baidu.tieba.ca;
+import com.baidu.tieba.uv4;
+import com.baidu.tieba.yz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -20,7 +20,7 @@ import tbclient.GetBigday.GetBigdayResIdl;
 public class GetBigdayInfoHttpResMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<cv4> bigdayInfos;
+    public ArrayList<uv4> bigdayInfos;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetBigdayInfoHttpResMessage() {
@@ -49,8 +49,8 @@ public class GetBigdayInfoHttpResMessage extends HttpResponsedMessage {
             if (bArr == null) {
                 return;
             }
-            gz4.k();
-            m9<byte[]> i2 = gz4.i("tb.bigday_datas");
+            yz4.l();
+            ca<byte[]> i2 = yz4.i("tb.bigday_datas");
             i2.remove("tb.bigday_datas");
             i2.g("tb.bigday_datas", bArr);
         }
@@ -72,10 +72,10 @@ public class GetBigdayInfoHttpResMessage extends HttpResponsedMessage {
                 this.bigdayInfos = new ArrayList<>();
                 for (BigdayInfo bigdayInfo : getBigdayResIdl.data.bigday_list) {
                     if (bigdayInfo != null) {
-                        cv4 cv4Var = new cv4();
-                        cv4Var.b(bigdayInfo);
-                        if (cv4Var.a()) {
-                            this.bigdayInfos.add(cv4Var);
+                        uv4 uv4Var = new uv4();
+                        uv4Var.b(bigdayInfo);
+                        if (uv4Var.a()) {
+                            this.bigdayInfos.add(uv4Var);
                         }
                     }
                 }

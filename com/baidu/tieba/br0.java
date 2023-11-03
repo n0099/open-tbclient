@@ -1,71 +1,20 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.ObjectAnimator;
-import android.graphics.Color;
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.constraintlayout.motion.widget.Key;
-import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.event.ControlEvent;
-import com.baidu.searchbox.player.event.LayerEvent;
 import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.badge.BadgeDrawable;
 /* loaded from: classes5.dex */
-public class br0 extends tq0 {
+public class br0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView b;
-    public FrameLayout.LayoutParams c;
-    public boolean d;
-    public Animator e;
-    public Animator f;
-    public String g;
-    public int h;
-    public int i;
-
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ br0 a;
-
-        public a(br0 br0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {br0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = br0Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.z();
-            }
-        }
-    }
+    public vq0 a;
+    public pq0 b;
 
     public br0() {
         Interceptable interceptable = $ic;
@@ -81,263 +30,279 @@ public class br0 extends tq0 {
         }
     }
 
-    public boolean B() {
+    public vq0 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!this.e.isRunning() && this.b.getAlpha() != 1.0f) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (vq0) invokeV.objValue;
+    }
+
+    public void d() {
+        vq0 vq0Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (vq0Var = this.a) != null) {
+            vq0Var.onBufferEnd();
+        }
+    }
+
+    public void e() {
+        vq0 vq0Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (vq0Var = this.a) != null) {
+            vq0Var.onBufferStart();
+        }
+    }
+
+    public void k() {
+        vq0 vq0Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (vq0Var = this.a) != null) {
+            vq0Var.onPause();
+        }
+    }
+
+    public void l() {
+        vq0 vq0Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (vq0Var = this.a) != null) {
+            vq0Var.onPrepared();
+        }
+    }
+
+    public void m() {
+        vq0 vq0Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (vq0Var = this.a) != null) {
+            vq0Var.onResume();
+        }
+    }
+
+    public void n() {
+        vq0 vq0Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (vq0Var = this.a) != null) {
+            vq0Var.onSeekEnd();
+        }
+    }
+
+    public void o() {
+        vq0 vq0Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (vq0Var = this.a) != null) {
+            vq0Var.onStart();
+        }
+    }
+
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            this.a = null;
+            this.b = null;
+        }
+    }
+
+    public final void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            if (701 == i) {
+                e();
+            } else if (702 == i) {
+                d();
             }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void I() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.b.bringToFront();
-            this.e.start();
-            y();
-            C(true);
         }
     }
 
-    @Override // com.baidu.tieba.uq0
-    @NonNull
-    public View getContentView() {
-        InterceptResult invokeV;
+    public void f(int i) {
+        vq0 vq0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.b;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public void y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.b.postDelayed(new a(this), 3000L);
+        if ((interceptable == null || interceptable.invokeI(1048581, this, i) == null) && (vq0Var = this.a) != null) {
+            vq0Var.onEnd(i);
         }
     }
 
-    public void z() {
+    public void i(iv0 iv0Var) {
+        pq0 pq0Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && !this.f.isRunning() && this.b.getAlpha() != 0.0f) {
-            this.f.start();
-            C(false);
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iv0Var) == null) && (pq0Var = this.b) != null) {
+            pq0Var.a(iv0Var);
         }
     }
 
-    public void A() {
+    public void j(iv0 iv0Var) {
+        pq0 pq0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e = ObjectAnimator.ofFloat(this.b, Key.ALPHA, 0.0f, 1.0f).setDuration(250L);
-            this.f = ObjectAnimator.ofFloat(this.b, Key.ALPHA, 1.0f, 0.0f).setDuration(250L);
+        if ((interceptable == null || interceptable.invokeL(1048585, this, iv0Var) == null) && (pq0Var = this.b) != null) {
+            pq0Var.b(iv0Var);
         }
     }
 
-    public void G() {
+    public void s(vq0 vq0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (r().Q0()) {
-                this.c.bottomMargin = q21.b(7.0f);
-            } else {
-                this.c.bottomMargin = 2;
-                this.b.setBackground(f().getResources().getDrawable(R.drawable.nad_videoplayer_control_panel_background));
-            }
-            this.b.setLayoutParams(this.c);
-        }
-    }
-
-    public void H() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (r().Q0()) {
-                this.c.bottomMargin = q21.b(81.0f);
-            } else {
-                this.c.bottomMargin = q21.b(32.0f);
-                this.b.setBackgroundColor(0);
-                this.c.height = q21.b(32.0f);
-            }
-            this.b.setLayoutParams(this.c);
-        }
-    }
-
-    public final void C(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            sr0 x = ir0.x(LayerEvent.ACTION_POPUP_SHOW);
-            x.o(28, Boolean.valueOf(z));
-            r().o0(x);
-        }
-    }
-
-    public void D(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            if (z) {
-                this.h = R.string.nad_videoplayer_video_next_tip;
-                this.i = R.string.nad_videoplayer_full_after_ad_play_next_tip;
-                return;
-            }
-            this.h = R.string.nad_videoplayer_half_video_next_tip;
-            this.i = R.string.nad_videoplayer_after_ad_play_next_tip;
-        }
-    }
-
-    public final void E() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.b.getLayoutParams();
-            layoutParams.width = -2;
-            layoutParams.height = -2;
-            this.b.setBackground(f().getResources().getDrawable(R.drawable.nad_videoplayer_immersive_video_next_bg));
-            this.b.setText(f().getResources().getText(R.string.nad_videoplayer_video_next_tip));
-            this.b.setPadding(38, 14, 38, 14);
-            this.b.setLayoutParams(layoutParams);
-        }
-    }
-
-    public final void F() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.b.getLayoutParams();
-            layoutParams.width = -1;
-            layoutParams.height = q21.b(35.0f);
-            this.b.setPadding(0, 0, q21.b(15.0f), 0);
-            this.b.setText(f().getResources().getString(R.string.nad_videoplayer_half_video_next_tip));
-            this.b.setBackground(f().getResources().getDrawable(R.drawable.nad_videoplayer_control_panel_background));
-            this.b.setLayoutParams(layoutParams);
-        }
-    }
-
-    @Override // com.baidu.tieba.nq0
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            TextView textView = new TextView(f());
-            this.b = textView;
-            textView.setText(f().getResources().getString(R.string.nad_videoplayer_half_video_next_tip));
-            this.b.setTextSize(0, f().getResources().getDimensionPixelSize(R.dimen.nad_videoplayer_immersive_video_next_text_size));
-            this.b.setShadowLayer(0.0f, 0.0f, 1.0f, Color.parseColor("#80000000"));
-            this.b.setTextColor(-1);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, q21.b(35.0f));
-            this.c = layoutParams;
-            layoutParams.gravity = BadgeDrawable.BOTTOM_END;
-            this.b.setLayoutParams(layoutParams);
-            this.b.setBackground(ContextCompat.getDrawable(f(), R.drawable.nad_videoplayer_next_play_tips_background));
-            this.b.setGravity(8388629);
-            this.b.setAlpha(0.0f);
-            this.b.setPadding(0, 0, q21.b(15.0f), 0);
-            A();
-            D(false);
+        if (interceptable == null || interceptable.invokeL(1048594, this, vq0Var) == null) {
+            this.a = vq0Var;
         }
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @Override // com.baidu.tieba.nq0
-    public void l(@NonNull sr0 sr0Var) {
-        char c;
+    /* JADX WARN: Code restructure failed: missing block: B:36:0x007d, code lost:
+        if (r0.equals(com.baidu.searchbox.player.event.PlayerEvent.ACTION_SEEK_COMPLETE) != false) goto L14;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void b(js0 js0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, sr0Var) == null) {
-            super.l(sr0Var);
-            String c2 = sr0Var.c();
-            switch (c2.hashCode()) {
-                case -1244137507:
-                    if (c2.equals(PlayerEvent.ACTION_SEEK_COMPLETE)) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -882902390:
-                    if (c2.equals(PlayerEvent.ACTION_SET_DATA_SOURCE)) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -552621273:
-                    if (c2.equals(LayerEvent.ACTION_SWITCH_FULL)) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -552580917:
-                    if (c2.equals(LayerEvent.ACTION_SWITCH_HALF)) {
-                        c = 5;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 723345051:
-                    if (c2.equals(ControlEvent.ACTION_START)) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1933234291:
-                    if (c2.equals(ControlEvent.ACTION_CONTINUE_TIPS_SHOW)) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
-            }
-            if (c != 0 && c != 1 && c != 2) {
-                if (c != 3) {
-                    if (c != 4) {
-                        if (c == 5) {
-                            F();
-                            D(false);
-                            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, js0Var) == null) {
+            char c = 4;
+            if (js0Var.m() == 4 || js0Var.m() == 2) {
+                String c2 = js0Var.c();
+                switch (c2.hashCode()) {
+                    case -1502879971:
+                        if (c2.equals(PlayerEvent.ACTION_VIDEO_SIZE_CHANGED)) {
+                            c = 5;
+                            break;
                         }
+                        c = 65535;
+                        break;
+                    case -1244137507:
+                        break;
+                    case -525235558:
+                        if (c2.equals(PlayerEvent.ACTION_ON_PREPARED)) {
+                            c = 2;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case -461848373:
+                        if (c2.equals(PlayerEvent.ACTION_ON_ERROR)) {
+                            c = 1;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case 154871702:
+                        if (c2.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
+                            c = 3;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case 720027695:
+                        if (c2.equals(ControlEvent.ACTION_PAUSE)) {
+                            c = '\b';
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case 723345051:
+                        if (c2.equals(ControlEvent.ACTION_START)) {
+                            c = 6;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case 906917140:
+                        if (c2.equals(ControlEvent.ACTION_RESUME)) {
+                            c = 7;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case 1370689931:
+                        if (c2.equals(PlayerEvent.ACTION_ON_INFO)) {
+                            c = 0;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case 1547354793:
+                        if (c2.equals(ControlEvent.ACTION_STOP)) {
+                            c = '\t';
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    default:
+                        c = 65535;
+                        break;
+                }
+                switch (c) {
+                    case 0:
+                        int g = js0Var.g(1);
+                        h(g, js0Var.g(2), js0Var.f(3));
+                        a(g);
                         return;
-                    }
-                    E();
-                    D(true);
-                    return;
-                } else if (r().n1()) {
-                    return;
-                } else {
-                    boolean e = sr0Var.e(8, false);
-                    boolean e2 = sr0Var.e(9, false);
-                    if (e) {
-                        this.b.setText(f().getResources().getString(this.i));
-                    } else if (e2) {
-                        if (!TextUtils.isEmpty(this.g)) {
-                            this.b.setText(this.g);
-                            this.b.setBackground(f().getResources().getDrawable(R.drawable.nad_videoplayer_control_panel_background));
-                        }
-                    } else {
-                        this.b.setText(f().getResources().getString(this.h));
-                    }
-                    if (this.d) {
-                        H();
-                    } else {
-                        G();
-                    }
-                    I();
-                    return;
+                    case 1:
+                        g(js0Var.g(1), js0Var.g(2), js0Var.f(3));
+                        return;
+                    case 2:
+                        l();
+                        return;
+                    case 3:
+                        f(307);
+                        return;
+                    case 4:
+                        n();
+                        return;
+                    case 5:
+                        q(js0Var.g(5), js0Var.g(6));
+                        return;
+                    case 6:
+                        o();
+                        return;
+                    case 7:
+                        m();
+                        return;
+                    case '\b':
+                        k();
+                        return;
+                    case '\t':
+                        f(0);
+                        return;
+                    default:
+                        return;
                 }
             }
-            z();
         }
     }
 
-    @Override // com.baidu.tieba.tq0
-    public void t(boolean z, boolean z2) {
+    public void g(int i, int i2, Object obj) {
+        vq0 vq0Var;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            super.t(z, z2);
-            this.d = z;
-            z();
+        if ((interceptable == null || interceptable.invokeIIL(1048582, this, i, i2, obj) == null) && (vq0Var = this.a) != null) {
+            if (obj != null) {
+                str = obj.toString();
+            } else {
+                str = "";
+            }
+            vq0Var.onError(i, i2, str);
+        }
+    }
+
+    public void h(int i, int i2, Object obj) {
+        vq0 vq0Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIIL(1048583, this, i, i2, obj) == null) && (vq0Var = this.a) != null) {
+            vq0Var.onInfo(i, i2);
+        }
+    }
+
+    public void p(int i, int i2, int i3) {
+        vq0 vq0Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIII(1048591, this, i, i2, i3) == null) && (vq0Var = this.a) != null) {
+            vq0Var.onUpdateProgress(i, i2, i3);
+        }
+    }
+
+    public void q(int i, int i2) {
+        vq0 vq0Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeII(1048592, this, i, i2) == null) && (vq0Var = this.a) != null) {
+            vq0Var.onVideoSizeChanged(i, i2);
         }
     }
 }

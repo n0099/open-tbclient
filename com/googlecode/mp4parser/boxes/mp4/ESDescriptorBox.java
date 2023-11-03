@@ -6,7 +6,7 @@ import com.googlecode.mp4parser.boxes.mp4.objectdescriptors.ESDescriptor;
 import java.nio.ByteBuffer;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ESDescriptorBox extends AbstractDescriptorBox {
     public static final String TYPE = "esds";
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_0 = null;

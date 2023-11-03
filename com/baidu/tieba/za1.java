@@ -1,25 +1,42 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
+import com.baidu.payment.PaymentManager;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class za1 extends ab1<String, String> {
+public class za1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public za1() {
+    public static void a(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeL(65536, null, bundle) == null) {
+            if (bundle == null) {
+                PaymentManager.i(3, "闪付返回信息为空");
+                return;
             }
+            String string = bundle.getString("statusCode");
+            try {
+                PaymentManager.i(Integer.parseInt(string), bundle.getString("payInfo"));
+            } catch (NumberFormatException e) {
+                PaymentManager.i(3, e.getMessage());
+            }
+        }
+    }
+
+    public static void b(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, bundle) == null) {
+            xa1.a().g(bundle);
+        }
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && ProcessUtils.isMainProcess()) {
+            xa1.a().h("");
         }
     }
 }

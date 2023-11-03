@@ -1,7 +1,7 @@
 package kotlin.reflect.jvm.internal.impl.load.java.structure;
 
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface JavaConstructor extends JavaMember, JavaTypeParameterListOwner {
     List<JavaValueParameter> getValueParameters();
 }

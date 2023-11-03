@@ -1,57 +1,46 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.tbadk.widget.CardLiveLabelView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
-public final class l97 {
+public class l97 {
     public static /* synthetic */ Interceptable $ic;
+    public static HashMap<String, Class> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public l97() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947897791, "Lcom/baidu/tieba/l97;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947897791, "Lcom/baidu/tieba/l97;");
+                return;
             }
         }
+        HashMap<String, Class> hashMap = new HashMap<>();
+        a = hashMap;
+        hashMap.put("common_icon", m97.class);
+        a.put("emoji", o97.class);
+        a.put("tie_plus", s97.class);
+        a.put("text_with_hollow_bg", r97.class);
+        a.put("text_with_bg", q97.class);
+        a.put("common_text", n97.class);
     }
 
-    public View a(Context context, Map<String, String> decorationInfo) {
-        InterceptResult invokeLL;
-        boolean z;
+    public static HashMap<String, Class> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, decorationInfo)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(decorationInfo, "decorationInfo");
-            CardLiveLabelView cardLiveLabelView = new CardLiveLabelView(context);
-            String str = decorationInfo.get("text");
-            if (str != null && !StringsKt__StringsJVMKt.isBlank(str)) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                return null;
-            }
-            cardLiveLabelView.setViewType(2);
-            cardLiveLabelView.h(str);
-            cardLiveLabelView.f();
-            return cardLiveLabelView;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a;
         }
-        return (View) invokeLL.objValue;
+        return (HashMap) invokeV.objValue;
     }
 }

@@ -1,40 +1,48 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.security.ISchemeIoc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class gt3 {
+public class gt3 implements ISchemeIoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public boolean b;
-    public String c;
-    public int d;
-    public int e;
-    public boolean f;
-    public boolean g;
-    public String h;
-    public int i;
-    public boolean j;
-    public String k;
-    public String l;
-    public boolean m;
-    public boolean n;
-    public boolean o;
-    public String p;
-    public String q;
-    public boolean r;
-    public boolean s;
-    public boolean t;
-    public boolean u;
-    public boolean v;
-    public int w;
-    public boolean x;
-    public boolean y;
-    public boolean z;
+
+    @Override // com.baidu.searchbox.unitedscheme.security.ISchemeIoc
+    public boolean needShowConfirmWindow(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler)) == null) {
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.unitedscheme.security.ISchemeIoc
+    public void processSchemeFromMobsdk(UnitedSchemeEntity unitedSchemeEntity, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, unitedSchemeEntity, i) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.unitedscheme.security.ISchemeIoc
+    public void showSchemeNotSupportDialog(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
+        }
+    }
 
     public gt3() {
         Interceptable interceptable = $ic;
@@ -46,39 +54,24 @@ public class gt3 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = "";
-        this.b = false;
-        this.c = "";
-        this.d = 0;
-        this.e = 0;
-        this.f = false;
-        this.g = false;
-        this.h = "";
-        this.i = 0;
-        this.k = "";
-        this.l = "";
-        this.m = false;
-        this.n = false;
-        this.o = true;
-        this.p = "";
-        this.q = "";
-        this.u = false;
-        this.v = true;
-        this.w = -1;
-        this.x = true;
-        this.y = true;
-        this.z = true;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.unitedscheme.security.ISchemeIoc
+    public void doStatistic(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "VideoPlayerParams{mPlayerId='" + this.a + "', mMute=" + this.b + ", mPoster='" + this.c + "', mInitialTime=" + this.d + ", duration=" + this.e + ", mAutoPlay=" + this.f + ", mLoop=" + this.g + ", mObjectFit='" + this.h + "', mPos=" + this.i + ", mFullScreen=" + this.j + ", mDanmu='" + this.k + "', mDanmuList='" + this.l + "', mEnableDanmu=" + this.m + ", mShowDanmuBtn=" + this.n + ", mShowControlPanel=" + this.o + ", mSrc='" + this.p + "', mSanId='" + this.q + "', mShowPlayBtn=" + this.r + ", mShowMuteBtn=" + this.s + ", mShowCenterPlayBtn=" + this.t + ", mPageGesture=" + this.u + ", mShowProgress=" + this.v + ", mDirection=" + this.w + ", mShowFullscreenBtn=" + this.x + ", mEnableProgressGesture=" + this.y + ", mIsRemoteFile=" + this.z + '}';
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            nc3.h(str, str2);
         }
-        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.unitedscheme.security.ISchemeIoc
+    public void showConfirmDialog(Context context, UnitedSchemeBaseDispatcher.ConfirmDialogCallback confirmDialogCallback) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, context, confirmDialogCallback) != null) || confirmDialogCallback == null) {
+            return;
+        }
+        confirmDialogCallback.onConfirm();
     }
 }

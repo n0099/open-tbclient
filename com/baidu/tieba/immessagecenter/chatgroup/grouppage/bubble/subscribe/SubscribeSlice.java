@@ -24,7 +24,7 @@ import com.baidu.tieba.im.base.core.slice.Slice;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.GroupChatRepo;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
-import com.baidu.tieba.mna;
+import com.baidu.tieba.n0b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -107,7 +107,7 @@ public class SubscribeSlice extends Slice {
         @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.GroupChatRepo.Counter.d
         public void a(int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && i == TbSingleton.getInstance().getSecond() && !this.a.o.N2().w0() && !this.a.o.N2().q0()) {
+            if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && i == TbSingleton.getInstance().getSecond() && !this.a.o.f3().w0() && !this.a.o.f3().q0()) {
                 UiUtils.runOnUiThread(new a(this));
             }
         }
@@ -119,7 +119,7 @@ public class SubscribeSlice extends Slice {
                 return;
             }
             this.a.k = true;
-            this.a.o.N2().H0();
+            this.a.o.f3().H0();
         }
 
         @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.GroupChatRepo.Counter.d
@@ -129,7 +129,7 @@ public class SubscribeSlice extends Slice {
                 return;
             }
             this.a.l = true;
-            this.a.o.N2().H0();
+            this.a.o.f3().H0();
         }
     }
 
@@ -193,7 +193,7 @@ public class SubscribeSlice extends Slice {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 c cVar = new c();
                 cVar.a = view2;
-                cVar.b = (SubscribeGuideView) view2.findViewById(R.id.obfuscated_res_0x7f09231c);
+                cVar.b = (SubscribeGuideView) view2.findViewById(R.id.obfuscated_res_0x7f092373);
                 return cVar;
             }
             return (c) invokeL.objValue;
@@ -244,11 +244,11 @@ public class SubscribeSlice extends Slice {
     public final void q0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            FrameLayout R2 = this.o.R2();
+            FrameLayout j3 = this.o.j3();
             if (z) {
-                R2.setVisibility(0);
+                j3.setVisibility(0);
             } else {
-                R2.setVisibility(8);
+                j3.setVisibility(8);
             }
         }
     }
@@ -278,7 +278,7 @@ public class SubscribeSlice extends Slice {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, layoutInflater, viewGroup, bundle)) == null) {
-            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d090f, viewGroup, false);
+            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0927, viewGroup, false);
         }
         return (View) invokeLLL.objValue;
     }
@@ -288,7 +288,7 @@ public class SubscribeSlice extends Slice {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             p0(8);
             q0(true);
-            mna.b(this.m.b, 600);
+            n0b.b(this.m.b, 600);
             this.m.b.a();
         }
     }

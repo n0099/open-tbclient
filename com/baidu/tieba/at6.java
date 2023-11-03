@@ -1,39 +1,31 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import android.os.Trace;
+import com.baidu.tbadk.core.GlobalBuildConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class at6 extends kf1<ys6> {
+public final class at6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public at6() {
+    public static final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if ((interceptable != null && interceptable.invokeV(65536, null) != null) || !GlobalBuildConfig.isDebug()) {
+            return;
         }
+        Trace.endSection();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kf1
-    /* renamed from: a */
-    public ys6 createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    public static final void b(String name) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new zs6();
+        if (interceptable == null || interceptable.invokeL(65537, null, name) == null) {
+            Intrinsics.checkNotNullParameter(name, "name");
+            if (!GlobalBuildConfig.isDebug()) {
+                return;
+            }
+            Trace.beginSection(name);
         }
-        return (ys6) invokeV.objValue;
     }
 }

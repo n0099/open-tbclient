@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
-import tv.athena.revenue.api.pay.params.PayFlowType;
-import tv.athena.revenue.payui.model.PayFlowModel;
+import com.yy.transvod.player.common.NetRequestStatusInfo;
 /* loaded from: classes7.dex */
 public interface occ {
-    PayFlowModel j(PayFlowType payFlowType);
+    void a(zcc zccVar, int i, NetRequestStatusInfo netRequestStatusInfo);
 }

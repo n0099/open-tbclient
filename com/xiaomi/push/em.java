@@ -102,7 +102,7 @@ public class em {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static hr m453a(String str) {
+    public static hr m457a(String str) {
         hr[] values;
         if (f314a == null) {
             synchronized (hr.class) {
@@ -119,12 +119,12 @@ public class em {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m454a(int i) {
+    public static String m458a(int i) {
         return i == 1000 ? "E100000" : i == 3000 ? "E100002" : i == 2000 ? "E100001" : i == 6000 ? "E100003" : "";
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m455a(Context context) {
+    public static void m459a(Context context) {
         ClientReportClient.updateConfig(context, a(context));
     }
 
@@ -133,7 +133,7 @@ public class em {
     }
 
     public static void a(Context context, hl hlVar) {
-        if (m456a(context.getApplicationContext())) {
+        if (m460a(context.getApplicationContext())) {
             com.xiaomi.push.service.ca.a(context.getApplicationContext(), hlVar);
             return;
         }
@@ -164,7 +164,7 @@ public class em {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m456a(Context context) {
+    public static boolean m460a(Context context) {
         return (context == null || TextUtils.isEmpty(context.getPackageName()) || !"com.xiaomi.xmsf".equals(context.getPackageName())) ? false : true;
     }
 }

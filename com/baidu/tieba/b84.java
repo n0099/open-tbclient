@@ -1,85 +1,85 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.searchbox.v8engine.JSExceptionType;
-import com.baidu.swan.apps.binding.model.JSTypeMismatchException;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import android.annotation.SuppressLint;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
 /* loaded from: classes5.dex */
-public class b84 {
+public final class b84 extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public h84 a;
+    public volatile boolean b;
 
-    public static String d(int i) {
-        InterceptResult invokeI;
+    @SuppressLint({"MobilebdThread"})
+    public b84() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            switch (i) {
-                case 1:
-                    return "boolean";
-                case 2:
-                case 3:
-                case 5:
-                    return "number";
-                case 4:
-                case 9:
-                case 10:
-                default:
-                    return "object";
-                case 6:
-                    return "array object";
-                case 7:
-                    return EMABTest.TYPE_STRING;
-                case 8:
-                    return "function object";
-                case 11:
-                    return StringUtil.NULL_STRING;
-                case 12:
-                    return SessionMonitorEngine.PUBLIC_DATA_UNDIFNED;
-            }
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public static void a(xx1 xx1Var, boolean z, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{xx1Var, Boolean.valueOf(z), obj}) == null) {
-            xz3 e = xz3.e(xx1Var);
-            if (z) {
-                e.d(obj);
-            } else {
-                e.b(obj);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static String b(@NonNull String str, @NonNull JSTypeMismatchException jSTypeMismatchException) {
-        InterceptResult invokeLL;
+    public final boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, jSTypeMismatchException)) == null) {
-            return String.format("%s:fail parameter error: parameter.%s should be %s instead of %s", str, jSTypeMismatchException.name, d(jSTypeMismatchException.requiredType), d(jSTypeMismatchException.actualType));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (String) invokeLL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static void e(zc2 zc2Var, JSTypeMismatchException jSTypeMismatchException) {
+    public final void b(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, zc2Var, jSTypeMismatchException) == null) {
-            zc2Var.throwJSException(JSExceptionType.TypeError, String.format("The \"%s\" argument must be %s. Received type %s", jSTypeMismatchException.name, d(jSTypeMismatchException.requiredType), d(jSTypeMismatchException.actualType)));
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.b = z;
         }
     }
 
-    public static String c(@NonNull String str, @NonNull String str2) {
-        InterceptResult invokeLL;
+    public final void c(h84 h84Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            return String.format("%s: %s", str, str2);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, h84Var) == null) {
+            this.a = h84Var;
         }
-        return (String) invokeLL.objValue;
+    }
+
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        DatagramSocket B;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            while (this.b) {
+                try {
+                    DatagramPacket datagramPacket = new DatagramPacket(new byte[4096], 4096);
+                    h84 h84Var = this.a;
+                    if (h84Var != null && (B = h84Var.B()) != null) {
+                        B.receive(datagramPacket);
+                    }
+                    h84 h84Var2 = this.a;
+                    if (h84Var2 != null) {
+                        h84Var2.y(datagramPacket);
+                    }
+                } catch (InterruptedException unused) {
+                    return;
+                } catch (Throwable unused2) {
+                    h84 h84Var3 = this.a;
+                    if (h84Var3 != null) {
+                        h84Var3.C(StatConstants.VALUE_TYPE_RECEIVE, "receive failed");
+                    }
+                }
+            }
+        }
     }
 }

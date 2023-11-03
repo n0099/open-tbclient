@@ -12,15 +12,15 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ly9;
-import com.baidu.tieba.ny9;
+import com.baidu.tieba.qba;
+import com.baidu.tieba.sba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public abstract class QRCodeView extends RelativeLayout implements Camera.PreviewCallback, ny9.a {
+/* loaded from: classes8.dex */
+public abstract class QRCodeView extends RelativeLayout implements Camera.PreviewCallback, sba.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Camera a;
@@ -29,26 +29,26 @@ public abstract class QRCodeView extends RelativeLayout implements Camera.Previe
     public c d;
     public Handler e;
     public boolean f;
-    public ny9 g;
+    public sba g;
     public int h;
     public Runnable i;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface c {
         void a();
 
         void b(String str);
     }
 
-    /* loaded from: classes7.dex */
-    public class a extends ny9 {
+    /* loaded from: classes8.dex */
+    public class a extends sba {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Camera e;
         public final /* synthetic */ QRCodeView f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(QRCodeView qRCodeView, Camera camera, byte[] bArr, ny9.a aVar, int i, Camera camera2) {
+        public a(QRCodeView qRCodeView, Camera camera, byte[] bArr, sba.a aVar, int i, Camera camera2) {
             super(camera, bArr, aVar, i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -60,7 +60,7 @@ public abstract class QRCodeView extends RelativeLayout implements Camera.Previe
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    super((Camera) objArr2[0], (byte[]) objArr2[1], (ny9.a) objArr2[2], ((Integer) objArr2[3]).intValue());
+                    super((Camera) objArr2[0], (byte[]) objArr2[1], (sba.a) objArr2[2], ((Integer) objArr2[3]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -95,7 +95,7 @@ public abstract class QRCodeView extends RelativeLayout implements Camera.Previe
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -166,13 +166,13 @@ public abstract class QRCodeView extends RelativeLayout implements Camera.Previe
             ScanBoxView scanBoxView = new ScanBoxView(getContext());
             this.c = scanBoxView;
             scanBoxView.k(context, attributeSet);
-            this.b.setId(R.id.obfuscated_res_0x7f0903e5);
+            this.b.setId(R.id.obfuscated_res_0x7f0903fe);
             addView(this.b);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(context, attributeSet);
             layoutParams.addRule(6, this.b.getId());
             layoutParams.addRule(8, this.b.getId());
             addView(this.c, layoutParams);
-            this.h = ly9.c(context);
+            this.h = qba.c(context);
         }
     }
 
@@ -202,10 +202,10 @@ public abstract class QRCodeView extends RelativeLayout implements Camera.Previe
     }
 
     public void b() {
-        ny9 ny9Var;
+        sba sbaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (ny9Var = this.g) != null) {
-            ny9Var.a();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (sbaVar = this.g) != null) {
+            sbaVar.a();
             this.g = null;
         }
     }

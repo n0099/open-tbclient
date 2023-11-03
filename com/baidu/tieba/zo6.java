@@ -1,26 +1,33 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.tieba.xo6;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
-public abstract class zo6<T extends xo6> {
+public final class zo6 implements gb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Class<T> a;
+    public final HashMap<String, String> a;
 
-    public abstract void onEvent(@NonNull T t);
+    @Override // com.baidu.tieba.gb7
+    public String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TbadkCoreStatisticKey.CONCERN_TAB_THREAD_CLICK : (String) invokeV.objValue;
+    }
 
-    public zo6(Class<T> cls) {
+    public zo6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cls};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,15 +37,45 @@ public abstract class zo6<T extends xo6> {
                 return;
             }
         }
-        this.a = cls;
+        this.a = new HashMap<>();
     }
 
-    public final Class<T> a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.gb7
+    public Map<String, String> a(d57 businessInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            Map<String, String> a = businessInfo.a();
+            this.a.put("obj_type", fp6.a.a(businessInfo));
+            this.a.put("obj_source", "1");
+            this.a.put("obj_param1", "1");
+            HashMap<String, String> hashMap = this.a;
+            String str = a.get("live_type");
+            String str2 = "";
+            if (str == null) {
+                str = "";
+            }
+            hashMap.put(TiebaStatic.Params.OBJ_PARAM2, str);
+            HashMap<String, String> hashMap2 = this.a;
+            String str3 = a.get("thread_id");
+            if (str3 != null) {
+                str2 = str3;
+            }
+            hashMap2.put("obj_id", str2);
             return this.a;
         }
-        return (Class) invokeV.objValue;
+        return (Map) invokeL.objValue;
+    }
+
+    public final zo6 b(String locate) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, locate)) == null) {
+            Intrinsics.checkNotNullParameter(locate, "locate");
+            this.a.put("obj_locate", locate);
+            return this;
+        }
+        return (zo6) invokeL.objValue;
     }
 }

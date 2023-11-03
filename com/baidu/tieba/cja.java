@@ -1,52 +1,103 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import android.content.Context;
+import android.os.Bundle;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tieba.sharesdk.ShareHandlerActivity;
+import com.baidu.tieba.sharesdk.bean.ShareEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class cja extends CustomMessageListener {
+public class cja implements ya5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MainTabActivity a;
+    public Context a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cja(MainTabActivity mainTabActivity) {
-        super(2921654);
+    public cja(Context context, xa5 xa5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity};
+            Object[] objArr = {context, xa5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = mainTabActivity;
+        this.a = null;
+        this.a = context;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    @Override // com.baidu.tieba.ya5
+    public void a(ShareItem shareItem, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null) {
-            ie5 ie5Var = null;
-            if (customResponsedMessage.getData() instanceof ie5) {
-                ie5Var = (ie5) customResponsedMessage.getData();
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{shareItem, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            b(shareItem, i);
+        }
+    }
+
+    public final void b(ShareItem shareItem, int i) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareItem, i) == null) && this.a != null && shareItem != null) {
+            IntentConfig intentConfig = new IntentConfig(this.a);
+            ShareEntity shareEntity = new ShareEntity();
+            shareEntity.setTitle(shareItem.title);
+            shareEntity.setContent(shareItem.content);
+            shareEntity.setReadCount(shareItem.readCount);
+            int i2 = shareItem.obj_type;
+            if (i2 != 2 && i2 != 6 && i2 != 8) {
+                z = false;
+            } else {
+                z = true;
             }
-            if (ie5Var != null && ie5Var.b() == 0) {
-                MainTabActivity mainTabActivity = this.a;
-                new he5(mainTabActivity, mainTabActivity.findViewById(R.id.obfuscated_res_0x7f092390), ie5Var).m();
+            shareEntity.setIsVideoThread(z);
+            shareEntity.setFestivalTaskTid(shareItem.festivalTaskTid);
+            shareEntity.setFestivalTaskType(shareItem.festivalTaskType);
+            shareEntity.setImageUri(shareItem.imageUri);
+            shareEntity.canShareBySmartApp = shareItem.canShareBySmartApp;
+            String str = shareItem.linkUrl;
+            if (i == 6 && !StringUtils.isNull(shareItem.spareLinkUrl)) {
+                str = shareItem.spareLinkUrl;
             }
+            shareEntity.setLinkUrl(str);
+            shareEntity.setLocalFile(shareItem.localFile);
+            shareEntity.setLocation(shareItem.location);
+            shareEntity.setShareTo(i);
+            shareEntity.setStats(shareItem.getStats());
+            shareEntity.setPreferImageToLink(shareItem.shareType);
+            shareEntity.setTid(shareItem.tid);
+            shareEntity.setFloorAuthorUid(shareItem.floorAuthorUid);
+            shareEntity.setfName(shareItem.fName);
+            shareEntity.setTypeShareToSmallApp(shareItem.typeShareToSmallApp);
+            shareEntity.topic = shareItem.topic;
+            if (i == 6 && !StringUtils.isNull(shareItem.wbcontent)) {
+                shareEntity.topic = shareItem.wbtitle + shareItem.wbcontent;
+                shareEntity.setContent("");
+            }
+            shareEntity.taskCompleteId = shareItem.taskCompleteId;
+            shareEntity.diskPicOperate = shareItem.diskPicOperate;
+            shareEntity.setExtLiveInfo(shareItem.extLiveInfo);
+            shareEntity.setFromDuXiaoMan(shareItem.isFromDuXiaoMan);
+            shareEntity.setTopicId(shareItem.topicId);
+            shareEntity.groupData = shareItem.groupData;
+            shareEntity.shareMediaType = shareItem.shareMediaType;
+            Bundle bundle = new Bundle();
+            bundle.putParcelable("extra_share_data", shareEntity);
+            bundle.putInt("extra_skin", TbadkCoreApplication.getInst().getSkinType());
+            intentConfig.getIntent().putExtras(bundle);
+            shareItem.setShowShare(true);
+            intentConfig.startActivityForResult(24007, ShareHandlerActivity.class);
         }
     }
 }

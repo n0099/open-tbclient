@@ -32,11 +32,11 @@ public class SimpleLoadingDialog extends BaseLoadingDialog {
     @Override // com.baidu.searchbox.ui.BaseLoadingDialog
     public void initView() {
         int i;
-        setContentView(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0247);
-        this.mRootView = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091fb3);
-        this.mProgressBar = (SmoothProgressBar) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091654);
-        this.mMsgTxtView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091767);
-        this.mCloseImgView = (ImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09073b);
+        setContentView(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d024c);
+        this.mRootView = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091ffb);
+        this.mProgressBar = (SmoothProgressBar) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091694);
+        this.mMsgTxtView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0917a9);
+        this.mCloseImgView = (ImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09075a);
         this.mMsgTxtView.setText(this.mMsgText);
         this.mCloseImgView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.searchbox.ui.SimpleLoadingDialog.1
             @Override // android.view.View.OnClickListener
@@ -67,7 +67,7 @@ public class SimpleLoadingDialog extends BaseLoadingDialog {
         SmoothProgressBar smoothProgressBar = this.mProgressBar;
         if (smoothProgressBar != null) {
             FontSizeViewExtKt.setScaledSizeRes(smoothProgressBar, 0, com.baidu.tieba.R.dimen.obfuscated_res_0x7f07078f, com.baidu.tieba.R.dimen.obfuscated_res_0x7f070785);
-            this.mProgressBar.setIndeterminateDrawable(FontSizeHelper.getScaledDrawableRes(0, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080576));
+            this.mProgressBar.setIndeterminateDrawable(FontSizeHelper.getScaledDrawableRes(0, com.baidu.tieba.R.drawable.obfuscated_res_0x7f08057f));
         }
         TextView textView = this.mMsgTxtView;
         if (textView != null) {
@@ -76,7 +76,7 @@ public class SimpleLoadingDialog extends BaseLoadingDialog {
         ImageView imageView = this.mCloseImgView;
         if (imageView != null) {
             FontSizeViewExtKt.setScaledSizeRes(imageView, 0, com.baidu.tieba.R.dimen.obfuscated_res_0x7f070788, com.baidu.tieba.R.dimen.obfuscated_res_0x7f070786);
-            this.mCloseImgView.setBackground(FontSizeHelper.getScaledDrawableRes(0, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080578));
+            this.mCloseImgView.setBackground(FontSizeHelper.getScaledDrawableRes(0, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080581));
         }
     }
 
@@ -85,11 +85,11 @@ public class SimpleLoadingDialog extends BaseLoadingDialog {
         Resources resources = AppRuntime.getAppContext().getResources();
         View view2 = this.mRootView;
         if (view2 != null) {
-            view2.setBackground(resources.getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080577));
+            view2.setBackground(resources.getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080580));
         }
         SmoothProgressBar smoothProgressBar = this.mProgressBar;
         if (smoothProgressBar != null) {
-            smoothProgressBar.setIndeterminateDrawable(resources.getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080576));
+            smoothProgressBar.setIndeterminateDrawable(resources.getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f08057f));
         }
         TextView textView = this.mMsgTxtView;
         if (textView != null) {
@@ -97,7 +97,7 @@ public class SimpleLoadingDialog extends BaseLoadingDialog {
         }
         ImageView imageView = this.mCloseImgView;
         if (imageView != null) {
-            imageView.setBackground(resources.getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080578));
+            imageView.setBackground(resources.getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080581));
         }
     }
 }

@@ -15,26 +15,26 @@ import com.kwad.sdk.widget.KSFrameLayout;
 public final class a extends KSFrameLayout {
     @Nullable
     public final b DG;
-    public final b.C0621b DH;
+    public final b.C0627b DH;
     public d DI;
-    public InterfaceC0620a DJ;
+    public InterfaceC0626a DJ;
     public final AdTemplate mAdTemplate;
     public Presenter mPresenter;
     public final AdBaseFrameLayout mRootContainer;
 
     /* renamed from: com.kwad.components.core.c.kwai.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public interface InterfaceC0620a {
+    public interface InterfaceC0626a {
         void mp();
     }
 
-    public a(@Nullable b bVar, b.C0621b c0621b) {
-        super(c0621b.context);
+    public a(@Nullable b bVar, b.C0627b c0627b) {
+        super(c0627b.context);
         this.DG = bVar;
-        this.DH = c0621b;
-        this.mAdTemplate = c0621b.adTemplate;
-        FrameLayout.inflate(c0621b.context, R.layout.obfuscated_res_0x7f0d0498, this);
-        this.mRootContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091403);
+        this.DH = c0627b;
+        this.mAdTemplate = c0627b.adTemplate;
+        FrameLayout.inflate(c0627b.context, R.layout.obfuscated_res_0x7f0d04ab, this);
+        this.mRootContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091441);
     }
 
     public static Presenter ap() {
@@ -82,13 +82,13 @@ public final class a extends KSFrameLayout {
     @Override // android.view.View
     public final void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        InterfaceC0620a interfaceC0620a = this.DJ;
-        if (interfaceC0620a != null) {
-            interfaceC0620a.mp();
+        InterfaceC0626a interfaceC0626a = this.DJ;
+        if (interfaceC0626a != null) {
+            interfaceC0626a.mp();
         }
     }
 
-    public final void setChangeListener(InterfaceC0620a interfaceC0620a) {
-        this.DJ = interfaceC0620a;
+    public final void setChangeListener(InterfaceC0626a interfaceC0626a) {
+        this.DJ = interfaceC0626a;
     }
 }

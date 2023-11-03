@@ -1,5 +1,7 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,18 +10,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
-import kotlin.jvm.JvmField;
-import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public final class fn0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a b;
+    public static final a d;
     public transient /* synthetic */ FieldHolder $fh;
-    @JvmField
-    public b a;
+    public final String a;
+    public final String b;
+    public final String c;
 
     static {
         InterceptResult invokeClinit;
@@ -34,120 +35,46 @@ public final class fn0 {
                 return;
             }
         }
-        b = new a(null);
+        d = new a(null);
     }
 
-    @JvmStatic
-    public static final fn0 a(JSONObject jSONObject) {
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) ? b.a(jSONObject) : (fn0) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (this != obj) {
+                if (obj instanceof fn0) {
+                    fn0 fn0Var = (fn0) obj;
+                    return Intrinsics.areEqual(this.a, fn0Var.a) && Intrinsics.areEqual(this.b, fn0Var.b) && Intrinsics.areEqual(this.c, fn0Var.c);
+                }
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
-    /* loaded from: classes5.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final a f;
-        public transient /* synthetic */ FieldHolder $fh;
-        @JvmField
-        public String a;
-        @JvmField
-        public String b;
-        @JvmField
-        public String c;
-        @JvmField
-        public String d;
-        @JvmField
-        public String e;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-799019741, "Lcom/baidu/tieba/fn0$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-799019741, "Lcom/baidu/tieba/fn0$b;");
-                    return;
-                }
-            }
-            f = new a(null);
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            String str = this.a;
+            int hashCode = (str != null ? str.hashCode() : 0) * 31;
+            String str2 = this.b;
+            int hashCode2 = (hashCode + (str2 != null ? str2.hashCode() : 0)) * 31;
+            String str3 = this.c;
+            return hashCode2 + (str3 != null ? str3.hashCode() : 0);
         }
+        return invokeV.intValue;
+    }
 
-        /* loaded from: classes5.dex */
-        public static final class a {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public a() {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-                this();
-            }
-
-            @JvmStatic
-            public final b a(JSONObject jSONObject) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-                    if (jSONObject != null) {
-                        b bVar = new b();
-                        String optString = jSONObject.optString("type");
-                        Intrinsics.checkNotNullExpressionValue(optString, "jsonObject.optString(\"type\")");
-                        bVar.a = optString;
-                        String optString2 = jSONObject.optString("icon");
-                        Intrinsics.checkNotNullExpressionValue(optString2, "jsonObject.optString(\"icon\")");
-                        bVar.b = optString2;
-                        String optString3 = jSONObject.optString("text");
-                        Intrinsics.checkNotNullExpressionValue(optString3, "jsonObject.optString(\"text\")");
-                        bVar.c = optString3;
-                        String optString4 = jSONObject.optString(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR);
-                        Intrinsics.checkNotNullExpressionValue(optString4, "jsonObject.optString(\"text_color\")");
-                        bVar.d = optString4;
-                        String optString5 = jSONObject.optString("scheme");
-                        Intrinsics.checkNotNullExpressionValue(optString5, "jsonObject.optString(\"scheme\")");
-                        bVar.e = optString5;
-                        return bVar;
-                    }
-                    return null;
-                }
-                return (b) invokeL.objValue;
-            }
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "AdRewardTextTag(text=" + this.a + ", textColor=" + this.b + ", bgColor=" + this.c + SmallTailInfo.EMOTION_SUFFIX;
         }
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.a = "";
-            this.b = "";
-            this.c = "";
-            this.d = "";
-            this.e = "";
-        }
+        return (String) invokeV.objValue;
     }
 
     /* loaded from: classes5.dex */
@@ -173,15 +100,18 @@ public final class fn0 {
             this();
         }
 
-        @JvmStatic
         public final fn0 a(JSONObject jSONObject) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
                 if (jSONObject != null) {
-                    fn0 fn0Var = new fn0();
-                    fn0Var.a = b.f.a(jSONObject.optJSONObject("shorturl"));
-                    return fn0Var;
+                    String optString = jSONObject.optString("text");
+                    Intrinsics.checkNotNullExpressionValue(optString, "jsonObj.optString(\"text\")");
+                    String optString2 = jSONObject.optString(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR);
+                    Intrinsics.checkNotNullExpressionValue(optString2, "jsonObj.optString(\"text_color\")");
+                    String optString3 = jSONObject.optString("background_color");
+                    Intrinsics.checkNotNullExpressionValue(optString3, "jsonObj.optString(\"background_color\")");
+                    return new fn0(optString, optString2, optString3);
                 }
                 return null;
             }
@@ -189,17 +119,53 @@ public final class fn0 {
         }
     }
 
-    public fn0() {
+    public fn0(String text, String textColor, String bgColor) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {text, textColor, bgColor};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(text, "text");
+        Intrinsics.checkNotNullParameter(textColor, "textColor");
+        Intrinsics.checkNotNullParameter(bgColor, "bgColor");
+        this.a = text;
+        this.b = textColor;
+        this.c = bgColor;
+    }
+
+    public final String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -1,67 +1,67 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.Intent;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.max.event.VideoEventTypeEnum;
+import com.baidu.nadcore.lp.reward.NadRewardVideoActivity;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.HashMap;
+import java.util.Map;
+@Service
 /* loaded from: classes5.dex */
-public final class cl0 implements ne0 {
+public class cl0 extends qe0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final int b;
 
-    public cl0(VideoEventTypeEnum type, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {type, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(type, "type");
-        this.a = i;
-        this.b = i2;
-    }
-
-    @Override // com.baidu.tieba.ne0
+    @Override // com.baidu.tieba.qe0
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String simpleName = cl0.class.getSimpleName();
-            Intrinsics.checkNotNullExpressionValue(simpleName, "VideoProgressEvent::class.java.simpleName");
-            return simpleName;
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "rewardImpl" : (String) invokeV.objValue;
     }
 
-    public final int b() {
-        InterceptResult invokeV;
+    public cl0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        return invokeV.intValue;
     }
 
-    public final int c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.qe0
+    public boolean b(@NonNull Context context, @NonNull ue0 ue0Var, @Nullable Map<String, Object> map, @Nullable ye0 ye0Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ue0Var, map, ye0Var)) == null) {
+            super.b(context, ue0Var, map, ye0Var);
+            HashMap<String, String> d = ue0Var.d();
+            int i = 0;
+            if (d.isEmpty()) {
+                c(ye0Var, ue0Var, 202, false);
+                return true;
+            }
+            Intent intent = new Intent(context, NadRewardVideoActivity.class);
+            intent.putExtra("params", d);
+            boolean d2 = l11.d(context, intent);
+            if (!d2) {
+                i = 1001;
+            }
+            c(ye0Var, ue0Var, i, d2);
+            return true;
         }
-        return invokeV.intValue;
+        return invokeLLLL.booleanValue;
     }
 }

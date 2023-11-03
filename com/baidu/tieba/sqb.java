@@ -1,267 +1,77 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.pm.ActivityInfo;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.os.Build;
-import android.os.Bundle;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.session.XRSessionAnchor;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.ArCoreApk;
-import com.google.ar.core.InstallActivity;
-import com.google.ar.core.exceptions.FatalException;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class sqb extends ArCoreApk {
+public class sqb {
     public static /* synthetic */ Interceptable $ic;
-    public static final sqb h;
     public transient /* synthetic */ FieldHolder $fh;
-    public Exception a;
-    public ArCoreApk.Availability b;
-    public boolean c;
-    public yqb d;
-    public boolean e;
-    public boolean f;
-    public int g;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948161477, "Lcom/baidu/tieba/sqb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948161477, "Lcom/baidu/tieba/sqb;");
-                return;
-            }
-        }
-        h = new sqb();
-    }
+    public int a;
+    public boolean b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public boolean g;
+    public String h;
 
     public sqb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static sqb d() {
+    public JSONObject a() {
         InterceptResult invokeV;
+        JSONObject jSONObject;
+        JSONException e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return h;
-        }
-        return (sqb) invokeV.objValue;
-    }
-
-    public static boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final synchronized void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                Exception exc = this.a;
-                if (this.d != null) {
-                    this.d.a();
-                    this.d = null;
-                }
-            }
-        }
-    }
-
-    public static /* synthetic */ boolean f(sqb sqbVar, boolean z) {
-        sqbVar.c = false;
-        return false;
-    }
-
-    public static int k(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(XRSessionAnchor.apkinfo, 4);
-                int i = packageInfo.versionCode;
-                if (i == 0) {
-                    if (packageInfo.services != null) {
-                        if (packageInfo.services.length == 0) {
-                        }
-                    }
-                    return -1;
-                }
-                return i;
-            } catch (PackageManager.NameNotFoundException unused) {
-                return -1;
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    public final synchronized yqb e(Context context) {
-        InterceptResult invokeL;
-        yqb yqbVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            synchronized (this) {
-                if (this.d == null) {
-                    yqb yqbVar2 = new yqb((byte) 0);
-                    yqbVar2.d(context.getApplicationContext());
-                    this.d = yqbVar2;
-                }
-                yqbVar = this.d;
-            }
-            return yqbVar;
-        }
-        return (yqb) invokeL.objValue;
-    }
-
-    public final boolean h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            l(context);
-            if (k(context) != 0 && k(context) < this.g) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean j(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            l(context);
-            return this.f;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.google.ar.core.ArCoreApk
-    public final ArCoreApk.Availability a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            if (!i()) {
-                return ArCoreApk.Availability.UNSUPPORTED_DEVICE_NOT_CAPABLE;
-            }
-            try {
-                if (h(context)) {
-                    g();
-                    return rqb.c(context);
-                }
-                synchronized (this) {
-                    if ((this.b == null || this.b.isUnknown()) && !this.c) {
-                        this.c = true;
-                        rqb rqbVar = new rqb(this);
-                        if (h(context)) {
-                            rqbVar.a(ArCoreApk.Availability.SUPPORTED_INSTALLED);
-                        } else if (k(context) != -1) {
-                            rqbVar.a(ArCoreApk.Availability.SUPPORTED_APK_TOO_OLD);
-                        } else if (j(context)) {
-                            rqbVar.a(ArCoreApk.Availability.SUPPORTED_NOT_INSTALLED);
-                        } else {
-                            e(context).e(context, rqbVar);
-                        }
-                    }
-                    if (this.b != null) {
-                        return this.b;
-                    }
-                    if (this.c) {
-                        return ArCoreApk.Availability.UNKNOWN_CHECKING;
-                    }
-                    Log.e("ARCore-ArCoreApk", "request not running but result is null?");
-                    return ArCoreApk.Availability.UNKNOWN_ERROR;
-                }
-            } catch (FatalException e) {
-                Log.e("ARCore-ArCoreApk", "Error while checking app details and ARCore status", e);
-                return ArCoreApk.Availability.UNKNOWN_ERROR;
-            }
-        }
-        return (ArCoreApk.Availability) invokeL.objValue;
-    }
-
-    public final synchronized void l(Context context) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-            synchronized (this) {
-                if (this.e) {
-                    return;
-                }
-                PackageManager packageManager = context.getPackageManager();
-                String packageName = context.getPackageName();
+                jSONObject = new JSONObject();
                 try {
-                    Bundle bundle = packageManager.getApplicationInfo(packageName, 128).metaData;
-                    if (bundle.containsKey(XRSessionAnchor.apkinfo)) {
-                        this.f = bundle.getString(XRSessionAnchor.apkinfo).equals("required");
-                        if (bundle.containsKey("com.google.ar.core.min_apk_version")) {
-                            this.g = bundle.getInt("com.google.ar.core.min_apk_version");
-                            try {
-                                ActivityInfo[] activityInfoArr = packageManager.getPackageInfo(packageName, 1).activities;
-                                String canonicalName = InstallActivity.class.getCanonicalName();
-                                int length = activityInfoArr.length;
-                                boolean z = false;
-                                int i = 0;
-                                while (true) {
-                                    if (i >= length) {
-                                        break;
-                                    } else if (canonicalName.equals(activityInfoArr[i].name)) {
-                                        z = true;
-                                        break;
-                                    } else {
-                                        i++;
-                                    }
-                                }
-                                if (!z) {
-                                    String valueOf = String.valueOf(canonicalName);
-                                    if (valueOf.length() != 0) {
-                                        str = "Application manifest must contain activity ".concat(valueOf);
-                                    } else {
-                                        str = new String("Application manifest must contain activity ");
-                                    }
-                                    throw new FatalException(str);
-                                }
-                                this.e = true;
-                                return;
-                            } catch (PackageManager.NameNotFoundException e) {
-                                throw new FatalException("Could not load application package info", e);
-                            }
-                        }
-                        throw new FatalException("Application manifest must contain meta-data com.google.ar.core.min_apk_version");
-                    }
-                    throw new FatalException("Application manifest must contain meta-data com.google.ar.core");
-                } catch (PackageManager.NameNotFoundException e2) {
-                    throw new FatalException("Could not load application package metadata", e2);
+                    jSONObject.put("type", this.a);
+                    jSONObject.put("doReport", this.b);
+                    jSONObject.put("name", this.c);
+                    jSONObject.put("code", this.d);
+                    jSONObject.put("msg", this.e);
+                    jSONObject.put("data", this.f);
+                    jSONObject.put("isShowSpecialToast", this.g);
+                    jSONObject.put("specialToast", this.h);
+                } catch (JSONException e2) {
+                    e = e2;
+                    e.printStackTrace();
+                    return jSONObject;
                 }
+            } catch (JSONException e3) {
+                jSONObject = null;
+                e = e3;
             }
+            return jSONObject;
         }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "type:" + this.a + "name:" + this.c + "code:" + this.d + "msg:" + this.e + "data" + this.f + "doReport : " + this.b;
+        }
+        return (String) invokeV.objValue;
     }
 }

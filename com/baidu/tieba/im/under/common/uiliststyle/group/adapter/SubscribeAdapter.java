@@ -54,9 +54,9 @@ public class SubscribeAdapter extends BaseSysAdapter<SubscribeSysItem, Holder> {
                     return;
                 }
             }
-            this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0925a3);
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09231d);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924d7);
+            this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0925fa);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092374);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09252e);
         }
 
         @Override // com.baidu.tieba.im.base.core.uilist.BaseViewHolder
@@ -94,17 +94,17 @@ public class SubscribeAdapter extends BaseSysAdapter<SubscribeSysItem, Holder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.base.core.uilist.BaseSysAdapter
     @NonNull
-    /* renamed from: Q */
-    public Holder L(@NonNull ViewGroup viewGroup) {
+    /* renamed from: R */
+    public Holder M(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0910, viewGroup, false));
+            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0928, viewGroup, false));
         }
         return (Holder) invokeL.objValue;
     }
 
-    public void S(boolean z) {
+    public void T(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             this.l = z;
@@ -114,8 +114,8 @@ public class SubscribeAdapter extends BaseSysAdapter<SubscribeSysItem, Holder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.base.core.uilist.BaseSysAdapter
     @SuppressLint({"SetTextI18n"})
-    /* renamed from: R */
-    public void N(int i, @NonNull ViewGroup viewGroup, @NonNull SubscribeSysItem subscribeSysItem, @NonNull Holder holder, @NonNull List<Object> list, int i2) {
+    /* renamed from: S */
+    public void O(int i, @NonNull ViewGroup viewGroup, @NonNull SubscribeSysItem subscribeSysItem, @NonNull Holder holder, @NonNull List<Object> list, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), viewGroup, subscribeSysItem, holder, list, Integer.valueOf(i2)}) == null) {
             EMManager.from(holder.c).setCorner(R.string.J_X04).setBackGroundColor(R.color.CAM_X0625);
@@ -127,9 +127,9 @@ public class SubscribeAdapter extends BaseSysAdapter<SubscribeSysItem, Holder> {
                 i3 = R.color.CAM_X0304;
             }
             textSize.setTextColor(i3).setTextStyle(R.string.F_X01);
-            holder.b.setText(R.string.obfuscated_res_0x7f0f14b8);
+            holder.b.setText(R.string.obfuscated_res_0x7f0f14cf);
             TextView textView = holder.a;
-            textView.setText(subscribeSysItem.getTbMsg().getSubscribeTips() + C().getString(R.string.obfuscated_res_0x7f0f14b9));
+            textView.setText(subscribeSysItem.getTbMsg().getSubscribeTips() + D().getString(R.string.obfuscated_res_0x7f0f14d0));
         }
     }
 }

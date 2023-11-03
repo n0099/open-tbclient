@@ -1,23 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import android.os.Bundle;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.swan.apps.favordata.SwanFavorDataManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ci2 {
+public class ci2 extends g23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    @V8JavascriptField
-    public String digest;
-    @V8JavascriptField
-    public String errMsg;
-    @V8JavascriptField
-    public int size;
 
     public ci2() {
         Interceptable interceptable = $ic;
@@ -29,20 +23,17 @@ public class ci2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 0;
-        this.a = 0 + 1;
-        this.b = 0;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.g23
+    public void b(@NonNull Bundle bundle) {
+        g63 c0;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "GetFileInfoCallBack" + this.b;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, bundle) != null) || (c0 = g63.c0()) == null || TextUtils.equals(c0.P(), "sc9Tq1iKawTnj5GhG6i77vzeIt4Crt5u")) {
+            return;
         }
-        return (String) invokeV.objValue;
+        SwanFavorDataManager.h().m(bundle.getString("appKey"), bundle.getBoolean("isFavor"));
     }
 }

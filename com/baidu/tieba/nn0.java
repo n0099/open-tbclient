@@ -1,128 +1,253 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.model.ParseError;
+import com.baidu.sapi2.stat.ShareLoginStat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class nn0 {
+public class nn0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a b;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948008089, "Lcom/baidu/tieba/nn0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948008089, "Lcom/baidu/tieba/nn0;");
-                return;
-            }
-        }
-        b = new a(null);
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (this != obj) {
-                return (obj instanceof nn0) && Intrinsics.areEqual(this.a, ((nn0) obj).a);
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String str = this.a;
-            if (str != null) {
-                return str.hashCode();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "TagItem(text=" + this.a + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
+    public final String b;
+    public final String c;
+    public final String d;
+    public final double e;
+    public final String f;
+    public final c g;
+    public final b h;
+    public final a i;
+    public final String j;
+    public final String k;
+    public final boolean l;
+    public String m;
+    public int n;
 
     /* loaded from: classes7.dex */
-    public static final class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
 
-        public a() {
+        public a(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jSONObject};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            if (jSONObject == null) {
+                return;
+            }
+            this.a = jSONObject.optString("desc");
+            this.b = jSONObject.optString("cmd");
         }
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public final nn0 a(JSONObject jSONObject) {
+        public static a a(JSONObject jSONObject) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-                if (jSONObject != null) {
-                    String optString = jSONObject.optString("text");
-                    Intrinsics.checkNotNullExpressionValue(optString, "jsonObj.optString(\"text\")");
-                    return new nn0(optString);
-                }
-                return null;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+                return new a(jSONObject);
             }
-            return (nn0) invokeL.objValue;
+            return (a) invokeL.objValue;
         }
     }
 
-    public nn0(String text) {
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+
+        public b(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            if (jSONObject == null) {
+                return;
+            }
+            this.a = jSONObject.optString("desc");
+            this.b = jSONObject.optString("cmd");
+        }
+
+        public static b a(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+                return new b(jSONObject);
+            }
+            return (b) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+
+        public c(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            if (jSONObject == null) {
+                return;
+            }
+            this.a = jSONObject.optString("desc");
+            this.b = jSONObject.optString("cmd");
+        }
+
+        public static c a(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+                return new c(jSONObject);
+            }
+            return (c) invokeL.objValue;
+        }
+    }
+
+    public nn0(@NonNull JSONObject jSONObject) throws ParseError {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {text};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {jSONObject};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(text, "text");
-        this.a = text;
+        this.m = "";
+        this.n = 0;
+        this.a = jSONObject.optString("strict_mode");
+        this.b = jSONObject.optString("app_icon");
+        this.c = jSONObject.optString("app_name");
+        this.d = jSONObject.optString("developer_name");
+        this.e = jSONObject.optDouble("score", -1.0d);
+        this.f = jSONObject.optString("version");
+        this.g = c.a(jSONObject.optJSONObject("privacy"));
+        this.h = b.a(jSONObject.optJSONObject(ShareLoginStat.GetShareListStat.KEY_PERMISSION));
+        this.i = a.a(jSONObject.optJSONObject("feature"));
+        jSONObject.optDouble("app_icon_scale");
+        this.j = jSONObject.optString("apk_size");
+        this.k = jSONObject.optString("apk_url");
+        this.l = a();
+        c();
+    }
+
+    public static nn0 d(@NonNull JSONObject jSONObject) throws ParseError {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            return new nn0(jSONObject);
+        }
+        return (nn0) invokeL.objValue;
+    }
+
+    public final boolean a() throws ParseError {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (TextUtils.equals("0", this.a)) {
+                return b();
+            }
+            if (b()) {
+                return true;
+            }
+            throw ParseError.contentError(8, "");
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.n;
+        }
+        return invokeV.intValue;
+    }
+
+    public final boolean b() {
+        InterceptResult invokeV;
+        c cVar;
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (TextUtils.isEmpty(this.d) || TextUtils.isEmpty(this.f) || (cVar = this.g) == null || TextUtils.isEmpty(cVar.b) || TextUtils.isEmpty(this.g.a) || (bVar = this.h) == null || TextUtils.isEmpty(bVar.b) || TextUtils.isEmpty(this.h.a)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (TextUtils.isEmpty(this.d)) {
+                this.n |= 1;
+            }
+            if (TextUtils.isEmpty(this.f)) {
+                this.n |= 2;
+            }
+            c cVar = this.g;
+            if (cVar == null || TextUtils.isEmpty(cVar.b) || TextUtils.isEmpty(this.g.a)) {
+                this.n |= 4;
+            }
+            b bVar = this.h;
+            if (bVar == null || TextUtils.isEmpty(bVar.b) || TextUtils.isEmpty(this.h.a)) {
+                this.n |= 8;
+            }
+            a aVar = this.i;
+            if (aVar == null || TextUtils.isEmpty(aVar.b) || TextUtils.isEmpty(this.i.a)) {
+                this.n |= 16;
+            }
+        }
     }
 }

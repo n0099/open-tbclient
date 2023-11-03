@@ -51,7 +51,7 @@ public class BubbleBaseView {
     public boolean mIsShadowDeviate = true;
 
     public int getBubbleViewResId() {
-        return R.layout.obfuscated_res_0x7f0d0192;
+        return R.layout.obfuscated_res_0x7f0d0194;
     }
 
     public void updateViewUI() {
@@ -341,12 +341,12 @@ public class BubbleBaseView {
         View inflate = LayoutInflater.from(this.mAnchorView.getContext()).inflate(getBubbleViewResId(), this.mRootView, false);
         this.mBubbleView = inflate;
         inflate.setVisibility(4);
-        this.mBubbleContent = (ViewGroup) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f09050f);
-        this.mShadow = (MaskViewGroup) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f0921c4);
-        this.mArrowUp = (ArrowView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f09050b);
-        this.mArrowDown = (ArrowView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f090508);
-        this.mArrowLeft = (ArrowView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f090509);
-        this.mArrowRight = (ArrowView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f09050a);
+        this.mBubbleContent = (ViewGroup) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f09052c);
+        this.mShadow = (MaskViewGroup) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f09220d);
+        this.mArrowUp = (ArrowView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f090527);
+        this.mArrowDown = (ArrowView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f090524);
+        this.mArrowLeft = (ArrowView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f090525);
+        this.mArrowRight = (ArrowView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f090526);
         int bgColor = getBgColor();
         MaskViewGroup maskViewGroup = this.mShadow;
         if (maskViewGroup != null) {

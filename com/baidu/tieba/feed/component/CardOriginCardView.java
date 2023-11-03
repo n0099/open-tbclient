@@ -8,15 +8,15 @@ import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a77;
-import com.baidu.tieba.b77;
+import com.baidu.tieba.a47;
+import com.baidu.tieba.c47;
 import com.baidu.tieba.feed.component.CardOriginCardView;
-import com.baidu.tieba.g27;
-import com.baidu.tieba.n47;
-import com.baidu.tieba.r17;
-import com.baidu.tieba.v17;
-import com.baidu.tieba.x17;
-import com.baidu.tieba.z17;
+import com.baidu.tieba.j47;
+import com.baidu.tieba.m77;
+import com.baidu.tieba.sa7;
+import com.baidu.tieba.ta7;
+import com.baidu.tieba.u37;
+import com.baidu.tieba.y37;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -27,16 +27,17 @@ import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000H\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u00020\u00012\u00020\u0002B\u001b\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\u0002\u0010\u0007J\b\u0010\u0012\u001a\u00020\u0013H\u0016J\u000e\u0010\u0014\u001a\u00020\u00132\u0006\u0010\u0015\u001a\u00020\u0016R\u000e\u0010\b\u001a\u00020\tX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\u000bX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\rX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0011X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u0017"}, d2 = {"Lcom/baidu/tieba/feed/component/CardOriginCardView;", "Landroid/widget/LinearLayout;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "abstractView", "Lcom/baidu/tieba/feed/component/CardAbstractView;", "cardVideoView", "Lcom/baidu/tieba/feed/component/CardVideoView;", "mountAppView", "Lcom/baidu/tieba/feed/component/CardAppView;", "mountView", "Lcom/baidu/tieba/feed/component/CardMountView;", "picView", "Lcom/baidu/tieba/feed/component/CardPicView;", "onChangeSkin", "", "updateState", "state", "Lcom/baidu/tieba/feed/component/uistate/CardOriginCardUiState;", "lib-templates_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000J\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u00020\u00012\u00020\u0002B\u001b\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\u0002\u0010\u0007J\b\u0010\u0013\u001a\u00020\u0014H\u0016J\u000e\u0010\u0015\u001a\u00020\u00142\u0006\u0010\u0016\u001a\u00020\u0017R\u000e\u0010\b\u001a\u00020\tX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\u000bX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\u0001X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u000eX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0010X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u0012X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u0018"}, d2 = {"Lcom/baidu/tieba/feed/component/CardOriginCardView;", "Landroid/widget/LinearLayout;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "abstractView", "Lcom/baidu/tieba/feed/component/CardAbstractView;", "cardVideoView", "Lcom/baidu/tieba/feed/component/CardVideoView;", "contentLayout", "mountAppView", "Lcom/baidu/tieba/feed/component/CardAppView;", "mountView", "Lcom/baidu/tieba/feed/component/CardMountView;", "picView", "Lcom/baidu/tieba/feed/component/CardPicView;", "onChangeSkin", "", "updateState", "state", "Lcom/baidu/tieba/feed/component/uistate/CardOriginCardUiState;", "lib-templates_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class CardOriginCardView extends LinearLayout implements a77 {
+public final class CardOriginCardView extends LinearLayout implements sa7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CardAbstractView a;
-    public final CardPicView b;
-    public final CardVideoView c;
-    public final CardMountView d;
-    public final CardAppView e;
+    public final LinearLayout a;
+    public final CardAbstractView b;
+    public final CardPicView c;
+    public final CardVideoView d;
+    public final CardMountView e;
+    public final CardAppView f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     @JvmOverloads
@@ -82,17 +83,20 @@ public final class CardOriginCardView extends LinearLayout implements a77 {
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
-        this.a = new CardAbstractView(context, null, 2, null);
-        this.b = new CardPicView(context);
-        this.c = new CardVideoView(context, null, 2, null);
-        this.d = new CardMountView(context, null, 2, null);
-        this.e = new CardAppView(context, null, 2, null);
+        this.a = new LinearLayout(context);
+        this.b = new CardAbstractView(context, null, 2, null);
+        this.c = new CardPicView(context);
+        this.d = new CardVideoView(context, null, 2, null);
+        this.e = new CardMountView(context, null, 2, null);
+        this.f = new CardAppView(context, null, 2, null);
+        this.a.setOrientation(1);
         setOrientation(1);
         addView(this.a, new LinearLayout.LayoutParams(-1, -2));
-        addView(this.b, new LinearLayout.LayoutParams(-1, -2));
-        addView(this.c, new LinearLayout.LayoutParams(-1, -2));
-        addView(this.d, new LinearLayout.LayoutParams(-1, -2));
-        addView(this.e, new LinearLayout.LayoutParams(-1, -2));
+        this.a.addView(this.b, new LinearLayout.LayoutParams(-1, -2));
+        this.a.addView(this.c, new LinearLayout.LayoutParams(-1, -2));
+        this.a.addView(this.d, new LinearLayout.LayoutParams(-1, -2));
+        this.a.addView(this.e, new LinearLayout.LayoutParams(-1, -2));
+        this.a.addView(this.f, new LinearLayout.LayoutParams(-1, -2));
         int dimens = BdUtilHelper.getDimens(context, R.dimen.M_W_X005);
         setPadding(dimens, dimens, dimens, dimens);
     }
@@ -101,52 +105,52 @@ public final class CardOriginCardView extends LinearLayout implements a77 {
         this(context, (i & 2) != 0 ? null : attributeSet);
     }
 
-    public static final void c(x17 state, CardOriginCardView this$0, View view2) {
+    public static final void b(a47 state, CardOriginCardView this$0, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65539, null, state, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(state, "$state");
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            Function2<Context, x17, Unit> m = state.m();
+            Function2<Context, a47, Unit> q = state.q();
             Context context = this$0.getContext();
             Intrinsics.checkNotNullExpressionValue(context, "context");
-            m.invoke(context, state);
-            n47 o = state.o();
-            if (o != null) {
-                state.f().invoke(o);
+            q.invoke(context, state);
+            m77 s = state.s();
+            if (s != null) {
+                state.j().invoke(s);
             }
         }
     }
 
-    public final void a(final x17 state) {
+    public final void a(final a47 state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, state) == null) {
             Intrinsics.checkNotNullParameter(state, "state");
-            this.a.f(state.h());
-            this.b.setVisibility(8);
+            this.b.b(state.l());
             this.c.setVisibility(8);
             this.d.setVisibility(8);
             this.e.setVisibility(8);
-            z17 k = state.k();
-            if (k != null) {
-                this.b.setVisibility(0);
-                this.b.f(k);
-            }
-            g27 l = state.l();
-            if (l != null) {
+            this.f.setVisibility(8);
+            c47 o = state.o();
+            if (o != null) {
                 this.c.setVisibility(0);
-                this.c.f(l);
+                this.c.b(o);
             }
-            v17 j = state.j();
-            if (j != null) {
+            j47 p = state.p();
+            if (p != null) {
                 this.d.setVisibility(0);
-                this.d.a(j);
+                this.d.b(p);
             }
-            r17 i = state.i();
-            if (i != null) {
+            y37 n = state.n();
+            if (n != null) {
                 this.e.setVisibility(0);
-                this.e.a(i);
+                this.e.a(n);
             }
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.c17
+            u37 m = state.m();
+            if (m != null) {
+                this.f.setVisibility(0);
+                this.f.a(m);
+            }
+            this.a.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.e37
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -154,24 +158,24 @@ public final class CardOriginCardView extends LinearLayout implements a77 {
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        CardOriginCardView.c(x17.this, this, view2);
+                        CardOriginCardView.b(a47.this, this, view2);
                     }
                 }
             });
-            b();
+            r();
         }
     }
 
-    @Override // com.baidu.tieba.a77
-    public void b() {
+    @Override // com.baidu.tieba.sa7
+    public void r() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || b77.a(this)) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || ta7.a(this)) {
             return;
         }
         SkinManager.setBackgroundColor(this, R.color.CAM_X0206);
-        this.a.b();
-        this.c.b();
-        this.d.b();
-        this.e.b();
+        this.b.r();
+        this.d.r();
+        this.e.r();
+        this.f.r();
     }
 }

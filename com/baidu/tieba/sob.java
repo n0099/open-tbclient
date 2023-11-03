@@ -1,70 +1,276 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
-import android.view.View;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.kwad.sdk.api.KsNativeAd;
+import com.baidu.ugc.editvideo.player.AudioPlayData;
+import com.baidu.ugc.utils.FileUtils;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class sob extends apb {
+public class sob extends qob {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public final /* synthetic */ eob c;
-    public final /* synthetic */ pob d;
+    public cpb h;
+    public int i;
+    public int j;
 
-    public sob(pob pobVar, eob eobVar) {
+    /* loaded from: classes8.dex */
+    public class a extends rqb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ AudioPlayData c;
+        public final /* synthetic */ lob d;
+        public final /* synthetic */ sob e;
+
+        public a(sob sobVar, String str, int i, AudioPlayData audioPlayData, lob lobVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sobVar, str, Integer.valueOf(i), audioPlayData, lobVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = sobVar;
+            this.a = str;
+            this.b = i;
+            this.c = audioPlayData;
+            this.d = lobVar;
+        }
+
+        @Override // com.baidu.tieba.rqb, com.baidu.tieba.qqb
+        public void onExceptionThrown(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                this.e.h.cancel();
+                AudioPlayData audioPlayData = this.c;
+                if (audioPlayData.mSpeed != 1.0f || vob.o(audioPlayData.mSoundTypes)) {
+                    this.e.g(str);
+                    this.e.h.cancel();
+                } else {
+                    this.e.h.cancel();
+                    this.e.q(this.d, this.b);
+                }
+                synchronized (this.e) {
+                    this.e.notifyAll();
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.rqb
+        public void onFinishedWriting(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+                if (z) {
+                    this.e.q(new lob(new AudioPlayData(this.a, 0, -1, 1.0f)), this.b);
+                }
+                synchronized (this.e) {
+                    this.e.notifyAll();
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.rqb, com.baidu.tieba.qqb
+        public void onProgressChanged(int i, double d, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Double.valueOf(d), Long.valueOf(j)}) == null) {
+                sob sobVar = this.e;
+                sobVar.i((int) (((((sobVar.j - 1) + d) * 1.0d) / this.e.i) * 100.0d));
+            }
+        }
+    }
+
+    public sob() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pobVar, eobVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.d = pobVar;
-        this.c = eobVar;
     }
 
-    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
-    public boolean handleDownloadDialog(DialogInterface.OnClickListener onClickListener) {
+    @Override // com.baidu.tieba.qob
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.f = true;
+            cpb cpbVar = this.h;
+            if (cpbVar != null) {
+                cpbVar.cancel();
+            }
+            synchronized (this) {
+                notifyAll();
+            }
+            o();
+        }
+    }
+
+    @Override // com.baidu.tieba.qob
+    public void d(nob nobVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nobVar) == null) {
+            if (nobVar == null || bsb.e(nobVar.c())) {
+                g("input data error: null or length=0");
+            } else if (!j(nobVar)) {
+                l(nobVar);
+            } else {
+                String a2 = nobVar.a();
+                this.g = a2;
+                if (!TextUtils.isEmpty(a2) && !FileUtils.isExists(this.g)) {
+                    new File(this.g).mkdir();
+                }
+                this.e = false;
+                this.f = false;
+                y(nobVar);
+                x(nobVar);
+                List<pob> c = nobVar.c();
+                int size = c.size();
+                for (int i = 0; i < size; i++) {
+                    r(c.get(i), i);
+                }
+                if (this.e || this.f) {
+                    return;
+                }
+                l(this.d);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.qob
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            cpb cpbVar = this.h;
+            if (cpbVar != null) {
+                cpbVar.J();
+            }
+            synchronized (this) {
+                notifyAll();
+            }
+        }
+    }
+
+    public final void q(lob lobVar, int i) {
+        nob nobVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(1048579, this, lobVar, i) == null) || (nobVar = this.d) == null || nobVar.c() == null || this.d.c().get(i) == null) {
+            return;
+        }
+        this.d.c().get(i).a().add(lobVar);
+    }
+
+    public final void r(pob pobVar, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(1048580, this, pobVar, i) == null) || pobVar == null || bsb.e(pobVar.a()) || this.f || this.e) {
+            return;
+        }
+        for (lob lobVar : pobVar.a()) {
+            if (this.e || this.f) {
+                return;
+            }
+            this.j++;
+            if (t(lobVar)) {
+                v(lobVar, i);
+            } else {
+                q(lobVar, i);
+                i((int) (((this.j * 1.0f) / this.i) * 100.0f));
+            }
+        }
+    }
+
+    public final boolean t(lob lobVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, onClickListener)) == null) {
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, lobVar)) == null) {
+            if (lobVar == null || lobVar.b() == null || !lobVar.c()) {
+                return false;
+            }
+            if (!vob.o(lobVar.b().mSoundTypes) && lobVar.b().mSpeed == 1.0f && lobVar.b().start == 0 && lobVar.b().end == -1 && lobVar.b().volume == 1.0f) {
+                return (lobVar.a() == null || "audio/mp4a-latm".equals(lobVar.a().f())) ? false : true;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
 
-    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
-    public void onAdClicked(View view2, KsNativeAd ksNativeAd) {
+    public final void v(lob lobVar, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, ksNativeAd) == null) {
-            LogPrinter.d();
-            this.d.onAdClicked((pob) this.c, this.b, new String[0]);
-            this.b = true;
+        if (!(interceptable == null || interceptable.invokeLI(1048582, this, lobVar, i) == null) || this.f || this.e) {
+            return;
+        }
+        AudioPlayData b = lobVar.b();
+        if (b == null || !FileUtils.isExists(b.audioPath)) {
+            g("dealAudioPlayData,trackIndx:inputerror");
+            return;
+        }
+        String str = b.audioPath;
+        String a2 = a(str, System.currentTimeMillis() + "_mediacodec.aac");
+        try {
+            cpb cpbVar = new cpb(b.audioPath, a2, b.mSoundTypes);
+            this.h = cpbVar;
+            cpbVar.S(new a(this, a2, i, b, lobVar));
+            this.h.D(b.mSoundTypes);
+            this.h.G(b.mSpeed);
+            this.h.H(b.volume);
+            this.h.B(b.start);
+            this.h.R(b.end);
+            this.h.I();
+            synchronized (this) {
+                wait();
+            }
+        } catch (Exception e) {
+            g("dealAudioPlayData exception:" + gsb.g(e));
+            e.printStackTrace();
         }
     }
 
-    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
-    public void onAdShow(KsNativeAd ksNativeAd) {
+    public final void x(nob nobVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ksNativeAd) == null) {
-            LogPrinter.d();
-            this.d.onAdShow((pob) this.c, this.a, new String[0]);
-            this.a = true;
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, nobVar) == null) || nobVar == null || bsb.e(nobVar.c())) {
+            return;
+        }
+        ArrayList arrayList = new ArrayList();
+        for (int i = 0; i < nobVar.c().size(); i++) {
+            arrayList.add(new pob(new ArrayList()));
+        }
+        nob nobVar2 = new nob(arrayList);
+        this.d = nobVar2;
+        nobVar2.e(nobVar.b());
+        this.d.d(nobVar.a());
+    }
+
+    public final void y(nob nobVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, nobVar) == null) {
+            this.i = 0;
+            this.j = 0;
+            List<pob> c = nobVar.c();
+            int size = c.size();
+            for (int i = 0; i < size; i++) {
+                if (c.get(i) != null && c.get(i).a() != null) {
+                    this.i += c.get(i).a().size();
+                }
+            }
         }
     }
 }

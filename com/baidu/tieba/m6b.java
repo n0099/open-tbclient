@@ -1,95 +1,93 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.ExperimentalUrlRequest;
-import com.baidu.turbonet.net.UploadDataProvider;
-import java.util.concurrent.Executor;
+import tbclient.FrsPage.HeadCardCover;
+import tbclient.ThemeColorInfo;
 /* loaded from: classes7.dex */
-public abstract class m6b extends ExperimentalUrlRequest {
+public final class m6b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947926032, "Lcom/baidu/tieba/m6b;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947926032, "Lcom/baidu/tieba/m6b;");
-        }
-    }
-
-    public abstract void n(String str, String str2);
-
-    public abstract void p(String str);
-
-    public abstract void q(UploadDataProvider uploadDataProvider, Executor executor);
+    public l6b a;
+    public ThemeColorInfo b;
+    public p6b c;
 
     public m6b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = new l6b();
+    }
+
+    public final ThemeColorInfo a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (ThemeColorInfo) invokeV.objValue;
+    }
+
+    public final l6b b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (l6b) invokeV.objValue;
+    }
+
+    public final p6b c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (p6b) invokeV.objValue;
+    }
+
+    public final void d(HeadCardCover headCardCover) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, headCardCover) != null) || headCardCover == null) {
+            return;
+        }
+        l6b l6bVar = new l6b();
+        this.a = l6bVar;
+        l6bVar.d(headCardCover.freq);
+        this.b = headCardCover.card_background;
+        p6b p6bVar = new p6b();
+        this.c = p6bVar;
+        if (p6bVar != null) {
+            p6bVar.q(headCardCover.match_info);
         }
     }
 
-    public static int o(int i) {
-        InterceptResult invokeI;
+    public final void e(tbclient.Personalized.HeadCardCover headCardCover) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            switch (i) {
-                case 0:
-                    return 0;
-                case 1:
-                    return 1;
-                case 2:
-                    return 2;
-                case 3:
-                    return 3;
-                case 4:
-                    return 4;
-                case 5:
-                default:
-                    throw new IllegalArgumentException("No request status found.");
-                case 6:
-                    return 5;
-                case 7:
-                    return 6;
-                case 8:
-                    return 7;
-                case 9:
-                    return 8;
-                case 10:
-                    return 9;
-                case 11:
-                    return 10;
-                case 12:
-                    return 11;
-                case 13:
-                    return 12;
-                case 14:
-                    return 13;
-                case 15:
-                    return 14;
-            }
+        if ((interceptable != null && interceptable.invokeL(1048580, this, headCardCover) != null) || headCardCover == null) {
+            return;
         }
-        return invokeI.intValue;
+        l6b l6bVar = new l6b();
+        this.a = l6bVar;
+        l6bVar.e(headCardCover.freq);
+        this.b = headCardCover.card_background;
+        p6b p6bVar = new p6b();
+        this.c = p6bVar;
+        if (p6bVar != null) {
+            p6bVar.r(headCardCover.match_info);
+        }
     }
 }

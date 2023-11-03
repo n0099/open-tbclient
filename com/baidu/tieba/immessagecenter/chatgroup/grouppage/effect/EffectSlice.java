@@ -14,11 +14,11 @@ import com.baidu.tbadk.core.dialog.yun.YunTask;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.data.FallingData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b05;
 import com.baidu.tieba.im.base.core.slice.Slice;
 import com.baidu.tieba.im.lib.socket.msg.data.ChatEggRainData;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
-import com.baidu.tieba.rn8;
+import com.baidu.tieba.t05;
+import com.baidu.tieba.u09;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +32,7 @@ public class EffectSlice extends Slice {
     @NonNull
     public final FallingSlice j;
     @NonNull
-    public final b05 k;
+    public final t05 k;
     public b l;
     @Nullable
     public ChatRoomDetail m;
@@ -114,7 +114,7 @@ public class EffectSlice extends Slice {
     }
 
     /* loaded from: classes6.dex */
-    public static abstract class c extends YunTask implements rn8 {
+    public static abstract class c extends YunTask implements u09 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -132,7 +132,7 @@ public class EffectSlice extends Slice {
             }
         }
 
-        @Override // com.baidu.tieba.rn8
+        @Override // com.baidu.tieba.u09
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -160,7 +160,7 @@ public class EffectSlice extends Slice {
                 return;
             }
         }
-        this.k = new b05(YunDialogDataManager.j().l());
+        this.k = new t05(YunDialogDataManager.j().l());
         this.j = new FallingSlice(tbPageContext);
     }
 
@@ -177,7 +177,7 @@ public class EffectSlice extends Slice {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, layoutInflater, viewGroup, bundle)) == null) {
-            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d08cd, viewGroup, false);
+            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d08e2, viewGroup, false);
         }
         return (View) invokeLLL.objValue;
     }

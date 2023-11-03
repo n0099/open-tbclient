@@ -1,94 +1,30 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import android.os.Message;
-import androidx.annotation.Nullable;
-import com.baidu.searchbox.http.request.HttpRequest;
-import java.util.Map;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import com.baidu.tieba.pu1;
 /* loaded from: classes5.dex */
 public interface aq1 {
-    @Nullable
-    String A();
+    @NonNull
+    kb3 a(Activity activity, boolean z, String str, String str2);
 
-    String B();
+    @NonNull
+    pb3 b(Activity activity, pu1.d dVar, Bundle bundle);
 
-    String C();
+    @NonNull
+    qb3 c(Activity activity, String str, String str2, boolean z, boolean z2);
 
-    String D();
+    @NonNull
+    lb3 d(Context context, boolean z, boolean z2, String[] strArr, String str, boolean z3);
 
-    long E();
+    @NonNull
+    ob3 e(Context context);
 
-    HttpRequest F(Context context, Map<String, String> map);
+    @NonNull
+    nb3 f(Context context);
 
-    String G();
-
-    String H();
-
-    String I();
-
-    boolean J();
-
-    String K();
-
-    String L();
-
-    HttpRequest M(Context context, Map<String, String> map);
-
-    boolean N();
-
-    String O();
-
-    HttpRequest a(Context context, Map<String, String> map);
-
-    String b();
-
-    String c();
-
-    void d();
-
-    String e();
-
-    String f();
-
-    HttpRequest g(Context context, Map<String, String> map);
-
-    String h();
-
-    String i();
-
-    boolean isDebug();
-
-    String j();
-
-    void k();
-
-    String l();
-
-    String m(String str);
-
-    String n();
-
-    HttpRequest o(Context context, Map<String, String> map);
-
-    String p();
-
-    String q();
-
-    int r();
-
-    HttpRequest s(Context context, Map<String, String> map);
-
-    String t();
-
-    HttpRequest u(Context context, Map<String, String> map);
-
-    String v();
-
-    String w();
-
-    void x(Message message, ps2 ps2Var);
-
-    String y();
-
-    String z(Context context);
+    @NonNull
+    mb3 g(Context context, String str);
 }

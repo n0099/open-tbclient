@@ -1,14 +1,21 @@
 package com.baidu.tieba;
 
-import android.webkit.JsPromptResult;
+import android.webkit.CookieManager;
 import android.webkit.WebView;
-import org.json.JSONObject;
+import com.baidu.tieba.compatible.CompatibleUtile;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface gh6 {
-    void a(WebView webView, String str, JSONObject jSONObject);
+public final class gh6 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    @Deprecated
-    boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult);
-
-    void onDestroy();
+    public static void a(WebView webView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, webView) == null) {
+            CookieManager.getInstance().setAcceptThirdPartyCookies(webView, true);
+            webView.getSettings().setMixedContentMode(0);
+            CompatibleUtile.getInstance().WebViewNoDataBase(webView.getSettings());
+        }
+    }
 }

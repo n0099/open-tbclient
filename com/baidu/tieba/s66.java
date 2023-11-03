@@ -1,90 +1,95 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernRecommendLineHolder;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tbadk.core.atomData.SelectForumActivityConfig;
+import com.baidu.tieba.aiapps.TbAiappsLaunchUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class s66 extends lh<w66, LiveTabConcernRecommendLineHolder> {
+public class s66 extends d83 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public g76 b;
-    public h76 c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s66(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), w66.d);
+    public s66(d73 d73Var) {
+        super(d73Var, "/swan/publishThread");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {d73Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
-    /* renamed from: s */
-    public LiveTabConcernRecommendLineHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public static boolean j(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            g76 g76Var = new g76(this.a, viewGroup);
-            this.b = g76Var;
-            h76 h76Var = this.c;
-            if (h76Var != null) {
-                g76Var.t(h76Var);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return false;
             }
-            return new LiveTabConcernRecommendLineHolder(this.b);
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                String optString = jSONObject.optString("path");
+                if (StringUtils.isNull(optString)) {
+                    String optString2 = jSONObject.optString("appid");
+                    if (StringUtils.isNull(optString2)) {
+                        return false;
+                    }
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2921361, TbAiappsLaunchUtil.getSmartLink(optString2, "", "", 0)));
+                    return true;
+                }
+                String substring = optString.substring(39);
+                if (StringUtils.isNull(substring)) {
+                    return false;
+                }
+                JSONObject jSONObject2 = new JSONObject(qd.getUrlDecode(substring));
+                String optString3 = jSONObject2.optString("third_app_id");
+                String optString4 = jSONObject2.optString("third_app_name");
+                String optString5 = jSONObject2.optString("third_app_pic");
+                String optString6 = jSONObject2.optString("third_app_link");
+                SelectForumActivityConfig selectForumActivityConfig = new SelectForumActivityConfig(context, 10086);
+                selectForumActivityConfig.setAiAppsParams(optString3, optString4, optString5, null, null, optString6);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, selectForumActivityConfig));
+                return true;
+            } catch (JSONException unused) {
+                return false;
+            }
         }
-        return (LiveTabConcernRecommendLineHolder) invokeL.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public void u(h76 h76Var) {
+    @Override // com.baidu.tieba.d83
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g63 g63Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, h76Var) == null) {
-            this.c = h76Var;
-            g76 g76Var = this.b;
-            if (g76Var != null) {
-                g76Var.t(h76Var);
-            }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g63Var)) == null) {
+            j(context, unitedSchemeEntity.getParam("params"));
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            return true;
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, w66 w66Var, LiveTabConcernRecommendLineHolder liveTabConcernRecommendLineHolder) {
-        InterceptResult invokeCommon;
-        g76 g76Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, w66Var, liveTabConcernRecommendLineHolder})) == null) {
-            if (liveTabConcernRecommendLineHolder != null && (g76Var = liveTabConcernRecommendLineHolder.a) != null) {
-                g76Var.j(w66Var);
-                return liveTabConcernRecommendLineHolder.getView();
-            }
-            return null;
-        }
-        return (View) invokeCommon.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

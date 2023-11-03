@@ -1,52 +1,39 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.tieba.t03;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class n03 implements t03.a {
+public class n03 implements zk3<HybridUbcFlow> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final s03 b;
 
-    public n03(int i, @NonNull s03 s03Var) {
+    public n03() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), s03Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = i;
-        this.b = s03Var;
     }
 
-    @Override // com.baidu.tieba.t03.a
-    public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.zk3
+    /* renamed from: b */
+    public void a(HybridUbcFlow hybridUbcFlow) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048576, this, i, strArr, iArr) == null) {
-            if (i != this.a) {
-                this.b.b(2, "request permission fail");
-                return;
-            }
-            for (int i2 : iArr) {
-                if (i2 == -1) {
-                    this.b.b(1, "user denied");
-                    return;
-                }
-            }
-            this.b.a("permission granted successful");
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
+            hybridUbcFlow.J("3864");
+            hybridUbcFlow.I(HybridUbcFlow.SubmitStrategy.SWAN_WEB);
+            hybridUbcFlow.E("from", "swan");
         }
     }
 }

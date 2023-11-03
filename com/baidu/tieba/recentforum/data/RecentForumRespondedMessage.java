@@ -3,7 +3,7 @@ package com.baidu.tieba.recentforum.data;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.s18;
+import com.baidu.tieba.ne8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,11 +12,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.Metadata;
 import org.json.JSONObject;
 @Metadata(d1 = {"\u0000&\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\u001a\u0010\t\u001a\u00020\n2\u0006\u0010\u000b\u001a\u00020\f2\b\u0010\r\u001a\u0004\u0018\u00010\u000eH\u0016R\u001c\u0010\u0003\u001a\u0004\u0018\u00010\u0004X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0005\u0010\u0006\"\u0004\b\u0007\u0010\b¨\u0006\u000f"}, d2 = {"Lcom/baidu/tieba/recentforum/data/RecentForumRespondedMessage;", "Lcom/baidu/tbadk/message/http/JsonHttpResponsedMessage;", "()V", "data", "Lcom/baidu/tieba/homepage/personalize/data/HomePageRecentForumData;", "getData", "()Lcom/baidu/tieba/homepage/personalize/data/HomePageRecentForumData;", "setData", "(Lcom/baidu/tieba/homepage/personalize/data/HomePageRecentForumData;)V", "decodeLogicInBackGround", "", "cmd", "", "retJson", "Lorg/json/JSONObject;", "recommendfrs_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class RecentForumRespondedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public s18 data;
+    public ne8 data;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RecentForumRespondedMessage() {
@@ -36,13 +36,13 @@ public final class RecentForumRespondedMessage extends JsonHttpResponsedMessage 
         }
     }
 
-    public final s18 getData() {
+    public final ne8 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.data;
         }
-        return (s18) invokeV.objValue;
+        return (ne8) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -51,19 +51,19 @@ public final class RecentForumRespondedMessage extends JsonHttpResponsedMessage 
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             super.decodeLogicInBackGround(i, jSONObject);
             if (jSONObject != null) {
-                s18 s18Var = new s18();
-                this.data = s18Var;
-                if (s18Var != null) {
-                    s18Var.h(jSONObject);
+                ne8 ne8Var = new ne8();
+                this.data = ne8Var;
+                if (ne8Var != null) {
+                    ne8Var.h(jSONObject);
                 }
             }
         }
     }
 
-    public final void setData(s18 s18Var) {
+    public final void setData(ne8 ne8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, s18Var) == null) {
-            this.data = s18Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ne8Var) == null) {
+            this.data = ne8Var;
         }
     }
 }

@@ -1,186 +1,135 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.mainentrance.MainEntrance;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.ala.alasquare.subtablist.view.AlaSubListGameDoubleViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class ea6 {
+public class ea6 extends bi<ga6, AlaSubListGameDoubleViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ThreadData> a;
-    public List<ThreadData> b;
+    public TbPageContext<?> a;
+    public pa6 b;
     public boolean c;
-    public boolean d;
+    public ka6 d;
     public int e;
     public int f;
-    public int g;
 
-    public ea6(List<ThreadData> list, boolean z, int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ea6(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity(), ga6.c);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {list, Boolean.valueOf(z), Integer.valueOf(i)};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = 2;
-        this.f = 2;
-        this.g = 1;
-        this.d = z;
-        this.f = i;
-        j(list);
+        this.c = false;
+        this.a = tbPageContext;
     }
 
-    public int a(int i) {
-        InterceptResult invokeI;
+    public void A(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (!this.c) {
-                return i;
-            }
-            int size = this.b.size();
-            if (i == 0) {
-                return (size - 1) - this.g;
-            }
-            int i2 = this.g;
-            if (i == size - i2) {
-                return i2;
-            }
-            return i;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.c = z;
         }
-        return invokeI.intValue;
     }
 
-    public int c(int i) {
-        InterceptResult invokeI;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: u */
+    public AlaSubListGameDoubleViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            if (this.c) {
-                return i - this.g;
-            }
-            return i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
+            this.d = new ka6(this.a, this.c);
+            return new AlaSubListGameDoubleViewHolder(this.d);
         }
-        return invokeI.intValue;
+        return (AlaSubListGameDoubleViewHolder) invokeL.objValue;
     }
 
-    public void g(int i) {
+    public void y(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.g = i;
-            j(this.a);
-        }
-    }
-
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             this.f = i;
-            j(this.a);
         }
     }
 
-    public void i(int i) {
+    public void z(pa6 pa6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.e = i;
-            j(this.a);
+        if (interceptable == null || interceptable.invokeL(1048583, this, pa6Var) == null) {
+            this.b = pa6Var;
         }
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    public final void t(ga6 ga6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<ThreadData> list = this.a;
-            if (list == null) {
-                return 0;
-            }
-            return list.size();
-        }
-        return invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.c) {
-                return this.g;
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public List<ThreadData> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final List<ThreadData> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            List<ThreadData> list = this.a;
-            if (list != null) {
-                if (this.c) {
-                    if (list.size() > this.f && this.a.size() >= this.g) {
-                        arrayList.addAll(this.a.subList(0, this.f));
-                        List<ThreadData> list2 = this.a;
-                        int i = this.f;
-                        arrayList.addAll(0, list2.subList(i - this.g, i));
-                        arrayList.addAll(this.a.subList(0, this.g));
-                    } else {
-                        arrayList.addAll(this.a);
-                        List<ThreadData> list3 = this.a;
-                        arrayList.addAll(0, list3.subList(list3.size() - this.g, this.a.size()));
-                        arrayList.addAll(this.a.subList(0, this.g));
-                    }
-                } else if (list != null && list.size() > 0) {
-                    int size = this.a.size();
-                    int i2 = this.g;
-                    if (size >= i2) {
-                        arrayList.addAll(this.a.subList(0, i2));
-                    }
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void j(List<ThreadData> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, list) != null) || list == null) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, ga6Var) != null) || ga6Var == null) {
             return;
         }
-        this.a = list;
-        if (list != null && list.size() >= this.e && list.size() <= this.f) {
-            this.c = true;
-        } else if (list.size() > this.f && this.d) {
-            this.c = true;
-        } else {
-            this.c = false;
+        int i = this.f;
+        if (i == 1) {
+            if (ga6Var.a != null) {
+                p96 b = p96.b();
+                p96 b2 = p96.b();
+                int i2 = this.e;
+                q76 q76Var = ga6Var.a;
+                b.a(b2.d(i2, "c12117", q76Var.a, q76Var.b, q76Var.getThreadData()));
+            }
+            if (ga6Var.b != null) {
+                p96 b3 = p96.b();
+                p96 b4 = p96.b();
+                int i3 = this.e;
+                q76 q76Var2 = ga6Var.b;
+                b3.a(b4.d(i3, "c12117", q76Var2.a, q76Var2.b, q76Var2.getThreadData()));
+            }
+        } else if (i == 2) {
+            q76 q76Var3 = ga6Var.a;
+            if (q76Var3 != null && q76Var3.getThreadData() != null && ga6Var.a.getThreadData().getThreadAlaInfo() != null) {
+                ThreadData threadData = ga6Var.a.getThreadData();
+                TiebaStatic.log(new StatisticItem("c12115").param("obj_id", threadData.getThreadAlaInfo().live_id).param(TiebaStatic.Params.OBJ_PARAM3, threadData.getThreadAlaInfo().appId).param(MainEntrance.GOTO_TYPE, ga6Var.a.b));
+            }
+            q76 q76Var4 = ga6Var.b;
+            if (q76Var4 != null && q76Var4.getThreadData() != null && ga6Var.b.getThreadData().getThreadAlaInfo() != null) {
+                ThreadData threadData2 = ga6Var.b.getThreadData();
+                TiebaStatic.log(new StatisticItem("c12115").param("obj_id", threadData2.getThreadAlaInfo().live_id).param(TiebaStatic.Params.OBJ_PARAM3, threadData2.getThreadAlaInfo().appId).param(MainEntrance.GOTO_TYPE, ga6Var.b.b));
+            }
         }
-        this.b = f();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: x */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ga6 ga6Var, AlaSubListGameDoubleViewHolder alaSubListGameDoubleViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ga6Var, alaSubListGameDoubleViewHolder})) == null) {
+            t(ga6Var);
+            alaSubListGameDoubleViewHolder.a.k(ga6Var);
+            alaSubListGameDoubleViewHolder.a.r(this.b);
+            return alaSubListGameDoubleViewHolder.getView();
+        }
+        return (View) invokeCommon.objValue;
     }
 }

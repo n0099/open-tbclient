@@ -16,6 +16,6 @@ public final class f extends e {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.bc = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f0912b7);
+        this.bc = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f0912f5);
     }
 }

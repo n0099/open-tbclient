@@ -1,286 +1,108 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import androidx.lifecycle.SavedStateHandle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.v8engine.net.NetInfo;
+import com.baidu.searchbox.v8engine.net.NetRequestResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collection;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Observable;
+import java.util.Observer;
 /* loaded from: classes8.dex */
-public class sv1 extends rv1 {
+public class sv1 implements Observer {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ql4 f;
-    public static long g;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948164763, "Lcom/baidu/tieba/sv1;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948164763, "Lcom/baidu/tieba/sv1;");
-        }
-    }
-
-    @Override // com.baidu.tieba.rv1
-    public boolean N() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.rv1, com.baidu.tieba.tt1
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? "SwanGlobalStorageApi" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes8.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            long unused = sv1.g = sv1.f.getContentSize();
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sv1(@NonNull rt1 rt1Var) {
-        super(rt1Var);
+    public sv1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {rt1Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((rt1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        synchronized (sv1.class) {
-            if (f == null) {
-                b0();
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.rv1
-    public qx1 E(String str) {
-        InterceptResult invokeL;
+    public final String a(@NonNull NetInfo netInfo, @NonNull NetRequestResult netRequestResult, int i) {
+        InterceptResult invokeLLI;
+        Integer num;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            r("#getStorage", false);
-            return super.E(str);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, netInfo, netRequestResult, i)) == null) {
+            Object obj = "";
+            if (i == 200) {
+                return "";
+            }
+            String statusMsg = netRequestResult.getStatusMsg();
+            NetInfo.Response response = netInfo.getResponse();
+            NetInfo.Base base = netInfo.getBase();
+            StringBuilder sb = new StringBuilder();
+            sb.append(statusMsg);
+            sb.append("; code=");
+            if (response == null) {
+                num = "";
+            } else {
+                num = Integer.valueOf(response.mCode);
+            }
+            sb.append(num);
+            String sb2 = sb.toString();
+            StringBuilder sb3 = new StringBuilder();
+            sb3.append(sb2);
+            sb3.append("; status=");
+            if (base != null) {
+                obj = Integer.valueOf(base.mStatus);
+            }
+            sb3.append(obj);
+            return sb3.toString();
         }
-        return (qx1) invokeL.objValue;
+        return (String) invokeLLI.objValue;
     }
 
-    @Override // com.baidu.tieba.rv1
-    public ql4 G(@NonNull p53 p53Var) {
-        InterceptResult invokeL;
+    @Override // java.util.Observer
+    @SuppressLint({"BDThrowableCheck"})
+    public void update(Observable observable, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, p53Var)) == null) {
-            return f;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, observable, obj) != null) || !(obj instanceof NetRequestResult)) {
+            return;
         }
-        return (ql4) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.rv1
-    public qx1 L(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            r("#getStorageSync", false);
-            return super.L(str);
-        }
-        return (qx1) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.rv1
-    public qx1 S(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            r("#removeStorage", false);
-            return super.S(str);
-        }
-        return (qx1) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.rv1
-    public qx1 U(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            r("#removeStorageSync", false);
-            return super.U(str);
-        }
-        return (qx1) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.rv1
-    public qx1 V(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            r("#setStorage", false);
-            return super.V(str);
-        }
-        return (qx1) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.rv1
-    public qx1 X(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            r("#setStorageSync", false);
-            return super.X(str);
-        }
-        return (qx1) invokeL.objValue;
-    }
-
-    public static void c0() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65541, null) == null) && f != null) {
-            ji3.f().execute(new a());
-        }
-    }
-
-    @Override // com.baidu.tieba.rv1
-    public qx1 B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            r("#clearStorage", false);
-            return super.B();
-        }
-        return (qx1) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.rv1
-    public qx1 D() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            r("#clearStorageSync", false);
-            return super.D();
-        }
-        return (qx1) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.rv1
-    public qx1 K() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            r("#getStorageInfoSync", false);
-            return H();
-        }
-        return (qx1) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.rv1
-    public void Y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            c0();
-        }
-    }
-
-    public static synchronized void b0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            synchronized (sv1.class) {
-                if (f == null) {
-                    try {
-                        f = new ge3("swan_js_global_storage", 2, lo2.g().getAbsolutePath());
-                    } catch (NoClassDefFoundError | UnsatisfiedLinkError unused) {
-                        f = new yl4("swan_js_global_storage");
-                        he3.i(1, "swan_js_global_storage");
+        NetRequestResult netRequestResult = (NetRequestResult) obj;
+        String url = netRequestResult.getUrl();
+        String valueOf = String.valueOf(netRequestResult.getId());
+        int statusCode = netRequestResult.getStatusCode();
+        if (statusCode != 3) {
+            if (statusCode != 4) {
+                if (statusCode != 5) {
+                    if (statusCode == 6) {
+                        qb2.D(valueOf, netRequestResult.getCreatedTime(), 0L, 0L);
                     }
-                    c0();
+                } else {
+                    qb2.D(valueOf, 0L, 0L, netRequestResult.getCreatedTime());
                 }
+            } else if (url != null) {
+                qb2.k().q(valueOf, url);
+            }
+        } else {
+            qb2.D(valueOf, 0L, netRequestResult.getCreatedTime(), 0L);
+        }
+        NetInfo netInfo = netRequestResult.getNetInfo();
+        int statusCode2 = netRequestResult.getStatusCode();
+        if (netRequestResult.getFromType() == 1 && url != null && netInfo != null) {
+            qb2.k().B(valueOf, url, netInfo);
+            long l = qb2.k().l(valueOf);
+            long currentTimeMillis = System.currentTimeMillis();
+            String e = ak3.n().e();
+            zc3.Q(statusCode2, netRequestResult.getUrl(), 0, a(netInfo, netRequestResult, statusCode2), zc3.l(), e, l, currentTimeMillis, valueOf);
+        } else if (netInfo != null) {
+            if (statusCode2 < 0 || statusCode2 >= 400) {
+                zc3.P(statusCode2, netRequestResult.getUrl(), 0, a(netInfo, netRequestResult, statusCode2), 0L, 0L, valueOf);
             }
         }
-    }
-
-    @Override // com.baidu.tieba.rv1
-    public qx1 H() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            r("#getStorageInfo", false);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(SavedStateHandle.KEYS, new JSONArray((Collection) f.a()));
-                jSONObject.put(CommonTbJsBridge.FILE_DOWNLOAD_CURRENT_SIZE, g / 1024);
-                jSONObject.put("limitSize", 10240);
-                return new qx1(0, jSONObject);
-            } catch (JSONException unused) {
-                return new qx1(202, "JSONException");
-            }
-        }
-        return (qx1) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.rv1
-    public boolean O(@Nullable p53 p53Var, @NonNull String str, @NonNull String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, p53Var, str, str2)) == null) {
-            if ((g - f.getString(str, "").length()) + str2.length() > Config.FULL_TRACE_LOG_LIMIT) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLLL.booleanValue;
     }
 }

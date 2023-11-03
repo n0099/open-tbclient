@@ -5,7 +5,7 @@ import java.lang.reflect.Type;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.descriptors.runtime.structure.ReflectJavaType;
 import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaField;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class ReflectJavaField extends ReflectJavaMember implements JavaField {
     public final Field member;
 

@@ -390,7 +390,7 @@ public class MaterialButtonToggleGroup extends LinearLayout {
     }
 
     public MaterialButtonToggleGroup(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f0404d8);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0404e3);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

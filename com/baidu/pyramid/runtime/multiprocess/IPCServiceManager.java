@@ -12,10 +12,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.multiprocess.components.ServerProvider;
 import com.baidu.pyramid.runtime.multiprocess.internal.IPCServiceManagerAidl;
 import com.baidu.searchbox.downloads.DownloadConstants;
-import com.baidu.tieba.df1;
-import com.baidu.tieba.ef1;
-import com.baidu.tieba.ff1;
-import com.baidu.tieba.gf1;
+import com.baidu.tieba.uf1;
+import com.baidu.tieba.vf1;
+import com.baidu.tieba.wf1;
+import com.baidu.tieba.xf1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -68,7 +68,7 @@ public class IPCServiceManager {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                return gf1.d(str);
+                return xf1.d(str);
             }
             return (IBinder) invokeL.objValue;
         }
@@ -78,7 +78,7 @@ public class IPCServiceManager {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                return gf1.e(str);
+                return xf1.e(str);
             }
             return invokeL.booleanValue;
         }
@@ -87,13 +87,13 @@ public class IPCServiceManager {
         public void addService(String str, IBinder iBinder, boolean z) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLZ(1048576, this, str, iBinder, z) == null) {
-                gf1.a(str, iBinder, z);
+                xf1.a(str, iBinder, z);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public static class a extends ef1 {
+    public static class a extends vf1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String d;
@@ -116,7 +116,7 @@ public class IPCServiceManager {
             this.d = str;
         }
 
-        @Override // com.baidu.tieba.ef1
+        @Override // com.baidu.tieba.vf1
         public IBinder c() throws RemoteException {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -128,7 +128,7 @@ public class IPCServiceManager {
     }
 
     /* loaded from: classes3.dex */
-    public static class b extends ef1 {
+    public static class b extends vf1 {
         public static /* synthetic */ Interceptable $ic;
         public static final Uri d;
         public transient /* synthetic */ FieldHolder $fh;
@@ -167,19 +167,19 @@ public class IPCServiceManager {
             this();
         }
 
-        @Override // com.baidu.tieba.ef1
+        @Override // com.baidu.tieba.vf1
         public IBinder c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                ContentResolver contentResolver = df1.a().getContentResolver();
+                ContentResolver contentResolver = uf1.a().getContentResolver();
                 JSONObject jSONObject = new JSONObject();
                 Bundle f = f(contentResolver, jSONObject);
                 if (f == null) {
                     f = i(contentResolver, jSONObject);
                 }
                 if (jSONObject.length() != 0) {
-                    ff1.c(jSONObject.toString());
+                    wf1.c(jSONObject.toString());
                 }
                 if (f == null) {
                     return null;
@@ -205,7 +205,7 @@ public class IPCServiceManager {
                     return contentResolver.call(uri, "_get_service_handler", (String) null, (Bundle) null);
                 } catch (Exception e) {
                     try {
-                        jSONObject.put("useContentResolverCall", ff1.a(e));
+                        jSONObject.put("useContentResolverCall", wf1.a(e));
                     } catch (JSONException unused) {
                     }
                     IPCServiceManager.h("getServicerBinder", e);
@@ -223,7 +223,7 @@ public class IPCServiceManager {
                     return contentResolver.query(uri, null, null, null, null).getExtras();
                 } catch (Exception e) {
                     try {
-                        jSONObject.put("useContentResolverQuery", ff1.a(e));
+                        jSONObject.put("useContentResolverQuery", wf1.a(e));
                     } catch (JSONException unused) {
                     }
                     IPCServiceManager.h("getServicerBinder", e);
@@ -270,7 +270,7 @@ public class IPCServiceManager {
                     return contentProviderClient.query(d, null, null, null, null).getExtras();
                 } catch (Exception e) {
                     try {
-                        jSONObject.put("useProviderClientQuery", ff1.a(e));
+                        jSONObject.put("useProviderClientQuery", wf1.a(e));
                     } catch (JSONException unused) {
                     }
                     IPCServiceManager.h("getServicerBinder", e);
@@ -290,7 +290,7 @@ public class IPCServiceManager {
                     }
                 } catch (Exception e) {
                     try {
-                        jSONObject.put("useProviderClientCall", ff1.a(e));
+                        jSONObject.put("useProviderClientCall", wf1.a(e));
                     } catch (JSONException unused) {
                     }
                     IPCServiceManager.h("getServicerBinder", e);
@@ -382,7 +382,7 @@ public class IPCServiceManager {
                 return g().getService(str);
             } catch (RemoteException e) {
                 h("MultiProcess", e);
-                ff1.b(e);
+                wf1.b(e);
                 return null;
             }
         }
@@ -396,7 +396,7 @@ public class IPCServiceManager {
                 g().addService(str, iBinder, z);
             } catch (RemoteException e) {
                 h("MultiProcess", e);
-                ff1.b(e);
+                wf1.b(e);
             }
         }
     }

@@ -1,116 +1,251 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.k6c;
-import com.baidu.tieba.l6c;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.net.UnknownHostException;
+import java.security.KeyManagementException;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateException;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSocket;
+import javax.net.ssl.SSLSocketFactory;
+import javax.net.ssl.X509TrustManager;
+import org.apache.http.conn.ssl.BrowserCompatHostnameVerifier;
+import org.apache.http.conn.ssl.StrictHostnameVerifier;
+import org.apache.http.conn.ssl.X509HostnameVerifier;
+@Deprecated
 /* loaded from: classes6.dex */
-public final class h8c<T> implements l6c.c<T> {
+public class h8c extends SSLSocketFactory {
     public static /* synthetic */ Interceptable $ic;
+    @Deprecated
+    public static final X509HostnameVerifier i;
+    public static final String j;
+    public static volatile h8c k;
     public transient /* synthetic */ FieldHolder $fh;
-    public final l6c.c<T> a;
-    public final k6c b;
+    public SSLContext a;
+    public SSLSocket b;
+    public Context c;
+    public String[] d;
+    public X509TrustManager e;
+    public String[] f;
+    public String[] g;
+    public String[] h;
 
-    /* loaded from: classes6.dex */
-    public static final class a<T> extends m6c<T> implements u6c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final m6c<? super T> b;
-        public final k6c.a c;
-        public T d;
-        public Throwable e;
-
-        public a(m6c<? super T> m6cVar, k6c.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m6cVar, aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = m6cVar;
-            this.c = aVar;
-        }
-
-        @Override // com.baidu.tieba.m6c
-        public void b(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-                this.e = th;
-                this.c.b(this);
-            }
-        }
-
-        @Override // com.baidu.tieba.m6c
-        public void c(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-                this.d = t;
-                this.c.b(this);
-            }
-        }
-
-        @Override // com.baidu.tieba.u6c
-        public void call() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                try {
-                    Throwable th = this.e;
-                    if (th != null) {
-                        this.e = null;
-                        this.b.b(th);
-                    } else {
-                        T t = this.d;
-                        this.d = null;
-                        this.b.c(t);
-                    }
-                } finally {
-                    this.c.unsubscribe();
-                }
-            }
-        }
+    @Override // javax.net.ssl.SSLSocketFactory
+    public String[] getDefaultCipherSuites() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? new String[0] : (String[]) invokeV.objValue;
     }
 
-    public h8c(l6c.c<T> cVar, k6c k6cVar) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947779030, "Lcom/baidu/tieba/h8c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947779030, "Lcom/baidu/tieba/h8c;");
+                return;
+            }
+        }
+        new BrowserCompatHostnameVerifier();
+        i = new StrictHostnameVerifier();
+        j = h8c.class.getSimpleName();
+        k = null;
+    }
+
+    public h8c(Context context) throws NoSuchAlgorithmException, CertificateException, KeyStoreException, IOException, KeyManagementException {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cVar, k6cVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = cVar;
-        this.b = k6cVar;
+        this.a = null;
+        this.b = null;
+        if (context == null) {
+            t8c.d(j, "SecureSSLSocketFactory: context is null");
+            return;
+        }
+        c(context);
+        d(g8c.f());
+        k8c a = j8c.a(context);
+        this.e = a;
+        this.a.init(null, new X509TrustManager[]{a}, null);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.v6c
-    /* renamed from: a */
-    public void call(m6c<? super T> m6cVar) {
+    public static h8c b(Context context) throws IOException, NoSuchAlgorithmException, CertificateException, KeyStoreException, IllegalAccessException, KeyManagementException, IllegalArgumentException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, m6cVar) == null) {
-            k6c.a createWorker = this.b.createWorker();
-            a aVar = new a(m6cVar, createWorker);
-            m6cVar.a(createWorker);
-            m6cVar.a(aVar);
-            this.a.call(aVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            q8c.b(context);
+            if (k == null) {
+                synchronized (h8c.class) {
+                    if (k == null) {
+                        k = new h8c(context);
+                    }
+                }
+            }
+            if (k.c == null && context != null) {
+                k.c(context);
+            }
+            String str = j;
+            t8c.b(str, "getInstance: cost : " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
+            return k;
         }
+        return (h8c) invokeL.objValue;
+    }
+
+    public final void a(Socket socket) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, socket) == null) {
+            boolean z2 = true;
+            if (!p8c.a(this.h)) {
+                t8c.e(j, "set protocols");
+                g8c.e((SSLSocket) socket, this.h);
+                z = true;
+            } else {
+                z = false;
+            }
+            if (p8c.a(this.g) && p8c.a(this.f)) {
+                z2 = false;
+            } else {
+                t8c.e(j, "set white cipher or black cipher");
+                SSLSocket sSLSocket = (SSLSocket) socket;
+                g8c.d(sSLSocket);
+                if (!p8c.a(this.g)) {
+                    g8c.h(sSLSocket, this.g);
+                } else {
+                    g8c.b(sSLSocket, this.f);
+                }
+            }
+            if (!z) {
+                t8c.e(j, "set default protocols");
+                g8c.d((SSLSocket) socket);
+            }
+            if (!z2) {
+                t8c.e(j, "set default cipher suites");
+                g8c.c((SSLSocket) socket);
+            }
+        }
+    }
+
+    public void c(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            this.c = context.getApplicationContext();
+        }
+    }
+
+    public void d(SSLContext sSLContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, sSLContext) == null) {
+            this.a = sSLContext;
+        }
+    }
+
+    @Override // javax.net.SocketFactory
+    public Socket createSocket(String str, int i2) throws IOException {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2)) == null) {
+            t8c.e(j, "createSocket: host , port");
+            Socket createSocket = this.a.getSocketFactory().createSocket(str, i2);
+            if (createSocket instanceof SSLSocket) {
+                a(createSocket);
+                SSLSocket sSLSocket = (SSLSocket) createSocket;
+                this.b = sSLSocket;
+                this.d = (String[]) sSLSocket.getEnabledCipherSuites().clone();
+            }
+            return createSocket;
+        }
+        return (Socket) invokeLI.objValue;
+    }
+
+    @Override // javax.net.SocketFactory
+    public Socket createSocket(String str, int i2, InetAddress inetAddress, int i3) throws IOException, UnknownHostException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, Integer.valueOf(i2), inetAddress, Integer.valueOf(i3)})) == null) {
+            return createSocket(str, i2);
+        }
+        return (Socket) invokeCommon.objValue;
+    }
+
+    @Override // javax.net.SocketFactory
+    public Socket createSocket(InetAddress inetAddress, int i2) throws IOException {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, inetAddress, i2)) == null) {
+            return createSocket(inetAddress.getHostAddress(), i2);
+        }
+        return (Socket) invokeLI.objValue;
+    }
+
+    @Override // javax.net.SocketFactory
+    public Socket createSocket(InetAddress inetAddress, int i2, InetAddress inetAddress2, int i3) throws IOException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{inetAddress, Integer.valueOf(i2), inetAddress2, Integer.valueOf(i3)})) == null) {
+            return createSocket(inetAddress.getHostAddress(), i2);
+        }
+        return (Socket) invokeCommon.objValue;
+    }
+
+    @Override // javax.net.ssl.SSLSocketFactory
+    public Socket createSocket(Socket socket, String str, int i2, boolean z) throws IOException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{socket, str, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            t8c.e(j, "createSocket s host port autoClose");
+            Socket createSocket = this.a.getSocketFactory().createSocket(socket, str, i2, z);
+            if (createSocket instanceof SSLSocket) {
+                a(createSocket);
+                SSLSocket sSLSocket = (SSLSocket) createSocket;
+                this.b = sSLSocket;
+                this.d = (String[]) sSLSocket.getEnabledCipherSuites().clone();
+            }
+            return createSocket;
+        }
+        return (Socket) invokeCommon.objValue;
+    }
+
+    @Override // javax.net.ssl.SSLSocketFactory
+    public String[] getSupportedCipherSuites() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            String[] strArr = this.d;
+            if (strArr != null) {
+                return strArr;
+            }
+            return new String[0];
+        }
+        return (String[]) invokeV.objValue;
     }
 }

@@ -23,7 +23,7 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.CommitVoteReqMsg;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rc6;
+import com.baidu.tieba.me6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -38,7 +38,7 @@ public class CandidateSearchItemHolder extends RecyclerView.ViewHolder {
     public TextView d;
     public TextView e;
     public int f;
-    public rc6 g;
+    public me6 g;
     public BdUniqueId h;
     public View i;
     public View.OnClickListener j;
@@ -126,36 +126,36 @@ public class CandidateSearchItemHolder extends RecyclerView.ViewHolder {
         this.f = 3;
         this.h = null;
         this.j = new a(this);
-        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910fa);
+        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091136);
         this.a = headImageView;
         headImageView.setIsRound(true);
         this.a.setOnClickListener(this.j);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918d9);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a03);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09016e);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0904fe);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091920);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a4a);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090181);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09051a);
         this.itemView.setOnClickListener(this.j);
         this.e.setOnClickListener(this.j);
-        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f090548);
+        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f090566);
         this.i = findViewById;
         findViewById.setOnClickListener(this.j);
     }
 
-    public void g(rc6 rc6Var) {
+    public void g(me6 me6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, rc6Var) == null) {
-            this.g = rc6Var;
-            if (rc6Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, me6Var) == null) {
+            this.g = me6Var;
+            if (me6Var == null) {
                 return;
             }
-            this.a.startLoad(rc6Var.c, 12, false);
-            this.b.setText(rc6Var.d);
-            String valueOf = String.valueOf(rc6Var.e);
+            this.a.startLoad(me6Var.c, 12, false);
+            this.b.setText(me6Var.d);
+            String valueOf = String.valueOf(me6Var.e);
             if (valueOf != null && valueOf.length() < 4) {
-                valueOf = String.format("%04d", Long.valueOf(rc6Var.e));
+                valueOf = String.format("%04d", Long.valueOf(me6Var.e));
             }
-            h(this.c, String.format(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f0ee9), valueOf, Integer.valueOf(rc6Var.f)), rc6Var.j);
-            this.d.setText(String.format(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f0116), StringHelper.numFormatOverWanWithNegative(rc6Var.g), StringHelper.numFormatOverWanWithNegative(rc6Var.h), StringHelper.numFormatOverWanWithNegative(rc6Var.i)));
+            h(this.c, String.format(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f0efb), valueOf, Integer.valueOf(me6Var.f)), me6Var.j);
+            this.d.setText(String.format(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f0116), StringHelper.numFormatOverWanWithNegative(me6Var.g), StringHelper.numFormatOverWanWithNegative(me6Var.h), StringHelper.numFormatOverWanWithNegative(me6Var.i)));
             onChangeSkinType();
         }
     }

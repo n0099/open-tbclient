@@ -8,14 +8,14 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.swan.apps.SwanAppLauncherActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.am1;
-import com.baidu.tieba.h53;
-import com.baidu.tieba.oi3;
-import com.baidu.tieba.t43;
-import com.baidu.tieba.xk3;
+import com.baidu.tieba.fj3;
+import com.baidu.tieba.k53;
+import com.baidu.tieba.ol3;
+import com.baidu.tieba.rm1;
+import com.baidu.tieba.y53;
 /* loaded from: classes4.dex */
 public class SwanAppAdbDebugActivity extends Activity {
-    public static final boolean a = am1.a;
+    public static final boolean a = rm1.a;
 
     /* loaded from: classes4.dex */
     public class a implements DialogInterface.OnClickListener {
@@ -50,24 +50,24 @@ public class SwanAppAdbDebugActivity extends Activity {
         if (a) {
             Log.d("SwanAppAdbDebugActivity", "ADB Debug onCreate");
         }
-        if (oi3.a(this)) {
+        if (fj3.a(this)) {
             return;
         }
         Intent intent = getIntent();
         if (TextUtils.isEmpty(intent.getStringExtra("adb_debug_path"))) {
-            h53.f(this, R.string.obfuscated_res_0x7f0f0131).G();
+            y53.f(this, R.string.obfuscated_res_0x7f0f0131).G();
             if (a) {
                 Log.d("SwanAppAdbDebugActivity", "ADB Debug lack of app path");
             }
             finish();
         }
-        t43.a aVar = new t43.a(this);
+        k53.a aVar = new k53.a(this);
         aVar.V(getString(R.string.obfuscated_res_0x7f0f012f));
         aVar.x(getString(R.string.obfuscated_res_0x7f0f0130));
-        aVar.n(new xk3());
+        aVar.n(new ol3());
         aVar.m(false);
         aVar.O(R.string.obfuscated_res_0x7f0f0149, new b(intent));
-        aVar.B(R.string.obfuscated_res_0x7f0f1542, new a());
+        aVar.B(R.string.obfuscated_res_0x7f0f1559, new a());
         aVar.X();
     }
 }

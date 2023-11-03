@@ -1,15 +1,18 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import org.json.JSONObject;
+import androidx.annotation.Nullable;
+import java.util.Map;
 /* loaded from: classes5.dex */
 public interface eq2 {
-    boolean a(String str, String str2);
+    void a(d73 d73Var);
 
-    String b();
+    @Nullable
+    Map<String, Object> b(@NonNull iu1 iu1Var);
 
-    @NonNull
-    JSONObject c(@NonNull String str, @NonNull JSONObject jSONObject);
+    @Nullable
+    Map<String, Object> c(@NonNull iu1 iu1Var);
 
-    boolean enable();
+    @Nullable
+    Map<Class, Object> d();
 }

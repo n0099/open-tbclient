@@ -1,75 +1,51 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
-import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-@Deprecated
+import java.io.ByteArrayOutputStream;
 /* loaded from: classes8.dex */
-public class u63 extends m73 {
+public abstract class u63<T> implements kp2<byte[], T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u63(m63 m63Var) {
-        super(m63Var, "/swanAPI/getAppInfoSync");
+    public abstract void b(@NonNull T t, @NonNull mp2 mp2Var) throws Exception;
+
+    public u63() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {m63Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.m73
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, p53 p53Var) {
-        InterceptResult invokeLLLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.kp2
+    /* renamed from: a */
+    public final byte[] call(T t) throws Exception {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, p53Var)) == null) {
-            if (m73.b) {
-                Log.d("GetAppInfoSyncAction", "handle entity: " + unitedSchemeEntity.toString());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
+            if (t == null) {
+                return null;
             }
-            if (p53Var == null) {
-                p22.c(DI.APP_INFO_NAME, "swanApp is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            }
-            try {
-                JSONObject E = pv1.E(p53Var, context);
-                if (m73.b && E != null) {
-                    Log.d("GetAppInfoSyncAction", "data: " + E.toString());
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(E, 0);
-                return true;
-            } catch (JSONException e) {
-                if (m73.b) {
-                    Log.d("GetAppInfoSyncAction", Log.getStackTraceString(e));
-                }
-                p22.c(DI.APP_INFO_NAME, Log.getStackTraceString(e));
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            }
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            mp2 mp2Var = new mp2(byteArrayOutputStream);
+            b(t, mp2Var);
+            byte[] byteArray = byteArrayOutputStream.toByteArray();
+            mp2Var.close();
+            byteArrayOutputStream.close();
+            return byteArray;
         }
-        return invokeLLLL.booleanValue;
+        return (byte[]) invokeL.objValue;
     }
 }

@@ -1,27 +1,38 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import java.util.List;
-import java.util.Map;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
-public interface tj5 {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("HotTopic", "HotTopicRequest");
+public class tj5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void a();
-
-        void b(@NonNull List<ThreadData> list, @Nullable Map<String, Object> map);
+    public static sj5 a(View view2, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65536, null, view2, z)) == null) {
+            if (view2 == null) {
+                return null;
+            }
+            if (view2 instanceof LinearLayout) {
+                return new uj5();
+            }
+            if (view2 instanceof RelativeLayout) {
+                return new wj5();
+            }
+            if (!(view2 instanceof FrameLayout)) {
+                return null;
+            }
+            if (z) {
+                return new xj5();
+            }
+            return new qj5();
+        }
+        return (sj5) invokeLZ.objValue;
     }
-
-    tj5 a(@NonNull TbPageContext tbPageContext, long j, @NonNull String str);
-
-    void b(int i, mx4 mx4Var, long j);
-
-    void c(@Nullable a aVar);
 }

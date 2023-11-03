@@ -2,7 +2,7 @@ package com.baidu.tieba.im.message;
 
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.fd8;
+import com.baidu.tieba.dq8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -12,7 +12,7 @@ import org.json.JSONObject;
 public class IceBreakHttpResponsedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fd8 data;
+    public dq8 data;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public IceBreakHttpResponsedMessage() {
@@ -38,9 +38,9 @@ public class IceBreakHttpResponsedMessage extends JsonHttpResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             super.decodeLogicInBackGround(i, jSONObject);
             if (jSONObject != null && jSONObject.optInt("error_code", -1) == 0) {
-                fd8 fd8Var = new fd8();
-                this.data = fd8Var;
-                fd8Var.b(jSONObject);
+                dq8 dq8Var = new dq8();
+                this.data = dq8Var;
+                dq8Var.b(jSONObject);
             }
         }
     }

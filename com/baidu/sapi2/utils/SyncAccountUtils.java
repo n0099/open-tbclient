@@ -14,7 +14,7 @@ public class SyncAccountUtils implements NoProguard {
     public static final String KEY_USERNAME = "username";
     public static final String TAG = "SyncAccountUtils";
 
-    /* JADX WARN: Removed duplicated region for block: B:33:0x0079 A[Catch: JSONException -> 0x0081, TRY_ENTER, TRY_LEAVE, TryCatch #0 {JSONException -> 0x0081, blocks: (B:6:0x0010, B:8:0x0021, B:20:0x0047, B:22:0x0054, B:26:0x005f, B:28:0x006c, B:33:0x0079, B:14:0x0030, B:16:0x003c), top: B:38:0x0010 }] */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x0078 A[Catch: JSONException -> 0x0080, TRY_ENTER, TRY_LEAVE, TryCatch #1 {JSONException -> 0x0080, blocks: (B:6:0x0010, B:8:0x0021, B:20:0x0047, B:22:0x0054, B:26:0x005f, B:28:0x006b, B:33:0x0078, B:14:0x0030, B:16:0x003c), top: B:40:0x0010 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -31,15 +31,15 @@ public class SyncAccountUtils implements NoProguard {
         try {
             jSONObject = new JSONObject(str);
             optString = jSONObject.optString(KEY_DISPLAYNAME_TO_NA);
-        } catch (JSONException e) {
-            e = e;
-        }
-        try {
+            try {
+            } catch (JSONException e) {
+                e = e;
+                z = true;
+                e.printStackTrace();
+                return z;
+            }
         } catch (JSONException e2) {
             e = e2;
-            z = true;
-            e.printStackTrace();
-            return z;
         }
         if (!TextUtils.isEmpty(optString) && !optString.equals(sapiAccount.displayname)) {
             sapiAccount.displayname = optString;

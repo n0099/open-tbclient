@@ -502,9 +502,9 @@ public class PickCoverLayout extends FrameLayout {
         if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
             SlideBarView slideBarView = this.e;
             if (z) {
-                i2 = R.drawable.obfuscated_res_0x7f08126b;
+                i2 = R.drawable.obfuscated_res_0x7f081282;
             } else {
-                i2 = R.drawable.obfuscated_res_0x7f08126a;
+                i2 = R.drawable.obfuscated_res_0x7f081281;
             }
             slideBarView.setPickDrawable(i2);
         }
@@ -632,11 +632,11 @@ public class PickCoverLayout extends FrameLayout {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d09b6, (ViewGroup) null);
-            this.a = (RecyclerView) inflate.findViewById(R.id.obfuscated_res_0x7f0927fa);
-            this.e = (SlideBarView) inflate.findViewById(R.id.obfuscated_res_0x7f0927f8);
-            this.g = inflate.findViewById(R.id.obfuscated_res_0x7f0927f7);
-            EMTextView eMTextView = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f0906b4);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d09cf, (ViewGroup) null);
+            this.a = (RecyclerView) inflate.findViewById(R.id.obfuscated_res_0x7f092859);
+            this.e = (SlideBarView) inflate.findViewById(R.id.obfuscated_res_0x7f092857);
+            this.g = inflate.findViewById(R.id.obfuscated_res_0x7f092856);
+            EMTextView eMTextView = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f0906d3);
             this.h = eMTextView;
             EMManager.from(eMTextView).setTextShadow(R.array.S_O_X001);
             addView(inflate);

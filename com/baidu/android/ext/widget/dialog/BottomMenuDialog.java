@@ -300,7 +300,7 @@ public class BottomMenuDialog extends DialogFragment {
             getDialog().requestWindowFeature(1);
             int i = 0;
             getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(0));
-            getDialog().getWindow().setWindowAnimations(R.style.obfuscated_res_0x7f1003e4);
+            getDialog().getWindow().setWindowAnimations(R.style.obfuscated_res_0x7f1003e5);
             View inflate = layoutInflater.inflate(R.layout.bottom_menu_dialog, viewGroup);
             this.mRootView = inflate;
             inflate.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060b99));
@@ -324,10 +324,10 @@ public class BottomMenuDialog extends DialogFragment {
             this.mListView.setAdapter((ListAdapter) this.mAdapter);
             this.mListView.setDivider(getResources().getDrawable(R.color.obfuscated_res_0x7f0604ff));
             this.mListView.setDividerHeight(1);
-            this.mListView.setSelector(R.drawable.obfuscated_res_0x7f0803a6);
+            this.mListView.setSelector(R.drawable.obfuscated_res_0x7f0803ae);
             this.mRootView.findViewById(R.id.header_devider).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0604ff));
             this.mRootView.findViewById(R.id.bottom_devider).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0604fe));
-            this.mBottomView.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0803a6));
+            this.mBottomView.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0803ae));
             setup();
             return this.mRootView;
         }

@@ -6,35 +6,29 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.mainentrance.MainEntrance;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.ala.alasquare.subtablist.view.AlaSubListLiveDoubleViewHolder;
+import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernItemViewLineHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class k86 extends lh<m86, AlaSubListLiveDoubleViewHolder> {
+/* loaded from: classes7.dex */
+public class k86 extends bi<h86, LiveTabConcernItemViewLineHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public u86 b;
-    public boolean c;
-    public s86 d;
-    public int e;
-    public int f;
+    public TbPageContext a;
+    public x86 b;
+    public c96 c;
+    public String d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k86(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), m86.c);
+    public k86(TbPageContext tbPageContext, String str) {
+        super(tbPageContext.getPageActivity(), h86.d);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -46,90 +40,53 @@ public class k86 extends lh<m86, AlaSubListLiveDoubleViewHolder> {
                 return;
             }
         }
-        this.c = false;
+        this.d = "";
         this.a = tbPageContext;
+        this.d = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
+    @Override // com.baidu.tieba.bi
     /* renamed from: t */
-    public AlaSubListLiveDoubleViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public LiveTabConcernItemViewLineHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            this.d = new s86(this.a, this.c);
-            return new AlaSubListLiveDoubleViewHolder(this.d);
-        }
-        return (AlaSubListLiveDoubleViewHolder) invokeL.objValue;
-    }
-
-    public void x(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public void y(u86 u86Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, u86Var) == null) {
-            this.b = u86Var;
-        }
-    }
-
-    public void z(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public final void s(m86 m86Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, m86Var) != null) || m86Var == null) {
-            return;
-        }
-        int i = this.f;
-        if (i == 1) {
-            if (m86Var.a != null) {
-                u76 b = u76.b();
-                u76 b2 = u76.b();
-                int i2 = this.e;
-                v56 v56Var = m86Var.a;
-                b.a(b2.d(i2, "c12117", v56Var.a, v56Var.b, v56Var.getThreadData()));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            x86 x86Var = new x86(this.a, viewGroup, this.d);
+            this.b = x86Var;
+            c96 c96Var = this.c;
+            if (c96Var != null) {
+                x86Var.r(c96Var);
             }
-            if (m86Var.b != null) {
-                u76 b3 = u76.b();
-                u76 b4 = u76.b();
-                int i3 = this.e;
-                v56 v56Var2 = m86Var.b;
-                b3.a(b4.d(i3, "c12117", v56Var2.a, v56Var2.b, v56Var2.getThreadData()));
-            }
-        } else if (i == 2) {
-            v56 v56Var3 = m86Var.a;
-            if (v56Var3 != null && v56Var3.getThreadData() != null && m86Var.a.getThreadData().getThreadAlaInfo() != null) {
-                ThreadData threadData = m86Var.a.getThreadData();
-                TiebaStatic.log(new StatisticItem("c12115").param("obj_id", threadData.getThreadAlaInfo().live_id).param(TiebaStatic.Params.OBJ_PARAM3, threadData.getThreadAlaInfo().appId).param(MainEntrance.GOTO_TYPE, m86Var.a.b));
-            }
-            v56 v56Var4 = m86Var.b;
-            if (v56Var4 != null && v56Var4.getThreadData() != null && m86Var.b.getThreadData().getThreadAlaInfo() != null) {
-                ThreadData threadData2 = m86Var.b.getThreadData();
-                TiebaStatic.log(new StatisticItem("c12115").param("obj_id", threadData2.getThreadAlaInfo().live_id).param(TiebaStatic.Params.OBJ_PARAM3, threadData2.getThreadAlaInfo().appId).param(MainEntrance.GOTO_TYPE, m86Var.b.b));
+            return new LiveTabConcernItemViewLineHolder(this.b);
+        }
+        return (LiveTabConcernItemViewLineHolder) invokeL.objValue;
+    }
+
+    public void x(c96 c96Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, c96Var) == null) {
+            this.c = c96Var;
+            x86 x86Var = this.b;
+            if (x86Var != null) {
+                x86Var.r(c96Var);
             }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
+    @Override // com.baidu.tieba.bi
     /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, m86 m86Var, AlaSubListLiveDoubleViewHolder alaSubListLiveDoubleViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, h86 h86Var, LiveTabConcernItemViewLineHolder liveTabConcernItemViewLineHolder) {
         InterceptResult invokeCommon;
+        x86 x86Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, m86Var, alaSubListLiveDoubleViewHolder})) == null) {
-            s(m86Var);
-            alaSubListLiveDoubleViewHolder.a.j(m86Var);
-            alaSubListLiveDoubleViewHolder.a.t(this.b);
-            return alaSubListLiveDoubleViewHolder.getView();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, h86Var, liveTabConcernItemViewLineHolder})) == null) {
+            if (liveTabConcernItemViewLineHolder != null && (x86Var = liveTabConcernItemViewLineHolder.a) != null) {
+                x86Var.k(h86Var);
+                return liveTabConcernItemViewLineHolder.getView();
+            }
+            return null;
         }
         return (View) invokeCommon.objValue;
     }

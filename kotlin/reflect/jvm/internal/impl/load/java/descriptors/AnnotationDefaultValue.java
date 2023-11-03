@@ -1,7 +1,7 @@
 package kotlin.reflect.jvm.internal.impl.load.java.descriptors;
 
 import kotlin.jvm.internal.DefaultConstructorMarker;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class AnnotationDefaultValue {
     public AnnotationDefaultValue() {
     }

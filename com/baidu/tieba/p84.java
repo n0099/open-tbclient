@@ -1,28 +1,33 @@
 package com.baidu.tieba;
 
+import android.webkit.JavascriptInterface;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.swan.games.view.button.userinfo.UserInfoButton;
+import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class p84 extends m84 {
+public class p84 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public n84 a;
 
     /* loaded from: classes7.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ p84 a;
+        public final /* synthetic */ SwanAppActivity a;
 
-        public a(p84 p84Var) {
+        public a(p84 p84Var, SwanAppActivity swanAppActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {p84Var};
+                Object[] objArr = {p84Var, swanAppActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -32,51 +37,94 @@ public class p84 extends m84 {
                     return;
                 }
             }
-            this.a = p84Var;
+            this.a = swanAppActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || j84.b() == null) {
-                return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                oj3.a(this.a);
             }
-            this.a.a = new UserInfoButton(j84.b(), this.a);
-            this.a.a.setType(this.a.type);
-            this.a.a.setButtonText(this.a.text);
-            this.a.a.setImageUrl(this.a.image);
-            this.a.a.setApiButtonStyle(this.a.style);
-            this.a.x();
-            this.a.I();
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p84(JsObject jsObject, zc2 zc2Var) {
-        super(jsObject, zc2Var);
+    public p84(JsObject jsObject) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jsObject, zc2Var};
+            Object[] objArr = {jsObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((JsObject) objArr2[0], (zc2) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        jj3.e0(new a(this));
+        this.a = n84.d(oy1.G(jsObject));
+        m84.a().f(this);
     }
 
-    public final void I() {
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x0053, code lost:
+        if (r1.equals("checkForUpdate") != false) goto L16;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void a(o84 o84Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !m64.d()) {
-            j64.l("Button shows early.");
+        if ((interceptable == null || interceptable.invokeL(1048576, this, o84Var) == null) && this.a != null && JSEvent.isValid(o84Var)) {
+            char c = 0;
+            g32.i("UpdateManagerApi", String.format("dispatchEvent : eventType = %s; hasUpdate = %s", o84Var.type, Boolean.valueOf(o84Var.hasUpdate)));
+            String str = o84Var.type;
+            int hashCode = str.hashCode();
+            if (hashCode != -1330233754) {
+                if (hashCode != -1317168438) {
+                    if (hashCode == -585906598 && str.equals("updateReady")) {
+                        c = 1;
+                    }
+                    c = 65535;
+                }
+            } else {
+                if (str.equals("updateFailed")) {
+                    c = 2;
+                }
+                c = 65535;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c == 2) {
+                        this.a.b();
+                        return;
+                    }
+                    return;
+                }
+                this.a.c();
+                return;
+            }
+            this.a.a(o84Var);
         }
+    }
+
+    @JavascriptInterface
+    public boolean applyUpdate() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            SwanAppActivity activity = tr2.V().getActivity();
+            if (activity == null) {
+                g32.c("UpdateManagerApi", "applyUpdate activity is null");
+                return false;
+            } else if (activity.isDestroyed() || activity.getIntent() == null) {
+                return false;
+            } else {
+                ak3.e0(new a(this, activity));
+                return true;
+            }
+        }
+        return invokeV.booleanValue;
     }
 }

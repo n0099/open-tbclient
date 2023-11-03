@@ -1,49 +1,57 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Comparator;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.tbadk.coreExtra.data.TbMultiMediaData;
+import com.baidu.tbadk.data.QmFilterItem;
+import com.baidu.tieba.core.edit.TbMediaTrackConfig;
 /* loaded from: classes6.dex */
-public final class iq6 implements Comparator<i0> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface iq6 {
 
-    public iq6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a();
+
+        void b();
+
+        void c();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.Comparator
-    /* renamed from: a */
-    public int compare(i0 entity1, i0 entity2) {
-        InterceptResult invokeLL;
-        zp6 a;
-        lq6 b;
-        zp6 a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, entity1, entity2)) == null) {
-            Intrinsics.checkNotNullParameter(entity1, "entity1");
-            Intrinsics.checkNotNullParameter(entity2, "entity2");
-            lq6 b2 = jr6.b(entity2);
-            if (b2 == null || (a = b2.a()) == null || (b = jr6.b(entity1)) == null || (a2 = b.a()) == null) {
-                return 0;
-            }
-            return a2.compareTo(a);
-        }
-        return invokeLL.intValue;
-    }
+    boolean a(QmFilterItem qmFilterItem);
+
+    void b(a aVar);
+
+    void c(TbMultiMediaData tbMultiMediaData);
+
+    long d();
+
+    void e();
+
+    void f(int i, int i2);
+
+    void g(float f);
+
+    long getCurrentPlayTime();
+
+    long getFrom();
+
+    TbMediaTrackConfig getMediaTrackConfig();
+
+    float getRatio();
+
+    void h();
+
+    boolean i();
+
+    boolean isPlaying();
+
+    void j(boolean z);
+
+    void onDestroy();
+
+    void onPause();
+
+    void onResume();
+
+    void pause();
+
+    void start();
 }

@@ -1,181 +1,203 @@
 package com.baidu.tieba;
 
+import android.util.Log;
+import androidx.annotation.NonNull;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.pms.PMSDownloadType;
-import com.baidu.swan.apps.core.pms.PkgDownloadError;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes5.dex */
-public class e92 extends p82 {
+public abstract class e92 extends k92 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
-    public b D;
+    public final AtomicInteger c;
+    public oj4 d;
+    public zh3 e;
+    public final xd4<hf4> f;
+
+    public abstract void Q(@NonNull zh3 zh3Var);
+
+    public abstract void R();
 
     /* loaded from: classes5.dex */
-    public interface b {
-        void a();
-
-        void b(ih3 ih3Var);
-
-        void onSuccess();
-    }
-
-    @Override // com.baidu.tieba.t82
-    public int K() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.p82
-    public PMSDownloadType k0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return null;
-        }
-        return (PMSDownloadType) invokeV.objValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public class a extends l92<e92> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ ih3 b;
-        public final /* synthetic */ e92 c;
+        public final /* synthetic */ e92 b;
 
-        public a(e92 e92Var, int i, ih3 ih3Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(e92 e92Var, e92 e92Var2) {
+            super(e92Var2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {e92Var, Integer.valueOf(i), ih3Var};
+                Object[] objArr = {e92Var, e92Var2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((k92) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.c = e92Var;
-            this.a = i;
-            this.b = ih3Var;
+            this.b = e92Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.l92
+        public void u(hf4 hf4Var, zh3 zh3Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c.D != null) {
-                int i = this.a;
-                if (i != -1) {
-                    if (i != 0) {
-                        if (i == 1) {
-                            this.c.D.onSuccess();
-                            return;
-                        }
-                        return;
-                    }
-                    this.c.D.a();
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hf4Var, zh3Var) == null) {
+                g32.k("SwanAppDependentPkgDownloadCallback", "onDownloadOrUnzipFail:" + hf4Var + StringUtil.ARRAY_ELEMENT_SEPARATOR + zh3Var);
+                if (this.b.e != null) {
                     return;
                 }
-                this.c.D.b(this.b);
+                this.b.e = zh3Var;
+            }
+        }
+
+        @Override // com.baidu.tieba.l92
+        public void r(@NonNull hf4 hf4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, hf4Var) == null) {
+                if (e92.g) {
+                    Log.v("SwanAppDependentPkgDownloadCallback", "onDownloadAndUnzipSuccess:" + hf4Var);
+                }
+                this.b.c.incrementAndGet();
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e92(String str, b bVar) {
-        super(str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, bVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947689099, "Lcom/baidu/tieba/e92;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947689099, "Lcom/baidu/tieba/e92;");
                 return;
             }
         }
-        this.D = bVar;
+        g = rm1.a;
     }
 
-    @Override // com.baidu.tieba.p82, com.baidu.tieba.kd4
-    public void C(je4 je4Var) {
+    public e92() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, je4Var) == null) {
-            super.C(je4Var);
-            ih3 ih3Var = new ih3();
-            ih3Var.k(10L);
-            ih3Var.c(je4Var);
-            J0(-1, ih3Var);
-        }
-    }
-
-    public final void I0(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            J0(i, null);
-        }
-    }
-
-    @Override // com.baidu.tieba.p82
-    public void w0(Throwable th) {
-        ih3 ih3Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, th) == null) {
-            if (th instanceof PkgDownloadError) {
-                ih3Var = ((PkgDownloadError) th).getErrCode();
-            } else {
-                ih3Var = new ih3();
-                ih3Var.k(10L);
-                ih3Var.i(0L);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            J0(-1, ih3Var);
         }
+        this.c = new AtomicInteger(0);
+        this.f = new a(this, this);
     }
 
-    @Override // com.baidu.tieba.kd4
+    @Override // com.baidu.tieba.be4
     public void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.F();
-            I0(0);
+            g32.k("SwanAppDependentPkgDownloadCallback", "onNoPackage");
+            zh3 zh3Var = new zh3();
+            zh3Var.k(17L);
+            zh3Var.i(2901L);
+            zh3Var.d("Server无包");
+            Q(zh3Var);
         }
     }
 
-    @Override // com.baidu.tieba.p82
-    public void v0() {
+    @Override // com.baidu.tieba.be4
+    public xd4<hf4> q() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            super.v0();
-            ih3 F0 = F0();
-            if (F0 == null) {
-                I0(1);
-                A0("page_route_download", "0");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.f;
+        }
+        return (xd4) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.be4
+    public void C(af4 af4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, af4Var) == null) {
+            super.C(af4Var);
+            g32.k("SwanAppDependentPkgDownloadCallback", "onFetchError: " + af4Var.toString());
+            zh3 zh3Var = new zh3();
+            zh3Var.k(17L);
+            zh3Var.c(af4Var);
+            Q(zh3Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.be4
+    public void G(oj4 oj4Var) {
+        int n;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, oj4Var) == null) {
+            super.G(oj4Var);
+            this.d = oj4Var;
+            if (g) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("mStartDownload=");
+                if (oj4Var == null) {
+                    n = 0;
+                } else {
+                    n = oj4Var.n();
+                }
+                sb.append(n);
+                Log.e("SwanAppDependentPkgDownloadCallback", sb.toString());
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.be4, com.baidu.tieba.yd4
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.b();
+            g32.k("SwanAppDependentPkgDownloadCallback", "onTotalPkgDownloadFinish");
+            oj4 oj4Var = this.d;
+            if (oj4Var == null) {
+                zh3 zh3Var = new zh3();
+                zh3Var.k(17L);
+                zh3Var.i(2900L);
+                zh3Var.d("unknown error.");
+                Q(zh3Var);
                 return;
             }
-            J0(-1, F0);
-        }
-    }
-
-    public final void J0(int i, ih3 ih3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, ih3Var) == null) {
-            jj3.a0(new a(this, i, ih3Var));
+            int n = oj4Var.n() - this.c.get();
+            if (n == 0) {
+                R();
+                return;
+            }
+            if (this.e == null) {
+                zh3 zh3Var2 = new zh3();
+                zh3Var2.k(17L);
+                zh3Var2.i(2900L);
+                zh3Var2.d("unknown error.");
+                this.e = zh3Var2;
+            }
+            zh3 zh3Var3 = this.e;
+            zh3Var3.f("failCount:" + n);
+            Q(this.e);
         }
     }
 }

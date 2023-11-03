@@ -1,243 +1,289 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Base64InputStream;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.akb;
-import com.baidu.tieba.ckb;
-import com.baidu.tieba.yjb;
+import com.baidu.searchbox.logsystem.basic.upload.BaseContentUploader;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdLoader;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ckb {
+public abstract class ckb implements wkb {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public jjb a;
-    public final yjb b;
-    public final HashMap<String, akb> c;
+    public jlb a;
+    public String b;
 
-    /* loaded from: classes5.dex */
-    public interface c {
-        void a(Set<Ssp> set, Set<Ssp> set2);
-    }
+    public abstract glb j(String str, InputStream inputStream, Map<String, String> map) throws IOException;
 
-    /* loaded from: classes5.dex */
-    public interface d<E> {
-        void a(E e);
+    public abstract glb k(String str, byte[] bArr, Map<String, String> map) throws IOException;
 
-        void b(E e);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947679055, "Lcom/baidu/tieba/ckb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947679055, "Lcom/baidu/tieba/ckb;");
+                return;
+            }
+        }
+        c = dlb.m();
     }
 
     public ckb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = new yjb();
-        this.c = new HashMap<>();
+        this.a = new jlb();
+        this.b = "";
     }
 
-    public synchronized void a(jjb jjbVar) {
+    public final HashMap<String, String> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jjbVar) == null) {
-            synchronized (this) {
-                HashSet hashSet = new HashSet();
-                jjb jjbVar2 = this.a;
-                if (jjbVar2 != null) {
-                    for (wjb wjbVar : jjbVar2.b) {
-                        hashSet.add(wjbVar.a);
-                    }
-                    for (ujb ujbVar : this.a.c) {
-                        hashSet.add(ujbVar.a);
-                    }
-                }
-                jjb jjbVar3 = this.a;
-                Set<ujb> set = null;
-                b(jjbVar3 == null ? null : jjbVar3.b, jjbVar.b, new a(this, hashSet));
-                jjb jjbVar4 = this.a;
-                if (jjbVar4 != null) {
-                    set = jjbVar4.c;
-                }
-                b(set, jjbVar.c, new b(this, hashSet));
-                if (!hashSet.isEmpty()) {
-                    Iterator it = hashSet.iterator();
-                    while (it.hasNext()) {
-                        String str = (String) it.next();
-                        LogPrinter.d("reduce sid(%s).", str);
-                        this.c.remove(str);
-                    }
-                }
-                this.a = jjbVar;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            HashMap<String, String> hashMap = new HashMap<>(2);
+            hashMap.put("Content-type", "application/x-www-form-urlencoded");
+            hashMap.put(BaseContentUploader.NB, "1");
+            return hashMap;
         }
+        return (HashMap) invokeV.objValue;
     }
 
-    public final <E> void b(Set<E> set, Set<E> set2, d<E> dVar) {
+    @Override // com.baidu.tieba.wkb
+    public boolean a(JSONObject jSONObject, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, set, set2, dVar) == null) {
-            for (E e : set2) {
-                if (set == null || !set.contains(e)) {
-                    dVar.b(e);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{jSONObject, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            return i(this.b, jSONObject, z, z2);
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.wkb
+    public boolean b(File file, long j, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{file, Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            return h(this.b, file, j, z, z2);
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public final String d(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            if (TextUtils.isEmpty(this.b)) {
+                this.b = dlb.k(z);
+            }
+            return this.b;
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public final String e(String str, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        String c2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            boolean isUBCDebug = this.a.isUBCDebug();
+            if (TextUtils.isEmpty(str)) {
+                str = d(isUBCDebug);
+            }
+            if (z2) {
+                c2 = dlb.h(str);
+            } else {
+                c2 = dlb.c(str);
+            }
+            if (isUBCDebug && !TextUtils.isEmpty(c2)) {
+                c2 = jmb.a(c2, "debug", "1");
+            }
+            if (z) {
+                c2 = jmb.a(c2, "reallog", "1");
+            }
+            if (ikb.o().E()) {
+                return jmb.a(c2, "beta", "1");
+            }
+            return c2;
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public final boolean f(glb glbVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, glbVar)) == null) {
+            if (glbVar == null) {
+                return false;
+            }
+            if (!glbVar.e()) {
+                if (c) {
+                    Log.d("UploadManager", "postByteRequest, fail: " + glbVar.d());
                 } else {
-                    dVar.a(e);
+                    flb.a().i(glbVar.d(), null);
                 }
+                if (ikb.o().M()) {
+                    g(glbVar.c());
+                }
+                glbVar.a();
+                return false;
+            }
+            try {
+                int i = new JSONObject(glbVar.b()).getInt("error");
+                if (i != 0) {
+                    if (c) {
+                        Log.d("UploadManager", "server error");
+                    }
+                    if (!c) {
+                        flb.a().k(i);
+                    }
+                }
+            } catch (Exception e) {
+                if (c) {
+                    Log.d("UploadManager", "body tostring fail:" + e.getMessage());
+                } else {
+                    flb.a().j(Log.getStackTraceString(e));
+                }
+            }
+            glbVar.a();
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:20:0x002a  */
+    /* JADX WARN: Removed duplicated region for block: B:25:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void g(int i) {
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            boolean z = true;
+            if (i != 403 && i != 408 && i != 499) {
+                if (i >= 500 && i < 600) {
+                    j = 300000;
+                } else {
+                    z = false;
+                    if (!z) {
+                        ikb.o().Z(currentTimeMillis);
+                        return;
+                    }
+                    return;
+                }
+            } else {
+                j = 60000;
+            }
+            currentTimeMillis += j;
+            if (!z) {
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class a implements d<wjb> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Set a;
-        public final /* synthetic */ ckb b;
-
-        public a(ckb ckbVar, Set set) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ckbVar, set};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public final boolean h(String str, File file, long j, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        InputStream inputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, file, Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (file == null || !file.exists()) {
+                return false;
             }
-            this.b = ckbVar;
-            this.a = set;
-        }
-
-        public static /* synthetic */ FunAdLoader a(wjb wjbVar, upb upbVar) {
-            return new qpb(wjbVar, upbVar);
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        @Override // com.baidu.tieba.ckb.d
-        public void a(wjb wjbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, wjbVar) == null) {
-                wjb wjbVar2 = wjbVar;
-                LogPrinter.v("SlotId:%s is totally same with oldOne", wjbVar2.a);
-                this.a.remove(wjbVar2.a);
+            String e = e(str, z, z2);
+            HashMap<String, String> c2 = c();
+            if (klb.m().p() && j > 0) {
+                c2.put("Content-Length", String.valueOf(j));
             }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ckb.d
-        /* renamed from: c */
-        public void b(final wjb wjbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wjbVar) == null) {
-                LogPrinter.v("Update SlotId:%s", wjbVar.a);
-                HashMap<String, akb> hashMap = this.b.c;
-                String str = wjbVar.a;
-                hashMap.put(str, new akb(str, new akb.a() { // from class: com.baidu.tieba.bjb
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // com.baidu.tieba.akb.a
-                    public final FunAdLoader a(upb upbVar) {
-                        InterceptResult invokeL;
-                        Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, upbVar)) == null) ? ckb.a.a(wjb.this, upbVar) : (FunAdLoader) invokeL.objValue;
+            InputStream inputStream2 = null;
+            try {
+                inputStream = new BufferedInputStream(new Base64InputStream(new FileInputStream(file), 2));
+                try {
+                    try {
+                        boolean f = f(j(e, inputStream, c2));
+                        emb.b(inputStream);
+                        return f;
+                    } catch (Exception e2) {
+                        e = e2;
+                        if (c) {
+                            Log.d("UploadManager", "postByteRequest, Exception: ", e);
+                        } else {
+                            flb.a().i(null, Log.getStackTraceString(e));
+                        }
+                        emb.b(inputStream);
+                        return false;
                     }
-                }));
-                yjb yjbVar = this.b.b;
-                synchronized (yjbVar.a) {
-                    yjbVar.a(wjbVar.a).add(new yjb.a(wjbVar));
+                } catch (Throwable th) {
+                    th = th;
+                    inputStream2 = inputStream;
+                    emb.b(inputStream2);
+                    throw th;
                 }
-                this.a.remove(wjbVar.a);
+            } catch (Exception e3) {
+                e = e3;
+                inputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
             }
+        } else {
+            return invokeCommon.booleanValue;
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements d<ujb> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Set a;
-        public final /* synthetic */ ckb b;
-
-        public b(ckb ckbVar, Set set) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ckbVar, set};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public boolean i(String str, JSONObject jSONObject, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        byte[] a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, jSONObject, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (jSONObject != null && (a = gmb.a(jSONObject.toString().getBytes())) != null && a.length >= 2) {
+                a[0] = 117;
+                a[1] = 123;
+                String e = e(str, z, z2);
+                HashMap<String, String> c2 = c();
+                if (klb.m().p()) {
+                    c2.put("Content-Length", String.valueOf(a.length));
                 }
-            }
-            this.b = ckbVar;
-            this.a = set;
-        }
-
-        public static /* synthetic */ FunAdLoader a(ujb ujbVar, upb upbVar) {
-            return new com.fun.t(ujbVar, upbVar);
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        @Override // com.baidu.tieba.ckb.d
-        public void a(ujb ujbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, ujbVar) == null) {
-                ujb ujbVar2 = ujbVar;
-                LogPrinter.v("SerialSlotId:%s is totally same with oldOne", ujbVar2.a);
-                this.a.remove(ujbVar2.a);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ckb.d
-        /* renamed from: c */
-        public void b(final ujb ujbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ujbVar) == null) {
-                LogPrinter.v("Update SerialSlotId:%s", ujbVar.a);
-                HashMap<String, akb> hashMap = this.b.c;
-                String str = ujbVar.a;
-                hashMap.put(str, new akb(str, new akb.a() { // from class: com.baidu.tieba.zib
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // com.baidu.tieba.akb.a
-                    public final FunAdLoader a(upb upbVar) {
-                        InterceptResult invokeL;
-                        Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, upbVar)) == null) ? ckb.b.a(ujb.this, upbVar) : (FunAdLoader) invokeL.objValue;
+                try {
+                    return f(k(e, a, c2));
+                } catch (IOException e2) {
+                    if (c) {
+                        Log.d("UploadManager", "postByteRequest, Exception: ", e2);
+                    } else {
+                        flb.a().i(null, Log.getStackTraceString(e2));
                     }
-                }));
-                yjb yjbVar = this.b.b;
-                synchronized (yjbVar.a) {
-                    yjbVar.a(ujbVar.a).add(new yjb.b(ujbVar));
                 }
-                this.a.remove(ujbVar.a);
             }
+            return false;
         }
+        return invokeCommon.booleanValue;
     }
 }

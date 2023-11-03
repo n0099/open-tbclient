@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tieba.w16;
+import com.baidu.tieba.q36;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ import tbclient.GetAddressList.GetAddressListResIdl;
 public class ResponseGetAddressListMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public w16 mAddressListData;
+    public q36 mAddressListData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseGetAddressListMessage() {
@@ -38,13 +38,13 @@ public class ResponseGetAddressListMessage extends SocketResponsedMessage {
         }
     }
 
-    public w16 getAddressListData() {
+    public q36 getAddressListData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mAddressListData;
         }
-        return (w16) invokeV.objValue;
+        return (q36) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -56,9 +56,9 @@ public class ResponseGetAddressListMessage extends SocketResponsedMessage {
             GetAddressListResIdl getAddressListResIdl = (GetAddressListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetAddressListResIdl.class);
             if (getAddressListResIdl != null) {
                 if (getAddressListResIdl.data != null) {
-                    w16 w16Var = new w16();
-                    this.mAddressListData = w16Var;
-                    if (w16Var.c(getAddressListResIdl.data)) {
+                    q36 q36Var = new q36();
+                    this.mAddressListData = q36Var;
+                    if (q36Var.c(getAddressListResIdl.data)) {
                         SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
                         sharedPrefHelper.putBoolean("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true);
                     }

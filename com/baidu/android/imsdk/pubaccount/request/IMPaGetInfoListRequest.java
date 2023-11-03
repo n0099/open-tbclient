@@ -178,7 +178,7 @@ public class IMPaGetInfoListRequest extends PaBaseHttpRequest {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:41:0x021b  */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x021c  */
     /* JADX WARN: Removed duplicated region for block: B:56:? A[RETURN, SYNTHETIC] */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     /*

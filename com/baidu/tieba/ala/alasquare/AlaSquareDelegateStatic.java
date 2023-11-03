@@ -39,7 +39,7 @@ import com.baidu.tieba.ala.alasquare.special_forum.message.AlaSpecialConcernResp
 import com.baidu.tieba.ala.alasquare.special_forum.message.AlaSpecialRecommendResponse;
 import com.baidu.tieba.ala.alasquare.subtablist.message.AlaNewSquareSubListResponseMessage;
 import com.baidu.tieba.ala.alasquare.subtablist.mvc.AlaNewSquareSubListActivity;
-import com.baidu.tieba.uc7;
+import com.baidu.tieba.lp7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -248,12 +248,12 @@ public class AlaSquareDelegateStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            uc7 uc7Var;
+            lp7 lp7Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof uc7) && (uc7Var = (uc7) customResponsedMessage.getData()) != null && !ListUtils.isEmpty(uc7Var.e())) {
-                for (FrsTabInfo frsTabInfo : uc7Var.e()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof lp7) && (lp7Var = (lp7) customResponsedMessage.getData()) != null && !ListUtils.isEmpty(lp7Var.e())) {
+                for (FrsTabInfo frsTabInfo : lp7Var.e()) {
                     if (frsTabInfo.tab_id.intValue() == 1120) {
-                        AlaSquareDelegateStatic.b(uc7Var);
+                        AlaSquareDelegateStatic.b(lp7Var);
                     }
                 }
             }
@@ -264,7 +264,7 @@ public class AlaSquareDelegateStatic {
     public class f extends FragmentDelegate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uc7 a;
+        public final /* synthetic */ lp7 a;
 
         @Override // com.baidu.tbadk.mainTab.FragmentDelegate
         public TbFragmentTabIndicator getTabIndicator(Context context) {
@@ -286,12 +286,12 @@ public class AlaSquareDelegateStatic {
             return invokeV.booleanValue;
         }
 
-        public f(uc7 uc7Var) {
+        public f(lp7 lp7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {uc7Var};
+                Object[] objArr = {lp7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -301,7 +301,7 @@ public class AlaSquareDelegateStatic {
                     return;
                 }
             }
-            this.a = uc7Var;
+            this.a = lp7Var;
         }
 
         @Override // com.baidu.tbadk.mainTab.FragmentDelegate
@@ -309,10 +309,10 @@ public class AlaSquareDelegateStatic {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                LiveTabYYSubFragment t2 = LiveTabYYSubFragment.t2(false, 2, 3);
-                t2.e2(this.a.b(), this.a.c());
+                LiveTabYYSubFragment L2 = LiveTabYYSubFragment.L2(false, 2, 3);
+                L2.w2(this.a.b(), this.a.c());
                 FragmentTabStructure fragmentTabStructure = new FragmentTabStructure();
-                fragmentTabStructure.frag = t2;
+                fragmentTabStructure.frag = L2;
                 fragmentTabStructure.type = 1120;
                 fragmentTabStructure.showIconType = FragmentTabStructure.SHOWTEXT;
                 return fragmentTabStructure;
@@ -422,10 +422,10 @@ public class AlaSquareDelegateStatic {
         }
     }
 
-    public static void b(uc7 uc7Var) {
+    public static void b(lp7 lp7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, uc7Var) == null) && uc7Var != null) {
-            uc7Var.a(new f(uc7Var));
+        if ((interceptable == null || interceptable.invokeL(65539, null, lp7Var) == null) && lp7Var != null) {
+            lp7Var.a(new f(lp7Var));
         }
     }
 

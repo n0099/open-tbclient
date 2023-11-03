@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 @RequiresApi(21)
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class MaterialFadeThrough extends MaterialVisibility<FadeThroughProvider> {
     public static final float DEFAULT_START_SCALE = 0.92f;
 

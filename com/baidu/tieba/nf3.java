@@ -1,53 +1,21 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.res.Resources;
-import android.provider.Settings;
-import android.view.Window;
-import android.view.WindowManager;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
+import java.io.File;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class nf3 {
+public final class nf3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final nf3 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-577285328, "Lcom/baidu/tieba/nf3$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-577285328, "Lcom/baidu/tieba/nf3$b;");
-                    return;
-                }
-            }
-            a = new nf3(null);
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -62,105 +30,76 @@ public class nf3 {
                 return;
             }
         }
-        boolean z = am1.a;
+        a = rm1.a;
     }
 
-    public nf3() {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            File c = c();
+            if (c.exists()) {
+                jm4.j(c);
             }
         }
     }
 
-    public static int b() {
+    public static long b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return ue3.a().getLong("aiapps_cur_debug_ver_key", 0L);
+        }
+        return invokeV.longValue;
+    }
+
+    public static File c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            try {
-                Resources system = Resources.getSystem();
-                int identifier = system.getIdentifier("config_screenBrightnessSettingMaximum", "integer", "android");
-                if (identifier != 0) {
-                    return system.getInteger(identifier);
-                }
-                return 255;
-            } catch (Exception unused) {
-                return 255;
-            }
+            return new File(yq2.d().get(0).a, "/aiapps_debug_swan_core/");
         }
-        return invokeV.intValue;
+        return (File) invokeV.objValue;
     }
 
-    public static nf3 c() {
+    public static File d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return b.a;
+            File c = c();
+            if (!c.exists()) {
+                c.mkdirs();
+            }
+            return new File(c, "debugSwanCore.zip");
         }
-        return (nf3) invokeV.objValue;
+        return (File) invokeV.objValue;
     }
 
-    public /* synthetic */ nf3(a aVar) {
-        this();
-    }
-
-    public static float d(Context context) {
-        int i;
-        InterceptResult invokeL;
+    public static boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            File file = new File(c().getPath(), "pkginfo.json");
+            if (!file.exists()) {
+                return false;
+            }
+            JSONObject jSONObject = null;
             try {
-                i = Settings.System.getInt(context.getContentResolver(), "screen_brightness");
-            } catch (Exception e) {
-                e.printStackTrace();
-                i = 0;
-            }
-            return i * (1.0f / b());
-        }
-        return invokeL.floatValue;
-    }
-
-    public float a(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) {
-            if (activity != null) {
-                float f = activity.getWindow().getAttributes().screenBrightness;
-                if (f < 0.0f) {
-                    return d(activity);
+                jSONObject = new JSONObject(jm4.E(file));
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
                 }
-                return f;
             }
-            return -1.0f;
+            if (jSONObject == null) {
+                return false;
+            }
+            String optString = jSONObject.optString(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME);
+            if (!TextUtils.isEmpty(optString)) {
+                ue3.a().putLong("aiapps_cur_debug_ver_key", vj3.b(optString));
+                return true;
+            }
+            return true;
         }
-        return invokeL.floatValue;
-    }
-
-    public void e(Activity activity, float f) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, f) == null) && activity != null) {
-            WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
-            attributes.screenBrightness = f;
-            activity.getWindow().setAttributes(attributes);
-        }
-    }
-
-    public void f(Activity activity, boolean z) {
-        Window window;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, activity, z) != null) || activity == null || (window = activity.getWindow()) == null) {
-            return;
-        }
-        if (z) {
-            window.addFlags(128);
-        } else {
-            window.clearFlags(128);
-        }
+        return invokeV.booleanValue;
     }
 }

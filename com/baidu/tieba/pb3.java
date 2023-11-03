@@ -1,8 +1,21 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.http.request.HttpRequest;
+import com.baidu.swan.apps.setting.oauth.OAuthException;
+import com.baidu.swan.apps.statistic.interfacestability.SwanInterfaceType;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.tieba.pu1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,20 +23,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import org.json.JSONArray;
+import java.lang.ref.WeakReference;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class pb3 {
+public class pb3 extends rb3<d> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
-    public static volatile pb3 f;
+    public static final boolean r;
     public transient /* synthetic */ FieldHolder $fh;
-    public tb3 a;
-    public ub3 b;
-    public b c;
-    public rb3 d;
+    public final Activity m;
+    public pu1.d n;
+    public c o;
+    public Bundle p;
+    public String q;
 
     /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
@@ -32,10 +44,10 @@ public final class pb3 {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements sb3<JSONObject> {
+    public class b extends fb3 implements tm1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public JSONArray b;
+        public final /* synthetic */ pb3 c;
 
         public b(pb3 pb3Var) {
             Interceptable interceptable = $ic;
@@ -49,36 +61,137 @@ public final class pb3 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.c = pb3Var;
         }
 
         public /* synthetic */ b(pb3 pb3Var, a aVar) {
             this(pb3Var);
         }
 
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b = null;
-            }
-        }
-
-        public JSONObject c() {
+        @Override // com.baidu.tieba.fb3
+        public boolean f() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("extra", this.b);
-                } catch (JSONException e) {
-                    if (sb3.a) {
-                        Log.e("SwanStabilityTracer", Log.getStackTraceString(e));
-                    }
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                um1 N = this.c.N().N();
+                boolean e = N.e(this.c.m);
+                if (pb3.r) {
+                    Log.d("LoginRequest", "LoginPreparation isLogin : " + e + " call stack:" + Log.getStackTraceString(new Exception()));
                 }
-                return jSONObject;
+                if (!e) {
+                    zc3.T(this.c.l, "passLogin");
+                    pb3 pb3Var = this.c;
+                    N.f(pb3Var.m, pb3Var.p, this);
+                }
+                return e;
             }
-            return (JSONObject) invokeV.objValue;
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.tm1
+        public void onResult(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                eb3.k("onResult :: " + i, Boolean.FALSE);
+                if (i != -2) {
+                    if (i != 0) {
+                        eb3.k("login error ERR_BY_LOGIN", Boolean.TRUE);
+                        e(new OAuthException(10004));
+                        return;
+                    }
+                    eb3.k("Login Preparation ok, is already login", Boolean.FALSE);
+                    d();
+                    return;
+                }
+                eb3.k("login error ERR_BY_UESR_REFUSE", Boolean.TRUE);
+                e(new OAuthException(10004));
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class c extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public WeakReference<pb3> a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(Looper looper, pb3 pb3Var) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {looper, pb3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new WeakReference<>(pb3Var);
+        }
+
+        public /* synthetic */ c(Looper looper, pb3 pb3Var, a aVar) {
+            this(looper, pb3Var);
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            pb3 pb3Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && (pb3Var = this.a.get()) != null && message.what == 1) {
+                if (pb3.r) {
+                    Log.d("LoginRequest", "handleMessage: timeout");
+                }
+                eb3.k("request timeout", Boolean.TRUE);
+                pb3Var.e(new OAuthException(10002));
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+
+        public d(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str == null ? "" : str;
+        }
+
+        public /* synthetic */ d(String str, a aVar) {
+            this(str);
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return String.format("Result code(%s)", this.a);
+            }
+            return (String) invokeV.objValue;
         }
     }
 
@@ -95,47 +208,46 @@ public final class pb3 {
                 return;
             }
         }
-        e = am1.a;
+        r = rm1.a;
     }
 
-    public static pb3 d() {
+    @Override // com.baidu.tieba.rb3
+    public SwanInterfaceType A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f == null) {
-                synchronized (pb3.class) {
-                    if (f == null) {
-                        f = new pb3();
-                    }
-                }
-            }
-            return f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return SwanInterfaceType.LOGIN;
         }
-        return (pb3) invokeV.objValue;
+        return (SwanInterfaceType) invokeV.objValue;
     }
 
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.c();
-            this.b.b();
-            this.c.b();
-        }
-    }
-
-    public rb3 f() {
+    @NonNull
+    public fb3 R() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new b(this, null);
         }
-        return (rb3) invokeV.objValue;
+        return (fb3) invokeV.objValue;
     }
 
-    public pb3() {
+    @Override // com.baidu.tieba.db3
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            i(R());
+            return super.l();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public pb3(Activity activity, pu1.d dVar, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, dVar, bundle};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -145,100 +257,103 @@ public final class pb3 {
                 return;
             }
         }
-        this.a = new tb3();
-        this.b = new ub3();
-        this.c = new b(this, null);
-        this.d = new rb3();
-    }
-
-    public File b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            jSONArray.put(e());
-            jSONArray.put(g());
-            jSONArray.put(c());
-            return this.d.d(jSONArray);
+        this.m = activity;
+        this.n = dVar;
+        this.o = new c(Looper.getMainLooper(), this, null);
+        if (bundle != null && bundle.containsKey("__plugin__")) {
+            this.q = bundle.getString("__plugin__");
+            bundle.remove("__plugin__");
+            g32.k("LoginRequest", "Info: Remove previous account.");
         }
-        return (File) invokeV.objValue;
+        this.p = bundle;
     }
 
-    public JSONObject c() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.db3
+    /* renamed from: S */
+    public d n(JSONObject jSONObject) throws JSONException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONObject c = this.c.c();
-            if (e) {
-                Log.d("SwanStabilityTracer", "extraTraces: " + c);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
+            JSONObject c2 = eb3.c(jSONObject);
+            int optInt = c2.optInt("errno", 10001);
+            if (optInt != 0) {
+                if (11001 == optInt) {
+                    eb3.m(c2);
+                    eb3.t("LoginRequest", c2.toString());
+                }
+                if (r) {
+                    throw new OAuthException(c2.optString("errmsg"), optInt);
+                }
             }
-            return c;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public JSONObject e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            JSONObject d = this.a.d();
-            if (e) {
-                Log.d("SwanStabilityTracer", "LaunchTraces: " + d);
+            JSONObject jSONObject2 = c2.getJSONObject("data");
+            String str = "";
+            if (jSONObject2 != null) {
+                str = jSONObject2.optString("code", "");
             }
-            return d;
+            return new d(str, null);
         }
-        return (JSONObject) invokeV.objValue;
+        return (d) invokeL.objValue;
     }
 
-    public JSONObject g() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.db3
+    public void e(@Nullable Exception exc) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            JSONObject c = this.b.c();
-            if (e) {
-                Log.d("SwanStabilityTracer", "WhiteTraces: " + c);
+        if (interceptable == null || interceptable.invokeL(1048579, this, exc) == null) {
+            super.e(exc);
+            if (r) {
+                Log.d("LoginRequest", "finish: remove timeout msg");
             }
-            return c;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.c.b != null && this.c.b.length() != 0) {
-            JSONArray jSONArray = new JSONArray();
-            jSONArray.put(e());
-            jSONArray.put(g());
-            jSONArray.put(c());
-            this.d.d(jSONArray);
+            this.o.removeMessages(1);
         }
     }
 
-    public void h(JSONObject jSONObject) {
+    @Override // com.baidu.tieba.rb3
+    public HttpRequest x(rb3 rb3Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) {
-            this.b.a(jSONObject);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, rb3Var)) == null) {
+            return np2.o().s(this.m, rb3Var.C());
         }
+        return (HttpRequest) invokeL.objValue;
     }
 
-    public void i(String str) {
+    @Override // com.baidu.tieba.db3
+    public boolean k() {
+        InterceptResult invokeV;
+        Object obj;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            j(str, null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                boolean isEmpty = TextUtils.isEmpty(this.q);
+                if (isEmpty) {
+                    obj = N().P();
+                } else {
+                    obj = this.q;
+                }
+                jSONObject.put("ma_id", obj);
+                JSONObject jSONObject2 = new JSONObject();
+                if (isEmpty) {
+                    str = N().P();
+                } else {
+                    str = this.q;
+                }
+                jSONObject2.put(GameGuideConfigInfo.KEY_APP_KEY, str);
+                jSONObject2.put("host_pkgname", AppRuntime.getApplication().getPackageName());
+                jSONObject2.put("host_key_hash", eb3.g());
+                String l = np2.o().l();
+                if (!TextUtils.isEmpty(l)) {
+                    jSONObject2.put("host_api_key", l);
+                }
+                jSONObject.put("open", jSONObject2);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            w("data", jSONObject.toString());
+            return true;
         }
-    }
-
-    public void k(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) {
-            this.a.b(jSONObject);
-        }
-    }
-
-    public void j(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) {
-            this.a.a(str, str2);
-        }
+        return invokeV.booleanValue;
     }
 }

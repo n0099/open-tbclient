@@ -1,28 +1,93 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
-import android.os.Build;
-import androidx.annotation.ColorRes;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Rect;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewParent;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
+import com.baidu.tbadk.core.util.GreyUtil;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.AgreeView;
+import com.baidu.tbadk.switchs.WindowGreySwitch;
+import com.baidu.tieba.pb.ejection.EjectionAnimationView;
+import com.baidu.tieba.view.WaterRippleView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes9.dex */
-public class z45 extends TBSpecificationButtonConfig {
+public class z45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int[] v;
-    public boolean w;
+    public final Context a;
+    public int b;
+    public FrameLayout c;
+    public WaterRippleView d;
+    public EjectionAnimationView e;
+    public AgreeView f;
+    public PopupWindow g;
 
-    public z45() {
+    /* loaded from: classes9.dex */
+    public class a implements ct9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ z45 a;
+
+        @Override // com.baidu.tieba.ct9
+        public /* synthetic */ void onStart() {
+            bt9.a(this);
+        }
+
+        public a(z45 z45Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z45Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z45Var;
+        }
+
+        @Override // com.baidu.tieba.ct9
+        public void onStop() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.e.setVisibility(8);
+                if (this.a.g != null && this.a.g.isShowing()) {
+                    this.a.g.dismiss();
+                }
+                if (this.a.f != null) {
+                    this.a.f.W();
+                }
+            }
+        }
+    }
+
+    public z45(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,83 +97,125 @@ public class z45 extends TBSpecificationButtonConfig {
                 return;
             }
         }
-        this.w = false;
-        this.b = R.color.CAM_X0101;
-        this.d = R.color.CAM_X0302;
+        this.b = 0;
+        this.a = context;
+        e();
+        f();
     }
 
-    @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
-    public Drawable a(float f) {
-        InterceptResult invokeF;
+    public void h(AgreeView agreeView) {
+        WaterRippleView waterRippleView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
-            return t(f);
+        if ((interceptable != null && interceptable.invokeL(1048580, this, agreeView) != null) || agreeView == null || (waterRippleView = this.d) == null) {
+            return;
         }
-        return (Drawable) invokeF.objValue;
-    }
-
-    public void r(@ColorRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.d = i;
-            this.b = R.color.CAM_X0101;
-            this.r = true;
-            TBSpecificationButtonConfig.a aVar = this.u;
-            if (aVar != null) {
-                aVar.c();
-            }
+        ViewParent parent = waterRippleView.getParent();
+        if (parent instanceof ViewGroup) {
+            ((ViewGroup) parent).removeView(this.d);
         }
     }
 
-    public void s(@ColorRes int i) {
+    public void i(boolean z) {
+        PopupWindow popupWindow;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.b = i;
-            this.r = true;
-            TBSpecificationButtonConfig.a aVar = this.u;
-            if (aVar != null) {
-                aVar.c();
-            }
+        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && (popupWindow = this.g) != null) {
+            popupWindow.setClippingEnabled(z);
         }
     }
 
-    public void u(int[] iArr) {
+    public final int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, iArr) == null) {
-            this.v = iArr;
-            this.w = true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return UtilHelper.getImmersiveStickyBarHeight() + UtilHelper.getScreenHeight(this.a);
+        }
+        return invokeV.intValue;
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.e.l();
         }
     }
 
-    public final Drawable t(float f) {
-        InterceptResult invokeF;
-        int i;
-        GradientDrawable gradientDrawable;
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048579, this, f)) == null) {
-            if (!this.r) {
-                this.b = SkinManager.getColor(this.s, (int) R.color.CAM_X0101);
-            }
-            if (this.r) {
-                i = SkinManager.getColor(this.s, this.d);
-            } else {
-                i = this.d;
-            }
-            if (!this.w) {
-                this.v = new int[]{i, i};
-            }
-            if (Build.VERSION.SDK_INT >= 16) {
-                gradientDrawable = new GradientDrawable();
-                gradientDrawable.setOrientation(this.t);
-                gradientDrawable.setColors(this.v);
-            } else {
-                gradientDrawable = new GradientDrawable(this.t, this.v);
-            }
-            gradientDrawable.setGradientType(0);
-            gradientDrawable.setShape(0);
-            gradientDrawable.setCornerRadius(f);
-            return gradientDrawable;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c = new FrameLayout(this.a);
+            this.e = new EjectionAnimationView(this.a);
+            this.c.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
+            this.e.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+            this.e.setEjectionAnimationViewCallback(new a(this));
+            this.c.addView(this.e);
         }
-        return (Drawable) invokeF.objValue;
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            PopupWindow popupWindow = new PopupWindow();
+            this.g = popupWindow;
+            popupWindow.setContentView(this.c);
+            GreyUtil.grey(this.g);
+            this.g.setHeight(d());
+            this.g.setWidth(-1);
+            this.g.setOutsideTouchable(false);
+            this.g.setFocusable(false);
+            this.g.setTouchable(false);
+        }
+    }
+
+    public final void g(View view2, Rect rect) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, view2, rect) == null) && xb.m(this.g, view2, this.b, 0, 0)) {
+            this.e.setAnchorPosition((rect.right + rect.left) / 2, (rect.bottom + rect.top) / 2);
+            this.e.k();
+        }
+    }
+
+    public void j(View view2, List<Bitmap> list, Rect rect) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, view2, list, rect) == null) {
+            this.e.setVisibility(0);
+            this.e.setBitmaps(list);
+            g(view2, rect);
+        }
+    }
+
+    public void k(LinearLayout linearLayout, AgreeView agreeView) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048583, this, linearLayout, agreeView) == null) && linearLayout != null && agreeView != null) {
+            if (agreeView.getWidth() != 0 && agreeView.getHeight() != 0) {
+                this.f = agreeView;
+                WaterRippleView waterRippleView = this.d;
+                if (waterRippleView == null) {
+                    this.d = new WaterRippleView(this.a);
+                } else {
+                    ViewParent parent = waterRippleView.getParent();
+                    if (parent instanceof ViewGroup) {
+                        ((ViewGroup) parent).removeView(this.d);
+                    }
+                }
+                if (WindowGreySwitch.getIsOnNew()) {
+                    x4.b(this.d);
+                }
+                linearLayout.getGlobalVisibleRect(new Rect());
+                Rect rect = new Rect();
+                agreeView.getImgAgree().getGlobalVisibleRect(rect);
+                int centerX = rect.centerX();
+                int centerY = rect.centerY();
+                int dimens = BdUtilHelper.getDimens(this.a, R.dimen.tbds166);
+                int i = centerX - dimens;
+                int i2 = centerY - dimens;
+                int i3 = dimens * 2;
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i3, i3);
+                layoutParams.addRule(13, -1);
+                layoutParams.setMargins(i, i2, 0, 0);
+                this.c.addView(this.d, layoutParams);
+                return;
+            }
+            BdLog.e("AgreeView not measured");
+        }
     }
 }

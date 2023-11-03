@@ -1,16 +1,9 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.os.Build;
-import android.text.TextUtils;
-import android.util.Log;
-import android.util.SparseArray;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
+import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,21 +11,53 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 /* loaded from: classes8.dex */
-public final class t03 {
+public class t03 implements r03 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static volatile t03 d;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<a> a;
-    public Set<String> b;
+    public s03 a;
+    public long b;
+    public long c;
 
     /* loaded from: classes8.dex */
-    public interface a {
-        void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr);
+    public class a implements View.OnLongClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ t03 a;
+
+        public a(t03 t03Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t03Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = t03Var;
+        }
+
+        @Override // android.view.View.OnLongClickListener
+        public boolean onLongClick(View view2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+                if (this.a.j()) {
+                    this.a.k();
+                    return true;
+                }
+                this.a.l();
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
     }
 
     static {
@@ -48,7 +73,7 @@ public final class t03 {
                 return;
             }
         }
-        c = am1.a;
+        d = rm1.a;
     }
 
     public t03() {
@@ -64,159 +89,107 @@ public final class t03 {
                 return;
             }
         }
-        this.a = new SparseArray<>();
-        this.b = new HashSet();
+        if (j()) {
+            this.a = new s03();
+        }
     }
 
-    public static t03 c() {
+    public final boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (d == null) {
-                synchronized (t03.class) {
-                    if (d == null) {
-                        d = new t03();
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (!d) {
+                return false;
             }
-            return d;
+            return AppRuntime.getAppContext().getSharedPreferences("light_info_debug", 0).getBoolean("light_info_switch", false);
         }
-        return (t03) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @NonNull
-    public static int[] b(@NonNull Activity activity, @Nullable String[] strArr) {
-        InterceptResult invokeLL;
-        int i;
+    public final void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, activity, strArr)) == null) {
-            if (strArr != null && strArr.length != 0) {
-                int[] iArr = new int[strArr.length];
-                for (int i2 = 0; i2 < strArr.length; i2++) {
-                    if (km4.a(activity, strArr[i2])) {
-                        i = 0;
-                    } else {
-                        i = -1;
-                    }
-                    iArr[i2] = i;
-                }
-                return iArr;
-            }
-            return new int[0];
-        }
-        return (int[]) invokeLL.objValue;
-    }
-
-    @Nullable
-    public static String d(@NonNull Activity activity, @NonNull String[] strArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, strArr)) == null) {
-            for (String str : strArr) {
-                if (!km4.a(activity, str)) {
-                    if (zi4.g(activity, str)) {
-                        return str;
-                    }
-                    if (!e(str)) {
-                        return str;
-                    }
-                }
-            }
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            xd3 a2 = de3.a();
-            return a2.getBoolean("first#" + str, false);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
-            xd3 a2 = de3.a();
-            a2.putBoolean("first#" + str, true);
-        }
-    }
-
-    public final boolean a(String[] strArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-            if (strArr == null || strArr.length <= 0) {
-                return true;
-            }
-            for (String str : strArr) {
-                if (!TextUtils.isEmpty(str) && this.b.contains(str)) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void f(Activity activity, int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, i, strArr, iArr) == null) {
-            boolean z = !a(strArr);
-            if (Build.VERSION.SDK_INT >= 23) {
-                i(activity, strArr, iArr);
-            }
-            a aVar = this.a.get(i);
-            if (aVar != null) {
-                this.a.remove(i);
-                if ((aVar instanceof o03) && z) {
-                    aVar = ((o03) aVar).s();
-                }
-                aVar.onRequestPermissionsResult(i, strArr, iArr);
-            }
-            if (c) {
-                Log.d("SwanAppPermission", "onRequestPermissionsResult requestCode: " + i + " permissions: " + Arrays.toString(strArr));
-                StringBuilder sb = new StringBuilder();
-                sb.append("onRequestPermissionsResult grantResults: ");
-                sb.append(Arrays.toString(iArr));
-                Log.d("SwanAppPermission", sb.toString());
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            AppRuntime.getAppContext().getSharedPreferences("light_info_debug", 0).edit().putBoolean("light_info_switch", false).apply();
+            s03 s03Var = this.a;
+            if (s03Var != null) {
+                s03Var.c();
             }
         }
     }
 
-    @TargetApi(23)
-    public void g(Activity activity, int i, @NonNull String[] strArr, a aVar) {
+    @Override // com.baidu.tieba.r03
+    public void a(long j) {
+        s03 s03Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, activity, i, strArr, aVar) == null) && aVar != null && activity != null) {
-            String d2 = d(activity, strArr);
-            if (d2 != null) {
-                this.a.put(i, aVar);
-                activity.requestPermissions(strArr, i);
-                h(d2);
-            } else {
-                aVar.onRequestPermissionsResult(i, strArr, b(activity, strArr));
-            }
-            if (c) {
-                Log.d("SwanAppPermission", "requestPermissions activity: " + activity + " requestCode: " + i + " permissions: " + Arrays.toString(strArr));
-            }
+        if ((interceptable == null || interceptable.invokeJ(1048576, this, j) == null) && j() && (s03Var = this.a) != null) {
+            s03Var.f(j - this.b);
         }
     }
 
-    @RequiresApi(api = 23)
-    public final void i(Activity activity, @NonNull String[] strArr, @NonNull int[] iArr) {
-        int length;
+    @Override // com.baidu.tieba.r03
+    public void c(long j) {
+        s03 s03Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048579, this, activity, strArr, iArr) == null) && Build.VERSION.SDK_INT >= 23 && activity != null && (length = strArr.length) == iArr.length && length > 0) {
-            for (int i = 0; i < length; i++) {
-                int i2 = iArr[i];
-                String str = strArr[i];
-                if (!TextUtils.isEmpty(str) && i2 == -1 && !activity.shouldShowRequestPermissionRationale(str)) {
-                    this.b.add(str);
-                }
+        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && j() && (s03Var = this.a) != null) {
+            s03Var.h(j - this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.r03
+    public void d(long j) {
+        s03 s03Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) && j() && (s03Var = this.a) != null) {
+            s03Var.i(j - this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.r03
+    public void e(long j) {
+        s03 s03Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeJ(1048579, this, j) == null) && j() && (s03Var = this.a) != null) {
+            s03Var.g(j - this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.sz2
+    public void end(long j) {
+        s03 s03Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeJ(1048580, this, j) == null) && j() && (s03Var = this.a) != null) {
+            this.c = j;
+            s03Var.l(this.b, j);
+            this.a.a();
+        }
+    }
+
+    @Override // com.baidu.tieba.r03
+    public void f(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && d && view2 != null) {
+            view2.setOnLongClickListener(new a(this));
+        }
+    }
+
+    @Override // com.baidu.tieba.sz2
+    public void start(long j) {
+        s03 s03Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeJ(1048585, this, j) == null) && j() && (s03Var = this.a) != null) {
+            this.b = j;
+            s03Var.e();
+        }
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            AppRuntime.getAppContext().getSharedPreferences("light_info_debug", 0).edit().putBoolean("light_info_switch", true).apply();
+            if (this.a == null) {
+                this.a = new s03();
             }
+            this.a.k();
         }
     }
 }

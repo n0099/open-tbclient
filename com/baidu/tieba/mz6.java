@@ -1,46 +1,81 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.faceshop.EmotionGroupData;
-import com.baidu.tieba.faceshop.MyEmotionGroupData;
-import com.baidu.tieba.sd5;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class mz6 extends sd5 {
+public class mz6 {
     public static /* synthetic */ Interceptable $ic;
-    public static mz6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<vd5> a;
+    public TbPageContext<?> a;
+    public View b;
+    public TextView c;
+    public ImageView d;
+    public boolean e;
 
-    @Override // com.baidu.tieba.sd5
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 4;
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mz6 a;
+
+        public a(mz6 mz6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mz6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = mz6Var;
         }
-        return invokeV.intValue;
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                sw6.b(this.a.a, null);
+                StatisticItem statisticItem = new StatisticItem("c13645");
+                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                int i = 1;
+                statisticItem.param("obj_locate", 1);
+                if (this.a.e) {
+                    i = 5;
+                }
+                statisticItem.param("obj_type", i);
+                statisticItem.param("obj_source", 2);
+                TiebaStatic.log(statisticItem);
+            }
+        }
     }
 
-    @Override // com.baidu.tieba.sd5
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    public mz6() {
+    public mz6(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -50,43 +85,40 @@ public class mz6 extends sd5 {
                 return;
             }
         }
-        this.a = new LinkedList<>();
+        this.a = tbPageContext;
+        View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0870, (ViewGroup) null);
+        this.b = inflate;
+        this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09252f);
+        ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09104f);
+        this.d = imageView;
+        imageView.setOnClickListener(new a(this));
     }
 
-    public static mz6 e() {
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.e = z;
+        }
+    }
+
+    public void c(ty4 ty4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ty4Var) == null) {
+            String title = ty4Var.getTitle();
+            if (!TextUtils.isEmpty(title)) {
+                this.c.setText(title);
+            }
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.d, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+        }
+    }
+
+    public View d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (mz6.class) {
-                    if (b == null) {
-                        b = new mz6();
-                    }
-                }
-            }
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return (mz6) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.sd5
-    public void b(sd5.a aVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && FileHelper.checkSD()) {
-            List<MyEmotionGroupData> h = zy6.c().h(TbadkCoreApplication.getCurrentAccount());
-            this.a.clear();
-            for (MyEmotionGroupData myEmotionGroupData : h) {
-                EmotionGroupData n = hz6.o().n(myEmotionGroupData.getGroupId());
-                if (n != null) {
-                    bz6 bz6Var = new bz6(n);
-                    if (bz6Var.d() != null) {
-                        this.a.add(bz6Var);
-                        if (aVar != null) {
-                            aVar.a(bz6Var);
-                        }
-                    }
-                }
-            }
-        }
+        return (View) invokeV.objValue;
     }
 }

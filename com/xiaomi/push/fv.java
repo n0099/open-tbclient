@@ -81,7 +81,7 @@ public abstract class fv {
 
         public void a(gm gmVar) {
             gi giVar = this.f420a;
-            if (giVar == null || giVar.mo502a(gmVar)) {
+            if (giVar == null || giVar.mo506a(gmVar)) {
                 this.a.a(gmVar);
             }
         }
@@ -93,13 +93,13 @@ public abstract class fv {
             f406a = Boolean.getBoolean("smack.debugEnabled");
         } catch (Exception unused) {
         }
-        gb.m524a();
+        gb.m528a();
     }
 
     public fv(XMPushService xMPushService, fw fwVar) {
         this.f409a = fwVar;
         this.f411a = xMPushService;
-        m509b();
+        m513b();
     }
 
     private String a(int i) {
@@ -107,7 +107,7 @@ public abstract class fv {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private void m503a(int i) {
+    private void m507a(int i) {
         synchronized (this.f414a) {
             if (i == 1) {
                 this.f414a.clear();
@@ -125,37 +125,37 @@ public abstract class fv {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public long m504a() {
+    public long m508a() {
         return this.f419c;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public fw m505a() {
+    public fw m509a() {
         return this.f409a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String mo506a() {
+    public String mo510a() {
         return this.f409a.c();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Map<ga, a> m507a() {
+    public Map<ga, a> m511a() {
         return this.f415a;
     }
 
     public void a(int i, int i2, Exception exc) {
         int i3 = this.c;
         if (i != i3) {
-            com.xiaomi.channel.commonutils.logger.b.m182a(String.format("update the connection status. %1$s -> %2$s : %3$s ", a(i3), a(i), com.xiaomi.push.service.bk.a(i2)));
+            com.xiaomi.channel.commonutils.logger.b.m186a(String.format("update the connection status. %1$s -> %2$s : %3$s ", a(i3), a(i), com.xiaomi.push.service.bk.a(i2)));
         }
         if (bi.b(this.f411a)) {
-            m503a(i);
+            m507a(i);
         }
         if (i == 1) {
             this.f411a.a(10);
             if (this.c != 0) {
-                com.xiaomi.channel.commonutils.logger.b.m182a("try set connected while not connecting.");
+                com.xiaomi.channel.commonutils.logger.b.m186a("try set connected while not connecting.");
             }
             this.c = i;
             for (fy fyVar : this.f413a) {
@@ -163,7 +163,7 @@ public abstract class fv {
             }
         } else if (i == 0) {
             if (this.c != 2) {
-                com.xiaomi.channel.commonutils.logger.b.m182a("try set connecting while not disconnected.");
+                com.xiaomi.channel.commonutils.logger.b.m186a("try set connecting while not disconnected.");
             }
             this.c = i;
             for (fy fyVar2 : this.f413a) {
@@ -205,11 +205,11 @@ public abstract class fv {
 
     public synchronized void a(String str) {
         if (this.c == 0) {
-            com.xiaomi.channel.commonutils.logger.b.m182a("setChallenge hash = " + bn.a(str).substring(0, 8));
+            com.xiaomi.channel.commonutils.logger.b.m186a("setChallenge hash = " + bn.a(str).substring(0, 8));
             this.f412a = str;
             a(1, 0, null);
         } else {
-            com.xiaomi.channel.commonutils.logger.b.m182a("ignore setChallenge because connection was disconnected");
+            com.xiaomi.channel.commonutils.logger.b.m186a("ignore setChallenge because connection was disconnected");
         }
     }
 
@@ -218,7 +218,7 @@ public abstract class fv {
     public abstract void a(fk[] fkVarArr);
 
     /* renamed from: a */
-    public boolean mo498a() {
+    public boolean mo502a() {
         return false;
     }
 
@@ -231,14 +231,14 @@ public abstract class fv {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public String m508b() {
+    public String m512b() {
         return this.f409a.b();
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m509b() {
+    public void m513b() {
         String str;
-        if (this.f409a.m513a() && this.f410a == null) {
+        if (this.f409a.m517a() && this.f410a == null) {
             Class<?> cls = null;
             try {
                 str = System.getProperty("smack.debuggerClass");
@@ -282,7 +282,7 @@ public abstract class fv {
     public abstract void b(boolean z);
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m510b() {
+    public boolean m514b() {
         return this.c == 0;
     }
 
@@ -291,7 +291,7 @@ public abstract class fv {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public boolean m511c() {
+    public boolean m515c() {
         return this.c == 1;
     }
 

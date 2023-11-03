@@ -30,16 +30,16 @@ public class DrawableUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             if ("blur_bg_white".equals(str)) {
-                return Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08022f);
+                return Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080233);
             }
             if ("rsp_small_red_heart".equals(str)) {
-                return Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080260);
+                return Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080264);
             }
             if ("rsp_big_red_heart".equals(str)) {
-                return Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08025f);
+                return Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080263);
             }
             if ("cpu_drama_video".equals(str)) {
-                return Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080561);
+                return Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08056a);
             }
             return null;
         }

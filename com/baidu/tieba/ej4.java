@@ -1,60 +1,162 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Build;
-import android.os.Bundle;
-import android.util.AttributeSet;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.pms.utils.AbiType;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public abstract class ej4 extends Activity {
+public class ej4 {
     public static /* synthetic */ Interceptable $ic;
+    public static Map<String, ej4> d;
+    public static Map<String, Map<String, ej4>> e;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final String b;
+    public final AbiType c;
 
-    public abstract View g(View view2, String str, Context context, AttributeSet attributeSet);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947736250, "Lcom/baidu/tieba/ej4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947736250, "Lcom/baidu/tieba/ej4;");
+                return;
+            }
+        }
+        d = new HashMap();
+        e = new HashMap();
+    }
 
-    public ej4() {
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public ej4(@NonNull String str, @NonNull AbiType abiType) {
+        String str2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, abiType};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        if (TextUtils.isEmpty(str)) {
+            str2 = "";
+        } else {
+            str2 = str;
+        }
+        this.a = str2;
+        this.c = abiType;
+        this.b = a(str, abiType);
     }
 
-    @Override // android.app.Activity
-    public void onCreate(Bundle bundle) {
+    @Nullable
+    public static synchronized ej4 e(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            if (Build.VERSION.SDK_INT < 11 && getLayoutInflater().getFactory() == null) {
-                getLayoutInflater().setFactory(this);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
+            synchronized (ej4.class) {
+                ej4 ej4Var = null;
+                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                    c(str);
+                    ej4 ej4Var2 = d.get(str2);
+                    if (ej4Var2 != null) {
+                        if (TextUtils.equals(str, ej4Var2.a)) {
+                            ej4Var = ej4Var2;
+                        }
+                    }
+                    return ej4Var;
+                }
+                return null;
             }
-            super.onCreate(bundle);
         }
+        return (ej4) invokeLL.objValue;
     }
 
-    @Override // android.app.Activity, android.view.LayoutInflater.Factory
-    public View onCreateView(String str, Context context, AttributeSet attributeSet) {
-        InterceptResult invokeLLL;
+    public static String a(String str, AbiType abiType) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, context, attributeSet)) == null) {
-            View g = g(null, str, context, attributeSet);
-            if (g == null) {
-                return super.onCreateView(str, context, attributeSet);
-            }
-            return g;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, abiType)) == null) {
+            return "so_" + str + "_" + abiType.id;
         }
-        return (View) invokeLLL.objValue;
+        return (String) invokeLL.objValue;
+    }
+
+    @Nullable
+    public static synchronized ej4 d(String str, AbiType abiType) {
+        InterceptResult invokeLL;
+        ej4 e2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, abiType)) == null) {
+            synchronized (ej4.class) {
+                e2 = e(str, a(str, abiType));
+            }
+            return e2;
+        }
+        return (ej4) invokeLL.objValue;
+    }
+
+    public static synchronized Map<String, ej4> b(@NonNull String str) {
+        InterceptResult invokeL;
+        HashMap hashMap;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            synchronized (ej4.class) {
+                hashMap = new HashMap(c(str));
+            }
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public static synchronized Map<String, ej4> c(@NonNull String str) {
+        InterceptResult invokeL;
+        Map<String, ej4> map;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            synchronized (ej4.class) {
+                map = e.get(str);
+                if (map == null) {
+                    map = new HashMap<>();
+                    if (!TextUtils.isEmpty(str)) {
+                        for (AbiType abiType : AbiType.values()) {
+                            ej4 ej4Var = new ej4(str, abiType);
+                            map.put(ej4Var.b, ej4Var);
+                        }
+                        d.putAll(map);
+                        e.put(str, map);
+                    }
+                }
+            }
+            return map;
+        }
+        return (Map) invokeL.objValue;
     }
 }

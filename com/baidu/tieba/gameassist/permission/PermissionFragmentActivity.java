@@ -15,8 +15,8 @@ import com.baidu.searchbox.yy.gameassist.interfaces.PermissionService;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f21;
-import com.baidu.tieba.tt7;
+import com.baidu.tieba.o68;
+import com.baidu.tieba.w21;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -36,7 +36,7 @@ public class PermissionFragmentActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
         }
     }
 
@@ -169,102 +169,15 @@ public class PermissionFragmentActivity extends BaseFragmentActivity {
     @Override // android.view.Window.Callback
     public void onPointerCaptureChanged(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
             super.onPointerCaptureChanged(z);
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, intent) == null) {
-            super.onActivityResult(i, i2, intent);
-            PermissionService.IGrantCallback iGrantCallback = this.a;
-            if (iGrantCallback == null) {
-                finish();
-            } else if (i == 12016) {
-                if (Build.VERSION.SDK_INT >= 23) {
-                    iGrantCallback.onResult(Settings.canDrawOverlays(this));
-                    finish();
-                }
-                this.a = null;
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            getWindow().getDecorView().setSystemUiVisibility(260);
-            getWindow().setStatusBarColor(0);
-            requestWindowFeature(1);
-            overridePendingTransition(0, 0);
-            super.onCreate(bundle);
-            setSwipeBackEnabled(false);
-            setActivityBgTransparent();
-            setContentView(new View(this));
-            Window window = getWindow();
-            window.setGravity(51);
-            WindowManager.LayoutParams attributes = window.getAttributes();
-            attributes.x = 0;
-            attributes.y = 0;
-            attributes.height = 1;
-            attributes.width = 1;
-            window.setAttributes(attributes);
-            Intent intent = getIntent();
-            String stringExtra = intent.getStringExtra("request");
-            this.c = intent.getStringArrayExtra("permissions");
-            int intExtra = intent.getIntExtra(WebChromeClient.KEY_ARG_CALLBACK, 0);
-            this.a = (PermissionService.IGrantCallback) tt7.a.get(Integer.valueOf(intExtra));
-            tt7.a.remove(Integer.valueOf(intExtra));
-            if (stringExtra != null) {
-                if (stringExtra.equals("requestFloatPermission")) {
-                    q1();
-                } else if (stringExtra.equals("requestPermissions")) {
-                    r1();
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity, androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback
-    public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048580, this, i, strArr, iArr) == null) {
-            super.onRequestPermissionsResult(i, strArr, iArr);
-            if (this.a == null) {
-                return;
-            }
-            if (25040 == i) {
-                if (Build.VERSION.SDK_INT >= 23) {
-                    for (int i2 = 0; i2 < iArr.length; i2++) {
-                        if (iArr[i2] == -1) {
-                            this.a.onResult(false);
-                            this.a = null;
-                            PermissionJudgePolicy permissionJudgePolicy = this.mCurrentPermissionJudgePolicy;
-                            if (permissionJudgePolicy != null) {
-                                this.d = permissionJudgePolicy.checkPermissionForbidden(this, strArr[i2]);
-                            }
-                            if (this.d) {
-                                finish();
-                                return;
-                            }
-                            return;
-                        }
-                    }
-                    this.a.onResult(true);
-                }
-                this.a = null;
-            }
-            finish();
-        }
-    }
-
-    public void q1() {
+    public void n1() {
         PermissionService.IGrantCallback iGrantCallback;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || (iGrantCallback = this.a) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (iGrantCallback = this.a) == null) {
             return;
         }
         if (Build.VERSION.SDK_INT >= 23) {
@@ -297,14 +210,14 @@ public class PermissionFragmentActivity extends BaseFragmentActivity {
         finish();
     }
 
-    public void r1() {
+    public void o1() {
         String[] strArr;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.a != null && this.c != null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a != null && this.c != null) {
             this.b.clear();
             if (Build.VERSION.SDK_INT >= 23) {
                 for (String str : this.c) {
-                    if (f21.a(this, str) != 0) {
+                    if (w21.a(this, str) != 0) {
                         this.b.add(str);
                     }
                 }
@@ -322,6 +235,93 @@ public class PermissionFragmentActivity extends BaseFragmentActivity {
                 this.a.onResult(true);
                 finish();
             }
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onActivityResult(int i, int i2, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
+            PermissionService.IGrantCallback iGrantCallback = this.a;
+            if (iGrantCallback == null) {
+                finish();
+            } else if (i == 12016) {
+                if (Build.VERSION.SDK_INT >= 23) {
+                    iGrantCallback.onResult(Settings.canDrawOverlays(this));
+                    finish();
+                }
+                this.a = null;
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
+            getWindow().getDecorView().setSystemUiVisibility(260);
+            getWindow().setStatusBarColor(0);
+            requestWindowFeature(1);
+            overridePendingTransition(0, 0);
+            super.onCreate(bundle);
+            setSwipeBackEnabled(false);
+            setActivityBgTransparent();
+            setContentView(new View(this));
+            Window window = getWindow();
+            window.setGravity(51);
+            WindowManager.LayoutParams attributes = window.getAttributes();
+            attributes.x = 0;
+            attributes.y = 0;
+            attributes.height = 1;
+            attributes.width = 1;
+            window.setAttributes(attributes);
+            Intent intent = getIntent();
+            String stringExtra = intent.getStringExtra("request");
+            this.c = intent.getStringArrayExtra("permissions");
+            int intExtra = intent.getIntExtra(WebChromeClient.KEY_ARG_CALLBACK, 0);
+            this.a = (PermissionService.IGrantCallback) o68.a.get(Integer.valueOf(intExtra));
+            o68.a.remove(Integer.valueOf(intExtra));
+            if (stringExtra != null) {
+                if (stringExtra.equals("requestFloatPermission")) {
+                    n1();
+                } else if (stringExtra.equals("requestPermissions")) {
+                    o1();
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity, androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback
+    public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048582, this, i, strArr, iArr) == null) {
+            super.onRequestPermissionsResult(i, strArr, iArr);
+            if (this.a == null) {
+                return;
+            }
+            if (25040 == i) {
+                if (Build.VERSION.SDK_INT >= 23) {
+                    for (int i2 = 0; i2 < iArr.length; i2++) {
+                        if (iArr[i2] == -1) {
+                            this.a.onResult(false);
+                            this.a = null;
+                            PermissionJudgePolicy permissionJudgePolicy = this.mCurrentPermissionJudgePolicy;
+                            if (permissionJudgePolicy != null) {
+                                this.d = permissionJudgePolicy.checkPermissionForbidden(this, strArr[i2]);
+                            }
+                            if (this.d) {
+                                finish();
+                                return;
+                            }
+                            return;
+                        }
+                    }
+                    this.a.onResult(true);
+                }
+                this.a = null;
+            }
+            finish();
         }
     }
 }

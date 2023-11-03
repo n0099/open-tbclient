@@ -20,21 +20,21 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
 import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ci;
-import com.baidu.tieba.hf;
-import com.baidu.tieba.i4;
-import com.baidu.tieba.j4;
+import com.baidu.tieba.si;
+import com.baidu.tieba.xf;
+import com.baidu.tieba.y4;
+import com.baidu.tieba.z4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public abstract class BdBaseFragmentActivity<T> extends FragmentActivity implements View.OnClickListener, View.OnLongClickListener, BdPageContextSupport<T>, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, DialogInterface.OnClickListener, j4 {
+public abstract class BdBaseFragmentActivity<T> extends FragmentActivity implements View.OnClickListener, View.OnLongClickListener, BdPageContextSupport<T>, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, DialogInterface.OnClickListener, z4 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PRELOAD_DELAY = 100;
     public transient /* synthetic */ FieldHolder $fh;
-    public i4 iPageLifecycleCallback;
+    public y4 iPageLifecycleCallback;
     public final Handler mHandler;
     public BdUniqueId mId;
     public boolean mIsScroll;
@@ -60,13 +60,13 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         }
     }
 
-    public ci onGetPreLoadListView() {
+    public si onGetPreLoadListView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return null;
         }
-        return (ci) invokeV.objValue;
+        return (si) invokeV.objValue;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -96,10 +96,10 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.j4
-    public void onPreLoad(ci ciVar) {
+    @Override // com.baidu.tieba.z4
+    public void onPreLoad(si siVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, ciVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, siVar) == null) {
         }
     }
 
@@ -180,8 +180,8 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         if ((interceptable != null && interceptable.invokeL(65537, this, view2) != null) || view2 == null) {
             return;
         }
-        if (view2 instanceof hf) {
-            ((hf) view2).refresh();
+        if (view2 instanceof xf) {
+            ((xf) view2).refresh();
         }
         if (view2 instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view2;
@@ -231,7 +231,7 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         return (Resources) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.j4
+    @Override // com.baidu.tieba.z4
     public BdUniqueId getUniqueId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -248,7 +248,7 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         }
     }
 
-    @Override // com.baidu.tieba.j4
+    @Override // com.baidu.tieba.z4
     public boolean isScroll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -282,7 +282,7 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             super.onStop();
-            ci onGetPreLoadListView = onGetPreLoadListView();
+            si onGetPreLoadListView = onGetPreLoadListView();
             if (onGetPreLoadListView != null) {
                 onGetPreLoadListView.cancelRefresh();
             }
@@ -323,7 +323,7 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         MessageManager.getInstance().sendMessage(message);
     }
 
-    @Override // com.baidu.tieba.j4
+    @Override // com.baidu.tieba.z4
     public void setIsScroll(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
@@ -360,9 +360,9 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            i4 i4Var = this.iPageLifecycleCallback;
-            if (i4Var != null) {
-                i4Var.onDestroy();
+            y4 y4Var = this.iPageLifecycleCallback;
+            if (y4Var != null) {
+                y4Var.onDestroy();
             }
             super.onDestroy();
             MessageManager.getInstance().unRegisterListener(this.mId);

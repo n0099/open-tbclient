@@ -1,22 +1,18 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.HandlerThread;
+import cn.com.chinatelecom.gateway.lib.PreCodeListener;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class tk1 extends HandlerThread {
+public abstract class tk1 implements PreCodeListener {
     public static /* synthetic */ Interceptable $ic;
-    public static tk1 a;
-    public static Handler b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final long a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public tk1() {
-        super("SSOHandlerThread", 10);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -24,36 +20,20 @@ public class tk1 extends HandlerThread {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = System.currentTimeMillis();
     }
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && a == null) {
-            tk1 tk1Var = new tk1();
-            a = tk1Var;
-            tk1Var.start();
-            b = new Handler(a.getLooper());
-        }
-    }
-
-    public static Handler b() {
+    public long a() {
         InterceptResult invokeV;
-        Handler handler;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (tk1.class) {
-                a();
-                handler = b;
-            }
-            return handler;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (Handler) invokeV.objValue;
+        return invokeV.longValue;
     }
 }

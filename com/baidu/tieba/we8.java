@@ -1,161 +1,97 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.chatmessage.messages.UnSupportedMsg;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.im.lib.socket.msg.TbActivitySysMsg;
-import com.baidu.tieba.im.lib.socket.msg.TbEffectGuidanceSysMsg;
-import com.baidu.tieba.im.lib.socket.msg.TbEmojiReplySysMsg;
-import com.baidu.tieba.im.lib.socket.msg.TbExcellentSysMsg;
-import com.baidu.tieba.im.lib.socket.msg.TbNoUISysMsg;
-import com.baidu.tieba.im.lib.socket.msg.TbNoticeModifySysMsg;
-import com.baidu.tieba.im.lib.socket.msg.TbRecallSysMsg;
-import com.baidu.tieba.im.lib.socket.msg.TbShareChatRoomSysMsg;
-import com.baidu.tieba.im.lib.socket.msg.TbShareCommonCardSysMsg;
-import com.baidu.tieba.im.lib.socket.msg.TbShareForumSysMsg;
-import com.baidu.tieba.im.lib.socket.msg.TbShareThreadSysMsg;
-import com.baidu.tieba.im.lib.socket.msg.TbSubscribeSysMsg;
-import com.baidu.tieba.im.lib.socket.msg.TbSysMsg;
-import com.baidu.tieba.im.lib.socket.msg.TbTextGenImageUpdateSysMsg;
-import com.baidu.tieba.im.lib.socket.msg.TbTipsSysMsg;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.LongSparseArray;
+import android.util.SparseArray;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-import java.util.Map;
-import kotlin.Triple;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
+import tbclient.Personalized.DataRes;
+import tbclient.Personalized.DislikeReason;
+import tbclient.Personalized.ThreadPersonalized;
 /* loaded from: classes8.dex */
-public final class we8 extends te8<TbSysMsg, UnSupportedMsg> {
+public class we8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948267807, "Lcom/baidu/tieba/we8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static void a(DataRes.Builder builder, List<oi> list) {
+        fm6 fm6Var;
+        ThreadData threadData;
+        ThreadPersonalized threadPersonalized;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, builder, list) == null) && builder != null && list != null) {
+            LongSparseArray longSparseArray = new LongSparseArray();
+            for (ThreadPersonalized threadPersonalized2 : builder.thread_personalized) {
+                if (threadPersonalized2 != null) {
+                    longSparseArray.put(threadPersonalized2.tid.longValue(), threadPersonalized2);
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948267807, "Lcom/baidu/tieba/we8;");
-                return;
-            }
-        }
-        f = new a(null);
-    }
-
-    public /* synthetic */ we8(DefaultConstructorMarker defaultConstructorMarker) {
-        this();
-    }
-
-    /* loaded from: classes8.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            int count = ListUtils.getCount(list);
+            for (int i = 0; i < count; i++) {
+                oi oiVar = (oi) ListUtils.getItem(list, i);
+                if ((oiVar instanceof fm6) && (threadData = (fm6Var = (fm6) oiVar).getThreadData()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(JavaTypesHelper.toLong(threadData.getTid(), 0L))) != null) {
+                    fm6Var.C(threadPersonalized.source);
+                    fm6Var.F(threadPersonalized.weight);
+                    fm6Var.x(threadPersonalized.abtest_tag);
+                    threadData.mRecomAbTag = threadPersonalized.abtest_tag;
+                    threadData.mRecomSource = threadPersonalized.source;
+                    threadData.mRecomWeight = threadPersonalized.weight;
+                    if (threadData.getThreadVideoInfo() != null) {
+                        fm6Var.z(threadData.getThreadVideoInfo().is_vertical);
+                    }
+                    List<DislikeReason> list2 = threadPersonalized.dislike_resource;
+                    if (list2 != null) {
+                        SparseArray<String> sparseArray = new SparseArray<>();
+                        for (DislikeReason dislikeReason : list2) {
+                            int intValue = dislikeReason.dislike_id.intValue();
+                            sparseArray.put(intValue, dislikeReason.dislike_reason + "%" + dislikeReason.extra);
+                        }
+                        fm6Var.feedBackReasonMap = sparseArray;
+                        fm6Var.y(threadPersonalized.extra);
+                    }
                 }
             }
         }
+    }
 
-        public final Triple<Class<TbSysMsg>, Class<UnSupportedMsg>, we8> a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new Triple<>(TbSysMsg.class, UnSupportedMsg.class, new we8(null));
+    public static void b(List<oi> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65537, null, list) != null) || list == null) {
+            return;
+        }
+        int count = ListUtils.getCount(list);
+        int i = 0;
+        while (i < count) {
+            oi oiVar = (oi) ListUtils.getItem(list, i);
+            boolean z = oiVar instanceof um6;
+            if (z) {
+                ((um6) oiVar).j(true);
             }
-            return (Triple) invokeV.objValue;
+            i++;
+            oi oiVar2 = (oi) ListUtils.getItem(list, i);
+            if (z && (oiVar2 instanceof um6)) {
+                um6 um6Var = (um6) oiVar;
+                um6 um6Var2 = (um6) oiVar2;
+                if (um6Var.r()) {
+                    um6Var2.j(false);
+                    if (um6Var2 instanceof df8) {
+                        um6Var.K(false);
+                    }
+                }
+            }
+            if (oiVar instanceof df8) {
+                ((df8) oiVar).K(false);
+            }
         }
     }
 
-    public we8() {
+    public static void c(DataRes.Builder builder, List<oi> list) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeLL(65538, null, builder, list) == null) {
+            b(list);
+            a(builder, list);
         }
-        j(7019, TbEffectGuidanceSysMsg.class);
-        j(7018, TbExcellentSysMsg.class);
-        List<Integer> MSG_TYPE_LIST = TbNoUISysMsg.MSG_TYPE_LIST;
-        Intrinsics.checkNotNullExpressionValue(MSG_TYPE_LIST, "MSG_TYPE_LIST");
-        k(MSG_TYPE_LIST, TbNoUISysMsg.class);
-        j(7001, TbNoticeModifySysMsg.class);
-        List<Integer> MSG_TYPE_LIST2 = TbRecallSysMsg.MSG_TYPE_LIST;
-        Intrinsics.checkNotNullExpressionValue(MSG_TYPE_LIST2, "MSG_TYPE_LIST");
-        k(MSG_TYPE_LIST2, TbRecallSysMsg.class);
-        j(-7015, TbSubscribeSysMsg.class);
-        j(7014, TbTextGenImageUpdateSysMsg.class);
-        List<Integer> MSG_TYPE_LIST3 = TbTipsSysMsg.MSG_TYPE_LIST;
-        Intrinsics.checkNotNullExpressionValue(MSG_TYPE_LIST3, "MSG_TYPE_LIST");
-        k(MSG_TYPE_LIST3, TbTipsSysMsg.class);
-        j(7020, TbShareChatRoomSysMsg.class);
-        j(7021, TbShareCommonCardSysMsg.class);
-        j(7009, TbShareForumSysMsg.class);
-        j(7010, TbShareThreadSysMsg.class);
-        j(20000, TbEmojiReplySysMsg.class);
-        j(7022, TbActivitySysMsg.class);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.te8
-    /* renamed from: n */
-    public UnSupportedMsg g(TbSysMsg tbMsg) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbMsg)) == null) {
-            Intrinsics.checkNotNullParameter(tbMsg, "tbMsg");
-            return new UnSupportedMsg();
-        }
-        return (UnSupportedMsg) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.te8
-    /* renamed from: o */
-    public TbSysMsg h(int i, UnSupportedMsg sdkMsg, Map<String, ? extends Object> sdkMsgMap) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, sdkMsg, sdkMsgMap)) == null) {
-            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
-            Intrinsics.checkNotNullParameter(sdkMsgMap, "sdkMsgMap");
-            Class<Object> i2 = i(i);
-            if (i2 == null) {
-                i = TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_CURRENCY_TIPS;
-                i2 = l(TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_CURRENCY_TIPS);
-            }
-            TbSysMsg tbSysMsg = (TbSysMsg) DataExt.toEntity(sdkMsgMap, i2);
-            tbSysMsg.setType(i);
-            return tbSysMsg;
-        }
-        return (TbSysMsg) invokeILL.objValue;
     }
 }

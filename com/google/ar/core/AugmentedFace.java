@@ -1,7 +1,7 @@
 package com.google.ar.core;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AugmentedFace extends TrackableBase {
     private native Pose nativeGetCenterPose(long j, long j2);
 
@@ -19,7 +19,7 @@ public class AugmentedFace extends TrackableBase {
         super(0L, null);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum RegionType {
         NOSE_TIP(0),
         FOREHEAD_LEFT(1),

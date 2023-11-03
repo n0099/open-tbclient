@@ -41,7 +41,7 @@ public class ActionBarAppPortraitForLive extends LinearLayout implements c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(View view2, final boolean z) {
-        com.kwad.components.core.c.a.a.a(new a.C0619a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(true).l(this.nM.eF.getPlayDuration()).ae(view2 == this.dk ? 1 : 2).a(new a.b() { // from class: com.kwad.components.ad.reward.widget.actionbar.ActionBarAppPortraitForLive.2
+        com.kwad.components.core.c.a.a.a(new a.C0625a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(true).l(this.nM.eF.getPlayDuration()).ae(view2 == this.dk ? 1 : 2).a(new a.b() { // from class: com.kwad.components.ad.reward.widget.actionbar.ActionBarAppPortraitForLive.2
             @Override // com.kwad.components.core.c.a.a.b
             public final void onAdClicked() {
                 if (ActionBarAppPortraitForLive.this.wO != null) {
@@ -52,8 +52,8 @@ public class ActionBarAppPortraitForLive extends LinearLayout implements c {
     }
 
     private void initView() {
-        LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d04fc, this);
-        this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f09138e);
+        LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d050f, this);
+        this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f0913cc);
     }
 
     public final void a(@NonNull k kVar, @NonNull AdTemplate adTemplate, @Nullable com.kwad.components.core.c.a.c cVar, a aVar) {

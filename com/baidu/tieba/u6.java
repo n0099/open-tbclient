@@ -1,9 +1,18 @@
 package com.baidu.tieba;
 
+import android.util.SparseArray;
+import android.util.SparseIntArray;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
-import com.baidu.adp.lib.safe.BdCloseHelper;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.FrameHelper;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.controller.MessageRule;
+import com.baidu.adp.framework.listener.MessageListener;
+import com.baidu.adp.framework.message.Message;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.framework.task.MessageTask;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,527 +21,376 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.security.InvalidParameterException;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
 /* loaded from: classes8.dex */
-public class u6 {
+public abstract class u6<M extends Message<?>, T extends MessageTask, R extends MessageRule<?, ?>, N extends ResponsedMessage<?>> implements l5<M, T> {
     public static /* synthetic */ Interceptable $ic;
+    public static r6<Message<?>> h;
     public transient /* synthetic */ FieldHolder $fh;
-    public r6 a;
-    public AtomicBoolean b;
-    public DiskFileOperate c;
+    public MessageManager a;
+    public final SparseArray<T> b;
+    public final SparseArray<N> c;
+    public final SparseArray<LinkedList<MessageListener<N>>> d;
+    public a7 e;
+    public boolean f;
+    public final SparseIntArray g;
 
-    /* loaded from: classes8.dex */
-    public interface b {
-        boolean a(u6 u6Var, DiskFileOperate diskFileOperate, r6 r6Var);
-    }
-
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(263494671, "Lcom/baidu/tieba/u6$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(263494671, "Lcom/baidu/tieba/u6$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[DiskFileOperate.Action.values().length];
-            a = iArr;
-            try {
-                iArr[DiskFileOperate.Action.WRITE.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[DiskFileOperate.Action.WRITE_FORCE.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[DiskFileOperate.Action.DELETE.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[DiskFileOperate.Action.DELETE_FILES.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-            try {
-                a[DiskFileOperate.Action.APPEND.ordinal()] = 5;
-            } catch (NoSuchFieldError unused5) {
-            }
-            try {
-                a[DiskFileOperate.Action.APPEND_MORE.ordinal()] = 6;
-            } catch (NoSuchFieldError unused6) {
-            }
-            try {
-                a[DiskFileOperate.Action.INFO.ordinal()] = 7;
-            } catch (NoSuchFieldError unused7) {
-            }
-            try {
-                a[DiskFileOperate.Action.RENAME.ordinal()] = 8;
-            } catch (NoSuchFieldError unused8) {
-            }
-            try {
-                a[DiskFileOperate.Action.READ.ordinal()] = 9;
-            } catch (NoSuchFieldError unused9) {
-            }
-            try {
-                a[DiskFileOperate.Action.CUSTOM.ordinal()] = 10;
-            } catch (NoSuchFieldError unused10) {
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448317292, "Lcom/baidu/tieba/u6;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448317292, "Lcom/baidu/tieba/u6;");
         }
     }
 
-    public u6(r6 r6Var, DiskFileOperate diskFileOperate) {
+    public abstract M m(M m, T t);
+
+    public u6(MessageManager messageManager) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {r6Var, diskFileOperate};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {messageManager};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.a = null;
-        this.b = null;
-        this.c = null;
-        if (r6Var != null && diskFileOperate != null && diskFileOperate.getAction() != null) {
-            this.b = new AtomicBoolean(false);
-            this.a = r6Var;
-            this.c = diskFileOperate;
+        this.b = new SparseArray<>();
+        this.c = new SparseArray<>();
+        this.d = new SparseArray<>();
+        this.e = null;
+        this.f = false;
+        this.g = new SparseIntArray();
+        this.a = messageManager;
+    }
+
+    public void t(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, bdUniqueId) == null) {
+            BdUtilHelper.checkMainThread();
+            if (bdUniqueId == null) {
+                return;
+            }
+            int size = this.d.size();
+            for (int i = 0; i < size; i++) {
+                int keyAt = this.d.keyAt(i);
+                Iterator<MessageListener<N>> it = this.d.valueAt(i).iterator();
+                while (it.hasNext()) {
+                    MessageListener<N> next = it.next();
+                    if (next != null && next.getTag() == bdUniqueId) {
+                        b(keyAt);
+                        it.remove();
+                    }
+                }
+            }
+        }
+    }
+
+    public void u(MessageListener<?> messageListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, messageListener) == null) {
+            BdUtilHelper.checkMainThread();
+            if (messageListener == null) {
+                return;
+            }
+            int cmd = messageListener.getCmd();
+            if (cmd == 0) {
+                int size = this.d.size();
+                for (int i = 0; i < size; i++) {
+                    LinkedList<MessageListener<N>> valueAt = this.d.valueAt(i);
+                    int keyAt = this.d.keyAt(i);
+                    if (valueAt.contains(messageListener)) {
+                        b(keyAt);
+                        valueAt.remove(messageListener);
+                    }
+                }
+                return;
+            }
+            b(cmd);
+            LinkedList<MessageListener<N>> linkedList = this.d.get(cmd);
+            if (linkedList != null) {
+                linkedList.remove(messageListener);
+            }
+        }
+    }
+
+    public static void q(r6<Message<?>> r6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, r6Var) == null) {
+            h = r6Var;
+        }
+    }
+
+    public final void b(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || !k(i)) {
             return;
         }
-        throw new InvalidParameterException("DiskWorker Parameter is null");
+        throw new IllegalStateException("MessageListener locked");
     }
 
-    public boolean a(boolean z) {
-        InterceptResult invokeZ;
+    public synchronized T g(int i) {
+        InterceptResult invokeI;
+        T t;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            OutputStream outputStream = this.c.getOutputStream();
-            File fileInfo = this.c.getFileInfo();
-            try {
-                if (outputStream == null) {
-                    try {
-                        fileInfo = this.a.c(this.c.buildPath(), this.c.getName(), true, this.c.isSdCard(), this.c.isSavedCache());
-                        if (fileInfo != null && !this.b.get()) {
-                            outputStream = new FileOutputStream(fileInfo, true);
-                        }
-                        this.c.unLock();
-                        return false;
-                    } catch (Exception e) {
-                        BdLog.e(e.getMessage());
-                        if (!z) {
-                            BdCloseHelper.close(outputStream);
-                        }
-                        this.c.unLock();
-                        return false;
-                    }
-                }
-                byte[] buildFormatData = this.c.buildFormatData();
-                byte[] data = this.c.getData();
-                if ((buildFormatData == null && data == null) || this.b.get()) {
-                    if (!z) {
-                        BdCloseHelper.close(outputStream);
-                    }
-                    this.c.unLock();
-                    return false;
-                }
-                if (buildFormatData != null) {
-                    outputStream.write(buildFormatData);
-                }
-                if (data != null) {
-                    outputStream.write(data);
-                }
-                outputStream.flush();
-                this.c.setFileInfo(fileInfo);
-                this.c.setSuccess(true);
-                if (!z) {
-                    BdCloseHelper.close(outputStream);
-                } else {
-                    this.c.setOutputStream(outputStream);
-                }
-                this.c.unLock();
-                return true;
-            } catch (Throwable th) {
-                if (!z) {
-                    BdCloseHelper.close(outputStream);
-                }
-                this.c.unLock();
-                throw th;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            synchronized (this) {
+                t = this.b.get(i);
             }
+            return t;
         }
-        return invokeZ.booleanValue;
+        return (T) invokeI.objValue;
     }
 
-    public boolean k(boolean z) {
-        InterceptResult invokeZ;
+    public boolean j(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
-            FileOutputStream fileOutputStream = null;
-            try {
-                try {
-                    File c = this.a.c(this.c.buildPath(), this.c.getName(), true, this.c.isSdCard(), this.c.isSavedCache());
-                    if (c != null && !this.b.get()) {
-                        if (c.exists()) {
-                            if (z) {
-                                c.delete();
-                            } else {
-                                BdCloseHelper.close((OutputStream) null);
-                                this.c.unLock();
-                                return true;
-                            }
-                        }
-                        byte[] buildFormatData = this.c.buildFormatData();
-                        byte[] data = this.c.getData();
-                        if ((buildFormatData != null || data != null) && !this.b.get()) {
-                            FileOutputStream fileOutputStream2 = new FileOutputStream(c);
-                            if (buildFormatData != null) {
-                                try {
-                                    fileOutputStream2.write(buildFormatData);
-                                } catch (Exception e) {
-                                    e = e;
-                                    fileOutputStream = fileOutputStream2;
-                                    BdLog.e(e.getMessage());
-                                    BdCloseHelper.close((OutputStream) fileOutputStream);
-                                    this.c.unLock();
-                                    return false;
-                                } catch (Throwable th) {
-                                    th = th;
-                                    fileOutputStream = fileOutputStream2;
-                                    BdCloseHelper.close((OutputStream) fileOutputStream);
-                                    this.c.unLock();
-                                    throw th;
-                                }
-                            }
-                            if (data != null) {
-                                fileOutputStream2.write(data);
-                            }
-                            fileOutputStream2.flush();
-                            BdCloseHelper.close((OutputStream) fileOutputStream2);
-                            this.c.setFileInfo(c);
-                            this.c.setSuccess(true);
-                            this.c.unLock();
-                            return true;
-                        }
-                    }
-                    BdCloseHelper.close((OutputStream) null);
-                    this.c.unLock();
-                    return false;
-                } catch (Throwable th2) {
-                    th = th2;
-                }
-            } catch (Exception e2) {
-                e = e2;
-            }
-        } else {
-            return invokeZ.booleanValue;
-        }
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            switch (a.a[this.c.getAction().ordinal()]) {
-                case 1:
-                    return k(false);
-                case 2:
-                    return k(true);
-                case 3:
-                    return e();
-                case 4:
-                    return g();
-                case 5:
-                    return a(false);
-                case 6:
-                    return a(true);
-                case 7:
-                    return h();
-                case 8:
-                    return j();
-                case 9:
-                    return i();
-                case 10:
-                    return d();
-                default:
-                    return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean e() {
-        InterceptResult invokeV;
-        File c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            boolean z = false;
-            try {
-                try {
-                    c = this.a.c(this.c.buildPath(), this.c.getName(), false, this.c.isSdCard(), this.c.isSavedCache());
-                } catch (Exception e) {
-                    e.getMessage();
-                }
-                if (c != null && !this.b.get()) {
-                    if (c.exists()) {
-                        z = c.delete();
-                    }
-                    if (z) {
-                        this.c.setFileInfo(c);
-                        this.c.setSuccess(true);
-                    }
-                    return z;
-                }
-                return false;
-            } finally {
-                this.c.unLock();
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        File d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.c.getName() != null) {
-                d = this.a.c(this.c.buildPath(), this.c.getName(), false, this.c.isSdCard(), this.c.isSavedCache());
-            } else {
-                d = this.a.d(this.c.buildPath(), false, this.c.isSdCard(), this.c.isSavedCache());
-            }
-            if (d != null && d.exists()) {
-                this.c.setFileInfo(d);
-                this.c.setSuccess(true);
-                this.c.unLock();
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            LinkedList<MessageListener<N>> linkedList = this.d.get(i);
+            if (linkedList != null && linkedList.size() > 0) {
                 return true;
             }
-            this.c.unLock();
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeI.booleanValue;
     }
 
-    public boolean j() {
-        InterceptResult invokeV;
+    public final synchronized boolean k(int i) {
+        InterceptResult invokeI;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            boolean z = false;
-            try {
-                try {
-                    File c = this.a.c(this.c.buildPath(), this.c.getName(), false, this.c.isSdCard(), this.c.isSavedCache());
-                    File c2 = this.a.c(this.c.buildDesPath(), this.c.getDesName(), true, this.c.isSdCard(), this.c.isSavedCache());
-                    if (c != null) {
-                        if (c2 != null) {
-                            c2.delete();
-                        }
-                        z = c.renameTo(c2);
-                    }
-                    if (z) {
-                        this.c.setSuccess(true);
-                    }
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            synchronized (this) {
+                z = false;
+                if (this.g.get(i, 0) != 0) {
+                    z = true;
                 }
-                return z;
-            } finally {
-                this.c.unLock();
+            }
+            return z;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public final synchronized void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            synchronized (this) {
+                this.g.put(i, this.g.get(i, 0) + 1);
             }
         }
-        return invokeV.booleanValue;
     }
 
-    public void c() {
+    public void o(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b.set(true);
+        if ((interceptable == null || interceptable.invokeI(1048587, this, i) == null) && this.c.indexOfKey(i) < 0) {
+            this.c.put(i, null);
         }
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
+    public synchronized void p(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            boolean z = false;
-            try {
-                try {
-                    if (this.c.getCustomOperate() != null) {
-                        z = this.c.getCustomOperate().a(this, this.c, this.a);
-                    }
-                    if (z) {
-                        this.c.setSuccess(true);
-                    }
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
+        if (interceptable == null || interceptable.invokeL(1048588, this, t) == null) {
+            synchronized (this) {
+                if (t == null) {
+                    return;
                 }
-                return z;
-            } finally {
-                this.c.unLock();
+                int cmd = t.getCmd();
+                FrameHelper.g(cmd);
+                this.b.put(cmd, t);
             }
         }
-        return invokeV.booleanValue;
     }
 
-    public final boolean g() {
-        InterceptResult invokeV;
+    public final synchronized void r(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            boolean z = false;
-            try {
-                try {
-                    File d = this.a.d(this.c.getPath(), false, this.c.isSdCard(), this.c.isSavedCache());
-                    z = f(d);
-                    if (z) {
-                        this.c.setFileInfo(d);
-                        this.c.setSuccess(true);
-                    }
-                } catch (Exception e) {
-                    e.getMessage();
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            synchronized (this) {
+                int i2 = this.g.get(i, 0);
+                if (i2 <= 1) {
+                    this.g.delete(i);
+                } else {
+                    this.g.put(i, i2 - 1);
                 }
-                return z;
-            } finally {
-                this.c.unLock();
             }
         }
-        return invokeV.booleanValue;
     }
 
-    public final boolean f(File file) {
-        InterceptResult invokeL;
+    public void s(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, file)) == null) {
-            if (file != null) {
-                DiskFileOperate diskFileOperate = this.c;
-                if (diskFileOperate instanceof q6) {
-                    q6 q6Var = (q6) diskFileOperate;
-                    if (file.isDirectory()) {
-                        File[] listFiles = file.listFiles();
-                        if (listFiles != null) {
-                            for (int i = 0; i < listFiles.length && !this.b.get(); i++) {
-                                if (listFiles[i].isDirectory()) {
-                                    f(listFiles[i]);
-                                } else if (q6Var.compare(listFiles[i])) {
-                                    listFiles[i].delete();
-                                }
-                            }
-                        }
-                        file.delete();
-                    } else if (q6Var.compare(file)) {
-                        file.delete();
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            BdUtilHelper.checkMainThread();
+            if (i != 0) {
+                b(i);
+                this.d.remove(i);
+            }
+        }
+    }
+
+    public void v(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.c.remove(i);
+        }
+    }
+
+    public synchronized void w(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            synchronized (this) {
+                this.b.remove(i);
+            }
+        }
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.f = true;
+        }
+    }
+
+    public boolean c(M m, T t) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, m, t)) == null) {
+            BdUtilHelper.checkMainThread();
+            if (m == null) {
+                return false;
+            }
+            int cmd = m.getCmd();
+            if (t == null) {
+                t = g(cmd);
+            }
+            if (t != null) {
+                M m2 = m(m, t);
+                if (this.e != null) {
+                    if (t.getTimeOut() == null) {
+                        t.setTimeOut(this.e.b());
                     }
+                    if (t.getRetry() == 0) {
+                        t.setRetry(this.e.a());
+                    }
+                }
+                if (m2 != null) {
+                    f(m2, t);
                     return true;
                 }
+                BdLog.d("message is trapped:" + cmd);
+                return false;
             }
+            r6<Message<?>> r6Var = h;
+            if (r6Var != null) {
+                r6Var.a(m);
+            }
+            BdLog.e("task not register:" + cmd);
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeLL.booleanValue;
     }
 
-    public final boolean i() {
-        InterceptResult invokeV;
-        ByteArrayOutputStream byteArrayOutputStream;
-        FileInputStream fileInputStream;
-        Exception e;
-        Throwable th;
-        File c;
+    public void d(N n) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            this.c.startLog();
-            boolean z = false;
+        if (interceptable == null || interceptable.invokeL(1048579, this, n) == null) {
+            BdUtilHelper.checkMainThread();
+            if (n == null) {
+                return;
+            }
+            n.setProcessTime(System.currentTimeMillis());
+            int cmd = n.getCmd();
+            BdUniqueId bdUniqueId = null;
+            Message<?> orginalMessage = n.getOrginalMessage();
+            if (orginalMessage != null) {
+                bdUniqueId = orginalMessage.getTag();
+            }
+            if (this.c.indexOfKey(cmd) >= 0) {
+                this.c.put(cmd, n);
+            }
+            LinkedList<MessageListener<N>> linkedList = this.d.get(cmd);
+            if (linkedList == null) {
+                return;
+            }
+            this.f = false;
+            l(cmd);
             try {
-                c = this.a.c(this.c.buildPath(), this.c.getName(), false, this.c.isSdCard(), this.c.isSavedCache());
-            } catch (Exception e2) {
-                fileInputStream = null;
-                e = e2;
-                byteArrayOutputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
-                byteArrayOutputStream = null;
-                fileInputStream = null;
-            }
-            if (c != null && c.exists() && !this.b.get()) {
-                fileInputStream = new FileInputStream(c);
                 try {
-                    byteArrayOutputStream = new ByteArrayOutputStream(1024);
-                    try {
-                        try {
-                            byte[] bArr = new byte[1024];
-                            while (true) {
-                                int read = fileInputStream.read(bArr, 0, 1024);
-                                if (read == -1 || this.b.get()) {
-                                    break;
-                                }
-                                byteArrayOutputStream.write(bArr, 0, read);
+                    Iterator<MessageListener<N>> it = linkedList.iterator();
+                    while (it.hasNext() && !this.f) {
+                        MessageListener<N> next = it.next();
+                        if (next != null && (!next.isSelfListener() || next.getTag() == bdUniqueId)) {
+                            try {
+                                next.onMessage(n);
+                            } catch (Exception e) {
+                                BdLog.detailException(n.getClass().getName(), e, true);
                             }
-                            if (!this.b.get()) {
-                                byte[] byteArray = byteArrayOutputStream.toByteArray();
-                                if (!this.c.isFormatData() || this.c.formatData(byteArray)) {
-                                    this.c.setData(byteArray);
-                                    z = true;
-                                }
-                            }
-                            BdCloseHelper.close((InputStream) fileInputStream);
-                            BdCloseHelper.close((OutputStream) byteArrayOutputStream);
-                            if (z) {
-                                this.c.setSuccess(true);
-                            }
-                        } catch (Exception e3) {
-                            e = e3;
-                            BdLog.e(e.getMessage());
-                            BdCloseHelper.close((InputStream) fileInputStream);
-                            BdCloseHelper.close((OutputStream) byteArrayOutputStream);
-                            this.c.unLock();
-                            this.c.endLog();
-                            return z;
                         }
-                    } catch (Throwable th3) {
-                        th = th3;
-                        BdCloseHelper.close((InputStream) fileInputStream);
-                        BdCloseHelper.close((OutputStream) byteArrayOutputStream);
-                        this.c.unLock();
-                        throw th;
                     }
-                } catch (Exception e4) {
-                    byteArrayOutputStream = null;
-                    e = e4;
-                } catch (Throwable th4) {
-                    th = th4;
-                    byteArrayOutputStream = null;
-                    th = th;
-                    BdCloseHelper.close((InputStream) fileInputStream);
-                    BdCloseHelper.close((OutputStream) byteArrayOutputStream);
-                    this.c.unLock();
-                    throw th;
+                } catch (Exception e2) {
+                    BdLog.detailException(n.getClass().getName(), e2, true);
                 }
-                this.c.unLock();
-                this.c.endLog();
-                return z;
+            } finally {
+                r(cmd);
             }
-            BdCloseHelper.close((InputStream) null);
-            BdCloseHelper.close((OutputStream) null);
-            this.c.unLock();
-            return false;
         }
-        return invokeV.booleanValue;
+    }
+
+    public synchronized ArrayList<T> i() {
+        InterceptResult invokeV;
+        ArrayList<T> arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            synchronized (this) {
+                arrayList = new ArrayList<>();
+                int size = this.b.size();
+                for (int i = 0; i < size; i++) {
+                    arrayList.add(this.b.valueAt(i));
+                }
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public void n(int i, MessageListener<N> messageListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048586, this, i, messageListener) == null) {
+            BdUtilHelper.checkMainThread();
+            if (messageListener == null) {
+                return;
+            }
+            if ((i == 0 && messageListener.getCmd() == 0) || (i != 0 && messageListener.getCmd() != 0)) {
+                throw new InvalidParameterException("registerListener cmd error");
+            }
+            if (i == 0) {
+                i = messageListener.getCmd();
+            }
+            FrameHelper.g(i);
+            b(i);
+            LinkedList<MessageListener<N>> linkedList = this.d.get(i);
+            if (linkedList == null) {
+                linkedList = new LinkedList<>();
+                this.d.put(i, linkedList);
+            }
+            FrameHelper.f(linkedList, messageListener);
+            N n = this.c.get(i);
+            if (n != null) {
+                messageListener.onMessage(n);
+            }
+        }
     }
 }

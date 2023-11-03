@@ -1,25 +1,35 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.view.View;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.tieba.ns;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetWebviewCacheInfo.Offpack;
 /* loaded from: classes8.dex */
-public class vy9 {
+public abstract class vy9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public boolean d;
+    public TbPageContext a;
+    public xl6 b;
+    public ns.a c;
+    public OriginalThreadInfo d;
+    public int e;
 
-    public vy9() {
+    public abstract View a();
+
+    public abstract void b(TbPageContext tbPageContext, int i);
+
+    public abstract void c(OriginalThreadInfo originalThreadInfo);
+
+    public vy9(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,77 +39,21 @@ public class vy9 {
                 return;
             }
         }
-        this.d = true;
+        this.e = 3;
+        this.a = tbPageContext;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public void d(ns.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void e(Offpack offpack) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, offpack) == null) && offpack != null) {
-            this.a = offpack.src;
-            this.b = offpack.md5;
-            this.c = offpack.webview_version;
-            boolean z = true;
-            if (offpack.is_use.intValue() != 1) {
-                z = false;
-            }
-            this.d = z;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            this.c = aVar;
         }
     }
 
-    public void f(String str) {
+    public void e(xl6 xl6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.c = str;
+        if (interceptable == null || interceptable.invokeL(1048580, this, xl6Var) == null) {
+            this.b = xl6Var;
         }
     }
 }

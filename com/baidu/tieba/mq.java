@@ -1,11 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
-public interface mq<T> {
-    T a();
+public interface mq {
+    void onAttachedToWindow();
 
-    void a(T t);
-
-    void b();
-
-    boolean c();
+    void onDetachedFromWindow();
 }

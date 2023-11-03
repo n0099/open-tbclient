@@ -1,74 +1,58 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.RelativeLayout;
-import androidx.core.view.InputDeviceCompat;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.adp.widget.refresh.BdSwipeRefreshLayout;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.NoDataView;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.core.view.PbListView;
-import com.baidu.tieba.immessagecenter.mention.base.DeviderLineDecoration;
-import com.baidu.tieba.l45;
+import com.baidu.tieba.im.chat.officialBar.MultiImageTextBottomView;
+import com.baidu.tieba.im.chat.officialBar.MultiImageTextTopView;
+import com.baidu.tieba.im.chat.officialBar.SingleImageTextView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes8.dex */
 public class sp8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public View b;
-    public NavigationBar c;
-    public NoNetworkView d;
-    public RelativeLayout e;
-    public BdSwipeRefreshLayout f;
-    public BdTypeRecyclerView g;
-    public m45 h;
-    public PbListView i;
-    public NoDataView j;
-    public boolean k;
-    public bq8 l;
-    public e m;
-    public View.OnClickListener n;
-    public final l45.g o;
+    public ob<MultiImageTextTopView> a;
+    public ob<MultiImageTextBottomView> b;
+    public ob<SingleImageTextView> c;
 
-    /* loaded from: classes8.dex */
-    public interface e {
-        void a();
-
-        void b();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948159214, "Lcom/baidu/tieba/sp8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948159214, "Lcom/baidu/tieba/sp8;");
+        }
     }
 
     /* loaded from: classes8.dex */
-    public class a implements View.OnClickListener {
+    public class a implements pb<MultiImageTextTopView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sp8 a;
+        public final /* synthetic */ Context a;
 
-        public a(sp8 sp8Var) {
+        public MultiImageTextTopView e(MultiImageTextTopView multiImageTextTopView) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, multiImageTextTopView)) == null) ? multiImageTextTopView : (MultiImageTextTopView) invokeL.objValue;
+        }
+
+        public a(sp8 sp8Var, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {sp8Var};
+                Object[] objArr = {sp8Var, context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -78,33 +62,107 @@ public class sp8 {
                     return;
                 }
             }
-            this.a = sp8Var;
+            this.a = context;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // com.baidu.tieba.pb
+        public /* bridge */ /* synthetic */ MultiImageTextTopView a(MultiImageTextTopView multiImageTextTopView) {
+            MultiImageTextTopView multiImageTextTopView2 = multiImageTextTopView;
+            e(multiImageTextTopView2);
+            return multiImageTextTopView2;
+        }
+
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // com.baidu.tieba.pb
+        public /* bridge */ /* synthetic */ MultiImageTextTopView c(MultiImageTextTopView multiImageTextTopView) {
+            MultiImageTextTopView multiImageTextTopView2 = multiImageTextTopView;
+            h(multiImageTextTopView2);
+            return multiImageTextTopView2;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.pb
+        /* renamed from: f */
+        public void b(MultiImageTextTopView multiImageTextTopView) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.i != null && this.a.m != null) {
-                this.a.i.P(0);
-                this.a.i.G(null);
-                this.a.i.U();
-                this.a.m.b();
+            if ((interceptable == null || interceptable.invokeL(1048581, this, multiImageTextTopView) == null) && (multiImageTextTopView instanceof MultiImageTextTopView)) {
+                multiImageTextTopView.f();
+            }
+        }
+
+        public MultiImageTextTopView h(MultiImageTextTopView multiImageTextTopView) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, multiImageTextTopView)) == null) {
+                if (multiImageTextTopView instanceof MultiImageTextTopView) {
+                    multiImageTextTopView.f();
+                }
+                return multiImageTextTopView;
+            }
+            return (MultiImageTextTopView) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.pb
+        /* renamed from: g */
+        public MultiImageTextTopView d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return new MultiImageTextTopView(this.a);
+            }
+            return (MultiImageTextTopView) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b extends ob<MultiImageTextTopView> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(sp8 sp8Var, pb pbVar, int i, int i2) {
+            super(pbVar, i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sp8Var, pbVar, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((pb) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public class b implements l45.g {
+    public class c implements pb<MultiImageTextBottomView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sp8 a;
+        public final /* synthetic */ Context a;
 
-        public b(sp8 sp8Var) {
+        public MultiImageTextBottomView e(MultiImageTextBottomView multiImageTextBottomView) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, multiImageTextBottomView)) == null) ? multiImageTextBottomView : (MultiImageTextBottomView) invokeL.objValue;
+        }
+
+        public c(sp8 sp8Var, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {sp8Var};
+                Object[] objArr = {sp8Var, context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -114,70 +172,107 @@ public class sp8 {
                     return;
                 }
             }
-            this.a = sp8Var;
+            this.a = context;
         }
 
-        @Override // com.baidu.tieba.l45.g
-        public void e(boolean z) {
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // com.baidu.tieba.pb
+        public /* bridge */ /* synthetic */ MultiImageTextBottomView a(MultiImageTextBottomView multiImageTextBottomView) {
+            MultiImageTextBottomView multiImageTextBottomView2 = multiImageTextBottomView;
+            e(multiImageTextBottomView2);
+            return multiImageTextBottomView2;
+        }
+
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // com.baidu.tieba.pb
+        public /* bridge */ /* synthetic */ MultiImageTextBottomView c(MultiImageTextBottomView multiImageTextBottomView) {
+            MultiImageTextBottomView multiImageTextBottomView2 = multiImageTextBottomView;
+            h(multiImageTextBottomView2);
+            return multiImageTextBottomView2;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.pb
+        /* renamed from: f */
+        public void b(MultiImageTextBottomView multiImageTextBottomView) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                if (BdNetTypeUtil.isNetWorkAvailable()) {
-                    if (this.a.m != null) {
-                        this.a.m.a();
-                        return;
-                    }
-                    return;
+            if ((interceptable == null || interceptable.invokeL(1048581, this, multiImageTextBottomView) == null) && (multiImageTextBottomView instanceof MultiImageTextBottomView)) {
+                multiImageTextBottomView.h();
+            }
+        }
+
+        public MultiImageTextBottomView h(MultiImageTextBottomView multiImageTextBottomView) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, multiImageTextBottomView)) == null) {
+                if (multiImageTextBottomView instanceof MultiImageTextBottomView) {
+                    multiImageTextBottomView.h();
                 }
-                BdSwipeRefreshLayout bdSwipeRefreshLayout = this.a.f;
-                if (bdSwipeRefreshLayout != null) {
-                    bdSwipeRefreshLayout.setRefreshing(false);
+                return multiImageTextBottomView;
+            }
+            return (MultiImageTextBottomView) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.pb
+        /* renamed from: g */
+        public MultiImageTextBottomView d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return new MultiImageTextBottomView(this.a);
+            }
+            return (MultiImageTextBottomView) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class d extends ob<MultiImageTextBottomView> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public d(sp8 sp8Var, pb pbVar, int i, int i2) {
+            super(pbVar, i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sp8Var, pbVar, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((pb) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public class c implements RecyclerView.RecyclerListener {
+    public class e implements pb<SingleImageTextView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
 
-        public c(sp8 sp8Var) {
+        public SingleImageTextView e(SingleImageTextView singleImageTextView) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, singleImageTextView)) == null) ? singleImageTextView : (SingleImageTextView) invokeL.objValue;
+        }
+
+        public e(sp8 sp8Var, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {sp8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // androidx.recyclerview.widget.RecyclerView.RecyclerListener
-        public void onViewRecycled(RecyclerView.ViewHolder viewHolder) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, viewHolder) == null) {
-                View view2 = viewHolder.itemView;
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class d implements BdListView.p {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sp8 a;
-
-        public d(sp8 sp8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sp8Var};
+                Object[] objArr = {sp8Var, context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -187,231 +282,130 @@ public class sp8 {
                     return;
                 }
             }
-            this.a = sp8Var;
+            this.a = context;
         }
 
-        @Override // com.baidu.adp.widget.ListView.BdListView.p
-        public void onScrollToBottom() {
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // com.baidu.tieba.pb
+        public /* bridge */ /* synthetic */ SingleImageTextView a(SingleImageTextView singleImageTextView) {
+            SingleImageTextView singleImageTextView2 = singleImageTextView;
+            e(singleImageTextView2);
+            return singleImageTextView2;
+        }
+
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // com.baidu.tieba.pb
+        public /* bridge */ /* synthetic */ SingleImageTextView c(SingleImageTextView singleImageTextView) {
+            SingleImageTextView singleImageTextView2 = singleImageTextView;
+            h(singleImageTextView2);
+            return singleImageTextView2;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.pb
+        /* renamed from: f */
+        public void b(SingleImageTextView singleImageTextView) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.i != null && this.a.m != null) {
-                this.a.i.P(0);
-                this.a.i.G(null);
-                this.a.i.R();
-                this.a.m.b();
+            if ((interceptable == null || interceptable.invokeL(1048581, this, singleImageTextView) == null) && (singleImageTextView instanceof SingleImageTextView)) {
+                singleImageTextView.l();
             }
+        }
+
+        public SingleImageTextView h(SingleImageTextView singleImageTextView) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, singleImageTextView)) == null) {
+                if (singleImageTextView instanceof SingleImageTextView) {
+                    singleImageTextView.l();
+                }
+                return singleImageTextView;
+            }
+            return (SingleImageTextView) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.pb
+        /* renamed from: g */
+        public SingleImageTextView d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return new SingleImageTextView(this.a);
+            }
+            return (SingleImageTextView) invokeV.objValue;
         }
     }
 
-    public sp8(TbPageContext tbPageContext, View view2) {
+    public sp8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, view2};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-        }
-        this.n = new a(this);
-        this.o = new b(this);
-        this.a = tbPageContext;
-        this.b = view2.findViewById(R.id.obfuscated_res_0x7f090167);
-        g(tbPageContext);
-        this.l = new bq8(tbPageContext, this.g);
-    }
-
-    public void i(ii iiVar) {
-        bq8 bq8Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, iiVar) == null) && (bq8Var = this.l) != null) {
-            bq8Var.e(iiVar);
         }
     }
 
-    public void j(e eVar) {
+    public final void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, eVar) == null) {
-            this.m = eVar;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            this.b = new d(this, new c(this, context), 9, 0);
         }
     }
 
-    public void l(boolean z) {
-        BdSwipeRefreshLayout bdSwipeRefreshLayout;
+    public final void b(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048585, this, z) == null) && (bdSwipeRefreshLayout = this.f) != null) {
-            bdSwipeRefreshLayout.setRefreshing(z);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            this.c = new ob<>(new e(this, context), 1, 0);
         }
     }
 
-    public void c(int i) {
+    public final void c(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            m45 m45Var = this.h;
-            if (m45Var != null) {
-                m45Var.D(i);
-            }
-            NoNetworkView noNetworkView = this.d;
-            if (noNetworkView != null) {
-                noNetworkView.onChangeSkinType(this.a, i);
-            }
-            PbListView pbListView = this.i;
-            if (pbListView != null) {
-                pbListView.J(SkinManager.getColor(R.color.CAM_X0109));
-                this.i.e(i);
-            }
-            NoDataView noDataView = this.j;
-            if (noDataView != null) {
-                noDataView.f(this.a, i);
-                SkinManager.setBackgroundColor(this.j, R.color.CAM_X0201);
-            }
-            NavigationBar navigationBar = this.c;
-            if (navigationBar != null) {
-                navigationBar.onChangeSkinType(this.a, i);
-            }
-            bq8 bq8Var = this.l;
-            if (bq8Var != null) {
-                bq8Var.c();
-            }
-            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0205);
-            SkinManager.setBackgroundColor(this.e, R.color.CAM_X0205);
-            SkinManager.setBackgroundColor(this.f, R.color.CAM_X0205);
-            SkinManager.setBackgroundColor(this.g, R.color.CAM_X0204);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            this.a = new b(this, new a(this, context), 1, 0);
         }
     }
 
-    public RelativeLayout d() {
-        InterceptResult invokeV;
+    public ob<MultiImageTextBottomView> d(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
-        }
-        return (RelativeLayout) invokeV.objValue;
-    }
-
-    public List<yh> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            BdTypeRecyclerView bdTypeRecyclerView = this.g;
-            if (bdTypeRecyclerView == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            if (this.b == null) {
+                a(context);
             }
-            return bdTypeRecyclerView.getData();
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public View f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.b;
         }
-        return (View) invokeV.objValue;
+        return (ob) invokeL.objValue;
     }
 
-    public void h() {
+    public ob<SingleImageTextView> e(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            bq8 bq8Var = this.l;
-            if (bq8Var != null) {
-                bq8Var.d();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
+            if (this.c == null) {
+                b(context);
             }
-            m45 m45Var = this.h;
-            if (m45Var != null) {
-                m45Var.U();
-            }
+            return this.c;
         }
+        return (ob) invokeL.objValue;
     }
 
-    public final void g(TbPageContext tbPageContext) {
+    public ob<MultiImageTextTopView> f(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, tbPageContext) != null) || this.b == null) {
-            return;
-        }
-        if (this.h == null) {
-            m45 m45Var = new m45(tbPageContext);
-            this.h = m45Var;
-            m45Var.a(this.o);
-        }
-        this.h.W(tbPageContext.getUniqueId());
-        if (this.i == null) {
-            PbListView pbListView = new PbListView(tbPageContext.getPageActivity());
-            this.i = pbListView;
-            pbListView.c();
-        }
-        this.i.s(R.color.CAM_X0205);
-        this.i.w(BdUtilHelper.getDimens(tbPageContext.getContext(), R.dimen.tbds182));
-        this.i.B();
-        this.i.L(R.dimen.tbfontsize33);
-        this.i.J(SkinManager.getColor(R.color.CAM_X0109));
-        this.i.F(R.color.CAM_X0110);
-        this.i.G(this.n);
-        NoNetworkView noNetworkView = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f0919b7);
-        this.d = noNetworkView;
-        noNetworkView.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
-        this.e = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0907bc);
-        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.view_navigation_bar);
-        this.c = navigationBar;
-        navigationBar.showBottomLine();
-        this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.c.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f010e));
-        BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090168);
-        this.f = bdSwipeRefreshLayout;
-        bdSwipeRefreshLayout.setProgressView(this.h);
-        BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.b.findViewById(R.id.obfuscated_res_0x7f090169);
-        this.g = bdTypeRecyclerView;
-        ((DefaultItemAnimator) bdTypeRecyclerView.getItemAnimator()).setSupportsChangeAnimations(false);
-        this.g.setLayoutManager(new LinearLayoutManager(this.a.getContext()));
-        this.g.setFadingEdgeLength(0);
-        this.g.setBackgroundColor(SkinManager.getColor(R.color.transparent));
-        this.g.setOverScrollMode(2);
-        this.g.addItemDecoration(new DeviderLineDecoration());
-        this.g.setRecyclerListener(new c(this));
-        this.g.setOnSrollToBottomListener(new d(this));
-    }
-
-    public void k(boolean z, ArrayList<yh> arrayList) {
-        BdSwipeRefreshLayout bdSwipeRefreshLayout;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZL(InputDeviceCompat.SOURCE_TOUCHPAD, this, z, arrayList) == null) && (bdSwipeRefreshLayout = this.f) != null && this.i != null && this.g != null && this.l != null) {
-            bdSwipeRefreshLayout.setRefreshing(false);
-            if (z) {
-                this.i.P(0);
-                this.i.g();
-                this.i.G(this.n);
-            } else {
-                this.i.P(0);
-                this.i.g();
-                this.i.H(this.a.getResources().getString(R.string.list_no_more));
-                this.i.G(null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
+            if (this.a == null) {
+                c(context);
             }
-            if (ListUtils.isEmpty(arrayList)) {
-                if (this.j == null) {
-                    NoDataView a2 = NoDataViewFactory.a(this.a.getContext(), null, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.CREATE), NoDataViewFactory.e.d(null, this.a.getResources().getString(R.string.obfuscated_res_0x7f0f010f)), null);
-                    this.j = a2;
-                    a2.setLayoutParams(new RecyclerView.LayoutParams(-1, -1));
-                    SkinManager.setBackgroundColor(this.j, R.color.CAM_X0201);
-                }
-                if (this.j.getParent() == null && !this.k) {
-                    this.k = true;
-                    this.g.addHeaderView(this.j, 0);
-                    this.j.setVisibility(0);
-                    this.j.f(this.a, TbadkCoreApplication.getInst().getSkinType());
-                }
-                this.g.setNextPage(null);
-                return;
-            }
-            this.g.removeHeaderView(this.j);
-            this.k = false;
-            this.g.setNextPage(this.i);
-            this.l.f(arrayList);
-            this.l.c();
+            return this.a;
         }
+        return (ob) invokeL.objValue;
     }
 }

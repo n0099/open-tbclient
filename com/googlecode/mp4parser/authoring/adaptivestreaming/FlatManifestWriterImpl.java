@@ -34,7 +34,7 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class FlatManifestWriterImpl extends AbstractManifestWriter {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final Logger LOG = Logger.getLogger(FlatManifestWriterImpl.class.getName());
@@ -43,7 +43,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
         return document;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class DependentSubstreamMask {
         public byte dWChannelMaskFirstByte;
         public byte dWChannelMaskSecondByte;

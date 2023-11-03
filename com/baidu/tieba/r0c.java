@@ -1,80 +1,195 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-/* loaded from: classes7.dex */
-public class r0c {
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.FunNativeAd2;
+import com.fun.ad.sdk.channel.model.jy.JYNativeAdView;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.GlideHelper;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.win.opensdk.PBError;
+import com.win.opensdk.PBNative;
+import com.win.opensdk.PBNativeListener;
+/* loaded from: classes8.dex */
+public class r0c extends ReporterPidLoader<PBNative> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public ArrayList<Long> b;
-    public long c;
-    public int d;
-    public boolean e;
+    public final FunNativeAdListenerHelper<PBNative, PBNativeListener> e;
 
-    public r0c(int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public r0c(Ssp.Pid pid) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.NATIVE), pid, true, true);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new ArrayList<>();
-        this.c = 0L;
-        this.d = 0;
-        this.e = false;
-        this.a = i;
+        this.e = new FunNativeAdListenerHelper<>(this);
     }
 
-    public synchronized long a() {
-        InterceptResult invokeV;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                if (this.b.isEmpty()) {
-                    return 0L;
-                }
-                long longValue = this.b.remove(0).longValue();
-                this.c -= longValue;
-                if (!this.b.isEmpty()) {
-                    long size = this.c / this.b.size();
-                }
-                return longValue;
-            }
+        if (interceptable == null || interceptable.invokeLL(1048580, this, context, funAdSlot) == null) {
+            onLoadStart(funAdSlot);
+            PBNative pBNative = new PBNative(context.getApplicationContext(), this.mPid.pid);
+            pBNative.setNativeListener(new a(this, pBNative));
+            pBNative.load();
         }
-        return invokeV.longValue;
     }
 
-    public synchronized void b(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            synchronized (this) {
-                this.b.add(Long.valueOf(j));
-                this.c += j;
-                if (this.b.size() > this.a) {
-                    this.c -= this.b.remove(0).longValue();
-                }
-                long size = this.c / this.b.size();
-                if (this.d == 0) {
+    /* loaded from: classes8.dex */
+    public class a implements PBNativeListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ PBNative a;
+        public final /* synthetic */ r0c b;
+
+        public a(r0c r0cVar, PBNative pBNative) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {r0cVar, pBNative};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                if (this.e && this.b.size() <= this.d) {
-                    long size2 = this.c / this.b.size();
-                }
+            }
+            this.b = r0cVar;
+            this.a = pBNative;
+        }
+
+        @Override // com.win.opensdk.PBListener
+        public void onFail(PBError pBError) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) {
+                LogPrinter.e("onFail code: " + pBError.getCode() + ", message: " + pBError.getMsg(), new Object[0]);
+                this.b.onError(pBError.getCode(), pBError.getMsg());
             }
         }
+
+        @Override // com.win.opensdk.PBListener
+        public void onLoaded() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                LogPrinter.d();
+                this.b.onAdLoaded(this.a, new String[0]);
+            }
+        }
+
+        @Override // com.win.opensdk.PBListener
+        public void onClicked() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                LogPrinter.d();
+                this.b.e.onAdClick(this.a);
+            }
+        }
+
+        @Override // com.win.opensdk.PBNativeListener
+        public void onDisplayed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                LogPrinter.d();
+                this.b.e.onAdShow(this.a);
+            }
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
+        PBNative pBNative;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (pBNative = (PBNative) obj) != null) {
+            this.e.destroy(pBNative);
+            pBNative.destroy();
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean isAdAvailable(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            PBNative pBNative = (PBNative) obj;
+            if (pBNative != null && pBNative.isReady()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public JYNativeAdView e(PBNative pBNative) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pBNative)) == null) {
+            JYNativeAdView jYNativeAdView = (JYNativeAdView) LayoutInflater.from(FunAdSdk.getAppContext()).inflate(R.layout.fun_jy_ad_native_view, (ViewGroup) null, false);
+            jYNativeAdView.a.setText(pBNative.getBody());
+            jYNativeAdView.d.setText(pBNative.getHeadline());
+            GlideHelper.get().load(jYNativeAdView.getContext(), pBNative.getIcon(), jYNativeAdView.e);
+            jYNativeAdView.f.setText(pBNative.getCallToAction());
+            jYNativeAdView.g = (pBNative.getMediaViewWidth() * 1.0f) / (pBNative.getMediaViewHeight() * 1.0f);
+            pBNative.registerViewForInteraction(jYNativeAdView, jYNativeAdView.c);
+            return jYNativeAdView;
+        }
+        return (JYNativeAdView) invokeL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public FunNativeAd2 getNativeAdInternal2(Context context, String str, Object obj) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, obj)) == null) {
+            PBNative pBNative = (PBNative) obj;
+            v0c v0cVar = new v0c(context, pBNative);
+            return new BaseNativeAd2(FunNativeAd2.NativeType.BOTH, pBNative, v0cVar, new s0c(this, this, v0cVar));
+        }
+        return (FunNativeAd2) invokeLLL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, activity, viewGroup, str, obj)) == null) {
+            PBNative pBNative = (PBNative) obj;
+            this.e.startShow(pBNative, str, this.mPid, null, null);
+            JYNativeAdView e = e(pBNative);
+            viewGroup.removeAllViews();
+            viewGroup.addView(e);
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

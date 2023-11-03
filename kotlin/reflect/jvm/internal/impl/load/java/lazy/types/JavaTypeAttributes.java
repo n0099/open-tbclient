@@ -5,7 +5,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.descriptors.TypeParameterDescriptor;
 import kotlin.reflect.jvm.internal.impl.load.java.components.TypeUsage;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class JavaTypeAttributes {
     public final JavaTypeFlexibility flexibility;
     public final TypeUsage howThisTypeIsUsed;

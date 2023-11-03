@@ -4,13 +4,13 @@ import com.baidu.searchbox.http.AbstractHttpManager;
 import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.RequestBody;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PostByteRequest extends HttpRequest<PostByteRequestBuilder> {
     public static final MediaType MEDIA_TYPE_STREAM = MediaType.parse("application/octet-stream");
     public byte[] content;
     public MediaType mediaType;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class PostByteRequestBuilder extends HttpRequestBuilder<PostByteRequestBuilder> {
         public byte[] contentBuffer;
         public MediaType mediaType;

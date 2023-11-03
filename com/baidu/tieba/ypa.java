@@ -1,13 +1,77 @@
 package com.baidu.tieba;
+
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.drawable.Animatable;
+import android.os.Build;
+import android.view.View;
+import android.view.animation.Animation;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbPageContextSupport;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes9.dex */
-public interface ypa {
-    void F(String str, String str2);
+public class ypa {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void K(String str);
+    public static boolean a(@Nullable Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (!(context instanceof Activity)) {
+                return false;
+            }
+            Activity activity = (Activity) context;
+            if ((Build.VERSION.SDK_INT >= 17 && activity.isDestroyed()) || activity.isFinishing()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
 
-    void M(String str);
+    public static boolean b(@Nullable View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            if (view2 != null && view2.getContext() != null) {
+                if (view2.getContext() instanceof Activity) {
+                    return a(view2.getContext());
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
 
-    void finishActivity();
+    public static final TbPageContext c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (context != null && (context instanceof TbPageContextSupport)) {
+                return ((TbPageContextSupport) context).getPageContext();
+            }
+            return null;
+        }
+        return (TbPageContext) invokeL.objValue;
+    }
 
-    void showErrorView();
+    public static final void d(TbPageContextSupport tbPageContextSupport, Animatable animatable) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65539, null, tbPageContextSupport, animatable) == null) && tbPageContextSupport != null) {
+            tbPageContextSupport.getPageContext().startAnimatable(animatable);
+        }
+    }
+
+    public static final void e(TbPageContextSupport tbPageContextSupport, View view2, Animation animation, Animation.AnimationListener animationListener) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContextSupport, view2, animation, animationListener) == null) && tbPageContextSupport != null) {
+            tbPageContextSupport.getPageContext().startAnimation(view2, animation, animationListener);
+        }
+    }
 }

@@ -1,18 +1,9 @@
 package com.baidu.tieba;
-
-import android.graphics.Canvas;
-import android.view.MotionEvent;
 /* loaded from: classes7.dex */
-public interface pi {
-    boolean a(MotionEvent motionEvent);
+public interface pi<T> {
+    int getCount();
 
-    void b(int i, int i2);
+    T getItem(int i);
 
-    void c(int i);
-
-    boolean dispatchTouchEvent(MotionEvent motionEvent);
-
-    void draw(Canvas canvas);
-
-    boolean e(MotionEvent motionEvent);
+    void notifyDataSetChanged();
 }

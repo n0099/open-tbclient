@@ -1,19 +1,7 @@
 package com.baidu.tieba;
-
-import android.content.Context;
 /* loaded from: classes8.dex */
 public interface s35 {
-    void a(Context context);
+    void a(String str);
 
-    void b(Context context, int i);
-
-    void c(Context context, int i, boolean z);
-
-    Class<?> d();
-
-    void e(Context context, int i, boolean z);
-
-    String f();
-
-    int getCurrentTabType();
+    void b();
 }

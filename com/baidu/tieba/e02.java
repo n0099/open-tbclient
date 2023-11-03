@@ -1,19 +1,21 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class e02 extends wy1 {
+public class e02 extends nz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public float a;
+    public float b;
+    public float c;
+    public float d;
+    public boolean e;
 
     public e02() {
         Interceptable interceptable = $ic;
@@ -28,39 +30,26 @@ public class e02 extends wy1 {
                 return;
             }
         }
-        this.a = 0;
+        this.e = false;
     }
 
-    @Override // com.baidu.tieba.wy1
-    public void a(xy1 xy1Var, Canvas canvas) {
+    @Override // com.baidu.tieba.nz1
+    public void a(oz1 oz1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, xy1Var, canvas) == null) {
-            xy1Var.k = this.a;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, oz1Var, canvas) == null) && this.e) {
+            oz1Var.f.quadTo(this.a, this.b, this.c, this.d);
         }
     }
 
-    @Override // com.baidu.tieba.wy1
+    @Override // com.baidu.tieba.nz1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() > 0) {
-                    String optString = jSONArray.optString(0);
-                    if (TextUtils.equals(optString, "top")) {
-                        this.a = 1;
-                    } else if (TextUtils.equals(optString, NativeConstants.MIDDLE)) {
-                        this.a = 2;
-                    } else if (TextUtils.equals(optString, "bottom")) {
-                        this.a = 3;
-                    } else {
-                        this.a = 0;
-                    }
-                }
-            } catch (Exception e) {
-                if (am1.a) {
-                    e.printStackTrace();
-                }
-            }
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 3) {
+            this.a = xj3.g((float) jSONArray.optDouble(0));
+            this.b = xj3.g((float) jSONArray.optDouble(1));
+            this.c = xj3.g((float) jSONArray.optDouble(2));
+            this.d = xj3.g((float) jSONArray.optDouble(3));
+            this.e = true;
         }
     }
 }

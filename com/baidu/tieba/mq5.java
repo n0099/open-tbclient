@@ -1,335 +1,166 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-import com.baidu.tbadk.tracker.PvData;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.hma;
-import com.baidu.tieba.tracker.Tracker;
-import com.baidu.tieba.tracker.core.data.EventParams;
-import com.baidu.tieba.tracker.core.data.IEventNode;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tieba.bu;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.mu;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class mq5 {
+public class mq5 extends iq5<hz4, ThreadCardViewHolder<hz4>> {
     public static /* synthetic */ Interceptable $ic;
-    public static final mq5 a;
-    public static final Map<String, PvData> b;
-    public static final b c;
-    public static final c d;
     public transient /* synthetic */ FieldHolder $fh;
+    public xl6<hz4> g;
 
     /* loaded from: classes7.dex */
-    public static final class a extends cma {
+    public class a extends xl6<hz4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mq5 b;
 
-        public a() {
+        public a(mq5 mq5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mq5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.cma
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                new lq5().b();
-                MessageManager.getInstance().registerListener(mq5.c);
-                MessageManager.getInstance().registerListener(mq5.d);
-            }
-        }
-
-        @Override // com.baidu.tieba.cma
-        public void b(String ubcId, List<? extends IEventNode> events) {
-            EventParams trackParams;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ubcId, events) == null) {
-                Intrinsics.checkNotNullParameter(ubcId, "ubcId");
-                Intrinsics.checkNotNullParameter(events, "events");
-                LinkedHashMap linkedHashMap = new LinkedHashMap();
-                for (IEventNode iEventNode : events) {
-                    IEventNode endNode = iEventNode.getEndNode();
-                    if (endNode != null && (trackParams = endNode.getTrackParams()) != null) {
-                        String valueOf = String.valueOf(trackParams.get("page"));
-                        String valueOf2 = String.valueOf(trackParams.get("source"));
-                        PvData pvData = (PvData) linkedHashMap.get(valueOf + valueOf2);
-                        if (pvData == null) {
-                            pvData = new PvData(valueOf, valueOf2, 0, 0);
-                        }
-                        if (Intrinsics.areEqual(trackParams.get("type"), hma.a.a.a())) {
-                            pvData.setPv_lost(pvData.getPv_lost() + 1);
-                        }
-                        pvData.setPv(pvData.getPv() + 1);
-                        linkedHashMap.put(valueOf + valueOf2, pvData);
-                    }
-                }
-                mq5.a.i(linkedHashMap);
-            }
-        }
-
-        @Override // com.baidu.tieba.cma
-        public void c(String ubcId, IEventNode event) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, ubcId, event) == null) {
-                Intrinsics.checkNotNullParameter(ubcId, "ubcId");
-                Intrinsics.checkNotNullParameter(event, "event");
-                IEventNode endNode = event.getEndNode();
-                if (endNode != null) {
-                    mq5 mq5Var = mq5.a;
-                    mq5Var.h(mq5Var.g(event, endNode));
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class b extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b() {
-            super(CmdConfigHttp.CMD_HTTP_STATISTICS_REPORT);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.b = mq5Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        @Override // com.baidu.tieba.xl6
+        /* renamed from: d */
+        public void a(View view2, hz4 hz4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                boolean z = false;
-                if (httpResponsedMessage != null && httpResponsedMessage.getError() == 0) {
-                    z = true;
-                }
-                if (z) {
-                    mq5.b.clear();
-                }
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, hz4Var) == null) {
+                this.b.x(view2, hz4Var);
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public static final class c extends CustomMessageListener {
+    public class b implements yi {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mq5 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c() {
-            super(2001011);
+        public b(mq5 mq5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mq5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.a = mq5Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> msg) {
+        @Override // com.baidu.tieba.yi
+        public void b(View view2, oi oiVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, msg) == null) {
-                Intrinsics.checkNotNullParameter(msg, "msg");
-                if ((msg instanceof BackgroundSwitchMessage) && Intrinsics.areEqual(((BackgroundSwitchMessage) msg).getData(), Boolean.TRUE)) {
-                    Tracker.i.a().k();
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, oiVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (oiVar instanceof hz4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
+                hz4 hz4Var = (hz4) oiVar;
+                hz4Var.objType = 1;
+                if (this.a.g != null) {
+                    this.a.g.a(threadCardViewHolder.getView(), hz4Var);
                 }
+                ThreadCardUtils.jumpToPB((bw4) hz4Var, view2.getContext(), this.a.D(), false);
+                threadCardViewHolder.a().q(new mu.a(1));
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947981336, "Lcom/baidu/tieba/mq5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947981336, "Lcom/baidu/tieba/mq5;");
-                return;
-            }
-        }
-        a = new mq5();
-        b = new LinkedHashMap();
-        c = new b();
-        d = new c();
-    }
-
-    public mq5() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mq5(TbPageContext<?> tbPageContext) {
+        super(tbPageContext, ThreadData.TYPE_CONTENT_TEXT_NORMAL);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.g = new a(this);
     }
 
-    public final void j() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: P */
+    public ThreadCardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            try {
-                Tracker a2 = Tracker.i.a();
-                TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-                Intrinsics.checkNotNullExpressionValue(inst, "getInst()");
-                a2.n(inst);
-                Tracker.i.c(new a());
-            } catch (Throwable th) {
-                BdLog.e(th);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            bu.b bVar = new bu.b(this.c.getPageActivity(), false);
+            qt qtVar = new qt(this.c.getPageActivity());
+            qtVar.setFrom(A());
+            qtVar.u(H());
+            bVar.n(qtVar);
+            bu k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.d);
+            k.t(D());
+            ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
+            threadCardViewHolder.i(this.mPageId);
+            setOnAdapterItemClickListener(new b(this));
+            return threadCardViewHolder;
         }
+        return (ThreadCardViewHolder) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:15:0x0046 A[Catch: Exception -> 0x00a9, LOOP:0: B:13:0x0040->B:15:0x0046, LOOP_END, TryCatch #0 {Exception -> 0x00a9, blocks: (B:5:0x0009, B:7:0x0023, B:12:0x0035, B:13:0x0040, B:15:0x0046, B:16:0x005a, B:17:0x0062, B:19:0x0068, B:20:0x007c), top: B:29:0x0009 }] */
-    /* JADX WARN: Removed duplicated region for block: B:19:0x0068 A[Catch: Exception -> 0x00a9, LOOP:1: B:17:0x0062->B:19:0x0068, LOOP_END, TryCatch #0 {Exception -> 0x00a9, blocks: (B:5:0x0009, B:7:0x0023, B:12:0x0035, B:13:0x0040, B:15:0x0046, B:16:0x005a, B:17:0x0062, B:19:0x0068, B:20:0x007c), top: B:29:0x0009 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final JSONObject g(IEventNode iEventNode, IEventNode iEventNode2) {
-        InterceptResult invokeLL;
-        String str;
-        Iterator<Object> it;
-        Iterator<Object> it2;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: Q */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, hz4 hz4Var, ThreadCardViewHolder<hz4> threadCardViewHolder) {
+        InterceptResult invokeCommon;
+        ThreadData threadData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, iEventNode, iEventNode2)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-            } catch (Exception e) {
-                BdLog.e(e);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, hz4Var, threadCardViewHolder})) == null) {
+            if (hz4Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && (threadData = hz4Var.t) != null) {
+                threadData.statFloor = getPositionByType(i) + 1;
+                threadCardViewHolder.a().s(i);
+                threadCardViewHolder.e(hz4Var);
+                threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
+                threadCardViewHolder.a().r(this.g);
+                N(threadCardViewHolder.getView(), hz4Var, i, i);
+                return threadCardViewHolder.getView();
             }
-            if (!Tracker.i.a().j().contains(jSONObject.optString("page", "unknown")) && !Tracker.i.a().h()) {
-                str = "0";
-                jSONObject.put("is_hit_white", str);
-                it = iEventNode2.getTrackParams().iterator();
-                while (it.hasNext()) {
-                    Map.Entry entry = (Map.Entry) it.next();
-                    jSONObject.put((String) entry.getKey(), entry.getValue());
-                }
-                it2 = iEventNode.getTrackParams().iterator();
-                while (it2.hasNext()) {
-                    Map.Entry entry2 = (Map.Entry) it2.next();
-                    jSONObject.put((String) entry2.getKey(), entry2.getValue());
-                }
-                jSONObject.put("start_time", String.valueOf(iEventNode.getTimeStamp()));
-                jSONObject.put("end_time", String.valueOf(iEventNode2.getTimeStamp()));
-                jSONObject.put("duration", String.valueOf(iEventNode2.getTimeStamp() - iEventNode.getTimeStamp()));
-                return jSONObject;
-            }
-            str = "1";
-            jSONObject.put("is_hit_white", str);
-            it = iEventNode2.getTrackParams().iterator();
-            while (it.hasNext()) {
-            }
-            it2 = iEventNode.getTrackParams().iterator();
-            while (it2.hasNext()) {
-            }
-            jSONObject.put("start_time", String.valueOf(iEventNode.getTimeStamp()));
-            jSONObject.put("end_time", String.valueOf(iEventNode2.getTimeStamp()));
-            jSONObject.put("duration", String.valueOf(iEventNode2.getTimeStamp() - iEventNode.getTimeStamp()));
-            return jSONObject;
+            return null;
         }
-        return (JSONObject) invokeLL.objValue;
-    }
-
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [('[' char), (r5v0 org.json.JSONObject), (']' char)] */
-    public final void h(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_HTTP_EXCEPTION_REPORT);
-            StringBuilder sb = new StringBuilder();
-            sb.append('[');
-            sb.append(jSONObject);
-            sb.append(']');
-            httpMessage.addParam("log_data", sb.toString());
-            MessageManager.getInstance().sendMessage(httpMessage);
-        }
-    }
-
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [('[' char), (wrap: java.lang.Object : ?: CAST (java.lang.Object) (r5v3 java.lang.StringBuilder)), (']' char)] */
-    public final void i(Map<String, PvData> map) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) {
-            for (Map.Entry<String, PvData> entry : map.entrySet()) {
-                if (b.get(entry.getKey()) != null) {
-                    entry.getValue().merge(b.get(entry.getKey()));
-                } else {
-                    b.put(entry.getKey(), entry.getValue());
-                }
-            }
-            StringBuilder sb = new StringBuilder();
-            for (Map.Entry<String, PvData> entry2 : b.entrySet()) {
-                if (sb.length() > 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (z) {
-                    sb.append(",");
-                }
-                sb.append(DataExt.toJson(entry2.getValue()));
-            }
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_HTTP_STATISTICS_REPORT);
-            StringBuilder sb2 = new StringBuilder();
-            sb2.append('[');
-            sb2.append((Object) sb);
-            sb2.append(']');
-            httpMessage.addParam("monitor_data", sb2.toString());
-            MessageManager.getInstance().sendMessage(httpMessage);
-        }
+        return (View) invokeCommon.objValue;
     }
 }

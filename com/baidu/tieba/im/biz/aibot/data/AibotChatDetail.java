@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.download.unified.SourceConstant;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.b;
+import com.baidu.tieba.c;
 import com.baidu.tieba.im.biz.aibot.data.AibotChatDetail;
 import com.baidu.tieba.im.dispatcher.AiBotChatDispatcher;
 import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
@@ -960,7 +960,7 @@ public final class AibotChatDetail implements Serializable {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? (((((((((((((((((((this.uk.hashCode() * 31) + b.a(this.paid)) * 31) + this.name.hashCode()) * 31) + this.portrait.hashCode()) * 31) + this.gender) * 31) + this.tags.hashCode()) * 31) + this.dialogNum) * 31) + this.createUname.hashCode()) * 31) + this.description.hashCode()) * 31) + this.relation.hashCode()) * 31) + this.label.hashCode() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? (((((((((((((((((((this.uk.hashCode() * 31) + c.a(this.paid)) * 31) + this.name.hashCode()) * 31) + this.portrait.hashCode()) * 31) + this.gender) * 31) + this.tags.hashCode()) * 31) + this.dialogNum) * 31) + this.createUname.hashCode()) * 31) + this.description.hashCode()) * 31) + this.relation.hashCode()) * 31) + this.label.hashCode() : invokeV.intValue;
         }
 
         public String toString() {

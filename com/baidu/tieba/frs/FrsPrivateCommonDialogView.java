@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cg5;
-import com.baidu.tieba.fp6;
+import com.baidu.tieba.rh5;
+import com.baidu.tieba.vq6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -105,7 +105,7 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, privateForumPopInfoData, z)) == null) {
-            if (privateForumPopInfoData == null || StringUtils.isEmpty(privateForumPopInfoData.Q()) || d(privateForumPopInfoData, z)) {
+            if (privateForumPopInfoData == null || StringUtils.isEmpty(privateForumPopInfoData.R()) || d(privateForumPopInfoData, z)) {
                 return false;
             }
             return true;
@@ -136,7 +136,7 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, privateForumPopInfoData, z)) == null) {
-            String str = privateForumPopInfoData.Q() + "_" + privateForumPopInfoData.P() + "_" + privateForumPopInfoData.N();
+            String str = privateForumPopInfoData.R() + "_" + privateForumPopInfoData.Q() + "_" + privateForumPopInfoData.O();
             if (z) {
                 return str + "_" + TbadkCoreApplication.getCurrentAccount();
             }
@@ -175,19 +175,19 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
             if (!b(privateForumPopInfoData, z)) {
                 return false;
             }
-            a(g(privateForumPopInfoData.Q()));
-            if (privateForumPopInfoData.Q().equals("left_time")) {
+            a(g(privateForumPopInfoData.R()));
+            if (privateForumPopInfoData.R().equals("left_time")) {
                 this.f.setText(R.string.frs_private_create_button);
                 SkinManager.setImageResource(this.a, R.drawable.pic_frs_private_target_remind);
-            } else if (!privateForumPopInfoData.Q().equals("clear_forum") && !privateForumPopInfoData.Q().equals("task_fail")) {
-                if (privateForumPopInfoData.Q().equals("task_complete")) {
+            } else if (!privateForumPopInfoData.R().equals("clear_forum") && !privateForumPopInfoData.R().equals("task_fail")) {
+                if (privateForumPopInfoData.R().equals("task_complete")) {
                     this.f.setText(R.string.frs_private_create_button);
                     SkinManager.setImageResource(this.a, R.drawable.pic_frs_private_target_success);
                 } else {
                     this.f.setText(R.string.frs_private_create_button);
                     h();
                     SkinManager.setImageResource(this.c, R.drawable.pic_frs_private_create_success);
-                    Glide.with(this.a).load(fp6.b("pic_frs_private_create_success_bg.webp", "pic_frs_private_create_success_bg")).into(this.a);
+                    Glide.with(this.a).load(vq6.b("pic_frs_private_create_success_bg.webp", "pic_frs_private_create_success_bg")).into(this.a);
                 }
             } else {
                 this.f.setText(R.string.frs_private_fail_button);
@@ -196,7 +196,7 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
             this.f.setTag(R.id.is_forum_owner_check, Boolean.valueOf(z));
             this.f.setTag(R.id.private_pop_info, privateForumPopInfoData);
             this.d.setText(privateForumPopInfoData.getTitle());
-            this.e.setText(privateForumPopInfoData.O());
+            this.e.setText(privateForumPopInfoData.P());
             return true;
         }
         return invokeLZ.booleanValue;
@@ -233,7 +233,7 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.b.setVisibility(0);
             this.c.setVisibility(0);
-            String avater = cg5.d().e().getAvater();
+            String avater = rh5.d().e().getAvater();
             if (avater.startsWith("http")) {
                 this.b.startLoad(avater, 10, false);
             } else {

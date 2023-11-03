@@ -2,11 +2,13 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.yf3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,23 +17,25 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class wf3 extends m73 {
+public class wf3 extends d83 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public class a implements tf3 {
+    public class a implements yf3.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
+        public final /* synthetic */ UnitedSchemeEntity b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ wf3 d;
 
-        public a(wf3 wf3Var, CallbackHandler callbackHandler, String str) {
+        public a(wf3 wf3Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {wf3Var, callbackHandler, str};
+                Object[] objArr = {wf3Var, callbackHandler, unitedSchemeEntity, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -41,36 +45,29 @@ public class wf3 extends m73 {
                     return;
                 }
             }
+            this.d = wf3Var;
             this.a = callbackHandler;
-            this.b = str;
+            this.b = unitedSchemeEntity;
+            this.c = str;
         }
 
-        @Override // com.baidu.tieba.tf3
+        @Override // com.baidu.tieba.yf3.b
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                p22.i("MemoryWarningAction", "trimMemory consume level:" + i);
-                if (i == 10 || i == 15) {
-                    JSONObject jSONObject = new JSONObject();
-                    try {
-                        jSONObject.put("level", i);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                    this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
-                }
+                this.d.k(i, this.a, this.b, this.c);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wf3(m63 m63Var) {
-        super(m63Var, "/swanAPI/memoryWarning");
+    public wf3(d73 d73Var) {
+        super(d73Var, "/swanAPI/startMediaVolumeListen");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {m63Var};
+            Object[] objArr = {d73Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -84,40 +81,67 @@ public class wf3 extends m73 {
         }
     }
 
-    @Override // com.baidu.tieba.m73
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, p53 p53Var) {
+    @Override // com.baidu.tieba.d83
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g63 g63Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, p53Var)) == null) {
-            if (context != null && callbackHandler != null && p53Var != null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g63Var)) == null) {
+            if (g63Var == null) {
+                g32.c("startMediaVolumeListen", "none swanApp");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal swanApp");
+                return false;
+            } else if (context == null) {
+                g32.c("startMediaVolumeListen", "none context");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal context");
+                return false;
+            } else {
                 JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
                 if (optParamsAsJo == null) {
-                    p22.c("MemoryWarningAction", "params is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    g32.c("startMediaVolumeListen", "none params");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
                     return false;
                 }
                 String optString = optParamsAsJo.optString("cb");
                 if (TextUtils.isEmpty(optString)) {
-                    p22.c("MemoryWarningAction", "callback is null");
+                    g32.c("startMediaVolumeListen", "cb is empty");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                     return false;
                 }
-                j(context, callbackHandler, optString);
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                String optString2 = optParamsAsJo.optString("id");
+                if (TextUtils.isEmpty(optString2)) {
+                    g32.c("startMediaVolumeListen", "id is empty");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                yf3.e().d(optString2, new a(this, callbackHandler, unitedSchemeEntity, optString));
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 return true;
             }
-            p22.c("MemoryWarningAction", "execute fail");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-            return false;
         }
         return invokeLLLL.booleanValue;
     }
 
-    public void j(Context context, CallbackHandler callbackHandler, String str) {
-        uf3 b;
+    public final void k(double d, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, callbackHandler, str) == null) && (context instanceof vf3) && (b = ((vf3) context).b()) != null) {
-            b.b(new a(this, callbackHandler, str));
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d), callbackHandler, unitedSchemeEntity, str}) == null) {
+            JSONObject jSONObject = new JSONObject();
+            int f = (int) ((d / yf3.e().f()) * 100.0d);
+            if (f < 0) {
+                f = 0;
+            }
+            if (f > 100) {
+                f = 100;
+            }
+            try {
+                jSONObject.put("volume", f);
+                if (d83.b) {
+                    Log.d("startMediaVolumeListen", "NewVolume: " + f);
+                }
+                UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
+            } catch (JSONException e) {
+                g32.c("startMediaVolumeListen", "handle volume json error，" + e.toString());
+                UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001, "Json error").toString(), str);
+            }
         }
     }
 }

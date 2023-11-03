@@ -87,11 +87,11 @@ public class VideoFullscreenButton extends RelativeLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d09da, (ViewGroup) this, true);
-            EMTextView eMTextView = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090dba);
-            WebPManager.setPureDrawable((ImageView) findViewById(R.id.obfuscated_res_0x7f090db9), R.drawable.obfuscated_res_0x7f080c49, R.color.CAM_X0101, null);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d09f3, (ViewGroup) this, true);
+            EMTextView eMTextView = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090df1);
+            WebPManager.setPureDrawable((ImageView) findViewById(R.id.obfuscated_res_0x7f090df0), R.drawable.obfuscated_res_0x7f080c5c, R.color.CAM_X0101, null);
             eMTextView.setTextColor(SkinManager.getColor(R.color.CAM_X0102));
-            eMTextView.setText(getResources().getString(R.string.obfuscated_res_0x7f0f17f5));
+            eMTextView.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1810));
             eMTextView.setGravity(17);
         }
     }

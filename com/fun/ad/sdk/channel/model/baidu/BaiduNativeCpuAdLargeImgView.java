@@ -132,15 +132,15 @@ public class BaiduNativeCpuAdLargeImgView extends LinearLayout {
                 if (TextUtils.isEmpty(iBasicCPUData.getBrandName())) {
                     this.d.setText(iBasicCPUData.getBrandName());
                 } else {
-                    this.d.setText(R.string.obfuscated_res_0x7f0f08bd);
+                    this.d.setText(R.string.obfuscated_res_0x7f0f08c9);
                 }
                 GlideHelper.get().load(getContext(), iBasicCPUData.getAdLogoUrl(), this.e);
                 if (iBasicCPUData.isNeedDownloadApp()) {
                     button = this.f;
-                    i = R.string.obfuscated_res_0x7f0f08a8;
+                    i = R.string.obfuscated_res_0x7f0f08b4;
                 } else {
                     button = this.f;
-                    i = R.string.obfuscated_res_0x7f0f08aa;
+                    i = R.string.obfuscated_res_0x7f0f08b6;
                 }
                 button.setText(i);
             } else {
@@ -170,12 +170,12 @@ public class BaiduNativeCpuAdLargeImgView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onFinishInflate();
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0900ae);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900bc);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900b8);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090114);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900ef);
-            this.f = (Button) findViewById(R.id.obfuscated_res_0x7f0900aa);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0900c1);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900cf);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900cb);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090127);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f090102);
+            this.f = (Button) findViewById(R.id.obfuscated_res_0x7f0900bd);
         }
     }
 

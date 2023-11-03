@@ -182,7 +182,7 @@ public final class DispatchedContinuation<T> extends DispatchedTask<T> implement
             CancellationException cancellationException = job.getCancellationException();
             cancelCompletedResult$kotlinx_coroutines_core(obj, cancellationException);
             Result.Companion companion = Result.Companion;
-            resumeWith(Result.m851constructorimpl(ResultKt.createFailure(cancellationException)));
+            resumeWith(Result.m855constructorimpl(ResultKt.createFailure(cancellationException)));
             return true;
         }
         return false;
@@ -195,7 +195,7 @@ public final class DispatchedContinuation<T> extends DispatchedTask<T> implement
         if (this.dispatcher.isDispatchNeeded(getContext())) {
             this._state = state;
             this.resumeMode = 1;
-            this.dispatcher.mo2346dispatch(getContext(), this);
+            this.dispatcher.mo2350dispatch(getContext(), this);
             return;
         }
         DebugKt.getASSERTIONS_ENABLED();
@@ -213,7 +213,7 @@ public final class DispatchedContinuation<T> extends DispatchedTask<T> implement
                 CancellationException cancellationException = job.getCancellationException();
                 cancelCompletedResult$kotlinx_coroutines_core(state, cancellationException);
                 Result.Companion companion = Result.Companion;
-                resumeWith(Result.m851constructorimpl(ResultKt.createFailure(cancellationException)));
+                resumeWith(Result.m855constructorimpl(ResultKt.createFailure(cancellationException)));
                 z = true;
             } else {
                 z = false;
@@ -303,7 +303,7 @@ public final class DispatchedContinuation<T> extends DispatchedTask<T> implement
         if (this.dispatcher.isDispatchNeeded(context)) {
             this._state = state$default;
             this.resumeMode = 0;
-            this.dispatcher.mo2346dispatch(context, this);
+            this.dispatcher.mo2350dispatch(context, this);
             return;
         }
         DebugKt.getASSERTIONS_ENABLED();

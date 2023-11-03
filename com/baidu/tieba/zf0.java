@@ -1,14 +1,47 @@
 package com.baidu.tieba;
 
-import java.util.HashMap;
-import java.util.List;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public interface zf0 {
-    List<eg0> a();
+public class zf0 {
+    public static /* synthetic */ Interceptable $ic;
+    public static uf0 a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(hy0 hy0Var);
+    public zf0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void c(HashMap<String, eg0> hashMap);
-
-    void d(hy0 hy0Var);
+    public static uf0 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (zf0.class) {
+                    if (a == null) {
+                        a = (uf0) ServiceManager.getService(uf0.a);
+                    }
+                    if (a == null) {
+                        a = uf0.b;
+                    }
+                }
+            }
+            return a;
+        }
+        return (uf0) invokeV.objValue;
+    }
 }

@@ -1,114 +1,67 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.http.request.PostBodyRequest;
-import com.baidu.swan.gamecenter.appmanager.notification.InstallNotifyReceiver;
-import com.baidu.tieba.mq2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.SharedPreferences;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.util.KVStorageFactory;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidubce.AbstractBceClient;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
 public class qx3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static volatile qx3 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public SharedPreferences a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948107165, "Lcom/baidu/tieba/qx3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948107165, "Lcom/baidu/tieba/qx3;");
+    public qx3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = am1.a;
+        this.a = KVStorageFactory.getSharedPreferences("gamecenter_wifi_resume_download_switch", 0);
     }
 
-    public static void a(String str, String str2, String str3, String str4, ox3 ox3Var) {
+    public static qx3 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65537, null, str, str2, str3, str4, ox3Var) == null) {
-            String l = px3.l(str2);
-            if (TextUtils.isEmpty(l)) {
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (qx3.class) {
+                    if (b == null) {
+                        b = new qx3();
+                    }
+                }
             }
-            if (a) {
-                Log.d("GameCenterStatistic", "packageName:" + str + ";operation:" + str2 + ";value:" + str3 + ";errorCode:" + str4);
-            }
-            if (TextUtils.isEmpty(str)) {
-                return;
-            }
-            px3 px3Var = new px3();
-            px3Var.m(ox3Var);
-            px3Var.b = l;
-            px3Var.e = str3;
-            px3Var.v = str;
-            px3Var.l = jj3.D();
-            if (p53.c0() != null) {
-                mq2.a X = p53.c0().X();
-                px3Var.a = ic3.n(X.H());
-                px3Var.f = X.I();
-                px3Var.c = X.U();
-            }
-            px3Var.t = str4;
-            ic3.x("1245", px3Var);
+            return b;
         }
+        return (qx3) invokeV.objValue;
     }
 
-    public static void b(String str, String str2) {
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-            c(str, str2, "");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.getBoolean("gamecenter_wifi_resume_download_flag", false);
         }
+        return invokeV.booleanValue;
     }
 
-    public static void c(String str, String str2, String str3) {
+    public void c(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, str3) == null) {
-            String l = px3.l(str);
-            if (TextUtils.isEmpty(l)) {
-                return;
-            }
-            px3 px3Var = new px3();
-            px3Var.b = l;
-            px3Var.a(InstallNotifyReceiver.OPPORTUNITY, str2);
-            if (str3 == null) {
-                str3 = "";
-            }
-            px3Var.a("packageName", str3);
-            ic3.x("1245", px3Var);
-        }
-    }
-
-    public static void d(int i, String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), str, str2, str3}) == null) {
-            String d = g24.b().d();
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("cuid", wo2.h0().i(wo2.c()));
-                jSONObject.put("type", i);
-                jSONObject.put("time", System.currentTimeMillis() / 1000);
-                jSONObject.put("host", wo2.n().a());
-                jSONObject.put("version", jj3.D());
-                jSONObject.put("package", str);
-                jSONObject.put("appid", str2);
-                jSONObject.put("url", str3);
-                ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) tc4.h(wo2.c()).postRequest().cookieManager(wo2.q().a())).url(d)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(null);
-            } catch (Exception unused) {
-            }
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            SharedPreferences.Editor edit = this.a.edit();
+            edit.putBoolean("gamecenter_wifi_resume_download_flag", z);
+            edit.apply();
         }
     }
 }

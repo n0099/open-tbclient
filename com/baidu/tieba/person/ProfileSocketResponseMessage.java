@@ -9,13 +9,13 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.dp9;
-import com.baidu.tieba.gz4;
-import com.baidu.tieba.ju7;
-import com.baidu.tieba.m9;
-import com.baidu.tieba.sf8;
-import com.baidu.tieba.xo9;
-import com.baidu.tieba.yo9;
+import com.baidu.tieba.c2a;
+import com.baidu.tieba.ca;
+import com.baidu.tieba.d2a;
+import com.baidu.tieba.e78;
+import com.baidu.tieba.i2a;
+import com.baidu.tieba.qs8;
+import com.baidu.tieba.yz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,7 +48,7 @@ import tbclient.ThreadInfo;
 import tbclient.User;
 import tbclient.UserManChannelInfo;
 /* loaded from: classes7.dex */
-public class ProfileSocketResponseMessage extends SocketResponsedMessage implements yo9 {
+public class ProfileSocketResponseMessage extends SocketResponsedMessage implements d2a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PROFILE_CACHE_KEY = "profile_cache_key";
     public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +65,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
     public boolean isSelf;
     public AlaLiveInfoCoreData liveInfoData;
     public List<AlaLiveInfoCoreData> liveReplayData;
-    public ju7 mLiveGoodsWindowData;
+    public e78 mLiveGoodsWindowData;
     public int maskType;
     public MemberBlockInfo memberBlockInfo;
     public ModuleInfo moduleInfo;
@@ -75,7 +75,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
     public List<PostInfoList> post_list;
     public List<SmartApp> recomSwanList;
     public TAInfo tainfo;
-    public dp9 ucCardData;
+    public i2a ucCardData;
     public User user;
     public UserAgreeInfo userAgreeInfo;
     public UserGodInfo userGodInfo;
@@ -100,7 +100,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         }
     }
 
-    @Override // com.baidu.tieba.yo9
+    @Override // com.baidu.tieba.d2a
     public Anti GetAntiStat() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -110,7 +110,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         return (Anti) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yo9
+    @Override // com.baidu.tieba.d2a
     public List<PostInfoList> GetPostList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -120,7 +120,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yo9
+    @Override // com.baidu.tieba.d2a
     public User GetUser() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -139,7 +139,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yo9
+    @Override // com.baidu.tieba.d2a
     public TbBookrack getBookrackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -149,7 +149,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         return (TbBookrack) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yo9
+    @Override // com.baidu.tieba.d2a
     public List<ForumDynamic> getConcernedForumList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -159,7 +159,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yo9
+    @Override // com.baidu.tieba.d2a
     public List<DynamicInfo> getDynamicInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -169,7 +169,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yo9
+    @Override // com.baidu.tieba.d2a
     public int getErrorCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -197,14 +197,14 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         return (Feedback) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yo9
-    public ju7 getGoodsWindowInfo() {
+    @Override // com.baidu.tieba.d2a
+    public e78 getGoodsWindowInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             return this.mLiveGoodsWindowData;
         }
-        return (ju7) invokeV.objValue;
+        return (e78) invokeV.objValue;
     }
 
     public Highlist getHighlist() {
@@ -216,7 +216,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         return (Highlist) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yo9
+    @Override // com.baidu.tieba.d2a
     public HotUserRankEntry getHotRankEntry() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -226,7 +226,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         return (HotUserRankEntry) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yo9
+    @Override // com.baidu.tieba.d2a
     public AlaLiveInfoCoreData getLiveInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -236,7 +236,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         return (AlaLiveInfoCoreData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yo9
+    @Override // com.baidu.tieba.d2a
     public List<AlaLiveInfoCoreData> getLiveReplayInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -246,7 +246,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yo9
+    @Override // com.baidu.tieba.d2a
     public int getMaskType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -274,7 +274,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         return (ModuleInfo) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yo9
+    @Override // com.baidu.tieba.d2a
     public List<ThreadInfo> getNewestThreadList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -284,7 +284,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yo9
+    @Override // com.baidu.tieba.d2a
     public NicknameInfo getNicknameInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -312,7 +312,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yo9
+    @Override // com.baidu.tieba.d2a
     public TAInfo getTaInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -322,16 +322,16 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         return (TAInfo) invokeV.objValue;
     }
 
-    public dp9 getUcCardData() {
+    public i2a getUcCardData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
             return this.ucCardData;
         }
-        return (dp9) invokeV.objValue;
+        return (i2a) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yo9
+    @Override // com.baidu.tieba.d2a
     public UserAgreeInfo getUserAgreeInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -350,7 +350,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         return (UserManChannelInfo) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yo9
+    @Override // com.baidu.tieba.d2a
     public UserGodInfo getUserGodInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -401,12 +401,12 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048580, this, i, bArr) == null) {
-            gz4.k();
-            m9<byte[]> j = gz4.j("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
+            yz4.l();
+            ca<byte[]> k = yz4.k("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
             if (bArr != null && this.isSelf) {
-                j.g("profile_cache_key", bArr);
+                k.g("profile_cache_key", bArr);
             }
-            sf8.b(this.isSelf, this.anti_stat);
+            qs8.b(this.isSelf, this.anti_stat);
         }
     }
 
@@ -417,14 +417,14 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         if (interceptable == null || interceptable.invokeIL(1048582, this, i, bArr) == null) {
             super.beforeDispatchInBackGround(i, (int) bArr);
             if (this.ucCardData != null) {
-                gz4.k();
-                m9<String> m = gz4.m("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount());
-                if (m != null && this.isSelf) {
-                    List<dp9.a> list = this.ucCardData.a;
+                yz4.l();
+                ca<String> n = yz4.n("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount());
+                if (n != null && this.isSelf) {
+                    List<i2a.a> list = this.ucCardData.a;
                     if (ListUtils.getCount(list) > 4) {
                         list.get(4).b = 8L;
-                        for (dp9.a aVar : list) {
-                            if (aVar.b > JavaTypesHelper.toLong(m.get(aVar.a), 0L)) {
+                        for (i2a.a aVar : list) {
+                            if (aVar.b > JavaTypesHelper.toLong(n.get(aVar.a), 0L)) {
                                 aVar.c = true;
                             } else {
                                 aVar.c = false;
@@ -460,7 +460,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
             if (getError() != 0) {
                 return profileResIdl;
             }
-            xo9 personCenterData = profileRequestMessage.getPersonCenterData();
+            c2a personCenterData = profileRequestMessage.getPersonCenterData();
             if (personCenterData != null) {
                 personCenterData.b(profileResIdl);
             }
@@ -472,9 +472,9 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
                 this.tainfo = dataRes.tainfo;
                 this.post_list = dataRes.post_list;
                 if (dataRes.uc_card != null) {
-                    dp9 dp9Var = new dp9();
-                    this.ucCardData = dp9Var;
-                    dp9Var.a(profileResIdl.data.uc_card);
+                    i2a i2aVar = new i2a();
+                    this.ucCardData = i2aVar;
+                    i2aVar.a(profileResIdl.data.uc_card);
                 }
                 DataRes dataRes2 = profileResIdl.data;
                 this.bookrack = dataRes2.tbbookrack;
@@ -490,9 +490,9 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
                     alaLiveInfoCoreData.parserProtoBuf(profileResIdl.data.ala_live_info);
                 }
                 if (profileResIdl.data.goods_win != null) {
-                    ju7 ju7Var = new ju7();
-                    this.mLiveGoodsWindowData = ju7Var;
-                    ju7Var.b(profileResIdl.data.goods_win);
+                    e78 e78Var = new e78();
+                    this.mLiveGoodsWindowData = e78Var;
+                    e78Var.b(profileResIdl.data.goods_win);
                 }
                 if (!ListUtils.isEmpty(profileResIdl.data.ala_live_record)) {
                     this.liveReplayData = new ArrayList();

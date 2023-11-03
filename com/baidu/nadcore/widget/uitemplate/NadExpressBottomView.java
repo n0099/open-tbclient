@@ -12,15 +12,15 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a21;
-import com.baidu.tieba.c11;
-import com.baidu.tieba.pe0;
-import com.baidu.tieba.tx0;
+import com.baidu.tieba.gf0;
+import com.baidu.tieba.ky0;
+import com.baidu.tieba.r21;
+import com.baidu.tieba.t11;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class NadExpressBottomView extends ViewGroup {
-    public static final int l = c11.c.a(pe0.b(), 3.0f);
-    public static final int m = c11.c.a(pe0.b(), 0.0f);
+    public static final int l = t11.c.a(gf0.b(), 3.0f);
+    public static final int m = t11.c.a(gf0.b(), 0.0f);
     public static final int n = d(R.dimen.NAD_F_M_W_X007);
     public static final int o;
     public static final int p;
@@ -55,11 +55,11 @@ public class NadExpressBottomView extends ViewGroup {
     }
 
     public static int c(int i) {
-        return ContextCompat.getColor(pe0.b(), i);
+        return ContextCompat.getColor(gf0.b(), i);
     }
 
     public static int d(int i) {
-        return pe0.b().getResources().getDimensionPixelSize(i);
+        return gf0.b().getResources().getDimensionPixelSize(i);
     }
 
     public final float f(TextPaint textPaint) {
@@ -146,23 +146,23 @@ public class NadExpressBottomView extends ViewGroup {
             return;
         }
         while (i3 < this.g.size()) {
-            if (TextUtils.equals((CharSequence) tx0.d(this.g, i3), this.c)) {
-                i = (int) (i + g((String) tx0.d(this.g, i3), this.f) + n);
+            if (TextUtils.equals((CharSequence) ky0.d(this.g, i3), this.c)) {
+                i = (int) (i + g((String) ky0.d(this.g, i3), this.f) + n);
                 i2 = l * 2;
             } else {
-                if (!TextUtils.isEmpty(this.b) && TextUtils.equals((CharSequence) tx0.d(this.g, i3), this.k)) {
+                if (!TextUtils.isEmpty(this.b) && TextUtils.equals((CharSequence) ky0.d(this.g, i3), this.k)) {
                     i2 = this.i - i;
-                    float g2 = g((String) tx0.d(this.g, i3), this.e) + n;
+                    float g2 = g((String) ky0.d(this.g, i3), this.e) + n;
                     float f = i2;
                     if (f > g2) {
                         g = i + g2;
                     } else {
-                        String b = a21.b(this.d, this.b, f, this.e);
+                        String b = r21.b(this.d, this.b, f, this.e);
                         this.k = b;
-                        tx0.a(this.g, b, i3);
+                        ky0.a(this.g, b, i3);
                     }
                 } else {
-                    g = i + g((String) tx0.d(this.g, i3), this.e) + n;
+                    g = i + g((String) ky0.d(this.g, i3), this.e) + n;
                 }
                 i = (int) g;
                 if (i <= this.i) {
@@ -186,13 +186,13 @@ public class NadExpressBottomView extends ViewGroup {
         int i3 = 0;
         for (int i4 = 0; i4 < min; i4++) {
             int measuredHeight = getMeasuredHeight();
-            if (TextUtils.equals((CharSequence) tx0.d(this.g, i4), this.c)) {
+            if (TextUtils.equals((CharSequence) ky0.d(this.g, i4), this.c)) {
                 canvas.drawText(this.c, l + i3, ((((measuredHeight - i2) / 2.0f) + (q / 2.0f)) - ((this.f.getFontMetrics().top + this.f.getFontMetrics().bottom) / 2.0f)) - 1.0f, this.f);
                 f = i3;
                 g = g(this.c, this.f) + l;
                 i = n;
             } else {
-                String str = (String) tx0.d(this.g, i4);
+                String str = (String) ky0.d(this.g, i4);
                 if (!TextUtils.isEmpty(str)) {
                     f = i3;
                     canvas.drawText(str, f, e(this.e, measuredHeight), this.e);
@@ -211,7 +211,7 @@ public class NadExpressBottomView extends ViewGroup {
         this.a.setImageDrawable(getResources().getDrawable(R.drawable.nad_unlike_btn_icon));
         this.a.setId(R.id.nad_base_delete_id);
         this.a.setContentDescription("不感兴趣");
-        a21.a(getContext(), this.a, 15.0f);
+        r21.a(getContext(), this.a, 15.0f);
         setWillNotDraw(false);
         TextPaint textPaint = new TextPaint();
         this.e = textPaint;
@@ -229,7 +229,7 @@ public class NadExpressBottomView extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        a21.a(getContext(), this.a, 15.0f);
+        r21.a(getContext(), this.a, 15.0f);
     }
 
     @Override // android.view.ViewGroup, android.view.View

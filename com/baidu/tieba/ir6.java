@@ -1,82 +1,115 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
+import tbclient.ThemeColorInfo;
 /* loaded from: classes6.dex */
 public final class ir6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final List<ThemeColorInfo> b;
+    public final boolean c;
 
-    public static final <T extends gq6> T a(hq6 hq6Var, Class<T> type, i0 entity, zp6 item) {
-        InterceptResult invokeLLLL;
-        T t;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, hq6Var, type, entity, item)) == null) {
-            Intrinsics.checkNotNullParameter(hq6Var, "<this>");
-            Intrinsics.checkNotNullParameter(type, "type");
-            Intrinsics.checkNotNullParameter(entity, "entity");
-            Intrinsics.checkNotNullParameter(item, "item");
-            h0 f = hq6Var.f();
-            if (f != null && (t = (T) f.h(type)) != null) {
-                entity.a(t);
-                t.b(item);
-                return t;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            return null;
-        }
-        return (T) invokeLLLL.objValue;
-    }
-
-    public static final long b(hq6 hq6Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, hq6Var)) == null) {
-            Intrinsics.checkNotNullParameter(hq6Var, "<this>");
-            return d(hq6Var).a();
-        }
-        return invokeL.longValue;
-    }
-
-    public static final zr6 c(hq6 hq6Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, hq6Var)) == null) {
-            Intrinsics.checkNotNullParameter(hq6Var, "<this>");
-            return hq6Var.j().d();
-        }
-        return (zr6) invokeL.objValue;
-    }
-
-    public static final cs6 d(hq6 hq6Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, hq6Var)) == null) {
-            Intrinsics.checkNotNullParameter(hq6Var, "<this>");
-            return hq6Var.j().f();
-        }
-        return (cs6) invokeL.objValue;
-    }
-
-    public static final boolean e(hq6 hq6Var) {
-        InterceptResult invokeL;
-        fq6 fq6Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, hq6Var)) == null) {
-            Intrinsics.checkNotNullParameter(hq6Var, "<this>");
-            h0 f = hq6Var.f();
-            if (f instanceof fq6) {
-                fq6Var = (fq6) f;
-            } else {
-                fq6Var = null;
+            if (obj instanceof ir6) {
+                ir6 ir6Var = (ir6) obj;
+                return Intrinsics.areEqual(this.a, ir6Var.a) && Intrinsics.areEqual(this.b, ir6Var.b) && this.c == ir6Var.c;
             }
-            if (fq6Var != null) {
-                return fq6Var.y();
-            }
-            return true;
+            return false;
         }
         return invokeL.booleanValue;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r1v3, resolved type: boolean */
+    /* JADX WARN: Multi-variable type inference failed */
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int hashCode = ((this.a.hashCode() * 31) + this.b.hashCode()) * 31;
+            boolean z = this.c;
+            int i = z;
+            if (z != 0) {
+                i = 1;
+            }
+            return hashCode + i;
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "TitleTagsItem(titleText=" + this.a + ", tags=" + this.b + ", isTitleBold=" + this.c + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public ir6(String titleText, List<ThemeColorInfo> tags, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {titleText, tags, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(titleText, "titleText");
+        Intrinsics.checkNotNullParameter(tags, "tags");
+        this.a = titleText;
+        this.b = tags;
+        this.c = z;
+    }
+
+    public /* synthetic */ ir6(String str, List list, boolean z, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(str, list, (i & 4) != 0 ? false : z);
+    }
+
+    public final List<ThemeColorInfo> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
     }
 }

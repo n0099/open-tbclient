@@ -38,7 +38,7 @@ public class j {
                 com.xiaomi.channel.commonutils.logger.b.a("get isMIUI failed", th);
                 a = 0;
             }
-            if (TextUtils.isEmpty(m710a("ro.miui.ui.version.code")) && TextUtils.isEmpty(m710a("ro.miui.ui.version.name"))) {
+            if (TextUtils.isEmpty(m714a("ro.miui.ui.version.code")) && TextUtils.isEmpty(m714a("ro.miui.ui.version.name"))) {
                 z = false;
                 if (z) {
                     i = 2;
@@ -56,11 +56,11 @@ public class j {
     }
 
     public static int a(Context context) {
-        String m710a = m710a("ro.miui.ui.version.code");
-        if (TextUtils.isEmpty(m710a) || !TextUtils.isDigitsOnly(m710a)) {
+        String m714a = m714a("ro.miui.ui.version.code");
+        if (TextUtils.isEmpty(m714a) || !TextUtils.isDigitsOnly(m714a)) {
             return 0;
         }
-        return Integer.parseInt(m710a);
+        return Integer.parseInt(m714a);
     }
 
     public static n a(String str) {
@@ -69,9 +69,9 @@ public class j {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m709a() {
+    public static String m713a() {
         int a2 = s.a();
-        return (!m712a() || a2 <= 0) ? "" : a2 < 2 ? Key.ALPHA : a2 < 3 ? "development" : "stable";
+        return (!m716a() || a2 <= 0) ? "" : a2 < 2 ? Key.ALPHA : a2 < 3 ? "development" : "stable";
     }
 
     public static String a(Intent intent) {
@@ -130,7 +130,7 @@ public class j {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m710a(String str) {
+    public static String m714a(String str) {
         try {
             try {
                 return (String) bj.a(CountryCodeBean.ANDRIOD_SYSTEMPROP, CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, str, "");
@@ -144,7 +144,7 @@ public class j {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m711a() {
+    public static void m715a() {
         if (f811a != null) {
             return;
         }
@@ -199,17 +199,17 @@ public class j {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m712a() {
+    public static boolean m716a() {
         return a() == 1;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m713a(Context context) {
-        return context != null && m714a(context.getPackageName());
+    public static boolean m717a(Context context) {
+        return context != null && m718a(context.getPackageName());
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m714a(String str) {
+    public static boolean m718a(String str) {
         return "com.xiaomi.xmsf".equals(str);
     }
 
@@ -222,7 +222,7 @@ public class j {
     }
 
     public static n b(String str) {
-        m711a();
+        m715a();
         return f811a.get(str.toUpperCase());
     }
 
@@ -244,7 +244,7 @@ public class j {
             a2 = r.a("ro.csc.countryiso_code", "");
         }
         if (TextUtils.isEmpty(a2)) {
-            a2 = m715b(r.a("ro.product.country.region", ""));
+            a2 = m719b(r.a("ro.product.country.region", ""));
         }
         if (TextUtils.isEmpty(a2)) {
             a2 = r.a("gsm.vivo.countrycode", "");
@@ -259,18 +259,18 @@ public class j {
             a2 = r.a("persist.sys.country", "");
         }
         if (!TextUtils.isEmpty(a2)) {
-            com.xiaomi.channel.commonutils.logger.b.m182a("get region from system, region = " + a2);
+            com.xiaomi.channel.commonutils.logger.b.m186a("get region from system, region = " + a2);
         }
         if (TextUtils.isEmpty(a2)) {
             String country = Locale.getDefault().getCountry();
-            com.xiaomi.channel.commonutils.logger.b.m182a("locale.default.country = " + country);
+            com.xiaomi.channel.commonutils.logger.b.m186a("locale.default.country = " + country);
             return country;
         }
         return a2;
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static String m715b(String str) {
+    public static String m719b(String str) {
         if (TextUtils.isEmpty(str)) {
             return str;
         }
@@ -279,37 +279,37 @@ public class j {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m716b() {
+    public static boolean m720b() {
         return a() == 2;
     }
 
     public static String c() {
-        return m710a("ro.miui.ui.version.name");
+        return m714a("ro.miui.ui.version.name");
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public static boolean m717c() {
+    public static boolean m721c() {
         if (b < 0) {
-            b = !m719e() ? 1 : 0;
+            b = !m723e() ? 1 : 0;
         }
         return b > 0;
     }
 
     public static String d() {
-        return m710a("ro.build.characteristics");
+        return m714a("ro.build.characteristics");
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    public static boolean m718d() {
+    public static boolean m722d() {
         return !n.China.name().equalsIgnoreCase(a(b()).name());
     }
 
     public static String e() {
-        return m710a("ro.product.manufacturer");
+        return m714a("ro.product.manufacturer");
     }
 
     /* renamed from: e  reason: collision with other method in class */
-    public static boolean m719e() {
+    public static boolean m723e() {
         String str = "";
         try {
             str = r.a("ro.miui.ui.version.code", "");

@@ -1,36 +1,25 @@
 package com.baidu.tieba;
 
-import android.media.MediaCodec;
-import android.media.MediaCrypto;
-import android.media.MediaFormat;
-import android.view.Surface;
+import android.opengl.Matrix;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.mediainfo.MediaInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class o90 extends j90 {
+public class o90 implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Surface l;
+    public float[] a;
+    public float[] b;
+    public boolean c;
+    public boolean d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947986947, "Lcom/baidu/tieba/o90;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947986947, "Lcom/baidu/tieba/o90;");
+    public void h(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
         }
     }
 
@@ -38,78 +27,94 @@ public class o90 extends j90 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        float[] fArr = new float[16];
+        this.a = fArr;
+        Matrix.setIdentityM(fArr, 0);
+        float[] fArr2 = new float[16];
+        this.b = fArr2;
+        Matrix.setIdentityM(fArr2, 0);
+        this.c = false;
+        this.d = false;
     }
 
-    public Surface k() {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: a */
+    public o90 clone() {
+        o90 o90Var;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                o90Var = (o90) super.clone();
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();
+                o90Var = null;
+            }
+            if (o90Var != null) {
+                o90Var.f((float[]) this.a.clone());
+                o90Var.g((float[]) this.b.clone());
+            }
+            return o90Var;
+        }
+        return (o90) invokeV.objValue;
+    }
+
+    public float[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.l;
+            return this.a;
         }
-        return (Surface) invokeV.objValue;
+        return (float[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.j90
-    public void j() {
+    public float[] c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.h == 0) {
-                this.h = this.e.presentationTimeUs;
-                j90.j = 0L;
-            }
-            MediaCodec.BufferInfo bufferInfo = this.e;
-            long j = bufferInfo.presentationTimeUs - this.h;
-            bufferInfo.presentationTimeUs = j;
-            j90.j = j;
-            e90.x().V(j90.j / 1000);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (float[]) invokeV.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void f(float[] fArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, fArr) == null) {
+            this.a = fArr;
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:15:0x0060  */
-    /* JADX WARN: Removed duplicated region for block: B:22:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void l(l90 l90Var, m90 m90Var) {
-        k90 k90Var;
+    public void g(float[] fArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, l90Var, m90Var) == null) {
-            boolean z = true;
-            if (l90Var != null && m90Var != null) {
-                this.c = m90Var;
-                MediaFormat createVideoFormat = MediaFormat.createVideoFormat(l90Var.j(), l90Var.n(), l90Var.l());
-                createVideoFormat.setInteger("color-format", 2130708361);
-                createVideoFormat.setInteger(MediaInfo.DPM_KEY_BITRATE, l90Var.i());
-                createVideoFormat.setInteger("frame-rate", l90Var.k());
-                createVideoFormat.setInteger("i-frame-interval", l90Var.m());
-                try {
-                    MediaCodec createEncoderByType = MediaCodec.createEncoderByType(l90Var.j());
-                    this.d = createEncoderByType;
-                    createEncoderByType.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
-                    this.l = this.d.createInputSurface();
-                    this.g = true;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                k90Var = this.f;
-                if (k90Var == null) {
-                    k90Var.b(z);
-                    return;
-                }
-                return;
-            }
-            z = false;
-            k90Var = this.f;
-            if (k90Var == null) {
-            }
+        if (interceptable == null || interceptable.invokeL(1048583, this, fArr) == null) {
+            this.b = fArr;
         }
     }
 }

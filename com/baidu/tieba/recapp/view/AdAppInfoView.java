@@ -21,16 +21,16 @@ import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jy0;
-import com.baidu.tieba.lv4;
-import com.baidu.tieba.mz5;
-import com.baidu.tieba.uz9;
+import com.baidu.tieba.az0;
+import com.baidu.tieba.dw4;
+import com.baidu.tieba.g16;
+import com.baidu.tieba.zca;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AdAppInfoView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +43,7 @@ public class AdAppInfoView extends FrameLayout {
     public TextView g;
     public TextView h;
     public RelativeLayout i;
-    public lv4 j;
+    public dw4 j;
     public AdvertAppInfo k;
     public int l;
     public int m;
@@ -110,7 +110,7 @@ public class AdAppInfoView extends FrameLayout {
                 return;
             }
         }
-        this.l = R.layout.obfuscated_res_0x7f0d0067;
+        this.l = R.layout.obfuscated_res_0x7f0d0069;
         this.m = R.color.CAM_X0109;
         this.n = new View.OnClickListener(this) { // from class: com.baidu.tieba.recapp.view.AdAppInfoView.1
             public static /* synthetic */ Interceptable $ic;
@@ -146,7 +146,7 @@ public class AdAppInfoView extends FrameLayout {
                 int id = view2.getId();
                 String str3 = "";
                 if (id == R.id.ad_privacy) {
-                    lv4.c cVar = this.a.j.g;
+                    dw4.c cVar = this.a.j.g;
                     if (cVar != null) {
                         str3 = cVar.b;
                         str = cVar.c;
@@ -155,7 +155,7 @@ public class AdAppInfoView extends FrameLayout {
                     str = "";
                     str2 = str;
                 } else if (id == R.id.ad_permission) {
-                    lv4.b bVar = this.a.j.h;
+                    dw4.b bVar = this.a.j.h;
                     if (bVar != null) {
                         str3 = bVar.b;
                         str = bVar.c;
@@ -165,7 +165,7 @@ public class AdAppInfoView extends FrameLayout {
                     str2 = str;
                 } else {
                     if (id == R.id.ad_feature) {
-                        lv4.a aVar = this.a.j.i;
+                        dw4.a aVar = this.a.j.i;
                         if (aVar != null) {
                             str3 = aVar.b;
                             str = aVar.c;
@@ -178,7 +178,7 @@ public class AdAppInfoView extends FrameLayout {
                     str = "";
                     str2 = str;
                 }
-                uz9.a(this.a.getContext(), str3, null, null, str);
+                zca.a(this.a.getContext(), str3, null, null, str);
                 this.a.d(str2);
             }
         };
@@ -190,7 +190,7 @@ public class AdAppInfoView extends FrameLayout {
         if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, attributeSet) != null) || attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, mz5.SimpleAdInfoView);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, g16.SimpleAdInfoView);
         this.l = obtainStyledAttributes.getResourceId(0, this.l);
         obtainStyledAttributes.recycle();
     }
@@ -222,15 +222,15 @@ public class AdAppInfoView extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, attributeSet) == null) {
             setLayoutByAttrs(attributeSet);
             LayoutInflater.from(getContext()).inflate(getLayoutId(), this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0900f4);
-            this.b = (AdStarRatingBar) findViewById(R.id.obfuscated_res_0x7f0900ff);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090107);
+            this.b = (AdStarRatingBar) findViewById(R.id.obfuscated_res_0x7f090112);
             this.c = (TextView) findViewById(R.id.ad_version);
             this.d = (TextView) findViewById(R.id.ad_author_full_name);
             this.e = (TextView) findViewById(R.id.ad_privacy);
             this.f = (TextView) findViewById(R.id.ad_permission);
             this.g = (TextView) findViewById(R.id.ad_feature);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09010c);
-            this.i = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090945);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09011f);
+            this.i = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090966);
             this.e.setOnClickListener(this.n);
             this.f.setOnClickListener(this.n);
             this.g.setOnClickListener(this.n);
@@ -354,7 +354,7 @@ public class AdAppInfoView extends FrameLayout {
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && this.k != null && !TextUtils.isEmpty(str)) {
             ClogBuilder clogBuilder = new ClogBuilder();
             clogBuilder.y(ClogBuilder.LogType.FREE_CLICK).v("VIDEO_FLOW_TAIL").q(String.valueOf(this.k.position + 1)).j(str).p(this.k.g);
-            jy0.e(clogBuilder);
+            az0.e(clogBuilder);
         }
     }
 
@@ -371,69 +371,69 @@ public class AdAppInfoView extends FrameLayout {
         }
     }
 
-    public void setAppInfo(lv4 lv4Var) {
+    public void setAppInfo(dw4 dw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, lv4Var) == null) {
-            if (lv4Var != null && lv4.c(lv4Var)) {
-                this.j = lv4Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, dw4Var) == null) {
+            if (dw4Var != null && dw4.c(dw4Var)) {
+                this.j = dw4Var;
                 if (this.a != null) {
-                    if (!TextUtils.isEmpty(lv4Var.c)) {
+                    if (!TextUtils.isEmpty(dw4Var.c)) {
                         this.a.setVisibility(0);
-                        this.a.setText(lv4Var.c);
+                        this.a.setText(dw4Var.c);
                     } else {
                         this.a.setVisibility(8);
                     }
                 }
                 AdStarRatingBar adStarRatingBar = this.b;
                 if (adStarRatingBar != null) {
-                    float f = lv4Var.e;
+                    float f = dw4Var.e;
                     if (f >= 0.0f && f <= 5.0f) {
                         adStarRatingBar.setVisibility(0);
-                        this.b.setRating(lv4Var.e);
+                        this.b.setRating(dw4Var.e);
                     } else {
                         this.b.setVisibility(8);
                     }
                 }
                 if (this.c != null) {
-                    if (!TextUtils.isEmpty(lv4Var.f)) {
+                    if (!TextUtils.isEmpty(dw4Var.f)) {
                         this.c.setVisibility(0);
-                        this.c.setText(lv4Var.f);
+                        this.c.setText(dw4Var.f);
                     } else {
                         this.c.setVisibility(8);
                     }
                 }
                 if (this.d != null) {
-                    if (!TextUtils.isEmpty(lv4Var.d)) {
+                    if (!TextUtils.isEmpty(dw4Var.d)) {
                         this.d.setVisibility(0);
-                        this.d.setText(lv4Var.d);
+                        this.d.setText(dw4Var.d);
                         c();
                     } else {
                         this.d.setVisibility(8);
                     }
                 }
                 if (this.e != null) {
-                    lv4.c cVar = lv4Var.g;
-                    if (cVar != null && !TextUtils.isEmpty(cVar.b) && !TextUtils.isEmpty(lv4Var.g.a)) {
+                    dw4.c cVar = dw4Var.g;
+                    if (cVar != null && !TextUtils.isEmpty(cVar.b) && !TextUtils.isEmpty(dw4Var.g.a)) {
                         this.e.setVisibility(0);
-                        this.e.setText(lv4Var.g.a);
+                        this.e.setText(dw4Var.g.a);
                     } else {
                         this.e.setVisibility(8);
                     }
                 }
                 if (this.f != null) {
-                    lv4.b bVar = lv4Var.h;
-                    if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(lv4Var.h.a)) {
+                    dw4.b bVar = dw4Var.h;
+                    if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(dw4Var.h.a)) {
                         this.f.setVisibility(0);
-                        this.f.setText(lv4Var.h.a);
+                        this.f.setText(dw4Var.h.a);
                     } else {
                         this.f.setVisibility(8);
                     }
                 }
                 if (this.g != null) {
-                    lv4.a aVar = lv4Var.i;
-                    if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(lv4Var.i.a)) {
+                    dw4.a aVar = dw4Var.i;
+                    if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(dw4Var.i.a)) {
                         this.g.setVisibility(0);
-                        this.g.setText(lv4Var.i.a);
+                        this.g.setText(dw4Var.i.a);
                     } else {
                         this.g.setVisibility(8);
                     }

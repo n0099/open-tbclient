@@ -7,7 +7,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.sdk.internal.bx;
 import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
-import com.baidu.tieba.xsa;
+import com.baidu.tieba.y5b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -148,7 +148,7 @@ public class MusicPlayer {
         public void onPrepared(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
-                xsa.b().d(this.a);
+                y5b.b().d(this.a);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921307));
                 this.b.a.setLooping(true);
                 this.b.a.start();

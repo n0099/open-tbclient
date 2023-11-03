@@ -1,47 +1,24 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Comparator;
-/* loaded from: classes7.dex */
+import java.io.File;
+/* loaded from: classes8.dex */
 public class r54 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile r54 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
+    public boolean a;
+    public String b;
 
-    /* loaded from: classes7.dex */
-    public static class a implements Comparator<r54> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(r54 r54Var, r54 r54Var2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, r54Var, r54Var2)) == null) {
-                return (int) (r54Var.a - r54Var2.a);
-            }
-            return invokeLL.intValue;
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
         }
     }
 
@@ -59,35 +36,54 @@ public class r54 {
         }
     }
 
-    public static long[] a(r54 r54Var) {
-        InterceptResult invokeL;
+    public static r54 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, r54Var)) == null) {
-            if (r54Var == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (r54.class) {
+                    if (c == null) {
+                        c = new r54();
+                    }
+                }
             }
-            return new long[]{r54Var.a, r54Var.b};
+            return c;
         }
-        return (long[]) invokeL.objValue;
+        return (r54) invokeV.objValue;
     }
 
-    public boolean b(r54 r54Var) {
-        InterceptResult invokeL;
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, r54Var)) == null) {
-            long j = this.a;
-            if (j <= r54Var.b) {
-                long j2 = this.b;
-                long j3 = r54Var.a;
-                if (j2 >= j3) {
-                    this.a = Math.min(j, j3);
-                    this.b = Math.max(this.b, r54Var.b);
-                    return true;
-                }
-                return false;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (TextUtils.isEmpty(this.b)) {
+                return "";
+            }
+            return this.b + File.separator + "index.js";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.a = z;
+        }
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.b = str;
+        }
     }
 }

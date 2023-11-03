@@ -1,65 +1,137 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
-import android.graphics.Rect;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
+import kotlinx.coroutines.DebugKt;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bz1 extends wy1 {
+public class bz1 extends x12 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Rect a;
-    public Paint b;
-    public PorterDuffXfermode c;
+    public String j;
+    public String k;
 
-    public bz1() {
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static String a(String str) {
+            InterceptResult invokeL;
+            char c;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+                int hashCode = str.hashCode();
+                if (hashCode != 3551) {
+                    if (hashCode != 109935) {
+                        if (hashCode == 3005871 && str.equals("auto")) {
+                            c = 0;
+                        }
+                        c = 65535;
+                    } else {
+                        if (str.equals(DebugKt.DEBUG_PROPERTY_VALUE_OFF)) {
+                            c = 1;
+                        }
+                        c = 65535;
+                    }
+                } else {
+                    if (str.equals(DebugKt.DEBUG_PROPERTY_VALUE_ON)) {
+                        c = 2;
+                    }
+                    c = 65535;
+                }
+                if (c != 0 && c != 1 && c != 2) {
+                    return "auto";
+                }
+                return str;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bz1(String str) {
+        super("camera", "cameraId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new Paint();
-        this.c = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
-    }
-
-    @Override // com.baidu.tieba.wy1
-    public void a(xy1 xy1Var, Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, xy1Var, canvas) == null) && this.a != null) {
-            this.b.setXfermode(this.c);
-            canvas.drawRect(this.a, this.b);
+        try {
+            a(new JSONObject(str));
+        } catch (JSONException e) {
+            g32.d("Camera", "parsing CameraAttrModel occurs exception", e);
         }
     }
 
-    @Override // com.baidu.tieba.wy1
-    public void b(JSONArray jSONArray) {
+    @Override // com.baidu.tieba.x12, com.baidu.tieba.fw2
+    public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() == 4) {
-                    int g = gj3.g((float) jSONArray.optDouble(0));
-                    int g2 = gj3.g((float) jSONArray.optDouble(1));
-                    this.a = new Rect(g, g2, gj3.g((float) jSONArray.optDouble(2)) + g, gj3.g((float) jSONArray.optDouble(3)) + g2);
-                }
-            } catch (Exception e) {
-                if (am1.a) {
-                    e.printStackTrace();
-                }
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            super.a(jSONObject);
+            this.j = jSONObject.optString("devicePosition", "back");
+            this.k = jSONObject.optString("flash", "auto");
+        }
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return a.a(this.k);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            mw2 mw2Var = this.h;
+            if (mw2Var == null) {
+                return 0;
             }
+            return mw2Var.c();
         }
+        return invokeV.intValue;
+    }
+
+    public int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            mw2 mw2Var = this.h;
+            if (mw2Var == null) {
+                return 0;
+            }
+            return mw2Var.f();
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return TextUtils.equals(this.j, "front");
+        }
+        return invokeV.booleanValue;
     }
 }

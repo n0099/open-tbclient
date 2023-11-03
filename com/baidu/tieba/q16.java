@@ -1,29 +1,26 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.addresslist.relationship.ContactComparator;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
+import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class q16 {
     public static /* synthetic */ Interceptable $ic;
-    public static q16 c;
+    public static volatile q16 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<a> a;
-    public List<y95> b;
-
-    /* loaded from: classes7.dex */
-    public interface a {
-        void E(List<y95> list);
-    }
+    public ArrayList<Integer> a;
+    public n16 b;
+    public p16 c;
+    public List<StatisticItem> d;
 
     public q16() {
         Interceptable interceptable = $ic;
@@ -38,134 +35,138 @@ public class q16 {
                 return;
             }
         }
-        this.a = new ArrayList();
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        this.a = arrayList;
+        arrayList.add(1);
+        this.a.add(2);
+        p16 p16Var = new p16();
+        this.c = p16Var;
+        this.b = new n16(p16Var, this.a);
+        g(SharedPrefHelper.getInstance().getInt("key_abtest_channel", 0));
     }
 
-    public static synchronized q16 d() {
+    public static q16 c() {
         InterceptResult invokeV;
-        q16 q16Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (q16.class) {
-                if (c == null) {
-                    c = new q16();
+            if (e == null) {
+                synchronized (p16.class) {
+                    if (e == null) {
+                        e = new q16();
+                    }
                 }
-                q16Var = c;
             }
-            return q16Var;
+            return e;
         }
         return (q16) invokeV.objValue;
     }
 
-    public List<y95> c() {
-        InterceptResult invokeV;
+    public void a(StatisticItem statisticItem) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            for (a aVar : this.a) {
-                aVar.E(this.b);
-            }
-        }
-    }
-
-    public void a(y95 y95Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, y95Var) == null) && this.b != null && y95Var != null) {
-            String a2 = y95Var.a();
-            if (TextUtils.isEmpty(a2)) {
-                a2 = "#";
-                y95Var.j("#");
-            }
-            String e = y95Var.e();
-            if (e == null) {
-                e = "";
-            }
-            boolean z = false;
-            boolean z2 = false;
-            for (y95 y95Var2 : this.b) {
-                if (e.equals(y95Var2.e())) {
-                    z = true;
-                }
-                if (a2.equals(y95Var2.a())) {
-                    z2 = true;
-                }
-            }
-            if (z) {
-                return;
-            }
-            if (!z2) {
-                y95 y95Var3 = new y95();
-                y95Var3.j(a2);
-                this.b.add(y95Var3);
-            }
-            this.b.add(y95Var);
-            Collections.sort(this.b, new ContactComparator());
-            e();
-        }
-    }
-
-    public void b(long j) {
-        List<y95> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) != null) || (list = this.b) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, statisticItem) != null) || statisticItem == null) {
             return;
         }
-        String str = null;
-        Iterator<y95> it = list.iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                break;
-            }
-            y95 next = it.next();
-            if (next.d() == j) {
-                str = next.a();
-                this.b.remove(next);
-                break;
+        if (this.d == null) {
+            this.d = new ArrayList();
+        }
+        this.d.add(statisticItem);
+    }
+
+    public void d(String str) {
+        p16 p16Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (qd.isEmpty(str) || (p16Var = this.c) == null || !p16Var.g()) {
+                lmb.d(str);
             }
         }
-        if (str != null) {
-            ArrayList arrayList = new ArrayList();
-            for (y95 y95Var : this.b) {
-                if (str.equals(y95Var.a())) {
-                    arrayList.add(y95Var);
+    }
+
+    public void e(String str) {
+        p16 p16Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            if (qd.isEmpty(str) || (p16Var = this.c) == null || !p16Var.g()) {
+                lmb.e(str);
+            }
+        }
+    }
+
+    public void f(String str) {
+        n16 n16Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (n16Var = this.b) != null) {
+            n16Var.b(str);
+        }
+    }
+
+    public void g(int i) {
+        p16 p16Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048581, this, i) == null) && (p16Var = this.c) != null) {
+            p16Var.k(i);
+        }
+    }
+
+    public int b(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
+            n16 n16Var = this.b;
+            if (n16Var == null) {
+                return 0;
+            }
+            return n16Var.a(str, i);
+        }
+        return invokeLI.intValue;
+    }
+
+    public void h(String str, String str2) {
+        p16 p16Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) && !ListUtils.isEmpty(this.d) && (p16Var = this.c) != null && p16Var.g()) {
+            int i = -1;
+            for (StatisticItem statisticItem : this.d) {
+                if (statisticItem != null) {
+                    if (statisticItem.getPosition() == 0) {
+                        i(str, str2, statisticItem);
+                    } else if (i != statisticItem.getPosition()) {
+                        i = statisticItem.getPosition();
+                        i(str, str2, statisticItem);
+                    }
                 }
             }
-            if (arrayList.size() <= 1) {
-                this.b.removeAll(arrayList);
+            this.d.clear();
+        }
+    }
+
+    public void i(String str, String str2, StatisticItem statisticItem) {
+        p16 p16Var;
+        String str3;
+        String str4;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048583, this, str, str2, statisticItem) == null) && statisticItem != null && (p16Var = this.c) != null && p16Var.g()) {
+            HashMap hashMap = new HashMap();
+            List<Object> params = statisticItem.getParams();
+            if (params != null) {
+                int size = params.size();
+                for (int i = 0; i < size; i += 2) {
+                    Object obj = params.get(i);
+                    if (obj == null) {
+                        str3 = "";
+                    } else {
+                        str3 = obj.toString();
+                    }
+                    Object obj2 = params.get(i + 1);
+                    if (obj2 == null) {
+                        str4 = "";
+                    } else {
+                        str4 = obj2.toString();
+                    }
+                    hashMap.put(str3, str4);
+                }
             }
-        }
-        e();
-    }
-
-    public void f(a aVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) && aVar != null && !this.a.contains(aVar)) {
-            this.a.add(aVar);
-        }
-    }
-
-    public void g(List<y95> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.b = list;
-            if (list != null) {
-                Collections.sort(list, new ContactComparator());
-            }
-            e();
-        }
-    }
-
-    public void h(a aVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) && aVar != null) {
-            this.a.remove(aVar);
+            lmb.c(str2 + statisticItem.getKey(), str, "", hashMap);
         }
     }
 }

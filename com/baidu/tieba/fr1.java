@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.widget.SlideInterceptor;
+import android.content.Context;
 /* loaded from: classes6.dex */
-public interface fr1 extends SlideInterceptor {
-    double y();
+public interface fr1 {
+    void a(Context context);
 }

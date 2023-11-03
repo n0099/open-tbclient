@@ -1,129 +1,93 @@
 package com.baidu.tieba;
 
-import android.database.AbstractCursor;
-import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class sx extends AbstractCursor {
+public class sx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bundle a;
 
-    public sx(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bundle};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = bundle;
-    }
-
-    @Override // android.database.AbstractCursor, android.database.Cursor
-    public String[] getColumnNames() {
+    public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new String[0] : (String[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return rx.a().a("expInfo.txt");
+        }
+        return (String) invokeV.objValue;
     }
 
-    @Override // android.database.AbstractCursor, android.database.Cursor
-    public int getCount() {
+    public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return rx.a().a("sapFile.txt");
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // android.database.AbstractCursor, android.database.Cursor
-    public double getDouble(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            return 0.0d;
-        }
-        return invokeI.doubleValue;
-    }
-
-    @Override // android.database.AbstractCursor, android.database.Cursor
-    public Bundle getExtras() {
+    public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (Bundle) invokeV.objValue;
-    }
-
-    @Override // android.database.AbstractCursor, android.database.Cursor
-    public float getFloat(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return 0.0f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return rx.a().a("v1_.txt");
         }
-        return invokeI.floatValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // android.database.AbstractCursor, android.database.Cursor
-    public int getInt(int i) {
-        InterceptResult invokeI;
+    public static String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return rx.a().a("v2_.txt");
         }
-        return invokeI.intValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // android.database.AbstractCursor, android.database.Cursor
-    public long getLong(int i) {
+    public static String e(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    @Override // android.database.AbstractCursor, android.database.Cursor
-    public short getShort(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            return (short) 0;
-        }
-        return invokeI.shortValue;
-    }
-
-    @Override // android.database.AbstractCursor, android.database.Cursor
-    public String getString(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            return null;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            return rx.a().a("v3_" + i + "_.txt");
         }
         return (String) invokeI.objValue;
     }
 
-    @Override // android.database.AbstractCursor, android.database.Cursor
-    public boolean isNull(int i) {
-        InterceptResult invokeI;
+    public static void f(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            return false;
+        if ((interceptable == null || interceptable.invokeL(65541, null, jSONObject) == null) && jSONObject != null) {
+            rx.a().b("expInfo.txt", jSONObject.toString());
         }
-        return invokeI.booleanValue;
+    }
+
+    public static void g(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65542, null, jSONObject) == null) && jSONObject != null) {
+            rx.a().b("sapFile.txt", jSONObject.toString());
+        }
+    }
+
+    public static void h(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65543, null, jSONObject) == null) && jSONObject != null) {
+            rx.a().b("v1_.txt", jSONObject.toString());
+        }
+    }
+
+    public static void i(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65544, null, jSONObject) == null) && jSONObject != null) {
+            rx.a().b("v2_.txt", jSONObject.toString());
+        }
+    }
+
+    public static void j(JSONObject jSONObject, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65545, null, jSONObject, i) == null) && jSONObject != null) {
+            wx a = rx.a();
+            a.b("v3_" + i + "_.txt", jSONObject.toString());
+        }
     }
 }

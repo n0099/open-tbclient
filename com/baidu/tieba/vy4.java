@@ -1,20 +1,22 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.BirthdayInfo;
+import tbclient.SchoolRecomUserInfo;
 /* loaded from: classes8.dex */
 public class vy4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
+    public String a;
     public String b;
-    public int c;
-    public int d;
+    public String c;
+    public String d;
+    public int e;
 
     public vy4() {
         Interceptable interceptable = $ic;
@@ -26,29 +28,70 @@ public class vy4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = "";
+        this.b = "";
+        this.c = "";
+        this.d = "";
+        this.e = -1;
     }
 
-    public void a(JSONObject jSONObject) {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
         }
-        this.a = jSONObject.optLong("birthday_time", 0L);
-        this.d = jSONObject.optInt("birthday_show_status", 0);
-        this.b = jSONObject.optString("constellation", "");
-        this.c = jSONObject.optInt("age", 0);
+        return (String) invokeV.objValue;
     }
 
-    public void b(BirthdayInfo birthdayInfo) {
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, birthdayInfo) != null) || birthdayInfo == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void f(SchoolRecomUserInfo schoolRecomUserInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, schoolRecomUserInfo) != null) || schoolRecomUserInfo == null) {
             return;
         }
-        this.a = birthdayInfo.birthday_time.longValue();
-        this.d = birthdayInfo.birthday_show_status.intValue();
-        this.b = birthdayInfo.constellation;
-        this.c = birthdayInfo.age.intValue();
+        this.a = StringUtils.string(schoolRecomUserInfo.uid);
+        this.b = schoolRecomUserInfo.uname;
+        this.c = schoolRecomUserInfo.portrait;
+        this.d = schoolRecomUserInfo.institute;
+        this.e = schoolRecomUserInfo.is_liked.intValue();
     }
 }

@@ -13,10 +13,10 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.log.NetLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ja;
+import com.baidu.tieba.bb;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.ma;
-import com.baidu.tieba.y4;
+import com.baidu.tieba.o5;
+import com.baidu.tieba.za;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class HttpClient extends y4<HttpMessage, HttpMessageTask> {
+public class HttpClient extends o5<HttpMessage, HttpMessageTask> {
     public static /* synthetic */ Interceptable $ic = null;
     public static String b = "net_work_http_log";
     public transient /* synthetic */ FieldHolder $fh;
@@ -91,8 +91,8 @@ public class HttpClient extends y4<HttpMessage, HttpMessageTask> {
         public transient /* synthetic */ FieldHolder $fh;
         public HttpMessage a;
         public HttpMessageTask b;
-        public final ma c;
-        public volatile ja d;
+        public final bb c;
+        public volatile za d;
 
         public a(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
             Interceptable interceptable = $ic;
@@ -121,7 +121,7 @@ public class HttpClient extends y4<HttpMessage, HttpMessageTask> {
             setKey(String.valueOf(httpMessageTask.getCmd()));
             this.a = httpMessage;
             this.b = httpMessageTask;
-            this.c = new ma();
+            this.c = new bb();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -151,7 +151,7 @@ public class HttpClient extends y4<HttpMessage, HttpMessageTask> {
                 int a2 = this.b.getConnectTimeOut().a();
                 int retry = this.b.getRetry();
                 try {
-                    this.d = new ja(this.c);
+                    this.d = new za(this.c);
                     if (this.b.getMethod() == HttpMessageTask.HTTP_METHOD.GET) {
                         this.d.d(retry, a, a2);
                     } else if (this.b.getMethod() == HttpMessageTask.HTTP_METHOD.POST) {
@@ -200,7 +200,7 @@ public class HttpClient extends y4<HttpMessage, HttpMessageTask> {
                         newInstance = this.b.getResponsedClass().getConstructor(Integer.TYPE).newInstance(Integer.valueOf(this.a.getCmd()));
                     }
                     if (this.c.d().size() > 0) {
-                        str3 = this.c.d().get(this.c.d().size() - 1).h;
+                        str3 = this.c.d().get(this.c.d().size() - 1).exception;
                     } else {
                         str3 = str;
                     }
@@ -233,7 +233,7 @@ public class HttpClient extends y4<HttpMessage, HttpMessageTask> {
                             String str7 = HttpClient.b;
                             netLog4.i(str7, " 解码失败 : " + e3.getMessage());
                             newInstance.setError(-1003);
-                            newInstance.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f06b2));
+                            newInstance.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f06b4));
                             newInstance.setDecodeException(e3);
                             BdLog.detailException(e3);
                         }
@@ -320,7 +320,7 @@ public class HttpClient extends y4<HttpMessage, HttpMessageTask> {
         }
     }
 
-    @Override // com.baidu.tieba.v4
+    @Override // com.baidu.tieba.l5
     public LinkedList<HttpMessage> e(int i, BdUniqueId bdUniqueId) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -330,7 +330,7 @@ public class HttpClient extends y4<HttpMessage, HttpMessageTask> {
         return (LinkedList) invokeIL.objValue;
     }
 
-    @Override // com.baidu.tieba.v4
+    @Override // com.baidu.tieba.l5
     public void h(int i, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bdUniqueId) == null) {
@@ -339,7 +339,7 @@ public class HttpClient extends y4<HttpMessage, HttpMessageTask> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.v4
+    @Override // com.baidu.tieba.l5
     /* renamed from: k */
     public void f(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         Interceptable interceptable = $ic;

@@ -1,167 +1,199 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
-import android.view.MotionEvent;
-import android.view.TouchDelegate;
-import android.view.View;
-import android.view.ViewConfiguration;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Base64;
+import com.baidu.tbadk.util.AdExtParam;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.util.Base64Encoder;
+import java.io.Serializable;
+import java.nio.charset.Charset;
 import java.util.HashMap;
-import java.util.Map;
+import kotlin.Result;
+import kotlin.ResultKt;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.Charsets;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class o61 extends TouchDelegate {
+public final class o61 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<View, a> a;
 
-    /* loaded from: classes7.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Rect a;
-        public int b;
-        public int c;
-        public int d;
-        public int e;
-        public int f;
-        public Rect g;
-        public boolean h;
-
-        public a(o61 o61Var, Rect rect, int i, int i2, int i3, int i4) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947984095, "Lcom/baidu/tieba/o61;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o61Var, rect, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = i;
-            this.a = rect;
-            this.d = i2;
-            this.c = i3;
-            this.e = i4;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o61(View view2, int i, int i2, int i3, int i4) {
-        super(new Rect(), view2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Rect) objArr2[0], (View) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947984095, "Lcom/baidu/tieba/o61;");
                 return;
             }
         }
-        this.a = new HashMap();
-        a(view2, i, i2, i3, i4);
+        a = new a(null);
     }
 
-    public void a(View view2, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            this.a.put(view2, new a(this, new Rect(), i, i2, i3, i4));
-        }
-    }
+    /* loaded from: classes7.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (Map.Entry<View, a> entry : this.a.entrySet()) {
-                View key = entry.getKey();
-                int[] iArr = new int[2];
-                key.getLocationOnScreen(iArr);
-                int measuredWidth = key.getMeasuredWidth();
-                int measuredHeight = key.getMeasuredHeight();
-                a value = entry.getValue();
-                Rect rect = value.a;
-                rect.left = iArr[0] - value.b;
-                rect.right = iArr[0] + measuredWidth + value.c;
-                rect.top = iArr[1] - value.d;
-                rect.bottom = iArr[1] + measuredHeight + value.e;
-                value.f = ViewConfiguration.get(key.getContext()).getScaledTouchSlop();
-                Rect rect2 = new Rect(value.a);
-                value.g = rect2;
-                int i = value.f;
-                rect2.inset(-i, -i);
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-    }
 
-    @Override // android.view.TouchDelegate
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-            b();
-            int rawX = (int) motionEvent.getRawX();
-            int rawY = (int) motionEvent.getRawY();
-            boolean z = false;
-            boolean z2 = false;
-            boolean z3 = true;
-            for (Map.Entry<View, a> entry : this.a.entrySet()) {
-                View key = entry.getKey();
-                if (key.getVisibility() != 0) {
-                    break;
-                }
-                a value = entry.getValue();
-                int action = motionEvent.getAction();
-                if (action != 0) {
-                    if (action != 1 && action != 2) {
-                        if (action == 3) {
-                            z2 = value.h;
-                            value.h = false;
-                        }
-                    } else {
-                        z2 = value.h;
-                        if (z2 && !value.g.contains(rawX, rawY)) {
-                            z3 = false;
-                        }
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        @JvmStatic
+        public final void a(Intent intent) {
+            boolean z;
+            boolean z2;
+            boolean z3;
+            boolean z4;
+            boolean z5;
+            Object m855constructorimpl;
+            String jSONObject;
+            Charset charset;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, intent) == null) {
+                Intrinsics.checkNotNullParameter(intent, "intent");
+                Bundle extras = intent.getExtras();
+                if (extras != null) {
+                    Intrinsics.checkNotNullExpressionValue(extras, "intent.extras ?: return");
+                    Serializable serializable = extras.getSerializable("map");
+                    if (!(serializable instanceof HashMap)) {
+                        serializable = null;
                     }
-                } else if (value.a.contains(rawX, rawY)) {
-                    value.h = true;
-                    z2 = true;
-                } else {
-                    value.h = false;
-                    z2 = false;
-                }
-                if (z2) {
-                    if (z3) {
-                        motionEvent.setLocation(key.getWidth() / 2, key.getHeight() / 2);
-                    } else {
-                        float f = -(value.f * 2);
-                        motionEvent.setLocation(f, f);
+                    HashMap hashMap = (HashMap) serializable;
+                    if (hashMap != null) {
+                        if (hashMap != null) {
+                            if (hashMap == null || hashMap.isEmpty() || !TextUtils.equals((CharSequence) my0.b(hashMap, "append_da"), "1")) {
+                                return;
+                            }
+                            String str = (String) my0.b(hashMap, "url");
+                            boolean z6 = false;
+                            if (str != null && str.length() != 0) {
+                                z = false;
+                            } else {
+                                z = true;
+                            }
+                            if (z) {
+                                return;
+                            }
+                            String ver = gf0.d().x();
+                            Intrinsics.checkNotNullExpressionValue(ver, "ver");
+                            if (ver.length() > 0) {
+                                z2 = true;
+                            } else {
+                                z2 = false;
+                            }
+                            if (z2) {
+                                str = p21.a(str, "ver", ver);
+                            }
+                            String uid = gf0.d().u();
+                            Intrinsics.checkNotNullExpressionValue(uid, "uid");
+                            if (uid.length() > 0) {
+                                z3 = true;
+                            } else {
+                                z3 = false;
+                            }
+                            if (z3) {
+                                byte[] bytes = uid.getBytes(Charsets.UTF_8);
+                                Intrinsics.checkNotNullExpressionValue(bytes, "(this as java.lang.String).getBytes(charset)");
+                                byte[] B64Encode = Base64Encoder.B64Encode(bytes);
+                                Intrinsics.checkNotNullExpressionValue(B64Encode, "Base64Encoder.B64Encode(uid.toByteArray())");
+                                str = p21.a(str, "uid", new String(B64Encode, Charsets.UTF_8));
+                            }
+                            String apna = gf0.d().k();
+                            Intrinsics.checkNotNullExpressionValue(apna, "apna");
+                            if (apna.length() > 0) {
+                                z4 = true;
+                            } else {
+                                z4 = false;
+                            }
+                            if (z4) {
+                                str = p21.a(str, "apna", apna);
+                            }
+                            String sid = gf0.d().i();
+                            Intrinsics.checkNotNullExpressionValue(sid, "sid");
+                            if (sid.length() > 0) {
+                                z5 = true;
+                            } else {
+                                z5 = false;
+                            }
+                            if (z5) {
+                                str = p21.a(str, "sid", sid);
+                            }
+                            String a = p21.a(str, "network", String.valueOf(new wo0().c()));
+                            String ua = gf0.d().h();
+                            Intrinsics.checkNotNullExpressionValue(ua, "ua");
+                            if (ua.length() > 0) {
+                                z6 = true;
+                            }
+                            if (z6) {
+                                byte[] bytes2 = ua.getBytes(Charsets.UTF_8);
+                                Intrinsics.checkNotNullExpressionValue(bytes2, "(this as java.lang.String).getBytes(charset)");
+                                byte[] B64Encode2 = Base64Encoder.B64Encode(bytes2);
+                                Intrinsics.checkNotNullExpressionValue(B64Encode2, "Base64Encoder.B64Encode(ua.toByteArray())");
+                                a = p21.a(a, "ua", new String(B64Encode2, Charsets.UTF_8));
+                            }
+                            try {
+                                Result.Companion companion = Result.Companion;
+                                JSONObject jSONObject2 = new JSONObject();
+                                jSONObject2.put(AdExtParam.KEY_IADEX, gf0.d().n());
+                                jSONObject = jSONObject2.toString();
+                                Intrinsics.checkNotNullExpressionValue(jSONObject, "JSONObject().apply {\n   …             }.toString()");
+                                charset = Charsets.UTF_8;
+                            } catch (Throwable th) {
+                                Result.Companion companion2 = Result.Companion;
+                                m855constructorimpl = Result.m855constructorimpl(ResultKt.createFailure(th));
+                            }
+                            if (jSONObject != null) {
+                                byte[] bytes3 = jSONObject.getBytes(charset);
+                                Intrinsics.checkNotNullExpressionValue(bytes3, "(this as java.lang.String).getBytes(charset)");
+                                m855constructorimpl = Result.m855constructorimpl(bytes3);
+                                if (Result.m862isSuccessimpl(m855constructorimpl)) {
+                                    byte[] bArr = (byte[]) m855constructorimpl;
+                                    if (Uri.parse(a).getQueryParameter("da") == null) {
+                                        byte[] encode = Base64.encode(bArr, 2);
+                                        Intrinsics.checkNotNullExpressionValue(encode, "Base64.encode(it, Base64.NO_WRAP)");
+                                        a = p21.a(a, "da", new String(encode, Charsets.UTF_8));
+                                    }
+                                }
+                                my0.e(hashMap, "url", a);
+                                return;
+                            }
+                            throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
+                        }
+                        throw new NullPointerException("null cannot be cast to non-null type java.util.HashMap<kotlin.String, kotlin.String>");
                     }
-                    z = key.dispatchTouchEvent(motionEvent);
-                    continue;
-                }
-                if (z) {
-                    break;
                 }
             }
-            return z;
         }
-        return invokeL.booleanValue;
     }
 }

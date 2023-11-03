@@ -21,7 +21,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import kotlin.UShort;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class DTSTrackImpl extends AbstractTrack {
     public int bcCoreBitRate;
     public int bcCoreChannelMask;

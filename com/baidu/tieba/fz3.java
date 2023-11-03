@@ -1,54 +1,73 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.view.View;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class fz3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public int c;
-    public long d;
 
-    public fz3() {
+    public static boolean a(View view2, mw2 mw2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, view2, mw2Var)) == null) {
+            yn1 X = tr2.V().X();
+            if (X != null && X.c(view2, mw2Var)) {
+                return true;
             }
+            return false;
         }
+        return invokeLL.booleanValue;
     }
 
-    public static fz3 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            fz3 fz3Var = new fz3();
-            fz3Var.a = jSONObject.optInt("state");
-            fz3Var.b = jSONObject.optString("msg");
-            fz3Var.c = jSONObject.optInt("switch_open");
-            fz3Var.d = jSONObject.optLong("heartbeat_time");
-            return fz3Var;
-        }
-        return (fz3) invokeL.objValue;
-    }
-
-    public String toString() {
+    public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "UpUseTimeModel{state=" + this.a + ", limit='" + this.b + "', open=" + this.c + ", interval=" + this.d + '}';
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            yn1 X = tr2.V().X();
+            if (X == null || !X.b() || X.h()) {
+                return false;
+            }
+            return true;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public static boolean c(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            yn1 X = tr2.V().X();
+            if (X != null && X.d(view2)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @SuppressLint({"SourceLockedOrientationActivity"})
+    public static boolean d(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
+            yn1 X = tr2.V().X();
+            if (X == null) {
+                return false;
+            }
+            if (X.h()) {
+                SwanAppActivity activity = tr2.V().getActivity();
+                if (activity != null) {
+                    activity.setRequestedOrientation(0);
+                }
+                X.g(false);
+            }
+            return X.removeView(view2);
+        }
+        return invokeL.booleanValue;
     }
 }

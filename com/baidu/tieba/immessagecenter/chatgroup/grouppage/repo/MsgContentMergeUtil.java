@@ -7,10 +7,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.download.unified.SourceConstant;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.b;
-import com.baidu.tieba.hr5;
-import com.baidu.tieba.na8;
-import com.baidu.tieba.pf8;
+import com.baidu.tieba.bt5;
+import com.baidu.tieba.c;
+import com.baidu.tieba.ln8;
+import com.baidu.tieba.ns8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -113,7 +113,7 @@ public final class MsgContentMergeUtil {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (b.a(this.msgId) * 31) + this.msgKey.hashCode() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (c.a(this.msgId) * 31) + this.msgKey.hashCode() : invokeV.intValue;
         }
 
         public String toString() {
@@ -169,7 +169,7 @@ public final class MsgContentMergeUtil {
     public static final class Result implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        @hr5(deserialize = false, serialize = false)
+        @bt5(deserialize = false, serialize = false)
         public final Map<Long, Object> emojiInfo;
         @SerializedName("msg_info")
         public final Map<String, Object> msgInfo;
@@ -346,7 +346,7 @@ public final class MsgContentMergeUtil {
                     if (userInfo != null) {
                         String senderUid = chatMsg.getSenderUid();
                         Intrinsics.checkNotNullExpressionValue(senderUid, "it.senderUid");
-                        obj2 = userInfo.get(pf8.c(senderUid));
+                        obj2 = userInfo.get(ns8.c(senderUid));
                     } else {
                         obj2 = null;
                     }
@@ -362,7 +362,7 @@ public final class MsgContentMergeUtil {
                     }
                     chatRoomContentExt = chatMsg.getChatRoomContentExt();
                 } catch (Exception e) {
-                    na8.g("merge_msg_content_exception", j, e);
+                    ln8.g("merge_msg_content_exception", j, e);
                 }
                 if (chatRoomContentExt != null && chatRoomContentExt.length() != 0) {
                     z = false;

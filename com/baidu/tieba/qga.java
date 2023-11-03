@@ -1,34 +1,86 @@
 package com.baidu.tieba;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class qga {
+public abstract class qga implements gb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(boolean z, boolean z2) {
+    public qga() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_THREAD_POST_RESULT_DIALOG_SHOW).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", z ? 1 : 0).param("obj_source", z2 ? 1 : 0));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static void b(boolean z) {
+    @Override // com.baidu.tieba.gb7
+    public Map<String, String> a(d57 businessInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_THREAD_POST_FAIL_DIALOG_RETRY_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_source", z ? 1 : 0));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            Map<String, String> a = businessInfo.a();
+            String str = a.get("live_type");
+            String str2 = "";
+            if (str == null) {
+                str = "";
+            }
+            hashMap.put("obj_type", str);
+            String str3 = a.get("live_app_id");
+            if (str3 == null) {
+                str3 = "";
+            }
+            hashMap.put(TiebaStatic.Params.OBJ_PARAM3, str3);
+            String str4 = a.get("abtest_tag");
+            if (str4 == null) {
+                str4 = "";
+            }
+            hashMap.put("ab_tag", str4);
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (currentAccount == null) {
+                currentAccount = "";
+            }
+            hashMap.put("uid", currentAccount);
+            String str5 = a.get("extra");
+            if (str5 == null) {
+                str5 = "";
+            }
+            hashMap.put("obj_param1", str5);
+            String str6 = a.get("source");
+            if (str6 == null) {
+                str6 = "";
+            }
+            hashMap.put("obj_source", str6);
+            String str7 = a.get("position_from_1");
+            if (str7 == null) {
+                str7 = "";
+            }
+            hashMap.put(TiebaStatic.Params.OBJ_FLOOR, str7);
+            hashMap.put(TiebaStatic.Params.OBJ_PARAM4, "0");
+            String cuid = TbadkCoreApplication.getInst().getCuid();
+            if (cuid != null) {
+                str2 = cuid;
+            }
+            hashMap.put("cuid", str2);
+            return hashMap;
         }
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            TiebaStatic.log(new StatisticItem("c14029").param("uid", TbadkCoreApplication.getCurrentAccount()));
-        }
+        return (Map) invokeL.objValue;
     }
 }

@@ -8,19 +8,19 @@ import com.baidu.adp.lib.safe.UiUtils;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.GlobalBuildConfig;
-import com.baidu.tieba.cf8;
-import com.baidu.tieba.fma;
-import com.baidu.tieba.gma;
+import com.baidu.tieba.as8;
+import com.baidu.tieba.eza;
+import com.baidu.tieba.fza;
+import com.baidu.tieba.gk5;
 import com.baidu.tieba.im.base.core.uilist.BaseItem;
 import com.baidu.tieba.im.base.core.uilist.BaseNormalAdapter;
 import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
-import com.baidu.tieba.jj5;
-import com.baidu.tieba.kf8;
-import com.baidu.tieba.qf8;
-import com.baidu.tieba.ri5;
-import com.baidu.tieba.se8;
+import com.baidu.tieba.is8;
+import com.baidu.tieba.os8;
+import com.baidu.tieba.qr8;
 import com.baidu.tieba.tracker.Monitor;
-import com.baidu.tieba.zr5;
+import com.baidu.tieba.tt5;
+import com.baidu.tieba.yk5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -124,7 +124,7 @@ public abstract class MsgSender<Adapter extends BaseNormalAdapter, Msg extends B
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                zr5.c(this.d.a, "必须要绑定数据适配器");
+                tt5.c(this.d.a, "必须要绑定数据适配器");
                 this.a.setSendStatus(this.b);
                 this.d.a.notifyItemChanged(this.c, 0);
             }
@@ -235,13 +235,13 @@ public abstract class MsgSender<Adapter extends BaseNormalAdapter, Msg extends B
             l(msg, 3, i);
             TbBaseMsg tbMsg = msg.getTbMsg();
             String valueOf = String.valueOf(tbMsg.getMsgId());
-            kf8<?, ?> b2 = se8.c.b(tbMsg.getClass());
-            zr5.b(b2);
-            ChatMsg chatMsg = (ChatMsg) qf8.a(b2, cf8.a, tbMsg);
+            is8<?, ?> b2 = qr8.c.b(tbMsg.getClass());
+            tt5.b(b2);
+            ChatMsg chatMsg = (ChatMsg) os8.a(b2, as8.a, tbMsg);
             if (chatMsg == null) {
                 l(msg, 4, i);
             } else {
-                ri5.b().n(this.a.C(), tbMsg.getSessionId(), chatMsg, new jj5(this, tbMsg, msg, i, valueOf) { // from class: com.baidu.tieba.im.base.core.uilist.MsgSender.2
+                gk5.b().n(this.a.D(), tbMsg.getSessionId(), chatMsg, new yk5(this, tbMsg, msg, i, valueOf) { // from class: com.baidu.tieba.im.base.core.uilist.MsgSender.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ TbBaseMsg a;
@@ -326,7 +326,7 @@ public abstract class MsgSender<Adapter extends BaseNormalAdapter, Msg extends B
                         this.d = valueOf;
                     }
 
-                    @Override // com.baidu.tieba.jj5
+                    @Override // com.baidu.tieba.yk5
                     public void onSendMessageResult(int i2, @Nullable ChatMsg chatMsg2) {
                         long j;
                         Interceptable interceptable2 = $ic;
@@ -339,7 +339,7 @@ public abstract class MsgSender<Adapter extends BaseNormalAdapter, Msg extends B
                             }
                             UiUtils.runOnUiThreadDelay(aVar, j);
                             if (i2 == 0 && chatMsg2 != null) {
-                                Monitor.a.b(new gma(this.d), fma.a.a).g(new HashMap<String, String>(this, chatMsg2) { // from class: com.baidu.tieba.im.base.core.uilist.MsgSender.2.2
+                                Monitor.a.c(new fza(this.d), eza.a.a).g(new HashMap<String, String>(this, chatMsg2) { // from class: com.baidu.tieba.im.base.core.uilist.MsgSender.2.2
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
                                     public final /* synthetic */ AnonymousClass2 this$1;
@@ -366,7 +366,7 @@ public abstract class MsgSender<Adapter extends BaseNormalAdapter, Msg extends B
                                     }
                                 });
                             } else {
-                                Monitor.a.b(new gma(this.d), fma.a.a).b(new HashMap<String, String>(this, i2, chatMsg2) { // from class: com.baidu.tieba.im.base.core.uilist.MsgSender.2.3
+                                Monitor.a.c(new fza(this.d), eza.a.a).b(new HashMap<String, String>(this, i2, chatMsg2) { // from class: com.baidu.tieba.im.base.core.uilist.MsgSender.2.3
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
                                     public final /* synthetic */ AnonymousClass2 this$1;
@@ -411,8 +411,8 @@ public abstract class MsgSender<Adapter extends BaseNormalAdapter, Msg extends B
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048583, this, msg, i) == null) {
-            zr5.c(this.a, "必须要绑定数据适配器");
-            Monitor.a.b(new gma(String.valueOf(msg.getTbMsg().getMsgId()), "chatroom", "chatroom_send_msg"), fma.a.a).e();
+            tt5.c(this.a, "必须要绑定数据适配器");
+            Monitor.a.c(new fza(String.valueOf(msg.getTbMsg().getMsgId()), "chatroom", "chatroom_send_msg"), eza.a.a).e();
             int sendStatus = msg.getSendStatus();
             if (sendStatus != 0 && sendStatus != 2) {
                 z = false;

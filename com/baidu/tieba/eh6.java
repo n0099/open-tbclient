@@ -1,33 +1,97 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.webkit.JsPromptResult;
-import android.webkit.ValueCallback;
-import android.webkit.WebView;
-import androidx.core.util.Pair;
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import java.util.HashMap;
-import java.util.List;
-import org.json.JSONObject;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Service
 /* loaded from: classes5.dex */
-public interface eh6 {
-    public static final ServiceReference a = new ServiceReference("Frames", "JsPromptBridge");
+public class eh6 extends ja {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void a(List<Pair<String, String>> list);
+    @Override // com.baidu.tieba.ja
+    public void changeSettingByType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        }
+    }
 
-    void b(String str, HashMap<String, Object> hashMap);
+    @Override // com.baidu.tieba.ja
+    /* renamed from: getCrashKeys */
+    public String[] mo131getCrashKeys() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (String[]) invokeV.objValue;
+    }
 
-    boolean c(WebView webView, String str, JsPromptResult jsPromptResult);
+    @Override // com.baidu.tieba.ja
+    public int getDefaultType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
+    }
 
-    void d(View view2, String str, HashMap<String, Object> hashMap);
+    @Override // com.baidu.tieba.ja
+    public int getMaxCrashTimes() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 10;
+        }
+        return invokeV.intValue;
+    }
 
-    void e(View view2, String str, ValueCallback<String> valueCallback);
+    @Override // com.baidu.tieba.ja
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "jump_web_container_intercept_url" : (String) invokeV.objValue;
+    }
 
-    void f(gh6 gh6Var, Object obj);
+    @Override // com.baidu.tieba.ja
+    public int getOffType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
-    void g(String str, JSONObject jSONObject, WebView webView);
+    public eh6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void h(String str, JSONObject jSONObject);
-
-    void i(View view2, String str, JSONObject jSONObject);
+    public static boolean isOn() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (SwitchManager.getInstance().findType("jump_web_container_intercept_url") == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 }

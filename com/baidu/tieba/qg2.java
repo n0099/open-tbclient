@@ -1,12 +1,12 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import android.widget.Toast;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.ua3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,25 +14,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class qg2 extends m73 {
+public class qg2 extends d83 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a implements ik3<sa3<ua3.e>> {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ UnitedSchemeEntity b;
-        public final /* synthetic */ JSONObject c;
-        public final /* synthetic */ Context d;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ String b;
 
-        public a(qg2 qg2Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, JSONObject jSONObject, Context context) {
+        public a(qg2 qg2Var, Context context, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {qg2Var, callbackHandler, unitedSchemeEntity, jSONObject, context};
+                Object[] objArr = {qg2Var, context, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,52 +40,27 @@ public class qg2 extends m73 {
                     return;
                 }
             }
-            this.a = callbackHandler;
-            this.b = unitedSchemeEntity;
-            this.c = jSONObject;
-            this.d = context;
+            this.a = context;
+            this.b = str;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ik3
-        /* renamed from: b */
-        public void a(sa3<ua3.e> sa3Var) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sa3Var) == null) {
-                if (!na3.h(sa3Var)) {
-                    na3.p(sa3Var, this.a, this.b);
-                    return;
-                }
-                if (dg2.b(this.c.optInt("emitReplaceDependency"))) {
-                    if (eg2.l().isEmpty()) {
-                        Context context = this.d;
-                        if (context == null) {
-                            context = wo2.c();
-                        }
-                        String string = context.getResources().getString(R.string.obfuscated_res_0x7f0f0170);
-                        h53.g(context, string).G();
-                        this.b.result = UnitedSchemeUtility.wrapCallbackParams(1001, string);
-                        return;
-                    }
-                    eg2.n(true);
-                } else {
-                    eg2.n(false);
-                    eg2.c();
-                }
-                UnitedSchemeUtility.callCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(0));
-                o13.Z();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Toast.makeText(this.a, this.b, 1).show();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qg2(m63 m63Var) {
-        super(m63Var, "/swanAPI/debug/setReplaceDependencyConfig");
+    public qg2(d73 d73Var) {
+        super(d73Var, "/swanAPI/publishThread");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {m63Var};
+            Object[] objArr = {d73Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -101,24 +74,21 @@ public class qg2 extends m73 {
         }
     }
 
-    @Override // com.baidu.tieba.m73
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, p53 p53Var) {
+    @Override // com.baidu.tieba.d83
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g63 g63Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, p53Var)) == null) {
-            JSONObject a2 = m73.a(unitedSchemeEntity, "params");
-            if (a2 == null) {
-                p22.c("setReplaceDependencyConfig", "params is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else if (!a2.has("emitReplaceDependency")) {
-                p22.c("setReplaceDependencyConfig", "emitReplaceDependency is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else {
-                p53Var.f0().g(context, "mapp_cts_debug", new a(this, callbackHandler, unitedSchemeEntity, a2, context));
-                return true;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g63Var)) == null) {
+            if (d83.b) {
+                Log.d("ExtCore-PublishThread", "handle: publishThread");
             }
+            JSONObject a2 = d83.a(unitedSchemeEntity, "params");
+            if (a2 == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal params");
+                return false;
+            }
+            ak3.e0(new a(this, context, a2.optString("data", "")));
+            return true;
         }
         return invokeLLLL.booleanValue;
     }

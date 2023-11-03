@@ -1,50 +1,104 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.bu;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmField;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class e98 {
+public final class e98 extends bi<k98, ThreadCardViewHolder<bw4>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final TbPageContext<?> a;
+    @JvmField
+    public BdUniqueId b;
+    public ui<?> c;
 
-    public e98() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e98(TbPageContext<?> mPageContext, BdUniqueId bdUniqueId) {
+        super(mPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(mPageContext, "mPageContext");
+        this.a = mPageContext;
     }
 
-    public void a(int i, int i2, String str, long j, String str2, long j2, String str3) {
+    public final void x(ui<?> uiVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, Long.valueOf(j), str2, Long.valueOf(j2), str3}) == null) {
-            TiebaStatic.log(new StatisticItem("c15134").param("obj_type", i).param("obj_source", i2).param("obj_name", str).param("fid", j).param("fname", str2).param("room_id", j2).param("obj_id", str3).param("uid", TbadkCoreApplication.getCurrentAccount()));
+        if (interceptable == null || interceptable.invokeL(1048580, this, uiVar) == null) {
+            this.c = uiVar;
         }
     }
 
-    public void b(int i, long j, String str, long j2, String str2) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: t */
+    public ThreadCardViewHolder<bw4> onCreateViewHolder(ViewGroup parent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), str, Long.valueOf(j2), str2}) == null) {
-            TiebaStatic.log(new StatisticItem("c15134").param("obj_type", i).param("fid", j).param("fname", str).param("room_id", j2).param("obj_id", str2).param("uid", TbadkCoreApplication.getCurrentAccount()));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, parent)) == null) {
+            Intrinsics.checkNotNullParameter(parent, "parent");
+            bu.b bVar = new bu.b(this.a.getPageActivity(), false);
+            v98 v98Var = new v98(this.a);
+            v98Var.o(this.b);
+            bVar.n(v98Var);
+            bVar.l().j(UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
+            bVar.l().c(0);
+            bVar.l().g(0);
+            bVar.l().f(0);
+            bVar.l().e(0);
+            bVar.l().i(0);
+            bu k = bVar.k(BaseCardInfo.SupportType.CONTENT, parent, this.c);
+            Intrinsics.checkNotNullExpressionValue(k, "builder.build(BaseCardIn…, parent, mITypeListView)");
+            ThreadCardViewHolder<bw4> threadCardViewHolder = new ThreadCardViewHolder<>(k);
+            threadCardViewHolder.i(this.b);
+            return threadCardViewHolder;
         }
+        return (ThreadCardViewHolder) invokeL.objValue;
     }
 
-    public void c(long j, long j2) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, k98 k98Var, ThreadCardViewHolder<bw4> viewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            TiebaStatic.log(new StatisticItem("c15128").param("fid", j).param("room_id", j2).param("uid", TbadkCoreApplication.getCurrentAccount()));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, k98Var, viewHolder})) == null) {
+            Intrinsics.checkNotNullParameter(viewHolder, "viewHolder");
+            viewHolder.e(k98Var);
+            if (viewHolder.a() != null) {
+                viewHolder.a().s(i);
+                viewHolder.a().onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
+            }
+            return viewHolder.getView();
         }
+        return (View) invokeCommon.objValue;
     }
 }

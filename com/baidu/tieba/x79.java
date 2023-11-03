@@ -1,74 +1,62 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.switchs.LoginPassV6Switch;
-import com.baidu.tbadk.switchs.LowVersionLoginPassV6Switch;
+import com.baidu.tieba.impersonal.data.VoiceMsgContent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes8.dex */
-public class x79 {
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes9.dex */
+public final class x79 extends t79<VoiceMsgContent> implements za7<x79> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String d;
 
-    public x79() {
+    public x79 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (x79) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x79(e89<VoiceMsgContent> data, String templateName) {
+        super(data);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {data, templateName};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((e89) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(data, "data");
+        Intrinsics.checkNotNullParameter(templateName, "templateName");
+        this.d = templateName;
     }
 
-    public void a(String str) {
+    @Override // com.baidu.tieba.za7
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            try {
-                b(new JSONObject(str));
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void b(JSONObject jSONObject) {
-        JSONArray optJSONArray;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        try {
-            JSONObject optJSONObject = jSONObject.optJSONObject("config");
-            if (optJSONObject != null && (optJSONArray = optJSONObject.optJSONArray("switch")) != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
-                    if (jSONObject2 != null) {
-                        String optString = jSONObject2.optString("name");
-                        Integer valueOf = Integer.valueOf(jSONObject2.optInt("type", 0));
-                        if (LoginPassV6Switch.KEY.equals(optString)) {
-                            SwitchManager.getInstance().turn(optString, valueOf.intValue());
-                            r65.a();
-                        }
-                        if (TextUtils.equals(LowVersionLoginPassV6Switch.KEY, optString)) {
-                            SwitchManager.getInstance().turn(optString, valueOf.intValue());
-                            r65.a();
-                        }
-                    }
-                }
-            }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.za7
+    public /* bridge */ /* synthetic */ x79 b() {
+        i();
+        return this;
     }
 }

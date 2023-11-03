@@ -34,11 +34,11 @@ import kotlin.reflect.jvm.internal.impl.descriptors.runtime.components.ReflectKo
 import kotlin.reflect.jvm.internal.impl.load.kotlin.header.KotlinClassHeader;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000H\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0000\n\u0002\b\b\u001a\u0015\u0010\u0002\u001a\u0004\u0018\u00010\u0001*\u00020\u0000H\u0002¢\u0006\u0004\b\u0002\u0010\u0003\"1\u0010\u000b\u001a\n\u0012\u0004\u0012\u00028\u0000\u0018\u00010\u0006\"\u0004\b\u0000\u0010\u0004*\b\u0012\u0004\u0012\u00028\u00000\u00058F@\u0006¢\u0006\f\u0012\u0004\b\t\u0010\n\u001a\u0004\b\u0007\u0010\b\"\u001d\u0010\u0010\u001a\u0004\u0018\u00010\r*\u0006\u0012\u0002\b\u00030\f8F@\u0006¢\u0006\u0006\u001a\u0004\b\u000e\u0010\u000f\"\u001d\u0010\u0014\u001a\u0004\u0018\u00010\u0011*\u0006\u0012\u0002\b\u00030\f8F@\u0006¢\u0006\u0006\u001a\u0004\b\u0012\u0010\u0013\"\u001d\u0010\u0017\u001a\u0004\u0018\u00010\u0011*\u0006\u0012\u0002\b\u00030\u00058F@\u0006¢\u0006\u0006\u001a\u0004\b\u0015\u0010\u0016\"\u001d\u0010\u001b\u001a\u0004\u0018\u00010\u0011*\u0006\u0012\u0002\b\u00030\u00188F@\u0006¢\u0006\u0006\u001a\u0004\b\u0019\u0010\u001a\"\u0017\u0010 \u001a\u00020\u001d*\u00020\u001c8F@\u0006¢\u0006\u0006\u001a\u0004\b\u001e\u0010\u001f\"/\u0010$\u001a\n\u0012\u0004\u0012\u00028\u0000\u0018\u00010\u0005\"\b\b\u0000\u0010\u0004*\u00020!*\b\u0012\u0004\u0012\u00028\u00000\u00068F@\u0006¢\u0006\u0006\u001a\u0004\b\"\u0010#\"\u001d\u0010$\u001a\b\u0012\u0002\b\u0003\u0018\u00010\u0005*\u00020\u00118F@\u0006¢\u0006\u0006\u001a\u0004\b\"\u0010%\"\u001d\u0010(\u001a\b\u0012\u0002\b\u0003\u0018\u00010\f*\u00020\r8F@\u0006¢\u0006\u0006\u001a\u0004\b&\u0010'¨\u0006)"}, d2 = {"Ljava/lang/reflect/Member;", "Lkotlin/reflect/KDeclarationContainer;", "getKPackage", "(Ljava/lang/reflect/Member;)Lkotlin/reflect/KDeclarationContainer;", ExifInterface.GPS_DIRECTION_TRUE, "Lkotlin/reflect/KFunction;", "Ljava/lang/reflect/Constructor;", "getJavaConstructor", "(Lkotlin/reflect/KFunction;)Ljava/lang/reflect/Constructor;", "javaConstructor$annotations", "(Lkotlin/reflect/KFunction;)V", "javaConstructor", "Lkotlin/reflect/KProperty;", "Ljava/lang/reflect/Field;", "getJavaField", "(Lkotlin/reflect/KProperty;)Ljava/lang/reflect/Field;", "javaField", "Ljava/lang/reflect/Method;", "getJavaGetter", "(Lkotlin/reflect/KProperty;)Ljava/lang/reflect/Method;", "javaGetter", "getJavaMethod", "(Lkotlin/reflect/KFunction;)Ljava/lang/reflect/Method;", "javaMethod", "Lkotlin/reflect/KMutableProperty;", "getJavaSetter", "(Lkotlin/reflect/KMutableProperty;)Ljava/lang/reflect/Method;", "javaSetter", "Lkotlin/reflect/KType;", "Ljava/lang/reflect/Type;", "getJavaType", "(Lkotlin/reflect/KType;)Ljava/lang/reflect/Type;", "javaType", "", "getKotlinFunction", "(Ljava/lang/reflect/Constructor;)Lkotlin/reflect/KFunction;", "kotlinFunction", "(Ljava/lang/reflect/Method;)Lkotlin/reflect/KFunction;", "getKotlinProperty", "(Ljava/lang/reflect/Field;)Lkotlin/reflect/KProperty;", "kotlinProperty", "kotlin-reflection"}, k = 2, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 @JvmName(name = "ReflectJvmMapping")
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class ReflectJvmMapping {
 
     @Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public final /* synthetic */ class WhenMappings {
         public static final /* synthetic */ int[] $EnumSwitchMapping$0;
 
@@ -60,7 +60,7 @@ public final class ReflectJvmMapping {
         KCallableImpl<?> asKCallableImpl = UtilKt.asKCallableImpl(kFunction);
         Constructor<T> constructor = null;
         if (asKCallableImpl != null && (caller = asKCallableImpl.getCaller()) != null) {
-            obj = caller.mo2098getMember();
+            obj = caller.mo2102getMember();
         } else {
             obj = null;
         }
@@ -88,7 +88,7 @@ public final class ReflectJvmMapping {
         KCallableImpl<?> asKCallableImpl = UtilKt.asKCallableImpl(kFunction);
         Method method = null;
         if (asKCallableImpl != null && (caller = asKCallableImpl.getCaller()) != null) {
-            obj = caller.mo2098getMember();
+            obj = caller.mo2102getMember();
         } else {
             obj = null;
         }

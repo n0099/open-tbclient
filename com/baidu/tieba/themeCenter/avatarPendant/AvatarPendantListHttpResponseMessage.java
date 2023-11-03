@@ -3,8 +3,8 @@ package com.baidu.tieba.themeCenter.avatarPendant;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.oka;
-import com.baidu.tieba.qla;
+import com.baidu.tieba.nxa;
+import com.baidu.tieba.pya;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,8 +21,8 @@ import tbclient.GetPendantByCategory.ThemePendantInMain;
 public class AvatarPendantListHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<oka> mAvatarPendantList;
-    public qla mRecommand;
+    public List<nxa> mAvatarPendantList;
+    public pya mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AvatarPendantListHttpResponseMessage(int i) {
@@ -62,23 +62,23 @@ public class AvatarPendantListHttpResponseMessage extends TbHttpResponsedMessage
             return;
         }
         if (dataRes.recommend != null) {
-            qla qlaVar = new qla();
-            this.mRecommand = qlaVar;
-            qlaVar.d(getPendantByCategoryResIdl.data.recommend);
+            pya pyaVar = new pya();
+            this.mRecommand = pyaVar;
+            pyaVar.d(getPendantByCategoryResIdl.data.recommend);
         }
         if (getPendantByCategoryResIdl.data.pendant != null) {
             this.mAvatarPendantList = new ArrayList();
             for (ThemePendantInMain themePendantInMain : getPendantByCategoryResIdl.data.pendant) {
                 if (themePendantInMain != null && !StringUtils.isNull(themePendantInMain.pendant_category)) {
-                    oka okaVar = new oka();
-                    okaVar.c(themePendantInMain);
-                    this.mAvatarPendantList.add(okaVar);
+                    nxa nxaVar = new nxa();
+                    nxaVar.c(themePendantInMain);
+                    this.mAvatarPendantList.add(nxaVar);
                 }
             }
         }
     }
 
-    public List<oka> getAvatarPendantListList() {
+    public List<nxa> getAvatarPendantListList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -87,12 +87,12 @@ public class AvatarPendantListHttpResponseMessage extends TbHttpResponsedMessage
         return (List) invokeV.objValue;
     }
 
-    public qla getRecommand() {
+    public pya getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.mRecommand;
         }
-        return (qla) invokeV.objValue;
+        return (pya) invokeV.objValue;
     }
 }

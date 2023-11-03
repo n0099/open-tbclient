@@ -1,99 +1,49 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.DialogInterface;
-import android.os.Build;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tieba.t43;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class m22 {
+public final class m22 extends q12 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean u;
 
-    /* loaded from: classes7.dex */
-    public static class a implements DialogInterface.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ p53 a;
-
-        public a(p53 p53Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p53Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = p53Var;
-        }
-
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                SwanAppActivity w = this.a.w();
-                if (w != null && Build.VERSION.SDK_INT >= 21) {
-                    w.finishAndRemoveTask();
-                }
-                System.exit(0);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m22() {
+        super("coverImage", "viewId");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], (String) objArr[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.u = false;
     }
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.q12, com.baidu.tieba.v12, com.baidu.tieba.x12, com.baidu.tieba.fw2
+    public void a(JSONObject jSONObject) throws JSONException {
+        JSONObject jSONObject2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return a;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return invokeV.booleanValue;
-    }
-
-    public static void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
-            a = z;
-        }
-    }
-
-    public static void d(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
-            c(context, !a());
-        }
-    }
-
-    public static void c(Context context, boolean z) {
-        p53 M;
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65538, null, context, z) == null) && (M = p53.M()) != null) {
-            n22.c(z);
-            if (z) {
-                i = R.string.obfuscated_res_0x7f0f01d2;
-            } else {
-                i = R.string.obfuscated_res_0x7f0f0146;
-            }
-            t43.a aVar = new t43.a(context);
-            aVar.V(context.getString(R.string.obfuscated_res_0x7f0f0182));
-            aVar.x(context.getString(i));
-            aVar.n(new xk3());
-            aVar.m(false);
-            aVar.O(R.string.obfuscated_res_0x7f0f0149, new a(M));
-            aVar.X();
+        super.a(jSONObject);
+        this.u = jSONObject.optBoolean("loadState", false);
+        mw2 mw2Var = this.h;
+        if (mw2Var != null && (jSONObject2 = this.j) != null) {
+            mw2Var.i(jSONObject2.optBoolean("fixed", false));
         }
     }
 }

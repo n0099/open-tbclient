@@ -1,55 +1,48 @@
 package com.baidu.tieba;
 
-import android.util.DisplayMetrics;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.framework.ui.buoy.BuoyViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* renamed from: com.baidu.tieba.do  reason: invalid class name */
 /* loaded from: classes5.dex */
-public class Cdo {
+public class Cdo<D extends BuoyViewData> implements jo<D> {
     public static /* synthetic */ Interceptable $ic;
-    public static final DisplayMetrics a;
-    public static final float b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final lo<D> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448302722, "Lcom/baidu/tieba/do;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448302722, "Lcom/baidu/tieba/do;");
+    public Cdo() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        DisplayMetrics displayMetrics = dm.c.h().getAppContext().getResources().getDisplayMetrics();
-        a = displayMetrics;
-        b = displayMetrics.density;
+        this.a = new lo<>();
     }
 
-    public static int a() {
+    public ko<D> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            int identifier = dm.c.h().getAppContext().getResources().getIdentifier("status_bar_height", EMABTest.TYPE_DIMEN, "android");
-            int i = 0;
-            if (identifier > 0) {
-                try {
-                    i = dm.c.h().getAppContext().getResources().getDimensionPixelSize(identifier);
-                } catch (Exception unused) {
-                }
-            }
-            if (i == 0) {
-                return (int) (b * 25.0f);
-            }
-            return i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return invokeV.intValue;
+        return (ko) invokeV.objValue;
+    }
+
+    public void b(D d) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d) == null) {
+            this.a.o(d);
+        }
     }
 }

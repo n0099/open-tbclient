@@ -1,5 +1,5 @@
 package com.heytap.msp.push.callback;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface ICallBackResultService {
     void onError(int i, String str);
 

@@ -5,11 +5,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hf8;
-import com.baidu.tieba.hr5;
-import com.baidu.tieba.if8;
+import com.baidu.tieba.bt5;
+import com.baidu.tieba.fs8;
+import com.baidu.tieba.gs8;
 import com.baidu.tieba.im.lib.socket.msg.data.BotsDTO;
-import com.baidu.tieba.rf8;
+import com.baidu.tieba.ps8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,18 +24,18 @@ public class TbSingleTextImageMsg extends TbBaseImageMsg {
     public static final int MSG_TYPE = 102;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    @hr5(serialize = false)
+    @bt5(serialize = false)
     public CharSequence cacheText;
     @Nullable
-    @hr5(deserialize = false, serialize = false)
+    @bt5(deserialize = false, serialize = false)
     public BotsDTO.BotListDTO.SkillDTO.ItemsDTO fileItem;
     @Nullable
     @SerializedName("robot_params")
-    @hf8
+    @fs8
     public Map<String, Object> robotParams;
-    @if8
+    @gs8
     public String text;
-    @hr5(serialize = false)
+    @bt5(serialize = false)
     public SpannableStringBuilder thumbnailText;
 
     public TbSingleTextImageMsg() {
@@ -115,7 +115,7 @@ public class TbSingleTextImageMsg extends TbBaseImageMsg {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.robotParams != null && (itemsDTO = this.fileItem) != null && itemsDTO.isFileType() && (opts = this.fileItem.getOpts()) != null && !opts.isEmpty() && (ext = opts.get(0).getExt()) != null) {
             ext.setPicPath(this.bigSrc);
-            rf8.a(this.robotParams, this.fileItem);
+            ps8.a(this.robotParams, this.fileItem);
         }
     }
 

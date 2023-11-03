@@ -7,7 +7,7 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a55;
+import com.baidu.tieba.u55;
 import com.baidu.tieba.view.DynamicUserLikeButton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -80,14 +80,14 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
         }
     }
 
-    @Override // com.baidu.tieba.view.DynamicUserLikeButton, com.baidu.tieba.b65
+    @Override // com.baidu.tieba.view.DynamicUserLikeButton, com.baidu.tieba.v65
     public void d(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             if (z) {
-                a55 a55Var = new a55();
-                a55Var.v(R.color.CAM_X0109);
-                setConfig(a55Var);
+                u55 u55Var = new u55();
+                u55Var.v(R.color.CAM_X0109);
+                setConfig(u55Var);
                 setClickable(true);
                 if (i == 1) {
                     setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
@@ -95,9 +95,9 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
                     setText(TbadkCoreApplication.getInst().getString(R.string.each_concerned));
                 }
             } else {
-                a55 a55Var2 = new a55();
-                a55Var2.u(R.color.CAM_X0302);
-                setConfig(a55Var2);
+                u55 u55Var2 = new u55();
+                u55Var2.u(R.color.CAM_X0302);
+                setConfig(u55Var2);
                 setClickable(true);
                 setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ec));
             }

@@ -1,124 +1,112 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.switchs.ChunkUploadSwitch;
-import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.GlobalBuildConfig;
+import com.baidu.tieba.hb7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
-public class xfa {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int c = 524288;
-    public static int d = 6144000;
-    public static int e = 524288;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes9.dex */
+public final class xfa implements hb7 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bga a;
-    public f89 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948299830, "Lcom/baidu/tieba/xfa;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948299830, "Lcom/baidu/tieba/xfa;");
-        }
-    }
-
-    public xfa(f89 f89Var) {
+    public xfa() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {f89Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.b = f89Var;
-    }
-
-    public static void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
-            if (i <= 0) {
-                d = 6144000;
-            } else {
-                d = i;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void c(int i) {
+    @Override // com.baidu.tieba.gb7
+    public String getKey() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
-            if (i <= 0) {
-                c = 524288;
-            } else {
-                c = i;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return hb7.a.b(this);
         }
+        return (String) invokeV.objValue;
     }
 
-    public static void d(int i) {
+    @Override // com.baidu.tieba.gb7
+    public Map<String, String> a(d57 d57Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) {
-            if (i <= 0) {
-                e = 524288;
-            } else {
-                e = i;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, d57Var)) == null) {
+            return hb7.a.a(this, d57Var);
         }
+        return (Map) invokeL.objValue;
     }
 
-    public void a() {
-        bga bgaVar;
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x0028, code lost:
+        if (r5.equals("video_forum") == false) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x0031, code lost:
+        if (r5.equals("live_forum") == false) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x003a, code lost:
+        if (r5.equals("live_user") == false) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x0043, code lost:
+        if (r5.equals("common_forum") == false) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x0046, code lost:
+        return "common_click_for_forum_head";
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x004f, code lost:
+        if (r5.equals("video_user") == false) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x0056, code lost:
+        if (r5.equals("common_user") == false) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x0059, code lost:
+        return "common_click_for_user_head";
+     */
+    @Override // com.baidu.tieba.hb7
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public String c(d57 businessInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bgaVar = this.a) != null) {
-            bgaVar.cancel();
-        }
-    }
-
-    public VideoFinishResult e(String str, String str2, int i, ega egaVar) {
-        InterceptResult invokeLLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, i, egaVar)) == null) {
-            try {
-                if (SwitchManager.getInstance().findType(ChunkUploadSwitch.KEY) == 1) {
-                    this.a = new dga(str2, e, this.b);
-                } else {
-                    this.a = new cga(str, c, d, this.b);
-                }
-                this.a.a(egaVar);
-                return this.a.b(str2, i);
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
-                f89 f89Var = this.b;
-                if (f89Var != null) {
-                    f89Var.f(306, -4399, z79.a(e2));
-                    return null;
-                }
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            String str = businessInfo.a().get("card_head_type");
+            if (str == null) {
+                str = "common_user";
             }
+            switch (str.hashCode()) {
+                case -1924729441:
+                    break;
+                case -1617812209:
+                    break;
+                case 448970189:
+                    break;
+                case 1009035070:
+                    break;
+                case 1201356814:
+                    break;
+                case 1373469789:
+                    break;
+                default:
+                    if (!GlobalBuildConfig.isDebug()) {
+                        return "";
+                    }
+                    throw new IllegalStateException("unknown card_head_type :" + str);
+            }
+        } else {
+            return (String) invokeL.objValue;
         }
-        return (VideoFinishResult) invokeLLIL.objValue;
     }
 }

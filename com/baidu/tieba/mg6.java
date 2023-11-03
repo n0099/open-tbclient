@@ -1,177 +1,73 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
+import com.baidu.tieba.browser.webview.monitor.MonitorWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class mg6 extends BdAsyncTask<Void, Void, String> {
+public class mg6 extends kg6<MonitorWebView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public mg6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mg6(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
-    public String doInBackground(Void... voidArr) {
-        InterceptResult invokeL;
-        String str;
-        String a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-            String modName = TbSingleton.getInstance().getModName();
-            if (TextUtils.isEmpty(modName)) {
-                return null;
-            }
-            kg6 d = d(modName);
-            NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_OFFLINE_PACK_STATUS);
-            netWork.addPostData("cuid", TbadkCoreApplication.getInst().getCuid());
-            netWork.addPostData("mod_name", modName);
-            if (d.b()) {
-                str = "1";
-            } else {
-                str = "2";
-            }
-            netWork.addPostData("status", str);
-            if (d.b()) {
-                a = "";
-            } else {
-                a = d.a();
-            }
-            netWork.addPostData("fail_reason", a);
-            netWork.postNetData();
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final void c(String str, kg6 kg6Var) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, kg6Var) == null) {
-            if (StringUtils.isNull(str)) {
-                kg6Var.c("serve return is null");
                 return;
             }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                if (jSONObject.optInt("error_code") == 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                kg6Var.d(z);
-                kg6Var.c(jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG));
-            } catch (JSONException e) {
-                kg6Var.c("parse json exception");
-                BdLog.e(e);
-            }
         }
-    }
-
-    public final kg6 d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            kg6 kg6Var = new kg6();
-            if (TextUtils.isEmpty(str)) {
-                kg6Var.c("module not exit");
-                return kg6Var;
-            }
-            File file = new File(fg6.n().m(), str);
-            String p = fg6.n().p(str);
-            if (TbSingleton.getInstance().isUploadOffPack()) {
-                kg6Var.d(false);
-                if (!file.exists()) {
-                    kg6Var.c("bundle not exist");
-                    return kg6Var;
-                } else if (TextUtils.isEmpty(p)) {
-                    kg6Var.c("the local has no valid version name");
-                    return kg6Var;
-                } else {
-                    String str2 = file.getAbsolutePath() + "/" + p + "/";
-                    if (!new File(str2).exists()) {
-                        kg6Var.c("bundle not exist");
-                        return kg6Var;
-                    }
-                    String str3 = file.getAbsolutePath() + "/" + p + ".zip";
-                    File file2 = new File(str3);
-                    if (file2.exists()) {
-                        FileHelper.deleteFileOrDir(file2);
-                    }
-                    if (f35.e(str2, str3)) {
-                        NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_OFFLINE_PACK);
-                        netWork.addPostData("offline_pack_version", p);
-                        netWork.addPostData("mod_name", str);
-                        netWork.getNetContext().getRequest().mNeedBackgroundLogin = false;
-                        netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
-                        c(netWork.uploadFile("offline_pack_file_stream", str3), kg6Var);
-                        if (!kg6Var.b()) {
-                            return kg6Var;
-                        }
-                    } else {
-                        kg6Var.c("zip bundle error");
-                        return kg6Var;
-                    }
-                }
-            } else {
-                kg6Var.d(true);
-            }
-            if (TbSingleton.getInstance().isClearOffPack()) {
-                fg6.n().h(str);
-                if (!TextUtils.isEmpty(p)) {
-                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_UPDATE_OFFLINE_PACK).param("obj_name", str).param("obj_id", p));
-                }
-                if (file.exists() && !StringUtils.isNull(p)) {
-                    if (!new File(file.getAbsolutePath(), p).exists()) {
-                        return kg6Var;
-                    }
-                    kg6Var.c("delete fail");
-                    kg6Var.d(false);
-                }
-            }
-            return kg6Var;
-        }
-        return (kg6) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPostExecute(String str) {
+    @Override // com.baidu.tieba.lg6
+    /* renamed from: h */
+    public synchronized void a(@NonNull MonitorWebView monitorWebView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            pg6.c();
+        if (interceptable == null || interceptable.invokeL(1048579, this, monitorWebView) == null) {
+            synchronized (this) {
+                if (e(monitorWebView)) {
+                    monitorWebView.z();
+                } else if (c()) {
+                    monitorWebView.z();
+                    f(monitorWebView);
+                } else {
+                    monitorWebView.destroy();
+                }
+            }
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.kg6
+    /* renamed from: g */
+    public synchronized MonitorWebView b() {
+        InterceptResult invokeV;
+        MonitorWebView monitorWebView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                monitorWebView = (MonitorWebView) super.b();
+                if (monitorWebView != null) {
+                    monitorWebView.B();
+                }
+            }
+            return monitorWebView;
+        }
+        return (MonitorWebView) invokeV.objValue;
     }
 }

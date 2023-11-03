@@ -1,7 +1,7 @@
 package com.fun.ad.sdk.channel;
 
-import com.baidu.tieba.fmb;
-import com.baidu.tieba.hmb;
+import com.baidu.tieba.gzb;
+import com.baidu.tieba.izb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -104,7 +104,7 @@ public class GdtModule implements Module {
             GDTAdSdk.init(funAdConfig.appContext, str);
             GlobalSetting.setChannel(3);
             GlobalSetting.setPersonalizedState(!funAdConfig.runtimeAdConfig.personalRecommendStatus ? 1 : 0);
-            GdtHelper.sGdtNativeContainerCreator = fmb.b;
+            GdtHelper.sGdtNativeContainerCreator = gzb.b;
             funAdConfig.runtimeAdConfig.registerPersonalRecommendObserver(new b());
             funAdConfig.runtimeAdConfig.registerMediaExtDataObserver(new a());
             ModuleAdConfig moduleAdConfig = funAdConfig.moduleConfigMap.get(FunAdSdk.PLATFORM_GDT);
@@ -113,7 +113,7 @@ public class GdtModule implements Module {
                 moduleConfigGdt = new ModuleConfigGdt.Builder().build();
             }
             if (moduleConfigGdt instanceof ModuleConfigGdt) {
-                return new hmb((ModuleConfigGdt) moduleConfigGdt);
+                return new izb((ModuleConfigGdt) moduleConfigGdt);
             }
             throw new RuntimeException("The gdt config need ModuleConfigGdt!");
         }

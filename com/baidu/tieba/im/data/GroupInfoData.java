@@ -10,10 +10,11 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
+import com.baidu.tbadk.core.util.ForumBroadcastHelper;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
 import com.baidu.tbadk.core.util.PreLoadImageProvider;
 import com.baidu.tieba.im.db.pojo.GroupChatRoomPojo;
-import com.baidu.tieba.yh;
+import com.baidu.tieba.oi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +26,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class GroupInfoData extends AbstractImageProvider implements yh, Parcelable, Serializable, PreLoadImageProvider {
+public class GroupInfoData extends AbstractImageProvider implements oi, Parcelable, Serializable, PreLoadImageProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<GroupInfoData> CREATOR;
     public static final String SHARE_KEY_ACTIVE_ID = "scene_id";
@@ -334,7 +335,7 @@ public class GroupInfoData extends AbstractImageProvider implements yh, Parcelab
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yh
+    @Override // com.baidu.tieba.oi
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -401,7 +402,7 @@ public class GroupInfoData extends AbstractImageProvider implements yh, Parcelab
             groupInfoData.setDesc(jSONObject.optString("desc"));
             groupInfoData.link = jSONObject.optString("url");
             groupInfoData.forumId = jSONObject.optLong("fid");
-            groupInfoData.forumName = jSONObject.optString("forumName");
+            groupInfoData.forumName = jSONObject.optString(ForumBroadcastHelper.KEY_PARMARS_FORUM_NAME);
             groupInfoData.setMemberNum(jSONObject.optInt("roomMemberCount"));
             return groupInfoData;
         }

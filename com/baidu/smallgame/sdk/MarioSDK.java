@@ -11,7 +11,7 @@ import com.baidu.searchbox.v8engine.V8EngineConfiguration;
 import com.baidu.searchbox.v8engine.console.DebugConsole;
 import com.baidu.smallgame.sdk.ArBridge;
 import com.baidu.smallgame.sdk.delegate.AREngineDelegate;
-import com.baidu.tieba.vi1;
+import com.baidu.tieba.mj1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -133,26 +133,26 @@ public class MarioSDK {
             if (aVar == null) {
                 return null;
             }
-            vi1 vi1Var = new vi1();
+            mj1 mj1Var = new mj1();
             if (aVar.a != null) {
-                vi1Var.q(aVar.a);
+                mj1Var.q(aVar.a);
             }
             if (aVar.c != null) {
-                vi1Var.setFirstFrameListener(aVar.c);
+                mj1Var.setFirstFrameListener(aVar.c);
             }
-            vi1Var.setRenderMode(aVar.d);
+            mj1Var.setRenderMode(aVar.d);
             if (aVar.f != null) {
-                vi1Var.p(aVar.f);
+                mj1Var.p(aVar.f);
             }
             if (aVar.b != null) {
-                vi1Var.setRenderer(aVar.b);
+                mj1Var.setRenderer(aVar.b);
             }
             if (aVar.g() != null) {
                 for (DebugConsole debugConsole : aVar.g()) {
-                    vi1Var.addDebugConsole(debugConsole);
+                    mj1Var.addDebugConsole(debugConsole);
                 }
             }
-            return vi1Var;
+            return mj1Var;
         }
         return (AREngineDelegate) invokeL.objValue;
     }

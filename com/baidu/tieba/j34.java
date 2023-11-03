@@ -1,22 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
-import com.baidu.swan.apps.binding.model.JSTypeMismatchException;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.MalformedURLException;
+@Service
 /* loaded from: classes6.dex */
-public class j34 {
+public class j34 implements on1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public boolean c;
-    public boolean d;
-    public int e;
-    public String f;
 
     public j34() {
         Interceptable interceptable = $ic;
@@ -28,90 +24,45 @@ public class j34 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = "";
-        this.b = Integer.MAX_VALUE;
-        this.c = false;
-        this.d = false;
     }
 
-    public boolean a(xx1 xx1Var) throws JSTypeMismatchException {
+    @Override // com.baidu.tieba.on1
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return c04.g();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.on1
+    public boolean b() {
+        InterceptResult invokeV;
+        m52 m;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (g63.M() != null && g63.M().x0()) {
+                p52 W = tr2.V().W();
+                if (W == null || (m = W.m()) == null || !(m instanceof d24)) {
+                    return true;
+                }
+                return ((d24) m).K3();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.on1
+    public String c(String str) throws MalformedURLException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, xx1Var)) == null) {
-            try {
-                this.a = xx1Var.C("defaultValue");
-                this.b = xx1Var.r("maxLength");
-                this.c = xx1Var.m("multiple");
-                this.d = xx1Var.m("confirmHold");
-                String C = xx1Var.C("confirmType");
-                char c = 65535;
-                switch (C.hashCode()) {
-                    case -906336856:
-                        if (C.equals("search")) {
-                            c = 2;
-                            break;
-                        }
-                        break;
-                    case SpeedStatsStampTable.AD_LOAD_BEAR_END_STAMP_KEY /* 3304 */:
-                        if (C.equals("go")) {
-                            c = 3;
-                            break;
-                        }
-                        break;
-                    case 3089282:
-                        if (C.equals("done")) {
-                            c = 0;
-                            break;
-                        }
-                        break;
-                    case 3377907:
-                        if (C.equals("next")) {
-                            c = 1;
-                            break;
-                        }
-                        break;
-                    case 3526536:
-                        if (C.equals("send")) {
-                            c = 4;
-                            break;
-                        }
-                        break;
-                }
-                if (c != 0) {
-                    if (c != 1) {
-                        if (c != 2) {
-                            if (c != 3) {
-                                if (c != 4) {
-                                    this.e = 6;
-                                    this.f = "done";
-                                } else {
-                                    this.e = 4;
-                                    this.f = "send";
-                                }
-                            } else {
-                                this.e = 2;
-                                this.f = "go";
-                            }
-                        } else {
-                            this.e = 3;
-                            this.f = "search";
-                        }
-                    } else {
-                        this.e = 5;
-                        this.f = "next";
-                    }
-                } else {
-                    this.e = 6;
-                    this.f = "done";
-                }
-                return true;
-            } catch (Exception unused) {
-                return false;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return c04.d(str);
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 }

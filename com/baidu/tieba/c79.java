@@ -1,139 +1,80 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BDLayoutMode;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.imageManager.TbFaceManager;
-import com.baidu.tieba.memberCenter.tail.data.TailData;
+import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
+import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.immessagecenter.service.MessageCenterAIBotService;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class c79 {
+public final class c79 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public TailData b;
-    public TextView c;
-    public TextView d;
-    public Context e;
-    public String f;
 
-    public c79() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947627812, "Lcom/baidu/tieba/c79;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947627812, "Lcom/baidu/tieba/c79;");
         }
     }
 
-    public TailData c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (TailData) invokeV.objValue;
-    }
-
-    public void a(TbPageContext<?> tbPageContext) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            BDLayoutMode layoutMode = tbPageContext.getLayoutMode();
-            if (skinType == 4) {
-                z = true;
-            } else {
-                z = false;
-            }
-            layoutMode.setNightMode(z);
-            tbPageContext.getLayoutMode().onModeChanged(this.a);
-            d(this.f);
-        }
-    }
-
-    public final void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f = str;
-            this.c.setTextColor(q79.a(str));
-        }
-    }
-
-    public final void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.c.setText(TbFaceManager.i().t(this.e, r79.a(str), null));
-        }
-    }
-
-    public void f(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
-            this.d.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void g(Boolean bool) {
+    @JvmStatic
+    public static final void a(ImMessageCenterShowItemData imMessageCenterShowItemData, Context context, BdUniqueId uniqueId) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bool) == null) {
-            TextView textView = this.d;
-            if (bool.booleanValue()) {
-                i = 0;
-            } else {
-                i = 8;
+        if (interceptable == null || interceptable.invokeLLL(65537, null, imMessageCenterShowItemData, context, uniqueId) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(uniqueId, "uniqueId");
+            StatisticItem param = new StatisticItem(CommonStatisticKey.KEY_HOME_PAGE_MESSGAE_ITEM_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", "1");
+            Intrinsics.checkNotNull(imMessageCenterShowItemData);
+            TiebaStatic.log(param.param("obj_param1", imMessageCenterShowItemData.getUnReadCount()).param(TiebaStatic.Params.FRIEND_UID, imMessageCenterShowItemData.getFriendId()));
+            if (imMessageCenterShowItemData.getUnReadCount() > 0) {
+                x95.p0().i0(x95.p0().x() - imMessageCenterShowItemData.getUnReadCount());
+                imMessageCenterShowItemData.setUnReadCount(0);
             }
-            textView.setVisibility(i);
+            try {
+                String friendId = imMessageCenterShowItemData.getFriendId();
+                Intrinsics.checkNotNullExpressionValue(friendId, "data.friendId");
+                long parseLong = Long.parseLong(friendId);
+                TiebaStatic.log("tab_msg_personal_chat_click");
+                TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), TbConfig.ST_TYPE_PCHAT, null, 1, "st_param", "1");
+                if (imMessageCenterShowItemData.isAiBot()) {
+                    MessageCenterAIBotService.b.a().e(imMessageCenterShowItemData, context, uniqueId);
+                    return;
+                }
+                if (imMessageCenterShowItemData.getRelation() == 1) {
+                    i = 1;
+                } else {
+                    i = 0;
+                }
+                PersonalChatActivityConfig personalChatActivityConfig = new PersonalChatActivityConfig(context, parseLong, imMessageCenterShowItemData.getFriendName(), imMessageCenterShowItemData.getFriendNameShow(), imMessageCenterShowItemData.getFriendPortrait(), 0, i);
+                personalChatActivityConfig.setFrom(3);
+                personalChatActivityConfig.setLastUniqueId(uniqueId.getId());
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002005, personalChatActivityConfig));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-    }
-
-    public void h(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, onClickListener) == null) {
-            this.a.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void i(TailData tailData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tailData) == null) {
-            this.b = tailData;
-            e(tailData.getContent());
-            d(tailData.getFontColor());
-        }
-    }
-
-    public View b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            this.e = context;
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d096a, (ViewGroup) null);
-            this.a = inflate;
-            inflate.setTag(this);
-            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09244a);
-            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092449);
-            this.d = textView;
-            textView.setTag(this);
-            return this.a;
-        }
-        return (View) invokeL.objValue;
     }
 }

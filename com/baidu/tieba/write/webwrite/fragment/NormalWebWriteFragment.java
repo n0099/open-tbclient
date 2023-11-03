@@ -11,21 +11,21 @@ import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cd5;
-import com.baidu.tieba.jya;
-import com.baidu.tieba.kd5;
-import com.baidu.tieba.oya;
-import com.baidu.tieba.pf5;
-import com.baidu.tieba.pwa;
-import com.baidu.tieba.pya;
-import com.baidu.tieba.qwa;
-import com.baidu.tieba.r2b;
-import com.baidu.tieba.vo6;
-import com.baidu.tieba.wo6;
+import com.baidu.tieba.ch5;
+import com.baidu.tieba.ge5;
+import com.baidu.tieba.kbb;
+import com.baidu.tieba.lq6;
+import com.baidu.tieba.mq6;
+import com.baidu.tieba.oq6;
+import com.baidu.tieba.pbb;
+import com.baidu.tieba.pq6;
+import com.baidu.tieba.q9b;
+import com.baidu.tieba.qbb;
+import com.baidu.tieba.r9b;
+import com.baidu.tieba.sfb;
 import com.baidu.tieba.write.webwrite.data.WriteDataManager;
 import com.baidu.tieba.write.webwrite.fragment.NormalWebWriteFragment;
-import com.baidu.tieba.yo6;
-import com.baidu.tieba.zo6;
+import com.baidu.tieba.xd5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -59,20 +59,20 @@ public final class NormalWebWriteFragment extends BaseWebWriteFragment {
     }
 
     @Override // com.baidu.tieba.write.webwrite.fragment.BaseWebWriteFragment
-    public String I2() {
+    public String a3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "normal" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "normal" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes8.dex */
-    public static final class a extends zo6<pya> {
+    public static final class a extends pq6<qbb> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NormalWebWriteFragment b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(NormalWebWriteFragment normalWebWriteFragment, Class<pya> cls) {
+        public a(NormalWebWriteFragment normalWebWriteFragment, Class<qbb> cls) {
             super(cls);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -93,12 +93,12 @@ public final class NormalWebWriteFragment extends BaseWebWriteFragment {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zo6
-        public void onEvent(pya event) {
+        @Override // com.baidu.tieba.pq6
+        public void onEvent(qbb event) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, event) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
                 Intrinsics.checkNotNullParameter(event, "event");
-                this.b.Q2();
+                this.b.i3();
             }
         }
     }
@@ -118,70 +118,55 @@ public final class NormalWebWriteFragment extends BaseWebWriteFragment {
     }
 
     @Override // com.baidu.tieba.write.webwrite.fragment.BaseWebWriteFragment
-    public WriteDataManager J2() {
+    public WriteDataManager b3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return new jya();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return new kbb();
         }
         return (WriteDataManager) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.write.webwrite.fragment.BaseWebWriteFragment
-    public void V2() {
+    public void n3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            wo6.b().c(new oya());
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            mq6.b().c(new pbb());
         }
     }
 
-    public static final void a3(NormalWebWriteFragment this$0, View view2) {
+    public static final void s3(NormalWebWriteFragment this$0, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.getPageContext().showToast(this$0.F2().b().getDisableAudioMessage());
+            this$0.getPageContext().showToast(this$0.X2().b().getDisableAudioMessage());
         }
-    }
-
-    @Override // com.baidu.tieba.write.webwrite.fragment.BaseWebWriteFragment, com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public View onCreateView(LayoutInflater inflater, ViewGroup viewGroup, Bundle bundle) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, inflater, viewGroup, bundle)) == null) {
-            Intrinsics.checkNotNullParameter(inflater, "inflater");
-            yo6 b = wo6.b();
-            BdUniqueId uniqueId = getUniqueId();
-            Intrinsics.checkNotNullExpressionValue(uniqueId, "uniqueId");
-            b.b(new vo6(uniqueId, pya.class), new a(this, pya.class));
-            return super.onCreateView(inflater, viewGroup, bundle);
-        }
-        return (View) invokeLLL.objValue;
     }
 
     @Override // com.baidu.tieba.write.webwrite.fragment.BaseWebWriteFragment
-    public void y2(EditorTools editorTools) {
+    public void Q2(EditorTools editorTools) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, editorTools) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, editorTools) == null) {
             Intrinsics.checkNotNullParameter(editorTools, "editorTools");
-            new qwa().b();
+            new r9b().b();
             editorTools.setBarMaxLauCount(5);
             editorTools.setMoreButtonAtEnd(true);
             editorTools.setBarLauncherType(1);
-            editorTools.F(true);
-            editorTools.G(false);
+            editorTools.M(true);
+            editorTools.N(false);
             editorTools.setBackgroundColorId(R.color.CAM_X0201);
-            if (!Intrinsics.areEqual(WriteActivityConfig.FROM_FORUM_SHARE, F2().b().getFrom())) {
-                r2b.h(getPageContext(), editorTools, this);
-                r2b.j(getPageContext(), editorTools, this);
-                r2b.k(getPageContext(), editorTools, this);
-                r2b.b(getPageContext(), editorTools, this);
-                r2b.i(getPageContext(), editorTools);
-                final pwa m = r2b.m(getPageContext(), editorTools, F2().b().getCallFrom(), this);
-                m.o(false);
-                B2().add(new Function0<Unit>(m) { // from class: com.baidu.tieba.write.webwrite.fragment.NormalWebWriteFragment$configEditor$1
+            if (!Intrinsics.areEqual(WriteActivityConfig.FROM_FORUM_SHARE, X2().b().getFrom())) {
+                sfb.h(getPageContext(), editorTools, this);
+                sfb.j(getPageContext(), editorTools, this);
+                sfb.k(getPageContext(), editorTools, this);
+                sfb.b(getPageContext(), editorTools, this);
+                sfb.i(getPageContext(), editorTools);
+                final q9b m = sfb.m(getPageContext(), editorTools, X2().b().getCallFrom(), this);
+                m.p(false);
+                T2().add(new Function0<Unit>(m) { // from class: com.baidu.tieba.write.webwrite.fragment.NormalWebWriteFragment$configEditor$1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ pwa $writeTool;
+                    public final /* synthetic */ q9b $writeTool;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -216,25 +201,25 @@ public final class NormalWebWriteFragment extends BaseWebWriteFragment {
                     public final void invoke2() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                            this.$writeTool.h();
+                            this.$writeTool.i();
                         }
                     }
                 });
             }
-            r2b.d(editorTools, this);
-            r2b.a(getPageContext(), editorTools, this);
-            if (StringHelper.equals("2", F2().b().getCallFrom())) {
-                r2b.g(getPageContext(), editorTools, this);
-                r2b.l(getPageContext(), editorTools, this);
+            sfb.d(editorTools, this);
+            sfb.a(getPageContext(), editorTools, this);
+            if (StringHelper.equals("2", X2().b().getCallFrom())) {
+                sfb.g(getPageContext(), editorTools, this);
+                sfb.l(getPageContext(), editorTools, this);
             }
-            if (!Intrinsics.areEqual("main_tab", F2().b().getFrom())) {
-                r2b.c(getPageContext(), editorTools, this);
+            if (!Intrinsics.areEqual("main_tab", X2().b().getFrom())) {
+                sfb.c(getPageContext(), editorTools, this);
             }
-            editorTools.f();
+            editorTools.h();
             editorTools.setActionListener(74, this);
-            kd5 o = editorTools.o(6);
-            if (o != null && !TextUtils.isEmpty(F2().b().getDisableAudioMessage())) {
-                ((View) o).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.wya
+            ge5 t = editorTools.t(6);
+            if (t != null && !TextUtils.isEmpty(X2().b().getDisableAudioMessage())) {
+                ((View) t).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.xbb
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -242,14 +227,29 @@ public final class NormalWebWriteFragment extends BaseWebWriteFragment {
                     public final void onClick(View view2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                            NormalWebWriteFragment.a3(NormalWebWriteFragment.this, view2);
+                            NormalWebWriteFragment.s3(NormalWebWriteFragment.this, view2);
                         }
                     }
                 });
             }
-            if (pf5.isOn()) {
-                editorTools.D(new cd5(76, 15, F2().b().getForumId()));
+            if (ch5.isOn()) {
+                editorTools.K(new xd5(76, 15, X2().b().getForumId()));
             }
         }
+    }
+
+    @Override // com.baidu.tieba.write.webwrite.fragment.BaseWebWriteFragment, com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public View onCreateView(LayoutInflater inflater, ViewGroup viewGroup, Bundle bundle) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, inflater, viewGroup, bundle)) == null) {
+            Intrinsics.checkNotNullParameter(inflater, "inflater");
+            oq6 b = mq6.b();
+            BdUniqueId uniqueId = getUniqueId();
+            Intrinsics.checkNotNullExpressionValue(uniqueId, "uniqueId");
+            b.b(new lq6(uniqueId, qbb.class), new a(this, qbb.class));
+            return super.onCreateView(inflater, viewGroup, bundle);
+        }
+        return (View) invokeLLL.objValue;
     }
 }

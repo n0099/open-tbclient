@@ -1,18 +1,20 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.launchtips.monitor.request.RequestStatus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes8.dex */
-public class y62 extends q62<JSONObject, qx1> {
+import java.util.List;
+/* loaded from: classes9.dex */
+public final class y62 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final a72 a;
+    public long b;
 
     public y62() {
         Interceptable interceptable = $ic;
@@ -24,46 +26,128 @@ public class y62 extends q62<JSONObject, qx1> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.b = 0L;
+        this.a = new a72();
+    }
+
+    public final boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.a.g().size() >= 2.0d) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.a.i() > 2 && System.currentTimeMillis() - this.b >= 3000) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.a.b();
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.u62
-    @NonNull
-    /* renamed from: c */
-    public qx1 a(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return new qx1(202);
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject("data");
-            if (optJSONObject == null) {
-                return new qx1(202, "data is required");
-            }
-            String optString = optJSONObject.optString("status");
-            if (TextUtils.isEmpty(optString)) {
-                return new qx1(202, "status is required");
-            }
-            char c = 65535;
-            int hashCode = optString.hashCode();
-            if (hashCode != 48) {
-                if (hashCode == 49 && optString.equals("1")) {
-                    c = 0;
-                }
-            } else if (optString.equals("0")) {
-                c = 1;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    return new qx1(202, "status value is invalid");
-                }
-                new o62().d();
-            }
-            return new qx1(0);
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.b = System.currentTimeMillis();
         }
-        return (qx1) invokeL.objValue;
+    }
+
+    public void a(w62 w62Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, w62Var) == null) {
+            this.a.a(w62Var);
+        }
+    }
+
+    public final boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int size = this.a.d().size();
+            int i = this.a.i();
+            if (i <= 0 || (size * 1.0d) / i <= 0.5d) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            List<w62> d = this.a.d();
+            if (d.size() <= 0) {
+                return false;
+            }
+            for (w62 w62Var : d) {
+                if (qb2.k().i(w62Var.f)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            int size = this.a.f().size();
+            int i = this.a.i();
+            if (i <= 0 || (size * 1.0d) / i <= 0.5d) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public z62 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            z62 z62Var = new z62();
+            z62Var.i(this.b);
+            z62Var.h(this.a.d());
+            z62Var.k(this.a.g());
+            z62Var.l(this.a.i());
+            if (c()) {
+                z62Var.j(RequestStatus.STATUS_CORE_FAILED);
+            } else if (e()) {
+                z62Var.j(RequestStatus.STATUS_UNKNOWN);
+            } else if (f()) {
+                z62Var.j(RequestStatus.STATUS_SERVER_FAILED);
+            } else if (b()) {
+                z62Var.j(RequestStatus.STATUS_FAILED);
+            } else if (d()) {
+                z62Var.j(RequestStatus.STATUS_SLOW);
+            } else {
+                z62Var.j(RequestStatus.STATUS_SUCCESS);
+            }
+            return z62Var;
+        }
+        return (z62) invokeV.objValue;
     }
 }

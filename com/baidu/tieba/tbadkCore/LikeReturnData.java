@@ -7,8 +7,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
 import com.baidu.tbadk.core.data.FeedForumData;
-import com.baidu.tieba.eda;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
+import com.baidu.tieba.jqa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,7 +35,8 @@ public class LikeReturnData {
     public int like_num;
     public BlockPopInfoData mBlockPopInfoData;
     public String memberSum;
-    public List<eda> recommendForums;
+    public JSONObject originData;
+    public List<jqa> recommendForums;
     public BdToastData toastData;
     public int user_level;
 
@@ -87,8 +88,8 @@ public class LikeReturnData {
             if (jSONArray != null && jSONArray.length() != 0) {
                 for (int i = 0; i < jSONArray.length(); i++) {
                     try {
-                        eda b = eda.b((JSONObject) jSONArray.opt(i));
-                        if (b != null && eda.a(b)) {
+                        jqa b = jqa.b((JSONObject) jSONArray.opt(i));
+                        if (b != null && jqa.a(b)) {
                             this.recommendForums.add(b);
                         }
                     } catch (Exception e) {
@@ -96,22 +97,6 @@ public class LikeReturnData {
                         return;
                     }
                 }
-            }
-        }
-    }
-
-    public void parserJson(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                parserJson(jSONObject.optJSONObject("info"));
-                parseFeedForumList(jSONObject.optJSONArray("feed_forum"));
-                parseRecommendForums(jSONObject.optJSONArray("recom_forum"));
-                this.errorCode = jSONObject.optInt("error_code");
-                this.errorMsg = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
-            } catch (Exception e) {
-                BdLog.detailException(e);
             }
         }
     }
@@ -215,7 +200,7 @@ public class LikeReturnData {
         return (String) invokeV.objValue;
     }
 
-    public List<eda> getRecommendForums() {
+    public List<jqa> getRecommendForums() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
@@ -280,6 +265,23 @@ public class LikeReturnData {
                     e.printStackTrace();
                     return;
                 }
+            }
+        }
+    }
+
+    public void parserJson(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                this.originData = jSONObject;
+                parserJson(jSONObject.optJSONObject("info"));
+                parseFeedForumList(this.originData.optJSONArray("feed_forum"));
+                parseRecommendForums(this.originData.optJSONArray("recom_forum"));
+                this.errorCode = this.originData.optInt("error_code");
+                this.errorMsg = this.originData.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
+            } catch (Exception e) {
+                BdLog.detailException(e);
             }
         }
     }

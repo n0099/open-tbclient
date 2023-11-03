@@ -1,5 +1,5 @@
 package com.google.zxing;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class ReaderException extends Exception {
     public static final StackTraceElement[] NO_TRACE;
     public static final boolean isStackTrace;

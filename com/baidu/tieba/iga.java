@@ -1,16 +1,18 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.hb7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class iga {
+public final class iga implements hb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public String c;
 
     public iga() {
         Interceptable interceptable = $ic;
@@ -24,5 +26,59 @@ public class iga {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.gb7
+    public String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return hb7.a.b(this);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gb7
+    public Map<String, String> a(d57 d57Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, d57Var)) == null) {
+            return hb7.a.a(this, d57Var);
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.hb7
+    public String c(d57 businessInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            if (!Intrinsics.areEqual(businessInfo.a().get("thread_type"), "74")) {
+                return "";
+            }
+            String str = businessInfo.a().get("pic_type");
+            if (str == null) {
+                str = "normal";
+            }
+            int hashCode = str.hashCode();
+            if (hashCode != -1039745817) {
+                if (hashCode != 3322092) {
+                    if (hashCode != 112202875 || !str.equals("video")) {
+                        return "";
+                    }
+                    return "live_mix_card_video_image_click";
+                } else if (!str.equals("live")) {
+                    return "";
+                } else {
+                    return "live_mix_card_live_image_click";
+                }
+            } else if (!str.equals("normal")) {
+                return "";
+            } else {
+                return "live_mix_card_normal_image_click";
+            }
+        }
+        return (String) invokeL.objValue;
     }
 }

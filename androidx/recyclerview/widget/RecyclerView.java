@@ -4931,7 +4931,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
     }
 
     public RecyclerView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405f4);
+        this(context, attributeSet, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405ff);
     }
 
     private boolean didChildRangeChange(int i, int i2) {

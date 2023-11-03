@@ -224,10 +224,10 @@ public class ProgressBarDialog extends BoxAlertDialog {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d082a, (ViewGroup) null);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d083f, (ViewGroup) null);
             this.mContentView = inflate;
-            this.mContentText = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0907e3);
-            this.mProgressBar = (RoundProgressBar) this.mContentView.findViewById(R.id.obfuscated_res_0x7f0907df);
+            this.mContentText = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090803);
+            this.mProgressBar = (RoundProgressBar) this.mContentView.findViewById(R.id.obfuscated_res_0x7f0907ff);
             return this.mContentView;
         }
         return (View) invokeV.objValue;

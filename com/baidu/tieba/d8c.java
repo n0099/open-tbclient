@@ -1,125 +1,91 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.os.Build;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.k6c;
-import com.baidu.tieba.l6c;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
-public final class d8c<T> implements l6c.c<T> {
-    public static /* synthetic */ Interceptable $ic;
+public class d8c {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String b = "RootKeyUtil";
     public transient /* synthetic */ FieldHolder $fh;
-    public final l6c.c<T> a;
-    public final long b;
-    public final TimeUnit c;
-    public final k6c d;
+    public byte[] a;
 
-    /* loaded from: classes5.dex */
-    public static final class a<T> extends m6c<T> implements u6c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final m6c<? super T> b;
-        public final k6c.a c;
-        public final long d;
-        public final TimeUnit e;
-        public T f;
-        public Throwable g;
-
-        public a(m6c<? super T> m6cVar, k6c.a aVar, long j, TimeUnit timeUnit) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m6cVar, aVar, Long.valueOf(j), timeUnit};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = m6cVar;
-            this.c = aVar;
-            this.d = j;
-            this.e = timeUnit;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947659866, "Lcom/baidu/tieba/d8c;")) == null) {
+            return;
         }
-
-        @Override // com.baidu.tieba.m6c
-        public void b(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-                this.g = th;
-                this.c.c(this, this.d, this.e);
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-
-        @Override // com.baidu.tieba.m6c
-        public void c(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-                this.f = t;
-                this.c.c(this, this.d, this.e);
-            }
-        }
-
-        @Override // com.baidu.tieba.u6c
-        public void call() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                try {
-                    Throwable th = this.g;
-                    if (th != null) {
-                        this.g = null;
-                        this.b.b(th);
-                    } else {
-                        T t = this.f;
-                        this.f = null;
-                        this.b.c(t);
-                    }
-                } finally {
-                    this.c.unsubscribe();
-                }
-            }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947659866, "Lcom/baidu/tieba/d8c;");
         }
     }
 
-    public d8c(l6c.c<T> cVar, long j, TimeUnit timeUnit, k6c k6cVar) {
+    public d8c() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cVar, Long.valueOf(j), timeUnit, k6cVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = cVar;
-        this.d = k6cVar;
-        this.b = j;
-        this.c = timeUnit;
+        this.a = null;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.v6c
-    /* renamed from: a */
-    public void call(m6c<? super T> m6cVar) {
+    public byte[] c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, m6cVar) == null) {
-            k6c.a createWorker = this.d.createWorker();
-            a aVar = new a(m6cVar, createWorker, this.b, this.c);
-            m6cVar.a(createWorker);
-            m6cVar.a(aVar);
-            this.a.call(aVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return (byte[]) this.a.clone();
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    public static d8c d(String str, String str2, String str3, String str4) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, str, str2, str3, str4)) == null) {
+            d8c d8cVar = new d8c();
+            d8cVar.a(str, str2, str3, str4);
+            return d8cVar;
+        }
+        return (d8c) invokeLLLL.objValue;
+    }
+
+    public final void a(String str, String str2, String str3, String str4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, str3, str4) == null) {
+            b(str, str2, str3, c8c.b(str4));
+        }
+    }
+
+    @SuppressLint({"NewApi"})
+    public final void b(String str, String str2, String str3, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, bArr) == null) {
+            if (Build.VERSION.SDK_INT < 26) {
+                f8c.d(b, "initRootKey: sha1");
+                this.a = a8c.h(str, str2, str3, bArr, false);
+                return;
+            }
+            f8c.d(b, "initRootKey: sha256");
+            this.a = a8c.h(str, str2, str3, bArr, true);
         }
     }
 }

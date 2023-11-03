@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
-import org.json.JSONObject;
+import com.baidu.tieba.w25;
 /* loaded from: classes5.dex */
-public interface a35 {
-    void a(c35 c35Var, JSONObject jSONObject);
+public interface a35<T extends w25> {
+    void a(int i, boolean z, T t);
 
-    void b(int i, Throwable th);
+    void b(int i, T t, boolean z);
 }

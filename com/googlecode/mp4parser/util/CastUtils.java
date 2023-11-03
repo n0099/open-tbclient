@@ -1,7 +1,7 @@
 package com.googlecode.mp4parser.util;
 
 import com.baidu.tbadk.core.data.SmallTailInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class CastUtils {
     public static int l2i(long j) {
         if (j <= 2147483647L && j >= -2147483648L) {

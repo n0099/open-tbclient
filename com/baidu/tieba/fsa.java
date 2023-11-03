@@ -1,95 +1,56 @@
 package com.baidu.tieba;
 
-import android.text.Layout;
-import android.text.Selection;
-import android.text.Spannable;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.Context;
+import com.baidu.tbadk.core.GlobalBuildConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class fsa implements View.OnTouchListener {
+public final class fsa extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Spannable a;
-    public ow5 b;
+    public final Context a;
 
-    public fsa(Spannable spannable) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fsa(Context context, int i) {
+        super(context, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {spannable};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = null;
-        this.a = spannable;
+        Intrinsics.checkNotNullParameter(context, "context");
+        this.a = context;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view2, MotionEvent motionEvent) {
-        InterceptResult invokeLL;
-        ow5 ow5Var;
+    @Override // android.app.Dialog
+    public void show() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-            int action = motionEvent.getAction();
-            if (!(view2 instanceof TextView)) {
-                return false;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Context context = this.a;
+            if (context instanceof Activity) {
+                if (xb.e((Activity) context)) {
+                    super.show();
+                }
+            } else if (!GlobalBuildConfig.isDebug()) {
+            } else {
+                throw new RuntimeException("非Activity模式下不允许弹Dialog!");
             }
-            TextView textView = (TextView) view2;
-            if (action == 3 && (ow5Var = this.b) != null) {
-                ow5Var.m(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
-                view2.invalidate();
-                this.b = null;
-                return false;
-            }
-            if (action == 1 || action == 0) {
-                int x = (int) motionEvent.getX();
-                int y = (int) motionEvent.getY();
-                Layout layout = textView.getLayout();
-                if (layout == null) {
-                    return false;
-                }
-                int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical((y - textView.getTotalPaddingTop()) + textView.getScrollY()), (x - textView.getTotalPaddingLeft()) + textView.getScrollX());
-                Spannable spannable = this.a;
-                if (spannable == null) {
-                    return false;
-                }
-                ow5[] ow5VarArr = (ow5[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, ow5.class);
-                if (ow5VarArr != null && ow5VarArr.length != 0 && ow5VarArr[0] != null) {
-                    if (action == 1) {
-                        ow5VarArr[0].m(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
-                        ow5VarArr[0].onClick(textView);
-                        view2.invalidate();
-                    } else {
-                        this.b = ow5VarArr[0];
-                        Spannable spannable2 = this.a;
-                        Selection.setSelection(spannable2, spannable2.getSpanStart(ow5VarArr[0]), this.a.getSpanEnd(ow5VarArr[0]));
-                        view2.invalidate();
-                    }
-                    return true;
-                }
-                ow5 ow5Var2 = this.b;
-                if (ow5Var2 != null) {
-                    ow5Var2.m(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
-                    view2.invalidate();
-                }
-                Selection.removeSelection(this.a);
-            }
-            return false;
         }
-        return invokeLL.booleanValue;
     }
 }

@@ -136,6 +136,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_GAME_CODE = 1003516;
     public static final int CMD_GET_GAME_RECOMMEND_TAB_INFO = 1003401;
     public static final int CMD_GET_GOD_RECOMMEND = 1003375;
+    public static final int CMD_GET_GROUP_CHAT_IS_LIMIT_MESSAGE = 1003583;
     public static final int CMD_GET_GROUP_CHAT_LIMIT_MESSAGE = 1003554;
     public static final int CMD_GET_GROUP_CHAT_ROLLBACK_MESSAGE = 1003555;
     public static final int CMD_GET_HISTORY_FORUM = 1003394;
@@ -225,6 +226,8 @@ public class CmdConfigHttp {
     public static final int CMD_HTTP_RELATIVE_MEME_LIST = 1003561;
     public static final int CMD_HTTP_SHARE_CONTENT_TO_CHAT_GROUP = 1003553;
     public static final int CMD_HTTP_SMART_APP = 1003420;
+    public static final int CMD_HTTP_SPRITE_MEME_LOOP = 1003581;
+    public static final int CMD_HTTP_SPRITE_MEME_QUERY = 1003582;
     public static final int CMD_HTTP_STATISTICS_REPORT = 1003575;
     public static final int CMD_HTTP_TIEBA_UID_CHECK = 1003493;
     public static final int CMD_HTTP_VIDEO_ATTENTION_FEED = 1003501;
@@ -391,6 +394,7 @@ public class CmdConfigHttp {
     public static final int SIGNALL_HTTP_BASE_CMD = 1001200;
     public static final int SPECIAL_PAGE_HTTP_CMD = 1003200;
     public static final int SubPb_HTTP_CMD = 1002100;
+    public static final int THE_COMMON_HTTP_CMD_FOR_ALL = 1002111;
     public static final int USER_POST_HTTP_CMD = 1001503;
     public static final int WEBVIEW_CACHE_INFO = 1003365;
     public transient /* synthetic */ FieldHolder $fh;

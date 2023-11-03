@@ -1,95 +1,24 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.Nullable;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import android.graphics.drawable.Drawable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.baseEditMark.MarkData;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.oq4;
+import com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
+import java.util.Iterator;
 /* loaded from: classes5.dex */
-public class ay5 {
+public class ay5 implements zx5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public oq4 b;
-    public b c;
-    public MarkData d;
-    public final oq4.a e;
+    public final HashSet<LoadingLayout> a;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(boolean z);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements oq4.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ay5 a;
-
-        public a(ay5 ay5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ay5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ay5Var;
-        }
-
-        @Override // com.baidu.tieba.oq4.a
-        public void a(boolean z, boolean z2, String str, @Nullable String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), str, str2}) == null) {
-                if (z) {
-                    if (z2) {
-                        if (str2 == null) {
-                            str2 = this.a.a.getString(R.string.add_mark);
-                        }
-                        BdUtilHelper.showToast(str2, 2000, true);
-                    } else {
-                        BdUtilHelper.showToast(this.a.a, this.a.a.getString(R.string.remove_mark));
-                    }
-                    if (this.a.c != null) {
-                        this.a.c.a(z2);
-                    }
-                    if (this.a.d != null) {
-                        lea leaVar = new lea();
-                        leaVar.a = this.a.d.getThreadId();
-                        leaVar.b = z2;
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921603, leaVar));
-                        return;
-                    }
-                    return;
-                }
-                BdUtilHelper.showToast(this.a.a, this.a.a.getString(R.string.update_mark_failed));
-            }
-        }
-    }
-
-    public ay5(Context context) {
+    public ay5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -99,74 +28,68 @@ public class ay5 {
                 return;
             }
         }
-        this.b = null;
-        this.e = new a(this);
-        this.a = context;
-        if (context instanceof BaseActivity) {
-            this.b = oq4.b((BaseActivity) context);
-        } else if (context instanceof BaseFragmentActivity) {
-            this.b = oq4.c((BaseFragmentActivity) context);
-        }
-        oq4 oq4Var = this.b;
-        if (oq4Var != null) {
-            oq4Var.j(this.e);
+        this.a = new HashSet<>();
+    }
+
+    public void a(LoadingLayout loadingLayout) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, loadingLayout) == null) && loadingLayout != null) {
+            this.a.add(loadingLayout);
         }
     }
 
-    public void g(boolean z) {
-        oq4 oq4Var;
+    @Override // com.baidu.tieba.zx5
+    public void setLastUpdatedLabel(CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && (oq4Var = this.b) != null) {
-            oq4Var.h(z);
-        }
-    }
-
-    public void h(MarkData markData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, markData) == null) {
-            this.d = markData;
-            oq4 oq4Var = this.b;
-            if (oq4Var != null) {
-                oq4Var.i(markData);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence) == null) {
+            Iterator<LoadingLayout> it = this.a.iterator();
+            while (it.hasNext()) {
+                it.next().setLastUpdatedLabel(charSequence);
             }
         }
     }
 
-    public void i(b bVar) {
+    @Override // com.baidu.tieba.zx5
+    public void setLoadingDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.c = bVar;
-        }
-    }
-
-    public void d() {
-        oq4 oq4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (oq4Var = this.b) != null) {
-            oq4Var.a();
-            this.b.h(true);
-        }
-    }
-
-    public void e() {
-        oq4 oq4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (oq4Var = this.b) != null && oq4Var.e()) {
-            this.b.d();
-            this.b.h(false);
-        }
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            oq4 oq4Var = this.b;
-            if (oq4Var != null) {
-                return oq4Var.e();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, drawable) == null) {
+            Iterator<LoadingLayout> it = this.a.iterator();
+            while (it.hasNext()) {
+                it.next().setLoadingDrawable(drawable);
             }
-            return false;
         }
-        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.zx5
+    public void setPullLabel(CharSequence charSequence) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, charSequence) == null) {
+            Iterator<LoadingLayout> it = this.a.iterator();
+            while (it.hasNext()) {
+                it.next().setPullLabel(charSequence);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.zx5
+    public void setRefreshingLabel(CharSequence charSequence) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, charSequence) == null) {
+            Iterator<LoadingLayout> it = this.a.iterator();
+            while (it.hasNext()) {
+                it.next().setRefreshingLabel(charSequence);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.zx5
+    public void setReleaseLabel(CharSequence charSequence) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, charSequence) == null) {
+            Iterator<LoadingLayout> it = this.a.iterator();
+            while (it.hasNext()) {
+                it.next().setReleaseLabel(charSequence);
+            }
+        }
     }
 }

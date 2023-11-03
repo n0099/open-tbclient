@@ -6,7 +6,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
-import com.baidu.tieba.gg8;
+import com.baidu.tieba.et8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -130,7 +130,7 @@ public class MessageSyncMessage extends TbSocketMessage {
             if (builder.groupMids == null) {
                 builder.groupMids = new ArrayList();
             }
-            long d = gg8.e().d();
+            long d = et8.e().d();
             boolean z = false;
             for (int i = 0; i < this.mMids.size(); i++) {
                 long keyAt = this.mMids.keyAt(i);
@@ -140,17 +140,17 @@ public class MessageSyncMessage extends TbSocketMessage {
                     builder2.groupId = Long.valueOf(keyAt);
                     builder2.lastMsgId = valueAt;
                     if (d == keyAt) {
-                        builder2.excludeMid = gg8.e().g();
+                        builder2.excludeMid = et8.e().g();
                         z = true;
                     }
                     builder.groupMids.add(builder2.build(false));
                 }
             }
-            if (!z && gg8.e().i()) {
+            if (!z && et8.e().i()) {
                 GroupLastId.Builder builder3 = new GroupLastId.Builder();
                 builder3.groupId = Long.valueOf(d);
-                builder3.lastMsgId = gg8.e().f();
-                builder3.excludeMid = gg8.e().g();
+                builder3.lastMsgId = et8.e().f();
+                builder3.excludeMid = et8.e().g();
                 builder.groupMids.add(builder3.build(false));
             }
             builder.newpushRepire = getNewpushRepire();

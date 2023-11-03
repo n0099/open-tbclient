@@ -1,37 +1,50 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.browser.CommonTbJsBridge;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.FileDescriptor;
 /* loaded from: classes7.dex */
 public class mc1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(int i, String str, String str2) {
-        InterceptResult invokeILL;
-        String str3;
+    public static int a(BitmapFactory.Options options, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65536, null, i, str, str2)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (!TextUtils.isEmpty(str2)) {
-                str3 = "statecode={" + i + "};order_no={" + str + "};notify=" + str2;
-            } else {
-                str3 = "statecode={" + i + "};order_no={" + str + "};notify={" + str2 + "}";
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65536, null, options, i, i2)) == null) {
+            int i3 = options.outHeight;
+            int i4 = options.outWidth;
+            int i5 = 1;
+            if (i3 > i2 || i4 > i) {
+                int i6 = i3 / 2;
+                int i7 = i4 / 2;
+                while (i6 / i5 >= i2 && i7 / i5 >= i) {
+                    i5 *= 2;
+                }
             }
-            try {
-                jSONObject.put("statusCode", i);
-                jSONObject.put(CommonTbJsBridge.FILE_DOWNLOAD_STATUS_MSG, str2);
-                jSONObject.put("responseData", str3);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject.toString();
+            return i5;
         }
-        return (String) invokeILL.objValue;
+        return invokeLII.intValue;
+    }
+
+    public static Bitmap b(FileDescriptor fileDescriptor, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, fileDescriptor, i, i2)) == null) {
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = true;
+            BitmapFactory.decodeFileDescriptor(fileDescriptor, null, options);
+            int a = a(options, i, i2);
+            options.inSampleSize = a;
+            options.inJustDecodeBounds = false;
+            if (a <= 1) {
+                return BitmapFactory.decodeFileDescriptor(fileDescriptor);
+            }
+            return BitmapFactory.decodeFileDescriptor(fileDescriptor, null, options);
+        }
+        return (Bitmap) invokeLII.objValue;
     }
 }

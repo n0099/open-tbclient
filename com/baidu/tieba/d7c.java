@@ -1,5 +1,10 @@
 package com.baidu.tieba;
+
+import android.content.Context;
+import java.util.List;
 /* loaded from: classes5.dex */
-public interface d7c<T1, T2, T3, T4, R> {
-    R b(T1 t1, T2 t2, T3 t3, T4 t4);
+public interface d7c {
+    void a(Context context);
+
+    List<c7c> b(Context context);
 }

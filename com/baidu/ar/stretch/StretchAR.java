@@ -8,7 +8,7 @@ import com.baidu.ar.d.e;
 import com.baidu.ar.d.l;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class StretchAR extends c {
     public e mv;
     public StretchDetector xO;

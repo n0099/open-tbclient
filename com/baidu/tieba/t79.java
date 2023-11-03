@@ -1,242 +1,152 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
+import android.text.TextUtils;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.model.ForbidShareRespondedMessage;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Objects;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class t79 {
+public abstract class t79<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public boolean b;
-    public a c;
-    public final b d;
+    public final e89<T> a;
+    public Function2<? super View, ? super e89<T>, Unit> b;
+    public Function2<? super View, ? super e89<T>, Unit> c;
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void a(s79 s79Var);
-
-        void onFail();
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948134259, "Lcom/baidu/tieba/t79;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948134259, "Lcom/baidu/tieba/t79;");
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static final class b extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ t79 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(t79 t79Var) {
-            super(CmdConfigHttp.CMD_HTTP_FORBID_SHARE_UTL_TO_TOKEN);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {t79Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = t79Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            a b;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                this.a.h(false);
-                if (httpResponsedMessage instanceof ForbidShareRespondedMessage) {
-                    ForbidShareRespondedMessage forbidShareRespondedMessage = (ForbidShareRespondedMessage) httpResponsedMessage;
-                    if (forbidShareRespondedMessage.getError() == 0) {
-                        s79 data = forbidShareRespondedMessage.getData();
-                        if (data != null && (b = this.a.b()) != null) {
-                            b.a(data);
-                            return;
-                        }
-                        return;
-                    }
-                }
-                a b2 = this.a.b();
-                if (b2 != null) {
-                    b2.onFail();
-                }
-            }
-        }
-    }
-
-    public t79(BdUniqueId bdUniqueId) {
+    public t79(e89<T> data) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {data};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = bdUniqueId;
-        this.d = new b(this);
-        e();
+        Intrinsics.checkNotNullParameter(data, "data");
+        this.a = data;
     }
 
-    public final boolean f(String str) {
+    public boolean f(t79<?> other) {
         InterceptResult invokeL;
-        String urlEncode;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (this.b || (urlEncode = ad.getUrlEncode(str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, other)) == null) {
+            Intrinsics.checkNotNullParameter(other, "other");
+            if (this.a.e().c() != 2 && other.a.e().c() != 2) {
                 return false;
             }
-            this.b = true;
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_HTTP_FORBID_SHARE_UTL_TO_TOKEN);
-            httpMessage.addParam("scheme", urlEncode);
-            httpMessage.addParam("scheme_encode", 1);
-            httpMessage.setTag(this.a);
-            MessageManager.getInstance().sendMessage(httpMessage);
             return true;
         }
         return invokeL.booleanValue;
     }
 
-    public final void a(ShareItem shareItem) {
-        boolean z;
-        boolean z2;
+    public final e89<T> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, shareItem) == null) {
-            Intrinsics.checkNotNullParameter(shareItem, "shareItem");
-            String str = shareItem.linkUrl;
-            boolean z3 = false;
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (!z) {
-                String forbidShareTplText = shareItem.getForbidShareTplText();
-                Intrinsics.checkNotNullExpressionValue(forbidShareTplText, "shareItem.forbidShareTplText");
-                if (forbidShareTplText.length() == 0) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                if (!z2) {
-                    String forbidShareToast = shareItem.getForbidShareToast();
-                    Intrinsics.checkNotNullExpressionValue(forbidShareToast, "shareItem.forbidShareToast");
-                    if (forbidShareToast.length() == 0) {
-                        z3 = true;
-                    }
-                    if (!z3 && !shareItem.getOutsideShareDisableMap().isEmpty()) {
-                        HashMap<String, Boolean> outsideShareDisableMap = shareItem.getOutsideShareDisableMap();
-                        Intrinsics.checkNotNullExpressionValue(outsideShareDisableMap, "shareItem.outsideShareDisableMap");
-                        for (Map.Entry<String, Boolean> entry : outsideShareDisableMap.entrySet()) {
-                            Boolean value = entry.getValue();
-                            Intrinsics.checkNotNullExpressionValue(value, "it.value");
-                            if (value.booleanValue()) {
-                                String str2 = shareItem.linkUrl;
-                                Intrinsics.checkNotNullExpressionValue(str2, "shareItem.linkUrl");
-                                f(str2);
-                                return;
-                            }
-                        }
-                    }
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (e89) invokeV.objValue;
     }
 
-    public final a b() {
+    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: kotlin.jvm.functions.Function2<? super android.view.View, ? super com.baidu.tieba.e89<T>, kotlin.Unit>, kotlin.jvm.functions.Function2<android.view.View, com.baidu.tieba.e89<T>, kotlin.Unit> */
+    public final Function2<View, e89<T>, Unit> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+            return (Function2<? super View, ? super e89<T>, Unit>) this.b;
         }
-        return (a) invokeV.objValue;
+        return (Function2) invokeV.objValue;
     }
 
-    public final void c() {
+    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: kotlin.jvm.functions.Function2<? super android.view.View, ? super com.baidu.tieba.e89<T>, kotlin.Unit>, kotlin.jvm.functions.Function2<android.view.View, com.baidu.tieba.e89<T>, kotlin.Unit> */
+    public final Function2<View, e89<T>, Unit> e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_HTTP_FORBID_SHARE_UTL_TO_TOKEN);
-            MessageManager.getInstance().unRegisterListener(this.d);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return (Function2<? super View, ? super e89<T>, Unit>) this.c;
+        }
+        return (Function2) invokeV.objValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return Objects.hashCode(this.a);
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v10 */
+    /* JADX WARN: Type inference failed for: r1v11 */
+    /* JADX WARN: Type inference failed for: r1v12 */
+    /* JADX WARN: Type inference failed for: r1v4, types: [java.lang.CharSequence] */
+    /* JADX WARN: Type inference failed for: r1v9 */
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        t79 t79Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            e89<T> e89Var = (e89<T>) false;
+            if (obj instanceof t79) {
+                t79Var = (t79) obj;
+            } else {
+                t79Var = null;
+            }
+            if (this instanceof v79) {
+                String a = ((v79) this).c().g().a();
+                ?? r1 = e89Var;
+                if (t79Var != null) {
+                    e89<T> e89Var2 = t79Var.a;
+                    r1 = e89Var;
+                    if (e89Var2 != null) {
+                        d89 g = e89Var2.g();
+                        r1 = e89Var;
+                        if (g != null) {
+                            r1 = (e89<T>) g.a();
+                        }
+                    }
+                }
+                return TextUtils.equals(a, r1);
+            }
+            e89<T> e89Var3 = this.a;
+            e89<T> e89Var4 = e89Var;
+            if (t79Var != null) {
+                e89Var4 = t79Var.a;
+            }
+            return Objects.equals(e89Var3, e89Var4);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void g(Function2<? super View, ? super e89<T>, Unit> function2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, function2) == null) {
+            this.b = function2;
         }
     }
 
-    public final void e() {
+    public final void h(Function2<? super View, ? super e89<T>, Unit> function2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            d();
-            this.d.setSelfListener(true);
-            this.d.setTag(this.a);
-            MessageManager.getInstance().registerListener(this.d);
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_FORBID_SHARE_UTL_TO_TOKEN, TbConfig.SERVER_ADDRESS + "c/s/schemeToken");
-            tbHttpMessageTask.setResponsedClass(ForbidShareRespondedMessage.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public final void g(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            this.c = aVar;
-        }
-    }
-
-    public final void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.b = z;
+        if (interceptable == null || interceptable.invokeL(1048582, this, function2) == null) {
+            this.c = function2;
         }
     }
 }

@@ -17,7 +17,7 @@ public abstract class a extends com.kwad.components.core.widget.b<AdTemplate> {
     }
 
     public final void bf() {
-        ComplianceTextView complianceTextView = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f0912b7);
+        ComplianceTextView complianceTextView = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f0912f5);
         if (!com.kwad.sdk.core.response.a.a.ao(this.mAdInfo)) {
             complianceTextView.setVisibility(8);
             return;
@@ -28,7 +28,7 @@ public abstract class a extends com.kwad.components.core.widget.b<AdTemplate> {
 
     public final void g(boolean z) {
         if (com.kwad.sdk.core.response.a.a.am(this.mAdInfo) && com.kwad.components.ad.feed.kwai.b.bd() && getApkDownloadHelper() != null) {
-            DownloadProgressView downloadProgressView = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f091290);
+            DownloadProgressView downloadProgressView = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f0912ce);
             if (!z || getApkDownloadHelper().mI() == 2) {
                 com.kwad.components.ad.feed.b bVar = this.dd;
                 if (bVar != null) {

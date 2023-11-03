@@ -20,11 +20,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.mainTab.FragmentTabStructure;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ju4;
-import com.baidu.tieba.ko4;
-import com.baidu.tieba.r89;
-import com.baidu.tieba.s89;
-import com.baidu.tieba.t89;
+import com.baidu.tieba.av4;
+import com.baidu.tieba.bp4;
+import com.baidu.tieba.wl9;
+import com.baidu.tieba.xl9;
+import com.baidu.tieba.yl9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,7 +36,7 @@ import org.apache.commons.codec.language.bm.ResourceConstants;
 public class CollectTabActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public r89 a;
+    public wl9 a;
     public CustomMessageListener b;
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tbadk.pageStayDuration.IPageStayDuration
@@ -49,7 +49,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
         }
     }
 
@@ -115,7 +115,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
             this.a.m();
         }
@@ -124,13 +124,13 @@ public class CollectTabActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onPause();
-            s89.b().f(false);
+            xl9.b().f(false);
         }
     }
 
-    public boolean s1() {
+    public boolean p1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
@@ -142,7 +142,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             super.changeSkinType(i);
             this.a.k(i);
         }
@@ -151,24 +151,24 @@ public class CollectTabActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0212);
-            r89 r89Var = new r89(this);
-            this.a = r89Var;
-            r89Var.l();
+            setContentView(R.layout.obfuscated_res_0x7f0d0217);
+            wl9 wl9Var = new wl9(this);
+            this.a = wl9Var;
+            wl9Var.l();
             registerListener(this.b);
-            r1();
-            q1(getIntent());
+            o1();
+            n1(getIntent());
         }
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, intent) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, intent) == null) {
             super.onNewIntent(intent);
-            q1(intent);
+            n1(intent);
             setIntent(intent);
         }
     }
@@ -176,7 +176,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
     @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, bundle) == null) {
             try {
                 super.onSaveInstanceState(bundle);
             } catch (Exception unused) {
@@ -187,50 +187,9 @@ public class CollectTabActivity extends BaseFragmentActivity {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
+    public final void n1(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, intent) == null) {
-            super.onActivityResult(i, i2, intent);
-            Fragment f = this.a.f();
-            if (f != null) {
-                f.onActivityResult(i, i2, intent);
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            super.onResume();
-            t89.a("c14061");
-            s89.b().f(true);
-            s89.b().e(false);
-            NotificationHelper.cancelNotification(getPageContext().getPageActivity(), 28);
-        }
-    }
-
-    public void r1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            ju4 ju4Var = new ju4(getPageContext().getPageActivity());
-            ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
-            ju4Var.a(threadDelegateStatic);
-            if (ju4Var.b() != null) {
-                FragmentTabStructure fragmentTabStructure = threadDelegateStatic.getFragmentTabStructure();
-                if (fragmentTabStructure == null) {
-                    return;
-                }
-                fragmentTabStructure.frag.setArguments(new Bundle());
-            }
-            this.a.i(ju4Var.c());
-        }
-    }
-
-    public final void q1(Intent intent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, intent) != null) || intent == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) != null) || intent == null) {
             return;
         }
         String dataString = intent.getDataString();
@@ -242,8 +201,49 @@ public class CollectTabActivity extends BaseFragmentActivity {
             Map<String, String> paramPair = UrlManager.getParamPair(decode);
             if (paramPair != null) {
                 StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE).param("obj_locate", paramPair.get("obj_locate")).param("obj_type", 1).param("obj_source", paramPair.get("obj_source")).param(TiebaStatic.Params.OBJ_PARAM2, paramPair.get(TiebaStatic.Params.OBJ_PARAM2)).param(TiebaStatic.Params.OBJ_TO, 4).param("obj_name", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, 1);
-                ko4.b(param, paramPair);
+                bp4.b(param, paramPair);
                 TiebaStatic.log(param);
+            }
+        }
+    }
+
+    public void o1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            av4 av4Var = new av4(getPageContext().getPageActivity());
+            ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
+            av4Var.a(threadDelegateStatic);
+            if (av4Var.b() != null) {
+                FragmentTabStructure fragmentTabStructure = threadDelegateStatic.getFragmentTabStructure();
+                if (fragmentTabStructure == null) {
+                    return;
+                }
+                fragmentTabStructure.frag.setArguments(new Bundle());
+            }
+            this.a.i(av4Var.c());
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            super.onResume();
+            yl9.a("c14061");
+            xl9.b().f(true);
+            xl9.b().e(false);
+            NotificationHelper.cancelNotification(getPageContext().getPageActivity(), 28);
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onActivityResult(int i, int i2, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
+            Fragment f = this.a.f();
+            if (f != null) {
+                f.onActivityResult(i, i2, intent);
             }
         }
     }

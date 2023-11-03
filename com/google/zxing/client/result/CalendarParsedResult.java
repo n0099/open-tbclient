@@ -9,7 +9,7 @@ import java.util.Locale;
 import java.util.TimeZone;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class CalendarParsedResult extends ParsedResult {
     public final String[] attendees;
     public final String description;

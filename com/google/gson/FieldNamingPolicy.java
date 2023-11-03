@@ -2,7 +2,7 @@ package com.google.gson;
 
 import java.lang.reflect.Field;
 import java.util.Locale;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public enum FieldNamingPolicy implements FieldNamingStrategy {
     IDENTITY { // from class: com.google.gson.FieldNamingPolicy.1
         @Override // com.google.gson.FieldNamingStrategy

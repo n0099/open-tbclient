@@ -1,96 +1,182 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.BDPTask;
-import com.baidu.bdtask.ctrl.model.TaskStatus;
-import com.baidu.bdtask.model.guide.TaskGuideData;
-import com.baidu.bdtask.model.info.TaskInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.bdhttpdns.BDHttpDnsResult;
+import com.baidu.searchbox.dns.transmit.DnsTransmitter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.Inet4Address;
+import java.net.Inet6Address;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes7.dex */
 public final class nk {
     public static /* synthetic */ Interceptable $ic;
-    public static final nk a;
+    public static volatile nk a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448312208, "Lcom/baidu/tieba/nk;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a(int i, ArrayList<String> arrayList, ArrayList<String> arrayList2, long j, String str);
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public a b;
+        public final /* synthetic */ nk c;
+
+        public b(nk nkVar, String str, a aVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nkVar, str, aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448312208, "Lcom/baidu/tieba/nk;");
-                return;
+            this.c = nkVar;
+            this.a = str;
+            this.b = aVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            ArrayList<String> arrayList;
+            ArrayList<String> arrayList2;
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Map d = this.c.d(this.a);
+                if (d != null) {
+                    arrayList2 = (ArrayList) d.get("ipv6");
+                    arrayList = (ArrayList) d.get(DnsTransmitter.TYPE_VALUE_IPV4);
+                } else {
+                    arrayList = null;
+                    arrayList2 = null;
+                }
+                if ((arrayList != null && !arrayList.isEmpty()) || (arrayList2 != null && !arrayList2.isEmpty())) {
+                    i = 0;
+                } else {
+                    i = -1;
+                }
+                this.b.a(i, arrayList, arrayList2, 60L, this.a);
             }
         }
-        a = new nk();
     }
 
     public nk() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public final void a(int i, TaskInfo taskInfo, TaskStatus taskStatus) {
-        String str;
-        kp f;
-        cp d;
-        cp d2;
+    public static nk c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048576, this, i, taskInfo, taskStatus) == null) {
-            bp v = BDPTask.m.v();
-            if (v != null && (d2 = v.d()) != null) {
-                d2.b(taskInfo.getSingleKey(), xl.c.a());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (nk.class) {
+                    if (a == null) {
+                        a = new nk();
+                    }
+                }
             }
-            bp v2 = BDPTask.m.v();
-            if (v2 != null && (d = v2.d()) != null) {
-                d.a(taskInfo.getSingleKey());
-            }
-            if (TaskGuideData.Companion.c(i)) {
-                str = "y_task_diyicon";
-            } else {
-                str = "y_task_icon";
-            }
-            String c = lp.a.c(taskStatus);
-            bp v3 = BDPTask.m.v();
-            if (v3 != null && (f = v3.f()) != null) {
-                f.a(str, "icon_clk", lp.a.a(taskInfo.getId(), taskInfo.getActTaskId(), c));
-            }
+            return a;
+        }
+        return (nk) invokeV.objValue;
+    }
+
+    public void b(String str, a aVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) && str != null && !str.isEmpty()) {
+            sk.b().a().execute(new b(this, str, aVar));
         }
     }
 
-    public final void b(int i, TaskInfo taskInfo, TaskStatus taskStatus) {
-        String str;
-        kp f;
+    public final Map<String, ArrayList> d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, taskInfo, taskStatus) == null) {
-            if (TaskGuideData.Companion.c(i)) {
-                str = "y_task_diyicon";
-            } else {
-                str = "y_task_icon";
-            }
-            String c = lp.a.c(taskStatus);
-            bp v = BDPTask.m.v();
-            if (v != null && (f = v.f()) != null) {
-                f.a(str, "close_clk", lp.a.a(taskInfo.getId(), taskInfo.getActTaskId(), c));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            try {
+                InetAddress[] allByName = InetAddress.getAllByName(str);
+                if (allByName != null && allByName.length != 0) {
+                    ArrayList arrayList = new ArrayList();
+                    ArrayList arrayList2 = new ArrayList();
+                    HashMap hashMap = new HashMap();
+                    for (InetAddress inetAddress : allByName) {
+                        if (inetAddress instanceof Inet4Address) {
+                            String hostAddress = inetAddress.getHostAddress();
+                            if (mk.l(hostAddress)) {
+                                arrayList.add(hostAddress);
+                            }
+                        } else if (inetAddress instanceof Inet6Address) {
+                            String hostAddress2 = inetAddress.getHostAddress();
+                            if (mk.m(hostAddress2)) {
+                                arrayList2.add(hostAddress2);
+                            }
+                        }
+                    }
+                    hashMap.put(DnsTransmitter.TYPE_VALUE_IPV4, arrayList);
+                    hashMap.put("ipv6", arrayList2);
+                    if (arrayList.isEmpty() && arrayList2.isEmpty()) {
+                        rk.a("Dns resolve failed, host(%s), get no valid resolve result", str);
+                        return null;
+                    }
+                    rk.a("Dns resolve successful, host(%s), ipv4List(%s), ipv6List(%s)", str, arrayList.toString(), arrayList2.toString());
+                    return hashMap;
+                }
+                rk.a("Dns resolve failed, host(%s), get empty resolve result", str);
+                return null;
+            } catch (UnknownHostException e) {
+                e.printStackTrace();
+                rk.a("Dns resolve failed, host(%s), caught UnknownHostException", str);
+                return null;
             }
         }
+        return (Map) invokeL.objValue;
+    }
+
+    public BDHttpDnsResult e(String str) {
+        InterceptResult invokeL;
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            Map<String, ArrayList> d = d(str);
+            ArrayList arrayList2 = null;
+            if (d != null) {
+                arrayList2 = d.get(DnsTransmitter.TYPE_VALUE_IPV4);
+                arrayList = d.get("ipv6");
+            } else {
+                arrayList = null;
+            }
+            if ((arrayList2 != null && !arrayList2.isEmpty()) || (arrayList != null && !arrayList.isEmpty())) {
+                return new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_FROM_DNS, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, arrayList2, arrayList);
+            }
+            return new BDHttpDnsResult(BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveErrorDnsResolve);
+        }
+        return (BDHttpDnsResult) invokeL.objValue;
     }
 }

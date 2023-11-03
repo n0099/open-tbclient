@@ -10,9 +10,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tieba.cd5;
-import com.baidu.tieba.pd5;
-import com.baidu.tieba.qf5;
+import com.baidu.tieba.dh5;
+import com.baidu.tieba.le5;
+import com.baidu.tieba.xd5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,15 +23,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes5.dex */
-public class MultiTopEditContainer extends LinearLayout implements pd5 {
+public class MultiTopEditContainer extends LinearLayout implements le5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EditorTools a;
     public int b;
-    public final List<pd5> c;
-    public final Map<String, pd5> d;
+    public final List<le5> c;
+    public final Map<String, le5> d;
 
-    @Override // com.baidu.tieba.pd5
+    @Override // com.baidu.tieba.le5
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -106,14 +106,14 @@ public class MultiTopEditContainer extends LinearLayout implements pd5 {
         setGravity(48);
     }
 
-    @Override // com.baidu.tieba.dd5
-    public void O(cd5 cd5Var) {
+    @Override // com.baidu.tieba.yd5
+    public void S(xd5 xd5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, cd5Var) != null) || cd5Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, xd5Var) != null) || xd5Var == null) {
             return;
         }
-        for (pd5 pd5Var : this.c) {
-            pd5Var.O(cd5Var);
+        for (le5 le5Var : this.c) {
+            le5Var.S(xd5Var);
         }
     }
 
@@ -121,30 +121,30 @@ public class MultiTopEditContainer extends LinearLayout implements pd5 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            pd5 pd5Var = this.d.get(str);
-            if (pd5Var instanceof View) {
-                return (View) pd5Var;
+            le5 le5Var = this.d.get(str);
+            if (le5Var instanceof View) {
+                return (View) le5Var;
             }
             return null;
         }
         return (View) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.pd5
-    public void c0(cd5 cd5Var) {
+    @Override // com.baidu.tieba.le5
+    public void g0(xd5 xd5Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, cd5Var) == null) && (editorTools = this.a) != null) {
-            editorTools.D(cd5Var);
+        if ((interceptable == null || interceptable.invokeL(1048581, this, xd5Var) == null) && (editorTools = this.a) != null) {
+            editorTools.K(xd5Var);
         }
     }
 
-    @Override // com.baidu.tieba.pd5
+    @Override // com.baidu.tieba.le5
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            for (pd5 pd5Var : this.c) {
-                pd5Var.onChangeSkinType(i);
+            for (le5 le5Var : this.c) {
+                le5Var.onChangeSkinType(i);
             }
         }
     }
@@ -154,67 +154,67 @@ public class MultiTopEditContainer extends LinearLayout implements pd5 {
         if ((interceptable != null && interceptable.invokeL(1048586, this, hashMap) != null) || hashMap == null) {
             return;
         }
-        for (pd5 pd5Var : this.c) {
-            if (pd5Var instanceof qf5) {
-                ((qf5) pd5Var).setData(hashMap);
+        for (le5 le5Var : this.c) {
+            if (le5Var instanceof dh5) {
+                ((dh5) le5Var).setData(hashMap);
             }
         }
     }
 
-    @Override // com.baidu.tieba.pd5
+    @Override // com.baidu.tieba.le5
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, editorTools) == null) {
             this.a = editorTools;
-            for (pd5 pd5Var : this.c) {
-                pd5Var.setEditorTools(editorTools);
+            for (le5 le5Var : this.c) {
+                le5Var.setEditorTools(editorTools);
             }
         }
     }
 
-    @Override // com.baidu.tieba.pd5
+    @Override // com.baidu.tieba.le5
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
             this.b = i;
-            for (pd5 pd5Var : this.c) {
-                pd5Var.setToolId(i);
+            for (le5 le5Var : this.c) {
+                le5Var.setToolId(i);
             }
         }
     }
 
-    public void a(String str, pd5 pd5Var) {
+    public void a(String str, le5 le5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, pd5Var) == null) && pd5Var != null) {
-            this.d.put(str, pd5Var);
-            this.c.add(pd5Var);
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, le5Var) == null) && le5Var != null) {
+            this.d.put(str, le5Var);
+            this.c.add(le5Var);
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            for (pd5 pd5Var : this.c) {
-                if (pd5Var instanceof View) {
-                    addView((View) pd5Var, new LinearLayout.LayoutParams(-1, -2));
+            for (le5 le5Var : this.c) {
+                if (le5Var instanceof View) {
+                    addView((View) le5Var, new LinearLayout.LayoutParams(-1, -2));
                 }
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    @Override // com.baidu.tieba.pd5
+    @Override // com.baidu.tieba.le5
     public void display() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             setVisibility(0);
-            for (pd5 pd5Var : this.c) {
-                pd5Var.display();
+            for (le5 le5Var : this.c) {
+                le5Var.display();
             }
         }
     }
 
-    @Override // com.baidu.tieba.pd5
+    @Override // com.baidu.tieba.le5
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -224,13 +224,13 @@ public class MultiTopEditContainer extends LinearLayout implements pd5 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.pd5
+    @Override // com.baidu.tieba.le5
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             setVisibility(8);
-            for (pd5 pd5Var : this.c) {
-                pd5Var.hide();
+            for (le5 le5Var : this.c) {
+                le5Var.hide();
             }
         }
     }

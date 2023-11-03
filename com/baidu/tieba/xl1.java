@@ -1,131 +1,82 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.storage.swankv.SwanKV;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes8.dex */
-public final class xl1 {
+/* loaded from: classes9.dex */
+public class xl1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SwanKV.b a;
-    public boolean b;
-    public boolean c;
-    public final Context d;
 
-    public boolean equals(Object obj) {
+    public static byte[] a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (this != obj) {
-                return (obj instanceof xl1) && Intrinsics.areEqual(this.d, ((xl1) obj).d);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
+            byte[] bArr2 = new byte[256];
+            for (int i = 0; i < 256; i++) {
+                bArr2[i] = (byte) i;
             }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            Context context = this.d;
-            if (context != null) {
-                return context.hashCode();
+            if (bArr != null && bArr.length != 0) {
+                int i2 = 0;
+                int i3 = 0;
+                for (int i4 = 0; i4 < 256; i4++) {
+                    i3 = ((bArr[i2] & 255) + (bArr2[i4] & 255) + i3) & 255;
+                    byte b = bArr2[i4];
+                    bArr2[i4] = bArr2[i3];
+                    bArr2[i3] = b;
+                    i2 = (i2 + 1) % bArr.length;
+                }
+                return bArr2;
             }
-            return 0;
+            return null;
         }
-        return invokeV.intValue;
+        return (byte[]) invokeL.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public static byte[] b(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return "SwanKVConfig(context=" + this.d + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public xl1(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, bArr2)) == null) {
+            if (bArr != null && bArr2 != null) {
+                return d(bArr, bArr2);
             }
+            return null;
         }
-        this.d = context;
+        return (byte[]) invokeLL.objValue;
     }
 
-    public final void e(boolean z) {
+    public static byte[] c(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.b = z;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, bArr2)) == null) {
+            if (bArr != null && bArr2 != null) {
+                return d(bArr, bArr2);
+            }
+            return null;
         }
+        return (byte[]) invokeLL.objValue;
     }
 
-    public final void f(boolean z) {
+    public static byte[] d(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.c = z;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, bArr, bArr2)) == null) {
+            byte[] a = a(bArr2);
+            byte[] bArr3 = new byte[bArr.length];
+            int i = 0;
+            int i2 = 0;
+            for (int i3 = 0; i3 < bArr.length; i3++) {
+                i = (i + 1) & 255;
+                i2 = ((a[i] & 255) + i2) & 255;
+                byte b = a[i];
+                a[i] = a[i2];
+                a[i2] = b;
+                bArr3[i3] = (byte) (a[((a[i] & 255) + (a[i2] & 255)) & 255] ^ bArr[i3]);
+                bArr3[i3] = (byte) (bArr3[i3] ^ ExifInterface.START_CODE);
+            }
+            return bArr3;
         }
-    }
-
-    public final void g(SwanKV.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
-            this.a = bVar;
-        }
-    }
-
-    public final Context a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public final boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final SwanKV.b d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return (SwanKV.b) invokeV.objValue;
+        return (byte[]) invokeLL.objValue;
     }
 }

@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.OriginalForumInfo;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.t6a;
-import com.baidu.tieba.xx4;
+import com.baidu.tieba.py4;
+import com.baidu.tieba.yja;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,6 +33,7 @@ public class PbActivityConfig extends IntentConfig {
     public static final String FROM_INTERVIEW_LIVE = "from_interview_live";
     public static final String FROM_SEARCHBOX = "from_searchbox";
     public static final String FROM_VIDEO_LIST = "from_video_list";
+    public static final String FRS_TOP_THREAD_TYPE = "frs_top_thread_type";
     public static final int INVALID_SMART_FRS_POSITION = -1;
     public static final String KEY_BJH_FROM = "bjh_from";
     public static final String KEY_CHANNEL_ID = "key_channel_id";
@@ -147,6 +148,7 @@ public class PbActivityConfig extends IntentConfig {
     public static final int THREAD_TYPE_NOT_SHOW_IS_TOP = 0;
     public static final int THREAD_TYPE_SHOW_IS_TOP = 1;
     public static final String VALUE_FROM_FRS = "FrsActivity";
+    public static final String VALUE_FROM_FRS_NEW = "ForumActivity";
     public static final String VALUE_FROM_HOT_TOPIC = "HotTopicActivity";
     public static final String VALUE_FROM_MAINTAB = "MainTabActivity";
     public static final String VIDEO_ORIGIN_AREA = "video_origin_area";
@@ -189,7 +191,7 @@ public class PbActivityConfig extends IntentConfig {
         }
         this.key_video_source_value = "";
         this.mContext = context;
-        t6a.b("pb");
+        yja.b("pb");
     }
 
     private void addMoreIntentExtraParam() {
@@ -198,10 +200,10 @@ public class PbActivityConfig extends IntentConfig {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65538, this) == null) && (intent = getIntent()) != null && (context = this.mContext) != null) {
             String simpleName = context.getClass().getSimpleName();
-            if ("FrsActivity".equalsIgnoreCase(simpleName)) {
-                intent.putExtra("from_frs", true);
-            } else {
+            if (!"FrsActivity".equalsIgnoreCase(simpleName) && !VALUE_FROM_FRS_NEW.equalsIgnoreCase(simpleName)) {
                 intent.putExtra("from_frs", false);
+            } else {
+                intent.putExtra("from_frs", true);
             }
             if ("MainTabActivity".equalsIgnoreCase(simpleName)) {
                 intent.putExtra("from_maintab", true);
@@ -414,10 +416,18 @@ public class PbActivityConfig extends IntentConfig {
         }
     }
 
-    public void setJumpGodReply(boolean z) {
+    public void setIsTopThread(boolean z) {
         Intent intent;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(1048611, this, z) == null) && (intent = getIntent()) != null) {
+            intent.putExtra("frs_top_thread_type", z);
+        }
+    }
+
+    public void setJumpGodReply(boolean z) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048612, this, z) == null) && (intent = getIntent()) != null) {
             intent.putExtra("key_jump_to_god_reply", z);
         }
     }
@@ -425,7 +435,7 @@ public class PbActivityConfig extends IntentConfig {
     public void setJumpToCommentArea(boolean z) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048612, this, z) == null) && (intent = getIntent()) != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048613, this, z) == null) && (intent = getIntent()) != null) {
             intent.putExtra("key_jump_to_comment_area", z);
         }
     }
@@ -433,7 +443,7 @@ public class PbActivityConfig extends IntentConfig {
     public void setJumpToTopArea(boolean z) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048613, this, z) == null) && (intent = getIntent()) != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048614, this, z) == null) && (intent = getIntent()) != null) {
             intent.putExtra("key_jump_to_top", z);
         }
     }
@@ -441,7 +451,7 @@ public class PbActivityConfig extends IntentConfig {
     public void setLastTid(String str) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048614, this, str) == null) && (intent = getIntent()) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048615, this, str) == null) && (intent = getIntent()) != null) {
             intent.putExtra("last_tid", str);
         }
     }
@@ -449,7 +459,7 @@ public class PbActivityConfig extends IntentConfig {
     public void setNeedPreLoad(boolean z) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048615, this, z) == null) && (intent = getIntent()) != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048616, this, z) == null) && (intent = getIntent()) != null) {
             intent.putExtra("key_need_preload", z);
         }
     }
@@ -457,7 +467,7 @@ public class PbActivityConfig extends IntentConfig {
     public void setNeedRepostRecommendForum(boolean z) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048616, this, z) == null) && (intent = getIntent()) != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048617, this, z) == null) && (intent = getIntent()) != null) {
             intent.putExtra("KEY_NEED_REPOST_RECOMMEND_FORUM", z);
         }
     }
@@ -465,7 +475,7 @@ public class PbActivityConfig extends IntentConfig {
     public void setOfficialBarMessageId(String str) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048617, this, str) == null) && (intent = getIntent()) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048618, this, str) == null) && (intent = getIntent()) != null) {
             intent.putExtra("key_official_bar_message_id", str);
         }
     }
@@ -473,7 +483,7 @@ public class PbActivityConfig extends IntentConfig {
     public void setPostThreadTip(String str) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048618, this, str) == null) && (intent = getIntent()) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048619, this, str) == null) && (intent = getIntent()) != null) {
             intent.putExtra("KEY_POST_THREAD_TIP", str);
         }
     }
@@ -481,7 +491,7 @@ public class PbActivityConfig extends IntentConfig {
     public void setPreLoad(String str) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048619, this, str) == null) && (intent = getIntent()) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048620, this, str) == null) && (intent = getIntent()) != null) {
             intent.putExtra("lego_pre_load_data", str);
         }
     }
@@ -489,23 +499,23 @@ public class PbActivityConfig extends IntentConfig {
     public void setQueryKeywordFromSearch(String str) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048620, this, str) == null) && (intent = getIntent()) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048621, this, str) == null) && (intent = getIntent()) != null) {
             intent.putExtra(KEY_QUERY_KEYWORD, str);
         }
     }
 
-    public void setRecomData(xx4 xx4Var) {
+    public void setRecomData(py4 py4Var) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048621, this, xx4Var) == null) && (intent = getIntent()) != null && xx4Var != null) {
-            xx4Var.c(intent);
+        if ((interceptable == null || interceptable.invokeL(1048622, this, py4Var) == null) && (intent = getIntent()) != null && py4Var != null) {
+            py4Var.c(intent);
         }
     }
 
     public void setSimilarFrom(int i) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048622, this, i) == null) && (intent = getIntent()) != null) {
+        if ((interceptable == null || interceptable.invokeI(1048623, this, i) == null) && (intent = getIntent()) != null) {
             intent.putExtra(KEY_SIMILAR_FROM_TYPE, i);
         }
     }
@@ -513,7 +523,7 @@ public class PbActivityConfig extends IntentConfig {
     public void setSmartFrsPosition(int i) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048623, this, i) == null) && (intent = getIntent()) != null) {
+        if ((interceptable == null || interceptable.invokeI(1048624, this, i) == null) && (intent = getIntent()) != null) {
             intent.putExtra("KEY_SMART_FRS_POSITION", i);
         }
     }
@@ -521,7 +531,7 @@ public class PbActivityConfig extends IntentConfig {
     public void setSortType(int i) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048624, this, i) == null) && (intent = getIntent()) != null) {
+        if ((interceptable == null || interceptable.invokeI(1048625, this, i) == null) && (intent = getIntent()) != null) {
             intent.putExtra("sort_type", i);
         }
     }
@@ -529,7 +539,7 @@ public class PbActivityConfig extends IntentConfig {
     public PbActivityConfig setSquence(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048625, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048626, this, z)) == null) {
             Intent intent = getIntent();
             if (intent != null) {
                 intent.putExtra("squence", z);
@@ -542,7 +552,7 @@ public class PbActivityConfig extends IntentConfig {
     public void setStartFrom(int i) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048626, this, i) == null) && (intent = getIntent()) != null) {
+        if ((interceptable == null || interceptable.invokeI(1048627, this, i) == null) && (intent = getIntent()) != null) {
             intent.putExtra("key_start_from", i);
         }
     }
@@ -550,14 +560,14 @@ public class PbActivityConfig extends IntentConfig {
     public void setTargetScheme(String str) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048627, this, str) == null) && (intent = getIntent()) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048628, this, str) == null) && (intent = getIntent()) != null) {
             intent.putExtra("target_scheme", str);
         }
     }
 
     public void setThreadId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048629, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048630, this, str) == null) {
             getIntent().putExtra("thread_id", str);
         }
     }
@@ -565,7 +575,7 @@ public class PbActivityConfig extends IntentConfig {
     public void setUnKnowPbType(String str) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048630, this, str) == null) && (intent = getIntent()) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048631, this, str) == null) && (intent = getIntent()) != null) {
             intent.putExtra("unKnowPbType", str);
         }
     }
@@ -573,14 +583,14 @@ public class PbActivityConfig extends IntentConfig {
     public void setUri(Uri uri) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048631, this, uri) == null) && (intent = getIntent()) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048632, this, uri) == null) && (intent = getIntent()) != null) {
             intent.putExtra(IntentConfig.KEY_URI, uri);
         }
     }
 
     public void setUserName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048632, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048633, this, str) == null) {
             getIntent().putExtra("big_pic_type", str);
         }
     }
@@ -588,7 +598,7 @@ public class PbActivityConfig extends IntentConfig {
     public PbActivityConfig setVideoOriginArea(Rect rect) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048633, this, rect)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048634, this, rect)) == null) {
             getIntent().putExtra("video_origin_area", rect);
             return this;
         }
@@ -597,7 +607,7 @@ public class PbActivityConfig extends IntentConfig {
 
     public void setVideo_source(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048634, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048635, this, str) == null) {
             this.key_video_source_value = str;
             getIntent().putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
         }
@@ -606,7 +616,7 @@ public class PbActivityConfig extends IntentConfig {
     public void showOpenEditorTips(String str) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048635, this, str) == null) && (intent = getIntent()) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048636, this, str) == null) && (intent = getIntent()) != null) {
             intent.putExtra("key_open_editor_tips", str);
         }
     }
@@ -711,8 +721,8 @@ public class PbActivityConfig extends IntentConfig {
             }
             Intent intent = getIntent();
             intent.putExtra("thread_id", threadData.getTid());
-            if (threadData.getTopAgreePost() != null && !StringUtils.isNull(threadData.getTopAgreePost().U())) {
-                intent.putExtra("god_reply_id", threadData.getTopAgreePost().U());
+            if (threadData.getTopAgreePost() != null && !StringUtils.isNull(threadData.getTopAgreePost().T())) {
+                intent.putExtra("god_reply_id", threadData.getTopAgreePost().T());
             }
             intent.putExtra("is_good", threadData.getIs_good());
             intent.putExtra("is_top", threadData.getIs_top());
@@ -1071,7 +1081,7 @@ public class PbActivityConfig extends IntentConfig {
     public PbActivityConfig setThreadData(ThreadData threadData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048628, this, threadData)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048629, this, threadData)) == null) {
             Intent intent = getIntent();
             if (intent != null && threadData != null) {
                 BaijiahaoData baijiahaoData = threadData.getBaijiahaoData();

@@ -1,151 +1,63 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.nio.Buffer;
-import java.nio.ByteBuffer;
+import java.lang.reflect.Field;
+import java.util.HashMap;
 /* loaded from: classes8.dex */
-public class sd extends OutputStream {
+public class sd {
     public static /* synthetic */ Interceptable $ic;
+    public static HashMap<String, String> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final int b;
-    public ByteBuffer c;
 
-    public sd(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448316796, "Lcom/baidu/tieba/sd;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448316796, "Lcom/baidu/tieba/sd;");
                 return;
             }
         }
-        this.a = i;
-        this.b = i2;
-        ByteBuffer allocateDirect = ByteBuffer.allocateDirect(i);
-        this.c = allocateDirect;
-        allocateDirect.clear();
+        HashMap<String, String> hashMap = new HashMap<>();
+        a = hashMap;
+        hashMap.put("java.lang.String", "java.lang.String");
+        a.put("java.lang.Integer", "java.lang.Integer");
+        a.put("java.lang.Double", "java.lang.Double");
+        a.put("java.lang.Float", "java.lang.Float");
+        a.put("java.lang.Boolean", "java.lang.Boolean");
+        a.put("java.lang.Character", "java.lang.Character");
+        a.put("java.lang.Short", "java.lang.Short");
+        a.put("java.lang.Long", "java.lang.Long");
+        a.put("java.lang.Byte", "java.lang.Byte");
+        a.put("java.util.Date", "java.util.Date");
+        a.put("java.lang.Integer", "java.lang.Integer");
+        a.put("java.lang.Integer", "java.lang.Integer");
     }
 
-    public Buffer a() {
-        InterceptResult invokeV;
+    public static Object a(Object obj, Field field) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c.clear();
-        }
-        return (Buffer) invokeV.objValue;
-    }
-
-    public synchronized void c() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                write(13);
-                write(10);
-            }
-        }
-    }
-
-    public Buffer e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c.flip();
-        }
-        return (Buffer) invokeV.objValue;
-    }
-
-    public ByteBuffer f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return (ByteBuffer) invokeV.objValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.c.remaining();
-        }
-        return invokeV.intValue;
-    }
-
-    public synchronized void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            synchronized (this) {
-                if (i > this.c.capacity()) {
-                    ByteBuffer byteBuffer = this.c;
-                    int position = this.c.position();
-                    this.c = ByteBuffer.allocateDirect(((i / this.b) + 1) * this.b);
-                    byteBuffer.clear();
-                    this.c.clear();
-                    this.c.put(byteBuffer);
-                    this.c.position(position);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, obj, field)) == null) {
+            Object obj2 = null;
+            if (obj != null && field != null) {
+                boolean isAccessible = field.isAccessible();
+                field.setAccessible(true);
+                try {
+                    obj2 = field.get(obj);
+                } catch (Throwable unused) {
                 }
+                field.setAccessible(isAccessible);
             }
+            return obj2;
         }
-    }
-
-    @Override // java.io.OutputStream
-    public synchronized void write(int i) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            synchronized (this) {
-                if (this.c.position() + 1 > this.c.capacity()) {
-                    d(this.c.capacity() + 1);
-                }
-                this.c.put((byte) i);
-            }
-        }
-    }
-
-    public synchronized void h(String str) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            synchronized (this) {
-                write(str.getBytes("UTF-8"));
-            }
-        }
-    }
-
-    @Override // java.io.OutputStream
-    public synchronized void write(byte[] bArr) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr) == null) {
-            synchronized (this) {
-                write(bArr, 0, bArr.length);
-            }
-        }
-    }
-
-    @Override // java.io.OutputStream
-    public synchronized void write(byte[] bArr, int i, int i2) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048585, this, bArr, i, i2) == null) {
-            synchronized (this) {
-                if (this.c.position() + i2 > this.c.capacity()) {
-                    d(this.c.capacity() + i2);
-                }
-                this.c.put(bArr, i, i2);
-            }
-        }
+        return invokeLL.objValue;
     }
 }

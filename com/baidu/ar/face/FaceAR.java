@@ -36,7 +36,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
     public FaceDetector np;
     public FaceListener nq;
     public int[] nv;
-    public a.C0060a nz;
+    public a.C0061a nz;
     public List<String> nr = new ArrayList();
     public String ns = null;
     public String nt = null;
@@ -205,7 +205,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
     }
 
     /* renamed from: do  reason: not valid java name */
-    private j m46do() {
+    private j m47do() {
         dn();
         j jVar = new j();
         jVar.I(this.nx.getAlgoImageWidth());
@@ -224,7 +224,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
         String str3 = bVar2.pZ;
         String str4 = TAG;
         com.baidu.ar.h.b.c(str4, "classification result：" + this.ny.qg);
-        a.C0060a a = this.nx.a(this.ny);
+        a.C0061a a = this.nx.a(this.ny);
         if (a != null) {
             this.nz = a;
             this.nw = c.a(a.pO, str, str2, str3);
@@ -538,11 +538,11 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
                 }
             };
             this.np.p(getContext());
-            j m46do = m46do();
+            j m47do = m47do();
             this.nx.z(this.nw);
             configSyncStatus(dm());
             this.np.E(u());
-            this.np.b(m46do);
+            this.np.b(m47do);
             a(this.np, this.mv);
             com.baidu.ar.face.attributes.a aVar2 = new com.baidu.ar.face.attributes.a(r());
             this.nA = aVar2;

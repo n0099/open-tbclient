@@ -1,7 +1,7 @@
 package com.google.ar.core;
 
 import com.google.ar.core.exceptions.FatalException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Plane extends TrackableBase {
     private native long nativeAcquireSubsumedBy(long j, long j2);
 
@@ -23,7 +23,7 @@ public class Plane extends TrackableBase {
         super(0L, null);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum Type {
         HORIZONTAL_UPWARD_FACING(0),
         HORIZONTAL_DOWNWARD_FACING(1),

@@ -1,79 +1,37 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import kotlin.Triple;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes6.dex */
-public interface kf8<TbMsg, SdkMsg> {
-    TbMsg a(lf8<SdkMsg> lf8Var, SdkMsg sdkmsg) throws Exception;
+import java.util.List;
+/* loaded from: classes7.dex */
+public class kf8 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    SdkMsg b(lf8<SdkMsg> lf8Var, TbMsg tbmsg) throws Exception;
-
-    /* loaded from: classes6.dex */
-    public static abstract class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Map<Class<?>, kf8<?, ?>> a;
-        public final Map<Class<?>, kf8<?, ?>> b;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static int a(int i, @NonNull List<oi> list, @NonNull String str) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65536, null, i, list, str)) == null) {
+            if (!ListUtils.isEmpty(list) && i >= 0 && i < list.size()) {
+                while (i < list.size()) {
+                    i++;
+                    if (i >= list.size()) {
+                        return list.size();
+                    }
+                    if (list.get(i) instanceof fm6) {
+                        fm6 fm6Var = (fm6) list.get(i);
+                        if (fm6Var.getThreadData() == null || (!TextUtils.isEmpty(fm6Var.getThreadData().getTid()) && str.equals(fm6Var.getThreadData().getTid()))) {
+                        }
+                    }
+                    return i;
                 }
             }
-            this.a = new LinkedHashMap();
-            this.b = new LinkedHashMap();
+            return -1;
         }
-
-        public final kf8<?, ?> a(Class<?> sdkMsgClass) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sdkMsgClass)) == null) {
-                Intrinsics.checkNotNullParameter(sdkMsgClass, "sdkMsgClass");
-                return this.b.get(sdkMsgClass);
-            }
-            return (kf8) invokeL.objValue;
-        }
-
-        public final void c(Triple<? extends Class<?>, ? extends Class<?>, ? extends kf8<?, ?>> triple) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, triple) == null) {
-                Intrinsics.checkNotNullParameter(triple, "triple");
-                this.a.put(triple.getFirst(), triple.getThird());
-                this.b.put(triple.getSecond(), triple.getThird());
-            }
-        }
-
-        public final kf8<?, ?> b(Class<?> tbMsgClass) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbMsgClass)) == null) {
-                Intrinsics.checkNotNullParameter(tbMsgClass, "tbMsgClass");
-                if (this.a.containsKey(tbMsgClass)) {
-                    return this.a.get(tbMsgClass);
-                }
-                Class<? super Object> superclass = tbMsgClass.getSuperclass();
-                if (superclass == null) {
-                    return null;
-                }
-                return b(superclass);
-            }
-            return (kf8) invokeL.objValue;
-        }
+        return invokeILL.intValue;
     }
 }

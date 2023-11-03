@@ -110,8 +110,8 @@ public final class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public int m270a() {
-        if (m281b()) {
+    public int m274a() {
+        if (m285b()) {
             this.d = 0;
             return 0;
         }
@@ -138,17 +138,17 @@ public final class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public long m271a() {
-        return m282c();
+    public long m275a() {
+        return m286c();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public a m272a() {
+    public a m276a() {
         int d = d();
         int i = this.a;
         int i2 = this.c;
         if (d > i - i2 || d <= 0) {
-            return a.a(m278a(d));
+            return a.a(m282a(d));
         }
         a a = a.a(this.f132a, i2, d);
         this.c += d;
@@ -156,10 +156,10 @@ public final class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m273a() {
+    public String m277a() {
         int d = d();
         if (d > this.a - this.c || d <= 0) {
-            return new String(m278a(d), "UTF-8");
+            return new String(m282a(d), "UTF-8");
         }
         String str = new String(this.f132a, this.c, d, "UTF-8");
         this.c += d;
@@ -167,18 +167,18 @@ public final class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m274a() {
-        int m270a;
+    public void m278a() {
+        int m274a;
         do {
-            m270a = m270a();
-            if (m270a == 0) {
+            m274a = m274a();
+            if (m274a == 0) {
                 return;
             }
-        } while (m277a(m270a));
+        } while (m281a(m274a));
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m275a(int i) {
+    public void m279a(int i) {
         if (this.d != i) {
             throw d.e();
         }
@@ -192,31 +192,31 @@ public final class b {
         int a = a(d);
         this.g++;
         eVar.a(this);
-        m275a(0);
+        m279a(0);
         this.g--;
         b(a);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m276a() {
+    public boolean m280a() {
         return d() != 0;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m277a(int i) {
+    public boolean m281a(int i) {
         int a = f.a(i);
         if (a == 0) {
-            m279b();
+            m283b();
             return true;
         } else if (a == 1) {
-            m283d();
+            m287d();
             return true;
         } else if (a == 2) {
             c(d());
             return true;
         } else if (a == 3) {
-            m274a();
-            m275a(f.a(f.b(i), 4));
+            m278a();
+            m279a(f.a(f.b(i), 4));
             return true;
         } else if (a != 4) {
             if (a == 5) {
@@ -230,7 +230,7 @@ public final class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m278a(int i) {
+    public byte[] m282a(int i) {
         if (i < 0) {
             throw d.b();
         }
@@ -302,13 +302,13 @@ public final class b {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public int m279b() {
+    public int m283b() {
         return d();
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public long m280b() {
-        return m282c();
+    public long m284b() {
+        return m286c();
     }
 
     public void b(int i) {
@@ -317,7 +317,7 @@ public final class b {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m281b() {
+    public boolean m285b() {
         return this.c == this.a && !a(false);
     }
 
@@ -326,7 +326,7 @@ public final class b {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public long m282c() {
+    public long m286c() {
         long j = 0;
         for (int i = 0; i < 64; i += 7) {
             byte a = a();
@@ -409,7 +409,7 @@ public final class b {
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    public long m283d() {
+    public long m287d() {
         byte a = a();
         byte a2 = a();
         return ((a2 & 255) << 8) | (a & 255) | ((a() & 255) << 16) | ((a() & 255) << 24) | ((a() & 255) << 32) | ((a() & 255) << 40) | ((a() & 255) << 48) | ((a() & 255) << 56);

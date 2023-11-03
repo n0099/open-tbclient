@@ -143,7 +143,7 @@ public class FacePackageDownloadModel extends BdBaseModel<FacePackageDetailActiv
         this.e = inst.getResources().getDisplayMetrics().density;
     }
 
-    public void U(String str) {
+    public void V(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.a == null) {
             a aVar = new a(this, str);

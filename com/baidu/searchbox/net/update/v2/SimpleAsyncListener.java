@@ -13,7 +13,7 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public abstract class SimpleAsyncListener extends SimpleSyncListener {
     /* renamed from: executeCommand$lambda-1  reason: not valid java name */
-    public static final void m97executeCommand$lambda1(Context context, String str, String str2, SimpleAsyncListener this$0, ActionData actionData) {
+    public static final void m98executeCommand$lambda1(Context context, String str, String str2, SimpleAsyncListener this$0, ActionData actionData) {
         String str3;
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         if (context != null && str != null && str2 != null) {
@@ -33,7 +33,7 @@ public abstract class SimpleAsyncListener extends SimpleSyncListener {
 
     @Override // com.baidu.searchbox.net.update.v2.SimpleSyncListener, com.baidu.searchbox.net.update.v2.AbstractCommandListener
     public boolean executeCommand(final Context context, final String str, final String str2, final ActionData<JSONObject> actionData) {
-        Runnable runnable = new Runnable() { // from class: com.baidu.tieba.ki1
+        Runnable runnable = new Runnable() { // from class: com.baidu.tieba.bj1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -41,7 +41,7 @@ public abstract class SimpleAsyncListener extends SimpleSyncListener {
             public final void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    SimpleAsyncListener.m97executeCommand$lambda1(context, str, str2, this, actionData);
+                    SimpleAsyncListener.m98executeCommand$lambda1(context, str, str2, this, actionData);
                 }
             }
         };

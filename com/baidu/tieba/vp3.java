@@ -1,51 +1,157 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.SharedPreferences;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.http.request.PostByteRequest;
+import com.baidu.tieba.jd4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.open.SocialOperation;
-import java.io.File;
-import java.util.HashSet;
-import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.google.android.exoplayer2.util.MimeTypes;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.util.HashMap;
+import okhttp3.Headers;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
+import okio.Buffer;
 /* loaded from: classes8.dex */
-public class vp3 {
+public class vp3<T> extends wp3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile vp3 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    public volatile boolean b;
+    public String d;
+    public String e;
+    public ResponseCallback<T> f;
+    public int g;
+    public jd4.a h;
+
+    @Override // com.baidu.tieba.wp3
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "POST" : (String) invokeV.objValue;
+    }
 
     /* loaded from: classes8.dex */
-    public static class a extends yl4 {
+    public class a extends ResponseCallback<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public T a;
+        public final /* synthetic */ vp3 b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a() {
-            super("swan_host_info_config_sp_name");
+        public a(vp3 vp3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vp3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.b = vp3Var;
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                if (cp3.a) {
+                    Log.d("BDTLS", "BdtlsPostRequest onFail=" + exc.getMessage());
+                }
+                if (this.b.f != null) {
+                    this.b.f.onFail(exc);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
+                if (cp3.a) {
+                    Log.d("BDTLS", "BdtlsPostRequest onSuccess=" + str);
+                }
+                if (TextUtils.equals(str, com.baidu.searchbox.download.model.Constants.RECOVERY_DIRECTORY)) {
+                    if (ip3.l().m().b()) {
+                        ip3.l().m().a();
+                        this.b.i(true);
+                        this.b.p();
+                        return;
+                    }
+                    this.b.f.onFail(new Exception("Exceeded the limit of continuous downgrade"));
+                    return;
+                }
+                ip3.l().m().k();
+                vp3 vp3Var = this.b;
+                if (vp3Var.a) {
+                    if (vp3Var.b == 1) {
+                        hp3.a(MimeTypes.BASE_TYPE_APPLICATION);
+                        if (this.b.f != null) {
+                            this.b.f.onSuccess(this.a, i);
+                        }
+                        this.b.g = 0;
+                    } else if (vp3.m(vp3Var) >= 3) {
+                        ResponseCallback responseCallback = this.b.f;
+                        responseCallback.onFail(new IOException("request fail : " + this.a));
+                        this.b.g = 0;
+                    } else {
+                        vp3 vp3Var2 = this.b;
+                        vp3Var2.q(vp3Var2.d, this.b.e, this.b.f);
+                    }
+                } else if (vp3Var.f != null) {
+                    this.b.f.onSuccess(this.a, i);
+                    this.b.g = 0;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public String parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
+                Headers headers = response.headers();
+                String str = headers.get("Bdtls");
+                if (headers != null && TextUtils.equals(str, com.baidu.searchbox.download.model.Constants.RECOVERY_DIRECTORY)) {
+                    ip3.l().m().s(0);
+                    return com.baidu.searchbox.download.model.Constants.RECOVERY_DIRECTORY;
+                }
+                vp3 vp3Var = this.b;
+                if (vp3Var.a) {
+                    ResponseBody body = response.body();
+                    String g = this.b.g(body.bytes());
+                    if (cp3.a) {
+                        Log.d("BDTLS", "BdtlsPostRequest parseResponse=" + g);
+                    }
+                    if (this.b.b == 1) {
+                        Buffer buffer = new Buffer();
+                        buffer.writeString(g, Charset.forName("utf-8"));
+                        Response build = response.newBuilder().body(ResponseBody.create(body.contentType(), buffer.size(), buffer)).build();
+                        if (this.b.f != null) {
+                            this.a = (T) this.b.f.parseResponse(build, i);
+                        }
+                    }
+                    return g;
+                } else if (vp3Var.f != null) {
+                    this.a = (T) this.b.f.parseResponse(response, i);
+                    return "";
+                } else {
+                    return "";
+                }
+            }
+            return (String) invokeLI.objValue;
         }
     }
 
@@ -62,192 +168,82 @@ public class vp3 {
                 return;
             }
         }
-        this.b = false;
-        this.a = new a();
+        this.d = null;
+        this.e = null;
+        this.f = null;
     }
 
-    public static vp3 e() {
-        InterceptResult invokeV;
+    public final void p() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (vp3.class) {
-                    if (c == null) {
-                        c = new vp3();
-                    }
-                }
-            }
-            return c;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            q(this.d, this.e, this.f);
         }
-        return (vp3) invokeV.objValue;
     }
 
-    public Set<String> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Set<String> stringSet = this.a.getStringSet(SocialOperation.GAME_SIGNATURE, null);
-            if (stringSet != null) {
-                return stringSet;
-            }
-            if (!h()) {
-                return null;
-            }
-            return this.a.getStringSet(SocialOperation.GAME_SIGNATURE, null);
-        }
-        return (Set) invokeV.objValue;
+    public static /* synthetic */ int m(vp3 vp3Var) {
+        int i = vp3Var.g;
+        vp3Var.g = i + 1;
+        return i;
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public String b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.wp3
+    public void e(IOException iOException) {
+        ResponseCallback<T> responseCallback;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String c2 = c("appKey");
-            if (!TextUtils.isEmpty(c2)) {
-                return c2;
-            }
-            if (!kp3.a) {
-                return "";
-            }
-            throw new IllegalStateException("获取 host app key 失败");
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iOException) == null) && (responseCallback = this.f) != null) {
+            responseCallback.onFail(iOException);
         }
-        return (String) invokeV.objValue;
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public String d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.wp3
+    public void f(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String c2 = c("hostName");
-            if (!TextUtils.isEmpty(c2)) {
-                return c2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            if (cp3.a) {
+                Log.d("BDTLS", "onRequestError=" + i);
             }
-            if (!kp3.a) {
-                return "";
+            ResponseCallback<T> responseCallback = this.f;
+            if (responseCallback != null) {
+                responseCallback.onFail(new Exception("request error  code : " + i));
             }
-            throw new IllegalStateException("获取 HostName-宿主名称 失败");
         }
-        return (String) invokeV.objValue;
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public String f() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.wp3
+    public void h(byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            String c2 = c("schemeHead");
-            if (!TextUtils.isEmpty(c2)) {
-                return c2;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bArr) == null) {
+            String str = this.d;
+            HashMap hashMap = new HashMap();
+            hashMap.put("Content-Type", "application/json");
+            if (this.a) {
+                hashMap.put("Bdtls", "Bdtls");
             }
-            if (!kp3.a) {
-                return "";
+            if (cp3.a) {
+                Log.d("BDTLS", "BdtlsPostRequest url=" + str);
             }
-            throw new IllegalStateException("获取 SchemeHead-协议头 失败");
+            ib3 a2 = np2.q().a();
+            PostByteRequest.PostByteRequestBuilder postByteRequest = kd4.g().postByteRequest();
+            jd4.a aVar = this.h;
+            if (aVar != null) {
+                postByteRequest.connectionTimeout(aVar.a).readTimeout(this.h.b).writeTimeout(this.h.c);
+            }
+            postByteRequest.mediaType("application/json").url(str).cookieManager(a2).headers(hashMap).content(bArr).build().executeAsync(new a(this));
         }
-        return (String) invokeV.objValue;
     }
 
-    public final String c(String str) {
-        InterceptResult invokeL;
+    public void q(String str, String str2, ResponseCallback<T> responseCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            String string = this.a.getString(str, "");
-            if (!TextUtils.isEmpty(string)) {
-                return string;
-            }
-            if (h()) {
-                String string2 = this.a.getString(str, "");
-                if (!TextUtils.isEmpty(string2)) {
-                    return string2;
-                }
-            }
-            return null;
+        if ((interceptable != null && interceptable.invokeLLL(1048581, this, str, str2, responseCallback) != null) || TextUtils.isEmpty(str)) {
+            return;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public String g(String str, int i, String str2) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048581, this, str, i, str2)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            String c2 = c("shareCallBackUrl");
-            if (!TextUtils.isEmpty(c2)) {
-                String a2 = xl4.a(xl4.a(c2, "type", String.valueOf(i)), "appKey", str);
-                if (!TextUtils.isEmpty(str2)) {
-                    return xl4.a(a2, "path", wl4.b(str2));
-                }
-                return a2;
-            }
-            return "";
+        this.d = str;
+        this.e = str2;
+        this.f = responseCallback;
+        if (cp3.a) {
+            Log.d("BDTLS", "requestPost url=" + str);
+            Log.d("BDTLS", "requestPost body=" + str2);
         }
-        return (String) invokeLIL.objValue;
-    }
-
-    public final synchronized boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            synchronized (this) {
-                if (this.b) {
-                    return true;
-                }
-                String D = sl4.D(AppRuntime.getAppContext(), "config/union-cfg.json");
-                HashSet hashSet = null;
-                if (TextUtils.isEmpty(D)) {
-                    File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_config/union-cfg.json");
-                    if (file.exists()) {
-                        D = sl4.E(file);
-                    } else {
-                        D = null;
-                    }
-                }
-                if (TextUtils.isEmpty(D)) {
-                    return false;
-                }
-                try {
-                    JSONObject jSONObject = new JSONObject(D);
-                    String optString = jSONObject.optString("hostName");
-                    String optString2 = jSONObject.optString("schemeHead");
-                    String optString3 = jSONObject.optString("appKey");
-                    String optString4 = jSONObject.optString("shareCallBackUrl");
-                    int optInt = jSONObject.optInt("version");
-                    JSONArray optJSONArray = jSONObject.optJSONArray(SocialOperation.GAME_SIGNATURE);
-                    if (optJSONArray != null && optJSONArray.length() > 0) {
-                        hashSet = new HashSet();
-                        for (int i = 0; i < optJSONArray.length(); i++) {
-                            hashSet.add(optJSONArray.optString(i));
-                        }
-                    }
-                    i(optString, optString2, optString3, optString4, optInt, hashSet);
-                    this.b = true;
-                    return true;
-                } catch (JSONException e) {
-                    if (kp3.a) {
-                        e.printStackTrace();
-                    }
-                    return false;
-                }
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void i(String str, String str2, String str3, String str4, int i, Set<String> set) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{str, str2, str3, str4, Integer.valueOf(i), set}) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && i >= 0) {
-            SharedPreferences.Editor putInt = this.a.edit().putString("hostName", str).putString("schemeHead", str2).putString("appKey", str3).putString("shareCallBackUrl", str4).putInt("version", i);
-            if (set != null && !set.isEmpty()) {
-                putInt.putStringSet(SocialOperation.GAME_SIGNATURE, set);
-            }
-            putInt.apply();
-        }
+        a(this.e);
     }
 }

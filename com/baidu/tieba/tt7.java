@@ -1,80 +1,71 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Intent;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.yy.gameassist.interfaces.PermissionService;
-import com.baidu.tieba.gameassist.permission.PermissionFragmentActivity;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.frs.entelechy.view.ReadProgressViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebChromeClient;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes8.dex */
-public class tt7 implements PermissionService {
+public class tt7 extends pp7<aq7, ReadProgressViewHolder> {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<Integer, Object> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948192818, "Lcom/baidu/tieba/tt7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948192818, "Lcom/baidu/tieba/tt7;");
-                return;
-            }
-        }
-        a = new HashMap();
-    }
-
-    public tt7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tt7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.searchbox.yy.gameassist.interfaces.PermissionService
-    public void requestFloatWindowPermission(@NonNull Activity activity, @Nullable PermissionService.IGrantCallback iGrantCallback) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: H */
+    public ReadProgressViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, activity, iGrantCallback) == null) && iGrantCallback != null) {
-            a.put(Integer.valueOf(iGrantCallback.hashCode()), iGrantCallback);
-            Intent intent = new Intent(activity, PermissionFragmentActivity.class);
-            intent.putExtra("request", "requestFloatPermission");
-            intent.putExtra(WebChromeClient.KEY_ARG_CALLBACK, iGrantCallback.hashCode());
-            activity.startActivity(intent);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            return new ReadProgressViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d03b3, viewGroup, false), this.c.getPageActivity());
         }
+        return (ReadProgressViewHolder) invokeL.objValue;
     }
 
-    @Override // com.baidu.searchbox.yy.gameassist.interfaces.PermissionService
-    public void requestPermission(@NonNull Activity activity, @NonNull String[] strArr, @Nullable PermissionService.IGrantCallback iGrantCallback) {
+    public View I(int i, View view2, ViewGroup viewGroup, aq7 aq7Var, ReadProgressViewHolder readProgressViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, strArr, iGrantCallback) == null) && iGrantCallback != null) {
-            a.put(Integer.valueOf(iGrantCallback.hashCode()), iGrantCallback);
-            Intent intent = new Intent(activity, PermissionFragmentActivity.class);
-            intent.putExtra("request", "requestPermissions");
-            intent.putExtra("permissions", strArr);
-            intent.putExtra(WebChromeClient.KEY_ARG_CALLBACK, iGrantCallback.hashCode());
-            activity.startActivity(intent);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, aq7Var, readProgressViewHolder})) == null) {
+            if (aq7Var != null && readProgressViewHolder != null) {
+                readProgressViewHolder.b(aq7Var);
+            }
+            return view2;
         }
+        return (View) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.pp7, com.baidu.tieba.bi
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        I(i, view2, viewGroup, (aq7) obj, (ReadProgressViewHolder) viewHolder);
+        return view2;
     }
 }

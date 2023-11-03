@@ -1,109 +1,188 @@
 package com.baidu.tieba;
 
-import com.baidu.minivideo.effect.core.Rotation;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.content.res.AssetManager;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes8.dex */
 public class tb0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final float[] a;
-    public static final float[] b;
-    public static final float[] c;
-    public static final float[] d;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
 
-    public static float a(float f) {
-        InterceptResult invokeF;
+    public tb0(Context context) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) ? f == 0.0f ? 1.0f : 0.0f : invokeF.floatValue;
-    }
-
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-409293910, "Lcom/baidu/tieba/tb0$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-409293910, "Lcom/baidu/tieba/tb0$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[Rotation.values().length];
-            a = iArr;
-            try {
-                iArr[Rotation.ROTATION_90.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[Rotation.ROTATION_180.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[Rotation.ROTATION_270.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[Rotation.NORMAL.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948175303, "Lcom/baidu/tieba/tb0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948175303, "Lcom/baidu/tieba/tb0;");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new float[]{0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f};
-        b = new float[]{1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f};
-        c = new float[]{1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f};
-        d = new float[]{0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f, 1.0f};
+        this.a = context;
     }
 
-    public static float[] b(Rotation rotation, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        float[] fArr;
+    public boolean a(String str, File file) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{rotation, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            int i = a.a[rotation.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        fArr = a;
-                    } else {
-                        fArr = d;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, file)) == null) {
+            boolean b = b(str, file);
+            if (file.isDirectory()) {
+                File file2 = new File(file, ".nomedia");
+                if (!file2.exists()) {
+                    try {
+                        file2.createNewFile();
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
-                } else {
-                    fArr = c;
                 }
-            } else {
-                fArr = b;
             }
-            if (z) {
-                fArr = new float[]{a(fArr[0]), fArr[1], a(fArr[2]), fArr[3], a(fArr[4]), fArr[5], a(fArr[6]), fArr[7]};
-            }
-            return z2 ? new float[]{fArr[0], a(fArr[1]), fArr[2], a(fArr[3]), fArr[4], a(fArr[5]), fArr[6], a(fArr[7])} : fArr;
+            return b;
         }
-        return (float[]) invokeCommon.objValue;
+        return invokeLL.booleanValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:80:0x00de A[Catch: IOException -> 0x00da, TRY_LEAVE, TryCatch #0 {IOException -> 0x00da, blocks: (B:76:0x00d6, B:80:0x00de), top: B:88:0x00d6 }] */
+    /* JADX WARN: Removed duplicated region for block: B:88:0x00d6 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final boolean b(String str, File file) {
+        InterceptResult invokeLL;
+        InputStream inputStream;
+        InputStream open;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, file)) == null) {
+            AssetManager assets = this.a.getAssets();
+            FileOutputStream fileOutputStream = null;
+            try {
+                String[] list = assets.list(str);
+                if (list.length > 0) {
+                    if (!file.isDirectory() && file.exists()) {
+                        file.delete();
+                    }
+                    if (file.isDirectory() && !file.exists()) {
+                        file.mkdirs();
+                    }
+                    for (String str2 : list) {
+                        if (!TextUtils.isEmpty(str2)) {
+                            b(str + File.separator + str2, new File(file, str2));
+                        }
+                    }
+                    open = null;
+                } else {
+                    File parentFile = file.getParentFile();
+                    if (parentFile != null && !parentFile.exists()) {
+                        parentFile.mkdirs();
+                    }
+                    if (file.exists()) {
+                        file.delete();
+                    }
+                    file.createNewFile();
+                    open = assets.open(str);
+                    try {
+                        FileOutputStream fileOutputStream2 = new FileOutputStream(file);
+                        try {
+                            byte[] bArr = new byte[1024];
+                            while (true) {
+                                int read = open.read(bArr);
+                                if (read == -1) {
+                                    break;
+                                }
+                                fileOutputStream2.write(bArr, 0, read);
+                            }
+                            fileOutputStream2.flush();
+                            fileOutputStream = fileOutputStream2;
+                        } catch (Exception e) {
+                            e = e;
+                            fileOutputStream = fileOutputStream2;
+                            Exception exc = e;
+                            inputStream = open;
+                            e = exc;
+                            try {
+                                e.printStackTrace();
+                                if (fileOutputStream != null) {
+                                    try {
+                                        fileOutputStream.close();
+                                    } catch (IOException e2) {
+                                        e2.printStackTrace();
+                                        return false;
+                                    }
+                                }
+                                if (inputStream != null) {
+                                    inputStream.close();
+                                }
+                                return false;
+                            } catch (Throwable th) {
+                                th = th;
+                                if (fileOutputStream != null) {
+                                    try {
+                                        fileOutputStream.close();
+                                    } catch (IOException e3) {
+                                        e3.printStackTrace();
+                                        throw th;
+                                    }
+                                }
+                                if (inputStream != null) {
+                                    inputStream.close();
+                                }
+                                throw th;
+                            }
+                        } catch (Throwable th2) {
+                            th = th2;
+                            fileOutputStream = fileOutputStream2;
+                            Throwable th3 = th;
+                            inputStream = open;
+                            th = th3;
+                            if (fileOutputStream != null) {
+                            }
+                            if (inputStream != null) {
+                            }
+                            throw th;
+                        }
+                    } catch (Exception e4) {
+                        e = e4;
+                    } catch (Throwable th4) {
+                        th = th4;
+                    }
+                }
+                if (fileOutputStream != null) {
+                    try {
+                        fileOutputStream.close();
+                    } catch (IOException e5) {
+                        e5.printStackTrace();
+                        return true;
+                    }
+                }
+                if (open != null) {
+                    open.close();
+                    return true;
+                }
+                return true;
+            } catch (Exception e6) {
+                e = e6;
+                inputStream = null;
+            } catch (Throwable th5) {
+                th = th5;
+                inputStream = null;
+            }
+        } else {
+            return invokeLL.booleanValue;
+        }
     }
 }

@@ -1,15 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.live.business.model.data.LiveFollowWrapData;
+import android.content.Context;
+import com.baidu.tieba.i50;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class g50 extends d50 {
+public abstract class g50 implements i50.b, i50.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LiveFollowWrapData b;
+    public Context a;
+
+    @Override // com.baidu.tieba.i50.b
+    public String getMethod() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "POST" : (String) invokeV.objValue;
+    }
 
     public g50() {
         Interceptable interceptable = $ic;

@@ -1,29 +1,24 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+import tbclient.CustomGrid;
 /* loaded from: classes7.dex */
-public final class n3a implements l77 {
+public class n3a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.l77
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? CommonStatisticKey.KEY_LIVE_MERGE_CARD_SHOW : (String) invokeV.objValue;
-    }
+    public String a;
+    public String b;
+    public int c;
+    public String d;
+    public int e;
+    public long f;
+    public String g;
+    public String h;
 
     public n3a() {
         Interceptable interceptable = $ic;
@@ -39,44 +34,37 @@ public final class n3a implements l77 {
         }
     }
 
-    @Override // com.baidu.tieba.l77
-    public Map<String, String> a(v27 businessInfo) {
-        InterceptResult invokeL;
+    public void a(CustomGrid customGrid) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            LinkedHashMap linkedHashMap = new LinkedHashMap();
-            String str = businessInfo.a().get("live_attach_image_type");
-            String str2 = "";
-            if (str == null) {
-                str = "";
-            }
-            linkedHashMap.put("obj_name", str);
-            String str3 = businessInfo.a().get(IFavorStateServiceKt.KEY_FAVOR_LIVE_STATUS);
-            if (str3 == null) {
-                str3 = "";
-            }
-            linkedHashMap.put("obj_source", str3);
-            String str4 = businessInfo.a().get("live_page_from");
-            if (str4 == null) {
-                str4 = "";
-            }
-            linkedHashMap.put(TiebaStatic.Params.OBJ_TO, str4);
-            String str5 = businessInfo.a().get("live_app_id");
-            if (str5 == null) {
-                str5 = "";
-            }
-            linkedHashMap.put(TiebaStatic.Params.OBJ_PARAM3, str5);
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (currentAccount != null) {
-                str2 = currentAccount;
-            }
-            linkedHashMap.put("uid", str2);
-            String hdid = TbadkCoreApplication.getInst().getHdid();
-            Intrinsics.checkNotNullExpressionValue(hdid, "getInst().hdid");
-            linkedHashMap.put("hdid", hdid);
-            return linkedHashMap;
+        if (interceptable == null || interceptable.invokeL(1048576, this, customGrid) == null) {
+            this.a = customGrid.title;
+            this.b = customGrid.action_uri;
+            this.c = customGrid.action_type.intValue();
+            this.d = customGrid.icon;
+            this.e = customGrid.type.intValue();
+            this.g = customGrid.desc;
+            this.h = customGrid.mark_text;
+            this.f = customGrid.red_point_version.longValue();
         }
-        return (Map) invokeL.objValue;
+    }
+
+    public w3a b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            w3a w3aVar = new w3a();
+            w3aVar.e = this.a;
+            w3aVar.m = true;
+            w3aVar.k = this.d;
+            w3aVar.f = this.b;
+            w3aVar.a = this.e;
+            w3aVar.l = this.c;
+            y3a y3aVar = new y3a();
+            y3aVar.b = this.g;
+            y3aVar.i = this.h;
+            w3aVar.h = y3aVar;
+            return w3aVar;
+        }
+        return (w3a) invokeV.objValue;
     }
 }

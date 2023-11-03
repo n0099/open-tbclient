@@ -3,14 +3,14 @@ package com.baidu.tieba.immessagecenter.mention;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.model.CacheModel;
-import com.baidu.tieba.hp8;
+import com.baidu.tieba.l29;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class AtMeCacheModel extends CacheModel<hp8, AtMessageFragment> {
+public class AtMeCacheModel extends CacheModel<l29, AtMessageFragment> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -62,11 +62,11 @@ public class AtMeCacheModel extends CacheModel<hp8, AtMessageFragment> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public Class<hp8> getCacheDataClassName() {
+    public Class<l29> getCacheDataClassName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return hp8.class;
+            return l29.class;
         }
         return (Class) invokeV.objValue;
     }

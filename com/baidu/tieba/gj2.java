@@ -1,63 +1,21 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.view.KeyEvent;
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.ActivityChooserModel;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.storage.swankv.SwanKV;
-import com.baidu.swan.apps.database.SwanAppDbControl;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes6.dex */
-public class gj2 {
+public class gj2 implements ej2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    public boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final gj2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-774025092, "Lcom/baidu/tieba/gj2$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-774025092, "Lcom/baidu/tieba/gj2$b;");
-                    return;
-                }
-            }
-            a = new gj2(null);
-        }
-    }
+    public List<ej2> a;
 
     public gj2() {
         Interceptable interceptable = $ic;
@@ -69,243 +27,125 @@ public class gj2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new CopyOnWriteArrayList();
+    }
+
+    @Override // com.baidu.tieba.ej2
+    public void b() {
+        List<ej2> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (list = this.a) != null && list.size() > 0) {
+            for (ej2 ej2Var : this.a) {
+                ej2Var.b();
             }
         }
     }
 
-    public static gj2 c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ej2
+    public void c() {
+        List<ej2> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (gj2) invokeV.objValue;
-    }
-
-    public /* synthetic */ gj2(a aVar) {
-        this();
-    }
-
-    public final boolean a(File file, File file2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, file2)) == null) {
-            if (file != null && file.exists() && file2 != null) {
-                if (!file2.exists()) {
-                    sl4.l(file2);
-                }
-                String[] list = file.list();
-                if (list != null && list.length != 0) {
-                    for (String str : list) {
-                        if (!TextUtils.isEmpty(str)) {
-                            File file3 = new File(file, str);
-                            if (file3.exists()) {
-                                boolean isFile = file3.isFile();
-                                File file4 = new File(file2, str);
-                                if (file4.exists()) {
-                                    sl4.j(file4);
-                                }
-                                if (isFile) {
-                                    sl4.h(file4);
-                                    sl4.f(file3, file4);
-                                } else if (file3.isDirectory()) {
-                                    sl4.e(file3, file4);
-                                }
-                            }
-                        }
-                    }
-                    return true;
-                }
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (list = this.a) != null && list.size() > 0) {
+            for (ej2 ej2Var : this.a) {
+                ej2Var.c();
             }
-            return false;
         }
-        return invokeLL.booleanValue;
     }
 
-    public final boolean b(@NonNull File file) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ej2
+    public void d() {
+        List<ej2> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file)) == null) {
-            if (file.exists() && file.isDirectory()) {
-                File file2 = new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs/");
-                File file3 = new File(ge3.c());
-                File[] listFiles = file.listFiles();
-                if (listFiles != null && listFiles.length != 0) {
-                    sl4.l(file2);
-                    sl4.l(file3);
-                    File file4 = null;
-                    for (File file5 : listFiles) {
-                        String name = file5.getName();
-                        if (!TextUtils.isEmpty(name)) {
-                            if (name.endsWith(ActivityChooserModel.HISTORY_FILE_EXTENSION)) {
-                                file4 = new File(file2, name);
-                            } else if (name.endsWith(SwanKV.PREFS_SUFFIX)) {
-                                file4 = new File(file3, name);
-                            }
-                            if (file4 != null) {
-                                if (file4.exists()) {
-                                    sl4.L(file4);
-                                }
-                                if (file5.isFile()) {
-                                    sl4.h(file4);
-                                    sl4.f(file5, file4);
-                                } else {
-                                    sl4.e(file5, file4);
-                                }
-                            }
-                        }
-                    }
-                    return true;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (list = this.a) != null && list.size() > 0) {
+            for (ej2 ej2Var : this.a) {
+                ej2Var.d();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ej2
+    public void e() {
+        List<ej2> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (list = this.a) != null && list.size() > 0) {
+            for (ej2 ej2Var : this.a) {
+                ej2Var.e();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ej2
+    public void f() {
+        List<ej2> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (list = this.a) != null && list.size() > 0) {
+            for (ej2 ej2Var : this.a) {
+                ej2Var.f();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ej2
+    public void g() {
+        List<ej2> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (list = this.a) != null && list.size() > 0) {
+            for (ej2 ej2Var : this.a) {
+                ej2Var.g();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ej2
+    public void a() {
+        List<ej2> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (list = this.a) != null && list.size() > 0) {
+            for (ej2 ej2Var : this.a) {
+                if (ej2Var != null) {
+                    ej2Var.a();
                 }
             }
-            return false;
         }
-        return invokeL.booleanValue;
     }
 
-    public boolean e(String str, File file) {
-        InterceptResult invokeLL;
+    public void h(@NonNull ej2 ej2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, file)) == null) {
-            if (file != null && file.exists()) {
-                return a(new File(file, hj2.h), hj2.a);
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(1048583, this, ej2Var) == null) {
+            this.a.add(ej2Var);
         }
-        return invokeLL.booleanValue;
     }
 
-    public boolean g(String str, File file) {
-        InterceptResult invokeLL;
+    public void i(@NonNull ej2 ej2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, file)) == null) {
-            if (file != null && file.exists()) {
-                return a(new File(file, hj2.i), AppRuntime.getAppContext().getFilesDir());
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ej2Var) == null) {
+            this.a.remove(ej2Var);
         }
-        return invokeLL.booleanValue;
     }
 
-    public boolean h(String str, File file) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.ej2
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, file)) == null) {
-            if (!TextUtils.isEmpty(str) && file != null && file.exists()) {
-                return b(new File(file, hj2.j));
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public boolean j(String str, File file) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, file)) == null) {
-            if (file != null && file.exists()) {
-                return a(new File(file, hj2.g), hj2.a);
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public boolean f(String str, File file) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, file)) == null) {
-            if (file != null && file.exists()) {
-                boolean a2 = a(new File(file, hj2.k), new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "databases"));
-                SwanAppDbControl.f(AppRuntime.getAppContext()).p();
-                fe4.a().e();
-                wo2.g0().E();
-                return a2;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public boolean i(String str) {
-        InterceptResult invokeL;
-        boolean z;
-        String str2;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048585, this, i, keyEvent)) == null) {
+            List<ej2> list = this.a;
+            if (list == null || list.size() <= 0) {
                 return false;
             }
-            ej2.n().p("installSwanApp start, appKey = " + str);
-            File a2 = hj2.a();
-            if (a2 != null && a2.exists()) {
-                File file = new File(a2, hj2.m);
-                if (!file.exists()) {
-                    ej2.n().p("installSwanApp clone_zipFiles file not exists");
-                    return false;
-                }
-                File a3 = fj2.a(sl4.G(file), a2);
-                if (a3 != null && a3.exists()) {
-                    File file2 = new File(hj2.d);
-                    if (file2.exists()) {
-                        sl4.L(file2);
-                    }
-                    if (!sl4.l(file2)) {
-                        ej2.n().p("installSwanApp root cache dir create fail");
-                        return false;
-                    }
-                    if (sl4.W(a3.getAbsolutePath(), hj2.d) != null) {
-                        z = false;
-                    } else {
+            while (true) {
+                boolean z = false;
+                for (ej2 ej2Var : this.a) {
+                    boolean onKeyDown = ej2Var.onKeyDown(i, keyEvent);
+                    if (z || onKeyDown) {
                         z = true;
                     }
-                    if (z) {
-                        sl4.j(file);
-                        sl4.j(a3);
-                    }
-                    ej2.n().p("unzip file status = " + z);
-                    File file3 = new File(hj2.d);
-                    String[] list = file3.list();
-                    if (list != null && list.length != 0) {
-                        int length = list.length;
-                        int i = 0;
-                        while (true) {
-                            str2 = null;
-                            if (i < length) {
-                                String str4 = list[i];
-                                if (!TextUtils.isEmpty(str4) && str4.startsWith(hj2.e)) {
-                                    str2 = str4.substring(hj2.e.length());
-                                    str3 = str4;
-                                    break;
-                                }
-                                i++;
-                            } else {
-                                str3 = null;
-                                break;
-                            }
-                        }
-                        if (TextUtils.equals(str, str2) && !TextUtils.isEmpty(str3)) {
-                            File file4 = new File(hj2.d, str3);
-                            boolean j = j(str, file4);
-                            boolean e = e(str, file4);
-                            boolean h = h(str, file4);
-                            boolean f = f(str, file4);
-                            boolean d = d(str);
-                            boolean g = g(str, file4);
-                            ej2.n().p("installSwanPkg = " + j + " ; installCore = " + e + " ; installSp = " + h + " ; installDb = " + f + " ; installAbTest = " + d + " ; installDynamicLib = " + g);
-                            return sl4.j(file3);
-                        }
-                        ej2.n().p("installSwanApp install appKey not match zip file appKey");
-                        return false;
-                    }
-                    ej2.n().p("installSwanApp unzip file length invalid");
-                    return false;
                 }
-                ej2.n().p("installSwanApp cloneZip.zip file not exists");
+                return z;
             }
-            return false;
         }
-        return invokeL.booleanValue;
+        return invokeIL.booleanValue;
     }
 }

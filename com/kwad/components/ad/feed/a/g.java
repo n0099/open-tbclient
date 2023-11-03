@@ -12,6 +12,6 @@ public final class g extends b implements View.OnClickListener {
 
     @Override // com.kwad.components.core.widget.b
     public final int getLayoutId() {
-        return R.layout.obfuscated_res_0x7f0d04a6;
+        return R.layout.obfuscated_res_0x7f0d04b9;
     }
 }

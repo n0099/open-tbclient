@@ -1,76 +1,185 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class qe5 extends ed5 {
+public class qe5 implements vi5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final HashMap<String, Integer> a;
+    public static final ArrayList<Integer> b;
+    public static final HashMap<String, Integer> c;
+    public static final HashMap<String, String> d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ie5 a;
 
-    @Override // com.baidu.tieba.ed5
-    public void c(gd5 gd5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gd5Var) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948088968, "Lcom/baidu/tieba/qe5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948088968, "Lcom/baidu/tieba/qe5;");
+                return;
+            }
         }
+        a = new HashMap<>(200);
+        b = new ArrayList<>(180);
+        c = new HashMap<>(180);
+        d = new HashMap<>(180);
     }
 
-    public qe5(ie5 ie5Var) {
+    public qe5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ie5Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = ie5Var;
     }
 
-    @Override // com.baidu.tieba.ed5
-    public gd5 b(Context context) {
+    public static void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            try {
+                Class.forName("com.baidu.tieba.ne5");
+            } catch (Throwable th) {
+                BdLog.e(th);
+            }
+            try {
+                Class.forName("com.baidu.tieba.iw6");
+            } catch (Throwable th2) {
+                BdLog.e(th2);
+            }
+            try {
+                Class.forName("com.baidu.tieba.kw6");
+            } catch (Throwable th3) {
+                BdLog.e(th3);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.vi5
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            g();
+            return b.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && d.isEmpty()) {
+            i();
+        }
+    }
+
+    @Override // com.baidu.tieba.vi5
+    public String b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            g();
+            int h = h(i);
+            for (Map.Entry<String, Integer> entry : c.entrySet()) {
+                if (entry.getValue().intValue() == h) {
+                    return entry.getKey();
+                }
+            }
+            return null;
+        }
+        return (String) invokeI.objValue;
+    }
+
+    @Override // com.baidu.tieba.vi5
+    public String d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            g();
+            for (Map.Entry<String, Integer> entry : a.entrySet()) {
+                if (entry.getValue().intValue() == i) {
+                    return entry.getKey();
+                }
+            }
+            return null;
+        }
+        return (String) invokeI.objValue;
+    }
+
+    @Override // com.baidu.tieba.vi5
+    public int e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            EditorTools editorTools = new EditorTools(context);
-            editorTools.setBarLauncherType(6);
-            editorTools.setBackgroundColorId(R.color.CAM_X0602);
-            editorTools.setBarBackgroundColorId(R.color.CAM_X0207);
-            editorTools.setMoreDeskBgColorId(R.color.CAM_X0206);
-            editorTools.G(false);
-            return new pe5(editorTools);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            g();
+            Integer num = a.get(str);
+            if ("video_icon".equals(str)) {
+                return Integer.valueOf((int) R.drawable.ico_link_video).intValue();
+            }
+            if (num != null) {
+                return num.intValue();
+            }
+            return 0;
         }
-        return (gd5) invokeL.objValue;
+        return invokeL.intValue;
     }
 
-    @Override // com.baidu.tieba.ed5
-    public void d(gd5 gd5Var) {
+    @Override // com.baidu.tieba.vi5
+    public String c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gd5Var) == null) {
-            EditorTools a = gd5Var.a();
-            a.setHideBigEmotion(true);
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(5);
-            a.h(arrayList);
-            a.d(new re5(a.getContext(), this.a));
-            od5 p = a.p(5);
-            p.d = 0;
-            p.f(false);
-            a.setClearEbPadding(true);
-            a.f();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            g();
+            return d.get(str);
         }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.vi5
+    public int f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            g();
+            Integer num = c.get(str);
+            if (num != null) {
+                return num.intValue();
+            }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public final int h(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            g();
+            if (i >= 0 && i < b.size()) {
+                return b.get(i).intValue();
+            }
+            return 0;
+        }
+        return invokeI.intValue;
     }
 }

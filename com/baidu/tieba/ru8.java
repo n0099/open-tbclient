@@ -1,61 +1,76 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
+import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public final class ru8 extends pu8<xu8> implements h77<ru8> {
+public class ru8 extends xm8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String d;
 
-    public ru8 i() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.um8
+    public boolean a(int i, boolean z, Object obj) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (ru8) invokeV.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), obj})) == null) {
+            return false;
+        }
+        return invokeCommon.booleanValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ru8(av8<xu8> data, String templateName) {
-        super(data);
+    public ru8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {data, templateName};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((av8) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        Intrinsics.checkNotNullParameter(data, "data");
-        Intrinsics.checkNotNullParameter(templateName, "templateName");
-        this.d = templateName;
     }
 
-    @Override // com.baidu.tieba.h77
-    public String a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.xm8
+    public List<tm8> j(@NonNull List list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < list.size(); i++) {
+                Object obj = list.get(i);
+                if (obj instanceof TbBaseMsg) {
+                    TbBaseMsg tbBaseMsg = (TbBaseMsg) obj;
+                    List<AbilityItem> quickOperate = tbBaseMsg.getQuickOperate();
+                    if (ListUtils.isEmpty(quickOperate)) {
+                        break;
+                    }
+                    for (int i2 = 0; i2 < ListUtils.getCount(quickOperate); i2++) {
+                        AbilityItem abilityItem = (AbilityItem) ListUtils.getItem(quickOperate, i2);
+                        if (abilityItem != null && abilityItem.getStyleConf() != null && abilityItem.getStyleConf().shouldShow()) {
+                            bv8 bv8Var = new bv8();
+                            bv8Var.f(abilityItem);
+                            bv8Var.g(tbBaseMsg);
+                            if (tbBaseMsg != null) {
+                                bv8Var.h(tbBaseMsg.getUserId());
+                            }
+                            arrayList.add(bv8Var);
+                        }
+                    }
+                }
+            }
+            return arrayList;
         }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.h77
-    public /* bridge */ /* synthetic */ ru8 b() {
-        i();
-        return this;
+        return (List) invokeL.objValue;
     }
 }

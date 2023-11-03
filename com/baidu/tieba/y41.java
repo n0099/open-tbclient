@@ -1,46 +1,30 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import com.baidu.tieba.z41;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
-public class y41 extends n41 {
+/* loaded from: classes9.dex */
+public final class y41 {
     public static /* synthetic */ Interceptable $ic;
+    public static final z41.a a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final r41 a;
 
-    public y41(@NonNull r41 r41Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {r41Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948280083, "Lcom/baidu/tieba/y41;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948280083, "Lcom/baidu/tieba/y41;");
                 return;
             }
         }
-        this.a = r41Var;
-    }
-
-    @Override // com.baidu.tieba.n41
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.m();
-            if (this.a.l() != null && this.a.l().k() != null) {
-                String c = this.a.l().k().c();
-                if (!TextUtils.isEmpty(c)) {
-                    this.a.m().setUserAgentString(c);
-                }
-            }
-        }
+        a = new a51();
     }
 }

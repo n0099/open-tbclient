@@ -1,41 +1,45 @@
 package com.baidu.tieba;
 
-import com.badlogic.gdx.utils.reflect.ReflectionException;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public final class m3 {
+public class m3 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
+    public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static n3 a(Class cls, Class... clsArr) throws ReflectionException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, cls, clsArr)) == null) {
-            try {
-                return new n3(cls.getConstructor(clsArr));
-            } catch (NoSuchMethodException e) {
-                throw new ReflectionException("Constructor not found for class: " + cls.getName(), e);
-            } catch (SecurityException e2) {
-                throw new ReflectionException("Security violation occurred while getting constructor for class: '" + cls.getName() + "'.", e2);
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448309511, "Lcom/baidu/tieba/m3;")) == null) {
+            return;
         }
-        return (n3) invokeLL.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448309511, "Lcom/baidu/tieba/m3;");
+        }
     }
 
-    public static n3 b(Class cls, Class... clsArr) throws ReflectionException {
-        InterceptResult invokeLL;
+    public static synchronized void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, clsArr)) == null) {
-            try {
-                return new n3(cls.getDeclaredConstructor(clsArr));
-            } catch (NoSuchMethodException e) {
-                throw new ReflectionException("Constructor not found for class: " + cls.getName(), e);
-            } catch (SecurityException e2) {
-                throw new ReflectionException("Security violation while getting constructor for class: " + cls.getName(), e2);
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            synchronized (m3.class) {
+                if (b) {
+                    return;
+                }
+                b = true;
+                if (a) {
+                    return;
+                }
+                new v3().d("gdx");
             }
         }
-        return (n3) invokeLL.objValue;
     }
 }

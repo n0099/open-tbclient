@@ -6,8 +6,8 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import androidx.core.view.MotionEventCompat;
-import com.baidu.tieba.u61;
-import com.baidu.tieba.w61;
+import com.baidu.tieba.l71;
+import com.baidu.tieba.n71;
 import java.lang.ref.WeakReference;
 /* loaded from: classes3.dex */
 public class CustomSlidingPanelLayout extends SlidingPaneLayout {
@@ -16,17 +16,17 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
     public double D;
     public SlideInterceptor E;
     public WeakReference<Activity> F;
-    public u61 G;
+    public l71 G;
 
     public void setNightMode(boolean z) {
     }
 
     /* loaded from: classes3.dex */
-    public class a implements u61 {
+    public class a implements l71 {
         public a() {
         }
 
-        @Override // com.baidu.tieba.u61
+        @Override // com.baidu.tieba.l71
         public void onTranslucent(boolean z) {
             CustomSlidingPanelLayout.this.setActivityIsTranslucent(z);
             if (CustomSlidingPanelLayout.this.G != null) {
@@ -36,11 +36,11 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements u61 {
+    public class b implements l71 {
         public b() {
         }
 
-        @Override // com.baidu.tieba.u61
+        @Override // com.baidu.tieba.l71
         public void onTranslucent(boolean z) {
             CustomSlidingPanelLayout.this.setActivityIsTranslucent(z);
             if (CustomSlidingPanelLayout.this.G != null) {
@@ -83,8 +83,8 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
         this.B = z;
     }
 
-    public void setOnTransparentListener(u61 u61Var) {
-        this.G = u61Var;
+    public void setOnTransparentListener(l71 l71Var) {
+        this.G = l71Var;
     }
 
     public void setSlideInterceptor(SlideInterceptor slideInterceptor) {
@@ -121,12 +121,12 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
     public void q() {
         WeakReference<Activity> weakReference = this.F;
         if (weakReference != null && weakReference.get() != null) {
-            w61.c(this.F.get(), new b());
+            n71.c(this.F.get(), new b());
             return;
         }
-        u61 u61Var = this.G;
-        if (u61Var != null) {
-            u61Var.onTranslucent(true);
+        l71 l71Var = this.G;
+        if (l71Var != null) {
+            l71Var.onTranslucent(true);
         }
     }
 
@@ -134,12 +134,12 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
     public void r() {
         WeakReference<Activity> weakReference = this.F;
         if (weakReference != null && weakReference.get() != null) {
-            w61.d(this.F.get(), new a());
+            n71.d(this.F.get(), new a());
             return;
         }
-        u61 u61Var = this.G;
-        if (u61Var != null) {
-            u61Var.onTranslucent(false);
+        l71 l71Var = this.G;
+        if (l71Var != null) {
+            l71Var.onTranslucent(false);
         }
     }
 

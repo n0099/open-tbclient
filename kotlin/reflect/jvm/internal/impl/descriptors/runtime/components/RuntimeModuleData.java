@@ -22,13 +22,13 @@ import kotlin.reflect.jvm.internal.impl.serialization.deserialization.Deserializ
 import kotlin.reflect.jvm.internal.impl.serialization.deserialization.DeserializationConfiguration;
 import kotlin.reflect.jvm.internal.impl.storage.LockBasedStorageManager;
 import kotlin.reflect.jvm.internal.impl.types.checker.NewKotlinTypeChecker;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class RuntimeModuleData {
     public static final Companion Companion = new Companion(null);
     public final DeserializationComponents deserialization;
     public final PackagePartScopeCache packagePartScopeCache;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Companion {
         public Companion() {
         }

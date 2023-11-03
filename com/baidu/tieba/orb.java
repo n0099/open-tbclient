@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
-public interface orb<T> {
-    void onFailure(int i, String str);
+public interface orb {
+    void a(double d);
 
-    void onSuccess(T t);
+    void a(String str, boolean z);
 }

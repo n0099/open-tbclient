@@ -1,107 +1,74 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.SharedPreferences;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.sdk.crashreportbaidu.ReportInfo;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class oyb<T extends ReportInfo> {
+public abstract class oyb extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SharedPreferences a;
 
-    public oyb(Context context, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public oyb(Ssp.Pid pid) {
+        super(pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context.getSharedPreferences(str, 0);
     }
 
-    public String a(T t) {
+    public abstract JSONObject c(Object obj);
+
+    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
+    public final RippedAd getRippedAdInternal(Object obj) {
         InterceptResult invokeL;
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
-            if (t == null) {
-                return "anr info is null";
-            }
-            nyb.d("ReportDB", "add info: " + t.crashId);
-            try {
-                List<T> d = d();
-                int size = d.size();
-                SharedPreferences.Editor edit = this.a.edit();
-                for (int i = 0; i <= size - 30; i++) {
-                    T t2 = d.get(i);
-                    t2.clearFiles(t2.fileList);
-                    edit.remove(t2.crashId);
-                }
-                edit.putString(t.crashId, t.serialize()).commit();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            JSONObject c = c(obj);
+            if (c == null) {
                 return null;
-            } catch (IOException e) {
-                String C = qyb.C(e);
-                nyb.c("ReportDB", C, e);
-                return C;
             }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.edit().clear().commit();
-        }
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            nyb.d("ReportDB", "delete info: " + str);
-            if (this.a.contains(str)) {
-                this.a.edit().remove(str).commit();
-            }
-        }
-    }
-
-    public List<T> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            Map<String, ?> all = this.a.getAll();
-            if (all != null && !all.isEmpty()) {
-                for (Map.Entry<String, ?> entry : all.entrySet()) {
-                    try {
-                        arrayList.add((ReportInfo) ReportInfo.deserialize((String) entry.getValue()));
-                        nyb.d("ReportDB", String.format("read info:%s", entry.getKey()));
-                    } catch (Exception e) {
-                        c(entry.getKey());
-                        nyb.b("ReportDB", String.format("read info error:[%s] %s", entry.getKey(), qyb.C(e)));
-                    }
+            try {
+                JSONArray optJSONArray = c.optJSONArray("ad");
+                if (optJSONArray == null) {
+                    return null;
                 }
-                nyb.d("ReportDB", "get all size: " + arrayList.size());
+                JSONObject optJSONObject2 = optJSONArray.optJSONObject(0);
+                String optString = optJSONObject2.optString("deepLinkUrl");
+                if (TextUtils.isEmpty(optString) && (optJSONObject = optJSONObject2.optJSONObject("apo")) != null) {
+                    optString = optJSONObject.optString("page");
+                }
+                RippedAd.Builder builder = new RippedAd.Builder();
+                builder.setCorporation(optJSONObject2.optString("publisher")).setTitle(optJSONObject2.optString("tit")).setDescription(optJSONObject2.optString("desc")).setIconUrl(optJSONObject2.optString("icon")).setAppName(optJSONObject2.optString("appname")).setAppPkg(optJSONObject2.optString(PushConstants.URI_PACKAGE_NAME)).setAppUrl(optJSONObject2.optString("apk_name")).setImageUrl(optJSONObject2.optString("w_picurl")).setVideoImageUrl(optJSONObject2.optString("w_picurl")).setVideoUrl(optJSONObject2.optString("vurl")).setClickUrl(optJSONObject2.optString("curl")).setDeepLinkUrl(optString);
+                return builder.build();
+            } catch (Exception unused) {
+                LogPrinter.d();
+                return null;
             }
-            return arrayList;
         }
-        return (List) invokeV.objValue;
+        return (RippedAd) invokeL.objValue;
     }
 }

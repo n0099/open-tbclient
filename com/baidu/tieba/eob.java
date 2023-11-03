@@ -1,70 +1,55 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.minivideo.plugin.capture.report.ReportConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.api.KsNativeAd;
-import com.kwad.sdk.api.model.AdExposureFailedReason;
+import java.util.AbstractMap;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class eob extends gpb<KsNativeAd> {
+public class eob {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public eob(KsNativeAd ksNativeAd) {
-        super(ksNativeAd);
+    public static void a(String str, iob iobVar, hob hobVar) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ksNativeAd};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, str, iobVar, hobVar) == null) {
+            if (wrb.a) {
+                wrb.c("UGC_ArKpiReport", "perf_record_arperf, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + hobVar.toString());
+            }
+            cob h = znb.d().h();
+            if (h != null) {
+                ArrayList arrayList = null;
+                if (hobVar != null) {
+                    arrayList = new ArrayList();
+                    arrayList.add(new AbstractMap.SimpleEntry("sft", hobVar.a));
+                    arrayList.add(new AbstractMap.SimpleEntry("bft", hobVar.b));
+                    arrayList.add(new AbstractMap.SimpleEntry("mem", hobVar.f));
+                    arrayList.add(new AbstractMap.SimpleEntry("fc", hobVar.c));
+                    arrayList.add(new AbstractMap.SimpleEntry("time", hobVar.d + ""));
+                }
+                h.a("perf_record_arperf", str, iobVar.a, iobVar.b, iobVar.c, iobVar.d, iobVar.e, null, arrayList);
             }
         }
     }
 
-    @Override // com.baidu.tieba.gpb
-    public double a() {
-        InterceptResult invokeV;
+    public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            A a = this.a;
-            if (a == 0) {
-                return 0.0d;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+            if (wrb.a) {
+                wrb.c("UGC_ArKpiReport", "perf_publish_debug, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2);
             }
-            return ((KsNativeAd) a).getECPM();
+            cob h = znb.d().h();
+            if (h != null) {
+                ArrayList arrayList = null;
+                if (str2 != null) {
+                    arrayList = new ArrayList(3);
+                    arrayList.add(new AbstractMap.SimpleEntry<>("ext", str2));
+                    arrayList.add(new AbstractMap.SimpleEntry<>("capture_vername", urb.a(znb.d().b())));
+                    arrayList.add(new AbstractMap.SimpleEntry<>("capture_vercode", String.valueOf(urb.b(znb.d().b()))));
+                }
+                h.a(ReportConfig.LOG_KEY_PUBLISH_DEBUG, str, null, null, null, null, null, null, arrayList);
+            }
         }
-        return invokeV.doubleValue;
-    }
-
-    @Override // com.baidu.tieba.gpb
-    public void b(int i, int i2, int i3, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str}) == null) || this.a == 0) {
-            return;
-        }
-        AdExposureFailedReason adExposureFailedReason = new AdExposureFailedReason();
-        adExposureFailedReason.winEcpm = i;
-        ((KsNativeAd) this.a).reportAdExposureFailed(i2, adExposureFailedReason);
-    }
-
-    @Override // com.baidu.tieba.gpb
-    public void c(long j, long j2) {
-        A a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || (a = this.a) == 0) {
-            return;
-        }
-        ((KsNativeAd) a).setBidEcpm((int) j);
     }
 }

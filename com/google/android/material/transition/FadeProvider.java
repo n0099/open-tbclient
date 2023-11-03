@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import androidx.annotation.FloatRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class FadeProvider implements VisibilityAnimatorProvider {
     public float incomingEndThreshold = 1.0f;
 

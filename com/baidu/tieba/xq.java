@@ -1,124 +1,164 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.util.LongSparseArray;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.browser.core.BdCore;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Rect;
+import android.view.MotionEvent;
+import android.view.TouchDelegate;
+import android.view.View;
+import android.view.ViewConfiguration;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-@SuppressLint({"NewApi"})
-/* loaded from: classes8.dex */
-public final class xq {
+import java.util.Map;
+/* loaded from: classes9.dex */
+public class xq extends TouchDelegate {
     public static /* synthetic */ Interceptable $ic;
-    public static xq b;
-    public static HashMap<String, kr<String, Integer>> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public Map<View, a> a;
 
-    public static void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-        }
-    }
+    /* loaded from: classes9.dex */
+    public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Rect a;
+        public int b;
+        public int c;
+        public int d;
+        public int e;
+        public Rect f;
+        public boolean g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448322004, "Lcom/baidu/tieba/xq;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        public a(xq xqVar, Rect rect, int i, int i2, int i3, int i4) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xqVar, rect, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i5 = newInitContext.flag;
+                if ((i5 & 1) != 0) {
+                    int i6 = i5 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448322004, "Lcom/baidu/tieba/xq;");
-                return;
-            }
+            this.b = i;
+            this.a = rect;
+            this.c = i3;
+            this.d = i4;
         }
-        c = new HashMap<>();
     }
 
-    public xq() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xq(View view2, int i, int i2, int i3, int i4, Rect rect) {
+        super(rect, view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), rect};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Rect) objArr2[0], (View) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        new LongSparseArray();
+        this.a = new HashMap();
+        b(view2, i, i2, i3, i4);
     }
 
-    public static synchronized xq c() {
-        InterceptResult invokeV;
-        xq xqVar;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            synchronized (xq.class) {
-                if (b == null) {
-                    b = new xq();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            for (Map.Entry<View, a> entry : this.a.entrySet()) {
+                View key = entry.getKey();
+                a value = entry.getValue();
+                key.getGlobalVisibleRect(value.a);
+                Rect rect = value.a;
+                int i = rect.left;
+                int i2 = value.b;
+                rect.left = i - i2;
+                rect.right += value.c;
+                rect.top -= i2;
+                rect.bottom += value.d;
+                value.e = ViewConfiguration.get(key.getContext()).getScaledTouchSlop();
+                Rect rect2 = new Rect(value.a);
+                value.f = rect2;
+                int i3 = value.e;
+                rect2.inset(-i3, -i3);
+            }
+        }
+    }
+
+    public void b(View view2, int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            this.a.put(view2, new a(this, new Rect(), i, i2, i3, i4));
+        }
+    }
+
+    @Override // android.view.TouchDelegate
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
+            a();
+            int rawX = (int) motionEvent.getRawX();
+            int rawY = (int) motionEvent.getRawY();
+            boolean z = false;
+            boolean z2 = false;
+            boolean z3 = true;
+            for (Map.Entry<View, a> entry : this.a.entrySet()) {
+                View key = entry.getKey();
+                if (key.getVisibility() != 0) {
+                    break;
                 }
-                xqVar = b;
-            }
-            return xqVar;
-        }
-        return (xq) invokeV.objValue;
-    }
-
-    public final Context b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a == null) {
-                this.a = BdCore.b().a();
-            }
-            Context context = this.a;
-            if (context != null) {
-                return context;
-            }
-            throw new RuntimeException("context is null!");
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    @Deprecated
-    public static int d(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
-            a(str2, str);
-            kr<String, Integer> krVar = c.get(str);
-            if (krVar == null) {
-                krVar = new kr<>(100);
-                c.put(str, krVar);
-            }
-            Integer c2 = krVar.c(str2);
-            if (c2 == null) {
-                try {
-                    int identifier = c().b().getResources().getIdentifier(str2, str, c().b().getPackageName());
-                    krVar.d(str2, Integer.valueOf(identifier));
-                    return identifier;
-                } catch (Error e) {
-                    e.printStackTrace();
-                    return 0;
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                    return 0;
+                a value = entry.getValue();
+                int action = motionEvent.getAction();
+                if (action != 0) {
+                    if (action != 1 && action != 2) {
+                        if (action == 3) {
+                            z2 = value.g;
+                            value.g = false;
+                        }
+                    } else {
+                        z2 = value.g;
+                        if (z2 && !value.f.contains(rawX, rawY)) {
+                            z3 = false;
+                        }
+                    }
+                } else if (value.a.contains(rawX, rawY)) {
+                    value.g = true;
+                    z2 = true;
+                } else {
+                    value.g = false;
+                    z2 = false;
+                }
+                if (z2) {
+                    if (z3) {
+                        motionEvent.setLocation(key.getWidth() / 2, key.getHeight() / 2);
+                    } else {
+                        float f = -(value.e * 2);
+                        motionEvent.setLocation(f, f);
+                    }
+                    z = key.dispatchTouchEvent(motionEvent);
+                    continue;
+                }
+                if (z) {
+                    break;
                 }
             }
-            return c2.intValue();
+            return z;
         }
-        return invokeLL.intValue;
+        return invokeL.booleanValue;
     }
 }

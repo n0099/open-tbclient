@@ -1,88 +1,87 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import android.content.Context;
+import com.baidu.bdhttpdns.BDHttpDns;
+import com.baidu.bdhttpdns.BDHttpDnsResult;
+import com.baidu.tieba.nk;
+import com.baidu.tieba.pk;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public final class ok {
+public class ok implements nk.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final boolean b;
-    public final boolean c;
+    public final BDHttpDns.e a;
+    public final BDHttpDns b;
+    public final pk c;
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: boolean */
-    /* JADX WARN: Multi-variable type inference failed */
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int i = this.a * 31;
-            boolean z = this.b;
-            int i2 = z;
-            if (z != 0) {
-                i2 = 1;
-            }
-            int i3 = (i + i2) * 31;
-            boolean z2 = this.c;
-            return i3 + (z2 ? 1 : z2 ? 1 : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "TaskBuoyViewModelHolder(status=" + this.a + ", hasComplete=" + this.b + ", isRepeated=" + this.c + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public ok(int i, boolean z, boolean z2) {
+    public ok(Context context, BDHttpDns.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)};
+            Object[] objArr = {context, eVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.b = z;
-        this.c = z2;
+        this.a = eVar;
+        BDHttpDns service = BDHttpDns.getService(context);
+        this.b = service;
+        this.c = service.getDnsCache();
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.nk.a
+    public void a(int i, ArrayList<String> arrayList, ArrayList<String> arrayList2, long j, String str) {
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (!(obj instanceof ok)) {
-                return false;
-            }
-            int i = this.a;
-            ok okVar = (ok) obj;
-            if (i != okVar.a) {
-                return false;
-            }
-            if (i == 8) {
-                if (this.b != okVar.b || this.c != okVar.c) {
-                    return false;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), arrayList, arrayList2, Long.valueOf(j), str}) == null) {
+            if (i != -1) {
+                if (i != 0) {
+                    rk.a("Internal error: async dns resolve completion get error ret(%d)", Integer.valueOf(i));
+                    return;
                 }
-                return true;
+                Object[] objArr = new Object[4];
+                objArr[0] = str;
+                String str3 = null;
+                if (arrayList != null) {
+                    str2 = arrayList.toString();
+                } else {
+                    str2 = null;
+                }
+                objArr[1] = str2;
+                if (arrayList2 != null) {
+                    str3 = arrayList2.toString();
+                }
+                objArr[2] = str3;
+                objArr[3] = BDHttpDnsResult.ResolveType.RESOLVE_FROM_DNS.toString();
+                rk.a("Async resolve successful, host(%s) ipv4List(%s) ipv6List(%s) resolveType(%s)", objArr);
+                pk.a aVar = new pk.a();
+                aVar.i(60L);
+                aVar.h(System.currentTimeMillis() / 1000);
+                aVar.f(arrayList);
+                aVar.g(arrayList2);
+                this.c.e(str, aVar);
+                BDHttpDns.e eVar = this.a;
+                if (eVar != null) {
+                    eVar.a(new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_FROM_DNS, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, arrayList, arrayList2));
+                    return;
+                }
+                return;
             }
-            return true;
+            rk.a("Async resolve failed, host(%s), dns resolve failed", str);
+            BDHttpDns.e eVar2 = this.a;
+            if (eVar2 != null) {
+                eVar2.a(new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_NONE, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveErrorDnsResolve, arrayList, arrayList2));
+            }
         }
-        return invokeL.booleanValue;
     }
 }

@@ -74,10 +74,10 @@ public final class d extends KSFrameLayout {
     }
 
     private void initView() {
-        View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d04c2, this);
-        AdBasePvFrameLayout adBasePvFrameLayout = (AdBasePvFrameLayout) findViewById(R.id.obfuscated_res_0x7f091403);
+        View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d04d5, this);
+        AdBasePvFrameLayout adBasePvFrameLayout = (AdBasePvFrameLayout) findViewById(R.id.obfuscated_res_0x7f091441);
         this.jK = adBasePvFrameLayout;
-        DetailVideoView detailVideoView = (DetailVideoView) adBasePvFrameLayout.findViewById(R.id.obfuscated_res_0x7f091459);
+        DetailVideoView detailVideoView = (DetailVideoView) adBasePvFrameLayout.findViewById(R.id.obfuscated_res_0x7f091497);
         this.mDetailVideoView = detailVideoView;
         detailVideoView.setAd(true);
     }

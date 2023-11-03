@@ -4,7 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
-import com.baidu.tieba.b;
+import com.baidu.tieba.c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -128,7 +128,7 @@ public final class BubbleInfo implements Serializable {
             ColorInfo colorInfo = this.colorInfo;
             int hashCode2 = (hashCode + (colorInfo == null ? 0 : colorInfo.hashCode())) * 31;
             String str = this.jumpUrl;
-            return ((hashCode2 + (str != null ? str.hashCode() : 0)) * 31) + b.a(this.endTime);
+            return ((hashCode2 + (str != null ? str.hashCode() : 0)) * 31) + c.a(this.endTime);
         }
         return invokeV.intValue;
     }

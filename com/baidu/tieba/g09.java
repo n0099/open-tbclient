@@ -1,32 +1,26 @@
 package com.baidu.tieba;
 
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.legoBusiness.homeExtra.interviewLiveSquare.AlarmReceiver;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.immessagecenter.chatgroup.data.AtInfo;
+import com.baidu.tieba.immessagecenter.chatgroup.data.AtInfoMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.data.ReplyEmojiMsgInfo;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.auth.NTLMEngineImpl;
 import java.util.HashMap;
-import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class g09 extends op4 {
+public final class g09 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.op4
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "interview/checkInterviewNoticeStatus" : (String) invokeV.objValue;
-    }
+    public ChatRoomDetail a;
 
     public g09() {
         Interceptable interceptable = $ic;
@@ -42,40 +36,126 @@ public class g09 extends op4 {
         }
     }
 
-    @Override // com.baidu.tieba.op4, com.baidu.tieba.rp4
-    public tp4 b(Object obj, HashMap<String, String> hashMap, String str) {
-        InterceptResult invokeLLL;
-        Map.Entry<String, String> next;
+    public final Map<String, AtInfoMsg> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, obj, hashMap, str)) == null) {
-            Context baseContext = TbadkCoreApplication.getInst().getBaseContext();
-            tp4 tp4Var = new tp4();
-            if (obj instanceof bz8) {
-                bz8 bz8Var = (bz8) obj;
-                Intent intent = new Intent(baseContext, AlarmReceiver.class);
-                Iterator<Map.Entry<String, String>> it = hashMap.entrySet().iterator();
-                boolean z = false;
-                int i = 0;
-                while (it.hasNext() && (next = it.next()) != null) {
-                    intent.putExtra(next.getKey(), next.getValue());
-                    if ("task_id".equals(next.getKey())) {
-                        i = Integer.parseInt(next.getValue());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            HashMap hashMap = new HashMap();
+            ChatRoomDetail chatRoomDetail = this.a;
+            if (chatRoomDetail != null) {
+                Intrinsics.checkNotNull(chatRoomDetail);
+                if (chatRoomDetail.getAtInfo() != null) {
+                    ChatRoomDetail chatRoomDetail2 = this.a;
+                    Intrinsics.checkNotNull(chatRoomDetail2);
+                    AtInfo atInfo = chatRoomDetail2.getAtInfo();
+                    Intrinsics.checkNotNull(atInfo);
+                    if (atInfo.getCountAll() > 0) {
+                        ChatRoomDetail chatRoomDetail3 = this.a;
+                        Intrinsics.checkNotNull(chatRoomDetail3);
+                        AtInfo atInfo2 = chatRoomDetail3.getAtInfo();
+                        Intrinsics.checkNotNull(atInfo2);
+                        List<AtInfoMsg> allMsgList = atInfo2.getAllMsgList();
+                        List<AtInfoMsg> singleMsgList = atInfo2.getSingleMsgList();
+                        if (!ListUtils.isEmpty(allMsgList) && ListUtils.isEmpty(singleMsgList)) {
+                            String string = UtilHelper.getString(R.string.obfuscated_res_0x7f0f0409);
+                            Intrinsics.checkNotNullExpressionValue(string, "getString(R.string.chat_at_all)");
+                            Intrinsics.checkNotNull(allMsgList);
+                            AtInfoMsg atInfoMsg = allMsgList.get(0);
+                            Intrinsics.checkNotNullExpressionValue(atInfoMsg, "atAllMsgList!![0]");
+                            hashMap.put(string, atInfoMsg);
+                        } else if (ListUtils.isEmpty(allMsgList) && !ListUtils.isEmpty(singleMsgList)) {
+                            String string2 = UtilHelper.getString(R.string.obfuscated_res_0x7f0f040a);
+                            Intrinsics.checkNotNullExpressionValue(string2, "getString(R.string.chat_at_me)");
+                            Intrinsics.checkNotNull(singleMsgList);
+                            AtInfoMsg atInfoMsg2 = singleMsgList.get(0);
+                            Intrinsics.checkNotNullExpressionValue(atInfoMsg2, "atSingleMsgList!![0]");
+                            hashMap.put(string2, atInfoMsg2);
+                        } else if (!ListUtils.isEmpty(allMsgList) && !ListUtils.isEmpty(singleMsgList)) {
+                            Intrinsics.checkNotNull(singleMsgList);
+                            AtInfoMsg atSingle = singleMsgList.get(0);
+                            Intrinsics.checkNotNull(allMsgList);
+                            AtInfoMsg atAll = allMsgList.get(0);
+                            if (atSingle.getMsgId() > atAll.getMsgId()) {
+                                String string3 = UtilHelper.getString(R.string.obfuscated_res_0x7f0f0409);
+                                Intrinsics.checkNotNullExpressionValue(string3, "getString(R.string.chat_at_all)");
+                                Intrinsics.checkNotNullExpressionValue(atAll, "atAll");
+                                hashMap.put(string3, atAll);
+                            } else {
+                                String string4 = UtilHelper.getString(R.string.obfuscated_res_0x7f0f040a);
+                                Intrinsics.checkNotNullExpressionValue(string4, "getString(R.string.chat_at_me)");
+                                Intrinsics.checkNotNullExpressionValue(atSingle, "atSingle");
+                                hashMap.put(string4, atSingle);
+                            }
+                        }
                     }
                 }
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                if (currentAccount == null) {
-                    currentAccount = "";
+                ChatRoomDetail chatRoomDetail4 = this.a;
+                Intrinsics.checkNotNull(chatRoomDetail4);
+                if (chatRoomDetail4.getReplyEmojiMsgInfo() != null) {
+                    ChatRoomDetail chatRoomDetail5 = this.a;
+                    Intrinsics.checkNotNull(chatRoomDetail5);
+                    ReplyEmojiMsgInfo replyEmojiMsgInfo = chatRoomDetail5.getReplyEmojiMsgInfo();
+                    Intrinsics.checkNotNull(replyEmojiMsgInfo);
+                    if (replyEmojiMsgInfo.getCount() > 0) {
+                        ChatRoomDetail chatRoomDetail6 = this.a;
+                        Intrinsics.checkNotNull(chatRoomDetail6);
+                        ReplyEmojiMsgInfo replyEmojiMsgInfo2 = chatRoomDetail6.getReplyEmojiMsgInfo();
+                        Intrinsics.checkNotNull(replyEmojiMsgInfo2);
+                        List<AtInfoMsg> msgList = replyEmojiMsgInfo2.getMsgList();
+                        if (!ListUtils.isEmpty(msgList)) {
+                            String string5 = UtilHelper.getString(R.string.obfuscated_res_0x7f0f0412);
+                            Intrinsics.checkNotNullExpressionValue(string5, "getString(R.string.chat_emoji_reply)");
+                            hashMap.put(string5, msgList.get(0));
+                        }
+                    }
                 }
-                intent.setData(Uri.parse(currentAccount));
-                if (PendingIntent.getBroadcast(baseContext, i, intent, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH) != null) {
-                    z = true;
-                }
-                tp4Var.a = z;
-                bz8Var.l(true);
-                bz8Var.k(tp4Var.a);
             }
-            return tp4Var;
+            return hashMap;
         }
-        return (tp4) invokeLLL.objValue;
+        return (Map) invokeV.objValue;
+    }
+
+    public final boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ChatRoomDetail chatRoomDetail = this.a;
+            boolean z = false;
+            if (chatRoomDetail != null) {
+                Intrinsics.checkNotNull(chatRoomDetail);
+                if (chatRoomDetail.getAtInfo() != null) {
+                    ChatRoomDetail chatRoomDetail2 = this.a;
+                    Intrinsics.checkNotNull(chatRoomDetail2);
+                    AtInfo atInfo = chatRoomDetail2.getAtInfo();
+                    Intrinsics.checkNotNull(atInfo);
+                    if (atInfo.getCountAll() > 0) {
+                        z = true;
+                    }
+                }
+                if (!z) {
+                    ChatRoomDetail chatRoomDetail3 = this.a;
+                    Intrinsics.checkNotNull(chatRoomDetail3);
+                    if (chatRoomDetail3.getReplyEmojiMsgInfo() != null) {
+                        ChatRoomDetail chatRoomDetail4 = this.a;
+                        Intrinsics.checkNotNull(chatRoomDetail4);
+                        ReplyEmojiMsgInfo replyEmojiMsgInfo = chatRoomDetail4.getReplyEmojiMsgInfo();
+                        Intrinsics.checkNotNull(replyEmojiMsgInfo);
+                        if (replyEmojiMsgInfo.getCount() > 0) {
+                            return true;
+                        }
+                    }
+                }
+                return z;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void c(ChatRoomDetail chatRoomDetail) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatRoomDetail) == null) {
+            this.a = chatRoomDetail;
+        }
     }
 }

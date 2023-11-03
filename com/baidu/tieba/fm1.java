@@ -1,215 +1,122 @@
 package com.baidu.tieba;
 
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.ua3;
+import com.baidu.sso.r.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 /* loaded from: classes5.dex */
-public class fm1 extends m73 {
+public class fm1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public com.baidu.sso.r.a a;
+    public Context b;
     public String c;
+    public String d;
+    public cm1 e;
+    public ServiceConnection f;
 
-    /* loaded from: classes5.dex */
-    public class a implements ik3<sa3<ua3.e>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ p53 a;
-        public final /* synthetic */ Context b;
-        public final /* synthetic */ boolean c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ CallbackHandler e;
-        public final /* synthetic */ UnitedSchemeEntity f;
-        public final /* synthetic */ fm1 g;
-
-        public a(fm1 fm1Var, p53 p53Var, Context context, boolean z, String str, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fm1Var, p53Var, context, Boolean.valueOf(z), str, callbackHandler, unitedSchemeEntity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.g = fm1Var;
-            this.a = p53Var;
-            this.b = context;
-            this.c = z;
-            this.d = str;
-            this.e = callbackHandler;
-            this.f = unitedSchemeEntity;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ik3
-        /* renamed from: b */
-        public void a(sa3<ua3.e> sa3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sa3Var) == null) {
-                boolean e = this.a.N().e(this.b);
-                if (!na3.h(sa3Var)) {
-                    if (!e && !this.c) {
-                        ic3.S("fail", 4, this.d);
-                    }
-                    na3.q(sa3Var, this.e, this.g.c);
-                    return;
-                }
-                if (e && !this.c) {
-                    ic3.S("success", 4, this.d);
-                }
-                this.g.l(this.b, this.f, this.e, this.a, this.d);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements gm1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ UnitedSchemeEntity b;
-        public final /* synthetic */ fm1 c;
-
-        public b(fm1 fm1Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fm1Var, callbackHandler, unitedSchemeEntity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = fm1Var;
-            this.a = callbackHandler;
-            this.b = unitedSchemeEntity;
-        }
-
-        @Override // com.baidu.tieba.gm1
-        public void a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (i == 1) {
-                    UnitedSchemeUtility.safeCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(1002, "user cancel this operation").toString(), this.c.c);
-                } else {
-                    UnitedSchemeUtility.safeCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(1003, "close failed").toString(), this.c.c);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.gm1
-        public void b(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-                UnitedSchemeUtility.safeCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString(), this.c.c);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fm1(m63 m63Var) {
-        super(m63Var, "/swanAPI/chooseAddress");
+    public fm1(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {m63Var};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = null;
+        this.c = null;
+        this.d = null;
+        this.f = new hm1(this);
+        this.b = context;
     }
 
-    public final JSONObject m(String str) {
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Intent intent = new Intent();
+            intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
+            intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
+            this.b.bindService(intent, this.f, 1);
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:25:0x0055 A[Catch: NoSuchAlgorithmException -> 0x006f, all -> 0x007e, LOOP:0: B:24:0x0053->B:25:0x0055, LOOP_END, TryCatch #1 {NoSuchAlgorithmException -> 0x006f, blocks: (B:23:0x0045, B:25:0x0055, B:26:0x006b), top: B:45:0x0045 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public String a(String str) {
         InterceptResult invokeL;
+        String str2;
+        Signature[] signatureArr;
+        PackageInfo packageInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new JSONObject();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (this.a != null) {
+                String str3 = null;
+                try {
+                    if (TextUtils.isEmpty(this.c)) {
+                        this.c = this.b.getPackageName();
+                    }
+                    if (TextUtils.isEmpty(this.d)) {
+                        try {
+                            packageInfo = this.b.getPackageManager().getPackageInfo(this.c, 64);
+                        } catch (PackageManager.NameNotFoundException unused) {
+                        }
+                        if (packageInfo != null) {
+                            signatureArr = packageInfo.signatures;
+                            if (signatureArr != null && signatureArr.length > 0) {
+                                try {
+                                    byte[] digest = MessageDigest.getInstance("SHA1").digest(signatureArr[0].toByteArray());
+                                    StringBuilder sb = new StringBuilder();
+                                    for (byte b : digest) {
+                                        sb.append(Integer.toHexString((b & 255) | 256).substring(1, 3));
+                                    }
+                                    str3 = sb.toString();
+                                } catch (NoSuchAlgorithmException unused2) {
+                                }
+                            }
+                            this.d = str3;
+                        }
+                        signatureArr = null;
+                        if (signatureArr != null) {
+                            byte[] digest2 = MessageDigest.getInstance("SHA1").digest(signatureArr[0].toByteArray());
+                            StringBuilder sb2 = new StringBuilder();
+                            while (r3 < r4) {
+                            }
+                            str3 = sb2.toString();
+                        }
+                        this.d = str3;
+                    }
+                    str2 = ((a.AbstractBinderC0196a.C0197a) this.a).a(this.c, this.d, str);
+                } catch (Throwable unused3) {
+                    str2 = str3;
+                }
+                if (!TextUtils.isEmpty(str2)) {
+                    return str2;
+                }
             }
-            try {
-                return new JSONObject(str);
-            } catch (JSONException e) {
-                if (m73.b) {
-                    Log.w("SwanAppAction", "JSONObject parsed error!!", e);
-                }
-                return new JSONObject();
-            }
+            return "";
         }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.m73
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, p53 p53Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, p53Var)) == null) {
-            if (p53Var == null) {
-                p22.i("ChooseAddress", "swanApp is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
-                return false;
-            } else if (p53Var.o0()) {
-                if (m73.b) {
-                    Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
-                return false;
-            } else {
-                JSONObject m = m(unitedSchemeEntity.getParam("params"));
-                String optString = m.optString("cb");
-                this.c = optString;
-                if (TextUtils.isEmpty(optString)) {
-                    p22.i("ChooseAddress", "cb is empty");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                String optString2 = m.optString("invokeFrom");
-                boolean e = p53Var.N().e(context);
-                if (!e) {
-                    ic3.S("show", 4, optString2);
-                }
-                p53Var.f0().h(context, "mapp_choose_address", na3.j(m), new a(this, p53Var, context, e, optString2, callbackHandler, unitedSchemeEntity));
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                return true;
-            }
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final void l(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, p53 p53Var, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, p53Var, str) == null) {
-            wo2.j0().a(context, p53Var.b, p53Var.P(), new b(this, callbackHandler, unitedSchemeEntity));
-        }
+        return (String) invokeL.objValue;
     }
 }

@@ -1,13 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.log.DefaultLog;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class k89 implements j89 {
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONArray;
+import org.json.JSONObject;
+@Service
+/* loaded from: classes7.dex */
+public final class k89 implements qa5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,23 +30,22 @@ public class k89 implements j89 {
         }
     }
 
-    @Override // com.baidu.tieba.j89
-    public f89 get() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.qa5
+    public void parseJson(JSONObject json) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return xw9.m();
+        if (interceptable == null || interceptable.invokeL(1048576, this, json) == null) {
+            Intrinsics.checkNotNullParameter(json, "json");
+            try {
+                JSONArray jSONArray = new JSONObject(json.optString("funny_sprite_config")).getJSONArray("funny_sprite_waiting_content");
+                l89.a().clear();
+                int length = jSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    l89.a().add(jSONArray.getString(i));
+                }
+            } catch (Exception e) {
+                TbLog defaultLog = DefaultLog.getInstance();
+                defaultLog.e("sendSpriteMsg", "情感词数据解析失败" + e.getMessage());
+            }
         }
-        return (f89) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.j89
-    public g89 a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
-            return new h89(str, str2, str3);
-        }
-        return (g89) invokeLLL.objValue;
     }
 }

@@ -1,179 +1,214 @@
 package com.baidu.tieba;
 
+import android.text.Editable;
+import android.text.Spannable;
+import android.text.Spanned;
+import android.text.TextUtils;
+import android.text.style.BackgroundColorSpan;
+import android.text.style.ForegroundColorSpan;
+import android.widget.EditText;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupEditText;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupForegroundColorSpan;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.record.RecordConstants;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes5.dex */
 public class cdb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<String> a;
+    public String b;
 
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final int a;
-        public final int b;
-
-        public a(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public cdb() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            this.a = i;
-            this.b = i2;
-        }
-
-        public int a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
-        }
-
-        public int b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
         }
     }
 
-    public static int[] a(float f, int i) {
-        InterceptResult invokeCommon;
+    public ArrayList<String> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Float.valueOf(f), Integer.valueOf(i)})) == null) {
-            int[] iArr = new int[2];
-            if (f > 1.0f) {
-                iArr[0] = i;
-                iArr[1] = (int) (i * f);
-                int i2 = iArr[1] % 16;
-                if (i2 > 8) {
-                    iArr[1] = iArr[1] + (16 - i2);
-                } else {
-                    iArr[1] = iArr[1] - i2;
-                }
-            } else {
-                iArr[1] = i;
-                iArr[0] = (int) (i * (1.0f / f));
-                int i3 = iArr[0] % 16;
-                if (i3 > 8) {
-                    iArr[0] = iArr[0] + (16 - i3);
-                } else {
-                    iArr[0] = iArr[0] - i3;
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean a(EditText editText) {
+        InterceptResult invokeL;
+        Editable text;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, editText)) == null) {
+            if (editText == null || (text = editText.getText()) == null) {
+                return false;
             }
-            return iArr;
-        }
-        return (int[]) invokeCommon.objValue;
-    }
-
-    public static int[] b(float f, int i, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            int[] iArr = new int[2];
-            if (i > i2) {
-                int i3 = (f > 1.0f ? 1 : (f == 1.0f ? 0 : -1));
-                if (i3 == 0) {
-                    iArr[0] = c(i);
-                    iArr[1] = c(i);
-                    return iArr;
-                }
-                if (i3 > 0) {
-                    iArr[1] = i;
-                    iArr[0] = (int) (i * (1.0f / f));
-                } else {
-                    iArr[1] = i2;
-                    iArr[0] = (int) (i2 * (1.0f / f));
-                }
-                iArr[0] = c(iArr[0]);
-            } else {
-                int i4 = (f > 1.0f ? 1 : (f == 1.0f ? 0 : -1));
-                if (i4 == 0) {
-                    iArr[0] = c(i2);
-                    iArr[1] = c(i2);
-                    return iArr;
-                }
-                if (i4 > 0) {
-                    iArr[0] = i;
-                    iArr[1] = (int) (i * f);
-                } else {
-                    iArr[0] = i2;
-                    iArr[1] = (int) (i2 * f);
-                }
-                iArr[1] = c(iArr[1]);
+            int d = d(text);
+            if (d > 0) {
+                editText.requestFocus();
+                editText.setSelection(d);
+                return true;
             }
-            return iArr;
+            editText.setSelection(editText.getSelectionEnd());
+            return false;
         }
-        return (int[]) invokeCommon.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static int c(int i) {
-        InterceptResult invokeI;
+    public int d(Spanned spanned) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            int i2 = i % 16;
-            return i2 > 8 ? i + (16 - i2) : i - i2;
-        }
-        return invokeI.intValue;
-    }
-
-    public static a d(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) {
-            if (i > 1920 || i2 > 1920) {
-                int[] a2 = a(i2 / i, RecordConstants.VIDEO_CONSTANT_WIDTH);
-                return new a(a2[0], a2[1]);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, spanned)) == null) {
+            if (spanned == null) {
+                return 0;
             }
-            return new a(i, i2);
-        }
-        return (a) invokeII.objValue;
-    }
-
-    public static a e(float f, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Float.valueOf(f), Integer.valueOf(i)})) == null) {
-            if (f <= 0.0f) {
-                return new a(RecordConstants.VIDEO_CONSTANT_WIDTH, RecordConstants.VIDEO_CONSTANT_HEIGHT);
+            BackgroundColorSpan[] backgroundColorSpanArr = (BackgroundColorSpan[]) spanned.getSpans(0, spanned.length(), BackgroundColorSpan.class);
+            int length = spanned.length();
+            if (backgroundColorSpanArr != null && backgroundColorSpanArr.length > 0) {
+                return spanned.getSpanEnd(backgroundColorSpanArr[0]);
             }
-            int[] a2 = a(f, i);
-            return new a(a2[0], a2[1]);
+            return length;
         }
-        return (a) invokeCommon.objValue;
+        return invokeL.intValue;
     }
 
-    public static a f(float f, int i, int i2) {
-        InterceptResult invokeCommon;
+    public void m(ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            if (f <= 0.0f) {
-                return new a(RecordConstants.VIDEO_CONSTANT_WIDTH, RecordConstants.VIDEO_CONSTANT_HEIGHT);
+        if (interceptable == null || interceptable.invokeL(1048588, this, arrayList) == null) {
+            this.a = arrayList;
+        }
+    }
+
+    public void n(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public boolean b(EditText editText, EditText editText2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editText, editText2)) == null) {
+            if (ListUtils.isEmpty(c())) {
+                return false;
             }
-            int[] b = b(f, i, i2);
-            return new a(b[0], b[1]);
+            if (!a(editText) && !a(editText2)) {
+                return false;
+            }
+            return true;
         }
-        return (a) invokeCommon.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public static boolean g(int i, int i2) {
-        InterceptResult invokeII;
+    public void h(EditText editText, EditText editText2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65542, null, i, i2)) == null) ? i > 1920 || i2 > 1920 : invokeII.booleanValue;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, editText, editText2) == null) {
+            i(editText, true);
+            i(editText2, false);
+            b(editText, editText2);
+        }
+    }
+
+    public void i(EditText editText, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, editText, z) != null) || editText == null) {
+            return;
+        }
+        f(editText, z);
+    }
+
+    public void l(EditText editText, EditText editText2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048587, this, editText, editText2) == null) {
+            h(editText, editText2);
+        }
+    }
+
+    public void f(EditText editText, boolean z) {
+        Editable text;
+        Object[] spans;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(1048581, this, editText, z) != null) || editText == null || (text = editText.getText()) == null) {
+            return;
+        }
+        for (Object obj : text.getSpans(0, text.length(), Object.class)) {
+            if (((obj instanceof ForegroundColorSpan) && !(obj instanceof SpanGroupForegroundColorSpan)) || (obj instanceof BackgroundColorSpan)) {
+                text.removeSpan(obj);
+            }
+        }
+        et5.j(text);
+        j(text);
+    }
+
+    public void g(SpanGroupEditText spanGroupEditText) {
+        Editable text;
+        Object[] spans;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, spanGroupEditText) != null) || spanGroupEditText == null || (text = spanGroupEditText.getText()) == null) {
+            return;
+        }
+        for (Object obj : text.getSpans(0, text.length(), Object.class)) {
+            if ((obj instanceof ForegroundColorSpan) || (obj instanceof BackgroundColorSpan)) {
+                text.removeSpan(obj);
+            }
+        }
+        et5.k(spanGroupEditText);
+    }
+
+    public final void j(Spannable spannable) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, spannable) == null) && spannable != null && !ListUtils.isEmpty(this.a)) {
+            String obj = spannable.toString();
+            if (TextUtils.isEmpty(obj)) {
+                return;
+            }
+            Iterator<String> it = this.a.iterator();
+            while (it.hasNext()) {
+                k(spannable, obj, it.next());
+            }
+        }
+    }
+
+    public final void k(Spannable spannable, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048586, this, spannable, str, str2) == null) && spannable != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            int indexOf = str.indexOf(str2);
+            int length = str2.length();
+            while (indexOf >= 0) {
+                int i = indexOf + length;
+                int color = SkinManager.getColor(R.color.CAM_X0101);
+                int color2 = SkinManager.getColor(R.color.cp_cont_h_alpha85);
+                ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(color);
+                BackgroundColorSpan backgroundColorSpan = new BackgroundColorSpan(color2);
+                spannable.setSpan(foregroundColorSpan, indexOf, i, 33);
+                spannable.setSpan(backgroundColorSpan, indexOf, i, 33);
+                indexOf = str.indexOf(str2, i);
+            }
+        }
     }
 }

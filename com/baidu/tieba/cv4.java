@@ -1,25 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.data.NewErrorData;
+import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetBigday.BigdayInfo;
 /* loaded from: classes5.dex */
 public class cv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
-    public long d;
-    public int e;
-    public long f;
-    public long g;
+    public NetWork a;
+    public NewErrorData b;
 
     public cv4() {
         Interceptable interceptable = $ic;
@@ -31,62 +25,72 @@ public class cv4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = null;
+        this.b = null;
+        this.a = new NetWork();
+    }
+
+    public void b() {
+        NetWork netWork;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (netWork = this.a) != null) {
+            netWork.cancelNetConnect();
         }
     }
 
-    public boolean a() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!StringUtils.isNULL(this.a) && this.d > 0) {
-                int i = this.e;
-                if (i == 1 || i == 3) {
-                    long j = this.f;
-                    if (j > 0) {
-                        long j2 = this.g;
-                        if (j2 > 0 && j2 > j) {
-                            return true;
-                        }
-                        return false;
-                    }
-                    return false;
-                }
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            NetWork netWork = this.a;
+            if (netWork != null) {
+                return netWork.getErrorString();
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            String postNetData = this.a.postNetData();
+            NewErrorData newErrorData = new NewErrorData();
+            this.b = newErrorData;
+            newErrorData.parserJson(postNetData);
+            return postNetData;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            NetWork netWork = this.a;
+            if (netWork != null) {
+                return netWork.getNetContext().getResponse().isRequestSuccess();
             }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    public void b(BigdayInfo bigdayInfo) {
+    public void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bigdayInfo) == null) && bigdayInfo != null && !StringUtils.isNULL(bigdayInfo.img_url) && bigdayInfo.id.longValue() > 0) {
-            if ((bigdayInfo.position.intValue() == 1 || bigdayInfo.position.intValue() == 3) && bigdayInfo.start_time.longValue() > 0 && bigdayInfo.end_time.longValue() > 0 && bigdayInfo.end_time.longValue() > bigdayInfo.start_time.longValue()) {
-                this.a = bigdayInfo.img_url;
-                this.b = bigdayInfo.jump_url;
-                this.c = bigdayInfo.img_colour.intValue();
-                this.d = bigdayInfo.id.longValue();
-                this.e = bigdayInfo.position.intValue();
-                this.f = bigdayInfo.start_time.longValue();
-                this.g = bigdayInfo.end_time.longValue();
-            }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            this.a.addPostData(str, str2);
         }
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
+    public void f(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (!(obj instanceof cv4)) {
-                return false;
-            }
-            cv4 cv4Var = (cv4) obj;
-            if (!cv4Var.a() || !a() || this.d != cv4Var.d || !StringHelper.equals(this.a, cv4Var.a) || (((this.b != null || cv4Var.b != null) && !StringHelper.equals(this.b, cv4Var.b)) || this.c != cv4Var.c || this.e != cv4Var.e || this.f != cv4Var.f || this.g != cv4Var.g)) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.a.setUrl(str);
         }
-        return invokeL.booleanValue;
     }
 }

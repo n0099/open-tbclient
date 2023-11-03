@@ -1,7 +1,7 @@
 package com.google.zxing.aztec.encoder;
 
 import com.google.zxing.common.BitArray;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class BinaryShiftToken extends Token {
     public final short binaryShiftByteCount;
     public final short binaryShiftStart;

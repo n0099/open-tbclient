@@ -1,9 +1,21 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.annotation.NonNull;
+import android.view.MotionEvent;
 /* loaded from: classes8.dex */
 public interface uq0 {
-    @NonNull
-    View getContentView();
+    void onBeforeSwitchToFull();
+
+    void onBeforeSwitchToHalf();
+
+    void onGestureActionEnd();
+
+    void onGestureActionStart();
+
+    boolean onGestureDoubleClick(MotionEvent motionEvent);
+
+    void onPanelVisibilityChanged(boolean z);
+
+    void onVideoSwitchToFull();
+
+    void onVideoSwitchToHalf();
 }

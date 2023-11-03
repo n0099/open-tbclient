@@ -2,270 +2,90 @@ package com.baidu.tieba;
 
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.pm.ActivityInfo;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Base64;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.os.IBinder;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.g10;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.regex.Pattern;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class a10 {
     public static /* synthetic */ Interceptable $ic;
-    public static final byte[] g;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public boolean b;
-    public Set<String> c;
-    public String d;
-    public Context e;
-    public int f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947562185, "Lcom/baidu/tieba/a10;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class a implements ServiceConnection {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Class[] a;
+        public final /* synthetic */ g10.a b;
+
+        public a(Class[] clsArr, g10.a aVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {clsArr, aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947562185, "Lcom/baidu/tieba/a10;");
+            this.a = clsArr;
+            this.b = aVar;
+        }
+
+        @Override // android.content.ServiceConnection
+        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
+                try {
+                    this.b.a(true, (String) this.a[0].getMethod("getID", new Class[0]).invoke(this.a[0].getMethod("asInterface", IBinder.class).invoke(null, iBinder), new Object[0]));
+                } catch (Throwable unused) {
+                    this.b.a(false, null);
+                }
+            }
+        }
+
+        @Override // android.content.ServiceConnection
+        public void onServiceDisconnected(ComponentName componentName) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
+            }
+        }
+    }
+
+    public static void a(Context context, g10.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, context, aVar) == null) {
+            if (context == null) {
+                aVar.a(false, null);
                 return;
             }
-        }
-        g = new byte[]{77, 73, 78, 71};
-    }
-
-    public a10() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static boolean e(String str, Context context, JSONObject jSONObject, Set<String> set) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, str, context, jSONObject, set)) == null) {
-            JSONArray jSONArray = jSONObject.getJSONArray("sigs");
-            int length = jSONArray.length();
-            String[] strArr = new String[length];
-            for (int i = 0; i < length; i++) {
-                strArr[i] = jSONArray.getString(i);
-            }
-            String[] h = h(context.getPackageManager().getPackageInfo(str, 64).signatures);
-            if (h != null && h.length > 0) {
-                Collections.addAll(set, h);
-            }
-            return g(strArr, h);
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public static boolean g(String[] strArr, String[] strArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, strArr, strArr2)) == null) {
-            if (strArr == null || strArr2 == null || strArr.length != strArr2.length) {
-                return false;
-            }
-            HashSet hashSet = new HashSet();
-            for (String str : strArr) {
-                hashSet.add(str);
-            }
-            HashSet hashSet2 = new HashSet();
-            for (String str2 : strArr2) {
-                hashSet2.add(str2);
-            }
-            return hashSet.equals(hashSet2);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static String[] h(Signature[] signatureArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, signatureArr)) == null) {
-            int length = signatureArr.length;
-            String[] strArr = new String[length];
-            for (int i = 0; i < length; i++) {
-                strArr[i] = zz.c(signatureArr[i].toByteArray());
-            }
-            return strArr;
-        }
-        return (String[]) invokeL.objValue;
-    }
-
-    public final void a(Bundle bundle, tz tzVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, bundle, tzVar) == null) {
+            Class[] clsArr = new Class[1];
             try {
-                if (tzVar == null) {
-                    this.f |= 16;
-                    return;
-                }
-                String string = bundle.getString("helios_data");
-                if (TextUtils.isEmpty(string)) {
-                    this.f |= 1;
-                    return;
-                }
-                String string2 = bundle.getString("helios_sf");
-                if (TextUtils.isEmpty(string2)) {
-                    this.f |= 2;
-                    return;
-                }
-                byte[] decode = Base64.decode(string.getBytes("utf-8"), 1);
-                for (int i = 0; i < decode.length; i++) {
-                    decode[i] = (byte) (decode[i] ^ g[i % g.length]);
-                }
-                JSONObject jSONObject = new JSONObject(new String(decode));
-                if (f(jSONObject)) {
-                    HashSet hashSet = new HashSet();
-                    this.c = hashSet;
-                    if (!e(this.d, this.e, jSONObject, hashSet)) {
-                        this.f |= 4;
-                    } else if (!Arrays.equals(a00.a(Base64.decode(string2, 0), tzVar), zz.b(decode))) {
-                        this.f |= 8;
-                    } else {
-                        this.a = jSONObject.getLong("priority");
-                        this.b = true;
-                    }
-                }
-            } catch (Exception e) {
-                this.f |= 256;
-                Log.getStackTraceString(e);
+                clsArr[0] = Class.forName("com.asus.msa.SupplementaryDID.IDidAidlInterface$Stub");
+            } catch (Throwable unused) {
             }
-        }
-    }
-
-    public void b(tz tzVar, boolean z) {
-        PackageInfo packageInfo;
-        ActivityInfo[] activityInfoArr;
-        ActivityInfo activityInfo;
-        Bundle bundle;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tzVar, z) == null) {
-            PackageManager packageManager = this.e.getPackageManager();
-            try {
-                packageInfo = packageManager.getPackageInfo(this.d, 2);
-            } catch (PackageManager.NameNotFoundException unused) {
-                packageInfo = null;
-            }
-            if (packageInfo == null || (activityInfoArr = packageInfo.receivers) == null || activityInfoArr.length <= 0) {
+            if (clsArr[0] == null) {
+                aVar.a(false, null);
                 return;
             }
-            for (ActivityInfo activityInfo2 : activityInfoArr) {
-                if ("com.baidu.helios.DummyProvider".equals(activityInfo2.name)) {
-                    try {
-                        activityInfo = packageManager.getReceiverInfo(new ComponentName(activityInfo2.packageName, activityInfo2.name), 128);
-                    } catch (PackageManager.NameNotFoundException unused2) {
-                        activityInfo = null;
-                    }
-                    if (activityInfo != null && (bundle = activityInfo.metaData) != null && bundle.containsKey("helios") && z) {
-                        a(bundle, tzVar);
-                    }
-                }
+            try {
+                a aVar2 = new a(clsArr, aVar);
+                Intent intent = new Intent("com.asus.msa.action.ACCESS_DID");
+                intent.setComponent(new ComponentName("com.asus.msa.SupplementaryDID", "com.asus.msa.SupplementaryDID.SupplementaryDIDService"));
+                context.bindService(intent, aVar2, 1);
+            } catch (Throwable unused2) {
+                aVar.a(false, null);
             }
         }
-    }
-
-    public void c(String str, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, context) == null) {
-            this.d = str;
-            this.e = context;
-        }
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.booleanValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x0041, code lost:
-        if (r10.equals(r9.d) == false) goto L15;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x0056, code lost:
-        if (r0.startsWith(r10) != false) goto L16;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final boolean f(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jSONObject)) == null) {
-            yz yzVar = new yz();
-            yzVar.b(jSONObject.optLong("flags"));
-            String optString = jSONObject.optString("package", "");
-            long a = yzVar.a(7L);
-            if (!optString.equals("") || a == 4) {
-                if (a != 0) {
-                    if (a == 1) {
-                        String str = this.d;
-                        if (str != null) {
-                        }
-                        i = this.f | 32;
-                        this.f = i;
-                        return false;
-                    } else if (a == 2) {
-                        try {
-                            if (!Pattern.compile(optString).matcher(this.d).matches()) {
-                                this.f |= 32;
-                                return false;
-                            }
-                        } catch (Exception unused) {
-                            i = this.f | 128;
-                        }
-                    } else if (a == 4) {
-                        return true;
-                    }
-                    return true;
-                }
-            }
-            i = this.f | 64;
-            this.f = i;
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public long i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : invokeV.longValue;
-    }
-
-    public Set<String> j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.c : (Set) invokeV.objValue;
     }
 }

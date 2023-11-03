@@ -1,65 +1,52 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import com.baidu.android.imsdk.db.DBTableDefine;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.security.WarmTipsManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.network.outback.core.Request;
+import com.baidu.searchbox.network.outback.core.Response;
+import com.baidu.tieba.f20;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import java.io.IOException;
+import java.net.URISyntaxException;
 /* loaded from: classes8.dex */
-public class w20 {
+public class w20 implements f20 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, String> a;
-    public final Map<String, String> b;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948218548, "Lcom/baidu/tieba/w20;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948218548, "Lcom/baidu/tieba/w20;");
-                return;
-            }
-        }
-        c = AppConfig.isDebug();
-    }
 
     public w20() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        new Handler(Looper.getMainLooper());
-        HashMap hashMap = new HashMap(2);
-        this.a = hashMap;
-        hashMap.put("click_searchbox", WarmTipsManager.WIDGET_HISSUG_EXT_VALUE);
-        this.a.put("click_feed_video", "video");
-        HashMap hashMap2 = new HashMap(2);
-        this.b = hashMap2;
-        hashMap2.put("click_searchbox", DBTableDefine.GroupInfoColumns.COLUMN_GROUP_HOMEPAGE);
-        this.b.put("click_feed_video", DBTableDefine.GroupInfoColumns.COLUMN_GROUP_HOMEPAGE);
-        new HashMap(2);
+    }
+
+    @Override // com.baidu.tieba.f20
+    public Response a(f20.a aVar) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
+            Request request = aVar.request();
+            try {
+                return aVar.a(request);
+            } catch (RuntimeException e) {
+                if (e.getCause() != null && (e.getCause() instanceof URISyntaxException)) {
+                    throw new IOException(e);
+                }
+                if ((e instanceof IllegalStateException) && e.getMessage().contains("Unexpected readData call. Buffer is null")) {
+                    throw new IOException(e);
+                }
+                throw new RuntimeException(e.getMessage() + " request url == " + request.url(), e);
+            }
+        }
+        return (Response) invokeL.objValue;
     }
 }

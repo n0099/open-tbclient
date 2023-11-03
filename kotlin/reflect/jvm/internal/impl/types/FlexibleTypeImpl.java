@@ -65,7 +65,7 @@ public final class FlexibleTypeImpl extends FlexibleType implements CustomTypeVa
 
     @Override // kotlin.reflect.jvm.internal.impl.types.CustomTypeVariable
     public boolean isTypeVariable() {
-        if ((getLowerBound().getConstructor().mo2106getDeclarationDescriptor() instanceof TypeParameterDescriptor) && Intrinsics.areEqual(getLowerBound().getConstructor(), getUpperBound().getConstructor())) {
+        if ((getLowerBound().getConstructor().mo2110getDeclarationDescriptor() instanceof TypeParameterDescriptor) && Intrinsics.areEqual(getLowerBound().getConstructor(), getUpperBound().getConstructor())) {
             return true;
         }
         return false;

@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.mvc.data.IResponseData;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gz4;
-import com.baidu.tieba.m9;
-import com.baidu.tieba.ma;
-import com.baidu.tieba.xl5;
-import com.baidu.tieba.yl5;
+import com.baidu.tieba.bb;
+import com.baidu.tieba.ca;
+import com.baidu.tieba.on5;
+import com.baidu.tieba.pn5;
+import com.baidu.tieba.yz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -70,13 +70,13 @@ public class MvcJsonHttpResponsedMessage<D extends IResponseData> extends MvcHtt
                 errorData.parserJson(str);
                 setError(errorData.getError_code());
                 if (getError() == -1) {
-                    setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f06b2));
+                    setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f06b4));
                 } else if (getError() != 0) {
                     setErrorString(errorData.getError_msg());
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
-                setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f06b2));
+                setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f06b4));
             }
         }
     }
@@ -136,10 +136,10 @@ public class MvcJsonHttpResponsedMessage<D extends IResponseData> extends MvcHtt
     }
 
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage
-    public void logStatInBackground(int i, ma maVar) {
+    public void logStatInBackground(int i, bb bbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i, maVar) == null) {
-            super.logStatInBackground(i, maVar);
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, bbVar) == null) {
+            super.logStatInBackground(i, bbVar);
         }
     }
 
@@ -152,31 +152,31 @@ public class MvcJsonHttpResponsedMessage<D extends IResponseData> extends MvcHtt
             super.afterDispatchInBackGround(i, (int) bArr);
             if (getError() == 0 && (getOrginalMessage() instanceof MvcHttpMessage) && bArr != null) {
                 MvcHttpMessage mvcHttpMessage = (MvcHttpMessage) getOrginalMessage();
-                if (mvcHttpMessage.isNeedCache() && (mvcHttpMessage.getRequestData() instanceof xl5)) {
-                    xl5 xl5Var = (xl5) mvcHttpMessage.getRequestData();
-                    String cacheKey = xl5Var.getCacheKey();
-                    String cacheTableName = xl5Var.getCacheTableName();
-                    if (xl5Var.isNeedUid()) {
+                if (mvcHttpMessage.isNeedCache() && (mvcHttpMessage.getRequestData() instanceof on5)) {
+                    on5 on5Var = (on5) mvcHttpMessage.getRequestData();
+                    String cacheKey = on5Var.getCacheKey();
+                    String cacheTableName = on5Var.getCacheTableName();
+                    if (on5Var.isNeedUid()) {
                         str = TbadkCoreApplication.getCurrentAccount();
                     } else {
                         str = null;
                     }
                     if (cacheKey != null && !TextUtils.isEmpty(cacheTableName) && bArr != null) {
-                        if (xl5Var.w()) {
-                            gz4.k();
-                            m9<byte[]> j = gz4.j(cacheTableName, str);
-                            if (j == null) {
+                        if (on5Var.w()) {
+                            yz4.l();
+                            ca<byte[]> k = yz4.k(cacheTableName, str);
+                            if (k == null) {
                                 return;
                             }
-                            j.g(cacheKey, bArr);
-                        } else if (mvcHttpMessage.getRequestData() instanceof yl5) {
-                            gz4.k();
-                            m9<String> m = gz4.m(cacheTableName, str);
-                            if (m == null) {
+                            k.g(cacheKey, bArr);
+                        } else if (mvcHttpMessage.getRequestData() instanceof pn5) {
+                            yz4.l();
+                            ca<String> n = yz4.n(cacheTableName, str);
+                            if (n == null) {
                                 return;
                             }
                             try {
-                                m.g(cacheKey, new String(bArr, "UTF-8"));
+                                n.g(cacheKey, new String(bArr, "UTF-8"));
                             } catch (UnsupportedEncodingException e) {
                                 e.printStackTrace();
                             }

@@ -2,7 +2,7 @@ package com.xiaomi.clientreport.processor;
 /* loaded from: classes10.dex */
 public interface d {
     /* renamed from: a */
-    void mo190a(com.xiaomi.clientreport.data.a aVar);
+    void mo194a(com.xiaomi.clientreport.data.a aVar);
 
     void b();
 }

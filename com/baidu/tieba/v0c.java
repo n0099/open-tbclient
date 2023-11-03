@@ -1,199 +1,112 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.util.Log;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.transvod.player.common.AVStream;
-import com.yy.transvod.player.common.AVframe;
-import com.yy.transvod.player.common.AlphaChannelData;
-import com.yy.transvod.player.common.AudioSendStamp;
-import com.yy.transvod.player.common.MixAudioExtraInfo;
-import com.yy.transvod.player.common.MixVideoExtraInfo;
-import com.yy.transvod.player.common.NetRequestStatusInfo;
-import com.yy.transvod.player.common.VideoExtraInfo;
-import com.yy.transvod.player.common.effectmp4.EffectFrame;
-import com.yy.transvod.player.common.effectmp4.EffectInfo;
-import com.yy.transvod.player.common.effectmp4.EffectObject;
-import com.yy.transvod.player.common.effectmp4.EffectSource;
-import com.yy.transvod.player.core.TransVodProxy;
-import com.yy.transvod.player.log.TLog;
-import com.yy.transvod.player.mediacodec.NativeFfmpeg;
-import com.yy.transvod.player.mediacodec.NativeIttiam;
-import java.util.UUID;
+import com.fun.ad.sdk.ChannelNativeAds;
+import com.fun.ad.sdk.FunNativeAd;
+import com.fun.ad.sdk.FunNativeInfo;
+import com.win.opensdk.PBMediaView;
+import com.win.opensdk.PBNative;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class v0c {
+public class v0c implements FunNativeInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static String d;
     public transient /* synthetic */ FieldHolder $fh;
-    public TransVodProxy a;
-    public s0c b;
-    public Context c;
+    public final PBNative a;
+    public final Context b;
+    public PBMediaView c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948188416, "Lcom/baidu/tieba/v0c;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948188416, "Lcom/baidu/tieba/v0c;");
-                return;
-            }
-        }
-        wyb.b();
-        d = null;
-    }
-
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return wyb.a();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                if (this.a != null) {
-                    this.a.l();
-                    this.a = null;
-                }
-            }
-            s0c s0cVar = this.b;
-            if (s0cVar != null) {
-                s0cVar.f();
-                this.b = null;
-            }
-        }
-    }
-
-    public synchronized void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                if (this.a != null) {
-                    this.a.v(true);
-                }
-            }
-        }
-    }
-
-    public v0c(Context context, xzb xzbVar) {
+    public v0c(Context context, PBNative pBNative) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, xzbVar};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {context, pBNative};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        wyb.c(context);
-        c();
-        this.c = context;
-        String a = a(context);
-        TLog.h("TransVodManager", "generated uid " + a);
+        this.b = context;
+        this.a = pBNative;
     }
 
-    public static synchronized String a(Context context) {
-        InterceptResult invokeL;
-        String str;
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public ChannelNativeAds getChannelNativeAds() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            synchronized (v0c.class) {
-                if (d == null) {
-                    SharedPreferences sharedPreferences = context.getSharedPreferences("transvod-uid-pref", 0);
-                    String string = sharedPreferences.getString("transvod-uid-pref", null);
-                    d = string;
-                    if (string == null) {
-                        d = UUID.randomUUID().toString();
-                        SharedPreferences.Editor edit = sharedPreferences.edit();
-                        edit.putString("transvod-uid-pref", d);
-                        edit.commit();
-                    }
-                }
-                str = d;
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ChannelNativeAds.createJy(this.a) : (ChannelNativeAds) invokeV.objValue;
     }
 
-    public final void c() {
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public String getDescription() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (!wyb.a()) {
-                TLog.h("TransVodManager", "init failed, library not load success");
-                return;
-            }
-            Log.i("TransVodManager", "TLog.setLevel()");
-            TLog.i(4);
-            TransVodProxy.nativeClassInit();
-            AVframe.nativeClassInit();
-            AVStream.nativeClassInit();
-            NativeFfmpeg.nativeClassInit();
-            NativeIttiam.nativeClassInit();
-            VideoExtraInfo.nativeClassInit();
-            AlphaChannelData.nativeClassInit();
-            MixVideoExtraInfo.nativeClassInit();
-            MixAudioExtraInfo.nativeClassInit();
-            NetRequestStatusInfo.nativeClassInit();
-            AudioSendStamp.nativeClassInit();
-            EffectInfo.nativeClassInit();
-            EffectSource.nativeClassInit();
-            EffectObject.nativeClassInit();
-            EffectFrame.nativeClassInit();
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.getBody() : (String) invokeV.objValue;
     }
 
-    public TransVodProxy d(int i, xzb xzbVar) {
-        InterceptResult invokeIL;
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public String getIconUrl() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, xzbVar)) == null) {
-            synchronized (this) {
-                if (this.a == null) {
-                    this.a = new TransVodProxy(null, i, xzbVar);
-                }
-            }
-            if (this.b == null) {
-                s0c s0cVar = new s0c(this.c, this);
-                this.b = s0cVar;
-                s0cVar.i();
-            }
-            return this.a;
-        }
-        return (TransVodProxy) invokeIL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.getIcon() : (String) invokeV.objValue;
     }
 
-    public void e(int i) {
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public List<String> getImageUrls() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            synchronized (this) {
-                if (this.a != null) {
-                    this.a.f(i);
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(this.a.getIM());
+            return arrayList;
         }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public FunNativeAd.InteractionType getInteractionType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.isD() ? FunNativeAd.InteractionType.TYPE_DOWNLOAD : FunNativeAd.InteractionType.TYPE_BROWSE : (FunNativeAd.InteractionType) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public String getTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.getHeadline() : (String) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public View getVideoView() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            String adType = this.a.getAdType();
+            adType.hashCode();
+            if (!adType.equals("h5") && !adType.equals("video")) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z && this.c == null) {
+                this.c = new PBMediaView(this.b.getApplicationContext());
+            }
+            return this.c;
+        }
+        return (View) invokeV.objValue;
     }
 }

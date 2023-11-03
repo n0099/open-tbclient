@@ -1,20 +1,6 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.google.protobuf.MessageLiteOrBuilder;
 /* loaded from: classes7.dex */
-public class lp3 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public static SharedPreferences a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return new yl4("swan_config_sp_name");
-        }
-        return (SharedPreferences) invokeV.objValue;
-    }
+public interface lp3 extends MessageLiteOrBuilder {
 }

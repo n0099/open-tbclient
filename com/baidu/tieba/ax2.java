@@ -1,15 +1,9 @@
 package com.baidu.tieba;
 
-import android.content.IntentFilter;
-import android.telephony.PhoneStateListener;
-import android.telephony.TelephonyManager;
-import android.text.TextUtils;
+import android.graphics.Bitmap;
+import android.graphics.Rect;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.swan.apps.network.NetworkBroadcastReceiver;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,69 +11,68 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import java.util.Set;
+import java.util.TreeSet;
 /* loaded from: classes5.dex */
-public class ax2 extends q53 {
+public abstract class ax2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public NetworkBroadcastReceiver a;
-    public TelephonyManager b;
-    public a c;
+    public double a;
+    public Set<Integer> b;
+
+    public abstract boolean a(Bitmap bitmap, Rect rect);
 
     /* loaded from: classes5.dex */
-    public class a extends PhoneStateListener {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference<CallbackHandler> a;
-        public String b;
-        public String c;
-        public final /* synthetic */ ax2 d;
 
-        public a(ax2 ax2Var, CallbackHandler callbackHandler, String str) {
+        public static ax2 a(String str) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ax2Var, callbackHandler, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+            if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+                return b(str, 0.5d);
             }
-            this.d = ax2Var;
-            this.c = "";
-            this.a = new WeakReference<>(callbackHandler);
-            this.b = str;
+            return (ax2) invokeL.objValue;
         }
 
-        public void a(CallbackHandler callbackHandler, String str) {
+        public static ax2 b(String str, double d) {
+            InterceptResult invokeCommon;
+            char c;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, callbackHandler, str) == null) {
-                this.a = new WeakReference<>(callbackHandler);
-                this.b = str;
-            }
-        }
-
-        @Override // android.telephony.PhoneStateListener
-        public void onDataConnectionStateChanged(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-                if (ax2.d) {
-                    Log.d("PhoneStateListener", "——> onDataConnectionStateChanged: state " + i + " networkType " + i2);
-                }
-                if (2 == i) {
-                    String d = SwanAppNetworkUtils.d(i2, null);
-                    if (!TextUtils.isEmpty(d) && !d.equals(this.c)) {
-                        this.c = d;
-                        SwanAppNetworkUtils.k(this.d, this.a.get(), this.b);
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Double.valueOf(d)})) == null) {
+                int hashCode = str.hashCode();
+                if (hashCode != -2129978548) {
+                    if (hashCode != -585839565) {
+                        if (hashCode == 544848403 && str.equals("hsv_parser")) {
+                            c = 1;
+                        }
+                        c = 65535;
+                    } else {
+                        if (str.equals("solid_parser")) {
+                            c = 2;
+                        }
+                        c = 65535;
                     }
+                } else {
+                    if (str.equals("simple_parser")) {
+                        c = 0;
+                    }
+                    c = 65535;
                 }
+                if (c != 0) {
+                    if (c != 1) {
+                        if (c != 2) {
+                            return new cx2();
+                        }
+                        return new dx2();
+                    }
+                    return new bx2(d);
+                }
+                return new cx2();
             }
+            return (ax2) invokeCommon.objValue;
         }
     }
 
@@ -96,59 +89,62 @@ public class ax2 extends q53 {
                 return;
             }
         }
-        d = am1.a;
+        c = rm1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ax2(p53 p53Var) {
-        super(p53Var);
+    public ax2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {p53Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((p53) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = 1.0d;
     }
 
-    public void a(CallbackHandler callbackHandler, String str) {
+    public boolean b(Bitmap bitmap, Rect rect) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, callbackHandler, str) == null) {
-            if (this.b == null) {
-                this.b = (TelephonyManager) getSystemService("phone");
-                a aVar = new a(this, callbackHandler, str);
-                this.c = aVar;
-                this.b.listen(aVar, 64);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, rect)) == null) {
+            if (bitmap == null || rect == null || rect.top < 0 || rect.bottom < 0 || rect.left < 0 || rect.right < 0) {
+                return false;
             }
-            a aVar2 = this.c;
-            if (aVar2 != null) {
-                aVar2.a(callbackHandler, str);
+            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
+            int i = rect.top;
+            int i2 = rect.bottom;
+            if (i >= i2 || i2 > height) {
+                return false;
             }
+            int i3 = rect.left;
+            int i4 = rect.right;
+            if (i3 >= i4 || i4 > width) {
+                return false;
+            }
+            return true;
         }
+        return invokeLL.booleanValue;
     }
 
-    public void b(CallbackHandler callbackHandler, String str) {
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, callbackHandler, str) == null) {
-            NetworkBroadcastReceiver networkBroadcastReceiver = this.a;
-            if (networkBroadcastReceiver == null) {
-                this.a = new NetworkBroadcastReceiver(callbackHandler, str);
-                IntentFilter intentFilter = new IntentFilter();
-                intentFilter.addAction(NetworkMonitor.NET_CHANGE_ACTION);
-                registerReceiver(this.a, intentFilter);
-            } else if (networkBroadcastReceiver != null) {
-                networkBroadcastReceiver.updateCallback(callbackHandler, str);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            Set<Integer> set = this.b;
+            if (set == null) {
+                this.b = new TreeSet();
+            } else {
+                set.clear();
             }
-            a(callbackHandler, str);
+            if (c) {
+                Log.d("ErrorPageParser", "set color " + String.format("#%06X", Integer.valueOf(16777215 & i)));
+            }
+            this.b.add(Integer.valueOf(i));
         }
     }
 }

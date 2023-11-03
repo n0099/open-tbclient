@@ -8,9 +8,9 @@ import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tieba.ab;
-import com.baidu.tieba.w6;
-import com.baidu.tieba.x6;
+import com.baidu.tieba.m7;
+import com.baidu.tieba.n7;
+import com.baidu.tieba.qb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -99,30 +99,30 @@ public class NinePatchLoaderProc extends AbstractImageLoaderProc {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
-    public x6 createDiskPicOperate(String str) {
+    public n7 createDiskPicOperate(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return new w6("images", str, DiskFileOperate.Action.READ);
+            return new m7("images", str, DiskFileOperate.Action.READ);
         }
-        return (x6) invokeL.objValue;
+        return (n7) invokeL.objValue;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
-    public BdImage createImageFromDiskPicOperate(x6 x6Var, String str, int i, int i2) {
+    public BdImage createImageFromDiskPicOperate(n7 n7Var, String str, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048579, this, x6Var, str, i, i2)) == null) {
-            if (!(x6Var instanceof w6)) {
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048579, this, n7Var, str, i, i2)) == null) {
+            if (!(n7Var instanceof m7)) {
                 return null;
             }
-            w6 w6Var = (w6) x6Var;
-            x6Var.formatData(x6Var.getData());
-            Bitmap bitmap = x6Var.getBitmap();
+            m7 m7Var = (m7) n7Var;
+            n7Var.formatData(n7Var.getData());
+            Bitmap bitmap = n7Var.getBitmap();
             if (bitmap == null) {
                 return null;
             }
-            return new BdImage(bitmap, false, str, w6Var.h());
+            return new BdImage(bitmap, false, str, m7Var.h());
         }
         return (BdImage) invokeLLII.objValue;
     }
@@ -130,7 +130,7 @@ public class NinePatchLoaderProc extends AbstractImageLoaderProc {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
     /* renamed from: decodeToResource */
-    public BdImage mo121decodeToResource(byte[] bArr, Object... objArr) {
+    public BdImage mo122decodeToResource(byte[] bArr, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, bArr, objArr)) == null) {
@@ -140,7 +140,7 @@ public class NinePatchLoaderProc extends AbstractImageLoaderProc {
             if (Bytes2NineBitmap != null) {
                 z = true;
             }
-            ab.c(z, System.currentTimeMillis() - currentTimeMillis);
+            qb.c(z, System.currentTimeMillis() - currentTimeMillis);
             return new BdImage(Bytes2NineBitmap);
         }
         return (BdImage) invokeLL.objValue;

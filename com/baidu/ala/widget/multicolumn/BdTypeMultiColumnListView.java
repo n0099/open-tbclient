@@ -6,8 +6,8 @@ import android.view.View;
 import android.widget.ListAdapter;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.lh;
-import com.baidu.tieba.yh;
+import com.baidu.tieba.bi;
+import com.baidu.tieba.oi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -174,7 +174,7 @@ public class BdTypeMultiColumnListView extends BdMultiColumnListView {
                     if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{pLA_AdapterView, view2, Integer.valueOf(i), Long.valueOf(j)})) == null) {
                         TypeAdapter typeAdapter = this.this$0.mTypeAdapter;
                         if (typeAdapter != null) {
-                            return typeAdapter.f(pLA_AdapterView, view2, i, j);
+                            return typeAdapter.h(pLA_AdapterView, view2, i, j);
                         }
                         return false;
                     }
@@ -184,7 +184,7 @@ public class BdTypeMultiColumnListView extends BdMultiColumnListView {
         }
     }
 
-    public List<yh> getData() {
+    public List<oi> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -193,10 +193,10 @@ public class BdTypeMultiColumnListView extends BdMultiColumnListView {
         return (List) invokeV.objValue;
     }
 
-    public void addAdapters(List<lh> list) {
+    public void addAdapters(List<bi> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            Iterator<lh> it = list.iterator();
+            Iterator<bi> it = list.iterator();
             while (it.hasNext()) {
                 this.mTypeAdapter.a(it.next());
             }
@@ -204,16 +204,16 @@ public class BdTypeMultiColumnListView extends BdMultiColumnListView {
         }
     }
 
-    public yh getItem(int i) {
+    public oi getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
             return this.mTypeAdapter.getItem(i);
         }
-        return (yh) invokeI.objValue;
+        return (oi) invokeI.objValue;
     }
 
-    public void setData(List<? extends yh> list) {
+    public void setData(List<? extends oi> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             this.mTypeAdapter.i(list);

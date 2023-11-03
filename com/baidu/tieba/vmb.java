@@ -1,83 +1,70 @@
 package com.baidu.tieba;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
-import java.lang.reflect.Field;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class vmb extends BaseAdRipper {
+public final class vmb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public SQLiteDatabase a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vmb(Ssp.Pid pid) {
-        super(pid);
+    public vmb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = smb.a().c();
     }
 
-    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
-    public RippedAd getRippedAdInternal(Object obj) {
-        InterceptResult invokeL;
-        Object findField;
+    public final List<com.baidu.ubs.analytics.a.l> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Cursor rawQuery = this.a.rawQuery("SELECT * FROM  tb_ab_page_log order by _id ", null);
+            ArrayList arrayList = new ArrayList();
+            while (rawQuery.moveToNext()) {
+                com.baidu.ubs.analytics.a.l lVar = new com.baidu.ubs.analytics.a.l();
+                lVar.t(rawQuery.getString(rawQuery.getColumnIndex("_pagerName")));
+                lVar.setPath(rawQuery.getString(rawQuery.getColumnIndex("_path")));
+                lVar.z(rawQuery.getString(rawQuery.getColumnIndex("_endTime")));
+                lVar.setStartTime(rawQuery.getString(rawQuery.getColumnIndex("_startTime")));
+                lVar.x(rawQuery.getString(rawQuery.getColumnIndex("_sessionId")));
+                lVar.setId(rawQuery.getInt(rawQuery.getColumnIndex("_id")));
+                arrayList.add(lVar);
             }
-            try {
-                Object obj2 = ((gnb) obj).a;
-                Field declaredField = obj2.getClass().getSuperclass().getSuperclass().getDeclaredField("a");
-                declaredField.setAccessible(true);
-                Object obj3 = declaredField.get(obj2);
-                if (obj3 == null) {
-                    return null;
-                }
-                Field declaredField2 = obj3.getClass().getDeclaredField("c");
-                declaredField2.setAccessible(true);
-                Object obj4 = declaredField2.get(obj3);
-                if (obj4 == null || (findField = ReflectionUtils.findField("com.qq.e.comm.plugin.intersitial2.h", obj4)) == null) {
-                    return null;
-                }
-                Field declaredField3 = findField.getClass().getDeclaredField("y");
-                declaredField3.setAccessible(true);
-                Object obj5 = declaredField3.get(findField);
-                if (obj5 == null) {
-                    return null;
-                }
-                Field declaredField4 = obj5.getClass().getSuperclass().getDeclaredField("L");
-                declaredField4.setAccessible(true);
-                JSONObject jSONObject = (JSONObject) declaredField4.get(obj5);
-                if (jSONObject == null) {
-                    return null;
-                }
-                return pmb.a(jSONObject);
-            } catch (Exception e) {
-                LogPrinter.e(e);
-                return null;
-            }
+            rawQuery.close();
+            return arrayList;
         }
-        return (RippedAd) invokeL.objValue;
+        return (List) invokeV.objValue;
+    }
+
+    public final void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a.execSQL("delete from tb_ab_page_log where _id <= " + i);
+        }
+    }
+
+    public final void c(com.baidu.ubs.analytics.a.l lVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lVar) == null) {
+            this.a.execSQL("INSERT INTO tb_ab_page_log(_startTime,_endTime,_pagerName,_path,_sessionId) VALUES (?,?,?,?,?);", new String[]{lVar.N(), lVar.O(), lVar.E(), lVar.getPath(), lVar.I()});
+        }
     }
 }

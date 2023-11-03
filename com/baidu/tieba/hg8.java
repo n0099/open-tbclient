@@ -1,72 +1,84 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.Nullable;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.AdapterViewHolder;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.im.data.GroupMsgData;
-import com.baidu.tieba.im.message.ResponseUnLoginMessage;
-import com.baidu.tieba.im.push.PushResponseMessage;
+import com.baidu.tieba.homepage.tabfeed.view.HomeLocalCompleteInfoLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class hg8 extends z5 {
+public class hg8 extends bi<xg8, AdapterViewHolder<HomeLocalCompleteInfoLayout>> implements ag8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public View.OnClickListener b;
+
+    @Override // com.baidu.tieba.ag8
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hg8() {
-        super(202009);
+    public hg8(TbPageContext tbPageContext, @Nullable View.OnClickListener onClickListener) {
+        super(tbPageContext.getPageActivity(), xg8.a);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, onClickListener};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = tbPageContext;
+        this.b = onClickListener;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.w5
-    /* renamed from: i */
-    public SocketResponsedMessage g(SocketResponsedMessage socketResponsedMessage) {
+    @Override // com.baidu.tieba.bi
+    /* renamed from: t */
+    public AdapterViewHolder<HomeLocalCompleteInfoLayout> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
-            if (!(socketResponsedMessage instanceof PushResponseMessage)) {
-                return null;
-            }
-            if (socketResponsedMessage.getError() == 110000) {
-                MessageManager.getInstance().dispatchResponsedMessage(new ResponseUnLoginMessage());
-            }
-            PushResponseMessage pushResponseMessage = (PushResponseMessage) socketResponsedMessage;
-            if (pushResponseMessage.getNotificationData() != null && TbadkCoreApplication.getInst().isInBackground()) {
-                CustomMessage customMessage = new CustomMessage(2012100);
-                customMessage.setData(pushResponseMessage.getNotificationData());
-                MessageManager.getInstance().sendMessage(customMessage);
-                return null;
-            }
-            List<GroupMsgData> groupMsg = pushResponseMessage.getGroupMsg();
-            if (groupMsg != null && groupMsg.size() > 0) {
-                for (GroupMsgData groupMsgData : groupMsg) {
-                    if (groupMsgData != null && groupMsgData.getGroupInfo() != null) {
-                        MessageManager.getInstance().dispatchResponsedMessage(groupMsgData);
-                    }
-                }
-            }
-            return socketResponsedMessage;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            return new AdapterViewHolder<>(new HomeLocalCompleteInfoLayout(viewGroup.getContext()));
         }
-        return (SocketResponsedMessage) invokeL.objValue;
+        return (AdapterViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, xg8 xg8Var, AdapterViewHolder<HomeLocalCompleteInfoLayout> adapterViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, xg8Var, adapterViewHolder})) == null) {
+            if (xg8Var != null && adapterViewHolder != null) {
+                HomeLocalCompleteInfoLayout a = adapterViewHolder.a();
+                a.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
+                a.setCloseClickListener(this.b);
+                zf8.o();
+                return adapterViewHolder.getView();
+            }
+            return null;
+        }
+        return (View) invokeCommon.objValue;
     }
 }

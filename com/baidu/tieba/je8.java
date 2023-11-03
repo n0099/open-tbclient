@@ -1,67 +1,59 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class je8 {
+public class je8 extends he8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static short b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            switch (i) {
-                case -100000306:
-                    return (short) 6;
-                case -100000303:
-                    return (short) 2;
-                case 3160010:
-                    return (short) 5;
-                case 3160011:
-                    return (short) 4;
-                default:
-                    return (short) 9;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947880524, "Lcom/baidu/tieba/je8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947880524, "Lcom/baidu/tieba/je8;");
+                return;
             }
         }
-        return invokeI.shortValue;
+        f = BdUniqueId.gen();
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x002d, code lost:
-        if (android.text.TextUtils.isEmpty(r5) != false) goto L19;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String a(int i, String str) {
-        InterceptResult invokeIL;
+    public je8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, str)) == null) {
-            short b = b(i);
-            int i2 = R.string.message_text_error_because_network;
-            if (b != 2) {
-                if (b != 9) {
-                    if (b != 4) {
-                        if (b != 5) {
-                            if (b == 6) {
-                                i2 = R.string.message_text_error_because_refuse;
-                            }
-                            i2 = -1;
-                        } else {
-                            i2 = R.string.message_text_error_because_refuse_stranger;
-                        }
-                    } else {
-                        i2 = R.string.message_text_error_because_refuse_friend;
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            if (i2 != -1) {
-                return TbadkCoreApplication.getInst().getResources().getString(i2);
-            }
-            return str;
         }
-        return (String) invokeIL.objValue;
+        f(il6.g());
+        g("percard#");
+    }
+
+    @Override // com.baidu.tieba.lm6, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.oi
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return f;
+        }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

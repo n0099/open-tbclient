@@ -2,7 +2,7 @@ package com.google.zxing.datamatrix.encoder;
 
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.google.android.exoplayer2.text.cea.Cea708Decoder;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class DataMatrixSymbolInfo144 extends SymbolInfo {
     @Override // com.google.zxing.datamatrix.encoder.SymbolInfo
     public int getDataLengthForInterleavedBlock(int i) {

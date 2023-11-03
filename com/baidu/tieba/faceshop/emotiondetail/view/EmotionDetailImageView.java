@@ -197,7 +197,7 @@ public class EmotionDetailImageView extends FrameLayout {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             ProgressBar progressBar = new ProgressBar(getContext(), null, 16843399);
             this.b = progressBar;
-            progressBar.setIndeterminateDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08128c));
+            progressBar.setIndeterminateDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0812a3));
             layoutParams.gravity = 17;
             this.b.setLayoutParams(layoutParams);
             this.b.setIndeterminate(true);
@@ -224,7 +224,7 @@ public class EmotionDetailImageView extends FrameLayout {
                 gifInfo.mGifWidth = picInfo2.width;
                 gifInfo.mGifHeight = picInfo2.height;
                 this.a.setTag(str);
-                ((GifView) this.a).o(gifInfo);
+                ((GifView) this.a).p(gifInfo);
                 ImageView imageView = this.a;
                 EmotionDetailData.PicInfo picInfo3 = emotionDetailData.pic_info;
                 h(imageView, picInfo3.width, picInfo3.height, 200, 200);

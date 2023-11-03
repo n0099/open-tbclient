@@ -1,122 +1,173 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.sina.weibo.sdk.utils.ResourceManager;
 import java.util.List;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.collections.CollectionsKt__CollectionsKt;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
+import tbclient.Agree;
+import tbclient.FeedContentResource;
+import tbclient.FeedPostExpose;
+import tbclient.PostExposeHead;
 /* loaded from: classes8.dex */
 public final class w87 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948224531, "Lcom/baidu/tieba/w87;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948224531, "Lcom/baidu/tieba/w87;");
-                return;
-            }
-        }
-        a = new a(null);
-    }
-
-    /* loaded from: classes8.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final b47 a(String iconUrl) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, iconUrl)) == null) {
-                Intrinsics.checkNotNullParameter(iconUrl, "iconUrl");
-                if (TextUtils.isEmpty(iconUrl)) {
-                    return null;
-                }
-                int i = 0;
-                if (StringsKt__StringsJVMKt.startsWith$default(iconUrl, "local://icon/", false, 2, null)) {
-                    Uri parse = Uri.parse(iconUrl);
-                    List<String> pathSegments = parse.getPathSegments();
-                    if (pathSegments.size() > 0) {
-                        boolean z = true;
-                        int identifier = q07.a.getResources().getIdentifier(pathSegments.get(pathSegments.size() - 1), ResourceManager.DRAWABLE, q07.a.getPackageName());
-                        String queryParameter = parse.getQueryParameter("type");
-                        if (queryParameter == null) {
-                            queryParameter = "";
+    /* JADX WARN: Removed duplicated region for block: B:17:0x0070  */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x0073  */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0078  */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x007a  */
+    /* JADX WARN: Removed duplicated region for block: B:25:0x0084  */
+    /* JADX WARN: Removed duplicated region for block: B:26:0x0087  */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x008a  */
+    /* JADX WARN: Removed duplicated region for block: B:29:0x008c  */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x0096  */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x0098  */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x00a2  */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x00a5  */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x00ec  */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x00ef  */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x00f2  */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x00f5  */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x0100  */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x0103  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static final void a(FeedPostExpose feedPostExpose, List<za7<?>> dataList, z57 feedExtraData) {
+        boolean z;
+        PostExposeHead postExposeHead;
+        String str;
+        String str2;
+        PostExposeHead postExposeHead2;
+        String str3;
+        String str4;
+        String str5;
+        String str6;
+        String str7;
+        String str8;
+        PostExposeHead postExposeHead3;
+        String str9;
+        String str10;
+        String str11;
+        String str12;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, feedPostExpose, dataList, feedExtraData) == null) {
+            Intrinsics.checkNotNullParameter(feedPostExpose, "<this>");
+            Intrinsics.checkNotNullParameter(dataList, "dataList");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            List<FeedContentResource> list = feedPostExpose.floor;
+            if (list != null) {
+                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+                x87.a(list, spannableStringBuilder, new z57(), new r47(null, null, 3, null));
+                long j = 0;
+                Agree head_agree = feedPostExpose.head_agree;
+                if (head_agree != null) {
+                    Intrinsics.checkNotNullExpressionValue(head_agree, "head_agree");
+                    Long l = head_agree.agree_num;
+                    Intrinsics.checkNotNullExpressionValue(l, "agree.agree_num");
+                    j = l.longValue();
+                    Integer num = head_agree.has_agree;
+                    if (num != null && num.intValue() == 1) {
+                        z = true;
+                        d57 d57Var = new d57();
+                        d57Var.b(da7.a.a(feedPostExpose.business_info));
+                        x57 x57Var = new x57(j, z, d57Var);
+                        postExposeHead = feedPostExpose.head_img;
+                        if (postExposeHead == null) {
+                            str = postExposeHead.img_url;
+                        } else {
+                            str = null;
                         }
-                        int identifier2 = q07.a.getResources().getIdentifier(parse.getQueryParameter("color"), "color", q07.a.getPackageName());
-                        String queryParameter2 = parse.getQueryParameter(CriusAttrConstants.PADDING);
-                        if (queryParameter2 != null && queryParameter2.length() != 0) {
-                            z = false;
+                        if (str != null) {
+                            str2 = "";
+                        } else {
+                            Intrinsics.checkNotNullExpressionValue(str, "head_img?.img_url ?: \"\"");
+                            str2 = str;
                         }
-                        if (!z) {
-                            i = BdUtilHelper.getDimens(q07.a, q07.a.getResources().getIdentifier(queryParameter2, EMABTest.TYPE_DIMEN, q07.a.getPackageName()));
+                        postExposeHead2 = feedPostExpose.head_img;
+                        if (postExposeHead2 == null) {
+                            str3 = postExposeHead2.corner_url;
+                        } else {
+                            str3 = null;
                         }
-                        if (identifier > 0) {
-                            return new b47(identifier, queryParameter, identifier2, i);
+                        if (str3 != null) {
+                            str4 = "";
+                        } else {
+                            Intrinsics.checkNotNullExpressionValue(str3, "head_img?.corner_url ?: \"\"");
+                            str4 = str3;
                         }
+                        str5 = feedPostExpose.head_text;
+                        if (str5 != null) {
+                            str6 = "";
+                        } else {
+                            Intrinsics.checkNotNullExpressionValue(str5, "head_text ?: \"\"");
+                            str6 = str5;
+                        }
+                        str7 = feedPostExpose.stamp_url;
+                        if (str7 != null) {
+                            str8 = "";
+                        } else {
+                            Intrinsics.checkNotNullExpressionValue(str7, "stamp_url ?: \"\"");
+                            str8 = str7;
+                        }
+                        i77 i77Var = new i77(str2, str4, str6, str8, new SpannableString(spannableStringBuilder), x57Var, d57Var.a().get("toutiao_card_tag"), d57Var.a().get("toutiao_card_tag_color"), Intrinsics.areEqual(d57Var.a().get("shield_icon"), "1"));
+                        postExposeHead3 = feedPostExpose.head_img;
+                        if (postExposeHead3 == null) {
+                            str9 = postExposeHead3.schema;
+                        } else {
+                            str9 = null;
+                        }
+                        if (str9 != null) {
+                            str10 = "";
+                        } else {
+                            Intrinsics.checkNotNullExpressionValue(str9, "head_img?.schema ?: \"\"");
+                            str10 = str9;
+                        }
+                        str11 = feedPostExpose.schema;
+                        if (str11 != null) {
+                            str12 = "";
+                        } else {
+                            Intrinsics.checkNotNullExpressionValue(str11, "schema ?: \"\"");
+                            str12 = str11;
+                        }
+                        dataList.add(new ab7(new e47(i77Var, str10, str12, d57Var.a(), feedExtraData.c().a(), CollectionsKt__CollectionsKt.listOf((Object[]) new m77[]{a67.d(feedExtraData, "reply_user_head_click1", null, 2, null), a67.d(feedExtraData, "reply_user_head_click2", null, 2, null)}), CollectionsKt__CollectionsKt.listOf((Object[]) new m77[]{a67.d(feedExtraData, "reply_user_name_click1", null, 2, null), a67.d(feedExtraData, "reply_user_name_click2", null, 2, null)}), CollectionsKt__CollectionsKt.listOf((Object[]) new m77[]{a67.d(feedExtraData, "reply_card_click1", null, 2, null), a67.d(feedExtraData, "reply_card_click2", null, 2, null)}), null, 256, null), "reply"));
                     }
                 }
-                return null;
-            }
-            return (b47) invokeL.objValue;
-        }
-
-        public final String b(x37 iconData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iconData)) == null) {
-                Intrinsics.checkNotNullParameter(iconData, "iconData");
-                String b = iconData.b();
-                int currentSkinType = SkinManager.getCurrentSkinType();
-                if (currentSkinType != 0) {
-                    if (currentSkinType == 4) {
-                        return iconData.a();
-                    }
-                    return b;
+                z = false;
+                d57 d57Var2 = new d57();
+                d57Var2.b(da7.a.a(feedPostExpose.business_info));
+                x57 x57Var2 = new x57(j, z, d57Var2);
+                postExposeHead = feedPostExpose.head_img;
+                if (postExposeHead == null) {
                 }
-                return iconData.b();
+                if (str != null) {
+                }
+                postExposeHead2 = feedPostExpose.head_img;
+                if (postExposeHead2 == null) {
+                }
+                if (str3 != null) {
+                }
+                str5 = feedPostExpose.head_text;
+                if (str5 != null) {
+                }
+                str7 = feedPostExpose.stamp_url;
+                if (str7 != null) {
+                }
+                i77 i77Var2 = new i77(str2, str4, str6, str8, new SpannableString(spannableStringBuilder), x57Var2, d57Var2.a().get("toutiao_card_tag"), d57Var2.a().get("toutiao_card_tag_color"), Intrinsics.areEqual(d57Var2.a().get("shield_icon"), "1"));
+                postExposeHead3 = feedPostExpose.head_img;
+                if (postExposeHead3 == null) {
+                }
+                if (str9 != null) {
+                }
+                str11 = feedPostExpose.schema;
+                if (str11 != null) {
+                }
+                dataList.add(new ab7(new e47(i77Var2, str10, str12, d57Var2.a(), feedExtraData.c().a(), CollectionsKt__CollectionsKt.listOf((Object[]) new m77[]{a67.d(feedExtraData, "reply_user_head_click1", null, 2, null), a67.d(feedExtraData, "reply_user_head_click2", null, 2, null)}), CollectionsKt__CollectionsKt.listOf((Object[]) new m77[]{a67.d(feedExtraData, "reply_user_name_click1", null, 2, null), a67.d(feedExtraData, "reply_user_name_click2", null, 2, null)}), CollectionsKt__CollectionsKt.listOf((Object[]) new m77[]{a67.d(feedExtraData, "reply_card_click1", null, 2, null), a67.d(feedExtraData, "reply_card_click2", null, 2, null)}), null, 256, null), "reply"));
             }
-            return (String) invokeL.objValue;
         }
     }
 }

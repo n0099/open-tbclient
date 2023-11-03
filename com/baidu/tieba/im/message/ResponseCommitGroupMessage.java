@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.message;
 
 import androidx.annotation.Nullable;
-import com.baidu.tieba.kj8;
+import com.baidu.tieba.iw8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,7 +44,7 @@ public class ResponseCommitGroupMessage extends ResponseCommitMessage {
             if (getError() != 0) {
                 return commitGroupMsgResIdl;
             }
-            setMsgId(kj8.a(commitGroupMsgResIdl.data.msgId.longValue()));
+            setMsgId(iw8.a(commitGroupMsgResIdl.data.msgId.longValue()));
             setRecordId(commitGroupMsgResIdl.data.recordId.longValue());
             setGroupId(String.valueOf(commitGroupMsgResIdl.data.groupId));
             return commitGroupMsgResIdl;

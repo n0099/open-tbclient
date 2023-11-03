@@ -101,8 +101,8 @@ public final class f extends b {
             });
             fVar.a(this.mAdTemplate, this.mAdInfo);
             fVar.t(true);
-            this.gh.gs.add(new c.InterfaceC0583c() { // from class: com.kwad.components.ad.interstitial.b.f.6
-                @Override // com.kwad.components.ad.interstitial.b.c.InterfaceC0583c
+            this.gh.gs.add(new c.InterfaceC0589c() { // from class: com.kwad.components.ad.interstitial.b.f.6
+                @Override // com.kwad.components.ad.interstitial.b.c.InterfaceC0589c
                 public final void cH() {
                     fVar.ec();
                     f.this.dp.setVisibility(0);
@@ -225,7 +225,7 @@ public final class f extends b {
 
             @Override // com.kwad.components.ad.interstitial.widget.i
             /* renamed from: do  reason: not valid java name */
-            public final void mo174do() {
+            public final void mo178do() {
                 f.this.e(2, 30);
             }
 
@@ -292,7 +292,7 @@ public final class f extends b {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        KsAutoCloseView ksAutoCloseView = (KsAutoCloseView) findViewById(R.id.obfuscated_res_0x7f0912f8);
+        KsAutoCloseView ksAutoCloseView = (KsAutoCloseView) findViewById(R.id.obfuscated_res_0x7f091336);
         this.ge = ksAutoCloseView;
         ksAutoCloseView.setViewListener(new KsAutoCloseView.a() { // from class: com.kwad.components.ad.interstitial.b.f.1
             @Override // com.kwad.components.core.widget.KsAutoCloseView.a

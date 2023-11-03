@@ -19,8 +19,8 @@ import com.baidu.tbadk.coreExtra.data.ActivityPrizeData;
 import com.baidu.tbadk.data.NewsNotifyMessage;
 import com.baidu.tbadk.newFriends.RequestUnreadPointNum;
 import com.baidu.tbadk.newFriends.ResponseUnreadPointNum;
-import com.baidu.tieba.c4a;
-import com.baidu.tieba.ki5;
+import com.baidu.tieba.hha;
+import com.baidu.tieba.zj5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.SevenZipUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PersonRedTipManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TAB_PERSON = 4;
@@ -80,7 +80,7 @@ public class PersonRedTipManager {
     public CustomMessageListener unreadNewAddressListListener;
     public CustomMessageListener updateVersionListener;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -113,7 +113,7 @@ public class PersonRedTipManager {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -151,7 +151,7 @@ public class PersonRedTipManager {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -203,7 +203,7 @@ public class PersonRedTipManager {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -244,7 +244,7 @@ public class PersonRedTipManager {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class e extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -287,7 +287,7 @@ public class PersonRedTipManager {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class f extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -340,7 +340,7 @@ public class PersonRedTipManager {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class g extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -386,7 +386,7 @@ public class PersonRedTipManager {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class h extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -431,7 +431,7 @@ public class PersonRedTipManager {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class i extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -469,7 +469,7 @@ public class PersonRedTipManager {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class j extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -520,7 +520,7 @@ public class PersonRedTipManager {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class k {
         public static /* synthetic */ Interceptable $ic;
         public static final PersonRedTipManager a;
@@ -598,30 +598,30 @@ public class PersonRedTipManager {
         if (interceptable == null || interceptable.invokeV(65565, this) == null) {
             SparseArray sparseArray = new SparseArray();
             if (this.mIsNewAddressList) {
-                sparseArray.append(4, new c4a.a(this.mShowFriendTip, this.maddressListNewCount));
+                sparseArray.append(4, new hha.a(this.mShowFriendTip, this.maddressListNewCount));
             }
             if (this.mIsShowFansNewMsg) {
-                sparseArray.append(2, new c4a.a(this.mShowFanTip, this.mFans));
+                sparseArray.append(2, new hha.a(this.mShowFanTip, this.mFans));
             }
             if (this.mIsShowGiftsNewMsg) {
-                sparseArray.append(1, new c4a.a(this.mShowGifTip, this.mGift));
+                sparseArray.append(1, new hha.a(this.mShowGifTip, this.mGift));
             }
             if (this.mIsShowBookmarkNewMsg) {
-                sparseArray.append(3, new c4a.a(this.mShowBookTip, this.mBookMarks));
+                sparseArray.append(3, new hha.a(this.mShowBookTip, this.mBookMarks));
             }
             if (this.mHasNewVersion) {
-                sparseArray.append(5, new c4a.a(this.mShowSettingTip, 0));
+                sparseArray.append(5, new hha.a(this.mShowSettingTip, 0));
             }
             if (this.mIsShowMemberCenerNewMsg) {
-                sparseArray.append(7, new c4a.a(this.mShowMemberTip, 0));
+                sparseArray.append(7, new hha.a(this.mShowMemberTip, 0));
             }
             if (this.mIsShowActivityNewMsg) {
-                sparseArray.append(9, new c4a.a(this.mShowActivityTip, 0));
+                sparseArray.append(9, new hha.a(this.mShowActivityTip, 0));
             }
             if (this.mIsFeedbackNewMsg) {
-                sparseArray.append(10, new c4a.a(this.mShowFeedbackTip, 0));
+                sparseArray.append(10, new hha.a(this.mShowFeedbackTip, 0));
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001435, new c4a(sparseArray)));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001435, new hha(sparseArray)));
             updateTabTip();
         }
     }
@@ -649,7 +649,7 @@ public class PersonRedTipManager {
     private void initTabTip() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65564, this) == null) && TbadkCoreApplication.isLogin()) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007014, new ki5(this.mShowSettingTip)));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007014, new zj5(this.mShowSettingTip)));
         }
     }
 
@@ -692,7 +692,7 @@ public class PersonRedTipManager {
     public void removeTabTip() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007014, new ki5(false)));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007014, new zj5(false)));
         }
     }
 
@@ -737,7 +737,7 @@ public class PersonRedTipManager {
                 z = true;
             }
             if (!this.isPrimary && TbadkCoreApplication.isLogin()) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007014, new ki5(z, 0)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007014, new zj5(z, 0)));
             }
         }
     }
@@ -755,7 +755,7 @@ public class PersonRedTipManager {
                 if (this.mIsFeedbackNewMsg) {
                     SharedPrefHelper.getInstance().putBoolean("key_feedback_tip_tab_show", true);
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007014, new ki5(true, 0)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007014, new zj5(true, 0)));
             }
         }
     }
@@ -865,16 +865,16 @@ public class PersonRedTipManager {
             return;
         }
         SparseArray sparseArray = new SparseArray();
-        sparseArray.append(4, new c4a.a(this.mShowFriendTip, this.maddressListNewCount));
-        sparseArray.append(2, new c4a.a(this.mShowFanTip, this.mFans));
-        sparseArray.append(1, new c4a.a(this.mShowGifTip, this.mGift));
-        sparseArray.append(3, new c4a.a(this.mShowBookTip, this.mBookMarks));
-        sparseArray.append(5, new c4a.a(this.mShowSettingTip, 0));
-        sparseArray.append(7, new c4a.a(this.mShowMemberTip, 0));
-        sparseArray.append(9, new c4a.a(this.mShowActivityTip, 0));
-        sparseArray.append(10, new c4a.a(this.mShowFeedbackTip, 0));
-        sparseArray.append(11, new c4a.a(this.mShowNewGodInvitedTip, 0));
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001435, new c4a(sparseArray)));
+        sparseArray.append(4, new hha.a(this.mShowFriendTip, this.maddressListNewCount));
+        sparseArray.append(2, new hha.a(this.mShowFanTip, this.mFans));
+        sparseArray.append(1, new hha.a(this.mShowGifTip, this.mGift));
+        sparseArray.append(3, new hha.a(this.mShowBookTip, this.mBookMarks));
+        sparseArray.append(5, new hha.a(this.mShowSettingTip, 0));
+        sparseArray.append(7, new hha.a(this.mShowMemberTip, 0));
+        sparseArray.append(9, new hha.a(this.mShowActivityTip, 0));
+        sparseArray.append(10, new hha.a(this.mShowFeedbackTip, 0));
+        sparseArray.append(11, new hha.a(this.mShowNewGodInvitedTip, 0));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001435, new hha(sparseArray)));
     }
 
     public void updateRedTipState(int i2, boolean z, boolean z2) {

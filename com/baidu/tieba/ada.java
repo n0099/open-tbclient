@@ -1,38 +1,84 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.os.Bundle;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.download.util.MigrateStatisticUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tieba.recapp.activity.AdVideoBrowserConfig;
+import com.baidu.tieba.recapp.activity.AdVideoWebBrowserActivity;
+import com.baidu.tieba.recapp.activity.AdWebVideoActivity;
+import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
+import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import tbclient.FrsPage.BusinessPromot;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ada {
+public class ada implements vca {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public int d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public int i;
-    public long j;
-    public List<bda> k;
-    public int l;
-    public List<String> m;
-    public boolean n;
-    public boolean o;
-    public qda p;
-    public String q;
-    public String r;
-    public boolean s;
+    public List<AdvertAppInfo> a;
+
+    @Override // com.baidu.tieba.vca
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-949940978, "Lcom/baidu/tieba/ada$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-949940978, "Lcom/baidu/tieba/ada$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[IAdBaseAsyncController.Type.values().length];
+            a = iArr;
+            try {
+                iArr[IAdBaseAsyncController.Type.PIC_PAGE.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[IAdBaseAsyncController.Type.VIDEO_FLOW.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+        }
+    }
 
     public ada() {
         Interceptable interceptable = $ic;
@@ -44,221 +90,243 @@ public class ada {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.n = false;
     }
 
-    public List<bda> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.k;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public String b() {
+    @Override // com.baidu.tieba.vca
+    public qca b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.q;
+            return fca.t();
         }
-        return (String) invokeV.objValue;
+        return (qca) invokeV.objValue;
     }
 
-    public long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.j;
-        }
-        return invokeV.longValue;
-    }
-
-    public String d() {
+    @Override // com.baidu.tieba.vca
+    public lca d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
+            return e26.l();
         }
-        return (String) invokeV.objValue;
+        return (lca) invokeV.objValue;
     }
 
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.o;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean g() {
+    @Override // com.baidu.tieba.vca
+    public List<AdvertAppInfo> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.s;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.i;
-        }
-        return invokeV.intValue;
-    }
-
-    public qda i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.p;
-        }
-        return (qda) invokeV.objValue;
-    }
-
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.h;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public List<String> l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.m;
+            if (this.a == null) {
+                this.a = new ArrayList();
+            }
+            return this.a;
         }
         return (List) invokeV.objValue;
     }
 
-    public String m() {
+    @Override // com.baidu.tieba.vca
+    public sca j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return fca.t();
         }
-        return (String) invokeV.objValue;
+        return (sca) invokeV.objValue;
     }
 
-    public int n() {
-        InterceptResult invokeV;
+    public static void m(IntentConfig intentConfig) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.l;
+        if (interceptable == null || interceptable.invokeL(65537, null, intentConfig) == null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, intentConfig));
         }
-        return invokeV.intValue;
     }
 
-    public String o() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.vca
+    public void k(AdvertAppInfo advertAppInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeL(1048586, this, advertAppInfo) == null) {
+            AdWebVideoActivity.b bVar = new AdWebVideoActivity.b();
+            AdVideoWebBrowserActivity.P = bVar;
+            bVar.a = advertAppInfo;
+            bVar.c = "DETAIL";
+            bVar.b = 0;
+            AdWebVideoActivity.P = bVar;
         }
-        return (String) invokeV.objValue;
     }
 
-    public int p() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.vca
+    public bi<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public String q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return this.r;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return this.n;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void t(BusinessPromot businessPromot) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048595, this, businessPromot) != null) || businessPromot == null) {
-            return;
-        }
-        this.a = businessPromot.title;
-        this.b = businessPromot.img;
-        this.c = businessPromot.img_popup;
-        this.d = businessPromot.type.intValue();
-        this.e = businessPromot.thread_id;
-        this.f = businessPromot.url;
-        this.g = businessPromot.schema;
-        this.i = businessPromot.join_num.intValue();
-        this.j = businessPromot.id.longValue();
-        this.n = businessPromot.is_allow_shake.booleanValue();
-        this.o = businessPromot.is_ad.booleanValue();
-        this.h = businessPromot.package_name;
-        this.q = businessPromot.cover_url;
-        this.r = businessPromot.video_url;
-        boolean z = true;
-        if (businessPromot.ban_dialog.intValue() != 1) {
-            z = false;
-        }
-        this.s = z;
-        if (businessPromot.comment_list != null) {
-            this.k = new LinkedList();
-            for (int i = 0; i < businessPromot.comment_list.size(); i++) {
-                if (businessPromot.comment_list.get(i) != null) {
-                    bda bdaVar = new bda();
-                    bdaVar.c(businessPromot.comment_list.get(i));
-                    this.k.add(bdaVar);
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, baseFragmentActivity, bdUniqueId)) == null) {
+            if (baseFragmentActivity == null) {
+                return null;
             }
+            if (bdUniqueId == AdvertAppInfo.B) {
+                return new gda(baseFragmentActivity, bdUniqueId);
+            }
+            if (bdUniqueId != AdvertAppInfo.z) {
+                return null;
+            }
+            return new fda(baseFragmentActivity, bdUniqueId);
         }
-        this.l = businessPromot.thread_type.intValue();
-        this.m = businessPromot.third_statistics_url;
-        qda qdaVar = new qda();
-        this.p = qdaVar;
-        qdaVar.c(businessPromot);
+        return (bi) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.vca
+    public bi<?, ?> e(uca ucaVar, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, ucaVar, bdUniqueId)) == null) {
+            if (ucaVar == null || bdUniqueId == null) {
+                return null;
+            }
+            if (bdUniqueId == AdvertAppInfo.y) {
+                return new dda(ucaVar, bdUniqueId);
+            }
+            return new eda(ucaVar, bdUniqueId, null);
+        }
+        return (bi) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.vca
+    @Nullable
+    public IAdBaseAsyncController i(IAdBaseAsyncController.Type type, IAdBaseAsyncController.a aVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, type, aVar)) == null) {
+            int i = a.a[type.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    return null;
+                }
+                return new uea(aVar);
+            }
+            return new kea(aVar);
+        }
+        return (IAdBaseAsyncController) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.vca
+    public void c(AdvertAppInfo advertAppInfo, qc9<?> qc9Var, String str, String str2, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{advertAppInfo, qc9Var, str, str2, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+            gea.e(advertAppInfo, qc9Var, str, str2, i, i2);
+        }
+    }
+
+    @Override // com.baidu.tieba.vca
+    public bi<?, ?> h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, tbPageContext, bdUniqueId, str)) == null) {
+            if (bdUniqueId == AdvertAppInfo.A) {
+                return new bda(tbPageContext, bdUniqueId, str);
+            }
+            if (bdUniqueId != null) {
+                return new cda(tbPageContext, bdUniqueId, str);
+            }
+            return null;
+        }
+        return (bi) invokeLLL.objValue;
+    }
+
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x0131  */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x0144  */
+    /* JADX WARN: Type inference failed for: r13v0, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r5v14 */
+    @Override // com.baidu.tieba.vca
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void l(@NonNull HashMap<String, String> hashMap, Context context) {
+        IntentConfig adWebVideoActivityConfig;
+        JSONObject jSONObject;
+        JSONObject jSONObject2;
+        JSONObject jSONObject3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048587, this, hashMap, context) == null) {
+            Bundle bundle = new Bundle();
+            JSONObject jSONObject4 = null;
+            try {
+                if (hashMap.get(WriteActivityConfig.VIDEO_INFO) != null) {
+                    jSONObject = new JSONObject(hashMap.get(WriteActivityConfig.VIDEO_INFO));
+                } else {
+                    jSONObject = null;
+                }
+                if (jSONObject != null) {
+                    bundle.putString("video_url", jSONObject.optString("video_url", ""));
+                    bundle.putString(AdWebVideoActivityConfig.KEY_VIDEO_THUMB_URL, jSONObject.optString("poster_image", ""));
+                    float floatValue = Float.valueOf(jSONObject.optString("video_aspect_ratio", "1")).floatValue();
+                    bundle.putFloat(AdWebVideoActivityConfig.KEY_VIDEO_RATIO, floatValue);
+                    if (floatValue < 1.0f) {
+                        bundle.putInt(AdWebVideoActivityConfig.KEY_GOOD_STYLE, 14);
+                    } else {
+                        bundle.putInt(AdWebVideoActivityConfig.KEY_GOOD_STYLE, 7);
+                    }
+                    bundle.putInt(AdWebVideoActivityConfig.KEY_VIDEO_DURATION, jSONObject.optInt("duration", 0));
+                    bundle.putString(WebViewActivityConfig.TAG_AD_DEEPLINK_URL, jSONObject.optString("page_url", ""));
+                    String str = hashMap.get("url");
+                    try {
+                        if (TextUtils.isEmpty(str)) {
+                            str = jSONObject.optString("page_url", "");
+                        }
+                        if (jSONObject.get(AdWebVideoActivityConfig.KEY_TAIL_FRAME) != null) {
+                            jSONObject2 = new JSONObject(jSONObject.optString(AdWebVideoActivityConfig.KEY_TAIL_FRAME));
+                        } else {
+                            jSONObject2 = null;
+                        }
+                        if (hashMap.get("download") != null) {
+                            jSONObject3 = new JSONObject(hashMap.get("download"));
+                        } else {
+                            jSONObject3 = null;
+                        }
+                        if (jSONObject3 != null) {
+                            bundle.putString(WebViewActivityConfig.TAG_DOWNLOAD_AD_ID, jSONObject3.optString("key", ""));
+                            jSONObject4 = new JSONObject();
+                            jSONObject4.put("pkgname", jSONObject3.optString("key", ""));
+                            jSONObject4.put("download_url", jSONObject3.optString("download_url", ""));
+                        }
+                        if (jSONObject2 != null) {
+                            jSONObject2.put("style", TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+                            jSONObject2.put("button_scheme", jSONObject2.optString("button_scheme", ""));
+                            jSONObject2.put("scheme", jSONObject.optString("page_url", ""));
+                            jSONObject2.put("ext_data", jSONObject4);
+                            if (jSONObject3 != null) {
+                                jSONObject2.put("pkgname", jSONObject3.optString("key", ""));
+                                jSONObject2.put("style", "apk_download");
+                            }
+                        }
+                        eea eeaVar = new eea();
+                        eeaVar.b(jSONObject2);
+                        bundle.putString(AdWebVideoActivityConfig.KEY_TAIL_FRAME, eeaVar.d());
+                        jSONObject4 = str;
+                    } catch (JSONException e) {
+                        e = e;
+                        jSONObject4 = str;
+                        e.printStackTrace();
+                        ?? r13 = jSONObject4;
+                        bundle.putString(WebViewActivityConfig.TAG_AD_EXT_INFO, hashMap.get(MigrateStatisticUtils.EXT_INFO));
+                        if (!yi6.e("https://ad-tmp/")) {
+                        }
+                        m(adWebVideoActivityConfig);
+                    }
+                }
+            } catch (JSONException e2) {
+                e = e2;
+            }
+            ?? r132 = jSONObject4;
+            bundle.putString(WebViewActivityConfig.TAG_AD_EXT_INFO, hashMap.get(MigrateStatisticUtils.EXT_INFO));
+            if (!yi6.e("https://ad-tmp/")) {
+                adWebVideoActivityConfig = new AdVideoBrowserConfig(context, "", r132, true, true, true, bundle);
+            } else {
+                adWebVideoActivityConfig = new AdWebVideoActivityConfig(context, "", r132, true, true, true, bundle);
+            }
+            m(adWebVideoActivityConfig);
+        }
     }
 }

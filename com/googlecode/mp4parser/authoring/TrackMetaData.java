@@ -3,7 +3,7 @@ package com.googlecode.mp4parser.authoring;
 import com.coremedia.iso.boxes.EditListBox;
 import com.googlecode.mp4parser.util.Matrix;
 import java.util.Date;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class TrackMetaData implements Cloneable {
     public EditListBox editList;
     public double height;

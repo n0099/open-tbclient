@@ -124,7 +124,7 @@ public final class ExcellentSysItem extends BaseItem<TbExcellentSysMsg> {
                     this.a.getTbMsg().setExcellentInfo(new ExcellentInfo(String.valueOf(this.a.getTbMsg().getExcellentMsgOp())));
                 }
                 final ExcellentSysItem excellentSysItem2 = this.a;
-                UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.ti8
+                UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.rv8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -197,7 +197,7 @@ public final class ExcellentSysItem extends BaseItem<TbExcellentSysMsg> {
         return invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.im.base.core.uilist.BaseItem, com.baidu.tieba.yh
+    @Override // com.baidu.tieba.im.base.core.uilist.BaseItem, com.baidu.tieba.oi
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

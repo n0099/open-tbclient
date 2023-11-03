@@ -1,23 +1,26 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes9.dex */
-public interface yg2 {
-    @NonNull
-    String a();
+public class yg2 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    String b();
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return ue3.a().getBoolean("SP-DebugPerformanceTest", false);
+        }
+        return invokeV.booleanValue;
+    }
 
-    int c();
-
-    @NonNull
-    String d();
-
-    @NonNull
-    String e();
-
-    @NonNull
-    File f();
+    public static void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
+            ue3.a().putBoolean("SP-DebugPerformanceTest", z);
+        }
+    }
 }

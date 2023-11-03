@@ -92,7 +92,7 @@ public final class R {
         public static final int max_softinput_height = 0x7f07058b;
         public static final int min_panel_height = 0x7f07058f;
         public static final int min_softinput_height = 0x7f070590;
-        public static final int window_horizontal_padding = 0x7f070b5b;
+        public static final int window_horizontal_padding = 0x7f070b5c;
         public transient /* synthetic */ FieldHolder $fh;
 
         public dimen() {
@@ -113,24 +113,24 @@ public final class R {
     /* loaded from: classes4.dex */
     public static final class drawable {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int bdcomment_emotion = 0x7f08026b;
-        public static final int emoticon_hold_img = 0x7f0805ed;
-        public static final int emotion_del_btn_bg = 0x7f0805f0;
-        public static final int emotion_delete = 0x7f0805f1;
-        public static final int emotion_icon_selector = 0x7f0805f4;
-        public static final int emotion_image_item_placeholder = 0x7f0805f5;
-        public static final int emotion_inputbox_background = 0x7f0805f6;
-        public static final int emotion_panel_delete_bg = 0x7f0805fa;
-        public static final int emotion_panel_send_bg = 0x7f0805fb;
-        public static final int emotion_preview_placeholder = 0x7f0805ff;
-        public static final int emotion_preview_shape = 0x7f080600;
-        public static final int emotion_preview_triangle = 0x7f080601;
-        public static final int emotion_tab_tyep_selected_bg = 0x7f080602;
-        public static final int emotion_text_background = 0x7f080603;
-        public static final int emotion_text_place_holder = 0x7f080604;
-        public static final int emotion_vertical_long_pressed_bg = 0x7f080607;
-        public static final int face_bottom = 0x7f08069f;
-        public static final int face_delete = 0x7f0806a1;
+        public static final int bdcomment_emotion = 0x7f08026f;
+        public static final int emoticon_hold_img = 0x7f0805f6;
+        public static final int emotion_del_btn_bg = 0x7f0805f9;
+        public static final int emotion_delete = 0x7f0805fa;
+        public static final int emotion_icon_selector = 0x7f0805fd;
+        public static final int emotion_image_item_placeholder = 0x7f0805fe;
+        public static final int emotion_inputbox_background = 0x7f0805ff;
+        public static final int emotion_panel_delete_bg = 0x7f080603;
+        public static final int emotion_panel_send_bg = 0x7f080604;
+        public static final int emotion_preview_placeholder = 0x7f080608;
+        public static final int emotion_preview_shape = 0x7f080609;
+        public static final int emotion_preview_triangle = 0x7f08060a;
+        public static final int emotion_tab_tyep_selected_bg = 0x7f08060b;
+        public static final int emotion_text_background = 0x7f08060c;
+        public static final int emotion_text_place_holder = 0x7f08060d;
+        public static final int emotion_vertical_long_pressed_bg = 0x7f080610;
+        public static final int face_bottom = 0x7f0806a8;
+        public static final int face_delete = 0x7f0806aa;
         public transient /* synthetic */ FieldHolder $fh;
 
         public drawable() {
@@ -151,26 +151,26 @@ public final class R {
     /* loaded from: classes4.dex */
     public static final class id {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int delete_btn = 0x7f090883;
-        public static final int edit_area = 0x7f090987;
-        public static final int emotion_content_root = 0x7f0909bf;
-        public static final int emotion_title = 0x7f0909ff;
-        public static final int emotion_type_divider = 0x7f090a01;
+        public static final int delete_btn = 0x7f0908a4;
+        public static final int edit_area = 0x7f0909a8;
+        public static final int emotion_content_root = 0x7f0909e0;
+        public static final int emotion_title = 0x7f090a20;
+        public static final int emotion_type_divider = 0x7f090a22;
         public static final int emotion_type_layout = 0x7f09093d;
-        public static final int emotion_type_tab_layout = 0x7f090a02;
-        public static final int emotion_vip_icon = 0x7f090a09;
-        public static final int icon = 0x7f09100b;
-        public static final int icon_list = 0x7f091019;
-        public static final int img_item = 0x7f0910fc;
-        public static final int item_img = 0x7f0911cf;
-        public static final int item_text = 0x7f0911fa;
-        public static final int item_text_img = 0x7f0911fb;
-        public static final int panel_root = 0x7f091a82;
-        public static final int preview_content = 0x7f091d5e;
-        public static final int recycler_list = 0x7f091ebd;
-        public static final int send_btn = 0x7f0921a1;
-        public static final int text = 0x7f09249e;
-        public static final int triangle = 0x7f0926cc;
+        public static final int emotion_type_tab_layout = 0x7f090a23;
+        public static final int emotion_vip_icon = 0x7f090a2a;
+        public static final int icon = 0x7f091043;
+        public static final int icon_list = 0x7f091051;
+        public static final int img_item = 0x7f091138;
+        public static final int item_img = 0x7f09120d;
+        public static final int item_text = 0x7f091238;
+        public static final int item_text_img = 0x7f091239;
+        public static final int panel_root = 0x7f091ac9;
+        public static final int preview_content = 0x7f091da5;
+        public static final int recycler_list = 0x7f091f04;
+        public static final int send_btn = 0x7f0921ea;
+        public static final int text = 0x7f0924f5;
+        public static final int triangle = 0x7f09272b;
         public static final int vp_emotion_type = 0x7f091fad;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -192,18 +192,18 @@ public final class R {
     /* loaded from: classes4.dex */
     public static final class layout {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int bd_emotion_panel = 0x7f0d015b;
-        public static final int emotion_dynamic_panel_title = 0x7f0d029c;
-        public static final int emotion_grid_item = 0x7f0d029f;
-        public static final int emotion_grid_item_emo_text = 0x7f0d02a0;
-        public static final int emotion_grid_item_imageview = 0x7f0d02a1;
-        public static final int emotion_only_include_panel_linearlayout = 0x7f0d02ac;
-        public static final int emotion_vertical_grid_item = 0x7f0d02b7;
-        public static final int emotion_vertical_long_pressed_layout = 0x7f0d02b8;
-        public static final int emotion_vertical_panel_icon = 0x7f0d02b9;
-        public static final int emotion_vertical_panel_page1_root = 0x7f0d02ba;
-        public static final int emotion_vertical_panel_title = 0x7f0d02bb;
-        public static final int im_plugin_emotion_root_layout = 0x7f0d042f;
+        public static final int bd_emotion_panel = 0x7f0d015d;
+        public static final int emotion_dynamic_panel_title = 0x7f0d02a2;
+        public static final int emotion_grid_item = 0x7f0d02a5;
+        public static final int emotion_grid_item_emo_text = 0x7f0d02a6;
+        public static final int emotion_grid_item_imageview = 0x7f0d02a7;
+        public static final int emotion_only_include_panel_linearlayout = 0x7f0d02b2;
+        public static final int emotion_vertical_grid_item = 0x7f0d02bd;
+        public static final int emotion_vertical_long_pressed_layout = 0x7f0d02be;
+        public static final int emotion_vertical_panel_icon = 0x7f0d02bf;
+        public static final int emotion_vertical_panel_page1_root = 0x7f0d02c0;
+        public static final int emotion_vertical_panel_title = 0x7f0d02c1;
+        public static final int im_plugin_emotion_root_layout = 0x7f0d0442;
         public transient /* synthetic */ FieldHolder $fh;
 
         public layout() {
@@ -230,7 +230,7 @@ public final class R {
         public static final int bdemotion_panel_net_error = 0x7f0f0344;
         public static final int bdemotion_panel_net_reload = 0x7f0f0345;
         public static final int bdemotion_panel_send = 0x7f0f0346;
-        public static final int often_zone_title_default = 0x7f0f0f02;
+        public static final int often_zone_title_default = 0x7f0f0f14;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {

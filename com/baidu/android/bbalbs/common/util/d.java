@@ -13,15 +13,15 @@ import java.io.File;
 public class d implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ b.C0007b a;
+    public final /* synthetic */ b.C0008b a;
     public final /* synthetic */ b b;
 
-    public d(b bVar, b.C0007b c0007b) {
+    public d(b bVar, b.C0008b c0008b) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bVar, c0007b};
+            Object[] objArr = {bVar, c0008b};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,7 +32,7 @@ public class d implements Runnable {
             }
         }
         this.b = bVar;
-        this.a = c0007b;
+        this.a = c0008b;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:12:0x005d, code lost:
@@ -61,12 +61,12 @@ public class d implements Runnable {
         boolean c;
         boolean g;
         String l;
-        b.C0007b h;
+        b.C0008b h;
         boolean b3;
         String f;
         b bVar;
         String str;
-        b.C0007b e;
+        b.C0008b e;
         boolean b4;
         String f2;
         String j2;
@@ -74,17 +74,17 @@ public class d implements Runnable {
         String i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            b.C0007b c0007b = new b.C0007b(null);
-            b.C0007b c0007b2 = this.a;
-            c0007b.b = c0007b2.b;
-            c0007b.a = c0007b2.a;
+            b.C0008b c0008b = new b.C0008b(null);
+            b.C0008b c0008b2 = this.a;
+            c0008b.b = c0008b2.b;
+            c0008b.a = c0008b2.a;
             context = this.b.b;
             File file = new File(context.getFilesDir(), "libcuid.so");
-            i = b.i(c0007b.c());
+            i = b.i(c0008b.c());
             if (file.exists()) {
                 b = b.b(file);
                 j = b.j(b);
-                b.C0007b b6 = b.C0007b.b(j);
+                b.C0008b b6 = b.C0008b.b(j);
                 if (b6 != null) {
                     b2 = this.b.b(b6);
                     if (b2) {
@@ -98,7 +98,7 @@ public class d implements Runnable {
                     f2 = this.b.f("com.baidu.deviceid.v2");
                     if (!TextUtils.isEmpty(f2)) {
                         j2 = b.j(f2);
-                        b.C0007b b7 = b.C0007b.b(j2);
+                        b.C0008b b7 = b.C0008b.b(j2);
                         if (b7 != null) {
                             b5 = this.b.b(b7);
                             if (b5) {
@@ -125,10 +125,10 @@ public class d implements Runnable {
                 }
                 if (c) {
                     f = this.b.f("bd_setting_i");
-                    if (b.C0007b.a(TextUtils.isEmpty(f) ? 0 : f.length())) {
+                    if (b.C0008b.a(TextUtils.isEmpty(f) ? 0 : f.length())) {
                         bVar = this.b;
                         str = "O";
-                    } else if (b.C0007b.a(f)) {
+                    } else if (b.C0008b.a(f)) {
                         bVar = this.b;
                         str = "0";
                     }

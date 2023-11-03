@@ -14,7 +14,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.VariableDescriptor;
 import kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations;
 import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class VariableDescriptorImpl extends DeclarationDescriptorNonRootImpl implements VariableDescriptor {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public KotlinType outType;

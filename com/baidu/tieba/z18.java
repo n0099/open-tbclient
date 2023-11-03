@@ -1,67 +1,23 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
-import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.pt4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
 @Service
 /* loaded from: classes9.dex */
-public final class z18 implements pt4.d {
+public final class z18 implements y15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.pt4.d
-    public String getKey() {
+    @Override // com.baidu.tieba.y15
+    public String name() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setSearchGlobalHistory" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes9.dex */
-    public static final class a extends gs5<Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-
-        public a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.gs5
-        public Boolean doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                qfa.o(this.a);
-                return Boolean.TRUE;
-            }
-            return (Boolean) invokeV.objValue;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "NA_FRS_NEWUSER_STRATEGY" : (String) invokeV.objValue;
     }
 
     public z18() {
@@ -78,25 +34,13 @@ public final class z18 implements pt4.d {
         }
     }
 
-    @Override // com.baidu.tieba.pt4.c
-    public void a(String data) {
-        String str;
+    @Override // com.baidu.tieba.y15
+    public w15 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            TbLog defaultLog = DefaultLog.getInstance();
-            defaultLog.i("BaseActivity", "收到H5通知，记录搜索历史：" + data);
-            try {
-                str = new JSONObject(data).optString("value", data);
-                Intrinsics.checkNotNullExpressionValue(str, "json.optString(\"value\", data)");
-            } catch (Exception e) {
-                TbLog defaultLog2 = DefaultLog.getInstance();
-                defaultLog2.i("BaseActivity", "记录搜索历史失败：" + e);
-                str = "";
-            }
-            if (!TextUtils.isEmpty(str)) {
-                ks5.b(new a(str), null);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new y18();
         }
+        return (w15) invokeV.objValue;
     }
 }

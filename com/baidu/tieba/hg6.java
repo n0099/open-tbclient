@@ -1,242 +1,306 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
+import android.app.Application;
+import android.content.Intent;
 import android.text.TextUtils;
-import android.webkit.URLUtil;
+import android.util.Pair;
 import android.webkit.WebView;
-import androidx.annotation.NonNull;
-import androidx.core.util.Pair;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.baidu.tbadk.browser.proxy.OfflineBridgeData;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.switchs.QuickWebViewSwitch;
-import com.baidu.tieba.browser.core.statistics.HybridStatisticKey;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.controller.CustomRule;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.TbWebContainerActivityConfig;
+import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.switchs.InitWriteWebDelaySwitch;
+import com.baidu.tieba.browser.exception.TbWebViewException;
 import com.baidu.tieba.browser.log.HybridLog;
 import com.baidu.tieba.log.TbLog;
+import com.baidu.tieba.wh6;
+import com.baidu.tieba.write.WriteWebViewCacheManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public final class hg6 {
+public class hg6 {
     public static /* synthetic */ Interceptable $ic;
+    public static bkc<String, Pair<Boolean, String>> a;
+    public static final List<String> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public it4 a;
+
+    /* loaded from: classes6.dex */
+    public class a implements vh6 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.vh6
+        public boolean a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return !TextUtils.isEmpty(str);
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends CustomRule {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.controller.MessageRule
+        public CustomMessage<?> process(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, customMessage, customMessageTask)) == null) {
+                if (!eh6.isOn()) {
+                    return customMessage;
+                }
+                if (customMessage == null) {
+                    return null;
+                }
+                Object data = customMessage.getData();
+                if (!(data instanceof TbWebContainerActivityConfig)) {
+                    return customMessage;
+                }
+                Intent intent = ((TbWebContainerActivityConfig) data).getIntent();
+                if (intent == null) {
+                    return customMessage;
+                }
+                String stringExtra = intent.getStringExtra(WebViewActivityConfig.TAG_URL);
+                if (TextUtils.isEmpty(stringExtra)) {
+                    return customMessage;
+                }
+                if (zg6.a.b(stringExtra)) {
+                    TbLog hybridLog = HybridLog.getInstance();
+                    hybridLog.e("UrlCountMapHelper", "1s内连续检查到3次相同的url, 发生循环，放弃拦截 url = " + stringExtra);
+                    return customMessage;
+                }
+                TbPageContext<?> currentPageContext = TbadkCoreApplication.getInst().getCurrentPageContext(TbadkCoreApplication.getInst().getCurrentActivity());
+                if (currentPageContext == null) {
+                    return customMessage;
+                }
+                if (UrlManager.getInstance().dealOneLinkWithOutJumpWebView(currentPageContext, new String[]{stringExtra}) == 0) {
+                    return null;
+                }
+                zg6.a.c();
+                return customMessage;
+            }
+            return (CustomMessage) invokeLL.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947822802, "Lcom/baidu/tieba/hg6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947822802, "Lcom/baidu/tieba/hg6;");
+                return;
+            }
+        }
+        b = new ArrayList();
+    }
 
     public hg6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public void c() {
-        it4 it4Var;
+    public static List<String> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (it4Var = this.a) != null) {
-            it4Var.h();
-            this.a = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            wh6.a aVar = new wh6.a();
+            aVar.c(new a());
+            zh6.b().c(aVar);
         }
     }
 
-    public static boolean b(String str) {
+    public static /* synthetic */ void f() {
+        c();
+        ti6.a().execute(new Runnable() { // from class: com.baidu.tieba.gg6
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // java.lang.Runnable
+            public final void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    yi6.a();
+                }
+            }
+        });
+        ig6.f().i();
+    }
+
+    public static void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
+            MessageManager.getInstance().addMessageRule(new b(2002001));
+        }
+    }
+
+    public static void b(final Application application, hg6 hg6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, application, hg6Var) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            if (ri6.b() == null) {
+                ri6.c(application);
+            }
+            if (si6.a()) {
+                ui6.a().f(new Runnable() { // from class: com.baidu.tieba.cg6
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            WebView.setWebContentsDebuggingEnabled(true);
+                        }
+                    }
+                });
+            }
+            ui6.a().c(new Runnable() { // from class: com.baidu.tieba.dg6
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        hg6.f();
+                    }
+                }
+            });
+            ui6.a().f(new Runnable() { // from class: com.baidu.tieba.eg6
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        ig6.f().h(application);
+                    }
+                }
+            });
+            if (TbadkCoreApplication.getInst().isMainProcess(true)) {
+                bi6.n().r();
+                if (!InitWriteWebDelaySwitch.isOn()) {
+                    ui6.a().f(new Runnable() { // from class: com.baidu.tieba.fg6
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+
+                        @Override // java.lang.Runnable
+                        public final void run() {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                WriteWebViewCacheManager.g().j();
+                            }
+                        }
+                    });
+                }
+            }
+            i();
+            pj6.b("newHybrid", "init WebView Env 耗时：" + (System.currentTimeMillis() - currentTimeMillis) + "ms");
+        }
+    }
+
+    public static void d(bkc<String, Pair<Boolean, String>> bkcVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, bkcVar) == null) {
+            a = bkcVar;
+        }
+    }
+
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            si6.b(z);
+        }
+    }
+
+    public static Pair<Boolean, String> k(String str) throws TbWebViewException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            try {
-                return "0".equals(Uri.parse(str).getQueryParameter("useOfflinePackage"));
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+            bkc<String, Pair<Boolean, String>> bkcVar = a;
+            if (bkcVar == null) {
+                if (!si6.a()) {
+                    return new Pair<>(Boolean.FALSE, null);
+                }
+                throw new TbWebViewException("TBWebKit need call initUserAgent first !");
             }
+            return bkcVar.call(str);
         }
-        return invokeL.booleanValue;
-    }
-
-    public final String a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
-            if (TextUtils.isEmpty(str3)) {
-                return str + str2;
-            }
-            return str + str2 + "?" + str3;
-        }
-        return (String) invokeLLL.objValue;
-    }
-
-    public final void d(WebView webView, Uri uri, qg6 qg6Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, uri, qg6Var) == null) && !zh6.a(qg6Var.b) && webView != null) {
-            if (this.a == null) {
-                this.a = new it4();
-            }
-            Map<String, String> a = se6.a(uri);
-            Iterator<String> it = qg6Var.b.iterator();
-            while (it.hasNext()) {
-                String next = it.next();
-                Uri parse = Uri.parse(next);
-                for (String str : parse.getQueryParameterNames()) {
-                    String queryParameter = parse.getQueryParameter(str);
-                    if (!TextUtils.isEmpty(queryParameter) && queryParameter.startsWith("{") && queryParameter.endsWith("}")) {
-                        next = next.replace(queryParameter, se6.c(a, queryParameter));
-                    }
-                }
-                OfflineBridgeData offlineBridgeData = new OfflineBridgeData();
-                offlineBridgeData.type = CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE;
-                offlineBridgeData.url = next;
-                offlineBridgeData.module = qg6Var.c;
-                offlineBridgeData.begin = System.currentTimeMillis();
-                it4 it4Var = this.a;
-                if (it4Var != null) {
-                    it4Var.j(webView, offlineBridgeData, null);
-                }
-            }
-        }
-    }
-
-    public final void e(String str, String str2, boolean z, String str3, String str4) {
-        String str5;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Boolean.valueOf(z), str3, str4}) == null) {
-            hf6 a = hf6.a(HybridStatisticKey.KEY_OFFLINE_PACKAGE);
-            a.c("obj_name", str3);
-            a.c("obj_source", str);
-            a.c("obj_locate", str2);
-            a.c("obj_param1", str4);
-            Pair[] pairArr = new Pair[2];
-            if (z) {
-                str5 = "1";
-            } else {
-                str5 = "0";
-            }
-            pairArr[0] = Pair.create("is_proxy", str5);
-            pairArr[1] = Pair.create("is_new_hybrid", "1");
-            a.c(TiebaStatic.Params.OBJ_PARAM2, ci6.a(pairArr));
-            a.d();
-        }
-    }
-
-    public final String f(WebView webView, String str) {
-        InterceptResult invokeLL;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
-            Uri parse = Uri.parse(str);
-            qg6 g = gg6.e().g(parse);
-            if (g == null) {
-                HybridLog.getInstance().e("Offline", "离线包匹配失败 rule不存在：" + str);
-                e(str, "without_bundle", false, "", "");
-                return null;
-            }
-            String p = fg6.n().p(g.c);
-            if (TextUtils.isEmpty(g.c)) {
-                str2 = "none";
-            } else {
-                str2 = g.c;
-            }
-            String str3 = str2;
-            if (TextUtils.isEmpty(p)) {
-                p = "0.0.0.0";
-            }
-            String str4 = p;
-            if (!g.g) {
-                if (!fg6.n().s()) {
-                    HybridLog.getInstance().i("Offline", "接口未返回，启用旧的离线包：moduleName: " + str3 + " moduleVersion:" + str4 + " + url+" + str);
-                    g.g = true;
-                } else {
-                    e(str, "processing_bundle", g.h, str3, str4);
-                    HybridLog.getInstance().e("Offline", "离线包匹配失败 离线包不可用：" + str3 + " " + str4);
-                    return null;
-                }
-            }
-            String str5 = g.d;
-            if (!TextUtils.isEmpty(str5) && !str5.endsWith(".html")) {
-                str5 = g.d + ".html";
-            }
-            String str6 = str5;
-            if (!TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str6) && !TextUtils.isEmpty(str4)) {
-                String str7 = fg6.n().m() + "/" + str3 + "/" + str4 + "/";
-                File file = new File(str7, str6);
-                if (!file.exists()) {
-                    g.g = false;
-                    e(str, "path_not_found", g.h, str3, str4);
-                    HybridLog.getInstance().e("Offline", "离线包匹配失败 本地主html文件不存在：" + file);
-                    return null;
-                }
-                g.g = true;
-                g.e = "file://" + str7;
-                gg6.e().a(ei6.c(str), g);
-                if (!g.h && !zh6.a(g.b)) {
-                    d(webView, parse, g);
-                }
-                e(str, "success", g.h, str3, str4);
-                if (g.h) {
-                    HybridLog.getInstance().i("Offline", "命中代理模式离线包：url: " + str);
-                    return str;
-                }
-                return a(g.e, str6, parse.getQuery());
-            }
-            g.g = false;
-            e(str, "config_error", g.h, str3, str4);
-            HybridLog.getInstance().e("Offline", "离线包匹配失败 配置校验失败：" + str3 + " " + str6 + " " + str4);
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    @NonNull
-    public Pair<Boolean, String> g(WebView webView, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, str)) == null) {
-            if (!URLUtil.isAssetUrl(str) && !URLUtil.isFileUrl(str)) {
-                if (!URLUtil.isNetworkUrl(str)) {
-                    return Pair.create(Boolean.FALSE, str);
-                }
-                e(str, "start", false, "", "");
-                if (!QuickWebViewSwitch.getInOn()) {
-                    TbLog hybridLog = HybridLog.getInstance();
-                    hybridLog.e("Offline", "离线包开关关闭：" + str);
-                    gg6.e().h(str);
-                    e(str, "close_offline", false, "", "");
-                    return Pair.create(Boolean.FALSE, str);
-                } else if (b(str)) {
-                    gg6.e().h(str);
-                    TbLog hybridLog2 = HybridLog.getInstance();
-                    hybridLog2.e("Offline", "强制使用线上：" + str);
-                    e(str, "dev_mode", false, "", "");
-                    return Pair.create(Boolean.FALSE, str);
-                } else {
-                    String str2 = null;
-                    try {
-                        str2 = f(webView, str);
-                    } catch (Exception e) {
-                        TbLog hybridLog3 = HybridLog.getInstance();
-                        hybridLog3.e("Offline", "离线包处理异常 exception：" + e + " " + str);
-                        e(str, "exception", false, "", "");
-                    }
-                    if (!TextUtils.isEmpty(str2)) {
-                        return Pair.create(Boolean.TRUE, str2);
-                    }
-                    gg6.e().h(str);
-                    return Pair.create(Boolean.FALSE, str);
-                }
-            }
-            return Pair.create(Boolean.TRUE, str);
-        }
-        return (Pair) invokeLL.objValue;
+        return (Pair) invokeL.objValue;
     }
 }

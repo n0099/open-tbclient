@@ -33,7 +33,7 @@ import kotlin.reflect.jvm.internal.impl.types.TypeSubstitutor;
 import kotlin.reflect.jvm.internal.impl.types.TypeUtils;
 import kotlin.reflect.jvm.internal.impl.types.Variance;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeRefiner;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class LazySubstitutingClassDescriptor extends ModuleAwareClassDescriptor {
     public List<TypeParameterDescriptor> declaredTypeParameters;
     public TypeSubstitutor newSubstitutor;
@@ -262,8 +262,8 @@ public class LazySubstitutingClassDescriptor extends ModuleAwareClassDescriptor 
 
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor
     /* renamed from: getCompanionObjectDescriptor */
-    public ClassDescriptor mo2099getCompanionObjectDescriptor() {
-        return this.original.mo2099getCompanionObjectDescriptor();
+    public ClassDescriptor mo2103getCompanionObjectDescriptor() {
+        return this.original.mo2103getCompanionObjectDescriptor();
     }
 
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor, kotlin.reflect.jvm.internal.impl.descriptors.DeclarationDescriptorNonRoot, kotlin.reflect.jvm.internal.impl.descriptors.DeclarationDescriptor
@@ -383,8 +383,8 @@ public class LazySubstitutingClassDescriptor extends ModuleAwareClassDescriptor 
 
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor
     /* renamed from: getUnsubstitutedPrimaryConstructor */
-    public ClassConstructorDescriptor mo2100getUnsubstitutedPrimaryConstructor() {
-        return this.original.mo2100getUnsubstitutedPrimaryConstructor();
+    public ClassConstructorDescriptor mo2104getUnsubstitutedPrimaryConstructor() {
+        return this.original.mo2104getUnsubstitutedPrimaryConstructor();
     }
 
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor, kotlin.reflect.jvm.internal.impl.descriptors.DeclarationDescriptorWithVisibility, kotlin.reflect.jvm.internal.impl.descriptors.MemberDescriptor
@@ -452,9 +452,9 @@ public class LazySubstitutingClassDescriptor extends ModuleAwareClassDescriptor 
         }
         if (this.typeConstructor == null) {
             TypeSubstitutor substitutor = getSubstitutor();
-            Collection<KotlinType> mo2107getSupertypes = typeConstructor.mo2107getSupertypes();
-            ArrayList arrayList = new ArrayList(mo2107getSupertypes.size());
-            for (KotlinType kotlinType : mo2107getSupertypes) {
+            Collection<KotlinType> mo2111getSupertypes = typeConstructor.mo2111getSupertypes();
+            ArrayList arrayList = new ArrayList(mo2111getSupertypes.size());
+            for (KotlinType kotlinType : mo2111getSupertypes) {
                 arrayList.add(substitutor.substitute(kotlinType, Variance.INVARIANT));
             }
             this.typeConstructor = new ClassTypeConstructorImpl(this, this.typeConstructorParameters, arrayList, LockBasedStorageManager.NO_LOCKS);

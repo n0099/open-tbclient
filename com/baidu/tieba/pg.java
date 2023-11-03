@@ -1,88 +1,66 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.pms.bean.ErrorInfo;
-import com.baidu.searchbox.pms.bean.PackageInfo;
-import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class pg extends DefaultDownloadCallback {
+public class pg {
     public static /* synthetic */ Interceptable $ic;
+    public static Map<String, sg> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public DefaultDownloadCallback a;
 
-    public pg(DefaultDownloadCallback defaultDownloadCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {defaultDownloadCallback};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448314006, "Lcom/baidu/tieba/pg;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448314006, "Lcom/baidu/tieba/pg;");
                 return;
             }
         }
-        this.a = defaultDownloadCallback;
+        HashMap hashMap = new HashMap();
+        a = hashMap;
+        hashMap.put("com.baidu.searchbox.livenps", new og());
     }
 
-    @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
-    public void onDownloadError(PackageInfo packageInfo, ErrorInfo errorInfo) {
+    public static void a(String str, int i) {
+        sg sgVar;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, packageInfo, errorInfo) != null) || errorInfo == null) {
-            return;
-        }
-        BdLog.e(errorInfo.errorMsg);
-        DefaultDownloadCallback defaultDownloadCallback = this.a;
-        if (defaultDownloadCallback != null) {
-            defaultDownloadCallback.onDownloadError(packageInfo, errorInfo);
+        if ((interceptable == null || interceptable.invokeLI(65537, null, str, i) == null) && (sgVar = a.get(str)) != null) {
+            sgVar.b(i);
         }
     }
 
-    @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
-    public void onDownloadSuccess(PackageInfo packageInfo, ErrorInfo errorInfo) {
+    public static void b(String str, int i, long j) {
+        sg sgVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo, errorInfo) == null) && packageInfo != null && !StringUtils.isNull(packageInfo.filePath) && !StringUtils.isNull(packageInfo.name)) {
-            File file = new File(packageInfo.filePath);
-            if (file.exists() && file.isFile()) {
-                String b = rg.b(packageInfo.name);
-                File file2 = new File(b);
-                if (file2.exists() && !file2.delete()) {
-                    return;
-                }
-                jg.b(packageInfo.name, packageInfo.toString(), "download success");
-                if (file.renameTo(file2)) {
-                    if (b.contains(".so")) {
-                        if (tg.a(BdBaseApplication.getInst().getContext(), rg.a(packageInfo.name))) {
-                            jg.b(packageInfo.name, packageInfo.toString(), "load success2");
-                            ConcurrentHashMap<String, String> resHashMap = BdBaseApplication.getInst().getResHashMap();
-                            String str = packageInfo.name;
-                            resHashMap.put(str, rg.a(str));
-                        }
-                        ((ig) ServiceManager.getService(ig.a)).a(packageInfo.name);
-                    } else {
-                        ConcurrentHashMap<String, String> resHashMap2 = BdBaseApplication.getInst().getResHashMap();
-                        String str2 = packageInfo.name;
-                        resHashMap2.put(str2, rg.a(str2));
-                    }
-                    DefaultDownloadCallback defaultDownloadCallback = this.a;
-                    if (defaultDownloadCallback != null) {
-                        defaultDownloadCallback.onDownloadSuccess(packageInfo, errorInfo);
-                    }
-                }
-            }
+        if ((interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), Long.valueOf(j)}) == null) && (sgVar = a.get(str)) != null) {
+            sgVar.c(i, j);
+        }
+    }
+
+    public static void c(String str, int i, int i2) {
+        sg sgVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLII(65539, null, str, i, i2) == null) && (sgVar = a.get(str)) != null) {
+            sgVar.d(i, i2);
+        }
+    }
+
+    public static void d(String str, int i, int i2) {
+        sg sgVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i, i2) == null) && (sgVar = a.get(str)) != null) {
+            sgVar.e(i, i2);
         }
     }
 }

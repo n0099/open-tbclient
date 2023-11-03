@@ -7,8 +7,8 @@ import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cv7;
-import com.baidu.tieba.li5;
+import com.baidu.tieba.ak5;
+import com.baidu.tieba.x78;
 /* loaded from: classes4.dex */
 public class InitBottomIndicatorView2Task extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -24,9 +24,9 @@ public class InitBottomIndicatorView2Task extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
         try {
-            li5.e().a(1004, (MaintabBottomIndicator) LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null));
-            li5.e().a(1005, (MaintabBottomIndicator) LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null));
-            li5.e().a(1012, new cv7(TbadkCoreApplication.getInst()));
+            ak5.e().a(1004, (MaintabBottomIndicator) LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null));
+            ak5.e().a(1005, (MaintabBottomIndicator) LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null));
+            ak5.e().a(1012, new x78(TbadkCoreApplication.getInst()));
         } catch (Exception e) {
             BdLog.e(e);
         }

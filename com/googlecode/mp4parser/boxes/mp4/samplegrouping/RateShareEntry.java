@@ -6,7 +6,7 @@ import com.googlecode.mp4parser.util.CastUtils;
 import java.nio.ByteBuffer;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class RateShareEntry extends GroupEntry {
     public static final String TYPE = "rash";
     public short discardPriority;
@@ -16,7 +16,7 @@ public class RateShareEntry extends GroupEntry {
     public short operationPointCut;
     public short targetRateShare;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Entry {
         public int availableBitrate;
         public short targetRateShare;

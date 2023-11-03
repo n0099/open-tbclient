@@ -1,73 +1,62 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
 /* loaded from: classes8.dex */
 public class tz5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, uz5> a;
-    public ArrayList<Integer> b;
-    public vz5 c;
 
-    public tz5(vz5 vz5Var, ArrayList<Integer> arrayList) {
+    public tz5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vz5Var, arrayList};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = arrayList;
-        this.c = vz5Var;
-        this.a = new HashMap<>();
     }
 
-    public int a(String str, int i) {
-        InterceptResult invokeLI;
-        ArrayList<Integer> arrayList;
+    public static void b(v75 v75Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
-            if (this.a == null || ad.isEmpty(str) || (arrayList = this.b) == null || !arrayList.contains(Integer.valueOf(i))) {
-                return 0;
-            }
-            if (!this.a.containsKey(str)) {
-                b(str);
-            }
-            uz5 uz5Var = this.a.get(str);
-            if (uz5Var == null) {
-                return 0;
-            }
-            return uz5Var.a(i);
+        if ((interceptable != null && interceptable.invokeL(65537, null, v75Var) != null) || v75Var == null) {
+            return;
         }
-        return invokeLI.intValue;
+        if (v75Var.b != 0) {
+            SharedPrefHelper.getInstance().putString("app_entrance_nologin", v75Var.b + "");
+        }
+        if (v75Var.a != 0 && TbadkCoreApplication.getCurrentAccount() != null) {
+            SharedPrefHelper.getInstance().putString("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), v75Var.a + "");
+        }
     }
 
-    public void b(String str) {
+    public int a() {
+        InterceptResult invokeV;
+        String string;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && this.a != null && !ad.isEmpty(str) && this.c != null) {
-            if (this.a.containsKey(str)) {
-                uz5 uz5Var = this.a.get(str);
-                this.c.b(this.b, uz5Var);
-                this.a.put(str, uz5Var);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (TbadkCoreApplication.getCurrentAccount() == null) {
+                string = SharedPrefHelper.getInstance().getString("app_entrance_nologin", "");
+            } else {
+                SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
+                string = sharedPrefHelper.getString("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), "");
             }
-            uz5 uz5Var2 = new uz5();
-            this.c.b(this.b, uz5Var2);
-            this.a.put(str, uz5Var2);
+            int i = JavaTypesHelper.toInt(string, 0);
+            if (i != 1 && i == 2) {
+                return 1;
+            }
+            return 2;
         }
+        return invokeV.intValue;
     }
 }

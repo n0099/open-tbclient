@@ -1,41 +1,31 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Rect;
-import android.os.Build;
-import android.text.TextUtils;
+import android.util.Base64;
 import android.util.Log;
-import android.view.DisplayCutout;
-import android.view.View;
-import android.view.WindowInsets;
-import android.view.WindowManager;
+import androidx.annotation.CheckResult;
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.devices.RomUtils;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
-import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.List;
+import java.security.KeyFactory;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
+import java.security.spec.X509EncodedKeySpec;
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes9.dex */
 public class yi3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static final String b;
-    public static final String c;
-    public static boolean d;
-    public static String e;
-    public static String f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -51,406 +41,157 @@ public class yi3 {
                 return;
             }
         }
-        a = am1.a;
-        b = xj3.b;
-        c = xj3.c;
-        d = false;
+        a = rm1.a;
     }
 
-    public static boolean d() {
-        InterceptResult invokeV;
+    @NonNull
+    @CheckResult
+    public static String a(@NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull String str4) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            return a("EMUI");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            return a("MIUI");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
-            return a(b);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
-            return a("VIVO");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String str2 = e;
-            if (str2 != null) {
-                return str2.equals(str);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, str, str2, str3, str4)) == null) {
+            try {
+                Cipher cipher = Cipher.getInstance(str3);
+                cipher.init(1, new SecretKeySpec(str.getBytes("utf-8"), "AES"), new IvParameterSpec(str4.getBytes("utf-8")));
+                return Base64.encodeToString(cipher.doFinal(str2.getBytes("utf-8")), 2);
+            } catch (Exception e) {
+                if (a) {
+                    Log.e("SwanAppEncryptUtils", "aesEncrypt", e);
+                    return "";
+                }
+                return "";
             }
-            String g = g("ro.miui.ui.version.name");
-            f = g;
-            if (!TextUtils.isEmpty(g)) {
-                e = "MIUI";
-            } else {
-                String g2 = g("ro.build.version.emui");
-                f = g2;
-                if (!TextUtils.isEmpty(g2)) {
-                    e = "EMUI";
-                } else {
-                    String g3 = g(c);
-                    f = g3;
-                    if (!TextUtils.isEmpty(g3)) {
-                        e = b;
-                    } else {
-                        String g4 = g("ro.vivo.os.version");
-                        f = g4;
-                        if (!TextUtils.isEmpty(g4)) {
-                            e = "VIVO";
-                        } else {
-                            String g5 = g("ro.smartisan.version");
-                            f = g5;
-                            if (!TextUtils.isEmpty(g5)) {
-                                e = "SMARTISAN";
+        }
+        return (String) invokeLLLL.objValue;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x0034 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v2 */
+    /* JADX WARN: Type inference failed for: r0v3, types: [java.io.Closeable] */
+    /* JADX WARN: Type inference failed for: r0v4 */
+    public static String b(String str, File file, boolean z) {
+        InterceptResult invokeLLZ;
+        FileInputStream fileInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, str, file, z)) == null) {
+            ?? r0 = 0;
+            try {
+                try {
+                    MessageDigest messageDigest = MessageDigest.getInstance(str);
+                    messageDigest.reset();
+                    fileInputStream = new FileInputStream(file);
+                    try {
+                        byte[] bArr = new byte[8192];
+                        while (true) {
+                            int read = fileInputStream.read(bArr);
+                            if (read > 0) {
+                                messageDigest.update(bArr, 0, read);
                             } else {
-                                String g6 = g(RomUtils.KEY_VERSION_GIONEE);
-                                f = g6;
-                                if (!TextUtils.isEmpty(g6)) {
-                                    e = "SMARTISAN";
-                                } else {
-                                    String g7 = g(RomUtils.KEY_VERSION_NUBIA);
-                                    f = g7;
-                                    if (!TextUtils.isEmpty(g7)) {
-                                        e = RomUtils.ROM_NUBIA;
-                                    } else {
-                                        String str3 = Build.DISPLAY;
-                                        f = str3;
-                                        if (str3.toUpperCase().contains("FLYME")) {
-                                            e = "FLYME";
-                                        } else {
-                                            f = "unknown";
-                                            e = Build.MANUFACTURER.toUpperCase();
-                                        }
-                                    }
-                                }
+                                String e = e(messageDigest.digest(), "", z);
+                                jm4.d(fileInputStream);
+                                return e;
                             }
                         }
-                    }
-                }
-            }
-            return e.equals(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static int b(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
-            DisplayCutout c2 = c(activity);
-            if (c2 == null || Build.VERSION.SDK_INT < 28) {
-                return 0;
-            }
-            List<Rect> boundingRects = c2.getBoundingRects();
-            return boundingRects.get(0).right - boundingRects.get(0).left;
-        }
-        return invokeL.intValue;
-    }
-
-    public static DisplayCutout c(Activity activity) {
-        InterceptResult invokeL;
-        View decorView;
-        WindowInsets rootWindowInsets;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, activity)) == null) {
-            if (activity == null || activity.getWindow() == null || Build.VERSION.SDK_INT < 28 || (decorView = activity.getWindow().getDecorView()) == null || (rootWindowInsets = decorView.getRootWindowInsets()) == null) {
-                return null;
-            }
-            return rootWindowInsets.getDisplayCutout();
-        }
-        return (DisplayCutout) invokeL.objValue;
-    }
-
-    public static boolean h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            if (context == null) {
-                return false;
-            }
-            if (m()) {
-                return i(context);
-            }
-            if (r()) {
-                return l(context);
-            }
-            if (o()) {
-                return k(context);
-            }
-            if (!n()) {
-                return false;
-            }
-            return j(context);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean i(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            try {
-                Class<?> loadClass = context.getClassLoader().loadClass("com.huawei.android.util.HwNotchSizeUtil");
-                return ((Boolean) loadClass.getMethod("hasNotchInScreen", new Class[0]).invoke(loadClass, new Object[0])).booleanValue();
-            } catch (Exception e2) {
-                if (!a) {
-                    return false;
-                }
-                e2.printStackTrace();
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static int e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            int i = Build.VERSION.SDK_INT;
-            if (i < 26) {
-                return 0;
-            }
-            if (i >= 28) {
-                return f();
-            }
-            if (!h(context)) {
-                return 0;
-            }
-            if (n()) {
-                Resources resources = context.getResources();
-                try {
-                    int identifier = resources.getIdentifier("notch_height", EMABTest.TYPE_DIMEN, "android");
-                    if (identifier > 0) {
-                        return resources.getDimensionPixelSize(identifier);
-                    }
-                } catch (Exception unused) {
-                    return 0;
-                }
-            }
-            if (m()) {
-                try {
-                    Class<?> loadClass = context.getClassLoader().loadClass("com.huawei.android.util.HwNotchSizeUtil");
-                    return ((int[]) loadClass.getMethod("getNotchSize", new Class[0]).invoke(loadClass, new Object[0]))[1];
-                } catch (Exception unused2) {
-                    return 0;
-                }
-            } else if (o()) {
-                return 80;
-            } else {
-                if (!r()) {
-                    return 0;
-                }
-                return gj3.g(32.0f);
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    public static String g(String str) {
-        InterceptResult invokeL;
-        BufferedReader bufferedReader;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            BufferedReader bufferedReader2 = null;
-            try {
-                bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop " + str).getInputStream()));
-                try {
-                    try {
-                        String readLine = bufferedReader.readLine();
-                        sl4.d(bufferedReader);
-                        return readLine;
-                    } catch (IOException e2) {
+                    } catch (FileNotFoundException e2) {
                         e = e2;
                         if (a) {
-                            Log.e("SwanAppRomUtils", "Unable to read prop " + str, e);
+                            e.printStackTrace();
                         }
-                        sl4.d(bufferedReader);
-                        sl4.d(bufferedReader);
+                        jm4.d(fileInputStream);
+                        return null;
+                    } catch (IOException e3) {
+                        e = e3;
+                        if (a) {
+                            e.printStackTrace();
+                        }
+                        jm4.d(fileInputStream);
+                        return null;
+                    } catch (NoSuchAlgorithmException e4) {
+                        e = e4;
+                        if (a) {
+                            e.printStackTrace();
+                        }
+                        jm4.d(fileInputStream);
                         return null;
                     }
                 } catch (Throwable th) {
                     th = th;
-                    bufferedReader2 = bufferedReader;
-                    sl4.d(bufferedReader2);
+                    r0 = interceptable;
+                    jm4.d(r0);
                     throw th;
                 }
-            } catch (IOException e3) {
-                e = e3;
-                bufferedReader = null;
+            } catch (FileNotFoundException e5) {
+                e = e5;
+                fileInputStream = null;
+            } catch (IOException e6) {
+                e = e6;
+                fileInputStream = null;
+            } catch (NoSuchAlgorithmException e7) {
+                e = e7;
+                fileInputStream = null;
             } catch (Throwable th2) {
                 th = th2;
-                sl4.d(bufferedReader2);
+                jm4.d(r0);
                 throw th;
             }
         } else {
-            return (String) invokeL.objValue;
+            return (String) invokeLLZ.objValue;
         }
     }
 
-    @RequiresApi(28)
-    public static int f() {
-        InterceptResult invokeV;
-        DisplayCutout displayCutout;
+    public static String c(String str, byte[] bArr, boolean z) throws NoSuchAlgorithmException {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            int i = 0;
-            if (p53.M() != null && p53.M().O() != null) {
-                try {
-                    WindowInsets rootWindowInsets = p53.M().O().getWindow().getDecorView().getRootWindowInsets();
-                    if (rootWindowInsets == null || (displayCutout = rootWindowInsets.getDisplayCutout()) == null) {
-                        return 0;
-                    }
-                    i = displayCutout.getSafeInsetTop();
-                    if (a) {
-                        Log.d("SwanAppRomUtils", "刘海屏高度:" + i);
-                    }
-                } catch (Exception e2) {
-                    if (a) {
-                        Log.w("SwanAppRomUtils", e2);
-                    }
-                }
-            }
-            return i;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, str, bArr, z)) == null) {
+            MessageDigest messageDigest = MessageDigest.getInstance(str);
+            messageDigest.reset();
+            messageDigest.update(bArr);
+            return e(messageDigest.digest(), "", z);
         }
-        return invokeV.intValue;
+        return (String) invokeLLZ.objValue;
     }
 
-    @SuppressLint({"PrivateApi"})
-    public static boolean j(@NonNull Context context) {
-        InterceptResult invokeL;
+    @NonNull
+    @CheckResult
+    public static String d(@NonNull String str, @NonNull String str2, @NonNull String str3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3)) == null) {
             try {
-                Class<?> loadClass = context.getClassLoader().loadClass(CountryCodeBean.ANDRIOD_SYSTEMPROP);
-                if (((Integer) loadClass.getMethod("getInt", String.class, Integer.TYPE).invoke(loadClass, "ro.miui.notch", 0)).intValue() != 1) {
-                    return false;
+                PublicKey generatePublic = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes("utf-8"), 0)));
+                Cipher cipher = Cipher.getInstance(str3);
+                cipher.init(1, generatePublic);
+                return Base64.encodeToString(cipher.doFinal(str2.getBytes("utf-8")), 2);
+            } catch (Exception e) {
+                if (a) {
+                    Log.e("SwanAppEncryptUtils", "rsaEncrypt", e);
+                    return "";
                 }
-                return true;
-            } catch (Exception e2) {
-                if (!a) {
-                    return false;
-                }
-                e2.printStackTrace();
-                return false;
+                return "";
             }
         }
-        return invokeL.booleanValue;
+        return (String) invokeLLL.objValue;
     }
 
-    @SuppressLint({"PrivateApi"})
-    public static boolean l(@NonNull Context context) {
-        InterceptResult invokeL;
+    public static String e(byte[] bArr, String str, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
-            try {
-                Class<?> loadClass = context.getClassLoader().loadClass("android.util.FtFeature");
-                return ((Boolean) loadClass.getMethod("isFeatureSupport", Integer.TYPE).invoke(loadClass, 32)).booleanValue();
-            } catch (Exception e2) {
-                if (!a) {
-                    return false;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65541, null, bArr, str, z)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
+                if (z) {
+                    hexString = hexString.toUpperCase();
                 }
-                e2.printStackTrace();
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean k(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
-            return context.getPackageManager().hasSystemFeature(xj3.d);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean p(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, activity)) == null) {
-            if (c(activity) != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void s(Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65555, null, activity) == null) && Build.VERSION.SDK_INT >= 28) {
-            WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
-            attributes.layoutInDisplayCutoutMode = 1;
-            activity.getWindow().setAttributes(attributes);
-        }
-    }
-
-    public static boolean q(Activity activity, View view2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65553, null, activity, view2)) == null) {
-            DisplayCutout c2 = c(activity);
-            if (c2 != null && Build.VERSION.SDK_INT >= 28) {
-                List<Rect> boundingRects = c2.getBoundingRects();
-                int i = boundingRects.get(0).left;
-                int i2 = boundingRects.get(0).right;
-                int i3 = boundingRects.get(0).top;
-                int i4 = boundingRects.get(0).bottom;
-                int[] iArr = new int[2];
-                view2.getLocationOnScreen(iArr);
-                int width = view2.getWidth();
-                int height = view2.getHeight();
-                int i5 = iArr[0];
-                int i6 = iArr[0] + width;
-                int i7 = iArr[1];
-                int i8 = iArr[1] + height;
-                if (((i8 <= i4 && i8 > i3) || (i7 < i4 && i7 >= i3)) && ((i6 > i && i6 <= i2) || ((i5 >= i && i6 <= i2) || ((i5 >= i && i5 < i2) || (i5 < i && i6 > i2))))) {
-                    d = true;
-                    return true;
-                } else if (((i5 >= i && i5 < i2) || (i6 > i && i6 <= i2)) && ((i8 > i3 && i8 <= i4) || ((i7 >= i3 && i8 <= i4) || ((i7 >= i3 && i7 < i4) || (i7 < i3 && i8 > i4))))) {
-                    d = true;
-                    return true;
-                } else if (i5 <= i && i6 >= i2 && i7 <= i3 && i8 >= i4) {
-                    d = true;
-                    return true;
+                if (hexString.length() == 1) {
+                    sb.append("0");
                 }
+                sb.append(hexString);
+                sb.append(str);
             }
-            return false;
+            return sb.toString();
         }
-        return invokeLL.booleanValue;
+        return (String) invokeLLZ.objValue;
     }
 }

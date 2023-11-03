@@ -19,7 +19,7 @@ import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.switchs.BigImageCacheOptimizeSwitch;
 import com.baidu.tbadk.switchs.ImageCacheOptimizeSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rc;
+import com.baidu.tieba.hd;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -136,6 +136,7 @@ public class TbConfig {
     public static final int FONT_SIZE_XLAGER = 0;
     public static final String FORBID_USER_ADDRESS = "c/c/bawu/commitprison";
     public static final String FORTUNE_ADDRESS = "mo/q/fudaiindex";
+    public static final String FORUM_BG_FILE = "tieba_forum_background_image";
     public static final String FORUM_RULES_SHOW = "c/f/forum/forumRuleDetail";
     public static final String FORUM_SQUARE = "c/f/forum/forumsquare";
     public static final String FRIEND_AND_STRANGER_MSG_SWITCH = "c/c/friend/setMsgMask";
@@ -1415,7 +1416,7 @@ public class TbConfig {
             if (f5 >= f3 && f5 <= f4) {
                 f2 = f5;
             }
-            if (!rc.a()) {
+            if (!hd.a()) {
                 return f2 * 0.5f;
             }
             return f2;

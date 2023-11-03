@@ -1,130 +1,220 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.resourceLoaderProc.BigImageLoaderProc;
-import com.baidu.tbadk.coreExtra.view.ImageUrlData;
-import com.baidu.tbadk.widget.richText.TbRichTextData;
-import com.baidu.tbadk.widget.richText.TbRichTextImageInfo;
-import com.baidu.tieba.pb.pb.main.AbsPbActivity;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.util.MeasureTextLength;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.mainentrance.searchsuggestlist.viewholder.SearchSuggestForumViewHolder;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.concurrent.ConcurrentHashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class ze9 {
+public class ze9 extends bi<ef9, SearchSuggestForumViewHolder> {
     public static /* synthetic */ Interceptable $ic;
+    public static final int b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Context a;
 
-    public static String a(TbRichTextData tbRichTextData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbRichTextData)) == null) {
-            if (tbRichTextData == null) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder(150);
-            TbRichTextImageInfo V = tbRichTextData.V();
-            if (V == null) {
-                return null;
-            }
-            if (!StringUtils.isNull(V.N())) {
-                return V.N();
-            }
-            if (V.getHeight() * V.getWidth() > TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) {
-                double sqrt = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / (V.getHeight() * V.getWidth()));
-                sb.append(BigImageLoaderProc.NCDN_PER);
-                sb.append(String.valueOf((int) (V.getWidth() * sqrt)));
-                sb.append("&height=");
-                sb.append(String.valueOf((int) (V.getHeight() * sqrt)));
-            } else {
-                double width = V.getWidth() / V.getHeight();
-                double sqrt2 = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / width);
-                sb.append(BigImageLoaderProc.NCDN_PER);
-                sb.append(String.valueOf((int) (width * sqrt2)));
-                sb.append("&height=");
-                sb.append(String.valueOf((int) sqrt2));
-            }
-            sb.append("&src=");
-            sb.append(ad.getUrlEncode(V.T()));
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
+    /* loaded from: classes9.dex */
+    public class a implements yi {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ ze9 b;
 
-    public static void b(pea peaVar, AbsPbActivity.e eVar) {
-        ImageUrlData imageUrlData;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65537, null, peaVar, eVar) != null) || peaVar == null || peaVar.f0() == null || peaVar.f0().P() == null || eVar == null || eVar.a == null || eVar.b == null || peaVar.f0().P().size() == 0) {
-            return;
-        }
-        String str = (String) ListUtils.getItem(eVar.a, eVar.j);
-        if (StringUtils.isNull(str)) {
-            return;
-        }
-        eVar.a = new ArrayList<>();
-        ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = eVar.b;
-        eVar.b = new ConcurrentHashMap<>();
-        Iterator<TbRichTextData> it = peaVar.f0().P().iterator();
-        while (it.hasNext()) {
-            TbRichTextData next = it.next();
-            if (next != null && next.getType() == 8) {
-                String a = a(next);
-                if (!StringUtils.isNull(a) && concurrentHashMap.get(a) != null && (imageUrlData = concurrentHashMap.get(a)) != null) {
-                    eVar.a.add(a);
-                    eVar.b.put(a, imageUrlData);
+        public a(ze9 ze9Var, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ze9Var, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.b = ze9Var;
+            this.a = context;
         }
-        eVar.j = ListUtils.getPosition(eVar.a, str);
+
+        @Override // com.baidu.tieba.yi
+        public void b(View view2, oi oiVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, oiVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(oiVar instanceof ef9)) {
+                return;
+            }
+            ef9 ef9Var = (ef9) oiVar;
+            FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.a).createNormalCfg(ef9Var.c(), FrsActivityConfig.FRS_FROM_SEARCH_SUG);
+            createNormalCfg.setCallFrom(16);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, createNormalCfg));
+            this.b.x(ef9Var);
+        }
     }
 
-    public static pea c(ye9 ye9Var, boolean z, int i) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948357211, "Lcom/baidu/tieba/ze9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948357211, "Lcom/baidu/tieba/ze9;");
+                return;
+            }
+        }
+        b = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds370);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ze9(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdUniqueId};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = context;
+        this.mType = bdUniqueId;
+        setOnAdapterItemClickListener(new a(this, context));
+    }
+
+    public final void u(StatisticItem statisticItem, ef9 ef9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, statisticItem, ef9Var) == null) {
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("fid", ef9Var.b().longValue());
+            statisticItem.param("fname", ef9Var.c());
+        }
+    }
+
+    public final void A(SearchSuggestForumViewHolder searchSuggestForumViewHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, searchSuggestForumViewHolder) == null) {
+            EMManager.from(searchSuggestForumViewHolder.c).setTextStyle(R.string.F_X02).setTextSize(R.dimen.T_X06).setTextColor(R.color.CAM_X0105);
+            EMManager.from(searchSuggestForumViewHolder.d).setTextSize(R.dimen.T_X09).setTextColor(R.color.CAM_X0108);
+            EMManager.from(searchSuggestForumViewHolder.e).setTextSize(R.dimen.T_X09).setTextColor(R.color.CAM_X0108);
+            EMManager.from(searchSuggestForumViewHolder.f).setTextSize(R.dimen.T_X09).setTextColor(R.color.CAM_X0108);
+            SkinManager.setBackgroundResource(searchSuggestForumViewHolder.a, R.drawable.addresslist_item_bg);
+            EMManager.from(searchSuggestForumViewHolder.g).setBackGroundColor(R.color.CAM_X0203);
+            TextView textView = searchSuggestForumViewHolder.h;
+            if (textView != null) {
+                EMManager.from(textView).setTextSize(R.dimen.T_X10).setTextStyle(R.string.F_X01).setTextColor(R.color.msg_chat_friend_text_color).setCorner(R.string.J_X04).setBackGroundColor(R.color.CAM_X0204);
+            }
+        }
+    }
+
+    public final void B(ef9 ef9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ef9Var) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SEARCH_SUG_FORUM_SHOW);
+            u(statisticItem, ef9Var);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public final void x(ef9 ef9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, ef9Var) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SEARCH_SUG_FORUM_CLICK);
+            u(statisticItem, ef9Var);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: y */
+    public SearchSuggestForumViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, viewGroup)) == null) {
+            return new SearchSuggestForumViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08a5, viewGroup, false));
+        }
+        return (SearchSuggestForumViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.bi
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ef9 ef9Var, SearchSuggestForumViewHolder searchSuggestForumViewHolder) {
+        z(i, view2, viewGroup, ef9Var, searchSuggestForumViewHolder);
+        return view2;
+    }
+
+    public View z(int i, View view2, ViewGroup viewGroup, ef9 ef9Var, SearchSuggestForumViewHolder searchSuggestForumViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{ye9Var, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
-            if (z) {
-                if (ye9Var != null && ye9Var.F() != null && ye9Var.F().size() > 0) {
-                    pea peaVar = ye9Var.F().get(0);
-                    if (peaVar.L() != 1) {
-                        return d(ye9Var);
-                    }
-                    return peaVar;
-                }
-                return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ef9Var, searchSuggestForumViewHolder})) == null) {
+            if (ef9Var == null) {
+                return view2;
             }
-            return d(ye9Var);
-        }
-        return (pea) invokeCommon.objValue;
-    }
-
-    public static pea d(ye9 ye9Var) {
-        InterceptResult invokeL;
-        MetaData metaData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, ye9Var)) == null) {
-            if (ye9Var != null && ye9Var.O() != null && ye9Var.O().getAuthor() != null) {
-                pea peaVar = new pea();
-                MetaData author = ye9Var.O().getAuthor();
-                String userId = author.getUserId();
-                HashMap<String, MetaData> userMap = ye9Var.O().getUserMap();
-                if (userMap != null && (metaData = userMap.get(userId)) != null && metaData.getUserId() != null) {
-                    author = metaData;
-                }
-                peaVar.W0(1);
-                peaVar.c1(ye9Var.O().getFirstPostId());
-                peaVar.t1(ye9Var.O().getTitle());
-                peaVar.s1(ye9Var.O().getCreateTime());
-                peaVar.P0(author);
-                return peaVar;
+            A(searchSuggestForumViewHolder);
+            searchSuggestForumViewHolder.b.setConrers(15);
+            searchSuggestForumViewHolder.b.setRadiusById(R.string.J_X06);
+            searchSuggestForumViewHolder.b.startLoad(ef9Var.a(), 10, false);
+            String str = ef9Var.c() + this.a.getString(R.string.obfuscated_res_0x7f0f0787);
+            searchSuggestForumViewHolder.c.setText(str);
+            if (!StringUtils.isNull(ef9Var.g())) {
+                searchSuggestForumViewHolder.d.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1350, ef9Var.g()));
+            } else {
+                Context context = this.a;
+                searchSuggestForumViewHolder.d.setText(context.getString(R.string.obfuscated_res_0x7f0f1350, context.getString(R.string.obfuscated_res_0x7f0f1351)));
             }
-            return null;
+            searchSuggestForumViewHolder.e.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f04be), StringHelper.numberUniformFormatExtraWithRoundInt(ef9Var.f().intValue())));
+            searchSuggestForumViewHolder.f.setText(String.format(this.a.getString(R.string.forum_thread_number), StringHelper.numberUniformFormatExtraWithRoundInt(ef9Var.h().intValue())));
+            if (ef9Var.e()) {
+                if (!StringUtils.isNull(ef9Var.g())) {
+                    searchSuggestForumViewHolder.d.setText(ef9Var.g());
+                } else {
+                    searchSuggestForumViewHolder.d.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1351));
+                }
+                if (ef9Var.d() == 1) {
+                    searchSuggestForumViewHolder.h.setVisibility(0);
+                    searchSuggestForumViewHolder.c.setText(MeasureTextLength.fitTextLabel(str, "...", MeasureTextLength.spaceLength(b), searchSuggestForumViewHolder.c.getPaint(), ""));
+                } else {
+                    searchSuggestForumViewHolder.h.setVisibility(8);
+                }
+            }
+            B(ef9Var);
+            return view2;
         }
-        return (pea) invokeL.objValue;
+        return (View) invokeCommon.objValue;
     }
 }

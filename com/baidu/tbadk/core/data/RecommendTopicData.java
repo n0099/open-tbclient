@@ -8,8 +8,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.uk6;
-import com.baidu.tieba.vk6;
+import com.baidu.tieba.qm6;
+import com.baidu.tieba.rm6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -128,18 +128,18 @@ public class RecommendTopicData {
             }
         }
 
-        public uk6 getConvertedCardData() {
+        public qm6 getConvertedCardData() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                uk6 uk6Var = new uk6();
-                uk6Var.c = this.tag;
-                uk6Var.a = this.topicId;
-                uk6Var.b = this.topicName;
-                uk6Var.b(this.isVideoTopicInt);
-                return uk6Var;
+                qm6 qm6Var = new qm6();
+                qm6Var.c = this.tag;
+                qm6Var.a = this.topicId;
+                qm6Var.b = this.topicName;
+                qm6Var.b(this.isVideoTopicInt);
+                return qm6Var;
             }
-            return (uk6) invokeV.objValue;
+            return (qm6) invokeV.objValue;
         }
 
         public long getDiscussNum() {
@@ -318,13 +318,13 @@ public class RecommendTopicData {
         return (String) invokeV.objValue;
     }
 
-    public vk6 a() {
+    public rm6 a() {
         InterceptResult invokeV;
         ArrayList arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            vk6 vk6Var = new vk6();
-            vk6Var.c = b();
+            rm6 rm6Var = new rm6();
+            rm6Var.c = b();
             if (this.b != null) {
                 arrayList = new ArrayList();
                 for (RecommendTopicListData recommendTopicListData : this.b) {
@@ -335,10 +335,10 @@ public class RecommendTopicData {
             } else {
                 arrayList = null;
             }
-            vk6Var.d = arrayList;
-            return vk6Var;
+            rm6Var.d = arrayList;
+            return rm6Var;
         }
-        return (vk6) invokeV.objValue;
+        return (rm6) invokeV.objValue;
     }
 
     public final boolean c(RecommendTopicListData recommendTopicListData) {

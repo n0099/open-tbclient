@@ -1,35 +1,31 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.im.base.core.inputtool.InputDelegate;
-import com.baidu.tieba.im.base.core.uilist.BaseItem;
-import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
-import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
-import com.baidu.tieba.im.lib.socket.msg.data.EmojiData;
-import com.baidu.tieba.im.lib.socket.msg.data.Reaction;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URL;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.Hottopic.PkModule;
+import tbclient.Hottopic.PkView;
 /* loaded from: classes9.dex */
-public class yi8 {
+public class yi8 implements oi {
     public static /* synthetic */ Interceptable $ic;
-    public static final int a;
-    public static final int b;
-    public static final int c;
+    public static final BdUniqueId k;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public long c;
+    public String d;
+    public long e;
+    public int f;
+    public long g;
+    public long h;
+    public long i;
+    public long j;
 
     static {
         InterceptResult invokeClinit;
@@ -44,105 +40,73 @@ public class yi8 {
                 return;
             }
         }
-        a = UtilHelper.getDimenPixelSize(R.dimen.tbds28_5);
-        b = UtilHelper.getDimenPixelSize(R.dimen.tbds31);
-        c = UtilHelper.getDimenPixelSize(R.dimen.tbds83);
+        k = BdUniqueId.gen();
     }
 
-    public static int a() {
+    public yi8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.oi
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return (BdUtilHelper.getEquipmentWidth(TbadkApplication.getInst()) - (a * 2)) / ((b * 2) + c);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return k;
         }
-        return invokeV.intValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    @Nullable
-    public static EmojiData b(@NonNull String str, @NonNull List<EmojiData> list) {
-        InterceptResult invokeLL;
+    public void a(PkModule pkModule) {
+        int i;
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, list)) == null) {
-            try {
-                URL url = new URL(str);
-                for (EmojiData emojiData : list) {
-                    URL url2 = new URL(emojiData.getContent());
-                    if (url.getHost().equals(url2.getHost()) && url.getPath().equals(url2.getPath())) {
-                        return emojiData;
-                    }
-                }
-                return null;
-            } catch (Exception unused) {
-                return null;
-            }
+        if ((interceptable != null && interceptable.invokeL(1048576, this, pkModule) != null) || pkModule == null) {
+            return;
         }
-        return (EmojiData) invokeLL.objValue;
-    }
-
-    public static boolean c(@NonNull InputDelegate inputDelegate) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, inputDelegate)) == null) {
-            return !inputDelegate.G(Arrays.asList(Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_MUZZLE_ALL), Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_FROZEN), Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_MUZZLE)));
+        String str = pkModule.module_name;
+        this.a = pkModule.ques_desc;
+        PkView pkView = pkModule.pk_1;
+        this.b = pkView.pk_desc;
+        this.c = pkView.pk_num.longValue();
+        pkModule.pk_1.pk_index.intValue();
+        PkView pkView2 = pkModule.pk_2;
+        this.d = pkView2.pk_desc;
+        this.e = pkView2.pk_num.longValue();
+        pkModule.pk_2.pk_index.intValue();
+        if (pkModule.pk_1.has_clicked.intValue() == 1) {
+            i = 1;
+        } else if (pkModule.pk_2.has_clicked.intValue() == 1) {
+            i = 2;
+        } else {
+            i = 0;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean d(@NonNull Reaction reaction, @NonNull List<EmojiData> list) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, reaction, list)) == null) {
-            EmojiData b2 = b(reaction.getContent(), list);
-            if (b2 != null) {
-                return b2.hasReplied();
-            }
-            return false;
+        this.f = i;
+        pkModule.pk_type.intValue();
+        pkModule.user_pk_index.intValue();
+        this.g = pkModule.pk_id.longValue();
+        this.h = pkModule.user_pk_id.longValue();
+        int i2 = this.f;
+        long j2 = this.c;
+        if (i2 == 1) {
+            j2--;
         }
-        return invokeLL.booleanValue;
-    }
-
-    public static void e(@NonNull ea8 ea8Var, int i, @NonNull BaseItem<? extends TbBaseMsg> baseItem) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65541, null, ea8Var, i, baseItem) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("scene", Integer.valueOf(i));
-            ea8Var.d(new AbilityItem("open_emoji_panel", hashMap, null), baseItem, null);
+        this.i = j2;
+        if (this.f == 2) {
+            j = this.e - 1;
+        } else {
+            j = this.e;
         }
-    }
-
-    public static void f(@NonNull ea8 ea8Var, @NonNull EmojiData emojiData, @NonNull BaseItem<? extends TbBaseMsg> baseItem, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(65542, null, ea8Var, emojiData, baseItem, i) == null) {
-            g(ea8Var, new Reaction("", emojiData.getContent()), baseItem, i);
-        }
-    }
-
-    public static void g(@NonNull ea8 ea8Var, @NonNull Reaction reaction, @NonNull BaseItem<? extends TbBaseMsg> baseItem, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(65543, null, ea8Var, reaction, baseItem, i) == null) {
-            List<EmojiData> emojiList = baseItem.getTbMsg().getEmojiList();
-            boolean z = true;
-            if (emojiList != null) {
-                boolean d = d(reaction, emojiList);
-                if (i != 1) {
-                    int i2 = 2;
-                    if (i == 2) {
-                        z = true ^ d;
-                        if (!z) {
-                            i2 = 3;
-                        }
-                        wi8.h(i2);
-                    }
-                } else if (d) {
-                    return;
-                } else {
-                    wi8.h(1);
-                }
-            }
-            HashMap hashMap = new HashMap();
-            hashMap.put("content", reaction.getContent());
-            hashMap.put(SpeedStatsUtils.UBC_KEY_OPTION, Boolean.valueOf(z));
-            ea8Var.d(new AbilityItem("send_emoji_msg", hashMap, null), baseItem, null);
-        }
+        this.j = j;
     }
 }

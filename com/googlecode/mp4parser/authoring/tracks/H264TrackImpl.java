@@ -32,7 +32,7 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Logger;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class H264TrackImpl extends AbstractTrack {
     public static /* synthetic */ int[] $SWITCH_TABLE$com$googlecode$mp4parser$authoring$tracks$H264TrackImpl$NALActions;
     public List<CompositionTimeToSample.Entry> ctts;
@@ -68,7 +68,7 @@ public class H264TrackImpl extends AbstractTrack {
     }
 
     /* renamed from: com.googlecode.mp4parser.authoring.tracks.H264TrackImpl$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$googlecode$mp4parser$authoring$tracks$H264TrackImpl$NALActions;
 
@@ -94,7 +94,7 @@ public class H264TrackImpl extends AbstractTrack {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class ByteBufferBackedInputStream extends InputStream {
         public final ByteBuffer buf;
 
@@ -121,7 +121,7 @@ public class H264TrackImpl extends AbstractTrack {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class CleanInputStream extends FilterInputStream {
         public int prev;
         public int prevprev;
@@ -185,7 +185,7 @@ public class H264TrackImpl extends AbstractTrack {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class LookAhead {
         public ByteBuffer buffer;
         public DataSource dataSource;
@@ -263,7 +263,7 @@ public class H264TrackImpl extends AbstractTrack {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class SEIMessage {
         public boolean clock_timestamp_flag;
         public int cnt_dropped_flag;
@@ -429,7 +429,7 @@ public class H264TrackImpl extends AbstractTrack {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class SliceHeader {
         public boolean bottom_field_flag;
         public int colour_plane_id;
@@ -497,7 +497,7 @@ public class H264TrackImpl extends AbstractTrack {
             return "SliceHeader{first_mb_in_slice=" + this.first_mb_in_slice + ", slice_type=" + this.slice_type + ", pic_parameter_set_id=" + this.pic_parameter_set_id + ", colour_plane_id=" + this.colour_plane_id + ", frame_num=" + this.frame_num + ", field_pic_flag=" + this.field_pic_flag + ", bottom_field_flag=" + this.bottom_field_flag + ", idr_pic_id=" + this.idr_pic_id + ", pic_order_cnt_lsb=" + this.pic_order_cnt_lsb + ", delta_pic_order_cnt_bottom=" + this.delta_pic_order_cnt_bottom + '}';
         }
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public enum SliceType {
             P,
             B,
@@ -603,7 +603,7 @@ public class H264TrackImpl extends AbstractTrack {
         parse(new LookAhead(dataSource));
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum NALActions {
         IGNORE,
         BUFFER,

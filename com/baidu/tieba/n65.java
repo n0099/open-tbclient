@@ -1,325 +1,231 @@
 package com.baidu.tieba;
 
+import android.text.Editable;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.ChunkUploadDatabaseService;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.coreExtra.data.AudioInfoData;
+import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupForegroundColorSpan;
+import com.baidu.tieba.n65;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class n65 {
-    public static /* synthetic */ Interceptable $ic;
+public abstract class n65<T extends n65> {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int h = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public NetWork a;
-    public a b;
-    public l75 c;
-    public String d;
-    public String e;
-    public List<b> f;
+    public final int a;
+    public boolean b;
+    public Editable c;
+    public int d;
+    public int e;
+    public int f;
+    public a g;
 
     /* loaded from: classes7.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public k75 c;
-        public NetWork d;
-        public boolean e;
-        public String f;
+    public interface a {
+        void f(int i, boolean z);
+    }
 
-        public a(n65 n65Var, String str, k75 k75Var, String str2, String str3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n65Var, str, k75Var, str2, str3};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = null;
-            this.b = null;
-            this.c = null;
-            this.e = false;
-            this.f = null;
-            this.a = str;
-            this.c = k75Var;
-            this.b = str2;
-            this.f = str3;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947954428, "Lcom/baidu/tieba/n65;")) == null) {
+            return;
         }
-
-        /* JADX WARN: Removed duplicated region for block: B:44:0x00f8 A[SYNTHETIC] */
-        /* JADX WARN: Removed duplicated region for block: B:46:0x0113 A[SYNTHETIC] */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public l75 a() throws IOException {
-            InterceptResult invokeV;
-            long j;
-            int i;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                l75 l75Var = new l75();
-                long c = this.c.c();
-                long j2 = 30720;
-                if (c % 30720 == 0) {
-                    j = c / 30720;
-                } else {
-                    j = (c / 30720) + 1;
-                }
-                int a = this.c.a();
-                if (a < j) {
-                    RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.a), "r");
-                    int i2 = a * TbConfig.VOICE_CHUNK_UPLOAD_SIZE;
-                    if (randomAccessFile.skipBytes(i2) >= i2) {
-                        while (true) {
-                            long j3 = a;
-                            if (j3 < j) {
-                                long j4 = j - 1;
-                                if (j3 == j4) {
-                                    i = (int) (c - (j4 * j2));
-                                } else {
-                                    i = TbConfig.VOICE_CHUNK_UPLOAD_SIZE;
-                                }
-                                byte[] bArr = new byte[i];
-                                int read = randomAccessFile.read(bArr, 0, i);
-                                if (read != -1) {
-                                    NetWork netWork = new NetWork(this.b);
-                                    this.d = netWork;
-                                    netWork.addPostData("voice_chunk", bArr);
-                                    this.d.addPostData("chunk_md5", this.c.b());
-                                    this.d.addPostData("length", String.valueOf(read));
-                                    this.d.addPostData("offset", String.valueOf(a * TbConfig.VOICE_CHUNK_UPLOAD_SIZE));
-                                    this.d.addPostData("total_length", String.valueOf(c));
-                                    this.d.addPostData("chunk_no", String.valueOf(a + 1));
-                                    this.d.addPostData("total_num", String.valueOf(j));
-                                    this.d.addPostData("voice_md5", this.f);
-                                    if (!this.e) {
-                                        if (this.d.postMultiNetData() != null && this.d.getNetContext().getResponse().isRequestSuccess()) {
-                                            z = false;
-                                            if (!z) {
-                                                l75Var.f(this.d.getServerErrorCode());
-                                                l75Var.g(this.d.getErrorString());
-                                                l75Var.e(this.c);
-                                                l75Var.h(false);
-                                                return l75Var;
-                                            }
-                                        } else {
-                                            this.c.d(a);
-                                            ChunkUploadDatabaseService.saveChunkUploadData(this.c);
-                                            randomAccessFile.close();
-                                        }
-                                    }
-                                    z = true;
-                                    if (!z) {
-                                    }
-                                }
-                                a++;
-                                j2 = 30720;
-                            } else {
-                                randomAccessFile.close();
-                                break;
-                            }
-                        }
-                    } else {
-                        l75Var.h(false);
-                        randomAccessFile.close();
-                        return l75Var;
-                    }
-                }
-                l75Var.h(true);
-                return l75Var;
-            }
-            return (l75) invokeV.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947954428, "Lcom/baidu/tieba/n65;");
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
+    public abstract void r(Editable editable);
 
-        public b(n65 n65Var, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n65Var, str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = str2;
-        }
+    public abstract void s(Editable editable, int i);
 
-        public String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.b;
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    public n65(String str, String str2) {
+    public n65() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f = new ArrayList();
-        this.d = str;
-        this.e = str2;
+        int i3 = h;
+        h = i3 + 1;
+        this.a = i3;
     }
 
-    public void a(String str, int i) {
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
-            this.f.add(new b(this, str, String.valueOf(i)));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
         }
+        return invokeV.intValue;
     }
 
-    public final long b(long j) {
-        InterceptResult invokeJ;
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            if (j % 30720 == 0) {
-                return j / 30720;
-            }
-            return (j / 30720) + 1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.f;
         }
-        return invokeJ.longValue;
+        return invokeV.intValue;
     }
 
-    public final String c(String str, k75 k75Var) {
-        InterceptResult invokeLL;
+    public int e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, k75Var)) == null) {
-            NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + this.e);
-            this.a = netWork;
-            netWork.addPostData("voice_md5", k75Var.b());
-            if (ListUtils.getCount(this.f) != 0) {
-                for (b bVar : this.f) {
-                    if (bVar != null) {
-                        this.a.addPostData(bVar.a(), bVar.b());
-                    }
-                }
-            }
-            String postNetData = this.a.postNetData();
-            if (postNetData != null && this.a.getNetContext().getResponse().isRequestSuccess()) {
-                ChunkUploadDatabaseService.delChunkUploadData(str);
-                return postNetData;
-            }
-            k75Var.d((int) b(k75Var.c()));
-            ChunkUploadDatabaseService.saveChunkUploadData(k75Var);
-            this.c.f(this.a.getServerErrorCode());
-            this.c.g(this.a.getErrorString());
-            this.c.h(false);
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
         }
-        return (String) invokeLL.objValue;
+        return invokeV.intValue;
     }
 
-    public final l75 e(String str, File file) throws IOException {
-        InterceptResult invokeLL;
-        String c;
+    public int f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, file)) == null) {
-            String b2 = gd.b(FileHelper.GetStreamFromFile(file));
-            if (b2 != null && b2.length() > 0) {
-                b2 = b2.toLowerCase();
-            }
-            k75 chunkUploadDataByMd5 = ChunkUploadDatabaseService.getChunkUploadDataByMd5(b2);
-            if (chunkUploadDataByMd5 == null) {
-                chunkUploadDataByMd5 = new k75();
-                chunkUploadDataByMd5.e(b2);
-                chunkUploadDataByMd5.d(0);
-                chunkUploadDataByMd5.f(file.length());
-            }
-            k75 k75Var = chunkUploadDataByMd5;
-            a aVar = new a(this, str, k75Var, TbConfig.SERVER_ADDRESS + this.d, b2);
-            this.b = aVar;
-            l75 a2 = aVar.a();
-            this.c = a2;
-            if (a2.d() && (c = c(b2, k75Var)) != null && !c.equals("")) {
-                AudioInfoData audioInfoData = new AudioInfoData();
-                audioInfoData.parserJson(c);
-                if (audioInfoData.getErrorCode() <= 0 && audioInfoData.getVoiceId() != null) {
-                    k75Var.e(audioInfoData.getVoiceId());
-                    this.c.e(k75Var);
-                } else {
-                    this.c.f(audioInfoData.getErrorCode());
-                    this.c.g(audioInfoData.getErrorUserMsg());
-                    this.c.h(false);
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public Editable g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.c;
         }
-        return (l75) invokeLL.objValue;
+        return (Editable) invokeV.objValue;
     }
 
-    public l75 d(String str) {
-        InterceptResult invokeL;
+    public boolean h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void i() {
+        Editable editable;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || (editable = this.c) == null) {
+            return;
+        }
+        for (SpanGroupForegroundColorSpan spanGroupForegroundColorSpan : (SpanGroupForegroundColorSpan[]) editable.getSpans(this.d, this.e, SpanGroupForegroundColorSpan.class)) {
+            this.c.removeSpan(spanGroupForegroundColorSpan);
+        }
+    }
+
+    public void j() {
+        Editable editable;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048585, this) != null) || (editable = this.c) == null) {
+            return;
+        }
+        for (EMRichTextAnyIconSpan eMRichTextAnyIconSpan : (EMRichTextAnyIconSpan[]) editable.getSpans(this.d, this.e, EMRichTextAnyIconSpan.class)) {
+            this.c.removeSpan(eMRichTextAnyIconSpan);
+        }
+    }
+
+    public void a(Editable editable, int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIII(1048576, this, editable, i, i2, i3) == null) {
+            this.c = editable;
+            this.d = i;
+            this.e = i2;
+            this.f = i3;
+        }
+    }
+
+    public void n(Object obj, int i, int i2, int i3) {
+        Editable editable;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLIII(1048589, this, obj, i, i2, i3) != null) || (editable = this.c) == null) {
+            return;
+        }
+        editable.setSpan(obj, i, i2, i3);
+    }
+
+    public void b(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+            this.b = t.h();
+            this.c = t.g();
+            this.d = t.f();
+            this.e = t.c();
+            this.f = t.d();
+        }
+    }
+
+    public void k(@NonNull CharSequence charSequence) {
+        Editable editable;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048586, this, charSequence) == null) && (editable = this.c) != null && charSequence != null) {
             try {
-                File file = new File(str);
-                if (!file.exists()) {
-                    return null;
-                }
-                this.a = new NetWork(TbConfig.SERVER_ADDRESS + this.d);
-                return e(str, file);
+                editable.replace(this.d, this.e, charSequence);
             } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return null;
+                BdLog.e(e);
+            }
+            this.e = this.d + charSequence.length();
+        }
+    }
+
+    public void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    public void m(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, aVar) == null) {
+            this.g = aVar;
+        }
+    }
+
+    public void o(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void p(Editable editable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, editable) == null) {
+            this.c = editable;
+        }
+    }
+
+    public void q(boolean z) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+            boolean z2 = this.b;
+            this.b = z;
+            if (z2 != z && (aVar = this.g) != null) {
+                aVar.f(this.a, z);
             }
         }
-        return (l75) invokeL.objValue;
     }
 }

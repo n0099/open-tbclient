@@ -1,23 +1,26 @@
 package com.baidu.tieba;
 
-import android.content.ClipboardManager;
-import android.content.Context;
-import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.h3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
 /* loaded from: classes6.dex */
-public class i1 implements t2 {
+public class i1<T> implements Iterable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final h3<T> a;
+    public h3.a<T> b;
 
-    public i1(Context context) {
+    public i1(h3<T> h3Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {h3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,6 +30,64 @@ public class i1 implements t2 {
                 return;
             }
         }
-        ClipboardManager clipboardManager = (ClipboardManager) context.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD);
+        this.a = h3Var;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            return this.a.equals(obj);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public T get(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return this.a.get(i);
+        }
+        return (T) invokeI.objValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a.hashCode();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // java.lang.Iterable
+    public Iterator<T> iterator() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.b == null) {
+                this.b = new h3.a<>(this.a, false);
+            }
+            return this.b.iterator();
+        }
+        return (Iterator) invokeV.objValue;
+    }
+
+    public int size() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

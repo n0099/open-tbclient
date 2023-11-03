@@ -20,11 +20,11 @@ import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ngb;
-import com.baidu.tieba.ogb;
-import com.baidu.tieba.pgb;
-import com.baidu.tieba.qgb;
-import com.baidu.tieba.sgb;
+import com.baidu.tieba.otb;
+import com.baidu.tieba.ptb;
+import com.baidu.tieba.qtb;
+import com.baidu.tieba.rtb;
+import com.baidu.tieba.ttb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,7 +43,7 @@ import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
-public class ValidationActivity extends Activity implements View.OnClickListener, ngb {
+public class ValidationActivity extends Activity implements View.OnClickListener, otb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ValidationWebView a;
@@ -130,12 +130,12 @@ public class ValidationActivity extends Activity implements View.OnClickListener
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
                 ValidationLog.e(ValidationLog.TAG, str2);
-                pgb a = pgb.a(str2);
+                qtb a = qtb.a(str2);
                 if (a == null) {
                     jsPromptResult.cancel();
                     return true;
                 }
-                BaseInterpreter a2 = ogb.b().a(a.b());
+                BaseInterpreter a2 = ptb.b().a(a.b());
                 if (a2 == null) {
                     jsPromptResult.cancel();
                     return true;
@@ -319,7 +319,7 @@ public class ValidationActivity extends Activity implements View.OnClickListener
         }
     }
 
-    @Override // com.baidu.tieba.ngb
+    @Override // com.baidu.tieba.otb
     public void a(String str, Object obj) {
         char c2;
         Interceptable interceptable = $ic;
@@ -380,7 +380,7 @@ public class ValidationActivity extends Activity implements View.OnClickListener
         int height;
         int a2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (height = this.e.getHeight()) == (a2 = qgb.a(this, i))) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (height = this.e.getHeight()) == (a2 = rtb.a(this, i))) {
             return;
         }
         ValueAnimator valueAnimator = this.j;
@@ -438,11 +438,11 @@ public class ValidationActivity extends Activity implements View.OnClickListener
             this.a.setWebChromeClient(new b(this));
             this.a.setWebViewClient(new c(this));
             this.a.setWebViewClient(new d(this));
-            this.a.loadUrl(sgb.b(sgb.a("https://wappass.baidu.com/static/activity/pass-machine.html"), this.i));
+            this.a.loadUrl(ttb.b(ttb.a("https://wappass.baidu.com/static/activity/pass-machine.html"), this.i));
         }
     }
 
-    public final void j() {
+    public final void k() {
         FrameLayout frameLayout;
         Resources resources;
         int i;
@@ -499,7 +499,7 @@ public class ValidationActivity extends Activity implements View.OnClickListener
             this.d.setOnClickListener(this);
             this.e.setOnClickListener(this);
             this.f.setOnClickListener(this);
-            j();
+            k();
             this.c.setOnRetryClickListener(new a(this));
             i();
         }

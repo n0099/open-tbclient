@@ -1,57 +1,38 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.k6c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 /* loaded from: classes8.dex */
-public class s8c implements u6c {
+public abstract class s8c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final u6c a;
-    public final k6c.a b;
-    public final long c;
 
-    public s8c(u6c u6cVar, k6c.a aVar, long j) {
+    public static void a(Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {u6cVar, aVar, Long.valueOf(j)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeL(65536, null, closeable) == null) && closeable != null) {
+            try {
+                closeable.close();
+            } catch (IOException unused) {
+                t8c.d("IOUtil", "closeSecure IOException");
             }
         }
-        this.a = u6cVar;
-        this.b = aVar;
-        this.c = j;
     }
 
-    @Override // com.baidu.tieba.u6c
-    public void call() {
+    public static void b(InputStream inputStream) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.b.isUnsubscribed()) {
-            return;
+        if (interceptable == null || interceptable.invokeL(65537, null, inputStream) == null) {
+            a(inputStream);
         }
-        long a = this.c - this.b.a();
-        if (a > 0) {
-            try {
-                Thread.sleep(a);
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-                t6c.c(e);
-                throw null;
-            }
+    }
+
+    public static void c(OutputStream outputStream) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, outputStream) == null) {
+            a(outputStream);
         }
-        if (this.b.isUnsubscribed()) {
-            return;
-        }
-        this.a.call();
     }
 }

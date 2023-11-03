@@ -1,56 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import com.baidu.adp.framework.listener.MessageListener;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.pb.pb.main.AbsPbActivity;
+import com.baidu.tieba.pb.pb.main.PbFragment;
+import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.tieba.pb.videopb.AbsVideoPbFragment;
 /* loaded from: classes6.dex */
-public class g1a {
-    public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, Set<yh>> a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface g1a {
+    AbsVideoPbFragment e0();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947742450, "Lcom/baidu/tieba/g1a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947742450, "Lcom/baidu/tieba/g1a;");
-                return;
-            }
-        }
-        a = new HashMap();
-    }
+    void finish();
 
-    public static Set<yh> a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return a.get(str);
-        }
-        return (Set) invokeL.objValue;
-    }
+    TbPageContext getPageContext();
 
-    public static void c(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, str) == null) && a.get(str) != null) {
-            a.get(str).clear();
-            a.remove(str);
-        }
-    }
+    PbModel i0();
 
-    public static void b(String str, Set<yh> set) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, set) == null) {
-            a.put(str, set);
-        }
-    }
+    PbFragment j2();
+
+    PbModel.h m1();
+
+    AbsPbActivity r0();
+
+    void registerListener(MessageListener<?> messageListener);
 }

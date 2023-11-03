@@ -13,8 +13,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.w95;
-import com.baidu.tieba.ze;
+import com.baidu.tieba.pf;
+import com.baidu.tieba.qa5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -225,7 +225,7 @@ public final class PluginCheck {
     @Singleton
     @Service
     /* loaded from: classes5.dex */
-    public static final class a implements w95 {
+    public static final class a implements qa5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -243,7 +243,7 @@ public final class PluginCheck {
             }
         }
 
-        @Override // com.baidu.tieba.w95
+        @Override // com.baidu.tieba.qa5
         public void parseJson(JSONObject json) {
             String version;
             boolean z;
@@ -361,14 +361,14 @@ public final class PluginCheck {
             Intrinsics.checkNotNullParameter(pckName, "pckName");
             Intrinsics.checkNotNullParameter(tag, "tag");
             if (b == null && !c) {
-                TbLog a2 = ze.a.a();
+                TbLog a2 = pf.a.a();
                 a2.i(tag, "isDownload:" + z + "，sync配置还未解析完，阻止加载");
                 if (iInvokeCallback != null) {
                     iInvokeCallback.onResult(-1400, "插件加载中...", null);
                 }
                 return false;
             } else if (a.d(pckName)) {
-                TbLog a3 = ze.a.a();
+                TbLog a3 = pf.a.a();
                 a3.i(tag, "isDownload:" + z + "，命中兜底策略，阻止加载");
                 if (iInvokeCallback != null) {
                     iInvokeCallback.onResult(-1400, "插件修复中...", null);

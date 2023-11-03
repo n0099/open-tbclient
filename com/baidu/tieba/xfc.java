@@ -1,15 +1,11 @@
 package com.baidu.tieba;
+/* loaded from: classes9.dex */
+public interface xfc {
+    void a(String str, String str2);
 
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
-/* loaded from: classes8.dex */
-public interface xfc extends ufc {
+    void b(String str, String str2);
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void a();
-    }
+    void c(String str, String str2);
 
-    void setCallback(a aVar);
-
-    void setGiftBagsInfo(GiftBagsInfo giftBagsInfo);
+    void d(String str, String str2);
 }

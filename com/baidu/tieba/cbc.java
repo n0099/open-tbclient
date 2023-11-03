@@ -1,57 +1,51 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.h6c;
-import com.baidu.tieba.l6c;
+import android.os.Bundle;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public abstract class cbc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    @Deprecated
-    public <T> l6c.c<T> a(l6c.c<T> cVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) ? cVar : (l6c.c) invokeL.objValue;
-    }
+    public abstract void f(Bundle bundle);
 
-    @Deprecated
-    public <T> Throwable b(Throwable th) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th)) == null) ? th : (Throwable) invokeL.objValue;
-    }
+    public abstract boolean g(Bundle bundle);
 
-    @Deprecated
-    public <T> o6c c(o6c o6cVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, o6cVar)) == null) ? o6cVar : (o6c) invokeL.objValue;
-    }
+    public abstract String h(Bundle bundle);
 
-    @Deprecated
-    public <T> h6c.a<T> d(l6c<? extends T> l6cVar, h6c.a<T> aVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, l6cVar, aVar)) == null) ? aVar : (h6c.a) invokeLL.objValue;
-    }
+    public abstract void i(String str);
 
-    public cbc() {
+    public abstract boolean j(String str);
+
+    public abstract String k(String str);
+
+    public final void l() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
         }
+    }
+
+    public final dbc<String> m(String str) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            if (!TextUtils.isEmpty(this.a)) {
+                if (str.length() == 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (!z) {
+                    return bbc.f.a().j(this.a, str);
+                }
+            }
+            return new dbc<>(false, "sendData2MainProcessForStr null");
+        }
+        return (dbc) invokeL.objValue;
     }
 }

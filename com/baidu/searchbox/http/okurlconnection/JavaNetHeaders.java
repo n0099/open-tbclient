@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 import okhttp3.Headers;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class JavaNetHeaders {
     public static final Comparator<String> FIELD_NAME_COMPARATOR = new Comparator<String>() { // from class: com.baidu.searchbox.http.okurlconnection.JavaNetHeaders.1
         /* JADX DEBUG: Method merged with bridge method */

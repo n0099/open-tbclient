@@ -88,7 +88,7 @@ public class AppPayServiceImpl implements IAppPayService, IPayServiceCallback, I
         this.mPayServiceStatistics = payServiceStatisticsApiImpl;
         this.mPayRespDispatcher = new PayRespDispatcher(payServiceStatisticsApiImpl, this);
         this.mPayOrderResultPoller = new PayOrderResultPoller(this, this, this.mPayEventStatistics);
-        RLog.info("AppPayServiceImpl", "create AppPayServiceImpl versionName:4.3.45-bdpay appId:" + i + " usedChannel:" + i2);
+        RLog.info("AppPayServiceImpl", "create AppPayServiceImpl versionName:4.3.47-bdpay appId:" + i + " usedChannel:" + i2);
     }
 
     private void doOrderRequest(@NonNull Activity activity, @NonNull ChargeCurrencyReqParams chargeCurrencyReqParams, @NonNull ProductInfo productInfo, @NonNull PayType payType, int i, int i2, int i3, IPayCallback iPayCallback) {

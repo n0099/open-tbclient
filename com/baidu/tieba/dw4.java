@@ -1,72 +1,175 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.sapi2.stat.ShareLoginStat;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.CallRobotEntrance;
-import tbclient.StyleContentInfo;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class dw4 {
+public class dw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CallRobotEntrance a;
-    public final StyleContentInfo b;
-    public final StyleContentInfo c;
-    public final boolean d;
+    public boolean a;
+    public String b;
+    public String c;
+    public String d;
+    public float e;
+    public String f;
+    @Nullable
+    public c g;
+    @Nullable
+    public b h;
+    @Nullable
+    public a i;
+    public String j;
+    public String k;
+    public AdvertAppInfo l;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            if (obj instanceof dw4) {
-                dw4 dw4Var = (dw4) obj;
-                return Intrinsics.areEqual(this.a, dw4Var.a) && Intrinsics.areEqual(this.b, dw4Var.b) && Intrinsics.areEqual(this.c, dw4Var.c) && this.d == dw4Var.d;
-            }
-            return false;
         }
-        return invokeL.booleanValue;
+
+        @Nullable
+        public static a a(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return null;
+                }
+                a aVar = new a();
+                aVar.a = jSONObject.optString("desc", "功能");
+                String optString = jSONObject.optString("url");
+                aVar.b = optString;
+                if (TextUtils.isEmpty(optString)) {
+                    aVar.b = jSONObject.optString("cmd");
+                }
+                aVar.c = jSONObject.optString("cmd");
+                return aVar;
+            }
+            return (a) invokeL.objValue;
+        }
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v5, resolved type: boolean */
-    /* JADX WARN: Multi-variable type inference failed */
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            CallRobotEntrance callRobotEntrance = this.a;
-            int hashCode = (((((callRobotEntrance == null ? 0 : callRobotEntrance.hashCode()) * 31) + this.b.hashCode()) * 31) + this.c.hashCode()) * 31;
-            boolean z = this.d;
-            int i = z;
-            if (z != 0) {
-                i = 1;
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            return hashCode + i;
         }
-        return invokeV.intValue;
+
+        @Nullable
+        public static b a(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return null;
+                }
+                b bVar = new b();
+                bVar.a = jSONObject.optString("desc", "权限");
+                String optString = jSONObject.optString("url");
+                bVar.b = optString;
+                if (TextUtils.isEmpty(optString)) {
+                    bVar.b = jSONObject.optString("cmd");
+                }
+                bVar.c = jSONObject.optString("cmd");
+                return bVar;
+            }
+            return (b) invokeL.objValue;
+        }
     }
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "CallRobotEntranceData(robotEntrance=" + this.a + ", robotDayContentInfo=" + this.b + ", robotDarkContentInfo=" + this.c + ", isDefault=" + this.d + ')';
+    /* loaded from: classes5.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-        return (String) invokeV.objValue;
+
+        @Nullable
+        public static c a(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return null;
+                }
+                c cVar = new c();
+                cVar.a = jSONObject.optString("desc", "隐私");
+                String optString = jSONObject.optString("url");
+                cVar.b = optString;
+                if (TextUtils.isEmpty(optString)) {
+                    cVar.b = jSONObject.optString("cmd");
+                }
+                cVar.c = jSONObject.optString("cmd");
+                return cVar;
+            }
+            return (c) invokeL.objValue;
+        }
     }
 
-    public dw4(CallRobotEntrance callRobotEntrance, StyleContentInfo robotDayContentInfo, StyleContentInfo robotDarkContentInfo, boolean z) {
+    public dw4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {callRobotEntrance, robotDayContentInfo, robotDarkContentInfo, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -76,47 +179,109 @@ public final class dw4 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(robotDayContentInfo, "robotDayContentInfo");
-        Intrinsics.checkNotNullParameter(robotDarkContentInfo, "robotDarkContentInfo");
-        this.a = callRobotEntrance;
-        this.b = robotDayContentInfo;
-        this.c = robotDarkContentInfo;
-        this.d = z;
+        this.e = -1.0f;
     }
 
-    public final StyleContentInfo a() {
+    public static boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (StyleContentInfo) invokeV.objValue;
-    }
-
-    public final StyleContentInfo b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (StyleContentInfo) invokeV.objValue;
-    }
-
-    public final CallRobotEntrance c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (CallRobotEntrance) invokeV.objValue;
-    }
-
-    public final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (d16.a().b("ad_feature_strict_mode_check_switch", 0) != 1) {
+                return false;
+            }
+            return true;
         }
         return invokeV.booleanValue;
+    }
+
+    public static boolean a(dw4 dw4Var) {
+        InterceptResult invokeL;
+        c cVar;
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, dw4Var)) == null) {
+            if (dw4Var == null) {
+                return false;
+            }
+            if (TextUtils.isEmpty(dw4Var.f) && TextUtils.isEmpty(dw4Var.d) && (((cVar = dw4Var.g) == null || TextUtils.isEmpty(cVar.a)) && ((bVar = dw4Var.h) == null || TextUtils.isEmpty(bVar.a)))) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Nullable
+    public static dw4 b(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            dw4 dw4Var = new dw4();
+            dw4Var.a = TextUtils.equals(jSONObject.optString("strict_mode", "1"), "1");
+            dw4Var.b = jSONObject.optString("app_icon");
+            dw4Var.c = jSONObject.optString("app_name");
+            dw4Var.d = jSONObject.optString("developer_name");
+            dw4Var.f = jSONObject.optString("version");
+            dw4Var.g = c.a(jSONObject.optJSONObject("privacy"));
+            dw4Var.h = b.a(jSONObject.optJSONObject(ShareLoginStat.GetShareListStat.KEY_PERMISSION));
+            dw4Var.i = a.a(jSONObject.optJSONObject("feature"));
+            dw4Var.j = jSONObject.optString("apk_size");
+            dw4Var.k = jSONObject.optString("apk_url");
+            try {
+                float parseFloat = Float.parseFloat(jSONObject.optString("score"));
+                if (parseFloat <= 5.0f && parseFloat >= 0.0f) {
+                    dw4Var.e = parseFloat;
+                } else {
+                    dw4Var.e = -1.0f;
+                }
+            } catch (NumberFormatException unused) {
+                dw4Var.e = -1.0f;
+            }
+            return dw4Var;
+        }
+        return (dw4) invokeL.objValue;
+    }
+
+    public static boolean c(dw4 dw4Var) {
+        InterceptResult invokeL;
+        c cVar;
+        b bVar;
+        AdvertAppInfo advertAppInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, dw4Var)) == null) {
+            if (dw4Var == null || !dw4Var.a) {
+                return true;
+            }
+            if (!TextUtils.isEmpty(dw4Var.f) && !TextUtils.isEmpty(dw4Var.d) && (cVar = dw4Var.g) != null && !TextUtils.isEmpty(cVar.b) && (bVar = dw4Var.h) != null && !TextUtils.isEmpty(bVar.b)) {
+                a aVar = dw4Var.i;
+                if (aVar != null && !TextUtils.isEmpty(aVar.b)) {
+                    return true;
+                }
+                if (f() && (advertAppInfo = dw4Var.l) != null) {
+                    d(ClogBuilder.LogType.CHECK, advertAppInfo.g, PayUVEventType.PAY_WALLET_BANNER_SHOW, "20001");
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void d(@NonNull ClogBuilder.LogType logType, @NonNull String str, @NonNull String str2, @NonNull String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, logType, str, str2, str3) == null) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.y(logType).p(str).k(str2).l(str3);
+            az0.e(clogBuilder);
+        }
+    }
+
+    public void e(AdvertAppInfo advertAppInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, advertAppInfo) == null) {
+            this.l = advertAppInfo;
+        }
     }
 }

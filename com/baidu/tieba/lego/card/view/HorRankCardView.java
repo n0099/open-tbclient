@@ -14,13 +14,13 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.co5;
-import com.baidu.tieba.dz8;
-import com.baidu.tieba.hy8;
+import com.baidu.tieba.hc9;
+import com.baidu.tieba.lb9;
 import com.baidu.tieba.lego.card.model.HorRankCard;
 import com.baidu.tieba.lego.view.HorizontalScrollListView;
 import com.baidu.tieba.lego.view.MoreButton;
-import com.baidu.tieba.pda;
+import com.baidu.tieba.uqa;
+import com.baidu.tieba.wp5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -73,8 +73,8 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || TextUtils.isEmpty(this.a.getScheme())) {
                 return;
             }
-            hy8.e(this.a).d(TiebaStatic.Params.OBJ_URL, this.a.getScheme()).b("obj_locate", this.b.getStatPosition()).a(this.a);
-            pda.c(this.b.i, this.a.getScheme());
+            lb9.e(this.a).d(TiebaStatic.Params.OBJ_URL, this.a.getScheme()).b("obj_locate", this.b.getStatPosition()).a(this.a);
+            uqa.c(this.b.i, this.a.getScheme());
         }
     }
 
@@ -98,13 +98,13 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
         }
     }
 
-    private void setMoreColor(dz8 dz8Var) {
+    private void setMoreColor(hc9 hc9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, this, dz8Var) == null) {
-            if (dz8Var == null) {
+        if (interceptable == null || interceptable.invokeL(65537, this, hc9Var) == null) {
+            if (hc9Var == null) {
                 SkinManager.setViewTextColor(this.r, (int) R.color.CAM_X0302);
             } else {
-                A(this.r, dz8Var.b(), dz8Var.c(), R.color.CAM_X0302);
+                A(this.r, hc9Var.b(), hc9Var.c(), R.color.CAM_X0302);
             }
         }
     }
@@ -115,7 +115,7 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
     public void v(HorRankCard horRankCard, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, horRankCard, i) == null) {
-            co5.a(this.i, getRootView());
+            wp5.a(this.i, getRootView());
             SkinManager.setBackgroundColor(this.p, R.color.CAM_X0308);
             SkinManager.setBackgroundColor(this.t, R.color.CAM_X0201);
             SkinManager.setImageResource(this.t, R.color.CAM_X0204);
@@ -179,7 +179,7 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
                 SkinManager.setBackgroundColor(this.m, R.color.CAM_X0201);
                 this.m.setOnClickListener(null);
             }
-            dz8 rightText = horRankCard.getRightText();
+            hc9 rightText = horRankCard.getRightText();
             if (rightText.f()) {
                 this.s.setVisibility(8);
                 this.r.setVisibility(0);
@@ -201,15 +201,15 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01c8, (ViewGroup) null, false);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01cb, (ViewGroup) null, false);
             this.m = linearLayout;
-            this.n = (HorizontalScrollListView) n(linearLayout, R.id.obfuscated_res_0x7f090fa5);
-            this.o = (RelativeLayout) n(this.m, R.id.obfuscated_res_0x7f091f70);
-            this.p = (View) n(this.m, R.id.obfuscated_res_0x7f0914e8);
-            this.q = (TextView) n(this.m, R.id.obfuscated_res_0x7f090fa0);
+            this.n = (HorizontalScrollListView) n(linearLayout, R.id.obfuscated_res_0x7f090fdd);
+            this.o = (RelativeLayout) n(this.m, R.id.obfuscated_res_0x7f091fb8);
+            this.p = (View) n(this.m, R.id.obfuscated_res_0x7f091527);
+            this.q = (TextView) n(this.m, R.id.obfuscated_res_0x7f090fd8);
             this.r = (MoreButton) n(this.m, R.id.right_textview);
-            this.s = (ImageView) n(this.m, R.id.obfuscated_res_0x7f091f45);
-            this.t = (ImageView) n(this.m, R.id.obfuscated_res_0x7f090904);
+            this.s = (ImageView) n(this.m, R.id.obfuscated_res_0x7f091f8c);
+            this.t = (ImageView) n(this.m, R.id.obfuscated_res_0x7f090925);
             return this.m;
         }
         return (View) invokeV.objValue;

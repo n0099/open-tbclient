@@ -1,23 +1,28 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.security.InvalidParameterException;
 /* loaded from: classes6.dex */
-public class i7 implements l7 {
+public class i7 extends BdAsyncTask<DiskFileOperate, Integer, DiskFileOperate> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public char a;
+    public h7 a;
+    public volatile k7 b;
+    public DiskFileOperate c;
 
-    public i7(char c) {
+    public i7(h7 h7Var, DiskFileOperate diskFileOperate) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Character.valueOf(c)};
+            Object[] objArr = {h7Var, diskFileOperate};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,66 +32,63 @@ public class i7 implements l7 {
                 return;
             }
         }
-        this.a = c;
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        if (h7Var != null && diskFileOperate != null) {
+            this.a = h7Var;
+            this.c = diskFileOperate;
+            return;
+        }
+        throw new InvalidParameterException("DiskFileTask parameter null");
     }
 
-    @Override // com.baidu.tieba.l7
-    public Object a(u8 u8Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: b */
+    public DiskFileOperate doInBackground(DiskFileOperate... diskFileOperateArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, u8Var)) == null) {
-            return String.valueOf(this.a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, diskFileOperateArr)) == null) {
+            this.b = new k7(this.a, this.c);
+            this.b.b();
+            return this.c;
         }
-        return invokeL.objValue;
+        return (DiskFileOperate) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.l7
-    public Object b(u8 u8Var) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: c */
+    public void onPostExecute(DiskFileOperate diskFileOperate) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u8Var)) == null) {
-            return Character.valueOf(this.a);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, diskFileOperate) == null) {
+            super.onPostExecute(diskFileOperate);
+            if (diskFileOperate != null) {
+                this.c.callback(diskFileOperate.isSuccess());
+            } else {
+                this.c.callback(false);
+            }
         }
-        return invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.l7
-    public Object c(u8 u8Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, u8Var)) == null) {
-            return Character.valueOf(this.a);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.cancel();
+            if (this.b != null) {
+                this.b.c();
+            }
         }
-        return invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.l7
-    public Object d(u8 u8Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPreCancel() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, u8Var)) == null) {
-            return Character.valueOf(this.a);
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.onPreCancel();
+            this.c.callback(false);
         }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.l7
-    public Object e(u8 u8Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, u8Var)) == null) {
-            return d(u8Var);
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.l7
-    public Object f(u8 u8Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, u8Var)) == null) {
-            return String.valueOf(this.a);
-        }
-        return invokeL.objValue;
     }
 }

@@ -15,12 +15,12 @@ import com.baidu.adp.widget.SwipeBackLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.viewpager.ListViewPager;
-import com.baidu.tieba.b25;
-import com.baidu.tieba.c25;
-import com.baidu.tieba.d25;
-import com.baidu.tieba.e25;
-import com.baidu.tieba.f25;
-import com.baidu.tieba.h25;
+import com.baidu.tieba.b35;
+import com.baidu.tieba.v25;
+import com.baidu.tieba.w25;
+import com.baidu.tieba.x25;
+import com.baidu.tieba.y25;
+import com.baidu.tieba.z25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,21 +28,21 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class CoverFlowView<T extends c25> extends FrameLayout {
+public class CoverFlowView<T extends w25> extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ListViewPager a;
     public IndicatorView b;
-    public e25 c;
+    public y25 c;
     public View d;
     public CoverFlowAdapter<T> e;
-    public b25 f;
+    public v25 f;
     public CoverFlowView<T>.b g;
     public boolean h;
     public boolean i;
     public boolean j;
     public boolean k;
-    public f25<T> l;
+    public z25<T> l;
     public CoverFlowView<T>.d m;
     public CoverFlowView<T>.c n;
     public long o;
@@ -148,7 +148,7 @@ public class CoverFlowView<T extends c25> extends FrameLayout {
             }
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r0v13, resolved type: com.baidu.tieba.f25 */
+        /* JADX DEBUG: Multi-variable search result rejected for r0v13, resolved type: com.baidu.tieba.z25 */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
@@ -169,7 +169,7 @@ public class CoverFlowView<T extends c25> extends FrameLayout {
             }
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r7v28, resolved type: com.baidu.tieba.f25 */
+        /* JADX DEBUG: Multi-variable search result rejected for r7v28, resolved type: com.baidu.tieba.z25 */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrolled(int i, float f, int i2) {
@@ -224,7 +224,7 @@ public class CoverFlowView<T extends c25> extends FrameLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             int intValue;
-            c25 b;
+            w25 b;
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a.l == null || !(view2.getTag() instanceof Integer) || (b = this.a.e.b((intValue = ((Integer) view2.getTag()).intValue()))) == null) {
                 return;
@@ -348,11 +348,11 @@ public class CoverFlowView<T extends c25> extends FrameLayout {
         }
     }
 
-    public void E(h25 h25Var) {
+    public void E(b35 b35Var) {
         ListViewPager listViewPager;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, h25Var) == null) && h25Var != null && (listViewPager = this.a) != null) {
-            h25Var.b(listViewPager);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, b35Var) == null) && b35Var != null && (listViewPager = this.a) != null) {
+            b35Var.b(listViewPager);
         }
     }
 
@@ -376,10 +376,10 @@ public class CoverFlowView<T extends c25> extends FrameLayout {
         }
     }
 
-    public void setCallback(f25<T> f25Var) {
+    public void setCallback(z25<T> z25Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, f25Var) == null) {
-            this.l = f25Var;
+        if (interceptable == null || interceptable.invokeL(1048587, this, z25Var) == null) {
+            this.l = z25Var;
         }
     }
 
@@ -575,13 +575,13 @@ public class CoverFlowView<T extends c25> extends FrameLayout {
     }
 
     public void v() {
-        e25 e25Var;
+        y25 y25Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
             this.e.c();
             IndicatorView indicatorView = this.b;
-            if (indicatorView != null && (e25Var = this.c) != null) {
-                indicatorView.setDrawable(SkinManager.getDrawable(e25Var.a()));
+            if (indicatorView != null && (y25Var = this.c) != null) {
+                indicatorView.setDrawable(SkinManager.getDrawable(y25Var.a()));
                 this.b.setSelector(SkinManager.getDrawable(this.c.b()));
             }
         }
@@ -592,7 +592,7 @@ public class CoverFlowView<T extends c25> extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(1048585, this, context) == null) {
             u(context);
             t(context);
-            setCoverFlowFactory(new d25());
+            setCoverFlowFactory(new x25());
             addView(this.a);
             addView(this.b);
             CoverFlowAdapter<T> coverFlowAdapter = new CoverFlowAdapter<>(context);
@@ -603,17 +603,17 @@ public class CoverFlowView<T extends c25> extends FrameLayout {
         }
     }
 
-    public void setCoverFlowFactory(b25 b25Var) {
+    public void setCoverFlowFactory(v25 v25Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048588, this, b25Var) != null) || b25Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048588, this, v25Var) != null) || v25Var == null) {
             return;
         }
-        this.f = b25Var;
-        e25 a2 = b25Var.a();
+        this.f = v25Var;
+        y25 a2 = v25Var.a();
         this.c = a2;
         a2.i(this.b);
-        b25Var.c().b(this.a);
-        View b2 = b25Var.b();
+        v25Var.c().b(this.a);
+        View b2 = v25Var.b();
         this.d = b2;
         if (b2 != null) {
             removeAllViews();

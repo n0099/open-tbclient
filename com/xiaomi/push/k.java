@@ -21,7 +21,7 @@ public abstract class k {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m722a(Context context, String str, boolean z) {
+    public static boolean m726a(Context context, String str, boolean z) {
         a(context);
         return PreferenceManager.getDefaultSharedPreferences(context).getBoolean(str, z);
     }

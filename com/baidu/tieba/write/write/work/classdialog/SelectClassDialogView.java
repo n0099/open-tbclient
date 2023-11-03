@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dx5;
-import com.baidu.tieba.eo5;
-import com.baidu.tieba.kx5;
+import com.baidu.tieba.ez5;
+import com.baidu.tieba.xy5;
+import com.baidu.tieba.yp5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,27 +21,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class SelectClassDialogView extends ViewGroup implements eo5 {
+public class SelectClassDialogView extends ViewGroup implements yp5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewGroup a;
-    public kx5<String> b;
+    public ez5<String> b;
 
-    @Override // com.baidu.tieba.eo5
-    public boolean g1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.eo5
+    @Override // com.baidu.tieba.yp5
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return null;
         }
         return (Intent) invokeV.objValue;
@@ -50,8 +40,18 @@ public class SelectClassDialogView extends ViewGroup implements eo5 {
     @Override // android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
         }
+    }
+
+    @Override // com.baidu.tieba.yp5
+    public boolean s1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -76,8 +76,8 @@ public class SelectClassDialogView extends ViewGroup implements eo5 {
         a(context);
     }
 
-    @Override // com.baidu.tieba.eo5
-    public void A(int i) {
+    @Override // com.baidu.tieba.yp5
+    public void D(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             this.b.q(SkinManager.getColor(R.color.CAM_X0203));
@@ -87,8 +87,8 @@ public class SelectClassDialogView extends ViewGroup implements eo5 {
         }
     }
 
-    @Override // com.baidu.tieba.eo5
-    public boolean M() {
+    @Override // com.baidu.tieba.yp5
+    public boolean Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -103,10 +103,10 @@ public class SelectClassDialogView extends ViewGroup implements eo5 {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d020b, this.a, true);
-            kx5<String> kx5Var = new kx5<>(this.a, true);
-            this.b = kx5Var;
-            kx5Var.t(9);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0210, this.a, true);
+            ez5<String> ez5Var = new ez5<>(this.a, true);
+            this.b = ez5Var;
+            ez5Var.t(9);
             this.b.C(UtilHelper.getDimenPixelSize(R.dimen.T_X06) / 3);
             this.b.q(SkinManager.getColor(R.color.CAM_X0203));
             this.b.s(WheelView.DividerType.FILL);
@@ -133,11 +133,11 @@ public class SelectClassDialogView extends ViewGroup implements eo5 {
         }
     }
 
-    public void setOnOptionsSelectChangeListener(dx5 dx5Var) {
-        kx5<String> kx5Var;
+    public void setOnOptionsSelectChangeListener(xy5 xy5Var) {
+        ez5<String> ez5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, dx5Var) == null) && (kx5Var = this.b) != null) {
-            kx5Var.w(dx5Var);
+        if ((interceptable == null || interceptable.invokeL(1048583, this, xy5Var) == null) && (ez5Var = this.b) != null) {
+            ez5Var.w(xy5Var);
         }
     }
 }

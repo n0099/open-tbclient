@@ -1,86 +1,35 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.searchbox.http.request.PostBodyRequest;
-import com.baidu.swan.game.ad.entity.AdResponseInfo;
+import com.baidu.sapi2.stat.ShareLoginStat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.AbstractBceClient;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
-import okhttp3.Response;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class pu3 implements gu3 {
+public class pu3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public Context b;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public String j;
 
-    /* loaded from: classes7.dex */
-    public class a extends ResponseCallback<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
-            }
-        }
-
-        public a(pu3 pu3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pu3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public String parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
-                if (response != null && response.body() != null) {
-                    response.body().close();
-                    return "";
-                }
-                return "";
-            }
-            return (String) invokeLI.objValue;
-        }
-    }
-
-    public pu3(Context context) {
+    public pu3(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -90,84 +39,122 @@ public class pu3 implements gu3 {
                 return;
             }
         }
-        this.b = context;
-    }
-
-    @Override // com.baidu.tieba.gu3
-    public void a(String str, JSONObject jSONObject, ResponseCallback<AdResponseInfo> responseCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, jSONObject, responseCallback) == null) {
-            boolean startsWith = str.startsWith("https://");
-            this.a = startsWith;
-            if (startsWith) {
-                ((PostBodyRequest.PostBodyRequestBuilder) tc4.g().postRequest().url(str)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(responseCallback);
-            } else {
-                ((PostBodyRequest.PostBodyRequestBuilder) tc4.g().postRequest().url(str)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(responseCallback);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.gu3
-    public void b(String str, JSONObject jSONObject, ResponseCallback<yt3> responseCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject, responseCallback) == null) {
-            ((PostBodyRequest.PostBodyRequestBuilder) tc4.g().postRequest().url(str)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(responseCallback);
-        }
-    }
-
-    @Override // com.baidu.tieba.gu3
-    public void c(String str, ResponseCallback<ht3> responseCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, responseCallback) == null) {
-            boolean startsWith = str.startsWith("https://");
-            this.a = startsWith;
-            if (startsWith) {
-                tc4.g().getRequest().url(str).build().executeAsync(responseCallback);
-            } else {
-                tc4.g().getRequest().url(str).build().executeAsync(responseCallback);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.gu3
-    public void f(String str, ResponseCallback<AdResponseInfo> responseCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, str, responseCallback) == null) {
-            boolean startsWith = str.startsWith("https://");
-            this.a = startsWith;
-            if (startsWith) {
-                tc4.g().getRequest().url(str).build().executeAsync(responseCallback);
-            } else {
-                tc4.g().getRequest().url(str).build().executeAsync(responseCallback);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.gu3
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || TextUtils.isEmpty(str)) {
+        if (str == null) {
             return;
         }
-        sc4 sc4Var = new sc4();
-        sc4Var.b = "POST";
-        sc4Var.a = "https://pimlog.baidu.com/mapp/advlog";
-        sc4Var.d = RequestBody.create(MediaType.get(AbstractBceClient.DEFAULT_CONTENT_TYPE), str);
-        tc4.g().e(sc4Var);
+        try {
+            JSONObject jSONObject = new JSONObject(str).getJSONObject("data");
+            this.a = jSONObject.optString("download_state", "");
+            this.j = jSONObject.optString("download_hint", "");
+            JSONObject optJSONObject = jSONObject.optJSONObject("app_info");
+            if (optJSONObject != null) {
+                this.b = optJSONObject.optString("app_name", "");
+                this.c = optJSONObject.optString("developer_name", "");
+                this.d = optJSONObject.optString("app_icon", "");
+                JSONObject optJSONObject2 = optJSONObject.optJSONObject("privacy");
+                if (optJSONObject2 != null) {
+                    this.f = optJSONObject2.optString("cmd", "");
+                }
+                JSONObject optJSONObject3 = optJSONObject.optJSONObject(ShareLoginStat.GetShareListStat.KEY_PERMISSION);
+                if (optJSONObject3 != null) {
+                    this.g = optJSONObject3.optString("cmd", "");
+                }
+                this.h = optJSONObject.optString("apk_url", "");
+                this.e = optJSONObject.optString("version", "");
+                this.i = optJSONObject.optString("apk_size", "");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    @Override // com.baidu.tieba.gu3
-    public void e(String str) {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            a aVar = new a(this);
-            boolean startsWith = str.startsWith("https://");
-            this.a = startsWith;
-            if (startsWith) {
-                tc4.g().getRequest().url(str).build().executeAsync(aVar);
-            } else {
-                tc4.g().getRequest().url(str).build().executeAsync(aVar);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.i;
         }
+        return (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.h;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.j;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
     }
 }

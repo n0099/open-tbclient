@@ -1,89 +1,78 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UsbAbTestConst;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.person.holder.PersonInfoUserPicsHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class m2a implements l77, j77 {
+public class m2a extends g36<o2a, PersonInfoUserPicsHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public View.OnClickListener a;
+    public TbPageContext b;
 
-    @Override // com.baidu.tieba.j77
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "obj_locate" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.l77
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? CommonStatisticKey.KEY_HOME_PEI_WAN_CARD_SHOW : (String) invokeV.objValue;
-    }
-
-    public m2a() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m2a(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = true;
+        this.b = tbPageContext;
     }
 
-    @Override // com.baidu.tieba.l77
-    public Map<String, String> a(v27 businessInfo) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: t */
+    public PersonInfoUserPicsHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
-        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            String str2 = "";
-            if (currentAccount == null) {
-                currentAccount = "";
-            }
-            hashMap.put("uid", currentAccount);
-            String str3 = businessInfo.a().get("room_id");
-            if (str3 != null) {
-                str2 = str3;
-            }
-            hashMap.put(TiebaStatic.Params.OBJ_TO, str2);
-            if (this.a) {
-                str = "1";
-            } else {
-                str = "0";
-            }
-            hashMap.put("obj_param1", str);
-            hashMap.put(TiebaStatic.Params.OBJ_PARAM2, UsbAbTestConst.KEY_RECOMMEND_FEED_TEST);
-            return hashMap;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            PersonInfoUserPicsHolder personInfoUserPicsHolder = new PersonInfoUserPicsHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d07ff, viewGroup, false), this.b);
+            personInfoUserPicsHolder.e.d(this.a);
+            return personInfoUserPicsHolder;
         }
-        return (Map) invokeL.objValue;
+        return (PersonInfoUserPicsHolder) invokeL.objValue;
     }
 
-    public final void d(boolean z) {
+    @Override // com.baidu.tieba.bi
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        u(i, view2, viewGroup, (o2a) obj, (PersonInfoUserPicsHolder) viewHolder);
+        return view2;
+    }
+
+    public View u(int i, View view2, ViewGroup viewGroup, o2a o2aVar, PersonInfoUserPicsHolder personInfoUserPicsHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.a = z;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, o2aVar, personInfoUserPicsHolder})) == null) {
+            if (o2aVar != null && personInfoUserPicsHolder != null) {
+                personInfoUserPicsHolder.b();
+                personInfoUserPicsHolder.a(o2aVar);
+            }
+            return view2;
         }
+        return (View) invokeCommon.objValue;
     }
 }

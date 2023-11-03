@@ -1,162 +1,137 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.searchbox.live.interfaces.player.DuMediaConstants;
-import com.baidu.searchbox.live.interfaces.player.DuMediaView;
-import com.baidu.searchbox.live.interfaces.player.IDuMediaPnPController;
-import com.baidu.searchbox.live.interfaces.player.LiveDlnaSearchListener;
-import com.baidu.searchbox.live.interfaces.service.player.IDuMediaService;
+import com.baidu.tieba.immessagecenter.msgtab.data.NotifyType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.util.MimeTypes;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class w39 implements IDuMediaService {
+public final class w39 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final NotifyType a;
+    public final int b;
+    public String c;
+    public int d;
+    public long e;
+    public boolean f;
 
-    @Override // com.baidu.searchbox.live.interfaces.service.player.IDuMediaService
-    public void dlnaRefresh(@NonNull LiveDlnaSearchListener liveDlnaSearchListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, liveDlnaSearchListener) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.player.IDuMediaService
-    public void dlnaStop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.player.IDuMediaService
-    @Nullable
-    public IDuMediaPnPController getCtrlPoint(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return null;
-        }
-        return (IDuMediaPnPController) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.player.IDuMediaService
-    @Nullable
-    public DuMediaView getDuMediaView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return null;
-        }
-        return (DuMediaView) invokeV.objValue;
-    }
-
-    public w39() {
+    public w39(NotifyType type, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {type, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(type, "type");
+        this.a = type;
+        this.b = i;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.player.IDuMediaService
-    @Nullable
-    public Integer getDevicePlayQualityScore(int i, int i2) {
-        InterceptResult invokeII;
+    public final int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048579, this, i, i2)) == null) {
-            return Integer.valueOf(CyberPlayerManager.getDevicePlayQualityScore(MimeTypes.VIDEO_H265, 0, i, i2, null));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (Integer) invokeII.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.player.IDuMediaService
-    @Nullable
-    public Integer getMediaIntConstant(@Nullable DuMediaConstants.Key key) {
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final NotifyType c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (NotifyType) invokeV.objValue;
+    }
+
+    public final int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public final void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, key)) == null) {
-            if (key == DuMediaConstants.Key.VIDEO_SCALING_MODE_SCALE_TO_FILL_WITH_CROPPING) {
-                return 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            if (key == DuMediaConstants.Key.VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING) {
-                return 2;
+            if (!(obj instanceof w39)) {
+                return false;
             }
-            if (key == DuMediaConstants.Key.INSTALL_TYPE_CYBER_MEDIA) {
-                return 1;
+            w39 w39Var = (w39) obj;
+            if (this.a == w39Var.a && this.b == w39Var.b && Intrinsics.areEqual(this.c, w39Var.c) && this.d == w39Var.d && this.e == w39Var.e && this.f == w39Var.f) {
+                return true;
             }
-            if (key == DuMediaConstants.Key.SEEK_PREVIOUS_SYNC) {
-                return 0;
-            }
-            if (key == DuMediaConstants.Key.SEEK_CLOSEST) {
-                return 3;
-            }
-            if (key == DuMediaConstants.Key.MEDIA_INFO_RESTART_PLAYED) {
-                return 956;
-            }
-            if (key == DuMediaConstants.Key.MEDIA_INFO_FIRST_DISP_INTERVAL) {
-                return 904;
-            }
-            if (key == DuMediaConstants.Key.MEDIA_INFO_BUFFERING_START) {
-                return 701;
-            }
-            if (key == DuMediaConstants.Key.MEDIA_INFO_BUFFERING_END) {
-                return 702;
-            }
-            if (key == DuMediaConstants.Key.DLNA_PLAY_STATUS) {
-                return 0;
-            }
-            if (key == DuMediaConstants.Key.DLNA_PLAY_SUB_STATUS_UNKNOW) {
-                return -1;
-            }
-            if (key == DuMediaConstants.Key.DLNA_PLAY_SUB_STATUS_IDLE) {
-                return 0;
-            }
-            if (key == DuMediaConstants.Key.DLNA_PLAY_SUB_STATUS_PLAYING) {
-                return 1;
-            }
-            if (key == DuMediaConstants.Key.DLNA_PLAY_SUB_STATUS_PAUSED) {
-                return 2;
-            }
-            if (key == DuMediaConstants.Key.DLNA_PLAY_SUB_STATUS_PREPARED) {
-                return 3;
-            }
-            if (key == DuMediaConstants.Key.DLNA_PLAY_SUB_STATUS_COMPLETE) {
-                return 4;
-            }
-            if (key != DuMediaConstants.Key.DLNA_PLAY_SUB_STATUS_CONNECTED) {
-                return 0;
-            }
-            return 5;
+            return false;
         }
-        return (Integer) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.player.IDuMediaService
-    @Nullable
-    public Boolean isCoreLoaded(@Nullable Integer num) {
-        InterceptResult invokeL;
-        int intValue;
+    public int hashCode() {
+        InterceptResult invokeV;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, num)) == null) {
-            if (num == null) {
-                intValue = 1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            int hashCode = ((this.a.hashCode() * 31) + this.b) * 31;
+            String str = this.c;
+            if (str != null) {
+                i = str.hashCode();
             } else {
-                intValue = num.intValue();
+                i = 0;
             }
-            return Boolean.valueOf(CyberPlayerManager.isCoreLoaded(intValue));
+            return ((((((hashCode + i) * 31) + this.d) * 31) + c.a(this.e)) * 31) + a.a(this.f);
         }
-        return (Boolean) invokeL.objValue;
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return "MsgNotifyData{type=" + this.a + ", content='" + this.c + "', unreadMsgCount=" + this.d + ", lastMsgTimeMillis=" + this.e + ", showMsgTime=" + this.f + '}';
+        }
+        return (String) invokeV.objValue;
     }
 }

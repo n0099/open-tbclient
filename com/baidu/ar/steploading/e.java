@@ -16,7 +16,7 @@ import com.baidu.ar.statistic.StatisticConstants;
 import java.lang.ref.WeakReference;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class e extends com.baidu.ar.e.a<String, String> {
     public IHttpRequest bR;
     public WeakReference<Context> wn;

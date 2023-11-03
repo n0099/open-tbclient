@@ -1,85 +1,48 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ye4;
+import com.baidu.searchbox.http.AbstractHttpManager;
+import com.baidu.searchbox.http.request.PostFormRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class fd4 implements ye4.a {
+public class fd4 extends PostFormRequest.PostFormRequestBuilder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ed4 a;
 
-    @Override // com.baidu.tieba.ye4.a
-    public void b(String str, String str2, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, jSONObject) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ye4.a
-    public void onStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    public fd4(@Nullable ed4 ed4Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fd4(AbstractHttpManager abstractHttpManager) {
+        super(abstractHttpManager);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ed4Var};
+            Object[] objArr = {abstractHttpManager};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((AbstractHttpManager) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = ed4Var;
     }
 
-    @Override // com.baidu.tieba.ye4.a
-    public void onFail(Exception exc) {
-        ed4 ed4Var;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.request.PostFormRequest.PostFormRequestBuilder, com.baidu.searchbox.http.request.HttpRequestBuilder
+    public PostFormRequest build() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) && (ed4Var = this.a) != null) {
-            ed4Var.onFail(exc);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            yc4.b().j(this.httpUrl.toString(), this);
+            requestFrom(6);
+            return super.build();
         }
-    }
-
-    @Override // com.baidu.tieba.ye4.a
-    public void onSuccess(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
-            try {
-                HashMap hashMap = new HashMap();
-                JSONObject optJSONObject = new JSONObject(str).optJSONObject("data");
-                Iterator<String> keys = optJSONObject.keys();
-                while (keys.hasNext()) {
-                    JSONObject optJSONObject2 = optJSONObject.optJSONObject(keys.next());
-                    if (optJSONObject2 != null) {
-                        hashMap.put(optJSONObject2.optString("appkey"), optJSONObject2.optString("openbundleid"));
-                    }
-                }
-                if (this.a != null) {
-                    this.a.a(hashMap);
-                }
-            } catch (Exception e) {
-                ed4 ed4Var = this.a;
-                if (ed4Var != null) {
-                    ed4Var.onFail(e);
-                }
-            }
-        }
+        return (PostFormRequest) invokeV.objValue;
     }
 }

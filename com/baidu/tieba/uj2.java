@@ -1,50 +1,53 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import java.util.Arrays;
 /* loaded from: classes8.dex */
-public class uj2 extends jj2<pj2> {
+public class uj2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.jj2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "showsoftkeyboard" : (String) invokeV.objValue;
-    }
-
-    public uj2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948212844, "Lcom/baidu/tieba/uj2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948212844, "Lcom/baidu/tieba/uj2;");
+                return;
             }
         }
+        boolean z = rm1.a;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jj2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull pj2 pj2Var) {
+    public static String a(String str) {
+        InterceptResult invokeL;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, pj2Var) == null) {
-            int i = command.arg1;
-            String str = command.what;
-            d(pj2Var, str, "Type:" + i, false);
-            pj2Var.z0(i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            String[] b = gi4.a().b();
+            g32.b("SwanHistoryQueryHelper", "no history app list: " + Arrays.toString(b));
+            if (b != null && b.length != 0 && (str == null || !str.equals("sync_state=?"))) {
+                if (str != null && str.trim().length() > 0) {
+                    str2 = String.format("(%s) AND ", str.trim());
+                } else {
+                    str2 = "";
+                }
+                String format = String.format("%s %s NOT IN ('%s')", str2, String.format("%s.%s", "ai_apps_history", "app_id"), TextUtils.join("','", b));
+                g32.b("SwanHistoryQueryHelper", "origin Selection: " + str + ", created selection: " + format);
+                return format;
+            }
+            g32.b("SwanHistoryQueryHelper", "origin Selection: " + str + ", created selection: " + str);
+            return str;
         }
+        return (String) invokeL.objValue;
     }
 }

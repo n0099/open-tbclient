@@ -6,8 +6,8 @@ import com.baidu.live.business.model.LiveFeedAllFollowModel;
 import com.baidu.live.business.model.data.LiveFeedFollowLivingData;
 import com.baidu.searchbox.live.interfaces.net.NetResponse;
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.tieba.h70;
-import com.baidu.tieba.i70;
+import com.baidu.tieba.y70;
+import com.baidu.tieba.z70;
 import com.baidu.webkit.sdk.WebChromeClient;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -50,10 +50,10 @@ public final class LiveFeedAllFollowModel {
     }
 
     public final void requestFollowLiving(final OnFollowLivingDataLoadCallback onFollowLivingDataLoadCallback) {
-        i70.f(FEED_PAGE_FOLLOW_LIVING, new LinkedHashMap(), new h70<LiveFeedFollowLivingData>() { // from class: com.baidu.live.business.model.LiveFeedAllFollowModel$requestFollowLiving$1
+        z70.f(FEED_PAGE_FOLLOW_LIVING, new LinkedHashMap(), new y70<LiveFeedFollowLivingData>() { // from class: com.baidu.live.business.model.LiveFeedAllFollowModel$requestFollowLiving$1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // com.baidu.tieba.h70
+            @Override // com.baidu.tieba.y70
             public LiveFeedFollowLivingData onParseResponseInBackground(NetResponse netResponse) {
                 LiveFeedFollowLivingData liveFeedFollowLivingData = new LiveFeedFollowLivingData();
                 if (netResponse != null && !TextUtils.isEmpty(netResponse.decodedResponseStr)) {
@@ -91,7 +91,7 @@ public final class LiveFeedAllFollowModel {
             }
 
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.searchbox.live.interfaces.net.NetResponse, java.lang.Object, java.util.Map, java.util.List] */
-            @Override // com.baidu.tieba.h70
+            @Override // com.baidu.tieba.y70
             public /* bridge */ /* synthetic */ void onNetResponse(NetResponse netResponse, LiveFeedFollowLivingData liveFeedFollowLivingData, Map map, List list) {
                 onNetResponse2(netResponse, liveFeedFollowLivingData, (Map<String, String>) map, (List<String>) list);
             }

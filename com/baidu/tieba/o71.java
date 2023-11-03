@@ -1,44 +1,53 @@
 package com.baidu.tieba;
 
-import android.app.Dialog;
-import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.StyleRes;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
 /* loaded from: classes7.dex */
-public class o71 extends Dialog {
+public class o71 implements InvocationHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public l71 a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o71(@NonNull Context context, @StyleRes int i) {
-        super(context, i);
+    public o71(l71 l71Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
+            Object[] objArr = {l71Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = l71Var;
     }
 
-    @Override // android.app.Dialog
-    public void show() {
+    @Override // java.lang.reflect.InvocationHandler
+    public Object invoke(Object obj, Method method, Object[] objArr) throws Throwable {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.show();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, obj, method, objArr)) == null) {
+            if (this.a != null) {
+                try {
+                    this.a.onTranslucent(((Boolean) objArr[0]).booleanValue());
+                    return null;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    this.a.onTranslucent(false);
+                    return null;
+                }
+            }
+            return null;
         }
+        return invokeLLL.objValue;
     }
 }

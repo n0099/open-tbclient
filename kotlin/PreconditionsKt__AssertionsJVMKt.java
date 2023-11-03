@@ -8,7 +8,7 @@ import kotlin.jvm.internal.Intrinsics;
 public class PreconditionsKt__AssertionsJVMKt {
     @InlineOnly
     /* renamed from: assert  reason: not valid java name */
-    public static final void m848assert(boolean z) {
+    public static final void m852assert(boolean z) {
         if (_Assertions.ENABLED && !z) {
             throw new AssertionError("Assertion failed");
         }
@@ -16,7 +16,7 @@ public class PreconditionsKt__AssertionsJVMKt {
 
     @InlineOnly
     /* renamed from: assert  reason: not valid java name */
-    public static final void m849assert(boolean z, Function0<? extends Object> lazyMessage) {
+    public static final void m853assert(boolean z, Function0<? extends Object> lazyMessage) {
         Intrinsics.checkNotNullParameter(lazyMessage, "lazyMessage");
         if (_Assertions.ENABLED && !z) {
             throw new AssertionError(lazyMessage.invoke());

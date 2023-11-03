@@ -1,66 +1,25 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
-import android.util.Log;
-import android.webkit.JavascriptInterface;
-import androidx.annotation.ColorInt;
-import androidx.annotation.NonNull;
+import android.annotation.SuppressLint;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
+import java.util.concurrent.LinkedBlockingDeque;
+@SuppressLint({"MobilebdThread"})
 /* loaded from: classes7.dex */
-public class l84 {
+public final class l84 extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    @V8JavascriptField
-    public String backgroundColor;
-    @V8JavascriptField
-    public String borderColor;
-    @V8JavascriptField
-    public double borderRadius;
-    @V8JavascriptField
-    public int borderWidth;
-    @V8JavascriptField
-    public String color;
-    @V8JavascriptField
-    public double fontSize;
-    @V8JavascriptField
-    public String fontWeight;
-    @V8JavascriptField
-    public int height;
-    @V8JavascriptField
-    public boolean hidden;
-    @V8JavascriptField
-    public int left;
-    @V8JavascriptField
-    public int lineHeight;
-    @V8JavascriptField
-    public double opacity;
-    @V8JavascriptField
-    public String textAlign;
-    @V8JavascriptField
-    public int top;
-    @V8JavascriptField
-    public int width;
+    public LinkedBlockingDeque<c84> a;
+    public volatile boolean b;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void r();
-    }
-
-    public l84(@NonNull xx1 xx1Var) {
+    public l84() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {xx1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -70,78 +29,46 @@ public class l84 {
                 return;
             }
         }
-        this.fontSize = 16.0d;
-        this.opacity = 1.0d;
-        a(xx1Var);
+        this.a = new LinkedBlockingDeque<>(1024);
     }
 
-    public static int c(@ColorInt int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            int i2 = (16711680 & i) >> 16;
-            int i3 = (65280 & i) >> 8;
-            int i4 = i & 255;
-            float f = (((-16777216) & i) >>> 24) / 255.0f;
-            if (f > 0.0f) {
-                return Color.argb(255, (int) ((i2 * f) + 0.5d), (int) ((i3 * f) + 0.5d), (int) ((i4 * f) + 0.5d));
-            }
-            return i;
-        }
-        return invokeI.intValue;
-    }
-
-    public final void a(@NonNull xx1 xx1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, xx1Var) == null) {
-            this.left = xx1Var.s("left", this.left);
-            this.top = xx1Var.s("top", this.top);
-            this.width = xx1Var.s("width", this.width);
-            this.height = xx1Var.s("height", this.height);
-            this.backgroundColor = xx1Var.D(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, this.backgroundColor);
-            this.borderColor = xx1Var.D("borderColor", this.borderColor);
-            this.borderRadius = xx1Var.o("borderRadius", this.borderRadius);
-            this.borderWidth = xx1Var.s("borderWidth", this.borderWidth);
-            this.fontSize = xx1Var.o(TtmlNode.ATTR_TTS_FONT_SIZE, this.fontSize);
-            this.lineHeight = xx1Var.s("lineHeight", this.lineHeight);
-            this.textAlign = xx1Var.D(TtmlNode.ATTR_TTS_TEXT_ALIGN, this.textAlign);
-            this.fontWeight = xx1Var.D(TtmlNode.ATTR_TTS_FONT_WEIGHT, this.fontWeight);
-            this.hidden = xx1Var.n("hidden", this.hidden);
-            this.opacity = xx1Var.o(NativeConstants.OPACITY, this.opacity);
-            this.color = xx1Var.D("color", this.color);
-            if (am1.a) {
-                Log.d("ApiButtonStyle", "parseApiButtonStyle = " + toString());
-            }
-        }
-    }
-
-    public void b(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.a = aVar;
-        }
-    }
-
-    @JavascriptInterface
-    public void onFieldChangedCallback(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (am1.a) {
-                Log.d("ApiButtonStyle", "onFieldChangedCallback fieldName=" + str);
-            }
-            a aVar = this.a;
-            if (aVar != null) {
-                aVar.r();
-            }
-        }
-    }
-
-    public String toString() {
+    public final LinkedBlockingDeque<c84> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "left:" + this.left + ";top:" + this.top + ";width:" + this.width + ";height:" + this.height + ";backgroundColor:" + this.backgroundColor + ";borderColor:" + this.borderColor + ";borderWidth:" + this.borderWidth + ";borderRadius:" + this.borderRadius + ";textAlign:" + this.textAlign + ";fontSize:" + this.fontSize + ";lineHeight:" + this.lineHeight + ";fontWeight:" + this.fontWeight + ";hidden;" + this.hidden + ";opacity:" + this.opacity + ";color:" + this.color;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (String) invokeV.objValue;
+        return (LinkedBlockingDeque) invokeV.objValue;
+    }
+
+    public final boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            while (this.b) {
+                try {
+                    this.a.take().a();
+                } catch (InterruptedException unused) {
+                    return;
+                } catch (Throwable unused2) {
+                }
+            }
+        }
+    }
+
+    public final void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.b = z;
+        }
     }
 }

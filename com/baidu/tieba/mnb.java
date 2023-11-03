@@ -1,18 +1,51 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.enb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.internal.api.PidLoader;
-import com.fun.ad.sdk.internal.api.PidLoaderCreator;
-import com.fun.ad.sdk.internal.api.config.Ssp;
+import java.util.LinkedHashMap;
 /* loaded from: classes7.dex */
-public class mnb implements PidLoaderCreator {
+public final class mnb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final LinkedHashMap<String, Long> a;
+
+    /* loaded from: classes7.dex */
+    public class a extends qnb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ com.baidu.ubs.analytics.a.l a;
+
+        public a(mnb mnbVar, com.baidu.ubs.analytics.a.l lVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mnbVar, lVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = lVar;
+        }
+
+        @Override // com.baidu.tieba.qnb
+        public final void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                new wmb().c(this.a);
+            }
+        }
+    }
 
     public mnb() {
         Interceptable interceptable = $ic;
@@ -24,76 +57,45 @@ public class mnb implements PidLoaderCreator {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new LinkedHashMap<>();
+    }
+
+    public final void a(String str) {
+        enb enbVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !TextUtils.isEmpty(str)) {
+            com.baidu.ubs.analytics.a.l lVar = new com.baidu.ubs.analytics.a.l();
+            synchronized (this.a) {
+                Long remove = this.a.remove(str);
+                if (remove == null) {
+                    return;
+                }
+                try {
+                    lVar.setStartTime(String.valueOf(remove));
+                    lVar.t(str);
+                    lVar.z(String.valueOf(System.currentTimeMillis()));
+                    enbVar = enb.a.a;
+                    lVar.setPath(enbVar.b());
+                    lVar.x(nnb.e().I());
+                } catch (Exception e) {
+                    wnb.a(e.toString());
+                    onb.b(e.toString());
+                }
+                pnb.c(new a(this, lVar));
             }
         }
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @Override // com.fun.ad.sdk.internal.api.PidLoaderCreator
-    public PidLoader create(Ssp.Pid pid) {
-        InterceptResult invokeL;
-        char c;
+    public final void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
-            String str = pid.type;
-            str.hashCode();
-            switch (str.hashCode()) {
-                case -1900686778:
-                    if (str.equals(FunAdType.JY_NATIVE)) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1743934314:
-                    if (str.equals(FunAdType.JY_SPLASH)) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1659486968:
-                    if (str.equals(FunAdType.JY_DRAW_VIDEO)) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -39027267:
-                    if (str.equals(FunAdType.JY_REWARD_VIDEO)) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1872382491:
-                    if (str.equals(FunAdType.JY_INTERSTITIAL)) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && !TextUtils.isEmpty(str)) {
+            synchronized (this.a) {
+                this.a.put(str, Long.valueOf(System.currentTimeMillis()));
+                String.valueOf(System.currentTimeMillis());
             }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        if (c != 3) {
-                            if (c != 4) {
-                                return null;
-                            }
-                            return new pnb(pid);
-                        }
-                        return new snb(pid);
-                    }
-                    return new nnb(pid);
-                }
-                return new tnb(pid);
-            }
-            return new qnb(pid);
         }
-        return (PidLoader) invokeL.objValue;
     }
 }

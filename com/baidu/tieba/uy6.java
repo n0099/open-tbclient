@@ -1,123 +1,218 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.util.EmotionUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class uy6 {
+public class uy6 extends bi<yy4, CardViewHolder<b>> {
     public static /* synthetic */ Interceptable $ic;
-    public static final Pattern a;
-    public static final Pattern b;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext<?> a;
+    public String b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948227383, "Lcom/baidu/tieba/uy6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    public void y(ui uiVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, uiVar) == null) {
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class a implements yi {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b a;
+        public final /* synthetic */ uy6 b;
+
+        public a(uy6 uy6Var, b bVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uy6Var, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948227383, "Lcom/baidu/tieba/uy6;");
+            this.b = uy6Var;
+            this.a = bVar;
+        }
+
+        @Override // com.baidu.tieba.yi
+        public void b(View view2, oi oiVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, oiVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                this.a.p();
+                StatisticItem statisticItem = new StatisticItem("c13647");
+                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                statisticItem.param("obj_id", this.b.getPositionByType(i) + 1);
+                statisticItem.param("resource_id", this.b.b);
+                TiebaStatic.log(statisticItem);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class b extends yk6<yy4> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TbPageContext<?> i;
+        public TbImageView j;
+        public String k;
+
+        @Override // com.baidu.tieba.yk6
+        public int e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01e9 : invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.yk6
+        public void l(TbPageContext<?> tbPageContext, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
+            super(tbPageContext, viewGroup);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tbPageContext, viewGroup};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.i = tbPageContext;
+            TbImageView tbImageView = (TbImageView) i().findViewById(R.id.obfuscated_res_0x7f0910d4);
+            this.j = tbImageView;
+            tbImageView.setOnClickListener(this);
+            this.j.setConrers(15);
+            this.j.setScaleType(ImageView.ScaleType.FIT_XY);
+            this.j.setRadius(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10));
+            this.j.setDrawCorner(true);
+            this.j.setAutoChangeStyle(true);
+            this.j.setPlaceHolder(2);
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && view2 == this.j) {
+                p();
+            }
+        }
+
+        public void p() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && !TextUtils.isEmpty(this.k)) {
+                UrlManager.getInstance().dealOneLink(this.i, new String[]{this.k});
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.yk6
+        /* renamed from: r */
+        public void k(yy4 yy4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, yy4Var) == null) {
+                if (yy4Var != null) {
+                    this.k = yy4Var.b;
+                    this.j.setScaleType(ImageView.ScaleType.FIT_XY);
+                    this.j.setPlaceHolder(2);
+                    this.j.startLoad(yy4Var.a, 10, false);
+                }
+                l(this.i, TbadkCoreApplication.getInst().getSkinType());
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public uy6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, String str) {
+        super(tbPageContext.getPageActivity(), bdUniqueId, bdUniqueId2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = Pattern.compile("#\\([a-zA-Z0-9_~！\\-\\u4E00-\\u9FA5]+\\)");
-        b = Pattern.compile("#\\([^#\\)\\(]+\\)$");
+        this.a = tbPageContext;
+        this.b = str;
     }
 
-    public static int a(CharSequence charSequence) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: u */
+    public CardViewHolder<b> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
-        CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, charSequence)) == null) {
-            int i = 0;
-            if (charSequence != null && charSequence.length() != 0) {
-                Matcher matcher = a.matcher(charSequence);
-                while (matcher.find()) {
-                    String group = matcher.group();
-                    if (MessageManager.getInstance().findTask(2004608) != null && (runTask = MessageManager.getInstance().runTask(2004608, Boolean.class, group)) != null && (runTask.getData() instanceof Boolean) && ((Boolean) runTask.getData()).booleanValue()) {
-                        i++;
-                    }
-                }
-                Matcher matcher2 = Pattern.compile("#\\(meme,[collect_]?[a-zA-Z0-9_,]+\\)").matcher(charSequence);
-                while (matcher2.find()) {
-                    String[] split = matcher2.group().split(",");
-                    if (split != null && split.length == 5) {
-                        i++;
-                    }
-                }
-                Matcher matcher3 = Pattern.compile("#\\(meme,net_[a-zA-Z0-9_\\-\\.\\%,]+\\)").matcher(charSequence);
-                while (matcher3.find()) {
-                    String[] split2 = matcher3.group().split(",");
-                    if (split2 != null && split2.length == 6) {
-                        i++;
-                    }
-                }
-            }
-            return i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            b bVar = new b(this.a, viewGroup);
+            setOnAdapterItemClickListener(new a(this, bVar));
+            return new CardViewHolder<>(bVar);
         }
-        return invokeL.intValue;
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    public static int b(CharSequence charSequence) {
-        InterceptResult invokeL;
-        CustomResponsedMessage runTask;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: x */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, yy4 yy4Var, CardViewHolder<b> cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, charSequence)) == null) {
-            int i = 0;
-            if (charSequence != null && charSequence.length() != 0) {
-                Matcher matcher = a.matcher(charSequence);
-                while (matcher.find()) {
-                    String group = matcher.group();
-                    if (MessageManager.getInstance().findTask(2004608) != null && (runTask = MessageManager.getInstance().runTask(2004608, Boolean.class, group)) != null && (runTask.getData() instanceof Boolean) && ((Boolean) runTask.getData()).booleanValue()) {
-                        i++;
-                    }
-                }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, yy4Var, cardViewHolder})) == null) {
+            if (yy4Var != null && cardViewHolder != null && cardViewHolder.a() != null) {
+                cardViewHolder.a().k(yy4Var);
+                StatisticItem statisticItem = new StatisticItem("c13646");
+                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                statisticItem.param("obj_id", getPositionByType(i) + 1);
+                statisticItem.param("resource_id", this.b);
+                TiebaStatic.log(statisticItem);
+                return cardViewHolder.a().i();
             }
-            return i;
+            return null;
         }
-        return invokeL.intValue;
-    }
-
-    public static String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            String replaceAll = str.replaceAll(ih5.h, EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX_SHORT).replaceAll("meme,diy_", EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX_SHORT);
-            Matcher matcher = Pattern.compile("#\\(meme,net_[a-zA-Z0-9_\\-\\.\\%,]+\\)").matcher(replaceAll);
-            StringBuilder sb = new StringBuilder(replaceAll);
-            int i = 0;
-            while (matcher.find()) {
-                String[] split = matcher.group().split(",");
-                if (split != null && split.length == 6) {
-                    StringBuilder sb2 = new StringBuilder();
-                    int start = matcher.start() - i;
-                    int end = matcher.end() - i;
-                    for (int i2 = 0; i2 < split.length; i2++) {
-                        if (i2 != 1) {
-                            sb2.append(split[i2]);
-                            if (i2 < split.length - 1) {
-                                sb2.append(",");
-                            }
-                        }
-                    }
-                    i += (end - start) - sb2.toString().length();
-                    if (start >= 0 && end <= sb.length()) {
-                        sb.replace(start, end, sb2.toString());
-                    }
-                }
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
+        return (View) invokeCommon.objValue;
     }
 }

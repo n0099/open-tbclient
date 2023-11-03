@@ -1,57 +1,134 @@
 package com.baidu.tieba;
 
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
-import java.lang.reflect.Field;
-import org.json.JSONObject;
+import com.google.zxing.client.result.ResultParser;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes6.dex */
-public class imb extends BaseAdRipper {
+public class imb {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public imb(Ssp.Pid pid) {
-        super(pid);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Ssp.Pid) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947859723, "Lcom/baidu/tieba/imb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947859723, "Lcom/baidu/tieba/imb;");
                 return;
             }
         }
+        a = dlb.m();
     }
 
-    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
-    public RippedAd getRippedAdInternal(Object obj) {
+    public static byte[] a(InputStream inputStream) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inputStream)) == null) {
+            if (inputStream == null) {
+                return null;
+            }
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            byte[] bArr = new byte[1024];
+            while (true) {
+                try {
+                    i = inputStream.read(bArr, 0, 1024);
+                } catch (IOException e) {
+                    if (a) {
+                        Log.e("StringUtil", e.toString());
+                    }
+                    i = 0;
+                }
+                if (i == -1) {
+                    break;
+                }
+                byteArrayOutputStream.write(bArr, 0, i);
+            }
+            byte[] byteArray = byteArrayOutputStream.toByteArray();
+            try {
+                byteArrayOutputStream.close();
+            } catch (IOException e2) {
+                if (a) {
+                    Log.e("StringUtil", e2.toString());
+                }
+            }
+            return byteArray;
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, INVOKE, IF, SGET, MOVE_EXCEPTION, INVOKE, INVOKE, INVOKE, IF, SGET, MOVE_EXCEPTION] complete} */
+    public static String b(InputStream inputStream) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
             try {
-                Object field = ReflectionUtils.getField(((gnb) obj).a, "d", "a", "k");
-                Field declaredField = field.getClass().getDeclaredField("M");
-                declaredField.setAccessible(true);
-                return pmb.a((JSONObject) declaredField.get(field));
-            } catch (Exception unused) {
-                LogPrinter.e();
+                try {
+                    byte[] a2 = a(inputStream);
+                    if (a2 != null) {
+                        String str = new String(a2);
+                        if (str.startsWith(ResultParser.BYTE_ORDER_MARK)) {
+                            str = str.substring(1);
+                        }
+                        return str;
+                    } else if (inputStream != null) {
+                        try {
+                            inputStream.close();
+                            return null;
+                        } catch (Exception e) {
+                            e = e;
+                            if (!a) {
+                                return null;
+                            }
+                            Log.e("StringUtil", e.toString());
+                            return null;
+                        }
+                    } else {
+                        return null;
+                    }
+                } finally {
+                    if (inputStream != null) {
+                        try {
+                            inputStream.close();
+                        } catch (Exception e2) {
+                            if (a) {
+                                Log.e("StringUtil", e2.toString());
+                            }
+                        }
+                    }
+                }
+            } catch (Exception e3) {
+                if (a) {
+                    Log.e("StringUtil", " getStringFromInput exception: ", e3);
+                }
+                if (inputStream != null) {
+                    try {
+                        inputStream.close();
+                        return null;
+                    } catch (Exception e4) {
+                        e = e4;
+                        if (!a) {
+                            return null;
+                        }
+                        Log.e("StringUtil", e.toString());
+                        return null;
+                    }
+                }
                 return null;
             }
         }
-        return (RippedAd) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 }

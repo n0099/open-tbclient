@@ -1,72 +1,36 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
-import android.graphics.Rect;
-import android.view.View;
-import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.card.AutoVideoCardViewHolder;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.sina.weibo.sdk.utils.ResourceManager;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class as {
+public final class as {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Rect a(ei eiVar, View view2, int i) {
-        InterceptResult invokeLLI;
-        BdTypeRecyclerView bdTypeRecyclerView;
-        RecyclerView.LayoutManager layoutManager;
-        int i2;
-        View findViewByPosition;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, eiVar, view2, i)) == null) {
-            if (view2.getTag() instanceof AutoVideoCardViewHolder) {
-                return ThreadCardUtils.computeViewArea(((AutoVideoCardViewHolder) view2.getTag()).x().getVideoContainer());
-            }
-            if (!(eiVar instanceof BdTypeRecyclerView) || (layoutManager = (bdTypeRecyclerView = (BdTypeRecyclerView) eiVar).getLayoutManager()) == null) {
-                return null;
-            }
-            int firstVisiblePosition = bdTypeRecyclerView.getFirstVisiblePosition();
-            int lastVisiblePosition = bdTypeRecyclerView.getLastVisiblePosition();
-            List<yh> data = eiVar.getData();
-            Object item = ListUtils.getItem(data, i);
-            if (!(item instanceof BaseCardInfo)) {
-                return null;
-            }
-            BaseCardInfo baseCardInfo = (BaseCardInfo) item;
-            int headerViewsCount = bdTypeRecyclerView.getHeaderViewsCount();
-            if (firstVisiblePosition > headerViewsCount) {
-                i2 = firstVisiblePosition - headerViewsCount;
-            } else {
-                i2 = headerViewsCount;
-            }
-            while (i2 <= lastVisiblePosition) {
-                Object item2 = ListUtils.getItem(data, i2 - headerViewsCount);
-                if ((item2 instanceof BaseCardInfo) && baseCardInfo.position == ((BaseCardInfo) item2).position && (findViewByPosition = layoutManager.findViewByPosition(i2)) != null && (findViewByPosition.getTag() instanceof AutoVideoCardViewHolder)) {
-                    return ThreadCardUtils.computeViewArea(((AutoVideoCardViewHolder) findViewByPosition.getTag()).x().getVideoContainer());
-                }
-                i2++;
-            }
-            return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448299963, "Lcom/baidu/tieba/as;")) == null) {
+            return;
         }
-        return (Rect) invokeLLI.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448299963, "Lcom/baidu/tieba/as;");
+        }
     }
 
-    public static int b(int i) {
-        InterceptResult invokeI;
+    public static int a(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            Resources resources = TbadkCoreApplication.getInst().getResources();
-            return resources.getIdentifier("icon_mask_level_usergrouth_" + i, ResourceManager.DRAWABLE, TbadkCoreApplication.getInst().getPackageName());
+        if (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) {
+            return Math.round(f * jr.a().getResources().getDisplayMetrics().density);
         }
-        return invokeI.intValue;
+        return invokeF.intValue;
     }
 }

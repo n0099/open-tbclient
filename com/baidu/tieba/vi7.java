@@ -1,32 +1,28 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import android.content.Intent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function2;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class vi7 {
+public final class vi7 implements si7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public View b;
-    public EMTextView c;
+    public final Integer[] a;
+    public final Function2<Integer, Intent, Unit> b;
 
-    public vi7(Context context) {
+    public vi7(Integer[] codes, Function2<? super Integer, ? super Intent, Unit> onActivityResult) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {codes, onActivityResult};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,50 +32,27 @@ public class vi7 {
                 return;
             }
         }
-        this.a = context;
-        b(context);
+        Intrinsics.checkNotNullParameter(codes, "codes");
+        Intrinsics.checkNotNullParameter(onActivityResult, "onActivityResult");
+        this.a = codes;
+        this.b = onActivityResult;
     }
 
-    public void a(BdTypeRecyclerView bdTypeRecyclerView) {
-        View view2;
+    @Override // com.baidu.tieba.si7
+    public void a(int i, Intent intent) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, bdTypeRecyclerView) == null) && bdTypeRecyclerView != null && (view2 = this.b) != null) {
-            view2.setVisibility(0);
-            bdTypeRecyclerView.addHeaderView(this.b);
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, intent) == null) {
+            this.b.invoke(Integer.valueOf(i), intent);
         }
     }
 
-    public void c(int i) {
+    @Override // com.baidu.tieba.si7
+    public Integer[] b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            EMManager.from(this.c).setTextStyle(R.string.F_X02).setTextColor(R.color.CAM_X0105);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-    }
-
-    public void d(BdTypeRecyclerView bdTypeRecyclerView) {
-        View view2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, bdTypeRecyclerView) == null) && bdTypeRecyclerView != null && (view2 = this.b) != null) {
-            view2.setVisibility(8);
-            bdTypeRecyclerView.removeHeaderView(this.b);
-        }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.c.setText(str);
-        }
-    }
-
-    public final void b(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) != null) || this.b != null) {
-            return;
-        }
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0313, (ViewGroup) null);
-        this.b = inflate;
-        this.c = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c30);
-        c(TbadkCoreApplication.getInst().getSkinType());
+        return (Integer[]) invokeV.objValue;
     }
 }

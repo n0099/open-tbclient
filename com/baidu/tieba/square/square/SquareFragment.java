@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hba;
-import com.baidu.tieba.jba;
-import com.baidu.tieba.l45;
+import com.baidu.tieba.f55;
+import com.baidu.tieba.moa;
+import com.baidu.tieba.ooa;
 import com.baidu.tieba.square.square.SquareModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -30,7 +30,7 @@ public class SquareFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public static boolean l;
     public transient /* synthetic */ FieldHolder $fh;
-    public jba a;
+    public ooa a;
     public SquareModel b;
     public boolean c;
     public boolean d;
@@ -40,7 +40,7 @@ public class SquareFragment extends BaseFragment {
     public final SquareModel.a h;
     public final NoNetworkView.b i;
     public final View.OnKeyListener j;
-    public final l45.g k;
+    public final f55.g k;
 
     static {
         InterceptResult invokeClinit;
@@ -82,50 +82,50 @@ public class SquareFragment extends BaseFragment {
         }
 
         @Override // com.baidu.tieba.square.square.SquareModel.a
-        public void a(boolean z, String str, hba hbaVar) {
+        public void a(boolean z, String str, moa moaVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, hbaVar}) == null) {
-                this.a.a.u(true, "");
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, moaVar}) == null) {
+                this.a.a.z(true, "");
                 SquareFragment squareFragment = this.a;
-                squareFragment.hideLoadingView(squareFragment.a.x());
-                if (z && hbaVar != null && !hbaVar.g()) {
-                    this.a.a.A(this.a.b.W());
+                squareFragment.hideLoadingView(squareFragment.a.A());
+                if (z && moaVar != null && !moaVar.g()) {
+                    this.a.a.E(this.a.b.X());
                     this.a.c = true;
-                    this.a.a.y();
-                    this.a.t2();
+                    this.a.a.C();
+                    this.a.L2();
                 }
                 if (!this.a.d) {
                     if (this.a.e > -1) {
                         long currentTimeMillis = System.currentTimeMillis();
-                        TiebaStatic.page("op_square_enter", currentTimeMillis - this.a.e, this.a.b.Y() - this.a.e, this.a.b.a0(), this.a.b.Z(), currentTimeMillis - this.a.b.X());
+                        TiebaStatic.page("op_square_enter", currentTimeMillis - this.a.e, this.a.b.Z() - this.a.e, this.a.b.b0(), this.a.b.a0(), currentTimeMillis - this.a.b.Y());
                         this.a.e = -1L;
                     }
                     if (!this.a.c) {
                         if (BdNetTypeUtil.isNetWorkAvailable()) {
-                            this.a.a.D(R.string.no_data_text);
+                            this.a.a.H(R.string.no_data_text);
                         } else {
-                            this.a.a.D(R.string.game_index_no_network_text);
+                            this.a.a.H(R.string.game_index_no_network_text);
                         }
                     }
                 } else {
                     this.a.d = false;
-                    this.a.u2(true);
+                    this.a.M2(true);
                     if (!this.a.c) {
-                        this.a.a.y();
+                        this.a.a.C();
                         SquareFragment squareFragment2 = this.a;
-                        squareFragment2.showLoadingView(squareFragment2.a.x());
+                        squareFragment2.showLoadingView(squareFragment2.a.A());
                     }
                 }
                 if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                    this.a.a.t();
+                    this.a.a.y();
                     if (!this.a.c) {
-                        this.a.q2();
+                        this.a.I2();
                         return;
                     }
                     return;
                 }
                 this.a.f.showToast(str);
-                this.a.a.z();
+                this.a.a.D();
             }
         }
     }
@@ -155,12 +155,12 @@ public class SquareFragment extends BaseFragment {
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
-        public void l(boolean z) {
+        public void m(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeZ(1048576, this, z) != null) || !z) {
                 return;
             }
-            this.a.u2(true);
+            this.a.M2(true);
         }
     }
 
@@ -215,7 +215,7 @@ public class SquareFragment extends BaseFragment {
     }
 
     /* loaded from: classes8.dex */
-    public class d implements l45.g {
+    public class d implements f55.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SquareFragment a;
@@ -238,13 +238,13 @@ public class SquareFragment extends BaseFragment {
             this.a = squareFragment;
         }
 
-        @Override // com.baidu.tieba.l45.g
+        @Override // com.baidu.tieba.f55.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeZ(1048576, this, z) != null) {
                 return;
             }
-            this.a.u2(true);
+            this.a.M2(true);
         }
     }
 
@@ -275,11 +275,11 @@ public class SquareFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onActivityCreated(bundle);
             this.f = getPageContext();
             this.e = System.currentTimeMillis();
-            s2();
+            K2();
             initData();
         }
     }
@@ -287,21 +287,51 @@ public class SquareFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             super.onChangeSkinType(i);
-            jba jbaVar = this.a;
-            if (jbaVar != null) {
-                jbaVar.onChangeSkinType(i);
+            ooa ooaVar = this.a;
+            if (ooaVar != null) {
+                ooaVar.onChangeSkinType(i);
             }
+        }
+    }
+
+    public final void I2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.g(this.i);
+        }
+    }
+
+    public final void J2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.cancelLoadData();
+        }
+    }
+
+    public final void K2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ooa ooaVar = new ooa(this.f, getUniqueId(), this.g, this.j);
+            this.a = ooaVar;
+            ooaVar.G(this.k);
+        }
+    }
+
+    public final void L2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.F(this.i);
         }
     }
 
     public final void initData() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             SquareModel squareModel = new SquareModel(this.f);
             this.b = squareModel;
-            squareModel.e0(this.h);
+            squareModel.f0(this.h);
             this.d = true;
         }
     }
@@ -309,8 +339,8 @@ public class SquareFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            r2();
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            J2();
             super.onDestroy();
         }
     }
@@ -318,76 +348,34 @@ public class SquareFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onPrimary();
-            u2(this.d);
+            M2(this.d);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onResume();
             if (l) {
-                u2(true);
+                M2(true);
                 l = false;
             }
         }
     }
 
-    public final void q2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.a.f(this.i);
-        }
-    }
-
-    public final void r2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.b.cancelLoadData();
-        }
-    }
-
-    public final void s2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            jba jbaVar = new jba(this.f, getUniqueId(), this.g, this.j);
-            this.a = jbaVar;
-            jbaVar.C(this.k);
-        }
-    }
-
-    public final void t2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.a.B(this.i);
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d08f6, (ViewGroup) null);
-            this.g = inflate;
-            return inflate;
-        }
-        return (View) invokeLLL.objValue;
-    }
-
-    public final void u2(boolean z) {
+    public final void M2(boolean z) {
         SquareModel squareModel;
         boolean z2;
         boolean z3;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048587, this, z) != null) || (squareModel = this.b) == null) {
+        if ((interceptable != null && interceptable.invokeZ(1048580, this, z) != null) || (squareModel = this.b) == null) {
             return;
         }
         boolean z4 = false;
-        if (squareModel.W() != null && !this.b.W().g()) {
+        if (squareModel.X() != null && !this.b.X().g()) {
             z2 = false;
         } else {
             z2 = true;
@@ -410,11 +398,23 @@ public class SquareFragment extends BaseFragment {
         if (!z2 && !z4) {
             return;
         }
-        r2();
+        J2();
         if (z4) {
-            this.b.d0();
+            this.b.e0();
         } else {
-            this.b.c0();
+            this.b.d0();
         }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layoutInflater, viewGroup, bundle)) == null) {
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d090e, (ViewGroup) null);
+            this.g = inflate;
+            return inflate;
+        }
+        return (View) invokeLLL.objValue;
     }
 }

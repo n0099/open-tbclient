@@ -1,27 +1,113 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Build;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
 public final class ao {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Class<? extends po<? extends oo<?>>> a;
+    public final Class<? extends oo<?>> b;
+    public final boolean c;
 
-    public static boolean a(Activity activity) {
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
-            if (activity == null || activity.isFinishing()) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (this != obj) {
+                if (obj instanceof ao) {
+                    ao aoVar = (ao) obj;
+                    if (Intrinsics.areEqual(this.a, aoVar.a) && Intrinsics.areEqual(this.b, aoVar.b)) {
+                        if (this.c == aoVar.c) {
+                        }
+                    }
+                }
+                return false;
             }
-            if (Build.VERSION.SDK_INT >= 17 && activity.isDestroyed()) {
-                return true;
-            }
-            return false;
+            return true;
         }
         return invokeL.booleanValue;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r1v3, resolved type: boolean */
+    /* JADX WARN: Multi-variable type inference failed */
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            Class<? extends po<? extends oo<?>>> cls = this.a;
+            int hashCode = (cls != null ? cls.hashCode() : 0) * 31;
+            Class<? extends oo<?>> cls2 = this.b;
+            int hashCode2 = (hashCode + (cls2 != null ? cls2.hashCode() : 0)) * 31;
+            boolean z = this.c;
+            int i = z;
+            if (z != 0) {
+                i = 1;
+            }
+            return hashCode2 + i;
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "ToastPlugin(viewClass=" + this.a + ", viewModelClass=" + this.b + ", needSysToastFix=" + this.c + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public ao(Class<? extends po<? extends oo<?>>> cls, Class<? extends oo<?>> cls2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cls, cls2, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = cls;
+        this.b = cls2;
+        this.c = z;
+    }
+
+    public final boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final Class<? extends po<? extends oo<?>>> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (Class) invokeV.objValue;
+    }
+
+    public final Class<? extends oo<?>> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (Class) invokeV.objValue;
     }
 }

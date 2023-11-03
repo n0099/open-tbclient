@@ -1,5 +1,114 @@
 package com.baidu.tieba;
+
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.opensource.svgaplayer.entities.SVGAVideoShapeEntity;
+import com.opensource.svgaplayer.proto.FrameEntity;
+import com.opensource.svgaplayer.proto.SpriteEntity;
+import java.util.ArrayList;
+import java.util.List;
+import kotlin.collections.CollectionsKt__CollectionsKt;
+import kotlin.collections.CollectionsKt__IterablesKt;
+import kotlin.collections.CollectionsKt___CollectionsKt;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public interface p9c<M> {
-    M poll();
+public final class p9c {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final List<q9c> b;
+
+    public p9c(SpriteEntity spriteEntity) {
+        List<q9c> emptyList;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {spriteEntity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = spriteEntity.imageKey;
+        List<FrameEntity> list = spriteEntity.frames;
+        if (list != null) {
+            emptyList = new ArrayList<>(CollectionsKt__IterablesKt.collectionSizeOrDefault(list, 10));
+            q9c q9cVar = null;
+            for (FrameEntity it : list) {
+                Intrinsics.checkExpressionValueIsNotNull(it, "it");
+                q9c q9cVar2 = new q9c(it);
+                if ((!q9cVar2.d().isEmpty()) && ((SVGAVideoShapeEntity) CollectionsKt___CollectionsKt.first((List<? extends Object>) q9cVar2.d())).e() && q9cVar != null) {
+                    q9cVar2.f(q9cVar.d());
+                }
+                emptyList.add(q9cVar2);
+                q9cVar = q9cVar2;
+            }
+        } else {
+            emptyList = CollectionsKt__CollectionsKt.emptyList();
+        }
+        this.b = emptyList;
+    }
+
+    public p9c(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = jSONObject.optString("imageKey");
+        ArrayList arrayList = new ArrayList();
+        JSONArray optJSONArray = jSONObject.optJSONArray("frames");
+        if (optJSONArray != null) {
+            int length = optJSONArray.length();
+            for (int i3 = 0; i3 < length; i3++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
+                if (optJSONObject != null) {
+                    q9c q9cVar = new q9c(optJSONObject);
+                    if ((!q9cVar.d().isEmpty()) && ((SVGAVideoShapeEntity) CollectionsKt___CollectionsKt.first((List<? extends Object>) q9cVar.d())).e() && arrayList.size() > 0) {
+                        q9cVar.f(((q9c) CollectionsKt___CollectionsKt.last((List<? extends Object>) arrayList)).d());
+                    }
+                    arrayList.add(q9cVar);
+                }
+            }
+        }
+        this.b = CollectionsKt___CollectionsKt.toList(arrayList);
+    }
+
+    public final List<q9c> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
 }

@@ -1,27 +1,37 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import java.util.Map;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
 public interface qr1 {
-    void a(@NonNull Object obj, String str, String str2);
+    void a(d73 d73Var);
 
-    void b(@NonNull Object obj);
+    /* loaded from: classes8.dex */
+    public static class a implements qr1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    Object beginFlow(String str);
+        @Override // com.baidu.tieba.qr1
+        public void a(d73 d73Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, d73Var) == null) {
+            }
+        }
 
-    void c(@NonNull Object obj);
-
-    void d(String str, Map<String, String> map);
-
-    boolean e();
-
-    void f(String str, JSONObject jSONObject);
-
-    void g(@NonNull Object obj, String str, String str2, long j);
-
-    void h(@NonNull Object obj, String str);
-
-    void i(String str, String str2);
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
 }

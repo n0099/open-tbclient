@@ -1,35 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.ContentValues;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class so1 implements gr1 {
+public class so1 implements xq1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.gr1
-    public String[] a() {
+    @Override // com.baidu.tieba.xq1
+    @Nullable
+    public List<ContentValues> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return null;
         }
-        return (String[]) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.gr1
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
+        return (List) invokeV.objValue;
     }
 
     public so1() {
@@ -44,21 +36,5 @@ public class so1 implements gr1 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidu.tieba.gr1
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!wo2.w0().d()) {
-                if (pb2.b()) {
-                    return pb2.b + File.separator + "libcom.baidu.zeus.so";
-                }
-                return pb2.d + File.separator + "libcom.baidu.zeus.so";
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
     }
 }

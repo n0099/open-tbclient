@@ -1,49 +1,114 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.NetMessageListener;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.write.transmit.model.GetRepostForumHttpResMessage;
+import com.baidu.tieba.write.transmit.model.GetRepostForumReqMessage;
+import com.baidu.tieba.write.transmit.model.GetRepostForumSocketResMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.Stack;
+import java.util.List;
+import tbclient.SimpleForum;
 /* loaded from: classes5.dex */
-public final class dab {
+public class dab {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Stack<WeakReference<Activity>> a;
+    public BdUniqueId a;
+    public List<SimpleForum> b;
+    public String c;
+    public b d;
+    public String e;
+    public String f;
+    public int g;
+    public String h;
+    public BdUniqueId i;
+    public NetMessageListener j;
 
     /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final dab a;
-        public transient /* synthetic */ FieldHolder $fh;
+    public interface b {
+        void a(List<SimpleForum> list, int i);
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-866794297, "Lcom/baidu/tieba/dab$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-866794297, "Lcom/baidu/tieba/dab$a;");
+        void onError();
+    }
+
+    /* loaded from: classes5.dex */
+    public class a extends NetMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dab a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(dab dabVar, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dabVar, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new dab((byte) 0);
+            this.a = dabVar;
+        }
+
+        @Override // com.baidu.adp.framework.listener.NetMessageListener
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
+                return;
+            }
+            boolean z = responsedMessage instanceof GetRepostForumHttpResMessage;
+            if (!z && !(responsedMessage instanceof GetRepostForumSocketResMessage)) {
+                return;
+            }
+            if (responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof GetRepostForumReqMessage) && this.a.i != ((GetRepostForumReqMessage) responsedMessage.getOrginalMessage().getExtra()).getRequestId()) {
+                return;
+            }
+            if (responsedMessage.hasError()) {
+                if (this.a.d != null) {
+                    this.a.d.onError();
+                    return;
+                }
+                return;
+            }
+            if (z) {
+                GetRepostForumHttpResMessage getRepostForumHttpResMessage = (GetRepostForumHttpResMessage) responsedMessage;
+                this.a.b = getRepostForumHttpResMessage.getForumList();
+                this.a.c = getRepostForumHttpResMessage.getRecommendExtension();
+                this.a.g = getRepostForumHttpResMessage.getPrivateThread();
+            }
+            if (responsedMessage instanceof GetRepostForumSocketResMessage) {
+                GetRepostForumSocketResMessage getRepostForumSocketResMessage = (GetRepostForumSocketResMessage) responsedMessage;
+                this.a.b = getRepostForumSocketResMessage.getForumList();
+                this.a.c = getRepostForumSocketResMessage.getRecommendExtension();
+                this.a.g = getRepostForumSocketResMessage.getPrivateThread();
+            }
+            if (this.a.d != null) {
+                this.a.d.a(this.a.b, this.a.g);
+            }
         }
     }
 
-    public dab() {
+    public dab(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -53,61 +118,53 @@ public final class dab {
                 return;
             }
         }
-        this.a = new Stack<>();
+        a aVar = new a(this, CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, 309450);
+        this.j = aVar;
+        this.a = bdUniqueId;
+        aVar.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.j);
+        this.j.getHttpMessageListener().setSelfListener(true);
+        this.j.getSocketMessageListener().setSelfListener(true);
     }
 
-    public final Stack<WeakReference<Activity>> a() {
-        InterceptResult invokeV;
+    public void i(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (Stack) invokeV.objValue;
-    }
-
-    public /* synthetic */ dab(byte b) {
-        this();
-    }
-
-    public final void c(WeakReference<Activity> weakReference) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, weakReference) == null) {
-            this.a.add(weakReference);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.d = bVar;
         }
     }
 
-    public final String b() {
-        InterceptResult invokeV;
+    public void j(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < this.a.size(); i++) {
-                Activity activity = this.a.get(i).get();
-                if (activity != null) {
-                    sb.append(activity.getClass().getSimpleName());
-                    sb.append("->");
-                }
-            }
-            if (sb.length() > 0) {
-                return sb.substring(0, sb.length() - 2);
-            }
-            return "没有路径了";
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
+            this.i = bdUniqueId;
         }
-        return (String) invokeV.objValue;
     }
 
-    public final void d(Activity activity) {
+    public void k(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            if (this.a != null) {
-                for (int i = 0; i < this.a.size(); i++) {
-                    if (this.a.get(i).get() == activity) {
-                        Stack<WeakReference<Activity>> stack = this.a;
-                        stack.remove(stack.get(i));
-                    }
-                }
-            }
-            b();
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.f = str;
+        }
+    }
+
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            GetRepostForumReqMessage getRepostForumReqMessage = new GetRepostForumReqMessage();
+            getRepostForumReqMessage.setThreadTitle(this.e);
+            getRepostForumReqMessage.setThreadContent(this.f);
+            getRepostForumReqMessage.setForumId(this.h);
+            getRepostForumReqMessage.setTag(this.a);
+            getRepostForumReqMessage.setRequestId(this.i);
+            MessageManager.getInstance().sendMessage(getRepostForumReqMessage);
         }
     }
 }

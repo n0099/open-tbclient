@@ -45,8 +45,8 @@ public class LoadingDialog extends Dialog implements NoProguard {
 
         public LoadingDialog createDialog() {
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.layout_sapi_sdk_loading_dialog, (ViewGroup) null);
-            LoadingDialog loadingDialog = new LoadingDialog(this.a, R.style.obfuscated_res_0x7f100412);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09257d);
+            LoadingDialog loadingDialog = new LoadingDialog(this.a, R.style.obfuscated_res_0x7f100413);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0925d4);
             if (this.c) {
                 textView.setText(this.b);
             } else {

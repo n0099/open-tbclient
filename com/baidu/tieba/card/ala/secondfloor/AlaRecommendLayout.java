@@ -29,8 +29,8 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ek6;
-import com.baidu.tieba.fk6;
+import com.baidu.tieba.am6;
+import com.baidu.tieba.bm6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -186,15 +186,15 @@ public class AlaRecommendLayout extends RelativeLayout implements View.OnClickLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             this.j = z;
-            this.f.x(z);
+            this.f.y(z);
         }
     }
 
-    public void setData(fk6 fk6Var) {
+    public void setData(bm6 bm6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, fk6Var) == null) && fk6Var != null && !ListUtils.isEmpty(fk6Var.c())) {
-            this.g = fk6Var.c();
-            this.h = fk6Var.d();
+        if ((interceptable == null || interceptable.invokeL(1048585, this, bm6Var) == null) && bm6Var != null && !ListUtils.isEmpty(bm6Var.c())) {
+            this.g = bm6Var.c();
+            this.h = bm6Var.d();
             e();
         }
     }
@@ -233,7 +233,7 @@ public class AlaRecommendLayout extends RelativeLayout implements View.OnClickLi
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yyExtData) == null) && ViewHelper.checkUpIsLogin(this.a)) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveTabMyConcernActivityConfig(this.a, this.h)));
-            TiebaStatic.log(ek6.d("c13624", ek6.f(this.h), YYLiveUtil.calculateLiveType(yyExtData), TiebaStatic.YYValues.YY_LIVE, this.i));
+            TiebaStatic.log(am6.d("c13624", am6.f(this.h), YYLiveUtil.calculateLiveType(yyExtData), TiebaStatic.YYValues.YY_LIVE, this.i));
         }
     }
 
@@ -242,7 +242,7 @@ public class AlaRecommendLayout extends RelativeLayout implements View.OnClickLi
         if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || ListUtils.isEmpty(this.g)) {
             return;
         }
-        this.f.y(this.g, this.h);
+        this.f.z(this.g, this.h);
         this.f.notifyDataSetChanged();
     }
 

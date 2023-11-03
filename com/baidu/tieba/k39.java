@@ -1,16 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.live.interfaces.like.ILiveLikeView;
-import com.baidu.searchbox.live.interfaces.like.LiveLikeProxyService;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class k39 implements LiveLikeProxyService {
+@Service
+/* loaded from: classes7.dex */
+public final class k39 extends uaa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.yaa
+    public String name() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "fan_message_bar" : (String) invokeV.objValue;
+    }
 
     public k39() {
         Interceptable interceptable = $ic;
@@ -24,15 +31,5 @@ public class k39 implements LiveLikeProxyService {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.like.LiveLikeProxyService
-    public ILiveLikeView buildLikeViewInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new l39();
-        }
-        return (ILiveLikeView) invokeV.objValue;
     }
 }

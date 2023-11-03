@@ -9,14 +9,13 @@ import com.airbnb.lottie.model.layer.Layer;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.utils.Logger;
 import com.airbnb.lottie.utils.Utils;
-import com.baidu.tieba.fr;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class LottieCompositionParser {
-    public static JsonReader.Options NAMES = JsonReader.Options.of("w", "h", "ip", "op", fr.a, "v", "layers", "assets", "fonts", "chars", "markers");
+    public static JsonReader.Options NAMES = JsonReader.Options.of("w", "h", "ip", "op", "fr", "v", "layers", "assets", "fonts", "chars", "markers");
 
     public static LottieComposition parse(JsonReader jsonReader) throws IOException {
         HashMap hashMap;

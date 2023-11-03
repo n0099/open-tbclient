@@ -19,7 +19,7 @@ import kotlin.reflect.jvm.internal.impl.utils.FunctionsKt;
 public abstract class MemberScopeImpl implements MemberScope {
     @Override // kotlin.reflect.jvm.internal.impl.resolve.scopes.ResolutionScope
     /* renamed from: getContributedClassifier */
-    public ClassifierDescriptor mo2108getContributedClassifier(Name name, LookupLocation lookupLocation) {
+    public ClassifierDescriptor mo2112getContributedClassifier(Name name, LookupLocation lookupLocation) {
         return null;
     }
 

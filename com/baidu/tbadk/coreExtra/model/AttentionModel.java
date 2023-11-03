@@ -19,9 +19,9 @@ import com.baidu.tbadk.coreExtra.data.AuthTokenData;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tbadk.coreExtra.model.ResponseToastLogic;
 import com.baidu.tbadk.coreExtra.util.PushPermissionController;
-import com.baidu.tieba.g4;
-import com.baidu.tieba.hna;
+import com.baidu.tieba.i0b;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import com.baidu.tieba.w4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,7 +34,7 @@ public class AttentionModel {
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
     public b b;
-    public g4 c;
+    public w4 c;
     public boolean d;
 
     /* loaded from: classes5.dex */
@@ -214,7 +214,7 @@ public class AttentionModel {
                         updateAttentionData.blockData = null;
                     }
                     int serverErrorCode = this.a.getServerErrorCode();
-                    if (AntiHelper.a(this.m.g(), serverErrorCode, updateAttentionData.blockUrl) || hna.b(this.m.g(), serverErrorCode, this.a.getErrorString())) {
+                    if (AntiHelper.a(this.m.g(), serverErrorCode, updateAttentionData.blockUrl) || i0b.b(this.m.g(), serverErrorCode, this.a.getErrorString())) {
                         return;
                     }
                     UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(updateAttentionData);
@@ -348,10 +348,10 @@ public class AttentionModel {
         return invokeL.booleanValue;
     }
 
-    public void j(g4 g4Var) {
+    public void j(w4 w4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, g4Var) == null) {
-            this.c = g4Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, w4Var) == null) {
+            this.c = w4Var;
         }
     }
 

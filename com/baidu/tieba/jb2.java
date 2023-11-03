@@ -1,105 +1,191 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.content.Context;
-import android.util.Log;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class jb2 extends kb2 {
+public class jb2 implements ib2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static final String c;
+    public static volatile jb2 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Map<String, hb2> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947877455, "Lcom/baidu/tieba/jb2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ jb2 b;
+
+        public a(jb2 jb2Var, String str) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jb2Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947877455, "Lcom/baidu/tieba/jb2;");
-                return;
+            this.b = jb2Var;
+            this.a = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.h(this.a);
             }
         }
-        b = am1.a;
-        c = "swan_preset" + File.separator + "preset_list.json";
     }
 
     public jb2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new HashMap();
     }
 
-    @Override // com.baidu.tieba.kb2
-    public String i() {
+    public static jb2 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return ai3.b(wo2.c(), c);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (jb2.class) {
+                    if (b == null) {
+                        b = new jb2();
+                    }
+                }
+            }
+            return b;
         }
-        return (String) invokeV.objValue;
+        return (jb2) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.kb2
-    public boolean e(lb2 lb2Var) {
+    public synchronized jb2 b(String str, UbcFlowEvent ubcFlowEvent) {
+        InterceptResult invokeLL;
+        hb2 hb2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, ubcFlowEvent)) == null) {
+            synchronized (this) {
+                if (c(str) && (hb2Var = this.a.get(str)) != null) {
+                    hb2Var.a(str, ubcFlowEvent);
+                    return this;
+                }
+                return this;
+            }
+        }
+        return (jb2) invokeLL.objValue;
+    }
+
+    public synchronized jb2 f(String str, kb2 kb2Var) {
+        InterceptResult invokeLL;
+        hb2 hb2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, kb2Var)) == null) {
+            synchronized (this) {
+                if (c(str) && (hb2Var = this.a.get(str)) != null) {
+                    hb2Var.e(str, kb2Var);
+                    return this;
+                }
+                return this;
+            }
+        }
+        return (jb2) invokeLL.objValue;
+    }
+
+    public void j(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048583, this, str, j) == null) {
+            ExecutorUtilsExt.delayPostOnElastic(new a(this, str), "PrefetchStageRecorder", 3, j);
+        }
+    }
+
+    public final boolean c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, lb2Var)) == null) {
-            if (lb2Var == null) {
-                return false;
-            }
-            Context appContext = AppRuntime.getAppContext();
-            String str = "swan_preset" + File.separator + lb2Var.g + File.separator + lb2Var.q;
-            try {
-                File j = j(lb2Var.h, lb2Var.g, lb2Var.i);
-                if (j == null) {
-                    if (b) {
-                        Log.e("AssetPresetController", "获取解压路径失败");
-                    }
-                    return false;
-                }
-                return n(new BufferedInputStream(appContext.getAssets().open(str)), j);
-            } catch (IOException e) {
-                if (b) {
-                    e.printStackTrace();
-                }
-                return false;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return !TextUtils.isEmpty(str);
         }
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.kb2
-    public String f(String str) {
+    public final synchronized void h(String str) {
+        hb2 hb2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            synchronized (this) {
+                if (c(str) && (hb2Var = this.a.get(str)) != null) {
+                    this.a.remove(str);
+                    hb2Var.h(str);
+                }
+            }
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            j(str, 0L);
+        }
+    }
+
+    public synchronized jb2 e(String str, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        hb2 hb2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            synchronized (this) {
+                if (c(str) && (hb2Var = this.a.get(str)) != null) {
+                    hb2Var.d(str, z);
+                    if (z2) {
+                        i(str);
+                    }
+                    return this;
+                }
+                return this;
+            }
+        }
+        return (jb2) invokeCommon.objValue;
+    }
+
+    public synchronized jb2 g(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            Application c2 = wo2.c();
-            return ai3.b(c2, "swan_preset" + File.separator + str + File.separator + "app_info.json");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            synchronized (this) {
+                if (c(str) && !this.a.containsKey(str)) {
+                    hb2 hb2Var = new hb2();
+                    this.a.put(str, hb2Var);
+                    hb2Var.f(str);
+                    return this;
+                }
+                return this;
+            }
         }
-        return (String) invokeL.objValue;
+        return (jb2) invokeL.objValue;
     }
 }

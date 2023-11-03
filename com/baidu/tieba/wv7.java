@@ -1,28 +1,33 @@
 package com.baidu.tieba;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.frs.frsfeedforums.FrsFeedItemViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class wv7 extends hv7 {
+public class wv7 extends pp7<iqa, FrsFeedItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId i;
-    public BdUniqueId j;
+    public uv7 l;
+    public boolean m;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wv7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, BdUniqueId bdUniqueId3) {
+    public wv7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
         super(tbPageContext, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2, bdUniqueId3};
+            Object[] objArr = {tbPageContext, bdUniqueId, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,35 +39,39 @@ public class wv7 extends hv7 {
                 return;
             }
         }
-        this.i = bdUniqueId2;
-        this.j = bdUniqueId3;
+        this.m = z;
     }
 
-    @Override // com.baidu.tieba.hv7, com.baidu.tieba.lh
-    public BdUniqueId getContentId() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: H */
+    public FrsFeedItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            BdUniqueId bdUniqueId = this.j;
-            if (bdUniqueId == null) {
-                return super.getContentId();
-            }
-            return bdUniqueId;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d036e, (ViewGroup) null);
+            this.l = new uv7(this.c, inflate, 2, this.m, this.mPageId);
+            return new FrsFeedItemViewHolder(inflate);
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (FrsFeedItemViewHolder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.hv7, com.baidu.tieba.lh
-    public BdUniqueId getHeaderId() {
-        InterceptResult invokeV;
+    public View I(int i, View view2, ViewGroup viewGroup, iqa iqaVar, FrsFeedItemViewHolder frsFeedItemViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            BdUniqueId bdUniqueId = this.i;
-            if (bdUniqueId == null) {
-                return super.getHeaderId();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, iqaVar, frsFeedItemViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) iqaVar, (iqa) frsFeedItemViewHolder);
+            if (iqaVar != null) {
+                this.l.o(iqaVar.b(), iqaVar.a());
             }
-            return bdUniqueId;
+            return view2;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (View) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.pp7, com.baidu.tieba.bi
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        I(i, view2, viewGroup, (iqa) obj, (FrsFeedItemViewHolder) viewHolder);
+        return view2;
     }
 }

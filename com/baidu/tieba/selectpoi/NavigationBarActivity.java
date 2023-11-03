@@ -28,7 +28,7 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
     public RelativeLayout d;
     public RelativeLayout e;
 
-    public boolean M0() {
+    public boolean J0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -119,7 +119,7 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
             this.a = (NavigationBar) findViewById(R.id.navigation_bar);
             this.d = (RelativeLayout) findViewById(R.id.navigation_bar_root);
             this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-            if (M0()) {
+            if (J0()) {
                 this.b = (NoNetworkView) ((ViewStub) findViewById(R.id.no_network_viewstub)).inflate();
             }
         }
@@ -130,7 +130,7 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-            if (M0()) {
+            if (J0()) {
                 layoutParams.addRule(3, R.id.no_network_view);
             } else {
                 layoutParams.addRule(3, R.id.no_network_viewstub);
@@ -147,7 +147,7 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-            M0();
+            J0();
             RelativeLayout relativeLayout = new RelativeLayout(getPageContext().getContext());
             this.e = relativeLayout;
             relativeLayout.addView(view2, new ViewGroup.LayoutParams(-1, -1));

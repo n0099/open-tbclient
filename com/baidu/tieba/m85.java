@@ -1,24 +1,66 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
-import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
-import com.baidu.tbadk.coreExtra.data.VcodeExtra;
+import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class m85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public long a;
     public String b;
     public String c;
-    public VcodeExtra d;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
+    public String i;
+    public String j;
+
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-648336894, "Lcom/baidu/tieba/m85$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-648336894, "Lcom/baidu/tieba/m85$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[EmotionGroupType.values().length];
+            a = iArr;
+            try {
+                iArr[EmotionGroupType.LOCAL.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[EmotionGroupType.USER_COLLECT.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[EmotionGroupType.USER_DIY.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+        }
+    }
 
     public m85() {
         Interceptable interceptable = $ic;
@@ -30,98 +72,56 @@ public class m85 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = null;
     }
 
-    public VcodeExtra a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+            return this.j;
         }
-        return (VcodeExtra) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            return this.i;
         }
         return (String) invokeV.objValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public void c(@NonNull re5 re5Var, @Nullable String str) {
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            try {
-                g(new JSONObject(str));
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, re5Var, str) == null) {
+            EmotionGroupType h = re5Var.h();
+            if (str != null) {
+                str2 = el5.b.b(str);
+            } else {
+                str2 = null;
             }
-        }
-    }
-
-    public void f(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
-            try {
-                g(jSONObject);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-    }
-
-    public void g(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        try {
-            JSONObject optJSONObject = jSONObject.optJSONObject("info");
-            if (optJSONObject == null) {
-                optJSONObject = jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI);
-            }
-            if (optJSONObject == null) {
+            int i = a.a[h.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        this.j = re5Var.f();
+                        this.i = str2;
+                        return;
+                    }
+                    this.j = "3";
+                    this.i = str2;
+                    return;
+                }
+                this.j = "2";
+                this.i = str2;
                 return;
             }
-            this.a = optJSONObject.optString("vcode_md5");
-            this.b = optJSONObject.optString("vcode_pic_url");
-            this.c = optJSONObject.optString("vcode_type");
-            JSONObject jSONObject2 = optJSONObject.getJSONObject("vcode_extra");
-            VcodeExtra vcodeExtra = new VcodeExtra();
-            this.d = vcodeExtra;
-            vcodeExtra.textImg = jSONObject2.optString("textimg");
-            this.d.slideImg = jSONObject2.optString("slideimg");
-            this.d.endPoint = jSONObject2.optString(ContentUtil.RESULT_KEY_ENDPOINT);
-            this.d.successImg = jSONObject2.optString("successimg");
-            this.d.slideEndPoint = jSONObject2.optString("slideendpoint");
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+            this.j = "1";
+            this.i = str;
         }
     }
 }

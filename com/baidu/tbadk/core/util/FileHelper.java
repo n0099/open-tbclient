@@ -28,11 +28,11 @@ import com.baidu.storage.swankv.SwanKV;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ad;
-import com.baidu.tieba.bd;
+import com.baidu.tieba.kd;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.uc;
-import com.baidu.tieba.wc;
+import com.baidu.tieba.md;
+import com.baidu.tieba.qd;
+import com.baidu.tieba.rd;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -349,7 +349,7 @@ public class FileHelper {
                 return new File(EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + str).exists();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
-                TiebaStatic.file(e, ad.join("FileHelper", ".", "CheckFile", " ", str));
+                TiebaStatic.file(e, qd.join("FileHelper", ".", "CheckFile", " ", str));
                 return false;
             }
         }
@@ -374,7 +374,7 @@ public class FileHelper {
                 return file;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
-                TiebaStatic.file(e, ad.join("FileHelper", ".", "CreateFile", " ", str));
+                TiebaStatic.file(e, qd.join("FileHelper", ".", "CreateFile", " ", str));
                 return null;
             }
         }
@@ -472,12 +472,12 @@ public class FileHelper {
                 options.inPreferredConfig = TbConfig.BitmapConfig;
                 return BitmapFactory.decodeFile(str, options);
             } catch (OutOfMemoryError e) {
-                TiebaStatic.file(e.getMessage(), ad.join("FileHelper", ".", "getImage", " ", str));
+                TiebaStatic.file(e.getMessage(), qd.join("FileHelper", ".", "getImage", " ", str));
                 System.gc();
                 try {
                     return BitmapFactory.decodeFile(str);
                 } catch (OutOfMemoryError unused) {
-                    TiebaStatic.file(e.getMessage(), ad.join("FileHelper", ".", "getImage", " ", str));
+                    TiebaStatic.file(e.getMessage(), qd.join("FileHelper", ".", "getImage", " ", str));
                     return null;
                 }
             }
@@ -582,7 +582,7 @@ public class FileHelper {
             try {
                 return file.mkdirs();
             } catch (Exception e) {
-                TiebaStatic.file(e, ad.join("FileHelper", ".", "CheckTempDir", " ", str));
+                TiebaStatic.file(e, qd.join("FileHelper", ".", "CheckTempDir", " ", str));
                 return false;
             }
         }
@@ -619,7 +619,7 @@ public class FileHelper {
                 return file;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
-                TiebaStatic.file(e, ad.join("FileHelper", ".", "CreateFileIfNotFound", " ", str));
+                TiebaStatic.file(e, qd.join("FileHelper", ".", "CreateFileIfNotFound", " ", str));
                 return null;
             }
         }
@@ -638,7 +638,7 @@ public class FileHelper {
                 return new FileOutputStream(CreateFile, true);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
-                TiebaStatic.file(e, ad.join("FileHelper", ".", "CreateFileOutputStream", " ", str));
+                TiebaStatic.file(e, qd.join("FileHelper", ".", "CreateFileOutputStream", " ", str));
                 return null;
             }
         }
@@ -660,7 +660,7 @@ public class FileHelper {
                 return file;
             } catch (SecurityException e) {
                 BdLog.e(e.getMessage());
-                TiebaStatic.file(e, ad.join("FileHelper", ".", "GetFile", " ", str));
+                TiebaStatic.file(e, qd.join("FileHelper", ".", "GetFile", " ", str));
                 return null;
             }
         }
@@ -900,7 +900,7 @@ public class FileHelper {
                     FileInputStream fileInputStream2 = new FileInputStream(file);
                     try {
                         BitmapFactory.decodeStream(fileInputStream2, null, options);
-                        bd.e(fileInputStream2);
+                        rd.e(fileInputStream2);
                     } catch (Throwable th) {
                         th = th;
                         fileInputStream = fileInputStream2;
@@ -910,7 +910,7 @@ public class FileHelper {
                             iArr[1] = options.outHeight;
                             return iArr;
                         } finally {
-                            bd.e(fileInputStream);
+                            rd.e(fileInputStream);
                         }
                     }
                 } catch (Throwable th2) {
@@ -934,7 +934,7 @@ public class FileHelper {
                 return false;
             }
             File file = new File(str);
-            if (file.exists() && !file.isDirectory() && (v = wc.v(file)) != null) {
+            if (file.exists() && !file.isDirectory() && (v = md.v(file)) != null) {
                 try {
                     byte[] bArr = new byte[7];
                     if (v.read(bArr, 0, 6) == 6) {
@@ -1359,7 +1359,7 @@ public class FileHelper {
                 return TbConfig.getBigImageSize();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
-                TiebaStatic.file(e, ad.join("FileHelper", ".", "checkImageFileSize", " ", str, "/", str2));
+                TiebaStatic.file(e, qd.join("FileHelper", ".", "checkImageFileSize", " ", str, "/", str2));
                 return -1L;
             }
         }
@@ -1643,13 +1643,13 @@ public class FileHelper {
                     } catch (Exception e) {
                         e = e;
                         BdLog.e(e.getMessage());
-                        TiebaStatic.file(e, ad.join("FileHelper", ".", "SaveGifFile", " ", str2));
+                        TiebaStatic.file(e, qd.join("FileHelper", ".", "SaveGifFile", " ", str2));
                         if (fileOutputStream != null) {
                             try {
                                 fileOutputStream.close();
                             } catch (Exception e2) {
                                 BdLog.e(e2.getMessage());
-                                TiebaStatic.file(e2, ad.join("FileHelper", ".", "SaveGifFile", " ", str2));
+                                TiebaStatic.file(e2, qd.join("FileHelper", ".", "SaveGifFile", " ", str2));
                             }
                         }
                         return null;
@@ -1662,7 +1662,7 @@ public class FileHelper {
                             fileOutputStream2.close();
                         } catch (Exception e3) {
                             BdLog.e(e3.getMessage());
-                            TiebaStatic.file(e3, ad.join("FileHelper", ".", "SaveGifFile", " ", str2));
+                            TiebaStatic.file(e3, qd.join("FileHelper", ".", "SaveGifFile", " ", str2));
                         }
                     }
                     throw th;
@@ -1936,7 +1936,7 @@ public class FileHelper {
                 return file.getAbsolutePath();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
-                TiebaStatic.file(e, ad.join("FileHelper", ".", "compressBitmapToFile", " ", file.getAbsolutePath()));
+                TiebaStatic.file(e, qd.join("FileHelper", ".", "compressBitmapToFile", " ", file.getAbsolutePath()));
                 return null;
             }
         }
@@ -1965,7 +1965,7 @@ public class FileHelper {
             File file = new File(str5 + str2);
             File file2 = new File(str6 + str4);
             if (!file.renameTo(file2)) {
-                TiebaStatic.file(ad.join("renameTo", NotificationCompat.CATEGORY_ERROR), ad.join("FileHelper", ".", "renameTo"));
+                TiebaStatic.file(qd.join("renameTo", NotificationCompat.CATEGORY_ERROR), qd.join("FileHelper", ".", "renameTo"));
                 return null;
             }
             return file2.getAbsolutePath();
@@ -1999,7 +1999,7 @@ public class FileHelper {
                     return file.getPath();
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
-                    TiebaStatic.file(e, ad.join("FileHelper", ".", "SaveFile1", " '", str, "/", str2));
+                    TiebaStatic.file(e, qd.join("FileHelper", ".", "SaveFile1", " '", str, "/", str2));
                 }
             }
             return null;
@@ -2056,7 +2056,7 @@ public class FileHelper {
                 return file.getAbsolutePath();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
-                TiebaStatic.file(e, ad.join("FileHelper", ".", "compressBitmapToFile", " ", file.getAbsolutePath()));
+                TiebaStatic.file(e, qd.join("FileHelper", ".", "compressBitmapToFile", " ", file.getAbsolutePath()));
                 return null;
             }
         }
@@ -2209,7 +2209,7 @@ public class FileHelper {
                         str4 = nameMd5FromUrl + Math.round(Math.random() * 9.9999999E7d) + str3;
                     }
                     String str5 = getCacheDir() + str4;
-                    wc.f(new File(str), new File(str5));
+                    md.f(new File(str), new File(str5));
                     new MediaScannerClient(context).saveImage(str5);
                     return 0;
                 } catch (Exception e) {
@@ -2233,7 +2233,7 @@ public class FileHelper {
                         str2 = ".gif";
                     }
                     if (BdUtilHelper.isDataWebpFormat(bArr) && (decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length)) != null) {
-                        bArr = uc.d().a(decodeByteArray, 100);
+                        bArr = kd.d().a(decodeByteArray, 100);
                         decodeByteArray.recycle();
                     }
                     String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str);
@@ -2275,7 +2275,7 @@ public class FileHelper {
             if (!file.exists()) {
                 return null;
             }
-            return wc.v(file);
+            return md.v(file);
         }
         return (InputStream) invokeLL.objValue;
     }
@@ -2425,7 +2425,7 @@ public class FileHelper {
                 TbLog defaultLog = DefaultLog.getInstance();
                 defaultLog.e("downloadFile", "下载完成解析apk包名失败，context=null，filePath=" + str);
                 return null;
-            } else if (ad.isEmpty(str)) {
+            } else if (qd.isEmpty(str)) {
                 TbLog defaultLog2 = DefaultLog.getInstance();
                 defaultLog2.e("downloadFile", "下载完成解析apk包名失败，filePath" + str);
                 return null;
@@ -2465,10 +2465,10 @@ public class FileHelper {
             }
             try {
                 if (file.exists() && !file.delete()) {
-                    bd.f(null);
+                    rd.f(null);
                     return null;
                 } else if (!file.createNewFile()) {
-                    bd.f(null);
+                    rd.f(null);
                     return null;
                 } else {
                     fileOutputStream = new FileOutputStream(file);
@@ -2482,7 +2482,7 @@ public class FileHelper {
                                 } else {
                                     fileOutputStream.flush();
                                     String path = file.getPath();
-                                    bd.f(fileOutputStream);
+                                    rd.f(fileOutputStream);
                                     return path;
                                 }
                             }
@@ -2490,13 +2490,13 @@ public class FileHelper {
                             e = e;
                             BdLog.e(e.getMessage());
                             TiebaStatic.file(e, "FileHelper.saveFile " + str);
-                            bd.f(fileOutputStream);
+                            rd.f(fileOutputStream);
                             return null;
                         }
                     } catch (Throwable th) {
                         th = th;
                         fileOutputStream2 = fileOutputStream;
-                        bd.f(fileOutputStream2);
+                        rd.f(fileOutputStream2);
                         throw th;
                     }
                 }
@@ -2505,7 +2505,7 @@ public class FileHelper {
                 fileOutputStream = null;
             } catch (Throwable th2) {
                 th = th2;
-                bd.f(fileOutputStream2);
+                rd.f(fileOutputStream2);
                 throw th;
             }
         } else {
@@ -2571,7 +2571,7 @@ public class FileHelper {
                                     } catch (Exception e) {
                                         exc = e;
                                         exc.printStackTrace();
-                                        join = ad.join("FileHelper", ".", "isGif", " ", str, "/", str2);
+                                        join = qd.join("FileHelper", ".", "isGif", " ", str, "/", str2);
                                         TiebaStatic.file(exc, join);
                                         return z;
                                     }
@@ -2580,14 +2580,14 @@ public class FileHelper {
                                 e = e2;
                                 fileInputStream = fileInputStream2;
                                 e.printStackTrace();
-                                TiebaStatic.file(e, ad.join("FileHelper", ".", "isGif", " ", str, "/", str2));
+                                TiebaStatic.file(e, qd.join("FileHelper", ".", "isGif", " ", str, "/", str2));
                                 if (fileInputStream != null) {
                                     try {
                                         fileInputStream.close();
                                     } catch (Exception e3) {
                                         exc = e3;
                                         exc.printStackTrace();
-                                        join = ad.join("FileHelper", ".", "isGif", " ", str, "/", str2);
+                                        join = qd.join("FileHelper", ".", "isGif", " ", str, "/", str2);
                                         TiebaStatic.file(exc, join);
                                         return z;
                                     }
@@ -2597,14 +2597,14 @@ public class FileHelper {
                                 e = e4;
                                 fileInputStream = fileInputStream2;
                                 e.printStackTrace();
-                                TiebaStatic.file(e, ad.join("FileHelper", "isGif", " ", str, "/", str2));
+                                TiebaStatic.file(e, qd.join("FileHelper", "isGif", " ", str, "/", str2));
                                 if (fileInputStream != null) {
                                     try {
                                         fileInputStream.close();
                                     } catch (Exception e5) {
                                         exc = e5;
                                         exc.printStackTrace();
-                                        join = ad.join("FileHelper", ".", "isGif", " ", str, "/", str2);
+                                        join = qd.join("FileHelper", ".", "isGif", " ", str, "/", str2);
                                         TiebaStatic.file(exc, join);
                                         return z;
                                     }
@@ -2619,7 +2619,7 @@ public class FileHelper {
                                     fileInputStream.close();
                                 } catch (Exception e6) {
                                     e6.printStackTrace();
-                                    TiebaStatic.file(e6, ad.join("FileHelper", ".", "isGif", " ", str, "/", str2));
+                                    TiebaStatic.file(e6, qd.join("FileHelper", ".", "isGif", " ", str, "/", str2));
                                 }
                             }
                             throw th;
@@ -2629,7 +2629,7 @@ public class FileHelper {
                         fileInputStream = fileInputStream2;
                         z = false;
                         e.printStackTrace();
-                        TiebaStatic.file(e, ad.join("FileHelper", ".", "isGif", " ", str, "/", str2));
+                        TiebaStatic.file(e, qd.join("FileHelper", ".", "isGif", " ", str, "/", str2));
                         if (fileInputStream != null) {
                         }
                         return z;
@@ -2638,7 +2638,7 @@ public class FileHelper {
                         fileInputStream = fileInputStream2;
                         z = false;
                         e.printStackTrace();
-                        TiebaStatic.file(e, ad.join("FileHelper", "isGif", " ", str, "/", str2));
+                        TiebaStatic.file(e, qd.join("FileHelper", "isGif", " ", str, "/", str2));
                         if (fileInputStream != null) {
                         }
                         return z;
@@ -2680,7 +2680,7 @@ public class FileHelper {
                     return file2.getAbsolutePath();
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
-                    TiebaStatic.file(e, ad.join("FileHelper", ".", "saveFileToSDOrMemory", " ", file2.getAbsolutePath()));
+                    TiebaStatic.file(e, qd.join("FileHelper", ".", "saveFileToSDOrMemory", " ", file2.getAbsolutePath()));
                 }
             }
             return null;
@@ -2714,7 +2714,7 @@ public class FileHelper {
                     return file.getPath();
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
-                    TiebaStatic.file(e, ad.join("FileHelper", ".", "saveFileAsPNG", " '", str, "/", str2));
+                    TiebaStatic.file(e, qd.join("FileHelper", ".", "saveFileAsPNG", " '", str, "/", str2));
                 }
             }
             return null;
@@ -2759,14 +2759,14 @@ public class FileHelper {
                         } catch (IOException e) {
                             e = e;
                             BdLog.e(e.getMessage());
-                            TiebaStatic.file(e, ad.join("FileHelper", ".", "SaveFile", " ", str, "/", str2));
+                            TiebaStatic.file(e, qd.join("FileHelper", ".", "SaveFile", " ", str, "/", str2));
                             if (fileOutputStream != null) {
                                 try {
                                     fileOutputStream.close();
                                     return null;
                                 } catch (Throwable th2) {
                                     BdLog.e(th2.getMessage());
-                                    TiebaStatic.file(th2.getMessage(), ad.join("FileHelper", ".", "SaveFile", " ", str, "/", str2));
+                                    TiebaStatic.file(th2.getMessage(), qd.join("FileHelper", ".", "SaveFile", " ", str, "/", str2));
                                     return null;
                                 }
                             }
@@ -2788,7 +2788,7 @@ public class FileHelper {
                             fileOutputStream.close();
                         } catch (Throwable th4) {
                             BdLog.e(th4.getMessage());
-                            TiebaStatic.file(th4.getMessage(), ad.join("FileHelper", ".", "SaveFile", " ", str, "/", str2));
+                            TiebaStatic.file(th4.getMessage(), qd.join("FileHelper", ".", "SaveFile", " ", str, "/", str2));
                         }
                     }
                     throw th;

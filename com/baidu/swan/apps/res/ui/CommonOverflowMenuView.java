@@ -13,36 +13,36 @@ import android.widget.TextView;
 import androidx.annotation.ColorRes;
 import androidx.appcompat.content.res.AppCompatResources;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a53;
-import com.baidu.tieba.db3;
-import com.baidu.tieba.wo2;
-import com.baidu.tieba.z43;
+import com.baidu.tieba.np2;
+import com.baidu.tieba.q53;
+import com.baidu.tieba.r53;
+import com.baidu.tieba.ub3;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes4.dex */
-public class CommonOverflowMenuView extends LinearLayout implements z43.g {
+public class CommonOverflowMenuView extends LinearLayout implements q53.g {
     public int a;
     public int b;
     public ColorStateList c;
     public List<ImageView> d;
     public List<TextView> e;
-    public HashMap<a53, ImageView> f;
+    public HashMap<r53, ImageView> f;
     public View g;
     public LinearLayout h;
     public SwanAppScrollView i;
     public Object j;
 
     /* loaded from: classes4.dex */
-    public class a implements db3 {
+    public class a implements ub3 {
         public a() {
         }
     }
 
     public CommonOverflowMenuView(Context context) {
         super(context);
-        this.a = R.drawable.obfuscated_res_0x7f080167;
+        this.a = R.drawable.obfuscated_res_0x7f08016a;
         this.b = R.color.obfuscated_res_0x7f06043a;
         this.d = new ArrayList();
         this.e = new ArrayList();
@@ -53,10 +53,10 @@ public class CommonOverflowMenuView extends LinearLayout implements z43.g {
     }
 
     public final void a(Context context) {
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00c2, (ViewGroup) this, true);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00c4, (ViewGroup) this, true);
         this.g = inflate;
-        this.h = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09175a);
-        this.i = (SwanAppScrollView) this.g.findViewById(R.id.obfuscated_res_0x7f09175d);
+        this.h = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09179c);
+        this.i = (SwanAppScrollView) this.g.findViewById(R.id.obfuscated_res_0x7f09179f);
         setFocusable(true);
         setFocusableInTouchMode(true);
         b();
@@ -80,7 +80,7 @@ public class CommonOverflowMenuView extends LinearLayout implements z43.g {
 
     public CommonOverflowMenuView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.a = R.drawable.obfuscated_res_0x7f080167;
+        this.a = R.drawable.obfuscated_res_0x7f08016a;
         this.b = R.color.obfuscated_res_0x7f06043a;
         this.d = new ArrayList();
         this.e = new ArrayList();
@@ -96,14 +96,14 @@ public class CommonOverflowMenuView extends LinearLayout implements z43.g {
 
     public final void b() {
         this.c = AppCompatResources.getColorStateList(getContext(), R.color.obfuscated_res_0x7f06041c);
-        setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080166));
+        setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080169));
         for (ImageView imageView : this.d) {
             imageView.setBackgroundColor(getResources().getColor(this.b));
         }
         for (TextView textView : this.e) {
             textView.setTextColor(this.c);
         }
-        for (Map.Entry<a53, ImageView> entry : this.f.entrySet()) {
+        for (Map.Entry<r53, ImageView> entry : this.f.entrySet()) {
             entry.getValue().setImageDrawable(entry.getKey().b());
         }
     }
@@ -123,13 +123,13 @@ public class CommonOverflowMenuView extends LinearLayout implements z43.g {
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        wo2.M().f(this.j, new a());
+        np2.M().f(this.j, new a());
         b();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        wo2.M().g(this.j);
+        np2.M().g(this.j);
     }
 }

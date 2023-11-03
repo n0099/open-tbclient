@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
 import com.baidu.tieba.livesdk.share.model.AlaShareInBarModel;
-import com.baidu.tieba.s09;
+import com.baidu.tieba.wd9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -88,12 +88,12 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
         }
 
         @Override // com.baidu.tieba.livesdk.share.model.AlaShareInBarModel.b
-        public void a(int i, String str, s09 s09Var) {
+        public void a(int i, String str, wd9 wd9Var) {
             int i2;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, s09Var) == null) {
+            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, wd9Var) == null) {
                 this.a.closeLoadingDialog();
-                if (i == 0 && s09Var != null) {
+                if (i == 0 && wd9Var != null) {
                     BdToast.makeText(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getPageActivity().getString(R.string.share_alert_success)).setIcon(BdToast.ToastIcon.SUCCESS).setDuration(3000).show();
                     i2 = 1;
                 } else {
@@ -143,17 +143,17 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            N0(bundle);
-            Q0();
+            L0(bundle);
+            M0();
         }
     }
 
-    public final void N0(Bundle bundle) {
+    public final void L0(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             AlaShareInBarModel alaShareInBarModel = new AlaShareInBarModel();
             this.d = alaShareInBarModel;
-            alaShareInBarModel.Q(this.e);
+            alaShareInBarModel.R(this.e);
             Intent intent = getIntent();
             if (intent != null) {
                 this.a = intent.getStringExtra("extra_key_live_id");
@@ -167,11 +167,11 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
         }
     }
 
-    public final void Q0() {
+    public final void M0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                showToast(R.string.obfuscated_res_0x7f0f0e4f);
+                showToast(R.string.obfuscated_res_0x7f0f0e61);
                 finish();
             } else if ((StringUtils.isNull(this.a) && TextUtils.isEmpty(this.b)) || ListUtils.isEmpty(this.c)) {
                 finish();
@@ -179,7 +179,7 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
                 showLoadingDialog((String) null, new a(this));
                 TransmitForumData transmitForumData = this.c.get(0);
                 if (transmitForumData != null) {
-                    this.d.P(this.a, this.b, String.valueOf(transmitForumData.forumId), "");
+                    this.d.Q(this.a, this.b, String.valueOf(transmitForumData.forumId), "");
                 }
             }
         }

@@ -1,14 +1,10 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
-import android.content.ServiceConnection;
-import android.os.Handler;
-import android.os.IBinder;
+import android.content.Context;
 import android.os.Looper;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ksb;
-import com.baidu.tieba.osb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,58 +12,93 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.hihonor.push.framework.aidl.IPushInvoke;
-import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
-import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes8.dex */
-public class usb implements ServiceConnection {
-    public static /* synthetic */ Interceptable $ic;
-    public static final Object e;
+public class usb {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String b = "UnionIDHelper";
+    public static boolean c;
+    public static usb d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final vrb a;
-    public a b;
-    public Handler c;
-    public boolean d;
-
-    /* loaded from: classes8.dex */
-    public interface a {
-    }
+    public Context a;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948222981, "Lcom/baidu/tieba/usb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948222981, "Lcom/baidu/tieba/usb;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948222981, "Lcom/baidu/tieba/usb;")) == null) {
+            return;
         }
-        e = new Object();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948222981, "Lcom/baidu/tieba/usb;");
+        }
     }
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (e) {
-                Handler handler = this.c;
-                if (handler != null) {
-                    handler.removeMessages(1001);
-                    this.c = null;
+    /* loaded from: classes8.dex */
+    public class a implements ctb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ tsb a;
+
+        public a(usb usbVar, tsb tsbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {usbVar, tsbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tsbVar;
+        }
+
+        @Override // com.baidu.tieba.ctb
+        public void a(dtb dtbVar) {
+            ssb ssbVar;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dtbVar) == null) {
+                if (usb.c) {
+                    String str = usb.b;
+                    Log.d(str, "异步回调 结果:" + dtbVar);
+                    String str2 = usb.b;
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("异步回调 (listener != null):");
+                    if (this.a != null) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    sb.append(z);
+                    Log.d(str2, sb.toString());
+                }
+                tsb tsbVar = this.a;
+                if (tsbVar != null) {
+                    if (dtbVar == null) {
+                        ssbVar = null;
+                    } else {
+                        ssbVar = new ssb(dtbVar.c(), dtbVar.isSupport(), dtbVar.getOAID(), dtbVar.getAAID(), dtbVar.getVAID(), dtbVar.getStatusCode());
+                    }
+                    tsbVar.a(0, ssbVar);
                 }
             }
         }
     }
 
-    public usb(vrb vrbVar) {
+    public usb(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vrbVar};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -77,104 +108,40 @@ public class usb implements ServiceConnection {
                 return;
             }
         }
-        this.c = null;
-        this.d = false;
-        this.a = vrbVar;
+        this.a = context.getApplicationContext();
     }
 
-    @Override // android.content.ServiceConnection
-    public void onNullBinding(ComponentName componentName) {
+    public static usb c(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, componentName) == null) {
-            Log.i("AIDLSrvConnection", "enter onNullBinding, than unBind.");
-            if (this.d) {
-                this.d = false;
-                return;
-            }
-            c();
-            a();
-            a aVar = this.b;
-            if (aVar != null) {
-                qsb qsbVar = (qsb) aVar;
-                qsbVar.a.a.set(1);
-                qsbVar.a.a(8002005);
-                qsbVar.a.b = null;
-            }
-        }
-    }
-
-    public final void b(int i) {
-        a aVar;
-        int i2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (aVar = this.b) != null) {
-            qsb qsbVar = (qsb) aVar;
-            AtomicInteger atomicInteger = qsbVar.a.a;
-            if (i == HonorPushErrorEnum.ERROR_SERVICE_TIME_OUT.statusCode) {
-                i2 = 2;
-            } else {
-                i2 = 1;
-            }
-            atomicInteger.set(i2);
-            qsbVar.a.a(i);
-            qsbVar.a.b = null;
-        }
-    }
-
-    @Override // android.content.ServiceConnection
-    public void onServiceDisconnected(ComponentName componentName) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, componentName) == null) {
-            Log.i("AIDLSrvConnection", "enter onServiceDisconnected.");
-            a aVar = this.b;
-            if (aVar != null) {
-                qsb qsbVar = (qsb) aVar;
-                qsbVar.a.a.set(1);
-                qsbVar.a.a(8002002);
-                qsbVar.a.b = null;
-            }
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            try {
-                Log.i("AIDLSrvConnection", "trying to unbind service from " + this);
-                zrb.e.a().unbindService(this);
-            } catch (Exception e2) {
-                String str = "on unBind service exception:" + e2.getMessage();
-            }
-        }
-    }
-
-    @Override // android.content.ServiceConnection
-    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, componentName, iBinder) == null) {
-            Log.i("AIDLSrvConnection", "enter onServiceConnected.");
-            a();
-            a aVar = this.b;
-            if (aVar != null) {
-                qsb qsbVar = (qsb) aVar;
-                qsbVar.a.b = IPushInvoke.Stub.asInterface(iBinder);
-                if (qsbVar.a.b == null) {
-                    qsbVar.a.d.c();
-                    qsbVar.a.a.set(1);
-                    qsbVar.a.a(8002001);
-                    return;
-                }
-                qsbVar.a.a.set(3);
-                osb.a aVar2 = qsbVar.a.c;
-                if (aVar2 != null) {
-                    ksb.a aVar3 = (ksb.a) aVar2;
-                    if (Looper.myLooper() == aVar3.f.a.getLooper()) {
-                        aVar3.d();
-                    } else {
-                        aVar3.f.a.post(new hsb(aVar3));
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            if (d == null) {
+                synchronized (usb.class) {
+                    if (d == null) {
+                        d = new usb(context);
+                        wsb.c(context);
                     }
                 }
             }
+            return d;
+        }
+        return (usb) invokeL.objValue;
+    }
+
+    public void e(tsb tsbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tsbVar) == null) {
+            vsb vsbVar = new vsb();
+            vsbVar.b(1);
+            vsbVar.a(false);
+            d(vsbVar, tsbVar, Looper.getMainLooper());
+        }
+    }
+
+    public void d(vsb vsbVar, tsb tsbVar, Looper looper) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, vsbVar, tsbVar, looper) == null) {
+            atb.o().i(this.a, looper, new a(this, tsbVar));
         }
     }
 }

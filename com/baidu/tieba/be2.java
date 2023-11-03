@@ -1,18 +1,13 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Bundle;
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.swan.apps.env.launch.SwanLauncher;
-import com.baidu.swan.apps.favordata.SwanFavorDataManager;
-import com.baidu.tieba.n22;
-import com.baidu.tieba.zd2;
+import com.baidu.searchbox.v8engine.V8Engine;
+import com.baidu.searchbox.v8engine.V8ExceptionInfo;
+import com.baidu.searchbox.v8engine.event.EventTarget;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,138 +15,96 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class be2 implements zd2.d {
+public class be2 implements V8Engine.JavaScriptExceptionDelegate {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public zd2 a;
-    public volatile boolean b;
-    public final boolean c;
+    public od2 a;
+    public String b;
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final boolean d;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ar1 a;
-
-        public a(be2 be2Var, ar1 ar1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {be2Var, ar1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ar1Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.b();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(be2 be2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {be2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                wo2.s0().b();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ Bundle b;
-        public final /* synthetic */ be2 c;
-
-        public c(be2 be2Var, int i, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {be2Var, Integer.valueOf(i), bundle};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = be2Var;
-            this.a = i;
-            this.b = bundle;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (be2.d) {
-                    Log.d("SwanAppEnv", "zygoteSwanProcess delay - run. switch: " + this.a);
-                }
-                n23.k(this.c.a(), this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class d {
-        public static /* synthetic */ Interceptable $ic;
-        public static final be2 a;
-        public transient /* synthetic */ FieldHolder $fh;
+        public JSEvent a;
+        public String b;
+        public String c;
 
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-921788390, "Lcom/baidu/tieba/be2$d;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-921788483, "Lcom/baidu/tieba/be2$a;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-921788390, "Lcom/baidu/tieba/be2$d;");
+                    classClinitInterceptable.invokePostClinit(-921788483, "Lcom/baidu/tieba/be2$a;");
                     return;
                 }
             }
-            a = new be2(null);
+            d = rm1.a;
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.a = new JSEvent("error");
+        }
+
+        public JSEvent a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("message", this.b);
+                    jSONObject.put("stack", this.c);
+                } catch (JSONException e) {
+                    if (d) {
+                        Log.e("V8Exception", Log.getStackTraceString(e));
+                    }
+                }
+                if (jSONObject.length() > 0) {
+                    this.a.data = jSONObject;
+                }
+                return this.a;
+            }
+            return (JSEvent) invokeV.objValue;
+        }
+
+        public a b(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                this.b = str;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a c(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+                this.c = str;
+                return this;
+            }
+            return (a) invokeL.objValue;
         }
     }
 
@@ -168,42 +121,15 @@ public final class be2 implements zd2.d {
                 return;
             }
         }
-        d = am1.a;
+        boolean z = rm1.a;
     }
 
-    public static be2 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return d.a;
-        }
-        return (be2) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.xd2
-    @NonNull
-    public Context a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return AppRuntime.getAppContext();
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public zd2 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (zd2) invokeV.objValue;
-    }
-
-    public be2() {
+    public be2(od2 od2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {od2Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -213,83 +139,49 @@ public final class be2 implements zd2.d {
                 return;
             }
         }
-        this.b = false;
-        wo2.g0().getSwitch("swan_env_init_thread_pool_optimize", true);
-        this.c = true;
-        this.a = new zd2(this);
-        cj2.i();
-        SwanFavorDataManager.h();
-        cg2.d().f();
+        this.b = "";
+        this.a = od2Var;
     }
 
-    public /* synthetic */ be2(a aVar) {
-        this();
-    }
-
-    public void e(Bundle bundle) {
+    public final void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) && !this.b) {
-            synchronized (this) {
-                if (!this.b) {
-                    f(bundle);
-                    this.b = true;
-                }
-            }
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, str2) != null) || this.a.m() == null) {
+            return;
         }
+        EventTarget m = this.a.m();
+        a aVar = new a();
+        aVar.b(str + "\n" + str2);
+        aVar.c("");
+        m.dispatchEvent(aVar.a());
     }
 
-    public final void f(Bundle bundle) {
+    @Override // com.baidu.searchbox.v8engine.V8Engine.JavaScriptExceptionDelegate
+    @SuppressLint({"SwanDebugLog"})
+    public void onV8ExceptionCallBack(V8ExceptionInfo v8ExceptionInfo) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
-            g(bundle);
-            SwanLauncher.j().l(null);
-            n22.b.c();
-            qj3.a();
-            if (d) {
-                Log.d("SwanAppEnv", "swan_env_init_thread_pool_optimize: " + this.c);
-            }
-            if (this.c) {
-                ExecutorUtilsExt.postOnElastic(new a(this, wo2.s0()), "requestBatchRebateInfo", 2);
-            } else {
-                ExecutorUtilsExt.postOnElastic(new b(this), "requestBatchRebateInfo", 2);
-            }
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v8ExceptionInfo) != null) || v8ExceptionInfo == null) {
+            return;
         }
-    }
-
-    public final void g(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
-            if (d) {
-                Log.d("SwanAppEnv", "preloadSwanAppZygoteProcess");
-            }
-            tp1 g = wo2.g();
-            if (g == null) {
-                return;
-            }
-            int a2 = g.a();
-            if (d) {
-                Log.d("SwanAppEnv", "zygoteSwanProcess switch : " + a2);
-            }
-            if (g.e()) {
-                return;
-            }
-            if (bundle == null) {
-                bundle = new Bundle();
-            }
-            if (TextUtils.isEmpty(bundle.getString("bundle_key_preload_preload_scene"))) {
-                bundle.putString("bundle_key_preload_preload_scene", "0");
-            }
-            if (bundle.getBoolean("bundle_key_preload_delay", false) && g.f()) {
-                if (d) {
-                    Log.d("SwanAppEnv", "zygoteSwanProcess delay - start. switch: " + a2);
-                }
-                jj3.b0(new c(this, a2, bundle), wo2.g().c());
-                return;
-            }
-            if (d) {
-                Log.d("SwanAppEnv", "zygoteSwanProcess start. switch: " + a2);
-            }
-            n23.k(a(), bundle);
+        String str2 = "";
+        if (TextUtils.isEmpty(v8ExceptionInfo.exceptionMsg)) {
+            str = "";
+        } else {
+            str = v8ExceptionInfo.exceptionMsg;
         }
+        if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionTrace)) {
+            str2 = v8ExceptionInfo.exceptionTrace;
+        }
+        Log.e("V8Exception", this.a.k0() + "msg: " + str + " ,stack: " + str2);
+        this.a.w().a(str);
+        if ((TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) || this.b.equals(str)) {
+            return;
+        }
+        this.b = str;
+        a(str, str2);
+        sn1 j = op2.j();
+        j.e(str + ParamableElem.DIVIDE_PARAM + str2);
+        ad3.b(v8ExceptionInfo);
+        op2.i().r(v8ExceptionInfo);
     }
 }

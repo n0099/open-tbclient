@@ -1,72 +1,81 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.searchbox.retrieve.file.util.AESUtil;
+import android.app.Activity;
+import android.content.Context;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.common.internal.TransactionIdCreater;
-import java.nio.charset.Charset;
-import javax.crypto.Cipher;
-import javax.crypto.spec.SecretKeySpec;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.CustomInflater;
+import com.fun.ad.sdk.ExpressInflater;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
 /* loaded from: classes8.dex */
-public class syb {
+public class syb extends FunNativeAd2Bridger<ayb, View> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public FunAdInteractionListener b;
+    public final /* synthetic */ Context c;
+    public final /* synthetic */ String d;
+    public final /* synthetic */ pyb e;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public syb(pyb pybVar, ReporterPidLoader reporterPidLoader, Context context, String str) {
+        super(reporterPidLoader);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            try {
-                return b(str, "1234567890abcdef");
-            } catch (Exception unused) {
-                Log.e("AesUtils", "AesUtils.aesEncrypt fail@encryptStr:{} error:" + str);
-                if (str.isEmpty()) {
-                    return "";
-                }
-                return str;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pybVar, reporterPidLoader, context, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((ReporterPidLoader) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (String) invokeL.objValue;
+        this.e = pybVar;
+        this.c = context;
+        this.d = str;
     }
 
-    public static String b(String str, String str2) throws Exception {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            return d(c(str, str2));
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static byte[] c(String str, String str2) throws Exception {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            Cipher cipher = Cipher.getInstance(AESUtil.ECB_TRANSFORMATION);
-            cipher.init(1, new SecretKeySpec(str2.getBytes(), "AES"));
-            return cipher.doFinal(str.getBytes(Charset.forName("UTF-8")));
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public static String d(byte[] bArr) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public View createExpressView(ayb aybVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            char[] cArr = {TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
-            int length = bArr.length;
-            char[] cArr2 = new char[length << 1];
-            int i = 0;
-            for (int i2 = 0; i2 < length; i2++) {
-                int i3 = i + 1;
-                cArr2[i] = cArr[(bArr[i2] & 240) >>> 4];
-                i = i3 + 1;
-                cArr2[i3] = cArr[bArr[i2] & 15];
-            }
-            return new String(cArr2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aybVar)) == null) {
+            ayb aybVar2 = aybVar;
+            return nxb.a(this.c, aybVar2.a, new ryb(this, aybVar2));
         }
-        return (String) invokeL.objValue;
+        return (View) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, ayb aybVar, BaseNativeAd2<ayb, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, aybVar, baseNativeAd2, funAdInteractionListener}) == null) {
+            this.e.f(aybVar, str, customInflater.inflate(), customInflater.getClickViews(), customInflater.getCreativeViews(), funAdInteractionListener);
+        }
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, ayb aybVar, BaseNativeAd2<ayb, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, aybVar, baseNativeAd2, funAdInteractionListener}) == null) {
+            this.e.onShowStart(aybVar);
+            this.b = funAdInteractionListener;
+            expressInflater.inflate();
+        }
     }
 }

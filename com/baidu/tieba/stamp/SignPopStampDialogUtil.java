@@ -18,11 +18,11 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.data.IconPopData;
-import com.baidu.tieba.nba;
-import com.baidu.tieba.oba;
-import com.baidu.tieba.pba;
+import com.baidu.tieba.soa;
 import com.baidu.tieba.stamp.SignPopStampDialogUtil;
 import com.baidu.tieba.stamp.view.NewStyleStampDialogView;
+import com.baidu.tieba.toa;
+import com.baidu.tieba.uoa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -91,16 +91,16 @@ public class SignPopStampDialogUtil {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BdDimDialog a;
-        public final /* synthetic */ nba b;
+        public final /* synthetic */ soa b;
         public final /* synthetic */ Activity c;
         public final /* synthetic */ SignPopStampDialogUtil d;
 
-        public b(SignPopStampDialogUtil signPopStampDialogUtil, BdDimDialog bdDimDialog, nba nbaVar, Activity activity) {
+        public b(SignPopStampDialogUtil signPopStampDialogUtil, BdDimDialog bdDimDialog, soa soaVar, Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {signPopStampDialogUtil, bdDimDialog, nbaVar, activity};
+                Object[] objArr = {signPopStampDialogUtil, bdDimDialog, soaVar, activity};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -112,7 +112,7 @@ public class SignPopStampDialogUtil {
             }
             this.d = signPopStampDialogUtil;
             this.a = bdDimDialog;
-            this.b = nbaVar;
+            this.b = soaVar;
             this.c = activity;
         }
 
@@ -121,13 +121,13 @@ public class SignPopStampDialogUtil {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.dismiss();
-                pba pbaVar = new pba();
-                nba nbaVar = this.b;
-                if (nbaVar != null) {
-                    pbaVar.g(nbaVar.a());
-                    pbaVar.h(this.b.b());
+                uoa uoaVar = new uoa();
+                soa soaVar = this.b;
+                if (soaVar != null) {
+                    uoaVar.g(soaVar.a());
+                    uoaVar.h(this.b.b());
                 }
-                new oba(this.c, pbaVar).a();
+                new toa(this.c, uoaVar).a();
                 this.d.statisticStampShareClick();
                 if (this.d.mClickCallBack != null) {
                     this.d.mClickCallBack.shareBtn();
@@ -204,10 +204,10 @@ public class SignPopStampDialogUtil {
         }
     }
 
-    private BdDimDialog showStampDialog(nba nbaVar) {
+    private BdDimDialog showStampDialog(soa soaVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, nbaVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, soaVar)) == null) {
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             final TbPageContext tbPageContext = null;
             if (currentActivity == null) {
@@ -217,7 +217,7 @@ public class SignPopStampDialogUtil {
                 tbPageContext = ((TbPageContextSupport) currentActivity).getPageContext();
             }
             NewStyleStampDialogView newStyleStampDialogView = new NewStyleStampDialogView(currentActivity);
-            newStyleStampDialogView.setStampData(nbaVar);
+            newStyleStampDialogView.setStampData(soaVar);
             final BdDimDialog bdDimDialog = new BdDimDialog(currentActivity);
             bdDimDialog.setContentView(newStyleStampDialogView);
             bdDimDialog.setOnDismissListener(this.onDismissListener);
@@ -229,7 +229,7 @@ public class SignPopStampDialogUtil {
             }
             statisticStampDialogShow();
             newStyleStampDialogView.getImgStampDialogCancelView().setOnClickListener(new a(this, bdDimDialog));
-            newStyleStampDialogView.getStampDialogLookView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.mba
+            newStyleStampDialogView.getStampDialogLookView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.roa
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -241,7 +241,7 @@ public class SignPopStampDialogUtil {
                     }
                 }
             });
-            newStyleStampDialogView.getStampDialogShareView().setOnClickListener(new b(this, bdDimDialog, nbaVar, currentActivity));
+            newStyleStampDialogView.getStampDialogShareView().setOnClickListener(new b(this, bdDimDialog, soaVar, currentActivity));
             return bdDimDialog;
         }
         return (BdDimDialog) invokeL.objValue;
@@ -264,12 +264,12 @@ public class SignPopStampDialogUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iconPopData)) == null) {
             if (iconPopData != null && iconPopData.getPic160() != null && iconPopData.getTitle() != null) {
-                nba nbaVar = new nba();
+                soa soaVar = new soa();
                 String pic160 = iconPopData.getPic160();
-                nbaVar.d(iconPopData.getTitle());
-                nbaVar.c(pic160);
+                soaVar.d(iconPopData.getTitle());
+                soaVar.c(pic160);
                 PollingModel.setIconPopData(iconPopData, true);
-                return showStampDialog(nbaVar);
+                return showStampDialog(soaVar);
             }
             return null;
         }

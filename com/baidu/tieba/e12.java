@@ -1,151 +1,93 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.searchbox.appframework.AppFrameworkConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class e12 extends g12 {
+public class e12 extends x12 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public JSONObject j;
-    public int k;
-    public int l;
-    public int m;
-    public int n;
-    public JSONArray o;
-    public float p;
-    @Nullable
-    public JSONObject q;
-    public long r;
-    public String s;
+    public boolean j;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947681411, "Lcom/baidu/tieba/e12;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947681411, "Lcom/baidu/tieba/e12;");
+                return;
+            }
+        }
+        boolean z = rm1.a;
+    }
+
+    @Override // com.baidu.tieba.x12, com.baidu.tieba.fw2
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!TextUtils.isEmpty(this.b) && !TextUtils.isEmpty(this.c)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e12(String str, @NonNull String str2) {
-        super(str, str2);
+    public e12(String str) {
+        super("canvas", "canvasId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((String) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.k = 0;
-        this.m = 0;
-        this.p = -1.0f;
-        this.s = "";
+        this.j = false;
+        try {
+            a(new JSONObject(str));
+        } catch (JSONException e) {
+            g32.d("Canvas", "parsing CanvasBasicthis occurs exception", e);
+        }
     }
 
-    @Override // com.baidu.tieba.g12, com.baidu.tieba.ov2
+    @Override // com.baidu.tieba.x12, com.baidu.tieba.fw2
     public void a(JSONObject jSONObject) throws JSONException {
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        super.a(jSONObject);
-        this.j = jSONObject.optJSONObject("style");
-        this.q = jSONObject.optJSONObject(AnimatedStateListDrawableCompat.ELEMENT_TRANSITION);
-        i();
-        h();
-    }
-
-    @Override // com.baidu.tieba.g12
-    public void g(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            super.g(jSONObject);
-            i();
-            h();
-        }
-    }
-
-    @Override // com.baidu.tieba.g12
-    public Object clone() throws CloneNotSupportedException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            e12 e12Var = (e12) super.clone();
-            if (this.j != null) {
-                try {
-                    e12Var.j = new JSONObject(this.j.toString());
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            super.a(jSONObject);
+            if (!TextUtils.equals(jSONObject.optString("hide"), "1") && !jSONObject.optBoolean("hide")) {
+                z = false;
+            } else {
+                z = true;
             }
-            if (this.o != null) {
-                try {
-                    e12Var.o = new JSONArray(this.o.toString());
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                }
-            }
-            if (this.q != null) {
-                try {
-                    e12Var.q = new JSONObject(this.q.toString());
-                } catch (JSONException e3) {
-                    e3.printStackTrace();
-                }
-            }
-            return e12Var;
-        }
-        return invokeV.objValue;
-    }
-
-    public final void h() {
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (jSONObject = this.q) != null) {
-            try {
-                this.r = Long.parseLong(jSONObject.optString("duration"));
-            } catch (Exception unused) {
-                p22.b("Component-Model-View", "duration occurs exception");
-                this.r = 0L;
-            }
-            this.s = this.q.optString("easing");
-        }
-    }
-
-    public final void i() {
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (jSONObject = this.j) != null) {
-            try {
-                this.k = Color.parseColor(jSONObject.optString("bgColor"));
-            } catch (Exception unused) {
-                p22.b("Component-Model-View", "backgroundColor occurs exception");
-                this.k = 0;
-            }
-            this.l = this.j.optInt("borderWidth");
-            try {
-                this.m = Color.parseColor(this.j.optString("borderColor"));
-            } catch (Exception unused2) {
-                p22.b("Component-Model-View", "borderColor occurs exception");
-                this.m = 0;
-            }
-            this.n = gj3.g(this.j.optInt("borderRadius"));
-            this.p = pi3.b(this.j, NativeConstants.OPACITY, -1.0f);
-            this.o = this.j.optJSONArray(CriusAttrConstants.PADDING);
+            this.f = z;
+            this.j = !TextUtils.equals(jSONObject.optString("disableScroll"), "0");
+            this.g = !TextUtils.equals(jSONObject.optString(AppFrameworkConstants.VALUE_GESTURE_BACK), "0");
         }
     }
 }

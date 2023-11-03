@@ -6,15 +6,91 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
+import org.json.JSONObject;
+import tbclient.ForumShowInfo;
+import tbclient.ForumShowInfoTag;
+import tbclient.ThemeColorInfo;
+/* loaded from: classes7.dex */
 public class kx4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
+    public String a;
     public String b;
-    public String c;
-    public String d;
-    public long e;
+    public long c;
+    public a d;
+
+    /* loaded from: classes7.dex */
+    public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public ThemeColorInfo a;
+        public ThemeColorInfo b;
+        public String c;
+
+        public a(kx4 kx4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kx4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public void e(ForumShowInfoTag forumShowInfoTag) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048580, this, forumShowInfoTag) != null) || forumShowInfoTag == null) {
+                return;
+            }
+            this.c = forumShowInfoTag.text;
+            this.a = forumShowInfoTag.text_color;
+            this.b = forumShowInfoTag.bg_color;
+        }
+
+        public ThemeColorInfo a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.b;
+            }
+            return (ThemeColorInfo) invokeV.objValue;
+        }
+
+        public String b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.c;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public ThemeColorInfo c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.a;
+            }
+            return (ThemeColorInfo) invokeV.objValue;
+        }
+
+        public void d(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
+                return;
+            }
+            this.c = jSONObject.optString("text");
+            this.a = c1b.j(jSONObject.optJSONObject(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR));
+            this.b = c1b.j(jSONObject.optJSONObject("bg_color"));
+        }
+    }
 
     public kx4() {
         Interceptable interceptable = $ic;
@@ -26,85 +102,82 @@ public class kx4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = -1L;
-        this.b = null;
-        this.c = null;
-        this.d = "";
-        this.e = -1L;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+            return this.a;
         }
         return (String) invokeV.objValue;
     }
 
-    public String b() {
+    public a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return (a) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.b;
         }
         return (String) invokeV.objValue;
     }
 
-    public long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return invokeV.longValue;
-    }
-
-    public String d() {
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
-        }
-        return invokeV.longValue;
-    }
-
-    public kx4(long j, long j2, String str, String str2, String str3, long j3) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), str, str2, str3, Long.valueOf(j3)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+            if (!qd.isEmpty(this.a) && this.c > 0) {
+                return true;
             }
+            return false;
         }
-        this.a = -1L;
-        this.b = null;
-        this.c = null;
-        this.d = "";
-        this.e = -1L;
-        this.a = j;
-        this.e = j2;
-        this.b = str;
-        this.c = str2;
-        this.d = str3;
+        return invokeV.booleanValue;
+    }
+
+    public void e(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        this.a = jSONObject.optString("content");
+        this.c = jSONObject.optLong("show_type", -1L);
+        JSONObject optJSONObject = jSONObject.optJSONObject("tag");
+        if (optJSONObject != null) {
+            a aVar = new a(this);
+            this.d = aVar;
+            aVar.d(optJSONObject);
+        }
+    }
+
+    public void f(ForumShowInfo forumShowInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, forumShowInfo) != null) || forumShowInfo == null) {
+            return;
+        }
+        this.a = forumShowInfo.content;
+        this.c = forumShowInfo.show_type.longValue();
+        if (forumShowInfo.tag != null) {
+            a aVar = new a(this);
+            this.d = aVar;
+            aVar.e(forumShowInfo.tag);
+        }
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.b = str;
+        }
     }
 }

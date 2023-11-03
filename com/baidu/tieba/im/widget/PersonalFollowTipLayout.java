@@ -26,9 +26,9 @@ import com.baidu.tbadk.core.view.FollowUserButton;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c65;
 import com.baidu.tieba.im.chat.MsglistActivity;
-import com.baidu.tieba.z45;
+import com.baidu.tieba.t55;
+import com.baidu.tieba.w65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,7 +44,7 @@ public class PersonalFollowTipLayout extends RelativeLayout {
     public TextView d;
     public ImageView e;
     public FollowUserButton f;
-    public c65 g;
+    public w65 g;
     public UserData h;
 
     /* loaded from: classes6.dex */
@@ -237,9 +237,9 @@ public class PersonalFollowTipLayout extends RelativeLayout {
     public void f(BdPageContext<MsglistActivity<?>> bdPageContext) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, bdPageContext) == null) && (bdPageContext instanceof TbPageContext)) {
-            c65 c65Var = new c65((TbPageContext) bdPageContext, this.f);
-            this.g = c65Var;
-            c65Var.i(true);
+            w65 w65Var = new w65((TbPageContext) bdPageContext, this.f);
+            this.g = w65Var;
+            w65Var.i(true);
         }
     }
 
@@ -270,7 +270,7 @@ public class PersonalFollowTipLayout extends RelativeLayout {
             this.c.setRadius(BdUtilHelper.getDimens(getContext(), R.dimen.tbds83));
             this.c.setConrers(15);
             this.c.setPlaceHolder(1);
-            this.c.setDefaultResource(R.drawable.obfuscated_res_0x7f0811cb);
+            this.c.setDefaultResource(R.drawable.obfuscated_res_0x7f0811e1);
             h();
         }
     }
@@ -282,7 +282,7 @@ public class PersonalFollowTipLayout extends RelativeLayout {
                 this.h = userData;
                 if (i()) {
                     userData.setIsLike(false);
-                    this.g.l(userData);
+                    this.g.m(userData);
                     j(userData);
                     this.c.startLoad(userData.getPortrait(), 12, false);
                     return;
@@ -341,12 +341,12 @@ public class PersonalFollowTipLayout extends RelativeLayout {
     public final void j(@NonNull UserData userData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, userData) == null) {
-            z45 z45Var = new z45();
-            z45Var.j(R.drawable.icon_pure_follow26, 0, TBSpecificationButtonConfig.IconType.WEBP);
-            z45Var.i(R.color.CAM_X0101);
-            z45Var.h(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds24));
-            z45Var.g(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));
-            this.f.setConfig(z45Var);
+            t55 t55Var = new t55();
+            t55Var.j(R.drawable.icon_pure_follow26, 0, TBSpecificationButtonConfig.IconType.WEBP);
+            t55Var.i(R.color.CAM_X0101);
+            t55Var.h(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds24));
+            t55Var.g(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));
+            this.f.setConfig(t55Var);
             this.f.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             if (userData.getRelation() == 0) {
                 this.f.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ec));

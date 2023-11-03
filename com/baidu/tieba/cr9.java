@@ -1,84 +1,66 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.content.Context;
+import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PbHistoryActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonBarActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.mvc.message.ReadCacheMessage;
-import com.baidu.tbadk.mvc.message.ReadCacheRespMsg;
-import com.baidu.tbadk.mvc.message.WriteCacheMessage;
-import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
-import com.baidu.tbadk.mvc.model.CacheModel;
-import com.baidu.tieba.myCollection.baseHistory.PbHistoryCacheModel;
-import com.baidu.tieba.myCollection.baseHistory.PbHistoryData;
-import com.baidu.tieba.redtip.PersonRedTipManager;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.view.FriendBotView;
+import com.baidu.tieba.pb.bot.BotEntranceManager;
+import com.baidu.tieba.pb.pb.main.PbActivity;
+import com.baidu.tieba.pb.pb.main.PbFragment;
+import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.CallRobotEntrance;
+import tbclient.RobotEntrance;
+import tbclient.RobotSkill;
+import tbclient.RobotSkillInfo;
+import tbclient.StyleConf;
+import tbclient.StyleConfExtra;
 /* loaded from: classes5.dex */
-public class cr9 extends cj6<mq9> {
+public final class cr9 extends g15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView i;
-    public TextView j;
-    public TextView k;
-    public TextView l;
-    public TextView m;
-    public TextView n;
-    public TextView o;
-    public TextView p;
-    public LinearLayout q;
-    public LinearLayout r;
-    public LinearLayout s;
-    public LinearLayout t;
-    public UserData u;
-    public int v;
-    public int w;
 
-    @Override // com.baidu.tieba.cj6
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d07c9 : invokeV.intValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947684511, "Lcom/baidu/tieba/cr9;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947684511, "Lcom/baidu/tieba/cr9;");
+        }
     }
 
     /* loaded from: classes5.dex */
-    public class a implements CacheModel.CacheModelCallback<PbHistoryData> {
+    public static final class a implements jr9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cr9 a;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ c b;
 
-        @Override // com.baidu.tbadk.mvc.model.CacheModel.CacheModelCallback
-        public void onCacheDataWrite(WriteCacheRespMsg<List<PbHistoryData>> writeCacheRespMsg, WriteCacheMessage<PbHistoryData> writeCacheMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeCacheRespMsg, writeCacheMessage) == null) {
-            }
-        }
-
-        public a(cr9 cr9Var) {
+        public a(Context context, c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cr9Var};
+                Object[] objArr = {context, cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -88,127 +70,245 @@ public class cr9 extends cj6<mq9> {
                     return;
                 }
             }
-            this.a = cr9Var;
+            this.a = context;
+            this.b = cVar;
         }
 
-        @Override // com.baidu.tbadk.mvc.model.CacheModel.CacheModelCallback
-        public void onCacheDataGet(ReadCacheRespMsg<List<PbHistoryData>> readCacheRespMsg, ReadCacheMessage<PbHistoryData> readCacheMessage) {
+        @Override // com.baidu.tieba.jr9
+        public void onDismiss() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, readCacheRespMsg, readCacheMessage) == null) && readCacheRespMsg != null && readCacheRespMsg.getData() != null) {
-                this.a.m.setText(Integer.toString(readCacheRespMsg.getData().size()));
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.onDismiss();
+            }
+        }
+
+        @Override // com.baidu.tieba.jr9
+        public void onShow() {
+            ix9 W6;
+            FriendBotView V0;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                PbFragment Y1 = ((PbActivity) this.a).Y1();
+                if (Y1 != null && (W6 = Y1.W6()) != null && (V0 = W6.V0()) != null) {
+                    V0.setDynamicLooping(false);
+                }
+                this.b.onShow();
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cr9(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    /* loaded from: classes5.dex */
+    public static final class b implements jr9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ c b;
+
+        public b(Context context, c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+            this.b = cVar;
+        }
+
+        @Override // com.baidu.tieba.jr9
+        public void onDismiss() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.onDismiss();
+            }
+        }
+
+        @Override // com.baidu.tieba.jr9
+        public void onShow() {
+            ix9 W6;
+            FriendBotView V0;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                PbFragment Y1 = ((PbActivity) this.a).Y1();
+                if (Y1 != null && (W6 = Y1.W6()) != null && (V0 = W6.V0()) != null) {
+                    V0.setDynamicLooping(true);
+                }
+                this.b.onShow();
+                SharedPrefHelper.getInstance().putLong("pb_friend_bot_bottom_click_last_time", System.currentTimeMillis());
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class c implements jr9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+
+        public c(Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+        }
+
+        @Override // com.baidu.tieba.jr9
+        public void onDismiss() {
+            ix9 W6;
+            FriendBotView V0;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                PbFragment Y1 = ((PbActivity) this.a).Y1();
+                if (Y1 != null && (W6 = Y1.W6()) != null && (V0 = W6.V0()) != null) {
+                    V0.x();
+                }
+                YunDialogManager.unMarkShowingDialogName("pbFriendBotBottomNoUse");
+            }
+        }
+
+        @Override // com.baidu.tieba.jr9
+        public void onShow() {
+            ix9 W6;
+            FriendBotView V0;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                PbFragment Y1 = ((PbActivity) this.a).Y1();
+                if (Y1 != null && (W6 = Y1.W6()) != null && (V0 = W6.V0()) != null) {
+                    V0.r();
+                }
+                er9.a.a();
+                SharedPrefHelper.getInstance().putInt("pb_friend_bot_bottom_no_use_count", SharedPrefHelper.getInstance().getInt("pb_friend_bot_bottom_no_use_count", 0) + 1);
+            }
+        }
+    }
+
+    public cr9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-        }
-        this.v = 3;
-        this.w = 0;
-        View i3 = i();
-        this.i = (TextView) i3.findViewById(R.id.obfuscated_res_0x7f0902ea);
-        this.j = (TextView) i3.findViewById(R.id.obfuscated_res_0x7f0902eb);
-        this.k = (TextView) i3.findViewById(R.id.obfuscated_res_0x7f092540);
-        this.l = (TextView) i3.findViewById(R.id.thread_title);
-        this.m = (TextView) i3.findViewById(R.id.obfuscated_res_0x7f090f69);
-        this.n = (TextView) i3.findViewById(R.id.obfuscated_res_0x7f090f6a);
-        this.o = (TextView) i3.findViewById(R.id.obfuscated_res_0x7f090756);
-        this.p = (TextView) i3.findViewById(R.id.obfuscated_res_0x7f090757);
-        this.q = (LinearLayout) i3.findViewById(R.id.obfuscated_res_0x7f0902e9);
-        this.r = (LinearLayout) i3.findViewById(R.id.obfuscated_res_0x7f092512);
-        this.t = (LinearLayout) i3.findViewById(R.id.obfuscated_res_0x7f090f68);
-        this.s = (LinearLayout) i3.findViewById(R.id.obfuscated_res_0x7f090755);
-    }
-
-    @Override // com.baidu.tieba.cj6
-    public void k(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) && this.v != i) {
-            EMManager.from(i()).setCorner(R.string.J_X14).setCardType(1).setBackGroundColor(R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.n, (int) R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.o, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.p, (int) R.color.CAM_X0109);
-            this.v = i;
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public static final void b(Context context, c onDialogVisibleListener) {
+        ix9 W6;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, view2) != null) || view2 == null) {
-            return;
-        }
-        if (view2.getId() == R.id.obfuscated_res_0x7f090afd) {
-            if (this.u == null) {
-                return;
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, onDialogVisibleListener) == null) {
+            Intrinsics.checkNotNullParameter(context, "$context");
+            Intrinsics.checkNotNullParameter(onDialogVisibleListener, "$onDialogVisibleListener");
+            PbFragment Y1 = ((PbActivity) context).Y1();
+            if (Y1 != null && (W6 = Y1.W6()) != null) {
+                W6.j4(new a(context, onDialogVisibleListener));
             }
-            PersonRedTipManager.getInstance().updateRedTipState(2, false, true);
-            TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 6));
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.b.getPageActivity(), false, this.u.getUserId(), this.u.getSex()).updateBjhUser(this.u.isBaijiahaoUser())));
-        } else if (view2.getId() == R.id.obfuscated_res_0x7f0907a4) {
-            if (this.u == null) {
-                return;
-            }
-            TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 5));
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.b.getPageActivity(), true, this.u.getUserId(), this.u.getSex()).updateBjhUser(this.u.isBaijiahaoUser()).updateFollowNum(this.w, this.u.getPortrait())));
-        } else if (view2.getId() == R.id.obfuscated_res_0x7f0902e9) {
-            TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 7));
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonBarActivityConfig(this.b.getPageActivity(), this.u.getLike_bars(), this.u.getUserId(), this.u.getSex())));
-            TiebaStatic.log(new StatisticItem("c15316"));
-        } else if (view2.getId() == R.id.obfuscated_res_0x7f092512) {
-            TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 8));
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPostActivityConfig(this.b.getPageActivity(), this.u.getUserId(), this.u.getSex(), this.u.getPortrait())));
-            TiebaStatic.log(new StatisticItem("c15315"));
-        } else if (view2.getId() == R.id.obfuscated_res_0x7f090755) {
-            TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 9));
-            MessageManager.getInstance().sendMessage(new CustomMessage(2015005, new IntentConfig(c())));
-            TiebaStatic.log(new StatisticItem("c15317"));
-        } else if (view2.getId() == R.id.obfuscated_res_0x7f090f68) {
-            TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 10));
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PbHistoryActivityConfig(c())));
-            TiebaStatic.log(new StatisticItem("c15318"));
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cj6
-    /* renamed from: t */
-    public void j(mq9 mq9Var) {
+    @Override // com.baidu.tieba.g15
+    public void a(final Context context, u05 data) {
+        boolean z;
+        List<RobotSkillInfo> list;
+        List<RobotSkill> list2;
+        StyleConf styleConf;
+        StyleConfExtra styleConfExtra;
+        String str;
+        ix9 W6;
+        ds9 t1;
+        RobotEntrance K;
+        ds9 t12;
+        RobotEntrance K2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, mq9Var) == null) {
-            this.u = mq9Var.e;
-            this.w = mq9Var.a;
-            this.i.setText(Integer.toString(mq9Var.b));
-            this.k.setText(StringHelper.longNumFormatOver9999wan(mq9Var.c));
-            PbHistoryCacheModel pbHistoryCacheModel = new PbHistoryCacheModel(this.b);
-            pbHistoryCacheModel.setCallback(new a(this));
-            pbHistoryCacheModel.loadCache();
-            this.o.setText(Integer.toString(this.u.getFavoriteNum()));
-            this.q.setOnClickListener(this);
-            this.r.setOnClickListener(this);
-            this.t.setOnClickListener(this);
-            this.s.setOnClickListener(this);
-            k(h(), TbadkCoreApplication.getInst().getSkinType());
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, data) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(data, "data");
+            if (!(context instanceof PbActivity)) {
+                YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "pb好朋友bot底部N天未点击引导失败：当前Activity非PbActivity");
+                YunDialogManager.unMarkShowingDialogName("pbFriendBotBottomNoUse");
+                return;
+            }
+            final c cVar = new c(context);
+            boolean z2 = true;
+            if (BotEntranceManager.c.c().f().length() == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z && BotEntranceManager.c.c().g() != -1) {
+                PbActivity pbActivity = (PbActivity) context;
+                PbModel F1 = pbActivity.F1();
+                FriendBotView friendBotView = null;
+                if (F1 != null && (t12 = F1.t1()) != null && (K2 = t12.K()) != null) {
+                    list = K2.robot_skill_info;
+                } else {
+                    list = null;
+                }
+                PbModel F12 = pbActivity.F1();
+                if (F12 != null && (t1 = F12.t1()) != null && (K = t1.K()) != null) {
+                    list2 = K.bottom_bar_robot_skill;
+                } else {
+                    list2 = null;
+                }
+                if (!ListUtils.isEmpty(list) && !ListUtils.isEmpty(list2)) {
+                    BotEntranceManager c2 = BotEntranceManager.c.c();
+                    Intrinsics.checkNotNull(list);
+                    Intrinsics.checkNotNull(list2);
+                    CallRobotEntrance c3 = c2.c(list, list2);
+                    if (c3 != null && (styleConf = c3.style_conf) != null && (styleConfExtra = styleConf.android_extra) != null && (str = styleConfExtra.guide_content) != null) {
+                        if (str.length() != 0) {
+                            z2 = false;
+                        }
+                        if (z2) {
+                            YunDialogManager.unMarkShowingDialogName("pbFriendBotBottomNoUse");
+                            return;
+                        }
+                        PbFragment Y1 = pbActivity.Y1();
+                        if (Y1 != null && (W6 = Y1.W6()) != null) {
+                            friendBotView = W6.V0();
+                        }
+                        mr9.e(str, friendBotView, (BaseFragmentActivity) context, new b(context, cVar));
+                        return;
+                    }
+                    return;
+                }
+                YunDialogManager.unMarkShowingDialogName("pbFriendBotBottomNoUse");
+                return;
+            }
+            SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.br9
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        cr9.b(context, cVar);
+                    }
+                }
+            }, 1000L);
         }
     }
 }

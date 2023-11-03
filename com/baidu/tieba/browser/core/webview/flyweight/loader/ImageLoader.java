@@ -10,12 +10,12 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.mobads.sdk.internal.bx;
 import com.baidu.searchbox.bddownload.core.Util;
+import com.baidu.tieba.ak6;
 import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.tieba.ei6;
-import com.baidu.tieba.gg6;
+import com.baidu.tieba.ci6;
+import com.baidu.tieba.kh6;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.of6;
-import com.baidu.tieba.qg6;
+import com.baidu.tieba.mi6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,7 +31,7 @@ import java.util.Map;
 /* loaded from: classes5.dex */
 public class ImageLoader {
     public static /* synthetic */ Interceptable $ic;
-    public static final of6 a;
+    public static final kh6 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,7 +47,7 @@ public class ImageLoader {
                 return;
             }
         }
-        a = new of6();
+        a = new kh6();
     }
 
     public static WebResourceResponse a(String str, Map<String, String> map, Pair<InputStream, Long> pair) {
@@ -96,7 +96,7 @@ public class ImageLoader {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, map, pair)) == null) {
-            return a(ei6.b(str), map, pair);
+            return a(ak6.b(str), map, pair);
         }
         return (WebResourceResponse) invokeLLL.objValue;
     }
@@ -115,14 +115,14 @@ public class ImageLoader {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            qg6 f = gg6.e().f(str);
+            mi6 f = ci6.e().f(str);
             if (f == null) {
-                f = gg6.e().f(ei6.c(str2));
+                f = ci6.e().f(ak6.c(str2));
             }
             if (f == null) {
                 return null;
             }
-            String c = ei6.c(str2);
+            String c = ak6.c(str2);
             String str3 = "";
             for (String str4 : f.f) {
                 if (c.endsWith(str4)) {

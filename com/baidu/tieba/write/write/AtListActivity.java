@@ -55,13 +55,13 @@ import com.baidu.tbadk.core.view.TbCheckBox;
 import com.baidu.tbadk.data.AtSelectData;
 import com.baidu.tbadk.suspended.SuspendedActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ad;
-import com.baidu.tieba.ci;
-import com.baidu.tieba.eo5;
-import com.baidu.tieba.mwa;
-import com.baidu.tieba.twa;
+import com.baidu.tieba.n9b;
+import com.baidu.tieba.qd;
+import com.baidu.tieba.si;
+import com.baidu.tieba.u9b;
 import com.baidu.tieba.write.write.AtSelectFriendList;
-import com.baidu.tieba.yza;
+import com.baidu.tieba.yp5;
+import com.baidu.tieba.zcb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -71,7 +71,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Set;
 /* loaded from: classes8.dex */
-public class AtListActivity extends SuspendedActivity implements eo5, AdapterView.OnItemClickListener, yza.c {
+public class AtListActivity extends SuspendedActivity implements yp5, AdapterView.OnItemClickListener, zcb.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View A;
@@ -95,7 +95,7 @@ public class AtListActivity extends SuspendedActivity implements eo5, AdapterVie
     public String S;
 
     /* renamed from: T  reason: collision with root package name */
-    public boolean f1178T;
+    public boolean f1180T;
     public int U;
     public boolean V;
     public boolean W;
@@ -118,15 +118,15 @@ public class AtListActivity extends SuspendedActivity implements eo5, AdapterVie
     public LinearLayout t;
     public Button u;
     public l v;
-    public twa w;
-    public yza x;
+    public u9b w;
+    public zcb x;
     public String y;
     public RelativeLayout z;
 
-    @Override // com.baidu.tieba.eo5
-    public void A(int i2) {
+    @Override // com.baidu.tieba.yp5
+    public void D(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
         }
     }
 
@@ -138,12 +138,12 @@ public class AtListActivity extends SuspendedActivity implements eo5, AdapterVie
 
         /* renamed from: com.baidu.tieba.write.write.AtListActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class View$OnClickListenerC0508a implements View.OnClickListener {
+        public class View$OnClickListenerC0522a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0508a(a aVar) {
+            public View$OnClickListenerC0522a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -167,7 +167,7 @@ public class AtListActivity extends SuspendedActivity implements eo5, AdapterVie
                 if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
                     return;
                 }
-                this.a.a.o1();
+                this.a.a.m1();
             }
         }
 
@@ -199,7 +199,7 @@ public class AtListActivity extends SuspendedActivity implements eo5, AdapterVie
                 this.a.C.setVisibility(8);
                 if (this.a.e == null) {
                     AtListActivity atListActivity = this.a;
-                    atListActivity.e = atListActivity.m.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0596), new View$OnClickListenerC0508a(this));
+                    atListActivity.e = atListActivity.m.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0598), new View$OnClickListenerC0522a(this));
                 }
             }
         }
@@ -267,7 +267,7 @@ public class AtListActivity extends SuspendedActivity implements eo5, AdapterVie
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 AtListActivity atListActivity = this.a;
-                atListActivity.I2(ad.charSequence2String(atListActivity.n.getText(), ""));
+                atListActivity.M2(qd.charSequence2String(atListActivity.n.getText(), ""));
             }
         }
     }
@@ -347,10 +347,10 @@ public class AtListActivity extends SuspendedActivity implements eo5, AdapterVie
                         ((MetaData) obj).setChecked(false);
                         return;
                     }
-                    this.a.x2((MetaData) obj);
+                    this.a.B2((MetaData) obj);
                     return;
                 }
-                this.a.H2((MetaData) obj);
+                this.a.L2((MetaData) obj);
             }
         }
     }
@@ -489,7 +489,7 @@ public class AtListActivity extends SuspendedActivity implements eo5, AdapterVie
                     ((TbCheckBox) findViewWithTag).setChecked(false);
                 } else if (!(obj instanceof MetaData)) {
                 } else {
-                    this.a.H2((MetaData) obj);
+                    this.a.L2((MetaData) obj);
                 }
             }
         }
@@ -568,7 +568,7 @@ public class AtListActivity extends SuspendedActivity implements eo5, AdapterVie
         public void afterTextChanged(Editable editable) {
             String charSequence2String;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, editable) != null) || (charSequence2String = ad.charSequence2String(editable, null)) == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, editable) != null) || (charSequence2String = qd.charSequence2String(editable, null)) == null) {
                 return;
             }
             if (!charSequence2String.equals(this.a.y)) {
@@ -586,7 +586,7 @@ public class AtListActivity extends SuspendedActivity implements eo5, AdapterVie
         public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
-                this.a.y = ad.charSequence2String(charSequence, null);
+                this.a.y = qd.charSequence2String(charSequence, null);
             }
         }
     }
@@ -629,7 +629,7 @@ public class AtListActivity extends SuspendedActivity implements eo5, AdapterVie
     }
 
     /* loaded from: classes8.dex */
-    public class l extends BdAsyncTask<String, Integer, mwa> {
+    public class l extends BdAsyncTask<String, Integer, n9b> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
@@ -661,7 +661,7 @@ public class AtListActivity extends SuspendedActivity implements eo5, AdapterVie
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public mwa doInBackground(String... strArr) {
+        public n9b doInBackground(String... strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
@@ -686,41 +686,41 @@ public class AtListActivity extends SuspendedActivity implements eo5, AdapterVie
                     this.a.addPostData("choose_list", this.b.S);
                     this.a.addPostData("at_from", "chatroom");
                     NetWork netWork4 = this.a;
-                    if (!this.b.f1178T) {
+                    if (!this.b.f1180T) {
                         str2 = "0";
                     }
                     netWork4.addPostData("need_bot", str2);
                     this.a.addPostData("forum_id", this.b.Q);
                     this.a.addPostData("forum_name", this.b.R);
                     this.a.addPostData("rn", YYOption.UrlProtocol.USER);
-                    if (!ad.isEmpty(str)) {
+                    if (!qd.isEmpty(str)) {
                         this.a.addPostData(DownloadStatisticConstants.UBC_VALUE_WORD, str);
                     }
                 } else {
                     NetWork netWork5 = this.a;
                     netWork5.setUrl(TbConfig.SERVER_ADDRESS + "c/u/follow/atSearchUserList");
                     this.a.addPostData("rn", YYOption.UrlProtocol.USER);
-                    if (!ad.isEmpty(str)) {
+                    if (!qd.isEmpty(str)) {
                         this.a.addPostData(DownloadStatisticConstants.UBC_VALUE_WORD, str);
                     }
                 }
                 String postNetData = this.a.postNetData();
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    mwa mwaVar = new mwa();
-                    mwaVar.d(postNetData);
-                    return mwaVar;
+                    n9b n9bVar = new n9b();
+                    n9bVar.d(postNetData);
+                    return n9bVar;
                 }
                 return null;
             }
-            return (mwa) invokeL.objValue;
+            return (n9b) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(mwa mwaVar) {
+        public void onPostExecute(n9b n9bVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mwaVar) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n9bVar) == null) {
                 this.b.v = null;
                 AtListActivity atListActivity = this.b;
                 atListActivity.hideNetRefreshView(atListActivity.I);
@@ -728,14 +728,14 @@ public class AtListActivity extends SuspendedActivity implements eo5, AdapterVie
                     this.b.A.setVisibility(0);
                 }
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    this.b.w.b(mwaVar);
+                    this.b.w.b(n9bVar);
                     if (this.b.x == null) {
                         return;
                     }
-                    if (mwaVar != null) {
+                    if (n9bVar != null) {
                         AtListActivity atListActivity2 = this.b;
-                        atListActivity2.k = atListActivity2.F2(mwaVar);
-                        this.b.l = mwaVar.b();
+                        atListActivity2.k = atListActivity2.J2(n9bVar);
+                        this.b.l = n9bVar.b();
                     }
                     this.b.x.h(this.b.k);
                     this.b.x.notifyDataSetInvalidated();
@@ -745,7 +745,7 @@ public class AtListActivity extends SuspendedActivity implements eo5, AdapterVie
                     AtListActivity atListActivity3 = this.b;
                     atListActivity3.showNetRefreshView(atListActivity3.I, this.b.getString(R.string.refresh_view_title_text), null, this.b.getString(R.string.refresh_view_button_text), true, this.b.getNetRefreshListener());
                 }
-                super.onPostExecute(mwaVar);
+                super.onPostExecute(n9bVar);
             }
         }
 
@@ -796,7 +796,7 @@ public class AtListActivity extends SuspendedActivity implements eo5, AdapterVie
         this.K = false;
         this.L = false;
         this.M = false;
-        this.f1178T = true;
+        this.f1180T = true;
         this.U = 0;
         this.V = false;
         this.W = false;
@@ -804,34 +804,11 @@ public class AtListActivity extends SuspendedActivity implements eo5, AdapterVie
         this.a0 = new c(this);
     }
 
-    @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public void D1() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || isFinishing()) {
-            return;
-        }
-        this.x.h(null);
-        this.V = false;
-        if (this.w.a() != null) {
-            this.x.h(F2(this.w.a()));
-        } else {
-            this.x.h(null);
-            if (this.v == null) {
-                l lVar = new l(this, null);
-                this.v = lVar;
-                lVar.setPriority(3);
-                this.v.execute("");
-            }
-        }
-        this.x.notifyDataSetInvalidated();
-        this.r.setSelection(0);
-    }
-
-    public final void L2() {
+    public final void P2() {
         int i2;
         ArrayList<AtSelectData> arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             if (this.s.getItemLength() <= 0 && ((arrayList = this.X) == null || arrayList.size() <= 0)) {
                 if (this.W) {
                     this.u.setEnabled(true);
@@ -851,10 +828,42 @@ public class AtListActivity extends SuspendedActivity implements eo5, AdapterVie
         }
     }
 
-    public boolean D2(String str) {
+    @Override // com.baidu.tbadk.suspended.SuspendedActivity
+    public void x1() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048605, this) != null) || isFinishing()) {
+            return;
+        }
+        this.x.h(null);
+        this.V = false;
+        if (this.w.a() != null) {
+            this.x.h(J2(this.w.a()));
+        } else {
+            this.x.h(null);
+            if (this.v == null) {
+                l lVar = new l(this, null);
+                this.v = lVar;
+                lVar.setPriority(3);
+                this.v.execute("");
+            }
+        }
+        this.x.notifyDataSetInvalidated();
+        this.r.setSelection(0);
+    }
+
+    public final void B2(MetaData metaData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, metaData) == null) && metaData != null) {
+            this.s.e(metaData);
+            N2(this.s.getItemLength());
+            P2();
+        }
+    }
+
+    public boolean H2(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
             Set<String> set = this.l;
             if (set != null && set.size() > 0 && !StringUtils.isNull(str)) {
                 return this.l.contains(str);
@@ -864,60 +873,51 @@ public class AtListActivity extends SuspendedActivity implements eo5, AdapterVie
         return invokeL.booleanValue;
     }
 
-    public final void H2(MetaData metaData) {
+    public final void L2(MetaData metaData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, metaData) == null) && metaData != null) {
+        if ((interceptable == null || interceptable.invokeL(1048588, this, metaData) == null) && metaData != null) {
             this.s.m(metaData);
-            J2(this.s.getItemLength());
-            L2();
+            N2(this.s.getItemLength());
+            P2();
         }
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048597, this, bundle) == null) {
             super.onCreate(bundle);
-            B2(bundle);
-            C2();
-            D1();
+            F2(bundle);
+            G2();
+            x1();
         }
     }
 
-    public final void x2(MetaData metaData) {
+    @Override // com.baidu.tieba.zcb.c
+    public void I0(View view2, MetaData metaData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048603, this, metaData) == null) && metaData != null) {
-            this.s.e(metaData);
-            J2(this.s.getItemLength());
-            L2();
-        }
-    }
-
-    @Override // com.baidu.tieba.yza.c
-    public void J0(View view2, MetaData metaData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048587, this, view2, metaData) != null) || metaData == null) {
+        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2, metaData) != null) || metaData == null) {
             return;
         }
         this.s.g(metaData);
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public eo5 q1(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public yp5 n1(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048602, this, linearLayout, navigationBar)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048595, this, linearLayout, navigationBar)) == null) {
             this.p = linearLayout;
             this.m = navigationBar;
-            LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d012e, (ViewGroup) this.p, true);
+            LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d0130, (ViewGroup) this.p, true);
             return this;
         }
-        return (eo5) invokeLL.objValue;
+        return (yp5) invokeLL.objValue;
     }
 
-    private void z1() {
+    private void t1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65578, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65572, this) == null) {
             this.B = this.m.setCenterTextTitle(getPageContext().getString(R.string.select_friend));
             View addCustomView = this.m.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.add_new_friend_text, new i(this));
             this.D = addCustomView;
@@ -935,9 +935,9 @@ public class AtListActivity extends SuspendedActivity implements eo5, AdapterVie
         }
     }
 
-    public final void y2() {
+    public final void C2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070275) + getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701be) + getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701be);
             View view2 = new View(getPageContext().getContext());
             this.G = view2;
@@ -952,33 +952,129 @@ public class AtListActivity extends SuspendedActivity implements eo5, AdapterVie
         }
     }
 
-    public final ArrayList<MetaData> A2(@NonNull ArrayList<MetaData> arrayList) {
+    @NonNull
+    public final MetaData D2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            MetaData metaData = new MetaData();
+            metaData.setUserId(AtSelectData.AT_ALL_FAKE_UID);
+            metaData.setName_show(AtSelectData.AT_ALL_FAKE_NAME);
+            metaData.setPortrait(AtSelectData.AT_ALL_FAKE_PORTRAIT);
+            metaData.setChecked(false);
+            return metaData;
+        }
+        return (MetaData) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yp5
+    public boolean Q() {
+        InterceptResult invokeV;
+        View childAt;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            BdListView bdListView = this.r;
+            if (bdListView == null || bdListView.getFirstVisiblePosition() != 0 || (childAt = this.r.getChildAt(0)) == null || childAt.getTop() != 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.yp5
+    public Intent getResultIntent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.Y;
+        }
+        return (Intent) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+            l lVar = this.v;
+            if (lVar != null) {
+                lVar.cancel();
+            }
+            this.Z.removeCallbacks(this.a0);
+            super.onDestroy();
+        }
+    }
+
+    @Override // com.baidu.adp.base.BdBaseFragmentActivity
+    public si onGetPreLoadListView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            BdListView bdListView = this.r;
+            if (bdListView == null) {
+                return null;
+            }
+            return bdListView.getPreLoadHandle();
+        }
+        return (si) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity
+    public void onNetRefreshButtonClicked() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+            super.onNetRefreshButtonClicked();
+            if (BdUtilHelper.isNetOk()) {
+                x1();
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
+            super.onStart();
+            this.H.d(getPageContext());
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onStop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
+            super.onStop();
+            this.H.e();
+        }
+    }
+
+    public final ArrayList<MetaData> E2(@NonNull ArrayList<MetaData> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, arrayList)) == null) {
             Iterator<MetaData> it = arrayList.iterator();
             while (it.hasNext()) {
                 MetaData next = it.next();
                 if (next != null) {
                     next.setChecked(false);
                     if (!StringUtils.isNull(this.S) && this.S.contains(next.getUserId())) {
-                        x2(next);
+                        B2(next);
                     }
                 }
             }
             if (!ListUtils.isEmpty(arrayList)) {
-                K2(0);
+                O2(0);
             } else {
-                K2(1);
+                O2(1);
             }
             return arrayList;
         }
         return (ArrayList) invokeL.objValue;
     }
 
-    public final void G2(MetaData metaData) {
+    public final void K2(MetaData metaData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, metaData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, metaData) == null) {
             this.Y = new Intent();
             Bundle bundle = new Bundle();
             ArrayList<? extends Parcelable> arrayList = new ArrayList<>();
@@ -990,10 +1086,10 @@ public class AtListActivity extends SuspendedActivity implements eo5, AdapterVie
         }
     }
 
-    public final void B2(Bundle bundle) {
+    public final void F2(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            this.w = new twa();
+        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
+            this.w = new u9b();
             if (bundle != null) {
                 this.J = bundle.getBoolean(IntentConfig.IS_NEED_MULTIPLE);
                 this.K = bundle.getBoolean(AtListActivityConfig.IS_FOR_CHAT, false);
@@ -1005,7 +1101,7 @@ public class AtListActivity extends SuspendedActivity implements eo5, AdapterVie
                 this.Q = bundle.getString(AtListActivityConfig.GROUP_CHAT_FORUM_ID, "");
                 this.R = bundle.getString(AtListActivityConfig.GROUP_CHAT_FORUM_NAME, "");
                 this.S = bundle.getString(AtListActivityConfig.AT_SELECT_UID_DATA, "");
-                this.f1178T = bundle.getBoolean(AtListActivityConfig.IS_SHOW_BOT_INFO, true);
+                this.f1180T = bundle.getBoolean(AtListActivityConfig.IS_SHOW_BOT_INFO, true);
                 this.U = bundle.getInt(AtListActivityConfig.USER_ROLE, 0);
                 this.X = bundle.getParcelableArrayList(IntentConfig.AT_SELECT_LIST_DATA);
                 this.b0 = bundle.getString("thread_id");
@@ -1023,7 +1119,7 @@ public class AtListActivity extends SuspendedActivity implements eo5, AdapterVie
             this.Q = getIntent().getStringExtra(AtListActivityConfig.GROUP_CHAT_FORUM_ID);
             this.R = getIntent().getStringExtra(AtListActivityConfig.GROUP_CHAT_FORUM_NAME);
             this.S = getIntent().getStringExtra(AtListActivityConfig.AT_SELECT_UID_DATA);
-            this.f1178T = getIntent().getBooleanExtra(AtListActivityConfig.IS_SHOW_BOT_INFO, true);
+            this.f1180T = getIntent().getBooleanExtra(AtListActivityConfig.IS_SHOW_BOT_INFO, true);
             this.U = getIntent().getIntExtra(AtListActivityConfig.USER_ROLE, 0);
             this.X = getIntent().getParcelableArrayListExtra(IntentConfig.AT_SELECT_LIST_DATA);
             this.b0 = getIntent().getStringExtra("thread_id");
@@ -1032,20 +1128,20 @@ public class AtListActivity extends SuspendedActivity implements eo5, AdapterVie
         }
     }
 
-    public final void C2() {
+    public final void G2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.z = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091a84);
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.z = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091acb);
             this.H = NoDataViewFactory.b(getPageContext().getContext(), this.z, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NOFOLLOW, BdUtilHelper.getDimens(getActivity(), R.dimen.obfuscated_res_0x7f0703bc)), NoDataViewFactory.e.d(null, getResources().getString(R.string.no_chat_friends)), null, true);
-            this.A = findViewById(R.id.obfuscated_res_0x7f0902e1);
+            this.A = findViewById(R.id.obfuscated_res_0x7f0902f5);
             this.H.setOnTouchListener(new d(this));
-            z1();
+            t1();
             this.q = (LinearLayout) findViewById(R.id.bt_search_left);
-            this.I = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0907bc);
-            this.r = (BdListView) findViewById(R.id.obfuscated_res_0x7f091556);
-            yza yzaVar = new yza(this, this.J);
-            this.x = yzaVar;
-            yzaVar.i(this);
+            this.I = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0907db);
+            this.r = (BdListView) findViewById(R.id.obfuscated_res_0x7f091596);
+            zcb zcbVar = new zcb(this, this.J);
+            this.x = zcbVar;
+            zcbVar.i(this);
             this.x.g(new e(this));
             this.r.setAdapter((ListAdapter) this.x);
             this.r.setOnItemClickListener(this);
@@ -1054,16 +1150,16 @@ public class AtListActivity extends SuspendedActivity implements eo5, AdapterVie
                 ((View) this.n.getParent()).setFocusable(true);
                 ((View) this.n.getParent()).setFocusableInTouchMode(true);
             }
-            this.t = (LinearLayout) this.z.findViewById(R.id.obfuscated_res_0x7f0911a8);
-            Button button = (Button) this.z.findViewById(R.id.obfuscated_res_0x7f090529);
+            this.t = (LinearLayout) this.z.findViewById(R.id.obfuscated_res_0x7f0911e6);
+            Button button = (Button) this.z.findViewById(R.id.obfuscated_res_0x7f090547);
             this.u = button;
             button.setOnClickListener(new g(this));
-            J2(0);
-            AtSelectFriendList atSelectFriendList = (AtSelectFriendList) this.z.findViewById(R.id.obfuscated_res_0x7f09054a);
+            N2(0);
+            AtSelectFriendList atSelectFriendList = (AtSelectFriendList) this.z.findViewById(R.id.obfuscated_res_0x7f090568);
             this.s = atSelectFriendList;
             atSelectFriendList.setMaxCount(5);
             this.s.setItemOPerationHandler(new h(this));
-            y2();
+            C2();
             ArrayList<AtSelectData> arrayList = this.X;
             if (arrayList != null) {
                 Iterator<AtSelectData> it = arrayList.iterator();
@@ -1072,16 +1168,16 @@ public class AtListActivity extends SuspendedActivity implements eo5, AdapterVie
                     MetaData metaData = new MetaData();
                     metaData.setPortrait(next.getPortrait());
                     metaData.setName_show(next.getNameShow());
-                    x2(metaData);
+                    B2(metaData);
                 }
             }
         }
     }
 
-    public final boolean E2() {
+    public final boolean I2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             if (this.M && this.U != 0 && !this.V && (TextUtils.equals(this.N, AtListActivityConfig.GROUP_CHAT_PAGE) || TextUtils.equals(this.N, AtListActivityConfig.GROUP_BOT_SKILL))) {
                 return true;
             }
@@ -1090,11 +1186,11 @@ public class AtListActivity extends SuspendedActivity implements eo5, AdapterVie
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.eo5
-    public boolean g1() {
+    @Override // com.baidu.tieba.yp5
+    public boolean s1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
             BdUtilHelper.hideSoftKeyPad(getPageContext().getPageActivity(), this.n);
             View view2 = this.C;
             if (view2 != null && view2.getVisibility() == 0) {
@@ -1109,39 +1205,39 @@ public class AtListActivity extends SuspendedActivity implements eo5, AdapterVie
         return invokeV.booleanValue;
     }
 
-    public final ArrayList<MetaData> F2(@NonNull mwa mwaVar) {
+    public final ArrayList<MetaData> J2(@NonNull n9b n9bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, mwaVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, n9bVar)) == null) {
             ArrayList<MetaData> arrayList = new ArrayList<>();
-            if (!ListUtils.isEmpty(mwaVar.c()) && !ListUtils.isEmpty(mwaVar.a())) {
-                ArrayList<MetaData> a2 = mwaVar.a();
-                ArrayList<MetaData> c2 = mwaVar.c();
-                if (E2()) {
-                    arrayList.add(z2());
+            if (!ListUtils.isEmpty(n9bVar.c()) && !ListUtils.isEmpty(n9bVar.a())) {
+                ArrayList<MetaData> a2 = n9bVar.a();
+                ArrayList<MetaData> c2 = n9bVar.c();
+                if (I2()) {
+                    arrayList.add(D2());
                 }
-                if (this.f1178T) {
+                if (this.f1180T) {
                     arrayList.addAll(a2);
                 }
                 arrayList.addAll(c2);
             } else {
-                if (!ListUtils.isEmpty(mwaVar.c())) {
-                    if (E2()) {
-                        arrayList.add(z2());
+                if (!ListUtils.isEmpty(n9bVar.c())) {
+                    if (I2()) {
+                        arrayList.add(D2());
                     }
-                    arrayList.addAll(mwaVar.c());
+                    arrayList.addAll(n9bVar.c());
                 }
                 return arrayList;
             }
-            A2(arrayList);
+            E2(arrayList);
             return arrayList;
         }
         return (ArrayList) invokeL.objValue;
     }
 
-    public final void K2(int i2) {
+    public final void O2(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
             if (i2 == 2) {
                 this.r.setVisibility(8);
                 hideNetRefreshView(this.I);
@@ -1152,7 +1248,7 @@ public class AtListActivity extends SuspendedActivity implements eo5, AdapterVie
                 this.r.setVisibility(8);
                 hideNetRefreshView(this.I);
                 this.H.setVisibility(0);
-                this.H.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0e9f)));
+                this.H.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0eb1)));
                 this.t.setVisibility(8);
             } else if (i2 == 0) {
                 this.r.setVisibility(0);
@@ -1164,9 +1260,9 @@ public class AtListActivity extends SuspendedActivity implements eo5, AdapterVie
         }
     }
 
-    public final void I2(String str) {
+    public final void M2(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, str) != null) || isFinishing()) {
+        if ((interceptable != null && interceptable.invokeL(1048589, this, str) != null) || isFinishing()) {
             return;
         }
         ArrayList<MetaData> arrayList = null;
@@ -1198,116 +1294,20 @@ public class AtListActivity extends SuspendedActivity implements eo5, AdapterVie
             }
         }
         if (!ListUtils.isEmpty(arrayList)) {
-            K2(0);
+            O2(0);
         } else {
-            K2(1);
+            O2(1);
         }
         this.x.h(arrayList);
         this.x.notifyDataSetInvalidated();
         this.r.setSelection(0);
     }
 
-    public final void J2(int i2) {
+    public final void N2(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
             this.u.setText(String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f02e0), Integer.valueOf(i2), 5));
         }
-    }
-
-    @Override // com.baidu.tieba.eo5
-    public boolean M() {
-        InterceptResult invokeV;
-        View childAt;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            BdListView bdListView = this.r;
-            if (bdListView == null || bdListView.getFirstVisiblePosition() != 0 || (childAt = this.r.getChildAt(0)) == null || childAt.getTop() != 0) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.eo5
-    public Intent getResultIntent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return this.Y;
-        }
-        return (Intent) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            l lVar = this.v;
-            if (lVar != null) {
-                lVar.cancel();
-            }
-            this.Z.removeCallbacks(this.a0);
-            super.onDestroy();
-        }
-    }
-
-    @Override // com.baidu.adp.base.BdBaseFragmentActivity
-    public ci onGetPreLoadListView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            BdListView bdListView = this.r;
-            if (bdListView == null) {
-                return null;
-            }
-            return bdListView.getPreLoadHandle();
-        }
-        return (ci) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onNetRefreshButtonClicked() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            super.onNetRefreshButtonClicked();
-            if (BdUtilHelper.isNetOk()) {
-                D1();
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            super.onStart();
-            this.H.d(getPageContext());
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onStop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            super.onStop();
-            this.H.e();
-        }
-    }
-
-    @NonNull
-    public final MetaData z2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            MetaData metaData = new MetaData();
-            metaData.setUserId(AtSelectData.AT_ALL_FAKE_UID);
-            metaData.setName_show(AtSelectData.AT_ALL_FAKE_NAME);
-            metaData.setPortrait(AtSelectData.AT_ALL_FAKE_PORTRAIT);
-            metaData.setChecked(false);
-            return metaData;
-        }
-        return (MetaData) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity
@@ -1316,7 +1316,7 @@ public class AtListActivity extends SuspendedActivity implements eo5, AdapterVie
         boolean z;
         int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
             super.onChangeSkinType(i2);
             BDLayoutMode layoutMode = getLayoutMode();
             if (i2 == 4) {
@@ -1354,7 +1354,7 @@ public class AtListActivity extends SuspendedActivity implements eo5, AdapterVie
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view2, int i2, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{adapterView, view2, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{adapterView, view2, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
             super.onItemClick(adapterView, view2, i2, j2);
             MetaData item = this.x.getItem(i2);
             if (item == null) {
@@ -1364,18 +1364,18 @@ public class AtListActivity extends SuspendedActivity implements eo5, AdapterVie
                 if (this.v != null) {
                     return;
                 }
-                if (D2(item.getUserId())) {
-                    G2(item);
+                if (H2(item.getUserId())) {
+                    K2(item);
                     TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_GROUP_CHAT_ROBOT_CLICK).param("obj_name", item.getName_show()).param("fid", this.Q).param("room_id", this.P).param("fname", this.R).param("uid", TbadkCoreApplication.getCurrentAccount()));
                     return;
                 }
                 if (item.isChecked()) {
-                    H2(item);
+                    L2(item);
                 } else if (5 <= this.s.getItemLength()) {
                     showToastWithIcon(String.format(getPageContext().getString(R.string.invite_friend_exceed_max_count), 5), R.drawable.icon_toast_game_error);
                     return;
                 } else {
-                    x2(item);
+                    B2(item);
                 }
                 item.setChecked(!item.isChecked());
                 this.x.notifyDataSetChanged();

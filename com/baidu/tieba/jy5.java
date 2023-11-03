@@ -1,28 +1,47 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import java.util.List;
+import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.Item;
 /* loaded from: classes6.dex */
-public interface jy5 extends my5<oy5> {
-    void a(int i);
+public class jy5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public ItemData a;
 
-    List<Integer> d();
+    public jy5(Item item) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {item};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+        if (item != null) {
+            ItemData itemData = new ItemData();
+            this.a = itemData;
+            itemData.parseProto(item);
+        }
+    }
 
-    void e(List<iy5> list, String str, String str2, String str3, String str4, boolean z, int i);
-
-    TypeAdapter.ViewHolder g(ViewGroup viewGroup, Object obj);
-
-    void i(List<iy5> list, int i);
-
-    void k(List<Object> list);
-
-    View m(int i, View view2, ViewGroup viewGroup, Object obj);
-
-    void n(int i, ViewGroup viewGroup, TypeAdapter.ViewHolder viewHolder, Object obj);
-
-    void o(List<iy5> list, List<iy5> list2, boolean z, int i);
-
-    void p(String str);
+    public ItemData a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (ItemData) invokeV.objValue;
+    }
 }

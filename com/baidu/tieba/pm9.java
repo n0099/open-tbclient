@@ -1,183 +1,117 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.SparseArray;
-import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.DeleteThreadInfo;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.pb.pb.sub.SubPbModel;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.newdetail.HotTopicDetailActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes7.dex */
 public class pm9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public class a implements ov5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fn9 a;
-        public final /* synthetic */ SubPbModel b;
-
-        public a(fn9 fn9Var, SubPbModel subPbModel) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fn9Var, subPbModel};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static void a(String str, Object obj, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLIL(65536, null, str, obj, i, str2) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            if (obj instanceof ry4) {
+                statisticItem.param("fid", ((ry4) obj).f());
+            } else if (obj instanceof hn9) {
+                hn9 hn9Var = (hn9) obj;
+                ThreadData threadData = hn9Var.h;
+                if (threadData != null) {
+                    statisticItem.param("tid", threadData.getTid());
                 }
+                statisticItem.param("obj_locate", hn9Var.a());
             }
-            this.a = fn9Var;
-            this.b = subPbModel;
-        }
-
-        @Override // com.baidu.tieba.ov5
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.E0(false);
-            }
-        }
-
-        @Override // com.baidu.tieba.ov5
-        public void b(List<String> list) {
-            int i;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || !(this.a.B() instanceof BdTypeListView)) {
-                return;
-            }
-            List<yh> data = ((BdTypeListView) this.a.B()).getData();
-            if (!ListUtils.isEmpty(data) && !ListUtils.isEmpty(list)) {
-                Iterator<yh> it = data.iterator();
-                while (true) {
-                    i = 0;
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    yh next = it.next();
-                    if (next instanceof pea) {
-                        while (true) {
-                            if (i >= list.size()) {
-                                break;
-                            } else if (TextUtils.equals(list.get(i), ((pea) next).U())) {
-                                it.remove();
-                                if (this.b.y0() != null) {
-                                    this.b.y0().A(this.b.y0().k() - 1);
-                                }
-                            } else {
-                                i++;
-                            }
-                        }
-                    }
-                }
-                while (i < data.size()) {
-                    if (data.get(i) instanceof on9) {
-                        ((on9) data.get(i)).b(this.b.y0().k());
-                    }
-                    i++;
-                }
-                ((BdTypeListView) this.a.B()).setData(data);
-                this.a.T();
-            }
+            statisticItem.param("topic_id", str2);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.eventStat();
         }
     }
 
-    public static void a() {
+    public static void b(tm9 tm9Var, bw4 bw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            nv5.b().a();
+        if (interceptable == null || interceptable.invokeLL(65537, null, tm9Var, bw4Var) == null) {
+            d(tm9Var, bw4Var, true);
         }
     }
 
-    public static qv5 b(SubPbModel subPbModel, fn9 fn9Var) {
-        InterceptResult invokeLL;
+    public static void c(tm9 tm9Var, bw4 bw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, subPbModel, fn9Var)) == null) {
-            if (subPbModel != null && fn9Var != null) {
-                qv5 qv5Var = new qv5();
-                qv5Var.p(subPbModel.A0());
-                qv5Var.o(subPbModel.z0());
-                qv5Var.n(subPbModel.D0());
-                if (subPbModel.y0() != null && subPbModel.y0().d() != null) {
-                    qv5Var.l(subPbModel.y0().d().getId());
-                    qv5Var.m(subPbModel.y0().d().getName());
-                    qv5Var.k(subPbModel.y0().d().getImage_url());
-                    qv5Var.t(subPbModel.y0().d().getUser_level());
+        if (interceptable == null || interceptable.invokeLL(65538, null, tm9Var, bw4Var) == null) {
+            d(tm9Var, bw4Var, false);
+        }
+    }
+
+    public static void d(tm9 tm9Var, bw4 bw4Var, boolean z) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLZ(65539, null, tm9Var, bw4Var, z) == null) && bw4Var != null && bw4Var.getThreadData() != null) {
+            ThreadData threadData = bw4Var.getThreadData();
+            boolean t = tm9Var.t();
+            if (z) {
+                if (t) {
+                    str = "c13823";
+                } else {
+                    str = "c13822";
                 }
-                UserData userData = new UserData();
-                userData.setIsManager(subPbModel.F0());
-                qv5Var.s(userData);
-                qv5Var.q(new a(fn9Var, subPbModel));
-                AntiData w0 = subPbModel.w0();
-                SparseArray<String> sparseArray = new SparseArray<>();
-                if (w0 != null && w0.getDelThreadInfoList() != null) {
-                    List<DeleteThreadInfo> delThreadInfoList = w0.getDelThreadInfoList();
-                    for (int i = 0; i < delThreadInfoList.size(); i++) {
-                        if (delThreadInfoList.get(i) != null && !TextUtils.isEmpty(delThreadInfoList.get(i).text_info)) {
-                            sparseArray.put(delThreadInfoList.get(i).text_id, delThreadInfoList.get(i).text_info);
-                        }
-                    }
-                }
-                qv5Var.r(sparseArray);
-                return qv5Var;
+            } else if (t) {
+                str = "c13824";
+            } else {
+                str = "c13821";
             }
-            return null;
-        }
-        return (qv5) invokeLL.objValue;
-    }
-
-    public static boolean c(pf9 pf9Var, pea peaVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, pf9Var, peaVar)) == null) {
-            if (pf9Var != null && peaVar != null && pf9Var.d() != null && pf9Var.j() != null) {
-                sv5 sv5Var = new sv5();
-                sv5Var.d(pf9Var.d().getId());
-                sv5Var.f(pf9Var.j().getId());
-                sv5Var.e(peaVar.U());
-                return nv5.b().c(sv5Var);
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("tid", threadData.getTid());
+            statisticItem.param("fid", threadData.getFid());
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            if (tm9Var.u().getOrignalPage() instanceof HotTopicDetailActivity) {
+                statisticItem.param("topic_id", ((HotTopicDetailActivity) tm9Var.u().getOrignalPage()).M0());
             }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static void d(TbPageContext tbPageContext, SubPbModel subPbModel, fn9 fn9Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65539, null, tbPageContext, subPbModel, fn9Var) == null) && tbPageContext != null && fn9Var != null && fn9Var.u() != null && subPbModel != null) {
-            nv5.b().e(tbPageContext, (ViewGroup) fn9Var.u(), b(subPbModel, fn9Var));
-            nv5.b().d(3);
+            statisticItem.eventStat();
         }
     }
 
-    public static boolean e(pea peaVar) {
-        InterceptResult invokeL;
+    public static void e(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, peaVar)) == null) {
-            if (peaVar == null) {
-                return false;
-            }
-            return nv5.b().f(peaVar.U());
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, threadData) != null) || threadData == null) {
+            return;
         }
-        return invokeL.booleanValue;
+        new StatisticItem("c13022").addParam("tid", threadData.getTid()).addParam("fid", threadData.getFid()).addParam("fname", threadData.getForum_name()).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam(TiebaStatic.Params.OBJ_TO, 2).eventStat();
+    }
+
+    public static void f(TbPageContext<HotTopicDetailActivity> tbPageContext, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65541, null, tbPageContext, str) == null) && tbPageContext != null && !StringUtils.isNull(str)) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("topic_id", tbPageContext.getOrignalPage().M0());
+            statisticItem.eventStat();
+        }
+    }
+
+    public static void g(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) && !StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("topic_id", str2);
+            statisticItem.eventStat();
+        }
+    }
+
+    public static void h(TbPageContext<HotTopicDetailActivity> tbPageContext, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65543, null, tbPageContext, str) == null) && tbPageContext != null && !StringUtils.isNull(str)) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("topic_id", tbPageContext.getOrignalPage().M0());
+            statisticItem.eventStat();
+        }
     }
 }

@@ -4,19 +4,18 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetForumSquare.DataRes;
+import tbclient.Page;
+import tbclient.RecommendForumInfo;
 /* loaded from: classes6.dex */
 public class gx6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ay4 a;
-    public ArrayList<yh> b;
-    public boolean c;
-    public boolean d;
-    public int e;
-    public int f;
-    public hx6 g;
-    public boolean h;
+    public List<RecommendForumInfo> a;
+    public List<String> b;
+    public Page c;
+    public String d;
 
     public gx6() {
         Interceptable interceptable = $ic;
@@ -28,15 +27,18 @@ public class gx6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = true;
-        this.d = true;
-        this.e = 0;
-        this.f = 0;
-        this.h = true;
-        this.b = new ArrayList<>();
-        this.a = new ay4();
+    }
+
+    public void a(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) || dataRes == null) {
+            return;
+        }
+        this.d = dataRes.class_name;
+        this.c = dataRes.page;
+        this.b = dataRes.page_structure;
+        this.a = dataRes.forum_info;
     }
 }

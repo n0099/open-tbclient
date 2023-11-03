@@ -1,18 +1,19 @@
 package com.baidu.tieba;
-
-import android.view.View;
-import com.badlogic.gdx.Input;
 /* loaded from: classes7.dex */
-public interface p1 extends Input, View.OnTouchListener, View.OnKeyListener, View.OnGenericMotionListener {
-    void C(boolean z);
+public interface p1 {
+    boolean a(int i, int i2, int i3, int i4);
 
-    void j1();
+    boolean b(int i, int i2, int i3, int i4);
 
-    void onPause();
+    boolean c(float f, float f2);
 
-    void onResume();
+    boolean d(int i, int i2, int i3);
 
-    void q0();
+    boolean e(int i, int i2);
 
-    void u1();
+    boolean f(int i);
+
+    boolean g(int i);
+
+    boolean h(char c);
 }

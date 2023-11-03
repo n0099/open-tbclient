@@ -1,31 +1,154 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.safe.BdCloseHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
-import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.util.HashMap;
 /* loaded from: classes8.dex */
 public class sha {
     public static /* synthetic */ Interceptable $ic;
+    public static sha b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final gha b;
-    public no6 c;
-    public no6 d;
-    public no6 e;
+    public HashMap<String, String> a;
 
-    public sha(MainTabActivity mainTabActivity, gha ghaVar) {
+    /* loaded from: classes8.dex */
+    public interface c {
+        void a(HashMap<String, String> hashMap);
+    }
+
+    /* loaded from: classes8.dex */
+    public class a extends au5<Object> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sha a;
+
+        public a(sha shaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {shaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = shaVar;
+        }
+
+        @Override // com.baidu.tieba.au5
+        public Object doInBackground() {
+            InterceptResult invokeV;
+            Reader reader;
+            Throwable th;
+            InputStream inputStream;
+            BufferedReader bufferedReader;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                try {
+                    try {
+                        inputStream = TbadkCoreApplication.getInst().getAssets().open("schema_map1.txt");
+                    } catch (Throwable th2) {
+                        th = th2;
+                    }
+                    try {
+                        bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+                        while (true) {
+                            try {
+                                String readLine = bufferedReader.readLine();
+                                if (readLine == null) {
+                                    break;
+                                }
+                                String[] split = readLine.split(",");
+                                if (split.length == 2 && split[0] != null && split[1] != null) {
+                                    this.a.a.put(split[0], split[1]);
+                                }
+                            } catch (Exception e) {
+                                e = e;
+                                e.printStackTrace();
+                                BdCloseHelper.close(inputStream);
+                                BdCloseHelper.close((Reader) bufferedReader);
+                                return null;
+                            }
+                        }
+                    } catch (Exception e2) {
+                        e = e2;
+                        bufferedReader = null;
+                    } catch (Throwable th3) {
+                        reader = null;
+                        th = th3;
+                        BdCloseHelper.close(inputStream);
+                        BdCloseHelper.close(reader);
+                        throw th;
+                    }
+                } catch (Exception e3) {
+                    e = e3;
+                    inputStream = null;
+                    bufferedReader = null;
+                } catch (Throwable th4) {
+                    reader = null;
+                    th = th4;
+                    inputStream = null;
+                }
+                BdCloseHelper.close(inputStream);
+                BdCloseHelper.close((Reader) bufferedReader);
+                return null;
+            }
+            return invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements ft5<Object> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c a;
+        public final /* synthetic */ sha b;
+
+        public b(sha shaVar, c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {shaVar, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = shaVar;
+            this.a = cVar;
+        }
+
+        @Override // com.baidu.tieba.ft5
+        public void onReturnDataInUI(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+                this.a.a(this.b.a);
+            }
+        }
+    }
+
+    public sha() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, ghaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,89 +158,34 @@ public class sha {
                 return;
             }
         }
-        this.a = mainTabActivity;
-        this.b = ghaVar;
+        this.a = new HashMap<>();
+        new HashMap();
     }
 
-    public void a() {
-        no6 no6Var;
+    public static sha c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (no6Var = this.e) != null && no6Var.i()) {
-            this.e.h();
-        }
-    }
-
-    public void b() {
-        no6 no6Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (no6Var = this.d) != null && no6Var.i()) {
-            this.d.h();
-            this.d = null;
-        }
-    }
-
-    public void c() {
-        no6 no6Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (no6Var = this.c) != null && no6Var.i()) {
-            this.c.h();
-            this.c = null;
-        }
-    }
-
-    public void d() {
-        gha ghaVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (ghaVar = this.b) != null && ghaVar.A() != null) {
-            FragmentTabWidget fragmentTabWidget = this.b.A().getFragmentTabWidget();
-            if (fragmentTabWidget.getChildCount() < 2) {
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (sha.class) {
+                    if (b == null) {
+                        b = new sha();
+                    }
+                }
             }
-            no6 no6Var = new no6(this.a.getPageContext(), fragmentTabWidget.getChildAt(1));
-            this.e = no6Var;
-            no6Var.L(R.drawable.bg_tip_blue_down);
-            this.e.l(2);
-            this.e.o(32);
-            this.e.N(true);
-            this.e.R(-BdUtilHelper.getDimens(this.a, R.dimen.tbds10));
-            this.e.C(R.color.CAM_X0101);
-            this.e.p(R.dimen.tbds54);
-            this.e.w(1);
-            this.e.n(4000);
-            this.e.F(BdUtilHelper.getDimens(this.a, R.dimen.tbds44));
+            return b;
         }
+        return (sha) invokeV.objValue;
     }
 
-    public void e(String str) {
+    public void b(c cVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && !TextUtils.isEmpty(str)) {
-            FragmentTabWidget fragmentTabWidget = this.b.A().getFragmentTabWidget();
-            if (fragmentTabWidget.getChildCount() < 2) {
-                return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
+            if (!this.a.isEmpty()) {
+                cVar.a(this.a);
+            } else {
+                eu5.b(new a(this), new b(this, cVar));
             }
-            no6 no6Var = new no6(this.a.getPageContext(), fragmentTabWidget.getChildAt(2));
-            this.c = no6Var;
-            no6Var.L(R.drawable.bg_tip_blue_down);
-            this.c.l(2);
-            this.c.o(32);
-            this.c.N(true);
-            this.c.R(-BdUtilHelper.getDimens(this.a, R.dimen.tbds10));
-            this.c.C(R.color.CAM_X0101);
-            this.c.p(R.dimen.tbds54);
-            this.c.w(999);
-            this.c.n(5000);
-            this.c.F(BdUtilHelper.getDimens(this.a, R.dimen.tbds44));
-            this.c.V(str, "categoryUpdate", false, true);
-        }
-    }
-
-    public void f() {
-        no6 no6Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (no6Var = this.e) != null && !no6Var.i()) {
-            no6 no6Var2 = this.e;
-            String string = this.a.getString(R.string.obfuscated_res_0x7f0f0683);
-            no6Var2.T(string, "first_like_forum_enterforumtab_tips" + TbadkCoreApplication.getCurrentAccount());
         }
     }
 }

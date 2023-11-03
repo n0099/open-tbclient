@@ -1,34 +1,83 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Build;
+import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 /* loaded from: classes5.dex */
 public class bj3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(@NonNull Context context, @NonNull File file) {
+    /* loaded from: classes5.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ boolean b;
+
+        public a(String str, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = z;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                String str = AppRuntime.getAppContext().getFilesDir().getPath() + File.separator + bj3.b;
+                if (bj3.a) {
+                    Log.d("SwanAppFeedbackUtils", "recordFeedbackExtInfo: " + this.a);
+                }
+                jp2.b(str, this.a, this.b);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947646846, "Lcom/baidu/tieba/bj3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947646846, "Lcom/baidu/tieba/bj3;");
+                return;
+            }
+        }
+        a = rm1.a;
+        b = "aiapps_folder" + File.separator + "feed_back_record.txt";
+    }
+
+    public static void c(@NonNull String str, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65536, null, context, file) != null) || !file.exists()) {
-            return;
+        if (interceptable == null || interceptable.invokeLZ(65539, null, str, z) == null) {
+            aj3.k(new a(str, z), "record_feedback_ext_info");
         }
-        Intent intent = new Intent();
-        intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-        intent.setAction("android.intent.action.SEND");
-        intent.setTypeAndNormalize(jj3.s(file));
-        if (Build.VERSION.SDK_INT >= 24) {
-            intent.putExtra("android.intent.extra.STREAM", mj3.a(context, file));
-            intent.addFlags(1);
-        } else {
-            intent.putExtra("android.intent.extra.STREAM", Uri.fromFile(file));
-        }
-        context.startActivity(intent);
     }
 }

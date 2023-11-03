@@ -1,91 +1,84 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
+import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.HashSet;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class qk1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile qk1 b;
+    public static volatile qk1 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final b a;
+    public BroadcastReceiver a;
+    public int b;
+    public boolean c;
+    public boolean d;
+    public boolean e;
+    public HashSet<String> f;
 
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
+    public class a extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ qk1 a;
 
-    /* loaded from: classes7.dex */
-    public static class b extends SQLiteOpenHelper {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(Context context) {
-            super(context, "sso.db", (SQLiteDatabase.CursorFactory) null, 2);
+        public a(qk1 qk1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context};
+                Object[] objArr = {qk1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.a = qk1Var;
         }
 
-        public /* synthetic */ b(Context context, a aVar) {
-            this(context);
-        }
-
-        @Override // android.database.sqlite.SQLiteOpenHelper
-        public void onCreate(SQLiteDatabase sQLiteDatabase) {
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-                try {
-                    sQLiteDatabase.execSQL("create table if not exists rp_tb(id integer primary key autoincrement, a text, c integer, d integer);");
-                } catch (Throwable th) {
-                    zk1.d(th);
+            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+                String stringExtra = intent.getStringExtra("ss");
+                if (this.a.b == 1) {
+                    return;
                 }
-            }
-        }
-
-        @Override // android.database.sqlite.SQLiteOpenHelper
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) && i == 1 && i2 == 2) {
-                try {
-                    sQLiteDatabase.delete("rp_tb", null, null);
-                } catch (Throwable th) {
-                    zk1.d(th);
+                if (!TextUtils.isEmpty(stringExtra)) {
+                    if ("LOADED".equals(stringExtra)) {
+                        if (this.a.f.isEmpty()) {
+                            return;
+                        }
+                        this.a.b = 1;
+                        return;
+                    }
+                    this.a.b = 1;
+                    this.a.f.add(stringExtra);
+                    return;
                 }
+                this.a.b = 1;
             }
         }
     }
 
-    public qk1(Context context) {
+    public qk1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -95,219 +88,126 @@ public class qk1 {
                 return;
             }
         }
-        this.a = new b(context, null);
+        this.b = 0;
+        this.c = false;
+        this.d = false;
+        this.e = false;
+        this.f = new HashSet<>();
     }
 
-    public final void f(rk1 rk1Var) {
+    public static qk1 j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, rk1Var) == null) {
-            try {
-                this.a.getWritableDatabase().delete("rp_tb", "id=?", new String[]{String.valueOf(rk1Var.a())});
-            } catch (Throwable th) {
-                System.currentTimeMillis();
-                zk1.d(th);
-            }
-        }
-    }
-
-    public static qk1 a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (b == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (g == null) {
                 synchronized (qk1.class) {
-                    if (b == null) {
-                        b = new qk1(context);
+                    if (g == null) {
+                        g = new qk1();
                     }
                 }
             }
-            return b;
+            return g;
         }
-        return (qk1) invokeL.objValue;
+        return (qk1) invokeV.objValue;
     }
 
-    public void d(ArrayList<rk1> arrayList) {
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) && arrayList != null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!this.c) {
+                return -1000;
+            }
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (!this.d) {
+                return false;
+            }
+            if (!this.e) {
+                return true;
+            }
+            if (!this.c || this.b == 1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.b = 0;
+            this.f.clear();
+        }
+    }
+
+    public void d(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             try {
-                if (arrayList.size() != 0) {
-                    for (int i = 0; i < arrayList.size(); i++) {
-                        f(arrayList.get(i));
-                    }
+                if (this.a != null) {
+                    return;
                 }
+                this.a = new a(this);
+                IntentFilter intentFilter = new IntentFilter();
+                intentFilter.addAction("android.intent.action.SIM_STATE_CHANGED");
+                context.registerReceiver(this.a, intentFilter);
             } catch (Throwable th) {
-                zk1.d(th);
+                ql1.d(th);
             }
         }
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, IF, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    public ArrayList<rk1> b(String str) {
-        InterceptResult invokeL;
-        Cursor cursor;
+    public void g(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             try {
-                cursor = this.a.getWritableDatabase().rawQuery("SELECT * FROM rp_tb WHERE c IN (" + str + ") LIMIT 100", null);
-                if (cursor != null) {
-                    try {
-                        if (cursor.getCount() != 0) {
-                            ArrayList<rk1> arrayList = new ArrayList<>();
-                            ArrayList<rk1> arrayList2 = new ArrayList<>();
-                            while (cursor.moveToNext()) {
-                                rk1 rk1Var = new rk1();
-                                rk1Var.b(cursor.getInt(cursor.getColumnIndex("id")));
-                                byte[] b2 = xk1.b(cursor.getString(cursor.getColumnIndex("a")));
-                                if (b2 == null) {
-                                    arrayList2.add(rk1Var);
-                                } else {
-                                    rk1Var.c(new String(b2));
-                                    rk1Var.g(cursor.getInt(cursor.getColumnIndex("c")));
-                                    rk1Var.e(cursor.getInt(cursor.getColumnIndex("d")));
-                                    arrayList.add(rk1Var);
-                                }
-                            }
-                            if (!arrayList2.isEmpty()) {
-                                d(arrayList2);
-                            }
-                            return arrayList;
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                        try {
-                            zk1.d(th);
-                            if (cursor != null) {
-                                try {
-                                    if (!cursor.isClosed()) {
-                                        cursor.close();
-                                    }
-                                } catch (Throwable th2) {
-                                    zk1.d(th2);
-                                }
-                            }
-                            return null;
-                        } finally {
-                            if (cursor != null) {
-                                try {
-                                    if (!cursor.isClosed()) {
-                                        cursor.close();
-                                    }
-                                } catch (Throwable th3) {
-                                    zk1.d(th3);
-                                }
-                            }
-                        }
-                    }
+                if (this.a == null) {
+                    return;
                 }
-                if (cursor != null) {
-                    try {
-                        if (!cursor.isClosed()) {
-                            cursor.close();
-                        }
-                    } catch (Throwable th4) {
-                        zk1.d(th4);
-                    }
-                }
-                return null;
-            } catch (Throwable th5) {
-                th = th5;
-                cursor = null;
+                context.unregisterReceiver(this.a);
+                this.a = null;
+            } catch (Throwable th) {
+                ql1.d(th);
             }
-        } else {
-            return (ArrayList) invokeL.objValue;
         }
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, IF, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    public ArrayList<rk1> e(String str) {
-        InterceptResult invokeL;
-        Cursor cursor;
+    public void e(Context context, JSONObject jSONObject) {
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            try {
-                cursor = this.a.getWritableDatabase().rawQuery("SELECT * FROM rp_tb WHERE c IN (" + str + ") and d=2 LIMIT 100", null);
-                if (cursor != null) {
-                    try {
-                        if (cursor.getCount() != 0) {
-                            ArrayList<rk1> arrayList = new ArrayList<>();
-                            ArrayList<rk1> arrayList2 = new ArrayList<>();
-                            while (cursor.moveToNext()) {
-                                rk1 rk1Var = new rk1();
-                                rk1Var.b(cursor.getInt(cursor.getColumnIndex("id")));
-                                byte[] b2 = xk1.b(cursor.getString(cursor.getColumnIndex("a")));
-                                if (b2 == null) {
-                                    arrayList2.add(rk1Var);
-                                } else {
-                                    rk1Var.c(new String(b2));
-                                    rk1Var.g(cursor.getInt(cursor.getColumnIndex("c")));
-                                    rk1Var.e(cursor.getInt(cursor.getColumnIndex("d")));
-                                    arrayList.add(rk1Var);
-                                }
-                            }
-                            if (!arrayList2.isEmpty()) {
-                                d(arrayList2);
-                            }
-                            return arrayList;
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                        try {
-                            zk1.d(th);
-                            if (cursor != null) {
-                                try {
-                                    if (!cursor.isClosed()) {
-                                        cursor.close();
-                                    }
-                                } catch (Throwable th2) {
-                                    zk1.d(th2);
-                                }
-                            }
-                            return null;
-                        } finally {
-                            if (cursor != null) {
-                                try {
-                                    if (!cursor.isClosed()) {
-                                        cursor.close();
-                                    }
-                                } catch (Throwable th3) {
-                                    zk1.d(th3);
-                                }
-                            }
-                        }
-                    }
-                }
-                if (cursor != null) {
-                    try {
-                        if (!cursor.isClosed()) {
-                            cursor.close();
-                        }
-                    } catch (Throwable th4) {
-                        zk1.d(th4);
-                    }
-                }
-                return null;
-            } catch (Throwable th5) {
-                th = th5;
-                cursor = null;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, jSONObject) == null) {
+            boolean z3 = false;
+            if (jSONObject.optInt("1", 0) == 1) {
+                z = true;
+            } else {
+                z = false;
             }
-        } else {
-            return (ArrayList) invokeL.objValue;
-        }
-    }
-
-    public void c(rk1 rk1Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rk1Var) != null) || rk1Var == null) {
-            return;
-        }
-        try {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("a", xk1.a(rk1Var.d().getBytes()));
-            contentValues.put("c", Integer.valueOf(rk1Var.h()));
-            contentValues.put("d", Integer.valueOf(rk1Var.f()));
-            this.a.getWritableDatabase().insert("rp_tb", null, contentValues);
-        } catch (Throwable th) {
-            zk1.d(th);
+            this.d = z;
+            if (jSONObject.optInt("2", 0) == 1) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            this.c = z2;
+            if (jSONObject.optInt("3", 0) == 1) {
+                z3 = true;
+            }
+            this.e = z3;
+            if (this.c) {
+                d(context);
+            } else {
+                g(context);
+            }
         }
     }
 }

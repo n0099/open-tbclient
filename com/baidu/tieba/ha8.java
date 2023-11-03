@@ -1,10 +1,10 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.annotation.NonNull;
-import com.baidu.tieba.im.base.core.uilist.BaseItem;
-import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
+import android.view.ViewTreeObserver;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface ha8<ChildItemData extends BaseItem<? extends TbBaseMsg>> {
-    void a(@NonNull View view2, @NonNull ChildItemData childitemdata, int i);
+public class ha8 implements ViewTreeObserver.OnGlobalLayoutListener {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 }

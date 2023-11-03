@@ -1,22 +1,27 @@
 package com.baidu.tieba;
 
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-import java.util.Map;
+import com.baidu.ugc.download.exception.DownloadException;
 /* loaded from: classes8.dex */
-public interface tpb {
-    void a();
+public interface tpb extends Runnable {
 
-    void a(int i, String str);
+    /* loaded from: classes8.dex */
+    public interface a {
+        void b(DownloadException downloadException);
 
-    void a(RippedAd rippedAd, Map<String, String> map);
+        void onConnectCanceled();
 
-    void a(Map<String, String> map);
+        void onConnectPaused();
 
-    void a(boolean z, int i, Map<String, String> map);
+        void onConnected(long j, long j2, boolean z);
 
-    void b();
+        void onConnecting();
+    }
 
-    void b(int i, String str);
+    void cancel();
 
-    void b(RippedAd rippedAd, Map<String, String> map);
+    boolean isCanceled();
+
+    boolean isPaused();
+
+    void pause();
 }

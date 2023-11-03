@@ -4,7 +4,7 @@ import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 import com.huawei.hms.common.internal.TransactionIdCreater;
 import java.util.regex.Pattern;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class VINResultParser extends ResultParser {
     public static final Pattern IOQ = Pattern.compile("[IOQ]");
     public static final Pattern AZ09 = Pattern.compile("[A-Z0-9]{17}");

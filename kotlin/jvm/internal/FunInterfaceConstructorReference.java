@@ -4,7 +4,7 @@ import java.io.Serializable;
 import kotlin.SinceKotlin;
 import kotlin.reflect.KFunction;
 @SinceKotlin(version = "1.7")
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class FunInterfaceConstructorReference extends FunctionReference implements Serializable {
     public final Class funInterface;
 

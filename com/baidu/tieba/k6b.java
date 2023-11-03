@@ -1,174 +1,126 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.statistics.UbcRemoteStat;
-import com.baidu.searchbox.unitedscheme.SchemeCollecter;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.ETAG;
-import java.io.File;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class k6b {
+/* loaded from: classes7.dex */
+public final class k6b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public JSONObject a;
+    public String a;
     public String b;
-    public boolean c;
+    public n6b c;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947866450, "Lcom/baidu/tieba/k6b;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947866450, "Lcom/baidu/tieba/k6b;");
+        }
+    }
 
     public k6b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = new JSONObject();
     }
 
-    public JSONObject g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void a(String str) {
+    public final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            i(UbcRemoteStat.CONNECTED, "preconnect_app_hosts", str);
+            this.b = str;
         }
     }
 
-    public void b(boolean z) {
+    public final void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            i("bdns", "baidu_dns_enabled", Boolean.valueOf(z));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.a = str;
         }
     }
 
-    public void c(boolean z) {
+    public final void c(n6b n6bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            i(SchemeCollecter.CLASSIFY_BASE, "http2_enabled", Boolean.valueOf(z));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, n6bVar) == null) {
+            this.c = n6bVar;
         }
     }
 
-    public void e(boolean z) {
+    public final void d(int i) {
+        r6b d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            i(UbcRemoteStat.CONNECTED, "preconnect_enabled", Boolean.valueOf(z));
-        }
-    }
-
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            i(SchemeCollecter.CLASSIFY_BASE, ETAG.KEY_QUIC_ENABLED, Boolean.valueOf(z));
-        }
-    }
-
-    public void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            if (new File(str).isDirectory()) {
-                this.b = str;
-                return;
-            }
-            throw new IllegalArgumentException("Storage path must be set to existing directory");
-        }
-    }
-
-    public void d(int i, long j) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            if (i != 3 && i != 2) {
-                if (l() != null) {
-                    throw new IllegalArgumentException("Storage path must not be set");
-                }
-            } else if (l() != null) {
-                this.c = true;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_COMPETE_CARD_CLICK);
+            if (!qd.isEmpty(this.a) && !qd.isEmpty(this.b)) {
+                statisticItem.param("obj_type", 2);
             } else {
-                throw new IllegalArgumentException("Storage path must be set");
+                statisticItem.param("obj_type", 1);
             }
-            if (i != 0 && i != 2) {
-                z = false;
-            } else {
-                z = true;
-            }
-            i(SchemeCollecter.CLASSIFY_BASE, "http_cache_enabled", Boolean.valueOf(!z));
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2 && i != 3) {
-                        throw new IllegalArgumentException("Unknown cache mode");
-                    }
-                    i(SchemeCollecter.CLASSIFY_BASE, "http_cache_mode", 2);
-                } else {
-                    i(SchemeCollecter.CLASSIFY_BASE, "http_cache_mode", 1);
+            statisticItem.param("fname", this.a);
+            statisticItem.param("fid", this.b);
+            n6b n6bVar = this.c;
+            if (n6bVar != null && (d = n6bVar.d()) != null) {
+                Long e = d.e();
+                if (e != null) {
+                    statisticItem.param("obj_param1", e.longValue());
                 }
-            } else {
-                i(SchemeCollecter.CLASSIFY_BASE, "http_cache_mode", 0);
+                Long f = d.f();
+                if (f != null) {
+                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, f.longValue());
+                }
             }
-            i(SchemeCollecter.CLASSIFY_BASE, "http_cache_size", Long.valueOf(j));
+            statisticItem.param("obj_locate", i);
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    public void i(String str, String str2, Object obj) {
+    public final void e() {
+        r6b d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, obj) == null) {
-            try {
-                JSONObject optJSONObject = this.a.optJSONObject(str);
-                if (optJSONObject == null) {
-                    optJSONObject = new JSONObject();
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_COMPETE_CARD_SHOW);
+            if (!qd.isEmpty(this.a) && !qd.isEmpty(this.b)) {
+                statisticItem.param("obj_type", 2);
+            } else {
+                statisticItem.param("obj_type", 1);
+            }
+            statisticItem.param("fname", this.a);
+            statisticItem.param("fid", this.b);
+            n6b n6bVar = this.c;
+            if (n6bVar != null && (d = n6bVar.d()) != null) {
+                Long e = d.e();
+                if (e != null) {
+                    statisticItem.param("obj_param1", e.longValue());
                 }
-                optJSONObject.put(str2, obj);
-                this.a.put(str, optJSONObject);
-            } catch (JSONException e) {
-                throw new IllegalStateException("JSON expcetion:", e);
+                Long f = d.f();
+                if (f != null) {
+                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, f.longValue());
+                }
             }
-        }
-    }
-
-    public void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            if (i >= 0) {
-                i("misc", "request_timeout", Integer.valueOf(i));
-                return;
-            }
-            throw new IllegalArgumentException(String.format("Invalid timeout second, %d is negative.", Integer.valueOf(i)));
+            TiebaStatic.log(statisticItem);
         }
     }
 }

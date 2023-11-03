@@ -24,7 +24,7 @@ public abstract class AutoReleaseSliceFragment<V extends ViewBinding> extends Sl
     public transient /* synthetic */ FieldHolder $fh;
     public V e;
 
-    public abstract V f2(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle);
+    public abstract V x2(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle);
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AutoReleaseSliceFragment() {
@@ -45,37 +45,37 @@ public abstract class AutoReleaseSliceFragment<V extends ViewBinding> extends Sl
         }
     }
 
-    public final V g2() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.im.base.core.slice.SliceFragment, com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public View onCreateView(LayoutInflater inflater, ViewGroup viewGroup, Bundle bundle) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            V v = this.e;
-            Intrinsics.checkNotNull(v);
-            return v;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, inflater, viewGroup, bundle)) == null) {
+            Intrinsics.checkNotNullParameter(inflater, "inflater");
+            this.e = x2(inflater, viewGroup, bundle);
+            View root = y2().getRoot();
+            Intrinsics.checkNotNullExpressionValue(root, "binding.root");
+            return root;
         }
-        return (V) invokeV.objValue;
+        return (View) invokeLLL.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroyView() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onDestroyView();
             this.e = null;
         }
     }
 
-    @Override // com.baidu.tieba.im.base.core.slice.SliceFragment, com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public View onCreateView(LayoutInflater inflater, ViewGroup viewGroup, Bundle bundle) {
-        InterceptResult invokeLLL;
+    public final V y2() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, inflater, viewGroup, bundle)) == null) {
-            Intrinsics.checkNotNullParameter(inflater, "inflater");
-            this.e = f2(inflater, viewGroup, bundle);
-            View root = g2().getRoot();
-            Intrinsics.checkNotNullExpressionValue(root, "binding.root");
-            return root;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            V v = this.e;
+            Intrinsics.checkNotNull(v);
+            return v;
         }
-        return (View) invokeLLL.objValue;
+        return (V) invokeV.objValue;
     }
 }

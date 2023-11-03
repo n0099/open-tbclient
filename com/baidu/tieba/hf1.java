@@ -1,188 +1,183 @@
 package com.baidu.tieba;
 
-import android.content.ContentProvider;
-import android.content.ContentProviderOperation;
-import android.content.ContentProviderResult;
-import android.content.ContentValues;
-import android.content.OperationApplicationException;
-import android.content.UriMatcher;
-import android.content.res.AssetFileDescriptor;
-import android.content.res.Configuration;
-import android.database.Cursor;
 import android.net.Uri;
-import android.os.Binder;
-import android.os.Bundle;
-import android.os.CancellationSignal;
-import android.os.ParcelFileDescriptor;
-import android.os.Process;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
+import java.util.HashMap;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class hf1 {
+public class hf1 implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ContentProvider a;
-    public final int b;
-    public final int c;
+    public String a;
+    public Uri b;
+    public int c;
+    public String[] d;
+    public HashMap<String, String> e;
+    public boolean f;
+    public hf1 g;
+    public boolean h;
+    public JSONObject i;
+    public String j;
 
-    public Bundle d(String str, String str2, Bundle bundle) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, str2, bundle)) == null) {
-            return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947821686, "Lcom/baidu/tieba/hf1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947821686, "Lcom/baidu/tieba/hf1;");
+                return;
+            }
         }
-        return (Bundle) invokeLLL.objValue;
+        String str = df1.b() + "://";
     }
 
-    public boolean e(String str, String str2, Bundle bundle) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, str, str2, bundle)) == null) {
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public abstract int f(int i, Uri uri, String str, String[] strArr);
-
-    public abstract void h(UriMatcher uriMatcher, String str);
-
-    public abstract String i(int i, Uri uri);
-
-    public abstract Uri j(int i, Uri uri, ContentValues contentValues);
-
-    public void m(Configuration configuration) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, configuration) == null) {
-        }
-    }
-
-    public abstract boolean n();
-
-    public abstract Cursor r(int i, Uri uri, String[] strArr, String str, String[] strArr2, String str2);
-
-    public abstract int t(int i, Uri uri, ContentValues contentValues, String str, String[] strArr);
-
-    public hf1(int i, int i2) {
+    public hf1(Uri uri, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            Object[] objArr = {uri, str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = i;
-        this.c = i2;
+        this.a = UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE;
+        this.c = -1;
+        this.f = false;
+        this.h = false;
+        this.a = str;
+        this.b = uri;
+        this.d = kf1.c(uri);
+        this.e = kf1.b(uri.toString());
     }
 
-    public ContentProviderResult[] a(ArrayList<ContentProviderOperation> arrayList) throws OperationApplicationException {
-        InterceptResult invokeL;
+    public hf1(Uri uri, String str, String[] strArr, HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, arrayList)) == null) {
-            int size = arrayList.size();
-            ContentProviderResult[] contentProviderResultArr = new ContentProviderResult[size];
-            for (int i = 0; i < size; i++) {
-                contentProviderResultArr[i] = arrayList.get(i).apply(this.a, contentProviderResultArr, i);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {uri, str, strArr, hashMap};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
-            return contentProviderResultArr;
         }
-        return (ContentProviderResult[]) invokeL.objValue;
+        this.a = UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE;
+        this.c = -1;
+        this.f = false;
+        this.h = false;
+        this.b = uri;
+        this.a = str;
+        this.d = strArr;
+        this.e = hashMap;
     }
 
-    public void b(ContentProvider contentProvider) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, contentProvider) == null) && this.a == null) {
-            this.a = contentProvider;
-        }
-    }
-
-    public int c(int i, Uri uri, ContentValues[] contentValuesArr) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, uri, contentValuesArr)) == null) {
-            int length = contentValuesArr.length;
-            for (ContentValues contentValues : contentValuesArr) {
-                j(i, uri, contentValues);
-            }
-            return length;
-        }
-        return invokeILL.intValue;
-    }
-
-    public AssetFileDescriptor o(int i, Uri uri, String str) throws FileNotFoundException {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048590, this, i, uri, str)) == null) {
-            q(i, uri, str);
-            throw null;
-        }
-        return (AssetFileDescriptor) invokeILL.objValue;
-    }
-
-    public ParcelFileDescriptor q(int i, Uri uri, String str) throws FileNotFoundException {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048592, this, i, uri, str)) == null) {
-            throw new FileNotFoundException("No files supported by provider at " + uri);
-        }
-        return (ParcelFileDescriptor) invokeILL.objValue;
-    }
-
-    public void g(Uri uri, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048582, this, uri, i) != null) || Binder.getCallingUid() == Process.myUid()) {
-            return;
-        }
-        throw new SecurityException();
-    }
-
-    public final int k() {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: a */
+    public hf1 clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Uri uri = this.b;
+            hf1 hf1Var = new hf1(uri, this.a, kf1.c(uri), (HashMap) this.e.clone());
+            hf1Var.g = this;
+            hf1Var.h = this.h;
+            hf1Var.j = this.j;
+            return hf1Var;
         }
-        return invokeV.intValue;
+        return (hf1) invokeV.objValue;
     }
 
-    public final int l() {
+    public HashMap<String, String> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
         }
-        return invokeV.intValue;
+        return (HashMap) invokeV.objValue;
     }
 
-    public AssetFileDescriptor p(int i, Uri uri, String str, CancellationSignal cancellationSignal) throws FileNotFoundException {
-        InterceptResult invokeCommon;
+    public boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{Integer.valueOf(i), uri, str, cancellationSignal})) == null) {
-            o(i, uri, str);
-            throw null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.f;
         }
-        return (AssetFileDescriptor) invokeCommon.objValue;
+        return invokeV.booleanValue;
     }
 
-    public Cursor s(int i, Uri uri, String[] strArr, String str, String[] strArr2, String str2, CancellationSignal cancellationSignal) {
-        InterceptResult invokeCommon;
+    public String b() {
+        InterceptResult invokeV;
+        String path;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{Integer.valueOf(i), uri, strArr, str, strArr2, str2, cancellationSignal})) == null) {
-            return r(i, uri, strArr, str, strArr2, str2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Uri uri = this.b;
+            if (uri != null) {
+                if (kf1.d(uri) && (path = this.b.getPath()) != null && path.length() > 1) {
+                    return this.b.getPath().substring(1);
+                }
+                return this.b.getHost() + this.b.getPath();
+            }
+            return "";
         }
-        return (Cursor) invokeCommon.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public String d(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
+            if (this.d != null) {
+                if (z) {
+                    this.c++;
+                }
+                int i = this.c;
+                String[] strArr = this.d;
+                if (i < strArr.length) {
+                    return strArr[i];
+                }
+                return null;
+            }
+            return null;
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.f = z;
+        }
+    }
+
+    public void f(String str, String str2) {
+        Uri uri;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) && (uri = this.b) != null && str != null && str2 != null) {
+            Uri parse = Uri.parse(uri.toString().replace(str, str2));
+            this.b = parse;
+            this.d = kf1.c(parse);
+        }
     }
 }

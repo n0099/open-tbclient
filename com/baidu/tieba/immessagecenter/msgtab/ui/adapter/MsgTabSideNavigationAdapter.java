@@ -8,15 +8,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.at8;
-import com.baidu.tieba.du4;
+import com.baidu.tieba.d69;
+import com.baidu.tieba.e69;
 import com.baidu.tieba.immessagecenter.arch.view.BaseView;
 import com.baidu.tieba.immessagecenter.arch.vm.BaseViewModel;
 import com.baidu.tieba.immessagecenter.arch.vm.IUiIntent;
 import com.baidu.tieba.immessagecenter.arch.vm.IUiState;
 import com.baidu.tieba.immessagecenter.msgtab.ui.adapter.MsgTabSideNavigationAdapter;
-import com.baidu.tieba.tq8;
-import com.baidu.tieba.zs8;
+import com.baidu.tieba.uu4;
+import com.baidu.tieba.x39;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,8 +33,8 @@ public final class MsgTabSideNavigationAdapter extends RecyclerView.Adapter<View
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final BaseFragmentActivity a;
-    public final List<tq8> b;
-    public du4<tq8> c;
+    public final List<x39> b;
+    public uu4<x39> c;
 
     @Metadata(d1 = {"\u00002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u00020\u0001B5\u0012.\u0010\u0002\u001a*\u0012\u0006\b\u0001\u0012\u00020\u0004\u0012\u0006\b\u0001\u0012\u00020\u0005\u0012\u0016\b\u0001\u0012\u0012\u0012\u0006\b\u0001\u0012\u00020\u0004\u0012\u0006\b\u0001\u0012\u00020\u00050\u00060\u0003¢\u0006\u0002\u0010\u0007J\u000e\u0010\b\u001a\u00020\t2\u0006\u0010\n\u001a\u00020\u000bJ\u000e\u0010\f\u001a\u00020\t2\u0006\u0010\r\u001a\u00020\u000eR6\u0010\u0002\u001a*\u0012\u0006\b\u0001\u0012\u00020\u0004\u0012\u0006\b\u0001\u0012\u00020\u0005\u0012\u0016\b\u0001\u0012\u0012\u0012\u0006\b\u0001\u0012\u00020\u0004\u0012\u0006\b\u0001\u0012\u00020\u00050\u00060\u0003X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u000f"}, d2 = {"Lcom/baidu/tieba/immessagecenter/msgtab/ui/adapter/MsgTabSideNavigationAdapter$ViewHolder;", "Landroidx/recyclerview/widget/RecyclerView$ViewHolder;", "mItemView", "Lcom/baidu/tieba/immessagecenter/arch/view/BaseView;", "Lcom/baidu/tieba/immessagecenter/arch/vm/IUiState;", "Lcom/baidu/tieba/immessagecenter/arch/vm/IUiIntent;", "Lcom/baidu/tieba/immessagecenter/arch/vm/BaseViewModel;", "(Lcom/baidu/tieba/immessagecenter/arch/view/BaseView;)V", "bindData", "", "data", "Lcom/baidu/tieba/immessagecenter/msgtab/data/NavigationData;", "setOnClickListener", "clickListener", "Landroid/view/View$OnClickListener;", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes6.dex */
@@ -45,7 +45,7 @@ public final class MsgTabSideNavigationAdapter extends RecyclerView.Adapter<View
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ViewHolder(BaseView<? extends IUiState, ? extends IUiIntent, ? extends BaseViewModel<? extends IUiState, ? extends IUiIntent>> mItemView) {
-            super(mItemView.n());
+            super(mItemView.o());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -65,15 +65,15 @@ public final class MsgTabSideNavigationAdapter extends RecyclerView.Adapter<View
             this.a = mItemView;
         }
 
-        public final void a(tq8 data) {
+        public final void a(x39 data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
                 Intrinsics.checkNotNullParameter(data, "data");
                 BaseView<? extends IUiState, ? extends IUiIntent, ? extends BaseViewModel<? extends IUiState, ? extends IUiIntent>> baseView = this.a;
-                if (baseView instanceof zs8) {
-                    ((zs8) baseView).Q(data);
-                } else if (baseView instanceof at8) {
-                    ((at8) baseView).Q(data);
+                if (baseView instanceof d69) {
+                    ((d69) baseView).R(data);
+                } else if (baseView instanceof e69) {
+                    ((e69) baseView).R(data);
                 }
             }
         }
@@ -107,15 +107,15 @@ public final class MsgTabSideNavigationAdapter extends RecyclerView.Adapter<View
         this.b = new ArrayList();
     }
 
-    public static final void p(MsgTabSideNavigationAdapter this$0, tq8 it, int i, View v) {
+    public static final void p(MsgTabSideNavigationAdapter this$0, x39 it, int i, View v) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(65537, null, this$0, it, i, v) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             Intrinsics.checkNotNullParameter(it, "$it");
             Intrinsics.checkNotNullParameter(v, "v");
-            du4<tq8> du4Var = this$0.c;
-            if (du4Var != null) {
-                du4Var.b(v, it, i, 0L);
+            uu4<x39> uu4Var = this$0.c;
+            if (uu4Var != null) {
+                uu4Var.b(v, it, i, 0L);
             }
         }
     }
@@ -130,7 +130,7 @@ public final class MsgTabSideNavigationAdapter extends RecyclerView.Adapter<View
         return invokeV.intValue;
     }
 
-    public final List<tq8> l() {
+    public final List<x39> l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -149,16 +149,16 @@ public final class MsgTabSideNavigationAdapter extends RecyclerView.Adapter<View
         return invokeI.intValue;
     }
 
-    public final tq8 m(int i) {
+    public final x39 m(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
             return this.b.get(i);
         }
-        return (tq8) invokeI.objValue;
+        return (x39) invokeI.objValue;
     }
 
-    public final void n(List<tq8> list) {
+    public final void n(List<x39> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             Intrinsics.checkNotNullParameter(list, "list");
@@ -168,10 +168,10 @@ public final class MsgTabSideNavigationAdapter extends RecyclerView.Adapter<View
         }
     }
 
-    public final void r(du4<tq8> du4Var) {
+    public final void s(uu4<x39> uu4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, du4Var) == null) {
-            this.c = du4Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, uu4Var) == null) {
+            this.c = uu4Var;
         }
     }
 
@@ -182,9 +182,9 @@ public final class MsgTabSideNavigationAdapter extends RecyclerView.Adapter<View
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, holder, i) == null) {
             Intrinsics.checkNotNullParameter(holder, "holder");
-            final tq8 m = m(i);
+            final x39 m = m(i);
             holder.a(m);
-            holder.b(new View.OnClickListener() { // from class: com.baidu.tieba.zq8
+            holder.b(new View.OnClickListener() { // from class: com.baidu.tieba.d49
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -209,19 +209,19 @@ public final class MsgTabSideNavigationAdapter extends RecyclerView.Adapter<View
             Intrinsics.checkNotNullParameter(parent, "parent");
             if (i != 1 && i != 2) {
                 if (i == 3) {
-                    zs8 zs8Var = new zs8(this.a);
+                    d69 d69Var = new d69(this.a);
                     Context context = parent.getContext();
                     Intrinsics.checkNotNullExpressionValue(context, "parent.context");
-                    BaseView.M(zs8Var, context, parent, false, false, 8, null);
-                    return new ViewHolder(zs8Var);
+                    BaseView.N(d69Var, context, parent, false, false, 8, null);
+                    return new ViewHolder(d69Var);
                 }
                 throw new IllegalArgumentException("MsgTabLeftNavAdapter->onCreateViewHolder->" + i + " undefined !!!");
             }
-            at8 at8Var = new at8(this.a);
+            e69 e69Var = new e69(this.a);
             Context context2 = parent.getContext();
             Intrinsics.checkNotNullExpressionValue(context2, "parent.context");
-            BaseView.M(at8Var, context2, parent, false, false, 8, null);
-            return new ViewHolder(at8Var);
+            BaseView.N(e69Var, context2, parent, false, false, 8, null);
+            return new ViewHolder(e69Var);
         }
         return (ViewHolder) invokeLI.objValue;
     }

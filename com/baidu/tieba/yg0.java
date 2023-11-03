@@ -1,75 +1,68 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.download.proxy.IAdDownloader;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.common.security.PermissionStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public class yg0 {
     public static /* synthetic */ Interceptable $ic;
-    public static zg0 a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948329063, "Lcom/baidu/tieba/yg0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948329063, "Lcom/baidu/tieba/yg0;");
-        }
-    }
+    public String a;
+    public String b;
+    public String c;
 
     public yg0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = "";
+        this.b = "";
+        this.c = "";
     }
 
-    public static zg0 a() {
-        InterceptResult invokeV;
+    @NonNull
+    public static yg0 a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (yg0.class) {
-                    if (a == null) {
-                        a = (zg0) ServiceManager.getService(zg0.a);
-                    }
-                }
-            }
-            return a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            yg0 yg0Var = new yg0();
+            JSONObject c = ly0.c(str);
+            yg0Var.a = c.optString(PermissionStorage.PermissionItem.ITEM_EXT_1);
+            yg0Var.b = c.optString(PermissionStorage.PermissionItem.ITEM_EXT_2);
+            yg0Var.c = c.optString(PermissionStorage.PermissionItem.ITEM_EXT_3);
+            return yg0Var;
         }
-        return (zg0) invokeV.objValue;
+        return (yg0) invokeL.objValue;
     }
 
-    public static IAdDownloader b() {
-        InterceptResult invokeV;
+    public static String b(@NonNull yg0 yg0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            zg0 a2 = a();
-            if (a2 == null) {
-                return p01.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, yg0Var)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(PermissionStorage.PermissionItem.ITEM_EXT_1, yg0Var.a);
+                jSONObject.put(PermissionStorage.PermissionItem.ITEM_EXT_2, yg0Var.b);
+                jSONObject.put(PermissionStorage.PermissionItem.ITEM_EXT_3, yg0Var.c);
+            } catch (JSONException unused) {
             }
-            return a2.a();
+            return jSONObject.toString();
         }
-        return (IAdDownloader) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 }

@@ -8,7 +8,7 @@ import java.nio.ByteBuffer;
 import java.util.List;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AvcNalUnitStorageBox extends AbstractBox {
     public static final String TYPE = "avcn";
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_0 = null;

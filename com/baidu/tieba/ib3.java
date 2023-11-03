@@ -1,42 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.so.SoLoader;
+import com.baidu.searchbox.http.cookie.CookieManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class ib3 {
+public abstract class ib3 implements CookieManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return wo2.e0().c();
-        }
-        return (String) invokeV.objValue;
-    }
+    @Override // com.baidu.searchbox.http.cookie.CookieManager
+    public abstract String getCookie(String str);
 
-    public static boolean b() {
-        InterceptResult invokeV;
+    public ib3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return SoLoader.load(AppRuntime.getAppContext(), "audioengine");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static kb3 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (!wo2.w0().d()) {
-                return pb2.c(false);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return SoLoader.loadV8EngineSo(AppRuntime.getAppContext());
         }
-        return (kb3) invokeV.objValue;
     }
 }

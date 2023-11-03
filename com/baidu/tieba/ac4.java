@@ -1,55 +1,87 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
+import android.content.Intent;
+import android.net.Uri;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.menu.viewpager.PointPageIndicator;
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.searchbox.IntentConstants;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ac4 extends PointPageIndicator {
+public abstract class ac4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public boolean c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ac4(Context context) {
-        super(context);
+    public abstract void e(Context context, LatLng latLng, LatLng latLng2, String str, String str2);
+
+    public ac4(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.c = false;
+        this.a = str2;
+        this.b = str3;
     }
 
-    @Override // com.baidu.swan.menu.viewpager.PointPageIndicator
-    public /* bridge */ /* synthetic */ PointPageIndicator d(Drawable drawable, Drawable drawable2) {
-        g(drawable, drawable2);
-        return this;
-    }
-
-    public ac4 g(Drawable drawable, Drawable drawable2) {
-        InterceptResult invokeLL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable, drawable2)) == null) {
-            this.a = drawable;
-            this.b = drawable2;
-            this.c.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-            this.d.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (ac4) invokeLL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            if (ak3.t(context.getApplicationContext(), this.b) != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void d(Context context, LatLng latLng, LatLng latLng2, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048579, this, context, latLng, latLng2, str, str2) == null) {
+            if (!c(context) && this.c) {
+                Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse("market://details?id=" + this.b));
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+                context.startActivity(intent);
+                return;
+            }
+            e(context, latLng, latLng2, str, str2);
+        }
     }
 }

@@ -1,40 +1,35 @@
 package com.baidu.tieba;
 
+import android.graphics.Paint;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
 public class zk4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
 
-    public zk4(String str, String str2, String str3) {
+    public static int a(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) {
+            return view2.getLayerType();
         }
-        this.a = str2;
+        return invokeL.intValue;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public static void b(View view2, int i, Paint paint) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeLIL(65537, null, view2, i, paint) == null) {
+            view2.setLayerType(i, paint);
         }
-        return (String) invokeV.objValue;
+    }
+
+    public static void c(View view2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65538, null, view2, z) == null) {
+            view2.setSaveFromParentEnabled(z);
+        }
     }
 }

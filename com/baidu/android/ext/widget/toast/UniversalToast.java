@@ -1147,7 +1147,7 @@ public class UniversalToast implements PopItem {
                 this.mOnDismissListener = null;
             }
             if (TextUtils.isEmpty(this.mBtnText)) {
-                this.mBtnText = AppRuntime.getAppContext().getResources().getText(R.string.obfuscated_res_0x7f0f0474);
+                this.mBtnText = AppRuntime.getAppContext().getResources().getText(R.string.obfuscated_res_0x7f0f0476);
             }
             ViewToast.showTemplate2((Activity) this.mContext, null, null, null, this.mToastText, this.mLeftTextColor, this.mBtnText, this.mJumpTextColor, this.mDuration, ToastLocation.BOTTOM, z2, this.mIsOverFloatWindow, this.mToastCallback);
             return;

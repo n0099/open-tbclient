@@ -1,129 +1,143 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
+import android.content.Context;
+import android.text.TextUtils;
+import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.download.consts.AdDownloadAction;
-import com.baidu.nadcore.download.consts.AdDownloadStatus;
-import com.baidu.nadcore.net.util.NetUtil;
+import com.baidu.nadcore.download.presenter.LPDownloadManager;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tieba.ah0;
+import com.baidu.tieba.q31;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class tg0 extends Handler {
+public class tg0 extends bg1<q31> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final eg0 a;
-    public float b;
-    public final float c;
-    public final float d;
-    public final float e;
-    public boolean f;
 
-    public tg0(@NonNull eg0 eg0Var) {
+    /* loaded from: classes8.dex */
+    public class a implements q31 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.q31
+        public void release() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            }
+        }
+
+        /* renamed from: com.baidu.tieba.tg0$a$a  reason: collision with other inner class name */
+        /* loaded from: classes8.dex */
+        public class C0485a extends wi0<ah0> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ q31.c b;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            public C0485a(a aVar, Class cls, q31.c cVar) {
+                super(cls);
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, cls, cVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        super((Class) newInitContext.callArgs[0]);
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = cVar;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.wi0
+            public void onEvent(@NonNull ah0 ah0Var) {
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeL(1048576, this, ah0Var) == null) && this.b != null && !ky0.g(ah0Var.a)) {
+                    for (ah0.a aVar : ah0Var.a) {
+                        if (aVar instanceof ah0.a) {
+                            ah0.a aVar2 = aVar;
+                            if (!TextUtils.isEmpty(aVar2.b) && !TextUtils.isEmpty(aVar2.a) && !TextUtils.isEmpty(aVar2.c)) {
+                                String str = "javascript:" + aVar2.a + "('" + ly0.a(aVar2.c) + "');";
+                                q31.c cVar = this.b;
+                                if (cVar instanceof q31.b) {
+                                    ((q31.b) cVar).b(str, aVar2.d);
+                                } else {
+                                    cVar.a(str);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        public a(tg0 tg0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tg0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.q31
+        public void a(Object obj, q31.c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, obj, cVar) == null) {
+                si0.a().c(obj, new C0485a(this, ah0.class, cVar));
+            }
+        }
+
+        @Override // com.baidu.tieba.q31
+        public void b(Context context, RelativeLayout relativeLayout, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, relativeLayout, str) == null) {
+                LPDownloadManager.f(context, relativeLayout, str, true);
+            }
+        }
+    }
+
+    public tg0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {eg0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = -1.0f;
-        this.f = false;
-        this.c = (float) qi0.b().a().b("nad_fake_progress", 0.5950000286102295d);
-        this.b = (float) qi0.b().a().b("nad_fake_max_progress_time", 0.0d);
-        this.d = (float) qi0.b().a().b("nad_fake_speed", 768000.0d);
-        this.e = (float) qi0.b().a().b("nad_fake_progress_step", 0.009999999776482582d);
-        this.a = eg0Var;
-    }
-
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, message) == null) {
-            super.handleMessage(message);
-            if (message.what != 1) {
-                d();
-            } else if (this.a.q.g == 1) {
-                this.f = false;
-            } else if (!NetUtil.a(pe0.b())) {
-                d();
-            } else {
-                eg0 eg0Var = this.a;
-                if (eg0Var.c != AdDownloadStatus.DOWNLOADING) {
-                    d();
-                    return;
-                }
-                float f = eg0Var.j;
-                if (f >= this.c) {
-                    d();
-                    return;
-                }
-                this.f = true;
-                eg0Var.j = Math.max(eg0Var.i, f) + this.e;
-                rf0.c().g(AdDownloadAction.PROGRESS_UPDATE, this.a);
-                c();
             }
         }
     }
 
-    public void a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bg1
+    /* renamed from: a */
+    public q31 createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            b(false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
         }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Message obtain = Message.obtain();
-            obtain.what = 1;
-            sendMessageDelayed(obtain, (this.b / (this.c / this.e)) * 1000.0f);
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            removeMessages(1);
-            this.f = false;
-        }
-    }
-
-    public void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            if (this.f && !z) {
-                return;
-            }
-            d();
-            long j = this.a.q.e;
-            if (j > 0) {
-                float f = this.d;
-                if (f > 0.0f) {
-                    this.b = (((float) j) * this.c) / f;
-                }
-            }
-            if (this.b <= 0.0f) {
-                this.f = false;
-            } else if (this.e <= 0.0f) {
-                this.f = false;
-            } else {
-                this.f = true;
-                Message obtain = Message.obtain();
-                obtain.what = 1;
-                sendMessage(obtain);
-            }
-        }
+        return (q31) invokeV.objValue;
     }
 }

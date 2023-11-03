@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fpb;
+import com.baidu.tieba.g2c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -104,12 +104,12 @@ public class KSNativeAdGroupImgAppDownloadView extends y {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0900ae);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0900c3);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900c0);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900c1);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900c2);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900ef);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0900c1);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0900d6);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900d3);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900d4);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900d5);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f090102);
             this.h = (TextView) findViewById(R.id.ad_app_source);
             this.i = (ImageView) findViewById(R.id.ad_app_icon);
             this.j = (TextView) findViewById(R.id.ad_app_title);
@@ -172,7 +172,7 @@ public class KSNativeAdGroupImgAppDownloadView extends y {
             }
             this.j.setText(ksNativeAd.getAppName());
             this.k.setText(ksNativeAd.getActionDescription());
-            ksNativeAd.setDownloadListener(new fpb(ksNativeAd.getActionDescription(), this.k));
+            ksNativeAd.setDownloadListener(new g2c(ksNativeAd.getActionDescription(), this.k));
         }
     }
 }

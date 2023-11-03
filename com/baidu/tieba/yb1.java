@@ -1,185 +1,149 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.URLDecoder;
-import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class yb1 {
     public static /* synthetic */ Interceptable $ic;
-    public static long c;
-    public static yb1 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948324289, "Lcom/baidu/tieba/yb1;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948324289, "Lcom/baidu/tieba/yb1;");
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class a extends xa1<JSONObject> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bd1 a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ yb1 c;
-
-        public a(yb1 yb1Var, bd1 bd1Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yb1Var, bd1Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = yb1Var;
-            this.a = bd1Var;
-            this.b = str;
-        }
-
-        @Override // com.baidu.tieba.xa1
-        public void b(Throwable th, String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLL(1048576, this, th, str) != null) || this.c.b) {
-                return;
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            if (bb1.b(tc1.a()) && currentTimeMillis - yb1.c <= 3000) {
-                if (this.c.a) {
-                    this.a.onResult(1, "");
-                }
-                this.c.i(this.b, this.a);
-            } else {
-                this.a.onResult(3, "支付失败，请重试");
-            }
-            this.c.a = false;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.xa1
-        /* renamed from: d */
-        public void c(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || this.c.b) {
-                return;
-            }
-            int optInt = jSONObject.optInt("status", -1);
-            int optInt2 = jSONObject.optInt("payStatus", -1);
-            if (optInt == 1 && optInt2 == 0) {
-                this.a.onResult(3, "支付失败，请重试");
-                return;
-            }
-            if (optInt != 2 && (optInt != 1 || optInt2 != 2)) {
-                if (optInt == 1 && optInt2 == 3) {
-                    this.a.onResult(3, "支付失败，请重试");
-                } else if (System.currentTimeMillis() - yb1.c <= 3000) {
-                    if (this.c.a) {
-                        this.a.onResult(1, "");
-                    }
-                    this.c.i(this.b, this.a);
-                } else {
-                    this.a.onResult(6, "支付结果查询失败，请重试");
-                }
-            } else {
-                this.a.onResult(0, "小额免密支付成功");
-            }
-            this.c.a = false;
-        }
-    }
-
-    public yb1() {
+    public static final String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return h() + "/cps/user/recordBatch/sapp";
         }
-        this.a = true;
-        this.b = false;
+        return (String) invokeV.objValue;
     }
 
-    public static yb1 h() {
+    public static final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return h() + "/cashier/calcMoney";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return h() + "/cashier/channelAllInfo";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return h() + "/cashier/order/orderInfo";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return h() + "/cps/user/record/sapp";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return h() + "/cashier/drmb/drmbPay";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (d == null) {
-                synchronized (yb1.class) {
-                    if (d == null) {
-                        d = new yb1();
-                    }
-                }
+            if (vb1.a() != 1) {
+                return "https://trade.baidu-int.com/sandbox/tradegateway";
             }
-            return d;
+            return "https://etrade-api.baidu.com";
         }
-        return (yb1) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void f() {
+    public static final String j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b = true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return h() + "/cashier/launchpayment";
         }
+        return (String) invokeV.objValue;
     }
 
-    public void g(String str, bd1 bd1Var) {
+    public static final String l() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bd1Var) == null) {
-            this.b = false;
-            this.a = true;
-            c = System.currentTimeMillis();
-            i(str, bd1Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            return h() + "/cashier/pay";
         }
+        return (String) invokeV.objValue;
     }
 
-    public final void i(String str, bd1 bd1Var) {
+    public static final String m() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bd1Var) == null) {
-            String[] split = str.split("&");
-            ya1 ya1Var = new ya1();
-            for (String str2 : split) {
-                String[] split2 = str2.split("=");
-                if (split2.length == 2) {
-                    if (TextUtils.equals(split2[0], "timestamp")) {
-                        ya1Var.d(split2[0], URLDecoder.decode(split2[1]));
-                    } else {
-                        ya1Var.d(split2[0], split2[1]);
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            return h() + "/cashier/sdkAdaptH5QueryPay";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final String n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            return h() + "/cashier/drmb/reqCode";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (vb1.a() != 2) {
+                return h() + "/cashier/innerChannelAllInfo";
             }
-            ya1Var.d("terminalData", "{\"queryOrderType\":\"AGREEMENT\",\"payChannel\":\"BAIDU-ALIPAY-WISE\"}");
-            fb1.j().g(hb1.e(), ya1Var, new a(this, bd1Var, str));
+            return h() + "/cashier/innerChannelAllInfo";
         }
+        return (String) invokeV.objValue;
+    }
+
+    public static final String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            if (vb1.a() != 1) {
+                return h() + "/cashier/agreement/judgeGuideSign";
+            }
+            return h() + "/cashier/agreement/judgeGuideSign";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            if (vb1.a() != 1) {
+                return h() + "/cashier/agreement/guideApplySign";
+            }
+            return h() + "/cashier/agreement/guideApplySign";
+        }
+        return (String) invokeV.objValue;
     }
 }

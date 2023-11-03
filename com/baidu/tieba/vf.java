@@ -1,23 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.nps.interfa.IWebViewDataDirectoryManager;
-import com.baidu.pyramid.annotation.Service;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.graphics.drawable.Drawable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
 /* loaded from: classes8.dex */
-public class vf implements IWebViewDataDirectoryManager {
+public class vf extends ag {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.nps.interfa.IWebViewDataDirectoryManager
-    public void setDataDirectorySuffix() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
+    public Path v;
+    public boolean w;
+    public Rect x;
+    public final Paint y;
+    public final Paint z;
 
     public vf() {
         Interceptable interceptable = $ic;
@@ -29,7 +33,59 @@ public class vf implements IWebViewDataDirectoryManager {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.y = new Paint();
+        this.z = new Paint();
+        this.y.setColor(-16777216);
+        this.y.setStyle(Paint.Style.FILL);
+        this.y.setAntiAlias(true);
+        this.z.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+    }
+
+    @Override // com.baidu.tieba.qf
+    public void e(Canvas canvas, Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, canvas, drawable) == null) {
+            canvas.save();
+            t(drawable.getBounds());
+            try {
+                canvas.clipPath(this.v);
+            } catch (Exception unused) {
+            }
+            drawable.draw(canvas);
+            canvas.restore();
+        }
+    }
+
+    public final void t(Rect rect) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rect) != null) || rect == null) {
+            return;
+        }
+        boolean z2 = true;
+        if (this.v != null && this.w == this.l.b) {
+            z = false;
+        } else {
+            z = true;
+        }
+        Rect rect2 = this.x;
+        if (rect2 != null && rect2.contains(rect)) {
+            z2 = z;
+        }
+        this.w = this.l.b;
+        if (z2) {
+            this.x = rect;
+            Path path = new Path();
+            this.v = path;
+            if (this.w) {
+                this.v.addCircle((rect.right + rect.left) / 2.0f, (rect.top + rect.bottom) / 2.0f, Math.min(rect.width(), rect.height()) / 2.0f, Path.Direction.CCW);
+            } else {
+                path.addRoundRect(new RectF(rect), this.l.a, Path.Direction.CW);
+            }
+            this.v.close();
         }
     }
 }

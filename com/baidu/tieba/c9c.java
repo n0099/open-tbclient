@@ -1,101 +1,111 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.AbstractQueue;
-import java.util.Iterator;
-import java.util.concurrent.atomic.AtomicReferenceArray;
+import java.lang.reflect.Method;
 /* loaded from: classes5.dex */
-public abstract class c9c<E> extends AbstractQueue<E> {
+public class c9c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicReferenceArray<E> a;
-    public final int b;
 
-    public final int b(long j, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) ? ((int) j) & i : invokeCommon.intValue;
-    }
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static Object a;
+        public static Class<?> b;
+        public static Method c;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public c9c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-932334497, "Lcom/baidu/tieba/c9c$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-932334497, "Lcom/baidu/tieba/c9c$a;");
+                    return;
+                }
+            }
+            try {
+                Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
+                b = cls;
+                a = cls.newInstance();
+                b.getMethod("getUDID", Context.class);
+                c = b.getMethod("getOAID", Context.class);
+                b.getMethod("getVAID", Context.class);
+                b.getMethod("getAAID", Context.class);
+            } catch (Throwable th) {
+                Log.e("XiaomiId", "xiaomi init error", th);
             }
         }
-        int b = q9c.b(i);
-        this.b = b - 1;
-        this.a = new AtomicReferenceArray<>(b);
-    }
 
-    public final int a(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            return this.b & ((int) j);
-        }
-        return invokeJ.intValue;
-    }
-
-    public final E c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            return d(this.a, i);
-        }
-        return (E) invokeI.objValue;
-    }
-
-    @Override // java.util.AbstractQueue, java.util.AbstractCollection, java.util.Collection
-    public void clear() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048579, this) != null) {
-            return;
-        }
-        while (true) {
-            if (poll() == null && isEmpty()) {
-                return;
+        public static String a(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+                return b(context, c);
             }
+            return (String) invokeL.objValue;
+        }
+
+        public static String b(Context context, Method method) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, method)) == null) {
+                Object obj = a;
+                if (obj != null && method != null) {
+                    try {
+                        Object invoke = method.invoke(obj, context);
+                        if (invoke != null) {
+                            return (String) invoke;
+                        }
+                        return null;
+                    } catch (Exception e) {
+                        Log.e("XiaomiId", "invoke method error", e);
+                        return null;
+                    }
+                }
+                return null;
+            }
+            return (String) invokeLL.objValue;
+        }
+
+        public static boolean c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                if (b != null && a != null) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
     }
 
-    @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
-    public Iterator<E> iterator() {
+    public static String a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            return a.a(context.getApplicationContext());
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            throw new UnsupportedOperationException();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.c();
         }
-        return (Iterator) invokeV.objValue;
-    }
-
-    public final E d(AtomicReferenceArray<E> atomicReferenceArray, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, atomicReferenceArray, i)) == null) {
-            return atomicReferenceArray.get(i);
-        }
-        return (E) invokeLI.objValue;
-    }
-
-    public final void e(AtomicReferenceArray<E> atomicReferenceArray, int i, E e) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048581, this, atomicReferenceArray, i, e) == null) {
-            atomicReferenceArray.lazySet(i, e);
-        }
+        return invokeV.booleanValue;
     }
 }

@@ -11,9 +11,9 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i59;
-import com.baidu.tieba.k4;
+import com.baidu.tieba.a5;
 import com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic;
+import com.baidu.tieba.mi9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -27,7 +27,7 @@ public class CategoryView extends LinearLayout {
     public TextView c;
     public TextView d;
     public ImageView e;
-    public i59 f;
+    public mi9 f;
     public View.OnClickListener g;
 
     /* loaded from: classes7.dex */
@@ -70,7 +70,7 @@ public class CategoryView extends LinearLayout {
                 } else {
                     TiebaStatic.log("c10441");
                 }
-                MemberCenterStatic.a((TbPageContext) k4.a(this.a.a), new String[]{this.a.f.c()});
+                MemberCenterStatic.a((TbPageContext) a5.a(this.a.a), new String[]{this.a.f.c()});
             }
         }
     }
@@ -149,11 +149,11 @@ public class CategoryView extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d044c, this);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d045f, this);
             this.b = inflate;
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090729);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09229c);
-            this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09229a);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090748);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0922e9);
+            this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0922e7);
             this.b.setOnClickListener(this.g);
             this.e.setOnClickListener(this.g);
         }

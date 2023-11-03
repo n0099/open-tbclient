@@ -1,21 +1,55 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.tieba.se4;
-import okhttp3.Callback;
-import org.json.JSONObject;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public interface dp1 {
-    void d(byte[] bArr);
+public class dp1 implements nr1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    <T> void e(String str, String str2, ResponseCallback<T> responseCallback);
+    @Override // com.baidu.tieba.nr1
+    public void a(@NonNull JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
+        }
+    }
 
-    void f(String str, String str2, se4.c cVar);
+    @Override // com.baidu.tieba.nr1
+    public ja2 b(Context context, File file, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, file, Long.valueOf(j)})) == null) {
+            return null;
+        }
+        return (ja2) invokeCommon.objValue;
+    }
 
-    boolean g(String str);
+    @Override // com.baidu.tieba.nr1
+    public void c(@NonNull JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray) == null) {
+        }
+    }
 
-    boolean h();
-
-    boolean i(@NonNull p53 p53Var, @NonNull JSONObject jSONObject, @NonNull String str, @NonNull String str2, Callback callback, ik3<String> ik3Var);
+    public dp1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

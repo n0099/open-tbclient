@@ -1,65 +1,62 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.media.AudioManager;
-import androidx.annotation.Nullable;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.tw0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class uw0 {
+public abstract class uw0<T extends tw0> extends sw0<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Object c;
 
-    @Nullable
-    public static AudioManager a(@Nullable Context context) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public uw0(int i) {
+        super(i);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (context == null) {
-                return null;
-            }
-            try {
-                return (AudioManager) context.getSystemService("audio");
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (AudioManager) invokeL.objValue;
+        this.c = new Object();
     }
 
-    public static int b(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.sw0
+    @NonNull
+    public T a() {
+        InterceptResult invokeV;
+        T t;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            AudioManager a = a(context);
-            if (a != null) {
-                return a.getStreamMaxVolume(3);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this.c) {
+                t = (T) super.a();
             }
-            return -1;
+            return t;
         }
-        return invokeL.intValue;
+        return (T) invokeV.objValue;
     }
 
-    public static int c(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.sw0
+    public void d(@NonNull T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            AudioManager a = a(context);
-            if (a != null) {
-                return a.getStreamVolume(3);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+            synchronized (this.c) {
+                super.d(t);
             }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    public static void d(Context context, int i) {
-        AudioManager a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65539, null, context, i) == null) && (a = a(context)) != null) {
-            a.setStreamVolume(3, i, 8);
         }
     }
 }

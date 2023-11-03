@@ -1,170 +1,89 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.audiorecorder.lib.voice.SendVoiceView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.editortools.RawLayout;
+import com.baidu.tieba.view.BdTopToast;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class jk {
+public class jk extends ke5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int t;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final String b;
-    public final String c;
-    public final String d;
-    public final String e;
-    public final String f;
-    public final String g;
-    public final String h;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof jk) {
-                    jk jkVar = (jk) obj;
-                    if (!(this.a == jkVar.a) || !Intrinsics.areEqual(this.b, jkVar.b) || !Intrinsics.areEqual(this.c, jkVar.c) || !Intrinsics.areEqual(this.d, jkVar.d) || !Intrinsics.areEqual(this.e, jkVar.e) || !Intrinsics.areEqual(this.f, jkVar.f) || !Intrinsics.areEqual(this.g, jkVar.g) || !Intrinsics.areEqual(this.h, jkVar.h)) {
-                    }
-                }
-                return false;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448308364, "Lcom/baidu/tieba/jk;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return true;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448308364, "Lcom/baidu/tieba/jk;");
+                return;
+            }
         }
-        return invokeL.booleanValue;
+        t = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds26);
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            int i = this.a * 31;
-            String str = this.b;
-            int hashCode = (i + (str != null ? str.hashCode() : 0)) * 31;
-            String str2 = this.c;
-            int hashCode2 = (hashCode + (str2 != null ? str2.hashCode() : 0)) * 31;
-            String str3 = this.d;
-            int hashCode3 = (hashCode2 + (str3 != null ? str3.hashCode() : 0)) * 31;
-            String str4 = this.e;
-            int hashCode4 = (hashCode3 + (str4 != null ? str4.hashCode() : 0)) * 31;
-            String str5 = this.f;
-            int hashCode5 = (hashCode4 + (str5 != null ? str5.hashCode() : 0)) * 31;
-            String str6 = this.g;
-            int hashCode6 = (hashCode5 + (str6 != null ? str6.hashCode() : 0)) * 31;
-            String str7 = this.h;
-            return hashCode6 + (str7 != null ? str7.hashCode() : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return "TaskBuoyUIConfig(uiType=" + this.a + ", message=" + this.b + ", txtColor=" + this.c + ", bgUrl=" + this.d + ", pForeColor=" + this.e + ", pBackColor=" + this.f + ", closeBg=" + this.g + ", schema=" + this.h + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public jk(int i, String str, String str2, String str3, String str4, String str5, String str6, String str7) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jk(Context context) {
+        super(context, (String) null, 6);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, str2, str3, str4, str5, str6, str7};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.b = str;
-        this.c = str2;
-        this.d = str3;
-        this.e = str4;
-        this.f = str5;
-        this.g = str6;
-        this.h = str7;
+        this.b = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f15f6);
+        this.d = R.drawable.icon_pure_post_voice24;
+        this.f = R.color.CAM_X0105;
+        this.i = false;
+        this.j = true;
+        this.o = true;
+        this.n = 5;
+        this.m = new SendVoiceView(context);
+        RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(0, -2);
+        int i3 = t;
+        ((LinearLayout.LayoutParams) layoutParams).topMargin = i3;
+        ((LinearLayout.LayoutParams) layoutParams).bottomMargin = i3;
+        ((LinearLayout.LayoutParams) layoutParams).weight = 1.0f;
+        ((View) this.m).setLayoutParams(layoutParams);
+        this.p = new int[0];
     }
 
-    public final String a() {
+    @Override // com.baidu.tieba.ke5
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+            if (!this.k && b() != null && (this.m instanceof SendVoiceView)) {
+                new BdTopToast(b()).setIcon(false).setContent(b().getString(R.string.function_can_not_use)).show((ViewGroup) ((SendVoiceView) this.m).getRootView());
+            }
+            return this.k;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.h;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 }

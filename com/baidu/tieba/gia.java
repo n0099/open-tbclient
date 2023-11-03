@@ -2,7 +2,6 @@ package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
@@ -10,9 +9,8 @@ public class gia {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public int b;
-    public int c;
-    public String d;
+    public String b;
+    public String c;
 
     public gia() {
         Interceptable interceptable = $ic;
@@ -26,14 +24,5 @@ public class gia {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "index:" + this.b + " tabName:" + this.a + " type:" + this.c + " tabCode:" + this.d;
-        }
-        return (String) invokeV.objValue;
     }
 }

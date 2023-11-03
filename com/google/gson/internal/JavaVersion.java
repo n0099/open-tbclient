@@ -1,5 +1,5 @@
 package com.google.gson.internal;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class JavaVersion {
     public static final int majorJavaVersion = determineMajorJavaVersion();
 

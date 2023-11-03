@@ -1,21 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tbadk.data.IconPopData;
+import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
+import com.baidu.tbadk.coreExtra.data.CombineDownload;
+import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class p15 implements e15 {
+public class p15 extends g15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -33,39 +33,17 @@ public final class p15 implements e15 {
         }
     }
 
-    @Override // com.baidu.tieba.e15
-    public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, Object> strategyData, Map<String, Object> extraData) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.g15
+    public void a(@NonNull Context context, @NonNull u05 u05Var) {
+        JSONObject syncJson;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogData, strategyData, extraData)) == null) {
-            Intrinsics.checkNotNullParameter(dialogData, "dialogData");
-            Intrinsics.checkNotNullParameter(strategyData, "strategyData");
-            Intrinsics.checkNotNullParameter(extraData, "extraData");
-            HashMap hashMap = new HashMap();
-            hashMap.put("dialogName", "userIcon");
-            hashMap.putAll(strategyData);
-            hashMap.putAll(extraData);
-            return hashMap;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, context, u05Var) != null) || (syncJson = TbSingleton.getInstance().getSyncJson()) == null) {
+            return;
         }
-        return (Map) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.e15
-    public boolean b(Map<String, Object> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            Intrinsics.checkNotNullParameter(map, "map");
-            IconPopData iconPopData = TbSingleton.getInstance().getIconPopData();
-            if (iconPopData != null && PollingModel.checkIconPopHadShow() && iconPopData.getPic160() != null && iconPopData.getTitle() != null) {
-                Long uid = iconPopData.getUid();
-                long currentAccountId = TbadkCoreApplication.getCurrentAccountId();
-                if (uid != null && uid.longValue() == currentAccountId) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
+        VersionData versionData = new VersionData();
+        versionData.parserJson(syncJson.optJSONObject("version"));
+        CombineDownload combineDownload = new CombineDownload();
+        combineDownload.parserJson(syncJson.optJSONObject("combine_download"));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), versionData, combineDownload)));
     }
 }

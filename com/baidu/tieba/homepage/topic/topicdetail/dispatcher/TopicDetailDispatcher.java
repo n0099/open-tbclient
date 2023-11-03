@@ -3,15 +3,15 @@ package com.baidu.tieba.homepage.topic.topicdetail.dispatcher;
 import android.content.Context;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.l4a;
-import com.baidu.tieba.wr5;
+import com.baidu.tieba.qha;
+import com.baidu.tieba.qt5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class TopicDetailDispatcher implements l4a {
+public class TopicDetailDispatcher implements qha {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,12 +29,12 @@ public class TopicDetailDispatcher implements l4a {
         }
     }
 
-    @Override // com.baidu.tieba.l4a
+    @Override // com.baidu.tieba.qha
     public void dispatch(JSONObject jSONObject, Context context) {
         TbPageContext currentPageContext;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null && (currentPageContext = TbadkCoreApplication.getInst().getCurrentPageContext(context)) != null) {
-            wr5.f(currentPageContext, jSONObject.optString("topicId"), "");
+            qt5.f(currentPageContext, jSONObject.optString("topicId"), "");
         }
     }
 }

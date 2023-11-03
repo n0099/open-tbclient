@@ -1,130 +1,179 @@
 package com.baidu.tieba;
 
-import androidx.core.app.NotificationManagerCompat;
-import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.tbadk.coreExtra.util.PushOpenUtil;
-import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.forum.bubble.BubbleFrequencyData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class qe7 {
+public final class qe7 {
     public static /* synthetic */ Interceptable $ic;
+    public static final qe7 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public sa5 a;
-    public FrsActivity b;
-    public Map<String, Date> c;
-    public boolean d;
 
-    public qe7(FrsActivity frsActivity) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948089030, "Lcom/baidu/tieba/qe7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948089030, "Lcom/baidu/tieba/qe7;");
+                return;
+            }
+        }
+        a = new qe7();
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class a extends au5<BubbleFrequencyData> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ String b;
+
+        public a(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i;
+            this.b = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.au5
+        /* renamed from: a */
+        public BubbleFrequencyData doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return BubbleFrequencyData.c.a(yz4.m("tb.forum_bubble_guide_cache").get(re7.a(this.a, this.b)));
+            }
+            return (BubbleFrequencyData) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class b extends au5<Unit> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ String c;
+
+        public b(int i, int i2, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i;
+            this.b = i2;
+            this.c = str;
+        }
+
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                String date = qd.getDateStringDay(new Date());
+                Intrinsics.checkNotNullExpressionValue(date, "date");
+                yz4.m("tb.forum_bubble_guide_cache").g(re7.a(this.b, this.c), new BubbleFrequencyData(date, this.a).c());
+            }
+        }
+
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // com.baidu.tieba.au5
+        public /* bridge */ /* synthetic */ Unit doInBackground() {
+            a();
+            return Unit.INSTANCE;
+        }
+    }
+
+    public qe7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {frsActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static final void b(Function1 callback, BubbleFrequencyData bubbleFrequencyData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, callback, bubbleFrequencyData) == null) {
+            Intrinsics.checkNotNullParameter(callback, "$callback");
+            if (bubbleFrequencyData == null) {
+                callback.invoke(0);
                 return;
             }
-        }
-        this.c = new HashMap();
-        this.d = false;
-        this.b = frsActivity;
-    }
-
-    public void a() {
-        sa5 sa5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (sa5Var = this.a) != null) {
-            sa5Var.q();
-        }
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            sa5 sa5Var = this.a;
-            if (sa5Var != null && sa5Var.t()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public Date c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (this.c == null) {
-                this.c = new HashMap();
+            if (Intrinsics.areEqual(bubbleFrequencyData.b(), qd.getDateStringDay(new Date()))) {
+                callback.invoke(Integer.valueOf(bubbleFrequencyData.a()));
             } else {
-                this.c = TbSingleton.getInstance().getHasShowTip();
+                callback.invoke(0);
             }
-            Date date = new Date(System.currentTimeMillis());
-            Map<String, Date> map = this.c;
-            if (map != null && map.containsKey(str)) {
-                if (TimeHelper.getDayDifference(this.c.get(str), date) >= 1) {
-                    this.d = true;
-                }
-            } else {
-                this.d = true;
-            }
-            return date;
         }
-        return (Date) invokeL.objValue;
     }
 
-    public void d(String str) {
-        FrsActivity frsActivity;
-        int i;
+    public final void a(String fid, int i, final Function1<? super Integer, Unit> callback) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (frsActivity = this.b) != null && frsActivity.getPageContext() != null) {
-            Date c = c(str);
-            boolean z = false;
-            if (!UbsABTestHelper.isPushPermissionForumFollowTestA() && !UbsABTestHelper.isPushPermissionForumFollowTestB()) {
-                i = 0;
-            } else {
-                i = 11;
-            }
-            if ((!NotificationManagerCompat.from(TbadkCoreApplication.getInst()).areNotificationsEnabled() || !f95.e().o()) && this.d && cn7.a(i)) {
-                FrsActivity frsActivity2 = this.b;
-                if (frsActivity2 != null && frsActivity2.w1() != null) {
-                    z = this.b.w1().B;
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, fid, i, callback) == null) {
+            Intrinsics.checkNotNullParameter(fid, "fid");
+            Intrinsics.checkNotNullParameter(callback, "callback");
+            eu5.b(new a(i, fid), new ft5() { // from class: com.baidu.tieba.le7
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // com.baidu.tieba.ft5
+                public final void onReturnDataInUI(Object obj) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
+                        qe7.b(Function1.this, (BubbleFrequencyData) obj);
+                    }
                 }
-                HashMap hashMap = new HashMap();
-                if (z) {
-                    hashMap.put(PushOpenUtil.VIEW_PARAMS_KEY_STYLE, "short");
-                }
-                sa5 sa5Var = this.a;
-                if (sa5Var != null) {
-                    sa5Var.q();
-                }
-                sa5 showPushOpenView = PushOpenUtil.showPushOpenView(this.b.getPageContext(), "forum_follow", 2000L, hashMap);
-                this.a = showPushOpenView;
-                if (showPushOpenView != null) {
-                    by9.e().h("forum_follow");
-                }
-                this.c.put(str, c);
-                TbSingleton.getInstance().setHasShowTip(this.c);
-                return;
-            }
-            BdUtilHelper.showToastByTextCenter(TbadkCoreApplication.getInst(), R.string.push_like_tip_msg);
+            });
+        }
+    }
+
+    public final void c(String fid, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fid, i, i2) == null) {
+            Intrinsics.checkNotNullParameter(fid, "fid");
+            eu5.b(new b(i2, i, fid), null);
         }
     }
 }

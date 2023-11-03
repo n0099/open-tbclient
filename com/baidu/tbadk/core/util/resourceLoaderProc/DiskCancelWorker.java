@@ -2,15 +2,15 @@ package com.baidu.tbadk.core.util.resourceLoaderProc;
 
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bb;
-import com.baidu.tieba.t6;
+import com.baidu.tieba.j7;
+import com.baidu.tieba.rb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class DiskCancelWorker implements bb.a {
+public class DiskCancelWorker implements rb.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public DiskFileOperate operate;
@@ -31,11 +31,11 @@ public class DiskCancelWorker implements bb.a {
         this.operate = null;
     }
 
-    @Override // com.baidu.tieba.bb.a
+    @Override // com.baidu.tieba.rb.a
     public void cancel() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.operate != null) {
-            t6.g().e(this.operate);
+            j7.g().e(this.operate);
         }
     }
 

@@ -50,7 +50,7 @@ public class TiebaBaseApplication extends TbadkApplication {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public class a implements ed {
+    public class a implements ud {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TiebaBaseApplication a;
@@ -73,7 +73,7 @@ public class TiebaBaseApplication extends TbadkApplication {
             this.a = tiebaBaseApplication;
         }
 
-        @Override // com.baidu.tieba.ed
+        @Override // com.baidu.tieba.ud
         public boolean isAgreePrivacyPolicy() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -83,7 +83,7 @@ public class TiebaBaseApplication extends TbadkApplication {
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.ed
+        @Override // com.baidu.tieba.ud
         public boolean isBrowseMode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -111,7 +111,7 @@ public class TiebaBaseApplication extends TbadkApplication {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            uc.d().e(this.mContext);
+            kd.d().e(this.mContext);
         }
     }
 
@@ -167,7 +167,7 @@ public class TiebaBaseApplication extends TbadkApplication {
                     Collections.addAll(hashSet, split);
                 }
             }
-            if (p25.a().a) {
+            if (j35.a().a) {
                 applicationTaskPool = new PBTaskPool();
             } else {
                 applicationTaskPool = new ApplicationTaskPool();
@@ -196,22 +196,22 @@ public class TiebaBaseApplication extends TbadkApplication {
             SpeedStatsManager.getInstance().addStatsTimeStamp(1002);
             super.attachBaseContext(context);
             AppRuntimeInit.onApplicationattachBaseContext(this);
-            df1.b(this);
-            boolean a2 = vla.a(this, "NPS_DEBUG_MODE");
+            uf1.b(this);
+            boolean a2 = uya.a(this, "NPS_DEBUG_MODE");
             AppConfig.init(false, false, a2, false);
             if (a2) {
                 CloudControlUrlConfig.setDebugHost("http://showcase.baidu.com");
-                vg.b("http://showcase.baidu.com");
+                lh.b("http://showcase.baidu.com");
             }
             SpeedStatsManager.getInstance().addStatsTimeStamp(1003);
-            l5b.b(this);
+            mib.b(this);
             SpeedStatsManager.getInstance().addStatsTimeStamp(1004);
             f();
             SpeedStatsManager.getInstance().addStatsTimeStamp(1011);
             TitanIniter.init(this);
             LoaderManager.getInstance().load();
             SpeedStatsManager.getInstance().addStatsTimeStamp(1012);
-            qe0.b(this);
+            hf0.b(this);
             BdBoxActivityManager.setMainGlobalActivityLifecycle(GlobalActivityLifecycle.getInstance());
             SpeedStatsManager.getInstance().addStatsTimeStamp(1010);
         }
@@ -222,8 +222,8 @@ public class TiebaBaseApplication extends TbadkApplication {
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && isMainProcess(false) && PermissionUtil.isAgreePrivacyPolicy()) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(new TaskManagerLaunchFetchListener());
-            arrayList.add(new o25());
-            arrayList.add(new n25());
+            arrayList.add(new i35());
+            arrayList.add(new h35());
             AppLaunchInfoFetcher.e(this, arrayList);
         }
     }
@@ -238,10 +238,10 @@ public class TiebaBaseApplication extends TbadkApplication {
             doAfterSuperOnCreate();
             if (!PermissionUtil.isAgreePrivacyPolicy()) {
                 PermissionUtil.registerMutiProcessPrivacyPolicy();
-                registerActivityLifecycleCallbacks(new ru4());
+                registerActivityLifecycleCallbacks(new iv4());
             }
-            registerActivityLifecycleCallbacks(new su4());
-            registerActivityLifecycleCallbacks(new qu4());
+            registerActivityLifecycleCallbacks(new jv4());
+            registerActivityLifecycleCallbacks(new hv4());
         }
     }
 
@@ -251,7 +251,7 @@ public class TiebaBaseApplication extends TbadkApplication {
             this.mContext = application;
             g();
             d();
-            lg.d();
+            bh.d();
         }
     }
 
@@ -271,14 +271,14 @@ public class TiebaBaseApplication extends TbadkApplication {
                 SpeedStatsManager.getInstance().addStatsTimeStamp(2002);
                 a();
                 SpeedStatsManager.getInstance().addStatsTimeStamp(2003);
-                on5.a().E(System.currentTimeMillis());
+                ip5.a().E(System.currentTimeMillis());
                 if (isMainProcess(false)) {
                     GrowthFunnelHelper.logAppCreateEnd();
                 }
                 if (WindowGreySwitch.getIsOn()) {
                     BdActivityStack.getInst().setActivityIsGrey(true);
                 }
-                ta.a().b();
+                jb.a().b();
                 SpeedStatsManager.getInstance().addStatsTimeStamp(2004);
                 SpeedStats.getInstance().onAppCreateEnd();
             }

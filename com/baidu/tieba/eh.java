@@ -1,130 +1,72 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.net.Uri;
-import android.os.Bundle;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.log.DefaultLog;
-import com.baidu.adp.titan.TitanDownloadService;
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.pms.bean.PackageInfo;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.titan.sdk.internal.util.Files;
-import com.baidu.titan.sdk.loader.LoaderHead;
-import com.baidu.titan.sdk.loader.LoaderManager;
-import com.baidu.titan.sdk.pm.PatchInstallInfo;
-import com.baidu.titan.sdk.pm.PatchManager;
-import com.baidu.titan.sdk.pm.PatchMetaInfo;
-import com.baidu.titan.sdk.pm.TitanPaths;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class eh {
+public class eh extends BdAsyncTask<List<PackageInfo>, Integer, Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public class a implements PatchManager.PatchInstallObserver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ah a;
-        public final /* synthetic */ PackageInfo b;
-        public final /* synthetic */ boolean c;
-
-        public a(ah ahVar, PackageInfo packageInfo, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ahVar, packageInfo, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ahVar;
-            this.b = packageInfo;
-            this.c = z;
-        }
-
-        @Override // com.baidu.titan.sdk.pm.PatchManager.PatchInstallObserver
-        public void onPatchInstalled(int i, Bundle bundle) {
-            int i2;
-            LoaderHead createFromJson;
-            PatchMetaInfo createFromPatch;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, bundle) == null) {
-                if (i != 0 && i != 1) {
-                    i2 = -1;
-                } else {
-                    i2 = 0;
-                }
-                String str = "install-resut:" + i;
-                ah ahVar = this.a;
-                if (ahVar != null) {
-                    ahVar.onResult(this.b.packageName, i2, str);
-                }
-                DefaultLog.getInstance().i(TitanDownloadService.TAG, "patch install result = " + i + "patch version = " + this.b.version + " packageInfo:" + this.b);
-                if (i2 == 0) {
-                    eh.c(this.b);
-                } else {
-                    DefaultLog.getInstance().e(TitanDownloadService.TAG, "last patch is:" + LoaderManager.getInstance().getCurrentPatchInfo());
-                }
-                if (!this.c) {
-                    int loadState = LoaderManager.getInstance().getLoadState();
-                    if (loadState == -4 || loadState == -1) {
-                        File headFile = TitanPaths.getHeadFile();
-                        if (headFile.exists() && (createFromJson = LoaderHead.createFromJson(Files.getFileStringContent(headFile))) != null && (createFromPatch = PatchMetaInfo.createFromPatch(new PatchInstallInfo(TitanPaths.getPatchDir(createFromJson.patchHash)).getPatchFile())) != null && createFromPatch.loadPolicy == 1) {
-                            LoaderManager.getInstance().loadInTime();
-                        }
-                    }
-                }
+    public eh() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void b(Context context, ah ahVar, PackageInfo packageInfo, boolean z) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    @SafeVarargs
+    /* renamed from: b */
+    public final Boolean doInBackground(List<PackageInfo>... listArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, ahVar, packageInfo, Boolean.valueOf(z)}) == null) {
-            TbLog defaultLog = DefaultLog.getInstance();
-            defaultLog.i(TitanDownloadService.TAG, "install file: " + packageInfo.filePath);
-            PatchManager.getInstance().installPatch(Uri.fromFile(new File(packageInfo.filePath)), null, new a(ahVar, packageInfo, z));
-        }
-    }
-
-    public static void c(PackageInfo packageInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, packageInfo) == null) {
-            ch d = ch.d();
-            if (packageInfo != null) {
-                long j = packageInfo.updateVersion;
-                if (j != 0) {
-                    d.j(j);
-                    Context appContext = AppRuntime.getAppContext();
-                    if (appContext != null) {
-                        try {
-                            android.content.pm.PackageInfo packageInfo2 = appContext.getPackageManager().getPackageInfo(appContext.getPackageName(), 0);
-                            if (packageInfo2 != null) {
-                                d.h(packageInfo2.versionCode);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, listArr)) == null) {
+            if (listArr != null && listArr.length != 0) {
+                List<PackageInfo> list = listArr[0];
+                if (list != null && !list.isEmpty()) {
+                    boolean z = true;
+                    for (PackageInfo packageInfo : list) {
+                        if (packageInfo != null && !StringUtils.isNull(packageInfo.name)) {
+                            BdBaseApplication.getInst().getResHashMap().remove(packageInfo.name);
+                            File file = new File(hh.b(packageInfo.name));
+                            if (file.exists()) {
+                                TbLog defaultLog = DefaultLog.getInstance();
+                                defaultLog.i("PMS", "待删除文件:" + file);
+                                if (!file.delete()) {
+                                    z = false;
+                                }
+                                TbLog defaultLog2 = DefaultLog.getInstance();
+                                defaultLog2.i("PMS", "文件删除状态:" + z);
                             }
-                        } catch (PackageManager.NameNotFoundException e) {
-                            e.printStackTrace();
                         }
                     }
+                    TbLog defaultLog3 = DefaultLog.getInstance();
+                    defaultLog3.i("PMS", "删除文件后的 Map: " + BdBaseApplication.getInst().getResHashMap().toString());
+                    return Boolean.valueOf(z);
                 }
-                int i = packageInfo.errNo;
-                if (i == 0 || i == -2) {
-                    d.i(System.currentTimeMillis());
-                }
+                return Boolean.TRUE;
             }
-            d.l();
+            return Boolean.TRUE;
         }
+        return (Boolean) invokeL.objValue;
     }
 }

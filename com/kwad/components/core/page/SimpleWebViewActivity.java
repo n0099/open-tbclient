@@ -26,14 +26,14 @@ public class SimpleWebViewActivity extends com.kwad.components.core.i.a {
     public String title;
 
     private void initView() {
-        this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f091315);
+        this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f091353);
         String stringExtra = getIntent().getStringExtra("key_page_title");
         this.title = stringExtra;
         if (!TextUtils.isEmpty(stringExtra)) {
             this.mTitle.setText(this.title);
         }
-        findViewById(R.id.obfuscated_res_0x7f091317).setVisibility(8);
-        findViewById(R.id.obfuscated_res_0x7f091316).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.core.page.SimpleWebViewActivity.1
+        findViewById(R.id.obfuscated_res_0x7f091355).setVisibility(8);
+        findViewById(R.id.obfuscated_res_0x7f091354).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.core.page.SimpleWebViewActivity.1
             @Override // android.view.View.OnClickListener
             public final void onClick(View view2) {
                 SimpleWebViewActivity.this.finish();
@@ -42,7 +42,7 @@ public class SimpleWebViewActivity extends com.kwad.components.core.i.a {
     }
 
     private void initWebView() {
-        KsAdWebView ksAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091468);
+        KsAdWebView ksAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0914a6);
         this.mAdWebView = ksAdWebView;
         p.b(ksAdWebView);
     }
@@ -83,7 +83,7 @@ public class SimpleWebViewActivity extends com.kwad.components.core.i.a {
     @Override // com.kwad.components.core.i.a, com.kwad.sdk.api.proxy.IActivityProxy
     public void onCreate(@Nullable Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(R.layout.obfuscated_res_0x7f0d048a);
+        setContentView(R.layout.obfuscated_res_0x7f0d049d);
         initView();
         initWebView();
         loadUrl();

@@ -1,113 +1,97 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
 import android.text.TextUtils;
+import android.view.View;
+import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdhttpdns.BDHttpDns;
-import com.baidu.bdhttpdns.BDHttpDnsResult;
-import com.baidu.tbadk.TiebaIMConfig;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.switchs.UseHttpdnsSdkSwitch;
+import com.baidu.tbadk.TbPageContextSupport;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.data.HotEventData;
+import com.baidu.tbadk.mutiprocess.MutiProcessManager;
+import com.baidu.tbadk.mutiprocess.hotevent.HotEvent;
+import com.baidu.tieba.core.widget.SpriteBottomTipView;
 import com.baidu.tieba.db5;
-import com.baidu.tieba.gb5;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.dq6;
+import com.baidu.tieba.log.TbLog;
+import com.baidu.tieba.sprite.FunnySpriteResDownloadUtil;
+import com.baidu.tieba.statemachine.animationtip.SpriteAnimationTipManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.lang.ref.WeakReference;
+import java.util.Collections;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function0;
 /* loaded from: classes6.dex */
 public class jb5 {
     public static /* synthetic */ Interceptable $ic;
-    public static jb5 l;
+    public static boolean a;
+    public static WeakReference<db5> b;
+    public static WeakReference<SpriteAnimationTipManager> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public boolean c;
-    public boolean d;
-    public List<String> e;
-    public boolean f;
-    public final Object g;
-    public List<String> h;
-    public boolean i;
-    public BDHttpDnsResult j;
-    public final yd k;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947877548, "Lcom/baidu/tieba/jb5;")) == null) {
-            return;
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947877548, "Lcom/baidu/tieba/jb5;");
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                String b = bk5.b("", 0);
+                TbLog defaultLog = DefaultLog.getInstance();
+                defaultLog.e("HotEventTip", "精灵动画提示控件：精灵点击跳转，scheme" + b);
+                if (b.startsWith("tiebaapp://router/portal")) {
+                    jb5.d(b);
+                }
+            }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class d implements gb5.c {
+    public class b implements Function0<Unit> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jb5 a;
+        public final /* synthetic */ dq6.e a;
 
-        /* loaded from: classes6.dex */
-        public class a implements db5.b {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ d a;
-
-            public a(d dVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = dVar;
-            }
-
-            @Override // com.baidu.tieba.db5.b
-            public void a() {
-                Interceptable interceptable = $ic;
-                if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                    return;
-                }
-                this.a.a.b = 0;
-                this.a.a.e = db5.f().g();
-                if (this.a.a.e != null) {
-                    this.a.a.A("change ip to reconnect with DNS' failed.");
-                } else {
-                    this.a.a.f = false;
-                }
-            }
-        }
-
-        public d(jb5 jb5Var) {
+        public b(dq6.e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {jb5Var};
+                Object[] objArr = {eVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -117,105 +101,38 @@ public class jb5 {
                     return;
                 }
             }
-            this.a = jb5Var;
+            this.a = eVar;
         }
 
-        @Override // com.baidu.tieba.gb5.c
-        public void a(boolean z) {
-            int i;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // kotlin.jvm.functions.Function0
+        /* renamed from: a */
+        public Unit invoke() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                eb5 e = eb5.e();
-                if (z) {
-                    i = 2;
-                } else {
-                    i = 1;
-                }
-                e.a(i);
-                if (z) {
-                    this.a.e = db5.f().g();
-                    if (this.a.e == null) {
-                        db5.f().m(new a(this));
-                        return;
-                    } else {
-                        this.a.A("change ip to reconnect with DNS' failed.");
-                        return;
-                    }
-                }
-                this.a.f = false;
-                this.a.D();
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                boolean unused = jb5.a = false;
+                DefaultLog.getInstance().e("HotEventTip", "精灵动画提示控件：动画执行完成，触发弹窗管理器监听");
+                this.a.onDismiss();
+                return null;
             }
+            return (Unit) invokeV.objValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public class a implements yd {
+    public class c implements SpriteBottomTipView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jb5 a;
+        public final /* synthetic */ HotEventData a;
+        public final /* synthetic */ SpriteAnimationTipManager b;
 
-        @Override // com.baidu.tieba.yd
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.yd
-        public void c(ud udVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, udVar) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.yd
-        public void d(byte[] bArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, bArr) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.yd
-        public void e() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.yd
-        public void f(ce ceVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, ceVar) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.yd
-        public void g(int i, ud udVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048582, this, i, udVar) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.yd
-        public void h(ud udVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, udVar) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.yd
-        public void i(ud udVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, udVar) == null) {
-            }
-        }
-
-        public a(jb5 jb5Var) {
+        public c(HotEventData hotEventData, SpriteAnimationTipManager spriteAnimationTipManager) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {jb5Var};
+                Object[] objArr = {hotEventData, spriteAnimationTipManager};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -225,359 +142,482 @@ public class jb5 {
                     return;
                 }
             }
-            this.a = jb5Var;
+            this.a = hotEventData;
+            this.b = spriteAnimationTipManager;
         }
 
-        @Override // com.baidu.tieba.yd
-        public void b(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                if ((i == 2 || i == 9) && BdNetTypeUtil.isNetWorkAvailable()) {
-                    jb5.d(this.a);
-                    if (UseHttpdnsSdkSwitch.isOn()) {
-                        if (this.a.h == null || this.a.h.isEmpty()) {
-                            this.a.w();
-                        } else {
-                            this.a.a();
-                        }
-                        StringBuffer stringBuffer = new StringBuffer();
-                        stringBuffer.append("retryiplist_");
-                        stringBuffer.append(h5.d());
-                        if (this.a.j != null) {
-                            stringBuffer.append("-dnsResolveIp_");
-                            stringBuffer.append(this.a.j.getIpv4List());
-                            stringBuffer.append("-dnsResolveType_");
-                            stringBuffer.append(this.a.j.getResolveType());
-                            stringBuffer.append("-dnsResolveStatus_");
-                            stringBuffer.append(this.a.j.getResolveStatus());
-                        }
-                        i5.a("RetryIpListManager", 0, 0, "retry_iplist", 0, stringBuffer.toString());
-                        if (this.a.a >= 5) {
-                            BdSocketLinkService.setAvailable(false);
-                            this.a.B();
-                        }
-                    } else if (this.a.a >= 5) {
-                        i5.a("RetryIpListManager", 0, 0, "retry_iplist", 0, "retryiplist_" + h5.d());
-                        this.a.C();
-                    }
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.yd
-        public void onOpen(Map<String, String> map) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, map) == null) {
-                if (UseHttpdnsSdkSwitch.isOn()) {
-                    if (this.a.a > 0) {
-                        this.a.i = false;
-                        StringBuffer stringBuffer = new StringBuffer();
-                        stringBuffer.append("URL_");
-                        stringBuffer.append(h5.d());
-                        if (this.a.j != null) {
-                            stringBuffer.append("-dnsResolveIp_");
-                            stringBuffer.append(this.a.j.getIpv4List());
-                            stringBuffer.append("-dnsResolveType_");
-                            stringBuffer.append(this.a.j.getResolveType());
-                            stringBuffer.append("-dnsResolveStatus_");
-                            stringBuffer.append(this.a.j.getResolveStatus());
-                        }
-                        i5.a("RetryIpListManager", 0, 0, "retry_iplist_succ", 0, stringBuffer.toString());
-                    }
-                } else if (this.a.a >= 5) {
-                    i5.a("RetryIpListManager", 0, 0, "retry_iplist_succ", 0, "URL-" + h5.d());
-                    db5.f().l(h5.d());
-                    db5.f().k();
-                }
-                this.a.a = 0;
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements BDHttpDns.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jb5 a;
-
-        public b(jb5 jb5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jb5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = jb5Var;
-        }
-
-        @Override // com.baidu.bdhttpdns.BDHttpDns.e
-        public void a(BDHttpDnsResult bDHttpDnsResult) {
-            ArrayList<String> ipv4List;
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, bDHttpDnsResult) != null) {
-                return;
-            }
-            this.a.i = false;
-            this.a.j = bDHttpDnsResult;
-            if (bDHttpDnsResult != null && (ipv4List = bDHttpDnsResult.getIpv4List()) != null && !ipv4List.isEmpty()) {
-                synchronized (this.a.g) {
-                    this.a.h = ipv4List;
-                }
-                this.a.a();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements db5.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ jb5 b;
-
-        public c(jb5 jb5Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jb5Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = jb5Var;
-            this.a = str;
-        }
-
-        @Override // com.baidu.tieba.db5.b
+        @Override // com.baidu.tieba.core.widget.SpriteBottomTipView.b
         public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                SpriteAnimationTipManager spriteAnimationTipManager = this.b;
+                if (spriteAnimationTipManager != null) {
+                    spriteAnimationTipManager.i();
+                }
+                jb5.n();
             }
-            this.b.b = 0;
-            this.b.e = db5.f().g();
-            if (this.b.e != null) {
-                this.b.A(this.a);
-            } else {
-                this.b.f = false;
+        }
+
+        @Override // com.baidu.tieba.core.widget.SpriteBottomTipView.b
+        public void onBtnClick() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                jb5.d(this.a.getBtnSchema());
+                jb5.n();
+            }
+        }
+
+        @Override // com.baidu.tieba.core.widget.SpriteBottomTipView.b
+        public void onClick() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                jb5.d(this.a.getBtnSchema());
+                jb5.n();
             }
         }
     }
 
-    public jb5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+    /* loaded from: classes6.dex */
+    public class d implements db5.j {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dq6.e a;
+
+        public d(dq6.e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
+            this.a = eVar;
         }
-        this.b = 0;
-        this.c = false;
-        this.d = false;
-        this.e = null;
-        this.f = false;
-        this.g = new Object();
-        this.h = new ArrayList();
-        this.i = false;
-        this.j = null;
-        this.k = new a(this);
-    }
 
-    public final void C() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.f) {
-            return;
-        }
-        this.f = true;
-        if (this.c) {
-            this.c = false;
-            eb5.e().d(TiebaIMConfig.url);
-        }
-        eb5.e().b();
-        if (!this.d) {
-            new gb5("www.baidu.com", new d(this));
-            this.d = true;
-            return;
-        }
-        A("change ip to reconnect with DNS' failed.");
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this.g) {
-                if (this.h != null && !this.h.isEmpty()) {
-                    String remove = this.h.remove(0);
-                    if (!TextUtils.isEmpty(remove)) {
-                        h5.h("ws://" + remove + ":" + v(TiebaIMConfig.url));
-                        BdSocketLinkService.init();
-                    }
+        @Override // com.baidu.tieba.db5.j
+        public void onDismiss() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                boolean unused = jb5.a = false;
+                dq6.e eVar = this.a;
+                if (eVar != null) {
+                    eVar.onDismiss();
                 }
             }
         }
     }
 
-    public static /* synthetic */ int d(jb5 jb5Var) {
-        int i = jb5Var.a;
-        jb5Var.a = i + 1;
-        return i;
-    }
+    /* loaded from: classes6.dex */
+    public class e implements db5.h {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ HotEventData a;
 
-    public static String u(String str) {
-        InterceptResult invokeL;
-        int lastIndexOf;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, str)) == null) {
-            if (str == null || (lastIndexOf = str.lastIndexOf(":")) < 5) {
-                return null;
-            }
-            try {
-                return str.substring(5, lastIndexOf);
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String v(String str) {
-        InterceptResult invokeL;
-        int lastIndexOf;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, str)) == null) {
-            if (str == null || (lastIndexOf = str.lastIndexOf(":")) < 5) {
-                return null;
-            }
-            try {
-                return str.substring(lastIndexOf + 1);
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static synchronized jb5 y() {
-        InterceptResult invokeV;
-        jb5 jb5Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
-            synchronized (jb5.class) {
-                if (l == null) {
-                    synchronized (jb5.class) {
-                        if (l == null) {
-                            l = new jb5();
-                        }
-                    }
+        public e(HotEventData hotEventData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hotEventData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                jb5Var = l;
             }
-            return jb5Var;
+            this.a = hotEventData;
         }
-        return (jb5) invokeV.objValue;
+
+        @Override // com.baidu.tieba.db5.h
+        public void onClick() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                jb5.d(this.a.getBtnSchema());
+                jb5.n();
+            }
+        }
     }
 
-    public final void w() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || this.i) {
-            return;
+    /* loaded from: classes6.dex */
+    public class f implements db5.i {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ HotEventData a;
+
+        public f(HotEventData hotEventData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hotEventData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = hotEventData;
         }
-        try {
-            String u = u(TiebaIMConfig.url);
-            if (ad.isEmpty(u)) {
-                B();
+
+        @Override // com.baidu.tieba.db5.i
+        public void onClick() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                jb5.d(this.a.getBtnSchema());
+                jb5.n();
+            }
+        }
+    }
+
+    public static void q(HotEventData hotEventData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65552, null, hotEventData) == null) && hotEventData != null && hotEventData.getWindowType() == 1) {
+            SharedPrefHelper.getInstance().putLong("key_hot_event_tip_show_time", System.currentTimeMillis());
+        }
+    }
+
+    public static void s(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65554, null, z) == null) {
+            a = z;
+        }
+    }
+
+    public static void u(HotEventData hotEventData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65556, null, hotEventData) == null) {
+            g(hotEventData);
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (currentActivity == null) {
                 return;
             }
-            this.i = true;
-            BDHttpDns.getService(BdBaseApplication.getInst().getApplicationContext()).asyncResolve(u, new b(this));
-        } catch (Exception e) {
-            BdLog.e(e);
+            p05.g(Collections.singletonList(new q05(currentActivity, hotEventData)));
         }
     }
 
-    public final String x() {
-        InterceptResult invokeV;
-        int i;
+    public static void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            List<String> list = this.e;
-            if (list != null && (i = this.b) > -1 && i < list.size()) {
-                return db5.f().g().get(this.b);
+        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
+            a = false;
+            SpriteAnimationTipManager k = k();
+            if (k != null) {
+                k.i();
+            }
+            c = null;
+        }
+    }
+
+    public static db5 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            WeakReference<db5> weakReference = b;
+            if (weakReference != null) {
+                return weakReference.get();
             }
             return null;
         }
-        return (String) invokeV.objValue;
+        return (db5) invokeV.objValue;
     }
 
-    public final void A(String str) {
+    public static boolean j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            String x = x();
-            if (x == null) {
-                if (!db5.f().i()) {
-                    db5.f().m(new c(this, str));
-                }
-                h5.h(TiebaIMConfig.url);
-                BdSocketLinkService.setAvailable(false);
-                D();
-            } else if (u(x) == null) {
-                D();
-            } else {
-                this.f = false;
-                BdSocketLinkService.stopReConnStrategy("change ip and stop to restart to reconnet.");
-                h5.h(x);
-                BdSocketLinkService.init();
-                BdSocketLinkService.startService(true, str);
-                this.c = true;
-                this.b++;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static SpriteAnimationTipManager k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            WeakReference<SpriteAnimationTipManager> weakReference = c;
+            if (weakReference != null) {
+                return weakReference.get();
+            }
+            return null;
+        }
+        return (SpriteAnimationTipManager) invokeV.objValue;
+    }
+
+    public static void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
+            a = false;
+            SpriteAnimationTipManager k = k();
+            if (k != null) {
+                k.q();
+            }
+            c = null;
+        }
+    }
+
+    public static void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65549, null) == null) {
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_HOT_EVENT_CLICK));
+        }
+    }
+
+    public static void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65550, null) == null) {
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_HOT_EVENT_SHOW));
+        }
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            TbLog defaultLog = DefaultLog.getInstance();
+            defaultLog.e("HotEventTip", "精灵动画提示控件：气泡点击跳转，scheme" + str);
+            UrlManager.getInstance().dealOneLink(TbadkApplication.getInst().getCurrentPageContext(TbadkApplication.getInst().getCurrentActivity()), new String[]{str});
+        }
+    }
+
+    public static void r(HotEventData hotEventData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65553, null, hotEventData) == null) {
+            if (TextUtils.isEmpty(hotEventData.getDesc())) {
+                hotEventData.setDesc(TbadkApplication.getInst().getString(R.string.hot_event_desc_text));
+            }
+            if (TextUtils.isEmpty(hotEventData.getBtnText())) {
+                hotEventData.setBtnText(TbadkApplication.getInst().getString(R.string.hot_event_btn_text));
+                return;
+            }
+            String btnText = hotEventData.getBtnText();
+            if (StringHelper.getChineseAndEnglishLength(btnText) > 8) {
+                hotEventData.setBtnText(StringHelper.cutChineseAndEnglishWithEmoji(btnText, 8, null));
             }
         }
     }
 
-    public final void B() {
+    @NonNull
+    public static FrameLayout.LayoutParams e(Activity activity) {
+        InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            NoNetworkView.updateUI();
-            this.b = 0;
-            this.i = false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity)) == null) {
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
+            layoutParams.gravity = 83;
+            if (fn6.b(activity, "com.baidu.tieba.frs.FrsActivity")) {
+                i = R.dimen.tbds95;
+            } else {
+                i = R.dimen.tbds141;
+            }
+            layoutParams.bottomMargin = UtilHelper.getDimenPixelSize(i);
+            return layoutParams;
+        }
+        return (FrameLayout.LayoutParams) invokeL.objValue;
+    }
+
+    public static void g(HotEventData hotEventData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, hotEventData) == null) {
+            Context curGlobalActivity = TbadkCoreApplication.getInst().getCurGlobalActivity();
+            if (curGlobalActivity != null && !(curGlobalActivity instanceof TbPageContextSupport)) {
+                return;
+            }
+            if (curGlobalActivity == null) {
+                curGlobalActivity = TbadkCoreApplication.getInst();
+            }
+            if (hotEventData != null && hotEventData.getWindowType() == 3) {
+                rha.a(curGlobalActivity, new String[]{hotEventData.getSchemaUrl()});
+            }
         }
     }
 
-    public final void D() {
+    public static SpriteBottomTipView f(HotEventData hotEventData, Activity activity, SpriteAnimationTipManager spriteAnimationTipManager) {
+        InterceptResult invokeLLL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            NoNetworkView.updateUI();
-            this.d = false;
-            this.b = 0;
-            this.f = false;
-            this.c = false;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, hotEventData, activity, spriteAnimationTipManager)) == null) {
+            SpriteBottomTipView.a aVar = new SpriteBottomTipView.a(activity);
+            aVar.e(hotEventData.getBtnText());
+            aVar.s(hotEventData.getTitle());
+            aVar.g(hotEventData.getDesc());
+            aVar.m(hotEventData.getIcon());
+            aVar.r(hotEventData.isShowCloseBtn());
+            aVar.l(R.drawable.hot_event_icon);
+            if (hotEventData.isUseRightBg()) {
+                i = R.drawable.funny_sprite_tip_bg_right;
+            } else {
+                i = R.drawable.funny_sprite_tip_bg_left;
+            }
+            aVar.o(Integer.valueOf(i));
+            aVar.q(new c(hotEventData, spriteAnimationTipManager));
+            return aVar.a();
         }
+        return (SpriteBottomTipView) invokeLLL.objValue;
     }
 
-    public void z() {
+    public static boolean m(HotEventData hotEventData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            zd.h().c(this.k);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, hotEventData)) == null) {
+            if (!TextUtils.isEmpty(hotEventData.getBtnSchema()) && !TextUtils.isEmpty(hotEventData.getTitle())) {
+                if (hotEventData.getWindowType() != 1 && hotEventData.getWindowType() != 2) {
+                    TbLog defaultLog = DefaultLog.getInstance();
+                    defaultLog.e("HotEventTip", "S级事件弹窗无法展示，WindowType不对" + hotEventData.getWindowType());
+                    return false;
+                }
+                Activity currentActivity = TbadkApplication.getInst().getCurrentActivity();
+                if (TbadkCoreApplication.getInst().isMainProcess(true) && currentActivity == null) {
+                    HotEvent hotEvent = new HotEvent();
+                    hotEvent.hotEventData = hotEventData;
+                    hotEventData.setSkinType(TbadkCoreApplication.getInst().getSkinType());
+                    MutiProcessManager.publishEvent(hotEvent);
+                    DefaultLog.getInstance().e("HotEventTip", "S级事件弹窗无法展示，Activity为空");
+                    return false;
+                }
+                if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
+                    TbadkCoreApplication.getInst().setSkinType(hotEventData.getSkinType());
+                }
+                if (a) {
+                    DefaultLog.getInstance().e("HotEventTip", "S级事件弹窗无法展示，正在展示");
+                    return false;
+                }
+                if (hotEventData.getWindowType() == 1) {
+                    if (System.currentTimeMillis() - SharedPrefHelper.getInstance().getLong("key_hot_event_tip_show_time", 0L) <= 600000) {
+                        DefaultLog.getInstance().e("HotEventTip", "S级事件弹窗无法展示，十分钟内只弹一次");
+                        return false;
+                    }
+                }
+                return true;
+            }
+            TbLog defaultLog2 = DefaultLog.getInstance();
+            defaultLog2.e("HotEventTip", "S级事件弹窗无法展示，数据不合法 schema:" + hotEventData.getBtnSchema() + " title:" + hotEventData.getTitle());
+            return false;
         }
+        return invokeL.booleanValue;
+    }
+
+    public static db5 p(HotEventData hotEventData, dq6.e eVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, hotEventData, eVar)) == null) {
+            if (!m(hotEventData)) {
+                eVar.onDismiss();
+                return null;
+            }
+            Activity currentActivity = TbadkApplication.getInst().getCurrentActivity();
+            if (currentActivity == null) {
+                eVar.onDismiss();
+                return null;
+            }
+            if (t95.c() && t95.b() != null) {
+                t95.b().t();
+            }
+            r(hotEventData);
+            db5.g gVar = new db5.g(currentActivity);
+            gVar.w(eb5.a("SCENE_HOT_EVENT"));
+            gVar.o(hotEventData.getBtnText());
+            gVar.y(hotEventData.getTitle());
+            gVar.q(hotEventData.getDesc());
+            gVar.s(hotEventData.getIcon());
+            gVar.p(R.drawable.hot_event_icon);
+            gVar.r(5000);
+            gVar.u(new f(hotEventData));
+            gVar.t(new e(hotEventData));
+            gVar.v(new d(eVar));
+            db5 n = gVar.n();
+            n.t();
+            b = new WeakReference<>(n);
+            o();
+            q(hotEventData);
+            a = true;
+            return n;
+        }
+        return (db5) invokeLL.objValue;
+    }
+
+    public static SpriteAnimationTipManager t(HotEventData hotEventData, dq6.e eVar) {
+        InterceptResult invokeLL;
+        boolean z;
+        String str;
+        String str2;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65555, null, hotEventData, eVar)) == null) {
+            if (!m(hotEventData)) {
+                if (eVar != null) {
+                    eVar.onDismiss();
+                }
+                return null;
+            }
+            if (t95.c() && t95.b() != null) {
+                t95.b().t();
+            }
+            r(hotEventData);
+            Activity currentActivity = TbadkApplication.getInst().getCurrentActivity();
+            if (currentActivity != null && !currentActivity.isFinishing()) {
+                if (currentActivity instanceof qva) {
+                    DefaultLog.getInstance().e("HotEventTip", "精灵动画提示控件：通知首页展示S级事件");
+                    mq6.b().c(new ipa(new jpa(hotEventData, eVar), 1));
+                    return null;
+                }
+                if (fn6.b(currentActivity, "com.baidu.tieba.frs.FrsActivity")) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921769));
+                }
+                SpriteAnimationTipManager spriteAnimationTipManager = new SpriteAnimationTipManager(currentActivity);
+                if (TbadkCoreApplication.getInst().getSkinType() == 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
+                    str = "funny_sprite_appear_day";
+                } else {
+                    str = "funny_sprite_appear_dark";
+                }
+                uq6 a2 = bk5.a(FunnySpriteResDownloadUtil.i(str, "rush_res", true), false, 2);
+                if (z) {
+                    str2 = "funny_sprite_show_day";
+                } else {
+                    str2 = "funny_sprite_show_dark";
+                }
+                uq6 a3 = bk5.a(FunnySpriteResDownloadUtil.i(str2, "rush_res", true), true, 2);
+                if (z) {
+                    str3 = "funny_sprite_exit_day";
+                } else {
+                    str3 = "funny_sprite_exit_dark";
+                }
+                spriteAnimationTipManager.v(a2, a3, bk5.a(FunnySpriteResDownloadUtil.i(str3, "rush_res", true), false, 2));
+                spriteAnimationTipManager.z(f(hotEventData, currentActivity, spriteAnimationTipManager));
+                spriteAnimationTipManager.A(5000L);
+                spriteAnimationTipManager.x(0, UtilHelper.getDimenPixelSize(R.dimen.tbds16), 0, UtilHelper.getDimenPixelSize(R.dimen.tbds16));
+                spriteAnimationTipManager.t(UtilHelper.getDimenPixelSize(R.dimen.tbds146), UtilHelper.getDimenPixelSize(R.dimen.tbds187));
+                spriteAnimationTipManager.u(e(currentActivity));
+                spriteAnimationTipManager.w(new a());
+                spriteAnimationTipManager.s(new b(eVar));
+                spriteAnimationTipManager.B();
+                c = new WeakReference<>(spriteAnimationTipManager);
+                a = true;
+                o();
+                q(hotEventData);
+                return spriteAnimationTipManager;
+            }
+            DefaultLog.getInstance().e("HotEventTip", "精灵动画提示控件：当前页面Activity为空或者正在关闭");
+            if (eVar != null) {
+                eVar.onDismiss();
+            }
+            return null;
+        }
+        return (SpriteAnimationTipManager) invokeLL.objValue;
     }
 }

@@ -1,57 +1,101 @@
 package com.baidu.tieba;
 
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
-import com.baidu.tbadk.core.util.PullViewHelper;
+import android.content.Context;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+/* loaded from: classes7.dex */
 public class k50 {
     public static /* synthetic */ Interceptable $ic;
-    public static k50 b;
+    public static k50 d;
+    public static final int e;
+    public static final int f;
+    public static final int g;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public ThreadPoolExecutor a;
+    public ExecutorService b;
+    public Context c;
 
-    public k50() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947863939, "Lcom/baidu/tieba/k50;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947863939, "Lcom/baidu/tieba/k50;");
+                return;
+            }
+        }
+        int availableProcessors = Runtime.getRuntime().availableProcessors();
+        e = availableProcessors;
+        f = Math.max(2, Math.min(availableProcessors - 1, 4));
+        g = (e * 2) + 1;
+    }
+
+    public k50(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = true;
-        new PorterDuffColorFilter(PullViewHelper.IMAGE_COLORFILTER_NIGHT, PorterDuff.Mode.MULTIPLY);
+        this.a = null;
+        this.c = context;
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(f, g, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+        this.a = threadPoolExecutor;
+        threadPoolExecutor.allowCoreThreadTimeOut(true);
+        this.b = Executors.newSingleThreadExecutor();
     }
 
-    public static k50 a() {
-        InterceptResult invokeV;
+    public static k50 a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (k50.class) {
-                if (b == null) {
-                    b = new k50();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (context == null) {
+                return null;
+            }
+            if (d == null) {
+                synchronized (k50.class) {
+                    if (d == null) {
+                        d = new k50(context);
+                    }
                 }
             }
-            return b;
+            return d;
         }
-        return (k50) invokeV.objValue;
+        return (k50) invokeL.objValue;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public void b(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+            try {
+                this.a.submit(runnable);
+            } catch (Throwable th) {
+                if (m50.a) {
+                    n50.c("TaskManager", "Exception ", th);
+                }
+            }
         }
-        return invokeV.booleanValue;
     }
 }

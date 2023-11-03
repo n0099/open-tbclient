@@ -92,7 +92,7 @@ public class TbVideoViewContainer extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             TbVideoView tbVideoView = this.a;
             if (tbVideoView != null) {
-                tbVideoView.A();
+                tbVideoView.B();
             }
             if (getParent() instanceof ViewGroup) {
                 ((ViewGroup) getParent()).removeView(this);

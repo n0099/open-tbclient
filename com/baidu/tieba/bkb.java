@@ -1,50 +1,140 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.fun.ad.sdk.FunAdSdk;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.io.InterruptedIOException;
+import java.net.SocketTimeoutException;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.Executor;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.RejectedExecutionException;
+import java.util.concurrent.TimeUnit;
+import org.chromium.base.Log;
 /* loaded from: classes5.dex */
-public class bkb {
+public class bkb implements Executor {
     public static /* synthetic */ Interceptable $ic;
-    public static final SharedPreferences a;
-    public static final SharedPreferences.Editor b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final BlockingQueue<Runnable> a;
+    public boolean b;
+    public boolean c;
+    public InterruptedIOException d;
+    public RuntimeException e;
+    public final String f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947649264, "Lcom/baidu/tieba/bkb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947649264, "Lcom/baidu/tieba/bkb;");
+    public bkb(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        SharedPreferences sharedPreferences = FunAdSdk.getAppContext().getSharedPreferences("fun_ad_sdk_price", 0);
-        a = sharedPreferences;
-        b = sharedPreferences.edit();
+        this.f = str;
+        this.a = new LinkedBlockingQueue();
     }
 
-    public static double a() {
-        InterceptResult invokeV;
+    public void a() throws IOException {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Double.longBitsToDouble(a.getLong("key_price_by_baseprice", 0L)) : invokeV.doubleValue;
-    }
-
-    public static double b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            SharedPreferences sharedPreferences = a;
-            return Double.longBitsToDouble(sharedPreferences.getLong(str + "_", 0L));
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            b(0);
         }
-        return invokeL.doubleValue;
+    }
+
+    public void quit() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b = false;
+        }
+    }
+
+    public void b(int i) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            long nanoTime = System.nanoTime();
+            long convert = TimeUnit.NANOSECONDS.convert(i, TimeUnit.MILLISECONDS);
+            if (this.c) {
+                InterruptedIOException interruptedIOException = this.d;
+                if (interruptedIOException != null) {
+                    throw interruptedIOException;
+                }
+                throw this.e;
+            } else if (!this.b) {
+                this.b = true;
+                while (this.b) {
+                    if (i == 0) {
+                        try {
+                            c(false, 0L).run();
+                        } catch (InterruptedIOException e) {
+                            this.b = false;
+                            this.c = true;
+                            this.d = e;
+                            throw e;
+                        } catch (RuntimeException e2) {
+                            this.b = false;
+                            this.c = true;
+                            this.e = e2;
+                            throw e2;
+                        }
+                    } else {
+                        c(true, (convert - System.nanoTime()) + nanoTime).run();
+                    }
+                }
+            } else {
+                throw new IllegalStateException("Cannot run loop when it is already running.");
+            }
+        }
+    }
+
+    public final Runnable c(boolean z, long j) throws InterruptedIOException {
+        Runnable poll;
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)})) == null) {
+            try {
+                if (!z) {
+                    poll = this.a.take();
+                } else {
+                    poll = this.a.poll(j, TimeUnit.NANOSECONDS);
+                }
+                if (poll != null) {
+                    return poll;
+                }
+                Log.e("cr_CronetHttpURLConn", "****** Messageloop timeout exception, url is: %s", this.f);
+                throw new SocketTimeoutException();
+            } catch (InterruptedException e) {
+                InterruptedIOException interruptedIOException = new InterruptedIOException();
+                interruptedIOException.initCause(e);
+                throw interruptedIOException;
+            }
+        }
+        return (Runnable) invokeCommon.objValue;
+    }
+
+    @Override // java.util.concurrent.Executor
+    public void execute(Runnable runnable) throws RejectedExecutionException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, runnable) == null) {
+            if (runnable != null) {
+                try {
+                    this.a.put(runnable);
+                    return;
+                } catch (InterruptedException e) {
+                    throw new RejectedExecutionException(e);
+                }
+            }
+            throw new IllegalArgumentException();
+        }
     }
 }

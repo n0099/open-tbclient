@@ -2,7 +2,7 @@ package com.google.zxing.oned.rss.expanded.decoders;
 
 import com.google.zxing.common.BitArray;
 import com.huawei.hms.common.internal.TransactionIdCreater;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class AI01decoder extends AbstractExpandedDecoder {
     public static final int GTIN_SIZE = 40;
 

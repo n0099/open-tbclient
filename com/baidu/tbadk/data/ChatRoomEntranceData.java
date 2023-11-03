@@ -21,6 +21,7 @@ public class ChatRoomEntranceData extends OrmObject implements Serializable {
     public List<ChatRoomInfoData> chatRoomInfoList;
     public Integer hotListOriginNum;
     public List<Long> hotRoomList;
+    public ChatroomFrsRes originData;
 
     public ChatRoomEntranceData() {
         Interceptable interceptable = $ic;
@@ -68,6 +69,7 @@ public class ChatRoomEntranceData extends OrmObject implements Serializable {
         if ((interceptable != null && interceptable.invokeL(1048579, this, chatroomFrsRes) != null) || chatroomFrsRes == null) {
             return;
         }
+        this.originData = chatroomFrsRes;
         List<Long> list = chatroomFrsRes.hot_list;
         if (list != null) {
             this.hotRoomList = list;

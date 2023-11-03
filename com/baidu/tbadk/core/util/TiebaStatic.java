@@ -24,16 +24,16 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForbidActivityConfig;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tieba.ab;
-import com.baidu.tieba.ad;
-import com.baidu.tieba.ed;
-import com.baidu.tieba.ir5;
-import com.baidu.tieba.kb;
-import com.baidu.tieba.nn5;
-import com.baidu.tieba.oq5;
-import com.baidu.tieba.vm5;
-import com.baidu.tieba.wb;
-import com.baidu.tieba.zq5;
+import com.baidu.tieba.ac;
+import com.baidu.tieba.ct5;
+import com.baidu.tieba.hp5;
+import com.baidu.tieba.is5;
+import com.baidu.tieba.mc;
+import com.baidu.tieba.mo5;
+import com.baidu.tieba.qb;
+import com.baidu.tieba.qd;
+import com.baidu.tieba.ts5;
+import com.baidu.tieba.ud;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -579,8 +579,8 @@ public class TiebaStatic {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65562, null) == null) {
             try {
-                ab.g();
-                nn5.c();
+                qb.g();
+                hp5.c();
                 BdStatisticsManager.getInstance().save();
                 sendMultiProcessBroadcast();
             } catch (Exception e) {
@@ -607,12 +607,12 @@ public class TiebaStatic {
         if (!StringUtils.isNull(sampleId)) {
             statisticItem.param(Params.SAMPLE_ID, sampleId);
         }
-        String c = oq5.d().c();
+        String c = is5.d().c();
         if (!StringUtils.isNull(c)) {
             statisticItem.param(Params.ABTEST_RESULT, c);
         }
-        vm5.f().e(statisticItem);
-        statisticItem.addParam("session_id", ir5.i().k());
+        mo5.f().e(statisticItem);
+        statisticItem.addParam("session_id", ct5.i().k());
     }
 
     public static String getCua(Context context) {
@@ -787,7 +787,7 @@ public class TiebaStatic {
             StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
             if (stackTrace.length >= 5) {
                 StackTraceElement stackTraceElement = stackTrace[4];
-                str = ad.join(stackTraceElement.getClassName(), ".", stackTraceElement.getMethodName());
+                str = qd.join(stackTraceElement.getClassName(), ".", stackTraceElement.getMethodName());
             } else {
                 str = null;
             }
@@ -847,32 +847,32 @@ public class TiebaStatic {
             long currentTimeMillis = System.currentTimeMillis();
             try {
                 try {
-                    kb kbVar = new kb();
-                    kbVar.a = "tieba";
-                    kbVar.b = SUB_PRODUCT;
-                    kbVar.c = TbConfig.getVersion();
-                    kbVar.d = TbConfig.getFrom();
-                    kbVar.e = TbConfig.getCurrentFrom();
-                    kbVar.f = TbadkCoreApplication.getClientId();
+                    ac acVar = new ac();
+                    acVar.a = "tieba";
+                    acVar.b = SUB_PRODUCT;
+                    acVar.c = TbConfig.getVersion();
+                    acVar.d = TbConfig.getFrom();
+                    acVar.e = TbConfig.getCurrentFrom();
+                    acVar.f = TbadkCoreApplication.getClientId();
                     if (PermissionUtil.isAgreePrivacyPolicy()) {
-                        kbVar.g = TbadkCoreApplication.getInst().getCuid();
-                        kbVar.h = TbadkCoreApplication.getInst().getCuidGalaxy2();
+                        acVar.g = TbadkCoreApplication.getInst().getCuid();
+                        acVar.h = TbadkCoreApplication.getInst().getCuidGalaxy2();
                     }
                     TbadkCoreApplication.getInst().getCuidGid();
-                    kbVar.i = TbadkCoreApplication.getInst().getImei();
-                    kbVar.j = TbConfig.getSubappType();
-                    kbVar.r = zq5.c().f(context) + "_" + zq5.c().e(context);
-                    kbVar.v = TbadkCoreApplication.getInst().getAndroidId();
-                    kbVar.s = getCua(context);
-                    kbVar.t = PermissionUtil.getLastCachedOid(context);
-                    kbVar.u = PermissionUtil.getLocalMacAddress(context);
-                    kbVar.w = zq5.c().a();
-                    kbVar.x = zq5.c().g() + "_" + zq5.c().h();
-                    kbVar.z = TbSingleton.getInstance().getBaiduIdForAnti();
-                    kbVar.A = String.valueOf(TbSingleton.getInstance().getActiveTimeStamp());
-                    kbVar.B = String.valueOf(TbSingleton.getInstance().getAppFirstInstallTime());
-                    kbVar.C = String.valueOf(TbSingleton.getInstance().getAppLastUpdateTime());
-                    kbVar.D = TbSingleton.getInstance().getData();
+                    acVar.i = TbadkCoreApplication.getInst().getImei();
+                    acVar.j = TbConfig.getSubappType();
+                    acVar.r = ts5.c().f(context) + "_" + ts5.c().e(context);
+                    acVar.v = TbadkCoreApplication.getInst().getAndroidId();
+                    acVar.s = getCua(context);
+                    acVar.t = PermissionUtil.getLastCachedOid(context);
+                    acVar.u = PermissionUtil.getLocalMacAddress(context);
+                    acVar.w = ts5.c().a();
+                    acVar.x = ts5.c().g() + "_" + ts5.c().h();
+                    acVar.z = TbSingleton.getInstance().getBaiduIdForAnti();
+                    acVar.A = String.valueOf(TbSingleton.getInstance().getActiveTimeStamp());
+                    acVar.B = String.valueOf(TbSingleton.getInstance().getAppFirstInstallTime());
+                    acVar.C = String.valueOf(TbSingleton.getInstance().getAppLastUpdateTime());
+                    acVar.D = TbSingleton.getInstance().getData();
                     boolean z2 = true;
                     if (SharedPrefHelper.getInstance().getInt("KEY_LOG_REAL_TIME_UPLOAD_SWITCH", 1) != 1) {
                         z2 = false;
@@ -883,7 +883,7 @@ public class TiebaStatic {
                         j = 3600000;
                     }
                     long j2 = j;
-                    ed edVar = new ed() { // from class: com.baidu.tbadk.core.util.TiebaStatic.1
+                    ud udVar = new ud() { // from class: com.baidu.tbadk.core.util.TiebaStatic.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -901,7 +901,7 @@ public class TiebaStatic {
                             }
                         }
 
-                        @Override // com.baidu.tieba.ed
+                        @Override // com.baidu.tieba.ud
                         public boolean isAgreePrivacyPolicy() {
                             InterceptResult invokeV;
                             Interceptable interceptable2 = $ic;
@@ -911,7 +911,7 @@ public class TiebaStatic {
                             return invokeV.booleanValue;
                         }
 
-                        @Override // com.baidu.tieba.ed
+                        @Override // com.baidu.tieba.ud
                         public boolean isBrowseMode() {
                             InterceptResult invokeV;
                             Interceptable interceptable2 = $ic;
@@ -921,11 +921,11 @@ public class TiebaStatic {
                             return invokeV.booleanValue;
                         }
                     };
-                    BdStatisticsManager.getInstance().setPermissionUtil(edVar);
-                    BdStatisticsManager.getInstance().init(context, z, TbConfig.LOG_SYNC_SWITCH, TbConfig.getTempDirName(), "newStat", TbConfig.SERVER_ADDRESS + TbConfig.LOG_UPLOAD_URL, kbVar, BdLogSetting.getInstance(), j2, TbConfig.SERVER_ADDRESS + TbConfig.TRACK_LOG_UPLOAD_URL);
-                    BdLog.setPermissionUtil(edVar);
-                    wb.o().A(edVar);
-                    wb.o().p();
+                    BdStatisticsManager.getInstance().setPermissionUtil(udVar);
+                    BdStatisticsManager.getInstance().init(context, z, TbConfig.LOG_SYNC_SWITCH, TbConfig.getTempDirName(), "newStat", TbConfig.SERVER_ADDRESS + TbConfig.LOG_UPLOAD_URL, acVar, BdLogSetting.getInstance(), j2, TbConfig.SERVER_ADDRESS + TbConfig.TRACK_LOG_UPLOAD_URL);
+                    BdLog.setPermissionUtil(udVar);
+                    mc.o().A(udVar);
+                    mc.o().p();
                 } catch (Exception e) {
                     BdLog.e(e.toString());
                 }

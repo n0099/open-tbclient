@@ -1,60 +1,67 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import android.widget.MediaController;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.widget.ImageView;
+import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.imageManager.TbImageMemoryCache;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class mv9 {
-    public static /* synthetic */ Interceptable $ic;
+public class mv9 extends dy5 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static double O = 0.5d;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public MediaController.MediaPlayerControl c;
-    public b d;
-    public d e;
-    public c f;
-    public Handler g;
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947986265, "Lcom/baidu/tieba/mv9;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947986265, "Lcom/baidu/tieba/mv9;");
+        }
     }
 
     /* loaded from: classes7.dex */
-    public interface c {
-        void a(int i, int i2);
-    }
-
-    /* loaded from: classes7.dex */
-    public interface d {
-        void a();
-    }
-
-    /* loaded from: classes7.dex */
-    public class a extends Handler {
+    public class a implements TbImageView.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ mv9 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(mv9 mv9Var, Looper looper) {
-            super(looper);
+        @Override // com.baidu.tbadk.widget.TbImageView.h
+        public void a(TbImageView tbImageView, Canvas canvas) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, tbImageView, canvas) == null) {
+            }
+        }
+
+        public a(mv9 mv9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {mv9Var, looper};
+                Object[] objArr = {mv9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -63,95 +70,107 @@ public class mv9 {
             this.a = mv9Var;
         }
 
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
+        @Override // com.baidu.tbadk.widget.TbImageView.h
+        public void b(TbImageView tbImageView, Canvas canvas) {
+            int i;
+            int i2;
+            float f;
+            float f2;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message != null && message.what == 1 && this.a.c != null && this.a.c.isPlaying()) {
-                int currentPosition = this.a.c.getCurrentPosition();
-                int duration = this.a.c.getDuration();
-                if (currentPosition < this.a.b) {
-                    if (this.a.d != null) {
-                        this.a.d.a();
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbImageView, canvas) == null) && tbImageView != null && tbImageView.getImageMatrix() != null && tbImageView.getScaleType() == ImageView.ScaleType.MATRIX) {
+                Matrix imageMatrix = tbImageView.getImageMatrix();
+                if (this.a.u) {
+                    i = 17;
+                } else {
+                    i = 18;
+                }
+                BdImage D = TbImageMemoryCache.B().D(BdResourceLoader.getInstance().genCacheKey(tbImageView.getUrl(), i));
+                int i3 = 0;
+                if (D != null) {
+                    i3 = D.getWidth();
+                    i2 = D.getHeight();
+                } else {
+                    i2 = 0;
+                }
+                if (i3 != 0 && i2 != 0) {
+                    int width = (tbImageView.getWidth() - tbImageView.getPaddingLeft()) - tbImageView.getPaddingRight();
+                    int height = (tbImageView.getHeight() - tbImageView.getPaddingTop()) - tbImageView.getPaddingBottom();
+                    if (i3 * height > width * i2) {
+                        f = height;
+                        f2 = i2;
+                    } else {
+                        f = width;
+                        f2 = i3;
                     }
-                } else if (currentPosition == this.a.b && this.a.e != null) {
-                    this.a.e.a();
+                    float f3 = f / f2;
+                    imageMatrix.setScale(f3, f3);
+                    imageMatrix.postTranslate(0.0f, 0.0f);
                 }
-                if (this.a.f != null) {
-                    this.a.f.a(duration, currentPosition);
-                }
-                this.a.b = currentPosition;
-                this.a.h();
             }
         }
     }
 
-    public mv9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mv9(dy5 dy5Var) {
+        super(dy5Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dy5Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((dy5) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = 1000;
-        this.b = 0;
-        this.g = new a(this, Looper.getMainLooper());
+        l(true);
+        v();
+        p(TbConfig.getPostLineSpace(), 1.0f);
+        A(0);
+        m(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds30));
+        n(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds12));
+        j(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48), BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48));
+        t(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004), BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004));
+        k(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004));
+        this.J = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds749);
+        this.K = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
+        BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
+        this.M = new a(this);
     }
 
-    public void i(b bVar) {
+    @Override // com.baidu.tieba.dy5
+    public int[] f(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.d = bVar;
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048576, this, i, i2, i3, i4)) == null) {
+            if (i2 > 0 && i > 0 && i3 > 0 && i4 > 0) {
+                if (this.v) {
+                    float f = dy5.N;
+                    if (f > 1.0f) {
+                        float f2 = i;
+                        if (f2 * f <= i3 * O) {
+                            i3 = (int) (f2 * f);
+                        }
+                        i2 = (i2 * i3) / i;
+                        if (i2 > 4096) {
+                            this.s = ImageView.ScaleType.MATRIX;
+                            i = i3;
+                            i2 = 4096;
+                        } else {
+                            this.s = ImageView.ScaleType.CENTER_CROP;
+                            i = i3;
+                        }
+                    }
+                }
+                return new int[]{i, i2};
+            }
+            return null;
         }
-    }
-
-    public void j(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-            this.f = cVar;
-        }
-    }
-
-    public void k(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
-            this.e = dVar;
-        }
-    }
-
-    public void l(MediaController.MediaPlayerControl mediaPlayerControl) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, mediaPlayerControl) == null) {
-            this.c = mediaPlayerControl;
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.g.removeMessages(1);
-            Handler handler = this.g;
-            handler.sendMessageDelayed(handler.obtainMessage(1), this.a);
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.b = 0;
-            h();
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.g.removeMessages(1);
-        }
+        return (int[]) invokeIIII.objValue;
     }
 }

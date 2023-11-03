@@ -43,7 +43,7 @@ public class VideoCoverSelectActivity extends BaseActivity<VideoCoverSelectActiv
         }
     }
 
-    public final void M0() {
+    public final void J0() {
         Bitmap c;
         String str;
         Interceptable interceptable = $ic;
@@ -65,15 +65,15 @@ public class VideoCoverSelectActivity extends BaseActivity<VideoCoverSelectActiv
     public void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = (CoverSelectLayout) findViewById(R.id.obfuscated_res_0x7f090812);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09295f);
+            this.a = (CoverSelectLayout) findViewById(R.id.obfuscated_res_0x7f090833);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0929be);
             this.b = navigationBar;
-            TextView centerTextTitle = navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f10d5));
+            TextView centerTextTitle = navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f10e7));
             this.d = centerTextTitle;
             centerTextTitle.setTextColor(getResources().getColor(R.color.CAM_X0101));
             View addSystemImageButton = this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.c = addSystemImageButton;
-            ((ImageView) addSystemImageButton.findViewById(R.id.widget_navi_back_button)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c37));
+            ((ImageView) addSystemImageButton.findViewById(R.id.widget_navi_back_button)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c4a));
             TextView addTextButton = this.b.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.next_step));
             this.e = addTextButton;
             addTextButton.setTextColor(getResources().getColor(R.color.CAM_X0101));
@@ -92,7 +92,7 @@ public class VideoCoverSelectActivity extends BaseActivity<VideoCoverSelectActiv
             if (view2 == this.c) {
                 finish();
             } else if (view2 == this.e) {
-                M0();
+                J0();
             }
         }
     }

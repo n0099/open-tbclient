@@ -1,5 +1,6 @@
 package com.baidu.card.view;
 
+import android.animation.Animator;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -16,18 +17,19 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.BrowserHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hy4;
-import com.baidu.tieba.jv4;
-import com.baidu.tieba.qs;
+import com.baidu.tieba.bw4;
+import com.baidu.tieba.fz4;
+import com.baidu.tieba.ht;
+import com.baidu.tieba.nq6;
+import com.baidu.tieba.qu;
 import com.baidu.tieba.view.TbImageAutoSwitch;
-import com.baidu.tieba.zt;
+import com.baidu.tieba.zy4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,7 +40,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class HeadlinesAgreeCardView extends FrameLayout implements qs<jv4> {
+public class HeadlinesAgreeCardView extends FrameLayout implements ht<bw4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int k;
     public static final int l;
@@ -50,8 +52,8 @@ public class HeadlinesAgreeCardView extends FrameLayout implements qs<jv4> {
     public TbImageAutoSwitch d;
     public TextView e;
     public HeadlinesItemInfoView f;
-    public hy4 g;
-    public zt h;
+    public zy4 g;
+    public qu h;
     public final List<String> i;
     public final TbImageAutoSwitch.b j;
 
@@ -154,11 +156,60 @@ public class HeadlinesAgreeCardView extends FrameLayout implements qs<jv4> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.f();
+                this.a.g();
                 if (this.a.h != null) {
                     this.a.h.a();
                 }
             }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class c extends nq6 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        @Nullable
+        public final String a;
+        @Nullable
+        public final Animator.AnimatorListener b;
+
+        public c(@Nullable String str, @Nullable Animator.AnimatorListener animatorListener) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, animatorListener};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = animatorListener;
+        }
+
+        @Nullable
+        public Animator.AnimatorListener a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.b;
+            }
+            return (Animator.AnimatorListener) invokeV.objValue;
+        }
+
+        @Nullable
+        public String b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.a;
+            }
+            return (String) invokeV.objValue;
         }
     }
 
@@ -198,6 +249,16 @@ public class HeadlinesAgreeCardView extends FrameLayout implements qs<jv4> {
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ht
+    /* renamed from: i */
+    public void onBindDataToView(bw4 bw4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, bw4Var) == null) && bw4Var != null && bw4Var.getThreadData() != null && bw4Var.getThreadData().getTaskInfoData() != null && bw4Var.getThreadData().getTaskInfoData().f() != null) {
+            e(bw4Var.getThreadData().getTaskInfoData());
         }
     }
 
@@ -243,56 +304,81 @@ public class HeadlinesAgreeCardView extends FrameLayout implements qs<jv4> {
         }
         this.i = new ArrayList();
         this.j = new a(this);
-        e(context);
+        f(context);
     }
 
-    public void f() {
-        hy4 hy4Var;
+    public void g() {
+        zy4 zy4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (hy4Var = this.g) != null && !TextUtils.isEmpty(hy4Var.a())) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (zy4Var = this.g) != null && !TextUtils.isEmpty(zy4Var.a())) {
             BrowserHelper.startWebActivity(getContext(), (String) null, this.g.a(), true);
         }
     }
 
-    public void g() {
-        hy4 hy4Var;
+    public void h() {
+        zy4 zy4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (hy4Var = this.g) != null && !TextUtils.isEmpty(hy4Var.i())) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (zy4Var = this.g) != null && !TextUtils.isEmpty(zy4Var.i())) {
             BrowserHelper.startWebActivity(getContext(), (String) null, this.g.i(), true);
         }
     }
 
-    public void i() {
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             EMManager.from(this.e).setTextColor(R.color.CAM_X0109);
         }
     }
 
-    public void j(@NonNull ThreadData threadData) {
+    public void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, threadData) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.f.b(this.g);
         }
     }
 
     public void setItemBtnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, onClickListener) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onClickListener) == null) {
             this.f.setOnButtonClickListener(onClickListener);
         }
     }
 
-    public void setOnStatListener(zt ztVar) {
+    public void setOnStatListener(qu quVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ztVar) == null) {
-            this.h = ztVar;
+        if (interceptable == null || interceptable.invokeL(1048585, this, quVar) == null) {
+            this.h = quVar;
         }
     }
 
-    public final void e(@NonNull Context context) {
+    public void e(@Nullable fz4 fz4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, fz4Var) != null) || fz4Var == null) {
+            return;
+        }
+        zy4 f = fz4Var.f();
+        this.g = f;
+        if (f == null) {
+            return;
+        }
+        this.b.setData(f);
+        this.i.clear();
+        this.i.addAll(this.g.e());
+        this.d.q();
+        if (!TextUtils.isEmpty(this.g.h())) {
+            this.e.setText(this.g.h());
+        }
+        k();
+        this.f.setOnBannerClickListener(new b(this));
+        qu quVar = this.h;
+        if (quVar != null) {
+            quVar.onShow();
+        }
+    }
+
+    public final void f(@NonNull Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.headlines_agree_card_view, (ViewGroup) this, true);
             TbImageView tbImageView = (TbImageView) findViewById(R.id.headlines_background);
             this.a = tbImageView;
@@ -317,30 +403,6 @@ public class HeadlinesAgreeCardView extends FrameLayout implements qs<jv4> {
             this.d.setAdapter(this.j);
             this.e = (TextView) findViewById(R.id.headlines_auto_switch_text);
             this.f = (HeadlinesItemInfoView) findViewById(R.id.headlines_item_info);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qs
-    /* renamed from: h */
-    public void onBindDataToView(jv4 jv4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, jv4Var) == null) && jv4Var != null && jv4Var.getThreadData() != null && jv4Var.getThreadData().getTaskInfoData() != null && jv4Var.getThreadData().getTaskInfoData().f() != null) {
-            hy4 f = jv4Var.getThreadData().getTaskInfoData().f();
-            this.g = f;
-            this.b.setData(f);
-            this.i.clear();
-            this.i.addAll(this.g.e());
-            this.d.q();
-            if (!TextUtils.isEmpty(this.g.h())) {
-                this.e.setText(this.g.h());
-            }
-            j(jv4Var.getThreadData());
-            this.f.setOnBannerClickListener(new b(this));
-            zt ztVar = this.h;
-            if (ztVar != null) {
-                ztVar.onShow();
-            }
         }
     }
 }

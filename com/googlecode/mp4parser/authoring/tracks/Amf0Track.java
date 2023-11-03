@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Amf0Track extends AbstractTrack {
     public SortedMap<Long, byte[]> rawSamples;
     public TrackMetaData trackMetaData = new TrackMetaData();

@@ -35,9 +35,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.aqa;
 import com.baidu.tieba.model.AddPollPostModel;
-import com.baidu.tieba.vca;
-import com.baidu.tieba.zy4;
+import com.baidu.tieba.rz4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -80,7 +80,7 @@ public class VoteView extends LinearLayout {
     public boolean r;
     public int s;
     public boolean t;
-    public zy4 u;
+    public rz4 u;
     public AddPollPostModel v;
     public AddPollPostModel.b w;
     public View.OnClickListener x;
@@ -864,12 +864,12 @@ public class VoteView extends LinearLayout {
         }
     }
 
-    public void setupLiveThreadVoteInfo(@Nullable zy4 zy4Var) {
+    public void setupLiveThreadVoteInfo(@Nullable rz4 rz4Var) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, zy4Var) == null) {
-            this.u = zy4Var;
-            if (zy4Var != null && this.h != null) {
+        if (interceptable == null || interceptable.invokeL(1048602, this, rz4Var) == null) {
+            this.u = rz4Var;
+            if (rz4Var != null && this.h != null) {
                 J();
                 K();
                 StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_LIVE_POST_CARD_VOTE_SHOW).param("uid", TbadkCoreApplication.getCurrentAccount()).param("tid", this.i).param("fid", this.j);
@@ -987,9 +987,9 @@ public class VoteView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
             String A2 = A(this.m);
             if (this.b != null && this.v != null && !StringUtils.isNull(this.i) && this.w != null && !StringUtils.isNull(A2) && this.k != null) {
-                this.v.S(JavaTypesHelper.toLong(this.i, -1L));
-                this.v.R(this.w);
-                this.v.P(this.i, A2, this.j);
+                this.v.T(JavaTypesHelper.toLong(this.i, -1L));
+                this.v.S(this.w);
+                this.v.Q(this.i, A2, this.j);
             }
         }
     }
@@ -1075,14 +1075,14 @@ public class VoteView extends LinearLayout {
             }
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setCornerRadii(E);
-            gradientDrawable.setColor(vca.a(SkinManager.getColor(R.color.CAM_X0302), 0.08f));
+            gradientDrawable.setColor(aqa.a(SkinManager.getColor(R.color.CAM_X0302), 0.08f));
             this.h.setBackgroundDrawable(gradientDrawable);
             if (!this.o && !ListUtils.isEmpty(this.m) && this.m.size() > 0) {
                 SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0302);
                 this.h.setEnabled(true);
                 return;
             }
-            this.h.setTextColor(vca.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
+            this.h.setTextColor(aqa.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
             this.h.setEnabled(false);
         }
     }

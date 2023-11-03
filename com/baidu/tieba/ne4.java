@@ -1,25 +1,21 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.ContentValues;
+import android.database.Cursor;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.pms.utils.AbiType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Objects;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class ne4 extends le4 {
+public class ne4 extends ge4<if4> implements Object {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String g;
-    public int h;
-    public long i;
-    public String j;
-    public long k;
-    public String l;
-    public String m;
-    public String n;
 
     public ne4() {
         Interceptable interceptable = $ic;
@@ -35,58 +31,78 @@ public class ne4 extends le4 {
         }
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    public static int f(@NonNull Cursor cursor, @NonNull String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!TextUtils.isEmpty(this.g) && this.i > 0 && !TextUtils.isEmpty(this.l) && !TextUtils.isEmpty(this.m) && !TextUtils.isEmpty(this.n)) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cursor, str)) == null) {
+            return cursor.getColumnIndex(str);
         }
-        return invokeV.booleanValue;
+        return invokeLL.intValue;
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return Objects.hash(this.g, Integer.valueOf(this.h), Long.valueOf(this.i), this.j);
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean equals(Object obj) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ge4
+    /* renamed from: h */
+    public if4 d(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (super.equals(obj)) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
+            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
+                return i(cursor);
             }
-            if (obj == null || !(obj instanceof ne4)) {
-                return false;
-            }
-            ne4 ne4Var = (ne4) obj;
-            if (TextUtils.isEmpty(this.j) && TextUtils.isEmpty(ne4Var.j)) {
-                if (this.g.equals(ne4Var.g) && this.i == ne4Var.i) {
-                    return true;
-                }
-                return false;
-            } else if (TextUtils.equals(this.g, ne4Var.g) && this.i == ne4Var.i && TextUtils.equals(this.j, ne4Var.j)) {
-                return true;
-            } else {
-                return false;
-            }
+            return null;
         }
-        return invokeL.booleanValue;
+        return (if4) invokeL.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ge4
+    public List<if4> e(Cursor cursor) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "bundleId=" + this.g + ", category=" + this.h + ", versionCode=" + this.i + ", versionName=" + this.j + ", size=" + this.k + ", md5=" + this.l + ", sign=" + this.m + ", downloadUrl=" + this.n;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
+                do {
+                    arrayList.add(i(cursor));
+                } while (cursor.moveToNext());
+                return arrayList;
+            }
+            return arrayList;
         }
-        return (String) invokeV.objValue;
+        return (List) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ge4
+    /* renamed from: g */
+    public ContentValues c(if4 if4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, if4Var)) == null) {
+            ContentValues a = super.a(if4Var);
+            a.put("max_age", Long.valueOf(if4Var.o));
+            a.put("abi", if4Var.q.id);
+            a.put("lib_name", if4Var.p);
+            return a;
+        }
+        return (ContentValues) invokeL.objValue;
+    }
+
+    public final if4 i(Cursor cursor) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cursor)) == null) {
+            if (cursor != null) {
+                if4 if4Var = new if4();
+                if (b(cursor, if4Var)) {
+                    if4Var.o = cursor.getLong(f(cursor, "max_age"));
+                    if4Var.q = AbiType.findById(cursor.getString(f(cursor, "abi")), null);
+                    if4Var.p = cursor.getString(f(cursor, "lib_name"));
+                    return if4Var;
+                }
+            }
+            return null;
+        }
+        return (if4) invokeL.objValue;
     }
 }

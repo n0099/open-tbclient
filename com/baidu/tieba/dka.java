@@ -1,24 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
 @Service
 /* loaded from: classes5.dex */
-public final class dka implements g15 {
+public class dka implements yw {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.g15
-    public String name() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "NA_WRITE_GUIDE_STRATEGY" : (String) invokeV.objValue;
-    }
 
     public dka() {
         Interceptable interceptable = $ic;
@@ -34,13 +29,13 @@ public final class dka implements g15 {
         }
     }
 
-    @Override // com.baidu.tieba.g15
-    public e15 a() {
+    @Override // com.baidu.tieba.yw
+    public String getAppVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new cka();
+            return TbConfig.getVersion();
         }
-        return (e15) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 }

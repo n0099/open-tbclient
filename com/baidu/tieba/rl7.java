@@ -1,121 +1,108 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.frs.itemtab.card.CardItemDetailListItemLayout;
+import android.os.Bundle;
+import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.ViewModelProvider;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tieba.forum.data.ForumTabItem;
+import com.baidu.tieba.forum.data.SortItem;
+import com.baidu.tieba.forum.data.SubTabItem;
+import com.baidu.tieba.forum.viewmodel.ForumViewModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-/* loaded from: classes7.dex */
-public class rl7 extends wr<yl7> {
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes8.dex */
+public final class rl7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View f;
-    public EMTextView g;
-    public ArrayList<dm7> h;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rl7(Context context) {
-        super(context);
+    public static final xj7 a(FragmentActivity activity, Bundle bundle, BdUniqueId bdUniqueId, ck7 resultCallback) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, activity, bundle, bdUniqueId, resultCallback)) == null) {
+            Intrinsics.checkNotNullParameter(activity, "activity");
+            Intrinsics.checkNotNullParameter(bundle, "bundle");
+            Intrinsics.checkNotNullParameter(bdUniqueId, "bdUniqueId");
+            Intrinsics.checkNotNullParameter(resultCallback, "resultCallback");
+            xj7 wj7Var = new wj7();
+            ForumTabItem forumTabItem = (ForumTabItem) bundle.getParcelable("forum_tab_info");
+            if (forumTabItem == null) {
+                return wj7Var;
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.wr
-    public View k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f == null) {
-                View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d01cc, (ViewGroup) null, true);
-                this.f = inflate;
-                this.g = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f0911bf);
+            hh7 hh7Var = null;
+            if (bundle.getBoolean("forum_tab_current_list", false)) {
+                hh7Var = ((ForumViewModel) new ViewModelProvider(activity).get(ForumViewModel.class)).a().getValue();
             }
-            return this.f;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.rs
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            EMManager.from(this.f).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0205);
-            EMManager.from(this.g).setTextStyle(R.string.F_X02).setTextColor(R.color.CAM_X0105);
-            for (int i2 = 0; i2 < ((ViewGroup) this.f).getChildCount(); i2++) {
-                if (((ViewGroup) this.f).getChildAt(i2) instanceof CardItemDetailListItemLayout) {
-                    ((CardItemDetailListItemLayout) ((ViewGroup) this.f).getChildAt(i2)).d();
-                }
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qs
-    /* renamed from: t */
-    public void onBindDataToView(yl7 yl7Var) {
-        boolean z;
-        View childAt;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, yl7Var) == null) && yl7Var != null && yl7Var.d()) {
-            ArrayList<dm7> c = yl7Var.c();
-            if (ListUtils.getCount(c) != ListUtils.getCount(this.h)) {
-                if (ListUtils.getCount(this.h) > 0) {
-                    ((ViewGroup) this.f).removeViews(1, ListUtils.getCount(this.h));
-                }
-                z = true;
-            } else {
-                z = false;
-            }
-            if (c != null) {
-                for (int i = 0; i < c.size(); i++) {
-                    if (z) {
-                        childAt = new CardItemDetailListItemLayout(this.b);
-                        ((ViewGroup) this.f).addView(childAt, -1, -2);
+            int netType = forumTabItem.getNetType();
+            int i = -1;
+            if (netType != 1) {
+                if (netType != 2) {
+                    if (netType != 3) {
+                        vl7.a("Unknown netType!!!");
                     } else {
-                        childAt = ((ViewGroup) this.f).getChildAt(i + 1);
+                        wj7Var = new vj7(new fk7(activity, bdUniqueId, bundle), resultCallback);
                     }
-                    if (childAt instanceof CardItemDetailListItemLayout) {
-                        ((CardItemDetailListItemLayout) childAt).setData(c.get(i));
-                    }
+                } else {
+                    wj7Var = new vj7(new gk7(activity, bdUniqueId, bundle), resultCallback);
                 }
+            } else {
+                i = SharedPrefHelper.getInstance().getInt("key_forum_last_sort_type", -1);
+                wj7Var = new vj7(new hk7(activity, bdUniqueId, bundle), resultCallback);
             }
-            ViewGroup viewGroup = (ViewGroup) this.f;
-            int childCount = viewGroup.getChildCount() - 1;
-            while (true) {
-                if (childCount <= 0) {
-                    break;
-                }
-                if ((viewGroup.getChildAt(childCount) instanceof CardItemDetailListItemLayout) && viewGroup.getChildAt(childCount).getVisibility() == 0) {
-                    ((CardItemDetailListItemLayout) viewGroup.getChildAt(childCount)).setDividerVisible(false);
-                    break;
-                }
-                childCount--;
-            }
-            this.h = c;
+            wj7Var.c(new zj7(b(forumTabItem, i), hh7Var));
+            return wj7Var;
         }
+        return (xj7) invokeLLLL.objValue;
+    }
+
+    public static final yj7 b(ForumTabItem forumTabItem, int i) {
+        InterceptResult invokeLI;
+        boolean z;
+        ek7 ek7Var;
+        boolean z2;
+        int size;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, forumTabItem, i)) == null) {
+            List<SubTabItem> subTabList = forumTabItem.getSubTabList();
+            int i2 = 0;
+            if (subTabList != null && !subTabList.isEmpty()) {
+                z = false;
+            } else {
+                z = true;
+            }
+            dk7 dk7Var = null;
+            if (!z && forumTabItem.getSubTabList().size() > 1) {
+                ek7Var = new ek7(forumTabItem.getSubTabList(), 0);
+            } else {
+                ek7Var = null;
+            }
+            List<SortItem> sortItemList = forumTabItem.getSortItemList();
+            if (sortItemList != null && !sortItemList.isEmpty()) {
+                z2 = false;
+            } else {
+                z2 = true;
+            }
+            if (!z2 && forumTabItem.getSortItemList().size() > 1) {
+                if (i != -1 && (size = forumTabItem.getSortItemList().size()) >= 0) {
+                    int i3 = 0;
+                    while (true) {
+                        if (forumTabItem.getSortItemList().get(i3).getId() == i) {
+                            i2 = i3;
+                            break;
+                        } else if (i3 == size) {
+                            break;
+                        } else {
+                            i3++;
+                        }
+                    }
+                }
+                dk7Var = new dk7(forumTabItem.getSortItemList(), i2);
+            }
+            return new yj7(ek7Var, dk7Var);
+        }
+        return (yj7) invokeLI.objValue;
     }
 }

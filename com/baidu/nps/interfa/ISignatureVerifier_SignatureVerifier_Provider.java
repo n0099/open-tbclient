@@ -1,14 +1,14 @@
 package com.baidu.nps.interfa;
 
-import com.baidu.tieba.ue1;
-import com.baidu.tieba.xf;
+import com.baidu.tieba.lf1;
+import com.baidu.tieba.ng;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ISignatureVerifier_SignatureVerifier_Provider implements ue1 {
+public class ISignatureVerifier_SignatureVerifier_Provider implements lf1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,10 +26,10 @@ public class ISignatureVerifier_SignatureVerifier_Provider implements ue1 {
         }
     }
 
-    @Override // com.baidu.tieba.ue1
+    @Override // com.baidu.tieba.lf1
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new xf() : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ng() : invokeV.objValue;
     }
 }

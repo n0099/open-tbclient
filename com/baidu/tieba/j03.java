@@ -1,13 +1,13 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.os.CountDownTimer;
+import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.AnyThread;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.UiThread;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.tieba.oc3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,50 +15,38 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.HashSet;
 import java.util.Iterator;
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
-public class j03 implements l03, tq2 {
+public class j03 implements kr2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Set<String> e;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean c;
-    public CopyOnWriteArrayList<c> d;
-    public CountDownTimer e;
-
-    @Override // com.baidu.tieba.l03
-    public void c(@NonNull Runnable runnable, @Nullable String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, runnable, str) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.l03
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "SwanLaunchTriggerMgr" : (String) invokeV.objValue;
-    }
+    public ConcurrentHashMap<String, SwanAppConfigData> c;
+    public boolean d;
 
     /* loaded from: classes6.dex */
-    public class a extends CountDownTimer {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ j03 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(j03 j03Var, long j, long j2) {
-            super(j, j2);
+        public a(j03 j03Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {j03Var, Long.valueOf(j), Long.valueOf(j2)};
+                Object[] objArr = {j03Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Long) objArr2[0]).longValue(), ((Long) objArr2[1]).longValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -67,45 +55,75 @@ public class j03 implements l03, tq2 {
             this.a = j03Var;
         }
 
-        @Override // android.os.CountDownTimer
-        public void onFinish() {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (tq2.a) {
-                    Log.d("SwanPerformance", "count down onFinish");
-                }
-                this.a.d(true);
-            }
-        }
-
-        @Override // android.os.CountDownTimer
-        public void onTick(long j) {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                Iterator it = this.a.d.iterator();
-                while (it.hasNext()) {
-                    c cVar = (c) it.next();
-                    if (5000 - cVar.e() >= j) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    if (!cVar.g() && z) {
-                        cVar.h(true);
-                        l03 f = cVar.f();
-                        if (tq2.a) {
-                            Log.e("SwanPerformance", "triggerFmp, timeout = " + cVar.e() + ", trigger = " + f.getName());
-                        }
-                        f.d(true);
-                    }
+                long currentTimeMillis = System.currentTimeMillis();
+                this.a.b();
+                long currentTimeMillis2 = System.currentTimeMillis();
+                if (kr2.a) {
+                    Log.d("SwanPerformance", "async batch parse app.json cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms");
                 }
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class b {
+    public class b implements Comparator<File> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(j03 j03Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j03Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public final long b(@NonNull File file) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file)) == null) {
+                return file.lastModified();
+            }
+            return invokeL.longValue;
+        }
+
+        public /* synthetic */ b(j03 j03Var, a aVar) {
+            this(j03Var);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(File file, File file2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, file2)) == null) {
+                if (file == null) {
+                    return 1;
+                }
+                if (file2 == null) {
+                    return -1;
+                }
+                return (int) ((b(file) - b(file2)) * (-1));
+            }
+            return invokeLL.intValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c {
         public static /* synthetic */ Interceptable $ic;
         public static final j03 a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -113,13 +131,13 @@ public class j03 implements l03, tq2 {
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-741672066, "Lcom/baidu/tieba/j03$b;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-741672035, "Lcom/baidu/tieba/j03$c;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-741672066, "Lcom/baidu/tieba/j03$b;");
+                    classClinitInterceptable.invokePostClinit(-741672035, "Lcom/baidu/tieba/j03$c;");
                     return;
                 }
             }
@@ -127,131 +145,59 @@ public class j03 implements l03, tq2 {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public l03 a;
-        public int b;
-        public boolean c;
-
-        public c(@NonNull j03 j03Var, l03 l03Var, int i) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947829436, "Lcom/baidu/tieba/j03;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j03Var, l03Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.c = false;
-            this.a = l03Var;
-            this.b = i;
-        }
-
-        public /* synthetic */ c(j03 j03Var, l03 l03Var, int i, a aVar) {
-            this(j03Var, l03Var, i);
-        }
-
-        public final void h(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-                this.c = z;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947829436, "Lcom/baidu/tieba/j03;");
+                return;
             }
         }
-
-        public final int e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.b;
-            }
-            return invokeV.intValue;
-        }
-
-        @NonNull
-        public final l03 f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a;
-            }
-            return (l03) invokeV.objValue;
-        }
-
-        public final boolean g() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.c;
-            }
-            return invokeV.booleanValue;
-        }
+        e = new HashSet();
     }
 
     public j03() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = false;
-        this.d = new CopyOnWriteArrayList<>();
-        this.e = new a(this, 5000L, 500L);
+        this.c = new ConcurrentHashMap<>();
+        this.d = false;
+        h();
     }
 
-    @Override // com.baidu.tieba.l03
-    public void b() {
+    public static j03 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.d.isEmpty()) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return c.a;
         }
-        if (tq2.a) {
-            Log.e("SwanPerformance", "triggerDestroy");
-        }
-        k();
-        Iterator<c> it = this.d.iterator();
-        while (it.hasNext()) {
-            it.next().f().b();
-        }
-        this.c = false;
+        return (j03) invokeV.objValue;
     }
 
-    public final void j() {
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            try {
-                this.e.start();
-            } catch (Throwable th) {
-                if (tq2.a) {
-                    Log.d("SwanPerformance", "start timer exception = " + th.getMessage());
-                }
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            ConcurrentHashMap<String, SwanAppConfigData> concurrentHashMap = this.c;
+            if (concurrentHashMap != null && !concurrentHashMap.isEmpty()) {
+                this.c.clear();
             }
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            try {
-                this.e.cancel();
-            } catch (Throwable th) {
-                if (tq2.a) {
-                    Log.d("SwanPerformance", "stop timer exception = " + th.getMessage());
-                }
+            this.d = false;
+            if (kr2.a) {
+                Log.d("SwanPerformance", "release app.json batch cache");
             }
         }
     }
@@ -260,118 +206,137 @@ public class j03 implements l03, tq2 {
         this();
     }
 
-    public static j03 g() {
-        InterceptResult invokeV;
+    public final void b() {
+        File[] listFiles;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b.a;
-        }
-        return (j03) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.l03
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (tq2.a) {
-                Log.e("SwanPerformance", "triggerFcp, url = " + str);
-            }
-            Iterator<c> it = this.d.iterator();
-            while (it.hasNext()) {
-                it.next().f().a(str);
-            }
-        }
-    }
-
-    public boolean h(l03 l03Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, l03Var)) == null) {
-            if (l03Var == null) {
-                return false;
-            }
-            Iterator<c> it = this.d.iterator();
-            while (it.hasNext()) {
-                if (l03Var.equals(it.next().f())) {
-                    return true;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            File g = cp2.g();
+            if (g.exists() && (listFiles = g.listFiles()) != null && listFiles.length != 0) {
+                for (String str : e) {
+                    c(new File(g, str));
                 }
             }
-            return false;
         }
-        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.l03
-    public void d(boolean z) {
+    public final void h() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048579, this, z) != null) || this.c) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            e.add("eot71qyZ0ino8W34o3XG6aQ9YdAn4R1m");
+            e.add("AZQtr4jkpf90T3X9QMWVLF1bkeV4LXxD");
+            e.add("AukeaxXFpdt1qCe7lE35VCvH27x6ayWI");
+            e.add("flFqXclepWs7RdugAszy9eERL7G5dS0I");
+            e.add("oFx3nbdDN6GWF3Vb0Wh7EDBMBxRTTcfe");
         }
-        this.c = true;
-        k();
-        if (this.d.isEmpty()) {
-            return;
-        }
-        if (tq2.a) {
-            Log.e("SwanPerformance", "triggerFmp, timeout = " + z);
-        }
-        Iterator<c> it = this.d.iterator();
-        while (it.hasNext()) {
-            c next = it.next();
-            if (!next.g()) {
-                next.h(true);
-                next.f().d(z);
-            }
-        }
-        ic3.p();
-        Bundle bundle = new Bundle();
-        bundle.putBoolean("is_timeout", z);
-        bundle.putString("app_id", o53.K().getAppId());
-        f23 e = f23.e();
-        h23 h23Var = new h23(23, bundle);
-        h23Var.f(true);
-        e.h(h23Var);
     }
 
-    @Override // com.baidu.tieba.l03
-    @UiThread
-    public void e(String str) {
+    public final void c(File file) {
+        File d;
+        SwanAppConfigData a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            if (qz2.k()) {
-                ic3.a0(qz2.j());
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file) == null) && file != null && file.exists() && file.isDirectory() && (d = d(file)) != null && (a2 = yq2.a(d)) != null) {
+            this.c.put(d.getAbsolutePath(), a2);
+        }
+    }
+
+    public final File d(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file)) == null) {
+            if (file != null && !file.isFile()) {
+                File[] listFiles = file.listFiles();
+                if (listFiles != null && listFiles.length > 0) {
+                    if (listFiles.length > 1) {
+                        Arrays.sort(listFiles, new b(this, null));
+                    }
+                    return listFiles[0];
+                }
+                oc3.b bVar = new oc3.b(10012);
+                bVar.h(file.getAbsolutePath());
+                bVar.k("async parse swanApp");
+                bVar.m();
+                if (kr2.a) {
+                    Log.d("SwanPerformance", file.getAbsolutePath() + " is an empty folder");
+                }
             }
-            this.c = false;
-            if (this.d.isEmpty()) {
+            return null;
+        }
+        return (File) invokeL.objValue;
+    }
+
+    public void g(String str) {
+        ConcurrentHashMap<String, SwanAppConfigData> concurrentHashMap;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && !TextUtils.isEmpty(str) && (concurrentHashMap = this.c) != null && !concurrentHashMap.isEmpty()) {
+            Iterator<Map.Entry<String, SwanAppConfigData>> it = this.c.entrySet().iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                Map.Entry<String, SwanAppConfigData> next = it.next();
+                if (next != null) {
+                    String key = next.getKey();
+                    if (!TextUtils.isEmpty(key) && key.contains(str)) {
+                        this.c.remove(key);
+                        break;
+                    }
+                }
+            }
+            if (kr2.a) {
+                Log.d("SwanPerformance", "release app.json appId = " + str);
+            }
+        }
+    }
+
+    @AnyThread
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if (this.d) {
+                if (kr2.a) {
+                    Log.d("SwanPerformance", "has batch parse app.json, size = " + this.c.size());
+                    return;
+                }
                 return;
             }
-            if (tq2.a) {
-                Log.e("SwanPerformance", "triggerLaunch, source = " + str);
+            this.d = true;
+            try {
+                aj3.k(new a(this), "startAsyncBatchParseAppJson");
+            } catch (Throwable th) {
+                if (kr2.a) {
+                    Log.e("SwanPerformance", "batch parse app.json exception");
+                    th.printStackTrace();
+                }
             }
-            Iterator<c> it = this.d.iterator();
-            while (it.hasNext()) {
-                c next = it.next();
-                next.h(false);
-                next.f().e(str);
-            }
-            k();
-            j();
         }
     }
 
-    public void i(l03 l03Var, int i) {
+    public SwanAppConfigData j(File file) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048583, this, l03Var, i) != null) || this.c || l03Var == null) {
-            return;
-        }
-        if (i > 5000) {
-            i = 5000;
-        }
-        if (!h(l03Var)) {
-            this.d.add(new c(this, l03Var, i, null));
-            if (tq2.a) {
-                Log.e("SwanPerformance", "register, task name = " + l03Var.getName() + " ; timeout = " + i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, file)) == null) {
+            if (file == null || !file.exists()) {
+                return null;
             }
+            String absolutePath = file.getAbsolutePath();
+            if (TextUtils.isEmpty(absolutePath)) {
+                return null;
+            }
+            SwanAppConfigData swanAppConfigData = this.c.get(absolutePath);
+            if (kr2.a) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("try obtain config data success = ");
+                if (swanAppConfigData != null) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                sb.append(z);
+                Log.d("SwanPerformance", sb.toString());
+            }
+            return swanAppConfigData;
         }
+        return (SwanAppConfigData) invokeL.objValue;
     }
 }

@@ -1,88 +1,171 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.graphics.SurfaceTexture;
+import android.os.Build;
+import android.os.Message;
+import android.view.Surface;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
-import tv.athena.revenue.payui.model.ThemeColorConfig;
+import com.yy.transvod.player.log.TLog;
 /* loaded from: classes7.dex */
-public final class pfc {
+public class pfc extends kfc implements SurfaceHolder.Callback {
     public static /* synthetic */ Interceptable $ic;
-    public static final pfc a;
     public transient /* synthetic */ FieldHolder $fh;
+    public SurfaceView K;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948061564, "Lcom/baidu/tieba/pfc;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948061564, "Lcom/baidu/tieba/pfc;");
-                return;
-            }
+    @Override // com.baidu.tieba.hfc
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
-        a = new pfc();
     }
 
-    public pfc() {
+    @Override // com.baidu.tieba.hfc
+    public void d(SurfaceTexture surfaceTexture) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, surfaceTexture) == null) {
+        }
+    }
+
+    public pfc(Context context, View view2, int i, int i2, udc udcVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, view2, Integer.valueOf(i), Integer.valueOf(i2), udcVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.K = null;
+        A(context, view2, i, i2, udcVar);
     }
 
-    public final int a(PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeL;
-        ThemeColorConfig themeColorConfig;
+    @Override // com.baidu.tieba.kfc
+    public void A(Context context, Object obj, int i, int i2, udc udcVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, payUIKitConfig)) == null) {
-            if (payUIKitConfig != null && (themeColorConfig = payUIKitConfig.themeColorConfig) != null && themeColorConfig.getThemeResId() != null) {
-                Integer themeResId = payUIKitConfig.themeColorConfig.getThemeResId();
-                if (themeResId == null) {
-                    Intrinsics.throwNpe();
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, obj, Integer.valueOf(i), Integer.valueOf(i2), udcVar}) == null) {
+            super.A(context, obj, i, i2, udcVar);
+            if (obj != null && (obj instanceof SurfaceView)) {
+                SurfaceView surfaceView = (SurfaceView) obj;
+                this.K = surfaceView;
+                surfaceView.getHolder().addCallback(this);
+                if (Build.MODEL.equals("OPPO A33t")) {
+                    this.K.setLayerType(1, null);
                 }
-                return themeResId.intValue();
             }
-            return R.style.obfuscated_res_0x7f100162;
         }
-        return invokeL.intValue;
     }
 
-    public final boolean b(PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeL;
-        ThemeColorConfig themeColorConfig;
-        Integer num;
+    public void Y() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, payUIKitConfig)) == null) {
-            if (payUIKitConfig == null || (themeColorConfig = payUIKitConfig.themeColorConfig) == null) {
-                return true;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            X(true);
+            synchronized (this.i) {
+                if (this.K != null && this.K.getHolder() != null) {
+                    this.K.getHolder().setKeepScreenOn(true);
+                }
+                if (this.d != null) {
+                    if (this.a.available()) {
+                        this.d.g(2402);
+                        this.d.f(2402);
+                    }
+                    TLog.l(this, "do send surfaceCreated. playerUid " + this.r);
+                    this.d.g(2401);
+                    this.d.f(2401);
+                }
             }
-            if (themeColorConfig != null) {
-                num = themeColorConfig.getThemeResId();
-            } else {
-                num = null;
-            }
-            if (num != null && num.intValue() == R.style.obfuscated_res_0x7f100162) {
-                return true;
-            }
-            return false;
         }
-        return invokeL.booleanValue;
+    }
+
+    public void Z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            X(false);
+            SurfaceView surfaceView = this.K;
+            if (surfaceView != null && surfaceView.getHolder() != null) {
+                this.K.getHolder().setKeepScreenOn(false);
+            }
+            synchronized (this.i) {
+                if (this.d != null && this.a.available()) {
+                    this.d.g(2402);
+                    this.d.f(2402);
+                }
+            }
+        }
+    }
+
+    public void finalize() throws Throwable {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.finalize();
+        }
+    }
+
+    @Override // com.baidu.tieba.hfc
+    public Object getWindow() {
+        InterceptResult invokeV;
+        Surface surface;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            SurfaceView surfaceView = this.K;
+            if (surfaceView == null || (surface = surfaceView.getHolder().getSurface()) == null || !surface.isValid()) {
+                return null;
+            }
+            return this.K.getHolder();
+        }
+        return invokeV.objValue;
+    }
+
+    @Override // android.view.SurfaceHolder.Callback
+    public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIII(1048583, this, surfaceHolder, i, i2, i3) == null) {
+            TLog.l(this, String.format("surfaceChanged(%d, %d, %d). playerUID %d", Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(this.r)));
+            cdc cdcVar = this.d;
+            if (cdcVar != null) {
+                cdcVar.g(2404);
+                this.d.sendMessage(Message.obtain(null, 2404, i2, i3));
+            }
+            D();
+            this.I.set(true);
+            U();
+        }
+    }
+
+    @Override // android.view.SurfaceHolder.Callback
+    public void surfaceCreated(SurfaceHolder surfaceHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, surfaceHolder) == null) {
+            TLog.l(this, "surfaceCreated. playerUid " + this.r);
+            this.I.set(true);
+            Y();
+        }
+    }
+
+    @Override // android.view.SurfaceHolder.Callback
+    public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, surfaceHolder) == null) {
+            TLog.l(this, "surfaceDestroyed(). playerUid " + this.r);
+            D();
+            this.I.set(false);
+            U();
+            Z();
+        }
     }
 }

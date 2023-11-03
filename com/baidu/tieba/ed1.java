@@ -1,33 +1,118 @@
 package com.baidu.tieba;
 
-import android.content.res.ColorStateList;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidubce.auth.NTLMEngineImpl;
+import java.io.BufferedReader;
+import java.io.Closeable;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 /* loaded from: classes5.dex */
 public class ed1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static ColorStateList a(int i) {
-        InterceptResult invokeI;
+    public static void a(Closeable... closeableArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            int i2 = i - (-805306368);
-            return new ColorStateList(new int[][]{new int[]{-16842910, 16842912}, new int[]{-16842910}, new int[]{16842912, 16842919}, new int[]{-16842912, 16842919}, new int[]{16842912}, new int[]{-16842912}}, new int[]{i - (-520093696), LaunchTaskConstants.OTHER_PROCESS, i2, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH, i2, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH});
+        if ((interceptable == null || interceptable.invokeL(65536, null, closeableArr) == null) && closeableArr != null) {
+            for (Closeable closeable : closeableArr) {
+                if (closeable != null) {
+                    try {
+                        closeable.close();
+                    } catch (IOException unused) {
+                    }
+                }
+            }
         }
-        return (ColorStateList) invokeI.objValue;
     }
 
-    public static ColorStateList b(int i) {
-        InterceptResult invokeI;
+    public static String b(File file) {
+        InterceptResult invokeL;
+        FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            int i2 = i - (-1728053248);
-            return new ColorStateList(new int[][]{new int[]{-16842910, 16842912}, new int[]{-16842910}, new int[]{16842919, -16842912}, new int[]{16842919, 16842912}, new int[]{16842912}, new int[]{-16842912}}, new int[]{i - (-1442840576), -4539718, i2, i2, i | (-16777216), -1118482});
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
+            FileInputStream fileInputStream2 = null;
+            if (file == null) {
+                return null;
+            }
+            try {
+                fileInputStream = new FileInputStream(file);
+                try {
+                    String c = c(fileInputStream);
+                    a(fileInputStream);
+                    return c;
+                } catch (Exception unused) {
+                    a(fileInputStream);
+                    return null;
+                } catch (Throwable th) {
+                    th = th;
+                    fileInputStream2 = fileInputStream;
+                    a(fileInputStream2);
+                    throw th;
+                }
+            } catch (Exception unused2) {
+                fileInputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        } else {
+            return (String) invokeL.objValue;
         }
-        return (ColorStateList) invokeI.objValue;
+    }
+
+    public static String c(InputStream inputStream) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
+            if (inputStream == null) {
+                return null;
+            }
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+            StringBuilder sb = new StringBuilder();
+            while (true) {
+                String readLine = bufferedReader.readLine();
+                if (readLine != null) {
+                    sb.append(readLine);
+                } else {
+                    return sb.toString();
+                }
+            }
+        } else {
+            return (String) invokeL.objValue;
+        }
+    }
+
+    public static void d(String str, File file) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65539, null, str, file) == null) && !TextUtils.isEmpty(str) && file != null) {
+            FileOutputStream fileOutputStream = null;
+            try {
+                if (!file.getParentFile().exists()) {
+                    file.getParentFile().mkdirs();
+                }
+                FileOutputStream fileOutputStream2 = new FileOutputStream(file);
+                try {
+                    fileOutputStream2.write(str.getBytes());
+                    fileOutputStream2.flush();
+                    a(fileOutputStream2);
+                } catch (Exception unused) {
+                    fileOutputStream = fileOutputStream2;
+                    a(fileOutputStream);
+                } catch (Throwable th) {
+                    th = th;
+                    fileOutputStream = fileOutputStream2;
+                    a(fileOutputStream);
+                    throw th;
+                }
+            } catch (Exception unused2) {
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        }
     }
 }

@@ -1,43 +1,50 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public interface v67 {
+public final class v67 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public Map<String, String> a;
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void a(View view2, h77<?> h77Var, g77<?, ?> g77Var);
+    public v67() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new HashMap();
     }
 
-    /* loaded from: classes8.dex */
-    public interface b {
-        void a(@NonNull h77<?> h77Var, int i);
+    public final Map<String, String> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (Map) invokeV.objValue;
     }
 
-    /* loaded from: classes8.dex */
-    public interface c {
-        void a(@NonNull h77<?> h77Var, @NonNull g77<?, ?> g77Var, int i);
-
-        void b(@NonNull RecyclerView recyclerView);
+    public final void b(Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map) == null) {
+            Intrinsics.checkNotNullParameter(map, "<set-?>");
+            this.a = map;
+        }
     }
-
-    /* loaded from: classes8.dex */
-    public interface d {
-        boolean a(View view2, h77<?> h77Var, g77<?, ?> g77Var);
-    }
-
-    /* loaded from: classes8.dex */
-    public interface e {
-        void a(@NonNull Object obj);
-    }
-
-    void c(b bVar);
-
-    void e(c cVar);
-
-    void i(a aVar);
-
-    void k(e eVar);
 }

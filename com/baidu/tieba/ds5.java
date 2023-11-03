@@ -1,244 +1,125 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.BdLog;
+import android.app.Activity;
+import com.baidu.adp.widget.ListView.BdRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.PbListView;
+import com.baidu.tieba.tr5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Callable;
-import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
-public class ds5 {
+public class ds5 extends yr5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final Handler a;
-    public final int b;
-    public final long c;
-    public int d;
-    @Nullable
-    public Runnable e;
+    public tr5.c a;
+    public TbPageContext b;
+    public BdRecyclerView c;
+    public PbListView d;
 
-    /* loaded from: classes5.dex */
-    public interface c<T> {
-        void a(boolean z, T t);
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements c<Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c a;
-        public final /* synthetic */ ds5 b;
-
-        /* loaded from: classes5.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    b bVar = this.a;
-                    bVar.b.k(bVar.a);
-                }
-            }
-        }
-
-        public b(ds5 ds5Var, c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ds5Var, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ds5Var;
-            this.a = cVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ds5.c
-        /* renamed from: b */
-        public void a(boolean z, Void r6) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, r6) == null) && !z) {
-                this.b.e = new a(this);
-                this.b.a.postDelayed(this.b.e, this.b.c);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Callable a;
-        public final /* synthetic */ ds5 b;
-
-        public a(ds5 ds5Var, Callable callable) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ds5Var, callable};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ds5Var;
-            this.a = callable;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.l(this.a);
-            }
-        }
-    }
-
-    public ds5(int i, int i2, @NonNull TimeUnit timeUnit) {
+    public ds5(TbPageContext tbPageContext, BdRecyclerView bdRecyclerView, tr5.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), timeUnit};
+            Object[] objArr = {tbPageContext, bdRecyclerView, cVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new Handler(Looper.getMainLooper());
-        this.b = i;
-        this.c = timeUnit.toMillis(i2);
+        this.b = tbPageContext;
+        this.c = bdRecyclerView;
+        this.a = cVar;
+        PbListView pbListView = new PbListView(d());
+        this.d = pbListView;
+        pbListView.c();
+        this.d.s(R.color.transparent);
+        this.d.w(this.a.a);
+        this.d.P(this.a.b);
+        this.d.B();
+        this.d.L(R.dimen.tbfontsize33);
+        this.d.J(SkinManager.getColor(R.color.CAM_X0107));
+        this.d.F(R.color.CAM_X0110);
+        this.d.v();
     }
 
-    public void i(@NonNull c<c<Void>> cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            h();
-            k(cVar);
-        }
-    }
-
-    public void j(@NonNull Callable<Boolean> callable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, callable) == null) {
-            h();
-            l(callable);
-        }
-    }
-
-    @NonNull
-    public static ds5 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return new ds5(10, 1000, TimeUnit.MILLISECONDS);
-        }
-        return (ds5) invokeV.objValue;
-    }
-
-    public void h() {
+    @Override // com.baidu.tieba.yr5
+    public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Runnable runnable = this.e;
-            if (runnable != null) {
-                this.a.removeCallbacks(runnable);
-                this.e = null;
-            }
-            this.d = 0;
-        }
-    }
-
-    public final void k(@NonNull c<c<Void>> cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-            try {
-                if (this.d < this.b) {
-                    boolean z = true;
-                    int i = this.d + 1;
-                    this.d = i;
-                    if (i < this.b) {
-                        z = false;
-                    }
-                    cVar.a(z, new b(this, cVar));
-                }
-            } catch (Exception e) {
-                BdLog.e(e);
-                Runnable runnable = this.e;
-                if (runnable != null) {
-                    this.a.removeCallbacks(runnable);
-                    this.e = null;
-                }
+            if (this.a.g) {
+                f();
+            } else {
+                e();
             }
         }
     }
 
-    public final void l(@NonNull Callable<Boolean> callable) {
+    @Override // com.baidu.tieba.yr5
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, callable) == null) {
-            try {
-                if (this.d < this.b) {
-                    this.d++;
-                    if (!callable.call().booleanValue()) {
-                        a aVar = new a(this, callable);
-                        this.e = aVar;
-                        this.a.postDelayed(aVar, this.c);
-                    }
-                }
-            } catch (Exception e) {
-                BdLog.e(e);
-                Runnable runnable = this.e;
-                if (runnable != null) {
-                    this.a.removeCallbacks(runnable);
-                    this.e = null;
-                }
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c.setNextPage(this.d);
+            this.d.U();
+            this.d.H(this.a.c);
+            this.d.G(null);
+        }
+    }
+
+    @Override // com.baidu.tieba.yr5
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.c.setNextPage(this.d);
+            this.d.g();
+            this.d.H(this.a.e);
+            this.d.G(null);
+        }
+    }
+
+    public final Activity d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b.getPageActivity();
+        }
+        return (Activity) invokeV.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.c.setNextPage(this.d);
+            this.d.g();
+            this.d.H(this.a.d);
+            this.d.G(null);
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.c.setNextPage(this.d);
+            this.d.g();
+            this.d.H(this.a.f);
+            this.d.G(this.a.h);
+        }
+    }
+
+    @Override // com.baidu.tieba.bs5
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.d.e(i);
         }
     }
 }

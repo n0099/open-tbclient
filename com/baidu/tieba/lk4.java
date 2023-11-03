@@ -1,43 +1,42 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.FileDescriptor;
+import java.io.PrintWriter;
 /* loaded from: classes7.dex */
-public class lk4 implements Runnable {
+public class lk4<D> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
-    public lk4(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = i;
+    /* loaded from: classes7.dex */
+    public interface a<D> {
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        int i;
+    /* loaded from: classes7.dex */
+    public interface b<D> {
+    }
+
+    public abstract String a(D d);
+
+    public abstract void b(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr);
+
+    public abstract void c(int i, b<D> bVar);
+
+    public abstract void d(a<D> aVar);
+
+    public abstract void e();
+
+    public final void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (i = this.a) < 0) {
-            return;
-        }
-        try {
-            Thread.sleep(i);
-        } catch (Throwable unused) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            throw null;
         }
     }
+
+    public abstract void g();
+
+    public abstract void h(b<D> bVar);
+
+    public abstract void i(a<D> aVar);
 }

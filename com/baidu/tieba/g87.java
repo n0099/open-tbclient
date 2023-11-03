@@ -1,60 +1,91 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardVideoAdView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.ComponentFactory;
+import tbclient.FrsTopThreadCardLayout;
+import tbclient.FrsTopThreadComponent;
+import tbclient.LayoutFactory;
 /* loaded from: classes6.dex */
-public class g87 extends q67<CardVideoAdView, f27> {
+public final class g87 implements i87<LayoutFactory> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public String b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g87(String str) {
-        super(str);
+    public g87() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.q67, com.baidu.tieba.g77
-    @NonNull
-    public View a(@NonNull ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            View a = super.a(viewGroup);
-            v87.j(a);
-            return a;
-        }
-        return (View) invokeL.objValue;
+        this.b = "";
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.g77
-    /* renamed from: e */
-    public void b(@NonNull CardVideoAdView cardVideoAdView, @NonNull f27 f27Var) {
+    @Override // com.baidu.tieba.i87
+    /* renamed from: a */
+    public za7<?> b(LayoutFactory layoutFactory) {
+        InterceptResult invokeL;
+        FrsTopThreadCardLayout frsTopThreadCardLayout;
+        boolean z;
+        FrsTopThreadComponent frsTopThreadComponent;
+        q77 a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardVideoAdView, f27Var) == null) {
-            cardVideoAdView.f(f27Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, layoutFactory)) == null) {
+            if (layoutFactory != null) {
+                frsTopThreadCardLayout = layoutFactory.frs_top_thread_card;
+            } else {
+                frsTopThreadCardLayout = null;
+            }
+            if (frsTopThreadCardLayout != null) {
+                List<ComponentFactory> list = layoutFactory.frs_top_thread_card.components;
+                if (list != null && !list.isEmpty()) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (!z) {
+                    ArrayList arrayList = new ArrayList();
+                    for (ComponentFactory componentFactory : layoutFactory.frs_top_thread_card.components) {
+                        if (Intrinsics.areEqual(componentFactory.component, "frs_top_thread") && (frsTopThreadComponent = componentFactory.frs_top_thread) != null && (a = d97.a(frsTopThreadComponent)) != null) {
+                            arrayList.add(a);
+                        }
+                    }
+                    return new ab7(new t47(arrayList, this.a, this.b), "feed_top_card");
+                }
+            }
+            return null;
+        }
+        return (za7) invokeL.objValue;
+    }
+
+    public final void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.a = z;
+        }
+    }
+
+    public final void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            Intrinsics.checkNotNullParameter(str, "<set-?>");
+            this.b = str;
         }
     }
 }

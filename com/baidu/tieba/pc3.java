@@ -1,9 +1,6 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,21 +8,44 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class pc3 extends sc3 {
+public final class pc3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String A;
-    public String B;
-    public long C;
-    public long D;
-    public int v;
-    public String w;
-    public String x;
-    public int y;
-    public String z;
+
+    /* loaded from: classes7.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ id3 a;
+
+        public a(id3 id3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {id3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = id3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                nc3.k("934", this.a.f());
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -40,201 +60,49 @@ public class pc3 extends sc3 {
                 return;
             }
         }
-        boolean z = am1.a;
+        a = rm1.a;
     }
 
-    public long l() {
-        InterceptResult invokeV;
+    public static void a(id3 id3Var, dr2 dr2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.C;
+        if ((interceptable == null || interceptable.invokeLL(65537, null, id3Var, dr2Var) == null) && id3Var != null && dr2Var != null) {
+            id3Var.a = zc3.n(dr2Var.H());
+            id3Var.f = dr2Var.I();
+            id3Var.c = dr2Var.U();
+            id3Var.a("swan", lf3.h(dr2Var.H()));
+            id3Var.a("appversion", dr2Var.x1());
+            id3Var.a("thirdversion", dr2Var.y1());
+            id3Var.b(zc3.k(dr2Var.X()));
+            id3Var.d(dr2Var.t0().getString("ubc"));
         }
-        return invokeV.longValue;
     }
 
-    public String m() {
-        InterceptResult invokeV;
+    public static void b(jd3 jd3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.B;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.w;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            JSONObject jSONObject = this.h;
-            if (jSONObject != null && TextUtils.equals(jSONObject.optString("requesttype"), "0")) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public pc3(int i, String str, String str2, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, str2, Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeL(65538, null, jd3Var) == null) {
+            if (jd3Var == null) {
+                if (a) {
+                    Log.w("SwanAppFuncUbc", "event is null");
+                    return;
+                }
                 return;
             }
-        }
-        this.v = i;
-        this.w = str;
-        this.x = str2;
-        this.y = i2;
-        this.B = "1";
-    }
-
-    public pc3(int i, String str, String str2, int i2, long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, str2, Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.v = i;
-        this.w = str;
-        this.x = str2;
-        this.y = i2;
-        this.C = j;
-        this.D = j2;
-        if (i == 200 && j2 - j >= 5000) {
-            this.B = "2";
-        } else {
-            this.B = "1";
+            id3 id3Var = new id3();
+            id3Var.f = jd3Var.f;
+            id3Var.a = jd3Var.a;
+            id3Var.g = jd3Var.g;
+            id3Var.c = jd3Var.c;
+            id3Var.b = jd3Var.b;
+            id3Var.e = jd3Var.e;
+            id3Var.e(jd3Var.c());
+            c(id3Var);
         }
     }
 
-    public pc3(String str, int i, long j, long j2) {
+    public static void c(id3 id3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.w = str;
-        this.y = i;
-        this.C = j;
-        this.D = j2;
-        this.B = "0";
-    }
-
-    @Override // com.baidu.tieba.sc3, com.baidu.tieba.rc3
-    public JSONObject f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.h == null) {
-                this.h = new JSONObject();
-            }
-            try {
-                if (TextUtils.equals(this.B, "1") || TextUtils.equals(this.B, "2")) {
-                    this.h.put("errorno", this.v);
-                }
-                String b = hc3.b(this.w);
-                this.w = b;
-                this.h.put("url", b);
-                this.h.put("netStatus", this.y);
-                if (!TextUtils.isEmpty(this.x)) {
-                    this.h.put("msg", this.x);
-                }
-                if (!TextUtils.isEmpty(this.z)) {
-                    this.h.put("pagetype", this.z);
-                }
-                if (!TextUtils.isEmpty(this.A)) {
-                    this.h.put("curpage", this.A);
-                }
-                if (!TextUtils.isEmpty(this.B)) {
-                    this.h.put("requesttype", this.B);
-                }
-                if (this.D - this.C > 0) {
-                    this.h.put("startTime", this.C);
-                    this.h.put("endTime", this.D);
-                }
-                ExtensionCore U = jc2.V().U();
-                if (U != null) {
-                    this.h.put("extension_ver", U.extensionCoreVersionName);
-                }
-            } catch (JSONException e) {
-                p22.e("SwanAppRequestEvent", "834", "#toJSONObject error", e, false);
-            }
-            return super.f();
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public void p(@NonNull JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
-            try {
-                if (TextUtils.equals(this.B, "1") || TextUtils.equals(this.B, "2")) {
-                    jSONObject.put("errorno", this.v);
-                }
-                jSONObject.put("url", hc3.b(this.w));
-                jSONObject.put("netStatus", this.y);
-                if (!TextUtils.isEmpty(this.x)) {
-                    jSONObject.put("msg", this.x);
-                }
-                if (!TextUtils.isEmpty(this.B)) {
-                    jSONObject.put("requesttype", this.B);
-                }
-                if (this.D - this.C > 0) {
-                    jSONObject.put("startTime", this.C);
-                    jSONObject.put("endTime", this.D);
-                }
-            } catch (JSONException e) {
-                p22.e("SwanAppRequestEvent", "834", "#mergeRequestInfo error", e, false);
-            }
-        }
-    }
-
-    public void q(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.A = str;
-        }
-    }
-
-    public void r(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.z = str;
+        if (interceptable == null || interceptable.invokeL(65539, null, id3Var) == null) {
+            aj3.j(new a(id3Var), "SwanAppFuncClickUBC");
         }
     }
 }

@@ -1,12 +1,14 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
-import android.util.Log;
-import android.util.Pair;
-import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.pay.panel.PaymentPanelManager;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,19 +16,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Random;
+import java.util.concurrent.ExecutorService;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes7.dex */
-public class my2 extends ay2 {
+public class my2 implements sl4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.tt1
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "PaymentPanelApi" : (String) invokeV.objValue;
-    }
+    public Context a;
+    public Boolean b;
 
     static {
         InterceptResult invokeClinit;
@@ -41,151 +44,311 @@ public class my2 extends ay2 {
                 return;
             }
         }
-        f = am1.a;
+        c = rm1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public my2(@NonNull rt1 rt1Var) {
-        super(rt1Var);
+    public my2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {rt1Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((rt1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.b = null;
+        this.a = AppRuntime.getAppContext();
     }
 
-    public qx1 A(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.sl4
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            r("#setPaymentInfo", false);
-            if (p53.c0() == null) {
-                if (f) {
-                    Log.e("PaymentPanelApi", "failed: swan app is null");
-                }
-                return new qx1(1001, "swan app is null");
-            }
-            Pair<qx1, JSONObject> t = t(str);
-            qx1 qx1Var = (qx1) t.first;
-            if (!qx1Var.isSuccess()) {
-                return qx1Var;
-            }
-            JSONObject jSONObject = (JSONObject) t.second;
-            String optString = jSONObject.optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                return new qx1(202, "cb is empty");
-            }
-            String optString2 = jSONObject.optString("componentId");
-            if (TextUtils.isEmpty(optString2)) {
-                return new qx1(202, "empty componentId");
-            }
-            String optString3 = jSONObject.optString("chosenChannel");
-            if (TextUtils.isEmpty(optString3)) {
-                return new qx1(202, "empty chosenChannel");
-            }
-            PaymentPanelManager.z().J(this, optString2, optString3, optString);
-            return qx1.f();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return np2.n().a();
         }
-        return (qx1) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public qx1 y(String str) {
+    @Override // com.baidu.tieba.sl4
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return sm1.a();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.sl4
+    public ExecutorService d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return np2.z0().d();
+        }
+        return (ExecutorService) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.sl4
+    public String getAppId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            g63 F = tr2.V().F();
+            if (F != null) {
+                return F.b;
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.sl4
+    public String getAppVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            g63 F = tr2.V().F();
+            if (F != null) {
+                return F.Z().x1();
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.sl4
+    public String getScene() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            g63 F = tr2.V().F();
+            if (F != null) {
+                return F.X().U();
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.sl4
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            dq1 g0 = np2.g0();
+            if (g0 != null) {
+                return g0.getExpInfos();
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.sl4
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return np2.g0().j();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.sl4
+    public int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return f63.K().k();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.sl4
+    public tl4 l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return np2.O().l();
+        }
+        return (tl4) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.sl4
+    public String m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return lf3.h(k());
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.sl4
+    public boolean p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            if (this.b == null) {
+                np2.g0().getSwitch("swan_ceres_add_counter", false);
+                this.b = false;
+            }
+            return this.b.booleanValue();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.sl4
+    public boolean q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            if (f23.X() && (r() || rm1.b)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.sl4
+    public boolean r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(np2.c());
+            if (c && defaultSharedPreferences.getBoolean("KEY_UBC_DEBUG", true)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.sl4
+    public String s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            String b = np2.n().b();
+            if (!ak3.G() && !TextUtils.isEmpty(b)) {
+                return b;
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.sl4
+    public String t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return a32.b();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.sl4
+    public boolean c(String str) {
         InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            r("#chooseCoupon", false);
-            p53 c0 = p53.c0();
-            if (c0 == null) {
-                if (f) {
-                    Log.e("PaymentPanelApi", "failed: swan app is null");
-                }
-                return new qx1(1001, "swan app is null");
+            dq1 g0 = np2.g0();
+            if (g0 != null) {
+                g0.getSwitch("ANDROID_UBC_SAMPLE_" + str, "");
             }
-            SwanAppActivity w = c0.w();
-            if (w == null) {
-                if (f) {
-                    Log.e("PaymentPanelApi", "failed: swan activity is null");
-                }
-                return new qx1(1001, "swan activity is null");
+            if (TextUtils.isEmpty("")) {
+                return false;
             }
-            Pair<qx1, JSONObject> t = t(str);
-            qx1 qx1Var = (qx1) t.first;
-            if (!qx1Var.isSuccess()) {
-                return qx1Var;
+            try {
+                i = new JSONObject("").getInt("probability");
+            } catch (JSONException e) {
+                e.printStackTrace();
+                i = 0;
             }
-            JSONObject jSONObject = (JSONObject) t.second;
-            String optString = jSONObject.optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                return new qx1(202, "cb is empty");
+            if (new Random().nextInt(100) >= i) {
+                return false;
             }
-            String optString2 = jSONObject.optString("componentId");
-            if (TextUtils.isEmpty(optString2)) {
-                return new qx1(202, "empty componentId");
-            }
-            String optString3 = jSONObject.optString("appKey");
-            if (TextUtils.isEmpty(optString3)) {
-                return new qx1(202, "empty appKey");
-            }
-            String optString4 = jSONObject.optString("totalAmount");
-            if (TextUtils.isEmpty(optString4)) {
-                return new qx1(202, "empty totalAmount");
-            }
-            PaymentPanelManager.z().s(this, w, optString2, optString3, optString4, optString);
-            return qx1.f();
+            return true;
         }
-        return (qx1) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public qx1 z(String str) {
+    @Override // com.baidu.tieba.sl4
+    public void e(String str, int i, JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048580, this, str, i, jSONArray) == null) {
+            np2.z0().e(str, i, jSONArray);
+        }
+    }
+
+    @Override // com.baidu.tieba.sl4
+    public void i(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048588, this, str, i, str2) == null) {
+            np2.z0().i(str, i, str2);
+        }
+    }
+
+    @Override // com.baidu.tieba.sl4
+    public void f(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048581, this, str, i) == null) {
+            np2.z0().f(str, i);
+        }
+    }
+
+    @Override // com.baidu.tieba.sl4
+    public void g(String str, String str2, int i, String str3, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Integer.valueOf(i), str3, Integer.valueOf(i2)}) == null) {
+            np2.z0().g(str, str2, i, str3, i2);
+        }
+    }
+
+    @Override // com.baidu.tieba.sl4
+    public String getDeviceId(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            r("#getPaymentInfo", false);
-            if (p53.c0() == null) {
-                if (f) {
-                    Log.e("PaymentPanelApi", "failed: null swan runtime");
-                }
-                return new qx1(1001, "swan app is null");
-            }
-            Pair<qx1, JSONObject> t = t(str);
-            qx1 qx1Var = (qx1) t.first;
-            if (!qx1Var.isSuccess()) {
-                return qx1Var;
-            }
-            JSONObject jSONObject = (JSONObject) t.second;
-            String optString = jSONObject.optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                return new qx1(202, "cb is empty");
-            }
-            String optString2 = jSONObject.optString("componentId");
-            if (TextUtils.isEmpty(optString2)) {
-                return new qx1(202, "empty componentId");
-            }
-            String optString3 = jSONObject.optString("dealId");
-            if (TextUtils.isEmpty(optString3)) {
-                return new qx1(202, "empty dealId");
-            }
-            String optString4 = jSONObject.optString("appKey");
-            if (TextUtils.isEmpty(optString4)) {
-                return new qx1(202, "empty appKey");
-            }
-            String optString5 = jSONObject.optString("totalAmount");
-            if (TextUtils.isEmpty(optString5)) {
-                return new qx1(202, "empty totalAmount");
-            }
-            PaymentPanelManager.z().C(this, optString2, optString3, optString4, optString5, optString);
-            return qx1.f();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, context)) == null) {
+            return np2.h0().i(np2.c());
         }
-        return (qx1) invokeL.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.sl4
+    public String o(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, context)) == null) {
+            return rm4.b(context).a();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.sl4
+    public String u(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, context)) == null) {
+            return np2.h0().h(np2.c());
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.sl4
+    public void n(String str, String str2, int i, String str3, long j, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{str, str2, Integer.valueOf(i), str3, Long.valueOf(j), Integer.valueOf(i2)}) == null) {
+            np2.z0().n(str, str2, i, str3, j, i2);
+        }
     }
 }

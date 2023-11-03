@@ -1,11 +1,11 @@
 package com.google.ar.core;
 
-import com.baidu.tieba.oqb;
+import com.baidu.tieba.p3c;
 import com.google.ar.core.Session;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public enum ad extends Session.c {
     @Override // com.google.ar.core.Session.c
-    public final oqb a(long j, Session session) {
+    public final p3c a(long j, Session session) {
         return null;
     }
 

@@ -1,5 +1,5 @@
 package kotlin.reflect.jvm.internal.impl.load.java.descriptors;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class StringDefaultValue extends AnnotationDefaultValue {
     public final String value;
 

@@ -1,19 +1,19 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.h6c;
-import com.baidu.tieba.n6c;
+import com.baidu.tieba.ijc;
+import com.baidu.tieba.ojc;
 /* loaded from: classes2.dex */
-public enum NeverObservableHolder implements h6c.a<Object> {
+public enum NeverObservableHolder implements ijc.a<Object> {
     INSTANCE;
     
-    public static final h6c<Object> NEVER = h6c.d(INSTANCE);
+    public static final ijc<Object> NEVER = ijc.d(INSTANCE);
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.v6c
-    public void call(n6c<? super Object> n6cVar) {
+    @Override // com.baidu.tieba.wjc
+    public void call(ojc<? super Object> ojcVar) {
     }
 
-    public static <T> h6c<T> instance() {
-        return (h6c<T>) NEVER;
+    public static <T> ijc<T> instance() {
+        return (ijc<T>) NEVER;
     }
 }

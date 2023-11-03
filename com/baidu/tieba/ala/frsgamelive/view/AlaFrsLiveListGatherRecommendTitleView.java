@@ -8,15 +8,15 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cj6;
-import com.baidu.tieba.i96;
+import com.baidu.tieba.db6;
+import com.baidu.tieba.yk6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class AlaFrsLiveListGatherRecommendTitleView extends cj6<i96> {
+public class AlaFrsLiveListGatherRecommendTitleView extends yk6<db6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View i;
@@ -25,17 +25,17 @@ public class AlaFrsLiveListGatherRecommendTitleView extends cj6<i96> {
     public TbPageContext l;
     public int m;
 
-    @Override // com.baidu.tieba.cj6
+    @Override // com.baidu.tieba.yk6
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d00fc : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d00fe : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
         }
     }
 
@@ -85,24 +85,24 @@ public class AlaFrsLiveListGatherRecommendTitleView extends cj6<i96> {
         }
         this.m = 3;
         View i3 = i();
-        this.i = i3.findViewById(R.id.obfuscated_res_0x7f090cb5);
-        this.j = (TextView) i3.findViewById(R.id.obfuscated_res_0x7f090cb4);
-        this.k = i3.findViewById(R.id.obfuscated_res_0x7f090cb6);
-        k(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+        this.i = i3.findViewById(R.id.obfuscated_res_0x7f090ce8);
+        this.j = (TextView) i3.findViewById(R.id.obfuscated_res_0x7f090ce7);
+        this.k = i3.findViewById(R.id.obfuscated_res_0x7f090ce9);
+        l(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cj6
-    /* renamed from: o */
-    public void j(i96 i96Var) {
+    @Override // com.baidu.tieba.yk6
+    /* renamed from: p */
+    public void k(db6 db6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, i96Var) == null) {
-            k(this.l, TbadkCoreApplication.getInst().getSkinType());
+        if (interceptable == null || interceptable.invokeL(1048580, this, db6Var) == null) {
+            l(this.l, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    @Override // com.baidu.tieba.cj6
-    public void k(TbPageContext<?> tbPageContext, int i) {
+    @Override // com.baidu.tieba.yk6
+    public void l(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) && this.m != i) {
             SkinManager.setBackgroundResource(this.i, R.color.CAM_X0204);

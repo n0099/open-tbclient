@@ -1,64 +1,120 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import com.baidu.spswitch.utils.SoftInputSharedPreferences;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class l60 {
+public final class l60 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile SharedPreferences a;
+    public static final l60 a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947894691, "Lcom/baidu/tieba/l60;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947894691, "Lcom/baidu/tieba/l60;");
+                return;
+            }
+        }
+        a = new l60();
+    }
 
     public l60() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static int a(Context context, int i) {
-        InterceptResult invokeLI;
+    public final Drawable a(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
-            return c(context).getInt(SoftInputSharedPreferences.KEY_SOFITNPUT_HEIGHT, i);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, str2)) == null) {
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            gradientDrawable.setColors(new int[]{w80.f().a(context, str, "color_gradient_1"), w80.f().a(context, str, "color_gradient_2")});
+            gradientDrawable.setGradientType(0);
+            gradientDrawable.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
+            return gradientDrawable;
         }
-        return invokeLI.intValue;
+        return (Drawable) invokeLLL.objValue;
     }
 
-    public static boolean b(Context context, int i) {
-        InterceptResult invokeLI;
+    public final Drawable d(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, context, i)) == null) {
-            return c(context).edit().putInt(SoftInputSharedPreferences.KEY_SOFITNPUT_HEIGHT, i).commit();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, context, str, str2)) == null) {
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            gradientDrawable.setColors(new int[]{w80.f().a(context, str, "color_gradient_2"), w80.f().a(context, str, "color_gradient_1")});
+            gradientDrawable.setGradientType(0);
+            gradientDrawable.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
+            return gradientDrawable;
         }
-        return invokeLI.booleanValue;
+        return (Drawable) invokeLLL.objValue;
     }
 
-    public static SharedPreferences c(Context context) {
-        InterceptResult invokeL;
+    public final Drawable b(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (a == null) {
-                synchronized (l60.class) {
-                    if (a == null) {
-                        a = context.getSharedPreferences("live_feed_search_softinput", 0);
-                    }
-                }
-            }
-            return a;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            float b = f60.b(context, 7.0f);
+            gradientDrawable.setCornerRadii(new float[]{b, b, b, b, b, b, b, b});
+            gradientDrawable.setColors(new int[]{w80.f().a(context, str, "color_F5F5F53"), w80.f().a(context, str, "color_F5F5F53")});
+            gradientDrawable.setGradientType(0);
+            gradientDrawable.setOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
+            return gradientDrawable;
         }
-        return (SharedPreferences) invokeL.objValue;
+        return (Drawable) invokeLL.objValue;
+    }
+
+    public final Drawable c(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str)) == null) {
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            float b = f60.b(context, 18.0f);
+            gradientDrawable.setCornerRadii(new float[]{0.0f, 0.0f, 0.0f, 0.0f, b, b, b, b});
+            gradientDrawable.setColors(new int[]{w80.f().a(context, str, "color_main_bg"), w80.f().a(context, str, "color_main_bg")});
+            gradientDrawable.setGradientType(0);
+            gradientDrawable.setOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
+            return gradientDrawable;
+        }
+        return (Drawable) invokeLL.objValue;
+    }
+
+    public final Drawable e(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, context, str)) == null) {
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            float b = f60.b(context, 7.0f);
+            gradientDrawable.setCornerRadii(new float[]{b, b, b, b, b, b, b, b});
+            gradientDrawable.setColors(new int[]{w80.f().a(context, str, "color_FF33552"), w80.f().a(context, str, "color_FF33552")});
+            gradientDrawable.setGradientType(0);
+            gradientDrawable.setOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
+            return gradientDrawable;
+        }
+        return (Drawable) invokeLL.objValue;
     }
 }

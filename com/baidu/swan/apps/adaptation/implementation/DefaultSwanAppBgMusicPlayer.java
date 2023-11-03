@@ -9,22 +9,22 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.media.audio.service.BgMusicPlayState;
-import com.baidu.tieba.am1;
-import com.baidu.tieba.jj3;
-import com.baidu.tieba.ps2;
-import com.baidu.tieba.sp1;
-import com.baidu.tieba.vc3;
-import com.baidu.tieba.ws2;
+import com.baidu.tieba.ak3;
+import com.baidu.tieba.gt2;
+import com.baidu.tieba.jq1;
+import com.baidu.tieba.md3;
+import com.baidu.tieba.nt2;
+import com.baidu.tieba.rm1;
 import java.io.IOException;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class DefaultSwanAppBgMusicPlayer implements sp1 {
-    public static final boolean h = am1.a;
+public class DefaultSwanAppBgMusicPlayer implements jq1 {
+    public static final boolean h = rm1.a;
     public static volatile DefaultSwanAppBgMusicPlayer i;
     public MediaPlayer a;
     public PlayerStatus b = PlayerStatus.NONE;
-    public ws2 c;
+    public nt2 c;
     public AudioManager d;
     public boolean e;
     public b f;
@@ -67,7 +67,7 @@ public class DefaultSwanAppBgMusicPlayer implements sp1 {
 
         @Override // android.media.AudioManager.OnAudioFocusChangeListener
         public void onAudioFocusChange(int i) {
-            jj3.e0(new a(i));
+            ak3.e0(new a(i));
         }
     }
 
@@ -114,7 +114,7 @@ public class DefaultSwanAppBgMusicPlayer implements sp1 {
             if (DefaultSwanAppBgMusicPlayer.h) {
                 Log.d("AudioPlayerListener", "--onError -> what: " + i + " extra: " + i2);
             }
-            vc3.b("audio", 2008, "--onError -> what: " + i + " extra: " + i2, -1, "");
+            md3.b("audio", 2008, "--onError -> what: " + i + " extra: " + i2, -1, "");
             return true;
         }
     }
@@ -175,12 +175,12 @@ public class DefaultSwanAppBgMusicPlayer implements sp1 {
         }
     }
 
-    @Override // com.baidu.tieba.sp1
+    @Override // com.baidu.tieba.jq1
     public int getDuration() {
         return k().getDuration();
     }
 
-    @Override // com.baidu.tieba.sp1
+    @Override // com.baidu.tieba.jq1
     public boolean isPlaying() {
         return k().isPlaying();
     }
@@ -196,7 +196,7 @@ public class DefaultSwanAppBgMusicPlayer implements sp1 {
         }
     }
 
-    @Override // com.baidu.tieba.sp1
+    @Override // com.baidu.tieba.jq1
     public void onRelease() {
         b();
         k().release();
@@ -209,7 +209,7 @@ public class DefaultSwanAppBgMusicPlayer implements sp1 {
         }
     }
 
-    @Override // com.baidu.tieba.sp1
+    @Override // com.baidu.tieba.jq1
     public void pause() {
         if (k().isPlaying()) {
             k().pause();
@@ -221,7 +221,7 @@ public class DefaultSwanAppBgMusicPlayer implements sp1 {
         }
     }
 
-    @Override // com.baidu.tieba.sp1
+    @Override // com.baidu.tieba.jq1
     public void play() {
         PlayerStatus playerStatus = this.b;
         if (playerStatus == PlayerStatus.PREPARED) {
@@ -237,7 +237,7 @@ public class DefaultSwanAppBgMusicPlayer implements sp1 {
         }
     }
 
-    @Override // com.baidu.tieba.sp1
+    @Override // com.baidu.tieba.jq1
     public void stop() {
         if (this.b == PlayerStatus.PREPARED) {
             if (h) {
@@ -253,20 +253,20 @@ public class DefaultSwanAppBgMusicPlayer implements sp1 {
         }
     }
 
-    @Override // com.baidu.tieba.sp1
+    @Override // com.baidu.tieba.jq1
     public void seek(int i2) {
         k().seekTo(i2);
     }
 
-    @Override // com.baidu.tieba.sp1
-    public void a(String str, ws2 ws2Var) {
+    @Override // com.baidu.tieba.jq1
+    public void a(String str, nt2 nt2Var) {
         String str2;
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.c = ws2Var;
+        this.c = nt2Var;
         try {
-            ps2 b2 = ps2.b(new JSONObject(str), new ps2());
+            gt2 b2 = gt2.b(new JSONObject(str), new gt2());
             str2 = b2.c;
             try {
                 if (this.b != PlayerStatus.NONE) {
@@ -278,12 +278,12 @@ public class DefaultSwanAppBgMusicPlayer implements sp1 {
                 play();
             } catch (IOException e) {
                 e = e;
-                vc3.b("audio", 1001, "audio src error, src is" + str2, -1, "");
+                md3.b("audio", 1001, "audio src error, src is" + str2, -1, "");
                 e.printStackTrace();
                 this.c.onInvokeFailed();
             } catch (JSONException e2) {
                 e = e2;
-                vc3.b("audio", 1001, "audio src error, src is" + str2, -1, "");
+                md3.b("audio", 1001, "audio src error, src is" + str2, -1, "");
                 e.printStackTrace();
                 this.c.onInvokeFailed();
             }

@@ -1,24 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tbadk.task.TbSocketMessageTask;
-import com.baidu.tieba.pb.chosen.PbChosenActivity;
-import com.baidu.tieba.pb.chosen.net.ChosenPbHttpResponse;
-import com.baidu.tieba.pb.chosen.net.ChosenPbNetMessage;
-import com.baidu.tieba.pb.chosen.net.ChosenPbSocketResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.HotForum.HotTopicList;
 /* loaded from: classes7.dex */
 public class ne9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public String b;
+    public int c;
 
     public ne9() {
         Interceptable interceptable = $ic;
@@ -30,52 +25,43 @@ public class ne9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        b();
-        a();
     }
 
-    public final void b() {
+    public long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            TbSocketMessageTask tbSocketMessageTask = new TbSocketMessageTask(309093);
-            tbSocketMessageTask.setResponsedClass(ChosenPbSocketResponse.class);
-            tbSocketMessageTask.setNeedAck(true);
-            tbSocketMessageTask.setNeedCompress(false);
-            MessageManager.getInstance().registerTask(tbSocketMessageTask);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return invokeV.longValue;
     }
 
-    public final void a() {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_FINE_PB, xda.a(TbConfig.FINE_PB_PAGE, 309093));
-            tbHttpMessageTask.setIsNeedLogin(false);
-            tbHttpMessageTask.setIsNeedTbs(false);
-            tbHttpMessageTask.setIsNeedAddCommenParam(false);
-            tbHttpMessageTask.setIsUseCurrentBDUSS(false);
-            tbHttpMessageTask.setResponsedClass(ChosenPbHttpResponse.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void c(PbChosenActivity pbChosenActivity, long j, long j2, long j3) {
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{pbChosenActivity, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            ChosenPbNetMessage chosenPbNetMessage = new ChosenPbNetMessage();
-            int equipmentWidth = BdUtilHelper.getEquipmentWidth(pbChosenActivity.getPageContext().getPageActivity());
-            int equipmentHeight = BdUtilHelper.getEquipmentHeight(pbChosenActivity.getPageContext().getPageActivity());
-            float equipmentDensity = BdUtilHelper.getEquipmentDensity(pbChosenActivity.getPageContext().getPageActivity());
-            chosenPbNetMessage.setQ_type(45L);
-            chosenPbNetMessage.setScrH(equipmentHeight);
-            chosenPbNetMessage.setScrW(equipmentWidth);
-            chosenPbNetMessage.setScr_dip(equipmentDensity);
-            chosenPbNetMessage.setExcId(j);
-            chosenPbNetMessage.setTagCode(j2);
-            chosenPbNetMessage.setThreadId(j3);
-            pbChosenActivity.sendMessage(chosenPbNetMessage);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public void d(HotTopicList hotTopicList) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, hotTopicList) == null) && hotTopicList != null) {
+            this.a = hotTopicList.topic_id.longValue();
+            this.b = hotTopicList.topic_name;
+            this.c = hotTopicList.tag.intValue();
         }
     }
 }

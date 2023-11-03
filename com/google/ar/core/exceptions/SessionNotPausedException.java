@@ -1,4 +1,4 @@
 package com.google.ar.core.exceptions;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SessionNotPausedException extends IllegalStateException {
 }

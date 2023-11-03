@@ -1,139 +1,78 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.base.BdPageContext;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.NegativeFeedBackData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.User;
-import tbclient.Userlike.ConcernData;
-/* loaded from: classes6.dex */
-public class kw7 extends ey4 {
+/* loaded from: classes7.dex */
+public class kw7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Integer h;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean f;
-    public List<MetaData> g;
+    public BdPageContext a;
+    public BdTypeListView b;
+    public final List<bi> c;
+    public jw7 d;
 
-    @Override // com.baidu.tieba.ey4, com.baidu.tieba.jv4
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return null;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947927582, "Lcom/baidu/tieba/kw7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947927582, "Lcom/baidu/tieba/kw7;");
-                return;
-            }
-        }
-        h = 6;
-    }
-
-    public kw7() {
+    public kw7(BdPageContext bdPageContext, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdPageContext, bdTypeListView};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = new ArrayList();
+        this.c = new ArrayList();
+        this.a = bdPageContext;
+        this.b = bdTypeListView;
+        a();
     }
 
-    @Override // com.baidu.tieba.ey4
-    public List<MetaData> c() {
-        InterceptResult invokeV;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.g;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            jw7 jw7Var = new jw7((TbPageContext) this.a, yv7.b);
+            this.d = jw7Var;
+            this.c.add(jw7Var);
+            this.b.addAdapters(this.c);
         }
-        return (List) invokeV.objValue;
     }
 
-    public boolean e() {
-        InterceptResult invokeV;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (this.b.getAdapter2() instanceof fi)) {
+            this.b.getAdapter2().notifyDataSetChanged();
         }
-        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ey4, com.baidu.tieba.jv4
-    public NegativeFeedBackData getNegFeedBackData() {
-        InterceptResult invokeV;
+    public void c(yi yiVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return new NegativeFeedBackData();
-        }
-        return (NegativeFeedBackData) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ey4, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yh
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return ey4.e;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public static boolean f(ConcernData concernData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, concernData)) == null) {
-            if (concernData == null) {
-                return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yiVar) == null) {
+            for (bi biVar : this.c) {
+                if (biVar != null) {
+                    biVar.setOnAdapterItemClickListener(yiVar);
+                }
             }
-            return concernData.recom_type.equals(h);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f = z;
         }
     }
 
-    @Override // com.baidu.tieba.ey4
-    public void d(List<User> list) {
+    public void d(List<oi> list) {
+        BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && list != null) {
-            int min = Math.min(list.size(), 10);
-            for (int i = 0; i < min; i++) {
-                MetaData metaData = new MetaData();
-                metaData.parserProtobuf(list.get(i));
-                this.g.add(metaData);
-            }
+        if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && (bdTypeListView = this.b) != null) {
+            bdTypeListView.setData(list);
         }
     }
 }

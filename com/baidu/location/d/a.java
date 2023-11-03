@@ -38,7 +38,7 @@ import java.lang.ref.WeakReference;
 /* loaded from: classes3.dex */
 public class a extends Service implements LLSInterface {
     public static /* synthetic */ Interceptable $ic;
-    public static HandlerC0101a a;
+    public static HandlerC0102a a;
     public static long c;
     public static long g;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,13 +51,13 @@ public class a extends Service implements LLSInterface {
 
     /* renamed from: com.baidu.location.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class HandlerC0101a extends Handler {
+    public static class HandlerC0102a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final WeakReference<a> a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public HandlerC0101a(Looper looper, a aVar) {
+        public HandlerC0102a(Looper looper, a aVar) {
             super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -274,7 +274,7 @@ public class a extends Service implements LLSInterface {
             if (a2 != null) {
                 this.d = a2.getLooper();
             }
-            a = this.d == null ? new HandlerC0101a(Looper.getMainLooper(), this) : new HandlerC0101a(this.d, this);
+            a = this.d == null ? new HandlerC0102a(Looper.getMainLooper(), this) : new HandlerC0102a(this.d, this);
             c = System.currentTimeMillis();
             this.b = new Messenger(a);
             a.sendEmptyMessage(0);

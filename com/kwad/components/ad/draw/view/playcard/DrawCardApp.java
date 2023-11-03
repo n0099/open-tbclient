@@ -66,16 +66,16 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
     }
 
     private void E(Context context) {
-        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d049b, this);
-        this.cd = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912a4);
-        this.ce = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912a9);
-        this.cf = (TextView) findViewById(R.id.obfuscated_res_0x7f0912aa);
-        this.cg = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0912ac);
-        this.ch = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f0912ab);
-        this.ci = (TextView) findViewById(R.id.obfuscated_res_0x7f0912a8);
-        this.cj = (TextView) findViewById(R.id.obfuscated_res_0x7f0912a6);
-        this.ck = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0912b0);
-        DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f0912a7);
+        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d04ae, this);
+        this.cd = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912e2);
+        this.ce = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912e7);
+        this.cf = (TextView) findViewById(R.id.obfuscated_res_0x7f0912e8);
+        this.cg = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0912ea);
+        this.ch = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f0912e9);
+        this.ci = (TextView) findViewById(R.id.obfuscated_res_0x7f0912e6);
+        this.cj = (TextView) findViewById(R.id.obfuscated_res_0x7f0912e4);
+        this.ck = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0912ee);
+        DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f0912e5);
         this.cl = drawDownloadProgressBar;
         drawDownloadProgressBar.setTextSize(16);
         this.mHeight = com.kwad.sdk.b.kwai.a.a(context, 156.0f);
@@ -179,7 +179,7 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         if (view2 != this.cd) {
-            com.kwad.components.core.c.a.a.a(new a.C0619a(getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(view2 == this.cl).ae(view2 == this.cl ? 1 : 2).a(new a.b() { // from class: com.kwad.components.ad.draw.view.playcard.DrawCardApp.2
+            com.kwad.components.core.c.a.a.a(new a.C0625a(getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(view2 == this.cl).ae(view2 == this.cl ? 1 : 2).a(new a.b() { // from class: com.kwad.components.ad.draw.view.playcard.DrawCardApp.2
                 @Override // com.kwad.components.core.c.a.a.b
                 public final void onAdClicked() {
                     if (DrawCardApp.this.cc != null) {

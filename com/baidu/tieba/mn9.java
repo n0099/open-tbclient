@@ -1,108 +1,496 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import android.os.Handler;
+import android.os.Looper;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.MediaScannerClient;
+import com.baidu.tbadk.core.util.TbMd5;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tieba.faceshop.MyEmotionGroupData;
+import com.baidu.tieba.newfaceshop.NewFaceGroupDownloadModel;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class mn9 extends lh<nn9, a> {
+public class mn9 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile mn9 b;
+    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
+    public Handler a;
 
     /* loaded from: classes7.dex */
-    public static class a extends TypeAdapter.ViewHolder {
+    public class b implements ld5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public int b;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ pn9 b;
+        public final /* synthetic */ mn9 c;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(View view2) {
-            super(view2);
+        @Override // com.baidu.tieba.ld5
+        public boolean onFileDownloaded(DownloadData downloadData) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.ld5
+        public void onFileUpdateProgress(DownloadData downloadData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.ld5
+        public boolean onPreDownload(DownloadData downloadData) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        /* loaded from: classes7.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ String a;
+            public final /* synthetic */ b b;
+
+            public a(b bVar, String str) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar, str};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = bVar;
+                this.a = str;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.b.b.onSuccess(this.a);
+                }
+            }
+        }
+
+        /* renamed from: com.baidu.tieba.mn9$b$b  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class RunnableC0403b implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public RunnableC0403b(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.a.b.onFail("rename failed");
+                }
+            }
+        }
+
+        /* loaded from: classes7.dex */
+        public class c implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public c(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.a.b.onFail("download failed");
+                }
+            }
+        }
+
+        public b(mn9 mn9Var, String str, pn9 pn9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
+                Object[] objArr = {mn9Var, str, pn9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((View) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = 3;
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0919ba);
+            this.c = mn9Var;
+            this.a = str;
+            this.b = pn9Var;
         }
 
-        public void onChangeSkinType() {
+        @Override // com.baidu.tieba.ld5
+        public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.b != TbadkApplication.getInst().getSkinType()) {
-                    SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0109);
+            if ((interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) && this.b != null) {
+                this.c.a.post(new c(this));
+            }
+        }
+
+        @Override // com.baidu.tieba.ld5
+        public void onFileDownloadSucceed(DownloadData downloadData) {
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) {
+                if (FileHelper.isGif(null, this.a)) {
+                    str = ".gif";
+                } else {
+                    str = ".jpg";
                 }
-                this.b = TbadkApplication.getInst().getSkinType();
+                String str2 = downloadData.getPath() + str;
+                if (FileHelper.renameTo(downloadData.getPath(), str2)) {
+                    new MediaScannerClient(TbadkApplication.getInst().getContext()).saveImage(str2);
+                    if (this.b != null) {
+                        this.c.a.post(new a(this, str2));
+                    }
+                } else if (this.b != null) {
+                    this.c.a.post(new RunnableC0403b(this));
+                }
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mn9(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pn9 a;
+
+        public a(mn9 mn9Var, pn9 pn9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mn9Var, pn9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pn9Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.onFail("url null");
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c extends BdAsyncTask<Void, Void, List<String>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mn9 a;
+
+        public c(mn9 mn9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mn9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = mn9Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public List<String> doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
+                return this.a.h();
+            }
+            return (List) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(List<String> list) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && list != null && !list.isEmpty()) {
+                NewFaceGroupDownloadModel newFaceGroupDownloadModel = new NewFaceGroupDownloadModel();
+                for (String str : list) {
+                    newFaceGroupDownloadModel.O(str, Boolean.FALSE, null);
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947978577, "Lcom/baidu/tieba/mn9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947978577, "Lcom/baidu/tieba/mn9;");
                 return;
             }
         }
+        c = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.emotions/";
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
-    /* renamed from: s */
-    public a onCreateViewHolder(ViewGroup viewGroup) {
+    public mn9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new Handler(Looper.getMainLooper());
+    }
+
+    public static mn9 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b == null) {
+                synchronized (mn9.class) {
+                    if (b == null) {
+                        b = new mn9();
+                    }
+                }
+            }
+            return b;
+        }
+        return (mn9) invokeV.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            new c(this).execute(new Void[0]);
+        }
+    }
+
+    public boolean b(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            List<String> h = h();
+            if (h.size() > 0) {
+                if (z) {
+                    c(h, false);
+                }
+                return false;
+            }
+            return true;
+        }
+        return invokeZ.booleanValue;
+    }
+
+    public MyEmotionGroupData g(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new a(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d090b, viewGroup, false));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            return p07.c().d(TbadkCoreApplication.getCurrentAccount(), str);
         }
-        return (a) invokeL.objValue;
+        return (MyEmotionGroupData) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, nn9 nn9Var, a aVar) {
-        InterceptResult invokeCommon;
+    public boolean c(List<String> list, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, nn9Var, aVar})) == null) {
-            aVar.onChangeSkinType();
-            return aVar.getView();
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, z)) == null) {
+            if (list != null && !list.isEmpty()) {
+                int i = 0;
+                for (String str : list) {
+                    MyEmotionGroupData myEmotionGroupData = new MyEmotionGroupData();
+                    myEmotionGroupData.setGroupId(str);
+                    myEmotionGroupData.setUid(TbadkCoreApplication.getCurrentAccount());
+                    if (p07.c().b(myEmotionGroupData)) {
+                        FileHelper.deleteFileOrDir(new File(c + str));
+                        x07.o().k(str);
+                        i++;
+                    }
+                }
+                if (i > 0) {
+                    MessageManager.getInstance().runTask(2004603, (Class) null);
+                    if (z) {
+                        nn9.o().z();
+                        return true;
+                    }
+                    return true;
+                }
+            }
+            return false;
         }
-        return (View) invokeCommon.objValue;
+        return invokeLZ.booleanValue;
+    }
+
+    public void d(String str, pn9 pn9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, pn9Var) == null) {
+            if (TextUtils.isEmpty(str)) {
+                if (pn9Var != null) {
+                    this.a.post(new a(this, pn9Var));
+                    return;
+                }
+                return;
+            }
+            String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str);
+            DownloadData downloadData = new DownloadData(nameMd5FromUrl, nameMd5FromUrl, str, new b(this, nameMd5FromUrl, pn9Var));
+            downloadData.setPath((FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/") + nameMd5FromUrl);
+            md5.k().l(downloadData);
+        }
+    }
+
+    public List<MyEmotionGroupData> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            try {
+                List<MyEmotionGroupData> h = p07.c().h(TbadkCoreApplication.getCurrentAccount());
+                Iterator<MyEmotionGroupData> it = h.iterator();
+                while (it.hasNext()) {
+                    MyEmotionGroupData next = it.next();
+                    if (next.getGroupId() != null && next.getGroupId().contains("collect_")) {
+                        it.remove();
+                    }
+                }
+                return h;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public List<String> h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (MyEmotionGroupData myEmotionGroupData : f()) {
+                File file = new File(c + myEmotionGroupData.getGroupId());
+                BdLog.e("getFileUnExistList Called:" + file.getName() + "   Exsists:" + file.exists());
+                if (!file.exists()) {
+                    arrayList.add(myEmotionGroupData.getGroupId());
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public boolean j(List<String> list, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048583, this, list, z)) == null) {
+            if (list != null && !list.isEmpty()) {
+                try {
+                    x07.o().s(list, TbadkCoreApplication.getCurrentAccount());
+                    MessageManager.getInstance().runTask(2004603, (Class) null);
+                    if (z) {
+                        nn9.o().z();
+                        return true;
+                    }
+                    return true;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            return false;
+        }
+        return invokeLZ.booleanValue;
     }
 }

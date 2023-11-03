@@ -1,234 +1,118 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.eyb;
-import com.baidu.tieba.lyb;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.mobads.sdk.api.NativeResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.yalog.LoggerManager;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import kotlin.Unit;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
+import java.lang.reflect.Field;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class dyb {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "CrashSdkUtil";
-    public static final long b = 600;
-    public static final dyb c;
+public class dyb extends BaseAdRipper {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static final class a implements myb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.myb
-        public void d(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) && str2 != null) {
-                eyb.b.b(dyb.b(dyb.c), str2);
-            }
-        }
-
-        @Override // com.baidu.tieba.myb
-        public void e(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && str2 != null) {
-                eyb.b.d(dyb.b(dyb.c), str2);
-            }
-        }
-
-        @Override // com.baidu.tieba.myb
-        public void i(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) && str2 != null) {
-                eyb.b.g(dyb.b(dyb.c), str2);
-            }
-        }
-
-        @Override // com.baidu.tieba.myb
-        public void w(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) && str2 != null) {
-                eyb.b.j(dyb.b(dyb.c), str2);
-            }
-        }
-
-        @Override // com.baidu.tieba.myb
-        public void e(String str, String str2, Throwable th) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, th) == null) && str2 != null) {
-                eyb.b.d(dyb.b(dyb.c), str2);
-            }
-        }
-
-        @Override // com.baidu.tieba.myb
-        public void i(String str, String str2, Throwable th) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, th) == null) && str2 != null) {
-                eyb.b.g(dyb.b(dyb.c), str2);
-            }
-        }
-
-        @Override // com.baidu.tieba.myb
-        public void w(String str, String str2, Throwable th) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLL(1048582, this, str, str2, th) == null) && str2 != null) {
-                eyb.b.j(dyb.b(dyb.c), str2);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class b implements lyb.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.lyb.e
-        public void a(String str, boolean z, String str2, String str3, String str4) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Boolean.valueOf(z), str2, str3, str4}) == null) {
-                eyb.b.g(dyb.b(dyb.c), "afterCrashCallback");
-            }
-        }
-
-        @Override // com.baidu.tieba.lyb.e
-        public void b(String str, boolean z, String str2, String str3, String str4) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Boolean.valueOf(z), str2, str3, str4}) == null) {
-                eyb.b.g(dyb.b(dyb.c), "crashCallback");
-            }
-        }
-
-        @Override // com.baidu.tieba.lyb.e
-        public void c(boolean z, String str, String str2, String str3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), str, str2, str3}) == null) {
-                try {
-                    eyb.b.g(dyb.b(dyb.c), "preCrashCallback");
-                    lyb.s(dyb.c.e(dyb.a(dyb.c)));
-                } catch (Throwable th) {
-                    eyb.b.d(dyb.b(dyb.c), th.toString());
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947722300, "Lcom/baidu/tieba/dyb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947722300, "Lcom/baidu/tieba/dyb;");
-                return;
-            }
-        }
-        c = new dyb();
-    }
-
-    public dyb() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dyb(Ssp.Pid pid) {
+        super(pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static final /* synthetic */ long a(dyb dybVar) {
-        return b;
-    }
-
-    public static final /* synthetic */ String b(dyb dybVar) {
-        return a;
-    }
-
-    public final void d(Context context, String str, String str2, String str3) {
+    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
+    public RippedAd getRippedAdInternal(Object obj) {
+        InterceptResult invokeL;
+        NativeResponse nativeResponse;
+        JSONObject optJSONObject;
+        String str;
+        JSONObject optJSONObject2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, context, str, str2, str3) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("processName", str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
             try {
-                lyb.f fVar = new lyb.f();
-                fVar.h(context);
-                fVar.g("baidu-yyremoteview");
-                fVar.j(str2);
-                fVar.i(new a());
-                lyb.n(fVar);
-                qyb.W(str3);
-                lyb.r(hashMap);
-                lyb.q(new b());
-            } catch (Throwable th) {
-                eyb.a aVar = eyb.b;
-                String str4 = a;
-                th.printStackTrace();
-                aVar.d(str4, Unit.INSTANCE.toString());
+                if (!(obj instanceof ayb) || (nativeResponse = ((ayb) obj).a) == null) {
+                    return null;
+                }
+                Field declaredField = nativeResponse.getClass().getDeclaredField("mFeedsProd");
+                declaredField.setAccessible(true);
+                Object obj2 = declaredField.get(nativeResponse);
+                if (obj2 == null) {
+                    return null;
+                }
+                Field declaredField2 = obj2.getClass().getSuperclass().getDeclaredField("n");
+                declaredField2.setAccessible(true);
+                Object obj3 = declaredField2.get(obj2);
+                if (obj3 == null) {
+                    return null;
+                }
+                JSONObject jSONObject = new JSONObject(obj3.toString());
+                String brandName = nativeResponse.getBrandName();
+                JSONArray optJSONArray = jSONObject.optJSONArray("ad");
+                if (optJSONArray != null && optJSONArray.length() != 0) {
+                    int i = 0;
+                    JSONObject optJSONObject3 = optJSONArray.optJSONObject(0);
+                    if (optJSONArray.length() > 1) {
+                        Field declaredField3 = nativeResponse.getClass().getDeclaredField("mAdInstanceInfo");
+                        declaredField3.setAccessible(true);
+                        Object obj4 = declaredField3.get(nativeResponse);
+                        if (obj4 == null) {
+                            return null;
+                        }
+                        Field declaredField4 = obj4.getClass().getDeclaredField("P");
+                        declaredField4.setAccessible(true);
+                        try {
+                            str = (String) declaredField4.get(obj4);
+                        } catch (Exception unused) {
+                            Field declaredField5 = obj4.getClass().getDeclaredField("Q");
+                            declaredField5.setAccessible(true);
+                            str = (String) declaredField5.get(obj4);
+                        }
+                        while (true) {
+                            if (i >= optJSONArray.length()) {
+                                break;
+                            }
+                            JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
+                            if (jSONObject2 != null && (optJSONObject2 = jSONObject2.optJSONObject("remoteParams")) != null && optJSONObject2.optString("uniqueId").equals(str)) {
+                                optJSONObject3 = jSONObject2;
+                                break;
+                            }
+                            i++;
+                        }
+                    }
+                    String optString = optJSONObject3.optString("deepLinkUrl");
+                    if (TextUtils.isEmpty(optString) && (optJSONObject = optJSONObject3.optJSONObject("apo")) != null) {
+                        optString = optJSONObject.optString("page");
+                    }
+                    RippedAd.Builder builder = new RippedAd.Builder();
+                    builder.setCorporation(brandName).setTitle(optJSONObject3.optString("tit")).setDescription(optJSONObject3.optString("desc")).setIconUrl(optJSONObject3.optString("icon")).setAppName(optJSONObject3.optString("appname")).setAppPkg(optJSONObject3.optString(PushConstants.URI_PACKAGE_NAME)).setAppUrl(null).setImageUrl(optJSONObject3.optString("w_picurl")).setVideoImageUrl(null).setVideoUrl(null).setClickUrl(optJSONObject3.optString("curl")).setDeepLinkUrl(optString);
+                    return builder.build();
+                }
+                return null;
+            } catch (Exception unused2) {
+                LogPrinter.d();
+                return null;
             }
         }
-    }
-
-    public final List<String> e(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            long currentTimeMillis = System.currentTimeMillis() / 1000;
-            long j2 = currentTimeMillis - j;
-            eyb.b.e(true);
-            String baseDir = LoggerManager.getBaseDir();
-            List<String> queryLogFiles = LoggerManager.queryLogFiles(j2, currentTimeMillis, "yylivesdk", "*");
-            ArrayList arrayList = new ArrayList();
-            Iterator<String> it = queryLogFiles.iterator();
-            while (it.hasNext()) {
-                arrayList.add(baseDir + WebvttCueParser.CHAR_SLASH + it.next());
-            }
-            return arrayList;
-        }
-        return (List) invokeJ.objValue;
+        return (RippedAd) invokeL.objValue;
     }
 }

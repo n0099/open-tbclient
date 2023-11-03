@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import android.view.Surface;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,44 +8,103 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
 /* loaded from: classes7.dex */
-public class nn2 extends jj2<ao2> {
+public class nn2 implements ZeusPluginFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    @Override // com.baidu.tieba.jj2
-    @NonNull
-    public String b() {
+    @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
+    public String name() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setSurface" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "inline_video" : (String) invokeV.objValue;
     }
 
-    public nn2() {
+    /* loaded from: classes7.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                ro2 b = np2.D().b(null, null);
+                b.m0();
+                b.T();
+                b.C();
+                yw1.e().t(b);
+                g32.i("【InlineFactory】", "pre-create video cost time ：" + (System.currentTimeMillis() - currentTimeMillis));
+            }
+        }
+    }
+
+    public nn2(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = str;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jj2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull ao2 ao2Var) {
-        Object obj;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, ao2Var) != null) || (obj = command.obj) == null) {
+        if ((interceptable != null && interceptable.invokeV(65537, null) != null) || np2.D() == null) {
             return;
         }
-        ao2Var.setSurface((Surface) obj);
-        String str = command.what;
-        d(ao2Var, str, "Surface:" + command.obj.hashCode(), false);
+        yw1.e().c();
+        aj3.k(new a(), "PreCreateVideo");
+    }
+
+    @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
+    public ZeusPlugin create(ZeusPluginFactory.Invoker invoker) {
+        InterceptResult invokeL;
+        ro2 b;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, invoker)) == null) {
+            if (np2.D() == null) {
+                return null;
+            }
+            if (yw1.e().f()) {
+                g32.i("【InlineFactory】", "handleAppOnLaunch use cache inline video. ");
+                b = yw1.e().d();
+                yw1.e().s();
+                b.N(invoker);
+            } else {
+                g32.i("【InlineFactory】", "handleAppOnLaunch create cache inline video. ");
+                b = np2.D().b(invoker, this.a);
+                b.H();
+            }
+            g32.i("【InlineFactory】", "Factory 「Hash:" + hashCode() + "」 is creating inline video「Hash:" + b.hashCode() + "」");
+            return new ln2(b);
+        }
+        return (ZeusPlugin) invokeL.objValue;
     }
 }

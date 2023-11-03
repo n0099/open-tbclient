@@ -8,9 +8,9 @@ import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
 import com.baidu.tbadk.core.log.YunDialogLog;
 import com.baidu.tbadk.data.DialogStrategiesData;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.c;
-import com.baidu.tieba.e15;
+import com.baidu.tieba.d;
 import com.baidu.tieba.log.TbLog;
+import com.baidu.tieba.w15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 /* loaded from: classes4.dex */
-public class ExcludeDialogStrategy implements e15 {
+public class ExcludeDialogStrategy implements w15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -64,7 +64,7 @@ public class ExcludeDialogStrategy implements e15 {
         }
     }
 
-    @Override // com.baidu.tieba.e15
+    @Override // com.baidu.tieba.w15
     @NonNull
     public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
         InterceptResult invokeLLL;
@@ -77,7 +77,7 @@ public class ExcludeDialogStrategy implements e15 {
         return (Map) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.e15
+    @Override // com.baidu.tieba.w15
     public boolean b(@NonNull Map<String, Object> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -88,8 +88,8 @@ public class ExcludeDialogStrategy implements e15 {
                     String obj = data.dialogNameList.toString();
                     String obj2 = data.alreadyShownDialogs.toString();
                     if (Build.VERSION.SDK_INT >= 26) {
-                        obj = c.a(",", data.dialogNameList);
-                        obj2 = c.a(",", data.alreadyShownDialogs);
+                        obj = d.a(",", data.dialogNameList);
+                        obj2 = d.a(",", data.alreadyShownDialogs);
                     }
                     TbLog yunDialogLog = YunDialogLog.getInstance();
                     yunDialogLog.i(YunDialogManager.LOG_KEY, "云弹窗 " + str + " 命中排斥策略，当前互斥弹窗列表：" + obj + " ，已展现弹窗列表：" + obj2);

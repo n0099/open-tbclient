@@ -1,27 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class l8a {
+public class l8a implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public boolean a;
     public int b;
     public int c;
-    public int d;
-    public d8a e;
+    public boolean d;
+    public v8a e;
 
-    public l8a() {
+    public l8a(v8a v8aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {v8aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,70 +30,49 @@ public class l8a {
                 return;
             }
         }
-        this.e = new d8a();
+        this.d = false;
+        this.e = v8aVar;
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.b = i;
         }
-        return invokeV.intValue;
     }
 
-    public d8a b() {
-        InterceptResult invokeV;
+    public void b(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.a = z;
         }
-        return (d8a) invokeV.objValue;
     }
 
-    public int c() {
-        InterceptResult invokeV;
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.c = i;
         }
-        return invokeV.intValue;
     }
 
-    public int d() {
-        InterceptResult invokeV;
+    public void d(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.d = z;
         }
-        return invokeV.intValue;
     }
 
-    public int e() {
-        InterceptResult invokeV;
+    @Override // java.lang.Runnable
+    public void run() {
+        v8a v8aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public void f(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || (v8aVar = this.e) == null) {
             return;
         }
-        try {
-            this.e.c(jSONObject.optJSONObject("error"));
-            this.a = jSONObject.optInt("forum_id");
-            jSONObject.optString("forum_name");
-            this.b = jSONObject.optInt("signed");
-            jSONObject.optInt("is_on");
-            jSONObject.optInt("is_filter");
-            this.c = jSONObject.optInt("sign_day_count");
-            this.d = jSONObject.optInt("cur_score");
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+        if (!this.d) {
+            v8aVar.m(this.b, this.c, this.a, 2);
+        } else {
+            v8aVar.m(this.b, this.c, this.a, 1);
         }
     }
 }

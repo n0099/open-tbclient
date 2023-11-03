@@ -1,153 +1,87 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.devices.RomUtils;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import com.baidu.tieba.b0c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.material.internal.ManufacturerUtils;
-import com.yy.transvod.player.log.TLog;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.utils.PxUtils;
+import com.fun.ad.sdk.internal.api.utils.ViewUtils;
+import com.qq.e.ads.splash.SplashAD;
 /* loaded from: classes5.dex */
 public class f0c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public SplashAD g;
+    public View h;
+    public int i;
+    public int j;
+    public int[] k;
+    public int l;
+    public int m;
 
-    public static int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (h() && Build.MODEL.equals("MI 8")) {
-                TLog.m("extraDelta", "from MI 8 extraDelta= 45");
-                return 60;
-            }
-            if (c()) {
-                String str = Build.MODEL;
-                if (str.equals("SEA-AL10")) {
-                    TLog.m("extraDelta", "from huawei nova 5 pro extraDelta= 100");
-                    return 20;
-                } else if (str.equals("ELE-AL00")) {
-                    TLog.m("extraDelta", "from huawei p30 extraDelta= 80");
-                    return 80;
-                }
-            }
-            if (g()) {
-                if (Build.MODEL.equals("vivo X21A")) {
-                    TLog.m("extraDelta", "from vivo X21A extraDelta= 110");
-                    return 100;
-                }
-                TLog.m("extraDelta", "from VIVO extraDelta= 150");
-                return 150;
-            } else if (e()) {
-                String str2 = Build.MODEL;
-                if (str2.equals("OPPO A37m")) {
-                    TLog.m("extraDelta", "from OPPO A37m extraDelta= 150");
-                    return 150;
-                } else if (str2.equals("PBEM00")) {
-                    TLog.m("extraDelta", "from oppo r17 extraDelta= 300");
-                    return 300;
-                } else {
-                    TLog.m("extraDelta", "from oppo extraDelta= 100");
-                    return 100;
-                }
-            } else if (b()) {
-                TLog.m("extraDelta", "from EMUI extraDelta= 150");
-                return 150;
-            } else if (d()) {
-                TLog.m("extraDelta", "from MIUI extraDelta= 150");
-                return 150;
-            } else if (f()) {
-                TLog.m("extraDelta", "from SAMSUNG extraDelta= 50");
-                return 50;
-            } else {
-                TLog.m("extraDelta", "from default extraDelta= 100");
-                return 100;
-            }
-        }
-        return invokeV.intValue;
+    /* loaded from: classes5.dex */
+    public interface a {
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
+    public f0c(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if ("HUAWEI".equalsIgnoreCase(Build.MANUFACTURER)) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeV.booleanValue;
+        this.k = new int[2];
+        int round = Math.round(Math.min(PxUtils.getDeviceHeightInPixel(context), PxUtils.getDeviceWidthInPixel(context)) * 0.3f);
+        this.a = round;
+        this.b = Math.round((round * 16) / 9);
+        this.c = PxUtils.dpToPx(context, 6);
+        this.d = PxUtils.dpToPx(context, 100);
+        this.e = 1;
+        this.f = 300;
     }
 
-    public static boolean c() {
-        InterceptResult invokeV;
+    public final void a(View view2, ViewGroup viewGroup, float f, float f2, int[] iArr, ViewGroup viewGroup2, a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (RomUtils.MANUFACTURER_HUAWEI.equalsIgnoreCase(Build.MANUFACTURER)) {
-                return true;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, viewGroup, Float.valueOf(f), Float.valueOf(f2), iArr, viewGroup2, aVar}) == null) {
+            LogPrinter.d("zoomOut onAnimationEnd", new Object[0]);
+            ViewUtils.removeFromParent(view2);
+            view2.setScaleX(1.0f);
+            view2.setScaleY(1.0f);
+            view2.setX(0.0f);
+            view2.setY(0.0f);
+            int[] iArr2 = new int[2];
+            viewGroup.getLocationOnScreen(iArr2);
+            float f3 = (f - iArr2[0]) + iArr[0];
+            float f4 = (f2 - iArr2[1]) + iArr[1];
+            LogPrinter.d("zoomOut distX:" + f3 + " distY:" + f4, new Object[0]);
+            LogPrinter.d("zoomOut containerScreenX:" + iArr2[0] + " containerScreenY:" + iArr2[1], new Object[0]);
+            viewGroup2.addView(view2, -1, -1);
+            viewGroup.addView(viewGroup2, new FrameLayout.LayoutParams(this.a, this.b));
+            viewGroup2.setTranslationX(f3);
+            viewGroup2.setTranslationY(f4);
+            if (aVar != null) {
+                ((b0c.b.a) aVar).a.b.zoomOutAnimationFinish();
             }
-            return false;
         }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (RomUtils.MANUFACTURER_XIAOMI.equalsIgnoreCase(Build.MANUFACTURER)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if ("OPPO".equalsIgnoreCase(Build.MANUFACTURER)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (ManufacturerUtils.SAMSUNG.equalsIgnoreCase(Build.MANUFACTURER)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if ("vivo".equalsIgnoreCase(Build.MANUFACTURER)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (RomUtils.MANUFACTURER_XIAOMI.equalsIgnoreCase(Build.MANUFACTURER)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

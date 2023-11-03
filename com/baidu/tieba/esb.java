@@ -1,45 +1,121 @@
 package com.baidu.tieba;
 
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class esb implements Runnable {
-    public static /* synthetic */ Interceptable $ic;
+public class esb {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static Toast a = null;
+    public static int b = -1;
+    public static int c = -1;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ lsb a;
-    public final /* synthetic */ gsb b;
 
-    public esb(gsb gsbVar, lsb lsbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {gsbVar, lsbVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947746325, "Lcom/baidu/tieba/esb;")) == null) {
+            return;
         }
-        this.b = gsbVar;
-        this.a = lsbVar;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947746325, "Lcom/baidu/tieba/esb;");
+        }
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
+    public static void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this.b.c) {
-                Object obj = this.b.a;
-                if (obj != null) {
-                    this.a.d();
-                    ((psb) obj).a.countDown();
+        if (interceptable == null || interceptable.invokeI(65537, null, i) == null) {
+            b(i, 0);
+        }
+    }
+
+    public static void b(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65538, null, i, i2) == null) {
+            c(znb.d().b().getResources().getString(i), i2);
+        }
+    }
+
+    public static void c(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65539, null, str, i) == null) {
+            d(str, i, null);
+        }
+    }
+
+    public static void d(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i, str2) == null) {
+            e(str, i, str2, -1);
+        }
+    }
+
+    public static void e(String str, int i, String str2, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2)}) == null) {
+            if (b != -1 && c != -1) {
+                Toast toast = a;
+                if (toast != null) {
+                    toast.cancel();
                 }
+                Toast toast2 = new Toast(znb.d().b());
+                a = toast2;
+                if (i2 > -1) {
+                    toast2.setGravity(i2, 0, 0);
+                }
+                a.setDuration(i);
+                try {
+                    View inflate = LayoutInflater.from(znb.d().b()).inflate(b, (ViewGroup) null);
+                    TextView textView = (TextView) inflate.findViewById(c);
+                    if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str) && str.contains(str2)) {
+                        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
+                        spannableStringBuilder.setSpan(new ForegroundColorSpan(znb.d().b().getResources().getColor(R.color.app_theme_color)), str.indexOf(str2), str.indexOf(str2) + str2.length(), 33);
+                        textView.setText(spannableStringBuilder);
+                    } else {
+                        textView.setText(str);
+                    }
+                    a.setView(inflate);
+                    a.show();
+                    return;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return;
+                }
+            }
+            Toast toast3 = a;
+            if (toast3 == null) {
+                Toast makeText = Toast.makeText(znb.d().b(), str, i);
+                a = makeText;
+                if (i2 > -1) {
+                    makeText.setGravity(i2, 0, 0);
+                }
+            } else {
+                toast3.cancel();
+                Toast makeText2 = Toast.makeText(znb.d().b(), str, i);
+                a = makeText2;
+                if (i2 > -1) {
+                    makeText2.setGravity(i2, 0, 0);
+                }
+                a.setDuration(i);
+            }
+            try {
+                a.show();
+            } catch (Exception unused) {
             }
         }
     }

@@ -1,12 +1,10 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import android.net.Uri;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,12 +12,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicReference;
+import com.sina.weibo.sdk.utils.ResourceManager;
+import java.util.List;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes8.dex */
-public class sc7 implements de7 {
+public final class sc7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final AtomicReference<de7> a;
-    public static final de7 b;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,78 +36,84 @@ public class sc7 implements de7 {
                 return;
             }
         }
-        a = new AtomicReference<>(null);
-        b = new sc7();
+        a = new a(null);
     }
 
-    public sc7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+    /* loaded from: classes8.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-    }
 
-    public static de7 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            de7 de7Var = a.get();
-            if (de7Var == null) {
-                return b;
+        public final u67 a(String iconUrl) {
+            InterceptResult invokeL;
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, iconUrl)) == null) {
+                Intrinsics.checkNotNullParameter(iconUrl, "iconUrl");
+                if (!TextUtils.isEmpty(iconUrl) && StringsKt__StringsJVMKt.startsWith$default(iconUrl, "local://icon/", false, 2, null)) {
+                    Uri parse = Uri.parse(iconUrl);
+                    List<String> pathSegments = parse.getPathSegments();
+                    if (pathSegments.size() > 0) {
+                        boolean z = true;
+                        int identifier = g27.a.getResources().getIdentifier(pathSegments.get(pathSegments.size() - 1), ResourceManager.DRAWABLE, g27.a.getPackageName());
+                        String queryParameter = parse.getQueryParameter("type");
+                        if (queryParameter == null) {
+                            queryParameter = "";
+                        }
+                        String str = queryParameter;
+                        String queryParameter2 = parse.getQueryParameter("color");
+                        if (queryParameter2 != null && queryParameter2.length() != 0) {
+                            z = false;
+                        }
+                        if (!z) {
+                            i = g27.a.getResources().getIdentifier(queryParameter2, "color", g27.a.getPackageName());
+                        } else {
+                            i = 0;
+                        }
+                        if (identifier > 0) {
+                            return new u67(identifier, str, i, tc7.a(parse.getQueryParameter(CriusAttrConstants.PADDING)), tc7.a(parse.getQueryParameter("left_margin")), tc7.a(parse.getQueryParameter("right_margin")));
+                        }
+                    }
+                }
+                return null;
             }
-            return de7Var;
+            return (u67) invokeL.objValue;
         }
-        return (de7) invokeV.objValue;
-    }
 
-    @Override // com.baidu.tieba.de7
-    public lh<? extends py4, ? extends TypeAdapter.ViewHolder> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, tbPageContext, bdUniqueId, z)) == null) {
-            BdLog.e("Frs extra project not loaded.");
-            return null;
+        public final String b(q67 iconData) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iconData)) == null) {
+                Intrinsics.checkNotNullParameter(iconData, "iconData");
+                String b = iconData.b();
+                int currentSkinType = SkinManager.getCurrentSkinType();
+                if (currentSkinType != 0) {
+                    if (currentSkinType == 4) {
+                        return iconData.a();
+                    }
+                    return b;
+                }
+                return iconData.b();
+            }
+            return (String) invokeL.objValue;
         }
-        return (lh) invokeLLZ.objValue;
-    }
-
-    @Override // com.baidu.tieba.de7
-    public yc7<ICardInfo, ? extends TypeAdapter.ViewHolder> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, bdUniqueId, bdUniqueId2)) == null) {
-            BdLog.e("Frs extra project not loaded.");
-            return null;
-        }
-        return (yc7) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.de7
-    public lh<? extends ThreadData, ? extends TypeAdapter.ViewHolder> d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, tbPageContext, bdUniqueId, bdUniqueId2)) == null) {
-            BdLog.e("Frs extra project not loaded.");
-            return null;
-        }
-        return (lh) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.de7
-    public lh<? extends ThreadData, ? extends TypeAdapter.ViewHolder> c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{tbPageContext, bdUniqueId, bdUniqueId2, Boolean.valueOf(z)})) == null) {
-            BdLog.e("Frs extra project not loaded.");
-            return null;
-        }
-        return (lh) invokeCommon.objValue;
     }
 }

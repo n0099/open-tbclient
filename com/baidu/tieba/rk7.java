@@ -1,84 +1,61 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mainTab.FragmentDelegate;
-import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tbadk.mainTab.FragmentTabStructure;
-import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class rk7 extends FragmentDelegate {
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes8.dex */
+public final class rk7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tbadk.mainTab.FragmentDelegate
-    public boolean isAvailable() {
-        InterceptResult invokeV;
+    public static final void a(String fid, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return true;
+        if (interceptable == null || interceptable.invokeLI(65536, null, fid, i) == null) {
+            Intrinsics.checkNotNullParameter(fid, "fid");
+            TiebaStatic.log(new StatisticItem("c15559").param("fid", fid).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", i));
         }
-        return invokeV.booleanValue;
     }
 
-    public rk7(FrsFragment frsFragment) {
+    public static final void b(String fid, boolean z, boolean z2, int i) {
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {frsFragment};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{fid, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)}) == null) {
+            Intrinsics.checkNotNullParameter(fid, "fid");
+            StatisticItem param = new StatisticItem("c15546").param("fid", fid).param("uid", TbadkCoreApplication.getCurrentAccount());
+            int i3 = 2;
+            if (z) {
+                i2 = 2;
+            } else {
+                i2 = 1;
             }
+            StatisticItem param2 = param.param("obj_type", i2);
+            if (!z2) {
+                i3 = 1;
+            }
+            TiebaStatic.log(param2.param("obj_locate", i3).param("obj_source", i));
         }
-        getFragmentTabStructure().frag = frsFragment;
     }
 
-    public void a(yd7 yd7Var) {
+    public static final void c(String fid, boolean z, boolean z2) {
+        int i;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, yd7Var) != null) || yd7Var == null || !yd7Var.i(1)) {
-            return;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{fid, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            Intrinsics.checkNotNullParameter(fid, "fid");
+            StatisticItem param = new StatisticItem("c15545").param("fid", fid).param("uid", TbadkCoreApplication.getCurrentAccount());
+            int i2 = 2;
+            if (z) {
+                i = 2;
+            } else {
+                i = 1;
+            }
+            StatisticItem param2 = param.param("obj_type", i);
+            if (!z2) {
+                i2 = 1;
+            }
+            TiebaStatic.log(param2.param("obj_locate", i2));
         }
-        yd7Var.a(this);
-    }
-
-    @Override // com.baidu.tbadk.mainTab.FragmentDelegate
-    public TbFragmentTabIndicator getTabIndicator(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
-            this.mIndicator = fragmentTabIndicator;
-            fragmentTabIndicator.setTextSize(2.0f);
-            return this.mIndicator;
-        }
-        return (TbFragmentTabIndicator) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tbadk.mainTab.FragmentDelegate
-    public FragmentTabStructure createFragmentTabStructure() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            FragmentTabStructure fragmentTabStructure = new FragmentTabStructure();
-            fragmentTabStructure.type = 1;
-            fragmentTabStructure.textResId = R.string.chosen_pb_title;
-            fragmentTabStructure.showIconType = FragmentTabStructure.SHOWTEXT;
-            return fragmentTabStructure;
-        }
-        return (FragmentTabStructure) invokeV.objValue;
     }
 }

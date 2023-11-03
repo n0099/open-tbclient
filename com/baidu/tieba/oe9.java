@@ -1,28 +1,76 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tbadk.task.TbSocketMessageTask;
-import com.baidu.tieba.pb.chosen.PbChosenActivity;
-import com.baidu.tieba.pb.chosen.net.zan.ChosenPbZanHttpResponse;
-import com.baidu.tieba.pb.chosen.net.zan.ChosenPbZanSocketResponse;
-import com.baidu.tieba.pb.chosen.net.zan.ChosenZanNetMessage;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class oe9 {
+public class oe9 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Context a;
+    public ArrayList<String> b;
+    public final String c;
+    public boolean d;
 
-    public oe9() {
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+        public View b;
+
+        public b(oe9 oe9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {oe9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(oe9 oe9Var, a aVar) {
+            this(oe9Var);
+        }
+    }
+
+    public oe9(Context context, ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, arrayList};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,40 +80,85 @@ public class oe9 {
                 return;
             }
         }
-        a();
-        b();
+        this.a = context;
+        this.b = arrayList;
+        this.d = true;
+        this.c = context.getText(R.string.obfuscated_res_0x7f0f0787).toString();
     }
 
-    public final void a() {
+    public void a(ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MessageManager messageManager = MessageManager.getInstance();
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHOSEN_PB_PRAISE, xda.a(TbConfig.FINE_PB_PRAISE, 309095));
-            tbHttpMessageTask.setResponsedClass(ChosenPbZanHttpResponse.class);
-            messageManager.registerTask(tbHttpMessageTask);
+        if (interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) {
+            this.b = arrayList;
         }
     }
 
-    public final void b() {
+    public void b(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            TbSocketMessageTask tbSocketMessageTask = new TbSocketMessageTask(309095);
-            tbSocketMessageTask.setResponsedClass(ChosenPbZanSocketResponse.class);
-            tbSocketMessageTask.setNeedAck(true);
-            tbSocketMessageTask.setNeedCompress(false);
-            MessageManager.getInstance().registerTask(tbSocketMessageTask);
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.d = z;
         }
     }
 
-    public void c(PbChosenActivity pbChosenActivity, long j, long j2, long j3, int i) {
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{pbChosenActivity, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i)}) == null) {
-            ChosenZanNetMessage chosenZanNetMessage = new ChosenZanNetMessage();
-            chosenZanNetMessage.setExcId(j);
-            chosenZanNetMessage.setAction(i);
-            chosenZanNetMessage.setThreadId(j2);
-            chosenZanNetMessage.setPostId(j3);
-            pbChosenActivity.sendMessage(chosenZanNetMessage);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            int count = getCount();
+            if (count > 0 && i < count) {
+                return this.b.get(i);
+            }
+            return null;
         }
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ArrayList<String> arrayList = this.b;
+            if (arrayList == null) {
+                return 0;
+            }
+            return arrayList.size();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    @SuppressLint({"ResourceAsColor"})
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0413, (ViewGroup) null);
+                bVar = new b(this, null);
+                bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090fc8);
+                bVar.b = view2.findViewById(R.id.obfuscated_res_0x7f090fbf);
+                view2.setTag(bVar);
+            } else {
+                bVar = (b) view2.getTag();
+            }
+            Object item = getItem(i);
+            if (item == null) {
+                return view2;
+            }
+            String str = (String) item;
+            if (this.d) {
+                bVar.a.setText(str.concat(this.c));
+            } else {
+                bVar.a.setText(str);
+            }
+            SkinManager.setViewTextColor(bVar.a, R.color.CAM_X0105, 1);
+            SkinManager.setBackgroundColor(bVar.b, R.color.CAM_X0204);
+            SkinManager.setBackgroundResource(view2, R.drawable.addresslist_item_bg);
+            return view2;
+        }
+        return (View) invokeILL.objValue;
     }
 }

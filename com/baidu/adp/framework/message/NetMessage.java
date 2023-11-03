@@ -4,7 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.network.http.IHttpNet;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.vb;
+import com.baidu.tieba.lc;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -170,7 +170,7 @@ public abstract class NetMessage {
             this.httpCmd = i;
             this.socketCmd = i2;
             this.tag = bdUniqueId;
-            this.clientLogID = vb.b().a();
+            this.clientLogID = lc.b().a();
         }
     }
 

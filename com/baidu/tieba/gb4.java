@@ -1,560 +1,92 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextUtils;
-import android.text.TextWatcher;
-import android.view.KeyEvent;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.RectF;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.location.Address;
-import com.baidu.mapapi.CoordType;
-import com.baidu.mapapi.SDKInitializer;
-import com.baidu.mapapi.search.core.PoiInfo;
-import com.baidu.mapapi.search.core.SearchResult;
-import com.baidu.mapapi.search.poi.OnGetPoiSearchResultListener;
-import com.baidu.mapapi.search.poi.PoiCitySearchOption;
-import com.baidu.mapapi.search.poi.PoiDetailResult;
-import com.baidu.mapapi.search.poi.PoiDetailSearchResult;
-import com.baidu.mapapi.search.poi.PoiIndoorResult;
-import com.baidu.mapapi.search.poi.PoiResult;
-import com.baidu.mapapi.search.poi.PoiSearch;
-import com.baidu.swan.map.location.LocationDetailAdapter;
-import com.baidu.swan.map.location.LocationFooterViewHolder;
-import com.baidu.swan.map.location.LocationItemDecoration;
-import com.baidu.swan.map.location.model.SelectedLocationInfo;
-import com.baidu.tieba.y42;
+import android.widget.ImageView;
+import com.baidu.mapapi.map.BitmapDescriptor;
+import com.baidu.mapapi.map.BitmapDescriptorFactory;
+import com.baidu.mapapi.map.MarkerOptions;
+import com.baidu.mapapi.map.OverlayOptions;
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.tieba.at2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class gb4 extends v42 implements bb4, OnGetPoiSearchResultListener, View.OnKeyListener, View.OnFocusChangeListener, TextWatcher, View.OnTouchListener, View.OnClickListener {
+public class gb4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public EditText G0;
-    public View H0;
-    public TextView I0;
-    public RecyclerView J0;
-    public LocationDetailAdapter K0;
-    public LinearLayoutManager L0;
-    public List<cb4> M0;
-    public PoiSearch N0;
-    public InputMethodManager O0;
-    public int P0;
-    public int Q0;
-    public String R0;
-    public boolean S0;
-    public boolean T0;
-    public String U0;
 
-    @Override // com.baidu.tieba.v42
-    public boolean G() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.v42
-    public void b2(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-        }
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048581, this, charSequence, i, i2, i3) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.v42, com.baidu.searchbox.widget.SlideInterceptor
-    public boolean isSlidable(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, motionEvent)) == null) {
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.v42
-    public boolean j2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.v42
-    public boolean l2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.mapapi.search.poi.OnGetPoiSearchResultListener
-    public void onGetPoiDetailResult(PoiDetailResult poiDetailResult) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, poiDetailResult) == null) {
-        }
-    }
-
-    @Override // com.baidu.mapapi.search.poi.OnGetPoiSearchResultListener
-    public void onGetPoiDetailResult(PoiDetailSearchResult poiDetailSearchResult) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, poiDetailSearchResult) == null) {
-        }
-    }
-
-    @Override // com.baidu.mapapi.search.poi.OnGetPoiSearchResultListener
-    public void onGetPoiIndoorResult(PoiIndoorResult poiIndoorResult) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, poiIndoorResult) == null) {
-        }
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048603, this, charSequence, i, i2, i3) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.v42
-    public void q2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class a extends RecyclerView.OnScrollListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gb4 a;
-
-        public a(gb4 gb4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gb4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gb4Var;
-        }
-
-        @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-        public void onScrollStateChanged(RecyclerView recyclerView, int i) {
-            int g3;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i) == null) {
-                super.onScrollStateChanged(recyclerView, i);
-                if (i == 0 && (g3 = this.a.g3()) >= 0 && g3 + 1 == this.a.K0.getItemCount()) {
-                    this.a.h3();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gb4 a;
-
-        public b(gb4 gb4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gb4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gb4Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                gb4 gb4Var = this.a;
-                gb4Var.n3(gb4Var.G0, true);
-            }
-        }
-    }
-
-    public gb4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.N0 = null;
-        this.P0 = 0;
-        this.Q0 = 0;
-        this.U0 = Address.Builder.BEI_JING;
-    }
-
-    @Override // com.baidu.swan.support.v4.app.Fragment
-    public void C0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.C0();
-            this.N0.destroy();
-        }
-    }
-
-    public final void e3() {
-        Activity activity;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (activity = this.c0) != null) {
-            activity.onBackPressed();
-        }
-    }
-
-    public final View f3() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            int g3 = g3();
-            if (g3 == -1) {
-                return null;
-            }
-            return this.L0.findViewByPosition(g3);
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public final int g3() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            LinearLayoutManager linearLayoutManager = this.L0;
-            if (linearLayoutManager != null) {
-                return linearLayoutManager.findLastVisibleItemPosition();
-            }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    public void h3() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || this.S0) {
-            return;
-        }
-        if (this.P0 < this.Q0) {
-            q3(this.R0);
-            this.S0 = true;
-            return;
-        }
-        k3();
-    }
-
-    public final void k3() {
-        View f3;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048590, this) != null) || (f3 = f3()) == null) {
-            return;
-        }
-        RecyclerView.ViewHolder childViewHolder = this.J0.getChildViewHolder(f3);
-        if (childViewHolder instanceof LocationFooterViewHolder) {
-            ((LocationFooterViewHolder) childViewHolder).b(false);
-        }
-    }
-
-    public final void l3() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048592, this) != null) || TextUtils.isEmpty(this.R0)) {
-            return;
-        }
-        this.P0 = 0;
-        q3(this.R0);
-        n3(this.G0, false);
-    }
-
-    public void p3() {
-        y42 W;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048605, this) == null) && (W = cr2.V().W()) != null) {
-            y42.b i = W.i("navigateTo");
-            i.n(y42.g, y42.i);
-            i.j(this);
-            i.b();
-        }
-    }
-
-    public static gb4 j3(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle)) == null) {
-            gb4 gb4Var = new gb4();
-            if (bundle != null) {
-                gb4Var.n1(bundle);
-            }
-            return gb4Var;
-        }
-        return (gb4) invokeL.objValue;
-    }
-
-    public final void m3(Intent intent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048593, this, intent) != null) || a0() == null) {
-            return;
-        }
-        a0().u0(b0(), 0, intent);
-    }
-
-    public void o3(boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            View view2 = this.H0;
-            if (z) {
-                i = 0;
-            } else {
-                i = 8;
-            }
-            view2.setVisibility(i);
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048596, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f090544) {
-            e3();
-        }
-    }
-
-    @Override // com.baidu.swan.support.v4.app.Fragment
-    public View B0(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, layoutInflater, viewGroup, bundle)) == null) {
-            w94.a();
-            SDKInitializer.setCoordType(CoordType.GCJ02);
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d008d, viewGroup, false);
-            i3(inflate);
-            if (a2()) {
-                inflate = d2(inflate);
-                C1(-1);
-            }
-            return J1(inflate, this);
-        }
-        return (View) invokeLLL.objValue;
-    }
-
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, editable) == null) {
-            if (editable != null && editable.length() > 0) {
-                this.T0 = false;
-                this.P0 = 0;
-                this.Q0 = 0;
-                String obj = editable.toString();
-                this.R0 = obj;
-                q3(obj);
-                return;
-            }
-            this.M0.clear();
-            this.K0.setData(this.M0);
-            this.R0 = "";
-            this.P0 = 0;
-            this.Q0 = 0;
-            this.T0 = true;
-        }
-    }
-
-    @Override // com.baidu.tieba.bb4
-    public void d(cb4 cb4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, cb4Var) == null) {
-            Intent intent = new Intent();
-            PoiInfo poiInfo = cb4Var.a;
-            if (poiInfo != null && poiInfo.location != null) {
-                intent.putExtra(SelectedLocationInfo.LOCATION_KEY, new SelectedLocationInfo(poiInfo.name, poiInfo.address, poiInfo.location));
-            }
-            m3(intent);
-            e3();
-        }
-    }
-
-    public final void q3(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048607, this, str) == null) {
-            this.N0.searchInCity(new PoiCitySearchOption().cityLimit(false).scope(2).city(this.U0).keyword(str).pageCapacity(13).pageNum(this.P0));
-        }
-    }
-
-    @SuppressLint({"ClickableViewAccessibility"})
-    public final void i3(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, view2) == null) {
-            this.M0 = new ArrayList(11);
-            if (p() != null) {
-                String string = p().getString("city");
-                if (TextUtils.isEmpty(string)) {
-                    string = Address.Builder.BEI_JING;
-                }
-                this.U0 = string;
-            }
-            this.G0 = (EditText) view2.findViewById(R.id.obfuscated_res_0x7f092156);
-            this.J0 = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091676);
-            this.H0 = view2.findViewById(R.id.obfuscated_res_0x7f0919bb);
-            this.I0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090544);
-            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(cr2.V().getActivity());
-            this.L0 = linearLayoutManager;
-            this.J0.setLayoutManager(linearLayoutManager);
-            LocationDetailAdapter locationDetailAdapter = new LocationDetailAdapter(cr2.V().getActivity(), this.J0, this);
-            this.K0 = locationDetailAdapter;
-            this.J0.setAdapter(locationDetailAdapter);
-            this.J0.addItemDecoration(new LocationItemDecoration(cr2.V().getActivity()));
-            this.J0.setOnTouchListener(this);
-            this.I0.setOnClickListener(this);
-            PoiSearch newInstance = PoiSearch.newInstance();
-            this.N0 = newInstance;
-            newInstance.setOnGetPoiSearchResultListener(this);
-            this.G0.addTextChangedListener(this);
-            this.G0.setOnFocusChangeListener(this);
-            this.G0.setOnKeyListener(this);
-            this.G0.requestFocus();
-            this.J0.addOnScrollListener(new a(this));
-            this.G0.postDelayed(new b(this), 100L);
-        }
-    }
-
-    public void n3(View view2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048594, this, view2, z) == null) {
-            if (this.O0 == null) {
-                this.O0 = (InputMethodManager) cr2.V().getActivity().getApplicationContext().getSystemService("input_method");
-            }
-            InputMethodManager inputMethodManager = this.O0;
-            if (inputMethodManager == null) {
-                return;
-            }
-            if (z) {
-                inputMethodManager.showSoftInput(view2, 0);
-            } else {
-                inputMethodManager.hideSoftInputFromWindow(view2.getWindowToken(), 0);
-            }
-        }
-    }
-
-    @Override // android.view.View.OnFocusChangeListener
-    public void onFocusChange(View view2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048597, this, view2, z) == null) {
-            n3(this.G0, z);
-        }
-    }
-
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view2, MotionEvent motionEvent) {
+    public static OverlayOptions a(qb4 qb4Var, pb4 pb4Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048604, this, view2, motionEvent)) == null) {
-            n3(this.G0, false);
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.mapapi.search.poi.OnGetPoiSearchResultListener
-    public void onGetPoiResult(PoiResult poiResult) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, poiResult) == null) {
-            boolean z = false;
-            this.S0 = false;
-            if (this.T0) {
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, qb4Var, pb4Var)) == null) {
+            g32.i("map", "createLabel start");
+            if (pb4Var == null) {
+                return null;
             }
-            if (poiResult.error == SearchResult.ERRORNO.NO_ERROR) {
-                this.Q0 = poiResult.getTotalPageNum();
-                if (this.P0 == 0) {
-                    this.M0.clear();
+            at2 at2Var = pb4Var.a;
+            if (at2Var != null && at2Var.j != null && at2Var.b != null) {
+                Paint paint = new Paint();
+                paint.setAntiAlias(true);
+                paint.setStyle(Paint.Style.FILL_AND_STROKE);
+                paint.setColor(at2Var.j.b);
+                paint.setTextSize(at2Var.j.c);
+                at2.c cVar = at2Var.j;
+                float f = cVar.e;
+                float f2 = cVar.j;
+                Paint paint2 = new Paint();
+                paint2.setAntiAlias(true);
+                paint2.setStyle(Paint.Style.FILL_AND_STROKE);
+                paint2.setColor(at2Var.j.d);
+                String str = at2Var.j.a;
+                float f3 = f * 2.0f;
+                float measureText = paint.measureText(str) + f3;
+                float f4 = (paint.getFontMetrics().bottom - paint.getFontMetrics().top) + f3;
+                if (f4 > 0.0f && measureText > 0.0f) {
+                    float f5 = at2Var.j.h;
+                    Bitmap createBitmap = Bitmap.createBitmap((int) (measureText + f5 + 0.5d), (int) (f4 + f5 + 0.5d), Bitmap.Config.ARGB_8888);
+                    createBitmap.eraseColor(Color.argb(0, 0, 0, 0));
+                    Canvas canvas = new Canvas(createBitmap);
+                    canvas.drawColor(0, PorterDuff.Mode.CLEAR);
+                    RectF rectF = new RectF();
+                    float f6 = f5 / 2.0f;
+                    rectF.left = f6;
+                    rectF.top = f6;
+                    rectF.bottom = f4 + f6;
+                    rectF.right = measureText + f6;
+                    canvas.drawRoundRect(rectF, f2, f2, paint2);
+                    if (f5 > 0.0f) {
+                        paint2.setStyle(Paint.Style.STROKE);
+                        paint2.setColor(at2Var.j.i);
+                        paint2.setStrokeWidth(f5);
+                        canvas.drawRoundRect(rectF, f2, f2, paint2);
+                    }
+                    canvas.drawText(str, f + f6, (-paint.getFontMetrics().top) + f + f6, paint);
+                    ImageView imageView = new ImageView(AppRuntime.getAppContext());
+                    imageView.setLayoutParams(new ViewGroup.LayoutParams(createBitmap.getWidth(), createBitmap.getHeight()));
+                    at2.c cVar2 = at2Var.j;
+                    imageView.setPadding((int) cVar2.f, (int) cVar2.g, 0, 0);
+                    imageView.setImageBitmap(createBitmap);
+                    BitmapDescriptor fromView = BitmapDescriptorFactory.fromView(imageView);
+                    MarkerOptions markerOptions = new MarkerOptions();
+                    zs2 zs2Var = at2Var.b;
+                    MarkerOptions zIndex = markerOptions.position(new LatLng(zs2Var.a, zs2Var.b)).icon(fromView).anchor(0.0f, 0.0f).zIndex(66);
+                    g32.i("map", "createLabel end");
+                    return zIndex;
                 }
-                this.M0.addAll(cb4.a(poiResult.getAllPoi()));
-                this.K0.o(this.M0, this.R0);
-                this.P0++;
-            } else {
-                if (this.P0 == 0) {
-                    this.Q0 = 0;
-                    this.M0.clear();
-                    this.K0.setData(this.M0);
-                }
-                k3();
+                g32.c("map", "label heigth or width is 0");
+                return null;
             }
-            if (this.P0 == 0 && this.M0.size() == 0) {
-                z = true;
-            }
-            o3(z);
-            if (this.M0.size() <= 0) {
-                k3();
-            }
+            g32.c("map", "marker data error");
+            return null;
         }
-    }
-
-    @Override // android.view.View.OnKeyListener
-    public boolean onKey(View view2, int i, KeyEvent keyEvent) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048602, this, view2, i, keyEvent)) == null) {
-            if (i == 66) {
-                l3();
-                return true;
-            }
-            return false;
-        }
-        return invokeLIL.booleanValue;
+        return (OverlayOptions) invokeLL.objValue;
     }
 }

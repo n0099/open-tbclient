@@ -9,7 +9,7 @@ import com.google.android.exoplayer2.extractor.ts.H262Reader;
 import com.google.android.exoplayer2.extractor.ts.PsExtractor;
 import com.google.android.exoplayer2.extractor.ts.TsExtractor;
 import com.google.android.exoplayer2.text.cea.Cea708Decoder;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ErrorCorrection {
     public static final int MODULO_VALUE = 301;
     public static final int[] FACTOR_SETS = {5, 7, 10, 11, 12, 14, 18, 20, 24, 28, 36, 42, 48, 56, 62, 68};

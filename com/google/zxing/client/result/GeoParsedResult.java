@@ -2,7 +2,7 @@ package com.google.zxing.client.result;
 
 import com.baidu.android.common.others.lang.StringUtil;
 import org.apache.commons.codec.net.RFC1522Codec;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class GeoParsedResult extends ParsedResult {
     public final double altitude;
     public final double latitude;

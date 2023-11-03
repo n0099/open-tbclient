@@ -1,15 +1,28 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo;
 import java.util.List;
+import java.util.Map;
 /* loaded from: classes5.dex */
 public interface by8 {
-    void a(List<uz8> list);
+    @NonNull
+    public static final ServiceReference a = new ServiceReference("ImMessageCenter", "ChatMessageDispatchService");
 
-    void b();
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(@NonNull Map<Long, ChatRoomInfo> map);
+    }
 
-    void c(long j, String str);
+    void a(@NonNull qk5 qk5Var);
 
-    void d(String str, String str2, String str3, List<vz8> list);
+    void b(@NonNull Context context, int i);
 
-    void e(long j, String str, int i, String str2);
+    void c(long j, @NonNull List<ChatRoomInfo> list);
+
+    void d(@NonNull a aVar);
+
+    void onDestroy();
 }

@@ -1,37 +1,24 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
+import android.app.Activity;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.data.DialogStrategiesData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Personalized.CardForum;
-import tbclient.Personalized.PersonalForum;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class m18 extends pk6 implements yk6 {
+public class m18 implements w15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CardForum e;
-
-    public static boolean h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? i == 1 : invokeI.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.yk6
-    public boolean s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
 
     public m18() {
         Interceptable interceptable = $ic;
@@ -47,74 +34,44 @@ public class m18 extends pk6 implements yk6 {
         }
     }
 
-    @Override // com.baidu.tieba.yk6
-    public int getPosition() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.w15
+    @NonNull
+    public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            CardForum cardForum = this.e;
-            if (cardForum != null) {
-                return cardForum.position.intValue();
-            }
-            return 0;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogStrategiesData, map, map2)) == null) {
+            HashMap hashMap = new HashMap(map);
+            hashMap.put("dialogName", "frsGroupChatGuide");
+            hashMap.putAll(map);
+            hashMap.putAll(map2);
+            return hashMap;
         }
-        return invokeV.intValue;
+        return (Map) invokeLLL.objValue;
     }
 
-    public boolean i() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.w15
+    public boolean b(@NonNull Map<String, Object> map) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (ListUtils.getCount(getDataList()) <= 0) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.yk6
-    public void J(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.showBottomDivider = z;
-        }
-    }
-
-    @Override // com.baidu.tieba.yk6
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.showTopDivider = z;
-        }
-    }
-
-    public void l(CardForum cardForum) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, cardForum) == null) && cardForum != null) {
-            this.e = cardForum;
-            this.mGroupTitle = cardForum.card_title;
-            if (cardForum.position != null) {
-                g(e() + cardForum.position.intValue());
-            } else {
-                g(e() + 0);
-            }
-            if (ListUtils.getCount(cardForum.forum_list) > 0) {
-                for (PersonalForum personalForum : cardForum.forum_list) {
-                    if (personalForum != null && !TextUtils.isEmpty(personalForum.forum_name) && personalForum.forum_id.longValue() > 0) {
-                        ok6 ok6Var = new ok6();
-                        ok6Var.b = personalForum.avatar;
-                        ok6Var.c = personalForum.forum_name;
-                        ok6Var.d = JavaTypesHelper.toInt("" + personalForum.forum_id, -1);
-                        boolean z = true;
-                        if (personalForum.is_like.intValue() != 1) {
-                            z = false;
-                        }
-                        ok6Var.e = z;
-                        c(ok6Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            boolean z = false;
+            if (currentActivity instanceof c25) {
+                c25 c25Var = (c25) currentActivity;
+                if (c25Var.j1() != null) {
+                    b25 j1 = c25Var.j1();
+                    if (!SharedPrefHelper.getInstance().getBoolean("key_chat_group_guide_show", false) && j1.p()) {
+                        z = true;
                     }
+                    if (!z) {
+                        YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "群聊引导弹窗策略校验失败：已经显示过");
+                    }
+                    return z;
                 }
             }
+            YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "吧主弹窗策略校验失败：获取到的IForumDialogExtSupport为空");
+            return false;
         }
+        return invokeL.booleanValue;
     }
 }

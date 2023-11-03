@@ -1,43 +1,56 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.math.BigInteger;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes5.dex */
 public class cv {
     public static /* synthetic */ Interceptable $ic;
-    public static byte[] a;
-    public static byte[] b;
     public transient /* synthetic */ FieldHolder $fh;
+    public Map<String, bv> a;
 
-    public static byte[] a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            byte[] bArr = a;
-            if (bArr != null) {
-                return bArr;
-            }
-            byte[] byteArray = new BigInteger(bv.a).modPow(new BigInteger(bv.b), new BigInteger(bv.e)).toByteArray();
-            a = byteArray;
-            return byteArray;
-        }
-        return (byte[]) invokeV.objValue;
+    /* loaded from: classes5.dex */
+    public interface a {
+        List<bv> a();
     }
 
-    public static byte[] b() {
+    public cv(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new HashMap();
+        for (bv bvVar : aVar.a()) {
+            this.a.put(bvVar.c(), bvVar);
+        }
+    }
+
+    public bv a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.a.get(str) : (bv) invokeL.objValue;
+    }
+
+    public List<bv> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            byte[] bArr = b;
-            if (bArr != null) {
-                return bArr;
-            }
-            byte[] byteArray = new BigInteger(bv.c).modPow(new BigInteger(bv.d), new BigInteger(bv.e)).toByteArray();
-            b = byteArray;
-            return byteArray;
-        }
-        return (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new ArrayList(this.a.values()) : (List) invokeV.objValue;
     }
 }

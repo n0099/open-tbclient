@@ -1,41 +1,55 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class mua {
+public class mua extends nua {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Runnable b;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.nua
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            return str + ".jpg";
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String b(String str, long j, int i) {
-        InterceptResult invokeCommon;
+    public mua(Runnable runnable, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Long.valueOf(j), Integer.valueOf(i)})) == null) {
-            if (i == 0) {
-                return efb.b(str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {runnable, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return efb.b(str) + "_" + j;
         }
-        return (String) invokeCommon.objValue;
+        this.b = runnable;
+        this.a = i;
     }
 
-    public static String c(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.nua
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            return str + File.separator + str2 + ".jpg";
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b.run();
         }
-        return (String) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.nua
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            hua.a = Math.max(hua.a, this.a + 1);
+        }
     }
 }

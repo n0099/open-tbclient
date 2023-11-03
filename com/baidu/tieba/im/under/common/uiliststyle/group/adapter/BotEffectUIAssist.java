@@ -13,9 +13,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b;
-import com.baidu.tieba.ea8;
-import com.baidu.tieba.ga8;
+import com.baidu.tieba.c;
+import com.baidu.tieba.cn8;
+import com.baidu.tieba.en8;
 import com.baidu.tieba.im.base.core.uilist.BaseItem;
 import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
 import com.baidu.tieba.im.lib.socket.msg.data.AbilityEffectItem;
@@ -24,10 +24,10 @@ import com.baidu.tieba.im.lib.socket.msg.data.BotsDTO;
 import com.baidu.tieba.im.under.common.uiliststyle.group.adapter.BaseStyleNormalAdapter;
 import com.baidu.tieba.im.under.common.uiliststyle.group.adapter.BotEffectUIAssist;
 import com.baidu.tieba.im.under.common.uiliststyle.group.data.PayloadData;
-import com.baidu.tieba.ka8;
-import com.baidu.tieba.mna;
-import com.baidu.tieba.of8;
-import com.baidu.tieba.qu5;
+import com.baidu.tieba.in8;
+import com.baidu.tieba.kw5;
+import com.baidu.tieba.ms8;
+import com.baidu.tieba.n0b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -50,15 +50,15 @@ public final class BotEffectUIAssist<ChildItemData extends BaseItem<?>> {
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
     public final ChildItemData b;
-    public final ga8.c c;
-    public final ea8 d;
+    public final en8.c c;
+    public final cn8 d;
     public final RelativeLayout e;
     public final TbImage f;
     public final TbImage g;
     public AbilityEffectItem h;
     public Long i;
     public Long j;
-    public ka8 k;
+    public in8 k;
 
     static {
         InterceptResult invokeClinit;
@@ -136,7 +136,7 @@ public final class BotEffectUIAssist<ChildItemData extends BaseItem<?>> {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (this.botUk.hashCode() * 31) + b.a(this.skillId) : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (this.botUk.hashCode() * 31) + c.a(this.skillId) : invokeV.intValue;
         }
 
         public String toString() {
@@ -188,12 +188,12 @@ public final class BotEffectUIAssist<ChildItemData extends BaseItem<?>> {
     }
 
     /* loaded from: classes6.dex */
-    public static final class a implements qu5 {
+    public static final class a implements kw5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BotEffectUIAssist<ChildItemData> a;
 
-        @Override // com.baidu.tieba.qu5
+        @Override // com.baidu.tieba.kw5
         public void a(String str, ImageInfo imageInfo, Animatable animatable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, str, imageInfo, animatable) == null) {
@@ -218,7 +218,7 @@ public final class BotEffectUIAssist<ChildItemData extends BaseItem<?>> {
             this.a = botEffectUIAssist;
         }
 
-        @Override // com.baidu.tieba.qu5
+        @Override // com.baidu.tieba.kw5
         public void b(String str, Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, th) == null) {
@@ -229,12 +229,12 @@ public final class BotEffectUIAssist<ChildItemData extends BaseItem<?>> {
         }
     }
 
-    public BotEffectUIAssist(Context context, ChildItemData childitemdata, BaseStyleNormalAdapter.SelfHolder holder, ga8.c helper, ea8 ea8Var) {
+    public BotEffectUIAssist(Context context, ChildItemData childitemdata, BaseStyleNormalAdapter.SelfHolder holder, en8.c helper, cn8 cn8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, childitemdata, holder, helper, ea8Var};
+            Object[] objArr = {context, childitemdata, holder, helper, cn8Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -250,7 +250,7 @@ public final class BotEffectUIAssist<ChildItemData extends BaseItem<?>> {
         this.a = context;
         this.b = childitemdata;
         this.c = helper;
-        this.d = ea8Var;
+        this.d = cn8Var;
         RelativeLayout relativeLayout = holder.g;
         Intrinsics.checkNotNullExpressionValue(relativeLayout, "holder.bubbleEffectContainer");
         this.e = relativeLayout;
@@ -268,7 +268,7 @@ public final class BotEffectUIAssist<ChildItemData extends BaseItem<?>> {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, this$0) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             if (this$0.e.getVisibility() == 0) {
-                mna.b(this$0.e, 800);
+                n0b.b(this$0.e, 800);
             }
         }
     }
@@ -276,9 +276,9 @@ public final class BotEffectUIAssist<ChildItemData extends BaseItem<?>> {
     public final void h(AbilityItem abilityItem) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, abilityItem) == null) {
-            ea8 ea8Var = this.d;
-            if (ea8Var != null) {
-                ea8.e(ea8Var, abilityItem, this.b, null, 4, null);
+            cn8 cn8Var = this.d;
+            if (cn8Var != null) {
+                cn8.e(cn8Var, abilityItem, this.b, null, 4, null);
             }
             e(abilityItem, 3);
         }
@@ -291,10 +291,10 @@ public final class BotEffectUIAssist<ChildItemData extends BaseItem<?>> {
         }
     }
 
-    public final void l(ka8 ka8Var) {
+    public final void l(in8 in8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, ka8Var) == null) {
-            this.k = ka8Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, in8Var) == null) {
+            this.k = in8Var;
         }
     }
 
@@ -312,7 +312,7 @@ public final class BotEffectUIAssist<ChildItemData extends BaseItem<?>> {
             Intrinsics.checkNotNullParameter(abilityItem, "$abilityItem");
             Intrinsics.checkNotNullParameter(view2, "$view");
             this$0.h(abilityItem);
-            mna.b(view2, 800);
+            n0b.b(view2, 800);
             this$0.e(abilityItem, 4);
         }
     }
@@ -356,9 +356,9 @@ public final class BotEffectUIAssist<ChildItemData extends BaseItem<?>> {
                 str = mainEndImage;
             }
             if (this.e.getVisibility() == 8) {
-                mna.d(this.e, 800);
+                n0b.d(this.e, 800);
             }
-            boolean d = of8.d(String.valueOf(tbMsg.getUserId()));
+            boolean d = ms8.d(String.valueOf(tbMsg.getUserId()));
             if (d) {
                 str2 = str4;
             }
@@ -401,12 +401,12 @@ public final class BotEffectUIAssist<ChildItemData extends BaseItem<?>> {
                 }
 
                 /* loaded from: classes6.dex */
-                public static final class a implements qu5 {
+                public static final class a implements kw5 {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ BotEffectUIAssist<ChildItemData> a;
 
-                    @Override // com.baidu.tieba.qu5
+                    @Override // com.baidu.tieba.kw5
                     public void a(String str, ImageInfo imageInfo, Animatable animatable) {
                         Interceptable interceptable = $ic;
                         if (interceptable == null || interceptable.invokeLLL(1048576, this, str, imageInfo, animatable) == null) {
@@ -431,7 +431,7 @@ public final class BotEffectUIAssist<ChildItemData extends BaseItem<?>> {
                         this.a = botEffectUIAssist;
                     }
 
-                    @Override // com.baidu.tieba.qu5
+                    @Override // com.baidu.tieba.kw5
                     public void b(String str, Throwable th) {
                         TbImage tbImage;
                         TbImage tbImage2;
@@ -476,7 +476,7 @@ public final class BotEffectUIAssist<ChildItemData extends BaseItem<?>> {
             if (abilityItem != null) {
                 i(this.e, abilityItem);
             }
-            this.c.d(new Runnable() { // from class: com.baidu.tieba.ni8
+            this.c.d(new Runnable() { // from class: com.baidu.tieba.lv8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -540,9 +540,9 @@ public final class BotEffectUIAssist<ChildItemData extends BaseItem<?>> {
         Object obj;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ka8 ka8Var = this.k;
-            if (ka8Var != null) {
-                obj = ka8Var.a();
+            in8 in8Var = this.k;
+            if (in8Var != null) {
+                obj = in8Var.a();
             } else {
                 obj = null;
             }
@@ -567,7 +567,7 @@ public final class BotEffectUIAssist<ChildItemData extends BaseItem<?>> {
     public final void i(final View view2, final AbilityItem abilityItem) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, view2, abilityItem) == null) {
-            view2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.mi8
+            view2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.kv8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

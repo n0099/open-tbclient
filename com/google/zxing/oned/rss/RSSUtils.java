@@ -1,5 +1,5 @@
 package com.google.zxing.oned.rss;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class RSSUtils {
     public static int combins(int i, int i2) {
         int i3 = i - i2;

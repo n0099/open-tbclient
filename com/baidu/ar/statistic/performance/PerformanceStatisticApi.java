@@ -7,9 +7,9 @@ import com.baidu.ar.statistic.StatisticApi;
 import com.baidu.ar.statistic.f;
 import com.baidu.ar.statistic.performance.a;
 import java.util.Random;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class PerformanceStatisticApi implements f {
-    public a.C0062a xf;
+    public a.C0063a xf;
     public int xc = 0;
     public boolean xd = false;
     public a xe = new a();
@@ -17,12 +17,12 @@ public class PerformanceStatisticApi implements f {
 
     private void gs() {
         if (this.xf == null) {
-            a.C0062a c0062a = new a.C0062a();
-            this.xf = c0062a;
+            a.C0063a c0063a = new a.C0063a();
+            this.xf = c0063a;
             int i = this.xc + 1;
             this.xc = i;
-            c0062a.xn = i;
-            this.xe.xm.add(c0062a);
+            c0063a.xn = i;
+            this.xe.xm.add(c0063a);
         }
     }
 
@@ -70,12 +70,12 @@ public class PerformanceStatisticApi implements f {
         try {
             if (this.xd) {
                 gs();
-                a.C0062a.C0063a c0063a = new a.C0062a.C0063a();
-                c0063a.name = str;
-                c0063a.xr = str2;
-                c0063a.xs = j;
-                c0063a.count = i;
-                this.xf.xq.add(c0063a);
+                a.C0063a.C0064a c0064a = new a.C0063a.C0064a();
+                c0064a.name = str;
+                c0064a.xr = str2;
+                c0064a.xs = j;
+                c0064a.count = i;
+                this.xf.xq.add(c0064a);
             }
         } catch (RuntimeException e) {
             e.printStackTrace();

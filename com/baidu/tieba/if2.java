@@ -1,30 +1,24 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import androidx.collection.ArraySet;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.jf2;
+import com.baidu.tieba.cp2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class if2 implements jf2.a {
+public class if2 implements ff2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public JSONObject b;
+    public final String[] a;
 
-    public if2(String str, boolean z) {
+    public if2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,71 +28,41 @@ public class if2 implements jf2.a {
                 return;
             }
         }
-        JSONObject jSONObject = new JSONObject();
-        this.b = jSONObject;
-        this.a = str;
-        try {
-            jSONObject.put(IntentConfig.PKG_ID, str);
-            if (z) {
-                d();
-            }
-        } catch (JSONException e) {
-            if (jf2.n0) {
-                e.printStackTrace();
-            }
-        }
+        this.a = new String[]{od3.w(), od3.y(), la2.c()};
     }
 
-    public static if2 c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return new if2(str, true);
-        }
-        return (if2) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.jf2.a
-    public String a() {
+    @Override // com.baidu.tieba.ff2
+    public ArraySet<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            ArraySet<String> arraySet = new ArraySet<>();
+            for (String str : this.a) {
+                String K = jm4.K(str);
+                if (!TextUtils.isEmpty(K)) {
+                    arraySet.add(K);
+                }
+            }
+            if (rm1.a) {
+                b(arraySet);
+            }
+            g32.k("SwanSdcardFileCollector", "recovery renameAllFiles:" + arraySet.toString());
+            return arraySet;
         }
-        return (String) invokeV.objValue;
+        return (ArraySet) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.jf2.a
-    public JSONObject b() {
-        InterceptResult invokeV;
+    public final void b(ArraySet<String> arraySet) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arraySet) != null) || arraySet == null) {
+            return;
         }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.jf2.a
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return !TextUtils.isEmpty(this.a);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void d() throws JSONException {
-        PMSAppInfo u;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && isValid() && (u = md4.i().u(this.a)) != null) {
-            this.b.put("app_name", u.appName);
-            this.b.put("pkg_vername", u.versionName);
-            this.b.put("pkg_vercode", u.versionCode);
-            this.b.put("create_time", u.createTime);
-            this.b.put("last_launch_time", u.getLastLaunchTime());
-            this.b.put("launch_count", u.getLaunchCount());
-            this.b.put("install_src", u.getInstallSrc());
+        String[] strArr = {xg2.b().getAbsolutePath(), nf3.c().getAbsolutePath(), cp2.b.d(), vi3.b(), fp2.k(), d03.b()};
+        for (int i = 0; i < 6; i++) {
+            String K = jm4.K(strArr[i]);
+            if (!TextUtils.isEmpty(K)) {
+                arraySet.add(K);
+            }
         }
     }
 }

@@ -1,7 +1,21 @@
 package com.baidu.tieba;
-
-import android.graphics.SurfaceTexture;
 /* loaded from: classes7.dex */
 public interface meb {
-    void a(geb gebVar, SurfaceTexture surfaceTexture);
+    void E();
+
+    void I();
+
+    void L0(boolean z);
+
+    void M0(int i, boolean z);
+
+    void a(String str);
+
+    void c();
+
+    void finish();
+
+    void setResult(int i);
+
+    void t();
 }

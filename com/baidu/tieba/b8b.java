@@ -1,35 +1,33 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
-import org.json.JSONException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.data.MultiMediaData;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class b8b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public int b;
+    public int c;
+    public int d;
+    public List<MediaSegment> e;
+    public List<MultiMediaData> f;
 
-    public static void b(String str) {
+    public b8b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-        }
-    }
-
-    public static void a(m8b m8bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, m8bVar) == null) && m8bVar != null && !m8bVar.y()) {
-            JSONArray n = m8bVar.n();
-            int length = n.length();
-            boolean B = m8bVar.B();
-            for (int i = 0; i < length; i++) {
-                try {
-                    if (B != h7b.o().e(n.getJSONObject(i).getString("id"))) {
-                        Log.w("UBCDebug", " data is " + B + "  content " + m8bVar.u().toString());
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }

@@ -1,87 +1,190 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tieba.immessagecenter.chatgroup.floatentrance.ChatFloatEntranceFragment;
+import com.baidu.tieba.immessagecenter.chatgroup.floatentrance.CollapseState;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes8.dex */
 public class vz8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<String, vz8> f;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public String c;
-    public int d;
-    public String e;
+    public wz8 a;
+    public xz8 b;
+    public uz8 c;
+    public boolean d;
+    public long e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948258197, "Lcom/baidu/tieba/vz8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes8.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ uz8 a;
+        public final /* synthetic */ vz8 b;
+
+        public a(vz8 vz8Var, uz8 uz8Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vz8Var, uz8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948258197, "Lcom/baidu/tieba/vz8;");
-                return;
+            this.b = vz8Var;
+            this.a = uz8Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (TbadkCoreApplication.isLogin()) {
+                    vz8 vz8Var = this.b;
+                    if (vz8Var.a.b.a == CollapseState.Icon.FORUM) {
+                        vz8Var.d = true;
+                        c09.b(CommonStatisticKey.KEY_GROUP_CHAT_ENTRANCE_CLICK, this.a.w(), this.a.v(), String.valueOf(this.b.a.b.d), 14, 1);
+                        GroupChatActivity.q1(view2.getContext(), this.b.a.b.d, -1, "", 14);
+                        return;
+                    }
+                }
+                this.a.onClick(view2);
             }
         }
-        f = new HashMap<>();
     }
 
-    public vz8() {
+    public vz8(@NonNull ChatFloatEntranceFragment.u uVar, @NonNull uz8 uz8Var) {
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r3;
+            Object[] objArr = {uVar, uz8Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = "";
+        this.c = uz8Var;
+        xz8 xz8Var = new xz8(uVar, uz8Var);
+        this.b = xz8Var;
+        this.a = new wz8(this, xz8Var);
+        uVar.l.setOnClickListener(new a(this, uz8Var));
+        long w = uz8Var.w();
+        String v = uz8Var.v();
+        String valueOf = String.valueOf(this.a.b.d);
+        if (d()) {
+            str = "1";
+        } else {
+            str = "2";
+        }
+        c09.e("c15207", w, v, valueOf, 1, str);
+        c09.c(CommonStatisticKey.KEY_GROUP_CHAT_ENTRANCE_CLICK, uz8Var.w(), uz8Var.v(), String.valueOf(this.a.b.d), 2, 1);
+        e(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public static vz8 a(long j, String str) {
-        InterceptResult invokeJL;
+    public void h(CollapseState collapseState, CollapseState collapseState2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(65538, null, j, str)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(j);
-            sb.append("_");
-            if (TextUtils.isEmpty(str)) {
-                str = "";
-            }
-            sb.append(str);
-            return f.get(sb.toString());
+        if (interceptable == null || interceptable.invokeLL(1048582, this, collapseState, collapseState2) == null) {
+            this.b.c(collapseState, collapseState2);
         }
-        return (vz8) invokeJL.objValue;
     }
 
     public void b() {
+        int i;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(this.a);
-            sb.append("_");
-            if (TextUtils.isEmpty(this.b)) {
-                str = "";
-            } else {
-                str = this.b;
+            if (System.currentTimeMillis() - this.e > 5000) {
+                this.c.m2();
+                this.e = System.currentTimeMillis();
             }
-            sb.append(str);
-            f.put(sb.toString(), this);
+            this.a.b(false);
+            long w = this.c.w();
+            String v = this.c.v();
+            String valueOf = String.valueOf(this.a.b.d);
+            if (this.a.b.a == CollapseState.Icon.DEFAULT) {
+                i = 3;
+            } else {
+                i = 2;
+            }
+            if (d()) {
+                str = "1";
+            } else {
+                str = "2";
+            }
+            c09.e("c15207", w, v, valueOf, i, str);
+            c09.c(CommonStatisticKey.KEY_GROUP_CHAT_ENTRANCE_CLICK, this.c.w(), this.c.v(), String.valueOf(this.a.b.d), 2, 14);
+        }
+    }
+
+    public void c() {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.b(true);
+            long w = this.c.w();
+            String v = this.c.v();
+            String valueOf = String.valueOf(this.a.b.d);
+            if (d()) {
+                str = "1";
+            } else {
+                str = "2";
+            }
+            c09.e("c15207", w, v, valueOf, 1, str);
+            c09.c(CommonStatisticKey.KEY_GROUP_CHAT_ENTRANCE_CLICK, this.c.w(), this.c.v(), String.valueOf(this.a.b.d), 2, 1);
+        }
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
+            return sharedPrefHelper.getBoolean(ChatFloatEntranceFragment.Y + this.c.v(), true);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.b.b(i);
+        }
+    }
+
+    public void g(List<Long> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, list) == null) && this.d) {
+            this.a.c(list);
+            this.d = false;
+        }
+    }
+
+    public void f(List<Long> list, long j, List list2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{list, Long.valueOf(j), list2, Integer.valueOf(i)}) == null) {
+            this.a.a(list, j, list2, i);
         }
     }
 }

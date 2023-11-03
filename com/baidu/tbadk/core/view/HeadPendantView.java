@@ -21,7 +21,7 @@ import com.baidu.tbadk.data.MetaData;
 import com.baidu.tbadk.data.UserPendantData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.k4;
+import com.baidu.tieba.a5;
 import com.baidu.tieba.view.TbLayerImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -322,7 +322,7 @@ public class HeadPendantView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.b = new TbImageView(this.a);
-            BdPageContext<?> a2 = k4.a(this.a);
+            BdPageContext<?> a2 = a5.a(this.a);
             if (a2 != null) {
                 this.b.setPageId(a2.getUniqueId());
             }

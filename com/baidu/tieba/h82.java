@@ -1,13 +1,14 @@
 package com.baidu.tieba;
 
 import android.annotation.SuppressLint;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tieba.f82;
+import com.baidu.searchbox.v8engine.V8Engine;
+import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,25 +16,53 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class h82 implements s72<r72>, a82 {
+public class h82 implements V8ThreadDelegatePolicy, kr2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean k;
-    public static final boolean l;
+    public static final boolean i;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile g82 a;
-    public volatile g82 b;
-    public final LinkedList<pf2> c;
-    public final List<u72<r72>> d;
-    public g82 e;
-    public volatile boolean f;
-    public volatile boolean g;
-    public volatile boolean h;
-    public boolean i;
-    public final Object j;
+    public V8Engine c;
+    public Thread d;
+    public Handler e;
+    public final Thread f;
+    public Runnable g;
+    public int h;
+
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ h82 a;
+
+        public a(h82 h82Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {h82Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = h82Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Looper.prepare();
+                this.a.e = new Handler();
+                this.a.c.startEngineInternal();
+                Looper.loop();
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -48,62 +77,30 @@ public class h82 implements s72<r72>, a82 {
                 return;
             }
         }
-        k = am1.a;
-        boolean z = true;
-        if (p92.l() != 1) {
-            z = false;
-        }
-        l = z;
+        i = ni3.a();
     }
 
-    @Override // com.baidu.tieba.t72
-    public boolean f() {
+    @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
+    public Thread getThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.a != null) {
-                return true;
+            Handler handler = this.e;
+            if (handler != null) {
+                return handler.getLooper().getThread();
             }
-            return false;
+            return null;
         }
-        return invokeV.booleanValue;
+        return (Thread) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.t72
-    public boolean g() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
+    public void shutdown() {
+        Handler handler;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.t72
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.f;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.s72
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.i;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.a82
-    public void onReady() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.f = true;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (handler = this.e) != null) {
+            handler.removeCallbacksAndMessages(null);
+            this.e.getLooper().quitSafely();
         }
     }
 
@@ -112,362 +109,110 @@ public class h82 implements s72<r72>, a82 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = new LinkedList<>();
-        this.d = new LinkedList();
-        this.j = new Object();
-        this.f = false;
-        this.g = false;
-        this.i = false;
-        this.h = false;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.g = null;
+        this.h = 0;
+        this.f = Looper.getMainLooper().getThread();
     }
 
-    @Override // com.baidu.tieba.s72
-    public void b(String str, PrefetchEvent.c cVar, PMSAppInfo pMSAppInfo) {
+    @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
+    public void doDelegateRunnable(Runnable runnable, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar, pMSAppInfo) == null) {
-            if (k) {
-                Log.i("SwanAppMasterProviderMulti", "get a prefetch event - " + cVar);
-            }
-            if (!this.f) {
-                if (k) {
-                    Log.w("SwanAppMasterProviderMulti", "can not prefetch before default mater ready");
-                    return;
-                }
-                return;
-            }
-            p22.i(PrefetchEvent.MODULE, "start prefetch master");
-            if (pMSAppInfo != null) {
-                String str2 = pMSAppInfo.appId;
-                if (!TextUtils.isEmpty(str2)) {
-                    if (k) {
-                        f82.c().h("SwanAppMasterProviderMulti");
-                    }
-                    if (this.g) {
-                        p53 c0 = p53.c0();
-                        if (c0 != null && TextUtils.equals(str2, c0.getAppId())) {
-                            p22.i(PrefetchEvent.MODULE, "prefetch after app start");
-                            this.e.r(str, cVar, pMSAppInfo);
-                            return;
-                        } else if (k) {
-                            Log.w("SwanAppMasterProviderMulti", "can not prefetch after swan app start, only same app allowed");
-                            return;
-                        } else {
-                            return;
-                        }
-                    }
-                    synchronized (this.j) {
-                        if (this.g) {
-                            return;
-                        }
-                        if (this.b == null || this.b.w(pMSAppInfo, cVar)) {
-                            m(this.b);
-                            this.b = l(false, this.i);
-                        }
-                        this.b.r(str, cVar, pMSAppInfo);
-                        return;
-                    }
-                }
-            }
-            if (k) {
-                Log.w("SwanAppMasterProviderMulti", "prefetch currentAppInfo is empty or appId is empty");
-            }
+        if ((interceptable == null || interceptable.invokeLJ(1048579, this, runnable, j) == null) && this.e != null && !c(runnable)) {
+            this.e.postDelayed(runnable, j);
         }
     }
 
-    @Override // com.baidu.tieba.t72
-    public void c(u72<r72> u72Var) {
+    public void d(@NonNull V8Engine v8Engine) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, u72Var) != null) || u72Var == null) {
-            return;
-        }
-        synchronized (this.j) {
-            if (this.g) {
-                if (k) {
-                    Log.d("SwanAppMasterProviderMulti", "app already start , call back immediately");
-                }
-                u72Var.a(this.h, this.e);
-                return;
-            }
-            if (!this.d.contains(u72Var)) {
-                this.d.add(u72Var);
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v8Engine) == null) {
+            this.c = v8Engine;
         }
     }
 
-    @Override // com.baidu.tieba.s72
-    public void d(pf2 pf2Var) {
+    @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
+    public void doDelegateRunnable(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, pf2Var) == null) && pf2Var != null && !this.g) {
-            synchronized (this.j) {
-                this.c.add(pf2Var);
-            }
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) && this.e != null && !c(runnable)) {
+            this.e.post(runnable);
         }
     }
 
-    public final void k(g82 g82Var) {
-        g82 g82Var2;
+    @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
+    public void doDelegateRunnableDirectly(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, g82Var) == null) {
-            if (g82Var == this.b) {
-                g82Var2 = this.a;
-            } else {
-                g82Var2 = this.b;
-            }
-            this.a = g82Var;
-            m(g82Var2);
-            this.b = null;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, runnable) == null) && this.e != null && !c(runnable)) {
+            this.e.post(runnable);
         }
     }
 
-    @Override // com.baidu.tieba.s72
-    public void j(boolean z, a82 a82Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048585, this, z, a82Var) == null) {
-            if (this.a == null) {
-                synchronized (this.j) {
-                    if (this.a == null) {
-                        this.i = z;
-                        this.a = l(true, z);
-                        this.a.c(this);
-                        this.a.c(a82Var);
-                        return;
-                    }
-                }
-            }
-            if (k) {
-                Log.w("SwanAppMasterProviderMulti", "call prepareDefault repeat");
-            }
-            if (this.a != null) {
-                this.a.c(a82Var);
-            }
-        }
-    }
-
-    public final void q(boolean z, g82 g82Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZL(1048593, this, z, g82Var) != null) || this.d.size() <= 0) {
-            return;
-        }
-        synchronized (this.j) {
-            for (u72<r72> u72Var : this.d) {
-                u72Var.a(z, g82Var);
-            }
-            this.d.clear();
-        }
-        if (k) {
-            Log.d("SwanAppMasterProviderMulti", "is hit prefetch env - " + z);
-        }
-    }
-
-    public g82 l(boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            f82.c().b(!z);
-            return new g82(z, z2);
-        }
-        return (g82) invokeCommon.objValue;
-    }
-
-    public final void m(g82 g82Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048588, this, g82Var) == null) && g82Var != null && g82Var.i() != null) {
-            g82Var.i().destroy();
-            if (k) {
-                Log.i("SwanAppMasterProviderMulti", "master destroy, id - " + g82Var.i().a() + ", isReady - " + g82Var.n() + ", is Default - " + g82Var.l());
-            }
-        }
-    }
-
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048589, this) != null) || this.c.isEmpty() || !this.g) {
-            return;
-        }
-        synchronized (this.j) {
-            Iterator<pf2> it = this.c.iterator();
-            while (it.hasNext()) {
-                pf2 next = it.next();
-                if (k) {
-                    Log.d("SwanAppMasterProviderMulti", "dispatchPendingEvents event: " + next.a);
-                }
-                jc2.V().V0(next);
-            }
-            this.c.clear();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.t72
-    @SuppressLint({"BDThrowableCheck"})
-    /* renamed from: p */
-    public g82 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            if (!this.g) {
-                if (k) {
-                    Log.w("SwanAppMasterProviderMulti", "master not final confirmed, has default - " + f());
-                    Log.w("SwanAppMasterProviderMulti", Log.getStackTraceString(new RuntimeException("throw by debug")));
-                    return null;
-                }
-                return null;
-            }
-            return this.e;
-        }
-        return (g82) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.t72
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            if (k) {
-                Log.d("SwanAppMasterProviderMulti", "release master provider");
-            }
-            this.f = false;
-            this.g = false;
-            this.i = false;
-            this.h = false;
-            m(this.a);
-            m(this.b);
-            this.a = null;
-            this.b = null;
-            this.e = null;
-            synchronized (this.j) {
-                this.c.clear();
-                this.d.clear();
-            }
-            v72.c();
-            y72.b().d();
-            f82.c().a();
-        }
-    }
-
-    public final void o(boolean z, g82 g82Var, PMSAppInfo pMSAppInfo) {
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Boolean.valueOf(z), g82Var, pMSAppInfo}) == null) {
-            this.h = z;
-            this.e = g82Var;
-            g82Var.p(pMSAppInfo);
-            this.g = true;
-            n();
-            k(g82Var);
-            if (k) {
-                j = System.currentTimeMillis();
-            } else {
-                j = 0;
-            }
-            if (k) {
-                long currentTimeMillis = System.currentTimeMillis();
-                Log.i("SwanAppMasterProviderMulti", "clear useless master cost - " + (currentTimeMillis - j) + "ms");
-            }
-            q(z, g82Var);
-            f82.c().a();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Code restructure failed: missing block: B:52:0x0128, code lost:
-        if (r7 == false) goto L52;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:54:0x012c A[Catch: all -> 0x0180, TryCatch #0 {, blocks: (B:23:0x0065, B:25:0x0069, B:27:0x006d, B:28:0x0076, B:30:0x007c, B:34:0x0088, B:36:0x0091, B:58:0x0135, B:37:0x0095, B:39:0x009d, B:40:0x00a1, B:42:0x00c6, B:47:0x011f, B:54:0x012c, B:55:0x012f, B:56:0x0132, B:59:0x0138), top: B:72:0x0065 }] */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x012f A[Catch: all -> 0x0180, TryCatch #0 {, blocks: (B:23:0x0065, B:25:0x0069, B:27:0x006d, B:28:0x0076, B:30:0x007c, B:34:0x0088, B:36:0x0091, B:58:0x0135, B:37:0x0095, B:39:0x009d, B:40:0x00a1, B:42:0x00c6, B:47:0x011f, B:54:0x012c, B:55:0x012f, B:56:0x0132, B:59:0x0138), top: B:72:0x0065 }] */
-    @Override // com.baidu.tieba.t72
-    /* renamed from: r */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public g82 e(PMSAppInfo pMSAppInfo) {
+    public final boolean c(Runnable runnable) {
         InterceptResult invokeL;
-        long j;
-        g82 g82Var;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, pMSAppInfo)) == null) {
-            if (k) {
-                j = System.currentTimeMillis();
-            } else {
-                j = 0;
-            }
-            if ((pMSAppInfo == null || !this.f) && k) {
-                Log.e("SwanAppMasterProviderMulti", Log.getStackTraceString(new Exception("currentAppInfo can not be null， and should call startApp after preload finished")));
-            }
-            if (k) {
-                Log.w("SwanAppMasterProviderMulti", "real start a swan app - " + pMSAppInfo);
-                Log.w("SwanAppMasterProviderMulti", "is default master ready - " + this.f);
-            }
-            if (this.g) {
-                return this.e;
-            }
-            synchronized (this.j) {
-                if (!this.g) {
-                    if (k) {
-                        f82.c().h("SwanAppMasterProviderMulti");
-                    }
-                    boolean z = true;
-                    if (this.b != null && this.b.n() && pMSAppInfo != null) {
-                        if (this.b.w(pMSAppInfo, null)) {
-                            g82Var = this.a;
-                            z = false;
-                            o(z, g82Var, pMSAppInfo);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+            if (runnable != null && this.e != null) {
+                Thread currentThread = Thread.currentThread();
+                String name = currentThread.getName();
+                if (!TextUtils.isEmpty(name) && (name.startsWith("OkHttp") || name.equals("NetworkService"))) {
+                    this.e.postAtFrontOfQueue(runnable);
+                    return true;
+                }
+                if (this.f == currentThread) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
+                    if (i) {
+                        Runnable runnable2 = this.g;
+                        if (runnable2 == null) {
+                            this.e.postAtFrontOfQueue(runnable);
+                        } else if (this.e.hasCallbacks(runnable2)) {
+                            this.e.post(runnable);
                         } else {
-                            if (this.b.j()) {
-                                g82Var = this.b;
-                            } else {
-                                f82.a aVar = new f82.a(pMSAppInfo.appKey, pMSAppInfo.versionCode);
-                                boolean f = f82.c().f(aVar);
-                                boolean g = f82.c().g(aVar);
-                                boolean e = f82.c().e();
-                                if (k) {
-                                    Log.d("SwanAppMasterProviderMulti", "app - " + aVar + ", is loaded - " + f);
-                                    Log.d("SwanAppMasterProviderMulti", "app - " + aVar + ", is loading - " + g);
-                                    StringBuilder sb = new StringBuilder();
-                                    sb.append("has loading app now - ");
-                                    sb.append(e);
-                                    Log.d("SwanAppMasterProviderMulti", sb.toString());
-                                }
-                                if (e && !g) {
-                                    if (f && l) {
-                                        if (z) {
-                                            g82Var = this.b;
-                                        } else {
-                                            g82Var = this.a;
-                                        }
-                                    }
-                                    z = false;
-                                    if (z) {
-                                    }
-                                }
-                                if (z) {
-                                }
-                            }
-                            o(z, g82Var, pMSAppInfo);
+                            this.e.postAtFrontOfQueue(runnable);
+                        }
+                        this.g = runnable;
+                    } else {
+                        boolean hasMessages = this.e.hasMessages(this.h);
+                        this.h++;
+                        Message obtain = Message.obtain(this.e, runnable);
+                        obtain.what = this.h;
+                        if (hasMessages) {
+                            this.e.sendMessage(obtain);
+                        } else {
+                            this.e.sendMessageAtFrontOfQueue(obtain);
                         }
                     }
-                    g82Var = this.a;
-                    z = false;
-                    o(z, g82Var, pMSAppInfo);
+                    return true;
                 }
             }
-            if (k) {
-                long currentTimeMillis = System.currentTimeMillis();
-                Log.i("SwanAppMasterProviderMulti", "get right master cost - " + (currentTimeMillis - j) + "ms");
-                StringBuilder sb2 = new StringBuilder();
-                sb2.append("final master id - ");
-                sb2.append(this.e.i().a());
-                Log.i("SwanAppMasterProviderMulti", sb2.toString());
-            }
-            return this.e;
+            return false;
         }
-        return (g82) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
+    @SuppressLint({"MobilebdThread"})
+    public void startV8Engine(@NonNull V8Engine v8Engine) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, v8Engine) == null) && this.d == null) {
+            Thread thread = new Thread(new a(this));
+            this.d = thread;
+            thread.setName(v8Engine.threadName());
+            this.d.setPriority(10);
+            this.d.start();
+        }
     }
 }

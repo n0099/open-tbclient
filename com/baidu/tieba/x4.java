@@ -1,46 +1,42 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
+import android.graphics.Paint;
+import android.view.View;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
-public abstract class x4 {
+/* loaded from: classes9.dex */
+public class x4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int mPriority;
 
-    public x4() {
+    public static void a(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if ((interceptable != null && interceptable.invokeL(65536, null, view2) != null) || view2 == null) {
+            return;
         }
-        this.mPriority = 0;
+        try {
+            view2.setLayerType(2, null);
+        } catch (Throwable th) {
+            BdLog.e(th.getMessage());
+        }
     }
 
-    public int getPriority() {
-        InterceptResult invokeV;
+    public static void b(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.mPriority;
+        if ((interceptable != null && interceptable.invokeL(65537, null, view2) != null) || view2 == null) {
+            return;
         }
-        return invokeV.intValue;
-    }
-
-    public void setPriority(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.mPriority = i;
+        try {
+            Paint paint = new Paint();
+            ColorMatrix colorMatrix = new ColorMatrix();
+            colorMatrix.setSaturation(0.0f);
+            paint.setColorFilter(new ColorMatrixColorFilter(colorMatrix));
+            view2.setLayerType(2, paint);
+        } catch (Throwable th) {
+            BdLog.e(th.getMessage());
         }
     }
 }

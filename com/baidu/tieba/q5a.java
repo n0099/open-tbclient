@@ -1,189 +1,69 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.r5a;
-import com.baidu.titan.sdk.common.TitanConstant;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 /* loaded from: classes7.dex */
-public class q5a {
+public class q5a extends bi<a7a, CardViewHolder<h8a>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public r5a a;
-    public String b;
-    public boolean c;
-    public r5a.a d;
+    public TbPageContext<?> a;
 
-    /* loaded from: classes7.dex */
-    public class a implements r5a.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q5a a;
-
-        public a(q5a q5aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q5aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = q5aVar;
-        }
-
-        @Override // com.baidu.tieba.r5a.a
-        public void a() {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.a.c) {
-                return;
-            }
-            this.a.c = false;
-        }
-    }
-
-    public q5a() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public q5a(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity(), a7a.e);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = null;
-        this.c = false;
-        this.d = new a(this);
+        this.a = tbPageContext;
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: t */
+    public CardViewHolder<h8a> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new CardViewHolder<>(new h8a(this.a));
         }
-        return invokeV.booleanValue;
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    public void g() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, a7a a7aVar, CardViewHolder<h8a> cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            String c = c();
-            if (TextUtils.isEmpty(c)) {
-                return;
-            }
-            h();
-            if (s5a.e(c) && f(c, TitanConstant.KEY_INSTANT_INIT_CLASS, true)) {
-                this.c = true;
-            }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, a7aVar, cardViewHolder})) == null) {
+            cardViewHolder.a().k(a7aVar);
+            cardViewHolder.a().l(this.a, TbadkCoreApplication.getInst().getSkinType());
+            return cardViewHolder.getView();
         }
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r0v6, resolved type: com.baidu.tieba.r5a */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v0, types: [com.baidu.tieba.r5a$a, com.baidu.tieba.r5a] */
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            r5a r5aVar = this.a;
-            if (r5aVar != null) {
-                try {
-                    try {
-                        r5aVar.c();
-                    } catch (Exception e) {
-                        BdLog.e(e);
-                    }
-                } finally {
-                    this.a.b(null);
-                    this.a = null;
-                }
-            }
-            this.c = false;
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            h();
-        }
-    }
-
-    public final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!TextUtils.isEmpty(this.b)) {
-                return this.b;
-            }
-            String b = s5a.b();
-            this.b = b;
-            if (TextUtils.isEmpty(b)) {
-                this.b = s5a.c();
-            } else if (!this.b.endsWith(File.separator)) {
-                this.b += File.separator;
-            }
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            File file = new File(str);
-            if (!file.exists()) {
-                if (file.mkdirs()) {
-                    BdLog.d("folder mkdir success: " + str);
-                } else if (!file.exists()) {
-                    BdLog.d("folder mkdir failed");
-                }
-            }
-            if (file.isDirectory()) {
-                return;
-            }
-            throw new IllegalArgumentException("The logcat folder path is not a directory: " + str);
-        }
-    }
-
-    public final boolean f(String str, String str2, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048579, this, str, str2, z)) == null) {
-            if (this.a != null) {
-                return true;
-            }
-            e(str);
-            r5a r5aVar = new r5a(str, str2, z);
-            this.a = r5aVar;
-            r5aVar.b(this.d);
-            try {
-                this.a.start();
-                return true;
-            } catch (IllegalThreadStateException unused) {
-                return true;
-            } catch (Exception e) {
-                this.a = null;
-                BdLog.e(e);
-                return false;
-            }
-        }
-        return invokeLLZ.booleanValue;
+        return (View) invokeCommon.objValue;
     }
 }

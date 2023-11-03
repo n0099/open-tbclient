@@ -2,7 +2,7 @@ package com.google.zxing.client.result;
 
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import org.apache.commons.codec.net.RFC1522Codec;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class SMSParsedResult extends ParsedResult {
     public final String body;
     public final String[] numbers;

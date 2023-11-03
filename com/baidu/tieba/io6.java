@@ -1,16 +1,65 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.TransmitForumData;
-import java.util.ArrayList;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.compact.RecommendBannerCardView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface io6 {
+public class io6 extends ia7<RecommendBannerCardView, s27> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void callback(ArrayList<TransmitForumData> arrayList, boolean z, int i, int i2);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public io6() {
+        super("recommend_banner");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
-    void a(a aVar);
+    @Override // com.baidu.tieba.ia7, com.baidu.tieba.ya7
+    @NonNull
+    public View a(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            RecommendBannerCardView recommendBannerCardView = new RecommendBannerCardView(viewGroup.getContext());
+            recommendBannerCardView.a(viewGroup);
+            rc7.i(recommendBannerCardView, Integer.valueOf(rc7.e() * 2));
+            return recommendBannerCardView;
+        }
+        return (View) invokeL.objValue;
+    }
 
-    void b();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ya7
+    /* renamed from: e */
+    public void b(@NonNull RecommendBannerCardView recommendBannerCardView, @NonNull s27 s27Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, recommendBannerCardView, s27Var) == null) {
+            Object obj = s27Var.a().a;
+            if (obj instanceof pe8) {
+                recommendBannerCardView.setVisibility(0);
+                recommendBannerCardView.c((pe8) obj);
+                return;
+            }
+            recommendBannerCardView.setVisibility(8);
+        }
+    }
 }

@@ -8,9 +8,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.az8;
-import com.baidu.tieba.bz8;
-import com.baidu.tieba.cz8;
+import com.baidu.tieba.ec9;
+import com.baidu.tieba.fc9;
+import com.baidu.tieba.gc9;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.tieba.lego.card.utils.ColorUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +24,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class PlayPicInfoCard extends BaseCardInfo implements az8<PlayPicInfoCard> {
+public class PlayPicInfoCard extends BaseCardInfo implements ec9<PlayPicInfoCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int descOnPic;
@@ -41,8 +41,8 @@ public class PlayPicInfoCard extends BaseCardInfo implements az8<PlayPicInfoCard
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
         public String b;
-        public cz8 c;
-        public bz8 d;
+        public gc9 c;
+        public fc9 d;
 
         public boolean b() {
             InterceptResult invokeV;
@@ -71,17 +71,17 @@ public class PlayPicInfoCard extends BaseCardInfo implements az8<PlayPicInfoCard
             if (jSONObject != null) {
                 this.a = jSONObject.optString("lbText");
                 this.b = jSONObject.optString("lbScheme");
-                cz8 cz8Var = new cz8();
-                this.c = cz8Var;
-                cz8Var.d = jSONObject.optString("rText");
+                gc9 gc9Var = new gc9();
+                this.c = gc9Var;
+                gc9Var.d = jSONObject.optString("rText");
                 this.c.c = jSONObject.optInt("rIconType");
                 this.c.a = jSONObject.optString("rIcon");
                 this.c.b = jSONObject.optString("rIconN");
                 JSONObject optJSONObject = jSONObject.optJSONObject("cb");
                 if (optJSONObject != null) {
-                    bz8 bz8Var = new bz8(optJSONObject);
-                    this.d = bz8Var;
-                    if (!bz8Var.j()) {
+                    fc9 fc9Var = new fc9(optJSONObject);
+                    this.d = fc9Var;
+                    if (!fc9Var.j()) {
                         this.d = null;
                     }
                 }
@@ -248,7 +248,7 @@ public class PlayPicInfoCard extends BaseCardInfo implements az8<PlayPicInfoCard
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.az8
+    @Override // com.baidu.tieba.ec9
     public void doLoad(PlayPicInfoCard playPicInfoCard, TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, playPicInfoCard, tbPageContext) == null) && playPicInfoCard != null && tbPageContext != null) {

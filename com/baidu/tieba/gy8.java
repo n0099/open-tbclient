@@ -1,124 +1,56 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.im.lib.socket.msg.TbAtUserInfo;
+import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
+import com.baidu.tieba.im.lib.socket.msg.TbSysMsg;
+import com.baidu.tieba.im.lib.socket.msg.TbTextMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.chatbox.ChatGroupSource;
+import com.baidu.tieba.immessagecenter.chatgroup.data.AtInfo;
+import com.baidu.tieba.immessagecenter.chatgroup.data.ChatNewMessage;
+import com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.Lego.DataRes;
+import java.util.Map;
+import java.util.TreeSet;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
 public class gy8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c a;
-    public final List<ICardInfo> b;
-    public int c;
-    public boolean d;
-    public String e;
-    public boolean f;
-    public boolean g;
-    public final BdListView h;
-    public final qy8 i;
-    public long j;
-    public String k;
+    public Map<Long, ChatRoomInfo> a;
+    public Map<Long, ChatRoomInfo> b;
+    public long c;
+    public m19 d;
+    public ChatGroupSource e;
+    public Runnable f;
+    public CustomMessageListener g;
 
     /* loaded from: classes6.dex */
-    public interface c {
-        void a(List<uz8> list);
-
-        void b(long j, String str);
-
-        void c(int i, String str);
-
-        void d(String str, String str2, String str3, List<vz8> list);
-
-        void onError(int i, String str);
-
-        void onSuccess();
-    }
-
-    /* loaded from: classes6.dex */
-    public class a extends gs5<DataRes> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m9 a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ String c;
-
-        public a(gy8 gy8Var, m9 m9Var, long j, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gy8Var, m9Var, Long.valueOf(j), str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = m9Var;
-            this.b = j;
-            this.c = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.gs5
-        /* renamed from: a */
-        public DataRes doInBackground() {
-            InterceptResult invokeV;
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                m9 m9Var = this.a;
-                StringBuilder sb = new StringBuilder();
-                sb.append(this.b);
-                sb.append("_");
-                if (TextUtils.isEmpty(this.c)) {
-                    str = "";
-                } else {
-                    str = this.c;
-                }
-                sb.append(str);
-                byte[] bArr = (byte[]) m9Var.get(sb.toString());
-                if (bArr != null && bArr.length != 0) {
-                    try {
-                        return (DataRes) new Wire(new Class[0]).parseFrom(bArr, DataRes.class);
-                    } catch (IOException e) {
-                        BdLog.e(e);
-                    }
-                }
-                return null;
-            }
-            return (DataRes) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements lr5<DataRes> {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ gy8 a;
 
-        public b(gy8 gy8Var) {
+        public a(gy8 gy8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -136,24 +68,83 @@ public class gy8 {
             this.a = gy8Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.lr5
-        /* renamed from: a */
-        public void onReturnDataInUI(DataRes dataRes) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) {
-                return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.c = System.currentTimeMillis();
+                this.a.p();
             }
-            this.a.h(dataRes);
         }
     }
 
-    public gy8(BdListView bdListView, qy8 qy8Var) {
+    /* loaded from: classes6.dex */
+    public class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gy8 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(gy8 gy8Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gy8Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gy8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            k19 k19Var;
+            TbBaseMsg tbBaseMsg;
+            ChatRoomInfo t;
+            String showContent;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921773 && (customResponsedMessage.getData() instanceof k19) && (k19Var = (k19) customResponsedMessage.getData()) != null && (tbBaseMsg = k19Var.a) != null && (t = this.a.t(tbBaseMsg, k19Var.b, 0)) != null) {
+                this.a.r(t);
+                ChatRoomInfo chatRoomInfo = (ChatRoomInfo) this.a.b.get(Long.valueOf(t.getRoomId()));
+                if (chatRoomInfo != null && chatRoomInfo.getNewMessage() != null) {
+                    chatRoomInfo.setAtInfo(null);
+                    chatRoomInfo.getNewMessage().resetSpecialMsg();
+                    TbBaseMsg tbBaseMsg2 = k19Var.a;
+                    if (tbBaseMsg2 instanceof TbSysMsg) {
+                        TbSysMsg tbSysMsg = (TbSysMsg) tbBaseMsg2;
+                        chatRoomInfo.getNewMessage().setFromName(null);
+                        ChatNewMessage newMessage = chatRoomInfo.getNewMessage();
+                        if (tbSysMsg.getMsgConf() == null) {
+                            showContent = "";
+                        } else {
+                            showContent = tbSysMsg.getMsgConf().getShowContent();
+                        }
+                        newMessage.setContent(showContent);
+                    }
+                    HashMap hashMap = new HashMap();
+                    hashMap.put(Long.valueOf(chatRoomInfo.getRoomId()), chatRoomInfo);
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921766, hashMap));
+                }
+            }
+        }
+    }
+
+    public gy8(@NonNull ChatGroupSource chatGroupSource) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdListView, qy8Var};
+            Object[] objArr = {chatGroupSource};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -163,260 +154,288 @@ public class gy8 {
                 return;
             }
         }
-        this.a = null;
-        this.b = new LinkedList();
-        this.c = 1;
-        this.e = "";
-        this.f = false;
-        this.g = false;
-        this.h = bdListView;
-        this.i = qy8Var;
+        this.a = new ConcurrentHashMap();
+        this.b = new ConcurrentHashMap();
+        this.d = new m19();
+        this.f = new a(this);
+        this.g = new b(this, 2921773);
+        this.e = chatGroupSource;
     }
 
-    public final void e(long j, String str) {
+    public void i(List<ChatRoomInfo> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048579, this, j, str) == null) {
-            gz4.k();
-            ks5.b(new a(this, gz4.i("tb.lego_update"), j, str), new b(this));
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            this.b.clear();
+            for (ChatRoomInfo chatRoomInfo : list) {
+                this.b.put(Long.valueOf(chatRoomInfo.getRoomId()), chatRoomInfo);
+            }
+            if (MessageManager.getInstance().hasListener(2921766)) {
+                MessageManager.getInstance().unRegisterListener(this.g);
+            }
+            MessageManager.getInstance().registerListener(this.g);
         }
     }
 
-    public final void f(long j, String str) {
-        c cVar;
+    public final List<ChatMsg> f(@NonNull ChatRoomInfo chatRoomInfo, @NonNull TreeSet<ChatMsg> treeSet) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJL(1048580, this, j, str) == null) && (cVar = this.a) != null) {
-            cVar.b(j, str);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, chatRoomInfo, treeSet)) == null) {
+            ArrayList arrayList = new ArrayList();
+            while (true) {
+                ChatMsg pollLast = treeSet.pollLast();
+                if (pollLast != null) {
+                    m19.c(chatRoomInfo, pollLast);
+                    if (pollLast.getMsgType() == 10000) {
+                        if (this.d.e(pollLast)) {
+                            arrayList.add(pollLast);
+                        }
+                    } else {
+                        arrayList.add(pollLast);
+                    }
+                } else {
+                    return arrayList;
+                }
+            }
+        } else {
+            return (List) invokeLL.objValue;
         }
     }
 
-    public void m(long j, String str) {
+    public final void o(@NonNull ChatRoomInfo chatRoomInfo, @NonNull ChatRoomInfo chatRoomInfo2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048587, this, j, str) == null) {
-            this.c = 1;
-            this.j = j;
-            this.k = str;
-            if (this.b.size() == 0 && !this.g) {
-                e(j, str);
-            } else {
-                f(j, str);
+        if (interceptable == null || interceptable.invokeLL(1048585, this, chatRoomInfo, chatRoomInfo2) == null) {
+            ChatNewMessage newMessage = chatRoomInfo.getNewMessage();
+            ChatNewMessage newMessage2 = chatRoomInfo2.getNewMessage();
+            if (newMessage != null && ChatNewMessage.getSpecialMsgPriority(newMessage.getSpecialType()) > ChatNewMessage.getSpecialMsgPriority(newMessage2.getSpecialType())) {
+                newMessage2.setSpecialType(newMessage.getSpecialType());
+                newMessage2.setSpecialMsg(newMessage.getSpecialMsg());
             }
         }
     }
 
-    public List<ICardInfo> b() {
+    public void q(long j, int i) {
+        ChatRoomInfo chatRoomInfo;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) && (chatRoomInfo = this.b.get(Long.valueOf(j))) != null) {
+            chatRoomInfo.setUnreadNum(i);
+        }
+    }
+
+    @NonNull
+    public List<Long> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new ArrayList(this.b.keySet());
         }
         return (List) invokeV.objValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean d() {
+    public final long h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
+            if (this.e == ChatGroupSource.GROUP_CHAT_TAB) {
+                return 1000L;
+            }
+            return TbSingleton.getInstance().getChatGroupThreadHold();
         }
-        return invokeV.booleanValue;
+        return invokeV.longValue;
     }
 
-    public void g() {
+    public void m() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && !d() && this.a != null) {
-            this.c++;
-            k(true);
-            this.a.c(this.c, this.e);
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.g);
         }
     }
 
-    public final void h(DataRes dataRes) {
-        c cVar;
+    public void j(long j, @NonNull TreeSet<ChatMsg> treeSet) {
+        ChatRoomInfo chatRoomInfo;
+        ChatMsg next;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, dataRes) == null) {
-            this.g = true;
-            if (dataRes != null) {
-                if (j(true, dataRes) && (cVar = this.a) != null) {
-                    cVar.onSuccess();
-                }
-                f(this.j, this.k);
+        if ((interceptable == null || interceptable.invokeJL(1048580, this, j, treeSet) == null) && !treeSet.isEmpty() && (chatRoomInfo = this.b.get(Long.valueOf(j))) != null) {
+            List<ChatMsg> f = f(chatRoomInfo, treeSet);
+            if (ListUtils.isEmpty(f)) {
                 return;
             }
-            f(this.j, this.k);
-        }
-    }
-
-    public final void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f = z;
-        }
-    }
-
-    public void l(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, cVar) == null) {
-            this.a = cVar;
-        }
-    }
-
-    public void i(boolean z, DataRes dataRes, int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), dataRes, Integer.valueOf(i), str}) == null) {
-            k(false);
-            if (z) {
-                this.h.y();
+            int i = 0;
+            ChatMsg chatMsg = f.get(0);
+            if (chatMsg == null) {
+                return;
             }
-            if (i == 0 && dataRes != null && j(z, dataRes)) {
-                c cVar = this.a;
-                if (cVar != null) {
-                    cVar.onSuccess();
+            chatMsg.setMsgTime(m19.h(chatMsg));
+            if (chatMsg.getMsgTime() <= chatRoomInfo.getTimestamp()) {
+                return;
+            }
+            Iterator<ChatMsg> it = treeSet.iterator();
+            while (it.hasNext() && ((next = it.next()) == null || next.getMsgTime() <= chatRoomInfo.getTimestamp())) {
+                i++;
+            }
+            ChatRoomInfo s = s(chatMsg, j, f.size() - i);
+            if (s == null) {
+                return;
+            }
+            o(chatRoomInfo, s);
+            k(s);
+            l();
+        }
+    }
+
+    public final void k(@NonNull ChatRoomInfo chatRoomInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, chatRoomInfo) == null) {
+            if (this.a.get(Long.valueOf(chatRoomInfo.getRoomId())) != null) {
+                r(chatRoomInfo);
+                this.a.put(Long.valueOf(chatRoomInfo.getRoomId()), this.b.get(Long.valueOf(chatRoomInfo.getRoomId())));
+            } else if (this.b.containsKey(Long.valueOf(chatRoomInfo.getRoomId()))) {
+                r(chatRoomInfo);
+                this.a.put(Long.valueOf(chatRoomInfo.getRoomId()), this.b.get(Long.valueOf(chatRoomInfo.getRoomId())));
+            }
+        }
+    }
+
+    @Nullable
+    public AtInfo n(@NonNull TbBaseMsg tbBaseMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tbBaseMsg)) == null) {
+            List<TbAtUserInfo> atUserInfoList = tbBaseMsg.getAtUserInfoList();
+            if (atUserInfoList == null) {
+                return null;
+            }
+            AtInfo atInfo = new AtInfo();
+            for (TbAtUserInfo tbAtUserInfo : atUserInfoList) {
+                if (tbAtUserInfo.getAtType() == TbAtUserInfo.AtType.ALL) {
+                    atInfo.setAtAllMsgCount(atInfo.getAllMsgCount() + 1);
+                    atInfo.setAtCountAll(atInfo.getCountAll() + 1);
+                } else if (tbAtUserInfo.getAtType() == TbAtUserInfo.AtType.USER && TbadkCoreApplication.getCurrentAccountId() == tbAtUserInfo.getAtUid()) {
+                    atInfo.setAtSingleMsgCount(atInfo.getSingleMsgCount() + 1);
+                    atInfo.setAtCountAll(atInfo.getCountAll() + 1);
                 }
-                if (z) {
-                    n(dataRes);
+            }
+            return atInfo;
+        }
+        return (AtInfo) invokeL.objValue;
+    }
+
+    public final void r(@NonNull ChatRoomInfo chatRoomInfo) {
+        ChatRoomInfo chatRoomInfo2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048588, this, chatRoomInfo) == null) && (chatRoomInfo2 = this.b.get(Long.valueOf(chatRoomInfo.getRoomId()))) != null) {
+            chatRoomInfo2.setUnreadNum(chatRoomInfo2.getUnreadNum() + chatRoomInfo.getUnreadNum());
+            chatRoomInfo2.setNewMessage(chatRoomInfo.getNewMessage());
+            if (chatRoomInfo2.getAtInfo() != null) {
+                if (chatRoomInfo.getAtInfo() != null) {
+                    AtInfo atInfo = chatRoomInfo2.getAtInfo();
+                    AtInfo atInfo2 = chatRoomInfo.getAtInfo();
+                    if (atInfo2 != null) {
+                        atInfo.setAtAllMsgCount(atInfo.getAllMsgCount() + atInfo2.getAllMsgCount());
+                        atInfo.setAtCountAll(atInfo.getCountAll() + atInfo2.getCountAll());
+                        atInfo.setAtSingleMsgCount(atInfo.getSingleMsgCount() + atInfo2.getSingleMsgCount());
+                        return;
+                    }
+                    return;
                 }
-            } else if (this.b.size() > 0) {
-                c cVar2 = this.a;
-                if (cVar2 != null) {
-                    cVar2.onError(1, str);
+                return;
+            }
+            chatRoomInfo2.setAtInfo(chatRoomInfo.getAtInfo());
+        }
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            long h = h();
+            long j = this.c;
+            if (j == 0) {
+                this.c = currentTimeMillis;
+            } else if (currentTimeMillis - j >= h) {
+                this.c = currentTimeMillis;
+                h = 0;
+            } else {
+                h -= currentTimeMillis - j;
+            }
+            SafeHandler.getInst().removeCallbacks(this.f);
+            SafeHandler.getInst().postDelayed(this.f, h);
+        }
+    }
+
+    public final void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            if (!this.a.isEmpty()) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921766, new HashMap(this.a)));
+            }
+            this.a.clear();
+        }
+    }
+
+    @Nullable
+    public final ChatRoomInfo s(@NonNull ChatMsg chatMsg, long j, int i) {
+        InterceptResult invokeCommon;
+        TbBaseMsg f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{chatMsg, Long.valueOf(j), Integer.valueOf(i)})) == null) {
+            if (chatMsg.getMsgType() == 10000) {
+                f = this.d.g(chatMsg);
+            } else {
+                f = this.d.f(j, chatMsg);
+            }
+            return t(f, j, i);
+        }
+        return (ChatRoomInfo) invokeCommon.objValue;
+    }
+
+    public final ChatRoomInfo t(TbBaseMsg tbBaseMsg, long j, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{tbBaseMsg, Long.valueOf(j), Integer.valueOf(i)})) == null) {
+            if (tbBaseMsg == null) {
+                return null;
+            }
+            long msgId = tbBaseMsg.getMsgId();
+            long msgTime = tbBaseMsg.getMsgTime();
+            ChatRoomInfo chatRoomInfo = new ChatRoomInfo();
+            chatRoomInfo.setRoomId(j);
+            ChatNewMessage chatNewMessage = new ChatNewMessage();
+            chatNewMessage.setMsgId(String.valueOf(msgId));
+            chatNewMessage.setMsgTime(String.valueOf(msgTime));
+            if (tbBaseMsg instanceof TbTextMsg) {
+                chatNewMessage.setContent(((TbTextMsg) tbBaseMsg).getText());
+                chatNewMessage.setFromName(tbBaseMsg.getUserName());
+            } else if (tbBaseMsg instanceof TbSysMsg) {
+                TbSysMsg tbSysMsg = (TbSysMsg) tbBaseMsg;
+                if (tbSysMsg.getMsgConf() != null) {
+                    if (tbSysMsg.getMsgConf().isVisible()) {
+                        chatNewMessage.setContent(tbSysMsg.getMsgConf().getShowContent());
+                    }
+                    if (!tbSysMsg.getMsgConf().isCountable() && i > 0) {
+                        i--;
+                    }
+                } else {
+                    chatNewMessage.setFromName(tbBaseMsg.getUserName());
+                    if (tbBaseMsg.getThumbnailText() != null) {
+                        chatNewMessage.setContent(tbBaseMsg.getThumbnailText().toString());
+                    }
                 }
             } else {
-                c cVar3 = this.a;
-                if (cVar3 != null) {
-                    cVar3.onError(2, str);
+                if (tbBaseMsg.getThumbnailText() != null) {
+                    chatNewMessage.setContent(tbBaseMsg.getThumbnailText().toString());
                 }
+                chatNewMessage.setFromName(tbBaseMsg.getUserName());
             }
+            chatRoomInfo.setUnreadNum(i);
+            chatRoomInfo.setNewMessage(chatNewMessage);
+            AtInfo n = n(tbBaseMsg);
+            if (n != null && n.getCountAll() > 0) {
+                chatNewMessage.setSpecialType(ChatNewMessage.TYPE_AT_MSG);
+                chatNewMessage.setSpecialMsg(ChatNewMessage.TYPE_AT_MSG_CONTENT);
+            }
+            chatRoomInfo.setAtInfo(n);
+            return chatRoomInfo;
         }
-    }
-
-    public final boolean j(boolean z, DataRes dataRes) {
-        InterceptResult invokeZL;
-        boolean z2;
-        String str;
-        String str2;
-        String str3;
-        JSONObject jSONObject;
-        JSONObject jSONObject2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZL = interceptable.invokeZL(InputDeviceCompat.SOURCE_TOUCHPAD, this, z, dataRes)) == null) {
-            if (dataRes == null) {
-                return false;
-            }
-            if (z) {
-                this.b.clear();
-            }
-            if (dataRes.has_more.intValue() == 1) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            this.d = z2;
-            ArrayList arrayList = new ArrayList();
-            try {
-                JSONObject jSONObject3 = new JSONObject(dataRes.page_info);
-                JSONArray optJSONArray = jSONObject3.optJSONArray("tab");
-                JSONObject optJSONObject = jSONObject3.optJSONObject("title");
-                if (optJSONObject == null) {
-                    str = "";
-                    str2 = str;
-                    str3 = str2;
-                } else {
-                    str2 = optJSONObject.optString("name");
-                    str3 = optJSONObject.optString("url");
-                    str = optJSONObject.optString("urlNight");
-                }
-                if (optJSONArray != null) {
-                    int i = 0;
-                    while (i < optJSONArray.length()) {
-                        JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
-                        if (optJSONObject2 != null) {
-                            vz8 vz8Var = new vz8();
-                            vz8Var.c = optJSONObject2.optString("title");
-                            jSONObject2 = jSONObject3;
-                            vz8Var.a = optJSONObject2.optLong(LegoListActivityConfig.PAGE_ID);
-                            optJSONObject2.optInt("page_type");
-                            vz8Var.d = optJSONObject2.optInt("rn");
-                            vz8Var.b = optJSONObject2.optString("item_id");
-                            vz8Var.e = optJSONObject2.optString("params");
-                            vz8Var.b();
-                            arrayList.add(vz8Var);
-                        } else {
-                            jSONObject2 = jSONObject3;
-                        }
-                        i++;
-                        jSONObject3 = jSONObject2;
-                    }
-                    jSONObject = jSONObject3;
-                    this.a.d(str2, str3, str, arrayList);
-                } else {
-                    jSONObject = jSONObject3;
-                }
-                JSONArray optJSONArray2 = jSONObject.optJSONArray("buttons");
-                if (optJSONArray2 != null) {
-                    ArrayList arrayList2 = new ArrayList();
-                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                        JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i2);
-                        if (optJSONObject3 != null) {
-                            uz8 uz8Var = new uz8();
-                            uz8Var.b(optJSONObject3);
-                            if (uz8Var.a()) {
-                                arrayList2.add(uz8Var);
-                            }
-                        }
-                    }
-                    this.a.a(arrayList2);
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            if (dataRes.cards != null) {
-                for (int i3 = 0; i3 < dataRes.cards.size(); i3++) {
-                    ICardInfo i4 = sy8.i(dataRes.cards.get(i3));
-                    if (i4 != null && i4.isValid()) {
-                        this.b.add(i4);
-                    }
-                }
-            }
-            if (this.b.size() == 0) {
-                return false;
-            }
-            try {
-                this.e = this.b.get(this.b.size() - 1).getFlipId();
-            } catch (Exception unused) {
-                this.e = "";
-            }
-            this.i.C(this.b);
-            return true;
-        }
-        return invokeZL.booleanValue;
-    }
-
-    public final void n(DataRes dataRes) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048588, this, dataRes) != null) || dataRes == null) {
-            return;
-        }
-        gz4.k();
-        m9<byte[]> i = gz4.i("tb.lego_update");
-        StringBuilder sb = new StringBuilder();
-        sb.append(this.j);
-        sb.append("_");
-        if (TextUtils.isEmpty(this.k)) {
-            str = "";
-        } else {
-            str = this.k;
-        }
-        sb.append(str);
-        i.a(sb.toString(), dataRes.toByteArray());
+        return (ChatRoomInfo) invokeCommon.objValue;
     }
 }

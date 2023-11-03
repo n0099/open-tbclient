@@ -4,13 +4,13 @@ import com.xiaomi.mipush.sdk.MiTinyDataClient;
 import com.xiaomi.push.hl;
 /* loaded from: classes10.dex */
 public class aa implements Runnable {
-    public final /* synthetic */ MiTinyDataClient.a.C0710a a;
+    public final /* synthetic */ MiTinyDataClient.a.C0716a a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ hl f48a;
 
-    public aa(MiTinyDataClient.a.C0710a c0710a, hl hlVar) {
-        this.a = c0710a;
+    public aa(MiTinyDataClient.a.C0716a c0716a, hl hlVar) {
+        this.a = c0716a;
         this.f48a = hlVar;
     }
 

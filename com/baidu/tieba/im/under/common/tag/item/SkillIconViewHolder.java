@@ -3,7 +3,7 @@ package com.baidu.tieba.im.under.common.tag.item;
 import android.view.View;
 import android.widget.LinearLayout;
 import com.baidu.tieba.im.base.core.tag.core.BaseTagItemViewHolder;
-import com.baidu.tieba.w98;
+import com.baidu.tieba.um8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -15,13 +15,13 @@ public class SkillIconViewHolder extends BaseTagItemViewHolder {
     public LinearLayout c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SkillIconViewHolder(View view2, w98 w98Var) {
+    public SkillIconViewHolder(View view2, um8 um8Var) {
         super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, w98Var};
+            Object[] objArr = {view2, um8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {

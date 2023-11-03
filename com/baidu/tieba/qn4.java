@@ -1,132 +1,21 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.oi4;
+import android.util.Log;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebKitFactory;
-import java.io.File;
-import java.util.HashSet;
-import java.util.Set;
+import java.text.DecimalFormat;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class qn4 implements oi4 {
+public class qn4 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean c;
-    public static final Set<oi4.a> d;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-
-    /* loaded from: classes7.dex */
-    public class a implements WebKitFactory.WebkitInstallListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ File b;
-        public final /* synthetic */ qn4 c;
-
-        @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
-        public void onInstallStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-
-        /* renamed from: com.baidu.tieba.qn4$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class RunnableC0451a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public RunnableC0451a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    qn4 qn4Var = this.a.c;
-                    qn4Var.j(qn4Var.b);
-                }
-            }
-        }
-
-        public a(qn4 qn4Var, String str, File file) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qn4Var, str, file};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = qn4Var;
-            this.a = str;
-            this.b = file;
-        }
-
-        @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
-        public void onInstallFinish(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                boolean z = true;
-                if (sl4.B(this.a, str)) {
-                    synchronized (qn4.d) {
-                        this.c.i(true);
-                    }
-                    return;
-                }
-                if (qn4.e(this.c) <= 2) {
-                    if (8 == i) {
-                        this.c.b = this.a;
-                    } else {
-                        qn4 qn4Var = this.c;
-                        qn4Var.b = this.a + File.pathSeparator + this.c.a;
-                        if (sl4.f(this.b, new File(this.c.b)) != this.b.length()) {
-                            z = false;
-                        }
-                    }
-                    if (z && o53.M().postDelayed(new RunnableC0451a(this), 1000L)) {
-                        return;
-                    }
-                }
-                if (8 == i) {
-                    sl4.k(this.a);
-                }
-                synchronized (qn4.d) {
-                    this.c.i(false);
-                }
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -141,79 +30,73 @@ public final class qn4 implements oi4 {
                 return;
             }
         }
-        d = new HashSet();
+        a = rm1.a;
     }
 
-    public qn4() {
+    public static void a(String str, String str2, String str3, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = 0;
-    }
-
-    @Override // com.baidu.tieba.oi4
-    public void a(String str, oi4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) {
-            synchronized (d) {
-                d.add(aVar);
-                if (c) {
-                    return;
-                }
-                c = true;
-                j(str);
-            }
-        }
-    }
-
-    public static /* synthetic */ int e(qn4 qn4Var) {
-        int i = qn4Var.a + 1;
-        qn4Var.a = i;
-        return i;
-    }
-
-    public final void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            synchronized (d) {
-                for (oi4.a aVar : d) {
-                    if (aVar != null) {
-                        aVar.a(z);
+        if (interceptable == null || interceptable.invokeLLLL(65537, null, str, str2, str3, jSONObject) == null) {
+            if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str)) {
+                JSONObject jSONObject2 = new JSONObject();
+                try {
+                    jSONObject2.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, str2);
+                    jSONObject2.put("vtype", str3);
+                    jSONObject.putOpt("videoId", str);
+                    jSONObject2.put("data", jSONObject.toString());
+                } catch (JSONException e) {
+                    if (a) {
+                        e.printStackTrace();
                     }
                 }
-                d.clear();
-                c = false;
-                this.a = 0;
+                g32.b("VideoStatusEventHelper", "Video dispatch Params : " + jSONObject2.toString());
+                nl3.d(str2, str, "video", str3, jSONObject2);
+            } else if (a) {
+                Log.e("VideoStatusEventHelper", "dispatchNetStatusEvent failed slaveId: " + str2 + " ,videoId: " + str);
             }
         }
     }
 
-    public final void j(String str) {
+    public static void b(String str, String str2, String str3, int i, int i2) {
+        String format;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                synchronized (d) {
-                    i(false);
-                }
-                return;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+            if (TextUtils.isEmpty(str3)) {
+                format = "0";
+            } else {
+                format = new DecimalFormat("#.###").format(Double.parseDouble(str3) / 1000.0d);
             }
-            File file = new File(str);
-            if (!file.isFile()) {
-                synchronized (d) {
-                    i(false);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.putOpt("duration", Float.valueOf(Float.parseFloat(format)));
+                jSONObject.putOpt("width", Integer.valueOf(xj3.O(i)));
+                jSONObject.putOpt("height", Integer.valueOf(xj3.O(i2)));
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
                 }
-                return;
             }
-            WebKitFactory.installAsync("file://" + str, new a(this, str, file));
+            a(str, str2, "loadedmetadata", jSONObject);
+        }
+    }
+
+    public static void c(String str, String str2, boolean z) {
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(65539, null, str, str2, z) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (z) {
+                str3 = "1";
+            } else {
+                str3 = "0";
+            }
+            try {
+                jSONObject.putOpt("fullscreen", str3);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            a(str, str2, "fullscreenchange", jSONObject);
         }
     }
 }

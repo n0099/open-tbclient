@@ -17,7 +17,7 @@ import com.google.zxing.common.reedsolomon.ReedSolomonException;
 import com.xiaomi.mipush.sdk.Constants;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.Arrays;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class Decoder {
     public AztecDetectorResult ddata;
     public static final String[] UPPER_TABLE = {"CTRL_PS", " ", ExifInterface.GPS_MEASUREMENT_IN_PROGRESS, "B", "C", "D", ExifInterface.LONGITUDE_EAST, "F", "G", IEruptionStrategyGroup.STRATEGY_MODIFIER_H, "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", ExifInterface.LATITUDE_SOUTH, ExifInterface.GPS_DIRECTION_TRUE, "U", ExifInterface.GPS_MEASUREMENT_INTERRUPTED, ExifInterface.LONGITUDE_WEST, "X", "Y", "Z", "CTRL_LL", "CTRL_ML", "CTRL_DL", "CTRL_BS"};
@@ -26,7 +26,7 @@ public final class Decoder {
     public static final String[] PUNCT_TABLE = {"", "\r", "\r\n", ". ", StringUtil.ARRAY_ELEMENT_SEPARATOR, ": ", "!", "\"", "#", "$", "%", "&", "'", "(", SmallTailInfo.EMOTION_SUFFIX, "*", BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX, ",", "-", ".", "/", ":", ParamableElem.DIVIDE_PARAM, "<", "=", ">", "?", PreferencesUtil.LEFT_MOUNT, PreferencesUtil.RIGHT_MOUNT, "{", "}", "CTRL_UL"};
     public static final String[] DIGIT_TABLE = {"CTRL_PS", " ", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ",", ".", "CTRL_UL", "CTRL_US"};
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum Table {
         UPPER,
         LOWER,
@@ -41,7 +41,7 @@ public final class Decoder {
     }
 
     /* renamed from: com.google.zxing.aztec.decoder.Decoder$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$zxing$aztec$decoder$Decoder$Table;
 

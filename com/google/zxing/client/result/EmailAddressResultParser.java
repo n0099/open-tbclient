@@ -4,7 +4,7 @@ import androidx.core.net.MailTo;
 import com.google.zxing.Result;
 import java.util.Map;
 import java.util.regex.Pattern;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class EmailAddressResultParser extends ResultParser {
     public static final Pattern COMMA = Pattern.compile(",");
 

@@ -1,22 +1,129 @@
 package com.baidu.tieba;
 
-import com.baidu.android.ddmlib.tools.perflib.vmtrace.MethodInfo;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collection;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes7.dex */
-public class mk4 implements Comparable<mk4> {
+public class mk4<K, V> extends rk4<K, V> implements Map<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public long b;
-    public long c;
-    public String d;
-    public long e;
-    public MethodInfo f;
+    public qk4<K, V> h;
+
+    /* loaded from: classes7.dex */
+    public class a extends qk4<K, V> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mk4 d;
+
+        public a(mk4 mk4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mk4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = mk4Var;
+        }
+
+        @Override // com.baidu.tieba.qk4
+        public int e(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+                return this.d.e(obj);
+            }
+            return invokeL.intValue;
+        }
+
+        @Override // com.baidu.tieba.qk4
+        public int f(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+                return this.d.g(obj);
+            }
+            return invokeL.intValue;
+        }
+
+        @Override // com.baidu.tieba.qk4
+        public void h(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+                this.d.i(i);
+            }
+        }
+
+        @Override // com.baidu.tieba.qk4
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.d.clear();
+            }
+        }
+
+        @Override // com.baidu.tieba.qk4
+        public Map<K, V> c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.d;
+            }
+            return (Map) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.qk4
+        public int d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.d.c;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.qk4
+        public Object b(int i, int i2) {
+            InterceptResult invokeII;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) {
+                return this.d.b[(i << 1) + i2];
+            }
+            return invokeII.objValue;
+        }
+
+        @Override // com.baidu.tieba.qk4
+        public void g(K k, V v) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048582, this, k, v) == null) {
+                this.d.put(k, v);
+            }
+        }
+
+        @Override // com.baidu.tieba.qk4
+        public V i(int i, V v) {
+            InterceptResult invokeIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, v)) == null) {
+                return this.d.j(i, v);
+            }
+            return (V) invokeIL.objValue;
+        }
+    }
 
     public mk4() {
         Interceptable interceptable = $ic;
@@ -32,64 +139,65 @@ public class mk4 implements Comparable<mk4> {
         }
     }
 
-    public long b() {
+    @Override // java.util.Map
+    public Set<Map.Entry<K, V>> entrySet() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return l().l();
+        }
+        return (Set) invokeV.objValue;
+    }
+
+    @Override // java.util.Map
+    public Set<K> keySet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long j = this.c - this.b;
-            if (j < 0) {
-                return 0L;
-            }
-            return j;
+            return l().m();
         }
-        return invokeV.longValue;
+        return (Set) invokeV.objValue;
     }
 
-    public MethodInfo c() {
+    public final qk4<K, V> l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
+            if (this.h == null) {
+                this.h = new a(this);
+            }
+            return this.h;
         }
-        return (MethodInfo) invokeV.objValue;
+        return (qk4) invokeV.objValue;
     }
 
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public long e() {
+    @Override // java.util.Map
+    public Collection<V> values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.e;
+            return l().n();
         }
-        return invokeV.longValue;
+        return (Collection) invokeV.objValue;
     }
 
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(mk4 mk4Var) {
+    public boolean m(Collection<?> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mk4Var)) == null) {
-            return (int) (this.e - mk4Var.e());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, collection)) == null) {
+            return qk4.p(this, collection);
         }
-        return invokeL.intValue;
+        return invokeL.booleanValue;
+    }
+
+    @Override // java.util.Map
+    public void putAll(Map<? extends K, ? extends V> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
+            b(this.c + map.size());
+            for (Map.Entry<? extends K, ? extends V> entry : map.entrySet()) {
+                put(entry.getKey(), entry.getValue());
+            }
+        }
     }
 }

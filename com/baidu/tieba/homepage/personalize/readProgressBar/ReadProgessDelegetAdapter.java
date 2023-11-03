@@ -11,38 +11,38 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.h28;
-import com.baidu.tieba.i28;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.lh;
-import com.baidu.tieba.tj6;
-import com.baidu.tieba.yh;
+import com.baidu.tieba.bi;
+import com.baidu.tieba.cf8;
+import com.baidu.tieba.df8;
+import com.baidu.tieba.oi;
+import com.baidu.tieba.pl6;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ReadProgessDelegetAdapter extends lh<i28, ViewHolder> {
+public class ReadProgessDelegetAdapter extends bi<df8, ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TbPageContext<?> a;
-    public ii b;
+    public yi b;
 
     /* loaded from: classes6.dex */
     public static class ViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public h28 a;
+        public cf8 a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ViewHolder(h28 h28Var) {
-            super(h28Var.i());
+        public ViewHolder(cf8 cf8Var) {
+            super(cf8Var.i());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {h28Var};
+                Object[] objArr = {cf8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -53,12 +53,12 @@ public class ReadProgessDelegetAdapter extends lh<i28, ViewHolder> {
                     return;
                 }
             }
-            this.a = h28Var;
+            this.a = cf8Var;
         }
     }
 
     /* loaded from: classes6.dex */
-    public class a implements ii {
+    public class a implements yi {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -78,10 +78,10 @@ public class ReadProgessDelegetAdapter extends lh<i28, ViewHolder> {
             }
         }
 
-        @Override // com.baidu.tieba.ii
-        public void b(View view2, yh yhVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+        @Override // com.baidu.tieba.yi
+        public void b(View view2, oi oiVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, yhVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, oiVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) {
                 TiebaStatic.log(new StatisticItem("c11273"));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001384, 2));
             }
@@ -114,26 +114,26 @@ public class ReadProgessDelegetAdapter extends lh<i28, ViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
-    /* renamed from: s */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: t */
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new ViewHolder(new h28(this.a, viewGroup));
+            return new ViewHolder(new cf8(this.a, viewGroup));
         }
         return (ViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, i28 i28Var, ViewHolder viewHolder) {
+    @Override // com.baidu.tieba.bi
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, df8 df8Var, ViewHolder viewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, i28Var, viewHolder})) == null) {
-            tj6.b().a(new StatisticItem("c11272"));
-            viewHolder.a.j(i28Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, df8Var, viewHolder})) == null) {
+            pl6.b().a(new StatisticItem("c11272"));
+            viewHolder.a.k(df8Var);
             return viewHolder.getView();
         }
         return (View) invokeCommon.objValue;

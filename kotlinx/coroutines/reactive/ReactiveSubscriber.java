@@ -56,7 +56,7 @@ public final class ReactiveSubscriber<T> implements Subscriber<T> {
 
     @Override // org.reactivestreams.Subscriber
     public void onNext(T t) {
-        if (ChannelResult.m2315isSuccessimpl(this.channel.mo2300trySendJP2dKIU(t))) {
+        if (ChannelResult.m2319isSuccessimpl(this.channel.mo2304trySendJP2dKIU(t))) {
             return;
         }
         throw new IllegalArgumentException(("Element " + t + " was not added to channel because it was full, " + this.channel).toString());
@@ -78,8 +78,8 @@ public final class ReactiveSubscriber<T> implements Subscriber<T> {
     public final Object takeNextOrNull(Continuation<? super T> continuation) {
         ReactiveSubscriber$takeNextOrNull$1 reactiveSubscriber$takeNextOrNull$1;
         int i;
-        Object mo2298receiveCatchingJP2dKIU;
-        Throwable m2309exceptionOrNullimpl;
+        Object mo2302receiveCatchingJP2dKIU;
+        Throwable m2313exceptionOrNullimpl;
         if (continuation instanceof ReactiveSubscriber$takeNextOrNull$1) {
             reactiveSubscriber$takeNextOrNull$1 = (ReactiveSubscriber$takeNextOrNull$1) continuation;
             int i2 = reactiveSubscriber$takeNextOrNull$1.label;
@@ -91,7 +91,7 @@ public final class ReactiveSubscriber<T> implements Subscriber<T> {
                 if (i == 0) {
                     if (i == 1) {
                         ResultKt.throwOnFailure(obj);
-                        mo2298receiveCatchingJP2dKIU = ((ChannelResult) obj).m2317unboximpl();
+                        mo2302receiveCatchingJP2dKIU = ((ChannelResult) obj).m2321unboximpl();
                     } else {
                         throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
                     }
@@ -99,20 +99,20 @@ public final class ReactiveSubscriber<T> implements Subscriber<T> {
                     ResultKt.throwOnFailure(obj);
                     Channel<T> channel = this.channel;
                     reactiveSubscriber$takeNextOrNull$1.label = 1;
-                    mo2298receiveCatchingJP2dKIU = channel.mo2298receiveCatchingJP2dKIU(reactiveSubscriber$takeNextOrNull$1);
-                    if (mo2298receiveCatchingJP2dKIU == coroutine_suspended) {
+                    mo2302receiveCatchingJP2dKIU = channel.mo2302receiveCatchingJP2dKIU(reactiveSubscriber$takeNextOrNull$1);
+                    if (mo2302receiveCatchingJP2dKIU == coroutine_suspended) {
                         return coroutine_suspended;
                     }
                 }
-                m2309exceptionOrNullimpl = ChannelResult.m2309exceptionOrNullimpl(mo2298receiveCatchingJP2dKIU);
-                if (m2309exceptionOrNullimpl != null) {
-                    if (mo2298receiveCatchingJP2dKIU instanceof ChannelResult.Failed) {
-                        ChannelResult.m2309exceptionOrNullimpl(mo2298receiveCatchingJP2dKIU);
+                m2313exceptionOrNullimpl = ChannelResult.m2313exceptionOrNullimpl(mo2302receiveCatchingJP2dKIU);
+                if (m2313exceptionOrNullimpl != null) {
+                    if (mo2302receiveCatchingJP2dKIU instanceof ChannelResult.Failed) {
+                        ChannelResult.m2313exceptionOrNullimpl(mo2302receiveCatchingJP2dKIU);
                         return null;
                     }
-                    return mo2298receiveCatchingJP2dKIU;
+                    return mo2302receiveCatchingJP2dKIU;
                 }
-                throw m2309exceptionOrNullimpl;
+                throw m2313exceptionOrNullimpl;
             }
         }
         reactiveSubscriber$takeNextOrNull$1 = new ReactiveSubscriber$takeNextOrNull$1(this, continuation);
@@ -121,8 +121,8 @@ public final class ReactiveSubscriber<T> implements Subscriber<T> {
         i = reactiveSubscriber$takeNextOrNull$1.label;
         if (i == 0) {
         }
-        m2309exceptionOrNullimpl = ChannelResult.m2309exceptionOrNullimpl(mo2298receiveCatchingJP2dKIU);
-        if (m2309exceptionOrNullimpl != null) {
+        m2313exceptionOrNullimpl = ChannelResult.m2313exceptionOrNullimpl(mo2302receiveCatchingJP2dKIU);
+        if (m2313exceptionOrNullimpl != null) {
         }
     }
 }

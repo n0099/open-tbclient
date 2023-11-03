@@ -1,11 +1,15 @@
 package com.baidu.tieba;
+
+import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
 /* loaded from: classes5.dex */
 public interface cr1 {
-    String a();
+    rm2 a(ZeusPluginFactory.Invoker invoker, String str);
 
-    String b();
+    ro2 b(ZeusPluginFactory.Invoker invoker, String str);
 
-    String getAppName();
+    ro2 c(ZeusPluginFactory.Invoker invoker, String str);
 
-    String getSchemeHeader();
+    qm2 d(ZeusPluginFactory.Invoker invoker, String str);
+
+    ok2 e(ZeusPluginFactory.Invoker invoker, String str);
 }

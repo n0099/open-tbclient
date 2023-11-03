@@ -1,37 +1,21 @@
 package com.baidu.tieba;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes9.dex */
-public final class z2 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface z2 {
+    boolean a();
 
-    public static int a(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65536, null, f)) == null) {
-            return Float.floatToIntBits(f);
-        }
-        return invokeF.intValue;
-    }
+    int b();
 
-    public static int b(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) {
-            return Float.floatToRawIntBits(f);
-        }
-        return invokeF.intValue;
-    }
+    void c();
 
-    public static float c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            return Float.intBitsToFloat(i & (-16777217));
-        }
-        return invokeI.floatValue;
-    }
+    int d();
+
+    int e();
+
+    int getHeight();
+
+    int getWidth();
+
+    boolean isPrepared();
+
+    void prepare();
 }

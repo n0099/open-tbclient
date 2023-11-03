@@ -38,7 +38,7 @@ import com.baidu.searchbox.widget.SlideHelper;
 import com.baidu.searchbox.widget.SlideInterceptor;
 import com.baidu.searchbox.widget.SlideUtil;
 import com.baidu.searchbox.widget.SlidingPaneLayout;
-import com.baidu.tieba.y;
+import com.baidu.tieba.z;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -672,10 +672,10 @@ public class BaseActivity extends FragmentActivity implements NightModeChangeLis
 
     @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        int d = y.d(this);
+        int d = z.d(this);
         NightModeHelper.subscribeNightModeChangeEvent(this.tagObject, this);
         super.onCreate(bundle);
-        y.a(this, d);
+        z.a(this, d);
         if (DEBUG) {
             Log.d("BaseActivity", "onCreate: ");
         }

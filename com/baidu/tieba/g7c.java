@@ -1,187 +1,141 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Queue;
-import java.util.concurrent.atomic.AtomicLong;
-import rx.internal.util.UtilityFunctions;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public final class g7c {
     public static /* synthetic */ Interceptable $ic;
+    public static Map<Class<?>, c7c> b;
+    public static Map<Class<?>, Object> c;
     public transient /* synthetic */ FieldHolder $fh;
+    public Map<Class<?>, c7c> a;
 
-    public static long a(long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            long j3 = j + j2;
-            if (j3 < 0) {
-                return Long.MAX_VALUE;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947748278, "Lcom/baidu/tieba/g7c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return j3;
-        }
-        return invokeCommon.longValue;
-    }
-
-    public static long b(AtomicLong atomicLong, long j) {
-        long j2;
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, atomicLong, j)) == null) {
-            do {
-                j2 = atomicLong.get();
-            } while (!atomicLong.compareAndSet(j2, a(j2, j)));
-            return j2;
-        }
-        return invokeLJ.longValue;
-    }
-
-    public static long c(long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            long j3 = j * j2;
-            if (((j | j2) >>> 31) != 0 && j2 != 0 && j3 / j2 != j) {
-                return Long.MAX_VALUE;
-            }
-            return j3;
-        }
-        return invokeCommon.longValue;
-    }
-
-    /* JADX DEBUG: Type inference failed for r10v3. Raw type applied. Possible types: R, ? super R */
-    /* JADX DEBUG: Type inference failed for r8v4. Raw type applied. Possible types: R, ? super R */
-    public static <T, R> void d(AtomicLong atomicLong, Queue<T> queue, n6c<? super R> n6cVar, a7c<? super T, ? extends R> a7cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65539, null, atomicLong, queue, n6cVar, a7cVar) == null) {
-            long j = atomicLong.get();
-            if (j == Long.MAX_VALUE) {
-                while (!n6cVar.isUnsubscribed()) {
-                    Object poll = queue.poll();
-                    if (poll == null) {
-                        n6cVar.onCompleted();
-                        return;
-                    }
-                    n6cVar.onNext((R) a7cVar.call(poll));
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947748278, "Lcom/baidu/tieba/g7c;");
                 return;
             }
-            do {
-                long j2 = Long.MIN_VALUE;
-                while (true) {
-                    int i = (j2 > j ? 1 : (j2 == j ? 0 : -1));
-                    if (i != 0) {
-                        if (n6cVar.isUnsubscribed()) {
-                            return;
-                        }
-                        Object poll2 = queue.poll();
-                        if (poll2 == null) {
-                            n6cVar.onCompleted();
-                            return;
-                        } else {
-                            n6cVar.onNext((R) a7cVar.call(poll2));
-                            j2++;
-                        }
-                    } else {
-                        if (i == 0) {
-                            if (n6cVar.isUnsubscribed()) {
-                                return;
-                            }
-                            if (queue.isEmpty()) {
-                                n6cVar.onCompleted();
-                                return;
-                            }
-                        }
-                        j = atomicLong.get();
-                        if (j == j2) {
-                            j = atomicLong.addAndGet(-(j2 & Long.MAX_VALUE));
-                        }
-                    }
-                }
-            } while (j != Long.MIN_VALUE);
         }
+        b = new HashMap();
+        c = new HashMap();
     }
 
-    public static <T> boolean e(AtomicLong atomicLong, long j, Queue<T> queue, n6c<? super T> n6cVar) {
-        InterceptResult invokeCommon;
+    public g7c(List<c7c> list, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{atomicLong, Long.valueOf(j), queue, n6cVar})) == null) {
-            return f(atomicLong, j, queue, n6cVar, UtilityFunctions.b());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list, context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return invokeCommon.booleanValue;
+        this.a = new HashMap();
+        new HashMap();
+        c(list, context);
     }
 
-    public static <T, R> boolean f(AtomicLong atomicLong, long j, Queue<T> queue, n6c<? super R> n6cVar, a7c<? super T, ? extends R> a7cVar) {
-        InterceptResult invokeCommon;
-        long j2;
-        long j3;
+    public static Constructor a(Class cls, Class... clsArr) {
+        InterceptResult invokeLL;
+        Constructor<?>[] declaredConstructors;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{atomicLong, Long.valueOf(j), queue, n6cVar, a7cVar})) == null) {
-            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-            if (i >= 0) {
-                if (i == 0) {
-                    if ((atomicLong.get() & Long.MIN_VALUE) == 0) {
-                        return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, cls, clsArr)) == null) {
+            boolean z = false;
+            for (Constructor<?> constructor : cls.getDeclaredConstructors()) {
+                Class<?>[] parameterTypes = constructor.getParameterTypes();
+                if (parameterTypes.length == clsArr.length) {
+                    for (int i = 0; i < clsArr.length; i++) {
+                        z = parameterTypes[i] == clsArr[i];
                     }
-                    return false;
-                }
-                while (true) {
-                    j2 = atomicLong.get();
-                    j3 = j2 & Long.MIN_VALUE;
-                    if (atomicLong.compareAndSet(j2, a(Long.MAX_VALUE & j2, j) | j3)) {
-                        break;
+                    if (z) {
+                        return constructor;
                     }
-                }
-                if (j2 == Long.MIN_VALUE) {
-                    d(atomicLong, queue, n6cVar, a7cVar);
-                    return false;
-                } else if (j3 == 0) {
-                    return true;
-                } else {
-                    return false;
                 }
             }
-            throw new IllegalArgumentException("n >= 0 required but it was " + j);
+            return null;
         }
-        return invokeCommon.booleanValue;
+        return (Constructor) invokeLL.objValue;
     }
 
-    public static long g(AtomicLong atomicLong, long j) {
-        long j2;
-        long j3;
-        InterceptResult invokeLJ;
+    public final void b(String str, Exception exc) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, atomicLong, j)) == null) {
-            do {
-                j2 = atomicLong.get();
-                if (j2 == Long.MAX_VALUE) {
-                    return Long.MAX_VALUE;
-                }
-                j3 = j2 - j;
-                if (j3 < 0) {
-                    throw new IllegalStateException("More produced than requested: " + j3);
-                }
-            } while (!atomicLong.compareAndSet(j2, j3));
-            return j3;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, exc) == null) {
+            Log.e("ServiceRepository", "Instantiate shared service " + str + exc.getLocalizedMessage());
+            StringBuilder sb = new StringBuilder();
+            sb.append("cause message:");
+            sb.append(exc.getCause() != null ? exc.getCause().getMessage() : "");
+            Log.e("ServiceRepository", sb.toString());
         }
-        return invokeLJ.longValue;
     }
 
-    public static boolean h(long j) {
-        InterceptResult invokeJ;
+    /* JADX WARN: Removed duplicated region for block: B:24:0x005f A[Catch: InvocationTargetException -> 0x007a, InstantiationException -> 0x007e, IllegalAccessException -> 0x0082, TryCatch #2 {IllegalAccessException -> 0x0082, InstantiationException -> 0x007e, InvocationTargetException -> 0x007a, blocks: (B:22:0x004d, B:24:0x005f, B:26:0x0070, B:25:0x0068), top: B:39:0x004d }] */
+    /* JADX WARN: Removed duplicated region for block: B:25:0x0068 A[Catch: InvocationTargetException -> 0x007a, InstantiationException -> 0x007e, IllegalAccessException -> 0x0082, TryCatch #2 {IllegalAccessException -> 0x0082, InstantiationException -> 0x007e, InvocationTargetException -> 0x007a, blocks: (B:22:0x004d, B:24:0x005f, B:26:0x0070, B:25:0x0068), top: B:39:0x004d }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void c(List<c7c> list, Context context) {
+        Map<Class<?>, c7c> map;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65543, null, j)) == null) {
-            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-            if (i >= 0) {
-                if (i != 0) {
-                    return true;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, context) == null) || list == null) {
+            return;
+        }
+        for (c7c c7cVar : list) {
+            if (c7cVar.d()) {
+                if (!b.containsKey(c7cVar.a())) {
+                    map = b;
                 }
-                return false;
+                if (c7cVar.c() && c7cVar.b() != null && !c.containsKey(c7cVar.a())) {
+                    try {
+                        Constructor a = a(c7cVar.b(), Context.class);
+                        c.put(c7cVar.a(), a == null ? a.newInstance(context) : c7cVar.b().newInstance());
+                    } catch (IllegalAccessException e) {
+                        e = e;
+                        str = "AccessException";
+                        b(str, e);
+                    } catch (InstantiationException e2) {
+                        e = e2;
+                        str = "InstantiationException";
+                        b(str, e);
+                    } catch (InvocationTargetException e3) {
+                        e = e3;
+                        str = "TargetException";
+                        b(str, e);
+                    }
+                }
+            } else {
+                map = this.a;
             }
-            throw new IllegalArgumentException("n >= 0 required but it was " + j);
+            map.put(c7cVar.a(), c7cVar);
+            if (c7cVar.c()) {
+                Constructor a2 = a(c7cVar.b(), Context.class);
+                c.put(c7cVar.a(), a2 == null ? a2.newInstance(context) : c7cVar.b().newInstance());
+            }
         }
-        return invokeJ.booleanValue;
     }
 }

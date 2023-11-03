@@ -1,5 +1,5 @@
 package com.googlecode.mp4parser.h264;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class CharCache {
     public char[] cache;
     public int pos;

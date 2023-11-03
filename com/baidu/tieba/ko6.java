@@ -1,171 +1,59 @@
 package com.baidu.tieba;
 
 import android.view.View;
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.SmartLaunchStats;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.growthFunnel.GrowthFunnelHelper;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.switchs.TbBrowseModeSwitch;
+import com.baidu.tieba.compact.RecommendCollectCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class ko6 {
+/* loaded from: classes7.dex */
+public class ko6 extends ia7<RecommendCollectCardView, u6b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BaseFragmentActivity a;
-    public hz4 b;
-    public hz4 c;
-    public hz4 d;
-    public int e;
-    public View.OnClickListener f;
 
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ko6 a;
-
-        public a(ko6 ko6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ko6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ko6Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                int id = view2.getId();
-                if (id == R.id.private_yes || id == R.id.obfuscated_res_0x7f092a94) {
-                    this.a.j();
-                } else if (id == R.id.private_no) {
-                    if (this.a.b.isShowing()) {
-                        this.a.b.dismiss();
-                        a9a.a("1", "2");
-                    }
-                    if (this.a.c == null) {
-                        ko6 ko6Var = this.a;
-                        ko6Var.c = lz5.a(ko6Var.a.getPageContext(), this.a.f, R.string.privacy_policy_guide_one, R.string.secret_hint_no_agree);
-                    }
-                    this.a.c.show();
-                    a9a.b("2");
-                } else if (id == R.id.obfuscated_res_0x7f090498) {
-                    ko6.g(this.a);
-                    if (this.a.c.isShowing()) {
-                        this.a.c.dismiss();
-                        a9a.a("2", "2");
-                        if (this.a.d == null) {
-                            ko6 ko6Var2 = this.a;
-                            TbPageContext<BaseFragmentActivity> pageContext = ko6Var2.a.getPageContext();
-                            View.OnClickListener onClickListener = this.a.f;
-                            if (TbBrowseModeSwitch.isOn()) {
-                                i = R.string.secret_hint_browser;
-                            } else {
-                                i = R.string.secret_hint_browser_exit;
-                            }
-                            ko6Var2.d = lz5.a(pageContext, onClickListener, R.string.privacy_policy_guide_two, i);
-                            this.a.d.show();
-                            a9a.b("3");
-                        }
-                    }
-                    if (this.a.d.isShowing() && this.a.e == 2) {
-                        this.a.d.dismiss();
-                        a9a.a("3", "2");
-                        if (TbBrowseModeSwitch.isOn()) {
-                            PermissionUtil.doBrowseModeInit();
-                            PermissionUtil.starMainTabActivity(this.a.a, 2);
-                        }
-                        this.a.a.finish();
-                    }
-                }
-            }
-        }
-    }
-
-    public ko6(@NonNull BaseFragmentActivity baseFragmentActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ko6() {
+        super("template_stub_head_card");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = 0;
-        this.f = new a(this);
-        this.a = baseFragmentActivity;
     }
 
-    public static /* synthetic */ int g(ko6 ko6Var) {
-        int i = ko6Var.e;
-        ko6Var.e = i + 1;
-        return i;
-    }
-
-    public final void j() {
+    @Override // com.baidu.tieba.ia7, com.baidu.tieba.ya7
+    @NonNull
+    public View a(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            hz4 hz4Var = this.b;
-            if (hz4Var != null && hz4Var.isShowing()) {
-                this.b.dismiss();
-                SmartLaunchStats.onConfirmPrivacy();
-                a9a.a("1", "1");
-                GrowthFunnelHelper.logClientDau("logoController", false);
-            }
-            hz4 hz4Var2 = this.c;
-            if (hz4Var2 != null && hz4Var2.isShowing()) {
-                this.c.dismiss();
-                a9a.a("2", "1");
-                GrowthFunnelHelper.logClientDau("logoController", false);
-            }
-            hz4 hz4Var3 = this.d;
-            if (hz4Var3 != null && hz4Var3.isShowing()) {
-                this.d.dismiss();
-                a9a.a("3", "1");
-                GrowthFunnelHelper.logClientDau("logoController", false);
-            }
-            SharedPrefHelper.getInstance().putLong("key_first_enter_app_timestamp", System.currentTimeMillis());
-            PermissionUtil.doAgreePrivacyInit();
-            PermissionUtil.starMainTabActivity(this.a, 2);
-            this.a.finish();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            View a = super.a(viewGroup);
+            rc7.i(a, Integer.valueOf((rc7.e() / 2) - cu.r));
+            return a;
         }
+        return (View) invokeL.objValue;
     }
 
-    public void k() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ya7
+    /* renamed from: e */
+    public void b(@NonNull RecommendCollectCardView recommendCollectCardView, @NonNull u6b u6bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            hz4 b = lz5.b(this.a.getPageContext(), this.f);
-            this.b = b;
-            b.show();
-            a9a.b("1");
-            TbSingleton.setExceptInsertAdDiaShow(true);
-            SmartLaunchStats.onPrivacyDialogShow();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, recommendCollectCardView, u6bVar) == null) {
+            recommendCollectCardView.setData(u6bVar);
+            recommendCollectCardView.r();
         }
     }
 }

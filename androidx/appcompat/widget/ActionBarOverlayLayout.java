@@ -237,9 +237,9 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
 
     public void pullChildren() {
         if (this.mContent == null) {
-            this.mContent = (ContentFrameLayout) findViewById(R.id.obfuscated_res_0x7f09006d);
-            this.mActionBarTop = (ActionBarContainer) findViewById(R.id.obfuscated_res_0x7f09006e);
-            this.mDecorToolbar = getDecorToolbar(findViewById(R.id.obfuscated_res_0x7f09006c));
+            this.mContent = (ContentFrameLayout) findViewById(R.id.obfuscated_res_0x7f090080);
+            this.mActionBarTop = (ActionBarContainer) findViewById(R.id.obfuscated_res_0x7f090081);
+            this.mDecorToolbar = getDecorToolbar(findViewById(R.id.obfuscated_res_0x7f09007f));
         }
     }
 

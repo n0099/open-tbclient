@@ -1,54 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class x56 {
     public static /* synthetic */ Interceptable $ic;
-    public static HashMap<Integer, Integer> a;
+    public static volatile w56 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948251408, "Lcom/baidu/tieba/x56;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948251408, "Lcom/baidu/tieba/x56;");
-                return;
-            }
-        }
-        a = new HashMap<>();
-    }
-
-    public static void a(int i) {
+    public static synchronized w56 a() {
+        InterceptResult invokeV;
+        w56 w56Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65537, null, i) == null) {
-            if (a.containsKey(Integer.valueOf(i))) {
-                a.put(Integer.valueOf(i), Integer.valueOf(a.get(Integer.valueOf(i)).intValue() + 1));
-            } else {
-                a.put(Integer.valueOf(i), 2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (x56.class) {
+                if (a == null) {
+                    a = new w56();
+                }
+                w56Var = a;
             }
+            return w56Var;
         }
-    }
-
-    public static int b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (a.containsKey(Integer.valueOf(i))) {
-                return a.get(Integer.valueOf(i)).intValue();
-            }
-            a.put(Integer.valueOf(i), 1);
-            return 1;
-        }
-        return invokeI.intValue;
+        return (w56) invokeV.objValue;
     }
 }

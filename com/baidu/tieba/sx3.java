@@ -2,64 +2,40 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class sx3 implements lr1 {
+public class sx3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, Boolean> a;
-    public rx3 b;
 
     /* loaded from: classes8.dex */
-    public class a implements ti2 {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final sx3 a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ti2 a;
-        public final /* synthetic */ sx3 b;
 
-        public a(sx3 sx3Var, ti2 ti2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sx3Var, ti2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-417516226, "Lcom/baidu/tieba/sx3$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-417516226, "Lcom/baidu/tieba/sx3$a;");
                     return;
                 }
             }
-            this.b = sx3Var;
-            this.a = ti2Var;
-        }
-
-        @Override // com.baidu.tieba.ti2
-        public void onFail(int i, @Nullable String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                this.b.g(false);
-                this.a.onFail(i, str);
-            }
-        }
-
-        @Override // com.baidu.tieba.ti2
-        public void onSuccess(@Nullable JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-                this.b.g(true);
-                this.a.onSuccess(jSONObject);
-            }
+            a = new sx3();
         }
     }
 
@@ -73,81 +49,77 @@ public class sx3 implements lr1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new HashMap<>();
-        this.b = new rx3();
     }
 
-    public final String d() {
+    public static sx3 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            p53 c0 = p53.c0();
-            if (c0 != null) {
-                return c0.P();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.a;
+        }
+        return (sx3) invokeV.objValue;
+    }
+
+    public void a(@NonNull JSONObject jSONObject, @NonNull zx3 zx3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, zx3Var) == null) {
+            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
+            String optString = jSONObject.optString("url");
+            if (!optBoolean) {
+                zx3Var.b(new ay3(31008, "download is not exist"));
+            } else {
+                x24.c().c(optString);
             }
-            return null;
         }
-        return (String) invokeV.objValue;
     }
 
-    public boolean f() {
-        InterceptResult invokeV;
-        Boolean bool;
+    public void c(@NonNull JSONObject jSONObject, @NonNull zx3 zx3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            String d = d();
-            if (TextUtils.isEmpty(d) || (bool = this.a.get(d)) == null) {
-                return false;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, zx3Var) == null) {
+            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
+            String optString = jSONObject.optString("url");
+            if (!optBoolean) {
+                zx3Var.b(new ay3(31008, "download is not exist"));
+            } else {
+                x24.c().e(optString);
             }
-            return bool.booleanValue();
         }
-        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.lr1
-    @Nullable
-    public qx1 a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull ti2 ti2Var) {
-        InterceptResult invokeLLL;
+    public void e(@NonNull JSONObject jSONObject, @NonNull zx3 zx3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, jSONObject, ti2Var)) == null) {
-            if (f()) {
-                ti2Var.onSuccess(null);
-                return null;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, jSONObject, zx3Var) == null) {
+            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
+            String optString = jSONObject.optString("url");
+            if (!optBoolean) {
+                zx3Var.b(new ay3(31008, "download is not exist"));
+            } else {
+                x24.c().f(optString);
             }
-            return this.b.a(jSONObject, c(ti2Var));
         }
-        return (qx1) invokeLLL.objValue;
     }
 
-    public final ti2 c(@NonNull ti2 ti2Var) {
-        InterceptResult invokeL;
+    public void d(@NonNull JSONObject jSONObject, @NonNull zx3 zx3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ti2Var)) == null) {
-            return new a(this, ti2Var);
-        }
-        return (ti2) invokeL.objValue;
-    }
-
-    public boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return TextUtils.equals(this.b.a, str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            String d = d();
-            if (TextUtils.isEmpty(d)) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, zx3Var) == null) {
+            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
+            if (!optBoolean) {
+                zx3Var.b(new ay3(31008, "download is not exist"));
                 return;
             }
-            this.a.put(d, Boolean.valueOf(z));
+            String optString = jSONObject.optString("packageName");
+            String optString2 = jSONObject.optString("apkId");
+            String optString3 = jSONObject.optString("url");
+            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
+                if (!x24.c().a(optString3, optString, optString2, optBoolean, new ux3(zx3Var))) {
+                    zx3Var.b(new ay3(31006, "is not in main process"));
+                    return;
+                }
+                return;
+            }
+            zx3Var.b(new ay3(31007, "invalid params"));
         }
     }
 }

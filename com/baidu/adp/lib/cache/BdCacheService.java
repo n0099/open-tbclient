@@ -7,22 +7,22 @@ import com.baidu.adp.TbadkCore;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.tieba.b9;
-import com.baidu.tieba.c9;
-import com.baidu.tieba.d9;
-import com.baidu.tieba.f9;
-import com.baidu.tieba.g9;
-import com.baidu.tieba.i9;
-import com.baidu.tieba.j9;
-import com.baidu.tieba.k9;
-import com.baidu.tieba.l9;
-import com.baidu.tieba.m4;
-import com.baidu.tieba.m9;
-import com.baidu.tieba.n9;
-import com.baidu.tieba.o9;
-import com.baidu.tieba.q9;
+import com.baidu.tieba.aa;
+import com.baidu.tieba.ba;
+import com.baidu.tieba.c5;
+import com.baidu.tieba.ca;
+import com.baidu.tieba.da;
+import com.baidu.tieba.ea;
+import com.baidu.tieba.ga;
+import com.baidu.tieba.ha;
+import com.baidu.tieba.ia;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.s9;
+import com.baidu.tieba.t9;
+import com.baidu.tieba.v9;
+import com.baidu.tieba.w9;
+import com.baidu.tieba.y9;
+import com.baidu.tieba.z9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,12 +37,12 @@ public class BdCacheService {
     public static /* synthetic */ Interceptable $ic;
     public static volatile BdCacheService h;
     public transient /* synthetic */ FieldHolder $fh;
-    public q9 a;
+    public ga a;
     public Context b;
-    public m4 c;
+    public c5 c;
     public final String d;
-    public HashMap<String, m9<String>> e;
-    public HashMap<String, m9<byte[]>> f;
+    public HashMap<String, ca<String>> e;
+    public HashMap<String, ca<byte[]>> f;
     public boolean g;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -212,11 +212,11 @@ public class BdCacheService {
         return (BdCacheService) invokeL.objValue;
     }
 
-    public boolean m(m9<?> m9Var) {
+    public boolean m(ca<?> caVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, m9Var)) == null) {
-            return n(m9Var, true);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, caVar)) == null) {
+            return n(caVar, true);
         }
         return invokeL.booleanValue;
     }
@@ -250,28 +250,28 @@ public class BdCacheService {
         return (Context) invokeV.objValue;
     }
 
-    public m4 g() {
+    public c5 g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             if (this.c == null) {
-                this.c = new m4(new j9(f(), this.d));
+                this.c = new c5(new z9(f(), this.d));
             }
             return this.c;
         }
-        return (m4) invokeV.objValue;
+        return (c5) invokeV.objValue;
     }
 
-    public q9 h() {
+    public ga h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             if (this.a == null) {
-                this.a = new q9(f(), g());
+                this.a = new ga(f(), g());
             }
             return this.a;
         }
-        return (q9) invokeV.objValue;
+        return (ga) invokeV.objValue;
     }
 
     public boolean j() {
@@ -311,93 +311,93 @@ public class BdCacheService {
         }
     }
 
-    public synchronized m9<byte[]> b(String str, CacheStorage cacheStorage, CacheEvictPolicy cacheEvictPolicy, int i) {
+    public synchronized ca<byte[]> b(String str, CacheStorage cacheStorage, CacheEvictPolicy cacheEvictPolicy, int i) {
         InterceptResult invokeLLLI;
-        f9 b;
-        d9<?> b9Var;
+        v9 b;
+        t9<?> r9Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cacheStorage, cacheEvictPolicy, i)) == null) {
             synchronized (this) {
-                m9<byte[]> m9Var = this.f.get(str);
-                if (m9Var != null) {
-                    return m9Var;
+                ca<byte[]> caVar = this.f.get(str);
+                if (caVar != null) {
+                    return caVar;
                 }
                 boolean z = true;
                 if (cacheEvictPolicy == CacheEvictPolicy.LRU_ON_COUNT) {
-                    b = g9.a(i, false);
+                    b = w9.a(i, false);
                 } else if (cacheEvictPolicy == CacheEvictPolicy.LRU_ON_INSERT) {
-                    b = g9.a(i, true);
+                    b = w9.a(i, true);
                 } else {
-                    b = g9.b();
-                }
-                if (cacheStorage == CacheStorage.SQLite_CACHE_PER_TABLE) {
-                    b9Var = new c9(g());
-                    z = false;
-                } else {
-                    b9Var = new b9(g(), "cache_kv_bshare");
-                }
-                b9Var.r(b, i(b9Var, str, "blob", i));
-                return c(str, new k9(b9Var, b, z));
-            }
-        }
-        return (m9) invokeLLLI.objValue;
-    }
-
-    public synchronized m9<String> d(String str, CacheStorage cacheStorage, CacheEvictPolicy cacheEvictPolicy, int i) {
-        InterceptResult invokeLLLI;
-        f9 b;
-        d9<?> r9Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048579, this, str, cacheStorage, cacheEvictPolicy, i)) == null) {
-            synchronized (this) {
-                m9<String> m9Var = this.e.get(str);
-                if (m9Var != null) {
-                    return m9Var;
-                }
-                boolean z = true;
-                if (cacheEvictPolicy == CacheEvictPolicy.LRU_ON_COUNT) {
-                    b = g9.a(i, false);
-                } else if (cacheEvictPolicy == CacheEvictPolicy.LRU_ON_INSERT) {
-                    b = g9.a(i, true);
-                } else {
-                    b = g9.b();
+                    b = w9.b();
                 }
                 if (cacheStorage == CacheStorage.SQLite_CACHE_PER_TABLE) {
                     r9Var = new s9(g());
                     z = false;
                 } else {
-                    r9Var = new r9(g(), "cache_kv_tshare");
+                    r9Var = new r9(g(), "cache_kv_bshare");
                 }
-                r9Var.r(b, i(r9Var, str, "text", i));
-                return e(str, new k9(r9Var, b, z));
+                r9Var.r(b, i(r9Var, str, "blob", i));
+                return c(str, new aa(r9Var, b, z));
             }
         }
-        return (m9) invokeLLLI.objValue;
+        return (ca) invokeLLLI.objValue;
     }
 
-    public synchronized String i(d9<?> d9Var, String str, String str2, int i) {
+    public synchronized ca<String> d(String str, CacheStorage cacheStorage, CacheEvictPolicy cacheEvictPolicy, int i) {
+        InterceptResult invokeLLLI;
+        v9 b;
+        t9<?> haVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048579, this, str, cacheStorage, cacheEvictPolicy, i)) == null) {
+            synchronized (this) {
+                ca<String> caVar = this.e.get(str);
+                if (caVar != null) {
+                    return caVar;
+                }
+                boolean z = true;
+                if (cacheEvictPolicy == CacheEvictPolicy.LRU_ON_COUNT) {
+                    b = w9.a(i, false);
+                } else if (cacheEvictPolicy == CacheEvictPolicy.LRU_ON_INSERT) {
+                    b = w9.a(i, true);
+                } else {
+                    b = w9.b();
+                }
+                if (cacheStorage == CacheStorage.SQLite_CACHE_PER_TABLE) {
+                    haVar = new ia(g());
+                    z = false;
+                } else {
+                    haVar = new ha(g(), "cache_kv_tshare");
+                }
+                haVar.r(b, i(haVar, str, "text", i));
+                return e(str, new aa(haVar, b, z));
+            }
+        }
+        return (ca) invokeLLLI.objValue;
+    }
+
+    public synchronized String i(t9<?> t9Var, String str, String str2, int i) {
         InterceptResult invokeLLLI;
         String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, d9Var, str, str2, i)) == null) {
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, t9Var, str, str2, i)) == null) {
             synchronized (this) {
-                int g = d9Var.g();
-                q9 h2 = h();
-                i9 c = h2.c(str);
+                int g = t9Var.g();
+                ga h2 = h();
+                y9 c = h2.c(str);
                 if (c == null) {
-                    c = new i9();
+                    c = new y9();
                     c.a = str;
                     c.e = g;
                     c.d = str2;
                     c.c = i;
                     c.f = System.currentTimeMillis();
-                    c.b = d9Var.l(str);
+                    c.b = t9Var.l(str);
                     h2.a(c);
                 } else if (str2.equalsIgnoreCase(c.d)) {
                     c.c = i;
                     c.f = System.currentTimeMillis();
                     if (g != c.e) {
-                        d9Var.k(str, c.b, g, c.e);
+                        t9Var.k(str, c.b, g, c.e);
                     }
                     h2.a(c);
                 } else {
@@ -410,64 +410,64 @@ public class BdCacheService {
         return (String) invokeLLLI.objValue;
     }
 
-    public synchronized m9<byte[]> c(String str, l9<byte[]> l9Var) {
+    public synchronized ca<byte[]> c(String str, ba<byte[]> baVar) {
         InterceptResult invokeLL;
-        n9 o9Var;
+        da eaVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, l9Var)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, baVar)) == null) {
             synchronized (this) {
-                m9<byte[]> m9Var = this.f.get(str);
-                if (m9Var != null) {
-                    if (l9Var != null && (m9Var instanceof m9.c) && ((m9.c) m9Var).c() != l9Var) {
-                        throw new IllegalStateException("nameSpace:[" + str + "] is already used for storage:[" + l9Var + "]. Make sure to return the old cache before re-use the same namespace.");
+                ca<byte[]> caVar = this.f.get(str);
+                if (caVar != null) {
+                    if (baVar != null && (caVar instanceof ca.c) && ((ca.c) caVar).c() != baVar) {
+                        throw new IllegalStateException("nameSpace:[" + str + "] is already used for storage:[" + baVar + "]. Make sure to return the old cache before re-use the same namespace.");
                     }
-                    return m9Var;
+                    return caVar;
                 }
                 if (j()) {
-                    o9Var = new n9(str, l9Var);
+                    eaVar = new da(str, baVar);
                 } else {
-                    o9Var = new o9(str, l9Var);
+                    eaVar = new ea(str, baVar);
                 }
-                this.f.put(str, o9Var);
-                o9Var.k();
-                return o9Var;
+                this.f.put(str, eaVar);
+                eaVar.k();
+                return eaVar;
             }
         }
-        return (m9) invokeLL.objValue;
+        return (ca) invokeLL.objValue;
     }
 
-    public synchronized m9<String> e(String str, l9<String> l9Var) {
+    public synchronized ca<String> e(String str, ba<String> baVar) {
         InterceptResult invokeLL;
-        n9 o9Var;
+        da eaVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, l9Var)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, baVar)) == null) {
             synchronized (this) {
-                m9<String> m9Var = this.e.get(str);
-                if (m9Var != null) {
-                    if (l9Var != null && (m9Var instanceof m9.c) && ((m9.c) m9Var).c() != l9Var) {
-                        throw new IllegalStateException("nameSpace:[" + str + "] is already used for storage:[" + l9Var + "]. Make sure to return the old cache before re-use the same namespace.");
+                ca<String> caVar = this.e.get(str);
+                if (caVar != null) {
+                    if (baVar != null && (caVar instanceof ca.c) && ((ca.c) caVar).c() != baVar) {
+                        throw new IllegalStateException("nameSpace:[" + str + "] is already used for storage:[" + baVar + "]. Make sure to return the old cache before re-use the same namespace.");
                     }
-                    return m9Var;
+                    return caVar;
                 }
                 if (j()) {
-                    o9Var = new n9(str, l9Var);
+                    eaVar = new da(str, baVar);
                 } else {
-                    o9Var = new o9(str, l9Var);
+                    eaVar = new ea(str, baVar);
                 }
-                this.e.put(str, o9Var);
-                o9Var.k();
-                return o9Var;
+                this.e.put(str, eaVar);
+                eaVar.k();
+                return eaVar;
             }
         }
-        return (m9) invokeLL.objValue;
+        return (ca) invokeLL.objValue;
     }
 
-    public boolean l(m9<byte[]> m9Var, boolean z) {
+    public boolean l(ca<byte[]> caVar, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048586, this, m9Var, z)) == null) {
-            if (m9Var instanceof m9.c) {
-                m9.c cVar = (m9.c) m9Var;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048586, this, caVar, z)) == null) {
+            if (caVar instanceof ca.c) {
+                ca.c cVar = (ca.c) caVar;
                 synchronized (cVar) {
                     String j = cVar.j();
                     cVar.b();
@@ -482,12 +482,12 @@ public class BdCacheService {
         return invokeLZ.booleanValue;
     }
 
-    public boolean n(m9<?> m9Var, boolean z) {
+    public boolean n(ca<?> caVar, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048588, this, m9Var, z)) == null) {
-            if (m9Var instanceof m9.c) {
-                m9.c cVar = (m9.c) m9Var;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048588, this, caVar, z)) == null) {
+            if (caVar instanceof ca.c) {
+                ca.c cVar = (ca.c) caVar;
                 synchronized (cVar) {
                     String j = cVar.j();
                     cVar.b();

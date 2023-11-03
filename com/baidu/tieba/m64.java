@@ -1,122 +1,163 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.tieba.mq2;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.i64;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
 /* loaded from: classes7.dex */
 public class m64 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<i64> a;
+    public String b;
+    public String c;
+    public int d;
 
-    public static void a(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, str) == null) && o53.K().k() == 1 && !d()) {
-            uy2.p("startup").F(new UbcFlowEvent(str));
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ k64 a;
+        public final /* synthetic */ m64 b;
+
+        public a(m64 m64Var, k64 k64Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m64Var, k64Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = m64Var;
+            this.a = k64Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ArrayList<long[]> e = this.b.e();
+                l64 l64Var = new l64();
+                l64Var.a = this.b.b;
+                l64Var.b = e;
+                l64Var.c = this.b.c;
+                x24.i().b(l64Var, this.a);
+            }
         }
     }
 
-    public static void b(JSONArray jSONArray) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947924606, "Lcom/baidu/tieba/m64;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947924606, "Lcom/baidu/tieba/m64;");
+                return;
+            }
+        }
+        e = rm1.a;
+    }
+
+    public m64(ArrayList<j64> arrayList, String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, jSONArray) == null) && jSONArray != null && jSONArray.length() != 0) {
-            HybridUbcFlow p = uy2.p("startup");
-            for (int i = 0; i < jSONArray.length(); i++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    String optString = optJSONObject.optString("id");
-                    long optLong = optJSONObject.optLong("timestamp");
-                    if (!TextUtils.isEmpty(optString) && optJSONObject.has("timestamp")) {
-                        UbcFlowEvent ubcFlowEvent = new UbcFlowEvent(optString);
-                        ubcFlowEvent.d(UbcFlowEvent.RecordType.UPDATE_RECENT);
-                        ubcFlowEvent.h(optLong);
-                        p.F(ubcFlowEvent);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {arrayList, str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        if (e) {
+            Log.d("ClipVideoTask", "videoPath=" + str + "clipList=" + arrayList);
+        }
+        ArrayList<i64> d = d(arrayList);
+        this.a = d;
+        this.b = str;
+        this.c = str2;
+        this.d = d.size();
+    }
+
+    public void c(k64 k64Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, k64Var) != null) || k64Var == null) {
+            return;
+        }
+        aj3.l(new a(this, k64Var), "clipVideo");
+    }
+
+    public final ArrayList<i64> d(ArrayList<j64> arrayList) {
+        InterceptResult invokeL;
+        i64 a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList)) == null) {
+            ArrayList<i64> arrayList2 = new ArrayList<>();
+            if (arrayList != null && arrayList.size() != 0) {
+                Iterator<j64> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    j64 next = it.next();
+                    if (next != null && (a2 = next.a()) != null) {
+                        arrayList2.add(a2);
                     }
                 }
             }
+            return arrayList2;
         }
+        return (ArrayList) invokeL.objValue;
     }
 
-    public static long c() {
+    public ArrayList<long[]> e() {
         InterceptResult invokeV;
-        SwanAppActivity w;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            p53 M = p53.M();
-            if (M == null || (w = M.w()) == null) {
-                return 0L;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ArrayList<long[]> arrayList = new ArrayList<>();
+            if (this.d == 0) {
+                return arrayList;
             }
-            oi2 Q = w.Q();
-            if (!(Q instanceof q14)) {
-                return 0L;
+            if (e) {
+                Log.d("ClipVideoTask", "mergeRange mRangeList = " + this.a);
             }
-            return ((q14) Q).g1();
-        }
-        return invokeV.longValue;
-    }
-
-    public static boolean d() {
-        InterceptResult invokeV;
-        SwanAppActivity w;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            p53 M = p53.M();
-            if (M == null || (w = M.w()) == null) {
-                return false;
+            Collections.sort(this.a, new i64.a());
+            i64 i64Var = this.a.get(0);
+            for (int i = 1; i < this.d; i++) {
+                i64 i64Var2 = this.a.get(i);
+                if (!i64Var.b(i64Var2)) {
+                    arrayList.add(i64.a(i64Var));
+                    i64Var = i64Var2;
+                }
             }
-            oi2 Q = w.Q();
-            if (!(Q instanceof q14)) {
-                return false;
+            arrayList.add(i64.a(i64Var));
+            if (e) {
+                Log.d("ClipVideoTask", "mergeRange mergeList = " + arrayList);
             }
-            return ((q14) Q).k1();
+            return arrayList;
         }
-        return invokeV.booleanValue;
-    }
-
-    public static void e(String str, mq2.a aVar) {
-        Bundle Q;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, aVar) == null) && aVar != null && !d() && (Q = aVar.Q()) != null && Q.getLong("page_display_flag_for_statistic") > 0) {
-            long l = aVar.l("launch_time", 0L);
-            long currentTimeMillis = System.currentTimeMillis();
-            sc3 sc3Var = new sc3();
-            sc3Var.a = ic3.n(aVar.H());
-            sc3Var.f = aVar.I();
-            sc3Var.c = aVar.U();
-            sc3Var.b = "launch";
-            sc3Var.e = "realcancel";
-            sc3Var.q = String.valueOf(currentTimeMillis - l);
-            sc3Var.a("reason", str);
-            sc3Var.a("errorList", g64.c().d());
-            sc3Var.d(Q.getString("ubc"));
-            ic3.onEvent(sc3Var);
-            Q.remove("page_display_flag_for_statistic");
-        }
-    }
-
-    public static void f(mq2.a aVar) {
-        Bundle Q;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, aVar) == null) && aVar != null && d() && (Q = aVar.Q()) != null && Q.getLong("page_display_flag_for_statistic") > 0) {
-            long l = aVar.l("launch_time", 0L);
-            long currentTimeMillis = System.currentTimeMillis();
-            sc3 sc3Var = new sc3();
-            sc3Var.a = ic3.n(aVar.H());
-            sc3Var.f = aVar.I();
-            sc3Var.c = aVar.U();
-            sc3Var.b = "launch";
-            sc3Var.e = "realsuccess";
-            sc3Var.r = String.valueOf(currentTimeMillis - l);
-            sc3Var.d(Q.getString("ubc"));
-            ic3.onEvent(sc3Var);
-            Q.remove("page_display_flag_for_statistic");
-        }
+        return (ArrayList) invokeV.objValue;
     }
 }

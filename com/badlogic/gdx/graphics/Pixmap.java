@@ -4,8 +4,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.badlogic.gdx.graphics.g2d.Gdx2DPixmap;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.d2;
-import com.baidu.tieba.v2;
+import com.baidu.tieba.l3;
+import com.baidu.tieba.t2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
-public class Pixmap implements v2 {
+public class Pixmap implements l3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Gdx2DPixmap a;
@@ -346,7 +346,7 @@ public class Pixmap implements v2 {
         }
     }
 
-    @Override // com.baidu.tieba.v2
+    @Override // com.baidu.tieba.l3
     public void dispose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -442,7 +442,7 @@ public class Pixmap implements v2 {
     public void m(float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            this.b = d2.b(f, f2, f3, f4);
+            this.b = t2.b(f, f2, f3, f4);
         }
     }
 }

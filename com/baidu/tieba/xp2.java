@@ -1,103 +1,27 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class xp2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean DEBUG;
+    public static volatile wp2 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<Activity> mActivityRef;
-    public CallbackHandler mCallbackHandler;
-    public Context mContext;
-    public n42 mJsContainer;
-    public UnitedSchemeMainDispatcher mMainDispatcher;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948307983, "Lcom/baidu/tieba/xp2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948307983, "Lcom/baidu/tieba/xp2;");
-                return;
-            }
-        }
-        DEBUG = am1.a;
-    }
-
-    public Context getDispatchContext() {
+    public static synchronized wp2 a() {
         InterceptResult invokeV;
-        Activity activity;
+        wp2 wp2Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            WeakReference<Activity> weakReference = this.mActivityRef;
-            if (weakReference != null) {
-                activity = weakReference.get();
-            } else {
-                activity = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (xp2.class) {
+                if (a == null) {
+                    a = new wp2();
+                }
+                wp2Var = a;
             }
-            if (activity == null) {
-                return this.mContext;
-            }
-            return activity;
+            return wp2Var;
         }
-        return (Context) invokeV.objValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public xp2(Context context, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher, CallbackHandler callbackHandler, n42 n42Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, unitedSchemeMainDispatcher, callbackHandler, n42Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mContext = context;
-        this.mMainDispatcher = unitedSchemeMainDispatcher;
-        this.mCallbackHandler = callbackHandler;
-        this.mJsContainer = n42Var;
-        if (DEBUG) {
-            if (context == null || unitedSchemeMainDispatcher == null) {
-                throw new IllegalArgumentException("any of context, dispatcher objects can't be null.");
-            }
-        }
-    }
-
-    public void setActivityRef(Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) && activity != null) {
-            this.mActivityRef = new WeakReference<>(activity);
-        }
-    }
-
-    public void setCallbackHandler(CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, callbackHandler) == null) {
-            this.mCallbackHandler = callbackHandler;
-        }
+        return (wp2) invokeV.objValue;
     }
 }

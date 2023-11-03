@@ -1,35 +1,11 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.content.Context;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes7.dex */
-public class n81 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface n81 {
+    public static final ServiceReference a = new ServiceReference("nad.core", "crius.runtime");
 
-    public static boolean a(Application application) {
-        InterceptResult invokeL;
-        Object f;
-        ClassLoader classLoader;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, application)) == null) {
-            try {
-                Context baseContext = application.getBaseContext();
-                if (baseContext == null || (f = aa1.f(baseContext, "mPackageInfo")) == null || (classLoader = (ClassLoader) aa1.f(f, "mClassLoader")) == null) {
-                    return false;
-                }
-                o81 o81Var = new o81(classLoader.getParent(), classLoader);
-                aa1.k(f, "mClassLoader", o81Var);
-                Thread.currentThread().setContextClassLoader(o81Var);
-                return true;
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
+    int a();
+
+    boolean b();
 }

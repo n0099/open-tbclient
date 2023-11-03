@@ -1,52 +1,64 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
-import android.content.pm.PackageManager;
-import androidx.exifinterface.media.ExifInterface;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
+import android.text.TextUtils;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class fy9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    public static boolean a(BdTypeRecyclerView bdTypeRecyclerView) {
+        InterceptResult invokeL;
+        List<oi> data;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            String systemProperty = UtilHelper.getSystemProperty("ro.miui.ui.version.name");
-            if (StringUtils.isNull(systemProperty) || JavaTypesHelper.toInt(systemProperty.replace(ExifInterface.GPS_MEASUREMENT_INTERRUPTED, ""), 0) < 9) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            PackageManager packageManager = TbadkCoreApplication.getInst().getPackageManager();
-            try {
-                try {
-                } catch (PackageManager.NameNotFoundException unused) {
-                    if (packageManager.getActivityInfo(new ComponentName("com.vivo.permissionmanager", "com.vivo.permissionmanager.activity.StartBgActivityControlActivity"), 0) != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bdTypeRecyclerView)) == null) {
+            if (bdTypeRecyclerView != null && (data = bdTypeRecyclerView.getData()) != null && data.size() > 0) {
+                for (int i = 0; i < data.size(); i++) {
+                    oi oiVar = data.get(i);
+                    if ((oiVar instanceof ura) && oiVar.getType() == ura.X0) {
                         return true;
                     }
                 }
-            } catch (PackageManager.NameNotFoundException unused2) {
-            }
-            if (packageManager.getActivityInfo(new ComponentName("com.vivo.permissionmanager", "com.vivo.permissionmanager.activity.ScreenLockedActionControlActivity"), 0) != null) {
-                return true;
             }
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
+    }
+
+    public static int b(BdTypeRecyclerView bdTypeRecyclerView, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bdTypeRecyclerView, str)) == null) {
+            if (bdTypeRecyclerView != null && !TextUtils.isEmpty(str)) {
+                List<oi> data = bdTypeRecyclerView.getData();
+                int headerViewsCount = bdTypeRecyclerView.getHeaderViewsCount();
+                if (data != null && data.size() > 0) {
+                    int size = data.size();
+                    for (int i = 0; i < size; i++) {
+                        oi oiVar = data.get(i);
+                        if ((oiVar instanceof ura) && oiVar.getType() == ura.X0 && str.equals(((ura) oiVar).T())) {
+                            return i + headerViewsCount;
+                        }
+                    }
+                }
+            }
+            return -1;
+        }
+        return invokeLL.intValue;
+    }
+
+    public static void c(BdTypeRecyclerView bdTypeRecyclerView, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65538, null, bdTypeRecyclerView, str) != null) || bdTypeRecyclerView == null) {
+            return;
+        }
+        int b = b(bdTypeRecyclerView, str);
+        if (bdTypeRecyclerView.getLayoutManager() != null) {
+            bdTypeRecyclerView.getLayoutManager().scrollToPosition(b);
+        }
     }
 }

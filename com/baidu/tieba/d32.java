@@ -1,100 +1,99 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.Intent;
+import android.content.DialogInterface;
 import android.os.Build;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tieba.k53;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class d32 extends m73 {
+public class d32 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d32(m63 m63Var) {
-        super(m63Var, "/swanAPI/remoteDebug");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {m63Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes5.dex */
+    public static class a implements DialogInterface.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ g63 a;
+
+        public a(g63 g63Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g63Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = g63Var;
+        }
+
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                SwanAppActivity w = this.a.w();
+                if (w != null && Build.VERSION.SDK_INT >= 21) {
+                    w.finishAndRemoveTask();
+                }
+                System.exit(0);
             }
         }
     }
 
-    @Override // com.baidu.tieba.m73
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, p53 p53Var) {
-        InterceptResult invokeLLLL;
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, p53Var)) == null) {
-            p22.i("RemoteDebugAction", "handle entity: " + unitedSchemeEntity.toString());
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return a;
         }
-        return invokeLLLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.m73
-    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, p53 p53Var) {
-        InterceptResult invokeLLLLL;
+    public static void b(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, p53Var)) == null) {
-            p22.i("RemoteDebugAction", "handleSubAction subAction: " + str);
-            if (!g32.d()) {
-                p22.c("RemoteDebugAction", "Can't invoke this action outside Remote Debug mode");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                return false;
-            }
-            SwanAppActivity w = o53.K().w();
-            char c = 65535;
-            int hashCode = str.hashCode();
-            if (hashCode != -279631955) {
-                if (hashCode == 1013845168 && str.equals("/swanAPI/remoteDebug/reload")) {
-                    c = 0;
-                }
-            } else if (str.equals("/swanAPI/remoteDebug/shutdown")) {
-                c = 1;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    return super.i(context, unitedSchemeEntity, callbackHandler, str, p53Var);
-                }
-                if (w != null) {
-                    if (Build.VERSION.SDK_INT >= 21) {
-                        w.finishAndRemoveTask();
-                    } else {
-                        w.finish();
-                    }
-                    System.exit(0);
-                }
-                return true;
-            }
-            p22.i("RemoteDebugAction", "Remote Debug reload");
-            if (w != null) {
-                Intent intent = w.getIntent();
-                g32.f();
-                o53.K().n(new String[0]);
-                o53.K().l(intent.getExtras(), "update_tag_by_remote_debug");
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
+            a = z;
         }
-        return invokeLLLLL.booleanValue;
+    }
+
+    public static void d(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
+            c(context, !a());
+        }
+    }
+
+    public static void c(Context context, boolean z) {
+        g63 M;
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(65538, null, context, z) == null) && (M = g63.M()) != null) {
+            e32.c(z);
+            if (z) {
+                i = R.string.obfuscated_res_0x7f0f01d2;
+            } else {
+                i = R.string.obfuscated_res_0x7f0f0146;
+            }
+            k53.a aVar = new k53.a(context);
+            aVar.V(context.getString(R.string.obfuscated_res_0x7f0f0182));
+            aVar.x(context.getString(i));
+            aVar.n(new ol3());
+            aVar.m(false);
+            aVar.O(R.string.obfuscated_res_0x7f0f0149, new a(M));
+            aVar.X();
+        }
     }
 }

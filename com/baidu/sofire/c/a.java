@@ -33,19 +33,19 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
     public static a d;
     public transient /* synthetic */ FieldHolder $fh;
-    public C0176a a;
+    public C0177a a;
     public SQLiteDatabase b;
     public Context c;
 
     /* renamed from: com.baidu.sofire.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0176a extends SQLiteOpenHelper {
+    public class C0177a extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0176a(a aVar, Context context) {
+        public C0177a(a aVar, Context context) {
             super(context, "tpgcc.db", (SQLiteDatabase.CursorFactory) null, a.a(aVar));
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -141,10 +141,10 @@ public class a {
             }
         }
         this.c = context.getApplicationContext();
-        C0176a c0176a = new C0176a(this, context.getApplicationContext());
-        this.a = c0176a;
+        C0177a c0177a = new C0177a(this, context.getApplicationContext());
+        this.a = c0177a;
         try {
-            this.b = c0176a.getWritableDatabase();
+            this.b = c0177a.getWritableDatabase();
         } catch (Throwable th) {
             com.baidu.sofire.k.b.a(th);
         }

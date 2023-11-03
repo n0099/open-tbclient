@@ -94,7 +94,7 @@ public class SimpleFloatingControlLayer extends ElementLayer<ConstraintLayout, A
     @Override // com.baidu.searchbox.player.layer.ElementLayer
     public void initContainer() {
         ConstraintLayout constraintLayout = new ConstraintLayout(this.mContext);
-        constraintLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.fi1
+        constraintLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.wi1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -102,7 +102,7 @@ public class SimpleFloatingControlLayer extends ElementLayer<ConstraintLayout, A
             public final void onClick(View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                    SimpleFloatingControlLayer.m90initContainer$lambda1$lambda0(SimpleFloatingControlLayer.this, view2);
+                    SimpleFloatingControlLayer.m91initContainer$lambda1$lambda0(SimpleFloatingControlLayer.this, view2);
                 }
             }
         });
@@ -159,6 +159,17 @@ public class SimpleFloatingControlLayer extends ElementLayer<ConstraintLayout, A
         if (Intrinsics.areEqual(event.getAction(), ControlEvent.ACTION_RESUME)) {
             hidePanelDelay$default(this, 0L, 1, null);
         }
+    }
+
+    @Override // com.baidu.searchbox.player.layer.ElementLayer, com.baidu.searchbox.player.layer.AbsLayer, com.baidu.searchbox.player.interfaces.INeuron
+    public void onPlayerEventNotify(VideoEvent event) {
+        Intrinsics.checkNotNullParameter(event, "event");
+        String action = event.getAction();
+        int hashCode = action.hashCode();
+        if (hashCode == -461848373 ? action.equals(PlayerEvent.ACTION_ON_ERROR) : hashCode == 154871702 && action.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
+            handleElementVisible(4);
+        }
+        super.onPlayerEventNotify(event);
     }
 
     public final void setBackElement(SimpleFloatingBackElement simpleFloatingBackElement) {
@@ -221,7 +232,7 @@ public class SimpleFloatingControlLayer extends ElementLayer<ConstraintLayout, A
     }
 
     /* renamed from: initContainer$lambda-1$lambda-0  reason: not valid java name */
-    public static final void m90initContainer$lambda1$lambda0(SimpleFloatingControlLayer this$0, View view2) {
+    public static final void m91initContainer$lambda1$lambda0(SimpleFloatingControlLayer this$0, View view2) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         if (this$0.isSingleTapConfirmed && this$0.isSingleTapUp) {
             this$0.togglePanelVisible(!this$0.isShowing);
@@ -279,17 +290,6 @@ public class SimpleFloatingControlLayer extends ElementLayer<ConstraintLayout, A
                 }
             }
         }
-    }
-
-    @Override // com.baidu.searchbox.player.layer.ElementLayer, com.baidu.searchbox.player.layer.AbsLayer, com.baidu.searchbox.player.interfaces.INeuron
-    public void onPlayerEventNotify(VideoEvent event) {
-        Intrinsics.checkNotNullParameter(event, "event");
-        String action = event.getAction();
-        int hashCode = action.hashCode();
-        if (hashCode == -461848373 ? action.equals(PlayerEvent.ACTION_ON_ERROR) : hashCode == 154871702 && action.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
-            handleElementVisible(4);
-        }
-        super.onPlayerEventNotify(event);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

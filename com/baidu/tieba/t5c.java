@@ -1,52 +1,60 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.hihonor.push.framework.aidl.IMessageEntity;
+import com.hihonor.push.framework.aidl.entity.PushTokenResult;
+import com.hihonor.push.sdk.common.data.ApiException;
+import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
 /* loaded from: classes8.dex */
-public class t5c extends w5c implements r5c {
+public class t5c extends w5c<PushTokenResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String c;
 
-    public t5c() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t5c(String str, IMessageEntity iMessageEntity) {
+        super(str, iMessageEntity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, iMessageEntity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (IMessageEntity) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = "*";
     }
 
-    @Override // com.baidu.tieba.q5c
-    public String f() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.w5c
+    public void a(ApiException apiException, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.r5c
-    public void b(String str) throws IllegalArgumentException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (str != null) {
-                this.c = str;
-                return;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, apiException, obj) == null) {
+            if (apiException == null) {
+                apiException = HonorPushErrorEnum.ERROR_UNKNOWN.toApiException();
             }
-            throw new IllegalArgumentException("http resource descriptor must not be null");
+            if (apiException.getErrorCode() == HonorPushErrorEnum.SUCCESS.getErrorCode()) {
+                if (obj instanceof PushTokenResult) {
+                    PushTokenResult pushTokenResult = (PushTokenResult) obj;
+                    try {
+                        y4c.b.b(a5c.e.a(), pushTokenResult.getPushToken());
+                    } catch (Exception unused) {
+                    }
+                    this.e.b(pushTokenResult);
+                    return;
+                }
+                apiException = HonorPushErrorEnum.ERROR_INTERNAL_ERROR.toApiException();
+            }
+            String str = "task execute failed. error:" + apiException.getErrorCode();
+            this.e.a(apiException);
         }
     }
 }

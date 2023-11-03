@@ -1,75 +1,56 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class qy5 {
+import java.util.List;
+/* loaded from: classes8.dex */
+public class qy5<T> implements gz5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final qy5 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<py5> a;
+    public List<T> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948108188, "Lcom/baidu/tieba/qy5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948108188, "Lcom/baidu/tieba/qy5;");
-                return;
-            }
-        }
-        b = new qy5();
-    }
-
-    public qy5() {
+    public qy5(List<T> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new SparseArray<>();
+        this.a = list;
     }
 
-    public static qy5 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
-        }
-        return (qy5) invokeV.objValue;
-    }
-
-    public py5 a(int i) {
+    @Override // com.baidu.tieba.gz5
+    public Object getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return this.a.get(i);
+            if (i >= 0 && i < this.a.size()) {
+                return this.a.get(i);
+            }
+            return "";
         }
-        return (py5) invokeI.objValue;
+        return invokeI.objValue;
     }
 
-    public void c(int i, py5 py5Var) {
+    @Override // com.baidu.tieba.gz5
+    public int getItemsCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, py5Var) == null) {
-            this.a.put(i, py5Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.size();
         }
+        return invokeV.intValue;
     }
 }

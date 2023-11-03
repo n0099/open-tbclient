@@ -1,7 +1,7 @@
 package com.baidu.nad.jni;
 
-import com.baidu.tieba.k21;
-import com.baidu.tieba.pe0;
+import com.baidu.tieba.b31;
+import com.baidu.tieba.gf0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +32,7 @@ public class NADNativeHelper {
             }
         }
         try {
-            k21.l(pe0.b(), "nad-lib");
+            b31.l(gf0.b(), "nad-lib");
         } catch (Throwable th) {
             th.printStackTrace();
         }

@@ -1,191 +1,189 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Xml;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
 /* loaded from: classes8.dex */
-public class vl4 {
+public class vl4 extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x0043 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:0x0045 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:41:0x0021 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v14 */
-    public static boolean a(InputStream inputStream, File file) {
-        InterceptResult invokeLL;
-        FileOutputStream fileOutputStream;
-        int read;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vl4(Context context) {
+        super(context.getApplicationContext(), "OpenStat.db", (SQLiteDatabase.CursorFactory) null, 5);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, inputStream, file)) == null) {
-            boolean z = false;
-            if (inputStream == null || file == null) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            File parentFile = file.getParentFile();
-            if (!parentFile.exists()) {
-                parentFile.mkdirs();
-            }
-            if (file.exists()) {
-                file.delete();
-            }
-            FileOutputStream fileOutputStream2 = null;
-            FileOutputStream fileOutputStream3 = null;
-            try {
-                try {
-                    fileOutputStream = new FileOutputStream(file);
-                } catch (Throwable th) {
-                    th = th;
-                }
-            } catch (Exception e) {
-                e = e;
-            }
-            try {
-                byte[] bArr = new byte[8192];
-                while (true) {
-                    read = inputStream.read(bArr);
-                    if (read == -1) {
-                        break;
-                    }
-                    fileOutputStream.write(bArr, 0, read);
-                }
-                fileOutputStream.flush();
-                z = true;
-                sl4.d(fileOutputStream);
-                fileOutputStream2 = read;
-            } catch (Exception e2) {
-                e = e2;
-                fileOutputStream3 = fileOutputStream;
-                e.printStackTrace();
-                sl4.d(fileOutputStream3);
-                fileOutputStream2 = fileOutputStream3;
-                sl4.d(inputStream);
-                return z;
-            } catch (Throwable th2) {
-                th = th2;
-                fileOutputStream2 = fileOutputStream;
-                sl4.d(fileOutputStream2);
-                sl4.d(inputStream);
-                throw th;
-            }
-            sl4.d(inputStream);
-            return z;
         }
-        return invokeLL.booleanValue;
+        this.a = context.getApplicationContext();
     }
 
-    public static String b(InputStream inputStream) {
-        InterceptResult invokeL;
+    public final void a(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inputStream)) == null) {
-            return c(inputStream, Xml.Encoding.UTF_8.toString());
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(InputStream inputStream, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, inputStream, str)) == null) {
-            if (inputStream == null) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder();
+        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
             try {
-                try {
-                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, str), 8192);
-                    while (true) {
-                        String readLine = bufferedReader.readLine();
-                        if (readLine == null) {
-                            break;
-                        }
-                        sb.append(readLine);
-                    }
-                } catch (Throwable th) {
-                    sl4.d(inputStream);
-                    throw th;
-                }
-            } catch (Exception | OutOfMemoryError e) {
+                sQLiteDatabase.execSQL("ALTER TABLE event ADD COLUMN extend TEXT");
+                sQLiteDatabase.execSQL("ALTER TABLE flow ADD COLUMN extend TEXT");
+            } catch (SQLException e) {
                 e.printStackTrace();
             }
-            sl4.d(inputStream);
-            return sb.toString();
         }
-        return (String) invokeLL.objValue;
     }
 
-    public static boolean d(InputStream inputStream, String str) {
-        InterceptResult invokeLL;
+    public final void b(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, inputStream, str)) == null) {
-            boolean z = false;
-            if (inputStream != null && !TextUtils.isEmpty(str)) {
-                File file = new File(str);
-                if (!file.exists()) {
-                    file.mkdirs();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase) == null) {
+            try {
+                sQLiteDatabase.execSQL("ALTER TABLE config ADD COLUMN extend TEXT");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public final void c(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) == null) {
+            try {
+                sQLiteDatabase.execSQL("ALTER TABLE config ADD COLUMN sample TEXT");
+                sQLiteDatabase.execSQL("ALTER TABLE flow ADD COLUMN slot TEXT");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public final void d(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, sQLiteDatabase) == null) {
+            try {
+                sQLiteDatabase.execSQL("CREATE TABLE file (filename TEXT PRIMARY KEY,state TEXT,reserve1 TEXT,reserve2 TEXT);");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sQLiteDatabase) == null) {
+            sQLiteDatabase.execSQL("CREATE TABLE event (_id INTEGER PRIMARY KEY AUTOINCREMENT,flowhandle INTEGER,eventid TEXT,begintime LONG,content TEXT,reserve1 TEXT,reserve2 TEXT,extend TEXT );");
+            sQLiteDatabase.execSQL("CREATE TABLE flow (_id INTEGER PRIMARY KEY AUTOINCREMENT,flowid TEXT,flowhandle INTEGER,state TEXT,begintime LONG,endtime LONG,content TEXT,option INTEGER,reserve1 TEXT,reserve2 TEXT,slot TEXT,extend TEXT );");
+            sQLiteDatabase.execSQL("CREATE TABLE config (eventid TEXT PRIMARY KEY,type TEXT,recordrule TEXT,uploadrule TEXT,cycle INTEGER,switch TEXT,sample INTEGER,reserve1 TEXT,reserve2 TEXT,extend TEXT);");
+            sQLiteDatabase.execSQL("CREATE TABLE file (filename TEXT PRIMARY KEY,state TEXT,reserve1 TEXT,reserve2 TEXT);");
+            am4.e().putString("ubc_version_md5", "0");
+        }
+    }
+
+    public long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return new File(this.a.getDatabasePath("OpenStat.db").getPath() + "-journal").length();
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    @SuppressLint({"BDThrowableCheck"})
+    public synchronized SQLiteDatabase getReadableDatabase() {
+        InterceptResult invokeV;
+        SQLiteDatabase sQLiteDatabase;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            synchronized (this) {
+                try {
+                    sQLiteDatabase = super.getReadableDatabase();
+                } catch (Exception unused) {
+                    new File(this.a.getDatabasePath("OpenStat.db").getPath()).delete();
+                    sQLiteDatabase = null;
                 }
-                byte[] bArr = new byte[8192];
-                ZipInputStream zipInputStream = new ZipInputStream(inputStream);
-                while (true) {
+            }
+            return sQLiteDatabase;
+        }
+        return (SQLiteDatabase) invokeV.objValue;
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    @SuppressLint({"BDThrowableCheck"})
+    public synchronized SQLiteDatabase getWritableDatabase() {
+        InterceptResult invokeV;
+        SQLiteDatabase sQLiteDatabase;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            synchronized (this) {
+                try {
+                    sQLiteDatabase = super.getWritableDatabase();
                     try {
-                        ZipEntry nextEntry = zipInputStream.getNextEntry();
-                        if (nextEntry != null) {
-                            String str2 = str + "/" + nextEntry.getName();
-                            if (sl4.x(str2)) {
-                                sl4.d(zipInputStream);
-                                return false;
-                            } else if (nextEntry.isDirectory()) {
-                                File file2 = new File(str2);
-                                if (!file2.exists()) {
-                                    file2.mkdirs();
-                                }
-                            } else {
-                                File parentFile = new File(str2).getParentFile();
-                                if (!parentFile.exists()) {
-                                    parentFile.mkdirs();
-                                }
-                                if (!parentFile.isDirectory()) {
-                                    parentFile.delete();
-                                    parentFile.mkdirs();
-                                }
-                                FileOutputStream fileOutputStream = new FileOutputStream(str2);
-                                while (true) {
-                                    try {
-                                        int read = zipInputStream.read(bArr);
-                                        if (read == -1) {
-                                            break;
-                                        }
-                                        fileOutputStream.write(bArr, 0, read);
-                                    } finally {
-                                    }
-                                }
-                                sl4.d(fileOutputStream);
+                        sQLiteDatabase.enableWriteAheadLogging();
+                    } catch (Exception unused) {
+                        new File(this.a.getDatabasePath("OpenStat.db").getPath()).delete();
+                        return sQLiteDatabase;
+                    }
+                } catch (Exception unused2) {
+                    sQLiteDatabase = null;
+                }
+            }
+            return sQLiteDatabase;
+        }
+        return (SQLiteDatabase) invokeV.objValue;
+    }
+
+    public long f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return new File(this.a.getDatabasePath("OpenStat.db").getPath()).length();
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048585, this, sQLiteDatabase, i, i2) == null) {
+            while (i < i2) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3) {
+                            if (i == 4) {
+                                b(sQLiteDatabase);
                             }
                         } else {
-                            z = true;
-                            break;
+                            a(sQLiteDatabase);
                         }
-                    } catch (IOException unused) {
-                    } catch (Throwable th) {
-                        sl4.d(zipInputStream);
-                        throw th;
+                    } else {
+                        c(sQLiteDatabase);
                     }
+                } else {
+                    d(sQLiteDatabase);
                 }
-                sl4.d(zipInputStream);
+                i++;
             }
-            return z;
         }
-        return invokeLL.booleanValue;
     }
 }

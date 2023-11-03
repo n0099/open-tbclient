@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,6 +15,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class AtInfo implements Serializable {
@@ -91,11 +93,49 @@ public class AtInfo implements Serializable {
         return (List) invokeV.objValue;
     }
 
+    public static JSONArray atInfoMsgToJson(@NonNull List<AtInfoMsg> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            if (ListUtils.isEmpty(list)) {
+                return jSONArray;
+            }
+            for (int i = 0; i < list.size(); i++) {
+                JSONObject jSONObject = list.get(i).toJSONObject();
+                if (jSONObject != null) {
+                    jSONArray.put(jSONObject);
+                }
+            }
+            return jSONArray;
+        }
+        return (JSONArray) invokeL.objValue;
+    }
+
+    @NonNull
+    public static List<AtInfoMsg> parseAtInfoMsg(@NonNull JSONArray jSONArray) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONArray)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < jSONArray.length(); i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                if (optJSONObject != null) {
+                    AtInfoMsg atInfoMsg = new AtInfoMsg();
+                    atInfoMsg.parseJson(optJSONObject);
+                    arrayList.add(atInfoMsg);
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
     @Nullable
     public static AtInfo parse(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
             if (jSONObject == null) {
                 return null;
             }
@@ -114,25 +154,6 @@ public class AtInfo implements Serializable {
             return atInfo;
         }
         return (AtInfo) invokeL.objValue;
-    }
-
-    @NonNull
-    public static List<AtInfoMsg> parseAtInfoMsg(@NonNull JSONArray jSONArray) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONArray)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < jSONArray.length(); i++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    AtInfoMsg atInfoMsg = new AtInfoMsg();
-                    atInfoMsg.parseJson(optJSONObject);
-                    arrayList.add(atInfoMsg);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
     }
 
     public void setAllMsgList(List<AtInfoMsg> list) {
@@ -168,5 +189,24 @@ public class AtInfo implements Serializable {
         if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
             this.singleMsgList = list;
         }
+    }
+
+    public JSONObject toJSONObject() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("at_count_all", this.atCountAll);
+                jSONObject.put("at_all_msg_count", this.atAllMsgCount);
+                jSONObject.put("at_single_msg_count", this.atSingleMsgCount);
+                jSONObject.put("at_all_msg_list", atInfoMsgToJson(this.allMsgList));
+                jSONObject.put("at_single_msg_list", atInfoMsgToJson(this.singleMsgList));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

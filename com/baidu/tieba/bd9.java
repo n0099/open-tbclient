@@ -1,172 +1,129 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.tbadk.coreExtra.data.FriendBotPostConfigData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public final class bd9 {
+public class bd9 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<zc9> a;
+    public Context b;
+    public int c;
+    public int d;
+    public final int e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947641266, "Lcom/baidu/tieba/bd9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947641266, "Lcom/baidu/tieba/bd9;");
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    public bd9(Context context, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new a(null);
+        this.a = new ArrayList();
+        this.c = 0;
+        this.d = 0;
+        this.b = context;
+        this.c = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b5);
+        this.d = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701be);
+        this.e = i;
     }
 
-    @JvmStatic
-    public static final void a(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public zc9 getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            a.a(str);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i >= 0 && i < this.a.size()) {
+                return this.a.get(i);
+            }
+            return null;
+        }
+        return (zc9) invokeI.objValue;
+    }
+
+    public void b(List<zc9> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.a.clear();
+            if (list != null && list.size() > 0) {
+                this.a.addAll(list);
+            }
+            notifyDataSetChanged();
         }
     }
 
-    @JvmStatic
-    public static final Map<String, Long> b() {
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.b() : (Map) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a.size();
+        }
+        return invokeV.intValue;
     }
 
-    @JvmStatic
-    public static final boolean c() {
-        InterceptResult invokeV;
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        TextView textView;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.c() : invokeV.booleanValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
+            if (view2 instanceof TextView) {
+                textView = (TextView) view2;
+            } else {
+                textView = new TextView(this.b);
+                textView.setGravity(17);
+                textView.setTextSize(0, this.c);
+                int i2 = this.d;
+                textView.setPadding(0, i2, 0, i2);
             }
-        }
-
-        @JvmStatic
-        public final void a(String tid) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, tid) == null) {
-                Intrinsics.checkNotNullParameter(tid, "tid");
-                if (TextUtils.isEmpty(tid)) {
-                    return;
-                }
-                String str = "friend_bot_sha_time" + tid;
-                Map<String, Long> b = b();
-                if (b.containsKey(str)) {
-                    b.remove(str);
-                    String jSONObject = new JSONObject(b).toString();
-                    Intrinsics.checkNotNullExpressionValue(jSONObject, "JSONObject(tidMap as Map<*, *>).toString()");
-                    SharedPrefHelper.getInstance().putString("friend_bot_sha_time_tids", jSONObject);
-                }
+            zc9 zc9Var = (zc9) ListUtils.getItem(this.a, i);
+            if (zc9Var == null) {
+                return null;
             }
-        }
-
-        @JvmStatic
-        public final Map<String, Long> b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                String string = SharedPrefHelper.getInstance().getString("friend_bot_sha_time_tids", "");
-                LinkedHashMap linkedHashMap = new LinkedHashMap();
-                try {
-                    JSONObject jSONObject = new JSONObject(string);
-                    Iterator<String> keys = jSONObject.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        long optLong = jSONObject.optLong(next);
-                        if (optLong > 0) {
-                            Long valueOf = Long.valueOf(optLong);
-                            Intrinsics.checkNotNullExpressionValue(next, "next");
-                            linkedHashMap.put(next, valueOf);
-                        }
-                    }
-                } catch (JSONException e) {
-                    BdLog.e(e);
-                }
-                return linkedHashMap;
+            textView.setText(StringHelper.cutChineseAndEnglishWithSuffix(zc9Var.c, 8, (String) null));
+            SkinManager.setViewTextColor(textView, R.color.CAM_X0106, 1);
+            if (i == this.e) {
+                SkinManager.setBackgroundResource(textView, R.drawable.btn_label_white_s);
+            } else {
+                SkinManager.setBackgroundResource(textView, R.drawable.lego_btn_more_item);
             }
-            return (Map) invokeV.objValue;
+            return textView;
         }
-
-        @JvmStatic
-        public final boolean c() {
-            InterceptResult invokeV;
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                FriendBotPostConfigData friendBotPostConfigData = TbSingleton.getInstance().getFriendBotPostConfigData();
-                if (friendBotPostConfigData == null) {
-                    return false;
-                }
-                Integer pbFirstFloorBotBubbleShow = friendBotPostConfigData.getPbFirstFloorBotBubbleShow();
-                if (pbFirstFloorBotBubbleShow != null) {
-                    i = pbFirstFloorBotBubbleShow.intValue();
-                } else {
-                    i = 0;
-                }
-                long j = SharedPrefHelper.getInstance().getLong("friend_bot_guide_show", 0L);
-                if (i == 0) {
-                    if (j > 0) {
-                        return false;
-                    }
-                    return true;
-                } else if (i != 1) {
-                    return false;
-                } else {
-                    if (j < 0) {
-                        return true;
-                    }
-                    return !TimeHelper.isSameDay(j, System.currentTimeMillis());
-                }
-            }
-            return invokeV.booleanValue;
-        }
+        return (View) invokeILL.objValue;
     }
 }

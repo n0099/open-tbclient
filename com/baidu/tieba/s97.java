@@ -1,39 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
-import com.baidu.tieba.feed.widget.uistate.PersonAttentionUiStateKt;
+import android.content.Context;
+import android.text.SpannableString;
+import android.text.style.ClickableSpan;
+import com.baidu.tieba.t27;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
-import kotlin.Unit;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.functions.Function2;
-import kotlin.jvm.functions.Function3;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class s97 extends f77 implements g67 {
+public final class s97 implements i97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final g47 c;
-    public final String d;
-    public Function1<? super n47, Unit> e;
-    public final Function2<s97, TbPageContext<?>, Unit> f;
-    public final Function3<s97, TbPageContext<?>, Object, Unit> g;
+    public final t27.p a;
 
-    @JvmOverloads
-    public s97(g47 personAttentionData, String str, Function1<? super n47, Unit> onStat, Function2<? super s97, ? super TbPageContext<?>, Unit> onAttentionClick, Function3<? super s97, ? super TbPageContext<?>, Object, Unit> registerAttentionListener) {
+    public s97() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {personAttentionData, str, onStat, onAttentionClick, registerAttentionListener};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -43,92 +29,21 @@ public final class s97 extends f77 implements g67 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(personAttentionData, "personAttentionData");
-        Intrinsics.checkNotNullParameter(onStat, "onStat");
-        Intrinsics.checkNotNullParameter(onAttentionClick, "onAttentionClick");
-        Intrinsics.checkNotNullParameter(registerAttentionListener, "registerAttentionListener");
-        this.c = personAttentionData;
-        this.d = str;
-        this.e = onStat;
-        this.f = onAttentionClick;
-        this.g = registerAttentionListener;
+        this.a = t27.a().f();
     }
 
-    public /* synthetic */ s97(g47 g47Var, String str, Function1 function1, Function2 function2, Function3 function3, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(g47Var, str, (i & 4) != 0 ? PersonAttentionUiStateKt.c : function1, (i & 8) != 0 ? PersonAttentionUiStateKt.a : function2, (i & 16) != 0 ? PersonAttentionUiStateKt.b : function3);
-    }
-
-    @Override // com.baidu.tieba.g67
-    public void d(Object event) {
-        String str;
+    @Override // com.baidu.tieba.i97
+    public SpannableString b(Context context, j77 richTextData, ClickableSpan clickableSpan) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, event) == null) {
-            Intrinsics.checkNotNullParameter(event, "event");
-            if (event instanceof UpdateAttentionMessage.UpdateAttentionData) {
-                UpdateAttentionMessage.UpdateAttentionData updateAttentionData = (UpdateAttentionMessage.UpdateAttentionData) event;
-                if (Intrinsics.areEqual(updateAttentionData.toUid, this.c.e())) {
-                    this.c.g(updateAttentionData.isAttention);
-                    this.c.h(updateAttentionData.status);
-                    s37 a = q37.a.a("tb.feed_home_reco_user_state");
-                    LinkedHashMap linkedHashMap = new LinkedHashMap();
-                    if (this.c.f()) {
-                        str = "1";
-                    } else {
-                        str = "0";
-                    }
-                    linkedHashMap.put("is_like", str);
-                    linkedHashMap.put("like_status", String.valueOf(this.c.b()));
-                    if (a != null) {
-                        a.a(this.c.e(), linkedHashMap);
-                    }
-                }
-            }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, richTextData, clickableSpan)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(richTextData, "richTextData");
+            Intrinsics.checkNotNullParameter(clickableSpan, "clickableSpan");
+            SpannableString a = this.a.a(context, richTextData.a());
+            Intrinsics.checkNotNullExpressionValue(a, "resolver.create(context,…ichTextData.businessInfo)");
+            return a;
         }
-    }
-
-    public final String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final Function2<s97, TbPageContext<?>, Unit> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
-        }
-        return (Function2) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: kotlin.jvm.functions.Function1<? super com.baidu.tieba.n47, kotlin.Unit>, kotlin.jvm.functions.Function1<com.baidu.tieba.n47, kotlin.Unit> */
-    public final Function1<n47, Unit> g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return (Function1) invokeV.objValue;
-    }
-
-    public final g47 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return (g47) invokeV.objValue;
-    }
-
-    public final Function3<s97, TbPageContext<?>, Object, Unit> i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.g;
-        }
-        return (Function3) invokeV.objValue;
+        return (SpannableString) invokeLLL.objValue;
     }
 }

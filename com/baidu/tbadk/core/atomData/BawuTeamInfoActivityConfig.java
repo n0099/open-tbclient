@@ -8,8 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class BawuTeamInfoActivityConfig extends IntentConfig {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String FORUM_ID = "forum_id";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

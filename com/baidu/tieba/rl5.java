@@ -1,51 +1,60 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.text.TextUtils;
-import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.mutiprocess.urlmanager.UrlDealEvent;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class rl5 implements lk5<UrlDealEvent> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import android.content.Intent;
+import android.view.MotionEvent;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.tbadk.data.ChatRoomEntranceData;
+/* loaded from: classes8.dex */
+public interface rl5 {
+    @NonNull
+    public static final ServiceReference a = new ServiceReference("ImMessageCenter", "ChatFloatEntranceService");
 
-    public rl5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+    /* loaded from: classes8.dex */
+    public interface a {
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lk5
-    /* renamed from: a */
-    public boolean onEvent(UrlDealEvent urlDealEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, urlDealEvent)) == null) {
-            if (urlDealEvent != null && !TextUtils.isEmpty(urlDealEvent.url) && urlDealEvent.getType() == 3) {
-                Activity mainActivity = TbadkCoreApplication.getInst().getMainActivity();
-                if (mainActivity instanceof TbPageContextSupport) {
-                    UrlManager.getInstance().dealOneLink(((TbPageContextSupport) mainActivity).getPageContext(), new String[]{urlDealEvent.url});
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
+    /* loaded from: classes8.dex */
+    public interface b {
+        boolean B1();
+
+        void V1(boolean z);
+
+        void Y(ChatRoomEntranceData chatRoomEntranceData);
+
+        void b2();
+
+        void destroy();
+
+        void e1(boolean z);
+
+        boolean f2(String str);
+
+        void g();
+
+        int getState();
+
+        Fragment k();
+
+        boolean m0();
+
+        void onActivityResult(int i, int i2, Intent intent);
+
+        boolean p();
+
+        void p2(long j, String str, boolean z, boolean z2);
+
+        void u1();
+
+        void w1(MotionEvent motionEvent);
     }
+
+    void a(@Nullable a aVar);
+
+    @NonNull
+    b b(String str, ul5 ul5Var);
+
+    void onChangeSkinType(int i);
 }

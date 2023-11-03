@@ -115,6 +115,8 @@ public class AddPostRequest extends NetMessage {
             builder.to_category_id = this.requestData.get("toCategoryId");
             builder.bot_conf = this.requestData.get("bot_conf");
             builder.is_show_bless = Integer.valueOf(JavaTypesHelper.toInt(this.requestData.get("is_show_bless"), 0));
+            builder.sprite_meme_query = this.requestData.get("sprite_meme_query");
+            builder.sprite_meme_id = this.requestData.get("sprite_meme_id");
             try {
                 builder.show_custom_figure = Integer.valueOf(Integer.parseInt(this.requestData.get("show_custom_figure")));
             } catch (NumberFormatException unused) {

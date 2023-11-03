@@ -1,13 +1,30 @@
 package com.baidu.tieba;
-/* loaded from: classes8.dex */
-public interface x26 {
-    void a(String str);
 
-    void b(t26 t26Var);
+import com.baidu.tieba.ad.AbsDataRecorder;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes9.dex */
+public class x26 extends AbsDataRecorder {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void c();
-
-    void d();
-
-    void e();
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x26() {
+        super(AbsDataRecorder.Scene.FRS_NEW);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((AbsDataRecorder.Scene) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
 }

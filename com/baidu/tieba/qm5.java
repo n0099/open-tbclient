@@ -1,78 +1,44 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.mutiprocess.face.EmotionReloadEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class qm5 {
+public class qm5 implements cm5<EmotionReloadEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, int i, String str2, String str3, String str4) {
+    public qm5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Integer.valueOf(i), str2, str3, str4}) == null) {
-            b(str, -1, str2, str3, str4, 0, "", "", "");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static void b(String str, int i, String str2, String str3, String str4, int i2, String str5, String str6, String str7) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.cm5
+    /* renamed from: a */
+    public boolean onEvent(EmotionReloadEvent emotionReloadEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i), str2, str3, str4, Integer.valueOf(i2), str5, str6, str7}) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("obj_source", str2);
-            statisticItem.param("thread_type", i2);
-            if (i > 0) {
-                statisticItem.param("obj_locate", i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, emotionReloadEvent)) == null) {
+            if (emotionReloadEvent == null) {
+                return false;
             }
-            if (!StringUtils.isNull(str3)) {
-                statisticItem.param("tid", str3);
-            }
-            if (!StringUtils.isNull(str4)) {
-                statisticItem.param("fid", str4);
-            }
-            if (str5 == null) {
-                str5 = "";
-            }
-            statisticItem.addParam("obj_id", str5);
-            if (str6 == null) {
-                str6 = "";
-            }
-            statisticItem.addParam("obj_name", str6);
-            if (str7 == null) {
-                str7 = "";
-            }
-            statisticItem.addParam(TiebaStatic.Params.OBJ_TO, str7);
-            TiebaStatic.log(statisticItem);
+            MessageManager.getInstance().runTask(2004603, (Class) null);
+            return true;
         }
-    }
-
-    public static void c(String str, String str2, String str3, String str4, String str5, String str6) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, str2, str3, str4, str5, str6}) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            if (str4 == null) {
-                str4 = "";
-            }
-            statisticItem.addParam("obj_id", str4);
-            if (str5 == null) {
-                str5 = "";
-            }
-            statisticItem.addParam("obj_name", str5);
-            if (str2 == null) {
-                str2 = "";
-            }
-            statisticItem.param("resource_id", str2);
-            if (str6 == null) {
-                str6 = "";
-            }
-            statisticItem.addParam(TiebaStatic.Params.OBJ_TO, str6);
-            if (str3 == null) {
-                str3 = "";
-            }
-            statisticItem.param("tid", str3);
-            TiebaStatic.log(statisticItem);
-        }
+        return invokeL.booleanValue;
     }
 }

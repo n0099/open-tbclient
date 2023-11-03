@@ -35,9 +35,9 @@ import com.baidu.searchbox.live.nps.util.SchemeParamsParseUtils;
 import com.baidu.searchbox.live.nps.yy.YYLiveNPSPluginManager;
 import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c91;
-import com.baidu.tieba.e91;
-import com.baidu.tieba.f91;
+import com.baidu.tieba.t91;
+import com.baidu.tieba.v91;
+import com.baidu.tieba.w91;
 import com.bumptech.glide.load.engine.GlideException;
 import java.util.HashMap;
 import java.util.Map;
@@ -99,19 +99,19 @@ public class LiveYYPluginManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void downloadUpdatePackage() {
-        NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.yylive.entrance", new c91() { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.13
-            @Override // com.baidu.tieba.c91
+        NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.yylive.entrance", new t91() { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.13
+            @Override // com.baidu.tieba.t91
             public void onProgress(long j, long j2) {
             }
 
-            @Override // com.baidu.tieba.c91
+            @Override // com.baidu.tieba.t91
             public void onResult(int i, String str) {
             }
-        }, new e91() { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.14
-            @Override // com.baidu.tieba.e91
-            public void checkAuthorization(IBundleInfo iBundleInfo, int i, f91 f91Var) {
-                if (f91Var != null) {
-                    f91Var.onResult(1);
+        }, new v91() { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.14
+            @Override // com.baidu.tieba.v91
+            public void checkAuthorization(IBundleInfo iBundleInfo, int i, w91 w91Var) {
+                if (w91Var != null) {
+                    w91Var.onResult(1);
                 }
             }
         }, 1);

@@ -1,21 +1,25 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.devices.DeviceUtil;
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import java.io.UnsupportedEncodingException;
+import java.util.Iterator;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
 public class kw {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
+    public int c;
+    public int d;
 
     public kw() {
         Interceptable interceptable = $ic;
@@ -30,64 +34,182 @@ public class kw {
                 return;
             }
         }
-        d();
+        this.c = 2;
+        this.d = 0;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public static kw a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            kw kwVar = new kw();
+            kwVar.a = str;
+            int length = TextUtils.isEmpty(str2) ? 0 : str2.length();
+            kwVar.d = length;
+            if (length < 14) {
+                if (TextUtils.isEmpty(str2)) {
+                    str2 = "0";
+                }
+                kwVar.b = str2;
+            }
+            return kwVar;
         }
-        return (String) invokeV.objValue;
+        return (kw) invokeLL.objValue;
     }
 
-    public final void d() {
+    public static boolean c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            Context appContext = AppRuntime.getAppContext();
-            this.a = c(appContext);
-            this.b = b(appContext);
-        }
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? i >= 14 : invokeI.booleanValue;
     }
 
-    public final String b(Context context) {
+    public static boolean d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            int displayWidth = DeviceUtil.ScreenInfo.getDisplayWidth(context);
-            int displayHeight = DeviceUtil.ScreenInfo.getDisplayHeight(context);
-            int densityDpi = DeviceUtil.ScreenInfo.getDensityDpi(context);
-            StringBuffer stringBuffer = new StringBuffer();
-            stringBuffer.append(displayWidth);
-            stringBuffer.append("_");
-            stringBuffer.append(displayHeight);
-            stringBuffer.append("_");
-            stringBuffer.append("android");
-            stringBuffer.append("_");
-            stringBuffer.append(this.a);
-            stringBuffer.append("_");
-            stringBuffer.append(densityDpi);
-            return stringBuffer.toString();
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? TextUtils.isEmpty(str) : invokeL.booleanValue;
     }
 
-    public String c(Context context) {
+    public static kw e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            String appVersion = cw.c().getAppVersion();
-            if (!TextUtils.isEmpty(appVersion)) {
-                return appVersion;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? g(j(str)) : (kw) invokeL.objValue;
+    }
+
+    public static kw g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
             try {
-                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+                JSONObject jSONObject = new JSONObject(str);
+                Iterator<String> keys = jSONObject.keys();
+                String str2 = "0";
+                String str3 = "0";
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    if (!i("ZGV2aWNlaWQ=").equals(next) && !i("dmVy").equals(next)) {
+                        str3 = jSONObject.optString(next, "0");
+                    }
+                }
+                String string = jSONObject.getString(i("ZGV2aWNlaWQ="));
+                int i = jSONObject.getInt(i("dmVy"));
+                int length = TextUtils.isEmpty(str3) ? 0 : str3.length();
+                if (!TextUtils.isEmpty(string)) {
+                    kw kwVar = new kw();
+                    kwVar.a = string;
+                    kwVar.c = i;
+                    kwVar.d = length;
+                    if (length < 14) {
+                        if (!TextUtils.isEmpty(str3)) {
+                            str2 = str3;
+                        }
+                        kwVar.b = str2;
+                    }
+                    kwVar.k();
+                    return kwVar;
+                }
+            } catch (JSONException e) {
+                jw.c(e);
+            }
+            return null;
+        }
+        return (kw) invokeL.objValue;
+    }
+
+    public static String i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? new String(cw.b(str.getBytes())) : (String) invokeL.objValue;
+    }
+
+    public static String j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                byte[] a = mv.a();
+                return new String(iv.d(a, a, cw.b(str.getBytes())));
             } catch (Exception e) {
-                e.printStackTrace();
-                return "0.8";
+                jw.c(e);
+                return "";
             }
         }
         return (String) invokeL.objValue;
+    }
+
+    public static String m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                byte[] a = mv.a();
+                return cw.a(iv.c(a, a, str.getBytes()), "utf-8");
+            } catch (UnsupportedEncodingException | Exception e) {
+                jw.c(e);
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d(this.b) : invokeV.booleanValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c(this.d) : invokeV.booleanValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? m(l()) : (String) invokeV.objValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (f()) {
+                str = "O";
+            } else if (!b()) {
+                return false;
+            } else {
+                str = "0";
+            }
+            this.b = str;
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            try {
+                return new JSONObject().put(i("ZGV2aWNlaWQ="), this.a).put(i("aW1laQ=="), this.b).put(i("dmVy"), this.c).toString();
+            } catch (JSONException e) {
+                jw.c(e);
+                return null;
+            }
+        }
+        return (String) invokeV.objValue;
     }
 }

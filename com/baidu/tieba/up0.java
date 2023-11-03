@@ -1,66 +1,29 @@
 package com.baidu.tieba;
-
-import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
-import kotlin.jvm.JvmName;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
-import org.json.JSONArray;
-import org.json.JSONObject;
-@JvmName(name = "AuthParser")
 /* loaded from: classes8.dex */
-public final class up0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface up0 {
+    void a(int i);
 
-    public static final sp0 a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (str != null) {
-                try {
-                    JSONArray optJSONArray = new JSONObject(str).optJSONArray("hosts");
-                    if (optJSONArray == null) {
-                        return null;
-                    }
-                    ArrayList arrayList = new ArrayList();
-                    int length = optJSONArray.length();
-                    for (int i = 0; i < length; i++) {
-                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                        if (optJSONObject != null) {
-                            String host = optJSONObject.optString("host");
-                            String optString = optJSONObject.optString("auth");
-                            Intrinsics.checkNotNullExpressionValue(host, "host");
-                            arrayList.add(new rp0(host, b(optString)));
-                        }
-                    }
-                    return new sp0(arrayList);
-                } catch (Exception e) {
-                    pf0.a("AuthParser", e.getMessage());
-                }
-            }
-            return null;
-        }
-        return (sp0) invokeL.objValue;
-    }
+    void onBufferEnd();
 
-    public static final tp0 b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str == null) {
-                return null;
-            }
-            List split$default = StringsKt__StringsKt.split$default((CharSequence) str, new String[]{"_"}, false, 0, 6, (Object) null);
-            if (split$default.size() < 4) {
-                return null;
-            }
-            return new tp0(BdVideoSeries.parseIntSafe((String) split$default.get(0), 0), BdVideoSeries.parseIntSafe((String) split$default.get(1), 0), BdVideoSeries.parseIntSafe((String) split$default.get(2), 0), BdVideoSeries.parseIntSafe((String) split$default.get(3), 0));
-        }
-        return (tp0) invokeL.objValue;
-    }
+    void onBufferStart();
+
+    void onEnd(int i);
+
+    void onError(int i, int i2, String str);
+
+    void onInfo(int i, int i2);
+
+    void onPause();
+
+    void onPrepared();
+
+    void onResume();
+
+    void onSeekEnd();
+
+    void onStart();
+
+    void onUpdateProgress(int i, int i2, int i3);
+
+    void onVideoSizeChanged(int i, int i2);
 }

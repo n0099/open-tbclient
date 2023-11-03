@@ -1,21 +1,50 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.common.security.PermissionStorage;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.text.TextUtils;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class hg0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
+
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final hg0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-748226086, "Lcom/baidu/tieba/hg0$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-748226086, "Lcom/baidu/tieba/hg0$b;");
+                    return;
+                }
+            }
+            a = new hg0(null);
+        }
+    }
 
     public hg0() {
         Interceptable interceptable = $ic;
@@ -27,42 +56,49 @@ public class hg0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static hg0 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (hg0) invokeV.objValue;
+    }
+
+    public /* synthetic */ hg0(a aVar) {
+        this();
+    }
+
+    public void b(vg0 vg0Var) {
+        zg0 zg0Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, vg0Var) == null) && vg0Var != null && (zg0Var = vg0Var.p) != null && vg0Var.q != null && !TextUtils.isEmpty(zg0Var.a)) {
+            wg0 wg0Var = vg0Var.q;
+            long j = wg0Var.q;
+            if (j < 0) {
                 return;
             }
-        }
-        this.a = "";
-        this.b = "";
-        this.c = "";
-    }
-
-    @NonNull
-    public static hg0 a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            hg0 hg0Var = new hg0();
-            JSONObject c = ux0.c(str);
-            hg0Var.a = c.optString(PermissionStorage.PermissionItem.ITEM_EXT_1);
-            hg0Var.b = c.optString(PermissionStorage.PermissionItem.ITEM_EXT_2);
-            hg0Var.c = c.optString(PermissionStorage.PermissionItem.ITEM_EXT_3);
-            return hg0Var;
-        }
-        return (hg0) invokeL.objValue;
-    }
-
-    public static String b(@NonNull hg0 hg0Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, hg0Var)) == null) {
+            String str = vg0Var.d;
+            wg0Var.p = s11.c(j, System.currentTimeMillis());
+            ClogBuilder n = new ClogBuilder().y(ClogBuilder.LogType.DOWNLOAD_KEEP).p(vg0Var.p.a).k(str).n(String.valueOf(vg0Var.q.p));
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(PermissionStorage.PermissionItem.ITEM_EXT_1, hg0Var.a);
-                jSONObject.put(PermissionStorage.PermissionItem.ITEM_EXT_2, hg0Var.b);
-                jSONObject.put(PermissionStorage.PermissionItem.ITEM_EXT_3, hg0Var.c);
-            } catch (JSONException unused) {
+                PackageInfo packageInfo = gf0.b().getPackageManager().getPackageInfo(str, 0);
+                n.l(packageInfo.versionName).m(String.valueOf(packageInfo.versionCode));
+                ly0.d(jSONObject, "installed", 1);
+            } catch (PackageManager.NameNotFoundException unused) {
+                ly0.d(jSONObject, "installed", 0);
+                vg0Var.q.q = -2L;
+            } catch (Throwable unused2) {
+                return;
             }
-            return jSONObject.toString();
+            n.o(jSONObject.toString());
+            az0.e(n);
+            mg0.b().f(vg0Var);
         }
-        return (String) invokeL.objValue;
     }
 }

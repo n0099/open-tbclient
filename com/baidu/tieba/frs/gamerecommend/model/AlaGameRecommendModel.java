@@ -11,10 +11,10 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.ck7;
-import com.baidu.tieba.ek7;
 import com.baidu.tieba.frs.gamerecommend.message.AlaGameRecommendReponseMessage;
-import com.baidu.tieba.yh;
+import com.baidu.tieba.oi;
+import com.baidu.tieba.ww7;
+import com.baidu.tieba.yw7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,11 +33,11 @@ public class AlaGameRecommendModel extends BdBaseModel {
     public BdUniqueId e;
     public HttpMessageListener f;
     public b g;
-    public ek7 h;
+    public yw7 h;
 
     /* loaded from: classes6.dex */
     public interface b {
-        void a(boolean z, List<yh> list);
+        void a(boolean z, List<oi> list);
 
         void b(int i, String str, boolean z);
     }
@@ -46,7 +46,7 @@ public class AlaGameRecommendModel extends BdBaseModel {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -86,13 +86,13 @@ public class AlaGameRecommendModel extends BdBaseModel {
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003401 && (httpResponsedMessage instanceof AlaGameRecommendReponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == this.a.e) {
                 AlaGameRecommendReponseMessage alaGameRecommendReponseMessage = (AlaGameRecommendReponseMessage) httpResponsedMessage;
                 if (!alaGameRecommendReponseMessage.hasError() && alaGameRecommendReponseMessage.getError() == 0) {
-                    ck7 data = alaGameRecommendReponseMessage.getData();
+                    ww7 data = alaGameRecommendReponseMessage.getData();
                     if (data == null) {
                         return;
                     }
                     this.a.c = data.a;
                     if (this.a.d) {
-                        AlaGameRecommendModel.U(this.a);
+                        AlaGameRecommendModel.V(this.a);
                     }
                     this.a.h.c(this.a.b, data);
                     if (this.a.g != null) {
@@ -124,18 +124,18 @@ public class AlaGameRecommendModel extends BdBaseModel {
         this.a = str;
         this.g = bVar;
         this.e = BdUniqueId.gen();
-        this.h = new ek7();
-        W();
+        this.h = new yw7();
+        X();
         registerListener();
     }
 
-    public static /* synthetic */ int U(AlaGameRecommendModel alaGameRecommendModel) {
+    public static /* synthetic */ int V(AlaGameRecommendModel alaGameRecommendModel) {
         int i = alaGameRecommendModel.b;
         alaGameRecommendModel.b = i + 1;
         return i;
     }
 
-    public final void W() {
+    public final void X() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_GAME_RECOMMEND_TAB_INFO, TbConfig.SERVER_ADDRESS + "c/f/game/gameForumRecomTab");
@@ -173,10 +173,10 @@ public class AlaGameRecommendModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public boolean c() {
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return !ListUtils.isEmpty(this.h.a());
         }
         return invokeV.booleanValue;

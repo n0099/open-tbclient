@@ -1,19 +1,7 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.swan.apps.SwanAppActivity;
+import android.content.Context;
 /* loaded from: classes7.dex */
 public interface nq1 {
-    void a(String str);
-
-    void b();
-
-    void c(String str);
-
-    void d(@NonNull SwanAppActivity swanAppActivity, int i, @Nullable mq2 mq2Var);
-
-    void e(String str);
-
-    void f(String str);
+    void a(Context context, String str, String str2, xm1 xm1Var);
 }

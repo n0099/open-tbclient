@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 
-import java.util.List;
+import com.baidu.tieba.w25;
 /* loaded from: classes9.dex */
-public interface z25 {
-    void a(List<Long> list);
+public interface z25<T extends w25> {
+    void a(int i, T t);
+
+    void b(int i, String str);
 }

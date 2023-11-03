@@ -59,7 +59,7 @@ public final class BottomFloatToolBar extends FrameLayout {
         }
         ImageView imageView2 = (ImageView) _$_findCachedViewById(R.id.newHomeFloatBarBackImageView);
         if (imageView2 != null) {
-            imageView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ui1
+            imageView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lj1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -67,7 +67,7 @@ public final class BottomFloatToolBar extends FrameLayout {
                 public final void onClick(View view2) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                        BottomFloatToolBar.m106_init_$lambda0(BottomFloatToolBar.this, view2);
+                        BottomFloatToolBar.m107_init_$lambda0(BottomFloatToolBar.this, view2);
                     }
                 }
             });
@@ -78,7 +78,7 @@ public final class BottomFloatToolBar extends FrameLayout {
         }
         ImageView imageView4 = (ImageView) _$_findCachedViewById(R.id.newHomeFloatBarFunctionImageView);
         if (imageView4 != null) {
-            imageView4.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.si1
+            imageView4.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.jj1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -86,7 +86,7 @@ public final class BottomFloatToolBar extends FrameLayout {
                 public final void onClick(View view2) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                        BottomFloatToolBar.m107_init_$lambda1(BottomFloatToolBar.this, view2);
+                        BottomFloatToolBar.m108_init_$lambda1(BottomFloatToolBar.this, view2);
                     }
                 }
             });
@@ -106,7 +106,7 @@ public final class BottomFloatToolBar extends FrameLayout {
         }
         ImageView imageView2 = (ImageView) _$_findCachedViewById(R.id.newHomeFloatBarBackImageView);
         if (imageView2 != null) {
-            imageView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ui1
+            imageView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lj1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -114,7 +114,7 @@ public final class BottomFloatToolBar extends FrameLayout {
                 public final void onClick(View view2) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                        BottomFloatToolBar.m106_init_$lambda0(BottomFloatToolBar.this, view2);
+                        BottomFloatToolBar.m107_init_$lambda0(BottomFloatToolBar.this, view2);
                     }
                 }
             });
@@ -125,7 +125,7 @@ public final class BottomFloatToolBar extends FrameLayout {
         }
         ImageView imageView4 = (ImageView) _$_findCachedViewById(R.id.newHomeFloatBarFunctionImageView);
         if (imageView4 != null) {
-            imageView4.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.si1
+            imageView4.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.jj1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -133,7 +133,7 @@ public final class BottomFloatToolBar extends FrameLayout {
                 public final void onClick(View view2) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                        BottomFloatToolBar.m107_init_$lambda1(BottomFloatToolBar.this, view2);
+                        BottomFloatToolBar.m108_init_$lambda1(BottomFloatToolBar.this, view2);
                     }
                 }
             });
@@ -153,7 +153,7 @@ public final class BottomFloatToolBar extends FrameLayout {
         }
         ImageView imageView2 = (ImageView) _$_findCachedViewById(R.id.newHomeFloatBarBackImageView);
         if (imageView2 != null) {
-            imageView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ui1
+            imageView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lj1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -161,7 +161,7 @@ public final class BottomFloatToolBar extends FrameLayout {
                 public final void onClick(View view2) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                        BottomFloatToolBar.m106_init_$lambda0(BottomFloatToolBar.this, view2);
+                        BottomFloatToolBar.m107_init_$lambda0(BottomFloatToolBar.this, view2);
                     }
                 }
             });
@@ -172,7 +172,7 @@ public final class BottomFloatToolBar extends FrameLayout {
         }
         ImageView imageView4 = (ImageView) _$_findCachedViewById(R.id.newHomeFloatBarFunctionImageView);
         if (imageView4 != null) {
-            imageView4.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.si1
+            imageView4.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.jj1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -180,7 +180,7 @@ public final class BottomFloatToolBar extends FrameLayout {
                 public final void onClick(View view2) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                        BottomFloatToolBar.m107_init_$lambda1(BottomFloatToolBar.this, view2);
+                        BottomFloatToolBar.m108_init_$lambda1(BottomFloatToolBar.this, view2);
                     }
                 }
             });
@@ -188,7 +188,7 @@ public final class BottomFloatToolBar extends FrameLayout {
     }
 
     /* renamed from: _init_$lambda-0  reason: not valid java name */
-    public static final void m106_init_$lambda0(BottomFloatToolBar this$0, View view2) {
+    public static final void m107_init_$lambda0(BottomFloatToolBar this$0, View view2) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         IBottomFloatToolBarClickListener iBottomFloatToolBarClickListener = this$0.mClickListeners;
         if (iBottomFloatToolBarClickListener != null) {
@@ -197,7 +197,7 @@ public final class BottomFloatToolBar extends FrameLayout {
     }
 
     /* renamed from: _init_$lambda-1  reason: not valid java name */
-    public static final void m107_init_$lambda1(BottomFloatToolBar this$0, View view2) {
+    public static final void m108_init_$lambda1(BottomFloatToolBar this$0, View view2) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         IBottomFloatToolBarClickListener iBottomFloatToolBarClickListener = this$0.mClickListeners;
         if (iBottomFloatToolBarClickListener != null) {
@@ -206,26 +206,26 @@ public final class BottomFloatToolBar extends FrameLayout {
     }
 
     /* renamed from: onAttachedToWindow$lambda-3  reason: not valid java name */
-    public static final void m108onAttachedToWindow$lambda3(BottomFloatToolBar this$0, boolean z) {
+    public static final void m109onAttachedToWindow$lambda3(BottomFloatToolBar this$0, boolean z) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         this$0.onNightModeChange();
     }
 
     /* renamed from: onAttachedToWindow$lambda-4  reason: not valid java name */
-    public static final void m109onAttachedToWindow$lambda4(BottomFloatToolBar this$0, FontSizeChangeMessage it) {
+    public static final void m110onAttachedToWindow$lambda4(BottomFloatToolBar this$0, FontSizeChangeMessage it) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         Intrinsics.checkNotNullParameter(it, "it");
         this$0.onFontSizeChange();
     }
 
     /* renamed from: setClickListener$lambda-2  reason: not valid java name */
-    public static final void m112setClickListener$lambda2(BottomFloatToolBar this$0, IBottomFloatToolBarClickListener iBottomFloatToolBarClickListener) {
+    public static final void m113setClickListener$lambda2(BottomFloatToolBar this$0, IBottomFloatToolBarClickListener iBottomFloatToolBarClickListener) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         this$0.mClickListeners = iBottomFloatToolBarClickListener;
     }
 
     private final void onFontSizeChange() {
-        runOnUIThread(new Runnable() { // from class: com.baidu.tieba.ti1
+        runOnUIThread(new Runnable() { // from class: com.baidu.tieba.kj1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -233,14 +233,14 @@ public final class BottomFloatToolBar extends FrameLayout {
             public final void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    BottomFloatToolBar.m110onFontSizeChange$lambda6(BottomFloatToolBar.this);
+                    BottomFloatToolBar.m111onFontSizeChange$lambda6(BottomFloatToolBar.this);
                 }
             }
         });
     }
 
     private final void onNightModeChange() {
-        runOnUIThread(new Runnable() { // from class: com.baidu.tieba.qi1
+        runOnUIThread(new Runnable() { // from class: com.baidu.tieba.hj1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -248,7 +248,7 @@ public final class BottomFloatToolBar extends FrameLayout {
             public final void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    BottomFloatToolBar.m111onNightModeChange$lambda5(BottomFloatToolBar.this);
+                    BottomFloatToolBar.m112onNightModeChange$lambda5(BottomFloatToolBar.this);
                 }
             }
         });
@@ -259,7 +259,7 @@ public final class BottomFloatToolBar extends FrameLayout {
         super.onAttachedToWindow();
         onNightModeChange();
         onFontSizeChange();
-        NightModeHelper.subscribeNightModeChangeEvent(this, new NightModeChangeListener() { // from class: com.baidu.tieba.pi1
+        NightModeHelper.subscribeNightModeChangeEvent(this, new NightModeChangeListener() { // from class: com.baidu.tieba.gj1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -267,11 +267,11 @@ public final class BottomFloatToolBar extends FrameLayout {
             public final void onNightModeChanged(boolean z) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                    BottomFloatToolBar.m108onAttachedToWindow$lambda3(BottomFloatToolBar.this, z);
+                    BottomFloatToolBar.m109onAttachedToWindow$lambda3(BottomFloatToolBar.this, z);
                 }
             }
         });
-        BdEventBus.Companion.getDefault().register(this, FontSizeChangeMessage.class, 1, new Action() { // from class: com.baidu.tieba.oi1
+        BdEventBus.Companion.getDefault().register(this, FontSizeChangeMessage.class, 1, new Action() { // from class: com.baidu.tieba.fj1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -279,7 +279,7 @@ public final class BottomFloatToolBar extends FrameLayout {
             public final void call(Object obj) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                    BottomFloatToolBar.m109onAttachedToWindow$lambda4(BottomFloatToolBar.this, (FontSizeChangeMessage) obj);
+                    BottomFloatToolBar.m110onAttachedToWindow$lambda4(BottomFloatToolBar.this, (FontSizeChangeMessage) obj);
                 }
             }
         });
@@ -293,7 +293,7 @@ public final class BottomFloatToolBar extends FrameLayout {
     }
 
     /* renamed from: onFontSizeChange$lambda-6  reason: not valid java name */
-    public static final void m110onFontSizeChange$lambda6(BottomFloatToolBar this$0) {
+    public static final void m111onFontSizeChange$lambda6(BottomFloatToolBar this$0) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         ImageView imageView = (ImageView) this$0._$_findCachedViewById(R.id.newHomeFloatBarBackImageView);
         if (imageView != null) {
@@ -306,7 +306,7 @@ public final class BottomFloatToolBar extends FrameLayout {
     }
 
     /* renamed from: onNightModeChange$lambda-5  reason: not valid java name */
-    public static final void m111onNightModeChange$lambda5(BottomFloatToolBar this$0) {
+    public static final void m112onNightModeChange$lambda5(BottomFloatToolBar this$0) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         ImageView imageView = (ImageView) this$0._$_findCachedViewById(R.id.newHomeFloatBarBackImageView);
         if (imageView != null) {
@@ -327,7 +327,7 @@ public final class BottomFloatToolBar extends FrameLayout {
     }
 
     public final void setClickListener(final IBottomFloatToolBarClickListener iBottomFloatToolBarClickListener) {
-        runOnUIThread(new Runnable() { // from class: com.baidu.tieba.ri1
+        runOnUIThread(new Runnable() { // from class: com.baidu.tieba.ij1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -335,7 +335,7 @@ public final class BottomFloatToolBar extends FrameLayout {
             public final void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    BottomFloatToolBar.m112setClickListener$lambda2(BottomFloatToolBar.this, iBottomFloatToolBarClickListener);
+                    BottomFloatToolBar.m113setClickListener$lambda2(BottomFloatToolBar.this, iBottomFloatToolBarClickListener);
                 }
             }
         });

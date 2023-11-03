@@ -1,28 +1,28 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Type;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.Queue;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class h8 implements e8 {
+public class h8 implements b8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public JSONObject a;
+    public Queue<?> a;
 
-    public h8(JSONObject jSONObject) {
+    public h8(Queue<?> queue) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
+            Object[] objArr = {queue};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,56 +32,109 @@ public class h8 implements e8 {
                 return;
             }
         }
-        this.a = jSONObject;
+        this.a = queue;
     }
 
-    @Override // com.baidu.tieba.e8
-    public Object a(u8 u8Var) {
+    @Override // com.baidu.tieba.b8
+    public Object a(k9 k9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, u8Var)) == null) {
-            Class<?> a = u8Var.a();
-            Type[] b = u8Var.b();
-            if (b7.e(a, Map.class)) {
-                Map<String, Object> b2 = s8.b(u8Var, this.a.length());
-                if (b2 != null) {
-                    Iterator<String> keys = this.a.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        if (next instanceof String) {
-                            String str = next;
-                            Object a2 = y8.a(this.a.opt(str)).a(new u8(b[1]));
-                            if (a2 != null) {
-                                b2.put(str, a2);
-                            }
-                        }
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k9Var)) == null) {
+            Object f = f(k9Var);
+            if (f != null) {
+                if (f instanceof JSONObject) {
+                    return f.toString();
                 }
-                return b2;
-            } else if (a == SparseArray.class) {
-                SparseArray sparseArray = new SparseArray(this.a.length());
-                Iterator<String> keys2 = this.a.keys();
-                while (keys2.hasNext()) {
-                    String next2 = keys2.next();
-                    if (next2 instanceof String) {
-                        String str2 = next2;
-                        try {
-                            int parseInt = Integer.parseInt(str2);
-                            Object a3 = y8.a(this.a.opt(String.valueOf(str2))).a(new u8(b[0]));
-                            if (a3 != null) {
-                                sparseArray.put(parseInt, a3);
-                            }
-                        } catch (NumberFormatException e) {
-                            e.printStackTrace();
-                        }
-                    }
+                if (f instanceof JSONArray) {
+                    return f.toString();
                 }
-                return sparseArray;
-            } else if (b7.e(a, c7.class)) {
-                return OrmObject.objectWithJson(this.a, a);
-            } else {
-                return null;
+                return f;
             }
+            return null;
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.b8
+    public Object b(k9 k9Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k9Var)) == null) {
+            return this.a;
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.b8
+    public Object c(k9 k9Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k9Var)) == null) {
+            return this.a;
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.b8
+    public Object e(k9 k9Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, k9Var)) == null) {
+            return d(k9Var);
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.b8
+    public Object d(k9 k9Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, k9Var)) == null) {
+            Type[] b = k9Var.b();
+            ArrayList arrayList = new ArrayList();
+            for (Object obj : this.a) {
+                if (obj != null) {
+                    if (b != null && b.length >= 1) {
+                        Object f = n9.a(obj).f(new k9(b[0]));
+                        if (f != null) {
+                            arrayList.add(f.toString());
+                        }
+                    } else {
+                        Object f2 = n9.a(obj).f(new k9(k9Var.a()));
+                        if (f2 != null) {
+                            arrayList.add(f2.toString());
+                        }
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.b8
+    public Object f(k9 k9Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, k9Var)) == null) {
+            Type[] b = k9Var.b();
+            JSONArray jSONArray = new JSONArray();
+            for (Object obj : this.a) {
+                if (obj != null) {
+                    if (b != null && b.length >= 1) {
+                        Object f = n9.a(obj).f(new k9(b[0]));
+                        if (f != null) {
+                            jSONArray.put(f);
+                        }
+                    } else {
+                        Object f2 = n9.a(obj).f(new k9(k9Var.a()));
+                        if (f2 != null) {
+                            jSONArray.put(f2);
+                        }
+                    }
+                }
+            }
+            return jSONArray;
         }
         return invokeL.objValue;
     }

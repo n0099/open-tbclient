@@ -1,38 +1,23 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.opengl.EGLContext;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.ar.DefaultParams;
-import com.baidu.ar.bean.DuMixARConfig;
+import android.media.MediaCodec;
+import android.media.MediaCrypto;
+import android.media.MediaFormat;
+import android.view.Surface;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.cyberplayer.sdk.mediainfo.MediaInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class fa0 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static boolean a = false;
-    public static ga0 b = null;
-    public static ma0 c = null;
-    public static Context d = null;
-    public static byte[] e = null;
-    public static JSONObject f = null;
-    public static JSONObject g = null;
-    public static boolean h = true;
-    public static String i = "live";
+public class fa0 extends aa0 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public interface a {
-        void onProgress(int i, int i2);
-
-        void onResult(boolean z, String str);
-    }
+    public Surface l;
 
     static {
         InterceptResult invokeClinit;
@@ -49,226 +34,82 @@ public final class fa0 {
         }
     }
 
-    public static void a(String str) {
+    public fa0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            Log.e("DuAr_DuController", "ar->" + str);
-        }
-    }
-
-    public static void k(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65547, null, context) == null) {
-            l(context, "10000", "2288883fb087c4a37fbaf12bce65916e", "");
-        }
-    }
-
-    public static void q(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65553, null, aVar) == null) {
-            ta0.e().k(aVar);
-        }
-    }
-
-    public static void r(ma0 ma0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65554, null, ma0Var) == null) {
-            c = ma0Var;
-        }
-    }
-
-    public static void s(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65555, null, str) == null) {
-            i = str;
-        }
-    }
-
-    public static void t(ga0 ga0Var) {
-        File f2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65556, null, ga0Var) == null) {
-            b = ga0Var;
-            if (ga0Var == null && (f2 = ta0.e().f()) != null) {
-                b = new ga0(f2.getAbsolutePath());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void u(File file) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65557, null, file) != null) || file == null) {
-            return;
-        }
-        ga0 ga0Var = b;
-        if (ga0Var == null) {
-            ga0Var = new ga0(file.getAbsolutePath());
-        }
-        t(ga0Var);
-    }
-
-    public static void v(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65558, null, z) == null) {
-            h = z;
-            u(ta0.e().f());
-        }
-    }
-
-    public static byte[] b() {
+    public Surface k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.l;
         }
-        return (byte[]) invokeV.objValue;
+        return (Surface) invokeV.objValue;
     }
 
-    public static Context c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.aa0
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return d;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.h == 0) {
+                this.h = this.e.presentationTimeUs;
+                aa0.j = 0L;
+            }
+            MediaCodec.BufferInfo bufferInfo = this.e;
+            long j = bufferInfo.presentationTimeUs - this.h;
+            bufferInfo.presentationTimeUs = j;
+            aa0.j = j;
+            v90.x().V(aa0.j / 1000);
         }
-        return (Context) invokeV.objValue;
     }
 
-    public static ma0 d() {
-        InterceptResult invokeV;
+    /* JADX WARN: Removed duplicated region for block: B:15:0x0060  */
+    /* JADX WARN: Removed duplicated region for block: B:22:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void l(ca0 ca0Var, da0 da0Var) {
+        ba0 ba0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return c;
-        }
-        return (ma0) invokeV.objValue;
-    }
-
-    public static String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return i;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static synchronized ka0 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            synchronized (fa0.class) {
-                if (g != null && g.length() > 0) {
-                    return ka0.b(g);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, ca0Var, da0Var) == null) {
+            boolean z = true;
+            if (ca0Var != null && da0Var != null) {
+                this.c = da0Var;
+                MediaFormat createVideoFormat = MediaFormat.createVideoFormat(ca0Var.j(), ca0Var.n(), ca0Var.l());
+                createVideoFormat.setInteger("color-format", 2130708361);
+                createVideoFormat.setInteger(MediaInfo.DPM_KEY_BITRATE, ca0Var.i());
+                createVideoFormat.setInteger("frame-rate", ca0Var.k());
+                createVideoFormat.setInteger("i-frame-interval", ca0Var.m());
+                try {
+                    MediaCodec createEncoderByType = MediaCodec.createEncoderByType(ca0Var.j());
+                    this.d = createEncoderByType;
+                    createEncoderByType.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
+                    this.l = this.d.createInputSurface();
+                    this.g = true;
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-                return null;
-            }
-        }
-        return (ka0) invokeV.objValue;
-    }
-
-    public static ga0 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return b;
-        }
-        return (ga0) invokeV.objValue;
-    }
-
-    public static int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return ea0.a0();
-        }
-        return invokeV.intValue;
-    }
-
-    public static String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return ea0.b0();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            return a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
-            return ta0.e().h();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
-            return h;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static DefaultParams e(EGLContext eGLContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, eGLContext)) == null) {
-            String g2 = ga0.g();
-            if (n()) {
-                a("getDuMixDefaultParams EGLContext: " + eGLContext + ", modelPath: " + g2);
-            }
-            DefaultParams defaultParams = new DefaultParams();
-            defaultParams.setFaceAlgoModelPath(g2);
-            JSONObject jSONObject = f;
-            if (jSONObject != null && jSONObject.length() > 0) {
-                defaultParams.setGradingConfig(f);
-            }
-            if (eGLContext != null) {
-                defaultParams.setUseTextureIO(true);
-                defaultParams.setShareContext(eGLContext);
-            }
-            JSONObject jSONObject2 = f;
-            if (jSONObject2 != null && jSONObject2.length() > 0) {
-                defaultParams.setGradingConfig(f);
-                if (n()) {
-                    a("getDuMixDefaultParams  " + f.toString());
+                ba0Var = this.f;
+                if (ba0Var == null) {
+                    ba0Var.b(z);
+                    return;
                 }
+                return;
             }
-            return defaultParams;
-        }
-        return (DefaultParams) invokeL.objValue;
-    }
-
-    public static void l(Context context, String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65548, null, context, str, str2, str3) == null) {
-            m(context, str, str2, str3, null);
-        }
-    }
-
-    @Deprecated
-    public static void m(Context context, String str, String str2, String str3, ga0 ga0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65549, null, context, str, str2, str3, ga0Var) == null) {
-            if (n()) {
-                a("sdk init with appId:" + str + ", apikey:" + str2 + ", secretKey:" + str3);
+            z = false;
+            ba0Var = this.f;
+            if (ba0Var == null) {
             }
-            d = context.getApplicationContext();
-            DuMixARConfig.setAppId(str);
-            DuMixARConfig.setAPIKey(str2);
-            DuMixARConfig.setSecretKey(str3);
-            qa0.d().i(d);
-            t(ga0Var);
         }
     }
 }

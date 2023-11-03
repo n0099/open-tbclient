@@ -1,302 +1,145 @@
 package com.baidu.tieba;
 
-import android.graphics.SurfaceTexture;
-import android.opengl.GLES20;
-import android.view.MotionEvent;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.LocalChannelTopicListActivityConfig;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.write.view.LocalChannelTopicSelectView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
-import com.baidu.ugc.editvideo.faceunity.gles.Texture2dProgram;
-import com.baidu.ugc.editvideo.player.IPlayer;
-import com.baidu.ugc.editvideo.record.entity.GLViewPortLocation;
-import com.baidu.ugc.editvideo.record.source.IDataSourceView;
-import com.faceunity.gles.GeneratedTexture;
-import javax.microedition.khronos.opengles.GL10;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes9.dex */
-public class ydb extends xdb implements IDataSourceView.IPlayerDataSourceView {
+public class ydb extends ieb<zeb> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int A;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
-    public int k;
-    public int l;
-    public SurfaceTexture m;
-    public float[] n;
-    public FullFrameRect o;
-    public int p;
-    public int q;
-    public a r;
-    public boolean s;
-    public int t;
-    public int[] u;
-    public int v;
-    public int w;
-    public int x;
-    public boolean y;
-    public boolean z;
+    @Nullable
+    public LocalChannelTopicSelectView g;
+    @Nullable
+    public String h;
 
-    /* loaded from: classes9.dex */
-    public interface a {
-        void a(GL10 gl10, int i, int i2);
-
-        void b(SurfaceTexture surfaceTexture);
-    }
-
-    public boolean d(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        int i;
-        int i2;
+    @Override // com.baidu.tieba.neb
+    public void c(@NonNull WriteData writeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            float x = motionEvent.getX();
-            float y = motionEvent.getY();
-            int i3 = this.f;
-            int i4 = this.g;
-            int i5 = (this.z ? this.h : this.j) + i3;
-            if (this.z) {
-                i = this.g;
-                i2 = this.i;
-            } else {
-                i = this.g;
-                i2 = this.k;
-            }
-            return (x <= ((float) i3) || x >= ((float) i5) || y <= ((float) i4) || y >= ((float) (i + i2))) ? !this.z : this.z;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean e(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) ? !d(motionEvent) : invokeL.booleanValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.t == 0) {
-            this.t = this.mFullScreen2D.createTexture2DObject();
-            GLES20.glTexImage2D(3553, 0, GeneratedTexture.FORMAT, this.p, this.q, 0, GeneratedTexture.FORMAT, 5121, null);
-            GLES20.glBindTexture(3553, 0);
-            GLES20.glGenFramebuffers(1, this.u, 0);
-            this.v = this.u[0];
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeData) == null) {
         }
     }
 
-    public final void g() {
+    @Override // com.baidu.tieba.neb
+    public void d(@NonNull WriteData writeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            SurfaceTexture surfaceTexture = this.m;
-            if (surfaceTexture != null) {
-                surfaceTexture.release();
-                this.m = null;
-            }
-            int i = this.l;
-            if (i != 0) {
-                GLES20.glDeleteTextures(1, new int[]{i}, 0);
-                this.l = 0;
-            }
-            h();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) == null) {
         }
     }
 
-    public final void h() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ydb(TbPageContext<?> tbPageContext) {
+        super(tbPageContext, zeb.class);
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.t == 0) {
-            return;
-        }
-        GLES20.glDeleteFramebuffers(1, this.u, 0);
-        GLES20.glDeleteTextures(1, new int[]{this.t}, 0);
-        this.t = 0;
-    }
-
-    @Override // com.baidu.ugc.editvideo.record.source.IDataSourceView.IPlayerDataSourceView
-    public void onCompletion(IPlayer iPlayer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, iPlayer) == null) {
-        }
-    }
-
-    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.IMediaLifeCycle
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.xdb, com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.IMediaLifeCycleIncludeGlThread
-    public void onDestroyInGlThread() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.onDestroyInGlThread();
-            g();
-        }
-    }
-
-    @Override // com.baidu.ugc.editvideo.record.source.IDataSourceView.IPlayerDataSourceView
-    public void onError(IPlayer iPlayer, int i, int i2, Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{iPlayer, Integer.valueOf(i), Integer.valueOf(i2), exc}) == null) {
-        }
-    }
-
-    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
-    public void onGLLocation(GLViewPortLocation gLViewPortLocation) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, gLViewPortLocation) == null) {
-        }
-    }
-
-    @Override // com.baidu.ugc.editvideo.record.source.IDataSourceView.IPlayerDataSourceView
-    public void onInfo(IPlayer iPlayer, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048586, this, iPlayer, i, i2) == null) {
-        }
-    }
-
-    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.IMediaLifeCycle
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.xdb, com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.IMediaLifeCycleIncludeGlThread
-    public void onPauseInGlThread() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            super.onPauseInGlThread();
-            g();
-        }
-    }
-
-    @Override // com.baidu.ugc.editvideo.record.source.IDataSourceView.IPlayerDataSourceView
-    public void onPlayStateListener(IPlayer iPlayer, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048589, this, iPlayer, i) == null) {
-        }
-    }
-
-    @Override // com.baidu.ugc.editvideo.record.source.IDataSourceView.IPlayerDataSourceView
-    public void onPrepared(IPlayer iPlayer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, iPlayer) == null) {
-            iPlayer.setVolume(1.0f, 1.0f);
-        }
-    }
-
-    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.IMediaLifeCycle
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
-    public void onSurfaceChanged(GL10 gl10, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048592, this, gl10, i, i2) == null) {
-            super.onSurfaceChanged(gl10, i, i2);
-            a aVar = this.r;
-            if (aVar != null) {
-                aVar.a(gl10, i, i2);
-            }
-            if (i != this.p || i2 != this.q) {
-                h();
-            }
-            this.p = i;
-            this.q = i2;
-        }
-    }
-
-    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
-    public void onSurfaceCreate(FullFrameRect fullFrameRect, FullFrameRect fullFrameRect2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048593, this, fullFrameRect, fullFrameRect2) == null) {
-            super.onSurfaceCreate(fullFrameRect, fullFrameRect2);
-            this.o = fullFrameRect;
-            if (fullFrameRect != null) {
-                this.l = fullFrameRect.createTextureObject();
-            }
-            if (this.y) {
-                try {
-                    new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D_FOLLOW));
-                } catch (Exception e) {
-                    veb.d(e.getMessage());
-                }
-            }
-            SurfaceTexture surfaceTexture = new SurfaceTexture(this.l);
-            this.m = surfaceTexture;
-            a aVar = this.r;
-            if (aVar != null) {
-                aVar.b(surfaceTexture);
-            }
-        }
-    }
-
-    @Override // com.baidu.ugc.editvideo.record.source.IDataSourceView.IPlayerDataSourceView
-    public void onVideoSizeChanged(int i, int i2) {
-        int i3;
-        int i4;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048594, this, i, i2) == null) || i == 0 || i2 == 0) {
-            return;
-        }
-        int i5 = this.e;
-        if (i5 == 90 || i5 == 270) {
-            i2 = i;
-            i = i2;
-        }
-        if (this.j == 0 && this.k == 0) {
-            this.j = this.h;
-            this.k = this.i;
-        }
-        if (this.A == 0) {
-            if (this.h == 0 || (i4 = this.i) == 0) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (Class) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            if (i > i2) {
-                this.j = i4;
+        }
+    }
+
+    @Override // com.baidu.tieba.neb
+    public View s(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d054a, viewGroup, false);
+            this.c = inflate;
+            LocalChannelTopicSelectView localChannelTopicSelectView = (LocalChannelTopicSelectView) inflate.findViewById(R.id.obfuscated_res_0x7f092ad6);
+            this.g = localChannelTopicSelectView;
+            if (localChannelTopicSelectView != null) {
+                localChannelTopicSelectView.setLocalChannelTopic(this.h);
             }
-            i3 = (int) (((this.j * i2) * 1.0f) / i);
-        } else if (this.h == 0 || this.i == 0) {
+            return this.c;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.neb
+    public void a(WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, writeData) == null) {
+            writeData.setLocalChannelDynamic(true);
+            writeData.setLocalChannelTopic(this.h);
+        }
+    }
+
+    @Override // com.baidu.tieba.neb
+    public void onChangeSkinType(int i) {
+        LocalChannelTopicSelectView localChannelTopicSelectView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048582, this, i) == null) && (localChannelTopicSelectView = this.g) != null) {
+            localChannelTopicSelectView.b();
+        }
+    }
+
+    @Override // com.baidu.tieba.ieb, com.baidu.tieba.neb
+    public void h(@Nullable String str, @NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, str, writeData) != null) || StringUtils.isNull(str)) {
             return;
-        } else {
-            this.o.setAngle(270.0f);
-            if (i2 > i) {
-                this.j = this.i;
+        }
+        try {
+            writeData.setLocalChannelTopic(new JSONObject(str).optString("t"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override // com.baidu.tieba.ieb, com.baidu.tieba.neb
+    public void m(Bundle bundle, Intent intent, @NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, bundle, intent, writeData) == null) {
+            super.m(bundle, intent, writeData);
+            if (bundle != null) {
+                this.h = bundle.getString(WriteActivityConfig.KEY_LOCAL_CHANNEL_TOPIC);
+            } else if (intent != null) {
+                this.h = intent.getStringExtra(WriteActivityConfig.KEY_LOCAL_CHANNEL_TOPIC);
             }
-            i3 = (int) (((this.j * i) * 1.0f) / i2);
-        }
-        this.k = i3;
-    }
-
-    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
-    public void setEnable(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            this.s = z;
+            if (StringUtils.isNull(this.h)) {
+                this.h = writeData.getLocalChannelTopic();
+            }
         }
     }
 
-    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
-    public void setScaleAndTranslate(float f, float f2, float f3, float f4) {
+    @Override // com.baidu.tieba.ieb, com.baidu.tieba.neb
+    public void onActivityResult(int i, int i2, Intent intent) {
+        LocalChannelTopicSelectView localChannelTopicSelectView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-        }
-    }
-
-    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
-    public void setTextureMode(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
+            if (i2 == -1 && i == 25068 && intent != null && (localChannelTopicSelectView = this.g) != null && localChannelTopicSelectView.getVisibility() == 0) {
+                String stringExtra = intent.getStringExtra(LocalChannelTopicListActivityConfig.KEY_RESPONSE_TOPIC);
+                this.h = stringExtra;
+                this.g.setLocalChannelTopic(stringExtra);
+            }
         }
     }
 }

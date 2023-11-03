@@ -1,170 +1,91 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.text.TextUtils;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.NegativeFeedBackData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.view.NavigationBarCoverTip;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.NewTopicList.NewTopicList;
-import tbclient.NewTopicList.PkModule;
-import tbclient.TopicModule;
-/* loaded from: classes7.dex */
-public class r48 extends jk6 {
+/* loaded from: classes8.dex */
+public class r48 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c0;
-    public static final BdUniqueId d0;
     public transient /* synthetic */ FieldHolder $fh;
-    public int R;
-    public long S;
+    public FrsFragment a;
+    public NavigationBarCoverTip b;
+    public TextView c;
+    public int d;
 
-    /* renamed from: T  reason: collision with root package name */
-    public String f1154T;
-    public String U;
-    public long V;
-    public String W;
-    public s48 X;
-    public pea Y;
-    public int Z;
-    public String a0;
-    public ThreadData b0;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948071763, "Lcom/baidu/tieba/r48;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948071763, "Lcom/baidu/tieba/r48;");
-                return;
-            }
-        }
-        c0 = BdUniqueId.gen();
-        d0 = BdUniqueId.gen();
-    }
-
-    public r48() {
+    public r48(FrsFragment frsFragment, NavigationBarCoverTip navigationBarCoverTip) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsFragment, navigationBarCoverTip};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.Z = 0;
+        this.a = frsFragment;
+        this.b = navigationBarCoverTip;
+        b();
     }
 
-    @Override // com.baidu.tieba.jk6, com.baidu.tieba.jv4
-    public NegativeFeedBackData getNegFeedBackData() {
-        InterceptResult invokeV;
+    public void a(String str) {
+        int i;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            NegativeFeedBackData negFeedBackData = super.getNegFeedBackData();
-            if (negFeedBackData != null) {
-                negFeedBackData.setTopicID(this.S);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !qd.isEmpty(str) && this.b != null && this.a.isPrimary() && (i = this.d) <= 0) {
+            this.d = i + 1;
+            if (str.length() < 20) {
+                str2 = this.a.getResources().getString(R.string.forum_ueg_tip) + "\n" + str;
+            } else if (str.length() < 34) {
+                str2 = this.a.getResources().getString(R.string.forum_ueg_tip) + str;
+            } else {
+                str2 = this.a.getResources().getString(R.string.forum_ueg_tip) + str.substring(0, 34);
             }
-            return negFeedBackData;
+            this.c.setText(str2);
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0101);
+            SkinManager.setBackgroundColor(this.b, R.color.cp_link_tip_a_alpha95);
+            this.b.k(this.a.getActivity(), this.c, 5000);
         }
-        return (NegativeFeedBackData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.jk6, com.baidu.tieba.jv4
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b0;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yh
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.Z == 0) {
-                return c0;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.d = 0;
+            this.c = new TextView(this.a.getActivity());
+            this.c.setLayoutParams(new LinearLayout.LayoutParams(-1, this.a.getResources().getDimensionPixelSize(R.dimen.tbds112)));
+            if (UtilHelper.canUseStyleImmersiveSticky()) {
+                this.c.setPadding(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070198), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f), 0);
+                this.c.setGravity(3);
+            } else {
+                this.c.setPadding(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f), 0, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f), 0);
+                this.c.setGravity(19);
             }
-            return d0;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public static boolean G(ThreadData threadData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, threadData)) == null) {
-            if (threadData == null || threadData.getType() != ThreadData.TYPE_TOPIC) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void K(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData) == null) {
-            this.b0 = threadData;
+            this.c.setTextSize(0, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f9));
+            this.c.setLineSpacing(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d4), 1.0f);
+            this.c.setMaxLines(2);
+            this.c.setEllipsize(TextUtils.TruncateAt.END);
         }
     }
 
-    public void H(NewTopicList newTopicList) {
+    public void c() {
+        NavigationBarCoverTip navigationBarCoverTip;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, newTopicList) != null) || newTopicList == null) {
-            return;
-        }
-        this.S = newTopicList.topic_id.longValue();
-        this.f1154T = newTopicList.topic_name;
-        this.U = newTopicList.topic_desc;
-        this.V = newTopicList.discuss_num.longValue();
-        this.W = newTopicList.topic_image;
-        PkModule pkModule = newTopicList.pk_module;
-        if (pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
-            s48 s48Var = new s48();
-            this.X = s48Var;
-            s48Var.a = this.S;
-            s48Var.f = 1;
-            s48Var.a(newTopicList.pk_module);
-        }
-        if (newTopicList.top_agree_post != null) {
-            pea peaVar = new pea();
-            this.Y = peaVar;
-            peaVar.J0(newTopicList.top_agree_post);
-        }
-    }
-
-    public void I(TopicModule topicModule) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, topicModule) != null) || topicModule == null) {
-            return;
-        }
-        this.S = topicModule.topic_id.longValue();
-        this.f1154T = topicModule.topic_name;
-        this.U = topicModule.topic_desc;
-        this.W = topicModule.topic_image;
-        this.a0 = topicModule.topic_avatar;
-        tbclient.PkModule pkModule = topicModule.pk_module;
-        if (pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
-            s48 s48Var = new s48();
-            this.X = s48Var;
-            s48Var.a = this.S;
-            s48Var.f = 3;
-            s48Var.b(topicModule.pk_module);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (navigationBarCoverTip = this.b) != null) {
+            navigationBarCoverTip.f();
         }
     }
 }

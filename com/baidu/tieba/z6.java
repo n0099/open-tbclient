@@ -1,44 +1,79 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class z6 extends w6 {
+public class z6 extends a7 {
     public static /* synthetic */ Interceptable $ic;
+    public static z6 c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.w6
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 480;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448322097, "Lcom/baidu/tieba/z6;")) == null) {
+            return;
         }
-        return invokeV.intValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448322097, "Lcom/baidu/tieba/z6;");
+        }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z6(String str, String str2, DiskFileOperate.Action action) {
-        super(str, str2, action);
+    public z6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, action};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1], (DiskFileOperate.Action) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
+        }
+        this.a = new b7(20000, 10000, 5000);
+        this.b = 3;
+    }
+
+    public static z6 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (z6.class) {
+                    if (c == null) {
+                        c = new z6();
+                    }
+                }
+            }
+            return c;
+        }
+        return (z6) invokeV.objValue;
+    }
+
+    public void d(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) {
+            if (i < 3000) {
+                i = 3000;
+            }
+            if (i2 < 3000) {
+                i2 = 3000;
+            }
+            if (i3 < 3000) {
+                i3 = 3000;
+            }
+            this.a = new b7(i, i2, i3);
         }
     }
 }

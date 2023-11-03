@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.setting.im.more.PrivacySettingMessage;
-import com.baidu.tieba.u5a;
+import com.baidu.tieba.zia;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public u5a a;
+    public zia a;
     public HttpMessageListener b;
 
     /* loaded from: classes8.dex */
@@ -70,14 +70,14 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
                     return;
                 }
                 if (PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE.equals(operation)) {
-                    this.a.a.A();
+                    this.a.a.E();
                 } else if ("bazhu_show_outside".equals(operation)) {
-                    this.a.a.B();
+                    this.a.a.F();
                 }
                 if (httpResponsedMessage.getError() != -1 && BdNetTypeUtil.isNetWorkAvailable()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f1173);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f1185);
                 } else {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0e4f);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0e61);
                 }
             }
         }
@@ -121,9 +121,9 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
             if (intExtra2 != 1 && intExtra2 != 3) {
                 intExtra2 = 1;
             }
-            u5a u5aVar = new u5a(getPageContext(), (intExtra << 2) | intExtra2);
-            this.a = u5aVar;
-            setContentView(u5aVar.y());
+            zia ziaVar = new zia(getPageContext(), (intExtra << 2) | intExtra2);
+            this.a = ziaVar;
+            setContentView(ziaVar.C());
             registerListener(this.b);
         }
     }

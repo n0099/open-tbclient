@@ -26,7 +26,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class RSSExpandedReader extends AbstractRSSReader {
     public static final int FINDER_PAT_A = 0;
     public static final int FINDER_PAT_B = 1;

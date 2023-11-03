@@ -1,25 +1,25 @@
 package rx.subjects;
 
-import com.baidu.tieba.g7c;
-import com.baidu.tieba.g9c;
-import com.baidu.tieba.gac;
-import com.baidu.tieba.h6c;
-import com.baidu.tieba.h9c;
-import com.baidu.tieba.hac;
-import com.baidu.tieba.i6c;
-import com.baidu.tieba.j6c;
-import com.baidu.tieba.n6c;
-import com.baidu.tieba.nac;
-import com.baidu.tieba.o6c;
-import com.baidu.tieba.t6c;
-import com.baidu.tieba.u6c;
+import com.baidu.tieba.hkc;
+import com.baidu.tieba.hmc;
+import com.baidu.tieba.hnc;
+import com.baidu.tieba.ijc;
+import com.baidu.tieba.imc;
+import com.baidu.tieba.inc;
+import com.baidu.tieba.jjc;
+import com.baidu.tieba.kjc;
+import com.baidu.tieba.ojc;
+import com.baidu.tieba.onc;
+import com.baidu.tieba.pjc;
+import com.baidu.tieba.ujc;
+import com.baidu.tieba.vjc;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.OnErrorThrowable;
 import rx.internal.operators.NotificationLite;
 /* loaded from: classes2.dex */
-public final class UnicastSubject$State<T> extends AtomicLong implements j6c, i6c<T>, h6c.a<T>, o6c {
+public final class UnicastSubject$State<T> extends AtomicLong implements kjc, jjc<T>, ijc.a<T>, pjc {
     public static final long serialVersionUID = -9044104859202255786L;
     public volatile boolean caughtUp;
     public volatile boolean done;
@@ -27,46 +27,46 @@ public final class UnicastSubject$State<T> extends AtomicLong implements j6c, i6
     public Throwable error;
     public boolean missed;
     public final Queue<Object> queue;
-    public final AtomicReference<n6c<? super T>> subscriber = new AtomicReference<>();
-    public final AtomicReference<u6c> terminateOnce;
+    public final AtomicReference<ojc<? super T>> subscriber = new AtomicReference<>();
+    public final AtomicReference<vjc> terminateOnce;
 
-    public UnicastSubject$State(int i, u6c u6cVar) {
-        AtomicReference<u6c> atomicReference;
-        Queue<Object> g9cVar;
+    public UnicastSubject$State(int i, vjc vjcVar) {
+        AtomicReference<vjc> atomicReference;
+        Queue<Object> hmcVar;
         Queue<Object> queue;
-        if (u6cVar != null) {
-            atomicReference = new AtomicReference<>(u6cVar);
+        if (vjcVar != null) {
+            atomicReference = new AtomicReference<>(vjcVar);
         } else {
             atomicReference = null;
         }
         this.terminateOnce = atomicReference;
         if (i > 1) {
-            if (nac.b()) {
-                queue = new hac<>(i);
+            if (onc.b()) {
+                queue = new inc<>(i);
             } else {
-                queue = new h9c<>(i);
+                queue = new imc<>(i);
             }
         } else {
-            if (nac.b()) {
-                g9cVar = new gac<>();
+            if (onc.b()) {
+                hmcVar = new hnc<>();
             } else {
-                g9cVar = new g9c<>();
+                hmcVar = new hmc<>();
             }
-            queue = g9cVar;
+            queue = hmcVar;
         }
         this.queue = queue;
     }
 
-    public void call(n6c<? super T> n6cVar) {
-        if (this.subscriber.compareAndSet(null, n6cVar)) {
-            n6cVar.b(this);
-            n6cVar.f(this);
+    public void call(ojc<? super T> ojcVar) {
+        if (this.subscriber.compareAndSet(null, ojcVar)) {
+            ojcVar.b(this);
+            ojcVar.f(this);
             return;
         }
-        n6cVar.onError(new IllegalStateException("Only a single subscriber is allowed"));
+        ojcVar.onError(new IllegalStateException("Only a single subscriber is allowed"));
     }
 
-    @Override // com.baidu.tieba.i6c
+    @Override // com.baidu.tieba.jjc
     public void onError(Throwable th) {
         if (!this.done) {
             doTerminate();
@@ -88,12 +88,12 @@ public final class UnicastSubject$State<T> extends AtomicLong implements j6c, i6
         }
     }
 
-    @Override // com.baidu.tieba.j6c
+    @Override // com.baidu.tieba.kjc
     public void request(long j) {
         int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
         if (i >= 0) {
             if (i > 0) {
-                g7c.b(this, j);
+                hkc.b(this, j);
                 replay();
                 return;
             } else if (this.done) {
@@ -106,23 +106,23 @@ public final class UnicastSubject$State<T> extends AtomicLong implements j6c, i6
         throw new IllegalArgumentException("n >= 0 required");
     }
 
-    @Override // com.baidu.tieba.v6c
+    @Override // com.baidu.tieba.wjc
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((n6c) ((n6c) obj));
+        call((ojc) ((ojc) obj));
     }
 
-    public boolean checkTerminated(boolean z, boolean z2, n6c<? super T> n6cVar) {
-        if (n6cVar.isUnsubscribed()) {
+    public boolean checkTerminated(boolean z, boolean z2, ojc<? super T> ojcVar) {
+        if (ojcVar.isUnsubscribed()) {
             this.queue.clear();
             return true;
         } else if (z) {
             Throwable th = this.error;
             if (th != null) {
                 this.queue.clear();
-                n6cVar.onError(th);
+                ojcVar.onError(th);
                 return true;
             } else if (z2) {
-                n6cVar.onCompleted();
+                ojcVar.onCompleted();
                 return true;
             } else {
                 return false;
@@ -133,19 +133,19 @@ public final class UnicastSubject$State<T> extends AtomicLong implements j6c, i6
     }
 
     public void doTerminate() {
-        u6c u6cVar;
-        AtomicReference<u6c> atomicReference = this.terminateOnce;
-        if (atomicReference != null && (u6cVar = atomicReference.get()) != null && atomicReference.compareAndSet(u6cVar, null)) {
-            u6cVar.call();
+        vjc vjcVar;
+        AtomicReference<vjc> atomicReference = this.terminateOnce;
+        if (atomicReference != null && (vjcVar = atomicReference.get()) != null && atomicReference.compareAndSet(vjcVar, null)) {
+            vjcVar.call();
         }
     }
 
-    @Override // com.baidu.tieba.o6c
+    @Override // com.baidu.tieba.pjc
     public boolean isUnsubscribed() {
         return this.done;
     }
 
-    @Override // com.baidu.tieba.i6c
+    @Override // com.baidu.tieba.jjc
     public void onCompleted() {
         if (!this.done) {
             doTerminate();
@@ -166,7 +166,7 @@ public final class UnicastSubject$State<T> extends AtomicLong implements j6c, i6
         }
     }
 
-    @Override // com.baidu.tieba.o6c
+    @Override // com.baidu.tieba.pjc
     public void unsubscribe() {
         doTerminate();
         this.done = true;
@@ -179,7 +179,7 @@ public final class UnicastSubject$State<T> extends AtomicLong implements j6c, i6
         }
     }
 
-    @Override // com.baidu.tieba.i6c
+    @Override // com.baidu.tieba.jjc
     public void onNext(T t) {
         if (!this.done) {
             if (!this.caughtUp) {
@@ -195,11 +195,11 @@ public final class UnicastSubject$State<T> extends AtomicLong implements j6c, i6
                     return;
                 }
             }
-            n6c<? super T> n6cVar = this.subscriber.get();
+            ojc<? super T> ojcVar = this.subscriber.get();
             try {
-                n6cVar.onNext(t);
+                ojcVar.onNext(t);
             } catch (Throwable th) {
-                t6c.g(th, n6cVar, t);
+                ujc.g(th, ojcVar, t);
             }
         }
     }
@@ -233,9 +233,9 @@ public final class UnicastSubject$State<T> extends AtomicLong implements j6c, i6
             this.emitting = true;
             Queue<Object> queue = this.queue;
             while (true) {
-                n6c<? super T> n6cVar = this.subscriber.get();
-                if (n6cVar != null) {
-                    if (checkTerminated(this.done, queue.isEmpty(), n6cVar)) {
+                ojc<? super T> ojcVar = this.subscriber.get();
+                if (ojcVar != null) {
+                    if (checkTerminated(this.done, queue.isEmpty(), ojcVar)) {
                         return;
                     }
                     long j = get();
@@ -253,7 +253,7 @@ public final class UnicastSubject$State<T> extends AtomicLong implements j6c, i6
                         } else {
                             z2 = false;
                         }
-                        if (checkTerminated(z3, z2, n6cVar)) {
+                        if (checkTerminated(z3, z2, ojcVar)) {
                             return;
                         }
                         if (z2) {
@@ -261,13 +261,13 @@ public final class UnicastSubject$State<T> extends AtomicLong implements j6c, i6
                         }
                         Object obj = (Object) NotificationLite.e(poll);
                         try {
-                            n6cVar.onNext(obj);
+                            ojcVar.onNext(obj);
                             j--;
                             j2++;
                         } catch (Throwable th) {
                             queue.clear();
-                            t6c.e(th);
-                            n6cVar.onError(OnErrorThrowable.addValueAsLastCause(th, obj));
+                            ujc.e(th);
+                            ojcVar.onError(OnErrorThrowable.addValueAsLastCause(th, obj));
                             return;
                         }
                     }

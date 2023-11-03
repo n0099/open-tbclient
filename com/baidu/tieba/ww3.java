@@ -1,72 +1,52 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.widget.Toast;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class ww3 extends vx3 {
+public class ww3 implements zw3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public tw3 a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ww3() {
-        super("openSpaceCleanActivity");
+    public ww3(tw3 tw3Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tw3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = tw3Var;
     }
 
-    @Override // com.baidu.tieba.vx3
-    public qx1 a(@NonNull JSONObject jSONObject, @NonNull ti2 ti2Var) {
-        InterceptResult invokeLL;
-        boolean z;
+    @Override // com.baidu.tieba.zw3
+    public void a(ax3 ax3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, ti2Var)) == null) {
-            if (yi3.m()) {
-                z = b("com.huawei.systemmanager", "com.huawei.systemmanager.appfeature.spacecleaner.SpaceCleanActivity");
-            } else if (yi3.n()) {
-                z = b("com.miui.cleanmaster", "com.miui.optimizecenter.MainActivity");
-            } else if (yi3.o()) {
-                z = b("com.coloros.phonemanager", "com.coloros.phonemanager.clear.ClearActivity");
-            } else if (yi3.r()) {
-                z = b("com.iqoo.secure", "com.iqoo.secure.clean.PhoneCleanActivity2");
-            } else {
-                z = false;
-            }
-            if (!z) {
-                Toast.makeText(wo2.c(), (int) R.string.obfuscated_res_0x7f0f01bf, 0).show();
-            }
-            ti2Var.onSuccess(null);
-            return null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ax3Var) == null) {
+            b(ax3Var);
         }
-        return (qx1) invokeLL.objValue;
     }
 
-    public final boolean b(String str, String str2) {
-        InterceptResult invokeLL;
+    public final void b(ax3 ax3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            Intent intent = new Intent();
-            intent.setClassName(str, str2);
-            return yh3.i(wo2.c(), intent, true, false);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ax3Var) == null) {
+            this.a.d.clear();
+            if (ax3Var != null) {
+                this.a.d.putString("functionType", ax3Var.a());
+                this.a.d.putString("resultData", ax3Var.b());
+                this.a.d.putInt("resultStatus", ax3Var.c());
+            }
+            this.a.c();
         }
-        return invokeLL.booleanValue;
     }
 }

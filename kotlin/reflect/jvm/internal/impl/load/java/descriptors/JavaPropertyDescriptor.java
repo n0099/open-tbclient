@@ -24,7 +24,7 @@ import kotlin.reflect.jvm.internal.impl.resolve.DescriptorFactory;
 import kotlin.reflect.jvm.internal.impl.resolve.constants.ConstantValue;
 import kotlin.reflect.jvm.internal.impl.storage.NullableLazyValue;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class JavaPropertyDescriptor extends PropertyDescriptorImpl implements JavaCallableMemberDescriptor {
     public final boolean isStaticFinal;
     public final Pair<CallableDescriptor.UserDataKey<?>, ?> singleUserData;

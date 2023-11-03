@@ -1,53 +1,7 @@
 package com.baidu.tieba;
-
-import android.os.Bundle;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.extcore.cores.SwanAppCores;
-import com.baidu.tieba.t53;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 /* loaded from: classes8.dex */
 public interface s53 {
-    public static final Set<String> p0 = new HashSet(Arrays.asList("update_tag_by_activity_on_create", "update_tag_by_activity_on_new_intent", "update_tag_by_activity_on_relaunch", "update_tag_by_remote_debug"));
+    void onDismissMenu();
 
-    void A(t53.a aVar);
-
-    z73 B();
-
-    boolean E();
-
-    void G();
-
-    String getAppId();
-
-    int k();
-
-    void l(Bundle bundle, String str);
-
-    SwanAppCores m();
-
-    String n(String... strArr);
-
-    void o(ik3<t53.a> ik3Var);
-
-    void p(String str);
-
-    p53 q();
-
-    void r(SwanAppActivity swanAppActivity);
-
-    void s();
-
-    void t(SwanAppActivity swanAppActivity);
-
-    void u(ik3<t53.a> ik3Var);
-
-    void v(String str, Bundle bundle);
-
-    SwanAppActivity w();
-
-    tm1 x();
-
-    k23 y();
+    void onShowMenu();
 }

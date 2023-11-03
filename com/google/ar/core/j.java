@@ -2,7 +2,7 @@ package com.google.ar.core;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class j extends LinkedHashMap<Long, AugmentedFace> {
     public j(int i, float f, boolean z) {
         super(1, 0.75f, true);

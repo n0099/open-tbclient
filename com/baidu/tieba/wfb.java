@@ -1,61 +1,127 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.util.devices.RomUtils;
-import com.baidu.sapi2.share.ShareCallPacking;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class wfb {
     public static /* synthetic */ Interceptable $ic;
-    public static ArrayList<Integer> a;
-    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public TbPageContext<?> a;
+    @NonNull
+    public NavigationBar b;
+    @NonNull
+    public LinearLayout c;
+    @NonNull
+    public LinearLayout d;
+    @NonNull
+    public meb e;
+    public EditorTools f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948270070, "Lcom/baidu/tieba/wfb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948270070, "Lcom/baidu/tieba/wfb;");
+    public wfb(@NonNull TbPageContext<?> tbPageContext, @NonNull NavigationBar navigationBar, @NonNull LinearLayout linearLayout, @NonNull LinearLayout linearLayout2, @NonNull meb mebVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, navigationBar, linearLayout, linearLayout2, mebVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        ArrayList<Integer> arrayList = new ArrayList<>(4);
-        a = arrayList;
-        arrayList.add(10000);
-        a.add(10001);
-        a.add(10002);
-        a.add(Integer.valueOf((int) ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT));
-        a.add(-1);
+        this.a = tbPageContext;
+        this.b = navigationBar;
+        this.c = linearLayout;
+        this.d = linearLayout2;
+        this.e = mebVar;
     }
 
-    public static int a() {
-        InterceptResult invokeV;
+    @Nullable
+    public peb a(int i, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (TextUtils.isEmpty(b)) {
-                b = kgb.a();
-            }
-            if (TextUtils.isEmpty(b)) {
-                return ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT;
-            }
-            if (b.toUpperCase().contains("HUAWEI")) {
-                return 10001;
-            }
-            if (!b.toUpperCase().contains(RomUtils.ROM_XIAOMI)) {
-                return ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT;
-            }
-            return 10002;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            return c(i, z);
         }
-        return invokeV.intValue;
+        return (peb) invokeCommon.objValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x0035, code lost:
+        if (r6.getBooleanExtra(com.baidu.tbadk.core.atomData.WriteActivityConfig.KEY_NOT_USE_DRAFT, false) != false) goto L8;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:7:0x0016, code lost:
+        if (r6.getBoolean(com.baidu.tbadk.core.atomData.WriteActivityConfig.KEY_NOT_USE_DRAFT, false) != false) goto L8;
+     */
+    @Nullable
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public peb b(Bundle bundle) {
+        InterceptResult invokeL;
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
+            int i = 9;
+            boolean z = false;
+            if (bundle != null) {
+                i = bundle.getInt("type", 9);
+            } else {
+                if (this.a.getPageActivity() != null && (intent = this.a.getPageActivity().getIntent()) != null) {
+                    i = intent.getIntExtra("type", 9);
+                }
+                z = true;
+                return c(i, z);
+            }
+        } else {
+            return (peb) invokeL.objValue;
+        }
+    }
+
+    public final peb c(int i, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (this.a.getPageActivity() == null) {
+                return null;
+            }
+            this.b.removeAllViews(NavigationBar.ControlAlign.HORIZONTAL_LEFT);
+            this.b.removeAllViews(NavigationBar.ControlAlign.HORIZONTAL_RIGHT);
+            this.c.removeAllViews();
+            this.d.removeAllViews();
+            EditorTools editorTools = new EditorTools(this.a.getPageActivity());
+            this.f = editorTools;
+            this.d.addView(editorTools);
+            switch (i) {
+                case 11:
+                    return new hgb(this.a, this.b, this.c, this.f, this.e, z);
+                case 12:
+                    return new dgb(this.a, this.b, this.c, this.f, this.e, z);
+                case 13:
+                    return new egb(this.a, this.b, this.c, this.f, this.e, z);
+                case 14:
+                    return new ggb(this.a, this.b, this.c, this.f, this.e, z);
+                case 15:
+                    return new cgb(this.a, this.b, this.c, this.f, this.e, z);
+                default:
+                    return new fgb(this.a, this.b, this.c, this.f, this.e, z);
+            }
+        }
+        return (peb) invokeCommon.objValue;
     }
 }

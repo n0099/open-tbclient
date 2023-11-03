@@ -4,7 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.z2;
+import com.baidu.tieba.p3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -96,7 +96,7 @@ public class Vector3 implements Serializable, c<Vector3> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: cpy */
-    public Vector3 m18cpy() {
+    public Vector3 m19cpy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -109,7 +109,7 @@ public class Vector3 implements Serializable, c<Vector3> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            return ((((z2.a(this.x) + 31) * 31) + z2.a(this.y)) * 31) + z2.a(this.z);
+            return ((((p3.a(this.x) + 31) * 31) + p3.a(this.y)) * 31) + p3.a(this.z);
         }
         return invokeV.intValue;
     }
@@ -163,13 +163,13 @@ public class Vector3 implements Serializable, c<Vector3> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: nor */
-    public Vector3 m21nor() {
+    public Vector3 m22nor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048646, this)) == null) {
             float len2 = len2();
             if (len2 != 0.0f && len2 != 1.0f) {
-                return m22scl(1.0f / ((float) Math.sqrt(len2)));
+                return m23scl(1.0f / ((float) Math.sqrt(len2)));
             }
             return this;
         }
@@ -178,7 +178,7 @@ public class Vector3 implements Serializable, c<Vector3> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: setToRandomDirection */
-    public Vector3 m25setToRandomDirection() {
+    public Vector3 m26setToRandomDirection() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048669, this)) == null) {
@@ -189,7 +189,7 @@ public class Vector3 implements Serializable, c<Vector3> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: setZero */
-    public Vector3 m26setZero() {
+    public Vector3 m27setZero() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048671, this)) == null) {
@@ -566,24 +566,24 @@ public class Vector3 implements Serializable, c<Vector3> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: limit */
-    public Vector3 m19limit(float f) {
+    public Vector3 m20limit(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048634, this, f)) == null) {
-            return m20limit2(f * f);
+            return m21limit2(f * f);
         }
         return (Vector3) invokeF.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: limit2 */
-    public Vector3 m20limit2(float f) {
+    public Vector3 m21limit2(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048636, this, f)) == null) {
             float len2 = len2();
             if (len2 > f) {
-                m22scl((float) Math.sqrt(f / len2));
+                m23scl((float) Math.sqrt(f / len2));
             }
             return this;
         }
@@ -601,7 +601,7 @@ public class Vector3 implements Serializable, c<Vector3> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: scl */
-    public Vector3 m22scl(float f) {
+    public Vector3 m23scl(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048654, this, f)) == null) {
@@ -622,24 +622,24 @@ public class Vector3 implements Serializable, c<Vector3> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: setLength */
-    public Vector3 m23setLength(float f) {
+    public Vector3 m24setLength(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048665, this, f)) == null) {
-            return m24setLength2(f * f);
+            return m25setLength2(f * f);
         }
         return (Vector3) invokeF.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: setLength2 */
-    public Vector3 m24setLength2(float f) {
+    public Vector3 m25setLength2(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048667, this, f)) == null) {
             float len2 = len2();
             if (len2 != 0.0f && len2 != f) {
-                return m22scl((float) Math.sqrt(f / len2));
+                return m23scl((float) Math.sqrt(f / len2));
             }
             return this;
         }
@@ -762,7 +762,7 @@ public class Vector3 implements Serializable, c<Vector3> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clamp */
-    public Vector3 m17clamp(float f, float f2) {
+    public Vector3 m18clamp(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
@@ -772,11 +772,11 @@ public class Vector3 implements Serializable, c<Vector3> {
             }
             float f3 = f2 * f2;
             if (len2 > f3) {
-                return m22scl((float) Math.sqrt(f3 / len2));
+                return m23scl((float) Math.sqrt(f3 / len2));
             }
             float f4 = f * f;
             if (len2 < f4) {
-                return m22scl((float) Math.sqrt(f4 / len2));
+                return m23scl((float) Math.sqrt(f4 / len2));
             }
             return this;
         }
@@ -913,7 +913,7 @@ public class Vector3 implements Serializable, c<Vector3> {
                 return false;
             }
             Vector3 vector3 = (Vector3) obj;
-            if (z2.a(this.x) == z2.a(vector3.x) && z2.a(this.y) == z2.a(vector3.y) && z2.a(this.z) == z2.a(vector3.z)) {
+            if (p3.a(this.x) == p3.a(vector3.x) && p3.a(this.y) == p3.a(vector3.y) && p3.a(this.z) == p3.a(vector3.z)) {
                 return true;
             }
             return false;
@@ -1089,7 +1089,7 @@ public class Vector3 implements Serializable, c<Vector3> {
                     f6 = 1.0f / ((float) Math.sqrt(f5));
                 }
                 float f7 = sin * f6;
-                return m22scl((float) Math.cos(acos)).add(f2 * f7, f3 * f7, f4 * f7).m21nor();
+                return m23scl((float) Math.cos(acos)).add(f2 * f7, f3 * f7, f4 * f7).m22nor();
             }
             return lerp(vector3, f);
         }

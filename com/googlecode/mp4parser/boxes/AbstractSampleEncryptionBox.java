@@ -19,7 +19,7 @@ import java.util.LinkedList;
 import java.util.List;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class AbstractSampleEncryptionBox extends AbstractFullBox {
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_0 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_1 = null;

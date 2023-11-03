@@ -1,52 +1,45 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.util.Log;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Method;
+import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 /* loaded from: classes8.dex */
 public class ul1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Object a;
-    public Class<?> b;
-    public Method c;
 
-    public ul1() {
+    public static String a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
+            try {
+                return PreferencesUtil.LEFT_MOUNT + Thread.currentThread().getName() + ZeusCrashHandler.NAME_SEPERATOR + Thread.currentThread().getId() + "] " + str2;
+            } catch (Throwable th) {
+                c(th);
+                return "";
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            try {
+                Log.d("SSOSDK", a("", str));
+            } catch (Throwable th) {
+                c(th);
             }
         }
     }
 
-    public final String a(Context context, Method method) {
-        InterceptResult invokeLL;
+    public static void c(Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, method)) == null) {
-            Object obj = this.a;
-            if (obj == null || method == null) {
-                return null;
-            }
-            try {
-                Object invoke = method.invoke(obj, context);
-                if (invoke != null) {
-                    return (String) invoke;
-                }
-                return null;
-            } catch (Throwable unused) {
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeL(65538, null, th) == null) {
+            ql1.d(th);
         }
-        return (String) invokeLL.objValue;
     }
 }

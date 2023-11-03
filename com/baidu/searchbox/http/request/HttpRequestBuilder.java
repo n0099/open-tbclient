@@ -17,7 +17,7 @@ import okhttp3.Dns;
 import okhttp3.Headers;
 import okhttp3.HttpUrl;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
     public int connectionTimeout;
     public CookieManager cookieManager;

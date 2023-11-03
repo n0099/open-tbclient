@@ -3,8 +3,8 @@ package com.badlogic.gdx.utils;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.model.YYOption;
-import com.baidu.tieba.j3;
-import com.baidu.tieba.y2;
+import com.baidu.tieba.o3;
+import com.baidu.tieba.z3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -98,24 +98,24 @@ public final class JsonWriter$OutputType {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            j3 j3Var = new j3(str);
-            j3Var.o('\\', "\\\\");
-            j3Var.o('\r', "\\r");
-            j3Var.o('\n', "\\n");
-            j3Var.o('\t', "\\t");
-            int i = y2.a[ordinal()];
+            z3 z3Var = new z3(str);
+            z3Var.o('\\', "\\\\");
+            z3Var.o('\r', "\\r");
+            z3Var.o('\n', "\\n");
+            z3Var.o('\t', "\\t");
+            int i = o3.a[ordinal()];
             if (i == 1) {
-                if (!str.contains(ResourceConstants.CMT) && !str.contains(ResourceConstants.EXT_CMT_START) && minimalNamePattern.matcher(j3Var).matches()) {
-                    return j3Var.toString();
+                if (!str.contains(ResourceConstants.CMT) && !str.contains(ResourceConstants.EXT_CMT_START) && minimalNamePattern.matcher(z3Var).matches()) {
+                    return z3Var.toString();
                 }
             }
-            if (javascriptPattern.matcher(j3Var).matches()) {
-                return j3Var.toString();
+            if (javascriptPattern.matcher(z3Var).matches()) {
+                return z3Var.toString();
             }
             StringBuilder sb = new StringBuilder();
             sb.append(Typography.quote);
-            j3Var.o(Typography.quote, "\\\"");
-            sb.append(j3Var.toString());
+            z3Var.o(Typography.quote, "\\\"");
+            sb.append(z3Var.toString());
             sb.append(Typography.quote);
             return sb.toString();
         }
@@ -132,18 +132,18 @@ public final class JsonWriter$OutputType {
             }
             String obj2 = obj.toString();
             if (!(obj instanceof Number) && !(obj instanceof Boolean)) {
-                j3 j3Var = new j3(obj2);
-                j3Var.o('\\', "\\\\");
-                j3Var.o('\r', "\\r");
-                j3Var.o('\n', "\\n");
-                j3Var.o('\t', "\\t");
-                if (this == minimal && !obj2.equals(YYOption.IsLive.VALUE_TRUE) && !obj2.equals("false") && !obj2.equals(StringUtil.NULL_STRING) && !obj2.contains(ResourceConstants.CMT) && !obj2.contains(ResourceConstants.EXT_CMT_START) && (length = j3Var.length()) > 0 && j3Var.charAt(length - 1) != ' ' && minimalValuePattern.matcher(j3Var).matches()) {
-                    return j3Var.toString();
+                z3 z3Var = new z3(obj2);
+                z3Var.o('\\', "\\\\");
+                z3Var.o('\r', "\\r");
+                z3Var.o('\n', "\\n");
+                z3Var.o('\t', "\\t");
+                if (this == minimal && !obj2.equals(YYOption.IsLive.VALUE_TRUE) && !obj2.equals("false") && !obj2.equals(StringUtil.NULL_STRING) && !obj2.contains(ResourceConstants.CMT) && !obj2.contains(ResourceConstants.EXT_CMT_START) && (length = z3Var.length()) > 0 && z3Var.charAt(length - 1) != ' ' && minimalValuePattern.matcher(z3Var).matches()) {
+                    return z3Var.toString();
                 }
                 StringBuilder sb = new StringBuilder();
                 sb.append(Typography.quote);
-                j3Var.o(Typography.quote, "\\\"");
-                sb.append(j3Var.toString());
+                z3Var.o(Typography.quote, "\\\"");
+                sb.append(z3Var.toString());
                 sb.append(Typography.quote);
                 return sb.toString();
             }

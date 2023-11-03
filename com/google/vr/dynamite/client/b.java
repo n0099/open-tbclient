@@ -2,7 +2,7 @@ package com.google.vr.dynamite.client;
 
 import android.os.IBinder;
 import android.os.Parcel;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b extends com.google.a.a.a implements INativeLibraryLoader {
     public b(IBinder iBinder) {
         super(iBinder, "com.google.vr.dynamite.client.INativeLibraryLoader");

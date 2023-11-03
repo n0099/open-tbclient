@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.data.ImShareCardCommonData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dj8;
+import com.baidu.tieba.bw8;
 import com.baidu.tieba.im.widget.sharecard.ChatShareCommonCard;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -117,7 +117,7 @@ public final class ChatShareCommonCard extends ConstraintLayout {
         this(context, (i & 2) != 0 ? null : attributeSet);
     }
 
-    public static final void c(ImShareCardCommonData it, ChatShareCommonCard this$0, View view2) {
+    public static final void b(ImShareCardCommonData it, ChatShareCommonCard this$0, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, it, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(it, "$it");
@@ -127,15 +127,15 @@ public final class ChatShareCommonCard extends ConstraintLayout {
             if (type != 1) {
                 if (type != 2) {
                     if (type == 3) {
-                        dj8.d("c15286", 6, this$0.c, 0L, "", this$0.e);
+                        bw8.d("c15286", 6, this$0.c, 0L, "", this$0.e);
                         return;
                     }
                     return;
                 }
-                dj8.d("c15286", 4, this$0.c, 0L, "", this$0.e);
+                bw8.d("c15286", 4, this$0.c, 0L, "", this$0.e);
                 return;
             }
-            dj8.d("c15286", 3, this$0.c, 0L, "", this$0.e);
+            bw8.d("c15286", 3, this$0.c, 0L, "", this$0.e);
         }
     }
 
@@ -152,7 +152,7 @@ public final class ChatShareCommonCard extends ConstraintLayout {
                 this.b.setVisibility(8);
                 this.a.setData(imShareCardCommonData);
             }
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.uj8
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.sw8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -160,14 +160,14 @@ public final class ChatShareCommonCard extends ConstraintLayout {
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        ChatShareCommonCard.c(ImShareCardCommonData.this, this, view2);
+                        ChatShareCommonCard.b(ImShareCardCommonData.this, this, view2);
                     }
                 }
             });
         }
     }
 
-    public final void d(@DrawableRes int i, boolean z) {
+    public final void c(@DrawableRes int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             if (z && !this.d) {
@@ -187,10 +187,10 @@ public final class ChatShareCommonCard extends ConstraintLayout {
         }
     }
 
-    public final void e(boolean z) {
+    public final void d(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            d(0, z);
+            c(0, z);
         }
     }
 

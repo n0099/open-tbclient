@@ -1,15 +1,22 @@
 package com.baidu.tieba;
+
+import android.database.Cursor;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface iu2 {
-    void a(vp2 vp2Var);
+public final class iu2 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(vp2 vp2Var);
-
-    void c(vp2 vp2Var);
-
-    void d(vp2 vp2Var);
-
-    void e(vp2 vp2Var);
-
-    boolean f(vp2 vp2Var, int i, int i2);
+    public static void a(Cursor cursor) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65536, null, cursor) == null) && cursor != null) {
+            try {
+                if (!cursor.isClosed()) {
+                    cursor.close();
+                }
+            } catch (Exception unused) {
+            }
+        }
+    }
 }

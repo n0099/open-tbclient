@@ -111,16 +111,17 @@ public class NpsLoadChainLog {
             public void run() {
                 int i;
                 if (!NpsLoadChainLog.this.notLogPathNode("entranceEndInstall") && NpsLoadChainLog.this.pathJsonObj != null) {
-                    NpsLoadChainLog.access$1084(NpsLoadChainLog.this, "entranceEndInstall");
+                    NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.this;
+                    npsLoadChainLog.pathTemp = NpsLoadChainLog.this.pathTemp + "entranceEndInstall";
                     try {
                         JSONObject jSONObject = NpsLoadChainLog.this.pathJsonObj;
-                        NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.this;
+                        NpsLoadChainLog npsLoadChainLog2 = NpsLoadChainLog.this;
                         if (z) {
                             i = 1;
                         } else {
                             i = 0;
                         }
-                        jSONObject.put("entranceEndInstall", npsLoadChainLog.genNodeJsonObj(i, Integer.MIN_VALUE));
+                        jSONObject.put("entranceEndInstall", npsLoadChainLog2.genNodeJsonObj(i, Integer.MIN_VALUE));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -140,7 +141,8 @@ public class NpsLoadChainLog {
             public void run() {
                 if (!NpsLoadChainLog.this.notLogPathNode("entry") && NpsLoadChainLog.this.pathJsonObj != null) {
                     NpsLoadChainLog.this.entry = str;
-                    NpsLoadChainLog.access$1084(NpsLoadChainLog.this, "entry");
+                    NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.this;
+                    npsLoadChainLog.pathTemp = NpsLoadChainLog.this.pathTemp + "entry";
                     try {
                         NpsLoadChainLog.this.pathJsonObj.put("entry", NpsLoadChainLog.this.genNodeJsonObj(-1, Integer.MIN_VALUE));
                     } catch (JSONException e) {
@@ -160,12 +162,6 @@ public class NpsLoadChainLog {
                 NpsLoadChainLog.this.pluginVersion = str;
             }
         });
-    }
-
-    public static /* synthetic */ String access$1084(NpsLoadChainLog npsLoadChainLog, Object obj) {
-        String str = npsLoadChainLog.pathTemp + obj;
-        npsLoadChainLog.pathTemp = str;
-        return str;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -190,7 +186,8 @@ public class NpsLoadChainLog {
             @Override // java.lang.Runnable
             public void run() {
                 if (!NpsLoadChainLog.this.notLogPathNode("livenpsEndDowlonad") && NpsLoadChainLog.this.pathJsonObj != null) {
-                    NpsLoadChainLog.access$1084(NpsLoadChainLog.this, "livenpsEndDowlonad");
+                    NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.this;
+                    npsLoadChainLog.pathTemp = NpsLoadChainLog.this.pathTemp + "livenpsEndDowlonad";
                     try {
                         NpsLoadChainLog.this.pathJsonObj.put("livenpsEndDowlonad", NpsLoadChainLog.this.genNodeJsonObj(1, Integer.MIN_VALUE, j, j2));
                     } catch (JSONException e) {
@@ -209,16 +206,17 @@ public class NpsLoadChainLog {
             public void run() {
                 int i;
                 if (!NpsLoadChainLog.this.notLogPathNode("initEnd") && NpsLoadChainLog.this.pathJsonObj != null) {
-                    NpsLoadChainLog.access$1084(NpsLoadChainLog.this, "initEnd");
+                    NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.this;
+                    npsLoadChainLog.pathTemp = NpsLoadChainLog.this.pathTemp + "initEnd";
                     try {
                         JSONObject jSONObject = NpsLoadChainLog.this.pathJsonObj;
-                        NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.this;
+                        NpsLoadChainLog npsLoadChainLog2 = NpsLoadChainLog.this;
                         if (z) {
                             i = 1;
                         } else {
                             i = 0;
                         }
-                        jSONObject.put("initEnd", npsLoadChainLog.genNodeJsonObj(i, Integer.MIN_VALUE, str));
+                        jSONObject.put("initEnd", npsLoadChainLog2.genNodeJsonObj(i, Integer.MIN_VALUE, str));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -239,16 +237,17 @@ public class NpsLoadChainLog {
             public void run() {
                 int i2;
                 if (!NpsLoadChainLog.this.notLogPathNode("endInstallLiveNps") && NpsLoadChainLog.this.pathJsonObj != null) {
-                    NpsLoadChainLog.access$1084(NpsLoadChainLog.this, "endInstallLiveNps");
+                    NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.this;
+                    npsLoadChainLog.pathTemp = NpsLoadChainLog.this.pathTemp + "endInstallLiveNps";
                     try {
                         JSONObject jSONObject = NpsLoadChainLog.this.pathJsonObj;
-                        NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.this;
+                        NpsLoadChainLog npsLoadChainLog2 = NpsLoadChainLog.this;
                         if (z) {
                             i2 = 1;
                         } else {
                             i2 = 0;
                         }
-                        jSONObject.put("livenpsEndInstall", npsLoadChainLog.genNodeJsonObj(i2, i));
+                        jSONObject.put("livenpsEndInstall", npsLoadChainLog2.genNodeJsonObj(i2, i));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -269,16 +268,17 @@ public class NpsLoadChainLog {
             public void run() {
                 int i2;
                 if (!NpsLoadChainLog.this.notLogPathNode("livenpsEndLoad") && NpsLoadChainLog.this.pathJsonObj != null) {
-                    NpsLoadChainLog.access$1084(NpsLoadChainLog.this, "livenpsEndLoad");
+                    NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.this;
+                    npsLoadChainLog.pathTemp = NpsLoadChainLog.this.pathTemp + "livenpsEndLoad";
                     try {
                         JSONObject jSONObject = NpsLoadChainLog.this.pathJsonObj;
-                        NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.this;
+                        NpsLoadChainLog npsLoadChainLog2 = NpsLoadChainLog.this;
                         if (z) {
                             i2 = 1;
                         } else {
                             i2 = 0;
                         }
-                        jSONObject.put("livenpsEndLoad", npsLoadChainLog.genNodeJsonObj(i2, i));
+                        jSONObject.put("livenpsEndLoad", npsLoadChainLog2.genNodeJsonObj(i2, i));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -299,16 +299,17 @@ public class NpsLoadChainLog {
             public void run() {
                 int i2;
                 if (!NpsLoadChainLog.this.notLogPathNode("entranceEndLoad") && NpsLoadChainLog.this.pathJsonObj != null) {
-                    NpsLoadChainLog.access$1084(NpsLoadChainLog.this, "entranceEndLoad");
+                    NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.this;
+                    npsLoadChainLog.pathTemp = NpsLoadChainLog.this.pathTemp + "entranceEndLoad";
                     try {
                         JSONObject jSONObject = NpsLoadChainLog.this.pathJsonObj;
-                        NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.this;
+                        NpsLoadChainLog npsLoadChainLog2 = NpsLoadChainLog.this;
                         if (z) {
                             i2 = 1;
                         } else {
                             i2 = 0;
                         }
-                        jSONObject.put("entranceEndLoad", npsLoadChainLog.genNodeJsonObj(i2, i));
+                        jSONObject.put("entranceEndLoad", npsLoadChainLog2.genNodeJsonObj(i2, i));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -328,16 +329,17 @@ public class NpsLoadChainLog {
             public void run() {
                 int i2;
                 if (!NpsLoadChainLog.this.notLogPathNode("livenpsEndPreLoad") && NpsLoadChainLog.this.pathJsonObj != null) {
-                    NpsLoadChainLog.access$1084(NpsLoadChainLog.this, "livenpsEndPreLoad");
+                    NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.this;
+                    npsLoadChainLog.pathTemp = NpsLoadChainLog.this.pathTemp + "livenpsEndPreLoad";
                     try {
                         JSONObject jSONObject = NpsLoadChainLog.this.pathJsonObj;
-                        NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.this;
+                        NpsLoadChainLog npsLoadChainLog2 = NpsLoadChainLog.this;
                         if (z) {
                             i2 = 1;
                         } else {
                             i2 = 0;
                         }
-                        jSONObject.put("livenpsEndPreLoad", npsLoadChainLog.genNodeJsonObj(i2, i));
+                        jSONObject.put("livenpsEndPreLoad", npsLoadChainLog2.genNodeJsonObj(i2, i));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -356,7 +358,8 @@ public class NpsLoadChainLog {
             @Override // java.lang.Runnable
             public void run() {
                 if (!NpsLoadChainLog.this.notLogPathNode(str) && NpsLoadChainLog.this.pathJsonObj != null) {
-                    NpsLoadChainLog.access$1084(NpsLoadChainLog.this, str);
+                    NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.this;
+                    npsLoadChainLog.pathTemp = NpsLoadChainLog.this.pathTemp + str;
                     try {
                         NpsLoadChainLog.this.pathJsonObj.put(str, jSONObject);
                     } catch (JSONException e) {
@@ -426,7 +429,8 @@ public class NpsLoadChainLog {
                 @Override // java.lang.Runnable
                 public void run() {
                     if (!NpsLoadChainLog.this.notLogPathNode(str) && NpsLoadChainLog.this.pathJsonObj != null) {
-                        NpsLoadChainLog.access$1084(NpsLoadChainLog.this, str);
+                        NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.this;
+                        npsLoadChainLog.pathTemp = NpsLoadChainLog.this.pathTemp + str;
                         try {
                             NpsLoadChainLog.this.pathJsonObj.put(str, NpsLoadChainLog.this.genNodeJsonObjWithTime(-1, Integer.MIN_VALUE, j));
                         } catch (JSONException e) {
@@ -443,17 +447,18 @@ public class NpsLoadChainLog {
                 public void run() {
                     int i;
                     if (!NpsLoadChainLog.this.notLogPathNode(str) && NpsLoadChainLog.this.pathJsonObj != null) {
-                        NpsLoadChainLog.access$1084(NpsLoadChainLog.this, str);
+                        NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.this;
+                        npsLoadChainLog.pathTemp = NpsLoadChainLog.this.pathTemp + str;
                         try {
                             JSONObject jSONObject = NpsLoadChainLog.this.pathJsonObj;
                             String str3 = str;
-                            NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.this;
+                            NpsLoadChainLog npsLoadChainLog2 = NpsLoadChainLog.this;
                             if (bool.booleanValue()) {
                                 i = 1;
                             } else {
                                 i = 0;
                             }
-                            jSONObject.put(str3, npsLoadChainLog.genNodeJsonObjWithTime(i, Integer.MIN_VALUE, str2, j));
+                            jSONObject.put(str3, npsLoadChainLog2.genNodeJsonObjWithTime(i, Integer.MIN_VALUE, str2, j));
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -569,7 +574,8 @@ public class NpsLoadChainLog {
             @Override // java.lang.Runnable
             public void run() {
                 if (!NpsLoadChainLog.this.notLogPathNode("livenpsStartDownload") && NpsLoadChainLog.this.pathJsonObj != null) {
-                    NpsLoadChainLog.access$1084(NpsLoadChainLog.this, "livenpsStartDownload");
+                    NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.this;
+                    npsLoadChainLog.pathTemp = NpsLoadChainLog.this.pathTemp + "livenpsStartDownload";
                     try {
                         NpsLoadChainLog.this.pathJsonObj.put("livenpsStartDownload", NpsLoadChainLog.this.genNodeJsonObj(-1, Integer.MIN_VALUE));
                     } catch (JSONException e) {
@@ -588,7 +594,8 @@ public class NpsLoadChainLog {
             @Override // java.lang.Runnable
             public void run() {
                 if (!NpsLoadChainLog.this.notLogPathNode("initStart") && NpsLoadChainLog.this.pathJsonObj != null) {
-                    NpsLoadChainLog.access$1084(NpsLoadChainLog.this, "initStart");
+                    NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.this;
+                    npsLoadChainLog.pathTemp = NpsLoadChainLog.this.pathTemp + "initStart";
                     try {
                         NpsLoadChainLog.this.pathJsonObj.put("initStart", NpsLoadChainLog.this.genNodeJsonObj(-1, Integer.MIN_VALUE));
                     } catch (JSONException e) {
@@ -607,7 +614,8 @@ public class NpsLoadChainLog {
             @Override // java.lang.Runnable
             public void run() {
                 if (!NpsLoadChainLog.this.notLogPathNode("entranceStartInstall") && NpsLoadChainLog.this.pathJsonObj != null) {
-                    NpsLoadChainLog.access$1084(NpsLoadChainLog.this, "entranceStartInstall");
+                    NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.this;
+                    npsLoadChainLog.pathTemp = NpsLoadChainLog.this.pathTemp + "entranceStartInstall";
                     try {
                         NpsLoadChainLog.this.pathJsonObj.put("entranceStartInstall", NpsLoadChainLog.this.genNodeJsonObj(-1, Integer.MIN_VALUE));
                     } catch (JSONException e) {
@@ -626,7 +634,8 @@ public class NpsLoadChainLog {
             @Override // java.lang.Runnable
             public void run() {
                 if (!NpsLoadChainLog.this.notLogPathNode("livenpsStartInstall") && NpsLoadChainLog.this.pathJsonObj != null) {
-                    NpsLoadChainLog.access$1084(NpsLoadChainLog.this, "livenpsStartInstall");
+                    NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.this;
+                    npsLoadChainLog.pathTemp = NpsLoadChainLog.this.pathTemp + "livenpsStartInstall";
                     try {
                         NpsLoadChainLog.this.pathJsonObj.put("livenpsStartInstall", NpsLoadChainLog.this.genNodeJsonObj(-1, Integer.MIN_VALUE));
                     } catch (JSONException e) {
@@ -645,7 +654,8 @@ public class NpsLoadChainLog {
             @Override // java.lang.Runnable
             public void run() {
                 if (!NpsLoadChainLog.this.notLogPathNode("livenpsStartLoad") && NpsLoadChainLog.this.pathJsonObj != null) {
-                    NpsLoadChainLog.access$1084(NpsLoadChainLog.this, "livenpsStartLoad");
+                    NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.this;
+                    npsLoadChainLog.pathTemp = NpsLoadChainLog.this.pathTemp + "livenpsStartLoad";
                     try {
                         NpsLoadChainLog.this.pathJsonObj.put("livenpsStartLoad", NpsLoadChainLog.this.genNodeJsonObj(-1, Integer.MIN_VALUE));
                     } catch (JSONException e) {
@@ -664,7 +674,8 @@ public class NpsLoadChainLog {
             @Override // java.lang.Runnable
             public void run() {
                 if (!NpsLoadChainLog.this.notLogPathNode("livenpsStartPreLoad") && NpsLoadChainLog.this.pathJsonObj != null) {
-                    NpsLoadChainLog.access$1084(NpsLoadChainLog.this, "livenpsStartPreLoad");
+                    NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.this;
+                    npsLoadChainLog.pathTemp = NpsLoadChainLog.this.pathTemp + "livenpsStartPreLoad";
                     try {
                         NpsLoadChainLog.this.pathJsonObj.put("livenpsStartPreLoad", NpsLoadChainLog.this.genNodeJsonObj(-1, Integer.MIN_VALUE));
                     } catch (JSONException e) {
@@ -683,7 +694,8 @@ public class NpsLoadChainLog {
             @Override // java.lang.Runnable
             public void run() {
                 if (!NpsLoadChainLog.this.notLogPathNode("entranceStartLoad") && NpsLoadChainLog.this.pathJsonObj != null) {
-                    NpsLoadChainLog.access$1084(NpsLoadChainLog.this, "entranceStartLoad");
+                    NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.this;
+                    npsLoadChainLog.pathTemp = NpsLoadChainLog.this.pathTemp + "entranceStartLoad";
                     try {
                         NpsLoadChainLog.this.pathJsonObj.put("entranceStartLoad", NpsLoadChainLog.this.genNodeJsonObj(-1, Integer.MIN_VALUE));
                     } catch (JSONException e) {
@@ -701,7 +713,8 @@ public class NpsLoadChainLog {
             @Override // java.lang.Runnable
             public void run() {
                 if (!NpsLoadChainLog.this.notLogPathNode("livenpsStartPreLoad") && NpsLoadChainLog.this.pathJsonObj != null) {
-                    NpsLoadChainLog.access$1084(NpsLoadChainLog.this, "livenpsStartPreLoad");
+                    NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.this;
+                    npsLoadChainLog.pathTemp = NpsLoadChainLog.this.pathTemp + "livenpsStartPreLoad";
                     try {
                         NpsLoadChainLog.this.pathJsonObj.put("livenpsStartPreLoad", NpsLoadChainLog.this.genNodeJsonObj(-1, Integer.MIN_VALUE));
                     } catch (JSONException e) {

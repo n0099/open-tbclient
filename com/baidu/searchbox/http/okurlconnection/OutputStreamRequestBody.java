@@ -10,7 +10,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okio.BufferedSink;
 import okio.Timeout;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class OutputStreamRequestBody extends RequestBody {
     public boolean closed;
     public long expectedContentLength;

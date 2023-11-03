@@ -1,58 +1,35 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.write.webwrite.data.WrapListener;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class gbb {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public float d;
-    public String e;
-    public String f;
-    public String g;
+public interface gbb {
 
-    public gbb() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static Function1<JSONObject, Unit> a(gbb gbbVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, gbbVar)) == null) {
+                return null;
             }
+            return (Function1) invokeL.objValue;
         }
     }
 
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = "";
-            this.b = "";
-            this.c = "";
-            this.d = 0.0f;
-            this.e = "";
-            this.f = "";
-            this.g = "";
-        }
-    }
+    WrapListener[] a();
 
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "sft : " + this.a + ", bft : " + this.b + ", fc : " + this.c + ", time : " + this.d + ", cpu : " + this.e + ", mem : " + this.f + ", gpu : " + this.g;
-        }
-        return (String) invokeV.objValue;
-    }
+    ebb[] b();
+
+    Function1<JSONObject, Unit> e();
+
+    dbb[] f();
 }

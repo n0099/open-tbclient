@@ -1,13 +1,14 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
+import java.io.File;
+import org.json.JSONArray;
 /* loaded from: classes7.dex */
 public interface nr1 {
-    void a(Context context, ik3<Boolean> ik3Var);
+    void a(@NonNull JSONArray jSONArray);
 
-    void b(boolean z, ik3<String> ik3Var);
+    ja2 b(Context context, File file, long j);
 
-    void c(Context context, ik3<String> ik3Var);
-
-    void d(ik3<Integer> ik3Var);
+    void c(@NonNull JSONArray jSONArray);
 }

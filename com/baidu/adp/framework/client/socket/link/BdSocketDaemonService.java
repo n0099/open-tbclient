@@ -10,8 +10,8 @@ import android.os.IBinder;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gb;
-import com.baidu.tieba.p5;
+import com.baidu.tieba.f6;
+import com.baidu.tieba.wb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class BdSocketDaemonService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic;
-    public static p5 sCallBack;
+    public static f6 sCallBack;
     public transient /* synthetic */ FieldHolder $fh;
     public ServiceConnection conn;
     public b myBinder;
@@ -124,14 +124,14 @@ public class BdSocketDaemonService extends BdBaseService {
     public static void startService() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            gb.c(BdBaseApplication.getInst().getApp(), new Intent(BdBaseApplication.getInst().getApp(), BdSocketDaemonService.class));
+            wb.c(BdBaseApplication.getInst().getApp(), new Intent(BdBaseApplication.getInst().getApp(), BdSocketDaemonService.class));
         }
     }
 
     public void bindServiceInternal() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            gb.a(this, new Intent(this, BdSocketLinkService.class), this.conn, 1);
+            wb.a(this, new Intent(this, BdSocketLinkService.class), this.conn, 1);
         }
     }
 
@@ -168,10 +168,10 @@ public class BdSocketDaemonService extends BdBaseService {
         }
     }
 
-    public static void setLinkServiceDisconnectCallBack(p5 p5Var) {
+    public static void setLinkServiceDisconnectCallBack(f6 f6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, p5Var) == null) {
-            sCallBack = p5Var;
+        if (interceptable == null || interceptable.invokeL(65538, null, f6Var) == null) {
+            sCallBack = f6Var;
         }
     }
 

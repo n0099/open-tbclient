@@ -84,16 +84,16 @@ public class EmojiReplayDetailSlice extends Slice {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, tab, i) == null) {
                 if (tab.getCustomView() == null) {
-                    customView = LayoutInflater.from(this.a.k.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0292, (ViewGroup) null);
+                    customView = LayoutInflater.from(this.a.k.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0298, (ViewGroup) null);
                     tab.setCustomView(customView);
                 } else {
                     customView = tab.getCustomView();
                 }
-                TextView textView = (TextView) customView.findViewById(R.id.obfuscated_res_0x7f0909b2);
-                EMManager.from((LinearLayout) customView.findViewById(R.id.obfuscated_res_0x7f0909ad)).setCorner(R.string.J_X01).setBackGroundColor(R.color.CAM_X0212);
+                TextView textView = (TextView) customView.findViewById(R.id.obfuscated_res_0x7f0909d3);
+                EMManager.from((LinearLayout) customView.findViewById(R.id.obfuscated_res_0x7f0909ce)).setCorner(R.string.J_X01).setBackGroundColor(R.color.CAM_X0212);
                 EMManager.from(textView).setTextSize(R.dimen.T_X07).setTextColor(R.color.CAM_X0105);
                 EmojiData emojiData = (EmojiData) this.a.o.get(i);
-                ((TbImageView) customView.findViewById(R.id.obfuscated_res_0x7f0909ac)).startLoad(emojiData.getContent());
+                ((TbImageView) customView.findViewById(R.id.obfuscated_res_0x7f0909cd)).startLoad(emojiData.getContent());
                 textView.setText(String.valueOf(emojiData.getAllNum()));
             }
         }
@@ -126,7 +126,7 @@ public class EmojiReplayDetailSlice extends Slice {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || view2.getId() != R.id.obfuscated_res_0x7f091ee5) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || view2.getId() != R.id.obfuscated_res_0x7f091f2c) {
                 return;
             }
             this.a.k0();
@@ -183,7 +183,7 @@ public class EmojiReplayDetailSlice extends Slice {
             this.a.l.g.setCurrentItem(tab.getPosition());
             EmojiDetailFragment emojiDetailFragment = (EmojiDetailFragment) this.a.p.get(tab.getPosition());
             if (emojiDetailFragment != null) {
-                emojiDetailFragment.g2();
+                emojiDetailFragment.y2();
             }
         }
     }
@@ -220,14 +220,14 @@ public class EmojiReplayDetailSlice extends Slice {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 d dVar = new d();
                 dVar.a = view2;
-                dVar.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ef1);
-                dVar.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ef2);
-                dVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ee5);
-                dVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ee6);
-                TabLayout tabLayout = (TabLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ef4);
+                dVar.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f38);
+                dVar.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f39);
+                dVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f2c);
+                dVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f2d);
+                TabLayout tabLayout = (TabLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f3b);
                 dVar.f = tabLayout;
                 tabLayout.setSelectedTabIndicator(0);
-                dVar.g = (ViewPager2) view2.findViewById(R.id.obfuscated_res_0x7f091ef6);
+                dVar.g = (ViewPager2) view2.findViewById(R.id.obfuscated_res_0x7f091f3d);
                 return dVar;
             }
             return (d) invokeL.objValue;
@@ -265,7 +265,7 @@ public class EmojiReplayDetailSlice extends Slice {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, layoutInflater, viewGroup, bundle)) == null) {
-            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0870, viewGroup, false);
+            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0885, viewGroup, false);
         }
         return (View) invokeLLL.objValue;
     }
@@ -275,7 +275,7 @@ public class EmojiReplayDetailSlice extends Slice {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, bundle) == null) {
             super.a0(view2, bundle);
-            View inflate = LayoutInflater.from(this.j.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0295, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.j.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d029b, (ViewGroup) null);
             if (inflate != null) {
                 this.l = d.a(inflate);
                 j0();
@@ -286,8 +286,8 @@ public class EmojiReplayDetailSlice extends Slice {
     public final void j0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.l.e.setText(R.string.obfuscated_res_0x7f0f063c);
-            this.l.d.setText(R.string.obfuscated_res_0x7f0f063b);
+            this.l.e.setText(R.string.obfuscated_res_0x7f0f063e);
+            this.l.d.setText(R.string.obfuscated_res_0x7f0f063d);
             EmojiPagerAdapter emojiPagerAdapter = new EmojiPagerAdapter(this.k);
             this.n = emojiPagerAdapter;
             this.l.g.setAdapter(emojiPagerAdapter);
@@ -353,9 +353,9 @@ public class EmojiReplayDetailSlice extends Slice {
         if ((interceptable != null && interceptable.invokeLZ(1048581, this, view2, z) != null) || view2 == null) {
             return;
         }
-        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0909ac);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0909b2);
-        EMManager corner = EMManager.from((LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0909ad)).setCorner(R.string.J_X01);
+        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0909cd);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0909d3);
+        EMManager corner = EMManager.from((LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0909ce)).setCorner(R.string.J_X01);
         if (z) {
             i = R.color.CAM_X0905;
         } else {

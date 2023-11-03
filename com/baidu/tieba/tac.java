@@ -1,80 +1,165 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Activity;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class tac<T> extends n6c<T> {
+public final class tac {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final i6c<T> e;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public tac(n6c<? super T> n6cVar) {
-        this(n6cVar, true);
+    public static int a(String str, String str2) {
+        InterceptResult invokeLL;
+        int length;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {n6cVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((n6c) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
+            if (str == null && str2 == null) {
+                return 0;
+            }
+            if (str != null && str2 == null) {
+                return 1;
+            }
+            if (str == null) {
+                return -1;
+            }
+            if (str.equals(str2)) {
+                return 0;
+            }
+            if (str.startsWith(str2)) {
+                return 1;
+            }
+            if (str2.startsWith(str)) {
+                return -1;
+            }
+            String[] split = str.split("\\.|-");
+            String[] split2 = str2.split("\\.|-");
+            if (split.length <= split2.length) {
+                length = split.length;
+            } else {
+                length = split2.length;
+            }
+            for (int i = 0; i < length; i++) {
+                try {
+                    int parseInt = Integer.parseInt(split[i]);
+                    int parseInt2 = Integer.parseInt(split2[i]);
+                    Integer.parseInt(split[i]);
+                    Integer.parseInt(split2[i]);
+                    if (parseInt > parseInt2) {
+                        return 1;
+                    }
+                    if (parseInt < parseInt2) {
+                        return -1;
+                    }
+                } catch (NumberFormatException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (split.length > length) {
+                return 1;
+            }
+            if (split2.length > length) {
+                return -1;
+            }
+            return str.compareTo(str2);
+        }
+        return invokeLL.intValue;
+    }
+
+    public static String b(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            if (context != null && str != null) {
+                try {
+                    PackageManager packageManager = context.getPackageManager();
+                    return packageManager.getApplicationLabel(packageManager.getApplicationInfo(str, 128)).toString();
+                } catch (Exception unused) {
+                }
+            }
+            return "";
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static boolean d(Context context, Class<? extends Activity> cls) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, cls)) == null) {
+            if (context != null && cls != null) {
+                try {
+                    context.getPackageManager().getActivityInfo(new ComponentName(context.getPackageName(), cls.getName()), 0);
+                    return true;
+                } catch (Exception unused) {
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    /*  JADX ERROR: NullPointerException in pass: RegionMakerVisitor
+        java.lang.NullPointerException: Cannot read field "wordsInUse" because "set" is null
+        	at java.base/java.util.BitSet.or(BitSet.java:943)
+        	at jadx.core.utils.BlockUtils.getPathCross(BlockUtils.java:732)
+        	at jadx.core.utils.BlockUtils.getPathCross(BlockUtils.java:811)
+        	at jadx.core.dex.visitors.regions.IfMakerHelper.restructureIf(IfMakerHelper.java:88)
+        	at jadx.core.dex.visitors.regions.RegionMaker.processIf(RegionMaker.java:706)
+        	at jadx.core.dex.visitors.regions.RegionMaker.traverse(RegionMaker.java:155)
+        	at jadx.core.dex.visitors.regions.RegionMaker.makeRegion(RegionMaker.java:94)
+        	at jadx.core.dex.visitors.regions.RegionMaker.processIf(RegionMaker.java:730)
+        	at jadx.core.dex.visitors.regions.RegionMaker.traverse(RegionMaker.java:155)
+        	at jadx.core.dex.visitors.regions.RegionMaker.makeRegion(RegionMaker.java:94)
+        	at jadx.core.dex.visitors.regions.RegionMaker.processIf(RegionMaker.java:735)
+        	at jadx.core.dex.visitors.regions.RegionMaker.traverse(RegionMaker.java:155)
+        	at jadx.core.dex.visitors.regions.RegionMaker.makeRegion(RegionMaker.java:94)
+        	at jadx.core.dex.visitors.regions.RegionMakerVisitor.visit(RegionMakerVisitor.java:52)
+        */
+    public static boolean e(android.content.Context r4, android.content.Intent r5) {
+        /*
+            com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.tieba.tac.$ic
+            if (r0 != 0) goto L1a
+        L4:
+            r0 = 0
+            if (r4 == 0) goto L19
+            if (r5 != 0) goto La
+            goto L19
+        La:
+            android.content.pm.PackageManager r4 = r4.getPackageManager()     // Catch: java.lang.Exception -> L19
+            java.util.List r4 = r4.queryIntentActivities(r5, r0)     // Catch: java.lang.Exception -> L19
+            int r4 = r4.size()     // Catch: java.lang.Exception -> L19
+            if (r4 <= 0) goto L19
+            r0 = 1
+        L19:
+            return r0
+        L1a:
+            r1 = r0
+            r2 = 65540(0x10004, float:9.1841E-41)
+            r3 = 0
+            com.baidu.titan.sdk.runtime.InterceptResult r0 = r1.invokeLL(r2, r3, r4, r5)
+            if (r0 == 0) goto L4
+            boolean r1 = r0.booleanValue
+            return r1
+        */
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.tac.e(android.content.Context, android.content.Intent):boolean");
+    }
+
+    public static String c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            try {
+                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+                return packageInfo.packageName + "(" + packageInfo.versionName + SmallTailInfo.EMOTION_SUFFIX;
+            } catch (Throwable unused) {
+                return "";
             }
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tac(n6c<? super T> n6cVar, boolean z) {
-        super(n6cVar, z);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {n6cVar, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((n6c) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.e = new sac(n6cVar);
-    }
-
-    @Override // com.baidu.tieba.i6c
-    public void onCompleted() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e.onCompleted();
-        }
-    }
-
-    @Override // com.baidu.tieba.i6c
-    public void onError(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            this.e.onError(th);
-        }
-    }
-
-    @Override // com.baidu.tieba.i6c
-    public void onNext(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            this.e.onNext(t);
-        }
+        return (String) invokeL.objValue;
     }
 }

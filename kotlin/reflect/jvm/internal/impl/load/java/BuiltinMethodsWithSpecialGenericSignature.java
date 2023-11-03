@@ -25,7 +25,7 @@ import kotlin.reflect.jvm.internal.impl.load.kotlin.SignatureBuildingComponents;
 import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.resolve.descriptorUtil.DescriptorUtilsKt;
 import kotlin.reflect.jvm.internal.impl.resolve.jvm.JvmPrimitiveType;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class BuiltinMethodsWithSpecialGenericSignature {
     public static final List<String> ERASED_COLLECTION_PARAMETER_NAMES;
     public static final List<NameAndSignature> ERASED_COLLECTION_PARAMETER_NAME_AND_SIGNATURES;
@@ -38,7 +38,7 @@ public final class BuiltinMethodsWithSpecialGenericSignature {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* JADX WARN: Unknown enum class pattern. Please report as an issue! */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class TypeSafeBarrierDescription {
         public static final /* synthetic */ TypeSafeBarrierDescription[] $VALUES;
         public static final TypeSafeBarrierDescription FALSE;
@@ -55,7 +55,7 @@ public final class BuiltinMethodsWithSpecialGenericSignature {
             return (TypeSafeBarrierDescription[]) $VALUES.clone();
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static final class MAP_GET_OR_DEFAULT extends TypeSafeBarrierDescription {
             /* JADX DEBUG: Incorrect args count in method signature: ()V */
             public MAP_GET_OR_DEFAULT(String str, int i) {
@@ -170,7 +170,7 @@ public final class BuiltinMethodsWithSpecialGenericSignature {
         ERASED_VALUE_PARAMETERS_SIGNATURES = CollectionsKt___CollectionsKt.toSet(arrayList5);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public enum SpecialSignatureInfo {
         ONE_COLLECTION_PARAMETER("Ljava/util/Collection<+Ljava/lang/Object;>;", false),
         OBJECT_PARAMETER_NON_GENERIC(null, true),

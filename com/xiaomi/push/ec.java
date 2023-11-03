@@ -52,8 +52,8 @@ public final class ec {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m450a(Context context) {
-        return com.xiaomi.push.service.ak.m765a(context, context.getPackageName());
+    public static boolean m454a(Context context) {
+        return com.xiaomi.push.service.ak.m769a(context, context.getPackageName());
     }
 
     public int a() {
@@ -61,12 +61,12 @@ public final class ec {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public eg m451a() {
+    public eg m455a() {
         return this.f307a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m452a() {
+    public String m456a() {
         return this.f308a;
     }
 

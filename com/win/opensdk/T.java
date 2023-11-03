@@ -33,7 +33,7 @@ public class T implements Runnable {
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Toast.makeText(this.a.b.getApplicationContext(), (int) com.baidu.tieba.R.string.obfuscated_res_0x7f0f1899, 0).show();
+            Toast.makeText(this.a.b.getApplicationContext(), (int) com.baidu.tieba.R.string.obfuscated_res_0x7f0f18b4, 0).show();
         }
     }
 }

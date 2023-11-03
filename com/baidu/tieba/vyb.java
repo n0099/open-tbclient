@@ -1,54 +1,90 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.sdk.api.IBasicCPUData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes8.dex */
-public class vyb {
+public class vyb implements IBasicCPUData.CpuNativeStatusCB {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ IBasicCPUData a;
+    public final /* synthetic */ uyb b;
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
+    public vyb(uyb uybVar, IBasicCPUData iBasicCPUData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (!TextUtils.isEmpty(b)) {
-                return b;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {uybVar, iBasicCPUData};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (context == null) {
-                return "";
-            }
-            try {
-                b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).packageName;
-            } catch (Throwable unused) {
-                b = null;
-            }
-            return b;
         }
-        return (String) invokeL.objValue;
+        this.b = uybVar;
+        this.a = iBasicCPUData;
     }
 
-    public static String b(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.mobads.sdk.api.IBasicCPUData.CpuNativeStatusCB
+    public void onAdDownloadWindowShow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (!TextUtils.isEmpty(a)) {
-                return a;
-            }
-            if (context == null) {
-                return "";
-            }
-            try {
-                a = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-            } catch (Throwable th) {
-                th.printStackTrace();
-            }
-            return a;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
-        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.mobads.sdk.api.IBasicCPUData.CpuNativeStatusCB
+    public void onAdStatusChanged(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i) == null) {
+        }
+    }
+
+    @Override // com.baidu.mobads.sdk.api.IBasicCPUData.CpuNativeStatusCB
+    public void onPermissionClose() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.mobads.sdk.api.IBasicCPUData.CpuNativeStatusCB
+    public void onPermissionShow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.mobads.sdk.api.IBasicCPUData.CpuNativeStatusCB
+    public void onPrivacyClick() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.mobads.sdk.api.IBasicCPUData.CpuNativeStatusCB
+    public void onPrivacyLpClose() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.mobads.sdk.api.IBasicCPUData.CpuNativeStatusCB
+    public void onNotifyPerformance(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            LogPrinter.d();
+            if ("CLICK".equals(str)) {
+                this.b.e.onAdClick(this.a);
+            } else if ("IMPRESSION".equals(str)) {
+                this.b.e.onAdShow(this.a);
+            }
+        }
     }
 }

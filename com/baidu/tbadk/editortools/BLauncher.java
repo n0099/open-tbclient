@@ -16,22 +16,22 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cd5;
-import com.baidu.tieba.kd5;
-import com.baidu.tieba.od5;
+import com.baidu.tieba.ge5;
+import com.baidu.tieba.ke5;
+import com.baidu.tieba.xd5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class BLauncher extends ImageView implements kd5 {
+public class BLauncher extends ImageView implements ge5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
     public int b;
     public int c;
-    public od5 d;
+    public ke5 d;
     public Drawable e;
     public boolean f;
 
@@ -42,13 +42,13 @@ public class BLauncher extends ImageView implements kd5 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BLauncher(Context context, od5 od5Var) {
+    public BLauncher(Context context, ke5 ke5Var) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, od5Var};
+            Object[] objArr = {context, ke5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -61,16 +61,16 @@ public class BLauncher extends ImageView implements kd5 {
         }
         this.c = 0;
         this.f = false;
-        if (od5Var == null) {
+        if (ke5Var == null) {
             return;
         }
-        this.d = od5Var;
+        this.d = ke5Var;
         setIcon();
-        setToolId(od5Var.c);
+        setToolId(ke5Var.c);
     }
 
-    @Override // com.baidu.tieba.kd5
-    public void H0() {
+    @Override // com.baidu.tieba.ge5
+    public void P0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.d.q = false;
@@ -83,11 +83,11 @@ public class BLauncher extends ImageView implements kd5 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (textView = this.a) != null) {
             textView.setVisibility(8);
-            H0();
+            P0();
         }
     }
 
-    @Override // com.baidu.tieba.kd5
+    @Override // com.baidu.tieba.ge5
     public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -113,7 +113,7 @@ public class BLauncher extends ImageView implements kd5 {
         return (TextView) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.kd5
+    @Override // com.baidu.tieba.ge5
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -123,7 +123,7 @@ public class BLauncher extends ImageView implements kd5 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.kd5
+    @Override // com.baidu.tieba.ge5
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -132,11 +132,11 @@ public class BLauncher extends ImageView implements kd5 {
         }
     }
 
-    @Override // com.baidu.tieba.dd5
-    public void O(cd5 cd5Var) {
+    @Override // com.baidu.tieba.yd5
+    public void S(xd5 xd5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cd5Var) == null) && cd5Var != null && cd5Var.a == 2) {
-            Object obj = cd5Var.c;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xd5Var) == null) && xd5Var != null && xd5Var.a == 2) {
+            Object obj = xd5Var.c;
             if (obj == null) {
                 b();
             } else if (obj instanceof String) {
@@ -214,7 +214,7 @@ public class BLauncher extends ImageView implements kd5 {
         }
     }
 
-    @Override // com.baidu.tieba.kd5
+    @Override // com.baidu.tieba.ge5
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
@@ -247,20 +247,21 @@ public class BLauncher extends ImageView implements kd5 {
         }
     }
 
+    @Override // com.baidu.tieba.ge5
     public void setIcon() {
-        od5 od5Var;
+        ke5 ke5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || (od5Var = this.d) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || (ke5Var = this.d) == null) {
             return;
         }
-        if (od5Var.i) {
+        if (ke5Var.i) {
             SvgManager svgManager = SvgManager.getInstance();
-            od5 od5Var2 = this.d;
-            setImageDrawable(svgManager.getSeletableDrawableForEditorTools(od5Var2.d, od5Var2.e, this.c));
-        } else if (od5Var.j) {
-            setImageDrawable(WebPManager.getSeletableDrawableForEditorToolsEM(od5Var.d, od5Var.e, od5Var.f, od5Var.g, this.c));
+            ke5 ke5Var2 = this.d;
+            setImageDrawable(svgManager.getSeletableDrawableForEditorTools(ke5Var2.d, ke5Var2.e, this.c));
+        } else if (ke5Var.j) {
+            setImageDrawable(WebPManager.getSeletableDrawableForEditorToolsEM(ke5Var.d, ke5Var.e, ke5Var.f, ke5Var.g, this.c));
         } else {
-            SkinManager.setImageResource(this, od5Var.d, this.c);
+            SkinManager.setImageResource(this, ke5Var.d, this.c);
         }
         if (!this.d.d()) {
             setEnabled(false);

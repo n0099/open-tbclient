@@ -46,7 +46,7 @@ import kotlin.reflect.jvm.internal.impl.types.TypeProjectionImpl;
 import kotlin.reflect.jvm.internal.impl.types.Variance;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeRefiner;
 import kotlin.text.StringsKt__StringsJVMKt;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class FunctionClassDescriptor extends AbstractClassDescriptor {
     public static final Companion Companion = new Companion(null);
     public static final ClassId functionClassId = new ClassId(KotlinBuiltIns.BUILT_INS_PACKAGE_FQ_NAME, Name.identifier("Function"));
@@ -114,7 +114,7 @@ public final class FunctionClassDescriptor extends AbstractClassDescriptor {
     	at jadx.core.dex.visitors.EnumVisitor.visit(EnumVisitor.java:100)
      */
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Kind {
         public static final /* synthetic */ Kind[] $VALUES;
         public static final Companion Companion;
@@ -133,7 +133,7 @@ public final class FunctionClassDescriptor extends AbstractClassDescriptor {
             return (Kind[]) $VALUES.clone();
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static final class Companion {
             public Companion() {
             }
@@ -196,7 +196,7 @@ public final class FunctionClassDescriptor extends AbstractClassDescriptor {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Companion {
         public Companion() {
         }
@@ -206,10 +206,10 @@ public final class FunctionClassDescriptor extends AbstractClassDescriptor {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public final class FunctionTypeConstructor extends AbstractClassTypeConstructor {
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public final /* synthetic */ class WhenMappings {
             public static final /* synthetic */ int[] $EnumSwitchMapping$0;
 
@@ -278,7 +278,7 @@ public final class FunctionClassDescriptor extends AbstractClassDescriptor {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // kotlin.reflect.jvm.internal.impl.types.AbstractClassTypeConstructor, kotlin.reflect.jvm.internal.impl.types.AbstractTypeConstructor, kotlin.reflect.jvm.internal.impl.types.TypeConstructor
         /* renamed from: getDeclarationDescriptor */
-        public FunctionClassDescriptor mo2106getDeclarationDescriptor() {
+        public FunctionClassDescriptor mo2110getDeclarationDescriptor() {
             return FunctionClassDescriptor.this;
         }
 
@@ -293,7 +293,7 @@ public final class FunctionClassDescriptor extends AbstractClassDescriptor {
         }
 
         public String toString() {
-            return mo2106getDeclarationDescriptor().toString();
+            return mo2110getDeclarationDescriptor().toString();
         }
     }
 
@@ -308,7 +308,7 @@ public final class FunctionClassDescriptor extends AbstractClassDescriptor {
 
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor
     /* renamed from: getCompanionObjectDescriptor  reason: collision with other method in class */
-    public /* bridge */ /* synthetic */ ClassDescriptor mo2099getCompanionObjectDescriptor() {
+    public /* bridge */ /* synthetic */ ClassDescriptor mo2103getCompanionObjectDescriptor() {
         return (ClassDescriptor) getCompanionObjectDescriptor();
     }
 
@@ -351,7 +351,7 @@ public final class FunctionClassDescriptor extends AbstractClassDescriptor {
 
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor
     /* renamed from: getUnsubstitutedPrimaryConstructor  reason: collision with other method in class */
-    public /* bridge */ /* synthetic */ ClassConstructorDescriptor mo2100getUnsubstitutedPrimaryConstructor() {
+    public /* bridge */ /* synthetic */ ClassConstructorDescriptor mo2104getUnsubstitutedPrimaryConstructor() {
         return (ClassConstructorDescriptor) getUnsubstitutedPrimaryConstructor();
     }
 

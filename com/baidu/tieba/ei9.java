@@ -1,28 +1,39 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.GridView;
+import android.widget.ListAdapter;
+import android.widget.ProgressBar;
+import com.baidu.adp.base.BdBaseView;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.abtest.UbsABTestDataManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.tbadk.core.BDLayoutMode;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.memberCenter.bubble.BubbleChooseActivity;
+import com.baidu.tieba.memberCenter.bubble.BubbleListData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class ei9 {
+public class ei9 extends BdBaseView<BubbleChooseActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
+    public NavigationBar a;
+    public ViewGroup b;
+    public GridView c;
+    public View d;
+    public di9 e;
+    public BubbleChooseActivity f;
+    public ProgressBar g;
 
-    public ei9(TbPageContext tbPageContext) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ei9(TbPageContext<BubbleChooseActivity> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -32,85 +43,104 @@ public class ei9 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        BubbleChooseActivity orignalPage = tbPageContext.getOrignalPage();
+        this.f = orignalPage;
+        orignalPage.setContentView(R.layout.obfuscated_res_0x7f0d018d);
+        NavigationBar navigationBar = (NavigationBar) this.f.findViewById(R.id.lay_title_bar);
+        this.a = navigationBar;
+        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.a.setTitleText(R.string.editor_privilege);
+        this.d = this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d018e, this.f);
+        this.b = (ViewGroup) this.f.findViewById(R.id.obfuscated_res_0x7f0907db);
+        this.c = (GridView) this.f.findViewById(R.id.obfuscated_res_0x7f090f29);
+        di9 di9Var = new di9(tbPageContext);
+        this.e = di9Var;
+        this.c.setAdapter((ListAdapter) di9Var);
+        this.g = (ProgressBar) this.f.findViewById(R.id.obfuscated_res_0x7f090537);
     }
 
-    public final void a(PbModel pbModel, int i) {
+    public void A() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048576, this, pbModel, i) != null) || pbModel == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.g.setVisibility(8);
         }
-        StatisticItem statisticItem = new StatisticItem("c13719");
-        statisticItem.param("fid", pbModel.G.l());
-        statisticItem.param("tid", pbModel.G.Q());
-        statisticItem.param("obj_type", i);
-        if (pbModel.r1() == 5) {
-            statisticItem.param("obj_source", 1);
-        } else if (pbModel.r1() == 7) {
-            statisticItem.param("obj_source", 2);
-        } else {
-            statisticItem.param("obj_source", 3);
-        }
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        TiebaStatic.log(statisticItem);
     }
 
-    public boolean b(PbModel pbModel) {
-        InterceptResult invokeL;
-        ye9 ye9Var;
-        String str;
-        String str2;
+    public void D() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pbModel)) == null) {
-            int i = 0;
-            if (this.a.getPageActivity() != null && pbModel != null && (ye9Var = pbModel.G) != null) {
-                if ("3".equals(ye9Var.e0)) {
-                    MainTabActivityConfig createNormalCfg = new MainTabActivityConfig(this.a.getPageActivity()).createNormalCfg(2);
-                    createNormalCfg.setSubTabName(this.a.getString(R.string.tab_name_topic_rank));
-                    this.a.sendMessage(new CustomMessage(2015002, createNormalCfg));
-                    return true;
-                }
-                String string = SharedPrefHelper.getInstance().getString("key_pb_back_sid1", "");
-                String string2 = SharedPrefHelper.getInstance().getString("key_pb_back_sid2", "");
-                if (!TextUtils.isEmpty(string) && UbsABTestDataManager.getInstance().getABTestSwitchData(string) != null) {
-                    str = "1";
-                } else if (!TextUtils.isEmpty(string2) && UbsABTestDataManager.getInstance().getABTestSwitchData(string2) != null) {
-                    str = "2";
-                } else {
-                    str = null;
-                }
-                if (str == null && (str2 = pbModel.G.d0) != null) {
-                    str = str2;
-                }
-                if (str == null) {
-                    return false;
-                }
-                if (str.equals("1")) {
-                    MainTabActivityConfig createNormalCfg2 = new MainTabActivityConfig(this.a.getPageActivity()).createNormalCfg(2);
-                    createNormalCfg2.setSubTab(1, null);
-                    this.a.sendMessage(new CustomMessage(2015002, createNormalCfg2));
-                    a(pbModel, 1);
-                    return true;
-                } else if (str.equals("2")) {
-                    MainTabActivityConfig createNormalCfg3 = new MainTabActivityConfig(this.a.getPageActivity()).createNormalCfg(1);
-                    createNormalCfg3.setSubTab(0, pbModel.G.e0);
-                    this.a.sendMessage(new CustomMessage(2015002, createNormalCfg3));
-                    if ("游戏".equals(pbModel.G.e0)) {
-                        i = 2;
-                    } else if ("数码".equals(pbModel.G.e0)) {
-                        i = 3;
-                    }
-                    a(pbModel, i);
-                    return true;
-                }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.g.setVisibility(0);
+        }
+    }
+
+    public di9 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return (di9) invokeV.objValue;
+    }
+
+    public View x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public GridView y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.c;
+        }
+        return (GridView) invokeV.objValue;
+    }
+
+    public void C(List<BubbleListData.BubbleData> list, boolean z) {
+        di9 di9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, z) == null) && (di9Var = this.e) != null) {
+            di9Var.d(z);
+            this.e.c(list);
+        }
+    }
+
+    public void onChangeSkinType(int i) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.a.onChangeSkinType((TbPageContext) getPageContext(), i);
+            BDLayoutMode layoutMode = this.f.getLayoutMode();
+            if (i == 4) {
+                z = true;
+            } else {
+                z = false;
             }
-            return false;
+            layoutMode.setNightMode(z);
+            this.f.getLayoutMode().onModeChanged(this.b);
         }
-        return invokeL.booleanValue;
+    }
+
+    public BubbleListData.BubbleData z(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            di9 di9Var = this.e;
+            if (di9Var == null) {
+                return null;
+            }
+            return di9Var.getItem(i);
+        }
+        return (BubbleListData.BubbleData) invokeI.objValue;
     }
 }

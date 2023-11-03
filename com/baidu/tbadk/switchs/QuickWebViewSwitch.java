@@ -1,6 +1,8 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.debugtool.annotation.Modify;
+import com.baidu.tieba.debugtool.annotation.ModifyClass;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,6 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.util.TriState;
+@ModifyClass
 /* loaded from: classes5.dex */
 public class QuickWebViewSwitch extends BaseNormalSwitch {
     public static /* synthetic */ Interceptable $ic;
@@ -16,7 +19,7 @@ public class QuickWebViewSwitch extends BaseNormalSwitch {
     public static TriState state;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.t9
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ja
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -54,6 +57,7 @@ public class QuickWebViewSwitch extends BaseNormalSwitch {
         }
     }
 
+    @Modify(description = "离线包是否可用")
     public static boolean getInOn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -69,7 +73,7 @@ public class QuickWebViewSwitch extends BaseNormalSwitch {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.t9
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ja
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

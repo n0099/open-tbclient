@@ -1,144 +1,269 @@
 package com.baidu.tieba;
 
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.content.pm.Signature;
+import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.android.common.util.DeviceId;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.common.matrixstyle.StyleModeContentProvider;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.config.QuickPersistConfig;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class bw {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final bw a;
-    public static int b = -1;
-    public static int c = -1;
+public class bw {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public xv a;
+    public List<aw> b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448301048, "Lcom/baidu/tieba/bw;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class a implements Comparator<aw> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(bw bwVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448301048, "Lcom/baidu/tieba/bw;");
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bwVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        a = new bw();
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(aw awVar, aw awVar2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, awVar, awVar2)) == null) {
+                int i = awVar2.b - awVar.b;
+                if (i == 0) {
+                    if (awVar.d && awVar2.d) {
+                        return 0;
+                    }
+                    if (awVar.d) {
+                        return -1;
+                    }
+                    if (awVar2.d) {
+                        return 1;
+                    }
+                }
+                return i;
+            }
+            return invokeLL.intValue;
+        }
     }
 
     public bw() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        c();
     }
 
-    public final boolean b() {
-        InterceptResult invokeV;
+    public static String a(byte[] bArr) {
+        InterceptResult invokeL;
+        StringBuilder sb;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return QuickPersistConfig.getInstance().getBoolean("matrixstyle_force_default_ignore", false);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            if (bArr != null) {
+                String str = "";
+                for (byte b : bArr) {
+                    String hexString = Integer.toHexString(b & 255);
+                    if (hexString.length() == 1) {
+                        sb = new StringBuilder();
+                        sb.append(str);
+                        str = "0";
+                    } else {
+                        sb = new StringBuilder();
+                    }
+                    sb.append(str);
+                    sb.append(hexString);
+                    str = sb.toString();
+                }
+                return str.toLowerCase();
+            }
+            throw new IllegalArgumentException("Argument b ( byte array ) is null! ");
         }
-        return invokeV.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public final boolean e() {
-        InterceptResult invokeV;
+    public static byte[] f(byte[] bArr, xv xvVar) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (c() == 2) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, xvVar)) == null) {
+            uv a2 = uv.a();
+            a2.b(2, xvVar);
+            return a2.c(bArr);
         }
-        return invokeV.booleanValue;
+        return (byte[]) invokeLL.objValue;
     }
 
-    public final boolean a() {
-        InterceptResult invokeV;
+    public List<aw> b(Context context, Intent intent, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (AppConfig.isDebug() && b()) {
-                return false;
-            }
-            if (-1 == c) {
-                c = QuickPersistConfig.getInstance().getInt("matrixstyle_force_default", 0);
-            }
-            if (1 != c) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                return d();
-            }
-            String type = AppRuntime.getApplication().getContentResolver().getType(StyleModeContentProvider.a.a());
-            if (type == null) {
-                return 0;
-            }
-            if (!TextUtils.isEmpty(type)) {
-                try {
-                } catch (Exception unused) {
-                    return 0;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, context, intent, z)) == null) {
+            ArrayList arrayList = new ArrayList();
+            PackageManager packageManager = context.getPackageManager();
+            List<ResolveInfo> queryBroadcastReceivers = packageManager.queryBroadcastReceivers(intent, 0);
+            if (queryBroadcastReceivers != null) {
+                for (ResolveInfo resolveInfo : queryBroadcastReceivers) {
+                    ActivityInfo activityInfo = resolveInfo.activityInfo;
+                    if (activityInfo != null && activityInfo.applicationInfo != null) {
+                        try {
+                            Bundle bundle = packageManager.getReceiverInfo(new ComponentName(resolveInfo.activityInfo.packageName, resolveInfo.activityInfo.name), 128).metaData;
+                            if (bundle != null) {
+                                String string = bundle.getString("galaxy_data");
+                                if (!TextUtils.isEmpty(string)) {
+                                    byte[] b = cw.b(string.getBytes("utf-8"));
+                                    JSONObject jSONObject = new JSONObject(new String(b));
+                                    aw awVar = new aw();
+                                    awVar.b = jSONObject.getInt("priority");
+                                    awVar.a = resolveInfo.activityInfo.applicationInfo;
+                                    if (context.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
+                                        awVar.d = true;
+                                    }
+                                    if (z) {
+                                        String string2 = bundle.getString("galaxy_sf");
+                                        if (!TextUtils.isEmpty(string2)) {
+                                            PackageInfo packageInfo = packageManager.getPackageInfo(resolveInfo.activityInfo.applicationInfo.packageName, 64);
+                                            JSONArray jSONArray = jSONObject.getJSONArray("sigs");
+                                            int length = jSONArray.length();
+                                            String[] strArr = new String[length];
+                                            for (int i = 0; i < length; i++) {
+                                                strArr[i] = jSONArray.getString(i);
+                                            }
+                                            if (e(strArr, g(packageInfo.signatures))) {
+                                                byte[] f = f(cw.b(string2.getBytes()), this.a);
+                                                if (f != null && Arrays.equals(f, ew.a(b))) {
+                                                    awVar.c = true;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    arrayList.add(awVar);
+                                }
+                            }
+                        } catch (Exception unused) {
+                        }
+                    }
                 }
             }
-            return Integer.parseInt(type);
+            Collections.sort(arrayList, new a(this));
+            return arrayList;
         }
-        return invokeV.intValue;
+        return (List) invokeLLZ.objValue;
     }
 
-    public final int d() {
-        InterceptResult invokeV;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (a()) {
-                b = 0;
-                return 0;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a = new yv(gw.a(), gw.b());
+        }
+    }
+
+    public boolean d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            List<aw> b = b(context, new Intent("com.baidu.intent.action.GALAXY").setPackage(context.getPackageName()), true);
+            if (b == null || b.size() == 0) {
+                for (int i = 0; i < 3; i++) {
+                    Log.w("CuidBuddyInfoManager", "galaxy lib host missing meta-data,make sure you know the right way to integrate galaxy");
+                }
+                return false;
             }
-            if (b == -1) {
-                b = QuickPersistConfig.getInstance().getInt("matrixstyle_currentstyle", 0);
-            }
-            if (b == 2) {
-                Context appContext = AppRuntime.getAppContext();
-                String oldCUID = DeviceId.getOldCUID(appContext);
-                String cuid = DeviceId.getCUID(appContext);
-                if (!TextUtils.isEmpty(oldCUID) && !TextUtils.isEmpty(cuid) && !Intrinsics.areEqual(oldCUID, cuid) && !Intrinsics.areEqual(QuickPersistConfig.getInstance().getString("usercuid", ""), cuid)) {
-                    QuickPersistConfig.getInstance().putInt("matrixstyle_currentstyle", 0);
-                    QuickPersistConfig.getInstance().putString("usercuid", cuid);
-                    b = 0;
+            boolean z = b.get(0).c;
+            if (!z) {
+                for (int i2 = 0; i2 < 3; i2++) {
+                    Log.w("CuidBuddyInfoManager", "galaxy config err, In the release version of the signature should be matched");
                 }
             }
+            return z;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean e(String[] strArr, String[] strArr2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, strArr, strArr2)) == null) {
+            if (strArr == null || strArr2 == null || strArr.length != strArr2.length) {
+                return false;
+            }
+            HashSet hashSet = new HashSet();
+            for (String str : strArr) {
+                hashSet.add(str);
+            }
+            HashSet hashSet2 = new HashSet();
+            for (String str2 : strArr2) {
+                hashSet2.add(str2);
+            }
+            return hashSet.equals(hashSet2);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final String[] g(Signature[] signatureArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, signatureArr)) == null) {
+            int length = signatureArr.length;
+            String[] strArr = new String[length];
+            for (int i = 0; i < length; i++) {
+                strArr[i] = a(ew.a(signatureArr[i].toByteArray()));
+            }
+            return strArr;
+        }
+        return (String[]) invokeL.objValue;
+    }
+
+    public List<aw> h(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
+            List<aw> list = this.b;
+            if (list != null) {
+                return list;
+            }
+            d(context);
+            List<aw> b = b(context, new Intent("com.baidu.intent.action.GALAXY"), true);
+            this.b = b;
             return b;
         }
-        return invokeV.intValue;
+        return (List) invokeL.objValue;
     }
 }

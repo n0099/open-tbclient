@@ -15,7 +15,7 @@ import com.google.zxing.common.BitArray;
 import com.google.zxing.maxicode.decoder.DecodedBitStreamParser;
 import java.util.Arrays;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class Code39Reader extends OneDReader {
     public static final String ALPHABET_STRING = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ-. *$/+%";
     public static final int ASTERISK_ENCODING;

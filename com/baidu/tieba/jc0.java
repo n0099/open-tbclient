@@ -1,361 +1,292 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
+import android.opengl.GLES20;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.searchbox.download.util.MigrateStatisticUtils;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
+import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
+import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
+import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.huawei.hms.framework.network.grs.GrsBaseInfo;
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class jc0 {
+public class jc0 extends hc0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public int d;
-
-    /* loaded from: classes6.dex */
-    public interface c {
-        void onResult(boolean z);
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements je0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c a;
-        public final /* synthetic */ Context b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ String e;
-        public final /* synthetic */ String f;
-        public final /* synthetic */ String g;
-        public final /* synthetic */ boolean h;
-        public final /* synthetic */ String i;
-        public final /* synthetic */ jc0 j;
-
-        public a(jc0 jc0Var, c cVar, Context context, String str, String str2, String str3, String str4, String str5, boolean z, String str6) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jc0Var, cVar, context, str, str2, str3, str4, str5, Boolean.valueOf(z), str6};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.j = jc0Var;
-            this.a = cVar;
-            this.b = context;
-            this.c = str;
-            this.d = str2;
-            this.e = str3;
-            this.f = str4;
-            this.g = str5;
-            this.h = z;
-            this.i = str6;
-        }
-
-        @Override // com.baidu.tieba.je0
-        public void onResult(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                if (z) {
-                    if (!TextUtils.isEmpty(this.j.c)) {
-                        ClogBuilder clogBuilder = new ClogBuilder();
-                        if (!TextUtils.isEmpty(this.j.a)) {
-                            clogBuilder.r(this.j.a);
-                        }
-                        clogBuilder.v("DEEPLINK");
-                        clogBuilder.y(ClogBuilder.LogType.DEEP_LINK);
-                        clogBuilder.j(GrsBaseInfo.CountryCodeSource.APP);
-                        clogBuilder.p(this.j.c);
-                        if (this.j.d == 1) {
-                            clogBuilder.k("deferred");
-                        }
-                        jy0.e(clogBuilder);
-                    }
-                    c cVar = this.a;
-                    if (cVar != null) {
-                        cVar.onResult(true);
-                    }
-                    nc0.e(this.j.c);
-                    return;
-                }
-                this.j.j(this.b, this.c, this.d, this.e, this.f, this.g, this.h, this.i, this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements je0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c a;
-        public final /* synthetic */ Context b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ jc0 d;
-
-        public b(jc0 jc0Var, c cVar, Context context, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jc0Var, cVar, context, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = jc0Var;
-            this.a = cVar;
-            this.b = context;
-            this.c = str;
-        }
-
-        @Override // com.baidu.tieba.je0
-        public void onResult(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                if (z) {
-                    if (!TextUtils.isEmpty(this.d.c)) {
-                        ClogBuilder clogBuilder = new ClogBuilder();
-                        if (!TextUtils.isEmpty(this.d.a)) {
-                            clogBuilder.r(this.d.a);
-                        }
-                        clogBuilder.v("DEEPLINK");
-                        clogBuilder.y(ClogBuilder.LogType.DEEP_LINK);
-                        clogBuilder.j("MARKET");
-                        clogBuilder.p(this.d.c);
-                        jy0.e(clogBuilder);
-                    }
-                    c cVar = this.a;
-                    if (cVar != null) {
-                        cVar.onResult(true);
-                        return;
-                    }
-                    return;
-                }
-                c cVar2 = this.a;
-                if (cVar2 != null) {
-                    cVar2.onResult(this.d.h(this.b, this.c));
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947878354, "Lcom/baidu/tieba/jc0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947878354, "Lcom/baidu/tieba/jc0;");
-                return;
-            }
-        }
-        e = pe0.a().s() + "://vendor/ad/easybrowse?ad_id=_AD_ID_&ext_info=_AD_EXT_&url=_URL_TEMPLATE_";
-    }
 
     public jc0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.d = 0;
     }
 
-    public boolean g(Context context, HashMap<String, String> hashMap, c cVar) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.gc0
+    public void c(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, hashMap, cVar)) == null) {
-            return f(context, null, hashMap, cVar);
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public boolean f(Context context, String str, HashMap<String, String> hashMap, c cVar) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, str, hashMap, cVar)) == null) {
-            this.a = str;
-            return k(context, hashMap, cVar);
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final boolean h(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
+        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+            if (this.e) {
+                System.currentTimeMillis();
             }
-            if (!TextUtils.isEmpty(this.c)) {
-                ClogBuilder clogBuilder = new ClogBuilder();
-                if (!TextUtils.isEmpty(this.a)) {
-                    clogBuilder.r(this.a);
-                }
-                clogBuilder.v("DEEPLINK");
-                clogBuilder.y(ClogBuilder.LogType.DEEP_LINK);
-                clogBuilder.j("URL");
-                clogBuilder.p(this.c);
-                if (this.d == 1) {
-                    clogBuilder.k("deferred");
-                }
-                jy0.e(clogBuilder);
+            I();
+            if (i != this.f || i2 != this.g) {
+                this.f = i;
+                this.g = i2;
+                t(" w * h : " + i + " * " + i2);
+                s();
             }
-            if (!str.startsWith(pe0.a().s()) && !str.startsWith("nadcorevendor://")) {
-                if (!str.startsWith("http") && !str.startsWith("https")) {
-                    return false;
+            if (i != 0 && i2 != 0) {
+                q();
+                dc0 dc0Var = this.c;
+                if (dc0Var != null) {
+                    dc0Var.g();
                 }
-                String replace = e.replace("_URL_TEMPLATE_", str);
-                if (!TextUtils.isEmpty(this.b)) {
-                    replace = replace.replace("_AD_ID_", this.b);
+                dc0 dc0Var2 = this.d;
+                if (dc0Var2 != null) {
+                    dc0Var2.g();
                 }
-                if (!TextUtils.isEmpty(this.c)) {
-                    replace = replace.replace("_AD_EXT_", this.c);
-                }
-                yd0.c(replace, context);
-                return true;
             }
-            yd0.c(str, context);
-            return true;
         }
-        return invokeLL.booleanValue;
     }
 
-    public final void i(Context context, String str, String str2, String str3, String str4, String str5, String str6, boolean z, String str7, c cVar) {
+    @Override // com.baidu.tieba.gc0
+    public int e(MediaTrack mediaTrack, int i, Map<String, float[]> map) {
+        InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, str, str2, str3, str4, str5, str6, Boolean.valueOf(z), str7, cVar}) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaTrack, i, map)) == null) {
+            try {
+            } catch (Exception e) {
+                e.printStackTrace();
+                u(e.toString(), e);
+            }
+            if (this.c != null && i != 0 && mediaTrack != null && this.m != null && this.l != null) {
+                cc0 G = G(map, mediaTrack);
+                if (G != null) {
+                    return this.c.e(i, G);
+                }
+                return i;
+            }
+            return i;
+        }
+        return invokeLIL.intValue;
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET]}, finally: {[IGET, INVOKE, IF] complete} */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x0099 */
+    /* JADX DEBUG: Multi-variable search result rejected for r11v1, resolved type: int */
+    /* JADX DEBUG: Multi-variable search result rejected for r11v2, resolved type: float[] */
+    /* JADX DEBUG: Multi-variable search result rejected for r11v3, resolved type: int */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.baidu.tieba.gc0
+    public int g(MediaTrack mediaTrack, int i, int i2, Map<String, float[]> map) {
+        InterceptResult invokeCommon;
+        int i3;
+        int i4;
+        int z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{mediaTrack, Integer.valueOf(i), Integer.valueOf(i2), map})) == null) {
             try {
                 try {
-                    le0.a(context, str, str6, new a(this, cVar, context, str2, str3, str4, str5, str6, z, str7), z);
-                } catch (Exception unused) {
-                    j(context, str2, str3, str4, str5, str6, z, str7, cVar);
+                    if (this.c != null && mediaTrack != null && this.m != null && this.l != null) {
+                        dc0 dc0Var = this.c;
+                        float f = mediaTrack.glClearColor[0];
+                        float f2 = mediaTrack.glClearColor[1];
+                        float f3 = mediaTrack.glClearColor[2];
+                        i3 = mediaTrack.glClearColor[3];
+                        dc0Var.h(f, f2, f3, i3);
+                        ArrayList arrayList = new ArrayList();
+                        try {
+                            if (mediaTrack.mediaSegments != null && mediaTrack.mediaSegments.size() > this.i) {
+                                MediaSegment mediaSegment = mediaTrack.mediaSegments.get(this.i);
+                                if (i == 0) {
+                                    i4 = mediaSegment.textureId;
+                                } else {
+                                    i4 = i;
+                                }
+                                if (i2 != 1) {
+                                    if (i2 != 2) {
+                                        if (i2 != 3) {
+                                            if (i2 != 4) {
+                                                if (i2 != 5) {
+                                                    z = B(mediaTrack, mediaSegment, i4, map, arrayList);
+                                                } else {
+                                                    z = x(i4);
+                                                }
+                                            } else {
+                                                C(map, arrayList, mediaTrack);
+                                            }
+                                        } else {
+                                            z = A(mediaTrack, i4, map);
+                                        }
+                                    } else {
+                                        z = y(mediaSegment, i4, map);
+                                    }
+                                } else {
+                                    z = z(mediaSegment, i4, map);
+                                }
+                                i4 = z;
+                            } else {
+                                i4 = i;
+                            }
+                            if (i4 != 0 && arrayList.size() > 0) {
+                                i4 = this.c.f(i4, arrayList);
+                            }
+                            return i4;
+                        } catch (Exception e) {
+                            e = e;
+                            e.printStackTrace();
+                            u(e.toString(), e);
+                            dc0 dc0Var2 = this.c;
+                            if (dc0Var2 != null) {
+                                dc0Var2.h(0.0f, 0.0f, 0.0f, 0.0f);
+                            }
+                            return i3;
+                        }
+                    }
+                    dc0 dc0Var3 = this.c;
+                    if (dc0Var3 != null) {
+                        dc0Var3.h(0.0f, 0.0f, 0.0f, 0.0f);
+                    }
+                    return i;
+                } catch (Exception e2) {
+                    e = e2;
+                    i3 = i;
                 }
-            } catch (Exception unused2) {
+            } finally {
+                dc0 dc0Var4 = this.c;
+                if (dc0Var4 != null) {
+                    dc0Var4.h(0.0f, 0.0f, 0.0f, 0.0f);
+                }
             }
+        } else {
+            return invokeCommon.intValue;
         }
     }
 
-    public final void j(Context context, String str, String str2, String str3, String str4, String str5, boolean z, String str6, c cVar) {
+    @Override // com.baidu.tieba.gc0
+    public int i(MediaSegment mediaSegment, int i, Map<String, float[]> map) {
+        InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, str, str2, str3, str4, str5, Boolean.valueOf(z), str6, cVar}) == null) {
-            if (TextUtils.isEmpty(str2)) {
-                if (cVar != null) {
-                    cVar.onResult(h(context, str));
-                    return;
-                }
-                return;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, mediaSegment, i, map)) == null) {
+            if (mediaSegment == null) {
+                return i;
             }
+            return r(mediaSegment, i, map);
+        }
+        return invokeLIL.intValue;
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET]}, finally: {[IGET, INVOKE, IF] complete} */
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x004e, code lost:
+        if (r8 != null) goto L26;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x0050, code lost:
+        r8.h(0.0f, 0.0f, 0.0f, 0.0f);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x006b, code lost:
+        if (r8 == null) goto L27;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:36:0x006e, code lost:
+        return r9;
+     */
+    @Override // com.baidu.tieba.gc0
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public int j(MediaTrack mediaTrack, int i, Map<String, float[]> map) {
+        InterceptResult invokeLIL;
+        dc0 dc0Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048580, this, mediaTrack, i, map)) == null) {
             try {
-                le0.a(context, str2, str3, new b(this, cVar, context, str), z);
-            } catch (Exception unused) {
-                if (cVar != null) {
-                    cVar.onResult(h(context, str));
+                try {
+                    if (this.c != null && mediaTrack != null && this.m != null && this.l != null) {
+                        this.c.h(mediaTrack.glClearColor[0], mediaTrack.glClearColor[1], mediaTrack.glClearColor[2], mediaTrack.glClearColor[3]);
+                        ArrayList arrayList = new ArrayList();
+                        i = D(map, arrayList, mediaTrack, i);
+                        if (i != 0 && arrayList.size() > 0) {
+                            return this.c.f(i, arrayList);
+                        }
+                        dc0Var = this.c;
+                    }
+                    dc0 dc0Var2 = this.c;
+                    if (dc0Var2 != null) {
+                        dc0Var2.h(0.0f, 0.0f, 0.0f, 0.0f);
+                    }
+                    return i;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    u(e.toString(), e);
+                    dc0Var = this.c;
+                }
+            } finally {
+                dc0 dc0Var3 = this.c;
+                if (dc0Var3 != null) {
+                    dc0Var3.h(0.0f, 0.0f, 0.0f, 0.0f);
                 }
             }
+        } else {
+            return invokeLIL.intValue;
         }
     }
 
-    public final boolean k(Context context, HashMap<String, String> hashMap, c cVar) {
-        InterceptResult invokeLLL;
-        int i;
-        boolean z;
-        boolean z2;
+    @Override // com.baidu.tieba.gc0
+    public int k(int i, float[] fArr, float[] fArr2, int i2, int i3, float f) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, context, hashMap, cVar)) == null) {
-            if (hashMap == null) {
-                if (cVar != null) {
-                    cVar.onResult(false);
-                }
-                return false;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), fArr, fArr2, Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f)})) == null) {
+            if (i == 0 || this.m == null) {
+                return i;
             }
-            try {
-                String str = hashMap.get("app_url");
-                String str2 = hashMap.get("web_url");
-                String str3 = hashMap.get("min_version");
-                String str4 = hashMap.get("pkg_name");
-                String str5 = hashMap.get("market_url");
-                String str6 = hashMap.get("market_pkg_name");
-                String str7 = hashMap.get("exemption");
-                if (!TextUtils.isEmpty(str7)) {
-                    i = Integer.parseInt(str7);
-                } else {
-                    i = 0;
+            Map<String, ShaderConfig> map = this.l;
+            if (map != null && !map.containsKey(oc0.g)) {
+                this.l.put(oc0.g, ShaderConfig.getGaussianBlurHShaderConfig(f));
+                this.l.put(oc0.h, ShaderConfig.getGaussianBlurVShaderConfig(f));
+                Map<String, cc0> l = mc0.l(this.a, this.l);
+                for (Map.Entry<String, cc0> entry : l.entrySet()) {
+                    cc0 value = entry.getValue();
+                    value.l();
+                    value.v(i2, i3);
                 }
-                String str8 = hashMap.get("source");
-                this.b = hashMap.get(LegoListActivityConfig.AD_ID);
-                this.c = hashMap.get(MigrateStatisticUtils.EXT_INFO);
-                String str9 = hashMap.get("exemption");
-                if (!TextUtils.isEmpty(str9)) {
-                    this.d = Integer.parseInt(str9);
-                }
-                hashMap.get("ad_name");
-                if (!TextUtils.isEmpty(str)) {
-                    if (i != 1) {
-                        z2 = true;
-                    } else {
-                        z2 = false;
-                    }
-                    i(context, str, str2, str5, str6, str3, str4, z2, str8, cVar);
-                } else if (!TextUtils.isEmpty(str5)) {
-                    if (i != 1) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    j(context, str2, str5, str6, str3, str4, z, str8, cVar);
-                } else if (!TextUtils.isEmpty(str2)) {
-                    if (cVar != null) {
-                        cVar.onResult(h(context, str2));
-                    }
-                } else {
-                    if (cVar != null) {
-                        cVar.onResult(false);
-                    }
-                    return false;
-                }
-                return true;
-            } catch (NumberFormatException unused) {
-                if (cVar != null) {
-                    cVar.onResult(false);
-                }
-                return false;
+                this.m.putAll(l);
             }
+            if (this.d == null) {
+                this.d = new dc0();
+            }
+            this.d.g();
+            this.d.c(i2, i3);
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(this.m.get(oc0.g));
+            arrayList.add(this.m.get(oc0.h));
+            float[] fArr3 = fArr;
+            float[] fArr4 = fArr2;
+            int i4 = 0;
+            while (i4 < arrayList.size()) {
+                cc0 cc0Var = (cc0) arrayList.get(i4);
+                cc0Var.v(i2, i3);
+                if (i4 == 0) {
+                    cc0Var.e(GLES20.glGetUniformLocation(cc0Var.j(), "wRatio"), "wRatio", new ShaderParams("wRatio", ShaderParams.VALUE_TYPE_FLOAT, new float[]{f}));
+                } else {
+                    cc0Var.e(GLES20.glGetUniformLocation(cc0Var.j(), "hRatio"), "hRatio", new ShaderParams("hRatio", ShaderParams.VALUE_TYPE_FLOAT, new float[]{f}));
+                }
+                w(cc0Var, fArr3, fArr4, null);
+                i4++;
+                fArr3 = null;
+                fArr4 = null;
+            }
+            return this.d.f(i, arrayList);
         }
-        return invokeLLL.booleanValue;
+        return invokeCommon.intValue;
     }
 }

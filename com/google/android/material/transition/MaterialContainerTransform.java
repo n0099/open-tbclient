@@ -46,7 +46,7 @@ import com.google.android.material.shape.Shapeable;
 import com.google.android.material.transition.TransitionUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class MaterialContainerTransform extends Transition {
     public static final float ELEVATION_NOT_SET = -1.0f;
     public static final int FADE_MODE_CROSS = 2;
@@ -108,23 +108,23 @@ public final class MaterialContainerTransform extends Transition {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public @interface FadeMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public @interface FitMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public @interface TransitionDirection {
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class ProgressThresholds {
         @FloatRange(from = 0.0d, to = 1.0d)
         public final float end;
@@ -147,7 +147,7 @@ public final class MaterialContainerTransform extends Transition {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class ProgressThresholdsGroup {
         @NonNull
         public final ProgressThresholds fade;
@@ -166,7 +166,7 @@ public final class MaterialContainerTransform extends Transition {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class TransitionDrawable extends Drawable {
         public static final int COMPAT_SHADOW_COLOR = -7829368;
         public static final int SHADOW_COLOR = 754974720;
@@ -486,7 +486,7 @@ public final class MaterialContainerTransform extends Transition {
 
     @StyleRes
     public static int getTransitionShapeAppearanceResId(Context context) {
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(new int[]{R.attr.obfuscated_res_0x7f0407bd});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(new int[]{R.attr.obfuscated_res_0x7f04083e});
         int resourceId = obtainStyledAttributes.getResourceId(0, -1);
         obtainStyledAttributes.recycle();
         return resourceId;
@@ -619,9 +619,9 @@ public final class MaterialContainerTransform extends Transition {
             transitionValues.f1028view = TransitionUtils.findDescendantOrAncestorById(transitionValues.f1028view, i);
         } else if (view2 != null) {
             transitionValues.f1028view = view2;
-        } else if (transitionValues.f1028view.getTag(R.id.obfuscated_res_0x7f091843) instanceof View) {
-            transitionValues.f1028view.setTag(R.id.obfuscated_res_0x7f091843, null);
-            transitionValues.f1028view = (View) transitionValues.f1028view.getTag(R.id.obfuscated_res_0x7f091843);
+        } else if (transitionValues.f1028view.getTag(R.id.obfuscated_res_0x7f091886) instanceof View) {
+            transitionValues.f1028view.setTag(R.id.obfuscated_res_0x7f091886, null);
+            transitionValues.f1028view = (View) transitionValues.f1028view.getTag(R.id.obfuscated_res_0x7f091886);
         }
         View view3 = transitionValues.f1028view;
         if (ViewCompat.isLaidOut(view3) || view3.getWidth() != 0 || view3.getHeight() != 0) {
@@ -646,8 +646,8 @@ public final class MaterialContainerTransform extends Transition {
         if (shapeAppearanceModel != null) {
             return shapeAppearanceModel;
         }
-        if (view2.getTag(R.id.obfuscated_res_0x7f091843) instanceof ShapeAppearanceModel) {
-            return (ShapeAppearanceModel) view2.getTag(R.id.obfuscated_res_0x7f091843);
+        if (view2.getTag(R.id.obfuscated_res_0x7f091886) instanceof ShapeAppearanceModel) {
+            return (ShapeAppearanceModel) view2.getTag(R.id.obfuscated_res_0x7f091886);
         }
         Context context = view2.getContext();
         int transitionShapeAppearanceResId = getTransitionShapeAppearanceResId(context);

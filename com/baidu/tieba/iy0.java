@@ -1,159 +1,104 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.sweetsqlite.Column;
-import com.baidu.nadcore.sweetsqlite.IntegerColumn;
-import com.baidu.nadcore.sweetsqlite.LongColumn;
-import com.baidu.nadcore.sweetsqlite.StringColumn;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.rotation.NadSensorAbsHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class iy0 extends bz0 {
+public final class iy0 extends NadSensorAbsHelper {
     public static /* synthetic */ Interceptable $ic;
-    public static final ty0 A;
-    public static final ty0[] B;
-    public static final ty0[][] C;
-    public static final ty0[] D;
-    public static final ty0 o;
-    public static final ty0 p;
-    public static final ty0 q;
-    public static final ty0 r;
-    public static final ty0 s;
-    public static final ty0 t;
-    public static final ty0 u;
-    public static final ty0 v;
-    public static final ty0 w;
-    public static final ty0 x;
-    public static final ty0 y;
-    public static final ty0 z;
     public transient /* synthetic */ FieldHolder $fh;
-    public final StringColumn a;
-    public final IntegerColumn b;
-    public final IntegerColumn c;
-    public final StringColumn d;
-    public final StringColumn e;
-    public final StringColumn f;
-    public final IntegerColumn g;
-    public final IntegerColumn h;
-    public final LongColumn i;
-    public final LongColumn j;
-    public final StringColumn k;
-    public final StringColumn l;
-    public final StringColumn m;
-    public final Column[] n;
+    public float g;
+    public int h;
 
-    @Override // com.baidu.tieba.bz0
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "t_apk_info" : (String) invokeV.objValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947869705, "Lcom/baidu/tieba/iy0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947869705, "Lcom/baidu/tieba/iy0;");
-                return;
-            }
-        }
-        o = bz0.b(4, "key", "                   key", 0, 2);
-        p = bz0.a(2, "task_id", "               task_id", 1);
-        q = bz0.a(2, "status", "                status", 2);
-        r = bz0.a(4, "package_name", "          package_name", 3);
-        s = bz0.a(4, "url", "                   url", 4);
-        t = bz0.a(4, "file", "                  file", 5);
-        u = bz0.a(2, "progress", "              progress", 6);
-        v = bz0.a(2, "v_progress", "            v_progress", 7);
-        w = bz0.a(3, "start_download_time", "   start_download_time", 8);
-        x = bz0.a(3, "finished_download_time", "finished_download_time", 9);
-        y = bz0.a(4, "mt", "                    mt", 10);
-        z = bz0.a(4, "ctrl", "                  ctrl", 11);
-        ty0 a = bz0.a(4, "extra", "                 extra", 12);
-        A = a;
-        ty0 ty0Var = o;
-        B = new ty0[]{ty0Var, p, q, r, s, t, u, v, w, x, y, z, a};
-        C = new ty0[0];
-        D = new ty0[]{ty0Var};
-    }
-
-    public iy0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new StringColumn(o);
-        this.b = new IntegerColumn(p);
-        this.c = new IntegerColumn(q);
-        this.d = new StringColumn(r);
-        this.e = new StringColumn(s);
-        this.f = new StringColumn(t);
-        this.g = new IntegerColumn(u);
-        this.h = new IntegerColumn(v);
-        this.i = new LongColumn(w);
-        this.j = new LongColumn(x);
-        this.k = new StringColumn(y);
-        this.l = new StringColumn(z);
-        StringColumn stringColumn = new StringColumn(A);
-        this.m = stringColumn;
-        this.n = new Column[]{this.a, this.b, this.c, this.d, this.e, this.f, this.g, this.h, this.i, this.j, this.k, this.l, stringColumn};
-    }
-
-    @Override // com.baidu.tieba.bz0
-    public Column[] c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.n;
-        }
-        return (Column[]) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.bz0
-    public ty0[] d() {
+    @Override // com.baidu.nadcore.rotation.NadSensorAbsHelper
+    public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return B;
+            return 1;
         }
-        return (ty0[]) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.bz0
-    public ty0[][] e() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public iy0(Context context, gy0 listener) {
+        super(context, listener);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return C;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, listener};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (gy0) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (ty0[][]) invokeV.objValue;
+        Intrinsics.checkNotNullParameter(context, "context");
+        Intrinsics.checkNotNullParameter(listener, "listener");
+        this.g = 1.0f;
     }
 
-    @Override // com.baidu.tieba.bz0
-    public ty0[] f() {
+    @Override // com.baidu.nadcore.rotation.NadSensorAbsHelper
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return D;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int c = c().c();
+            if (c >= 0 && 66 >= c) {
+                return 1;
+            }
+            if ((67 <= c && 199 >= c) || c < 200) {
+                return 2;
+            }
+            return 3;
         }
-        return (ty0[]) invokeV.objValue;
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.nadcore.rotation.NadSensorAbsHelper
+    public void i(SensorEvent sensorEvent) {
+        Sensor sensor;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sensorEvent) == null) && sensorEvent != null && (sensor = sensorEvent.sensor) != null && sensor.getType() == 1) {
+            float[] fArr = sensorEvent.values;
+            float f = fArr[0];
+            if (Math.pow(f, 2.0d) + Math.pow(fArr[1], 2.0d) + Math.pow(fArr[2], 2.0d) < Math.pow(c().b(), 2.0d)) {
+                return;
+            }
+            if (this.g * f >= 0) {
+                this.g = f;
+                return;
+            }
+            this.g = f;
+            int i = this.h + 1;
+            this.h = i;
+            if (i >= c().a()) {
+                b().h();
+            }
+        }
+    }
+
+    @Override // com.baidu.nadcore.rotation.NadSensorAbsHelper
+    public void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.o();
+            this.h = 0;
+            this.g = 1.0f;
+        }
     }
 }

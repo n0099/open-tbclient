@@ -22,7 +22,7 @@ public class ap extends Handler {
         Context context3;
         Context context4;
         Context context5;
-        HashMap<String, String> m245a;
+        HashMap<String, String> m249a;
         ao aoVar;
         au auVar;
         Context context6;
@@ -43,7 +43,7 @@ public class ap extends Handler {
         int i = message.arg1;
         synchronized (af.class) {
             context = this.a.f58a;
-            if (af.a(context).m204a(str)) {
+            if (af.a(context).m208a(str)) {
                 context2 = this.a.f58a;
                 if (af.a(context2).a(str) < 10) {
                     String string = message.getData() != null ? message.getData().getString("third_sync_reason") : "";
@@ -71,11 +71,11 @@ public class ap extends Handler {
                         context10 = this.a.f58a;
                         if ("syncing".equals(af.a(context10).a(au.UPLOAD_HUAWEI_TOKEN))) {
                             context11 = this.a.f58a;
-                            m245a = i.m245a(context11, e.ASSEMBLE_PUSH_HUAWEI);
-                            m245a.put("third_sync_reason", string);
+                            m249a = i.m249a(context11, e.ASSEMBLE_PUSH_HUAWEI);
+                            m249a.put("third_sync_reason", string);
                             aoVar = this.a;
                             auVar = au.UPLOAD_HUAWEI_TOKEN;
-                            aoVar.a(str, auVar, false, m245a);
+                            aoVar.a(str, auVar, false, m249a);
                             context13 = this.a.f58a;
                             af.a(context13).b(str);
                         }
@@ -86,7 +86,7 @@ public class ap extends Handler {
                             ao aoVar3 = this.a;
                             au auVar3 = au.UPLOAD_FCM_TOKEN;
                             context9 = this.a.f58a;
-                            aoVar3.a(str, auVar3, false, i.m245a(context9, e.ASSEMBLE_PUSH_FCM));
+                            aoVar3.a(str, auVar3, false, i.m249a(context9, e.ASSEMBLE_PUSH_FCM));
                             context13 = this.a.f58a;
                             af.a(context13).b(str);
                         }
@@ -95,11 +95,11 @@ public class ap extends Handler {
                         context6 = this.a.f58a;
                         if ("syncing".equals(af.a(context6).a(au.UPLOAD_COS_TOKEN))) {
                             context7 = this.a.f58a;
-                            m245a = i.m245a(context7, e.ASSEMBLE_PUSH_COS);
-                            m245a.put("third_sync_reason", string);
+                            m249a = i.m249a(context7, e.ASSEMBLE_PUSH_COS);
+                            m249a.put("third_sync_reason", string);
                             aoVar = this.a;
                             auVar = au.UPLOAD_COS_TOKEN;
-                            aoVar.a(str, auVar, false, m245a);
+                            aoVar.a(str, auVar, false, m249a);
                             context13 = this.a.f58a;
                             af.a(context13).b(str);
                         }
@@ -108,11 +108,11 @@ public class ap extends Handler {
                         context4 = this.a.f58a;
                         if ("syncing".equals(af.a(context4).a(au.UPLOAD_FTOS_TOKEN))) {
                             context5 = this.a.f58a;
-                            m245a = i.m245a(context5, e.ASSEMBLE_PUSH_FTOS);
-                            m245a.put("third_sync_reason", string);
+                            m249a = i.m249a(context5, e.ASSEMBLE_PUSH_FTOS);
+                            m249a.put("third_sync_reason", string);
                             aoVar = this.a;
                             auVar = au.UPLOAD_FTOS_TOKEN;
-                            aoVar.a(str, auVar, false, m245a);
+                            aoVar.a(str, auVar, false, m249a);
                         }
                     }
                     context13 = this.a.f58a;

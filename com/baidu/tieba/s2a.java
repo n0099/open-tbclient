@@ -1,112 +1,67 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.GlobalBuildConfig;
-import com.baidu.tieba.m77;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.List;
 /* loaded from: classes8.dex */
-public final class s2a implements m77 {
+public class s2a implements oi {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    public s2a() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948100903, "Lcom/baidu/tieba/s2a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948100903, "Lcom/baidu/tieba/s2a;");
+                return;
+            }
+        }
+        b = BdUniqueId.gen();
+    }
+
+    @Override // com.baidu.tieba.oi
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return b;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public s2a(boolean z, p2a p2aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), p2aVar};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.l77
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return m77.a.b(this);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.l77
-    public Map<String, String> a(v27 v27Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, v27Var)) == null) {
-            return m77.a.a(this, v27Var);
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:11:0x0028, code lost:
-        if (r5.equals("video_forum") == false) goto L23;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x0031, code lost:
-        if (r5.equals("live_forum") == false) goto L23;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:17:0x003a, code lost:
-        if (r5.equals("live_user") == false) goto L23;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x0043, code lost:
-        if (r5.equals("common_forum") == false) goto L23;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x0046, code lost:
-        return "common_click_for_forum_head";
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x004f, code lost:
-        if (r5.equals("video_user") == false) goto L23;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x0056, code lost:
-        if (r5.equals("common_user") == false) goto L23;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x0059, code lost:
-        return "common_click_for_user_head";
-     */
-    @Override // com.baidu.tieba.m77
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public String c(v27 businessInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            String str = businessInfo.a().get("card_head_type");
-            if (str == null) {
-                str = "common_user";
-            }
-            switch (str.hashCode()) {
-                case -1924729441:
-                    break;
-                case -1617812209:
-                    break;
-                case 448970189:
-                    break;
-                case 1009035070:
-                    break;
-                case 1201356814:
-                    break;
-                case 1373469789:
-                    break;
-                default:
-                    if (!GlobalBuildConfig.isDebug()) {
-                        return "";
-                    }
-                    throw new IllegalStateException("unknown card_head_type :" + str);
-            }
-        } else {
-            return (String) invokeL.objValue;
-        }
+        String str = p2aVar.e;
+        String str2 = p2aVar.d;
+        this.a = p2aVar.a;
+        String str3 = p2aVar.f;
+        List<q2a> list = p2aVar.c;
+        int i3 = p2aVar.b;
     }
 }

@@ -1,46 +1,64 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
-public interface xx2 {
-    public static final xx2 a = new a();
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import okhttp3.Interceptor;
+import okhttp3.Request;
+import okhttp3.Response;
+/* loaded from: classes9.dex */
+public class xx2 implements Interceptor {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<String, String> a;
 
-    <T extends sq2<T>> void a(T t);
+    public xx2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new HashMap<>();
+    }
 
-    /* loaded from: classes8.dex */
-    public static class a implements xx2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public void a(HashMap<String, String> hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
+            this.a.clear();
+            if (hashMap != null && hashMap.size() >= 1) {
+                this.a = hashMap;
+            }
+        }
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    @Override // okhttp3.Interceptor
+    public Response intercept(Interceptor.Chain chain) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chain)) == null) {
+            HashMap<String, String> hashMap = this.a;
+            if (hashMap != null && hashMap.size() >= 1) {
+                Request.Builder newBuilder = chain.request().newBuilder();
+                for (Map.Entry<String, String> entry : this.a.entrySet()) {
+                    newBuilder.addHeader(entry.getKey(), entry.getValue());
                 }
+                return chain.proceed(newBuilder.build());
             }
+            return chain.proceed(chain.request());
         }
-
-        @Override // com.baidu.tieba.xx2
-        public <T extends sq2<T>> void a(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
-                t.x("rescue_refractory_period", 0L);
-                t.x("suspend_delay_time", -1L);
-                t.t("should_suspend_master_timer", false);
-                t.t("should_suspend_all", false);
-                t.t("should_suspend_slave_timer", false);
-                t.t("should_suspend_web_view_timer", false);
-                t.t("should_suspend_v8_timer", false);
-            }
-        }
+        return (Response) invokeL.objValue;
     }
 }

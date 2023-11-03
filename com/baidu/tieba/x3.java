@@ -1,77 +1,51 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.KVStorageFactory;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
-public class x3 implements w3 {
+import java.util.Comparator;
+/* loaded from: classes9.dex */
+public class x3 {
     public static /* synthetic */ Interceptable $ic;
+    public static x3 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SharedPreferences a;
-    public Context b;
+    public a4 a;
 
-    public x3(Context context) {
+    public x3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = context;
-        this.a = KVStorageFactory.getSharedPreferences("abtesting", 0);
     }
 
-    @Override // com.baidu.tieba.w3
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            SharedPreferences.Editor edit = this.a.edit();
-            edit.putString("conf_version", str);
-            edit.apply();
-        }
-    }
-
-    @Override // com.baidu.tieba.w3
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            SharedPreferences.Editor edit = this.a.edit();
-            edit.putString("switch_config", str);
-            edit.apply();
-        }
-    }
-
-    @Override // com.baidu.tieba.w3
-    public String b() {
+    public static x3 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.getString("conf_version", "0");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                b = new x3();
+            }
+            return b;
         }
-        return (String) invokeV.objValue;
+        return (x3) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.w3
-    public String getConfig() {
-        InterceptResult invokeV;
+    public <T> void b(T[] tArr, Comparator<? super T> comparator, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.getString("switch_config", "");
+        if (interceptable == null || interceptable.invokeLLII(1048576, this, tArr, comparator, i, i2) == null) {
+            if (this.a == null) {
+                this.a = new a4();
+            }
+            this.a.c(tArr, comparator, i, i2);
         }
-        return (String) invokeV.objValue;
     }
 }

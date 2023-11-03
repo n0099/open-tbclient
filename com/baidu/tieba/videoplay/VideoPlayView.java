@@ -29,20 +29,20 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tbadk.widget.viewpager.VerticalViewPager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.am6;
+import com.baidu.tieba.bm6;
 import com.baidu.tieba.card.ala.secondfloor.AlaRecommendLayout;
-import com.baidu.tieba.dqa;
-import com.baidu.tieba.ek6;
-import com.baidu.tieba.fk6;
-import com.baidu.tieba.h0a;
-import com.baidu.tieba.iqa;
-import com.baidu.tieba.ira;
-import com.baidu.tieba.jqa;
-import com.baidu.tieba.jra;
-import com.baidu.tieba.l45;
-import com.baidu.tieba.mv9;
-import com.baidu.tieba.oqa;
-import com.baidu.tieba.pqa;
-import com.baidu.tieba.ux5;
+import com.baidu.tieba.e3b;
+import com.baidu.tieba.f55;
+import com.baidu.tieba.j3b;
+import com.baidu.tieba.j4b;
+import com.baidu.tieba.k3b;
+import com.baidu.tieba.k4b;
+import com.baidu.tieba.mda;
+import com.baidu.tieba.oz5;
+import com.baidu.tieba.p3b;
+import com.baidu.tieba.q3b;
+import com.baidu.tieba.r8a;
 import com.baidu.tieba.videoplay.VideoPlayFragment;
 import com.baidu.tieba.videoplay.fragment.VideoAttentionListPageFragment;
 import com.baidu.tieba.videoplay.view.SecondFloorPullView;
@@ -54,18 +54,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import tbclient.AlaLiveInfo;
 /* loaded from: classes8.dex */
-public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnClickListener, mv9.c, iqa, jra, dqa {
+public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnClickListener, r8a.c, j3b, k4b, e3b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public oqa A;
-    public pqa B;
+    public p3b A;
+    public q3b B;
     public j C;
     public k D;
     public boolean E;
     public String F;
     public float G;
     public h H;
-    public ira I;
+    public j4b I;
     public CustomMessageListener J;
     public int a;
     public boolean b;
@@ -77,12 +77,12 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
     public View h;
     public TextView i;
     public BdSwipeRefreshLayout j;
-    public l45 k;
+    public f55 k;
     public VerticalViewPager l;
     public VideoPlayFragmentAdapter m;
     public int n;
     public int o;
-    public jqa p;
+    public k3b p;
     public i q;
     public FragmentActivity r;
     public TBLottieAnimationView s;
@@ -116,7 +116,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         void a();
     }
 
-    @Override // com.baidu.tieba.iqa
+    @Override // com.baidu.tieba.j3b
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
@@ -166,14 +166,14 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
                     z2 = false;
                 }
                 if (z2 && !z) {
-                    this.a.D();
+                    this.a.E();
                 }
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public class b implements l45.f {
+    public class b implements f55.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoPlayView a;
@@ -196,10 +196,10 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
             this.a = videoPlayView;
         }
 
-        @Override // com.baidu.tieba.l45.f
+        @Override // com.baidu.tieba.f55.f
         public void a(View view2, boolean z) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLZ(1048576, this, view2, z) == null) && z && this.a.l.getCurrentItem() == 0 && this.a.f != null && this.a.S(TbSingleton.getInstance().getLiveFollowSecondFloor()) && this.a.f.getCurrentStatus() == 2) {
+            if ((interceptable == null || interceptable.invokeLZ(1048576, this, view2, z) == null) && z && this.a.l.getCurrentItem() == 0 && this.a.f != null && this.a.T(TbSingleton.getInstance().getLiveFollowSecondFloor()) && this.a.f.getCurrentStatus() == 2) {
                 this.a.f.m();
             }
         }
@@ -237,9 +237,9 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
                 if (this.a.l == null) {
                     return false;
                 }
-                VideoAttentionListPageFragment F = this.a.F();
-                if (F != null) {
-                    if (this.a.l.getCurrentItem() == 0 && F.M()) {
+                VideoAttentionListPageFragment G = this.a.G();
+                if (G != null) {
+                    if (this.a.l.getCurrentItem() == 0 && G.Q()) {
                         return false;
                     }
                     return true;
@@ -281,7 +281,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.A.j();
+                this.a.A.k();
                 int currentItem = this.a.l.getCurrentItem();
                 if (this.a.m.f(currentItem) != null) {
                     StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_FROM_VIDEO_MIDDLE_AUTO_PLAY);
@@ -337,28 +337,26 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 int action = motionEvent.getAction();
-                if (action != 0) {
-                    if (action != 1) {
-                        if (action == 2) {
-                            if (this.a.x == 0.0f) {
-                                this.a.x = motionEvent.getY();
-                            }
-                            this.a.G = motionEvent.getY() - this.a.x;
-                            if (this.a.x > (BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst(), true) - UtilHelper.getNavigationBarHeight(TbadkCoreApplication.getInst())) - this.a.y && this.a.G < UtilHelper.getDimenPixelSize(R.dimen.tbds25) && UtilHelper.hasNavBar(this.a.r) && BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst(), true) != this.a.z) {
-                                this.a.v = true;
-                            }
-                        }
-                    } else {
-                        this.a.G = motionEvent.getY() - this.a.x;
-                    }
-                    this.a.x = 0.0f;
-                } else {
+                if (action == 0) {
                     this.a.x = motionEvent.getY();
                     this.a.v = false;
+                } else {
+                    if (action == 1) {
+                        this.a.G = motionEvent.getY() - this.a.x;
+                    } else if (action == 2) {
+                        if (this.a.x == 0.0f) {
+                            this.a.x = motionEvent.getY();
+                        }
+                        this.a.G = motionEvent.getY() - this.a.x;
+                        if (this.a.x > (BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst(), true) - UtilHelper.getNavigationBarHeight(TbadkCoreApplication.getInst())) - this.a.y && this.a.G < UtilHelper.getDimenPixelSize(R.dimen.tbds25) && UtilHelper.hasNavBar(this.a.r) && BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst(), true) != this.a.z) {
+                            this.a.v = true;
+                        }
+                    }
+                    this.a.x = 0.0f;
                 }
                 VideoPlayFragment e = this.a.m.e(this.a.l.getCurrentItem());
                 if (e != null) {
-                    return e.B();
+                    return e.E();
                 }
                 this.a.l.setBackground(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0611));
                 return false;
@@ -400,38 +398,31 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
             if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || (e = this.b.m.e(this.b.l.getCurrentItem())) == null) {
                 return;
             }
-            e.Y4(i);
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 5) {
-                        if (i == 6) {
-                            this.b.R();
-                            return;
-                        } else if (i == 7) {
-                            TiebaStatic.log(new StatisticItem("c14931").param("obj_locate", this.b.H()).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fid", this.a).param("cuid", TbadkCoreApplication.getInst().getCuid()));
-                            return;
-                        } else {
-                            return;
-                        }
-                    } else if (!this.b.c) {
-                        return;
-                    } else {
-                        this.b.d0(true);
-                        this.b.Q();
-                        this.b.Y(false);
-                        return;
-                    }
-                }
+            e.q5(i);
+            if (i == 1) {
+                this.b.Y(true);
+            } else if (i == 2) {
                 this.b.d0(false);
                 this.b.Y(true);
-                return;
+            } else if (i != 5) {
+                if (i != 6) {
+                    if (i == 7) {
+                        TiebaStatic.log(new StatisticItem("c14931").param("obj_locate", this.b.I()).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fid", this.a).param("cuid", TbadkCoreApplication.getInst().getCuid()));
+                        return;
+                    }
+                    return;
+                }
+                this.b.S();
+            } else if (this.b.c) {
+                this.b.d0(true);
+                this.b.R();
+                this.b.Y(false);
             }
-            this.b.Y(true);
         }
     }
 
     /* loaded from: classes8.dex */
-    public class g implements h0a.a {
+    public class g implements mda.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoPlayView a;
@@ -454,7 +445,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
             this.a = videoPlayView;
         }
 
-        @Override // com.baidu.tieba.h0a.a
+        @Override // com.baidu.tieba.mda.a
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -483,7 +474,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         this.u = "0";
         this.y = UtilHelper.getDimenPixelSize(R.dimen.tbds35);
         this.z = 2049;
-        this.B = new pqa();
+        this.B = new q3b();
         this.F = "from_no_sub_fragment";
         this.G = 0.0f;
         this.J = new a(this, 2921665);
@@ -495,12 +486,12 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         if ("frs".equals(str)) {
             this.u = str2;
         }
-        this.s = (TBLottieAnimationView) baseFragment.getView().findViewById(R.id.obfuscated_res_0x7f090ee7);
+        this.s = (TBLottieAnimationView) baseFragment.getView().findViewById(R.id.obfuscated_res_0x7f090f1e);
         this.e = baseFragment.getView().findViewById(R.id.root_layout);
-        VerticalViewPager verticalViewPager = (VerticalViewPager) baseFragment.getView().findViewById(R.id.obfuscated_res_0x7f09290f);
+        VerticalViewPager verticalViewPager = (VerticalViewPager) baseFragment.getView().findViewById(R.id.obfuscated_res_0x7f09296e);
         this.l = verticalViewPager;
         verticalViewPager.setStrictSlide(false);
-        this.A = new oqa(this.s, this.l);
+        this.A = new p3b(this.s, this.l);
         BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) baseFragment.getView().findViewById(R.id.refresh_layout);
         this.j = bdSwipeRefreshLayout;
         bdSwipeRefreshLayout.setBackground(null);
@@ -508,43 +499,58 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         this.j.setUseSlideAngleToPullRefresh(true);
         this.j.setNoMoveTargetView(true);
         this.j.setLimitDragDistance(true);
-        l45 l45Var = new l45(fragmentActivity);
-        this.k = l45Var;
-        l45Var.e(new b(this));
+        f55 f55Var = new f55(fragmentActivity);
+        this.k = f55Var;
+        f55Var.e(new b(this));
         this.j.setProgressView(this.k);
         this.j.setOnChildScrollUpCallback(new c(this));
         if (this.m == null) {
             int i6 = this.a;
             boolean z3 = this.b;
-            if (S(TbSingleton.getInstance().getLiveFollowSecondFloor()) && T()) {
+            if (T(TbSingleton.getInstance().getLiveFollowSecondFloor()) && U()) {
                 z2 = true;
             } else {
                 z2 = false;
             }
             this.m = new VideoPlayFragmentAdapter(bdUniqueId, baseFragment, fragmentActivity, bdUniqueId2, i2, i6, z3, z2);
         }
-        this.m.r(new d(this));
-        this.m.q(this);
-        this.m.l(this);
+        this.m.s(new d(this));
+        this.m.r(this);
+        this.m.m(this);
         MessageManager.getInstance().registerListener(this.m.d());
         MessageManager.getInstance().registerListener(this.J);
-        this.m.p(this);
+        this.m.q(this);
         this.m.h = this.t;
         this.l.setOffscreenPageLimit(1);
         this.l.setAdapter(this.m);
         this.l.setOnPageChangeListener(this);
         this.l.setOnTouchListener(new e(this));
-        this.i = (TextView) baseFragment.getView().findViewById(R.id.obfuscated_res_0x7f090241);
-        this.h = baseFragment.getView().findViewById(R.id.obfuscated_res_0x7f09023f);
-        AlaRecommendLayout alaRecommendLayout = (AlaRecommendLayout) baseFragment.getView().findViewById(R.id.obfuscated_res_0x7f092916);
+        this.i = (TextView) baseFragment.getView().findViewById(R.id.obfuscated_res_0x7f090254);
+        this.h = baseFragment.getView().findViewById(R.id.obfuscated_res_0x7f090252);
+        AlaRecommendLayout alaRecommendLayout = (AlaRecommendLayout) baseFragment.getView().findViewById(R.id.obfuscated_res_0x7f092975);
         this.g = alaRecommendLayout;
         alaRecommendLayout.setDarkMode(true);
-        SecondFloorPullView secondFloorPullView = (SecondFloorPullView) baseFragment.getView().findViewById(R.id.obfuscated_res_0x7f092164);
+        SecondFloorPullView secondFloorPullView = (SecondFloorPullView) baseFragment.getView().findViewById(R.id.obfuscated_res_0x7f0921ad);
         this.f = secondFloorPullView;
         secondFloorPullView.setOnStatusChange(new f(this, str2));
         this.f.setHideButton(this.h);
         this.f.setPullView(this.l);
         this.f.setSecondFloorView(this.g);
+    }
+
+    @Override // com.baidu.tieba.r8a.c
+    public void a(int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeII(1048598, this, i2, i3) == null) && i2 - i3 < 3500 && !this.F.equals("from_attention_sub_fragment") && !O()) {
+            this.A.c();
+        }
+    }
+
+    public void l0(int i2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048616, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+            this.l.setCurrentItem(i2, z);
+        }
     }
 
     public final void Y(boolean z) {
@@ -569,17 +575,17 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
             this.c = z;
-            this.m.m(z);
+            this.m.n(z);
             if (z && (secondFloorPullView = this.f) != null) {
                 int currentStatus = secondFloorPullView.getCurrentStatus();
                 if (currentStatus != 2) {
                     if (currentStatus == 5) {
-                        Q();
+                        R();
                         return;
                     }
                     return;
                 }
-                R();
+                S();
             }
         }
     }
@@ -591,21 +597,21 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         }
     }
 
-    public void c0(ux5.b bVar) {
+    public void c0(oz5.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048603, this, bVar) == null) {
             this.l.setEventListener(bVar);
         }
     }
 
-    @Override // com.baidu.tieba.dqa
+    @Override // com.baidu.tieba.e3b
     public void d(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048604, this, z) == null) {
-            if (S(TbSingleton.getInstance().getLiveFollowSecondFloor()) && !z) {
-                K();
+            if (T(TbSingleton.getInstance().getLiveFollowSecondFloor()) && !z) {
+                L();
             } else {
-                D();
+                E();
             }
         }
     }
@@ -622,17 +628,17 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         }
     }
 
-    public void e0(ira iraVar) {
+    public void e0(j4b j4bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048607, this, iraVar) == null) {
-            this.I = iraVar;
-            if (iraVar == null) {
+        if (interceptable == null || interceptable.invokeL(1048607, this, j4bVar) == null) {
+            this.I = j4bVar;
+            if (j4bVar == null) {
                 return;
             }
-            iraVar.n(new g(this));
+            j4bVar.n(new g(this));
             VideoPlayFragmentAdapter videoPlayFragmentAdapter = this.m;
             if (videoPlayFragmentAdapter != null) {
-                videoPlayFragmentAdapter.o(iraVar);
+                videoPlayFragmentAdapter.p(j4bVar);
             }
         }
     }
@@ -645,7 +651,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         }
     }
 
-    @Override // com.baidu.tieba.dqa
+    @Override // com.baidu.tieba.e3b
     public void g(float f2) {
         AlaRecommendLayout alaRecommendLayout;
         Interceptable interceptable = $ic;
@@ -716,34 +722,19 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048621, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f090ee7) {
+        if ((interceptable == null || interceptable.invokeL(1048621, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f090f1e) {
             this.A.onClick(view2);
         }
     }
 
-    @Override // com.baidu.tieba.mv9.c
-    public void a(int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(1048598, this, i2, i3) == null) && i2 - i3 < 3500 && !this.F.equals("from_attention_sub_fragment") && !N()) {
-            this.A.c();
-        }
-    }
-
-    public void l0(int i2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048616, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            this.l.setCurrentItem(i2, z);
-        }
-    }
-
-    public void D() {
+    public void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.f.i();
         }
     }
 
-    public VideoAttentionListPageFragment F() {
+    public VideoAttentionListPageFragment G() {
         InterceptResult invokeV;
         VerticalViewPager verticalViewPager;
         Interceptable interceptable = $ic;
@@ -757,7 +748,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         return (VideoAttentionListPageFragment) invokeV.objValue;
     }
 
-    public final int H() {
+    public final int I() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -773,7 +764,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         return invokeV.intValue;
     }
 
-    public boolean J() {
+    public boolean K() {
         InterceptResult invokeV;
         VerticalViewPager verticalViewPager;
         VideoPlayFragment e2;
@@ -783,28 +774,28 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
             if (videoPlayFragmentAdapter == null || (verticalViewPager = this.l) == null || (e2 = videoPlayFragmentAdapter.e(verticalViewPager.getCurrentItem())) == null) {
                 return false;
             }
-            return e2.B();
+            return e2.E();
         }
         return invokeV.booleanValue;
     }
 
-    public void K() {
+    public void L() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.f.l();
         }
     }
 
-    public void L() {
+    public void M() {
         VideoPlayFragmentAdapter videoPlayFragmentAdapter;
         VideoPlayFragment e2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (videoPlayFragmentAdapter = this.m) != null && this.n == 0 && (e2 = videoPlayFragmentAdapter.e(0)) != null) {
-            e2.I4();
+            e2.a5();
         }
     }
 
-    public final boolean M() {
+    public final boolean N() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -817,7 +808,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         return invokeV.booleanValue;
     }
 
-    public final boolean N() {
+    public final boolean O() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
@@ -829,7 +820,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         return invokeV.booleanValue;
     }
 
-    public final boolean O() {
+    public final boolean P() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
@@ -841,7 +832,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         return invokeV.booleanValue;
     }
 
-    public boolean P() {
+    public boolean Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
@@ -853,7 +844,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         return invokeV.booleanValue;
     }
 
-    public final void Q() {
+    public final void R() {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
@@ -865,11 +856,11 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
             } else {
                 i2 = 0;
             }
-            TiebaStatic.log(ek6.c("c13620", i2));
+            TiebaStatic.log(am6.c("c13620", i2));
         }
     }
 
-    public final boolean T() {
+    public final boolean U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
@@ -884,14 +875,14 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         return invokeV.booleanValue;
     }
 
-    public void W() {
+    public void X() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             this.A.h();
         }
     }
 
-    @Override // com.baidu.tieba.iqa
+    @Override // com.baidu.tieba.j3b
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
@@ -899,7 +890,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         }
     }
 
-    @Override // com.baidu.tieba.jra
+    @Override // com.baidu.tieba.k4b
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
@@ -907,7 +898,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         }
     }
 
-    @Override // com.baidu.tieba.iqa
+    @Override // com.baidu.tieba.j3b
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
@@ -937,15 +928,15 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         }
     }
 
-    public final void E() {
+    public final void F() {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (S(TbSingleton.getInstance().getLiveFollowSecondFloor())) {
-                if (T()) {
+            if (T(TbSingleton.getInstance().getLiveFollowSecondFloor())) {
+                if (U()) {
                     q0();
                 } else {
-                    K();
+                    L();
                 }
                 BdUniqueId bdUniqueId = this.d;
                 List<AlaLiveInfo> liveFollowSecondFloor = TbSingleton.getInstance().getLiveFollowSecondFloor();
@@ -957,11 +948,11 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
                 s0(bdUniqueId, liveFollowSecondFloor, str);
                 return;
             }
-            D();
+            E();
         }
     }
 
-    public ux5.b G() {
+    public oz5.b H() {
         InterceptResult invokeV;
         VerticalViewPager verticalViewPager;
         Interceptable interceptable = $ic;
@@ -976,17 +967,17 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
             }
             return null;
         }
-        return (ux5.b) invokeV.objValue;
+        return (oz5.b) invokeV.objValue;
     }
 
-    public final void R() {
+    public final void S() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            TiebaStatic.log(new StatisticItem("c14930").param("obj_locate", H()).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fid", this.u).param("cuid", TbadkCoreApplication.getInst().getCuid()));
+            TiebaStatic.log(new StatisticItem("c14930").param("obj_locate", I()).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fid", this.u).param("cuid", TbadkCoreApplication.getInst().getCuid()));
         }
     }
 
-    public void V() {
+    public void W() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             if (this.m != null) {
@@ -1000,23 +991,23 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
             j0(false);
             VideoPlayFragmentAdapter videoPlayFragmentAdapter = this.m;
             if (videoPlayFragmentAdapter != null) {
-                videoPlayFragmentAdapter.k();
+                videoPlayFragmentAdapter.l();
             }
             this.r = null;
         }
     }
 
-    public void I(int i2, int i3, Intent intent) {
+    public void J(int i2, int i3, Intent intent) {
         VideoPlayFragmentAdapter videoPlayFragmentAdapter;
         VerticalViewPager verticalViewPager;
         VideoPlayFragment e2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIIL(1048581, this, i2, i3, intent) == null) && (videoPlayFragmentAdapter = this.m) != null && (verticalViewPager = this.l) != null && (e2 = videoPlayFragmentAdapter.e(verticalViewPager.getCurrentItem())) != null) {
-            e2.y(i2, i3, intent);
+            e2.B(i2, i3, intent);
         }
     }
 
-    public boolean S(List<AlaLiveInfo> list) {
+    public boolean T(List<AlaLiveInfo> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, list)) == null) {
@@ -1036,7 +1027,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         return invokeL.booleanValue;
     }
 
-    public void U(int i2) {
+    public void V(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
             SkinManager.setBackgroundColor(this.e, R.color.CAM_X0611, i2);
@@ -1044,7 +1035,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
             this.g.d(i2);
             VideoPlayFragmentAdapter videoPlayFragmentAdapter = this.m;
             if (videoPlayFragmentAdapter != null && videoPlayFragmentAdapter.e(this.n) != null) {
-                this.m.e(this.n).i4(i2);
+                this.m.e(this.n).A4(i2);
             }
         }
     }
@@ -1068,7 +1059,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
                 }
             }
             if (z) {
-                Y(!M());
+                Y(!N());
             }
         }
     }
@@ -1083,11 +1074,11 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048622, this, i2) == null) {
             if (i2 == 1 && (videoPlayFragmentAdapter2 = this.m) != null && (verticalViewPager2 = this.l) != null) {
-                videoPlayFragmentAdapter2.j(verticalViewPager2.getCurrentItem());
+                videoPlayFragmentAdapter2.k(verticalViewPager2.getCurrentItem());
             }
             if (i2 == 0 && (videoPlayFragmentAdapter = this.m) != null && (verticalViewPager = this.l) != null) {
                 videoPlayFragmentAdapter.i(verticalViewPager.getCurrentItem());
-                if (O()) {
+                if (P()) {
                     this.l.setNeedHanleTouch(true);
                     this.l.setSelected(true);
                     VerticalViewPager verticalViewPager3 = this.l;
@@ -1118,7 +1109,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
             if (i3 > BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst())) {
                 this.v = true;
             }
-            if (O()) {
+            if (P()) {
                 this.l.setNeedHanleTouch(true);
             } else {
                 this.l.setNeedHanleTouch(false);
@@ -1133,7 +1124,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         if (interceptable == null || interceptable.invokeI(1048624, this, i2) == null) {
             VideoPlayFragment e2 = this.m.e(this.n);
             if (e2 != null) {
-                e2.X4(false);
+                e2.p5(false);
             }
             if (this.n > i2) {
                 h hVar = this.H;
@@ -1151,37 +1142,37 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
             if (!this.p.w() && this.p.k() - 1 > 0 && this.p.k() - i2 <= 2 && (iVar = this.q) != null) {
                 iVar.a();
             }
-            if (O()) {
+            if (P()) {
                 this.l.computeScroll();
             }
             this.A.g();
-            ira iraVar = this.I;
-            if (iraVar != null) {
-                iraVar.m(i2);
+            j4b j4bVar = this.I;
+            if (j4bVar != null) {
+                j4bVar.m(i2);
             }
             j jVar = this.C;
             if (jVar != null) {
                 jVar.a();
             }
-            if (S(TbSingleton.getInstance().getLiveFollowSecondFloor()) && this.m.e(this.n) != null) {
-                K();
+            if (T(TbSingleton.getInstance().getLiveFollowSecondFloor()) && this.m.e(this.n) != null) {
+                L();
             } else {
-                D();
+                E();
             }
         }
     }
 
-    public void p0(jqa jqaVar, int i2, Rect rect) {
+    public void p0(k3b k3bVar, int i2, Rect rect) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048625, this, jqaVar, i2, rect) == null) {
-            this.p = jqaVar;
-            this.B.d(jqaVar);
-            jqaVar.G(this);
+        if (interceptable == null || interceptable.invokeLIL(1048625, this, k3bVar, i2, rect) == null) {
+            this.p = k3bVar;
+            this.B.d(k3bVar);
+            k3bVar.G(this);
             this.o = i2;
-            this.m.n(jqaVar, rect);
+            this.m.o(k3bVar, rect);
             this.m.notifyDataSetChanged();
             this.l.setCurrentItem(i2);
-            E();
+            F();
             if (rect != null && this.a == 1) {
                 this.g.setAlpha(0.0f);
                 this.h.setAlpha(0.0f);
@@ -1200,12 +1191,12 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
                     this.h.setVisibility(8);
                 }
                 this.i.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0279), Integer.valueOf(list.size())));
-                fk6 fk6Var = new fk6(bdUniqueId, list, str);
-                if (ListUtils.isEmpty(fk6Var.c())) {
-                    D();
+                bm6 bm6Var = new bm6(bdUniqueId, list, str);
+                if (ListUtils.isEmpty(bm6Var.c())) {
+                    E();
                     return;
                 }
-                this.g.setData(fk6Var);
+                this.g.setData(bm6Var);
                 this.g.d(TbadkCoreApplication.getInst().getSkinType());
                 return;
             }

@@ -21,7 +21,7 @@ import kotlin.reflect.jvm.internal.impl.types.ClassTypeConstructorImpl;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.types.TypeConstructor;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeRefiner;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ClassDescriptorImpl extends ClassDescriptorBase {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public Set<ClassConstructorDescriptor> constructors;
@@ -195,7 +195,7 @@ public class ClassDescriptorImpl extends ClassDescriptorBase {
 
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor
     /* renamed from: getCompanionObjectDescriptor */
-    public ClassDescriptor mo2099getCompanionObjectDescriptor() {
+    public ClassDescriptor mo2103getCompanionObjectDescriptor() {
         return null;
     }
 
@@ -332,7 +332,7 @@ public class ClassDescriptorImpl extends ClassDescriptorBase {
 
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor
     /* renamed from: getUnsubstitutedPrimaryConstructor */
-    public ClassConstructorDescriptor mo2100getUnsubstitutedPrimaryConstructor() {
+    public ClassConstructorDescriptor mo2104getUnsubstitutedPrimaryConstructor() {
         return this.primaryConstructor;
     }
 

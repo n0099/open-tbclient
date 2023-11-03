@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.IBinder;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.p4a;
+import com.baidu.tieba.uha;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ScreenLockNotifyService extends Service {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public p4a mLockReceiver;
+    public uha mLockReceiver;
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
@@ -57,7 +57,7 @@ public class ScreenLockNotifyService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            this.mLockReceiver = new p4a();
+            this.mLockReceiver = new uha();
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.intent.action.SCREEN_ON");
             intentFilter.addAction("android.intent.action.SCREEN_OFF");

@@ -20,12 +20,12 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class MapTypeAdapterFactory implements TypeAdapterFactory {
     public final boolean complexMapKeySerialization;
     public final ConstructorConstructor constructorConstructor;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public final class Adapter<K, V> extends TypeAdapter<Map<K, V>> {
         public final ObjectConstructor<? extends Map<K, V>> constructor;
         public final TypeAdapter<K> keyTypeAdapter;

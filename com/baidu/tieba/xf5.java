@@ -1,91 +1,155 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import com.baidu.tbadk.editortools.meme.list.GeneratedLoadingData;
+import com.baidu.tbadk.editortools.meme.list.MemeData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
-public class xf5 implements zf5 {
+import java.util.ArrayList;
+import java.util.List;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes9.dex */
+public final class xf5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public ImageView b;
-    public ImageView c;
-    public TextView d;
-    public LinearLayout e;
+    public final String a;
+    public final List<MemeData> b;
 
-    public xf5(Context context) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948298466, "Lcom/baidu/tieba/xf5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948298466, "Lcom/baidu/tieba/xf5;");
+                return;
+            }
+        }
+        c = new a(null);
+    }
+
+    /* loaded from: classes9.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public final xf5 a(JSONObject jsonObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jsonObject)) == null) {
+                Intrinsics.checkNotNullParameter(jsonObject, "jsonObject");
+                String queryId = jsonObject.optString("query_id");
+                JSONArray optJSONArray = jsonObject.optJSONArray("meme_list");
+                ArrayList arrayList = new ArrayList();
+                if (optJSONArray != null) {
+                    int i = 0;
+                    int length = optJSONArray.length();
+                    if (length >= 0) {
+                        while (true) {
+                            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                            if (optJSONObject != null) {
+                                Intrinsics.checkNotNullExpressionValue(optJSONObject, "optJSONObject(i)");
+                                long optLong = optJSONObject.optLong("id");
+                                int optInt = optJSONObject.optInt("type");
+                                String src = optJSONObject.optString("src");
+                                int optInt2 = optJSONObject.optInt("obj_source");
+                                if (optInt == 2) {
+                                    arrayList.add(new GeneratedLoadingData());
+                                }
+                                if (optInt == 1) {
+                                    Intrinsics.checkNotNullExpressionValue(src, "src");
+                                    arrayList.add(new MemeData(optLong, optInt, src, optInt2, null, 16, null));
+                                }
+                            }
+                            if (i == length) {
+                                break;
+                            }
+                            i++;
+                        }
+                    }
+                }
+                Intrinsics.checkNotNullExpressionValue(queryId, "queryId");
+                return new xf5(queryId, arrayList);
+            }
+            return (xf5) invokeL.objValue;
+        }
+    }
+
+    public xf5(String queryId, List<MemeData> memeList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {queryId, memeList};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.floating_view_from_bcast_copy_link, (ViewGroup) null);
-        this.a = inflate;
-        this.b = (ImageView) inflate.findViewById(R.id.floating_view_icon);
-        this.d = (TextView) this.a.findViewById(R.id.floating_view_title);
-        this.c = (ImageView) this.a.findViewById(R.id.floating_view_arrow);
-        this.e = (LinearLayout) this.a.findViewById(R.id.floating_view_main);
-        this.d.setText(R.string.frs_forum_bcast_return_info);
-        a();
+        Intrinsics.checkNotNullParameter(queryId, "queryId");
+        Intrinsics.checkNotNullParameter(memeList, "memeList");
+        this.a = queryId;
+        this.b = memeList;
     }
 
-    @Override // com.baidu.tieba.zf5
-    public void a() {
+    public final List<MemeData> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a != null) {
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
-            SkinManager.setImageResource(this.b, R.drawable.pic_float_return_broadcast32);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
-            TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0305).setShape(0).setAlpha(211).tlRadius(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).blRadius(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).into(this.e);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
+        return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.zf5
-    public View getView() {
+    public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            View view2 = this.a;
-            if (view2 != null) {
-                return view2;
-            }
-            return LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.floating_view_from_bcast_copy_link, (ViewGroup) null);
+            return this.a;
         }
-        return (View) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.zf5
-    public void onClick() {
+    public final boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FRS_FORUM_FLOAT_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b.isEmpty();
         }
+        return invokeV.booleanValue;
     }
 }

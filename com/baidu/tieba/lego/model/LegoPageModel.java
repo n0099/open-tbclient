@@ -14,10 +14,10 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.gz4;
-import com.baidu.tieba.m9;
-import com.baidu.tieba.vz8;
-import com.baidu.tieba.xda;
+import com.baidu.tieba.ca;
+import com.baidu.tieba.cra;
+import com.baidu.tieba.yz4;
+import com.baidu.tieba.zc9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -129,8 +129,8 @@ public class LegoPageModel extends BdBaseModel {
                             this.a.b.a(j, str, dataRes, z);
                         } else {
                             if (z && dataRes != null) {
-                                gz4.k();
-                                m9<byte[]> i2 = gz4.i("tb.lego_update");
+                                yz4.l();
+                                ca<byte[]> i2 = yz4.i("tb.lego_update");
                                 StringBuilder sb = new StringBuilder();
                                 sb.append(j);
                                 sb.append("_");
@@ -182,14 +182,14 @@ public class LegoPageModel extends BdBaseModel {
         registerListener(this.a);
     }
 
-    public void P(b bVar) {
+    public void Q(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             this.b = bVar;
         }
     }
 
-    public void O(int i, long j, String str, int i2, String str2) {
+    public void P(int i, long j, String str, int i2, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), str, Integer.valueOf(i2), str2}) == null) {
             LegoPageRequest legoPageRequest = new LegoPageRequest();
@@ -200,7 +200,7 @@ public class LegoPageModel extends BdBaseModel {
             legoPageRequest.setLastRank(str2);
             legoPageRequest.setTagCode(j);
             legoPageRequest.setPageType(i);
-            vz8 a2 = vz8.a(j, str);
+            zc9 a2 = zc9.a(j, str);
             if (a2 != null) {
                 legoPageRequest.setRn(a2.d);
                 legoPageRequest.setParams(a2.e);
@@ -224,7 +224,7 @@ public class LegoPageModel extends BdBaseModel {
     public final void registerHttpTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ENTERTAINMENT, xda.a(TbConfig.ENTERTAINMENT_ADDRESS, 309312));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ENTERTAINMENT, cra.a(TbConfig.ENTERTAINMENT_ADDRESS, 309312));
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setResponsedClass(LegoHttpResponse.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);

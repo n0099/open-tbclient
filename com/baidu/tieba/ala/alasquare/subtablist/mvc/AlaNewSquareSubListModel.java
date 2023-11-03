@@ -14,10 +14,10 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.ala.alasquare.subtablist.message.AlaNewSquareSubListRequestMessage;
 import com.baidu.tieba.ala.alasquare.subtablist.message.AlaNewSquareSubListResponseMessage;
-import com.baidu.tieba.l86;
-import com.baidu.tieba.m86;
-import com.baidu.tieba.v56;
-import com.baidu.tieba.yh;
+import com.baidu.tieba.ga6;
+import com.baidu.tieba.ha6;
+import com.baidu.tieba.oi;
+import com.baidu.tieba.q76;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -50,7 +50,7 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
     public int k;
     public List<String> l;
     public List<ThreadData> m;
-    public List<yh> n;
+    public List<oi> n;
     public boolean o;
     public b p;
     public BdUniqueId q;
@@ -69,7 +69,7 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -79,7 +79,7 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -136,19 +136,19 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
             this.a.a = alaNewSquareSubListRequestMessage.getPn();
             if (this.a.a != 0 && ListUtils.getCount(this.a.m) != 0) {
                 if (ListUtils.getCount(liveList) > 0) {
-                    this.a.h0(liveList);
+                    this.a.i0(liveList);
                 }
             } else {
-                AlaNewSquareSubListModel.Z(alaNewSquareSubListRequestMessage.tabId);
+                AlaNewSquareSubListModel.a0(alaNewSquareSubListRequestMessage.tabId);
                 this.a.m.clear();
                 this.a.n.clear();
                 this.a.m = liveList;
                 this.a.k = alaNewSquareSubListResponseMessage.getLiveCount();
                 this.a.l = alaNewSquareSubListResponseMessage.getSortTypeList();
             }
-            AlaNewSquareSubListModel.S(this.a);
+            AlaNewSquareSubListModel.T(this.a);
             AlaNewSquareSubListModel alaNewSquareSubListModel = this.a;
-            alaNewSquareSubListModel.a0(alaNewSquareSubListModel.m, this.a.j);
+            alaNewSquareSubListModel.b0(alaNewSquareSubListModel.m, this.a.j);
             if (this.a.p != null) {
                 this.a.p.b(this.a.j);
             }
@@ -171,7 +171,7 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
         u = new HashMap<>();
     }
 
-    public List<yh> b0() {
+    public List<oi> c0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -180,16 +180,16 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
         return (List) invokeV.objValue;
     }
 
-    public int c0() {
+    public int d0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.k;
         }
         return invokeV.intValue;
     }
 
-    public List<ThreadData> d0() {
+    public List<ThreadData> e0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -198,7 +198,7 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
         return (List) invokeV.objValue;
     }
 
-    public List<String> f0() {
+    public List<String> g0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -207,22 +207,22 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
         return (List) invokeV.objValue;
     }
 
-    public boolean g0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.j;
-        }
-        return invokeV.booleanValue;
-    }
-
     public int getPn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.a;
         }
         return invokeV.intValue;
+    }
+
+    public boolean h0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.j;
+        }
+        return invokeV.booleanValue;
     }
 
     public void onDestroy() {
@@ -267,27 +267,27 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
         registerListener(this.t);
     }
 
-    public static /* synthetic */ int S(AlaNewSquareSubListModel alaNewSquareSubListModel) {
+    public static /* synthetic */ int T(AlaNewSquareSubListModel alaNewSquareSubListModel) {
         int i = alaNewSquareSubListModel.a;
         alaNewSquareSubListModel.a = i + 1;
         return i;
     }
 
-    public void k0(b bVar) {
+    public void l0(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, bVar) == null) {
             this.p = bVar;
         }
     }
 
-    public void l0(boolean z) {
+    public void m0(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
             this.o = z;
         }
     }
 
-    public void m0(boolean z) {
+    public void n0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
             this.i = z;
@@ -329,7 +329,7 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
         }
     }
 
-    public static void Z(int i) {
+    public static void a0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65550, null, i) == null) {
             if (u.containsKey(Integer.valueOf(i))) {
@@ -340,7 +340,7 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
         }
     }
 
-    public final void h0(List<ThreadData> list) {
+    public final void i0(List<ThreadData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
             for (ThreadData threadData : list) {
@@ -366,7 +366,7 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
         }
     }
 
-    public static int e0(int i) {
+    public static int f0(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65551, null, i)) == null) {
@@ -379,54 +379,54 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
         return invokeI.intValue;
     }
 
-    public void a0(List<ThreadData> list, boolean z) {
+    public void b0(List<ThreadData> list, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLZ(1048576, this, list, z) == null) && !ListUtils.isEmpty(list)) {
             this.n = new ArrayList();
             int size = list.size();
             for (int i = 0; i < size; i += 2) {
                 if (this.o) {
-                    l86 l86Var = new l86();
-                    v56 v56Var = new v56();
-                    v56Var.e = this.i;
-                    v56Var.b = this.e;
-                    v56Var.c = this.d;
-                    v56Var.d = list.get(i);
-                    l86Var.a = v56Var;
+                    ga6 ga6Var = new ga6();
+                    q76 q76Var = new q76();
+                    q76Var.e = this.i;
+                    q76Var.b = this.e;
+                    q76Var.c = this.d;
+                    q76Var.d = list.get(i);
+                    ga6Var.a = q76Var;
                     int i2 = i + 1;
                     if (i2 < size) {
-                        v56 v56Var2 = new v56();
-                        v56Var2.e = this.i;
-                        v56Var2.b = this.e;
-                        v56Var2.c = this.d;
-                        v56Var2.d = list.get(i2);
-                        l86Var.b = v56Var2;
+                        q76 q76Var2 = new q76();
+                        q76Var2.e = this.i;
+                        q76Var2.b = this.e;
+                        q76Var2.c = this.d;
+                        q76Var2.d = list.get(i2);
+                        ga6Var.b = q76Var2;
                     }
-                    this.n.add(l86Var);
+                    this.n.add(ga6Var);
                 } else {
-                    m86 m86Var = new m86();
-                    v56 v56Var3 = new v56();
-                    v56Var3.e = this.i;
-                    v56Var3.b = this.e;
-                    v56Var3.c = this.d;
-                    v56Var3.d = list.get(i);
-                    m86Var.a = v56Var3;
+                    ha6 ha6Var = new ha6();
+                    q76 q76Var3 = new q76();
+                    q76Var3.e = this.i;
+                    q76Var3.b = this.e;
+                    q76Var3.c = this.d;
+                    q76Var3.d = list.get(i);
+                    ha6Var.a = q76Var3;
                     int i3 = i + 1;
                     if (i3 < size) {
-                        v56 v56Var4 = new v56();
-                        v56Var4.e = this.i;
-                        v56Var4.b = this.e;
-                        v56Var4.c = this.d;
-                        v56Var4.d = list.get(i3);
-                        m86Var.b = v56Var4;
+                        q76 q76Var4 = new q76();
+                        q76Var4.e = this.i;
+                        q76Var4.b = this.e;
+                        q76Var4.c = this.d;
+                        q76Var4.d = list.get(i3);
+                        ha6Var.b = q76Var4;
                     }
-                    this.n.add(m86Var);
+                    this.n.add(ha6Var);
                 }
             }
         }
     }
 
-    public boolean i0() {
+    public boolean j0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -449,7 +449,7 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
             alaNewSquareSubListRequestMessage.tabId = i;
             alaNewSquareSubListRequestMessage.sessionId = this.r;
             alaNewSquareSubListRequestMessage.refreshType = 1;
-            alaNewSquareSubListRequestMessage.refreshCount = e0(i) - 1;
+            alaNewSquareSubListRequestMessage.refreshCount = f0(i) - 1;
             alaNewSquareSubListRequestMessage.setHttpParams();
             sendMessage(alaNewSquareSubListRequestMessage);
             return true;
@@ -457,7 +457,7 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public void j0() {
+    public void k0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             this.a = 0;
@@ -474,7 +474,7 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
             alaNewSquareSubListRequestMessage.tabId = i;
             alaNewSquareSubListRequestMessage.sessionId = this.r;
             alaNewSquareSubListRequestMessage.refreshType = 0;
-            alaNewSquareSubListRequestMessage.refreshCount = e0(i);
+            alaNewSquareSubListRequestMessage.refreshCount = f0(i);
             alaNewSquareSubListRequestMessage.setHttpParams();
             sendMessage(alaNewSquareSubListRequestMessage);
         }

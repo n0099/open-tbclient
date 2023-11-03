@@ -12,14 +12,14 @@ import com.baidu.tieba.R;
 import com.google.android.material.resources.MaterialAttributes;
 import com.google.android.material.resources.MaterialResources;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class MaterialTextView extends AppCompatTextView {
     public MaterialTextView(@NonNull Context context) {
         this(context, null);
     }
 
     public static boolean canApplyTextAppearanceLineHeight(Context context) {
-        return MaterialAttributes.resolveBoolean(context, R.attr.obfuscated_res_0x7f04074d, true);
+        return MaterialAttributes.resolveBoolean(context, R.attr.obfuscated_res_0x7f0407ce, true);
     }
 
     public MaterialTextView(@NonNull Context context, @Nullable AttributeSet attributeSet) {

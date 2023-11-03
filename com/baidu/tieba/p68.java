@@ -1,24 +1,25 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetSugTopic.TopicList;
-import tbclient.GetSugTopic.TopicListModule;
+import tbclient.EsportRank;
+import tbclient.EsportUser;
 /* loaded from: classes7.dex */
 public class p68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public int b;
-    public List<q68> c;
-    public List<s68> d;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
 
     public p68() {
         Interceptable interceptable = $ic;
@@ -30,84 +31,99 @@ public class p68 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = -1;
-        this.c = new ArrayList();
-        this.d = new ArrayList();
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return this.c;
         }
         return (String) invokeV.objValue;
     }
 
-    public List<q68> b() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+            return this.f;
         }
-        return (List) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public List<s68> c() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
+            return this.g;
         }
-        return (List) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public int d() {
+    public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.b;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public void e(TopicListModule topicListModule) {
+    public String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, topicListModule) == null) && topicListModule != null) {
-            this.a = topicListModule.module_title;
-            List<TopicList> list = topicListModule.topic_list;
-            if (list == null) {
-                return;
-            }
-            int count = ListUtils.getCount(list);
-            for (int i = 0; i < count; i++) {
-                q68 q68Var = new q68();
-                TopicList topicList = (TopicList) ListUtils.getItem(topicListModule.topic_list, i);
-                if (topicList != null) {
-                    q68Var.c(topicList);
-                    if (!ad.isEmptyStringAfterTrim(q68Var.b())) {
-                        this.c.add(q68Var);
-                        this.d.add(new s68(topicList));
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void h(EsportRank esportRank) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, esportRank) == null) && esportRank != null) {
+            this.a = esportRank.title;
+            this.b = String.valueOf(esportRank.rank);
+            this.c = esportRank.text;
+            this.g = esportRank.url;
+            EsportUser esportUser = esportRank.user;
+            if (esportUser != null) {
+                this.d = esportUser.steam_name;
+                this.e = esportUser.steam_portrait;
             }
         }
     }
 
-    public void f(String str) {
+    public void i(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.a = str;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.f = str;
         }
     }
 
-    public void g(int i) {
+    public void j(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.b = i;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.g = str;
         }
     }
 }

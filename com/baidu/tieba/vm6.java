@@ -1,83 +1,70 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.SpannableString;
-import androidx.core.util.Pair;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.s07;
-import com.baidu.tieba.tbadkCore.data.WorksInfoData;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class vm6 implements s07.p {
+public class vm6 extends bi<wm6, CardViewHolder<xm6>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext<?> a;
 
-    public vm6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vm6(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity(), wm6.c);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = tbPageContext;
     }
 
-    @Override // com.baidu.tieba.s07.p
-    public SpannableString a(Context context, v27 businessInfo) {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: t */
+    public CardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            ThreadData threadData = new ThreadData();
-            String str = businessInfo.a().get("tiebaplus_ad");
-            if (str != null) {
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    threadData.tiePlusAdSource = jSONObject.optString("ad_source");
-                    threadData.tiePlusShowUrl = jSONObject.optString("show_url");
-                    threadData.tiePlusCostUrl = jSONObject.optString("cost_url");
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            threadData.tiePlusMonitorShowUrl = businessInfo.a().get("exposure_monitor_url");
-            threadData.tiePlusMonitorClickUrl = businessInfo.a().get("click_monitor_url");
-            String str2 = businessInfo.a().get("works_info");
-            if (str2 != null) {
-                WorksInfoData worksInfoData = new WorksInfoData();
-                worksInfoData.parseJson(new JSONObject(str2));
-                threadData.worksInfoData = worksInfoData;
-            }
-            threadData.threadType = JavaTypesHelper.toInt(businessInfo.a().get("thread_type"), 0);
-            threadData.isTiebaPlusAdThread = Intrinsics.areEqual(businessInfo.a().get("is_tiebaplus_ad"), "1");
-            threadData.tiebaPlusOrderId = businessInfo.a().get("tiebaplus_order_id");
-            threadData.tiebaPlusToken = businessInfo.a().get("tiebaplus_token");
-            threadData.tiebaPlusExtraParam = businessInfo.a().get("tiebaplus_extra_param");
-            threadData.tiebaplusCantDelete = Intrinsics.areEqual(businessInfo.a().get("tiebaplus_cant_delete"), "1");
-            Pair<CharSequence, vw5> r = nw5.r(35, threadData, um6.a(businessInfo));
-            if (r != null) {
-                CharSequence charSequence = r.first;
-                if (charSequence instanceof SpannableString) {
-                    if (charSequence != null) {
-                        return (SpannableString) charSequence;
-                    }
-                    throw new NullPointerException("null cannot be cast to non-null type android.text.SpannableString");
-                }
-            }
-            return new SpannableString("");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new CardViewHolder(new xm6(this.a));
         }
-        return (SpannableString) invokeLL.objValue;
+        return (CardViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, wm6 wm6Var, CardViewHolder cardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, wm6Var, cardViewHolder})) == null) {
+            if (cardViewHolder != null && cardViewHolder.a() != null) {
+                cardViewHolder.a().k(wm6Var);
+                return cardViewHolder.getView();
+            }
+            return null;
+        }
+        return (View) invokeCommon.objValue;
     }
 }

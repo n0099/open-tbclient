@@ -1,143 +1,107 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class pv2 implements Cloneable {
+public class pv2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final HashMap<String, Integer> a;
+    public static final HashMap<String, Integer> b;
+    public static final HashMap<String, Integer> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948075421, "Lcom/baidu/tieba/pv2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948075421, "Lcom/baidu/tieba/pv2;");
+                return;
+            }
+        }
+        HashMap<String, Integer> hashMap = new HashMap<>(16);
+        a = hashMap;
+        hashMap.put("VRModeProjectionSphere", 201);
+        a.put("VRModeProjectionDome180", 202);
+        a.put("VRModeProjectionDome230", 203);
+        a.put("VRModeProjectionDome180Upper", 204);
+        a.put("VRModeProjectionDome230Upper", 205);
+        a.put("VRModeProjectionPlaneFit", 207);
+        a.put("VRModeProjectionPlaneCrop", 208);
+        a.put("VRModeProjectionPlaneFull", 209);
+        a.put("VRModeProjectionMultiFishEyeHorizontal", 210);
+        a.put("VRModeProjectionMultiFishEyeVertical", 211);
+        a.put("VRModeProjectionStereoSphereHorizontal", 212);
+        a.put("VRModeProjectionStereoSphereVertical", 213);
+        a.put("VRModeProjectionStereoPlaneFitHorizontal", 214);
+        a.put("VRModeProjectionStereoPlaneFitVertical", 215);
+        a.put("VRModeProjectionPlaneFullHorizontal", 216);
+        a.put("VRModeProjectionPlaneFullVertical", 217);
+        HashMap<String, Integer> hashMap2 = new HashMap<>(2);
+        b = hashMap2;
+        hashMap2.put("VRModeDisplayNormal", 101);
+        b.put("VRModeDisplayGlass", 102);
+        HashMap<String, Integer> hashMap3 = new HashMap<>(5);
+        c = hashMap3;
+        hashMap3.put("VRModeInteractiveMotion", 1);
+        c.put("VRModeInteractiveTouch", 2);
+        c.put("VRModeInteractiveMotionWithTouch", 3);
+        c.put("VRModeInteractiveGVRMotion", 4);
+        c.put("VRModeInteractiveGVRMotionWithTouch", 5);
+    }
 
     public pv2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Nullable
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b(this);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public Object clone() throws CloneNotSupportedException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return super.clone();
-        }
-        return invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String b(pv2 pv2Var) {
+    public pv2 a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, pv2Var)) == null) {
-            if (pv2Var == null || TextUtils.isEmpty(pv2Var.a)) {
-                return null;
-            }
-            if (TextUtils.isEmpty(pv2Var.b)) {
-                return pv2Var.a;
-            }
-            return pv2Var.a + "?" + pv2Var.b;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(pv2 pv2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, pv2Var)) == null) {
-            if (pv2Var == null || TextUtils.isEmpty(pv2Var.d)) {
-                return null;
-            }
-            if (TextUtils.isEmpty(pv2Var.b)) {
-                return pv2Var.d;
-            }
-            return pv2Var.d + "?" + pv2Var.b;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static pv2 d(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
             pv2 pv2Var = new pv2();
-            pv2Var.a = hj3.f(str);
-            pv2Var.b = hj3.o(str);
-            pv2Var.c = str2;
-            pv2Var.d = h93.b(pv2Var.a);
+            if (jSONObject == null) {
+                return pv2Var;
+            }
+            String optString = jSONObject.optString("projectionMode");
+            if (!TextUtils.isEmpty(optString) && a.containsKey(optString)) {
+                a.get(optString).intValue();
+            }
+            String optString2 = jSONObject.optString("displayMode");
+            if (!TextUtils.isEmpty(optString2) && b.containsKey(optString2)) {
+                b.get(optString2).intValue();
+            }
+            String optString3 = jSONObject.optString("interactiveMode");
+            if (!TextUtils.isEmpty(optString3) && c.containsKey(optString3)) {
+                c.get(optString3).intValue();
+            }
+            jSONObject.optInt("fov", -1);
+            jSONObject.optInt("minFov", -1);
+            jSONObject.optInt("maxFov", -1);
+            jSONObject.optBoolean("pinchEnable", true);
             return pv2Var;
         }
-        return (pv2) invokeLL.objValue;
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "SwanAppPageParam{mPage='" + this.a + "', mParams='" + this.b + "', mBaseUrl='" + this.c + "', mRoutePage='" + this.d + "', mRoutType='" + this.e + "', mRouteId='" + this.f + "'}";
-        }
-        return (String) invokeV.objValue;
+        return (pv2) invokeL.objValue;
     }
 }

@@ -1,10 +1,8 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.os.Handler;
-import android.os.Message;
+import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.util.LocalFilesFilterKt;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,103 +10,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class l32 {
-    public static /* synthetic */ Interceptable $ic;
+public class l32 implements i32 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "";
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public int b;
-    public Map<String, Object> c;
-    public b d;
-    public BufferedWriter e;
-
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    @SuppressLint({"HandlerLeak"})
-    /* loaded from: classes7.dex */
-    public class b extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ l32 a;
-
-        public b(l32 l32Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l32Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = l32Var;
-        }
-
-        public /* synthetic */ b(l32 l32Var, a aVar) {
-            this(l32Var);
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && this.a.c != null) {
-                this.a.c.put("timestamp", Long.valueOf(System.currentTimeMillis()));
-                JSONObject jSONObject = new JSONObject();
-                for (Map.Entry entry : this.a.c.entrySet()) {
-                    try {
-                        jSONObject.putOpt((String) entry.getKey(), entry.getValue());
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-                this.a.e(jSONObject.toString());
-                p22.i("PropertyLogcat", jSONObject.toString());
-                if (this.a.d != null) {
-                    this.a.d.sendEmptyMessageDelayed(100, this.a.b);
-                }
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947891870, "Lcom/baidu/tieba/l32;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947891870, "Lcom/baidu/tieba/l32;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947891870, "Lcom/baidu/tieba/l32;")) == null) {
+            return;
         }
-        boolean z = am1.a;
-    }
-
-    public final String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return xc3.n(p53.h0(), this.a, LocalFilesFilterKt.FILTER_NAME_LOG);
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-        return (String) invokeV.objValue;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947891870, "Lcom/baidu/tieba/l32;");
+        }
     }
 
     public l32() {
@@ -121,73 +41,46 @@ public class l32 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = "performance_" + System.currentTimeMillis();
-        this.b = 3000;
     }
 
-    public String i() {
+    public static String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.c != null) {
-                m32.g().i();
-                this.c = null;
-                p22.i("PropertyLogcat", "Stop monitor logcat");
-            }
-            sl4.d(this.e);
-            this.e = null;
-            return xc3.I(f(), p53.h0());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
         }
         return (String) invokeV.objValue;
     }
 
-    public final void e(String str) {
-        BufferedWriter bufferedWriter;
+    @Override // com.baidu.tieba.i32
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (bufferedWriter = this.e) != null) {
-            try {
-                bufferedWriter.write(str);
-                this.e.write(10);
-                p22.i("PropertyLogcat", "Export logcat success");
-            } catch (IOException e) {
-                p22.d("PropertyLogcat", "Logcat write fail", e);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return k32.b().getPath();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.i32
+    public void a(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            a = fj3.i(bundle, "adb_debug_path");
+            j32.i(fj3.i(bundle, PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD));
+            j32.j(fj3.i(bundle, "slavePreload"));
         }
     }
 
-    public void g(int i) {
+    @Override // com.baidu.tieba.i32
+    public void b(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && i >= 1000) {
-            this.b = i;
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.c == null) {
-                this.c = m32.g().h();
-                p22.i("PropertyLogcat", "Start monitor logcat");
-            }
-            if (this.d == null) {
-                this.d = new b(this, null);
-            }
-            if (this.e == null) {
-                File file = new File(f());
-                try {
-                    if (!file.exists()) {
-                        file.createNewFile();
-                    }
-                    this.e = new BufferedWriter(new FileWriter(file, true));
-                } catch (IOException e) {
-                    p22.d("PropertyLogcat", "Create log file fail", e);
-                }
-            }
-            this.d.removeMessages(100);
-            this.d.sendEmptyMessage(100);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            bundle.putString("adb_debug_path", a);
+            bundle.putString("slavePreload", j32.c());
+            bundle.putString(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD, j32.a());
         }
     }
 }

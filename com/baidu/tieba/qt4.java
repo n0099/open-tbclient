@@ -1,13 +1,16 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.webkit.JavascriptInterface;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.browser.BaseWebViewActivity;
+import com.baidu.tieba.browser.jscore.jsinterface.AbsJsInterface;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-/* loaded from: classes7.dex */
-public class qt4 implements ue1 {
+/* loaded from: classes8.dex */
+public class qt4 extends AbsJsInterface {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,17 +28,25 @@ public class qt4 implements ue1 {
         }
     }
 
-    @Override // com.baidu.tieba.ue1
-    public Object get() {
-        InterceptResult invokeV;
+    @JavascriptInterface
+    public void getIfFullScreen(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new wt7());
-            arrayList.add(new z18());
-            arrayList.add(new le8());
-            return arrayList;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && "yes".equals(str)) {
+            Activity activity = getActivity();
+            if (activity instanceof BaseWebViewActivity) {
+                ((BaseWebViewActivity) activity).setFullScreen();
+            }
         }
-        return invokeV.objValue;
+    }
+
+    @JavascriptInterface
+    public void getSource(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            Activity activity = getActivity();
+            if (activity instanceof BaseWebViewActivity) {
+                ((BaseWebViewActivity) activity).setSource(str);
+            }
+        }
     }
 }

@@ -8,7 +8,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.TypeParameterDescriptor;
 import kotlin.reflect.jvm.internal.impl.descriptors.ValueParameterDescriptor;
 import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaMethod;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface SignaturePropagator {
     public static final SignaturePropagator DO_NOTHING = new SignaturePropagator() { // from class: kotlin.reflect.jvm.internal.impl.load.java.components.SignaturePropagator.1
         public static /* synthetic */ void $$$reportNull$$$0(int i) {
@@ -81,7 +81,7 @@ public interface SignaturePropagator {
 
     PropagatedSignature resolvePropagatedSignature(JavaMethod javaMethod, ClassDescriptor classDescriptor, KotlinType kotlinType, KotlinType kotlinType2, List<ValueParameterDescriptor> list, List<TypeParameterDescriptor> list2);
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class PropagatedSignature {
         public final boolean hasStableParameterNames;
         public final KotlinType receiverType;

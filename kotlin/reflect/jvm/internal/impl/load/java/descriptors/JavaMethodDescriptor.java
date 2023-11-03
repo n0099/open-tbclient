@@ -21,7 +21,7 @@ import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.resolve.DescriptorFactory;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.util.OperatorChecks;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class JavaMethodDescriptor extends SimpleFunctionDescriptorImpl implements JavaCallableMemberDescriptor {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final CallableDescriptor.UserDataKey<ValueParameterDescriptor> ORIGINAL_VALUE_PARAMETER_FOR_EXTENSION_RECEIVER = new CallableDescriptor.UserDataKey<ValueParameterDescriptor>() { // from class: kotlin.reflect.jvm.internal.impl.load.java.descriptors.JavaMethodDescriptor.1
@@ -134,7 +134,7 @@ public class JavaMethodDescriptor extends SimpleFunctionDescriptorImpl implement
         return this.parameterNamesStatus.isSynthesized;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public enum ParameterNamesStatus {
         NON_STABLE_DECLARED(false, false),
         STABLE_DECLARED(true, false),

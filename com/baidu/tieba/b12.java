@@ -1,217 +1,119 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Typeface;
-import android.text.SpannableStringBuilder;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.text.TextPaint;
 import android.text.TextUtils;
-import android.util.Log;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.GravityCompat;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.c12;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public abstract class b12<V extends TextView, M extends c12> extends d12<V, M> {
+public class b12 extends nz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public int b;
+    public int c;
+    public float d;
+    public float e;
+    public float f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b12(@Nullable Context context, @NonNull M m) {
-        super(context, m);
+    public b12() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, m};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (e12) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.d = -1.0f;
+        this.e = 0.0f;
+        this.f = 1.0f;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.d12
-    /* renamed from: V */
-    public void Q(@NonNull V v, @NonNull M m, @NonNull h22 h22Var) {
+    @Override // com.baidu.tieba.nz1
+    public void a(oz1 oz1Var, Canvas canvas) {
+        float f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, v, m, h22Var) == null) {
-            super.D(v, m, h22Var);
-            if (h22Var.a(6)) {
-                W(v, m);
-            }
-            if (h22Var.a(4)) {
-                X(v, m);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.d12, com.baidu.tieba.f12
-    @NonNull
-    /* renamed from: U */
-    public h22 k(@NonNull M m, @NonNull M m2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, m, m2)) == null) {
-            h22 k = super.k(m, m2);
-            if (!TextUtils.equals(m.t, m2.t)) {
-                k.b(6);
-            }
-            return k;
-        }
-        return (h22) invokeLL.objValue;
-    }
-
-    public void Z(@NonNull V v, @NonNull M m) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, v, m) == null) {
-            a0(v, m, 48);
-        }
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r4v1, resolved type: android.text.SpannableStringBuilder */
-    /* JADX WARN: Multi-variable type inference failed */
-    public void W(@NonNull V v, @NonNull M m) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, v, m) == null) {
-            if (f12.h) {
-                Log.d("Component-TextView", "renderText");
-            }
-            if (!TextUtils.isEmpty(m.t) && m.x >= 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            String str = m.t;
-            if (z) {
-                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-                spannableStringBuilder.setSpan(new a12(m.x), 0, str.length(), 33);
-                str = spannableStringBuilder;
-            }
-            v.setIncludeFontPadding(!z);
-            v.setText(str);
-        }
-    }
-
-    public final void X(@NonNull V v, @NonNull M m) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048582, this, v, m) != null) || m.j == null) {
-            return;
-        }
-        if (f12.h) {
-            Log.d("Component-TextView", "renderTextStyle");
-        }
-        if (m.v) {
-            v.setTextColor(m.u);
-        }
-        float f = (float) m.w;
-        if (f > 0.0f) {
-            v.setTextSize(1, f);
-        }
-        Z(v, m);
-        Y(v, m);
-        String str = m.B;
-        char c = 65535;
-        int hashCode = str.hashCode();
-        if (hashCode != -1039745817) {
-            if (hashCode == -1039592053 && str.equals("nowrap")) {
-                c = 1;
-            }
-        } else if (str.equals("normal")) {
-            c = 0;
-        }
-        if (c != 0) {
-            if (c == 1) {
-                v.setSingleLine(true);
-            }
-        } else {
-            v.setSingleLine(false);
-        }
-        if ("ellipsis".equals(m.C)) {
-            v.setEllipsize(TextUtils.TruncateAt.END);
-        }
-    }
-
-    public void Y(@NonNull V v, @NonNull M m) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048583, this, v, m) != null) || m.j == null) {
-            return;
-        }
-        if (f12.h) {
-            Log.d("Component-TextView", "renderTextStyleFontWeight");
-        }
-        String str = m.A;
-        char c = 65535;
-        int hashCode = str.hashCode();
-        if (hashCode != -1039745817) {
-            if (hashCode == 3029637 && str.equals("bold")) {
-                c = 1;
-            }
-        } else if (str.equals("normal")) {
-            c = 0;
-        }
-        if (c != 0) {
-            if (c != 1) {
-                p22.o("Component-TextView", "invalid font weight : " + m.A);
-                v.setTypeface(Typeface.SANS_SERIF, 0);
-                return;
-            }
-            v.setTypeface(Typeface.SANS_SERIF, 1);
-            return;
-        }
-        v.setTypeface(Typeface.SANS_SERIF, 0);
-    }
-
-    public final void a0(@NonNull V v, @NonNull M m, int i) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLI(1048585, this, v, m, i) != null) || m.j == null) {
-            return;
-        }
-        if (f12.h) {
-            Log.d("Component-TextView", "renderTextStyleTextAlign");
-        }
-        String str = m.z;
-        char c = 65535;
-        int hashCode = str.hashCode();
-        if (hashCode != -1364013995) {
-            if (hashCode != 3317767) {
-                if (hashCode == 108511772 && str.equals("right")) {
-                    c = 1;
-                }
-            } else if (str.equals("left")) {
-                c = 0;
-            }
-        } else if (str.equals("center")) {
-            c = 2;
-        }
-        if (c != 0) {
-            if (c != 1) {
-                if (c != 2) {
-                    p22.o("Component-TextView", "invalid text align: " + m.z);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, oz1Var, canvas) == null) && !TextUtils.isEmpty(this.a)) {
+            TextPaint textPaint = oz1Var.e;
+            int i = oz1Var.k;
+            Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
+            float f2 = fontMetrics.top;
+            int i2 = this.c;
+            float f3 = i2 + f2;
+            float f4 = fontMetrics.ascent + i2;
+            float f5 = fontMetrics.bottom;
+            float f6 = i2 + f5;
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        f = i2;
+                    } else {
+                        f = i2 - (f4 - f3);
+                    }
                 } else {
-                    i2 = i | 1;
+                    f = (i2 + ((f5 - f2) / 2.0f)) - f5;
                 }
             } else {
-                i2 = 8388613 | i;
+                f = i2 + ((f6 - f3) / 2.0f) + (f4 - f3);
             }
-            v.setGravity(i2);
+            if (this.e == 0.0d) {
+                Rect rect = new Rect();
+                String str = this.a;
+                textPaint.getTextBounds(str, 0, str.length(), rect);
+                if (this.d != -1.0f) {
+                    float f7 = this.d;
+                    if (rect.width() > f7) {
+                        this.e = f7 / rect.width();
+                    }
+                }
+                this.e = 1.0f;
+            }
+            canvas.save();
+            int alpha = textPaint.getAlpha();
+            int color = textPaint.getColor();
+            textPaint.setStyle(Paint.Style.STROKE);
+            textPaint.setStrokeWidth(this.f);
+            textPaint.setColor(oz1Var.m);
+            oz1Var.c(textPaint);
+            canvas.scale(this.e, 1.0f);
+            canvas.drawText(this.a, this.b, f, textPaint);
+            textPaint.setStyle(Paint.Style.FILL);
+            textPaint.setAlpha(alpha);
+            textPaint.setColor(color);
+            canvas.restore();
         }
-        i2 = i | GravityCompat.START;
-        v.setGravity(i2);
+    }
+
+    @Override // com.baidu.tieba.nz1
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() > 2) {
+                    this.a = jSONArray.optString(0);
+                    this.b = xj3.g((float) jSONArray.optDouble(1));
+                    this.c = xj3.g((float) jSONArray.optDouble(2));
+                    if (jSONArray.length() > 3) {
+                        this.d = xj3.g((float) jSONArray.optDouble(3));
+                    }
+                    this.f = xj3.g(1.0f);
+                }
+            } catch (Exception e) {
+                if (rm1.a) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }

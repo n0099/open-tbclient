@@ -32,94 +32,94 @@ import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.swan.apps.process.SwanAppProcessInfo;
 import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a93;
-import com.baidu.tieba.am1;
-import com.baidu.tieba.bb3;
-import com.baidu.tieba.c52;
-import com.baidu.tieba.cr2;
-import com.baidu.tieba.dc3;
+import com.baidu.tieba.ad2;
+import com.baidu.tieba.aj3;
+import com.baidu.tieba.ak3;
+import com.baidu.tieba.ar2;
+import com.baidu.tieba.b33;
+import com.baidu.tieba.bd2;
+import com.baidu.tieba.bl3;
+import com.baidu.tieba.d63;
+import com.baidu.tieba.di3;
 import com.baidu.tieba.dr2;
-import com.baidu.tieba.eh3;
-import com.baidu.tieba.ei4;
-import com.baidu.tieba.gj3;
-import com.baidu.tieba.gs1;
-import com.baidu.tieba.hc3;
-import com.baidu.tieba.ic3;
-import com.baidu.tieba.ih3;
-import com.baidu.tieba.ii3;
+import com.baidu.tieba.e33;
+import com.baidu.tieba.eb3;
+import com.baidu.tieba.ec3;
+import com.baidu.tieba.ej2;
+import com.baidu.tieba.f63;
+import com.baidu.tieba.fj2;
+import com.baidu.tieba.fj3;
+import com.baidu.tieba.fr2;
+import com.baidu.tieba.g32;
+import com.baidu.tieba.g63;
+import com.baidu.tieba.gc3;
+import com.baidu.tieba.gw2;
+import com.baidu.tieba.h03;
+import com.baidu.tieba.hd3;
+import com.baidu.tieba.hj2;
 import com.baidu.tieba.ik3;
 import com.baidu.tieba.il3;
-import com.baidu.tieba.iz2;
-import com.baidu.tieba.jc2;
-import com.baidu.tieba.ji3;
-import com.baidu.tieba.jj3;
-import com.baidu.tieba.jq2;
-import com.baidu.tieba.k23;
-import com.baidu.tieba.kc2;
-import com.baidu.tieba.kk3;
-import com.baidu.tieba.m53;
-import com.baidu.tieba.mh3;
-import com.baidu.tieba.mq2;
-import com.baidu.tieba.n23;
-import com.baidu.tieba.na3;
-import com.baidu.tieba.nb3;
-import com.baidu.tieba.ni2;
-import com.baidu.tieba.o53;
-import com.baidu.tieba.oi2;
+import com.baidu.tieba.jd3;
+import com.baidu.tieba.jr2;
+import com.baidu.tieba.k63;
+import com.baidu.tieba.lg3;
+import com.baidu.tieba.lr2;
+import com.baidu.tieba.lz2;
+import com.baidu.tieba.mg3;
+import com.baidu.tieba.mi3;
+import com.baidu.tieba.n53;
+import com.baidu.tieba.nb2;
+import com.baidu.tieba.np2;
+import com.baidu.tieba.o52;
+import com.baidu.tieba.oc3;
 import com.baidu.tieba.oi3;
-import com.baidu.tieba.oq2;
-import com.baidu.tieba.p22;
-import com.baidu.tieba.p53;
-import com.baidu.tieba.pb3;
-import com.baidu.tieba.pv2;
-import com.baidu.tieba.qc3;
-import com.baidu.tieba.qi2;
-import com.baidu.tieba.qz2;
-import com.baidu.tieba.rj3;
-import com.baidu.tieba.rk3;
-import com.baidu.tieba.sc3;
-import com.baidu.tieba.sq2;
-import com.baidu.tieba.t53;
-import com.baidu.tieba.uf3;
-import com.baidu.tieba.uq2;
-import com.baidu.tieba.uy2;
-import com.baidu.tieba.vf3;
+import com.baidu.tieba.oi4;
+import com.baidu.tieba.op2;
+import com.baidu.tieba.p52;
+import com.baidu.tieba.pi3;
+import com.baidu.tieba.pj3;
+import com.baidu.tieba.q32;
+import com.baidu.tieba.r93;
+import com.baidu.tieba.rm1;
+import com.baidu.tieba.sb3;
+import com.baidu.tieba.t52;
+import com.baidu.tieba.tr2;
+import com.baidu.tieba.uc3;
+import com.baidu.tieba.ur2;
 import com.baidu.tieba.vh3;
-import com.baidu.tieba.w43;
-import com.baidu.tieba.wa2;
-import com.baidu.tieba.wo2;
-import com.baidu.tieba.x42;
-import com.baidu.tieba.xb3;
-import com.baidu.tieba.xh3;
-import com.baidu.tieba.xh4;
-import com.baidu.tieba.xo2;
-import com.baidu.tieba.y42;
-import com.baidu.tieba.yh3;
-import com.baidu.tieba.yi3;
-import com.baidu.tieba.z22;
+import com.baidu.tieba.vi4;
+import com.baidu.tieba.xj3;
+import com.baidu.tieba.xs1;
+import com.baidu.tieba.yc3;
+import com.baidu.tieba.zc3;
+import com.baidu.tieba.zh3;
+import com.baidu.tieba.zi3;
+import com.baidu.tieba.zk3;
+import com.baidu.tieba.zl3;
+import com.baidu.tieba.zz2;
 import com.facebook.common.internal.Sets;
 import java.util.HashSet;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes4.dex */
-public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResultDispatcherHolder, w43.a, vf3, ServiceConnection {
-    public static final boolean B = am1.a;
+public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResultDispatcherHolder, n53.a, mg3, ServiceConnection {
+    public static final boolean B = rm1.a;
     public static final String C = SwanAppActivity.class.getName();
     public static final long D = TimeUnit.SECONDS.toMillis(1);
     public View A;
-    public oi2 m;
+    public fj2 m;
     public Messenger n;
     public ActivityResultDispatcher p;
     @Nullable
-    public vh3 q;
+    public mi3 q;
     public boolean t;
     public OrientationEventListener u;
-    public xh3 v;
-    public rk3 w;
-    public w43 x;
+    public oi3 v;
+    public il3 w;
+    public n53 x;
     public FrameLifeState o = FrameLifeState.INACTIVATED;
     public String r = "sys";
     public boolean s = false;
-    public final m53 y = new m53();
+    public final d63 y = new d63();
     public boolean z = false;
 
     /* loaded from: classes4.dex */
@@ -133,7 +133,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
 
             @Override // android.view.OrientationEventListener
             public void onOrientationChanged(int i) {
-                o53.K().c = i;
+                f63.K().c = i;
             }
         }
 
@@ -153,53 +153,53 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
     }
 
     /* loaded from: classes4.dex */
-    public class a implements ik3<t53.a> {
+    public class a implements zk3<k63.a> {
         public a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ik3
+        @Override // com.baidu.tieba.zk3
         /* renamed from: b */
-        public void a(t53.a aVar) {
+        public void a(k63.a aVar) {
             SwanAppActivity.this.o0(aVar);
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b implements ik3<t53.a> {
+    public class b implements zk3<k63.a> {
         public b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ik3
+        @Override // com.baidu.tieba.zk3
         /* renamed from: b */
-        public void a(t53.a aVar) {
+        public void a(k63.a aVar) {
             SwanAppActivity.this.n0(aVar);
         }
     }
 
     /* loaded from: classes4.dex */
-    public class c implements ik3<t53.a> {
+    public class c implements zk3<k63.a> {
         public c() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ik3
+        @Override // com.baidu.tieba.zk3
         /* renamed from: b */
-        public void a(t53.a aVar) {
+        public void a(k63.a aVar) {
             SwanAppActivity.this.B0(true, aVar);
         }
     }
 
     /* loaded from: classes4.dex */
-    public class d implements kk3<t53.a, Boolean> {
+    public class d implements bl3<k63.a, Boolean> {
         public d() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.kk3
+        @Override // com.baidu.tieba.bl3
         /* renamed from: b */
-        public Boolean a(t53.a aVar) {
+        public Boolean a(k63.a aVar) {
             return Boolean.valueOf(!SwanAppActivity.this.isDestroyed());
         }
     }
@@ -225,46 +225,46 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
 
         @Override // java.lang.Runnable
         public void run() {
-            cr2 V = cr2.V();
+            tr2 V = tr2.V();
             SwanAppActivity activity = V.getActivity();
             if (activity != null && !activity.isFinishing()) {
-                y42 W = V.W();
+                p52 W = V.W();
                 if (W == null) {
-                    p22.i("SwanAppActivity", "doWebViewStart: fragment manager is null.");
+                    g32.i("SwanAppActivity", "doWebViewStart: fragment manager is null.");
                     return;
                 } else if (TextUtils.isEmpty(this.a)) {
-                    p22.i("SwanAppActivity", "doWebViewStart:  url is null.");
+                    g32.i("SwanAppActivity", "doWebViewStart:  url is null.");
                     return;
                 } else if (W == null) {
-                    p22.i("SwanAppActivity", "pushWebViewFragment: fragment manager is null.");
+                    g32.i("SwanAppActivity", "pushWebViewFragment: fragment manager is null.");
                     return;
                 } else {
-                    x42.Z3(null);
-                    y42.b i = W.i("init");
-                    int i2 = y42.i;
+                    o52.Z3(null);
+                    p52.b i = W.i("init");
+                    int i2 = p52.i;
                     i.n(i2, i2);
                     i.f();
                     String str = this.a;
-                    i.l("default_webview", pv2.d(str, str), true).a();
-                    rk3 T2 = activity.T();
-                    if (T2 != null) {
-                        T2.F(1);
+                    i.l("default_webview", gw2.d(str, str), true).a();
+                    il3 U = activity.U();
+                    if (U != null) {
+                        U.F(1);
                     }
-                    ih3 ih3Var = new ih3();
-                    ih3Var.k(1L);
-                    ih3Var.i(2110L);
-                    ih3Var.f("host url" + this.a);
-                    mh3.a().f(ih3Var);
-                    qc3 qc3Var = new qc3();
-                    qc3Var.p(ih3Var);
-                    qc3Var.r(o53.K().q().X());
-                    qc3Var.q(ic3.n(o53.K().k()));
-                    qc3Var.m(o53.K().getAppId());
-                    ic3.R(qc3Var);
+                    zh3 zh3Var = new zh3();
+                    zh3Var.k(1L);
+                    zh3Var.i(2110L);
+                    zh3Var.f("host url" + this.a);
+                    di3.a().f(zh3Var);
+                    hd3 hd3Var = new hd3();
+                    hd3Var.p(zh3Var);
+                    hd3Var.r(f63.K().q().X());
+                    hd3Var.q(zc3.n(f63.K().k()));
+                    hd3Var.m(f63.K().getAppId());
+                    zc3.R(hd3Var);
                     return;
                 }
             }
-            p22.i("SwanAppActivity", "activity is invalid.");
+            g32.i("SwanAppActivity", "activity is invalid.");
         }
     }
 
@@ -275,7 +275,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
 
         @Override // java.lang.Runnable
         public void run() {
-            wo2.o().d();
+            np2.o().d();
         }
     }
 
@@ -286,8 +286,8 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
 
         @Override // java.lang.Runnable
         public void run() {
-            if (nb3.d()) {
-                nb3.k();
+            if (ec3.d()) {
+                ec3.k();
             }
         }
     }
@@ -299,9 +299,9 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
 
         @Override // java.lang.Runnable
         public void run() {
-            wo2.o().k();
-            if (!qz2.h()) {
-                ii3.m(SwanAppActivity.this);
+            np2.o().k();
+            if (!h03.h()) {
+                zi3.m(SwanAppActivity.this);
             }
         }
     }
@@ -314,7 +314,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         @Override // java.lang.Runnable
         public void run() {
             try {
-                pb3.d().l();
+                gc3.d().l();
             } catch (Exception e) {
                 if (SwanAppActivity.B) {
                     Log.e("SwanAppActivity", "SaveTraceException:", e);
@@ -324,74 +324,74 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
     }
 
     /* loaded from: classes4.dex */
-    public class l implements ik3<t53.a> {
+    public class l implements zk3<k63.a> {
         public l() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ik3
+        @Override // com.baidu.tieba.zk3
         /* renamed from: b */
-        public void a(t53.a aVar) {
+        public void a(k63.a aVar) {
             SwanAppActivity.this.p0(aVar.n("property_launch_url"));
         }
     }
 
     /* loaded from: classes4.dex */
-    public class m implements ik3<t53.a> {
+    public class m implements zk3<k63.a> {
         public m() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ik3
+        @Override // com.baidu.tieba.zk3
         /* renamed from: b */
-        public void a(t53.a aVar) {
+        public void a(k63.a aVar) {
             SwanAppActivity.this.D0();
         }
     }
 
     /* loaded from: classes4.dex */
-    public class n implements ik3<t53.a> {
+    public class n implements zk3<k63.a> {
         public n() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ik3
+        @Override // com.baidu.tieba.zk3
         /* renamed from: b */
-        public void a(t53.a aVar) {
+        public void a(k63.a aVar) {
             SwanAppActivity.this.l0(aVar);
         }
     }
 
     /* loaded from: classes4.dex */
-    public class o implements ik3<t53.a> {
+    public class o implements zk3<k63.a> {
         public o() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ik3
+        @Override // com.baidu.tieba.zk3
         /* renamed from: b */
-        public void a(t53.a aVar) {
+        public void a(k63.a aVar) {
             SwanAppActivity.this.m0();
         }
     }
 
     /* loaded from: classes4.dex */
-    public class p implements ik3<t53.a> {
+    public class p implements zk3<k63.a> {
         public p() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ik3
+        @Override // com.baidu.tieba.zk3
         /* renamed from: b */
-        public void a(t53.a aVar) {
+        public void a(k63.a aVar) {
             SwanAppActivity.this.J0(aVar);
         }
     }
 
     public void A0() {
-        oi2 oi2Var = this.m;
-        if (oi2Var != null) {
-            oi2Var.M0();
+        fj2 fj2Var = this.m;
+        if (fj2Var != null) {
+            fj2Var.M0();
         }
     }
 
@@ -400,78 +400,78 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
     }
 
     public final void F0() {
-        yh3.j(this);
+        pi3.j(this);
     }
 
-    public void L() {
+    public void M() {
         if (this.A == null) {
-            this.A = z22.a(this);
+            this.A = q32.a(this);
         }
     }
 
-    public void O() {
+    public void P() {
         int i2;
-        if (S() != null && S().e0() == 1) {
+        if (T() != null && T().e0() == 1) {
             i2 = 3;
         } else {
             i2 = 2;
         }
-        if (T() != null) {
-            T().F(i2);
+        if (U() != null) {
+            U().F(i2);
         }
     }
 
-    public String P() {
-        oi2 oi2Var = this.m;
-        if (oi2Var == null) {
+    public String Q() {
+        fj2 fj2Var = this.m;
+        if (fj2Var == null) {
             return "";
         }
-        return oi2Var.i;
+        return fj2Var.i;
     }
 
-    public oi2 Q() {
+    public fj2 R() {
         return this.m;
     }
 
-    public int R() {
-        oi2 oi2Var = this.m;
-        if (oi2Var == null) {
+    public int S() {
+        fj2 fj2Var = this.m;
+        if (fj2Var == null) {
             return -1;
         }
-        return oi2Var.k();
+        return fj2Var.k();
     }
 
-    public mq2.a S() {
-        oi2 oi2Var = this.m;
-        if (oi2Var == null) {
+    public dr2.a T() {
+        fj2 fj2Var = this.m;
+        if (fj2Var == null) {
             return null;
         }
-        return oi2Var.Z();
+        return fj2Var.Z();
     }
 
-    public rk3 T() {
+    public il3 U() {
         return this.w;
     }
 
-    public SwanAppProcessInfo U() {
+    public SwanAppProcessInfo V() {
         return SwanAppProcessInfo.P0;
     }
 
-    public String V() {
+    public String W() {
         return this.r;
     }
 
-    public xh3 W() {
+    public oi3 X() {
         return this.v;
     }
 
     @Nullable
-    public y42 Y() {
-        oi2 oi2Var = this.m;
-        if (oi2Var == null) {
+    public p52 Y() {
+        fj2 fj2Var = this.m;
+        if (fj2Var == null) {
             return null;
         }
-        return oi2Var.c0();
+        return fj2Var.c0();
     }
 
     public synchronized boolean a0() {
@@ -485,17 +485,17 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         return z;
     }
 
-    @Override // com.baidu.tieba.vf3
-    public uf3 b() {
-        oi2 oi2Var = this.m;
-        if (oi2Var == null) {
+    @Override // com.baidu.tieba.mg3
+    public lg3 b() {
+        fj2 fj2Var = this.m;
+        if (fj2Var == null) {
             return null;
         }
-        return oi2Var.d0();
+        return fj2Var.d0();
     }
 
     public final boolean b0() {
-        return !TextUtils.isEmpty(ei4.e().b());
+        return !TextUtils.isEmpty(vi4.e().b());
     }
 
     public final boolean c0() {
@@ -513,23 +513,23 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
     public void finish() {
         super.finish();
         if (B) {
-            p22.i("SwanAppActivity", Log.getStackTraceString(new Throwable("call finish!")));
+            g32.i("SwanAppActivity", Log.getStackTraceString(new Throwable("call finish!")));
         }
     }
 
     public final boolean g0() {
-        PMSAppInfo g0 = o53.K().q().X().g0();
+        PMSAppInfo g0 = f63.K().q().X().g0();
         if (g0 == null || g0.appStatus != 6) {
             return false;
         }
         return true;
     }
 
-    @Override // com.baidu.tieba.w43.a
+    @Override // com.baidu.tieba.n53.a
     @NonNull
-    public w43 getFloatLayer() {
+    public n53 getFloatLayer() {
         if (this.x == null) {
-            this.x = new w43(this, (FrameLayout) findViewById(16908290), 0);
+            this.x = new n53(this, (FrameLayout) findViewById(16908290), 0);
         }
         return this.x;
     }
@@ -544,8 +544,8 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
     }
 
     public boolean j0() {
-        oi2 oi2Var = this.m;
-        if (oi2Var != null && oi2Var.g0()) {
+        fj2 fj2Var = this.m;
+        if (fj2Var != null && fj2Var.g0()) {
             return true;
         }
         return false;
@@ -566,11 +566,11 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
 
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
-        p22.i("SwanApp", "SwanAppActivity onPause");
+        g32.i("SwanApp", "SwanAppActivity onPause");
         super.onPause();
         I0(FrameLifeState.JUST_STARTED);
         this.s = false;
-        dc3.l(false);
+        uc3.l(false);
         OrientationEventListener orientationEventListener = this.u;
         if (orientationEventListener != null) {
             orientationEventListener.disable();
@@ -579,41 +579,41 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
 
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
     public void onStart() {
-        p22.i("SwanApp", "SwanAppActivity onStart");
+        g32.i("SwanApp", "SwanAppActivity onStart");
         super.onStart();
         this.t = false;
-        xh3 xh3Var = this.v;
-        if (xh3Var != null) {
-            xh3Var.e();
+        oi3 oi3Var = this.v;
+        if (oi3Var != null) {
+            oi3Var.e();
         }
         I0(FrameLifeState.JUST_STARTED);
     }
 
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
     public void onStop() {
-        p22.i("SwanApp", "SwanAppActivity onStop");
+        g32.i("SwanApp", "SwanAppActivity onStop");
         super.onStop();
         this.t = true;
         I0(FrameLifeState.JUST_CREATED);
         if (!a0()) {
-            uy2.m();
+            lz2.m();
         }
-        ji3.k(new k(), "tracer");
-        wo2.p0().flush(false);
+        aj3.k(new k(), "tracer");
+        np2.p0().flush(false);
     }
 
     public void v0() {
         View view2 = this.A;
         if (view2 != null) {
-            z22.d(this, view2);
+            q32.d(this, view2);
             this.A = null;
         }
     }
 
     public void w0() {
-        oi2 oi2Var = this.m;
-        if (oi2Var != null) {
-            oi2Var.K0();
+        fj2 fj2Var = this.m;
+        if (fj2Var != null) {
+            fj2Var.K0();
         }
     }
 
@@ -623,10 +623,10 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         }
     }
 
-    public void G0(ni2 ni2Var) {
-        oi2 oi2Var = this.m;
-        if (oi2Var != null) {
-            oi2Var.T0(ni2Var);
+    public void G0(ej2 ej2Var) {
+        fj2 fj2Var = this.m;
+        if (fj2Var != null) {
+            fj2Var.T0(ej2Var);
         }
     }
 
@@ -635,10 +635,10 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         D0();
     }
 
-    public final void N(sc3 sc3Var) {
-        oi2 oi2Var = this.m;
-        if (oi2Var != null) {
-            oi2Var.Q(sc3Var);
+    public final void O(jd3 jd3Var) {
+        fj2 fj2Var = this.m;
+        if (fj2Var != null) {
+            fj2Var.Q(jd3Var);
         }
     }
 
@@ -647,11 +647,11 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         if (B) {
             Log.i("SwanAppActivity", "handleSwanAppExit:" + i2 + ", pid:" + Process.myPid());
         }
-        wo2.H().d(this, i2, S());
+        np2.H().d(this, i2, T());
     }
 
     public boolean e0(String str) {
-        if (!TextUtils.isEmpty(str) && TextUtils.equals(str, P())) {
+        if (!TextUtils.isEmpty(str) && TextUtils.equals(str, Q())) {
             return true;
         }
         return false;
@@ -668,25 +668,25 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         return false;
     }
 
-    public final void l0(sq2 sq2Var) {
-        if (c0() && sq2Var.b(" event_params_installer_progress")) {
-            this.w.u(sq2Var.f(" event_params_installer_progress"));
+    public final void l0(jr2 jr2Var) {
+        if (c0() && jr2Var.b(" event_params_installer_progress")) {
+            this.w.u(jr2Var.f(" event_params_installer_progress"));
         }
     }
 
-    public final void o0(sq2 sq2Var) {
-        oi2 oi2Var = this.m;
-        if (oi2Var != null && oi2Var.f0()) {
-            H0("update_tag_by_activity_on_new_intent".equals(sq2Var.n("app_update_tag")));
+    public final void o0(jr2 jr2Var) {
+        fj2 fj2Var = this.m;
+        if (fj2Var != null && fj2Var.f0()) {
+            H0("update_tag_by_activity_on_new_intent".equals(jr2Var.n("app_update_tag")));
         }
     }
 
     @Override // com.baidu.swan.apps.SwanAppBaseActivity, android.app.Activity
     public void onPostCreate(Bundle bundle) {
         super.onPostCreate(bundle);
-        xh3 xh3Var = this.v;
-        if (xh3Var != null) {
-            xh3Var.n();
+        oi3 oi3Var = this.v;
+        if (oi3Var != null) {
+            oi3Var.n();
         }
     }
 
@@ -721,27 +721,27 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
 
     public void r0(String str) {
         H0(true);
-        jc2.V().c1(str);
+        ad2.V().c1(str);
     }
 
     public final void s0(String str) {
-        jj3.e0(new f(str));
+        ak3.e0(new f(str));
     }
 
     public void t0(Bundle bundle) {
-        n23.k(this, bundle);
+        e33.k(this, bundle);
     }
 
-    public void u0(ni2 ni2Var) {
-        oi2 oi2Var = this.m;
-        if (oi2Var != null) {
-            oi2Var.I0(ni2Var);
+    public void u0(ej2 ej2Var) {
+        fj2 fj2Var = this.m;
+        if (fj2Var != null) {
+            fj2Var.I0(ej2Var);
         }
     }
 
     public void y0(String... strArr) {
         HashSet newHashSet;
-        M();
+        N();
         if (strArr == null) {
             newHashSet = Sets.newHashSet();
         } else {
@@ -756,22 +756,22 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         }
     }
 
-    public void B0(boolean z, @Nullable t53.a aVar) {
+    public void B0(boolean z, @Nullable k63.a aVar) {
         if (this.w == null) {
-            this.w = new rk3(this);
+            this.w = new il3(this);
         }
-        rk3 rk3Var = this.w;
+        il3 il3Var = this.w;
         boolean z2 = true;
-        if (1 != o53.K().q().X().H()) {
+        if (1 != f63.K().q().X().H()) {
             z2 = false;
         }
-        rk3Var.E(z2, z, aVar);
+        il3Var.E(z2, z, aVar);
     }
 
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i2, KeyEvent keyEvent) {
-        oi2 oi2Var = this.m;
-        if ((oi2Var != null && oi2Var.r0(i2, keyEvent)) || this.A != null) {
+        fj2 fj2Var = this.m;
+        if ((fj2Var != null && fj2Var.r0(i2, keyEvent)) || this.A != null) {
             return true;
         }
         return super.onKeyDown(i2, keyEvent);
@@ -798,53 +798,53 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
             setRequestedOrientation(i4);
         }
         if (i3 == 1) {
-            if (yi3.p(this)) {
-                yi3.s(this);
+            if (pj3.p(this)) {
+                pj3.s(this);
             }
-            yh3.e(this);
+            pi3.e(this);
         }
     }
 
-    public final synchronized boolean C0(p53 p53Var) {
+    public final synchronized boolean C0(g63 g63Var) {
         if (this.m != null) {
-            M();
+            N();
         }
-        oi2 a2 = qi2.a(this, p53Var);
+        fj2 a2 = hj2.a(this, g63Var);
         if (a2 == null) {
-            ih3 ih3Var = new ih3();
-            ih3Var.k(5L);
-            ih3Var.i(11L);
-            ih3Var.d("can not buildFramework");
-            jq2.e(this, ih3Var, p53Var.k(), p53Var.b);
+            zh3 zh3Var = new zh3();
+            zh3Var.k(5L);
+            zh3Var.i(11L);
+            zh3Var.d("can not buildFramework");
+            ar2.e(this, zh3Var, g63Var.k(), g63Var.b);
             F0();
             return false;
         }
         this.m = a2;
         g gVar = new g();
-        if (qz2.h()) {
-            iz2.e().d(gVar, "updateMobStat", false);
+        if (h03.h()) {
+            zz2.e().d(gVar, "updateMobStat", false);
         } else {
-            ji3.k(gVar, "updateMobStat");
+            aj3.k(gVar, "updateMobStat");
         }
-        z0(p53Var.X().e0(), p53Var.k());
+        z0(g63Var.X().e0(), g63Var.k());
         return true;
     }
 
     @Override // android.app.Activity
     public boolean moveTaskToBack(boolean z) {
         boolean z2;
-        mq2.a S = S();
+        dr2.a T2 = T();
         boolean z3 = false;
-        if (S != null && "1230000000000000".equals(S.U())) {
+        if (T2 != null && "1230000000000000".equals(T2.U())) {
             z2 = true;
         } else {
             z2 = false;
         }
-        vh3 vh3Var = this.q;
-        if (vh3Var != null && !z2) {
-            vh3Var.v(false);
+        mi3 mi3Var = this.q;
+        if (mi3Var != null && !z2) {
+            mi3Var.v(false);
         }
-        if (a0() && !o53.K().q().t0()) {
+        if (a0() && !f63.K().q().t0()) {
             try {
                 boolean moveTaskToBack = super.moveTaskToBack(z);
                 try {
@@ -862,55 +862,55 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
                 e = e3;
             }
         } else {
-            ic3.Y();
+            zc3.Y();
             F0();
             return false;
         }
     }
 
-    public final void n0(t53.a aVar) {
+    public final void n0(k63.a aVar) {
         if (B) {
             Log.i("SwanAppActivity", "onAppOccupied: ");
         }
-        mq2.a X = o53.K().q().X();
+        dr2.a X = f63.K().q().X();
         z0(X.e0(), X.H());
         B0(false, aVar);
-        p22.i("SwanAppActivity", "appName: " + X.L() + " appId: " + X.I());
+        g32.i("SwanAppActivity", "appName: " + X.L() + " appId: " + X.I());
     }
 
     public void q0(int i2) {
-        p22.i("SwanApp", "onBackPressed back stack count: " + getFragmentManager().getBackStackEntryCount());
+        g32.i("SwanApp", "onBackPressed back stack count: " + getFragmentManager().getBackStackEntryCount());
         if (a0()) {
             this.m.l0(i2);
             return;
         }
-        HybridUbcFlow m2 = uy2.m();
+        HybridUbcFlow m2 = lz2.m();
         if (m2 != null) {
             m2.E("value", "cancel");
             m2.D("exitType", String.valueOf(4));
             m2.n();
         }
-        dr2.a().d(false);
+        ur2.a().d(false);
         moveTaskToBack(true);
     }
 
     public final synchronized void H0(boolean z) {
-        p53 q = o53.K().q();
+        g63 q = f63.K().q();
         if (!q.I()) {
-            p22.i("SwanAppActivity", "updateFrame: unavailable");
+            g32.i("SwanAppActivity", "updateFrame: unavailable");
         } else if (!e0(q.getAppId()) && !C0(q)) {
-            p22.i("SwanAppActivity", "updateFrame: swan app id is null.");
+            g32.i("SwanAppActivity", "updateFrame: swan app id is null.");
         } else {
             this.m.U0(this.o, z);
-            p22.i("SwanAppActivity", "updateFrame: ");
+            g32.i("SwanAppActivity", "updateFrame: ");
             if (B) {
                 x0();
             }
-            if (this.q == null && vh3.j()) {
-                vh3 m2 = vh3.m();
+            if (this.q == null && mi3.j()) {
+                mi3 m2 = mi3.m();
                 this.q = m2;
                 if (!this.z) {
-                    m2.y(S(), getTaskId());
+                    m2.y(T(), getTaskId());
                 }
             }
         }
@@ -918,147 +918,147 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
 
     public final boolean i0(String str) {
         boolean z;
-        p22.k("SwanAppActivity", "isInvalidIntentAppId: intentAppId=" + str + ",currentAppId=" + o53.K().getAppId());
+        g32.k("SwanAppActivity", "isInvalidIntentAppId: intentAppId=" + str + ",currentAppId=" + f63.K().getAppId());
         boolean z2 = true;
-        if (o53.K().q().E() && o53.K().q().y0()) {
+        if (f63.K().q().E() && f63.K().q().y0()) {
             z = true;
         } else {
             z = false;
         }
-        z2 = (!z || TextUtils.equals(str, o53.K().getAppId())) ? false : false;
-        p22.k("SwanAppActivity", "isInvalidIntentAppId: isInValidIntent=" + z2);
+        z2 = (!z || TextUtils.equals(str, f63.K().getAppId())) ? false : false;
+        g32.k("SwanAppActivity", "isInvalidIntentAppId: isInValidIntent=" + z2);
         if (z2) {
-            xb3.b bVar = new xb3.b(SessionCommand.COMMAND_CODE_PLAYER_UPDATE_LIST_METADATA);
+            oc3.b bVar = new oc3.b(SessionCommand.COMMAND_CODE_PLAYER_UPDATE_LIST_METADATA);
             bVar.l(str);
-            bVar.h(o53.K().getAppId());
+            bVar.h(f63.K().getAppId());
             bVar.m();
         }
         return z2;
     }
 
-    public final void J0(sq2 sq2Var) {
+    public final void J0(jr2 jr2Var) {
         if (c0()) {
-            this.w.I(sq2Var.n("app_icon_url"));
-            this.w.K(sq2Var.n("app_name"));
-            if (o53.K().q().X().H() == 0) {
-                this.w.L(sq2Var.h("app_pay_protected"));
+            this.w.I(jr2Var.n("app_icon_url"));
+            this.w.K(jr2Var.n("app_name"));
+            if (f63.K().q().X().H() == 0) {
+                this.w.L(jr2Var.h("app_pay_protected"));
             }
         }
     }
 
-    public synchronized void M() {
+    public synchronized void N() {
         if (this.w != null) {
             this.w.H();
             if (B) {
                 Log.i("SwanAppActivity", "destroyFrame resetLoadingView");
             }
         }
-        rk3.A();
-        rk3.z(wo2.c());
-        y42 Y = Y();
+        il3.A();
+        il3.z(np2.c());
+        p52 Y = Y();
         if (Y != null) {
-            y42.b h2 = Y.h();
+            p52.b h2 = Y.h();
             h2.n(0, 0);
             h2.f();
             h2.b();
         }
-        eh3.j();
+        vh3.j();
         if (this.m != null) {
             this.m.R0(FrameLifeState.INACTIVATED);
             this.m.release();
             this.m = null;
         }
-        na3.r();
-        p53 q = o53.K().q();
+        eb3.r();
+        g63 q = f63.K().q();
         q.f0().j();
         q.N().a();
-        bb3.x();
-        xo2.o().a();
+        sb3.x();
+        op2.o().a();
     }
 
     public final void d0() {
-        m53 m53Var = this.y;
-        m53Var.c(new d());
-        m53Var.f(new c(), "event_on_still_maintaining");
-        m53Var.f(new b(), "event_on_app_occupied");
-        m53Var.f(new a(), "event_on_app_updated");
-        m53Var.f(new p(), "event_on_app_icon_update");
-        m53Var.f(new o(), "event_on_pkg_maintain_finish");
-        m53Var.f(new n(), "installer_on_progress");
-        m53Var.f(new m(), "event_first_action_launched");
-        m53Var.f(new l(), "event_on_web_mode_launched");
-        dr2.a().c();
+        d63 d63Var = this.y;
+        d63Var.c(new d());
+        d63Var.f(new c(), "event_on_still_maintaining");
+        d63Var.f(new b(), "event_on_app_occupied");
+        d63Var.f(new a(), "event_on_app_updated");
+        d63Var.f(new p(), "event_on_app_icon_update");
+        d63Var.f(new o(), "event_on_pkg_maintain_finish");
+        d63Var.f(new n(), "installer_on_progress");
+        d63Var.f(new m(), "event_first_action_launched");
+        d63Var.f(new l(), "event_on_web_mode_launched");
+        ur2.a().c();
     }
 
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        o53.K().o(this.y);
-        p22.i("SwanApp", "SwanAppActivity onDestroy");
+        f63.K().o(this.y);
+        g32.i("SwanApp", "SwanAppActivity onDestroy");
         this.u = null;
-        M();
+        N();
         if (this.n != null) {
             unbindService(this);
         }
-        wo2.H().b();
-        xh3 xh3Var = this.v;
-        if (xh3Var != null) {
-            xh3Var.p();
+        np2.H().b();
+        oi3 oi3Var = this.v;
+        if (oi3Var != null) {
+            oi3Var.p();
         }
-        o53.K().r(this);
+        f63.K().r(this);
         I0(FrameLifeState.INACTIVATED);
-        cr2.c0();
-        String appId = o53.K().getAppId();
+        tr2.c0();
+        String appId = f63.K().getAppId();
         if (B) {
-            uq2 d2 = uq2.d(appId);
+            lr2 d2 = lr2.d(appId);
             d2.e().c();
             d2.h();
         }
-        nb3.l(true);
-        o53.K().n(new String[0]);
+        ec3.l(true);
+        f63.K().n(new String[0]);
         this.q = null;
         super.onDestroy();
-        dr2.a().e();
+        ur2.a().e();
     }
 
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
-        p22.i("SwanApp", "SwanAppActivity onResume");
+        g32.i("SwanApp", "SwanAppActivity onResume");
         Intent intent = getIntent();
-        if (intent != null && !o53.K().E()) {
+        if (intent != null && !f63.K().E()) {
             intent.putExtra("receive_launch_intent_time", System.currentTimeMillis());
-            o53.K().l(intent.getExtras(), "update_tag_by_activity_on_create");
-            if (o53.K().E() && oq2.a(intent)) {
-                o53.K().q().X().J0("1250000000000000");
+            f63.K().l(intent.getExtras(), "update_tag_by_activity_on_create");
+            if (f63.K().E() && fr2.a(intent)) {
+                f63.K().q().X().J0("1250000000000000");
             }
         }
         k0();
         super.onResume();
         ExecutorUtilsExt.postOnElastic(new j(), "OrientationEventListener", 2);
-        xh3 xh3Var = this.v;
-        if (xh3Var != null) {
-            xh3Var.v();
+        oi3 oi3Var = this.v;
+        if (oi3Var != null) {
+            oi3Var.v();
         }
         I0(FrameLifeState.JUST_RESUMED);
-        rj3.b().d();
+        ik3.b().d();
     }
 
     public final void m0() {
-        if (c52.b.a()) {
-            r0(il3.b(a93.e()));
+        if (t52.b.a()) {
+            r0(zl3.b(r93.e()));
         } else if (!isDestroyed()) {
-            if (o53.K().q().I()) {
+            if (f63.K().q().I()) {
                 H0(true);
             } else {
-                o53.M().postDelayed(new e(), D);
+                f63.M().postDelayed(new e(), D);
             }
         }
     }
 
     public final void x0() {
-        p53 q = o53.K().q();
+        g63 q = f63.K().q();
         if (q != null) {
             String W = q.Z().W();
-            uq2 d2 = uq2.d(q.Z().W());
+            lr2 d2 = lr2.d(q.Z().W());
             d2.f("appId: " + q.b + "  launchId: " + W).e();
             d2.h();
         }
@@ -1070,37 +1070,37 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
             return;
         }
         super.onActivityResult(i2, i3, intent);
-        gs1.a().b().b().onActivityResult(this, i2, i3, intent);
+        xs1.a().b().b().onActivityResult(this, i2, i3, intent);
     }
 
-    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.tieba.ej4, android.app.Activity
+    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.tieba.vj4, android.app.Activity
     @DebugTrace
     public void onCreate(Bundle bundle) {
         int i2;
         boolean z;
         Bundle bundle2;
-        kc2.e();
+        bd2.e();
         long currentTimeMillis = System.currentTimeMillis();
         overridePendingTransition(R.anim.obfuscated_res_0x7f010023, R.anim.obfuscated_res_0x7f01001d);
-        SwanAppProcessInfo.init(U());
-        wo2.G().b();
-        k23.Q().c0();
+        SwanAppProcessInfo.init(V());
+        np2.G().b();
+        b33.Q().c0();
         boolean z2 = true;
         this.s = true;
-        dc3.l(true);
+        uc3.l(true);
         if (bundle == null) {
             i2 = 0;
         } else {
             i2 = 1;
         }
-        hc3.d(i2);
+        yc3.d(i2);
         super.onCreate(bundle);
         I0(FrameLifeState.JUST_CREATED);
-        if (oi3.a(this)) {
+        if (fj3.a(this)) {
             return;
         }
         Intent intent = getIntent();
-        boolean a2 = oq2.a(intent);
+        boolean a2 = fr2.a(intent);
         if (a2) {
             intent.putExtra("launch_id", SwanLauncher.h());
         }
@@ -1114,13 +1114,13 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
             F0();
             return;
         }
-        jc2.v.g(intent);
+        ad2.v.g(intent);
         if (B) {
             Log.i("SwanAppActivity", "onCreate: bindService");
         }
-        if (!wa2.a.c()) {
+        if (!nb2.a.c()) {
             try {
-                bindService(new Intent(this, U().service), this, 1);
+                bindService(new Intent(this, V().service), this, 1);
             } catch (Exception e2) {
                 if (B) {
                     e2.printStackTrace();
@@ -1130,14 +1130,14 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         if (Build.VERSION.SDK_INT == 26) {
             TranslucentUtils.convertFromTranslucent(this);
         }
-        p22.b("SwanAppActivity", "SwanAppActivity onCreate() savedInstanceState=", bundle);
-        p22.i("SwanApp", "SwanAppActivity onCreate");
-        setContentView(R.layout.obfuscated_res_0x7f0d0099);
-        if (R() == 0) {
-            gj3.c(this);
+        g32.b("SwanAppActivity", "SwanAppActivity onCreate() savedInstanceState=", bundle);
+        g32.i("SwanApp", "SwanAppActivity onCreate");
+        setContentView(R.layout.obfuscated_res_0x7f0d009b);
+        if (S() == 0) {
+            xj3.c(this);
         }
         d0();
-        o53 K = o53.K();
+        f63 K = f63.K();
         K.t(this);
         K.u(this.y);
         if (intent != null && (a2 || bundle == null)) {
@@ -1150,27 +1150,27 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
                 z = true;
             }
             if (z) {
-                p22.k("SwanAppActivity", "updateSwanApp by onCreate");
+                g32.k("SwanAppActivity", "updateSwanApp by onCreate");
                 K.l(extras, "update_tag_by_activity_on_create");
             }
         }
         if (K.E() && a2) {
             K.q().X().J0("1250000000000000");
         }
-        gj3.b(this);
+        xj3.b(this);
         if (Build.VERSION.SDK_INT != 26) {
-            this.v = new xh3(this);
+            this.v = new oi3(this);
         }
-        xh3 xh3Var = this.v;
-        if (xh3Var != null) {
-            xh3Var.w(false);
+        oi3 oi3Var = this.v;
+        if (oi3Var != null) {
+            oi3Var.w(false);
         }
-        xh3 xh3Var2 = this.v;
-        if (xh3Var2 != null) {
-            xh3Var2.o();
+        oi3 oi3Var2 = this.v;
+        if (oi3Var2 != null) {
+            oi3Var2.o();
         }
         ExecutorUtilsExt.postOnSerial(new h(), "小程序稳定性数据采集");
-        ji3.k(new i(), "initOnCreate");
+        aj3.k(new i(), "initOnCreate");
         this.z = (bundle == null || bundle.getInt("swan_key_save_task_id") != getTaskId()) ? false : false;
     }
 
@@ -1178,9 +1178,9 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
     public void onNewIntent(Intent intent) {
         boolean z;
         super.onNewIntent(intent);
-        kc2.e();
+        bd2.e();
         intent.putExtra("receive_launch_intent_time", System.currentTimeMillis());
-        p22.i("SwanApp", "SwanAppActivity onNewIntent");
+        g32.i("SwanApp", "SwanAppActivity onNewIntent");
         setIntent(intent);
         overridePendingTransition(R.anim.obfuscated_res_0x7f010023, R.anim.obfuscated_res_0x7f01001d);
         if (B) {
@@ -1195,24 +1195,24 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
             sb.append(z);
             Log.i("SwanAppActivity", sb.toString());
         }
-        xh3 xh3Var = this.v;
-        if (xh3Var != null) {
-            xh3Var.s();
+        oi3 oi3Var = this.v;
+        if (oi3Var != null) {
+            oi3Var.s();
         }
         if (intent.getExtras() != null && intent.getExtras().getBoolean("property_web_mode_degrade")) {
-            p22.i("SwanAppActivity", "onNewIntent: start swan web");
-            o53.K().q().B0();
+            g32.i("SwanAppActivity", "onNewIntent: start swan web");
+            f63.K().q().B0();
         }
         this.s = true;
-        dc3.l(true);
-        o53 K = o53.K();
+        uc3.l(true);
+        f63 K = f63.K();
         K.l(intent.getExtras(), "update_tag_by_activity_on_new_intent");
-        if (K.E() && oq2.a(intent)) {
+        if (K.E() && fr2.a(intent)) {
             K.q().Z().J0("1250000000000000");
         }
-        vh3 vh3Var = this.q;
-        if (vh3Var != null) {
-            vh3Var.z(intent, getTaskId());
+        mi3 mi3Var = this.q;
+        if (mi3Var != null) {
+            mi3Var.z(intent, getTaskId());
         }
     }
 
@@ -1220,37 +1220,37 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         if (!TextUtils.isEmpty(str)) {
             r0(str);
         } else if (isDestroyed()) {
-            p22.i("SwanAppActivity", "onAppWebModeStart: swan activity isDestroyed.");
-        } else if (c52.b.a() && o53.K().q().A0() && xh4.d()) {
+            g32.i("SwanAppActivity", "onAppWebModeStart: swan activity isDestroyed.");
+        } else if (t52.b.a() && f63.K().q().A0() && oi4.d()) {
             H0(true);
-            jc2.V().b1();
+            ad2.V().b1();
         } else if (b0() && !g0()) {
             H0(true);
-            s0(ei4.e().b());
-        } else if (o53.K().q().A0() && xh4.d()) {
+            s0(vi4.e().b());
+        } else if (f63.K().q().A0() && oi4.d()) {
             H0(true);
-            jc2.V().b1();
+            ad2.V().b1();
         } else {
-            String D2 = wo2.o().D();
-            if (wo2.a().c() && !jj3.G() && !TextUtils.isEmpty(D2)) {
+            String D2 = np2.o().D();
+            if (np2.a().c() && !ak3.G() && !TextUtils.isEmpty(D2)) {
                 H0(true);
-                s0(Uri.parse(D2).buildUpon().appendQueryParameter("appkey", o53.K().getAppId()).build().toString());
+                s0(Uri.parse(D2).buildUpon().appendQueryParameter("appkey", f63.K().getAppId()).build().toString());
                 return;
             }
-            ih3 ih3Var = new ih3();
-            ih3Var.k(1L);
-            ih3Var.i(2109L);
-            ih3Var.f("web mode start failed.");
+            zh3 zh3Var = new zh3();
+            zh3Var.k(1L);
+            zh3Var.i(2109L);
+            zh3Var.f("web mode start failed.");
             if (g0()) {
-                mh3.a().f(ih3Var);
-                qc3 qc3Var = new qc3();
-                qc3Var.p(ih3Var);
-                qc3Var.r(o53.K().q().X());
-                qc3Var.q(ic3.n(o53.K().k()));
-                qc3Var.m(o53.K().getAppId());
-                ic3.R(qc3Var);
+                di3.a().f(zh3Var);
+                hd3 hd3Var = new hd3();
+                hd3Var.p(zh3Var);
+                hd3Var.r(f63.K().q().X());
+                hd3Var.q(zc3.n(f63.K().k()));
+                hd3Var.m(f63.K().getAppId());
+                zc3.R(hd3Var);
             }
-            jq2.e(wo2.c(), ih3Var, 0, "");
+            ar2.e(np2.c(), zh3Var, 0, "");
             F0();
         }
     }

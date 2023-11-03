@@ -7,8 +7,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.od5;
-import com.baidu.tieba.pd5;
+import com.baidu.tieba.ke5;
+import com.baidu.tieba.le5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class PbNewEditorTool extends od5 {
+public class PbNewEditorTool extends ke5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EditText t;
@@ -29,6 +29,7 @@ public class PbNewEditorTool extends od5 {
         public static /* synthetic */ Interceptable $ic;
         public static final InputShowType REPLY;
         public static final InputShowType REPLY_BIG_IMAGE;
+        public static final InputShowType REPLY_BIG_IMAGE_FLOOR;
         public static final InputShowType REPLY_FLOOR;
         public static final InputShowType REPLY_VIDEO;
         public transient /* synthetic */ FieldHolder $fh;
@@ -49,9 +50,10 @@ public class PbNewEditorTool extends od5 {
             REPLY = new InputShowType("REPLY", 0);
             REPLY_FLOOR = new InputShowType("REPLY_FLOOR", 1);
             REPLY_VIDEO = new InputShowType("REPLY_VIDEO", 2);
-            InputShowType inputShowType = new InputShowType("REPLY_BIG_IMAGE", 3);
-            REPLY_BIG_IMAGE = inputShowType;
-            $VALUES = new InputShowType[]{REPLY, REPLY_FLOOR, REPLY_VIDEO, inputShowType};
+            REPLY_BIG_IMAGE = new InputShowType("REPLY_BIG_IMAGE", 3);
+            InputShowType inputShowType = new InputShowType("REPLY_BIG_IMAGE_FLOOR", 4);
+            REPLY_BIG_IMAGE_FLOOR = inputShowType;
+            $VALUES = new InputShowType[]{REPLY, REPLY_FLOOR, REPLY_VIDEO, REPLY_BIG_IMAGE, inputShowType};
         }
 
         public InputShowType(String str, int i) {
@@ -119,65 +121,65 @@ public class PbNewEditorTool extends od5 {
         ((PbNewInputContainer) this.m).setmAtListRequestResponseCode(i);
         this.t = ((PbNewInputContainer) this.m).getInputView();
         ((PbNewInputContainer) this.m).setHint(context.getString(R.string.say_your_point));
-        ((PbNewInputContainer) this.m).W(z2);
+        ((PbNewInputContainer) this.m).j0(z2);
         this.p = new int[]{4, 17, 24, 3, 9, 6, 44, 12, 10, 13, 11, 28, 29, 39, 45, 70};
     }
 
-    public void h(TextWatcher textWatcher) {
+    public void i(TextWatcher textWatcher) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, textWatcher) == null) {
             this.t.addTextChangedListener(textWatcher);
         }
     }
 
-    public void i(int i) {
-        pd5 pd5Var;
+    public void j(int i) {
+        le5 le5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (pd5Var = this.m) != null) {
-            ((PbNewInputContainer) pd5Var).G(i);
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (le5Var = this.m) != null) {
+            ((PbNewInputContainer) le5Var).P(i);
         }
     }
 
-    public void l(TextWatcher textWatcher) {
+    public void m(TextWatcher textWatcher) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, textWatcher) == null) {
             this.t.removeTextChangedListener(textWatcher);
         }
     }
 
-    public void m(String str) {
+    public void n(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && this.m != null && !StringUtils.isNull(str)) {
             ((PbNewInputContainer) this.m).setDefaultHint(str);
         }
     }
 
-    public void n(InputShowType inputShowType) {
+    public void o(InputShowType inputShowType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, inputShowType) == null) {
-            pd5 pd5Var = this.m;
-            if (pd5Var instanceof PbNewInputContainer) {
-                ((PbNewInputContainer) pd5Var).setFromType(inputShowType);
+            le5 le5Var = this.m;
+            if (le5Var instanceof PbNewInputContainer) {
+                ((PbNewInputContainer) le5Var).setFromType(inputShowType);
             }
         }
     }
 
-    public void o(String str) {
+    public void p(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && this.m != null && !StringUtils.isNull(str)) {
             ((PbNewInputContainer) this.m).setHint(str);
         }
     }
 
-    public void p(int i) {
-        pd5 pd5Var;
+    public void q(int i) {
+        le5 le5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && (pd5Var = this.m) != null) {
-            ((PbNewInputContainer) pd5Var).setType(i);
+        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && (le5Var = this.m) != null) {
+            ((PbNewInputContainer) le5Var).setType(i);
         }
     }
 
-    public EditText j() {
+    public EditText k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -186,11 +188,11 @@ public class PbNewEditorTool extends od5 {
         return (EditText) invokeV.objValue;
     }
 
-    public void k() {
-        pd5 pd5Var;
+    public void l() {
+        le5 le5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (pd5Var = this.m) != null) {
-            ((PbNewInputContainer) pd5Var).T();
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (le5Var = this.m) != null) {
+            ((PbNewInputContainer) le5Var).f0();
         }
     }
 }

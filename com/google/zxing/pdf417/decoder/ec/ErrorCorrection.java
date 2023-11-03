@@ -1,7 +1,7 @@
 package com.google.zxing.pdf417.decoder.ec;
 
 import com.google.zxing.ChecksumException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ErrorCorrection {
     public final ModulusGF field = ModulusGF.PDF417_GF;
 

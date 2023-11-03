@@ -213,7 +213,7 @@ public class BdPagerTabHost extends FrameLayout {
 
     public void setTabBarHeight(int i) {
         ViewGroup.LayoutParams layoutParams;
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f091a80);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f091ac7);
         if (findViewById != null && (layoutParams = findViewById.getLayoutParams()) != null) {
             layoutParams.height = i;
             findViewById.setLayoutParams(layoutParams);
@@ -384,11 +384,11 @@ public class BdPagerTabHost extends FrameLayout {
         }
         this.mContext = context;
         if (this.mCanViewPagerScroll) {
-            inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d076a, this);
+            inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d077f, this);
         } else {
-            inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d076b, this);
+            inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0780, this);
         }
-        BdPagerTabBar bdPagerTabBar = (BdPagerTabBar) inflate.findViewById(R.id.obfuscated_res_0x7f091a7f);
+        BdPagerTabBar bdPagerTabBar = (BdPagerTabBar) inflate.findViewById(R.id.obfuscated_res_0x7f091ac6);
         this.mPagerTabBar = bdPagerTabBar;
         bdPagerTabBar.setUIStandard(this.mUseStandardStyle, this.mLayoutInActionBar);
         if (!isInEditMode()) {
@@ -401,10 +401,10 @@ public class BdPagerTabHost extends FrameLayout {
                 }
             });
         }
-        this.mViewPager = (ViewPager) inflate.findViewById(R.id.obfuscated_res_0x7f09298b);
-        this.mDivider = inflate.findViewById(R.id.obfuscated_res_0x7f0923ab);
+        this.mViewPager = (ViewPager) inflate.findViewById(R.id.obfuscated_res_0x7f0929ea);
+        this.mDivider = inflate.findViewById(R.id.obfuscated_res_0x7f092402);
         this.mViewPager.setOffscreenPageLimit(3);
-        DrawablePageIndicator drawablePageIndicator = (DrawablePageIndicator) inflate.findViewById(R.id.obfuscated_res_0x7f09113b);
+        DrawablePageIndicator drawablePageIndicator = (DrawablePageIndicator) inflate.findViewById(R.id.obfuscated_res_0x7f091178);
         this.mPageIndicator = drawablePageIndicator;
         drawablePageIndicator.setUseStandardStyle(this.mUseStandardStyle);
         if (!this.mEnableIndicator) {
@@ -490,9 +490,9 @@ public class BdPagerTabHost extends FrameLayout {
                 }
             }
         });
-        this.pagerTabBarContainer = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091a80);
-        this.settingLayout = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0921b7);
-        this.settingImage = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0921b6);
+        this.pagerTabBarContainer = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091ac7);
+        this.settingLayout = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092200);
+        this.settingImage = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0921ff);
         if (this.mLayoutInActionBar) {
             setTabTextSize((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0701bb));
         } else {

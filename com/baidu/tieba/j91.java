@@ -1,67 +1,79 @@
 package com.baidu.tieba;
 
-import android.database.sqlite.SQLiteDatabase;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nps.interfa.IAlertManager;
+import com.baidu.nps.interfa.IAlertManager_AlertManager_Provider;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class j91 {
+public class j91 {
     public static /* synthetic */ Interceptable $ic;
+    public static j91 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    @Inject
+    public of1<IAlertManager> a;
 
-    public abstract boolean b(SQLiteDatabase sQLiteDatabase);
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            mf1 b2 = mf1.b();
+            this.a = b2;
+            b2.a(new IAlertManager_AlertManager_Provider());
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947838023, "Lcom/baidu/tieba/j91;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947838023, "Lcom/baidu/tieba/j91;");
+                return;
+            }
+        }
+        b = new j91();
+    }
 
     public j91() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = false;
+        b();
     }
 
-    public boolean a() {
+    public static j91 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
         }
-        return invokeV.booleanValue;
+        return (j91) invokeV.objValue;
     }
 
-    public void c(SQLiteDatabase sQLiteDatabase) {
+    public void c(String str, String str2, View.OnClickListener onClickListener, String str3, View.OnClickListener onClickListener2, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) == null) {
-            this.a = false;
-            try {
-                sQLiteDatabase.beginTransaction();
-                if (b(sQLiteDatabase)) {
-                    sQLiteDatabase.setTransactionSuccessful();
-                    this.a = true;
-                }
-            } catch (Exception unused) {
-            } catch (Throwable th) {
-                try {
-                    sQLiteDatabase.endTransaction();
-                } catch (Exception unused2) {
-                }
-                throw th;
-            }
-            try {
-                sQLiteDatabase.endTransaction();
-            } catch (Exception unused3) {
-            }
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, onClickListener, str3, onClickListener2, str4}) == null) {
+            this.a.get().onAlert(str, str2, onClickListener, str3, onClickListener2, str4);
         }
     }
 }

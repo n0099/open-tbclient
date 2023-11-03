@@ -1,610 +1,852 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
 import android.text.TextUtils;
+import android.webkit.JsPromptResult;
+import android.webkit.WebView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.framework.client.HttpClient;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.adp.framework.task.MessageTask;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.DeviceInfoHelper;
+import com.baidu.android.imsdk.chatmessage.messages.AdvisoryMsgBusinessExtra;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
-import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
-import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
-import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tbadk.vcode.VcodeTool;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.browser.SearchJsBridge;
+import com.baidu.tbadk.browser.proxy.OfflineBridgeData;
+import com.baidu.tbadk.browser.proxy.OfflineWebViewHttpResMsg;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.EditHeadActivityConfig;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.view.spanGroup.RequestUrlParserNetMessage;
+import com.baidu.tbadk.core.view.spanGroup.UrlParserHttpResponseMessage;
 import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.tieba.hz4;
-import com.baidu.tieba.sda;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.log.TbLog;
+import com.baidu.tieba.tbadkCore.util.MercatorModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import java.util.ArrayList;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
+import com.baidu.util.Base64Encoder;
+import com.google.gson.JsonSyntaxException;
+import java.lang.ref.WeakReference;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
+import tbclient.UrlParser.UrlParserResIdl;
 /* loaded from: classes7.dex */
-public final class ps4 extends gd5 {
+public class ps4 implements cj6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> b;
-    public os4 c;
-    public NewWriteModel d;
-    public String e;
-    public SpanGroupManager f;
-    public String g;
-    public String h;
-    public String i;
-    public final NewWriteModel.d j;
-    public sda.h k;
+    public final zt4 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948072600, "Lcom/baidu/tieba/ps4;")) == null) {
-            return;
+    @Override // com.baidu.tieba.cj6
+    public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
+        bj6.a(this, webView, str, jSONObject);
+    }
+
+    @Override // com.baidu.tieba.cj6
+    public /* synthetic */ void onDestroy() {
+        bj6.b(this);
+    }
+
+    /* loaded from: classes7.dex */
+    public class g extends HttpClient.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ WebView e;
+        public final /* synthetic */ String f;
+
+        /* loaded from: classes7.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ HashMap a;
+            public final /* synthetic */ g b;
+
+            public a(g gVar, HashMap hashMap) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {gVar, hashMap};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = gVar;
+                this.a = hashMap;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    dj6.a().d(this.b.e, "parseLink", this.a);
+                }
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public g(ps4 ps4Var, HttpMessage httpMessage, HttpMessageTask httpMessageTask, WebView webView, String str) {
+            super(httpMessage, httpMessageTask);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ps4Var, httpMessage, httpMessageTask, webView, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((HttpMessage) objArr2[0], (HttpMessageTask) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = webView;
+            this.f = str;
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948072600, "Lcom/baidu/tieba/ps4;");
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: e */
+        public void publishProgress(ResponsedMessage<?>... responsedMessageArr) {
+            UrlParserResIdl responseData;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessageArr) == null) {
+                synchronized (y30.class) {
+                    if (responsedMessageArr != null) {
+                        if (responsedMessageArr.length > 0) {
+                            LinkedHashMap linkedHashMap = new LinkedHashMap();
+                            JSONObject jSONObject = new JSONObject();
+                            ResponsedMessage<?> responsedMessage = responsedMessageArr[0];
+                            if (responsedMessage != null) {
+                                try {
+                                    if (responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof RequestUrlParserNetMessage)) {
+                                        RequestUrlParserNetMessage requestUrlParserNetMessage = (RequestUrlParserNetMessage) responsedMessage.getOrginalMessage().getExtra();
+                                        jSONObject.put("originUrl", requestUrlParserNetMessage.getUrl());
+                                        jSONObject.put("linkNum", requestUrlParserNetMessage.getLinkNum());
+                                    }
+                                } catch (Exception e) {
+                                    if (TbadkApplication.getInst().isDebugMode()) {
+                                        throw new JsonSyntaxException("parseLink端能力执行失败：" + e.getMessage());
+                                    }
+                                }
+                            }
+                            if ((responsedMessage instanceof UrlParserHttpResponseMessage) && (responseData = ((UrlParserHttpResponseMessage) responsedMessage).getResponseData()) != null && responseData.data != null) {
+                                jSONObject.put("url_type", responseData.data.url_type);
+                                jSONObject.put("status", responseData.data.status);
+                                jSONObject.put("image", responseData.data.image);
+                                jSONObject.put("link_from", responseData.data.link_from);
+                                jSONObject.put("title", responseData.data.title);
+                                jSONObject.put("price_txt", responseData.data.price_txt);
+                                jSONObject.put("is_recognize", responseData.data.is_recognize);
+                                jSONObject.put("description", responseData.data.description);
+                                if (responseData.data.card_link_info != null) {
+                                    JSONObject jSONObject2 = new JSONObject();
+                                    jSONObject2.put("type", responseData.data.card_link_info.type);
+                                    jSONObject2.put(EditHeadActivityConfig.IMAGE_URL, responseData.data.card_link_info.image_url);
+                                    jSONObject2.put("tag_text", responseData.data.card_link_info.tag_text);
+                                    jSONObject2.put("tag_color", responseData.data.card_link_info.tag_color);
+                                    jSONObject2.put("title", responseData.data.card_link_info.title);
+                                    jSONObject2.put(GameGuideConfigInfo.KEY_CONTENT1, responseData.data.card_link_info.content1);
+                                    jSONObject2.put(GameGuideConfigInfo.KEY_CONTENT2, responseData.data.card_link_info.content2);
+                                    jSONObject2.put("btn_style", responseData.data.card_link_info.btn_style);
+                                    jSONObject2.put("btn_text", responseData.data.card_link_info.btn_text);
+                                    jSONObject2.put("text_btn_status", responseData.data.card_link_info.text_btn_status);
+                                    jSONObject2.put("url", responseData.data.card_link_info.url);
+                                    jSONObject.put("card_link_info", jSONObject2);
+                                }
+                            }
+                            if (this.e != null) {
+                                linkedHashMap.put("result", jSONObject.toString());
+                                linkedHashMap.put("NotificationKey", this.f);
+                                SafeHandler.getInst().post(new a(this, linkedHashMap));
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ps4(final EditorTools editorTools) {
-        super(editorTools);
+    /* loaded from: classes7.dex */
+    public class a extends au5<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+
+        public a(ps4 ps4Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ps4Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.au5
+        public String doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                vsa.h(this.a);
+                return this.a;
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements ft5<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(ps4 ps4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ps4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ft5
+        /* renamed from: a */
+        public void onReturnDataInUI(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921557, str));
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c extends au5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c(ps4 ps4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ps4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.au5
+        public Object doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                vsa.b();
+                return null;
+            }
+            return invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class d implements ft5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d(ps4 ps4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ps4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.ft5
+        public void onReturnDataInUI(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921558));
+                ju4.c().a();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class e extends au5<List<String>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public e(ps4 ps4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ps4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.au5
+        public List<String> doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return vsa.k();
+            }
+            return (List) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class f implements ft5<List<String>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ WebView a;
+
+        public f(ps4 ps4Var, WebView webView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ps4Var, webView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = webView;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ft5
+        /* renamed from: a */
+        public void onReturnDataInUI(List<String> list) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, list) == null) && !ListUtils.isEmpty(list)) {
+                int count = ListUtils.getCount(list);
+                LinkedHashMap linkedHashMap = new LinkedHashMap();
+                JSONArray jSONArray = new JSONArray();
+                for (int i = 0; i < count; i++) {
+                    jSONArray.put(list.get(i));
+                }
+                linkedHashMap.put("result", jSONArray.toString());
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921556, Boolean.TRUE));
+                if (this.a != null) {
+                    dj6.a().d(this.a, SearchJsBridge.METHOD_GET_SEARCH_HISTORY, linkedHashMap);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class h extends BdAsyncTask<Object, Integer, String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+        public final String b;
+        public final HashMap<String, String> c;
+        public final WeakReference<WebView> d;
+        public final int e;
+        public final int f;
+        public final long g;
+
+        public h(String str, String str2, int i, int i2, long j, HashMap<String, String> hashMap, WebView webView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), hashMap, webView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = str2;
+            this.e = i;
+            this.f = i2;
+            this.g = j;
+            this.c = hashMap;
+            this.d = new WeakReference<>(webView);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public String doInBackground(Object... objArr) {
+            InterceptResult invokeL;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
+                if (BdNetTypeUtil.isNetWorkAvailable() && !TextUtils.isEmpty(this.a)) {
+                    try {
+                        NetWork netWork = new NetWork(this.a);
+                        boolean z2 = false;
+                        if (this.e == 1) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                        netWork.setNeedBdussForPost(z);
+                        if (this.f == 1) {
+                            z2 = true;
+                        }
+                        netWork.setNeedTbs(z2);
+                        if (this.c != null && !this.c.isEmpty()) {
+                            for (Map.Entry<String, String> entry : this.c.entrySet()) {
+                                netWork.addPostData(entry.getKey(), entry.getValue());
+                            }
+                        }
+                        if (CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE.equals(this.b)) {
+                            return netWork.getNetString();
+                        }
+                        return netWork.postNetData();
+                    } catch (Exception e) {
+                        TbLog hybridLog = HybridLog.getInstance();
+                        hybridLog.e("nativeNetworkProxy", "request Exception:" + e);
+                        BdLog.e(e.getMessage());
+                        return "";
+                    }
+                }
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+                super.onPostExecute((h) str);
+                LinkedHashMap linkedHashMap = new LinkedHashMap();
+                linkedHashMap.put("result", str);
+                linkedHashMap.put("NotificationKey", this.a + this.g);
+                if (this.d.get() != null) {
+                    dj6.a().d(this.d.get(), "nativeNetworkProxyResult", linkedHashMap);
+                }
+            }
+        }
+    }
+
+    public ps4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {editorTools};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((EditorTools) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(editorTools, "editorTools");
-        this.e = "";
-        this.g = "none";
-        this.h = "";
-        this.i = "";
-        this.j = new NewWriteModel.d() { // from class: com.baidu.tieba.ms4
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
-            public final void callback(boolean z, PostWriteCallBackData postWriteCallBackData, m85 m85Var, WriteData writeData, AntiData antiData) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, m85Var, writeData, antiData}) == null) {
-                    ps4.j(ps4.this, z, postWriteCallBackData, m85Var, writeData, antiData);
-                }
-            }
-        };
-        this.k = new sda.h() { // from class: com.baidu.tieba.js4
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            @Override // com.baidu.tieba.sda.h
-            public final void c(WriteData writeData) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, writeData) == null) {
-                    ps4.b(ps4.this, editorTools, writeData);
-                }
-            }
-        };
+        this.a = new zt4();
     }
 
-    public static final void b(ps4 this$0, EditorTools editorTools, WriteData writeData) {
-        String str;
+    @Override // com.baidu.tieba.cj6
+    public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, this$0, editorTools, writeData) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            Intrinsics.checkNotNullParameter(editorTools, "$editorTools");
-            if (writeData != null) {
-                str = writeData.getContent();
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            if (!"CommonJSBridge".equals(str)) {
+                return false;
+            }
+            if (SearchJsBridge.METHOD_GET_SEARCH_HISTORY.equals(str2)) {
+                jsPromptResult.confirm(g(webView).a());
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921556, Boolean.TRUE));
+                return true;
+            } else if (SearchJsBridge.METHOD_DELETE_SEARCH_HISTORY.equals(str2)) {
+                try {
+                    jsPromptResult.confirm(e(webView, new JSONObject(str3).optString("query")).a());
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                }
+                return true;
+            } else if (SearchJsBridge.METHOD_DELETE_ALL_SEARCH_HISTORY.equals(str2)) {
+                jsPromptResult.confirm(d(webView).a());
+                return true;
+            } else if (SearchJsBridge.METHOD_OPEN_SEACH_PAGE.equals(str2)) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str3);
+                    jsPromptResult.confirm(n(webView, jSONObject.optString("query"), jSONObject.optInt("sub_type")).a());
+                } catch (JSONException e3) {
+                    e3.printStackTrace();
+                }
+                return true;
+            } else if (SearchJsBridge.GET_SEARCH_AD_COOKIE.equals(str2)) {
+                jsPromptResult.confirm(f(webView).a());
+                return true;
             } else {
-                str = null;
+                if (TextUtils.equals("requestByNative", str2)) {
+                    try {
+                        OfflineBridgeData offlineBridgeData = (OfflineBridgeData) OrmObject.objectWithJsonStr(str3, OfflineBridgeData.class);
+                        offlineBridgeData.begin = System.currentTimeMillis();
+                        this.a.j(webView, offlineBridgeData, offlineBridgeData.callBack);
+                        jsPromptResult.confirm();
+                        return true;
+                    } catch (Exception e4) {
+                        e4.printStackTrace();
+                    }
+                }
+                return false;
             }
-            if (!StringUtils.isNull(str)) {
-                String content = writeData.getContent();
-                Intrinsics.checkNotNullExpressionValue(content, "draftData.content");
-                this$0.e = content;
-                editorTools.D(new cd5(6, 40, writeData.getContent()));
-            }
+        }
+        return invokeLLLLL.booleanValue;
+    }
+
+    public final void c(JSONObject jSONObject, String str, String str2) throws JSONException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, str, str2) == null) {
+            jSONObject.put(str, str2);
         }
     }
 
-    public static final void j(ps4 this$0, boolean z, PostWriteCallBackData postWriteCallBackData, m85 m85Var, WriteData writeData, AntiData antiData) {
-        WriteData writeData2;
-        Integer num;
-        String str;
-        String str2;
-        String str3;
-        String str4;
-        String str5;
-        String str6;
-        String str7;
-        String str8;
-        String str9;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{this$0, Boolean.valueOf(z), postWriteCallBackData, m85Var, writeData, antiData}) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            String str10 = null;
-            if (writeData == null) {
-                NewWriteModel newWriteModel = this$0.d;
-                if (newWriteModel == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("mWriteModel");
-                    newWriteModel = null;
-                }
-                writeData2 = newWriteModel.d0();
-            } else {
-                writeData2 = writeData;
-            }
-            if (writeData2 == null) {
-                return;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject();
-                if (postWriteCallBackData != null) {
-                    num = Integer.valueOf(postWriteCallBackData.getErrorCode());
-                } else {
-                    num = null;
-                }
-                jSONObject.put(CloudStabilityUBCUtils.KEY_ERROR_CODE, num);
-                if (postWriteCallBackData != null) {
-                    str = postWriteCallBackData.getErrorString();
-                } else {
-                    str = null;
-                }
-                jSONObject.put("errorString", str);
-                if (postWriteCallBackData != null) {
-                    str2 = postWriteCallBackData.getPostId();
-                } else {
-                    str2 = null;
-                }
-                jSONObject.put("postId", str2);
-                if (postWriteCallBackData != null) {
-                    str3 = postWriteCallBackData.getThreadId();
-                } else {
-                    str3 = null;
-                }
-                jSONObject.put("threadId", str3);
-                if (writeData != null) {
-                    str4 = writeData.getContent();
-                } else {
-                    str4 = null;
-                }
-                jSONObject.put("content", str4);
-                if (writeData != null) {
-                    str5 = writeData.getFloor();
-                } else {
-                    str5 = null;
-                }
-                jSONObject.put("floor", str5);
-                if (writeData != null) {
-                    str6 = writeData.getForumId();
-                } else {
-                    str6 = null;
-                }
-                jSONObject.put("forumId", str6);
-                if (writeData != null) {
-                    str7 = writeData.getForumName();
-                } else {
-                    str7 = null;
-                }
-                jSONObject.put("forumName", str7);
-                if (writeData != null) {
-                    str8 = writeData.getReplyId();
-                } else {
-                    str8 = null;
-                }
-                jSONObject.put("replyUId", str8);
-                if (writeData != null) {
-                    str9 = writeData.getRepostId();
-                } else {
-                    str9 = null;
-                }
-                jSONObject.put("repostId", str9);
-                os4 os4Var = this$0.c;
-                if (os4Var == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("mConfig");
-                    os4Var = null;
-                }
-                jSONObject.put("replyUName", os4Var.a().get("replyUName"));
-                hh6.a().h("webviewPage.replyResult", jSONObject);
-            } catch (Exception unused) {
-            }
-            if (z) {
-                this$0.d();
-                this$0.p();
-                this$0.n();
-                return;
-            }
-            if (m85Var != null) {
-                str10 = m85Var.d();
-            }
-            if (!TextUtils.isEmpty(str10)) {
-                writeData2.setVcodeMD5(m85Var.b());
-                writeData2.setVcodeUrl(m85Var.c());
-                writeData2.setVcodeExtra(m85Var.a());
-                if (VcodeTool.needVcode(m85Var.d())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this$0.e().getPageActivity(), 12006, writeData2, false, m85Var.d())));
-                } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this$0.e().getPageActivity(), writeData2, 12006)));
-                }
-            } else if (postWriteCallBackData == null) {
-            } else {
-                if (postWriteCallBackData.getErrorCode() == 227001) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this$0.e().getPageActivity(), 12006, writeData2, postWriteCallBackData.getAccessState())));
-                } else if (postWriteCallBackData.getErrorCode() == 220015) {
-                    this$0.v(postWriteCallBackData.getErrorString());
-                } else if (postWriteCallBackData.getErrorCode() != 230277 && postWriteCallBackData.getErrorCode() != 230278 && postWriteCallBackData.getErrorCode() != 340016 && postWriteCallBackData.getErrorCode() != 1990032 && !AntiHelper.l(postWriteCallBackData.getErrorCode())) {
-                    this$0.v(postWriteCallBackData.getErrorString());
-                } else {
-                    int errorCode = postWriteCallBackData.getErrorCode();
-                    String errorString = postWriteCallBackData.getErrorString();
-                    Intrinsics.checkNotNullExpressionValue(errorString, "data.errorString");
-                    this$0.t(errorCode, errorString);
-                }
-            }
-        }
-    }
-
-    public static final void u(hz4 hz4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, hz4Var) == null) {
-            hz4Var.dismiss();
-        }
-    }
-
-    public final String h(String str) {
+    public nsa d(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            os4 os4Var = this.c;
-            if (os4Var == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mConfig");
-                os4Var = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, webView)) == null) {
+            nsa nsaVar = new nsa();
+            eu5.b(new c(this), new d(this));
+            return nsaVar;
+        }
+        return (nsa) invokeL.objValue;
+    }
+
+    public nsa f(WebView webView) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, webView)) == null) {
+            nsa nsaVar = new nsa();
+            nsaVar.o(j());
+            return nsaVar;
+        }
+        return (nsa) invokeL.objValue;
+    }
+
+    public nsa i(WebView webView) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView)) == null) {
+            nsa nsaVar = new nsa();
+            eu5.b(new e(this), new f(this, webView));
+            return nsaVar;
+        }
+        return (nsa) invokeL.objValue;
+    }
+
+    public nsa e(WebView webView, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
+            nsa nsaVar = new nsa();
+            eu5.b(new a(this, str), new b(this));
+            return nsaVar;
+        }
+        return (nsa) invokeLL.objValue;
+    }
+
+    public nsa h(WebView webView, HashMap<String, String> hashMap) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, webView, hashMap)) == null) {
+            nsa nsaVar = new nsa();
+            if (hashMap != null && hashMap.get("result") != null) {
+                nsaVar.o(hashMap.get("result"));
             }
-            Object obj = os4Var.a().get(str);
-            if (!(obj instanceof String)) {
-                return null;
+            return nsaVar;
+        }
+        return (nsa) invokeLL.objValue;
+    }
+
+    public /* synthetic */ void k(WebView webView, OfflineBridgeData offlineBridgeData) {
+        this.a.k(webView, offlineBridgeData, offlineBridgeData.callBack, true);
+    }
+
+    public nsa g(WebView webView) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, webView)) == null) {
+            nsa nsaVar = new nsa();
+            List<String> b2 = ju4.c().b();
+            int count = ListUtils.getCount(b2);
+            if (count == 0) {
+                nsaVar.o("");
             }
-            return (String) obj;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final void i(TbPageContext<?> context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            q(context);
-            NewWriteModel newWriteModel = new NewWriteModel(context);
-            this.d = newWriteModel;
-            if (newWriteModel == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mWriteModel");
-                newWriteModel = null;
+            JSONArray jSONArray = new JSONArray();
+            for (int i = 0; i < count; i++) {
+                jSONArray.put(b2.get(i));
             }
-            newWriteModel.l0(this.j);
+            nsaVar.o(jSONArray.toString());
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921556, Boolean.TRUE));
+            return nsaVar;
         }
+        return (nsa) invokeL.objValue;
     }
 
-    public final void q(TbPageContext<?> tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, tbPageContext) == null) {
-            Intrinsics.checkNotNullParameter(tbPageContext, "<set-?>");
-            this.b = tbPageContext;
-        }
-    }
-
-    public final void r(String content) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, content) == null) {
-            Intrinsics.checkNotNullParameter(content, "content");
-            this.e = content;
-        }
-    }
-
-    public final void s(SpanGroupManager spanGroupManager) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, spanGroupManager) == null) {
-            this.f = spanGroupManager;
-        }
-    }
-
-    public final void v(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048592, this, str) == null) && !StringUtils.isNull(str)) {
-            e().showToast(str);
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (!TextUtils.isEmpty(this.h)) {
-                sda.C(this.h, null);
-            } else if (!TextUtils.isEmpty(this.i)) {
-                sda.E(this.i, null);
-            }
-        }
-    }
-
-    public final TbPageContext<?> e() {
+    public final String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            TbPageContext<?> tbPageContext = this.b;
-            if (tbPageContext != null) {
-                return tbPageContext;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                MercatorModel.MercatorData e2 = MercatorModel.d().e();
+                if (e2 != null) {
+                    c(jSONObject, SearchJsBridge.COOKIE_MERCATOR_LAT, e2.R());
+                    c(jSONObject, SearchJsBridge.COOKIE_MERCATOR_LON, e2.S());
+                    c(jSONObject, SearchJsBridge.COOKIE_MERCATOR_CITY, String.valueOf(e2.O()));
+                    c(jSONObject, SearchJsBridge.COOKIE_MERCATOR_RADIUS, e2.U());
+                    c(jSONObject, SearchJsBridge.COOKIE_MERCATOR_TIME, String.valueOf(e2.V()));
+                }
+                c(jSONObject, SearchJsBridge.COOKIE_MOD, DeviceInfoHelper.getModel());
+                c(jSONObject, "ov", DeviceInfoHelper.getOsVersion());
+                c(jSONObject, "os_type", String.valueOf(2));
+                c(jSONObject, "net_type", String.valueOf(BdNetTypeUtil.netType()));
+                c(jSONObject, "imei", TbadkCoreApplication.getInst().getImei());
+                c(jSONObject, "from", TbConfig.getFrom());
+                c(jSONObject, "cfrom", TbConfig.getCurrentFrom());
+                c(jSONObject, "_client_version", TbConfig.getVersion());
+                c(jSONObject, "CUID", TbadkCoreApplication.getInst().getCuid());
+                String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
+                c(jSONObject, "shoubai_cuid", cuidGalaxy2);
+                c(jSONObject, "cuid_galaxy2", cuidGalaxy2);
+                if (!TextUtils.isEmpty(cuidGalaxy2)) {
+                    c(jSONObject, "baiduid", new String(Base64Encoder.B64Encode(cuidGalaxy2.getBytes())));
+                }
+            } catch (JSONException e3) {
+                BdLog.e(e3);
             }
-            Intrinsics.throwUninitializedPropertyAccessException("context");
-            return null;
+            return jSONObject.toString();
         }
-        return (TbPageContext) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final void f() {
+    public nsa l(WebView webView, String str, String str2, String str3, JSONObject jSONObject, int i, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (!TextUtils.isEmpty(this.h)) {
-                sda.r(this.h, this.k);
-            } else if (!TextUtils.isEmpty(this.i)) {
-                sda.t(this.i, this.k);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{webView, str, str2, str3, jSONObject, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            nsa nsaVar = new nsa();
+            HashMap hashMap = new HashMap();
+            if (jSONObject != null) {
+                Iterator<String> keys = jSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    hashMap.put(next, jSONObject.optString(next));
+                }
             }
+            long currentTimeMillis = System.currentTimeMillis();
+            new h(str2 + str, str3, i, i2, currentTimeMillis, hashMap, webView).execute(new Object[0]);
+            nsaVar.x(str2 + str + currentTimeMillis);
+            return nsaVar;
         }
+        return (nsa) invokeCommon.objValue;
     }
 
-    public final SpanGroupManager g() {
-        InterceptResult invokeV;
+    public nsa m(WebView webView, HashMap<String, String> hashMap) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, webView, hashMap)) == null) {
+            nsa nsaVar = new nsa();
+            if (hashMap != null && hashMap.get("result") != null) {
+                nsaVar.o(OfflineWebViewHttpResMsg.quote(hashMap.get("result")));
+                nsaVar.x(hashMap.get("NotificationKey"));
+            }
+            nsaVar.A(true);
+            return nsaVar;
         }
-        return (SpanGroupManager) invokeV.objValue;
+        return (nsa) invokeLL.objValue;
     }
 
-    public final void l() {
+    public nsa p(WebView webView, HashMap<String, String> hashMap) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            NewWriteModel newWriteModel = this.d;
-            if (newWriteModel == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mWriteModel");
-                newWriteModel = null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, webView, hashMap)) == null) {
+            nsa nsaVar = new nsa();
+            if (hashMap != null && hashMap.get("result") != null) {
+                nsaVar.o(hashMap.get("result"));
+                nsaVar.x(hashMap.get("NotificationKey"));
             }
-            newWriteModel.cancelLoadData();
-            o();
+            return nsaVar;
         }
+        return (nsa) invokeLL.objValue;
     }
 
-    public final void n() {
+    public nsa r(WebView webView, HashMap<String, String> hashMap) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            NewWriteModel newWriteModel = this.d;
-            NewWriteModel newWriteModel2 = null;
-            if (newWriteModel == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mWriteModel");
-                newWriteModel = null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048594, this, webView, hashMap)) == null) {
+            nsa nsaVar = new nsa();
+            if (hashMap != null && hashMap.get("result") != null) {
+                nsaVar.o(hashMap.get("result"));
+                nsaVar.x(hashMap.get("NotificationKey"));
             }
-            newWriteModel.setWriteData(null);
-            NewWriteModel newWriteModel3 = this.d;
-            if (newWriteModel3 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mWriteModel");
-            } else {
-                newWriteModel2 = newWriteModel3;
-            }
-            newWriteModel2.j0(false);
+            nsaVar.A(true);
+            return nsaVar;
         }
+        return (nsa) invokeLL.objValue;
     }
 
-    public void k(int i, int i2, Intent intent) {
+    public nsa s(WebView webView, HashMap hashMap) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIL(1048582, this, i, i2, intent) == null) && i2 == -1) {
-            if (i != 12004 && i != 12005) {
-                if (i == 25004 && intent != null) {
-                    String stringExtra = intent.getStringExtra(HotTopicActivityConfig.HOT_TOPIC_SELECT_STRING);
-                    if (a() != null) {
-                        a().D(new cd5(44, 40, stringExtra));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048595, this, webView, hashMap)) == null) {
+            nsa nsaVar = new nsa();
+            try {
+                nsaVar.o(new JSONArray(hashMap.get("data").toString()).toString());
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            return nsaVar;
+        }
+        return (nsa) invokeLL.objValue;
+    }
+
+    public nsa n(WebView webView, String str, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048589, this, webView, str, i)) == null) {
+            nsa nsaVar = new nsa();
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("query", str);
+                jSONObject.put(AdvisoryMsgBusinessExtra.SUBTYPE_KEY, i);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921559, jSONObject.toString()));
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            return nsaVar;
+        }
+        return (nsa) invokeLLI.objValue;
+    }
+
+    public nsa o(WebView webView, String str, String str2, String str3) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048590, this, webView, str, str2, str3)) == null) {
+            nsa nsaVar = new nsa();
+            String str4 = str2 + "_" + str3 + "_" + System.currentTimeMillis();
+            nsaVar.x(str4);
+            RequestUrlParserNetMessage requestUrlParserNetMessage = new RequestUrlParserNetMessage();
+            requestUrlParserNetMessage.setParams(JavaTypesHelper.toLong(str, 0L), JavaTypesHelper.toInt(str3, 0), str2, 0);
+            MessageTask findTask = MessageManager.getInstance().findTask(requestUrlParserNetMessage.getHttpMessage().getCmd());
+            if (!(findTask instanceof HttpMessageTask)) {
+                return nsaVar;
+            }
+            new g(this, requestUrlParserNetMessage.getHttpMessage(), (HttpMessageTask) findTask, webView, str4).execute(new HttpMessage[0]);
+            return nsaVar;
+        }
+        return (nsa) invokeLLLL.objValue;
+    }
+
+    public nsa q(final WebView webView, String str, String str2, String str3, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048593, this, webView, str, str2, str3, jSONObject)) == null) {
+            nsa nsaVar = new nsa();
+            final OfflineBridgeData offlineBridgeData = new OfflineBridgeData();
+            offlineBridgeData.url = str;
+            offlineBridgeData.type = str2;
+            offlineBridgeData.module = str3;
+            if (jSONObject != null) {
+                HashMap hashMap = new HashMap();
+                Iterator<String> keys = jSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    hashMap.put(next, jSONObject.optString(next));
+                }
+                offlineBridgeData.data = hashMap;
+            }
+            offlineBridgeData.begin = System.currentTimeMillis();
+            SafeHandler.getInst().post(new Runnable() { // from class: com.baidu.tieba.gs4
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        ps4.this.k(webView, offlineBridgeData);
                     }
                 }
-            } else if (intent != null) {
-                ArrayList parcelableArrayListExtra = intent.getParcelableArrayListExtra(IntentConfig.AT_SELECT_LIST_DATA);
-                if (a() != null) {
-                    a().D(new cd5(17, 40, parcelableArrayListExtra));
-                }
-            }
+            });
+            nsaVar.x(str);
+            return nsaVar;
         }
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            WriteData writeData = new WriteData();
-            writeData.setForumId(h("forumId"));
-            writeData.setForumName(h("forumName"));
-            writeData.setThreadId(h("threadId"));
-            if (!TextUtils.isEmpty(this.g) && !Intrinsics.areEqual("text", this.g)) {
-                if (Intrinsics.areEqual("reply", this.g)) {
-                    writeData.setType(1);
-                } else if (Intrinsics.areEqual("replyFloor", this.g)) {
-                    writeData.setType(2);
-                    String h = h("postId");
-                    writeData.setFloor(h);
-                    writeData.setFloorNum(0);
-                    writeData.setReplyId(h("replyUid"));
-                    writeData.setRepostId(h);
-                    writeData.setPortrait(h("portrait"));
-                    writeData.setName(h("name"));
-                    writeData.setReSubPostId(h("reSubPostId"));
-                    writeData.setSubPbReplyPrefix(h("subPbReplyPrefix"));
-                }
-            } else {
-                writeData.setType(9);
-            }
-            writeData.setContent(this.e);
-            writeData.onPostDataParse(this.f);
-            NewWriteModel newWriteModel = this.d;
-            NewWriteModel newWriteModel2 = null;
-            if (newWriteModel == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mWriteModel");
-                newWriteModel = null;
-            }
-            newWriteModel.setWriteData(writeData);
-            NewWriteModel newWriteModel3 = this.d;
-            if (newWriteModel3 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mWriteModel");
-            } else {
-                newWriteModel2 = newWriteModel3;
-            }
-            newWriteModel2.o0();
-        }
-    }
-
-    public final void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            NewWriteModel newWriteModel = this.d;
-            if (newWriteModel == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mWriteModel");
-                newWriteModel = null;
-            }
-            WriteData d0 = newWriteModel.d0();
-            if (d0 == null) {
-                d0 = new WriteData();
-            }
-            d0.setForumId(h("forumId"));
-            d0.setForumName(h("forumName"));
-            d0.setThreadId(this.h);
-            d0.setContent(this.e);
-            if (!TextUtils.isEmpty(this.h)) {
-                d0.setType(1);
-                sda.C(this.h, d0);
-            } else if (!TextUtils.isEmpty(this.i)) {
-                d0.setType(2);
-                d0.setReplyId(h("replyUid"));
-                d0.setFloor(this.i);
-                d0.setPortrait(h("portrait"));
-                d0.setName(h("name"));
-                d0.setReSubPostId(h("reSubPostId"));
-                d0.setSubPbReplyPrefix(h("subPbReplyPrefix"));
-                sda.E(this.i, d0);
-            }
-        }
-    }
-
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && a() != null) {
-            a().D(new cd5(9, -1, Boolean.TRUE));
-            a().D(new cd5(4, -1, ""));
-            a().q();
-        }
-    }
-
-    public final void t(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048591, this, i, str) == null) {
-            if (AntiHelper.m(i, str)) {
-                AntiHelper.w(e().getPageActivity(), str, i, null);
-            } else if (i != 230277 && i != 230278) {
-                v(str);
-            } else {
-                hz4 hz4Var = new hz4(e().getPageActivity());
-                hz4Var.setMessage(str);
-                hz4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0b68, new hz4.e() { // from class: com.baidu.tieba.ks4
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // com.baidu.tieba.hz4.e
-                    public final void onClick(hz4 hz4Var2) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, hz4Var2) == null) {
-                            ps4.u(hz4Var2);
-                        }
-                    }
-                });
-                hz4Var.create(e()).show();
-            }
-        }
-    }
-
-    public final void w(os4 config) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, config) == null) {
-            Intrinsics.checkNotNullParameter(config, "config");
-            this.c = config;
-            od5 p = a().p(40);
-            Intrinsics.checkNotNullExpressionValue(p, "editorTools.findToolById…rToolsID.TOOL_ID_WEBVIEW)");
-            if (p instanceof rs4) {
-                ((rs4) p).i(config);
-                this.e = "";
-            }
-            String h = h("threadId");
-            String h2 = h("postId");
-            os4 os4Var = this.c;
-            if (os4Var == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mConfig");
-                os4Var = null;
-            }
-            boolean z2 = true;
-            if (!Intrinsics.areEqual(os4Var.a, this.g)) {
-                os4 os4Var2 = this.c;
-                if (os4Var2 == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("mConfig");
-                    os4Var2 = null;
-                }
-                String str = os4Var2.a;
-                Intrinsics.checkNotNullExpressionValue(str, "mConfig.mPostType");
-                this.g = str;
-                z = true;
-            } else {
-                z = false;
-            }
-            if (Intrinsics.areEqual("reply", this.g) && !TextUtils.isEmpty(h)) {
-                if (!StringsKt__StringsJVMKt.equals$default(h, this.h, false, 2, null)) {
-                    Intrinsics.checkNotNull(h);
-                    this.h = h;
-                    this.i = "";
-                }
-                z2 = z;
-            } else {
-                if (Intrinsics.areEqual("replyFloor", this.g) && !TextUtils.isEmpty(h2) && !StringsKt__StringsJVMKt.equals$default(h2, this.i, false, 2, null)) {
-                    this.h = "";
-                    Intrinsics.checkNotNull(h2);
-                    this.i = h2;
-                }
-                z2 = z;
-            }
-            HybridLog.getInstance().i("WebViewEditor", "updateConfig " + z2 + WebvttCueParser.CHAR_SPACE + this.g + WebvttCueParser.CHAR_SPACE + h + WebvttCueParser.CHAR_SPACE + h2);
-            if (z2) {
-                this.e = "";
-                a().D(new cd5(6, 40, ""));
-                f();
-            }
-        }
+        return (nsa) invokeLLLLL.objValue;
     }
 }

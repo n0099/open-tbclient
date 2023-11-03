@@ -77,7 +77,7 @@ public class am {
         public abstract void b();
 
         /* renamed from: c */
-        public void mo361c() {
+        public void mo365c() {
         }
     }
 

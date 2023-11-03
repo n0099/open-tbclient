@@ -1,106 +1,123 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
 import android.text.TextUtils;
-import android.util.LruCache;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class xua {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LruCache<String, Bitmap> a;
+    public final MainTabActivity a;
+    public final lua b;
+    public dq6 c;
+    public dq6 d;
+    public dq6 e;
 
-    /* loaded from: classes8.dex */
-    public class a extends LruCache<String, Bitmap> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(xua xuaVar, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xuaVar, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.util.LruCache
-        /* renamed from: a */
-        public void entryRemoved(boolean z, String str, Bitmap bitmap, Bitmap bitmap2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, bitmap, bitmap2}) == null) && bitmap != null && !bitmap.isRecycled()) {
-                bitmap.recycle();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.util.LruCache
-        /* renamed from: b */
-        public int sizeOf(String str, Bitmap bitmap) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bitmap)) == null) {
-                return (bitmap.getRowBytes() * bitmap.getHeight()) / 1024;
-            }
-            return invokeLL.intValue;
-        }
-    }
-
-    public xua(int i) {
+    public xua(MainTabActivity mainTabActivity, lua luaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {mainTabActivity, luaVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (i > 0) {
-            this.a = new a(this, i);
-            return;
-        }
-        throw new IllegalArgumentException("maxSize <= 0");
+        this.a = mainTabActivity;
+        this.b = luaVar;
     }
 
-    public Bitmap a(String str) {
-        InterceptResult invokeL;
+    public void a() {
+        dq6 dq6Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (dq6Var = this.e) != null && dq6Var.i()) {
+            this.e.h();
+        }
+    }
+
+    public void b() {
+        dq6 dq6Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (dq6Var = this.d) != null && dq6Var.i()) {
+            this.d.h();
+            this.d = null;
+        }
+    }
+
+    public void c() {
+        dq6 dq6Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (dq6Var = this.c) != null && dq6Var.i()) {
+            this.c.h();
+            this.c = null;
+        }
+    }
+
+    public void d() {
+        lua luaVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (luaVar = this.b) != null && luaVar.A() != null) {
+            FragmentTabWidget fragmentTabWidget = this.b.A().getFragmentTabWidget();
+            if (fragmentTabWidget.getChildCount() < 2) {
+                return;
             }
-            return this.a.get(str);
+            dq6 dq6Var = new dq6(this.a.getPageContext(), fragmentTabWidget.getChildAt(1));
+            this.e = dq6Var;
+            dq6Var.L(R.drawable.bg_tip_blue_down);
+            this.e.l(2);
+            this.e.o(32);
+            this.e.N(true);
+            this.e.R(-BdUtilHelper.getDimens(this.a, R.dimen.tbds10));
+            this.e.C(R.color.CAM_X0101);
+            this.e.p(R.dimen.tbds54);
+            this.e.w(1);
+            this.e.n(4000);
+            this.e.F(BdUtilHelper.getDimens(this.a, R.dimen.tbds44));
         }
-        return (Bitmap) invokeL.objValue;
     }
 
-    public void b(String str, Bitmap bitmap) {
+    public void e(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bitmap) == null) && !TextUtils.isEmpty(str) && bitmap != null && !bitmap.isRecycled()) {
-            this.a.put(str, bitmap);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && !TextUtils.isEmpty(str)) {
+            FragmentTabWidget fragmentTabWidget = this.b.A().getFragmentTabWidget();
+            if (fragmentTabWidget.getChildCount() < 2) {
+                return;
+            }
+            dq6 dq6Var = new dq6(this.a.getPageContext(), fragmentTabWidget.getChildAt(2));
+            this.c = dq6Var;
+            dq6Var.L(R.drawable.bg_tip_blue_down);
+            this.c.l(2);
+            this.c.o(32);
+            this.c.N(true);
+            this.c.R(-BdUtilHelper.getDimens(this.a, R.dimen.tbds10));
+            this.c.C(R.color.CAM_X0101);
+            this.c.p(R.dimen.tbds54);
+            this.c.w(999);
+            this.c.n(5000);
+            this.c.F(BdUtilHelper.getDimens(this.a, R.dimen.tbds44));
+            this.c.V(str, "categoryUpdate", false, true);
+        }
+    }
+
+    public void f() {
+        dq6 dq6Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (dq6Var = this.e) != null && !dq6Var.i()) {
+            dq6 dq6Var2 = this.e;
+            String string = this.a.getString(R.string.obfuscated_res_0x7f0f0685);
+            dq6Var2.T(string, "first_like_forum_enterforumtab_tips" + TbadkCoreApplication.getCurrentAccount());
         }
     }
 }

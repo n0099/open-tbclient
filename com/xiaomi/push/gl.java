@@ -108,8 +108,8 @@ public class gl extends gm {
 
     @Override // com.xiaomi.push.gm
     /* renamed from: a */
-    public String mo531a() {
-        gq m532a;
+    public String mo535a() {
+        gq m536a;
         StringBuilder sb = new StringBuilder();
         sb.append("<message");
         if (p() != null) {
@@ -200,8 +200,8 @@ public class gl extends gm {
             sb.append(this.c);
             sb.append("</thread>");
         }
-        if ("error".equalsIgnoreCase(this.b) && (m532a = m532a()) != null) {
-            sb.append(m532a.m535a());
+        if ("error".equalsIgnoreCase(this.b) && (m536a = m536a()) != null) {
+            sb.append(m536a.m539a());
         }
         sb.append(o());
         sb.append("</message>");

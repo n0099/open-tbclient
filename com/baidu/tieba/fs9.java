@@ -1,81 +1,111 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class fs9 extends lh<yt9, CardViewHolder<bv9>> {
+public class fs9 implements oi {
     public static /* synthetic */ Interceptable $ic;
+    public static BdUniqueId k;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public View.OnClickListener b;
+    public String a;
+    public String b;
+    public int c;
+    public int d;
+    public boolean e;
+    public String f;
+    public String g;
+    public boolean h;
+    public List<String> i;
+    public kx4 j;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fs9(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947774845, "Lcom/baidu/tieba/fs9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947774845, "Lcom/baidu/tieba/fs9;");
+                return;
+            }
+        }
+        k = BdUniqueId.gen();
+    }
+
+    @Override // com.baidu.tieba.oi
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return k;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public fs9(ForumData forumData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {forumData};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
-    /* renamed from: s */
-    public CardViewHolder<bv9> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new CardViewHolder<>(new bv9(this.a));
+        this.e = false;
+        if (forumData == null) {
+            return;
         }
-        return (CardViewHolder) invokeL.objValue;
+        this.a = forumData.getName();
+        this.b = forumData.getImage_url();
+        this.c = forumData.getPost_num();
+        this.d = forumData.getMember_num();
+        this.f = forumData.getId();
+        this.h = forumData.isLike() == 1;
+        this.j = forumData.getForumShowInfo();
     }
 
-    public void u(View.OnClickListener onClickListener) {
+    public fs9(dz4 dz4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.b = onClickListener;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, yt9 yt9Var, CardViewHolder<bv9> cardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, yt9Var, cardViewHolder})) == null) {
-            if (yt9Var != null && cardViewHolder != null && cardViewHolder.a() != null) {
-                cardViewHolder.a().j(yt9Var);
-                if (cardViewHolder.a().i() != null) {
-                    cardViewHolder.a().i().setOnClickListener(this.b);
-                }
-                return cardViewHolder.a().i();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dz4Var};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
-            return null;
         }
-        return (View) invokeCommon.objValue;
+        this.e = false;
+        if (dz4Var == null) {
+            return;
+        }
+        this.a = dz4Var.b;
+        this.b = dz4Var.c;
+        this.c = dz4Var.j;
+        this.d = dz4Var.k;
+        this.f = dz4Var.a;
+        this.h = dz4Var.f();
+        this.i = dz4Var.h();
+        this.j = dz4Var.e();
     }
 }

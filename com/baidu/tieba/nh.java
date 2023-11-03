@@ -1,251 +1,303 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.widget.refresh.BdSwipeRefreshLayout;
+import android.content.pm.PackageManager;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.DeviceInfoHelper;
+import com.baidu.adp.log.DefaultLog;
+import com.baidu.adp.titan.TitanDownloadService;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.util.io.Closeables;
+import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidParameterException;
+import java.io.ByteArrayOutputStream;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public abstract class nh implements BdSwipeRefreshLayout.i {
+public class nh {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public View b;
-    public boolean c;
-    public int d;
-    public a e;
-    public boolean f;
 
     /* loaded from: classes7.dex */
-    public interface a {
-        void a(nh nhVar, int i, int i2, int i3, int i4);
+    public interface b<T> {
+        T a(int i, String str, InputStream inputStream) throws IOException;
+
+        void b(int i, String str, T t);
     }
 
-    public abstract View f();
+    /* loaded from: classes7.dex */
+    public static abstract class a implements b<JSONObject> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void g(boolean z);
-
-    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
-    public long getCompleteAnimTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 0L;
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
-    public void onPullPercentChange(float f, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-        }
-    }
-
-    public abstract void p();
-
-    public abstract void q(boolean z);
-
-    public abstract void s(boolean z);
-
-    public abstract void t();
-
-    public abstract void u();
-
-    public nh(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = null;
-        this.b = null;
-        this.c = true;
-        this.d = 0;
-        this.f = false;
-        if (context != null) {
-            this.a = context;
-            return;
-        }
-        throw new InvalidParameterException("BdIListPullView context is null");
-    }
-
-    public final void o(View view2) {
-        int makeMeasureSpec;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {
-            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
-            if (layoutParams == null) {
-                layoutParams = new ViewGroup.LayoutParams(-1, -2);
-            }
-            int childMeasureSpec = ViewGroup.getChildMeasureSpec(0, 0, layoutParams.width);
-            int i = layoutParams.height;
-            if (i > 0) {
-                makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(i, 1073741824);
-            } else {
-                makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
-            }
-            view2.measure(childMeasureSpec, makeMeasureSpec);
-        }
-    }
-
-    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
-    public final View getView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.b == null) {
-                View f = f();
-                this.b = f;
-                if (f != null) {
-                    o(f);
-                    this.d = this.b.getMeasuredHeight();
-                    this.b.getMeasuredWidth();
-                } else {
-                    throw new IllegalStateException("BdIListPullView getView is null");
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            return this.b;
         }
-        return (View) invokeV.objValue;
-    }
 
-    public Context h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.f;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
-    public void onCompleteRefresh() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048585, this) != null) || this.f) {
-            return;
-        }
-        p();
-    }
-
-    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
-    public void onFinish() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || this.f) {
-            return;
-        }
-        g(true);
-    }
-
-    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
-    public void onPullToRefresh() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || this.f) {
-            return;
-        }
-        s(false);
-    }
-
-    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
-    public void onRefreshing() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048589, this) != null) || this.f) {
-            return;
-        }
-        t();
-        q(true);
-    }
-
-    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
-    public void onReleaseToRefresh() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048590, this) != null) || this.f) {
-            return;
-        }
-        u();
-    }
-
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.f = true;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.nh.b
+        /* renamed from: c */
+        public JSONObject a(int i, String str, InputStream inputStream) throws IOException {
+            InterceptResult invokeILL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, inputStream)) == null) {
+                if (i == 200) {
+                    if (inputStream != null) {
+                        try {
+                            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                            byte[] bArr = new byte[1024];
+                            while (true) {
+                                int read = inputStream.read(bArr);
+                                if (read != -1) {
+                                    byteArrayOutputStream.write(bArr, 0, read);
+                                } else {
+                                    JSONObject jSONObject = new JSONObject(byteArrayOutputStream.toString("UTF-8"));
+                                    DefaultLog.getInstance().i(TitanDownloadService.TAG, jSONObject.toString());
+                                    return jSONObject;
+                                }
+                            }
+                        } catch (Exception e) {
+                            throw new IOException(e);
+                        }
+                    } else {
+                        throw new IOException("parse response error: input stream is null");
+                    }
+                } else {
+                    throw new IOException("parse response error: statuscode is " + i);
+                }
+            } else {
+                return (JSONObject) invokeILL.objValue;
+            }
         }
     }
 
-    public void v() {
+    public static String a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            this.f = false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            try {
+                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+            } catch (PackageManager.NameNotFoundException e) {
+                TbLog defaultLog = DefaultLog.getInstance();
+                defaultLog.e(TitanDownloadService.TAG, "getVersionName Exception:" + e);
+                return "0.8";
+            }
         }
+        return (String) invokeL.objValue;
     }
 
-    public void w(boolean z) {
+    public static String b(Context context) {
+        InterceptResult invokeL;
+        String sb;
+        String replace;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
-            this.c = z;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            String property = System.getProperty("http.agent");
+            if (TextUtils.isEmpty(property)) {
+                sb = "";
+            } else {
+                StringBuilder sb2 = new StringBuilder();
+                int length = property.length();
+                for (int i = 0; i < length; i++) {
+                    char charAt = property.charAt(i);
+                    if (charAt > 31 && charAt < 127) {
+                        sb2.append(charAt);
+                    } else {
+                        sb2.append(String.format("\\u%04x", Integer.valueOf(charAt)));
+                    }
+                }
+                sb = sb2.toString();
+            }
+            String osVersion = DeviceInfoHelper.getOsVersion();
+            if (TextUtils.isEmpty(osVersion)) {
+                replace = com.baidu.mobads.sdk.internal.cj.d;
+            } else {
+                replace = osVersion.replace("_", "-");
+            }
+            return sb + " baiduboxapp/" + a(context) + " (Baidu; P1 " + replace + SmallTailInfo.EMOTION_SUFFIX;
         }
+        return (String) invokeL.objValue;
     }
 
-    public void x(a aVar) {
+    /* JADX WARN: Removed duplicated region for block: B:66:0x0123 A[Catch: all -> 0x0136, TRY_LEAVE, TryCatch #3 {all -> 0x0136, blocks: (B:64:0x0109, B:66:0x0123), top: B:80:0x0109 }] */
+    /* JADX WARN: Removed duplicated region for block: B:69:0x0132  */
+    /* JADX WARN: Removed duplicated region for block: B:75:0x0141  */
+    /* JADX WARN: Removed duplicated region for block: B:93:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static <T> void c(Context context, String str, String str2, byte[] bArr, Map<String, String> map, b<T> bVar) {
+        HttpURLConnection httpURLConnection;
+        InputStream inputStream;
+        OutputStream outputStream;
+        HttpURLConnection httpURLConnection2;
+        OutputStream outputStream2;
+        T t;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, aVar) == null) {
-            this.e = aVar;
-        }
-    }
-
-    public void y(int i, int i2, int i3, int i4) {
-        View view2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIIII(1048600, this, i, i2, i3, i4) != null) || (view2 = this.b) == null || this.f) {
-            return;
-        }
-        view2.setPadding(i, i2, i3, i4);
-        a aVar = this.e;
-        if (aVar != null) {
-            aVar.a(this, i, i3, i2 + i(), i4);
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, str, str2, bArr, map, bVar}) == null) {
+            OutputStream outputStream3 = null;
+            try {
+                httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
+                try {
+                    httpURLConnection.setConnectTimeout(30000);
+                    httpURLConnection.setReadTimeout(30000);
+                    httpURLConnection.setRequestProperty("User-Agent", b(context));
+                    httpURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
+                    httpURLConnection.setRequestMethod(str2);
+                    if (map != null) {
+                        for (Map.Entry<String, String> entry : map.entrySet()) {
+                            httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
+                        }
+                    }
+                    if (TextUtils.equals(str2, "POST")) {
+                        if (bArr == null) {
+                            DefaultLog.getInstance().e(TitanDownloadService.TAG, "post requestSync body is null");
+                            if (bVar != null) {
+                                bVar.b(-1, "post requestSync body is null", null);
+                            }
+                            Closeables.closeSafely((Closeable) null);
+                            Closeables.closeSafely((Closeable) null);
+                            if (httpURLConnection != null) {
+                                httpURLConnection.disconnect();
+                                return;
+                            }
+                            return;
+                        }
+                        httpURLConnection.setDoOutput(true);
+                        if (map == null || !map.containsKey("Content-Type")) {
+                            httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+                        }
+                        outputStream2 = httpURLConnection.getOutputStream();
+                        try {
+                            outputStream2.write(bArr);
+                        } catch (Exception e) {
+                            e = e;
+                            inputStream = null;
+                            outputStream = outputStream2;
+                            e = e;
+                            httpURLConnection2 = httpURLConnection;
+                            try {
+                                DefaultLog.getInstance().e(TitanDownloadService.TAG, "post requestSync Exception:" + e);
+                                if (bVar != null) {
+                                }
+                                Closeables.closeSafely(outputStream);
+                                Closeables.closeSafely(inputStream);
+                                if (httpURLConnection2 == null) {
+                                }
+                            } catch (Throwable th) {
+                                th = th;
+                                outputStream3 = outputStream;
+                                httpURLConnection = httpURLConnection2;
+                                Closeables.closeSafely(outputStream3);
+                                Closeables.closeSafely(inputStream);
+                                if (httpURLConnection != null) {
+                                    httpURLConnection.disconnect();
+                                }
+                                throw th;
+                            }
+                        } catch (Throwable th2) {
+                            th = th2;
+                            inputStream = null;
+                            outputStream3 = outputStream2;
+                            th = th;
+                            Closeables.closeSafely(outputStream3);
+                            Closeables.closeSafely(inputStream);
+                            if (httpURLConnection != null) {
+                            }
+                            throw th;
+                        }
+                    } else {
+                        outputStream2 = null;
+                    }
+                    int responseCode = httpURLConnection.getResponseCode();
+                    DefaultLog.getInstance().i(TitanDownloadService.TAG, "request code = " + responseCode + " msg = " + httpURLConnection.getResponseMessage());
+                    if (responseCode == 200) {
+                        inputStream = httpURLConnection.getInputStream();
+                        if (bVar != null) {
+                            try {
+                                t = bVar.a(responseCode, httpURLConnection.getResponseMessage(), inputStream);
+                            } catch (Exception e2) {
+                                e = e2;
+                                outputStream = outputStream2;
+                                e = e;
+                                httpURLConnection2 = httpURLConnection;
+                                DefaultLog.getInstance().e(TitanDownloadService.TAG, "post requestSync Exception:" + e);
+                                if (bVar != null) {
+                                    bVar.b(-1, e.getMessage(), null);
+                                }
+                                Closeables.closeSafely(outputStream);
+                                Closeables.closeSafely(inputStream);
+                                if (httpURLConnection2 == null) {
+                                    httpURLConnection2.disconnect();
+                                    return;
+                                }
+                                return;
+                            } catch (Throwable th3) {
+                                th = th3;
+                                outputStream3 = outputStream2;
+                                th = th;
+                                Closeables.closeSafely(outputStream3);
+                                Closeables.closeSafely(inputStream);
+                                if (httpURLConnection != null) {
+                                }
+                                throw th;
+                            }
+                        } else {
+                            t = null;
+                        }
+                    } else {
+                        inputStream = null;
+                        t = null;
+                    }
+                    if (bVar != null) {
+                        bVar.b(responseCode, httpURLConnection.getResponseMessage(), t);
+                    }
+                    Closeables.closeSafely(outputStream2);
+                    Closeables.closeSafely(inputStream);
+                    if (httpURLConnection != null) {
+                        httpURLConnection.disconnect();
+                    }
+                } catch (Exception e3) {
+                    e = e3;
+                    httpURLConnection2 = httpURLConnection;
+                    outputStream = null;
+                    inputStream = null;
+                } catch (Throwable th4) {
+                    th = th4;
+                    inputStream = null;
+                }
+            } catch (Exception e4) {
+                e = e4;
+                outputStream = null;
+                httpURLConnection2 = null;
+                inputStream = null;
+            } catch (Throwable th5) {
+                th = th5;
+                httpURLConnection = null;
+                inputStream = null;
+            }
         }
     }
 }

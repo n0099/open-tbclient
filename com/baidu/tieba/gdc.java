@@ -1,126 +1,153 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.util.devices.RomUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.PayType;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUIEventType;
-import java.util.List;
-import tv.athena.revenue.api.pay.params.AppCustomExpand;
-import tv.athena.revenue.payui.model.PayFinishInfo;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
+import com.google.android.material.internal.ManufacturerUtils;
+import com.yy.transvod.player.log.TLog;
 /* loaded from: classes6.dex */
-public class gdc implements IYYPayAmountView.Callback {
+public class gdc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public Dialog c;
-    public IYYPayAmountView.ViewParams d;
-    public Activity e;
-    public IPayCallback<CurrencyChargeMessage> f;
-    public rcc g;
-    public tfc h;
 
-    public gdc(int i, int i2, Dialog dialog, IYYPayAmountView.ViewParams viewParams, Activity activity, IPayCallback<CurrencyChargeMessage> iPayCallback, rcc rccVar, tfc tfcVar) {
+    public static int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), dialog, viewParams, activity, iPayCallback, rccVar, tfcVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if (h() && Build.MODEL.equals("MI 8")) {
+                TLog.m("extraDelta", "from MI 8 extraDelta= 45");
+                return 60;
+            }
+            if (c()) {
+                String str = Build.MODEL;
+                if (str.equals("SEA-AL10")) {
+                    TLog.m("extraDelta", "from huawei nova 5 pro extraDelta= 100");
+                    return 20;
+                } else if (str.equals("ELE-AL00")) {
+                    TLog.m("extraDelta", "from huawei p30 extraDelta= 80");
+                    return 80;
+                }
+            }
+            if (g()) {
+                if (Build.MODEL.equals("vivo X21A")) {
+                    TLog.m("extraDelta", "from vivo X21A extraDelta= 110");
+                    return 100;
+                }
+                TLog.m("extraDelta", "from VIVO extraDelta= 150");
+                return 150;
+            } else if (e()) {
+                String str2 = Build.MODEL;
+                if (str2.equals("OPPO A37m")) {
+                    TLog.m("extraDelta", "from OPPO A37m extraDelta= 150");
+                    return 150;
+                } else if (str2.equals("PBEM00")) {
+                    TLog.m("extraDelta", "from oppo r17 extraDelta= 300");
+                    return 300;
+                } else {
+                    TLog.m("extraDelta", "from oppo extraDelta= 100");
+                    return 100;
+                }
+            } else if (b()) {
+                TLog.m("extraDelta", "from EMUI extraDelta= 150");
+                return 150;
+            } else if (d()) {
+                TLog.m("extraDelta", "from MIUI extraDelta= 150");
+                return 150;
+            } else if (f()) {
+                TLog.m("extraDelta", "from SAMSUNG extraDelta= 50");
+                return 50;
+            } else {
+                TLog.m("extraDelta", "from default extraDelta= 100");
+                return 100;
             }
         }
-        RLog.info("PayAmountViewCallback", "create PayAmountViewCallback appId:" + i + " userChannel:" + i2);
-        this.a = i;
-        this.b = i2;
-        this.c = dialog;
-        this.d = viewParams;
-        this.e = activity;
-        this.f = iPayCallback;
-        this.g = rccVar;
-        this.h = tfcVar;
+        return invokeV.intValue;
     }
 
-    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
-    public void onRefreshViewFail(int i, String str) {
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-            PayFinishInfo a = dfc.a(PayDialogType.PAY_AMOUNT_DIALOG, i, str);
-            RLog.error("PayAmountViewCallback", "showPayAmountDialog onFail code:" + i + " failReason:" + str + " message:" + a, new Object[0]);
-            this.g.l(a);
-            cfc.b(this.c, PayDialogType.PAY_AMOUNT_DIALOG);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if ("HUAWEI".equalsIgnoreCase(Build.MANUFACTURER)) {
+                return true;
+            }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
-    public void onStartPay(nec necVar, jec jecVar, AppCustomExpand appCustomExpand, List<PayWayInfo> list, String str) {
+    public static boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, necVar, jecVar, appCustomExpand, list, str) == null) {
-            RLog.info("PayAmountViewCallback", "onStartPay payType=" + necVar.a + ", payAmount=" + jecVar);
-            this.g.k(this.e, necVar, jecVar, this.c, this.h, appCustomExpand, lfc.a(jecVar, list, str, this.d), this.f);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (RomUtils.MANUFACTURER_HUAWEI.equalsIgnoreCase(Build.MANUFACTURER)) {
+                return true;
+            }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
-    public void onStartSignPay(nec necVar, jec jecVar, AppCustomExpand appCustomExpand, List<PayWayInfo> list, String str) {
+    public static boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, necVar, jecVar, appCustomExpand, list, str) == null) {
-            nec necVar2 = new nec(PayType.ALI_PAY_SIGN, necVar.b, necVar.c, necVar.d, necVar.e, necVar.f, necVar.g);
-            RLog.info("PayAmountViewCallback", "onStartSignPay payType=" + necVar2.a + ", payAmount=" + jecVar);
-            this.g.p(this.e, jecVar, necVar2, this.c, this.h, appCustomExpand, lfc.a(jecVar, list, str, this.d), this.f);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (RomUtils.MANUFACTURER_XIAOMI.equalsIgnoreCase(Build.MANUFACTURER)) {
+                return true;
+            }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
-    public void showInputNumberDialog(Activity activity, List<PayWayInfo> list, String str) {
+    public static boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, activity, list, str) == null) {
-            RLog.info("PayAmountViewCallback", "showInputNumberDialog bubbleActMsg:" + str);
-            cfc.a(this.c, PayDialogType.PAY_AMOUNT_DIALOG);
-            this.g.n(activity, list, str, this.d, this.f);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if ("OPPO".equalsIgnoreCase(Build.MANUFACTURER)) {
+                return true;
+            }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
-    public void toPayWayDialog(jec jecVar, List<PayWayInfo> list, String str) {
+    public static boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048582, this, jecVar, list, str) == null) {
-            RLog.info("PayAmountViewCallback", "toPayWayDialog bubbleActMsg:" + str);
-            cfc.a(this.c, PayDialogType.PAY_AMOUNT_DIALOG);
-            this.g.t(this.e, jecVar, list, str, this.d, this.f);
-            sec.b(this.a, this.b, PayUIEventType.purchasegotopay);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (ManufacturerUtils.SAMSUNG.equalsIgnoreCase(Build.MANUFACTURER)) {
+                return true;
+            }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
-    public void toBannerConfigWebPage(String str) {
+    public static boolean g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.g.q(this.e, str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if ("vivo".equalsIgnoreCase(Build.MANUFACTURER)) {
+                return true;
+            }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
-    public void toHelpCenterPage() {
+    public static boolean h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.g.u(this.e);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (RomUtils.MANUFACTURER_XIAOMI.equalsIgnoreCase(Build.MANUFACTURER)) {
+                return true;
+            }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 }

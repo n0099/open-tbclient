@@ -1,40 +1,48 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
-import android.widget.GridView;
-import android.widget.ListAdapter;
+import android.view.View;
+import android.view.animation.AnimationSet;
+import android.view.animation.ScaleAnimation;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
-public class z69 {
+public final class z69 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public GridView a;
 
-    public z69(ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {viewGroup};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948312044, "Lcom/baidu/tieba/z69;")) == null) {
+            return;
         }
-        this.a = (GridView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09242f);
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948312044, "Lcom/baidu/tieba/z69;");
+        }
     }
 
-    public void a(v69 v69Var) {
+    @JvmStatic
+    public static final void a(View targetView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, v69Var) == null) {
-            this.a.setAdapter((ListAdapter) v69Var);
+        if (interceptable == null || interceptable.invokeL(65537, null, targetView) == null) {
+            Intrinsics.checkNotNullParameter(targetView, "targetView");
+            ScaleAnimation scaleAnimation = new ScaleAnimation(1.0f, 0.8f, 1.0f, 0.8f, 1, 0.5f, 1, 0.5f);
+            scaleAnimation.setDuration(150L);
+            scaleAnimation.setFillAfter(true);
+            scaleAnimation.setRepeatMode(2);
+            scaleAnimation.setRepeatCount(1);
+            AnimationSet animationSet = new AnimationSet(true);
+            animationSet.addAnimation(scaleAnimation);
+            targetView.startAnimation(animationSet);
         }
     }
 }

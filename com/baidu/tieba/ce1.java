@@ -1,112 +1,286 @@
 package com.baidu.tieba;
 
-import androidx.annotation.IdRes;
-import androidx.annotation.NonNull;
-import com.baidu.mobads.sdk.api.IAdInterListener;
-import com.baidu.prologue.business.data.SplashStyleRecorder;
-import com.baidu.tieba.of1;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Base64;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.platform.comapi.UIMsg;
+import com.baidu.poly.statistics.exception.ServerDataException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.URLDecoder;
+import java.security.KeyFactory;
+import java.security.PublicKey;
+import java.security.spec.X509EncodedKeySpec;
+import javax.crypto.Cipher;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class ce1 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
+    public static String b;
+    public static String c;
+    public static Bundle d;
+    public static long e;
+    public static String f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public static of1 a(@NonNull ge1 ge1Var) {
+    /* loaded from: classes5.dex */
+    public static class a extends ob1<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ob1 a;
+
+        public a(ob1 ob1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ob1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ob1Var;
+        }
+
+        @Override // com.baidu.tieba.ob1
+        public void a(Throwable th, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
+                this.a.a(th, i, str);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ob1
+        /* renamed from: d */
+        public void c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    int optInt = jSONObject.optInt("code", 1);
+                    String optString = jSONObject.optString("msg", "");
+                    JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                    if (optInt == 0 && optJSONObject != null) {
+                        String unused = ce1.a = optJSONObject.optString("orderId");
+                        String unused2 = ce1.b = optJSONObject.optString("smsId");
+                        ce1.c = optJSONObject.optString("mobile");
+                        this.a.c(optJSONObject);
+                        return;
+                    }
+                    ob1 ob1Var = this.a;
+                    ob1Var.a(new ServerDataException("msg = " + optString), optInt, optString);
+                } catch (JSONException unused3) {
+                    this.a.b(new ServerDataException(UIMsg.UI_TIP_SERVER_ERROR), UIMsg.UI_TIP_SERVER_ERROR);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b extends ob1<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ob1 a;
+
+        public b(ob1 ob1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ob1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ob1Var;
+        }
+
+        @Override // com.baidu.tieba.ob1
+        public void a(Throwable th, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
+                this.a.a(th, i, str);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ob1
+        /* renamed from: d */
+        public void c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    int optInt = jSONObject.optInt("code", 1);
+                    String optString = jSONObject.optString("msg", "");
+                    JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                    if (optInt == 0 && optJSONObject != null) {
+                        this.a.c(optJSONObject);
+                        return;
+                    }
+                    ob1 ob1Var = this.a;
+                    ob1Var.a(new ServerDataException("msg = " + optString), optInt, optString);
+                } catch (JSONException unused) {
+                    this.a.b(new ServerDataException(UIMsg.UI_TIP_SERVER_ERROR), UIMsg.UI_TIP_SERVER_ERROR);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class c extends ob1<JSONObject> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ob1 a;
+
+        public c(ob1 ob1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ob1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ob1Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ob1
+        /* renamed from: d */
+        public void c(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+                this.a.c(jSONObject);
+            }
+        }
+
+        @Override // com.baidu.tieba.ob1
+        public void a(Throwable th, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
+                this.a.a(th, i, str);
+            }
+        }
+    }
+
+    public static String d(String str) {
         InterceptResult invokeL;
-        boolean z;
-        boolean z2;
-        int b;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, ge1Var)) == null) {
-            of1.b bVar = new of1.b(ge1Var.j(), ge1Var.g);
-            bVar.u(IAdInterListener.AdProdType.PRODUCT_SPLASH);
-            boolean z3 = false;
-            if (ge1Var.f == 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            bVar.i(z);
-            bVar.f(b());
-            bVar.n(c());
-            if (ge1Var.f == 1) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            bVar.p(z2);
-            bVar.o(d(ge1Var.m));
-            bVar.D(ge1Var.n * 1000);
-            bVar.B(1);
-            bVar.G(SplashStyleRecorder.a());
-            bVar.g(5);
-            bVar.z(false);
-            bVar.c(ge1Var.l);
-            bVar.e(25);
-            bVar.d(13);
-            bVar.C(72);
-            bVar.A(30);
-            bVar.F(68);
-            bVar.E(30);
-            bVar.h(17);
-            bVar.r(ge1Var.z);
-            if (ge1Var.A == 1) {
-                z3 = true;
-            }
-            bVar.y(z3);
-            bVar.b(ge1Var.B);
-            bVar.q(ge1Var.f());
-            bVar.s("跳转详情页或第三方应用");
-            if (ge1Var.l()) {
-                b = 47;
-            } else {
-                b = b() + 39;
-            }
-            bVar.t(b);
-            bVar.k(ge1Var.H);
-            bVar.m(ge1Var.G);
-            bVar.l(ge1Var.e());
-            bVar.j(ge1Var.X);
-            bVar.x(ge1Var.i());
-            bVar.w(ge1Var.h());
-            bVar.v(ge1Var.g());
-            return bVar.a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return i(str, "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDeoE4C+X8ahP2/juzyb10hdQNIHR3a+m3+nV6sVaOiXpNw1sNnB/2ms9vV2yXCOTz2JFWMmgr8p5dA9yUfYzSVMWN8jyZdOzAwGzjh6oB32FsqlgFkXNTNJHkdIzJRq/H8Q9mlh67c2KrMN2QLU219M6EbLoTL0i+0oUbZ4W0IrwIDAQAB");
         }
-        return (of1) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static int b() {
-        InterceptResult invokeV;
+    public static void c(String str, ob1<JSONObject> ob1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return sd1.a().b();
-        }
-        return invokeV.intValue;
-    }
-
-    @IdRes
-    public static int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return sd1.a().c();
-        }
-        return invokeV.intValue;
-    }
-
-    @IdRes
-    public static int d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            if (i == 1) {
-                return sd1.a().h();
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, ob1Var) == null) {
+            String[] split = str.split("&");
+            pb1 pb1Var = new pb1();
+            for (String str2 : split) {
+                String[] split2 = str2.split("=");
+                if (split2.length == 2) {
+                    if (TextUtils.equals(split2[0], "timestamp")) {
+                        pb1Var.d(split2[0], URLDecoder.decode(split2[1]));
+                    } else {
+                        pb1Var.d(split2[0], split2[1]);
+                    }
+                }
             }
-            return sd1.a().g();
+            wb1.j().g(yb1.e(), pb1Var, new c(ob1Var));
         }
-        return invokeI.intValue;
+    }
+
+    public static void g(String str, qb1 qb1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, qb1Var) == null) {
+            String a2 = qb1Var.a("Cookie");
+            String str2 = "BDUSS=" + str;
+            if (a2 == null) {
+                qb1Var.d("Cookie", str2);
+                return;
+            }
+            qb1Var.d("Cookie", a2 + "; " + str2);
+        }
+    }
+
+    public static String i(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, str2)) == null) {
+            try {
+                PublicKey generatePublic = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str2, 0)));
+                Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+                cipher.init(1, generatePublic);
+                return Base64.encodeToString(cipher.doFinal(str.getBytes()), 0);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return "";
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void e(Bundle bundle, String str, String str2, long j, ob1<JSONObject> ob1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{bundle, str, str2, Long.valueOf(j), ob1Var}) == null) {
+            d = bundle;
+            e = j;
+            f = str2;
+            qb1 qb1Var = new qb1();
+            xb1.d(qb1Var);
+            f(bundle, qb1Var);
+            pb1 pb1Var = new pb1();
+            pb1Var.d("token", d("orderId=" + str + "&payChannel=" + str2 + "&timestamp=" + j));
+            new ub1().a(yb1.n(), qb1Var, pb1Var, new a(ob1Var));
+        }
+    }
+
+    public static void f(Bundle bundle, qb1 qb1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, bundle, qb1Var) == null) {
+            String string = bundle.getString("bduss");
+            if (TextUtils.isEmpty(string)) {
+                return;
+            }
+            g(string, qb1Var);
+        }
+    }
+
+    public static void h(String str, ob1<JSONObject> ob1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, null, str, ob1Var) == null) {
+            qb1 qb1Var = new qb1();
+            xb1.d(qb1Var);
+            f(d, qb1Var);
+            pb1 pb1Var = new pb1();
+            pb1Var.d("token", d("orderId=" + a + "&payChannel=" + f + "&smsId=" + b + "&timestamp=" + e + "&verifyCode=" + str));
+            new ub1().a(yb1.g(), qb1Var, pb1Var, new b(ob1Var));
+        }
     }
 }

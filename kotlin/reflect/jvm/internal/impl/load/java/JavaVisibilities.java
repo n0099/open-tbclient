@@ -10,7 +10,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.Visibilities;
 import kotlin.reflect.jvm.internal.impl.descriptors.Visibility;
 import kotlin.reflect.jvm.internal.impl.resolve.DescriptorUtils;
 import kotlin.reflect.jvm.internal.impl.resolve.scopes.receivers.ReceiverValue;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class JavaVisibilities {
     public static final Visibility PACKAGE_VISIBILITY = new Visibility("package", false) { // from class: kotlin.reflect.jvm.internal.impl.load.java.JavaVisibilities.1
         public static /* synthetic */ void $$$reportNull$$$0(int i) {

@@ -143,7 +143,7 @@ public class f implements com.kwad.sdk.core.webview.kwai.a {
                     } else {
                         adTemplate = bVar.getAdTemplate();
                     }
-                    com.kwad.components.core.c.a.a.a(new a.C0619a(f.this.Lk.Gl.getContext()).L(adTemplate).b(f.this.s(aVar.creativeId)).aj(f.a(f.this, aVar)).ak(f.this.Ln).c(f.this.Lk.mReportExtData).ae(aVar.Mx).al(f.this.Lo || aVar.DZ).ag(f.this.Lm).a(f.this.a(aVar, adTemplate)).a(new a.b() { // from class: com.kwad.components.core.webview.jshandler.f.1.1
+                    com.kwad.components.core.c.a.a.a(new a.C0625a(f.this.Lk.Gl.getContext()).L(adTemplate).b(f.this.s(aVar.creativeId)).aj(f.a(f.this, aVar)).ak(f.this.Ln).c(f.this.Lk.mReportExtData).ae(aVar.Mx).al(f.this.Lo || aVar.DZ).ag(f.this.Lm).a(f.this.a(aVar, adTemplate)).a(new a.b() { // from class: com.kwad.components.core.webview.jshandler.f.1.1
                         @Override // com.kwad.components.core.c.a.a.b
                         public final void onAdClicked() {
                             f.this.ik();

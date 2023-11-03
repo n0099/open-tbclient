@@ -1,69 +1,108 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
+import android.app.Activity;
+import android.app.Application;
+import android.content.Context;
+import android.content.res.ColorStateList;
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.app.NotificationManagerCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.abtest.UsbAbTestSwitch;
-import com.baidu.tbadk.abtest.group.HomeGroupUbsABTest;
-import com.baidu.tbadk.abtest.group.IThreadCardUbsABTest;
-import com.baidu.tbadk.core.data.NegativeFeedBackData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tbadk.browser.BrowserHelper;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.coreExtra.util.DialogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes6.dex */
-public abstract class jv4 extends BaseCardInfo implements IThreadCardUbsABTest {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int BIG_IMG = 2;
-    public static final int CONTENT = 1;
-    public static final int HEAD_IMG = 4;
-    public static final int HEAD_VIDEO = 5;
-    public static final int USER_NAME = 3;
+public class jv4 implements Application.ActivityLifecycleCallbacks {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<String> feedBackReasonMap;
-    public int floorPosition;
-    public Map<BdUniqueId, UsbAbTestSwitch> mABTestMap;
-    public int objType;
+    public boolean a;
 
-    public abstract NegativeFeedBackData getNegFeedBackData();
-
-    public String getPbInputLocate() {
-        InterceptResult invokeV;
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
         }
-        return (String) invokeV.objValue;
     }
 
-    public abstract ThreadData getThreadData();
-
-    @Override // com.baidu.tbadk.abtest.group.IThreadCardUbsABTest
-    public boolean showNoName() {
-        InterceptResult invokeV;
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityPaused(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return true;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
         }
-        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.abtest.group.IThreadCardUbsABTest
-    public boolean showWeakenName() {
-        InterceptResult invokeV;
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return false;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
         }
-        return invokeV.booleanValue;
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityStarted(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityStopped(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Activity a;
+
+        public a(jv4 jv4Var, Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jv4Var, activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = activity;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (NotificationManagerCompat.from(this.a).areNotificationsEnabled()) {
+                    boolean z = SharedPrefHelper.getInstance().getBoolean("official_push_switch", true);
+                    Activity activity = this.a;
+                    BrowserHelper.startWebActivity((Context) activity, "", "https://tieba.baidu.com/mo/q/hybrid-main-service/pushSettings?pageType=1&officialPushMsgStatus=" + (z ? 1 : 0), true);
+                    return;
+                }
+                DialogUtil.jumpSystemNotificationSetting(this.a);
+            }
+        }
     }
 
     public jv4() {
@@ -79,182 +118,43 @@ public abstract class jv4 extends BaseCardInfo implements IThreadCardUbsABTest {
                 return;
             }
         }
-        this.objType = 1;
-        this.floorPosition = -1;
-        this.mABTestMap = new HashMap();
-        this.feedBackReasonMap = null;
+        this.a = true;
     }
 
-    public String getRecomReason() {
-        InterceptResult invokeV;
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityDestroyed(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (getThreadData() == null) {
-                return null;
-            }
-            return getThreadData().getRecomReason();
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) && activity != null && activity.getClass().getName().equals("com.baidu.sapi2.activity.LoginActivity")) {
+            this.a = true;
         }
-        return (String) invokeV.objValue;
     }
 
-    public boolean isFromFrs() {
-        InterceptResult invokeV;
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityResumed(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ThreadData threadData = getThreadData();
-            if (threadData == null) {
-                return false;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, activity) == null) && activity != null && activity.getClass().getName().equals("com.baidu.sapi2.activity.LoginActivity") && this.a) {
+            this.a = false;
+            FrameLayout frameLayout = (FrameLayout) activity.getWindow().getDecorView().findViewById(16908290);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(BdUtilHelper.dip2px(activity, 20.0f), BdUtilHelper.dip2px(activity, 20.0f));
+            layoutParams.addRule(11);
+            layoutParams.rightMargin = BdUtilHelper.getDimens(activity, R.dimen.tbds42);
+            layoutParams.topMargin = BdUtilHelper.getDimens(activity, R.dimen.tbds126) - BdUtilHelper.getStatusBarHeight(activity);
+            ImageView imageView = new ImageView(activity);
+            imageView.setLayoutParams(layoutParams);
+            imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+            Drawable drawable = SvgManager.getInstance().getDrawable(R.drawable.icon_login_setting_svg, 1, false);
+            ColorStateList colorListByResourceType = SvgManager.SvgResourceStateType.NORMAL_PRESS.getColorListByResourceType(SkinManager.getColor(4, null, R.color.CAM_X0105));
+            if (colorListByResourceType != null && drawable != null) {
+                drawable = drawable.mutate();
+                DrawableCompat.setTintList(drawable, colorListByResourceType);
             }
-            return threadData.isFromFrs();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo
-    public boolean isHighLight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (getThreadData() != null && getThreadData().isHighLight()) {
-                return true;
+            imageView.setImageDrawable(drawable);
+            RelativeLayout relativeLayout = (RelativeLayout) frameLayout.findViewById(R.id.obfuscated_res_0x7f092134);
+            if (relativeLayout == null) {
+                return;
             }
-            return false;
+            relativeLayout.addView(imageView);
+            imageView.setOnClickListener(new a(this, activity));
         }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isSelf() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return ThreadCardUtils.isSelf(getThreadData());
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean showCardEnterFourm() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            ThreadData threadData = getThreadData();
-            if (threadData == null) {
-                return false;
-            }
-            if (!threadData.isFromConcern && !threadData.isFromPersonPolymeric && !threadData.isWorksInfo()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean showCardGoodsFourm() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            ThreadData threadData = getThreadData();
-            if (threadData == null) {
-                return false;
-            }
-            if (!threadData.isFromConcern && !threadData.isFromPersonPolymeric && !threadData.isFromHomPage) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.abtest.group.IThreadCardUbsABTest
-    public boolean showNewPicCut() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return UbsABTestHelper.isABTestByKeys(getCurUsbAbTestSwitchByKey(HomeGroupUbsABTest.ABTEST_GROUP_KEY), HomeGroupUbsABTest.SID_B);
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.abtest.group.IThreadCardUbsABTest
-    public boolean showNewUI() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return UbsABTestHelper.isABTestByKeys(getCurUsbAbTestSwitchByKey(HomeGroupUbsABTest.ABTEST_GROUP_KEY), HomeGroupUbsABTest.SID_A);
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.abtest.group.IThreadCardUbsABTest
-    public boolean showNoReadState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return UbsABTestHelper.isABTestByKeys(getCurUsbAbTestSwitchByKey(HomeGroupUbsABTest.ABTEST_GROUP_KEY), HomeGroupUbsABTest.SID_E);
-        }
-        return invokeV.booleanValue;
-    }
-
-    private UsbAbTestSwitch getCurUsbAbTestSwitchByKey(BdUniqueId bdUniqueId) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, bdUniqueId)) == null) {
-            if (bdUniqueId == null) {
-                return null;
-            }
-            return this.mABTestMap.get(bdUniqueId);
-        }
-        return (UsbAbTestSwitch) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tbadk.abtest.group.IThreadCardUbsABTest
-    public void setABTest(BdUniqueId bdUniqueId, UsbAbTestSwitch usbAbTestSwitch) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048583, this, bdUniqueId, usbAbTestSwitch) != null) || bdUniqueId == null) {
-            return;
-        }
-        this.mABTestMap.put(bdUniqueId, usbAbTestSwitch);
-    }
-
-    public boolean showCardBottomOpWeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            ThreadData threadData = getThreadData();
-            if (threadData == null) {
-                return false;
-            }
-            if (!threadData.isFromHomPage && !threadData.isFromConcern && !threadData.isFromPersonPolymeric && !threadData.isFromVideoTab && !threadData.isFromEnterFroumTabFeed && !threadData.isFromFeedTab) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean showFollowBtn() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            ThreadData threadData = getThreadData();
-            if (threadData == null || threadData.getAuthor() == null || threadData.isFromLocal || ThreadCardUtils.isSelf(threadData)) {
-                return false;
-            }
-            if (!threadData.isBjhDynamicThread() && !threadData.isBJHArticleThreadType() && !threadData.isBJHVideoThreadType()) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if ((!threadData.isFromHomPage || (!z && !threadData.isWorksInfo() && !threadData.isAlaLiveMixThreadType())) && ((!threadData.isFromVideoTab || (!z && !threadData.isWorksInfo())) && (!threadData.isFromFrs() || (!z && !threadData.isWorksInfo())))) {
-                if (!threadData.isFromFeedTab) {
-                    return false;
-                }
-                if (!z && !threadData.isWorksInfo()) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
     }
 }

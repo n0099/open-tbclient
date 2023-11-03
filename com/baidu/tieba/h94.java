@@ -1,33 +1,81 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import okhttp3.Callback;
-import okhttp3.HttpUrl;
-import okhttp3.Request;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class h94 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Callback callback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, callback) == null) {
-            b(callback, "6");
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(JSONObject jSONObject);
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements zk3<sb3> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b a;
+
+        public a(h94 h94Var, b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {h94Var, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.zk3
+        /* renamed from: b */
+        public void a(sb3 sb3Var) {
+            JSONObject jSONObject;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sb3Var) == null) {
+                if (sb3Var != null && (jSONObject = sb3Var.g) != null) {
+                    g32.b("OpenData", "onOpenDataCallback success: ", jSONObject);
+                    this.a.a(sb3Var.g);
+                    return;
+                }
+                this.a.a(null);
+            }
         }
     }
 
-    public static void b(Callback callback, String str) {
+    public h94() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65537, null, callback, str) != null) || p53.M() == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public void a(b bVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, bVar) != null) || bVar == null || tr2.V().getActivity() == null) {
             return;
         }
-        HttpUrl.Builder newBuilder = HttpUrl.parse("https://gamecenter.baidu.com/api/exchange/list").newBuilder();
-        newBuilder.addQueryParameter(Constants.EXTRA_CONFIG_LIMIT, str);
-        newBuilder.addQueryParameter(GameGuideConfigInfo.KEY_APP_KEY, p53.M().P());
-        newBuilder.addQueryParameter("source", "4");
-        ((w34) p53.M().j0()).b(new Request.Builder().url(newBuilder.build()).build(), callback);
+        sb3.B(tr2.V().getActivity(), "snsapi_userinfo", null, true, "GameUserInfoRequest", new a(this, bVar));
     }
 }

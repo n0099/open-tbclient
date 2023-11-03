@@ -4,6 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.ForumBroadcastHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -124,7 +125,7 @@ public class ShareFromFrsMsgData extends ShareBaseMsgData {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("forumName", this.name);
+                jSONObject.put(ForumBroadcastHelper.KEY_PARMARS_FORUM_NAME, this.name);
                 jSONObject.put("memberNum", this.memberNum);
                 jSONObject.put("postNum", this.postNum);
                 jSONObject.put("themeContent", this.name + "\n关注：" + this.memberNum + " 贴子：" + this.postNum);

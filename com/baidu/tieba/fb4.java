@@ -1,40 +1,34 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.map.location.model.SelectedLocationInfo;
-import com.baidu.tieba.ab4;
-import com.baidu.tieba.qa4;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Bitmap;
+import android.graphics.Point;
+import android.widget.ImageView;
+import com.baidu.mapapi.map.MapViewLayoutParams;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.tieba.dj3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class fb4 extends ba4<zr2> implements ab4.b {
+public class fb4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yr2 a;
-    public zr2 b;
 
     /* loaded from: classes5.dex */
-    public class a implements qa4.c {
+    public static class a implements dj3.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yr2 a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ fb4 c;
+        public final /* synthetic */ ys2 a;
+        public final /* synthetic */ qb4 b;
+        public final /* synthetic */ mb4 c;
 
-        public a(fb4 fb4Var, yr2 yr2Var, String str) {
+        public a(ys2 ys2Var, qb4 qb4Var, mb4 mb4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fb4Var, yr2Var, str};
+                Object[] objArr = {ys2Var, qb4Var, mb4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,146 +38,57 @@ public class fb4 extends ba4<zr2> implements ab4.b {
                     return;
                 }
             }
-            this.c = fb4Var;
-            this.a = yr2Var;
-            this.b = str;
+            this.a = ys2Var;
+            this.b = qb4Var;
+            this.c = mb4Var;
         }
 
-        @Override // com.baidu.tieba.qa4.c
-        public void onFail() {
+        @Override // com.baidu.tieba.dj3.b
+        public void a(String str, Bitmap bitmap) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                p22.o("map", "location permission fail");
-                this.a.b(this.b, 1003, "location permission fail");
-            }
-        }
-
-        @Override // com.baidu.tieba.qa4.c
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                p22.o("map", "location permission success");
-                this.c.g();
+            if (interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) {
+                if (bitmap == null) {
+                    g32.o("map", " icon is null ");
+                }
+                if (bitmap != null) {
+                    int i = this.a.d.c;
+                    if (i == -1) {
+                        i = bitmap.getWidth();
+                    }
+                    int i2 = this.a.d.d;
+                    if (i2 == -1) {
+                        i2 = bitmap.getHeight();
+                    }
+                    MapViewLayoutParams.Builder builder = new MapViewLayoutParams.Builder();
+                    builder.layoutMode(MapViewLayoutParams.ELayoutMode.absoluteMode);
+                    builder.width(i);
+                    builder.height(i2);
+                    builder.align(1, 8);
+                    dt2 dt2Var = this.a.d;
+                    builder.point(new Point(dt2Var.a, dt2Var.b));
+                    ImageView imageView = new ImageView(AppRuntime.getAppContext());
+                    imageView.setImageBitmap(bitmap);
+                    imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+                    this.b.l.addView(imageView, builder.build());
+                    imageView.setOnClickListener(this.c);
+                    imageView.setClickable(this.a.c);
+                    ob4 ob4Var = new ob4();
+                    ob4Var.a = this.a;
+                    ob4Var.b = imageView;
+                    this.b.o.add(ob4Var);
+                }
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947758353, "Lcom/baidu/tieba/fb4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947758353, "Lcom/baidu/tieba/fb4;");
-                return;
-            }
-        }
-        boolean z = am1.a;
-    }
-
-    public fb4() {
+    public static void a(qb4 qb4Var, ys2 ys2Var, mb4 mb4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeLLL(65536, null, qb4Var, ys2Var, mb4Var) == null) {
+            g32.i("map", "createControl start");
+            if (ys2Var != null && ys2Var.isValid()) {
+                dj3.e(ys2Var.b, new a(ys2Var, qb4Var, mb4Var));
             }
+            g32.i("map", "createControl end");
         }
-    }
-
-    public static fb4 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return new fb4();
-        }
-        return (fb4) invokeV.objValue;
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            ab4 i3 = ab4.i3(null);
-            i3.n3(this);
-            i3.p3();
-        }
-    }
-
-    @Override // com.baidu.tieba.ab4.b
-    public void onCancel() {
-        zr2 zr2Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            p22.i("map", "choose location cancel");
-            yr2 yr2Var = this.a;
-            if (yr2Var != null && (zr2Var = this.b) != null) {
-                yr2Var.b(zr2Var.z, 1002, "choose location canceled");
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ab4.b
-    public void onError() {
-        zr2 zr2Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            p22.i("map", "choose location fail");
-            yr2 yr2Var = this.a;
-            if (yr2Var != null && (zr2Var = this.b) != null) {
-                yr2Var.b(zr2Var.z, 1007, "choose location failed");
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ab4.b
-    public void a(SelectedLocationInfo selectedLocationInfo) {
-        yr2 yr2Var;
-        zr2 zr2Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, selectedLocationInfo) == null) && (yr2Var = this.a) != null && (zr2Var = this.b) != null) {
-            yr2Var.c(zr2Var.z, selectedLocationInfo.toJson());
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ba4
-    /* renamed from: f */
-    public boolean b(Context context, zr2 zr2Var, yr2 yr2Var, p53 p53Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, context, zr2Var, yr2Var, p53Var, jSONObject)) == null) {
-            return e(context, zr2Var, yr2Var, p53Var);
-        }
-        return invokeLLLLL.booleanValue;
-    }
-
-    public final boolean e(Context context, zr2 zr2Var, yr2 yr2Var, p53 p53Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, zr2Var, yr2Var, p53Var)) == null) {
-            p22.i("map", "ChooseLocationAction start");
-            if (!zr2Var.isValid()) {
-                p22.c("map", "model is invalid");
-                return false;
-            }
-            String str = zr2Var.z;
-            if (TextUtils.isEmpty(str)) {
-                p22.c("map", "cb is empty");
-                return false;
-            }
-            this.a = yr2Var;
-            this.b = zr2Var;
-            qa4.b(context, new a(this, yr2Var, str));
-            p22.i("map", "ChooseLocationAction end");
-            return true;
-        }
-        return invokeLLLL.booleanValue;
     }
 }

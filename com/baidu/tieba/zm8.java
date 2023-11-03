@@ -1,79 +1,110 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.im.lib.socket.msg.data.BotsDTO;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class zm8 {
+public class zm8 extends ym8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int f;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean e;
 
-    @NonNull
-    public static StatisticItem a(String str, String str2, long j, String str3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{str, str2, Long.valueOf(j), str3})) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("fid", j);
-            statisticItem.param("fname", str3);
-            if (!StringUtils.isNull(str2)) {
-                statisticItem.param("room_id", str2);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948364868, "Lcom/baidu/tieba/zm8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return statisticItem;
-        }
-        return (StatisticItem) invokeCommon.objValue;
-    }
-
-    public static void b(String str, long j, String str2, String str3, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, Long.valueOf(j), str2, str3, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
-            StatisticItem a = a(str, str3, j, str2);
-            a.param("obj_locate", i);
-            a.param("obj_type", i2);
-            TiebaStatic.log(a);
-        }
-    }
-
-    public static void c(String str, long j, String str2, String str3, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Long.valueOf(j), str2, str3, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
-            StatisticItem a = a(str, str3, j, str2);
-            a.param("obj_locate", i2);
-            a.param("obj_type", i);
-            TiebaStatic.log(a);
-        }
-    }
-
-    public static void e(String str, long j, String str2, String str3, int i, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, Long.valueOf(j), str2, str3, Integer.valueOf(i), str4}) == null) {
-            StatisticItem a = a(str, str3, j, str2);
-            a.param("obj_locate", i);
-            if (!StringUtils.isNull(str4)) {
-                a.param("obj_type", str4);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948364868, "Lcom/baidu/tieba/zm8;");
+                return;
             }
-            TiebaStatic.log(a);
+        }
+        f = BdUniqueId.gen().getId();
+    }
+
+    @Override // com.baidu.tieba.ym8, com.baidu.tieba.tm8
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return f;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zm8(BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO) {
+        super(itemsDTO);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {itemsDTO};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((BotsDTO.BotListDTO.SkillDTO.ItemsDTO) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.e = false;
+    }
+
+    public boolean p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO optsDTO = this.c;
+            if (optsDTO == null || optsDTO.getExt() == null) {
+                return false;
+            }
+            BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext ext = this.c.getExt();
+            if (StringUtils.isNull(ext.getPicPath()) || StringUtils.isNull(ext.getPicSize())) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void r(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.e = z;
         }
     }
 
-    public static void d(long j, boolean z) {
-        int i;
+    public void s(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-            StatisticItem param = StatisticItem.make("c15289").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", j);
-            if (z) {
-                i = 1;
-            } else {
-                i = 2;
-            }
-            param.param("obj_type", i).eventStat();
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) && this.c != null) {
+            BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext ext = new BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext();
+            ext.setPicPath(str);
+            ext.setPicSize(str2);
+            this.c.setExt(ext);
         }
     }
 }

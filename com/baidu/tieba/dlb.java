@@ -1,62 +1,201 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.sdk.api.RequestParameters;
-import com.baidu.mobads.sdk.api.SplashAd;
-import com.baidu.mobads.sdk.api.SplashAdListener;
+import android.os.IBinder;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class dlb extends SplashAd implements ylb {
+public class dlb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dlb(Context context, String str, RequestParameters requestParameters, SplashAdListener splashAdListener) {
-        super(context, str, requestParameters, splashAdListener);
+    public static void a() {
+        slb c;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, requestParameters, splashAdListener};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], (RequestParameters) objArr2[2], (SplashAdListener) objArr2[3]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if ((interceptable == null || interceptable.invokeV(65536, null) == null) && (c = ylb.c()) != null) {
+            c.b();
         }
     }
 
-    @Override // com.baidu.tieba.ylb
-    public String a() {
+    public static Context b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? getECPMLevel() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            qlb a = ylb.a();
+            if (a != null) {
+                return a.getAppContext();
+            }
+            return null;
+        }
+        return (Context) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ylb
-    public void a(String str) {
+    public static int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            biddingSuccess(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            qlb a = ylb.a();
+            if (a != null) {
+                return a.d();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public static skb i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return ylb.e();
+        }
+        return (skb) invokeV.objValue;
+    }
+
+    public static wkb j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return ylb.f();
+        }
+        return (wkb) invokeV.objValue;
+    }
+
+    public static boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            rlb b = ylb.b();
+            if (b != null) {
+                return b.isAgreePrivacy();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            qlb a = ylb.a();
+            if (a != null) {
+                return a.isDebug();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            qlb a = ylb.a();
+            if (a != null) {
+                return a.c(str);
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static IBinder e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            slb c = ylb.c();
+            if (c != null) {
+                return c.a(str);
+            }
+            return null;
+        }
+        return (IBinder) invokeL.objValue;
+    }
+
+    public static String h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            qlb a = ylb.a();
+            if (a != null) {
+                return a.e(str);
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String k(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65546, null, z)) == null) {
+            qlb a = ylb.a();
+            if (a != null) {
+                return a.b(z);
+            }
+            return "";
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public static void q(int i) {
+        qlb a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(65552, null, i) == null) && (a = ylb.a()) != null) {
+            a.a(i);
         }
     }
 
-    @Override // com.baidu.tieba.ylb
-    public void a(String str, HashMap<String, Object> hashMap) {
+    public static int f(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, hashMap) == null) {
-            biddingFail(str, hashMap);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i)) == null) {
+            qlb a = ylb.a();
+            if (a != null) {
+                return a.getInt(str, i);
+            }
+            return i;
+        }
+        return invokeLI.intValue;
+    }
+
+    public static long g(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, str, j)) == null) {
+            qlb a = ylb.a();
+            if (a != null) {
+                return a.getLong(str, j);
+            }
+            return j;
+        }
+        return invokeLJ.longValue;
+    }
+
+    public static void n(String str, int i) {
+        qlb a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65549, null, str, i) == null) && (a = ylb.a()) != null) {
+            a.putInt(str, i);
+        }
+    }
+
+    public static void o(String str, long j) {
+        qlb a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLJ(65550, null, str, j) == null) && (a = ylb.a()) != null) {
+            a.putLong(str, j);
+        }
+    }
+
+    public static void p(String str, String str2) {
+        qlb a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65551, null, str, str2) == null) && (a = ylb.a()) != null) {
+            a.putString(str, str2);
         }
     }
 }

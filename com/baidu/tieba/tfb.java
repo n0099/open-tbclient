@@ -1,147 +1,105 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Looper;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class tfb {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String b = "UnionIDHelper";
-    public static boolean c;
-    public static tfb d;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    @Nullable
+    public b a;
+    public final CustomMessageListener b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948180697, "Lcom/baidu/tieba/tfb;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948180697, "Lcom/baidu/tieba/tfb;");
-        }
+    /* loaded from: classes8.dex */
+    public interface b {
+        void a(@NonNull SelectForumData selectForumData);
     }
 
     /* loaded from: classes8.dex */
-    public class a implements bgb {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sfb a;
+        public final /* synthetic */ tfb a;
 
-        public a(tfb tfbVar, sfb sfbVar) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(tfb tfbVar, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tfbVar, sfbVar};
+                Object[] objArr = {tfbVar, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = sfbVar;
+            this.a = tfbVar;
         }
 
-        @Override // com.baidu.tieba.bgb
-        public void a(cgb cgbVar) {
-            rfb rfbVar;
-            boolean z;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            SelectForumData selectForumData;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cgbVar) == null) {
-                if (tfb.c) {
-                    String str = tfb.b;
-                    Log.d(str, "异步回调 结果:" + cgbVar);
-                    String str2 = tfb.b;
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("异步回调 (listener != null):");
-                    if (this.a != null) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    sb.append(z);
-                    Log.d(str2, sb.toString());
-                }
-                sfb sfbVar = this.a;
-                if (sfbVar != null) {
-                    if (cgbVar == null) {
-                        rfbVar = null;
-                    } else {
-                        rfbVar = new rfb(cgbVar.c(), cgbVar.isSupport(), cgbVar.getOAID(), cgbVar.getAAID(), cgbVar.getVAID(), cgbVar.getStatusCode());
-                    }
-                    sfbVar.a(0, rfbVar);
-                }
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof SelectForumData) && (selectForumData = (SelectForumData) customResponsedMessage.getData()) != null && !StringUtils.isNull(selectForumData.forumId) && !StringUtils.isNull(selectForumData.forumName) && this.a.a != null) {
+                this.a.a.a(selectForumData);
             }
         }
     }
 
-    public tfb(Context context) {
+    public tfb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context.getApplicationContext();
+        this.b = new a(this, 2921505);
     }
 
-    public static tfb c(Context context) {
-        InterceptResult invokeL;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (d == null) {
-                synchronized (tfb.class) {
-                    if (d == null) {
-                        d = new tfb(context);
-                        vfb.c(context);
-                    }
-                }
-            }
-            return d;
-        }
-        return (tfb) invokeL.objValue;
-    }
-
-    public void e(sfb sfbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sfbVar) == null) {
-            ufb ufbVar = new ufb();
-            ufbVar.b(1);
-            ufbVar.a(false);
-            d(ufbVar, sfbVar, Looper.getMainLooper());
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.b);
         }
     }
 
-    public void d(ufb ufbVar, sfb sfbVar, Looper looper) {
+    public void b(@NonNull BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, ufbVar, sfbVar, looper) == null) {
-            zfb.o().i(this.a, looper, new a(this, sfbVar));
+        if (interceptable == null || interceptable.invokeL(1048576, this, bdUniqueId) == null) {
+            d();
+            this.b.setTag(bdUniqueId);
+            MessageManager.getInstance().registerListener(this.b);
+        }
+    }
+
+    public void c(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.a = bVar;
         }
     }
 }

@@ -2,7 +2,7 @@ package com.google.a.b.a.a.a;
 
 import android.os.Bundle;
 import android.os.Parcel;
-import com.baidu.tieba.lqb;
+import com.baidu.tieba.m3c;
 /* loaded from: classes9.dex */
 public abstract class e extends com.google.a.a.b implements d {
     public e() {
@@ -16,13 +16,13 @@ public abstract class e extends com.google.a.a.b implements d {
                 if (i != 3) {
                     return false;
                 }
-                lqb.a(parcel, Bundle.CREATOR);
+                m3c.a(parcel, Bundle.CREATOR);
                 a();
             } else {
-                b((Bundle) lqb.a(parcel, Bundle.CREATOR));
+                b((Bundle) m3c.a(parcel, Bundle.CREATOR));
             }
         } else {
-            a((Bundle) lqb.a(parcel, Bundle.CREATOR));
+            a((Bundle) m3c.a(parcel, Bundle.CREATOR));
         }
         return true;
     }

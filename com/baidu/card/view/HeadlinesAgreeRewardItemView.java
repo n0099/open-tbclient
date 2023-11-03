@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.iy4;
+import com.baidu.tieba.az4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -138,13 +138,13 @@ public class HeadlinesAgreeRewardItemView extends LinearLayout {
         a(context);
     }
 
-    public void setData(iy4 iy4Var) {
+    public void setData(az4 az4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iy4Var) != null) || iy4Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, az4Var) != null) || az4Var == null) {
             return;
         }
         b();
-        this.a.startLoad(iy4Var.a(), 10, false);
-        this.b.setText(iy4Var.b());
+        this.a.startLoad(az4Var.a(), 10, false);
+        this.b.setText(az4Var.b());
     }
 }

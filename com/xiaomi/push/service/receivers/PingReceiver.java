@@ -14,11 +14,11 @@ public class PingReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         b.c(intent.getPackage() + " is the package name");
-        if (XMPushService.m742e()) {
+        if (XMPushService.m746e()) {
             return;
         }
         if (!bk.p.equals(intent.getAction())) {
-            b.m182a("cancel the old ping timer");
+            b.m186a("cancel the old ping timer");
             et.a();
         } else if (TextUtils.equals(context.getPackageName(), intent.getPackage())) {
             b.c("Ping XMChannelService on timer");

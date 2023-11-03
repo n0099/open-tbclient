@@ -1,9 +1,6 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
 import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,87 +8,103 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.http.cookie.ClientCookie;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class e32 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public JSONArray b;
-    public String c;
-    public String d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947683333, "Lcom/baidu/tieba/e32;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b extends te3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* loaded from: classes5.dex */
+        public static final class a {
+            public static /* synthetic */ Interceptable $ic;
+            public static final b a;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            static {
+                InterceptResult invokeClinit;
+                ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+                if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1567505814, "Lcom/baidu/tieba/e32$b$a;")) != null) {
+                    Interceptable interceptable = invokeClinit.interceptor;
+                    if (interceptable != null) {
+                        $ic = interceptable;
+                    }
+                    if ((invokeClinit.flags & 1) != 0) {
+                        classClinitInterceptable.invokePostClinit(-1567505814, "Lcom/baidu/tieba/e32$b$a;");
+                        return;
+                    }
+                }
+                a = new b(null);
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b() {
+            super("searchbox_sconsole_sp");
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947683333, "Lcom/baidu/tieba/e32;");
-                return;
-            }
-        }
-        e = am1.a;
-    }
-
-    public e32() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
         }
+
+        public static b c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+                return a.a;
+            }
+            return (b) invokeV.objValue;
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
     }
 
-    public static e32 b(JSONObject jSONObject) {
+    public static String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            e32 e32Var = new e32();
-            try {
-                e32Var.b = jSONObject.getJSONArray("host");
-                e32Var.a = jSONObject.getString("appKey");
-                jSONObject.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
-                e32Var.c = jSONObject.getString(ClientCookie.PORT_ATTR);
-                e32Var.d = Uri.decode(jSONObject.optString("url"));
-                return e32Var;
-            } catch (JSONException unused) {
-                if (e) {
-                    Log.e("RemoteDebugModel", "DebuggerLaunchAction params is invalid");
-                    return null;
-                }
-                return null;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            return "consoleSwitch" + str;
         }
-        return (e32) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public String a(int i) {
-        InterceptResult invokeI;
+    public static boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            JSONArray jSONArray = this.b;
-            if (jSONArray == null) {
-                return "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str) || !b.c().getBoolean(a(str), false)) {
+                return false;
             }
-            String optString = jSONArray.optString(i);
-            if (TextUtils.isEmpty(optString)) {
-                return "";
-            }
-            return "http://" + optString + ":" + this.c;
+            return true;
         }
-        return (String) invokeI.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public static void c(boolean z) {
+        g63 M;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(65538, null, z) == null) && (M = g63.M()) != null) {
+            b.c().putBoolean(a(M.P()), z);
+        }
     }
 }

@@ -1,28 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import androidx.annotation.NonNull;
+import com.baidu.tieba.im.lib.socket.msg.data.Reaction;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class fz8 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 1;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947781541, "Lcom/baidu/tieba/fz8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947781541, "Lcom/baidu/tieba/fz8;");
-        }
-    }
+public interface fz8 {
+    void d(@NonNull List<Reaction> list);
 }

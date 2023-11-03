@@ -1,120 +1,137 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.graphics.Rect;
-import android.os.Build;
-import android.util.Log;
+import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupEditText;
+import com.baidu.tbadk.data.AtSelectData;
+import com.baidu.tbadk.editortools.RawLayout;
+import com.baidu.tbadk.editortools.inputtool.InputView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class we5 {
+public class we5 extends ke5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int u;
+    public static final int[] v;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public final View b;
-    public final int c;
-    public final boolean d;
-    public se5 e;
+    public InputView t;
 
-    public we5(View view2) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948267714, "Lcom/baidu/tieba/we5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948267714, "Lcom/baidu/tieba/we5;");
+                return;
+            }
+        }
+        u = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds26);
+        v = new int[]{4, 17, 24, 3, 9, 6, 44};
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public we5(Context context, boolean z) {
+        super(context, (String) null, 3);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {context, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = -1;
-        this.b = view2;
-        this.c = ze5.a(view2.getContext());
-        this.d = af5.c((Activity) view2.getContext());
+        k(context, z);
     }
 
-    public final se5 a(View view2) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public we5(Context context, boolean z, boolean z2) {
+        super(context, (String) null, 3);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            se5 se5Var = this.e;
-            if (se5Var != null) {
-                return se5Var;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Boolean.valueOf(z), Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
-            if (view2 instanceof se5) {
-                se5 se5Var2 = (se5) view2;
-                this.e = se5Var2;
-                return se5Var2;
-            } else if (view2 instanceof ViewGroup) {
-                int i = 0;
-                while (true) {
-                    ViewGroup viewGroup = (ViewGroup) view2;
-                    if (i < viewGroup.getChildCount()) {
-                        se5 a = a(viewGroup.getChildAt(i));
-                        if (a != null) {
-                            this.e = a;
-                            return a;
-                        }
-                        i++;
-                    } else {
-                        return null;
-                    }
-                }
-            } else {
-                return null;
-            }
-        } else {
-            return (se5) invokeL.objValue;
+        }
+        k(context, z);
+        InputView inputView = this.t;
+        if (inputView != null) {
+            inputView.setNeedFaceMaxCount(z2);
         }
     }
 
-    @TargetApi(16)
-    public void b(int i, int i2) {
+    public SpanGroupEditText i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            if (this.d && Build.VERSION.SDK_INT >= 16 && this.b.getFitsSystemWindows()) {
-                Rect rect = new Rect();
-                this.b.getWindowVisibleDisplayFrame(rect);
-                i2 = rect.bottom - rect.top;
-            }
-            Log.d("KPSRootLayoutHandler", "onMeasure, width: " + i + " height: " + i2);
-            if (i2 < 0) {
-                return;
-            }
-            int i3 = this.a;
-            if (i3 < 0) {
-                this.a = i2;
-                return;
-            }
-            int i4 = i3 - i2;
-            if (i4 == 0) {
-                Log.d("KPSRootLayoutHandler", "" + i4 + " == 0 break;");
-            } else if (Math.abs(i4) == this.c) {
-                Log.w("KPSRootLayoutHandler", String.format("offset just equal statusBar height %d", Integer.valueOf(i4)));
-            } else {
-                this.a = i2;
-                se5 a = a(this.b);
-                if (a == null) {
-                    Log.w("KPSRootLayoutHandler", "can't find the valid panel conflict layout, give up!");
-                } else if (Math.abs(i4) < ye5.f(this.b.getContext())) {
-                    Log.w("KPSRootLayoutHandler", "system bottom-menu-bar(such as HuaWei Mate7) causes layout changed");
-                } else if (i4 > 0) {
-                    a.handleHide();
-                } else if (a.b() && a.isVisible()) {
-                    a.handleShow();
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.t;
+        }
+        return (SpanGroupEditText) invokeV.objValue;
+    }
+
+    public List<AtSelectData> j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.t.getSpanGroupManager().x();
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final void k(Context context, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, context, z) == null) {
+            this.o = false;
+            this.n = 2;
+            this.p = v;
+            InputView inputView = new InputView(context, z);
+            this.t = inputView;
+            this.m = inputView;
+            RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(0, -1);
+            int i = u;
+            ((LinearLayout.LayoutParams) layoutParams).topMargin = i;
+            ((LinearLayout.LayoutParams) layoutParams).bottomMargin = i;
+            ((LinearLayout.LayoutParams) layoutParams).weight = 1.0f;
+            ((LinearLayout.LayoutParams) layoutParams).gravity = 80;
+            ((View) this.m).setLayoutParams(layoutParams);
+        }
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            ((InputView) this.m).setIsOnlyLocalEmotion(z);
         }
     }
 }

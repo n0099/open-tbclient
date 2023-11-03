@@ -1,24 +1,23 @@
 package com.baidu.tieba;
 
-import android.content.res.Configuration;
+import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.splashad.SplashAdView;
+import com.baidu.tieba.compact.RecommendBarCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
-public class jo6 {
+public class jo6 extends ia7<RecommendBarCardView, s27> {
     public static /* synthetic */ Interceptable $ic;
-    public static jo6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<SplashAdView> a;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public jo6() {
+        super("recommend_bar_layout");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -26,64 +25,34 @@ public class jo6 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static jo6 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ia7, com.baidu.tieba.ya7
+    @NonNull
+    public View a(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                b = new jo6();
-            }
-            return b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            View a = super.a(viewGroup);
+            rc7.h(a);
+            return a;
         }
-        return (jo6) invokeV.objValue;
+        return (View) invokeL.objValue;
     }
 
-    public void c() {
-        WeakReference<SplashAdView> weakReference;
-        SplashAdView splashAdView;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ya7
+    /* renamed from: e */
+    public void b(@NonNull RecommendBarCardView recommendBarCardView, @NonNull s27 s27Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (weakReference = this.a) != null && (splashAdView = weakReference.get()) != null) {
-            splashAdView.a();
-        }
-    }
-
-    public void d() {
-        WeakReference<SplashAdView> weakReference;
-        SplashAdView splashAdView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (weakReference = this.a) != null && (splashAdView = weakReference.get()) != null) {
-            splashAdView.b();
-        }
-    }
-
-    public void b(Configuration configuration) {
-        WeakReference<SplashAdView> weakReference;
-        SplashAdView splashAdView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, configuration) == null) && (weakReference = this.a) != null && (splashAdView = weakReference.get()) != null) {
-            splashAdView.onConfigurationChanged(configuration);
-        }
-    }
-
-    public void e(BaseFragmentActivity baseFragmentActivity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, baseFragmentActivity) == null) && baseFragmentActivity != null) {
-            try {
-                SplashAdView splashAdView = new SplashAdView(baseFragmentActivity, 1);
-                this.a = new WeakReference<>(splashAdView);
-                ViewGroup viewGroup = (ViewGroup) baseFragmentActivity.findViewById(R.id.layout_root);
-                if (viewGroup != null) {
-                    viewGroup.addView(splashAdView);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, recommendBarCardView, s27Var) == null) {
+            recommendBarCardView.a(s27Var);
         }
     }
 }

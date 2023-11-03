@@ -1,231 +1,123 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.h6c;
-import com.baidu.tieba.k6c;
+import android.annotation.SuppressLint;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class a8c<T> implements h6c.a<T> {
-    public static /* synthetic */ Interceptable $ic;
+public class a8c {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String a = "BaseKeyUtil";
     public transient /* synthetic */ FieldHolder $fh;
-    public final k6c a;
-    public final h6c<T> b;
 
-    /* loaded from: classes5.dex */
-    public class a implements u6c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n6c a;
-        public final /* synthetic */ k6c.a b;
-        public final /* synthetic */ a8c c;
-
-        /* renamed from: com.baidu.tieba.a8c$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class C0226a extends n6c<T> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Thread e;
-            public final /* synthetic */ a f;
-
-            /* renamed from: com.baidu.tieba.a8c$a$a$a  reason: collision with other inner class name */
-            /* loaded from: classes5.dex */
-            public class C0227a implements j6c {
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ j6c a;
-                public final /* synthetic */ C0226a b;
-
-                /* renamed from: com.baidu.tieba.a8c$a$a$a$a  reason: collision with other inner class name */
-                /* loaded from: classes5.dex */
-                public class C0228a implements u6c {
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ long a;
-                    public final /* synthetic */ C0227a b;
-
-                    public C0228a(C0227a c0227a, long j) {
-                        Interceptable interceptable = $ic;
-                        if (interceptable != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {c0227a, Long.valueOf(j)};
-                            interceptable.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.b = c0227a;
-                        this.a = j;
-                    }
-
-                    @Override // com.baidu.tieba.u6c
-                    public void call() {
-                        Interceptable interceptable = $ic;
-                        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                            this.b.a.request(this.a);
-                        }
-                    }
-                }
-
-                public C0227a(C0226a c0226a, j6c j6cVar) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {c0226a, j6cVar};
-                        interceptable.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.b = c0226a;
-                    this.a = j6cVar;
-                }
-
-                @Override // com.baidu.tieba.j6c
-                public void request(long j) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-                        if (this.b.e == Thread.currentThread()) {
-                            this.a.request(j);
-                        } else {
-                            this.b.f.b.b(new C0228a(this, j));
-                        }
-                    }
-                }
-            }
-
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0226a(a aVar, n6c n6cVar, Thread thread) {
-                super(n6cVar);
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, n6cVar, thread};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        super((n6c) newInitContext.callArgs[0]);
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.f = aVar;
-                this.e = thread;
-            }
-
-            @Override // com.baidu.tieba.n6c
-            public void f(j6c j6cVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, j6cVar) == null) {
-                    this.f.a.f(new C0227a(this, j6cVar));
-                }
-            }
-
-            @Override // com.baidu.tieba.i6c
-            public void onError(Throwable th) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-                    try {
-                        this.f.a.onError(th);
-                    } finally {
-                        this.f.b.unsubscribe();
-                    }
-                }
-            }
-
-            @Override // com.baidu.tieba.i6c
-            public void onNext(T t) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-                    this.f.a.onNext(t);
-                }
-            }
-
-            @Override // com.baidu.tieba.i6c
-            public void onCompleted() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    try {
-                        this.f.a.onCompleted();
-                    } finally {
-                        this.f.b.unsubscribe();
-                    }
-                }
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947570493, "Lcom/baidu/tieba/a8c;")) == null) {
+            return;
         }
-
-        public a(a8c a8cVar, n6c n6cVar, k6c.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a8cVar, n6cVar, aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = a8cVar;
-            this.a = n6cVar;
-            this.b = aVar;
-        }
-
-        @Override // com.baidu.tieba.u6c
-        public void call() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.b.O(new C0226a(this, this.a, Thread.currentThread()));
-            }
-        }
-    }
-
-    public a8c(h6c<T> h6cVar, k6c k6cVar) {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {h6cVar, k6cVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.a = k6cVar;
-        this.b = h6cVar;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947570493, "Lcom/baidu/tieba/a8c;");
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.v6c
-    /* renamed from: a */
-    public void call(n6c<? super T> n6cVar) {
+    public static int a(int i, int i2, int i3) {
+        InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, n6cVar) == null) {
-            k6c.a createWorker = this.a.createWorker();
-            n6cVar.b(createWorker);
-            createWorker.b(new a(this, n6cVar, createWorker));
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65537, null, i, i2, i3)) == null) {
+            if (i2 < i) {
+                i = i2;
+            }
+            return i3 < i ? i3 : i;
         }
+        return invokeIII.intValue;
+    }
+
+    public static boolean b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? i >= 16 : invokeI.booleanValue;
+    }
+
+    public static boolean c(int i, byte[] bArr) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, bArr)) == null) {
+            return b(i) & d(bArr);
+        }
+        return invokeIL.booleanValue;
+    }
+
+    public static boolean d(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
+            if (bArr.length >= 16) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static byte[] e(String str, String str2, String str3, String str4, int i, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{str, str2, str3, str4, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            return g(str, str2, str3, c8c.b(str4), i, z);
+        }
+        return (byte[]) invokeCommon.objValue;
+    }
+
+    @SuppressLint({"NewApi"})
+    public static byte[] g(String str, String str2, String str3, byte[] bArr, int i, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{str, str2, str3, bArr, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            return f(str, str2, str3, bArr, 10000, i, z);
+        }
+        return (byte[]) invokeCommon.objValue;
+    }
+
+    public static byte[] f(String str, String str2, String str3, byte[] bArr, int i, int i2, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{str, str2, str3, bArr, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            byte[] b = c8c.b(str);
+            byte[] b2 = c8c.b(str2);
+            byte[] b3 = c8c.b(str3);
+            int a2 = a(b.length, b2.length, b3.length);
+            if (c(a2, bArr)) {
+                char[] cArr = new char[a2];
+                for (int i3 = 0; i3 < a2; i3++) {
+                    cArr[i3] = (char) ((b[i3] ^ b2[i3]) ^ b3[i3]);
+                }
+                if (!z) {
+                    f8c.d(a, "exportRootKey: sha1");
+                    return x7c.b(cArr, bArr, i, i2 * 8);
+                }
+                f8c.d(a, "exportRootKey: sha256");
+                return x7c.c(cArr, bArr, i, i2 * 8);
+            }
+            throw new IllegalArgumentException("key length must be more than 128bit.");
+        }
+        return (byte[]) invokeCommon.objValue;
+    }
+
+    @SuppressLint({"NewApi"})
+    public static byte[] h(String str, String str2, String str3, byte[] bArr, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{str, str2, str3, bArr, Boolean.valueOf(z)})) == null) {
+            return g(str, str2, str3, bArr, 16, z);
+        }
+        return (byte[]) invokeCommon.objValue;
     }
 }

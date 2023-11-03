@@ -1,98 +1,68 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tbadk.tracker.UploadLogResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Date;
-import java.util.regex.Pattern;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class fs5 {
+public final class fs5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Pattern a;
-    public static final Pattern b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947774721, "Lcom/baidu/tieba/fs5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947774721, "Lcom/baidu/tieba/fs5;");
-                return;
+    public fs5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        a = Pattern.compile("http[s]?://tieba\\.baidu\\.com/f(.*)&jump_tieba_native=1(.*)");
-        b = Pattern.compile("http[s]?://tieba\\.baidu\\.com/p/([\\d]+)\\?pid=([\\d]+)&tid=([\\d]+)&threadtype=([\\d]+)&jump_type=(.*)&jump_tieba_native=1");
     }
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            Date date = new Date(SharedPrefHelper.getInstance().getLong("show_login_dialog_strategy_key", 0L));
-            long currentTimeMillis = System.currentTimeMillis();
-            Date date2 = new Date(currentTimeMillis);
-            SharedPrefHelper.getInstance().putLong("show_login_dialog_strategy_key", currentTimeMillis);
-            return !TimeHelper.isSameDay(date, date2);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            c();
         }
-        return invokeV.booleanValue;
     }
 
-    public static boolean b(String str) {
-        InterceptResult invokeL;
+    public final TbHttpMessageTask a(int i, String str) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (ad.isEmpty(str)) {
-                return false;
-            }
-            return a.matcher(str.toLowerCase()).find();
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(i, str);
+            tbHttpMessageTask.setPriority(4);
+            tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
+            tbHttpMessageTask.setResponsedClass(UploadLogResponseMessage.class);
+            return tbHttpMessageTask;
         }
-        return invokeL.booleanValue;
+        return (TbHttpMessageTask) invokeIL.objValue;
     }
 
-    public static boolean c(String str) {
-        InterceptResult invokeL;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (ad.isEmpty(str)) {
-                return false;
-            }
-            return b.matcher(str.toLowerCase()).find();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager messageManager = MessageManager.getInstance();
+            String URL_EXCEPTION_REPORT = TbConfig.URL_EXCEPTION_REPORT;
+            Intrinsics.checkNotNullExpressionValue(URL_EXCEPTION_REPORT, "URL_EXCEPTION_REPORT");
+            messageManager.registerTask(a(CmdConfigHttp.CMD_HTTP_EXCEPTION_REPORT, URL_EXCEPTION_REPORT));
+            MessageManager messageManager2 = MessageManager.getInstance();
+            String URL_STATISTICS_REPORT = TbConfig.URL_STATISTICS_REPORT;
+            Intrinsics.checkNotNullExpressionValue(URL_STATISTICS_REPORT, "URL_STATISTICS_REPORT");
+            messageManager2.registerTask(a(CmdConfigHttp.CMD_HTTP_STATISTICS_REPORT, URL_STATISTICS_REPORT));
         }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (ad.isEmpty(str)) {
-                return false;
-            }
-            return "person".equalsIgnoreCase(Uri.parse(str).getAuthority());
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (!b(str) && !c(str) && !d(str)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
     }
 }

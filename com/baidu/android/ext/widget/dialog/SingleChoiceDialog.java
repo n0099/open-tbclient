@@ -379,7 +379,7 @@ public class SingleChoiceDialog extends BoxAlertDialog {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             TextView ifOnlyOneBtnGetIt = getBuilder().ifOnlyOneBtnGetIt();
             if (ifOnlyOneBtnGetIt != null) {
-                ifOnlyOneBtnGetIt.setBackgroundResource(R.drawable.obfuscated_res_0x7f08020a);
+                ifOnlyOneBtnGetIt.setBackgroundResource(R.drawable.obfuscated_res_0x7f08020d);
             }
             super.show();
         }

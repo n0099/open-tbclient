@@ -1,12 +1,6 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tieba.y42;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,11 +8,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ly3 implements fu3 {
+public class ly3 extends my3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ly3() {
+        super("echoSync");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -26,97 +22,27 @@ public class ly3 implements fu3 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.fu3
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return oy3.b();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.fu3
-    @SuppressLint({"SourceLockedOrientationActivity"})
-    public void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && b()) {
-            SwanAppActivity activity = cr2.V().getActivity();
-            if (activity != null) {
-                activity.setRequestedOrientation(1);
-            }
-            cr2.V().X().g(true);
-        }
-    }
-
-    @Override // com.baidu.tieba.fu3
-    public void a(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
-            y42 W = cr2.V().W();
-            Context appContext = AppRuntime.getAppContext();
-            if (W == null) {
-                if (appContext != null) {
-                    h53.f(appContext, R.string.obfuscated_res_0x7f0f01d5).G();
-                    return;
-                }
                 return;
             }
-            pv2 d = pv2.d(str, str);
-            d.h(jSONObject.toString());
-            y42.b i = W.i("adLanding");
-            i.n(y42.g, y42.i);
-            i.k("adLanding", d).b();
         }
     }
 
-    @Override // com.baidu.tieba.fu3
-    public boolean c(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) {
-            return oy3.c(view2);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.fu3
-    public boolean removeView(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, view2)) == null) {
-            return oy3.d(view2);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.fu3
-    public boolean d(View view2, zs3 zs3Var) {
+    @Override // com.baidu.tieba.my3
+    public hy1 a(@NonNull JSONObject jSONObject, @NonNull kj2 kj2Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view2, zs3Var)) == null) {
-            return oy3.a(view2, new vv2(zs3Var.c(), zs3Var.d(), zs3Var.e(), zs3Var.b()));
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.fu3
-    public boolean f(View view2, zs3 zs3Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, view2, zs3Var)) == null) {
-            hn1 X = cr2.V().X();
-            if (X != null && X.a(view2, new vv2(zs3Var.c(), zs3Var.d(), zs3Var.e(), zs3Var.b()))) {
-                return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, kj2Var)) == null) {
+            int optInt = jSONObject.optInt("status", 0);
+            String optString = jSONObject.optString("message");
+            JSONObject optJSONObject = jSONObject.optJSONObject("data");
+            if (optInt == 0) {
+                return new hy1(optInt, optJSONObject);
             }
-            return false;
+            return new hy1(optInt, optString);
         }
-        return invokeLL.booleanValue;
+        return (hy1) invokeLL.objValue;
     }
 }

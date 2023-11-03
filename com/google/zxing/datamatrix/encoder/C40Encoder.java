@@ -1,7 +1,7 @@
 package com.google.zxing.datamatrix.encoder;
 
 import com.huawei.hms.common.internal.TransactionIdCreater;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class C40Encoder implements Encoder {
     @Override // com.google.zxing.datamatrix.encoder.Encoder
     public int getEncodingMode() {

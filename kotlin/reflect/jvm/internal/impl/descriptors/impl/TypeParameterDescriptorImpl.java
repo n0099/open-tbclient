@@ -16,7 +16,7 @@ import kotlin.reflect.jvm.internal.impl.storage.StorageManager;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.types.KotlinTypeKt;
 import kotlin.reflect.jvm.internal.impl.types.Variance;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class TypeParameterDescriptorImpl extends AbstractTypeParameterDescriptor {
     public boolean initialized;
     public final Function1<KotlinType, Void> reportCycleError;
@@ -281,7 +281,7 @@ public class TypeParameterDescriptorImpl extends AbstractTypeParameterDescriptor
 
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.impl.AbstractTypeParameterDescriptor
     /* renamed from: reportSupertypeLoopError */
-    public void mo2109reportSupertypeLoopError(KotlinType kotlinType) {
+    public void mo2113reportSupertypeLoopError(KotlinType kotlinType) {
         if (kotlinType == null) {
             $$$reportNull$$$0(27);
         }

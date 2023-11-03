@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ChatNewMessage extends OrmObject implements Serializable {
@@ -268,5 +269,26 @@ public class ChatNewMessage extends OrmObject implements Serializable {
         if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
             this.specialType = str;
         }
+    }
+
+    public JSONObject toJSONObject() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("msg_id", this.msgId);
+                jSONObject.put("from_uid", this.fromUid);
+                jSONObject.put("from_name", this.fromName);
+                jSONObject.put("content", this.content);
+                jSONObject.put("msg_time", this.msgTime);
+                jSONObject.put("special_msg", this.specialMsg);
+                jSONObject.put("special_msg_type", this.specialType);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

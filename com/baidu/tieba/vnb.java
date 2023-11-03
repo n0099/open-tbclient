@@ -1,70 +1,103 @@
 package com.baidu.tieba;
 
-import android.util.Pair;
-import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.tieba.gpb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.AdReporter;
-import com.fun.ad.sdk.internal.api.utils.MD5Utils;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.ubs.analytics.SampleResult;
 /* loaded from: classes8.dex */
-public class vnb<A extends gpb> extends AdReporter<A> {
+public final class vnb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final boolean e;
-    public final String f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vnb(Ssp.Pid pid) {
-        super(pid.pid, pid.type, pid.ssp.type);
+    public static SampleResult a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.e = pid.isBidding;
-        this.f = pid.pid;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.utils.AdReporter
-    public List onReport(Object obj, String str) {
-        InterceptResult invokeLL;
-        double a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, str)) == null) {
-            gpb gpbVar = (gpb) obj;
-            if (gpbVar != null && gpbVar.a != 0) {
-                ArrayList arrayList = new ArrayList();
-                if (!this.e) {
-                    a = FunAdSdk.getARPU(this.f);
-                } else {
-                    a = (gpbVar.a() / 100.0d) / 1000.0d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (str != null && !str.equals("")) {
+                char c = 65535;
+                int hashCode = str.hashCode();
+                if (hashCode != 79) {
+                    switch (hashCode) {
+                        case 2126:
+                            if (str.equals("C1")) {
+                                c = 5;
+                                break;
+                            }
+                            break;
+                        case 2127:
+                            if (str.equals("C2")) {
+                                c = 6;
+                                break;
+                            }
+                            break;
+                        case 2128:
+                            if (str.equals("C3")) {
+                                c = 7;
+                                break;
+                            }
+                            break;
+                        default:
+                            switch (hashCode) {
+                                case 2653:
+                                    if (str.equals("T1")) {
+                                        c = 0;
+                                        break;
+                                    }
+                                    break;
+                                case 2654:
+                                    if (str.equals("T2")) {
+                                        c = 1;
+                                        break;
+                                    }
+                                    break;
+                                case 2655:
+                                    if (str.equals("T3")) {
+                                        c = 2;
+                                        break;
+                                    }
+                                    break;
+                                case 2656:
+                                    if (str.equals("T4")) {
+                                        c = 3;
+                                        break;
+                                    }
+                                    break;
+                                case 2657:
+                                    if (str.equals("T5")) {
+                                        c = 4;
+                                        break;
+                                    }
+                                    break;
+                            }
+                    }
+                } else if (str.equals("O")) {
+                    c = '\b';
                 }
-                arrayList.add(Pair.create("rvn", Double.valueOf(a)));
-                arrayList.add(Pair.create("rvnM", MD5Utils.getMD5String(String.valueOf((int) Math.floor(1000000.0d * a)))));
-                arrayList.add(Pair.create(MapBundleKey.MapObjKey.OBJ_BID, Boolean.valueOf(this.e)));
-                return arrayList;
+                switch (c) {
+                    case 0:
+                        return SampleResult.T1;
+                    case 1:
+                        return SampleResult.T2;
+                    case 2:
+                        return SampleResult.T3;
+                    case 3:
+                        return SampleResult.T4;
+                    case 4:
+                        return SampleResult.T5;
+                    case 5:
+                        return SampleResult.C1;
+                    case 6:
+                        return SampleResult.C2;
+                    case 7:
+                        return SampleResult.C3;
+                    case '\b':
+                        return SampleResult.OTHERE;
+                    default:
+                        return SampleResult.OTHERE;
+                }
             }
-            return null;
+            return SampleResult.OTHERE;
         }
-        return (List) invokeLL.objValue;
+        return (SampleResult) invokeL.objValue;
     }
 }

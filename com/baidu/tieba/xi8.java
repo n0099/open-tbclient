@@ -1,74 +1,43 @@
 package com.baidu.tieba;
 
-import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.im.lib.socket.msg.TbAtUserInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+import tbclient.Hottopic.JoinUser;
+import tbclient.Hottopic.UserInfo;
+/* loaded from: classes9.dex */
 public class xi8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<int[]> a;
-    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<aj8> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948301442, "Lcom/baidu/tieba/xi8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948301442, "Lcom/baidu/tieba/xi8;");
-                return;
+    public xi8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        a = new ArrayList();
-        b = SkinManager.getColor(R.color.CAM_X0304);
     }
 
-    public static SpannableStringBuilder a(SpannableStringBuilder spannableStringBuilder, int i) {
-        InterceptResult invokeLI;
+    public void a(JoinUser joinUser) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, spannableStringBuilder, i)) == null) {
-            if (!TextUtils.isEmpty(spannableStringBuilder) && !ListUtils.isEmpty(a)) {
-                for (int[] iArr : a) {
-                    int i2 = iArr[0];
-                    int i3 = iArr[1];
-                    if (i2 < spannableStringBuilder.length() && i3 <= spannableStringBuilder.length() && i2 >= 0 && i3 >= 0) {
-                        if (i == -1) {
-                            i = b;
-                        }
-                        spannableStringBuilder.setSpan(new ForegroundColorSpan(i), i2, i3, 18);
-                    }
-                }
-            }
-            return spannableStringBuilder;
-        }
-        return (SpannableStringBuilder) invokeLI.objValue;
-    }
-
-    public static void b(List<TbAtUserInfo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, list) == null) {
-            a.clear();
-            if (ListUtils.isEmpty(list)) {
-                return;
-            }
-            for (TbAtUserInfo tbAtUserInfo : list) {
-                if (tbAtUserInfo != null) {
-                    int atPosition = tbAtUserInfo.getAtPosition();
-                    a.add(new int[]{atPosition, tbAtUserInfo.getAtName().length() + atPosition + 1});
+        if (interceptable == null || interceptable.invokeL(1048576, this, joinUser) == null) {
+            joinUser.join_user_num.longValue();
+            this.a = new ArrayList();
+            for (UserInfo userInfo : joinUser.join_user) {
+                if (userInfo != null) {
+                    aj8 aj8Var = new aj8();
+                    aj8Var.a(userInfo);
+                    this.a.add(aj8Var);
                 }
             }
         }

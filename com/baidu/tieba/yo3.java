@@ -1,8 +1,15 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.lb3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,23 +17,83 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.BaseHiidoContent;
+import java.util.HashSet;
+import java.util.Set;
+import org.json.JSONObject;
 /* loaded from: classes9.dex */
-public final class yo3 {
+public class yo3 extends d83 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a j;
+    public static final Set<String> d;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte[] a;
-    public byte[] b;
-    public byte c;
-    public byte d;
-    public short e;
-    public int f;
-    public long g;
-    public byte[] h;
-    public byte[] i;
+    public String c;
+
+    /* loaded from: classes9.dex */
+    public class a implements zk3<jb3<lb3.e>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ Context b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ String f;
+        public final /* synthetic */ String g;
+        public final /* synthetic */ yo3 h;
+
+        public a(yo3 yo3Var, CallbackHandler callbackHandler, Context context, String str, String str2, String str3, String str4, String str5) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yo3Var, callbackHandler, context, str, str2, str3, str4, str5};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.h = yo3Var;
+            this.a = callbackHandler;
+            this.b = context;
+            this.c = str;
+            this.d = str2;
+            this.e = str3;
+            this.f = str4;
+            this.g = str5;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.zk3
+        /* renamed from: b */
+        public void a(jb3<lb3.e> jb3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jb3Var) == null) {
+                if (!eb3.h(jb3Var)) {
+                    eb3.q(jb3Var, this.a, this.h.c);
+                    return;
+                }
+                zh3 a = np2.F().a(this.b, this.c, this.d, this.e, this.f, this.g);
+                if (a != null) {
+                    if (a.h() != 0) {
+                        g32.c("PageTransitionAction", a.g().toString());
+                        CallbackHandler callbackHandler = this.a;
+                        String str = this.h.c;
+                        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, a.a() + ":" + a.g().toString()).toString());
+                        return;
+                    }
+                    g32.c("PageTransitionAction", "page transition fail");
+                    this.a.handleSchemeDispatchCallback(this.h.c, UnitedSchemeUtility.wrapCallbackParams(1001, "execute fail").toString());
+                    return;
+                }
+                g32.i("PageTransitionAction", "page transition success");
+                this.a.handleSchemeDispatchCallback(this.h.c, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -41,21 +108,31 @@ public final class yo3 {
                 return;
             }
         }
-        j = new a(null);
+        HashSet hashSet = new HashSet();
+        d = hashSet;
+        hashSet.add("easybrowse");
+        d.add("live");
+        d.add("appTab");
+        d.add("browser");
+        d.add("comic");
+        d.add("novel");
+        d.add("imChatHN");
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public yo3() {
-        this(null, null, (byte) 0, (byte) 0, (short) 0, 0, 0L, null, null, 511, null);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yo3(d73 d73Var) {
+        super(d73Var, "/swanAPI/pageTransition");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {d73Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this((byte[]) objArr[0], (byte[]) objArr[1], ((Byte) objArr[2]).byteValue(), ((Byte) objArr[3]).byteValue(), ((Short) objArr[4]).shortValue(), ((Integer) objArr[5]).intValue(), ((Long) objArr[6]).longValue(), (byte[]) objArr[7], (byte[]) objArr[8], ((Integer) objArr[9]).intValue(), (DefaultConstructorMarker) objArr[10]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -63,319 +140,86 @@ public final class yo3 {
         }
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.d83
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g63 g63Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof yo3) {
-                    yo3 yo3Var = (yo3) obj;
-                    return Intrinsics.areEqual(this.a, yo3Var.a) && Intrinsics.areEqual(this.b, yo3Var.b) && this.c == yo3Var.c && this.d == yo3Var.d && this.e == yo3Var.e && this.f == yo3Var.f && this.g == yo3Var.g && Intrinsics.areEqual(this.h, yo3Var.h) && Intrinsics.areEqual(this.i, yo3Var.i);
-                }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g63Var)) == null) {
+            if (g63Var == null) {
+                g32.c("PageTransitionAction", "runtime exception");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "null swanApp");
                 return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            byte[] bArr = this.a;
-            int hashCode = (bArr != null ? Arrays.hashCode(bArr) : 0) * 31;
-            byte[] bArr2 = this.b;
-            int hashCode2 = bArr2 != null ? Arrays.hashCode(bArr2) : 0;
-            long j2 = this.g;
-            int i = (((((((((((hashCode + hashCode2) * 31) + this.c) * 31) + this.d) * 31) + this.e) * 31) + this.f) * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31;
-            byte[] bArr3 = this.h;
-            int hashCode3 = (i + (bArr3 != null ? Arrays.hashCode(bArr3) : 0)) * 31;
-            byte[] bArr4 = this.i;
-            return hashCode3 + (bArr4 != null ? Arrays.hashCode(bArr4) : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    /* loaded from: classes9.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            } else if (g63Var.o0()) {
+                if (d83.b) {
+                    Log.d("PageTransitionAction", "PageTransitionAction does not supported when app is invisible.");
                 }
-            }
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public final yo3 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                yo3 yo3Var = new yo3(null, null, (byte) 0, (byte) 0, (short) 0, 0, 0L, null, null, 511, null);
-                yo3Var.n(new byte[2]);
-                byte[] e = yo3Var.e();
-                if (e != null) {
-                    e[0] = 0;
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
+                return false;
+            } else {
+                String param = unitedSchemeEntity.getParam("params");
+                if (TextUtils.isEmpty(param)) {
+                    g32.c("PageTransitionAction", "params is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "params is null");
+                    return false;
                 }
-                byte[] e2 = yo3Var.e();
-                if (e2 != null) {
-                    e2[1] = 3;
+                JSONObject d2 = gj3.d(param);
+                String optString = d2.optString("cb");
+                this.c = optString;
+                if (TextUtils.isEmpty(optString)) {
+                    g32.c("PageTransitionAction", "callback is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                    return false;
                 }
-                yo3Var.m(new byte[2]);
-                byte[] d = yo3Var.d();
-                if (d != null) {
-                    d[0] = -27;
+                String optString2 = d2.optString("authority");
+                String optString3 = d2.optString("path");
+                String optString4 = d2.optString("module");
+                String optString5 = d2.optString("action");
+                String optString6 = d2.optString("scheme");
+                k(g63Var, optString4);
+                if (np2.E().a(d2)) {
+                    g63Var.f0().g(context, "mapp_i_baiduapp_page_trans", new a(this, callbackHandler, context, optString2, optString3, optString4, optString5, optString6));
+                } else {
+                    zh3 a2 = np2.F().a(context, optString2, optString3, optString4, optString5, optString6);
+                    if (a2 != null) {
+                        if (a2.h() != 0) {
+                            g32.c("PageTransitionAction", a2.g().toString());
+                            String str = this.c;
+                            callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, a2.a() + ":" + a2.g().toString()).toString());
+                        } else {
+                            g32.c("PageTransitionAction", "page transition fail");
+                            callbackHandler.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(1001, "execute fail").toString());
+                        }
+                    } else {
+                        g32.i("PageTransitionAction", "page transition success");
+                        callbackHandler.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                    }
                 }
-                byte[] d2 = yo3Var.d();
-                if (d2 != null) {
-                    d2[1] = -89;
-                }
-                return yo3Var;
-            }
-            return (yo3) invokeV.objValue;
-        }
-    }
-
-    public yo3(byte[] bArr, byte[] bArr2, byte b, byte b2, short s, int i, long j2, byte[] bArr3, byte[] bArr4) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bArr, bArr2, Byte.valueOf(b), Byte.valueOf(b2), Short.valueOf(s), Integer.valueOf(i), Long.valueOf(j2), bArr3, bArr4};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+                g32.i("PageTransitionAction", "callback success");
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                return true;
             }
         }
-        this.a = bArr;
-        this.b = bArr2;
-        this.c = b;
-        this.d = b2;
-        this.e = s;
-        this.f = i;
-        this.g = j2;
-        this.h = bArr3;
-        this.i = bArr4;
+        return invokeLLLL.booleanValue;
     }
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public /* synthetic */ yo3(byte[] bArr, byte[] bArr2, byte b, byte b2, short s, int i, long j2, byte[] bArr3, byte[] bArr4, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this(r1, r2, r3, r5, r6, r4, r7, r9, (i2 & 256) == 0 ? bArr4 : null);
-        byte[] bArr5;
-        byte[] bArr6;
-        byte b3;
-        byte b4;
-        short s2;
-        long j3;
-        byte[] bArr7;
-        if ((i2 & 1) != 0) {
-            bArr5 = new byte[2];
-        } else {
-            bArr5 = bArr;
-        }
-        if ((i2 & 2) != 0) {
-            bArr6 = new byte[2];
-        } else {
-            bArr6 = bArr2;
-        }
-        if ((i2 & 4) != 0) {
-            b3 = 0;
-        } else {
-            b3 = b;
-        }
-        if ((i2 & 8) != 0) {
-            b4 = 0;
-        } else {
-            b4 = b2;
-        }
-        if ((i2 & 16) != 0) {
-            s2 = 0;
-        } else {
-            s2 = s;
-        }
-        int i3 = (i2 & 32) == 0 ? i : 0;
-        if ((i2 & 64) != 0) {
-            j3 = 0;
-        } else {
-            j3 = j2;
-        }
-        if ((i2 & 128) != 0) {
-            bArr7 = null;
-        } else {
-            bArr7 = bArr3;
-        }
-    }
-
-    public final byte[] a() {
-        InterceptResult invokeV;
+    public final void k(@NonNull g63 g63Var, @NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.i;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, g63Var, str) == null) {
+            id3 id3Var = new id3();
+            id3Var.c = g63Var.X().U();
+            id3Var.a = "swan";
+            if (ak3.G()) {
+                if (d.contains(str)) {
+                    id3Var.b = str.toLowerCase();
+                } else {
+                    id3Var.b = "other";
+                }
+            } else {
+                id3Var.b = "other";
+            }
+            id3Var.a(BaseHiidoContent.HOSTID, np2.n().a());
+            id3Var.a("appid", g63Var.getAppId());
+            zc3.x("1895", id3Var);
         }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public final int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public final long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.g;
-        }
-        return invokeV.longValue;
-    }
-
-    public final byte[] d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public final byte[] e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public final byte[] f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.h;
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public final byte g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.d;
-        }
-        return invokeV.byteValue;
-    }
-
-    public final short h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.e;
-        }
-        return invokeV.shortValue;
-    }
-
-    public final byte i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.c;
-        }
-        return invokeV.byteValue;
-    }
-
-    public final void j(byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, bArr) == null) {
-            this.i = bArr;
-        }
-    }
-
-    public final void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public final void l(long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
-            this.g = j2;
-        }
-    }
-
-    public final void m(byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, bArr) == null) {
-            this.b = bArr;
-        }
-    }
-
-    public final void n(byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, bArr) == null) {
-            this.a = bArr;
-        }
-    }
-
-    public final void o(byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, bArr) == null) {
-            this.h = bArr;
-        }
-    }
-
-    public final void p(byte b) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeB(1048593, this, b) == null) {
-            this.d = b;
-        }
-    }
-
-    public final void q(short s) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Short.valueOf(s)}) == null) {
-            this.e = s;
-        }
-    }
-
-    public final void r(byte b) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeB(1048595, this, b) == null) {
-            this.c = b;
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return "RecordParams(protocolVersion=" + Arrays.toString(this.a) + StringUtil.ARRAY_ELEMENT_SEPARATOR + "schemeType=" + ((int) this.c) + ", schemeExtType=" + ((int) this.d) + StringUtil.ARRAY_ELEMENT_SEPARATOR + "schemeLen=" + ((int) this.e) + ", contentLen=" + this.f + StringUtil.ARRAY_ELEMENT_SEPARATOR + "identity=" + this.g + StringUtil.ARRAY_ELEMENT_SEPARATOR + "scheme=" + Arrays.toString(this.h) + ')';
-        }
-        return (String) invokeV.objValue;
     }
 }

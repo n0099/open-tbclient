@@ -1,97 +1,98 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.permissionhelper.app.ActivityCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Stack;
+import java.util.concurrent.locks.ReentrantLock;
+import kotlin.Unit;
 /* loaded from: classes5.dex */
-public class er {
+public final class er<T> implements dr<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static er b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<Integer, ActivityCompat.OnRequestPermissionsResultCallback> a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448303776, "Lcom/baidu/tieba/er;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448303776, "Lcom/baidu/tieba/er;");
-                return;
-            }
-        }
-        b = new er();
-    }
+    public final Stack<T> a;
+    public final ReentrantLock b;
 
     public er() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap();
+        this.a = new Stack<>();
+        this.b = new ReentrantLock(true);
     }
 
-    public static er b() {
+    @Override // com.baidu.tieba.dr
+    public T a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
-        }
-        return (er) invokeV.objValue;
-    }
-
-    public void a(int i, ActivityCompat.OnRequestPermissionsResultCallback onRequestPermissionsResultCallback) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIL(1048576, this, i, onRequestPermissionsResultCallback) != null) || this.a == null) {
-            return;
-        }
-        synchronized (er.class) {
-            if (this.a.containsKey(Integer.valueOf(i))) {
-                this.a.remove(Integer.valueOf(i));
-            }
-            this.a.put(Integer.valueOf(i), onRequestPermissionsResultCallback);
-        }
-    }
-
-    public ActivityCompat.OnRequestPermissionsResultCallback c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            Map<Integer, ActivityCompat.OnRequestPermissionsResultCallback> map = this.a;
-            if (map != null && map.containsKey(Integer.valueOf(i))) {
-                return this.a.get(Integer.valueOf(i));
-            }
-            return null;
-        }
-        return (ActivityCompat.OnRequestPermissionsResultCallback) invokeI.objValue;
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            synchronized (er.class) {
-                if (this.a != null && this.a.containsKey(Integer.valueOf(i))) {
-                    this.a.remove(Integer.valueOf(i));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ReentrantLock reentrantLock = this.b;
+            reentrantLock.lock();
+            try {
+                if (!c()) {
+                    return this.a.pop();
                 }
+                return null;
+            } finally {
+                reentrantLock.unlock();
+            }
+        }
+        return (T) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.dr
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ReentrantLock reentrantLock = this.b;
+            reentrantLock.lock();
+            try {
+                this.a.clear();
+                Unit unit = Unit.INSTANCE;
+            } finally {
+                reentrantLock.unlock();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.dr
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ReentrantLock reentrantLock = this.b;
+            reentrantLock.lock();
+            try {
+                return this.a.isEmpty();
+            } finally {
+                reentrantLock.unlock();
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.dr
+    public void a(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+            ReentrantLock reentrantLock = this.b;
+            reentrantLock.lock();
+            try {
+                this.a.push(t);
+            } finally {
+                reentrantLock.unlock();
             }
         }
     }

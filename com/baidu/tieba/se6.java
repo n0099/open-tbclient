@@ -1,153 +1,143 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.os.Build;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.lib.util.DeviceInfoHelper;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.DeviceInfoUtil;
-import com.baidu.tbadk.util.WebviewHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import android.util.Base64;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes8.dex */
-public class se6 {
+public class se6 extends BdAsyncTask<Void, String, String> {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<String, String> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public oe6 b;
+    public String c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948148581, "Lcom/baidu/tieba/se6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948148581, "Lcom/baidu/tieba/se6;");
+    public se6(String str, int i, oe6 oe6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), oe6Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new HashMap<>();
+        this.a = i;
+        this.b = oe6Var;
+        this.c = str;
     }
 
-    @NonNull
-    public static Map<String, String> a(Uri uri) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: b */
+    public String doInBackground(Void... voidArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, uri)) == null) {
-            HashMap hashMap = new HashMap();
-            Set<String> queryParameterNames = uri.getQueryParameterNames();
-            if (!zh6.a(queryParameterNames)) {
-                for (String str : queryParameterNames) {
-                    hashMap.put("{" + str + "}", uri.getQueryParameter(str));
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
+            String str = this.c;
+            if (str == null) {
+                return null;
             }
-            hashMap.putAll(b());
-            return hashMap;
+            return c(str);
         }
-        return (Map) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static Map<String, String> b() {
-        InterceptResult invokeV;
-        String str;
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:13:0x0028 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x0036 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x0009 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v10, types: [java.io.FileInputStream, java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r0v11 */
+    /* JADX WARN: Type inference failed for: r0v12 */
+    /* JADX WARN: Type inference failed for: r0v2, types: [boolean] */
+    /* JADX WARN: Type inference failed for: r0v3 */
+    /* JADX WARN: Type inference failed for: r0v4 */
+    /* JADX WARN: Type inference failed for: r0v6 */
+    /* JADX WARN: Type inference failed for: r0v7 */
+    /* JADX WARN: Type inference failed for: r0v8, types: [java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r0v9 */
+    public String c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (zh6.b(a)) {
-                TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-                a.put("{device.cuid}", inst.getCuid());
-                a.put("{device.imei}", inst.getImei());
-                a.put("{device.shoubaiCuid}", inst.getCuidGalaxy2());
-                a.put("{device.brand}", Build.BRAND);
-                a.put("{device.platform}", "Android");
-                a.put("{device.clientVersion}", TbConfig.getVersion());
-                a.put("{device.zid}", inst.getZid());
-                a.put("{device.sign}", "tiebaclient!!!");
-                a.put("{device.clientType}", "2");
-                HashMap<String, String> hashMap = a;
-                String str2 = "1";
-                if (TbSingleton.getInstance().getSyncYYSwitch()) {
-                    str = "1";
-                } else {
-                    str = "0";
-                }
-                hashMap.put("{device.is_yy_user}", str);
-                a.put("{device.androidId}", inst.getAndroidId());
-                a.put("{device.imsi}", inst.getIMsi());
-                a.put("{device.model}", DeviceInfoHelper.getModel());
-                a.put("{device.pkgName}", inst.getPackageName());
-                HashMap<String, String> hashMap2 = a;
-                hashMap2.put("{device.network}", BdNetTypeUtil.netType() + "");
-                HashMap<String, String> hashMap3 = a;
-                hashMap3.put("{device.carrier}", BdNetTypeUtil.curOperatorType() + "");
-                a.put("{device.manufacturer}", DeviceInfoUtil.getDevicesManufacturer());
-                a.put("{device.hardware}", Build.HARDWARE);
-                a.put("{device.board}", Build.BOARD);
-                HashMap<String, String> hashMap4 = a;
-                if (!DeviceInfoUtil.isSupportGyroScope(inst)) {
-                    str2 = "0";
-                }
-                hashMap4.put("{device.imu}", str2);
-                a.put("{baiduId}", TbSingleton.getInstance().getBaiduIdForAnti());
-                a.put("{user.tbs}", inst.getTbs());
-                a.put("{client_version}", TbConfig.getVersion());
-                a.put("{client_type}", "2");
-                a.put("{User-Agent}", WebviewHelper.getGlobalUserAgent());
-            }
-            return a;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public static String c(Map<String, String> map, String str) {
-        InterceptResult invokeLL;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, map, str)) == null) {
-            String str3 = "";
-            if (map != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            ?? isEmpty = TextUtils.isEmpty(str);
+            String str2 = null;
+            str2 = null;
+            str2 = null;
+            InputStream inputStream = null;
+            try {
                 try {
-                    if (Build.VERSION.SDK_INT >= 24) {
-                        str2 = map.getOrDefault(str, "");
-                    } else if (map.containsKey(str)) {
-                        str2 = map.get(str);
-                    }
-                    str3 = str2;
-                } catch (Exception unused) {
-                    return str3;
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
+                if (isEmpty != 0) {
+                    return null;
+                }
+                try {
+                    isEmpty = new FileInputStream(str);
+                    try {
+                        byte[] bArr = new byte[isEmpty.available()];
+                        isEmpty.read(bArr);
+                        str2 = Base64.encodeToString(bArr, 0);
+                        isEmpty.close();
+                        isEmpty = isEmpty;
+                    } catch (Exception e2) {
+                        e = e2;
+                        e.printStackTrace();
+                        if (isEmpty != 0) {
+                            isEmpty.close();
+                            isEmpty = isEmpty;
+                        }
+                        return str2;
+                    }
+                } catch (Exception e3) {
+                    e = e3;
+                    isEmpty = 0;
+                } catch (Throwable th) {
+                    th = th;
+                    if (inputStream != null) {
+                        try {
+                            inputStream.close();
+                        } catch (IOException e4) {
+                            e4.printStackTrace();
+                        }
+                    }
+                    throw th;
+                }
+                return str2;
+            } catch (Throwable th2) {
+                th = th2;
+                inputStream = isEmpty;
             }
-            return Uri.encode(str3);
+        } else {
+            return (String) invokeL.objValue;
         }
-        return (String) invokeLL.objValue;
     }
 
-    public static String d(Map<String, String> map, String str) {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPostExecute(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, map, str)) == null) {
-            if (map == null) {
-                return "";
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            super.onPostExecute((se6) str);
+            oe6 oe6Var = this.b;
+            if (oe6Var != null && str != null) {
+                oe6Var.a("", this.a, str);
             }
-            if (Build.VERSION.SDK_INT >= 24) {
-                return map.getOrDefault(str, "");
-            }
-            if (!map.containsKey(str)) {
-                return "";
-            }
-            return map.get(str);
         }
-        return (String) invokeLL.objValue;
     }
 }

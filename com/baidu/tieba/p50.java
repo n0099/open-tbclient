@@ -1,42 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Application;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
 public class p50 {
     public static /* synthetic */ Interceptable $ic;
-    public static long a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948012894, "Lcom/baidu/tieba/p50;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948012894, "Lcom/baidu/tieba/p50;");
-        }
-    }
-
-    public static boolean a() {
-        InterceptResult invokeV;
+    public static void a(Application application, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - a > 500) {
-                a = currentTimeMillis;
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeLLLL(65536, null, application, str, str2, str3) == null) {
+            Log.d("LeakCanary", "install: close");
         }
-        return invokeV.booleanValue;
     }
 }

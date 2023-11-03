@@ -1,128 +1,25 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class is1 extends m73 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface is1 {
+    qs1 a(Context context);
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ UnitedSchemeEntity a;
-        public final /* synthetic */ pv2 b;
-        public final /* synthetic */ is1 c;
+    ms1 b(Context context);
 
-        public a(is1 is1Var, UnitedSchemeEntity unitedSchemeEntity, pv2 pv2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {is1Var, unitedSchemeEntity, pv2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = is1Var;
-            this.a = unitedSchemeEntity;
-            this.b = pv2Var;
-        }
+    qs1 c(Context context);
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.k(this.a, this.b);
-            }
-        }
-    }
+    b82 d();
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public is1(m63 m63Var) {
-        super(m63Var, "/swanAPI/openAdWebPage");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {m63Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
+    ns1 e(Context context, int i);
 
-    @Override // com.baidu.tieba.m73
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, p53 p53Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, p53Var)) == null) {
-            if (m73.b) {
-                Log.d("AdLandingAction", "handle entity: " + unitedSchemeEntity.toString());
-            }
-            String o = y83.o(unitedSchemeEntity, "params");
-            String n = y83.n(unitedSchemeEntity, "params", PrefetchEvent.EVENT_DATA_EXTRA_DATA);
-            if (TextUtils.isEmpty(o)) {
-                p22.c("AdLanding", "adLanding: url is empty");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                return false;
-            } else if (cr2.V().W() == null) {
-                p22.i("AdLandingAction", "open page failed");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                return false;
-            } else {
-                pv2 d = pv2.d(o, o);
-                d.b = n;
-                if (hw1.e().g()) {
-                    l(unitedSchemeEntity, d);
-                } else {
-                    k(unitedSchemeEntity, d);
-                }
-                p22.i("AdLanding", "open adLanding page finish");
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                return true;
-            }
-        }
-        return invokeLLLL.booleanValue;
-    }
+    qs1 f(Context context);
 
-    public final void k(UnitedSchemeEntity unitedSchemeEntity, pv2 pv2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity, pv2Var) == null) && !d52.k3("adLanding", pv2Var)) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-        }
-    }
+    qs1 g(Context context);
 
-    public final void l(UnitedSchemeEntity unitedSchemeEntity, pv2 pv2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, unitedSchemeEntity, pv2Var) == null) {
-            hw1.e().i();
-            jj3.b0(new a(this, unitedSchemeEntity, pv2Var), 200L);
-        }
-    }
+    c82 h(Context context, int i);
+
+    qs1 i(Context context);
+
+    boolean j(int i);
 }

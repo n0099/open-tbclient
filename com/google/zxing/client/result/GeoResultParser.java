@@ -3,7 +3,7 @@ package com.google.zxing.client.result;
 import com.google.zxing.Result;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class GeoResultParser extends ResultParser {
     public static final Pattern GEO_URL_PATTERN = Pattern.compile("geo:([\\-0-9.]+),([\\-0-9.]+)(?:,([\\-0-9.]+))?(?:\\?(.*))?", 2);
 

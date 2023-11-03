@@ -4,7 +4,7 @@ import com.google.zxing.FormatException;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.BitArray;
 import com.huawei.hms.common.internal.TransactionIdCreater;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class AI01393xDecoder extends AI01decoder {
     public static final int FIRST_THREE_DIGITS_SIZE = 10;
     public static final int HEADER_SIZE = 8;

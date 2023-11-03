@@ -1,10 +1,10 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,128 +12,70 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class uv2 extends rv2 {
+public class uv2 extends tv2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final uv2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-362134726, "Lcom/baidu/tieba/uv2$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-362134726, "Lcom/baidu/tieba/uv2$b;");
-                    return;
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948224376, "Lcom/baidu/tieba/uv2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            a = new uv2(null);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948224376, "Lcom/baidu/tieba/uv2;");
+                return;
+            }
         }
+        boolean z = rm1.a;
     }
 
-    public uv2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public uv2(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }
 
-    public static uv2 g() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.tv2
+    public boolean a(ov2 ov2Var, qv2 qv2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g63 g63Var) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{ov2Var, qv2Var, context, unitedSchemeEntity, callbackHandler, g63Var})) == null) {
+            g32.i("vrvideo", "remove, video id:" + qv2Var.j + " slave id: " + qv2Var.c);
+            d(ov2Var, qv2Var, unitedSchemeEntity, callbackHandler);
+            return true;
         }
-        return (uv2) invokeV.objValue;
+        return invokeCommon.booleanValue;
     }
 
-    public /* synthetic */ uv2(a aVar) {
-        this();
-    }
-
-    public boolean j(PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeL;
+    public final void d(ov2 ov2Var, qv2 qv2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pMSAppInfo)) == null) {
-            return TextUtils.equals(c(pMSAppInfo), "1");
-        }
-        return invokeL.booleanValue;
-    }
-
-    public JSONObject k(PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, pMSAppInfo)) == null) {
-            JSONObject b2 = b(pMSAppInfo);
-            if (b2 != null && b2.length() > 0) {
-                return b2.optJSONObject("topPages");
-            }
-            return null;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public boolean h(PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pMSAppInfo)) == null) {
-            JSONObject d = d(pMSAppInfo);
-            if (d != null && d.length() > 0) {
-                boolean optBoolean = d.optBoolean("is_opti");
-                if (rv2.c) {
-                    Log.d("SwanAppExtInfo", "is opt pkg  - " + optBoolean);
-                }
-                return optBoolean;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean i(PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pMSAppInfo)) == null) {
-            JSONObject b2 = b(pMSAppInfo);
-            if (b2 != null && b2.has(PrefetchEvent.MODULE)) {
-                z = b2.optBoolean(PrefetchEvent.MODULE);
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ov2Var, qv2Var, unitedSchemeEntity, callbackHandler) == null) {
+            w12 a = t22.a(qv2Var);
+            if (a != null) {
+                a.C();
             } else {
-                JSONObject a2 = a(pMSAppInfo);
-                if (a2 != null && a2.optBoolean(PrefetchEvent.MODULE)) {
-                    z = true;
-                } else {
-                    z = false;
-                }
+                z22.a("VrVideoRemoveAction", "remove with a null component");
             }
-            if (rv2.c) {
-                Log.d("SwanAppExtInfo", "is prefetch on - " + z);
-            }
-            return z;
+            ov2Var.onDestroy();
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
-        return invokeL.booleanValue;
     }
 }

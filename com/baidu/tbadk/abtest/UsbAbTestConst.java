@@ -28,11 +28,13 @@ public class UsbAbTestConst {
     public static final String KEY_HOT_RANK_SHOW = "12_15_live_cell_style_a";
     public static final String KEY_HOT_SPLASH_FIX = "12_25_splash_req_ad_rule";
     public static final String KEY_IJK_IPV6_UPGRADE = "12_47_ijk_ipv6_upgrade_a";
+    public static final String KEY_IJK_NET_IPV6_UPGRADE = "12_50_ijk_ipv6_upgrade_a";
     public static final String KEY_LIVE_CARD_GAME_SHOW = "12_18_live_gameshow_style_a";
     public static final String KEY_MAIN_INDEX_TAB_SHOW_A = "12_26_index_tab_show_a";
     public static final String KEY_MYPAGE_EXPOSED_REMIND_CARD = "12_28_exposed_remind_ad";
     public static final String KEY_NATIVE_AD_AUTO_PLAY = "12_14_ad_video_a";
     public static final String KEY_NATIVE_AD_NO_INTERACTION_STYLE = "12_18_personalize_frs_style_a";
+    public static final String KEY_NEW_FRS_TEST = "12.47_new_frs_test";
     public static final String KEY_NICK_NAME = "12_11_nick_name_a";
     public static final String KEY_NON_ECOM_AD_DOWNLOADER_A = "12_46_non_ecom_ad_downloader_a";
     public static final String KEY_NON_ECOM_AD_DOWNLOADER_B = "12_46_non_ecom_ad_downloader_b";

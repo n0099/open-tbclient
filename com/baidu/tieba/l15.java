@@ -1,131 +1,91 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.content.Context;
+import com.baidu.tbadk.TbPageContextSupport;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tbadk.core.liveremind.LiveRemindConfig;
+import com.baidu.tbadk.data.LiveRemindRecommendData;
+import com.baidu.tieba.s95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
 /* loaded from: classes7.dex */
-public final class l15 implements e15 {
+public final class l15 extends g15 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
-    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeV = interceptable.invokeV(1048576, this)) != null) {
-                return (String) invokeV.objValue;
-            }
-            return l15.b;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947890041, "Lcom/baidu/tieba/l15;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947890041, "Lcom/baidu/tieba/l15;");
-                return;
-            }
-        }
-        a = new a(null);
-        b = "key_home_operate_dialog_" + TbConfig.getBigAppVersion();
-    }
 
     public l15() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.e15
-    public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, Object> strategyData, Map<String, Object> extraData) {
-        InterceptResult invokeLLL;
+    public static final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogData, strategyData, extraData)) == null) {
-            Intrinsics.checkNotNullParameter(dialogData, "dialogData");
-            Intrinsics.checkNotNullParameter(strategyData, "strategyData");
-            Intrinsics.checkNotNullParameter(extraData, "extraData");
-            HashMap hashMap = new HashMap();
-            hashMap.put("dialogName", "operateNew");
-            hashMap.putAll(strategyData);
-            hashMap.putAll(extraData);
-            return hashMap;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            YunDialogManager.unMarkShowingDialogName("homeLiveRemind");
         }
-        return (Map) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.e15
-    public boolean b(Map<String, Object> map) {
-        InterceptResult invokeL;
-        vb5 homeOperateData;
+    @Override // com.baidu.tieba.g15
+    public void a(Context context, u05 data) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            Intrinsics.checkNotNullParameter(map, "map");
-            if ((!SharedPrefHelper.getInstance().getBoolean(b, true)) || (homeOperateData = TbSingleton.getInstance().getHomeOperateData()) == null || !homeOperateData.c()) {
-                return false;
-            }
-            if (!TextUtils.isEmpty(homeOperateData.a())) {
-                String a2 = homeOperateData.a();
-                Intrinsics.checkNotNullExpressionValue(a2, "operateData.homeOperateImg");
-                if (StringsKt__StringsKt.contains$default((CharSequence) a2, (CharSequence) "not_show", false, 2, (Object) null)) {
-                    SharedPrefHelper.getInstance().putBoolean(b, false);
-                    return false;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, data) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(data, "data");
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (currentActivity != null && (currentActivity instanceof TbPageContextSupport)) {
+                int i = 0;
+                LiveRemindRecommendData c = g45.a().c(0);
+                HashMap hashMap = new HashMap();
+                if (c.getRemindType() == 1) {
+                    i = 3;
+                } else if (c.getRemindType() == 2) {
+                    i = 4;
+                } else if (c.getRemindType() == 3) {
+                    i = 2;
                 }
+                hashMap.put("view_top_params_key_image_url", c.getLiveIconSrc());
+                hashMap.put("view_top_params_key_schema", c.getLiveIconScheme());
+                hashMap.put("view_top_params_user_name", c.getUserName());
+                hashMap.put("view_top_params_key_desc", c.getDesc());
+                hashMap.put("view_top_params_room_id", c.getRoomId());
+                hashMap.put("view_top_params_btn_text", c.getBtnText());
+                hashMap.put("view_top_params_key_title", c.getTitle());
+                hashMap.put("view_top_params_key_nid", c.getFeedId());
+                hashMap.put("view_top_params_key_yyext", c.getYyExtData());
+                hashMap.put("view_top_params_key_type", Integer.valueOf(i));
+                hashMap.put("view_top_params_is_breathe", Boolean.FALSE);
+                t95.d(null, ((TbPageContextSupport) currentActivity).getPageContext(), hashMap, 0L, 4000L, new s95.h() { // from class: com.baidu.tieba.a15
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // com.baidu.tieba.s95.h
+                    public final void dismiss() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            l15.b();
+                        }
+                    }
+                });
+                h45.b().f(LiveRemindConfig.Scene.LIVE_FLOAT);
+                YunDialogManager.markShowingDialogName("homeLiveRemind");
+                return;
             }
-            return true;
+            YunDialogManager.unMarkShowingDialogName("homeLiveRemind");
         }
-        return invokeL.booleanValue;
     }
 }

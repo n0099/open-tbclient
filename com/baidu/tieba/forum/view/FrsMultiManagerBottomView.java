@@ -1,0 +1,337 @@
+package com.baidu.tieba.forum.view;
+
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.AttributeSet;
+import android.util.SparseArray;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.DeleteThreadInfo;
+import com.baidu.tbadk.core.data.NegativeFeedBackData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.R;
+import com.baidu.tieba.b16;
+import com.baidu.tieba.c16;
+import com.baidu.tieba.gp7;
+import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.tieba.y06;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import java.util.Locale;
+import org.json.JSONArray;
+import tbclient.ForumRuleStatus;
+/* loaded from: classes6.dex */
+public class FrsMultiManagerBottomView extends RelativeLayout implements View.OnClickListener {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final y06 a;
+    public TextView b;
+    public TextView c;
+    public TextView d;
+    public View e;
+    public View f;
+    public c16 g;
+    public TbPageContext h;
+    public boolean i;
+    public FrsViewData j;
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public FrsMultiManagerBottomView(Context context) {
+        this(context, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public void setIsBlockMode(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.i = z;
+            if (z) {
+                TextView textView = this.c;
+                if (textView != null) {
+                    textView.setText(R.string.obfuscated_res_0x7f0f1418);
+                }
+                TextView textView2 = this.d;
+                if (textView2 != null) {
+                    textView2.setText(R.string.shield_and_forbidden_one_day);
+                }
+            } else {
+                TextView textView3 = this.c;
+                if (textView3 != null) {
+                    textView3.setText(R.string.obfuscated_res_0x7f0f0553);
+                }
+                TextView textView4 = this.d;
+                if (textView4 != null) {
+                    textView4.setText(R.string.delete_and_forbidden_one_day);
+                }
+            }
+            c16 c16Var = this.g;
+            if (c16Var != null) {
+                c16Var.G(this.i);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public FrsMultiManagerBottomView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        a();
+        this.a = new y06("0");
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03a7, this);
+            TextView textView = (TextView) findViewById(R.id.multi_del_cancel_btn);
+            this.b = textView;
+            textView.setText(R.string.obfuscated_res_0x7f0f03d3);
+            TextView textView2 = (TextView) findViewById(R.id.multi_del_btn);
+            this.c = textView2;
+            textView2.setText(R.string.obfuscated_res_0x7f0f0553);
+            TextView textView3 = (TextView) findViewById(R.id.multi_del_forbidden_btn);
+            this.d = textView3;
+            textView3.setText(R.string.delete_and_forbidden_one_day);
+            this.e = findViewById(R.id.obfuscated_res_0x7f09094d);
+            this.f = findViewById(R.id.obfuscated_res_0x7f090925);
+            this.b.setOnClickListener(this);
+            this.c.setOnClickListener(this);
+            this.d.setOnClickListener(this);
+            b();
+            setClickable(true);
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
+            SkinManager.setBackgroundResource(this.b, R.drawable.bg_bottom_up_list_dialog_item);
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
+            SkinManager.setBackgroundResource(this.d, R.drawable.bg_bottom_up_list_dialog_item);
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0301);
+            SkinManager.setBackgroundResource(this.c, R.drawable.bg_bottom_up_list_dialog_item);
+            SkinManager.setBackgroundColor(this.e, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(this.f, R.color.CAM_X0204);
+        }
+    }
+
+    public final void c(String str) {
+        FrsViewData frsViewData;
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || this.h == null) {
+            return;
+        }
+        if (this.g == null && (frsViewData = this.j) != null && frsViewData.getForum() != null && this.j.getForum().getDeletedReasonInfo() != null) {
+            int intValue = this.j.getForum().getDeletedReasonInfo().is_grays_cale_forum.intValue();
+            int intValue2 = this.j.getForum().getDeletedReasonInfo().is_boomgrow.intValue();
+            ForumRuleStatus forumRuleStatus = this.j.forumRule;
+            if (forumRuleStatus != null) {
+                i = forumRuleStatus.has_forum_rule.intValue();
+            } else {
+                i = 0;
+            }
+            b16 b16Var = new b16(intValue, intValue2, i);
+            b16Var.i(this.j.getForum().getId(), this.j.getForum().getName());
+            b16Var.h(this.j.getForum().getImage_url());
+            b16Var.j(this.j.getForum().getUser_level());
+            c16 c16Var = new c16(this.h, this, b16Var, this.j.getUserData());
+            this.g = c16Var;
+            c16Var.G(this.i);
+        }
+        this.g.K(str);
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+            this.a.e();
+            if (view2 == this.b) {
+                gp7.f().m();
+                if (this.i) {
+                    StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_FRS_MULTI_MUSK_VIEW_CANCEL_CLICK);
+                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                    statisticItem.param("fid", gp7.f().d());
+                    statisticItem.param("fname", gp7.f().e());
+                    TiebaStatic.log(statisticItem);
+                }
+            } else if (view2 == this.c) {
+                if (ListUtils.isEmpty(gp7.f().g())) {
+                    return;
+                }
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_MULTI_DEL_BUTTON_CLICK).param("obj_type", 1).param("obj_source", "1"));
+                setData(1);
+                c("2");
+                if (this.i) {
+                    StatisticItem statisticItem2 = new StatisticItem(CommonStatisticKey.KEY_FRS_MULTI_MUSK_VIEW_MUSK_CLICK);
+                    statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                    statisticItem2.param("fid", gp7.f().d());
+                    statisticItem2.param("fname", gp7.f().e());
+                    TiebaStatic.log(statisticItem2);
+                }
+            } else if (view2 != this.d || ListUtils.isEmpty(gp7.f().g())) {
+            } else {
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_MULTI_DEL_BUTTON_CLICK).param("obj_type", 2).param("obj_source", "1"));
+                setData(2);
+                c("2");
+                if (this.i) {
+                    StatisticItem statisticItem3 = new StatisticItem(CommonStatisticKey.KEY_FRS_MULTI_MUSK_VIEW_MUSK_AND_FORBIDDEN_CLICK);
+                    statisticItem3.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                    statisticItem3.param("fid", gp7.f().d());
+                    statisticItem3.param("fname", gp7.f().e());
+                    TiebaStatic.log(statisticItem3);
+                    StatisticItem statisticItem4 = new StatisticItem(CommonStatisticKey.KEY_FRS_MUSK_REASON_DIALOG_SHOW);
+                    statisticItem4.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                    statisticItem4.param("fid", gp7.f().d());
+                    statisticItem4.param("fname", gp7.f().e());
+                    statisticItem4.param("obj_source", 2);
+                    TiebaStatic.log(statisticItem4);
+                }
+            }
+        }
+    }
+
+    public void setData(int i) {
+        FrsViewData frsViewData;
+        int i2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048580, this, i) != null) || this.h == null) {
+            return;
+        }
+        if (this.g == null && (frsViewData = this.j) != null) {
+            int intValue = frsViewData.getForum().getDeletedReasonInfo().is_grays_cale_forum.intValue();
+            int intValue2 = this.j.getForum().getDeletedReasonInfo().is_boomgrow.intValue();
+            ForumRuleStatus forumRuleStatus = this.j.forumRule;
+            if (forumRuleStatus != null) {
+                i2 = forumRuleStatus.has_forum_rule.intValue();
+            } else {
+                i2 = 0;
+            }
+            b16 b16Var = new b16(intValue, intValue2, i2);
+            b16Var.i(this.j.getForum().getId(), this.j.getForum().getName());
+            b16Var.h(this.j.getForum().getImage_url());
+            b16Var.j(this.j.getForum().getUser_level());
+            c16 c16Var = new c16(this.h, this, b16Var, this.j.getUserData());
+            this.g = c16Var;
+            c16Var.G(this.i);
+        }
+        SparseArray<String> sparseArray = new SparseArray<>();
+        AntiData c = gp7.f().c();
+        if (c != null && c.getDelThreadInfoList() != null) {
+            List<DeleteThreadInfo> delThreadInfoList = c.getDelThreadInfoList();
+            for (int i3 = 0; i3 < delThreadInfoList.size(); i3++) {
+                if (!TextUtils.isEmpty(delThreadInfoList.get(i3).text_info)) {
+                    sparseArray.put(delThreadInfoList.get(i3).text_id, delThreadInfoList.get(i3).text_info);
+                }
+            }
+        }
+        JSONArray jSONArray = new JSONArray();
+        JSONArray jSONArray2 = new JSONArray();
+        List<ThreadData> g = gp7.f().g();
+        for (int i4 = 0; i4 < g.size(); i4++) {
+            if (g.get(i4) != null) {
+                jSONArray.put(g.get(i4).getTid());
+                if (this.i) {
+                    jSONArray2.put("1");
+                } else if (!g.get(i4).isScoreThread() && !g.get(i4).isWorksInfo()) {
+                    jSONArray2.put("0");
+                } else {
+                    jSONArray2.put("1");
+                }
+            }
+        }
+        NegativeFeedBackData negativeFeedBackData = new NegativeFeedBackData();
+        negativeFeedBackData.setFeedBackReasonMap(sparseArray);
+        negativeFeedBackData.setDeleteType(i);
+        negativeFeedBackData.setTidArray(jSONArray);
+        negativeFeedBackData.setMaskTidArray(jSONArray2);
+        negativeFeedBackData.setFid(gp7.f().d());
+        this.g.I(new String[]{getContext().getString(R.string.delete_thread_reason_1), getContext().getString(R.string.delete_thread_reason_2), getContext().getString(R.string.delete_thread_reason_3), getContext().getString(R.string.delete_thread_reason_4), getContext().getString(R.string.delete_thread_reason_5)});
+        this.g.H(negativeFeedBackData);
+    }
+
+    public void setDeleteCallback(y06.c cVar) {
+        y06 y06Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, cVar) != null) || (y06Var = this.a) == null) {
+            return;
+        }
+        y06Var.f(cVar);
+    }
+
+    public void setFrsViewData(FrsViewData frsViewData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, frsViewData) == null) {
+            this.j = frsViewData;
+        }
+    }
+
+    public void setPageContext(TbPageContext tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tbPageContext) == null) {
+            this.h = tbPageContext;
+        }
+    }
+
+    public void setSelectNumber(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            String string = getContext().getString(R.string.obfuscated_res_0x7f0f0553);
+            if (this.i) {
+                string = getContext().getString(R.string.obfuscated_res_0x7f0f1418);
+            }
+            if (i > 0) {
+                string = string + String.format(Locale.CHINA, "(%d)", Integer.valueOf(i));
+            }
+            this.c.setText(string);
+        }
+    }
+}

@@ -1,7 +1,7 @@
 package com.google.zxing.oned.rss.expanded.decoders;
 
 import com.google.zxing.common.BitArray;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class AI01320xDecoder extends AI013x0xDecoder {
     @Override // com.google.zxing.oned.rss.expanded.decoders.AI01weightDecoder
     public int checkWeight(int i) {

@@ -1,96 +1,84 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.stats.upload.BdUploadingLogInfo;
-import com.baidu.down.statistic.ConfigSpeedStat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-/* loaded from: classes8.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.ThreadPoolExecutor;
+/* loaded from: classes9.dex */
 public class yb {
     public static /* synthetic */ Interceptable $ic;
+    public static yb b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ThreadPoolExecutor a;
 
-    public static ArrayList<tb> a(qb qbVar, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65536, null, qbVar, z)) == null) {
-            ArrayList<tb> arrayList = new ArrayList<>();
-            File[] b = rb.b(qbVar.E(), z);
-            if (b != null) {
-                for (File file : b) {
-                    if (file.isFile()) {
-                        String name = file.getName();
-                        if (!TextUtils.isEmpty(name) && name.startsWith(qbVar.h()) && name.contains("Uploading")) {
-                            long length = file.length();
-                            if (z && file.getPath().contains("/notUpload")) {
-                                name = "notUpload/" + file.getName();
-                            }
-                            arrayList.add(new tb(name, length, file.lastModified()));
-                        }
-                    }
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448322500, "Lcom/baidu/tieba/yb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            long currentTimeMillis = System.currentTimeMillis();
-            ArrayList<tb> arrayList2 = new ArrayList<>();
-            ArrayList arrayList3 = new ArrayList();
-            if (qbVar.h() != "stat") {
-                Iterator<tb> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    tb next = it.next();
-                    if (next != null) {
-                        long j = next.c;
-                        if (j != 0 && j + 604800000 < currentTimeMillis) {
-                            arrayList3.add(next.b);
-                        } else {
-                            arrayList2.add(next);
-                        }
-                    }
-                }
-                arrayList = arrayList2;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448322500, "Lcom/baidu/tieba/yb;");
+                return;
             }
-            if (arrayList3.size() > 0) {
-                rb.a(arrayList3, qbVar.E());
-            }
-            return arrayList;
         }
-        return (ArrayList) invokeLZ.objValue;
+        b = new yb();
     }
 
-    public static BdUploadingLogInfo b(qb qbVar, boolean z) {
-        InterceptResult invokeLZ;
+    public yb() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, qbVar, z)) == null) {
-            ArrayList<tb> a = a(qbVar, z);
-            BdUploadingLogInfo bdUploadingLogInfo = new BdUploadingLogInfo(BdStatisticsManager.getInstance().getWriteDir(), qbVar.E(), qbVar.A());
-            if (a != null && a.size() > 0) {
-                if (a.size() > 1) {
-                    Collections.sort(a, new ub());
-                }
-                ArrayList arrayList = new ArrayList();
-                int size = a.size();
-                long j = 0;
-                for (int i = 0; i < size; i++) {
-                    tb tbVar = a.get(i);
-                    j += tbVar.a;
-                    arrayList.add(tbVar);
-                    if (j >= ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT) {
-                        bdUploadingLogInfo.add(arrayList);
-                        arrayList = new ArrayList();
-                        j = 0;
-                    }
-                }
-                if (arrayList.size() > 0) {
-                    bdUploadingLogInfo.add(arrayList);
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return bdUploadingLogInfo;
         }
-        return (BdUploadingLogInfo) invokeLZ.objValue;
+        this.a = new ScheduledThreadPoolExecutor(1);
+    }
+
+    public static yb a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
+        }
+        return (yb) invokeV.objValue;
+    }
+
+    public void b(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+            if (this.a.getTaskCount() >= 1) {
+                new Thread(runnable).start();
+                return;
+            }
+            try {
+                this.a.submit(runnable);
+            } catch (Throwable unused) {
+            }
+        }
+    }
+
+    public void c(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) {
+            try {
+                this.a.submit(runnable);
+            } catch (Throwable unused) {
+            }
+        }
     }
 }

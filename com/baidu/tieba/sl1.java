@@ -1,78 +1,52 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.database.Cursor;
-import android.net.Uri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class sl1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
 
-    public sl1(Context context) {
+    public static byte[] a(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, bArr, bArr2)) == null) {
+            byte[] bArr3 = null;
+            if (bArr2 != null) {
+                try {
+                    if (bArr2.length > 0 && bArr != null && bArr.length > 0 && (bArr3 = xl1.b(bArr, bArr2)) != null) {
+                        if (bArr3.length > 0) {
+                            return bArr3;
+                        }
+                    }
+                } catch (Throwable th) {
+                    ql1.d(th);
+                }
             }
+            return bArr3;
         }
-        this.a = context;
+        return (byte[]) invokeLL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:18:0x0040  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public String a(int i, String str) {
-        InterceptResult invokeIL;
-        String str2;
-        Uri parse;
-        Cursor query;
-        StringBuilder sb;
-        String str3;
+    public static byte[] b(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
-            if (i != 0) {
-                if (i == 1) {
-                    sb = new StringBuilder();
-                    str3 = "content://com.vivo.vms.IdProvider/IdentifierId/VAID_";
-                } else if (i != 2) {
-                    parse = null;
-                    query = this.a.getContentResolver().query(parse, null, null, null, null);
-                    if (query != null) {
-                        r0 = query.moveToNext() ? query.getString(query.getColumnIndex("value")) : null;
-                        query.close();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, bArr2)) == null) {
+            byte[] bArr3 = null;
+            if (bArr2 != null) {
+                try {
+                    if (bArr2.length > 0 && bArr != null && bArr.length > 0 && (bArr3 = xl1.c(bArr, bArr2)) != null) {
+                        if (bArr3.length > 0) {
+                            return bArr3;
+                        }
                     }
-                    return r0;
-                } else {
-                    sb = new StringBuilder();
-                    str3 = "content://com.vivo.vms.IdProvider/IdentifierId/AAID_";
+                } catch (Throwable th) {
+                    ql1.d(th);
                 }
-                sb.append(str3);
-                sb.append(str);
-                str2 = sb.toString();
-            } else {
-                str2 = "content://com.vivo.vms.IdProvider/IdentifierId/OAID";
             }
-            parse = Uri.parse(str2);
-            query = this.a.getContentResolver().query(parse, null, null, null, null);
-            if (query != null) {
-            }
-            return r0;
+            return bArr3;
         }
-        return (String) invokeIL.objValue;
+        return (byte[]) invokeLL.objValue;
     }
 }

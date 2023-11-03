@@ -1,178 +1,92 @@
 package com.baidu.tieba;
 
+import android.media.MediaFormat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
+import com.yy.transvod.player.log.TLog;
+import com.yy.transvod.player.mediacodec.MediaInfo;
+import com.yy.transvod.player.mediacodec.NativeFfmpeg;
+import java.lang.ref.WeakReference;
+import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
-public class jec {
+public final class jec extends qec implements NativeFfmpeg.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ProductInfo a;
-    public int b;
-    public boolean c;
-    public boolean d;
-    public int e;
-    public String f;
-    public boolean g;
 
-    public jec(ProductInfo productInfo) {
+    @Override // com.baidu.tieba.lec
+    public void C() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    public jec(int i, udc udcVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {productInfo};
+            Object[] objArr = {Integer.valueOf(i), udcVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = Integer.MIN_VALUE;
-        this.e = -1;
-        this.g = true;
-        this.a = productInfo;
-    }
-
-    public jec(ProductInfo productInfo, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {productInfo, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.b = Integer.MIN_VALUE;
-        this.e = -1;
-        this.g = true;
-        this.a = productInfo;
+        this.s = new WeakReference<>(udcVar);
+        this.w = false;
         this.b = i;
+        this.A.i(i);
+        this.o = 3;
     }
 
-    public jec(boolean z) {
+    public void M(MediaInfo mediaInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaInfo) == null) {
+            TLog.g(this, mediaInfo.toString());
+            if (this.q.e(mediaInfo)) {
+                this.q.c(mediaInfo);
+            }
+            if (this.E == 0 || this.B == null) {
+                this.E = 32768;
+                this.B = ByteBuffer.allocateDirect(32768);
+                this.C = ByteBuffer.allocateDirect(this.E);
+            }
+            this.p.setInteger("samples", mediaInfo.g);
+            this.p.setInteger("channel-count", mediaInfo.h);
+            this.p.setInteger("sample-rate", mediaInfo.j);
+            synchronized (this.k) {
+                if (this.d != null) {
+                    this.d.d("setFormat", this.p, this.a, false);
+                }
             }
         }
-        this.b = Integer.MIN_VALUE;
-        this.e = -1;
-        this.g = true;
-        this.c = z;
     }
 
-    public double a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.lec
+    public void z(MediaFormat mediaFormat, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ProductInfo productInfo = this.a;
-            if (productInfo != null) {
-                return productInfo.destAmount / 100.0d;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, mediaFormat, i) == null) {
+            TLog.g(this, "[audio][decoder] AudioSwDecodeFilter handleCreateDecoder taskID " + i);
+            L();
+            this.w = false;
+            this.a = i;
+            this.A.p(this);
+            this.A.h(this.a);
+            if (this.A.j(5, mediaFormat) != 0) {
+                m(50);
             }
-            return 0.0d;
-        }
-        return invokeV.doubleValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public double c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ProductInfo productInfo = this.a;
-            if (productInfo != null) {
-                return productInfo.srcAmount;
+            MediaInfo b = MediaInfo.b(1, mediaFormat.getInteger("sample-rate"), mediaFormat.getInteger("channel-count"));
+            if (mediaFormat.containsKey("samples")) {
+                b.g = mediaFormat.getInteger("samples");
             }
-            return 0.0d;
+            this.p = mediaFormat;
+            M(b);
         }
-        return invokeV.doubleValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f = str;
-        }
-    }
-
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.g = z;
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        double d;
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("PayAmount{ isVisible=");
-            sb.append(this.g);
-            sb.append(", currencyType=");
-            sb.append(this.b);
-            sb.append(", splitDetailId=");
-            sb.append(this.f);
-            sb.append(", srcAmount=");
-            ProductInfo productInfo = this.a;
-            if (productInfo != null) {
-                d = productInfo.srcAmount;
-            } else {
-                d = 0.0d;
-            }
-            sb.append(d);
-            sb.append(", dstAmount=");
-            ProductInfo productInfo2 = this.a;
-            if (productInfo2 != null) {
-                j = productInfo2.destAmount;
-            } else {
-                j = 0;
-            }
-            sb.append(j);
-            sb.append('}');
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
     }
 }

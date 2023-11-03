@@ -1,26 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import android.util.Log;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
 public class ur5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final <T extends IntentConfig> void a(int i, T t) {
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65536, null, i, t) == null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(i, t));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return TbadkCoreApplication.getInst().isDebugMode();
         }
+        return invokeV.booleanValue;
     }
 
-    public static final <T extends IntentConfig> void b(T t) {
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, t) == null) {
-            a(2002001, t);
+        if ((interceptable != null && interceptable.invokeL(65537, null, str) != null) || !a()) {
+            return;
         }
+        Log.d("TemplatePageLoader", str);
     }
 }

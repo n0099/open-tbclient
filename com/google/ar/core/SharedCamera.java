@@ -7,7 +7,7 @@ import android.media.ImageReader;
 import android.os.Handler;
 import android.view.Surface;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SharedCamera {
     private native void nativeSharedCameraCaptureSessionActive(long j, CameraCaptureSession cameraCaptureSession);
 

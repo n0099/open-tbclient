@@ -9,8 +9,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
 import com.baidu.tbadk.coreExtra.data.AccessState;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.awa;
-import com.baidu.tieba.bwa;
+import com.baidu.tieba.b9b;
+import com.baidu.tieba.c9b;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -29,8 +29,8 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     public static final String j;
     public static final String k;
     public transient /* synthetic */ FieldHolder $fh;
-    public bwa a;
-    public awa b;
+    public c9b a;
+    public b9b b;
     public NewWriteModel c;
     public AccessState d;
     public WriteData e;
@@ -95,7 +95,7 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
         }
     }
 
-    public String M0() {
+    public String J0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -130,7 +130,7 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new bwa(this);
+            this.a = new c9b(this);
             Intent intent = getIntent();
             if (intent == null) {
                 return;
@@ -149,12 +149,12 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
                     } else {
                         z = false;
                     }
-                    newWriteModel2.j0(z);
+                    newWriteModel2.k0(z);
                 }
-                awa awaVar = new awa(this.a, this.c);
-                this.b = awaVar;
-                this.a.m(awaVar);
-                this.b.h(M0());
+                b9b b9bVar = new b9b(this.a, this.c);
+                this.b = b9bVar;
+                this.a.m(b9bVar);
+                this.b.h(J0());
                 return;
             }
             finish();

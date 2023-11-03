@@ -4,33 +4,33 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.graphic.FrameAnimationDrawable;
-import com.baidu.tieba.bh5;
-import com.baidu.tieba.ch5;
-import com.baidu.tieba.gg5;
-import com.baidu.tieba.ug5;
+import com.baidu.tieba.ji5;
+import com.baidu.tieba.qi5;
+import com.baidu.tieba.ri5;
+import com.baidu.tieba.vh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class APNGDrawable extends FrameAnimationDrawable<gg5> {
+public class APNGDrawable extends FrameAnimationDrawable<vh5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public APNGDrawable(ch5 ch5Var) {
-        super(ch5Var);
+    public APNGDrawable(ri5 ri5Var) {
+        super(ri5Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ch5Var};
+            Object[] objArr = {ri5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ch5) newInitContext.callArgs[0]);
+                super((ri5) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -43,7 +43,7 @@ public class APNGDrawable extends FrameAnimationDrawable<gg5> {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            return new APNGDrawable(new bh5(context, str));
+            return new APNGDrawable(new qi5(context, str));
         }
         return (APNGDrawable) invokeLL.objValue;
     }
@@ -51,12 +51,12 @@ public class APNGDrawable extends FrameAnimationDrawable<gg5> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.graphic.FrameAnimationDrawable
     /* renamed from: h */
-    public gg5 d(ch5 ch5Var, ug5 ug5Var) {
+    public vh5 d(ri5 ri5Var, ji5 ji5Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ch5Var, ug5Var)) == null) {
-            return new gg5(ch5Var, ug5Var);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ri5Var, ji5Var)) == null) {
+            return new vh5(ri5Var, ji5Var);
         }
-        return (gg5) invokeLL.objValue;
+        return (vh5) invokeLL.objValue;
     }
 }

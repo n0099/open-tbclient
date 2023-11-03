@@ -1,18 +1,22 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.MalformedURLException;
-@Service
 /* loaded from: classes8.dex */
-public class s24 implements xm1 {
+public class s24 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @V8JavascriptField
+    public double clientX;
+    @V8JavascriptField
+    public double clientY;
+    @V8JavascriptField
+    public int identifier;
 
     public s24() {
         Interceptable interceptable = $ic;
@@ -28,41 +32,37 @@ public class s24 implements xm1 {
         }
     }
 
-    @Override // com.baidu.tieba.xm1
-    public String a() {
+    public int hashCode() {
         InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return lz3.g();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.xm1
-    public boolean b() {
-        InterceptResult invokeV;
-        v42 m;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (p53.M() != null && p53.M().x0()) {
-                y42 W = cr2.V().W();
-                if (W == null || (m = W.m()) == null || !(m instanceof m14)) {
-                    return true;
-                }
-                return ((m14) m).K3();
-            }
-            return false;
+            return Double.valueOf(this.identifier + this.clientX + this.clientY).hashCode();
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.xm1
-    public String c(String str) throws MalformedURLException {
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return lz3.d(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (!(obj instanceof s24)) {
+                return false;
+            }
+            s24 s24Var = (s24) obj;
+            if (this.identifier != s24Var.identifier || this.clientX != s24Var.clientX || this.clientY != s24Var.clientY) {
+                return false;
+            }
+            return true;
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "{identifier=" + this.identifier + ", clientX=" + this.clientX + ", clientY=" + this.clientY + '}';
+        }
+        return (String) invokeV.objValue;
     }
 }

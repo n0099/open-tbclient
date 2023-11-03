@@ -1,28 +1,17 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.tbadk.browser.BrowserHelper;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
+import androidx.annotation.NonNull;
+import java.util.List;
 /* loaded from: classes9.dex */
-public class yj8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface yj8 {
+    @NonNull
+    List<xj8> c();
 
-    public static void a(Context context, String str) {
-        String format;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65536, null, context, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            format = String.format("http://graph.baidu.com/details?image=%s&carousel=0&tn=tieba&promotion_name=shitu", URLEncoder.encode(str, "UTF-8"));
-        } catch (UnsupportedEncodingException unused) {
-            format = String.format("http://graph.baidu.com/details?image=%s&carousel=0&tn=tieba&promotion_name=shitu", str);
-        }
-        BrowserHelper.startWebActivity(context, format);
-    }
+    void d();
+
+    void detach();
+
+    void e(@NonNull ak8 ak8Var);
+
+    int getItemsCount();
 }

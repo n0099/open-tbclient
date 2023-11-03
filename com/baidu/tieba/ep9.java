@@ -1,88 +1,145 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.person.holder.PersonCenterIntervalHolder;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class ep9 extends lh<zo9, PersonCenterIntervalHolder> {
+public final class ep9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ep9(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947742171, "Lcom/baidu/tieba/ep9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947742171, "Lcom/baidu/tieba/ep9;");
                 return;
             }
         }
+        a = new a(null);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
-    /* renamed from: s */
-    public PersonCenterIntervalHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @JvmStatic
+    public static final void a(int i, int i2, int i3, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new PersonCenterIntervalHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0478, viewGroup, false));
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str, str2}) == null) {
+            a.a(i, i2, i3, str, str2);
         }
-        return (PersonCenterIntervalHolder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.lh
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, zo9 zo9Var, PersonCenterIntervalHolder personCenterIntervalHolder) {
-        t(i, view2, viewGroup, zo9Var, personCenterIntervalHolder);
-        return view2;
-    }
-
-    public View t(int i, View view2, ViewGroup viewGroup, zo9 zo9Var, PersonCenterIntervalHolder personCenterIntervalHolder) {
-        InterceptResult invokeCommon;
+    @JvmStatic
+    public static final void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, zo9Var, personCenterIntervalHolder})) == null) {
-            if (zo9Var != null && personCenterIntervalHolder != null) {
-                int skinType = TbadkCoreApplication.getInst().getSkinType();
-                if (personCenterIntervalHolder.a != skinType) {
-                    personCenterIntervalHolder.a = skinType;
-                    SkinManager.setBackgroundResource(personCenterIntervalHolder.b, zo9Var.c);
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            a.b(str);
+        }
+    }
+
+    @JvmStatic
+    public static final void c(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65539, null, i, i2) == null) {
+            a.c(i, i2);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                ViewGroup.LayoutParams layoutParams = personCenterIntervalHolder.b.getLayoutParams();
-                int i2 = zo9Var.a;
-                if (i2 > 0) {
-                    layoutParams.height = i2;
-                }
-                int i3 = zo9Var.b;
-                if (i3 > 0) {
-                    layoutParams.width = i3;
-                }
-                personCenterIntervalHolder.b.setLayoutParams(layoutParams);
-                personCenterIntervalHolder.b.setOnClickListener(null);
             }
-            return view2;
         }
-        return (View) invokeCommon.objValue;
+
+        @JvmStatic
+        public final void a(int i, int i2, int i3, String objParam1, String fid) {
+            int i4;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), objParam1, fid}) == null) {
+                Intrinsics.checkNotNullParameter(objParam1, "objParam1");
+                Intrinsics.checkNotNullParameter(fid, "fid");
+                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_INTEREST_GUIDE_CLICK);
+                statisticItem.param("obj_name", i);
+                if (UbsABTestHelper.isFirstLoginTestA()) {
+                    i4 = 1;
+                } else if (UbsABTestHelper.isFirstLoginTestB()) {
+                    i4 = 2;
+                } else {
+                    i4 = 3;
+                }
+                statisticItem.param("obj_type", i4);
+                statisticItem.param("obj_locate", i2);
+                statisticItem.param("obj_source", i3);
+                statisticItem.param("obj_param1", objParam1);
+                statisticItem.param("fid", fid);
+                TiebaStatic.log(statisticItem);
+            }
+        }
+
+        @JvmStatic
+        public final void b(String objName) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objName) == null) {
+                Intrinsics.checkNotNullParameter(objName, "objName");
+                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_INTEREST_GUIDE_SEE_MORE_CLICK);
+                statisticItem.param("obj_name", objName);
+                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+                TiebaStatic.log(statisticItem);
+            }
+        }
+
+        @JvmStatic
+        public final void c(int i, int i2) {
+            int i3;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_INTEREST_GUIDE_SHOW);
+                statisticItem.param("obj_name", i);
+                if (UbsABTestHelper.isFirstLoginTestA()) {
+                    i3 = 1;
+                } else if (UbsABTestHelper.isFirstLoginTestB()) {
+                    i3 = 2;
+                } else {
+                    i3 = 3;
+                }
+                statisticItem.param("obj_type", i3);
+                statisticItem.param("obj_source", i2);
+                TiebaStatic.log(statisticItem);
+            }
+        }
     }
 }

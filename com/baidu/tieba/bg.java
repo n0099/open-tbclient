@@ -1,108 +1,79 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Canvas;
+import android.graphics.Path;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.graphics.drawable.Drawable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ubc.UBCManager;
-import java.util.AbstractMap;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bg {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "11446";
-    public static String b = "type";
-    public static String c = "value";
-    public static String d = "ext";
-    public static String e = "suc";
-    public static String f = "fail";
+public class bg extends ag {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Path v;
+    public boolean w;
+    public Rect x;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448300552, "Lcom/baidu/tieba/bg;")) == null) {
+    public bg() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.qf
+    public void e(Canvas canvas, Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, canvas, drawable) == null) {
+            canvas.save();
+            t(drawable.getBounds());
+            try {
+                canvas.clipPath(this.v);
+            } catch (Exception unused) {
+            }
+            drawable.draw(canvas);
+            canvas.restore();
+        }
+    }
+
+    public final void t(Rect rect) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rect) != null) || rect == null) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+        boolean z2 = true;
+        if (this.v != null && this.w == this.l.b) {
+            z = false;
+        } else {
+            z = true;
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448300552, "Lcom/baidu/tieba/bg;");
+        Rect rect2 = this.x;
+        if (rect2 != null && rect2.contains(rect)) {
+            z2 = z;
         }
-    }
-
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "-";
+        this.w = this.l.b;
+        if (z2) {
+            this.x = rect;
+            Path path = new Path();
+            this.v = path;
+            if (this.w) {
+                this.v.addCircle((rect.right + rect.left) / 2.0f, (rect.top + rect.bottom) / 2.0f, Math.min(rect.width(), rect.height()) / 2.0f, Path.Direction.CCW);
+            } else {
+                path.addRoundRect(new RectF(rect), this.l.a, Path.Direction.CW);
             }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void b(String str, List<AbstractMap.SimpleEntry<String, String>> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, list) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(b, f);
-                jSONObject.put(c, str);
-                JSONObject jSONObject2 = new JSONObject();
-                if (list != null && !list.isEmpty()) {
-                    for (int i = 0; i < list.size(); i++) {
-                        AbstractMap.SimpleEntry<String, String> simpleEntry = list.get(i);
-                        if (simpleEntry != null && !TextUtils.isEmpty(simpleEntry.getKey())) {
-                            jSONObject2.put(simpleEntry.getKey(), a(simpleEntry.getValue()));
-                        }
-                    }
-                }
-                jSONObject.put(d, jSONObject2);
-                d(a, jSONObject);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
-
-    public static void c(String str, List<AbstractMap.SimpleEntry<String, String>> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, str, list) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(b, e);
-                jSONObject.put(c, str);
-                JSONObject jSONObject2 = new JSONObject();
-                if (list != null && !list.isEmpty()) {
-                    for (int i = 0; i < list.size(); i++) {
-                        AbstractMap.SimpleEntry<String, String> simpleEntry = list.get(i);
-                        if (simpleEntry != null && !TextUtils.isEmpty(simpleEntry.getKey())) {
-                            jSONObject2.put(simpleEntry.getKey(), a(simpleEntry.getValue()));
-                        }
-                    }
-                }
-                jSONObject.put(d, jSONObject2);
-                d(a, jSONObject);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
-
-    public static void d(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, jSONObject) == null) {
-            ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(str, jSONObject);
+            this.v.close();
         }
     }
 }

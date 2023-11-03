@@ -2,8 +2,8 @@ package com.baidu.tieba.pb.pb.main;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ds9;
 import com.baidu.tieba.pb.PbPageRequestMessage;
-import com.baidu.tieba.ye9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean markCache;
-    public ye9 pbData;
+    public ds9 pbData;
     public String postId;
     public int updateType;
 
@@ -37,13 +37,13 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
         }
     }
 
-    public ye9 getPbData() {
+    public ds9 getPbData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.pbData;
         }
-        return (ye9) invokeV.objValue;
+        return (ds9) invokeV.objValue;
     }
 
     public int getUpdateType() {
@@ -73,9 +73,9 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
         setError(pbPageResIdl.error.errorno.intValue());
         setErrorString(pbPageResIdl.error.usermsg);
         if (getError() == 0 && pbPageResIdl.data != null) {
-            ye9 ye9Var = new ye9();
-            this.pbData = ye9Var;
-            ye9Var.F0(1);
+            ds9 ds9Var = new ds9();
+            this.pbData = ds9Var;
+            ds9Var.F0(1);
             try {
                 this.pbData.E0(pbPageResIdl.data);
                 if (!this.pbData.w0()) {

@@ -1,21 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.FrsPage.ColorEgg;
 /* loaded from: classes6.dex */
 public class hw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<String> a;
+    public int a;
     public int b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
+    public int i;
+    public String j;
 
     public hw4() {
         Interceptable interceptable = $ic;
@@ -30,47 +32,14 @@ public class hw4 {
                 return;
             }
         }
-        this.a = new ArrayList<>();
-    }
-
-    public ArrayList<String> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean c(ColorEgg colorEgg) {
-        InterceptResult invokeL;
-        List<String> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, colorEgg)) == null) {
-            this.b = 0;
-            if (colorEgg == null || (list = colorEgg.holiday_words) == null || list.size() <= 0) {
-                return false;
-            }
-            for (String str : colorEgg.holiday_words) {
-                if (!StringUtils.isNull(str)) {
-                    this.a.add(str);
-                }
-            }
-            if (this.a.size() <= 0) {
-                return false;
-            }
-            this.b = colorEgg.style_flag.intValue();
-            return true;
-        }
-        return invokeL.booleanValue;
+        this.a = 0;
+        this.b = 0;
+        this.c = 1;
+        this.d = 1;
+        this.e = 0;
+        this.f = 0;
+        this.g = 1;
+        this.h = 0;
+        this.i = 0;
     }
 }

@@ -1,13 +1,33 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public interface bh4 {
-    @Nullable
-    JSONObject a(@Nullable zg4<JSONObject> zg4Var);
+public class bh4 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public ff4 a;
+    public List<gf4> b;
+    public List<hf4> c;
+    public df4 d;
+    public PMSAppInfo e;
+    public bf4 f;
 
-    @Nullable
-    JSONArray b(@Nullable zg4<JSONArray> zg4Var);
+    public bh4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

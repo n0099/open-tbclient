@@ -1,21 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes8.dex */
-public class to0 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 1;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface to0 {
+    public static final to0 a;
+
+    cp0 a(boolean z);
 
     /* loaded from: classes8.dex */
-    public static class a {
+    public class a implements to0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,40 +27,23 @@ public class to0 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            new ArrayList();
+        }
+
+        @Override // com.baidu.tieba.to0
+        public cp0 a(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+                return cp0.c;
+            }
+            return (cp0) invokeZ.objValue;
         }
     }
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948187796, "Lcom/baidu/tieba/to0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948187796, "Lcom/baidu/tieba/to0;");
-                return;
-            }
-        }
-        new ArrayList(2);
-        new a();
-    }
-
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            int i = a;
-            if (i != 2 && i != 3) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
+        new ServiceReference("nad.core", "http");
+        a = new a();
     }
 }

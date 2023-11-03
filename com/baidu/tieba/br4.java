@@ -1,159 +1,215 @@
 package com.baidu.tieba;
 
-import android.webkit.CookieManager;
-import android.webkit.ValueCallback;
-import android.webkit.WebView;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.GlobalBuildConfig;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tbadk.util.CheckBaiduSimResponseMessage;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class br4 extends CookieManager {
+public class br4 {
     public static /* synthetic */ Interceptable $ic;
+    public static br4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CookieManager a;
+    public CustomMessageListener a;
+    public boolean b;
+    public HttpMessageListener c;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947654565, "Lcom/baidu/tieba/br4;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947654565, "Lcom/baidu/tieba/br4;");
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ br4 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(br4 br4Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {br4Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = br4Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && BdUtilHelper.isNetOk() && BdNetTypeUtil.isMobileNet()) {
+                this.a.c();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ br4 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(br4 br4Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {br4Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = br4Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            String str;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003392 || !(httpResponsedMessage instanceof CheckBaiduSimResponseMessage)) {
+                return;
+            }
+            this.a.b = false;
+            CheckBaiduSimResponseMessage checkBaiduSimResponseMessage = (CheckBaiduSimResponseMessage) httpResponsedMessage;
+            if (checkBaiduSimResponseMessage.isSuc) {
+                boolean z = checkBaiduSimResponseMessage.isBaiduSim;
+                SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
+                if (z) {
+                    str = TbadkCoreApplication.getInst().getResources().getString(R.string.baidu_sim_traffic_free);
+                } else {
+                    str = "";
+                }
+                sharedPrefHelper.putString("key_baidu_sim_card_writting_tip", str);
+                MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_CHECK_BAIDU_SIM);
+            }
+        }
+    }
 
     public br4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = CookieManager.getInstance();
+        this.a = new a(this, 2000994);
+        this.b = false;
+        this.c = new b(this, CmdConfigHttp.CMD_CHECK_BAIDU_SIM);
     }
 
-    @Override // android.webkit.CookieManager
-    public boolean acceptCookie() {
+    public static br4 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.acceptCookie();
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (d == null) {
+                d = new br4();
+            }
+            return d;
         }
-        return invokeV.booleanValue;
+        return (br4) invokeV.objValue;
     }
 
-    @Override // android.webkit.CookieManager
-    public void flush() {
+    public final String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int curOperatorType = BdNetTypeUtil.curOperatorType();
+            if (curOperatorType != 1) {
+                if (curOperatorType != 2) {
+                    if (curOperatorType != 3) {
+                        return "UNKNOWN";
+                    }
+                    return "TELECOM";
+                }
+                return "UNICOM";
+            }
+            return "MOBILE";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.flush();
+            MessageManager.getInstance().registerListener(this.a);
         }
     }
 
-    @Override // android.webkit.CookieManager
-    public boolean hasCookies() {
-        InterceptResult invokeV;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a.hasCookies();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.webkit.CookieManager
-    public void removeAllCookie() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a.removeAllCookie();
-        }
-    }
-
-    @Override // android.webkit.CookieManager
-    public void removeExpiredCookie() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.a.removeExpiredCookie();
-        }
-    }
-
-    @Override // android.webkit.CookieManager
-    public void removeSessionCookie() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.a.removeSessionCookie();
-        }
-    }
-
-    @Override // android.webkit.CookieManager
-    public boolean acceptThirdPartyCookies(WebView webView) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView)) == null) {
-            return this.a.acceptThirdPartyCookies(webView);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.webkit.CookieManager
-    public String getCookie(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return this.a.getCookie(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // android.webkit.CookieManager
-    public void removeAllCookies(@Nullable ValueCallback<Boolean> valueCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, valueCallback) == null) {
-            this.a.removeAllCookies(valueCallback);
-        }
-    }
-
-    @Override // android.webkit.CookieManager
-    public void removeSessionCookies(@Nullable ValueCallback<Boolean> valueCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, valueCallback) == null) {
-            this.a.removeSessionCookies(valueCallback);
-        }
-    }
-
-    @Override // android.webkit.CookieManager
-    public void setAcceptCookie(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.a.setAcceptCookie(z);
-        }
-    }
-
-    @Override // android.webkit.CookieManager
-    public void setAcceptThirdPartyCookies(WebView webView, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048587, this, webView, z) == null) {
-            this.a.setAcceptThirdPartyCookies(webView, z);
-        }
-    }
-
-    @Override // android.webkit.CookieManager
-    public void setCookie(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) {
-            this.a.setCookie(str, str2);
-            if (GlobalBuildConfig.isTiebaDebugTool()) {
-                this.a.setCookie(".baidu-int.com", str2);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && !this.b) {
+            this.b = true;
+            if (System.currentTimeMillis() >= SharedPrefHelper.getInstance().getLong("key_next_check_baidu_sim_time", 0L)) {
+                SharedPrefHelper.getInstance().putLong("key_next_check_baidu_sim_time", System.currentTimeMillis() + 86400000);
+                TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHECK_BAIDU_SIM, TbConfig.SERVER_ADDRESS + "c/s/holycard");
+                tbHttpMessageTask.setResponsedClass(CheckBaiduSimResponseMessage.class);
+                MessageManager.getInstance().registerTask(tbHttpMessageTask);
+                MessageManager.getInstance().registerListener(this.c);
+                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHECK_BAIDU_SIM);
+                httpMessage.addParam("localip", UtilHelper.getGprsIpv4Address());
+                httpMessage.addParam("network", e());
+                MessageManager.getInstance().sendMessage(httpMessage);
+                return;
             }
-        }
-    }
-
-    @Override // android.webkit.CookieManager
-    public void setCookie(String str, String str2, @Nullable ValueCallback<Boolean> valueCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048589, this, str, str2, valueCallback) == null) {
-            this.a.setCookie(str, str2, valueCallback);
+            this.b = false;
         }
     }
 }

@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,12 +10,12 @@ public class jk4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(View view2, int i) {
+    public static Drawable a(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, view2, i)) == null) {
-            return view2.canScrollVertically(i);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, context, i)) == null) {
+            return context.getDrawable(i);
         }
-        return invokeLI.booleanValue;
+        return (Drawable) invokeLI.objValue;
     }
 }

@@ -1,17 +1,36 @@
 package com.baidu.tieba;
-/* loaded from: classes7.dex */
-public interface qzb {
-    void onPlayerAudioStalls(yzb yzbVar, boolean z, int i);
 
-    void onPlayerDecodeBitrate(yzb yzbVar, int i, int i2);
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public class qzb {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void onPlayerDecodeOuputSize(yzb yzbVar, int i, int i2);
-
-    void onPlayerDecodeType(yzb yzbVar, int i);
-
-    void onPlayerReceiveToRenderDelay(yzb yzbVar, int i);
-
-    void onPlayerRenderFramerate(yzb yzbVar, int i);
-
-    void onPlayerVideoStalls(yzb yzbVar, boolean z, int i);
+    public static RippedAd a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        String str;
+        String str2;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
+            JSONObject optJSONObject = jSONObject.optJSONObject("ext");
+            if (optJSONObject != null) {
+                str2 = optJSONObject.optString("appname");
+                str3 = optJSONObject.optString("pkg_name");
+                str = optJSONObject.optString("pkgurl");
+            } else {
+                str = null;
+                str2 = null;
+                str3 = null;
+            }
+            RippedAd.Builder builder = new RippedAd.Builder();
+            builder.setCorporation(jSONObject.optString("corporation_name")).setTitle(jSONObject.optString("txt")).setDescription(jSONObject.optString("desc")).setAppName(str2).setAppPkg(str3).setAppUrl(str).setIconUrl(jSONObject.optString("img2")).setImageUrl(jSONObject.optString("img")).setVideoImageUrl(null).setVideoUrl(jSONObject.optString("video")).setClickUrl(jSONObject.optString("rl")).setDeepLinkUrl(jSONObject.optString("customized_invoke_url")).setConvUrl(null);
+            return builder.build();
+        }
+        return (RippedAd) invokeL.objValue;
+    }
 }

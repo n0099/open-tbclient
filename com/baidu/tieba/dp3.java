@@ -1,114 +1,33 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Base64;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.se4;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class dp3<T> extends fp3 {
+public class dp3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
+    public static final String b;
+    public static final byte[] c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String d;
-    public String e;
-    public se4.c f;
-    public String g;
-    public int h;
 
-    @Override // com.baidu.tieba.fp3
-    public void e(IOException iOException) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iOException) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.fp3
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-        }
-    }
-
-    public dp3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947712194, "Lcom/baidu/tieba/dp3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947712194, "Lcom/baidu/tieba/dp3;");
                 return;
             }
         }
-        this.d = null;
-        this.e = null;
-        this.f = null;
-    }
-
-    @Override // com.baidu.tieba.fp3
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            k(this.d, this.e, this.f);
-        }
-    }
-
-    @Override // com.baidu.tieba.fp3
-    public void h(byte[] bArr) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bArr) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("Content-Type", "application/json");
-            if (this.a) {
-                if (!TextUtils.equals(b(), "GET")) {
-                    str = "Bdtls";
-                } else {
-                    str = Base64.encodeToString(bArr, 2);
-                }
-                hashMap.put("Bdtls", str);
-            } else {
-                hashMap.put("Bdtls-Downgrade", "1");
-            }
-            this.f.a(hashMap, bArr, this.d);
-        }
-    }
-
-    public void k(String str, String str2, se4.c cVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048581, this, str, str2, cVar) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        this.d = str;
-        this.e = str2;
-        this.f = cVar;
-        if (str2 == null) {
-            this.g = "GET";
-        } else {
-            this.g = "POST";
-        }
-        if (lo3.a) {
-            Log.d("BDTLS", "requestPost url=" + str);
-            Log.d("BDTLS", "requestPost body=" + str2);
-        }
-        a(this.e);
+        a = np2.o().t();
+        b = a + "/bdtls";
+        c = new byte[]{0, -98};
     }
 }

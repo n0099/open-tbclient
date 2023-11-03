@@ -8,7 +8,7 @@ import com.google.zxing.maxicode.decoder.DecodedBitStreamParser;
 import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
 import java.util.HashMap;
 import kotlin.text.Typography;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ExpandedProductResultParser extends ResultParser {
     public static String findAIvalue(int i, String str) {
         if (str.charAt(i) != '(') {

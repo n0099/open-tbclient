@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.dialog;
 
 import android.view.View;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 import androidx.core.view.InputDeviceCompat;
@@ -24,6 +25,7 @@ public final class TBAlertConfig {
         public transient /* synthetic */ FieldHolder $fh;
         public String btnText;
         public int btnTextColor;
+        public TextView customView;
         public View.OnClickListener listener;
         public String[] mBgGradientColor;
         public String mBgGradientDirection;
@@ -133,10 +135,19 @@ public final class TBAlertConfig {
             }
         }
 
+        public TextView getCustomView() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.customView;
+            }
+            return (TextView) invokeV.objValue;
+        }
+
         public OperateBtnConfig setBgGradientColor(String[] strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
                 this.mBgGradientColor = strArr;
                 return this;
             }
@@ -146,16 +157,23 @@ public final class TBAlertConfig {
         public OperateBtnConfig setBgGradientDirection(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
                 this.mBgGradientDirection = str;
                 return this;
             }
             return (OperateBtnConfig) invokeL.objValue;
         }
 
+        public void setCustomView(TextView textView) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, textView) == null) {
+                this.customView = textView;
+            }
+        }
+
         public void setListener(View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
+            if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
                 this.listener = onClickListener;
             }
         }
@@ -168,6 +186,7 @@ public final class TBAlertConfig {
         public static /* synthetic */ Interceptable $ic;
         public static final OperateBtnStyle ALERT;
         public static final OperateBtnStyle BG_GRADIENT;
+        public static final OperateBtnStyle CUSTOM;
         public static final OperateBtnStyle FORCE;
         public static final OperateBtnStyle MAIN;
         public static final OperateBtnStyle MAIN_BG;
@@ -192,9 +211,10 @@ public final class TBAlertConfig {
             FORCE = new OperateBtnStyle("FORCE", 2);
             SECONDARY = new OperateBtnStyle("SECONDARY", 3);
             ALERT = new OperateBtnStyle("ALERT", 4);
-            OperateBtnStyle operateBtnStyle = new OperateBtnStyle("BG_GRADIENT", 5);
-            BG_GRADIENT = operateBtnStyle;
-            $VALUES = new OperateBtnStyle[]{MAIN, MAIN_BG, FORCE, SECONDARY, ALERT, operateBtnStyle};
+            BG_GRADIENT = new OperateBtnStyle("BG_GRADIENT", 5);
+            OperateBtnStyle operateBtnStyle = new OperateBtnStyle("CUSTOM", 6);
+            CUSTOM = operateBtnStyle;
+            $VALUES = new OperateBtnStyle[]{MAIN, MAIN_BG, FORCE, SECONDARY, ALERT, BG_GRADIENT, operateBtnStyle};
         }
 
         public OperateBtnStyle(String str, int i) {

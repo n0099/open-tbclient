@@ -10,9 +10,9 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ab;
-import com.baidu.tieba.bb;
-import com.baidu.tieba.cb;
+import com.baidu.tieba.qb;
+import com.baidu.tieba.rb;
+import com.baidu.tieba.sb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +34,7 @@ public class BdResourceLoader {
     public static BdAsyncTaskParallel mBdAsyncTaskThree;
     public static BdResourceLoader sInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<cb<?>> mLoaderProcs;
+    public SparseArray<sb<?>> mLoaderProcs;
     public final BdUniqueId resourceTag;
 
     static {
@@ -65,7 +65,7 @@ public class BdResourceLoader {
         public int g;
         public long h;
         public final Map<BdResourceCallback<T>, BdUniqueId> i;
-        public final bb j;
+        public final rb j;
         public final /* synthetic */ BdResourceLoader k;
 
         public a(BdResourceLoader bdResourceLoader, String str, int i, int i2, int i3, BdUniqueId bdUniqueId, BdResourceCallback<T> bdResourceCallback, boolean z, Object... objArr) {
@@ -90,7 +90,7 @@ public class BdResourceLoader {
             this.f = null;
             this.g = 2;
             this.i = new HashMap();
-            this.j = new bb();
+            this.j = new rb();
             this.h = System.currentTimeMillis();
             this.a = str;
             this.b = i;
@@ -135,11 +135,11 @@ public class BdResourceLoader {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(T t) {
-            cb cbVar;
+            sb sbVar;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
-                if (t != null && (cbVar = (cb) this.k.mLoaderProcs.get(this.b)) != null) {
-                    cbVar.updateMemory(this.k.genCacheKey(this.a, this.b), t, this.c, this.d, this.f);
+                if (t != null && (sbVar = (sb) this.k.mLoaderProcs.get(this.b)) != null) {
+                    sbVar.updateMemory(this.k.genCacheKey(this.a, this.b), t, this.c, this.d, this.f);
                 }
                 for (Map.Entry<BdResourceCallback<T>, BdUniqueId> entry : this.i.entrySet()) {
                     BdResourceCallback<T> key = entry.getKey();
@@ -152,12 +152,12 @@ public class BdResourceLoader {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            bb.a aVar;
+            rb.a aVar;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 super.cancel();
-                bb bbVar = this.j;
-                if (bbVar != null && (aVar = bbVar.a) != null) {
+                rb rbVar = this.j;
+                if (rbVar != null && (aVar = rbVar.a) != null) {
                     aVar.cancel();
                 }
                 if (this.i.size() == 0) {
@@ -231,9 +231,9 @@ public class BdResourceLoader {
             T t;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, strArr)) == null) {
-                ab.l(true, System.currentTimeMillis() - this.h);
-                cb cbVar = (cb) this.k.mLoaderProcs.get(this.b);
-                if (cbVar == null) {
+                qb.l(true, System.currentTimeMillis() - this.h);
+                sb sbVar = (sb) this.k.mLoaderProcs.get(this.b);
+                if (sbVar == null) {
                     return null;
                 }
                 String key = getKey();
@@ -245,7 +245,7 @@ public class BdResourceLoader {
                 if (isCancelled()) {
                     return null;
                 }
-                T t2 = (T) cbVar.getFromLocal(this.a, key, this.c, this.d, this.j, this.f);
+                T t2 = (T) sbVar.getFromLocal(this.a, key, this.c, this.d, this.j, this.f);
                 if (t2 != null) {
                     return t2;
                 }
@@ -255,7 +255,7 @@ public class BdResourceLoader {
                 }
                 this.g = 3;
                 try {
-                    return (T) cbVar.getFromRemote(this.a, key, this.c, this.d, this.j, this.f);
+                    return (T) sbVar.getFromRemote(this.a, key, this.c, this.d, this.j, this.f);
                 } catch (Exception e2) {
                     BdLog.e(e2.getMessage());
                     return t;
@@ -286,17 +286,17 @@ public class BdResourceLoader {
         this.mLoaderProcs = new SparseArray<>();
     }
 
-    public cb getLoaderProc(int i) {
+    public sb getLoaderProc(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            SparseArray<cb<?>> sparseArray = this.mLoaderProcs;
+            SparseArray<sb<?>> sparseArray = this.mLoaderProcs;
             if (sparseArray == null) {
                 return null;
             }
             return sparseArray.get(i);
         }
-        return (cb) invokeI.objValue;
+        return (sb) invokeI.objValue;
     }
 
     public static BdResourceLoader getInstance() {
@@ -369,12 +369,12 @@ public class BdResourceLoader {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            cb<?> cbVar = this.mLoaderProcs.get(i);
-            if (cbVar == null) {
+            sb<?> sbVar = this.mLoaderProcs.get(i);
+            if (sbVar == null) {
                 BdLog.e("Can't find the ResourceLoaderProc with type " + i);
                 return false;
             }
-            return cbVar.isNeedLoad();
+            return sbVar.isNeedLoad();
         }
         return invokeI.booleanValue;
     }
@@ -432,13 +432,13 @@ public class BdResourceLoader {
         }
     }
 
-    public synchronized <T> void registerLoaderProc(int i, cb<T> cbVar) {
+    public synchronized <T> void registerLoaderProc(int i, sb<T> sbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048589, this, i, cbVar) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048589, this, i, sbVar) == null) {
             synchronized (this) {
-                if (cbVar != null) {
+                if (sbVar != null) {
                     if (this.mLoaderProcs.get(i) == null) {
-                        this.mLoaderProcs.put(i, cbVar);
+                        this.mLoaderProcs.put(i, sbVar);
                     } else {
                         throw new IllegalArgumentException("registerLoaderProc key has been registered. The key is " + i);
                     }
@@ -464,7 +464,7 @@ public class BdResourceLoader {
     */
     public <T> Object loadResource(String str, int i, BdResourceCallback<T> bdResourceCallback, int i2, int i3, boolean z, BdUniqueId bdUniqueId, Object... objArr) {
         InterceptResult invokeCommon;
-        cb<?> cbVar;
+        sb<?> sbVar;
         int i4;
         int i5;
         a<T> searchTask;
@@ -473,7 +473,7 @@ public class BdResourceLoader {
         Object fromMemory;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{str, Integer.valueOf(i), bdResourceCallback, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), bdUniqueId, objArr})) == null) {
-            if (TextUtils.isEmpty(str) || (cbVar = this.mLoaderProcs.get(i)) == null) {
+            if (TextUtils.isEmpty(str) || (sbVar = this.mLoaderProcs.get(i)) == null) {
                 return null;
             }
             if (i2 >= 0 && i3 >= 0) {
@@ -485,7 +485,7 @@ public class BdResourceLoader {
             }
             String genCacheKey = genCacheKey(str, i);
             try {
-                fromMemory = cbVar.getFromMemory(genCacheKey, str, i4, i5, true, objArr);
+                fromMemory = sbVar.getFromMemory(genCacheKey, str, i4, i5, true, objArr);
             } catch (Exception e) {
                 e = e;
             }
@@ -504,13 +504,13 @@ public class BdResourceLoader {
                         a aVar = new a(this, str, i, i4, i5, bdUniqueId, bdResourceCallback, z, objArr);
                         aVar.setKey(genCacheKey);
                         aVar.setTag(this.resourceTag);
-                        asyncTaskPriority = cbVar.getAsyncTaskPriority();
+                        asyncTaskPriority = sbVar.getAsyncTaskPriority();
                         if (asyncTaskPriority == 0) {
                         }
                         aVar.setPriority(asyncTaskPriority);
                         if (isWifiNet) {
                         }
-                        if (cbVar.getAsyncTaskParallel() != null) {
+                        if (sbVar.getAsyncTaskParallel() != null) {
                         }
                         aVar.execute(new String[0]);
                         return null;
@@ -528,17 +528,17 @@ public class BdResourceLoader {
             a aVar2 = new a(this, str, i, i4, i5, bdUniqueId, bdResourceCallback, z, objArr);
             aVar2.setKey(genCacheKey);
             aVar2.setTag(this.resourceTag);
-            asyncTaskPriority = cbVar.getAsyncTaskPriority();
+            asyncTaskPriority = sbVar.getAsyncTaskPriority();
             if (asyncTaskPriority == 0) {
                 asyncTaskPriority = 1;
             }
             aVar2.setPriority(asyncTaskPriority);
             if (isWifiNet && !is4GNet2) {
                 aVar2.setParallel(mBdAsyncTaskSerial);
-            } else if (cbVar.getAsyncTaskParallel() != null) {
+            } else if (sbVar.getAsyncTaskParallel() != null) {
                 aVar2.setParallel(mBdAsyncTaskThree);
             } else {
-                aVar2.setParallel(cbVar.getAsyncTaskParallel());
+                aVar2.setParallel(sbVar.getAsyncTaskParallel());
             }
             aVar2.execute(new String[0]);
             return null;
@@ -562,12 +562,12 @@ public class BdResourceLoader {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            cb<?> cbVar = this.mLoaderProcs.get(i);
-            if (cbVar == null) {
+            sb<?> sbVar = this.mLoaderProcs.get(i);
+            if (sbVar == null) {
                 BdLog.e("Can't find the ResourceLoaderProc with type " + i);
                 return null;
             }
-            return cbVar.getFromMemory(genCacheKey(str, i), str, 0, 0, false, objArr);
+            return sbVar.getFromMemory(genCacheKey(str, i), str, 0, 0, false, objArr);
         }
         return invokeLIL.objValue;
     }

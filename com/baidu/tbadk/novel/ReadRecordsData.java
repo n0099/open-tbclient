@@ -28,7 +28,7 @@ public class ReadRecordsData extends OrmObject {
         }
     }
 
-    public String N() {
+    public String O() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -37,7 +37,7 @@ public class ReadRecordsData extends OrmObject {
         return (String) invokeV.objValue;
     }
 
-    public boolean O() {
+    public boolean P() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -62,7 +62,7 @@ public class ReadRecordsData extends OrmObject {
         }
     }
 
-    public void P(boolean z) {
+    public void Q(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             this.b = z;

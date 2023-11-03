@@ -1,9 +1,9 @@
 package com.baidu.searchbox.websocket;
 
-import com.baidu.tieba.a6c;
-import com.baidu.tieba.d5c;
-import com.baidu.tieba.e5c;
-import com.baidu.tieba.x5c;
+import com.baidu.tieba.bjc;
+import com.baidu.tieba.eic;
+import com.baidu.tieba.fic;
+import com.baidu.tieba.yic;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import com.huawei.hms.framework.common.ExceptionCode;
 import java.net.URI;
@@ -23,16 +23,16 @@ import org.json.JSONObject;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000:\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\u0018\u0010\u0019J\u001f\u0010\u0007\u001a\u00020\u00062\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u0005\u001a\u00020\u0004H\u0016¢\u0006\u0004\b\u0007\u0010\bJ\u001f\u0010\r\u001a\u00020\u00062\u0006\u0010\n\u001a\u00020\t2\u0006\u0010\f\u001a\u00020\u000bH\u0016¢\u0006\u0004\b\r\u0010\u000eJ\u0017\u0010\u0011\u001a\u00020\u00062\u0006\u0010\u0010\u001a\u00020\u000fH\u0016¢\u0006\u0004\b\u0011\u0010\u0012J\u0017\u0010\u0011\u001a\u00020\u00062\u0006\u0010\u0013\u001a\u00020\u0004H\u0016¢\u0006\u0004\b\u0011\u0010\u0014R\u0016\u0010\u0016\u001a\u00020\u00158\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b\u0016\u0010\u0017¨\u0006\u001a"}, d2 = {"Lcom/baidu/searchbox/websocket/JavaWebSockeClientImpl;", "Lcom/baidu/searchbox/websocket/IWebSocketClient;", "", "code", "", "reason", "", "close", "(ILjava/lang/String;)V", "Lcom/baidu/searchbox/websocket/WebSocketRequest;", "request", "Lcom/baidu/searchbox/websocket/IWebSocketListener;", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, ExceptionCode.CONNECT, "(Lcom/baidu/searchbox/websocket/WebSocketRequest;Lcom/baidu/searchbox/websocket/IWebSocketListener;)V", "Ljava/nio/ByteBuffer;", "data", "send", "(Ljava/nio/ByteBuffer;)V", "message", "(Ljava/lang/String;)V", "Lorg/java_websocket/client/WebSocketClient;", "webSocketClient", "Lorg/java_websocket/client/WebSocketClient;", "<init>", "()V", "websocket_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes4.dex */
 public final class JavaWebSockeClientImpl implements IWebSocketClient {
-    public d5c webSocketClient;
+    public eic webSocketClient;
 
     @Override // com.baidu.searchbox.websocket.IWebSocketClient
     public void close(int i, String reason) {
         Intrinsics.checkNotNullParameter(reason, "reason");
-        d5c d5cVar = this.webSocketClient;
-        if (d5cVar == null) {
+        eic eicVar = this.webSocketClient;
+        if (eicVar == null) {
             Intrinsics.throwUninitializedPropertyAccessException("webSocketClient");
         }
-        d5cVar.close();
+        eicVar.close();
     }
 
     @Override // com.baidu.searchbox.websocket.IWebSocketClient
@@ -46,15 +46,15 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
         if (protocols != null) {
             listOf = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(protocols, 10));
             for (String str : protocols) {
-                listOf.add(new a6c(str));
+                listOf.add(new bjc(str));
             }
         } else {
-            listOf = CollectionsKt__CollectionsJVMKt.listOf(new a6c(""));
+            listOf = CollectionsKt__CollectionsJVMKt.listOf(new bjc(""));
         }
-        final e5c e5cVar = new e5c(emptyList, listOf);
+        final fic ficVar = new fic(emptyList, listOf);
         final Map<String, String> headers = request.getHeaders();
-        this.webSocketClient = new d5c(create, e5cVar, headers) { // from class: com.baidu.searchbox.websocket.JavaWebSockeClientImpl$connect$1
-            @Override // com.baidu.tieba.d5c
+        this.webSocketClient = new eic(create, ficVar, headers) { // from class: com.baidu.searchbox.websocket.JavaWebSockeClientImpl$connect$1
+            @Override // com.baidu.tieba.eic
             public void onClose(int i, String str2, boolean z) {
                 IWebSocketListener iWebSocketListener = IWebSocketListener.this;
                 JSONObject jSONObject = new JSONObject();
@@ -67,32 +67,32 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
                 iWebSocketListener.onClose(jSONObject);
             }
 
-            @Override // com.baidu.tieba.d5c
+            @Override // com.baidu.tieba.eic
             public void onError(Exception p0) {
                 Intrinsics.checkNotNullParameter(p0, "p0");
                 IWebSocketListener.this.onError(p0, null);
             }
 
-            @Override // com.baidu.tieba.d5c
+            @Override // com.baidu.tieba.eic
             public void onMessage(String p0) {
                 Intrinsics.checkNotNullParameter(p0, "p0");
                 IWebSocketListener.this.onMessage(p0);
             }
 
-            @Override // com.baidu.tieba.d5c
-            public void onOpen(x5c x5cVar) {
+            @Override // com.baidu.tieba.eic
+            public void onOpen(yic yicVar) {
                 Iterator<String> g;
                 HashMap hashMap = new HashMap();
-                if (x5cVar != null && (g = x5cVar.g()) != null) {
+                if (yicVar != null && (g = yicVar.g()) != null) {
                     while (g.hasNext()) {
                         String next = g.next();
-                        hashMap.put(next, x5cVar.d(next));
+                        hashMap.put(next, yicVar.d(next));
                     }
                 }
                 IWebSocketListener.this.onOpen(hashMap);
             }
 
-            @Override // com.baidu.tieba.d5c
+            @Override // com.baidu.tieba.eic
             public void onMessage(ByteBuffer bytes) {
                 Intrinsics.checkNotNullParameter(bytes, "bytes");
                 IWebSocketListener.this.onMessage(bytes);
@@ -101,36 +101,36 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
         Integer connectionLostTimeout = request.getConnectionLostTimeout();
         if (connectionLostTimeout != null) {
             int intValue = connectionLostTimeout.intValue();
-            d5c d5cVar = this.webSocketClient;
-            if (d5cVar == null) {
+            eic eicVar = this.webSocketClient;
+            if (eicVar == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("webSocketClient");
             }
-            d5cVar.setConnectionLostTimeout(intValue);
+            eicVar.setConnectionLostTimeout(intValue);
         }
-        d5c d5cVar2 = this.webSocketClient;
-        if (d5cVar2 == null) {
+        eic eicVar2 = this.webSocketClient;
+        if (eicVar2 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("webSocketClient");
         }
-        d5cVar2.connect();
+        eicVar2.connect();
     }
 
     @Override // com.baidu.searchbox.websocket.IWebSocketClient
     public void send(String message) {
         Intrinsics.checkNotNullParameter(message, "message");
-        d5c d5cVar = this.webSocketClient;
-        if (d5cVar == null) {
+        eic eicVar = this.webSocketClient;
+        if (eicVar == null) {
             Intrinsics.throwUninitializedPropertyAccessException("webSocketClient");
         }
-        d5cVar.send(message);
+        eicVar.send(message);
     }
 
     @Override // com.baidu.searchbox.websocket.IWebSocketClient
     public void send(ByteBuffer data) {
         Intrinsics.checkNotNullParameter(data, "data");
-        d5c d5cVar = this.webSocketClient;
-        if (d5cVar == null) {
+        eic eicVar = this.webSocketClient;
+        if (eicVar == null) {
             Intrinsics.throwUninitializedPropertyAccessException("webSocketClient");
         }
-        d5cVar.send(data);
+        eicVar.send(data);
     }
 }

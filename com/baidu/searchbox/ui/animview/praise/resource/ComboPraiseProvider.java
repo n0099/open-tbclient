@@ -211,23 +211,6 @@ public class ComboPraiseProvider implements IResourceProvider {
             }
         }
 
-        private Drawable getPraiseNumberDrawable(Object... objArr) {
-            Drawable drawable = null;
-            if (objArr != null && objArr.length == 3 && (objArr[0] instanceof Integer) && (objArr[1] instanceof Integer) && (objArr[2] instanceof Integer)) {
-                int intValue = ((Integer) objArr[0]).intValue();
-                int intValue2 = ((Integer) objArr[1]).intValue();
-                int intValue3 = ((Integer) objArr[2]).intValue();
-                if (intValue >= 0 && intValue <= 9) {
-                    HashMap<String, Drawable> hashMap = this.mResDrawableCache;
-                    drawable = hashMap.get(makeKey("number", intValue + ""));
-                    if (drawable != null) {
-                        drawable.setBounds(0, 0, intValue2, intValue3);
-                    }
-                }
-            }
-            return drawable;
-        }
-
         private void preparePraiseNumberResource(File file) {
             File[] findAllTargetFiles;
             if (file == null || (findAllTargetFiles = IResourcePackage.Utils.findAllTargetFiles(file, ".png", true)) == null) {
@@ -312,6 +295,23 @@ public class ComboPraiseProvider implements IResourceProvider {
                 return getEruptionLottie(objArr);
             }
             return getPraiseLevelLottie(objArr);
+        }
+
+        private Drawable getPraiseNumberDrawable(Object... objArr) {
+            Drawable drawable = null;
+            if (objArr != null && objArr.length == 3 && (objArr[0] instanceof Integer) && (objArr[1] instanceof Integer) && (objArr[2] instanceof Integer)) {
+                int intValue = ((Integer) objArr[0]).intValue();
+                int intValue2 = ((Integer) objArr[1]).intValue();
+                int intValue3 = ((Integer) objArr[2]).intValue();
+                if (intValue >= 0 && intValue <= 9) {
+                    HashMap<String, Drawable> hashMap = this.mResDrawableCache;
+                    drawable = hashMap.get(makeKey("number", intValue + ""));
+                    if (drawable != null) {
+                        drawable.setBounds(0, 0, intValue2, intValue3);
+                    }
+                }
+            }
+            return drawable;
         }
 
         private void loadImageFromFile(String str, File file) {

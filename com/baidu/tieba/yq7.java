@@ -1,13 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes9.dex */
-public class yq7 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract void a();
-
-    public abstract void b(int i);
+public interface yq7 {
+    NavigationBar u();
 }

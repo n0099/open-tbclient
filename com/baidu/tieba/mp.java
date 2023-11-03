@@ -1,91 +1,72 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.bdtask.model.rule.TaskRuleData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubc.UBCManager;
-import java.util.HashMap;
 import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class mp implements kp {
+public class mp extends dp<TaskRuleData> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final UBCManager a;
-    public final np b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448311402, "Lcom/baidu/tieba/mp;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448311402, "Lcom/baidu/tieba/mp;");
-        }
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "rule" : (String) invokeV.objValue;
     }
 
-    public mp() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mp(fp fpVar) {
+        super(fpVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {fpVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((fp) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-        this.b = (np) ServiceManager.getService(np.a.a());
     }
 
-    @Override // com.baidu.tieba.kp
-    public void a(String str, String str2, JSONObject jSONObject) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.dp
+    /* renamed from: c */
+    public TaskRuleData a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, jSONObject) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("type", str2);
-            hashMap.put("page", str);
-            if (jSONObject != null) {
-                String jSONObject2 = jSONObject.toString();
-                Intrinsics.checkExpressionValueIsNotNull(jSONObject2, "it.toString()");
-                hashMap.put("ext", jSONObject2);
-            }
-            UBCManager uBCManager = this.a;
-            if (uBCManager != null) {
-                uBCManager.onEvent("3676", hashMap);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                String version = jSONObject.optString("ver");
+                String upgrade = jSONObject.optString("url");
+                long optLong = jSONObject.optLong("expire");
+                int optInt = jSONObject.optInt("stay", Integer.MAX_VALUE);
+                int optInt2 = jSONObject.optInt("repeat", Integer.MAX_VALUE);
+                boolean optBoolean = jSONObject.optBoolean(TaskRuleData.keyUniq);
+                boolean optBoolean2 = jSONObject.optBoolean(TaskRuleData.keyPersist);
+                int optInt3 = jSONObject.optInt(TaskRuleData.keyNoClickTimes, -1);
+                boolean optBoolean3 = jSONObject.optBoolean("auto", true);
+                int optInt4 = jSONObject.optInt(TaskRuleData.keyPersistOnFail, 0);
+                Intrinsics.checkExpressionValueIsNotNull(version, "version");
+                Intrinsics.checkExpressionValueIsNotNull(upgrade, "upgrade");
+                return new TaskRuleData(version, upgrade, optLong, optInt, optInt2, optBoolean, optBoolean2, optBoolean3, optInt3, optInt4);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.kp
-    public void b(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) {
-            String extra = jSONObject.toString();
-            HashMap hashMap = new HashMap();
-            hashMap.put("value", str);
-            hashMap.put("type", ApkCheckUBCManagerKt.TYPE_ABNORMAL);
-            Intrinsics.checkExpressionValueIsNotNull(extra, "extra");
-            hashMap.put("ext", extra);
-            np npVar = this.b;
-            if (npVar != null) {
-                npVar.a("3677", str, extra);
-            }
-        }
+        return (TaskRuleData) invokeL.objValue;
     }
 }

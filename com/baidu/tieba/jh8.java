@@ -1,87 +1,61 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.im.message.LoadDraftMessage;
-import com.baidu.tieba.im.message.LoadDraftResponsedMessage;
-import com.baidu.tieba.im.pushNotify.ChatSetting;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class jh8 implements CustomMessageTask.CustomRunnable<LoadDraftMessage.a> {
+public class jh8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rg8 a;
-    public int b;
+    public hh8 a;
+    public ArrayList<ih8> b;
 
-    public jh8(rg8 rg8Var, int i) {
+    public jh8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {rg8Var, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = rg8Var;
-        this.b = i;
     }
 
-    public final LoadDraftResponsedMessage a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            LoadDraftResponsedMessage loadDraftResponsedMessage = new LoadDraftResponsedMessage(i);
-            loadDraftResponsedMessage.setError(-18);
-            return loadDraftResponsedMessage;
-        }
-        return (LoadDraftResponsedMessage) invokeI.objValue;
-    }
-
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<LoadDraftMessage.a> customMessage) {
+    public static jh8 a(JSONObject jSONObject) {
         InterceptResult invokeL;
-        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customMessage)) == null) {
-            LoadDraftResponsedMessage loadDraftResponsedMessage = new LoadDraftResponsedMessage(this.b);
-            if (customMessage != null && (customMessage instanceof LoadDraftMessage)) {
-                LoadDraftMessage loadDraftMessage = (LoadDraftMessage) customMessage;
-                if (TbadkCoreApplication.getCurrentAccountObj() != null) {
-                    str = TbadkCoreApplication.getCurrentAccountObj().getID();
-                } else {
-                    str = "";
-                }
-                LoadDraftMessage.a data = loadDraftMessage.getData();
-                ChatSetting setting = this.a.getSetting(str, data.a);
-                if (setting == null) {
-                    return a(loadDraftMessage.getCmd());
-                }
-                String draft = setting.getDraft();
-                LoadDraftResponsedMessage.a aVar = new LoadDraftResponsedMessage.a();
-                aVar.a = draft;
-                String str2 = data.a;
-                try {
-                    loadDraftResponsedMessage.decodeInBackGround(this.b, aVar);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                return loadDraftResponsedMessage;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            return a(this.b);
+            jh8 jh8Var = new jh8();
+            JSONObject optJSONObject = jSONObject.optJSONObject("guide_content");
+            JSONArray optJSONArray = jSONObject.optJSONArray("hot_topic");
+            jh8Var.a = hh8.a(optJSONObject);
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                jh8Var.b = new ArrayList<>();
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    try {
+                        ih8 a = ih8.a(optJSONArray.getJSONObject(i));
+                        if (a != null) {
+                            jh8Var.b.add(a);
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            return jh8Var;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return (jh8) invokeL.objValue;
     }
 }

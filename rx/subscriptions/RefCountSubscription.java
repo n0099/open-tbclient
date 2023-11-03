@@ -1,17 +1,17 @@
 package rx.subscriptions;
 
-import com.baidu.tieba.nbc;
-import com.baidu.tieba.o6c;
+import com.baidu.tieba.ooc;
+import com.baidu.tieba.pjc;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes2.dex */
-public final class RefCountSubscription implements o6c {
+public final class RefCountSubscription implements pjc {
     public static final a c = new a(false, 0);
-    public final o6c a;
+    public final pjc a;
     public final AtomicReference<a> b = new AtomicReference<>(c);
 
     /* loaded from: classes2.dex */
-    public static final class InnerSubscription extends AtomicInteger implements o6c {
+    public static final class InnerSubscription extends AtomicInteger implements pjc {
         public static final long serialVersionUID = 7005765588239987643L;
         public final RefCountSubscription parent;
 
@@ -19,7 +19,7 @@ public final class RefCountSubscription implements o6c {
             this.parent = refCountSubscription;
         }
 
-        @Override // com.baidu.tieba.o6c
+        @Override // com.baidu.tieba.pjc
         public boolean isUnsubscribed() {
             if (get() != 0) {
                 return true;
@@ -27,7 +27,7 @@ public final class RefCountSubscription implements o6c {
             return false;
         }
 
-        @Override // com.baidu.tieba.o6c
+        @Override // com.baidu.tieba.pjc
         public void unsubscribe() {
             if (compareAndSet(0, 1)) {
                 this.parent.b();
@@ -58,13 +58,13 @@ public final class RefCountSubscription implements o6c {
         }
     }
 
-    public o6c a() {
+    public pjc a() {
         a aVar;
         AtomicReference<a> atomicReference = this.b;
         do {
             aVar = atomicReference.get();
             if (aVar.a) {
-                return nbc.c();
+                return ooc.c();
             }
         } while (!atomicReference.compareAndSet(aVar, aVar.a()));
         return new InnerSubscription(this);
@@ -81,12 +81,12 @@ public final class RefCountSubscription implements o6c {
         c(b);
     }
 
-    @Override // com.baidu.tieba.o6c
+    @Override // com.baidu.tieba.pjc
     public boolean isUnsubscribed() {
         return this.b.get().a;
     }
 
-    @Override // com.baidu.tieba.o6c
+    @Override // com.baidu.tieba.pjc
     public void unsubscribe() {
         a aVar;
         a c2;
@@ -101,9 +101,9 @@ public final class RefCountSubscription implements o6c {
         c(c2);
     }
 
-    public RefCountSubscription(o6c o6cVar) {
-        if (o6cVar != null) {
-            this.a = o6cVar;
+    public RefCountSubscription(pjc pjcVar) {
+        if (pjcVar != null) {
+            this.a = pjcVar;
             return;
         }
         throw new IllegalArgumentException("s");

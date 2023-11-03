@@ -44,7 +44,7 @@ public class ResDialogFragment extends DelegateDialogFragment {
         return super.getBase();
     }
 
-    @Override // androidx.fragment.app.Fragment, com.baidu.tieba.e1
+    @Override // androidx.fragment.app.Fragment, com.baidu.tieba.u1
     @Nullable
     public Context getContext() {
         return Wrapper.wrapContextIfNeed(super.getContext());

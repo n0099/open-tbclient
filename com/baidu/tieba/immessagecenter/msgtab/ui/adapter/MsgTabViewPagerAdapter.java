@@ -15,8 +15,7 @@ import com.baidu.tieba.immessagecenter.msgtab.data.MsgTabForumData;
 import com.baidu.tieba.immessagecenter.msgtab.obs.ForumChannelDataObs;
 import com.baidu.tieba.immessagecenter.msgtab.ui.frag.ChatTabFragment;
 import com.baidu.tieba.immessagecenter.msgtab.ui.frag.MsgTabNotifyFragment;
-import com.baidu.tieba.nl8;
-import com.baidu.tieba.tq8;
+import com.baidu.tieba.x39;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,6 +28,7 @@ import java.util.List;
 import java.util.Set;
 import kotlin.Metadata;
 import kotlin.Pair;
+import kotlin.Unit;
 import kotlin.collections.CollectionsKt__CollectionsKt;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000^\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010!\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\t\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010#\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010 \n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0003\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\u0010\u0010\u0010\u001a\u00020\u00112\u0006\u0010\u0012\u001a\u00020\nH\u0016J\u0010\u0010\u0013\u001a\u00020\u00142\u0006\u0010\u0015\u001a\u00020\u000fH\u0016J\u000e\u0010\u0016\u001a\b\u0012\u0004\u0012\u00020\u00070\u0017H\u0002J\u0010\u0010\u0018\u001a\u0004\u0018\u00010\u00142\u0006\u0010\u0015\u001a\u00020\u000fJ\b\u0010\u0019\u001a\u00020\u000fH\u0016J\u0010\u0010\u001a\u001a\u00020\n2\u0006\u0010\u0015\u001a\u00020\u000fH\u0016J\u0010\u0010\u001b\u001a\u00020\u000f2\u0006\u0010\u0015\u001a\u00020\u000fH\u0016J\u001c\u0010\u001c\u001a\u0010\u0012\u0004\u0012\u00020\u000f\u0012\u0004\u0012\u00020\u0007\u0018\u00010\u001d2\u0006\u0010\u001e\u001a\u00020\nJ\u0014\u0010\u001f\u001a\u00020 2\f\u0010!\u001a\b\u0012\u0004\u0012\u00020\u00070\u0017J\u0014\u0010\"\u001a\u00020 2\f\u0010!\u001a\b\u0012\u0004\u0012\u00020\u00070\u0017R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010\u0005\u001a\b\u0012\u0004\u0012\u00020\u00070\u0006X\u0082\u0004¢\u0006\u0002\n\u0000R\u001e\u0010\b\u001a\u0012\u0012\u0004\u0012\u00020\n0\tj\b\u0012\u0004\u0012\u00020\n`\u000bX\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010\f\u001a\b\u0012\u0004\u0012\u00020\u00070\u0006X\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010\r\u001a\b\u0012\u0004\u0012\u00020\u000f0\u000eX\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006#"}, d2 = {"Lcom/baidu/tieba/immessagecenter/msgtab/ui/adapter/MsgTabViewPagerAdapter;", "Landroidx/viewpager2/adapter/FragmentStateAdapter;", "fragment", "Lcom/baidu/tbadk/core/BaseFragment;", "(Lcom/baidu/tbadk/core/BaseFragment;)V", "mBodyDataList", "", "Lcom/baidu/tieba/immessagecenter/msgtab/data/NavigationData;", "mCreatedIds", "Ljava/util/HashSet;", "", "Lkotlin/collections/HashSet;", "mHeaderDataList", "mSupportTypes", "", "", "containsItem", "", Transition.MATCH_ITEM_ID_STR, "createFragment", "Landroidx/fragment/app/Fragment;", CriusAttrConstants.POSITION, "getAllData", "", "getFragment", "getItemCount", "getItemId", "getItemViewType", "getSelectedItem", "Lkotlin/Pair;", "dataId", "setBodyData", "", "list", "setHeaderData", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
@@ -39,8 +39,8 @@ public final class MsgTabViewPagerAdapter extends FragmentStateAdapter {
     public final BaseFragment a;
     public final Set<Integer> b;
     public final HashSet<Long> c;
-    public final List<tq8> d;
-    public final List<tq8> e;
+    public final List<x39> d;
+    public final List<x39> e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MsgTabViewPagerAdapter(BaseFragment fragment) {
@@ -73,9 +73,40 @@ public final class MsgTabViewPagerAdapter extends FragmentStateAdapter {
     }
 
     @Override // androidx.viewpager2.adapter.FragmentStateAdapter
+    public boolean containsItem(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            return this.c.contains(Long.valueOf(j));
+        }
+        return invokeJ.booleanValue;
+    }
+
+    public final void o(List<x39> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
+            Intrinsics.checkNotNullParameter(list, "list");
+            this.e.clear();
+            this.e.addAll(list);
+            notifyDataSetChanged();
+        }
+    }
+
+    public final void p(List<x39> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
+            Intrinsics.checkNotNullParameter(list, "list");
+            this.d.clear();
+            this.d.addAll(list);
+            notifyDataSetChanged();
+        }
+    }
+
+    @Override // androidx.viewpager2.adapter.FragmentStateAdapter
     public Fragment createFragment(int i) {
         InterceptResult invokeI;
         Fragment msgTabNotifyFragment;
+        Unit unit;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             long itemId = getItemId(i);
@@ -86,8 +117,14 @@ public final class MsgTabViewPagerAdapter extends FragmentStateAdapter {
                     if (itemViewType != 3) {
                         msgTabNotifyFragment = new Fragment();
                     } else {
+                        msgTabNotifyFragment = new GroupChatDialogFragment();
+                        Bundle bundle = new Bundle();
+                        bundle.putLong("key_group_chat_forum_id", itemId);
                         MsgTabForumData d = ForumChannelDataObs.b.a().d(itemId);
-                        msgTabNotifyFragment = new GroupChatDialogFragment(itemId, (d == null || (r0 = d.getForumName()) == null) ? "" : "", 0L, null, false, nl8.c, "message_tab");
+                        bundle.putString("key_group_chat_forum_name", (d == null || (r0 = d.getForumName()) == null) ? "" : "");
+                        bundle.putString("key_group_chat_souce", "message_tab");
+                        bundle.putBoolean("key_is_dialog", false);
+                        msgTabNotifyFragment.setArguments(bundle);
                     }
                 } else {
                     msgTabNotifyFragment = new ChatTabFragment();
@@ -95,46 +132,25 @@ public final class MsgTabViewPagerAdapter extends FragmentStateAdapter {
             } else {
                 msgTabNotifyFragment = new MsgTabNotifyFragment();
             }
-            Bundle bundle = new Bundle();
+            Bundle bundle2 = new Bundle();
             if (this.a.getActivity() instanceof MessageCenterActivity) {
-                bundle.putString("FROM", "FRS");
+                bundle2.putString("FROM", "FRS");
             } else {
-                bundle.putString("FROM", "MSGTAB");
+                bundle2.putString("FROM", "MSGTAB");
             }
-            msgTabNotifyFragment.setArguments(bundle);
+            Bundle arguments = msgTabNotifyFragment.getArguments();
+            if (arguments != null) {
+                arguments.putAll(bundle2);
+                unit = Unit.INSTANCE;
+            } else {
+                unit = null;
+            }
+            if (unit == null) {
+                msgTabNotifyFragment.setArguments(bundle2);
+            }
             return msgTabNotifyFragment;
         }
         return (Fragment) invokeI.objValue;
-    }
-
-    @Override // androidx.viewpager2.adapter.FragmentStateAdapter
-    public boolean containsItem(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            return this.c.contains(Long.valueOf(j));
-        }
-        return invokeJ.booleanValue;
-    }
-
-    public final void o(List<tq8> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
-            Intrinsics.checkNotNullParameter(list, "list");
-            this.e.clear();
-            this.e.addAll(list);
-            notifyDataSetChanged();
-        }
-    }
-
-    public final void p(List<tq8> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
-            Intrinsics.checkNotNullParameter(list, "list");
-            this.d.clear();
-            this.d.addAll(list);
-            notifyDataSetChanged();
-        }
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -147,7 +163,7 @@ public final class MsgTabViewPagerAdapter extends FragmentStateAdapter {
         return invokeV.intValue;
     }
 
-    public final List<tq8> l() {
+    public final List<x39> l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -200,7 +216,7 @@ public final class MsgTabViewPagerAdapter extends FragmentStateAdapter {
         return (Fragment) invokeI.objValue;
     }
 
-    public final Pair<Integer, tq8> n(long j) {
+    public final Pair<Integer, x39> n(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
@@ -210,9 +226,9 @@ public final class MsgTabViewPagerAdapter extends FragmentStateAdapter {
                 if (i < 0) {
                     CollectionsKt__CollectionsKt.throwIndexOverflow();
                 }
-                tq8 tq8Var = (tq8) obj;
-                if (tq8Var.a() == j) {
-                    return new Pair<>(Integer.valueOf(i), tq8Var);
+                x39 x39Var = (x39) obj;
+                if (x39Var.a() == j) {
+                    return new Pair<>(Integer.valueOf(i), x39Var);
                 }
                 i = i2;
             }

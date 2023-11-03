@@ -15,7 +15,7 @@ import android.widget.Scroller;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bfa;
+import com.baidu.tieba.gsa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +32,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
     public Runnable D;
     public BaseAdapter a;
     public View b;
-    public bfa c;
+    public gsa c;
     public int d;
     public int e;
     public int f;
@@ -316,10 +316,10 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         }
     }
 
-    public void setDragController(bfa bfaVar) {
+    public void setDragController(gsa gsaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, bfaVar) == null) {
-            this.c = bfaVar;
+        if (interceptable == null || interceptable.invokeL(1048598, this, gsaVar) == null) {
+            this.c = gsaVar;
         }
     }
 
@@ -366,14 +366,14 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
 
     @Override // android.view.View
     public void computeScroll() {
-        bfa bfaVar;
+        gsa gsaVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (this.j.computeScrollOffset()) {
                 scrollTo(this.j.getCurrX(), 0);
                 postInvalidateDelayed(16L);
-                if ((this.o || this.p) && (bfaVar = this.c) != null) {
-                    bfaVar.d();
+                if ((this.o || this.p) && (gsaVar = this.c) != null) {
+                    gsaVar.d();
                     return;
                 }
                 return;

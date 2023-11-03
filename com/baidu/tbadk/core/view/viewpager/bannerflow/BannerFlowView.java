@@ -10,11 +10,11 @@ import com.baidu.adp.widget.IndicatorView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d65;
-import com.baidu.tieba.e65;
-import com.baidu.tieba.g65;
-import com.baidu.tieba.h65;
-import com.baidu.tieba.yh;
+import com.baidu.tieba.a75;
+import com.baidu.tieba.b75;
+import com.baidu.tieba.oi;
+import com.baidu.tieba.x65;
+import com.baidu.tieba.y65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,8 +26,8 @@ public class BannerFlowView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public ViewPager a;
     public IndicatorView b;
-    public d65 c;
-    public h65 d;
+    public x65 c;
+    public b75 d;
     public View e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -89,8 +89,8 @@ public class BannerFlowView extends FrameLayout {
             this.b = indicatorView;
             indicatorView.setSpacing(0);
             a();
-            this.c = new d65(context, this.a, this.b, null);
-            this.d = new h65(context, g65.a);
+            this.c = new x65(context, this.a, this.b, null);
+            this.d = new b75(context, a75.a);
             this.c.j(5000L);
             this.c.i(context, this.d);
             addView(this.a, new FrameLayout.LayoutParams(-1, -1));
@@ -107,7 +107,7 @@ public class BannerFlowView extends FrameLayout {
         }
     }
 
-    public void setData(List<yh> list) {
+    public void setData(List<oi> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             this.a.removeAllViews();
@@ -122,11 +122,11 @@ public class BannerFlowView extends FrameLayout {
         }
     }
 
-    public void setOnItemClickListener(e65.a<g65, h65.a> aVar) {
-        h65 h65Var;
+    public void setOnItemClickListener(y65.a<a75, b75.a> aVar) {
+        b75 b75Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) && (h65Var = this.d) != null) {
-            h65Var.f(aVar);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) && (b75Var = this.d) != null) {
+            b75Var.f(aVar);
         }
     }
 }

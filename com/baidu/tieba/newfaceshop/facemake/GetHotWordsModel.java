@@ -104,7 +104,7 @@ public class GetHotWordsModel extends FaceBaseModel {
         registerListener(this.b);
     }
 
-    public void O(b bVar) {
+    public void P(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             this.a = bVar;

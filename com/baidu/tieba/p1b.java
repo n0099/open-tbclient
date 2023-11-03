@@ -1,30 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.graphics.Bitmap;
+import com.baidu.tieba.video.editvideo.data.PendantData;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class p1b {
-    public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface p1b {
+    void B(String str);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948010600, "Lcom/baidu/tieba/p1b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948010600, "Lcom/baidu/tieba/p1b;");
-                return;
-            }
-        }
-        a = TbConfig.VIRTUAL_IMAGE_MAIN_URL;
-    }
+    void E(String str);
+
+    void d();
+
+    void h();
+
+    void m(List<PendantData> list);
+
+    void n();
+
+    void onNext();
+
+    void u();
+
+    void y0(Bitmap bitmap);
 }

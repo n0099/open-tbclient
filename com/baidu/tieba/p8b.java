@@ -1,29 +1,100 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.app.Activity;
+import android.content.Intent;
+import android.net.VpnService;
+import androidx.fragment.app.Fragment;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface p8b {
-    void a(int i);
+public class p8b {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public Fragment a;
+    public Activity b;
+    public o8b c;
 
-    String b(boolean z);
+    public p8b() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    String c(String str);
+    public static p8b c(Fragment fragment) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, fragment)) == null) {
+            p8b p8bVar = new p8b();
+            p8bVar.a = fragment;
+            return p8bVar;
+        }
+        return (p8b) invokeL.objValue;
+    }
 
-    int d();
+    public void a(int i, int i2, Intent intent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeIIL(1048576, this, i, i2, intent) != null) || i != 25069) {
+            return;
+        }
+        if (i2 == -1) {
+            o8b o8bVar = this.c;
+            if (o8bVar != null) {
+                o8bVar.a();
+                return;
+            }
+            return;
+        }
+        o8b o8bVar2 = this.c;
+        if (o8bVar2 != null) {
+            o8bVar2.b();
+        }
+    }
 
-    String e(String str);
-
-    Context getAppContext();
-
-    int getInt(String str, int i);
-
-    long getLong(String str, long j);
-
-    boolean isDebug();
-
-    void putInt(String str, int i);
-
-    void putLong(String str, long j);
-
-    void putString(String str, String str2);
+    public void b(o8b o8bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o8bVar) == null) {
+            this.c = o8bVar;
+            Fragment fragment = this.a;
+            if (fragment != null) {
+                Intent prepare = VpnService.prepare(fragment.getContext());
+                if (prepare != null) {
+                    this.a.startActivityForResult(prepare, 25069);
+                    return;
+                }
+                o8b o8bVar2 = this.c;
+                if (o8bVar2 != null) {
+                    o8bVar2.a();
+                    return;
+                }
+                return;
+            }
+            Activity activity = this.b;
+            if (activity != null) {
+                Intent prepare2 = VpnService.prepare(activity);
+                if (prepare2 != null) {
+                    this.b.startActivityForResult(prepare2, 25069);
+                    return;
+                }
+                o8b o8bVar3 = this.c;
+                if (o8bVar3 != null) {
+                    o8bVar3.a();
+                    return;
+                }
+                return;
+            }
+            throw new IllegalArgumentException("Can not request VPN permission because no Fragment or Activity, please use static function with()");
+        }
+    }
 }

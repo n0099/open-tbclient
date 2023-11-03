@@ -1,238 +1,107 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.ThreadCardViewHolder;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.VoteView;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.kt;
-import com.baidu.tieba.vt;
+import com.baidu.tbadk.core.data.SignData;
+import com.baidu.tieba.browser.log.HybridLog;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
+import tbclient.ChatroomSignInfo;
+import tbclient.FrsPage.DataRes;
+import tbclient.FrsPage.ForumInfo;
+import tbclient.FrsPage.RankInfo;
+import tbclient.FrsPage.SignForum;
+import tbclient.FrsPage.SignInfo;
+import tbclient.FrsPage.SignUser;
 /* loaded from: classes8.dex */
-public class sh7 extends yc7<py4, ThreadCardViewHolder<ThreadData>> implements zj6, io7, yz5, ak6, ii {
+public final class sh7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String l;
-    public String m;
-    public int n;
-    public bk6<ThreadData> o;
 
-    @Override // com.baidu.tieba.zj6
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ak6
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class a extends bk6<ThreadData> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sh7 b;
-
-        public a(sh7 sh7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sh7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = sh7Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.bk6
-        /* renamed from: d */
-        public void a(View view2, ThreadData threadData) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) && view2 != null && threadData != null) {
-                if (this.b.i != null) {
-                    this.b.i.b(view2, threadData, this.b.getType());
-                }
-                if ("c13010".equals(this.b.l)) {
-                    TiebaStatic.log(new StatisticItem("c13010").param("obj_type", 1).param("fid", threadData.getFid()).param("tid", threadData.getTid()));
-                }
-                fo7.e(threadData, 1, this.b.mPageId, io7.q0, this.b.t());
-                if (this.b.b != null && this.b.b.getForum() != null) {
-                    fo7.c(threadData, this.b.b.getForum().getId());
-                }
-                if (view2.getId() == R.id.thread_card_root && threadData.isVideoThreadType()) {
-                    this.b.Q(threadData);
-                }
-                if (view2 instanceof VoteView) {
-                    mj6.a(threadData.getTid());
-                } else {
-                    ho7.k().h(io7.q0, threadData, 1);
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sh7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.n = 3;
-        this.o = new a(this);
-        this.c = tbPageContext;
-        this.mPageId = bdUniqueId2;
-    }
-
-    @Override // com.baidu.tieba.yz5
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.m = str;
-        }
-    }
-
-    @Override // com.baidu.tieba.zj6
-    public void r(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.n = i;
-        }
-    }
-
-    @Override // com.baidu.tieba.yc7
-    public void setFrom(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.l = str;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
-    /* renamed from: O */
-    public ThreadCardViewHolder<ThreadData> onCreateViewHolder(ViewGroup viewGroup) {
+    public static final JSONObject a(eh7 eh7Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            kt.b bVar = new kt.b(this.c.getPageActivity(), false);
-            ut utVar = new ut(this.c.getPageActivity());
-            utVar.E(this.c);
-            utVar.D(3);
-            bVar.h(utVar);
-            kt k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.e);
-            k.t(3);
-            ThreadCardViewHolder<ThreadData> threadCardViewHolder = new ThreadCardViewHolder<>(k);
-            threadCardViewHolder.i(this.mPageId);
-            threadCardViewHolder.p(false);
-            setOnAdapterItemClickListener(this);
-            return threadCardViewHolder;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, eh7Var)) == null) {
+            Intrinsics.checkNotNullParameter(eh7Var, "<this>");
+            JSONObject jSONObject = new JSONObject();
+            DataRes d = eh7Var.d();
+            if (d != null) {
+                DataRes.Builder builder = new DataRes.Builder(d);
+                ForumInfo.Builder builder2 = new ForumInfo.Builder(builder.forum);
+                builder2.banner_list = null;
+                builder.forum = builder2.build(true);
+                builder.thread_list = null;
+                builder.page_data = null;
+                builder.user_list = null;
+                builder.nav_tab_info = null;
+                try {
+                    JSONObject b = wuc.b(builder.build(true));
+                    Intrinsics.checkNotNullExpressionValue(b, "toJSON(data)");
+                    return b;
+                } catch (Exception e) {
+                    TbLog hybridLog = HybridLog.getInstance();
+                    hybridLog.e("BottomData", "frs接口数据转换失败：" + e);
+                    return jSONObject;
+                }
+            }
+            return jSONObject;
         }
-        return (ThreadCardViewHolder) invokeL.objValue;
+        return (JSONObject) invokeL.objValue;
     }
 
-    public final void Q(ThreadData threadData) {
-        int i;
-        long j;
+    public static final SignData b(SignInfo signInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData) == null) {
-            StatisticItem param = new StatisticItem("c12126").param("tid", threadData.getId());
-            if (u()) {
-                i = 2;
-            } else {
-                i = 1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, signInfo)) == null) {
+            Intrinsics.checkNotNullParameter(signInfo, "<this>");
+            SignData signData = new SignData();
+            SignUser user_info = signInfo.user_info;
+            if (user_info != null) {
+                Intrinsics.checkNotNullExpressionValue(user_info, "user_info");
+                Integer num = user_info.is_sign_in;
+                Intrinsics.checkNotNullExpressionValue(num, "user_info.is_sign_in");
+                signData.is_signed = num.intValue();
+                Integer num2 = user_info.user_sign_rank;
+                Intrinsics.checkNotNullExpressionValue(num2, "user_info.user_sign_rank");
+                signData.user_sign_rank = num2.intValue();
+                Integer num3 = user_info.cont_sign_num;
+                Intrinsics.checkNotNullExpressionValue(num3, "user_info.cont_sign_num");
+                signData.count_sign_num = num3.intValue();
+                Integer num4 = user_info.miss_sign_num;
+                Intrinsics.checkNotNullExpressionValue(num4, "user_info.miss_sign_num");
+                signData.miss_sign_num = num4.intValue();
             }
-            StatisticItem param2 = param.param("obj_locate", i);
-            if (threadData.getThreadAlaInfo() == null) {
-                j = -1;
-            } else {
-                j = threadData.getThreadAlaInfo().live_id;
+            SignForum forum_info = signInfo.forum_info;
+            if (forum_info != null) {
+                Intrinsics.checkNotNullExpressionValue(forum_info, "forum_info");
+                Integer num5 = forum_info.is_on;
+                if (num5 != null && num5.intValue() == 0) {
+                    signData.forum_rank = -2;
+                } else {
+                    RankInfo current_rank_info = forum_info.current_rank_info;
+                    if (current_rank_info != null) {
+                        Intrinsics.checkNotNullExpressionValue(current_rank_info, "current_rank_info");
+                        Integer num6 = current_rank_info.sign_rank;
+                        Intrinsics.checkNotNullExpressionValue(num6, "rank_info.sign_rank");
+                        signData.forum_rank = num6.intValue();
+                        Integer num7 = current_rank_info.sign_count;
+                        Intrinsics.checkNotNullExpressionValue(num7, "rank_info.sign_count");
+                        signData.sign_count = num7.intValue();
+                    }
+                }
             }
-            TiebaStatic.log(param2.param("obj_id", j).param("obj_type", 1));
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yc7, com.baidu.tieba.lh
-    /* renamed from: P */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, py4 py4Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, py4Var, threadCardViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) py4Var, (py4) threadCardViewHolder);
-            if (py4Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null) {
-                threadCardViewHolder.a().b(this.m);
-                threadCardViewHolder.a().s(i);
-                threadCardViewHolder.e(py4Var.t);
-                threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
-                threadCardViewHolder.a().r(this.o);
-                py4Var.t.updateShowStatus();
-                return threadCardViewHolder.getView();
+            Integer num8 = signInfo.has_chatroom_sign;
+            boolean z = true;
+            signData.showGuideToChatRoom = (num8 == null || num8.intValue() != 1) ? false : false;
+            ChatroomSignInfo chatroom_sign_info = signInfo.chatroom_sign_info;
+            if (chatroom_sign_info != null) {
+                Intrinsics.checkNotNullExpressionValue(chatroom_sign_info, "chatroom_sign_info");
+                signData.chatRoomGuideData = yw4.d.a(chatroom_sign_info);
             }
-            return null;
+            return signData;
         }
-        return (View) invokeCommon.objValue;
-    }
-
-    @Override // com.baidu.tieba.ii
-    public void b(View view2, yh yhVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{view2, yhVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (yhVar instanceof py4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
-            ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-            ThreadData threadData = ((py4) yhVar).t;
-            threadData.objType = 1;
-            bk6<ThreadData> bk6Var = this.o;
-            if (bk6Var != null) {
-                bk6Var.a(threadCardViewHolder.getView(), threadData);
-            }
-            ThreadCardUtils.jumpToPB((jv4) threadData, view2.getContext(), this.n, false);
-            threadCardViewHolder.a().q(new vt.a(1));
-        }
-    }
-
-    @Override // com.baidu.tieba.io7
-    public go7 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return io7.q0;
-        }
-        return (go7) invokeV.objValue;
+        return (SignData) invokeL.objValue;
     }
 }

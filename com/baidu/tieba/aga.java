@@ -1,23 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.hb7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class aga {
+public final class aga implements hb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<Integer> a;
-    public String b;
-    public String c;
-    public String d;
-    public int e;
 
     public aga() {
         Interceptable interceptable = $ic;
@@ -33,26 +28,42 @@ public class aga {
         }
     }
 
-    public void a(String str) {
+    @Override // com.baidu.tieba.gb7
+    public String getKey() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || StringUtils.isNull(str)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return hb7.a.b(this);
         }
-        try {
-            JSONObject optJSONObject = new JSONObject(str).optJSONObject("data");
-            if (optJSONObject != null) {
-                JSONArray optJSONArray = optJSONObject.optJSONArray("chunk_nolist");
-                if (optJSONArray != null) {
-                    int length = optJSONArray.length();
-                    this.a = new ArrayList<>();
-                    for (int i = 0; i < length; i++) {
-                        this.a.add(Integer.valueOf(optJSONArray.getInt(i)));
-                    }
-                }
-                this.b = optJSONObject.optString("upload_id");
-                this.c = optJSONObject.optString("video_url");
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gb7
+    public Map<String, String> a(d57 d57Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, d57Var)) == null) {
+            return hb7.a.a(this, d57Var);
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.hb7
+    public String c(d57 businessInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            String str = businessInfo.a().get("card_head_type");
+            if (str == null) {
+                str = "common_user";
             }
-        } catch (JSONException unused) {
+            int hashCode = str.hashCode();
+            if (hashCode == 448970189 ? str.equals("common_forum") : !(hashCode == 1201356814 ? !str.equals("live_forum") : !(hashCode == 1373469789 && str.equals("video_forum")))) {
+                return "forum_head_rec_forum_click";
+            }
+            return "";
         }
+        return (String) invokeL.objValue;
     }
 }

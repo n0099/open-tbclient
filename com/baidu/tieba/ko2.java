@@ -1,8 +1,13 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.tieba.no2;
-import com.baidu.tieba.vq2;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.tieba.dr2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,15 +15,53 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.nio.channels.Pipe;
-/* loaded from: classes6.dex */
-public class ko2 extends no2.f {
+import java.util.HashMap;
+import java.util.Map;
+/* loaded from: classes7.dex */
+public class ko2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String d;
-    public final hd4 e;
+    public final HashMap<String, Long> a;
+    public final HashMap<String, String> b;
+    public boolean c;
+    public boolean d;
+
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dr2.a a;
+        public final /* synthetic */ ko2 b;
+
+        public a(ko2 ko2Var, dr2.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ko2Var, aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ko2Var;
+            this.a = aVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            this.b.j(this.a);
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -33,73 +76,181 @@ public class ko2 extends no2.f {
                 return;
             }
         }
-        f = am1.a;
+        e = rm1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ko2(String str, hd4 hd4Var) {
-        super("check_sign");
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.clear();
+            this.b.clear();
+        }
+    }
+
+    public synchronized void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                this.d = true;
+            }
+        }
+    }
+
+    public synchronized boolean f() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            synchronized (this) {
+                z = this.d;
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            aj3.k(new a(this, f63.K().q().X()), "VideoStaticRecorder");
+        }
+    }
+
+    public ko2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, hd4Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.d = str;
-        this.e = hd4Var;
+        this.a = new HashMap<>();
+        this.b = new HashMap<>();
+        this.c = false;
+        this.d = false;
     }
 
-    @Override // com.baidu.tieba.no2.f
-    public boolean g(Pipe.SourceChannel sourceChannel, Bundle bundle) {
-        InterceptResult invokeLL;
-        ih3 ih3Var;
+    public synchronized void g(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, sourceChannel, bundle)) == null) {
-            uq2 d = uq2.d(bundle.getString("launch_id"));
-            vq2.b e = d.e();
-            e.b("SignChecker");
-            boolean z = true;
-            e.d(1);
-            long currentTimeMillis = System.currentTimeMillis();
-            try {
-                try {
-                    ih3Var = h92.a(sourceChannel, this.d, this.e);
-                } catch (IOException e2) {
-                    if (f) {
-                        e2.printStackTrace();
-                    }
-                    ih3 ih3Var2 = new ih3();
-                    ih3Var2.k(11L);
-                    ih3Var2.i(2300L);
-                    ih3Var2.f("inputStream IOException:" + e2.toString());
-                    mh3.a().f(ih3Var2);
-                    d.g("SignChecker", ih3Var2.toString());
-                    ck3.a(sourceChannel);
-                    ih3Var = ih3Var2;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
+            synchronized (this) {
+                if (!this.d) {
+                    this.b.put(str, str2);
                 }
-                d.g("SignChecker", "Cost: " + (System.currentTimeMillis() - currentTimeMillis));
-                if (ih3Var != null) {
-                    z = false;
-                }
-                if (ih3Var != null) {
-                    d.g("SignChecker", ih3Var.toString());
-                    c().putLong("result_error_code", ih3Var.a());
-                }
-                d.g("SignChecker", "done: " + z);
-                return z;
-            } finally {
-                ck3.a(sourceChannel);
             }
         }
-        return invokeLL.booleanValue;
+    }
+
+    public synchronized boolean d(@NonNull String str) {
+        InterceptResult invokeL;
+        boolean containsKey;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            synchronized (this) {
+                containsKey = this.a.containsKey(str);
+            }
+            return containsKey;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized boolean e(@NonNull String str) {
+        InterceptResult invokeL;
+        boolean containsKey;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            synchronized (this) {
+                containsKey = this.b.containsKey(str);
+            }
+            return containsKey;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized void h(@NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            synchronized (this) {
+                if (e) {
+                    Log.i("VideoStaticRecorder", "inline video record: action " + str);
+                }
+                if (!this.d && !this.a.containsKey(str)) {
+                    this.a.put(str, Long.valueOf(System.currentTimeMillis()));
+                }
+            }
+        }
+    }
+
+    public synchronized void i(@NonNull String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048583, this, str, j) == null) {
+            synchronized (this) {
+                if (e) {
+                    Log.i("VideoStaticRecorder", "inline video record: action " + str);
+                }
+                if (!this.a.containsKey(str)) {
+                    this.a.put(str, Long.valueOf(j));
+                }
+            }
+        }
+    }
+
+    public final synchronized void j(dr2.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
+            synchronized (this) {
+                if (this.c) {
+                    return;
+                }
+                this.c = true;
+                boolean equals = TextUtils.equals("1", this.b.get(com.baidu.mobads.sdk.internal.o.k));
+                boolean equals2 = TextUtils.equals("1", this.b.get("playMethod"));
+                if (e) {
+                    Log.d("VideoStaticRecorder", "submit: autoPlay:" + equals + ",apiPlay:" + equals2);
+                }
+                if (!equals && !equals2) {
+                    b();
+                    return;
+                }
+                lz2.r("video");
+                HybridUbcFlow p = lz2.p("video");
+                for (Map.Entry<String, Long> entry : this.a.entrySet()) {
+                    g32.i("VideoStaticRecorder", "submit: event key: " + entry.getKey() + " value " + entry.getValue());
+                    UbcFlowEvent ubcFlowEvent = new UbcFlowEvent(entry.getKey());
+                    ubcFlowEvent.h(entry.getValue().longValue());
+                    p.F(ubcFlowEvent);
+                }
+                for (Map.Entry<String, String> entry2 : this.b.entrySet()) {
+                    g32.i("VideoStaticRecorder", "submit: ext key: " + entry2.getKey() + " value " + entry2.getValue());
+                    p.D(entry2.getKey(), entry2.getValue());
+                }
+                String h = p.h("fmpArrived");
+                if (TextUtils.isEmpty(h)) {
+                    h = "0";
+                }
+                p.D("fmpArrived", h);
+                long l = aVar.l("launch_time", 0L);
+                UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("na_start");
+                ubcFlowEvent2.h(l);
+                p.F(ubcFlowEvent2);
+                p.D("launchID", aVar.W());
+                p.D("scheme", aVar.X());
+                p.D("appid", aVar.I());
+                p.D("page", aVar.f0());
+                long j = aVar.t0().getLong("click_time", 0L);
+                if (j > 0) {
+                    UbcFlowEvent ubcFlowEvent3 = new UbcFlowEvent("user_action");
+                    ubcFlowEvent3.h(j);
+                    p.F(ubcFlowEvent3);
+                }
+                p.A();
+                b();
+            }
+        }
     }
 }

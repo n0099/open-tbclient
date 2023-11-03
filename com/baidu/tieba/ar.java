@@ -3,14 +3,21 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public final class ar {
     public static /* synthetic */ Interceptable $ic;
-    public static HashMap<String, zq> a;
+    public static final ar a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public final boolean a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? i == 301 : invokeI.booleanValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -25,52 +32,20 @@ public final class ar {
                 return;
             }
         }
-        a = new HashMap<>();
+        a = new ar();
     }
 
-    public static synchronized zq a(String str) {
-        InterceptResult invokeL;
-        zq b;
+    public ar() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            synchronized (ar.class) {
-                b = b(str, 0);
-            }
-            return b;
-        }
-        return (zq) invokeL.objValue;
-    }
-
-    public static synchronized void c(zq zqVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, zqVar) == null) {
-            synchronized (ar.class) {
-                if (zqVar != null) {
-                    zqVar.a();
-                    a.values().remove(zqVar);
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-    }
-
-    public static synchronized zq b(String str, int i) {
-        InterceptResult invokeLI;
-        zq zqVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
-            synchronized (ar.class) {
-                if (a.containsKey(str) && (zqVar = a.get(str)) != null) {
-                    return zqVar;
-                }
-                zq zqVar2 = new zq(str, i);
-                try {
-                    zqVar2.start();
-                } catch (Exception unused) {
-                }
-                a.put(str, zqVar2);
-                return zqVar2;
-            }
-        }
-        return (zq) invokeLI.objValue;
     }
 }

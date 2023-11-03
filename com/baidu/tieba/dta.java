@@ -1,155 +1,110 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.database.Cursor;
+import com.baidu.adp.lib.safe.BdCloseHelper;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TiebaDatabase;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.FestivalTipData;
-import tbclient.ThemeColorInfo;
+import java.util.Date;
 /* loaded from: classes5.dex */
-public final class dta {
+public class dta {
     public static /* synthetic */ Interceptable $ic;
-    public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ThemeColorInfo a;
-    public final ThemeColorInfo b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947717464, "Lcom/baidu/tieba/dta;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947717464, "Lcom/baidu/tieba/dta;");
+    public static void a() {
+        c5 mainDBDatabaseManager;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65536, null) == null) && (mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager()) != null) {
+            mainDBDatabaseManager.d("CREATE TABLE IF NOT EXISTS video_block_upload_data('md5' text,'last_upload_id' text ,'last_upload_success_index' integer,'account' text,'time' long)");
+        }
+    }
+
+    public static void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            BdLog.e("deleteVieoChunkUploadData Called");
+            if (TbadkCoreApplication.getCurrentAccount() == null) {
                 return;
             }
-        }
-        c = new a(null);
-    }
-
-    @JvmStatic
-    public static final dta a(FestivalTipData festivalTipData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, festivalTipData)) == null) ? c.a(festivalTipData) : (dta) invokeL.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+            c5 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            if (str != null && mainDBDatabaseManager != null) {
+                mainDBDatabaseManager.e("delete from video_block_upload_data where md5=? and account=?", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
             }
-            if (obj instanceof dta) {
-                dta dtaVar = (dta) obj;
-                return Intrinsics.areEqual(this.a, dtaVar.a) && Intrinsics.areEqual(this.b, dtaVar.b);
+        }
+    }
+
+    public static eta c(String str) {
+        InterceptResult invokeL;
+        eta etaVar;
+        Exception e;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            Cursor cursor2 = null;
+            eta etaVar2 = null;
+            if (TbadkCoreApplication.getCurrentAccount() == null || StringUtils.isNull(str)) {
+                return null;
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a.hashCode() * 31) + this.b.hashCode() : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "FestivalTipViewStyle(backgroundColor=" + this.a + ", textColor=" + this.b + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            c5 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            try {
+                cursor = mainDBDatabaseManager.i("select * from video_block_upload_data where md5=? and account=? and strftime('%s','now') - time < 48 * 3600", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
+                try {
+                    try {
+                        if (cursor.moveToFirst()) {
+                            etaVar = new eta();
+                            try {
+                                etaVar.a = cursor.getString(cursor.getColumnIndex("last_upload_id"));
+                                etaVar.b = cursor.getInt(cursor.getColumnIndex("last_upload_success_index"));
+                                etaVar2 = etaVar;
+                            } catch (Exception e2) {
+                                e = e2;
+                                mainDBDatabaseManager.h(e, "getChunkUploadDataByMd5");
+                                BdCloseHelper.close(cursor);
+                                return etaVar;
+                            }
+                        }
+                        BdCloseHelper.close(cursor);
+                        return etaVar2;
+                    } catch (Exception e3) {
+                        etaVar = null;
+                        e = e3;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    cursor2 = cursor;
+                    BdCloseHelper.close(cursor2);
+                    throw th;
                 }
+            } catch (Exception e4) {
+                etaVar = null;
+                e = e4;
+                cursor = null;
+            } catch (Throwable th2) {
+                th = th2;
+                BdCloseHelper.close(cursor2);
+                throw th;
             }
-        }
-
-        @JvmStatic
-        public final dta a(FestivalTipData festivalTipData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, festivalTipData)) == null) {
-                Intrinsics.checkNotNullParameter(festivalTipData, "festivalTipData");
-                ThemeColorInfo themeColorInfo = festivalTipData.background_color;
-                Intrinsics.checkNotNullExpressionValue(themeColorInfo, "festivalTipData.background_color");
-                ThemeColorInfo themeColorInfo2 = festivalTipData.font_color;
-                Intrinsics.checkNotNullExpressionValue(themeColorInfo2, "festivalTipData.font_color");
-                return new dta(themeColorInfo, themeColorInfo2);
-            }
-            return (dta) invokeL.objValue;
+        } else {
+            return (eta) invokeL.objValue;
         }
     }
 
-    public dta(ThemeColorInfo backgroundColor, ThemeColorInfo textColor) {
+    public static boolean d(String str, String str2, int i) {
+        InterceptResult invokeLLI;
+        c5 mainDBDatabaseManager;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {backgroundColor, textColor};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, str, str2, i)) == null) {
+            if (TbadkCoreApplication.getCurrentAccount() == null || (mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager()) == null) {
+                return false;
             }
+            Date date = new Date();
+            mainDBDatabaseManager.e("delete from video_block_upload_data where md5=? and account=?", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
+            return mainDBDatabaseManager.e("Insert into video_block_upload_data(md5,last_upload_id,last_upload_success_index,account,time) values(?,?,?,?,?)", new Object[]{str, str2, Integer.valueOf(i), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
         }
-        Intrinsics.checkNotNullParameter(backgroundColor, "backgroundColor");
-        Intrinsics.checkNotNullParameter(textColor, "textColor");
-        this.a = backgroundColor;
-        this.b = textColor;
-    }
-
-    public final ThemeColorInfo b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (ThemeColorInfo) invokeV.objValue;
-    }
-
-    public final ThemeColorInfo c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (ThemeColorInfo) invokeV.objValue;
+        return invokeLLI.booleanValue;
     }
 }

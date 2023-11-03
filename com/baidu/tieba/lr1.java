@@ -1,10 +1,7 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import org.json.JSONObject;
+import android.content.Context;
 /* loaded from: classes7.dex */
 public interface lr1 {
-    @Nullable
-    qx1 a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull ti2 ti2Var);
+    void a(String str, hw2 hw2Var, Context context);
 }

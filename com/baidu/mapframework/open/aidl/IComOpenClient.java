@@ -25,13 +25,13 @@ public interface IComOpenClient extends IInterface {
 
         /* renamed from: com.baidu.mapframework.open.aidl.IComOpenClient$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public static class C0102a implements IComOpenClient {
+        public static class C0103a implements IComOpenClient {
             public static /* synthetic */ Interceptable $ic;
             public static IComOpenClient a;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder b;
 
-            public C0102a(IBinder iBinder) {
+            public C0103a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -121,7 +121,7 @@ public interface IComOpenClient extends IInterface {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-                return C0102a.a;
+                return C0103a.a;
             }
             return (IComOpenClient) invokeV.objValue;
         }
@@ -137,7 +137,7 @@ public interface IComOpenClient extends IInterface {
                 if (queryLocalInterface != null && (queryLocalInterface instanceof IComOpenClient)) {
                     return (IComOpenClient) queryLocalInterface;
                 }
-                return new C0102a(iBinder);
+                return new C0103a(iBinder);
             }
             return (IComOpenClient) invokeL.objValue;
         }

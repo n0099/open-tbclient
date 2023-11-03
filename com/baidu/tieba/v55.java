@@ -1,36 +1,31 @@
 package com.baidu.tieba;
 
-import android.text.Selection;
-import android.text.SpanWatcher;
-import android.text.Spannable;
-import androidx.annotation.NonNull;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class v55 implements SpanWatcher {
+public class v55 extends TBSpecificationButtonConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SpanGroupManager a;
-    public int b;
-    public int c;
+    public boolean v;
+    public int w;
+    public int x;
 
-    @Override // android.text.SpanWatcher
-    public void onSpanAdded(Spannable spannable, Object obj, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(1048576, this, spannable, obj, i, i2) == null) {
-        }
-    }
-
-    public v55(@NonNull SpanGroupManager spanGroupManager) {
+    public v55() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {spanGroupManager};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,62 +35,96 @@ public class v55 implements SpanWatcher {
                 return;
             }
         }
-        this.a = spanGroupManager;
+        this.w = R.dimen.tbds1;
+        this.x = R.string.A_X07;
+        this.b = R.color.CAM_X0302;
+        this.v = false;
     }
 
-    @Override // android.text.SpanWatcher
-    public void onSpanChanged(Spannable spannable, Object obj, int i, int i2, int i3, int i4) {
-        SpanGroupManager spanGroupManager;
+    @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
+    public Drawable a(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{spannable, obj, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) != null) || (spanGroupManager = this.a) == null) {
-            return;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
+            return v(f);
         }
-        if (obj == Selection.SELECTION_END && this.c != i3) {
-            this.c = i3;
-            t55 E = spanGroupManager.E(i3);
-            if (E != null) {
-                int f = E.f();
-                int c = E.c();
-                if (Math.abs(this.c - c) <= Math.abs(this.c - f)) {
-                    f = c;
-                }
-                int selectionStart = Selection.getSelectionStart(spannable);
-                if (selectionStart > spannable.length()) {
-                    selectionStart = spannable.length();
-                }
-                if (f > spannable.length()) {
-                    f = spannable.length();
-                }
-                Selection.setSelection(spannable, selectionStart, f);
-            }
-        }
-        if (obj == Selection.SELECTION_START && this.b != i3) {
-            this.b = i3;
-            t55 E2 = this.a.E(i3);
-            if (E2 != null) {
-                int f2 = E2.f();
-                int c2 = E2.c();
-                if (Math.abs(this.b - c2) <= Math.abs(this.b - f2)) {
-                    f2 = c2;
-                }
-                int selectionEnd = Selection.getSelectionEnd(spannable);
-                if (selectionEnd > spannable.length()) {
-                    selectionEnd = spannable.length();
-                }
-                if (f2 > spannable.length()) {
-                    f2 = spannable.length();
-                }
-                Selection.setSelection(spannable, f2, selectionEnd);
+        return (Drawable) invokeF.objValue;
+    }
+
+    public void r(@ColorRes int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.b = i;
+            this.v = false;
+            this.r = true;
+            TBSpecificationButtonConfig.a aVar = this.u;
+            if (aVar != null) {
+                aVar.c();
             }
         }
     }
 
-    @Override // android.text.SpanWatcher
-    public void onSpanRemoved(Spannable spannable, Object obj, int i, int i2) {
-        SpanGroupManager spanGroupManager;
+    public void s(@ColorInt int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, spannable, obj, i, i2) == null) && (spanGroupManager = this.a) != null && this.b != this.c) {
-            spanGroupManager.q();
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.b = i;
+            this.v = false;
+            this.r = false;
+            TBSpecificationButtonConfig.a aVar = this.u;
+            if (aVar != null) {
+                aVar.c();
+            }
         }
+    }
+
+    public void t(@ColorRes int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.b = i;
+            this.c = R.color.CAM_X0902;
+            this.v = true;
+            this.r = true;
+            TBSpecificationButtonConfig.a aVar = this.u;
+            if (aVar != null) {
+                aVar.c();
+            }
+        }
+    }
+
+    public void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b = R.color.CAM_X0101;
+            this.v = false;
+            this.r = true;
+            TBSpecificationButtonConfig.a aVar = this.u;
+            if (aVar != null) {
+                aVar.c();
+            }
+        }
+    }
+
+    public final Drawable v(float f) {
+        InterceptResult invokeF;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            if (this.v) {
+                gradientDrawable.setStroke(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), this.w), SkinManager.getColor(this.s, this.c));
+            } else {
+                int dimens = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), this.w);
+                if (this.r) {
+                    i = SkinManager.getColor(this.s, this.b);
+                } else {
+                    i = this.b;
+                }
+                gradientDrawable.setStroke(dimens, aqa.a(i, r25.b(this.x)));
+            }
+            gradientDrawable.setShape(0);
+            gradientDrawable.setCornerRadius(f);
+            return gradientDrawable;
+        }
+        return (Drawable) invokeF.objValue;
     }
 }

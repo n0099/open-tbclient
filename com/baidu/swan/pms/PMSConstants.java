@@ -1,6 +1,6 @@
 package com.baidu.swan.pms;
 
-import com.baidu.tieba.yc4;
+import com.baidu.tieba.pd4;
 /* loaded from: classes4.dex */
 public class PMSConstants {
 
@@ -11,8 +11,8 @@ public class PMSConstants {
         }
     }
 
-    public static boolean a(yc4 yc4Var) {
-        if (yc4Var != null && yc4Var.x()) {
+    public static boolean a(pd4 pd4Var) {
+        if (pd4Var != null && pd4Var.x()) {
             return true;
         }
         return false;

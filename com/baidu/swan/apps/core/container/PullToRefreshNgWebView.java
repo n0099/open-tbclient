@@ -3,11 +3,11 @@ package com.baidu.swan.apps.core.container;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase;
-import com.baidu.tieba.b43;
+import com.baidu.tieba.s43;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes4.dex */
 public class PullToRefreshNgWebView extends PullToRefreshBaseWebView<NgWebView> {
-    public PullToRefreshNgWebView(Context context, b43<NgWebView> b43Var, PullToRefreshBase.HEADERTYPE headertype) {
-        super(context, b43Var, headertype);
+    public PullToRefreshNgWebView(Context context, s43<NgWebView> s43Var, PullToRefreshBase.HEADERTYPE headertype) {
+        super(context, s43Var, headertype);
     }
 }

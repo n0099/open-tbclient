@@ -1,217 +1,106 @@
 package com.baidu.tieba;
 
+import android.graphics.Bitmap;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.net.MailTo;
+import android.util.LruCache;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class y7b {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static volatile y7b c;
     public transient /* synthetic */ FieldHolder $fh;
-    public z7b a;
+    public LruCache<String, Bitmap> a;
 
-    /* loaded from: classes8.dex */
-    public static class a {
+    /* loaded from: classes9.dex */
+    public class a extends LruCache<String, Bitmap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public Map<String, JSONObject> b;
 
-        public a() {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(y7b y7bVar, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y7bVar, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = 0;
-            this.b = new HashMap();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.util.LruCache
+        /* renamed from: a */
+        public void entryRemoved(boolean z, String str, Bitmap bitmap, Bitmap bitmap2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, bitmap, bitmap2}) == null) && bitmap != null && !bitmap.isRecycled()) {
+                bitmap.recycle();
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.util.LruCache
+        /* renamed from: b */
+        public int sizeOf(String str, Bitmap bitmap) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bitmap)) == null) {
+                return (bitmap.getRowBytes() * bitmap.getHeight()) / 1024;
+            }
+            return invokeLL.intValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948284485, "Lcom/baidu/tieba/y7b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948284485, "Lcom/baidu/tieba/y7b;");
-                return;
-            }
-        }
-        b = c8b.m();
-    }
-
-    public y7b() {
+    public y7b(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    public static y7b f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (y7b.class) {
-                    if (c == null) {
-                        c = new y7b();
-                    }
-                }
-            }
-            return c;
-        }
-        return (y7b) invokeV.objValue;
-    }
-
-    public final boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            h7b o = h7b.o();
-            if (o != null && !o.g("2980", 32)) {
-                return false;
-            }
-            if (o != null && o.d("2980")) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            h7b o = h7b.o();
-            if (o != null && !o.g("2980", 32)) {
-                return false;
-            }
-            if (o != null && o.d("2980")) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void a(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(1048576, this, str, z) != null) || TextUtils.isEmpty(str) || !TextUtils.isDigitsOnly(str) || !b()) {
+        if (i > 0) {
+            this.a = new a(this, i);
             return;
         }
-        this.a.c(str, z);
+        throw new IllegalArgumentException("maxSize <= 0");
     }
 
-    public boolean d(m8b m8bVar) {
+    public Bitmap a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, m8bVar)) == null) {
-            if (m8bVar == null || m8bVar.w() || !c()) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            this.a.f();
-            Map<String, a> v = this.a.v(7);
-            if (v != null && v.size() != 0) {
-                try {
-                    JSONObject jSONObject = new JSONObject();
-                    boolean z = false;
-                    for (String str : v.keySet()) {
-                        a aVar = v.get(str);
-                        if (aVar != null && !TextUtils.isEmpty(str)) {
-                            JSONObject jSONObject2 = new JSONObject();
-                            JSONArray jSONArray = new JSONArray();
-                            for (JSONObject jSONObject3 : aVar.b.values()) {
-                                jSONArray.put(jSONObject3);
-                            }
-                            jSONObject2.put("total", aVar.a);
-                            jSONObject2.put("data", jSONArray);
-                            jSONObject.put(str.replace("-", ""), jSONObject2);
-                            z = true;
-                        }
-                    }
-                    if (z) {
-                        o7b o7bVar = new o7b("2980");
-                        o7bVar.y(jSONObject);
-                        o7bVar.B(System.currentTimeMillis());
-                        m8bVar.c(o7bVar, o7bVar.g());
-                        m8bVar.a(v.keySet());
-                        return true;
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-            return false;
+            return this.a.get(str);
         }
-        return invokeL.booleanValue;
+        return (Bitmap) invokeL.objValue;
     }
 
-    public void e(Map<String, a> map, String str, String str2, int i, int i2) {
-        a aVar;
+    public void b(String str, Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{map, str, str2, Integer.valueOf(i), Integer.valueOf(i2)}) != null) || map == null) {
-            return;
-        }
-        if (map.containsKey(str)) {
-            aVar = map.get(str);
-        } else {
-            a aVar2 = new a();
-            map.put(str, aVar2);
-            aVar = aVar2;
-        }
-        Map<String, JSONObject> map2 = aVar.b;
-        if (map2.containsKey(str2) && b) {
-            Log.e("UBCArrivalStatics", "*******duplicate ubc id record: " + str2);
-        }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("id", str2);
-            jSONObject.put("c", i);
-            jSONObject.put(MailTo.CC, i2);
-            aVar.a += i;
-            map2.put(str2, jSONObject);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void g(z7b z7bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, z7bVar) == null) {
-            this.a = z7bVar;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bitmap) == null) && !TextUtils.isEmpty(str) && bitmap != null && !bitmap.isRecycled()) {
+            this.a.put(str, bitmap);
         }
     }
 }

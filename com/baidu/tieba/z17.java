@@ -1,161 +1,81 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.Rect;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.PreLoadImageInfo;
-import com.baidu.tbadk.core.util.PreLoadImageProvider;
-import com.baidu.tieba.feed.component.uistate.CardPicUiStateKt;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.faceshop.forumpackage.adapter.ForumEmotionEmptyViewHolder;
+import com.baidu.tieba.faceshop.forumpackage.view.ForumEmotionEmptyView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import kotlin.Unit;
-import kotlin.collections.CollectionsKt___CollectionsKt;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.functions.Function2;
-import kotlin.jvm.functions.Function4;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
-public final class z17 extends e27 implements PreLoadImageProvider {
+public class z17 extends bi<a27, ForumEmotionEmptyViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final z27 d;
-    public String e;
-    public final Function4<Context, Integer, Rect, String, Unit> f;
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof z17) {
-                z17 z17Var = (z17) obj;
-                return Intrinsics.areEqual(this.d, z17Var.d) && Intrinsics.areEqual(this.e, z17Var.e) && Intrinsics.areEqual(this.f, z17Var.f);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (((this.d.hashCode() * 31) + this.e.hashCode()) * 31) + this.f.hashCode() : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "CardPicUiState(cardPicData=" + this.d + ", schema=" + this.e + ", onImageClick=" + this.f + ')';
-        }
-        return (String) invokeV.objValue;
-    }
+    public TbPageContext a;
+    public w17 b;
+    public b27 c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    @JvmOverloads
-    public z17(z27 cardPicData, String schema, Function4<? super Context, ? super Integer, ? super Rect, ? super String, Unit> onImageClick) {
-        super(null, null, 3, null);
+    public z17(TbPageContext<?> tbPageContext, b27 b27Var, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cardPicData, schema, onImageClick};
+            Object[] objArr = {tbPageContext, b27Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Function2) objArr2[0], (Function1) objArr2[1], ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(cardPicData, "cardPicData");
-        Intrinsics.checkNotNullParameter(schema, "schema");
-        Intrinsics.checkNotNullParameter(onImageClick, "onImageClick");
-        this.d = cardPicData;
-        this.e = schema;
-        this.f = onImageClick;
+        this.a = tbPageContext;
+        this.c = b27Var;
     }
 
-    public /* synthetic */ z17(z27 z27Var, String str, Function4 function4, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(z27Var, (i & 2) != 0 ? "" : str, (i & 4) != 0 ? CardPicUiStateKt.a : function4);
-    }
-
-    @Override // com.baidu.tbadk.core.util.PreLoadImageProvider
-    public ArrayList<PreLoadImageInfo> getImages() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: t */
+    public ForumEmotionEmptyViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<PreLoadImageInfo> arrayList = new ArrayList<>();
-            List<h47> list = this.d.a;
-            Intrinsics.checkNotNullExpressionValue(list, "cardPicData.picDataList");
-            for (h47 h47Var : CollectionsKt___CollectionsKt.take(list, 3)) {
-                PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();
-                preLoadImageInfo.imgUrl = h47Var.a;
-                preLoadImageInfo.procType = 13;
-                if (this.d.a.size() == 1) {
-                    preLoadImageInfo.preloadType = 1;
-                } else {
-                    preLoadImageInfo.preloadType = 2;
-                }
-                arrayList.add(preLoadImageInfo);
-            }
-            return arrayList;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            ForumEmotionEmptyView forumEmotionEmptyView = new ForumEmotionEmptyView(this.a);
+            forumEmotionEmptyView.b(TbadkCoreApplication.getInst().getSkinType());
+            return new ForumEmotionEmptyViewHolder(this.a, forumEmotionEmptyView);
         }
-        return (ArrayList) invokeV.objValue;
+        return (ForumEmotionEmptyViewHolder) invokeL.objValue;
     }
 
-    public final z27 h() {
-        InterceptResult invokeV;
+    public void x(w17 w17Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
+        if (interceptable == null || interceptable.invokeL(1048580, this, w17Var) == null) {
+            this.b = w17Var;
         }
-        return (z27) invokeV.objValue;
     }
 
-    public final Function4<Context, Integer, Rect, String, Unit> i() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, a27 a27Var, ForumEmotionEmptyViewHolder forumEmotionEmptyViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, a27Var, forumEmotionEmptyViewHolder})) == null) {
+            forumEmotionEmptyViewHolder.b(a27Var, i, this.c, this.b);
+            return forumEmotionEmptyViewHolder.getView();
         }
-        return (Function4) invokeV.objValue;
-    }
-
-    public final String j(int i) {
-        InterceptResult invokeI;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            if (i >= this.d.a.size()) {
-                return this.e;
-            }
-            h47 h47Var = this.d.a.get(i);
-            String str = h47Var.g;
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (!z) {
-                String str2 = h47Var.g;
-                Intrinsics.checkNotNullExpressionValue(str2, "{\n            data.scheme\n        }");
-                return str2;
-            }
-            return this.e;
-        }
-        return (String) invokeI.objValue;
+        return (View) invokeCommon.objValue;
     }
 }

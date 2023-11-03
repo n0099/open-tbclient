@@ -1,206 +1,229 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ao0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmField;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class gn0 {
+public final class gn0 extends kn0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a w;
     public transient /* synthetic */ FieldHolder $fh;
-    @JvmField
-    public String a;
-    @JvmField
-    public String b;
-    @JvmField
-    public String c;
-    @JvmField
-    public int d;
-    @JvmField
-    public int e;
-    @JvmField
-    public int f;
-    @JvmField
-    public int g;
-    @JvmField
-    public float h;
-    @JvmField
-    public String i;
-    @JvmField
-    public int j;
-    @JvmField
-    public String k;
-    @JvmField
-    public String l;
-    @JvmField
-    public String m;
-    @JvmField
-    public String n;
-    @JvmField
-    public String o;
-    @JvmField
-    public float p;
-    @JvmField
-    public float q;
-    @JvmField
-    public String r;
-    @JvmField
-    public int s;
-    @JvmField
-    public float t;
-    @JvmField
-    public int u;
-    @JvmField
-    public String v;
+    public final JSONObject A;
+    public final JSONObject B;
+    public final on0 C;
+    public final xn0 D;
+    public final co0 E;
+    public final fn0 F;
+    public final JSONObject G;
+    public final en0 H;
+    public final ao0 r;
+    public final rn0 s;
+    public final pn0 t;
+    public final boolean u;
+    public final boolean v;
+    public final boolean w;
+    public final String x;
+    public final String y;
+    public final yn0 z;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947799552, "Lcom/baidu/tieba/gn0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947799552, "Lcom/baidu/tieba/gn0;");
-                return;
-            }
-        }
-        w = new a(null);
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        @JvmStatic
-        public final gn0 a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return null;
-                }
-                gn0 gn0Var = new gn0();
-                Intrinsics.checkNotNullExpressionValue(jSONObject.optString("icon", ""), "json.optString(\"icon\", \"\")");
-                String optString = jSONObject.optString("background_img", "");
-                Intrinsics.checkNotNullExpressionValue(optString, "json.optString(\"background_img\", \"\")");
-                gn0Var.a = optString;
-                String optString2 = jSONObject.optString("component_img", "");
-                Intrinsics.checkNotNullExpressionValue(optString2, "json.optString(\"component_img\", \"\")");
-                gn0Var.c = optString2;
-                String optString3 = jSONObject.optString("lottie", "");
-                Intrinsics.checkNotNullExpressionValue(optString3, "json.optString(\"lottie\", \"\")");
-                gn0Var.b = optString3;
-                gn0Var.d = jSONObject.optInt("show_time", 3);
-                gn0Var.e = jSONObject.optInt("display_time", 7);
-                gn0Var.f = jSONObject.optInt("range_left", 90);
-                gn0Var.g = jSONObject.optInt("range_right", 90);
-                Intrinsics.checkNotNullExpressionValue(jSONObject.optString("left_event_cmd", ""), "json.optString(\"left_event_cmd\", \"\")");
-                Intrinsics.checkNotNullExpressionValue(jSONObject.optString("right_event_cmd", ""), "json.optString(\"right_event_cmd\", \"\")");
-                String optString4 = jSONObject.optString("click_event_cmd", "");
-                Intrinsics.checkNotNullExpressionValue(optString4, "json.optString(\"click_event_cmd\", \"\")");
-                gn0Var.i = optString4;
-                gn0Var.h = (float) jSONObject.optDouble("z_limit", 0.5f);
-                gn0Var.j = jSONObject.optInt("l_gravity", 48);
-                String optString5 = jSONObject.optString(CriusAttrConstants.MARGIN, "0_0_0_0");
-                Intrinsics.checkNotNullExpressionValue(optString5, "json.optString(\"margin\", DEFAULT_MARGINS)");
-                gn0Var.k = optString5;
-                String optString6 = jSONObject.optString("img_key_path", "");
-                Intrinsics.checkNotNullExpressionValue(optString6, "json.optString(\"img_key_path\", \"\")");
-                gn0Var.l = optString6;
-                String optString7 = jSONObject.optString("lottie_show_mode", "");
-                Intrinsics.checkNotNullExpressionValue(optString7, "json.optString(\"lottie_show_mode\", \"\")");
-                gn0Var.m = optString7;
-                String optString8 = jSONObject.optString("type", "");
-                Intrinsics.checkNotNullExpressionValue(optString8, "json.optString(\"type\", \"\")");
-                gn0Var.n = optString8;
-                String optString9 = jSONObject.optString("bg_color", "");
-                Intrinsics.checkNotNullExpressionValue(optString9, "json.optString(\"bg_color\", \"\")");
-                gn0Var.o = optString9;
-                gn0Var.p = (float) jSONObject.optDouble("wh_ratio", 1.0d);
-                gn0Var.q = (float) jSONObject.optDouble("width_in_parent", 0.43d);
-                String optString10 = jSONObject.optString("sensor_active_time", "3_10");
-                Intrinsics.checkNotNullExpressionValue(optString10, "json.optString(\"sensor_active_time\", \"3_10\")");
-                gn0Var.r = optString10;
-                JSONObject optJSONObject = jSONObject.optJSONObject("shake_params");
-                if (optJSONObject != null) {
-                    gn0Var.s = optJSONObject.optInt("update_interval", 67);
-                    gn0Var.t = (float) optJSONObject.optDouble("shake_sensitivity", 12.0d);
-                    gn0Var.u = optJSONObject.optInt("shake_counts", 2);
-                    String optString11 = jSONObject.optString("lottie_text", "");
-                    Intrinsics.checkNotNullExpressionValue(optString11, "json.optString(\"lottie_text\", \"\")");
-                    gn0Var.v = optString11;
-                }
-                return gn0Var;
-            }
-            return (gn0) invokeL.objValue;
-        }
-    }
-
-    public gn0() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gn0(an0 common2, JSONObject root) {
+        super(common2, root, true);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {common2, root};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((an0) objArr2[0], (JSONObject) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = "";
-        this.b = "";
-        this.c = "";
-        this.d = 3;
-        this.e = 7;
-        this.f = 90;
-        this.g = 90;
-        this.h = 0.5f;
-        this.i = "";
-        this.j = 48;
-        this.k = "0_0_0_0";
-        this.l = "";
-        this.m = "";
-        this.n = "";
-        this.o = "";
-        this.p = 1.0f;
-        this.q = 0.43f;
-        this.r = "3_10";
-        this.s = 67;
-        this.t = 12.0f;
-        this.u = 2;
-        this.v = "";
+        Intrinsics.checkNotNullParameter(common2, "common");
+        Intrinsics.checkNotNullParameter(root, "root");
+        boolean z = true;
+        ao0.a aVar = ao0.A;
+        JSONObject optJSONObject = root.optJSONObject("reward");
+        this.r = aVar.a(optJSONObject == null ? new JSONObject() : optJSONObject);
+        this.s = rn0.g.a(root.optJSONObject("image_info"));
+        this.t = pn0.v.a(root.optJSONObject("cmd_policy"));
+        this.u = Intrinsics.areEqual(root.optString("type"), "detail");
+        this.v = Intrinsics.areEqual(root.optString("type"), "download");
+        rn0 rn0Var = this.s;
+        this.w = (rn0Var == null || !rn0Var.d()) ? false : false;
+        String optString = root.optString("panel_cmd");
+        Intrinsics.checkNotNullExpressionValue(optString, "root.optString(\"panel_cmd\")");
+        this.x = optString;
+        String optString2 = root.optString("webpanel_cmd");
+        Intrinsics.checkNotNullExpressionValue(optString2, "root.optString(\"webpanel_cmd\")");
+        this.y = optString2;
+        Intrinsics.checkNotNullExpressionValue(root.optString("lp_real_url"), "root.optString(\"lp_real_url\")");
+        this.z = yn0.i.a(root.optJSONObject("sliding_tag"));
+        this.A = root.optJSONObject("sv_title");
+        this.B = root.optJSONObject("sv_button");
+        this.C = on0.i.a(root.optJSONObject("big_card"));
+        this.D = xn0.w.a(root.optJSONObject("rotation_component"));
+        this.E = new co0(false, false, 0, false, false, false, 63, null);
+        this.F = fn0.d.a(root.optJSONObject("ad_tag"));
+        JSONObject optJSONObject2 = root.optJSONObject("popover");
+        this.G = optJSONObject2;
+        this.H = en0.b.a(optJSONObject2);
+        root.optJSONObject("convert");
+    }
+
+    public final on0 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.C;
+        }
+        return (on0) invokeV.objValue;
+    }
+
+    public final pn0 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.t;
+        }
+        return (pn0) invokeV.objValue;
+    }
+
+    public final xn0 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.D;
+        }
+        return (xn0) invokeV.objValue;
+    }
+
+    public final rn0 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.s;
+        }
+        return (rn0) invokeV.objValue;
+    }
+
+    public final String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.x;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final ao0 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.r;
+        }
+        return (ao0) invokeV.objValue;
+    }
+
+    public final en0 h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.H;
+        }
+        return (en0) invokeV.objValue;
+    }
+
+    public final co0 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.E;
+        }
+        return (co0) invokeV.objValue;
+    }
+
+    public final yn0 j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.z;
+        }
+        return (yn0) invokeV.objValue;
+    }
+
+    public final JSONObject k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.B;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public final JSONObject l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.A;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public final fn0 m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.F;
+        }
+        return (fn0) invokeV.objValue;
+    }
+
+    public final String n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.y;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.u;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.v;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.w;
+        }
+        return invokeV.booleanValue;
     }
 }

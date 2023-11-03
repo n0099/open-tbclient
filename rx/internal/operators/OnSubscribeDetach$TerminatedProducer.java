@@ -1,11 +1,11 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.j6c;
+import com.baidu.tieba.kjc;
 /* loaded from: classes2.dex */
-public enum OnSubscribeDetach$TerminatedProducer implements j6c {
+public enum OnSubscribeDetach$TerminatedProducer implements kjc {
     INSTANCE;
 
-    @Override // com.baidu.tieba.j6c
+    @Override // com.baidu.tieba.kjc
     public void request(long j) {
     }
 }

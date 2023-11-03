@@ -1,140 +1,170 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.m6c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashSet;
-import java.util.List;
-import rx.exceptions.CompositeException;
-import rx.exceptions.OnCompletedFailedException;
-import rx.exceptions.OnErrorFailedException;
-import rx.exceptions.OnErrorNotImplementedException;
-import rx.exceptions.OnErrorThrowable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public final class t6c {
+public class t6c extends n6c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Context c;
+    public final String d;
+    public o6c e;
+    public volatile u6c f;
+    public final Object g;
+    public h6c h;
+    public final Map<String, String> i;
+    public volatile v6c j;
 
-    public static void a(Throwable th, Throwable th2) {
+    public t6c(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, th, th2) == null) {
-            HashSet hashSet = new HashSet();
-            int i = 0;
-            while (th.getCause() != null) {
-                int i2 = i + 1;
-                if (i >= 25) {
-                    return;
-                }
-                th = th.getCause();
-                if (!hashSet.contains(th.getCause())) {
-                    hashSet.add(th.getCause());
-                    i = i2;
-                }
-            }
-            try {
-                th.initCause(th2);
-            } catch (Throwable unused) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.g = new Object();
+        this.h = h6c.b;
+        this.i = new HashMap();
+        this.c = context;
+        this.d = str;
     }
 
-    public static Throwable b(Throwable th) {
+    public static String e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, th)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             int i = 0;
-            while (th.getCause() != null) {
-                int i2 = i + 1;
-                if (i >= 25) {
-                    return new RuntimeException("Stack too deep to get final cause");
+            if (str.length() > 0) {
+                while (str.charAt(i) == '/') {
+                    i++;
                 }
-                th = th.getCause();
-                i = i2;
             }
-            return th;
+            return WebvttCueParser.CHAR_SLASH + str.substring(i);
         }
-        return (Throwable) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static RuntimeException c(Throwable th) {
+    @Override // com.baidu.tieba.k6c
+    public String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, th)) == null) {
-            if (!(th instanceof RuntimeException)) {
-                if (th instanceof Error) {
-                    throw ((Error) th);
-                }
-                throw new RuntimeException(th);
-            }
-            throw ((RuntimeException) th);
-        }
-        return (RuntimeException) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? i(str, null) : (String) invokeL.objValue;
     }
 
-    public static void d(List<? extends Throwable> list) {
+    @Override // com.baidu.tieba.k6c
+    public h6c b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, list) == null) && list != null && !list.isEmpty()) {
-            if (list.size() == 1) {
-                Throwable th = list.get(0);
-                if (!(th instanceof RuntimeException)) {
-                    if (th instanceof Error) {
-                        throw ((Error) th);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.h == null) {
+                this.h = h6c.b;
+            }
+            if (this.h == h6c.b && this.f == null) {
+                f();
+            }
+            h6c h6cVar = this.h;
+            return h6cVar == null ? h6c.b : h6cVar;
+        }
+        return (h6c) invokeV.objValue;
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f == null) {
+            synchronized (this.g) {
+                if (this.f == null) {
+                    if (this.e != null) {
+                        this.f = new y6c(this.e.b());
+                        this.e.a();
+                        throw null;
                     }
-                    throw new RuntimeException(th);
+                    this.f = new b7c(this.c, this.d);
+                    this.j = new v6c(this.f);
                 }
-                throw ((RuntimeException) th);
+                h();
             }
-            throw new CompositeException(list);
         }
     }
 
-    public static void e(Throwable th) {
+    public final String g(String str) {
+        InterceptResult invokeL;
+        m6c.a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th) == null) {
-            if (!(th instanceof OnErrorNotImplementedException)) {
-                if (!(th instanceof OnErrorFailedException)) {
-                    if (!(th instanceof OnCompletedFailedException)) {
-                        if (!(th instanceof VirtualMachineError)) {
-                            if (!(th instanceof ThreadDeath)) {
-                                if (!(th instanceof LinkageError)) {
-                                    return;
-                                }
-                                throw ((LinkageError) th);
-                            }
-                            throw ((ThreadDeath) th);
-                        }
-                        throw ((VirtualMachineError) th);
-                    }
-                    throw ((OnCompletedFailedException) th);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            Map<String, m6c.a> a = m6c.a();
+            if (a.containsKey(str) && (aVar = a.get(str)) != null) {
+                return aVar.a(this);
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.k6c
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (Context) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.k6c
+    public String getIdentifier() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "DEFAULT_INSTANCE" : (String) invokeV.objValue;
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.h == h6c.b) {
+            if (this.f != null) {
+                this.h = q6c.f(this.f.a("/region", null), this.f.a("/agcgw/url", null));
+            } else {
+                Log.w("AGConnectServiceConfig", "get route fail , config not ready");
+            }
+        }
+    }
+
+    public String i(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) {
+            if (str != null) {
+                if (this.f == null) {
+                    f();
                 }
-                throw ((OnErrorFailedException) th);
+                String e = e(str);
+                String str3 = this.i.get(e);
+                if (str3 != null) {
+                    return str3;
+                }
+                String g = g(e);
+                if (g != null) {
+                    return g;
+                }
+                String a = this.f.a(e, str2);
+                return v6c.c(a) ? this.j.a(a, str2) : a;
             }
-            throw ((OnErrorNotImplementedException) th);
+            throw new NullPointerException("path must not be null.");
         }
-    }
-
-    public static void f(Throwable th, i6c<?> i6cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, th, i6cVar) == null) {
-            e(th);
-            i6cVar.onError(th);
-        }
-    }
-
-    public static void g(Throwable th, i6c<?> i6cVar, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65542, null, th, i6cVar, obj) == null) {
-            e(th);
-            i6cVar.onError(OnErrorThrowable.addValueAsLastCause(th, obj));
-        }
-    }
-
-    public static void h(Throwable th, m6c<?> m6cVar, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65543, null, th, m6cVar, obj) == null) {
-            e(th);
-            m6cVar.b(OnErrorThrowable.addValueAsLastCause(th, obj));
-        }
+        return (String) invokeLL.objValue;
     }
 }

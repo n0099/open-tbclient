@@ -1,86 +1,53 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.nadcore.utils.LruCache;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class kg0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final LruCache<String, String> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public kg0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947911989, "Lcom/baidu/tieba/kg0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947911989, "Lcom/baidu/tieba/kg0;");
+                return;
             }
         }
+        a = new LruCache<>();
     }
 
-    public final JSONObject a(Map<String, String> map) {
+    public static String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) {
-            map.put("_client_version", pe0.a().x());
-            map.put("uid", pe0.a().u());
-            map.put("cuid", pe0.a().g());
-            if (Build.VERSION.SDK_INT >= 17) {
-                map.put("ua", pe0.e());
-            }
-            String e = hf0.c().e(false);
-            if (!TextUtils.isEmpty(e)) {
-                map.put("model", e);
-            }
-            map.put(HttpRequest.CLIENT_TYPE, "2");
-            String h = hf0.c().h(false);
-            if (!TextUtils.isEmpty(h)) {
-                map.put(HttpRequest.OS_VERSION, h);
-            }
-            map.put("nt", String.valueOf(new fo0().c()));
-            String b = hf0.c().b(false);
-            if (!TextUtils.isEmpty(b)) {
-                map.put("imei", b);
-            }
-            String a = hf0.c().a(false);
-            if (!TextUtils.isEmpty(a)) {
-                map.put(HttpRequest.ANDROID_ID, a);
-            }
-            map.put("ssl", "1");
-            JSONObject jSONObject = new JSONObject();
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                ux0.f(jSONObject, entry.getKey(), entry.getValue());
-            }
-            return jSONObject;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return a.get(str);
         }
-        return (JSONObject) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public void b(Map<String, String> map, io0<lg0> io0Var) {
+    public static void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, io0Var) == null) {
-            po0 f = po0.f(c21.a(a(map).toString().getBytes()));
-            qo0 qo0Var = new qo0();
-            qo0Var.a("Content-Encoding", "gzip");
-            qo0Var.a("Content-Type", "application/json");
-            qo0Var.l("https://afdconf.baidu.com/afd/download");
-            qo0Var.g(3000);
-            qo0Var.j(3000);
-            qo0Var.k(3000);
-            qo0Var.f(f);
-            xn0.b().a().a(qo0Var, io0Var);
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            a.remove(str);
+        }
+    }
+
+    public static void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            a.put(str, str2);
         }
     }
 }

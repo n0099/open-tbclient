@@ -1,185 +1,76 @@
 package com.baidu.tieba;
 
-import android.media.MediaFormat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.transvod.player.common.AVframe;
-import com.yy.transvod.player.log.TLog;
-import com.yy.transvod.player.mediacodec.MediaSample;
-import java.nio.ByteBuffer;
-import java.util.concurrent.atomic.AtomicBoolean;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.kwad.sdk.core.response.model.AdInfo;
+import com.kwad.sdk.core.response.model.AdTemplate;
+import java.lang.reflect.Field;
+import java.util.List;
 /* loaded from: classes7.dex */
-public final class o1c extends n1c {
+public class o1c extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AtomicBoolean l;
-    public MediaFormat m;
-    public long n;
-    public long o;
-    public boolean p;
 
-    @Override // com.baidu.tieba.n1c
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    public o1c(int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public o1c(Ssp.Pid pid) {
+        super(pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.l = new AtomicBoolean(false);
-        this.m = null;
-        this.n = -1L;
-        this.o = -1L;
-        this.p = false;
-        this.b = i;
     }
 
-    @Override // com.baidu.tieba.l1c
-    public void a() {
+    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
+    public RippedAd getRippedAdInternal(Object obj) {
+        InterceptResult invokeL;
+        Object obj2;
+        List<AdInfo> list;
+        AdInfo adInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TLog.g(this, "MediaInputFilter.setup enter");
-            this.l.set(true);
-            this.j = false;
-        }
-    }
-
-    @Override // com.baidu.tieba.n1c
-    public void x() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            TLog.g(this, "MediaInputFilter.stop enter");
-            this.n = -1L;
-            this.o = -1L;
-            this.m = null;
-            this.p = false;
-            this.l.set(false);
-        }
-    }
-
-    @Override // com.baidu.tieba.n1c, com.baidu.tieba.l1c
-    public void d(String str, Object obj, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, obj, Integer.valueOf(i), Boolean.valueOf(z)}) == null) && !this.j) {
-            synchronized (this.k) {
-                if (this.d != null) {
-                    this.d.d("setFormat", (MediaFormat) obj, i, true);
-                }
-            }
-            this.j = true;
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:96:0x0158 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    @Override // com.baidu.tieba.n1c, com.baidu.tieba.l1c
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void f(MediaSample mediaSample) {
-        int g;
-        MediaFormat mediaFormat;
-        ByteBuffer byteBuffer;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mediaSample) == null) {
-            if (this.e.g() != 9) {
-                if (!this.l.get()) {
-                    TLog.g(this, "render processAVFrame error");
-                    return;
-                }
-                if (mediaSample.f && mediaSample.g != null) {
-                    TLog.g(this, "got bForVideoCodecConfigfOnly, playTaskId=" + mediaSample.g.e);
-                }
-                boolean z = false;
-                if (mediaSample.G && mediaSample.d && !this.p) {
-                    this.p = true;
-                    u1c u1cVar = (u1c) this.d;
-                    if (u1cVar != null) {
-                        u1cVar.y();
-                    }
-                    TLog.g(this, "MediaInputFilter forceToSoftDecode");
-                    z = true;
-                }
-                ByteBuffer byteBuffer2 = null;
-                MediaFormat mediaFormat2 = null;
-                byteBuffer2 = null;
-                if (mediaSample.c) {
-                    AVframe aVframe = mediaSample.g;
-                    int i = aVframe.f;
-                    if (i != this.o) {
-                        this.o = i;
-                        if (g1c.i(i)) {
-                            mediaFormat2 = g1c.a(aVframe);
-                            this.j = true;
-                        }
-                        MediaFormat mediaFormat3 = this.m;
-                        if (mediaFormat3 == null || !mediaFormat3.equals(mediaFormat2)) {
-                            this.m = mediaFormat2;
-                            synchronized (this.k) {
-                                if (this.d != null) {
-                                    this.d.d("setFormat", mediaFormat2, aVframe.e, true);
-                                    TLog.g(this, "MediaInputFilter audioConfig taskId " + aVframe.e + " netCodec " + aVframe.f);
-                                }
-                            }
-                        }
-                        synchronized (this.k) {
-                            if (this.d != null) {
-                                this.d.f(mediaSample);
-                            }
-                        }
-                        return;
-                    }
-                }
-                if (!mediaSample.c && (mediaSample.g.f != this.n || z)) {
-                    AVframe aVframe2 = mediaSample.g;
-                    if (aVframe2.f == 2000) {
-                        if (aVframe2.a && !aVframe2.b) {
-                            byteBuffer = ByteBuffer.wrap(aVframe2.q);
-                        } else {
-                            byteBuffer = null;
-                        }
-                        mediaFormat = g1c.b((int) aVframe2.j, (int) aVframe2.k, byteBuffer, true);
-                        this.n = aVframe2.f;
-                    } else {
-                        mediaFormat = null;
-                    }
-                    if (aVframe2.f == 2002) {
-                        if (aVframe2.a && !aVframe2.b) {
-                            byteBuffer2 = ByteBuffer.wrap(aVframe2.q);
-                        }
-                        mediaFormat = g1c.c((int) aVframe2.j, (int) aVframe2.k, byteBuffer2, true);
-                        this.n = aVframe2.f;
-                    }
-                    synchronized (this.k) {
-                        if (this.d != null) {
-                            this.d.b(aVframe2.f);
-                            this.d.d("setFormat", mediaFormat, aVframe2.e, true);
-                            TLog.g(this, "MediaInputFilter videoConfig taskId " + aVframe2.e + " netCodec " + aVframe2.f);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            try {
+                h2c h2cVar = (h2c) obj;
+                if (h2cVar != null) {
+                    Object obj3 = h2cVar.a;
+                    String[] strArr = {"mAdTemplate"};
+                    Field field = null;
+                    for (int i = 0; i < 1; i++) {
+                        try {
+                            field = obj3.getClass().getDeclaredField(strArr[i]);
+                            field.setAccessible(true);
+                            break;
+                        } catch (NoSuchFieldException unused) {
                         }
                     }
+                    if (field == null || (obj2 = field.get(obj3)) == null || !(obj2 instanceof AdTemplate) || (list = ((AdTemplate) obj2).adInfoList) == null || list.isEmpty() || (adInfo = list.get(0)) == null) {
+                        return null;
+                    }
+                    return u1c.a(adInfo);
                 }
-                synchronized (this.k) {
-                }
-            } else {
-                mediaSample.g.a();
-                TLog.c(this, "fatal error, ignore all frames. mCurrentState:" + i0c.a[g]);
+                return null;
+            } catch (Exception e) {
+                LogPrinter.e(e);
+                return null;
             }
         }
+        return (RippedAd) invokeL.objValue;
     }
 }

@@ -3,10 +3,10 @@ package com.badlogic.gdx.graphics;
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c1;
-import com.baidu.tieba.h2;
-import com.baidu.tieba.r2;
-import com.baidu.tieba.y0;
+import com.baidu.tieba.h3;
+import com.baidu.tieba.o1;
+import com.baidu.tieba.s1;
+import com.baidu.tieba.x2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,10 +17,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class Texture extends h2 {
+public class Texture extends x2 {
     public static /* synthetic */ Interceptable $ic;
-    public static c1 j;
-    public static final Map<Application, r2<Texture>> k;
+    public static s1 j;
+    public static final Map<Application, h3<Texture>> k;
     public transient /* synthetic */ FieldHolder $fh;
     public TextureData i;
 
@@ -234,7 +234,7 @@ public class Texture extends h2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (p()) {
-                this.b = y0.c.a();
+                this.b = o1.c.a();
                 q(this.i);
                 return;
             }
@@ -275,24 +275,24 @@ public class Texture extends h2 {
     }
 
     public static void o(Application application) {
-        r2<Texture> r2Var;
+        h3<Texture> h3Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, application) != null) || (r2Var = k.get(application)) == null) {
+        if ((interceptable != null && interceptable.invokeL(65539, null, application) != null) || (h3Var = k.get(application)) == null) {
             return;
         }
-        c1 c1Var = j;
-        if (c1Var == null) {
-            for (int i = 0; i < r2Var.b; i++) {
-                r2Var.get(i).r();
+        s1 s1Var = j;
+        if (s1Var == null) {
+            for (int i = 0; i < h3Var.b; i++) {
+                h3Var.get(i).r();
             }
             return;
         }
-        c1Var.b();
-        r2<? extends Texture> r2Var2 = new r2<>(r2Var);
-        r2.b<? extends Texture> it = r2Var2.iterator();
+        s1Var.b();
+        h3<? extends Texture> h3Var2 = new h3<>(h3Var);
+        h3.b<? extends Texture> it = h3Var2.iterator();
         if (!it.hasNext()) {
-            r2Var.clear();
-            r2Var.b(r2Var2);
+            h3Var.clear();
+            h3Var.b(h3Var2);
             return;
         }
         j.c(it.next());
@@ -310,23 +310,23 @@ public class Texture extends h2 {
                 textureData.prepare();
             }
             b();
-            h2.k(3553, textureData);
+            x2.k(3553, textureData);
             i(this.c, this.d, true);
             j(this.e, this.f, true);
             h(this.g, true);
-            y0.c.F(this.a, 0);
+            o1.c.F(this.a, 0);
         }
     }
 
-    @Override // com.baidu.tieba.h2, com.baidu.tieba.v2
+    @Override // com.baidu.tieba.x2, com.baidu.tieba.l3
     public void dispose() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.b == 0) {
             return;
         }
         c();
-        if (this.i.a() && k.get(y0.a) != null) {
-            k.get(y0.a).g(this, true);
+        if (this.i.a() && k.get(o1.a) != null) {
+            k.get(o1.a).g(this, true);
         }
     }
 }

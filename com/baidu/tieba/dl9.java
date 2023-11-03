@@ -1,141 +1,145 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.pb.pb.main.PbFragment;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.android.common.util.DeviceId;
+import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.SmartApp;
+import com.fun.ad.sdk.FunAdSdk;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class dl9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PbFragment a;
-    public View.OnClickListener b;
-    public RelativeLayout c;
-    public HeadImageView d;
-    public TextView e;
-    public TextView f;
-    public ImageView g;
 
-    public dl9(PbFragment pbFragment, View.OnClickListener onClickListener) {
+    public static String[] a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pbFragment, onClickListener};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            try {
+                NetWork netWork = new NetWork(TbConfig.PassConfig.GET_CERT_URL);
+                netWork.getNetContext().getRequest().mIsNeedAddCommenParam = false;
+                netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
+                JSONObject jSONObject = new JSONObject(new String(netWork.getNetData()));
+                return new String[]{jSONObject.optString("cert_id"), jSONObject.optString("cert")};
+            } catch (Exception unused) {
+                return null;
             }
         }
-        this.b = null;
-        this.a = pbFragment;
-        this.b = onClickListener;
-        b();
+        return (String[]) invokeV.objValue;
     }
 
-    public void a(BdTypeListView bdTypeListView, int i) {
-        RelativeLayout relativeLayout;
+    public static String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048576, this, bdTypeListView, i) == null) && bdTypeListView != null && (relativeLayout = this.c) != null) {
-            bdTypeListView.w(relativeLayout, i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (BdNetTypeUtil.isWifiNet()) {
+                return UtilHelper.getWifiMac(TbadkCoreApplication.getInst().getApp());
+            }
+            return UtilHelper.getGprsIpAddress();
         }
+        return (String) invokeV.objValue;
     }
 
-    public void b() {
+    public static String c(ArrayList<BasicNameValuePair> arrayList, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.c != null) {
-            return;
-        }
-        RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.a.getContext()).inflate(R.layout.obfuscated_res_0x7f0d07c1, (ViewGroup) null);
-        this.c = relativeLayout;
-        HeadImageView headImageView = (HeadImageView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f091245);
-        this.d = headImageView;
-        headImageView.setIsRound(true);
-        this.d.setPlaceHolder(1);
-        this.e = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092774);
-        this.f = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092773);
-        this.g = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091244);
-        this.c.setOnClickListener(this.b);
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            RelativeLayout relativeLayout = this.c;
-            if (relativeLayout != null) {
-                SkinManager.setBackgroundColor(relativeLayout, R.color.CAM_X0204);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, arrayList, str)) == null) {
+            ArrayList arrayList2 = new ArrayList();
+            HashMap hashMap = new HashMap();
+            int size = arrayList.size();
+            for (int i = 0; i < size; i++) {
+                arrayList2.add(arrayList.get(i).getName());
+                hashMap.put(arrayList.get(i).getName(), arrayList.get(i).getValue());
             }
-            HeadImageView headImageView = this.d;
-            if (headImageView != null) {
-                headImageView.setSkinType(i);
-            }
-            TextView textView = this.e;
-            if (textView != null) {
-                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0105);
-            }
-            TextView textView2 = this.f;
-            if (textView2 != null) {
-                SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0107);
-            }
-            ImageView imageView = this.g;
-            if (imageView != null) {
-                SkinManager.setBackgroundResource(imageView, R.drawable.icon_common_arrow16_right_n);
-            }
-        }
-    }
-
-    public void d(BdTypeListView bdTypeListView) {
-        RelativeLayout relativeLayout;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, bdTypeListView) == null) && bdTypeListView != null && (relativeLayout = this.c) != null) {
-            bdTypeListView.removeHeaderView(relativeLayout);
-        }
-    }
-
-    public void e(ye9 ye9Var, BdTypeListView bdTypeListView) {
-        String charSequence;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, ye9Var, bdTypeListView) == null) && ye9Var != null && bdTypeListView != null) {
-            if (ye9Var.O().isVideoThreadType() && ye9Var.O().getSmartApp() != null) {
-                SmartApp smartApp = ye9Var.O().getSmartApp();
-                this.c.setVisibility(0);
-                d(bdTypeListView);
-                a(bdTypeListView, 1);
-                if (!ad.isEmpty(smartApp.avatar)) {
-                    this.d.startLoad(smartApp.avatar, 10, false, false);
+            Collections.sort(arrayList2);
+            StringBuffer stringBuffer = new StringBuffer();
+            Iterator it = arrayList2.iterator();
+            while (it.hasNext()) {
+                String str2 = (String) it.next();
+                stringBuffer.append(str2);
+                stringBuffer.append("=");
+                try {
+                    String str3 = (String) hashMap.get(str2);
+                    if (!TextUtils.isEmpty(str3)) {
+                        stringBuffer.append(URLEncoder.encode(str3, "UTF-8"));
+                    }
+                } catch (UnsupportedEncodingException e) {
+                    BdLog.e(e.getMessage());
                 }
-                if (!ad.isEmpty(smartApp.name)) {
-                    charSequence = smartApp.name + " " + ((Object) this.a.getText(R.string.smart_app_suffix));
-                } else {
-                    charSequence = this.a.getText(R.string.intelligent_smart_app).toString();
-                }
-                this.e.setText(charSequence);
-                if (!ad.isEmpty(smartApp._abstract)) {
-                    this.f.setText(smartApp._abstract);
-                } else {
-                    this.f.setText(this.a.getText(R.string.smart_app_default_abstract));
-                }
-                this.c.setTag(smartApp);
-                return;
+                stringBuffer.append("&");
             }
-            this.c.setVisibility(8);
-            d(bdTypeListView);
+            stringBuffer.append("sign_key=" + str);
+            return wd.c(stringBuffer.toString());
         }
+        return (String) invokeLL.objValue;
+    }
+
+    public static AccountLoginCoreHelper.a d(AccountLoginCoreHelper.a aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, aVar)) == null) {
+            if (aVar == null) {
+                return null;
+            }
+            try {
+                String[] a = a();
+                if (a == null) {
+                    return null;
+                }
+                ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
+                arrayList.add(new BasicNameValuePair("crypttype", "1"));
+                arrayList.add(new BasicNameValuePair("tpl", TbConfig.PassConfig.TPL));
+                arrayList.add(new BasicNameValuePair("appid", "1"));
+                arrayList.add(new BasicNameValuePair(DnsModel.CLIENTIP_KEY, b()));
+                arrayList.add(new BasicNameValuePair("cert_id", a[0]));
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("bduss", aVar.a);
+                jSONObject.put("ptoken", aVar.b);
+                jSONObject.put("cuid", DeviceId.getDeviceID(TbadkCoreApplication.getInst().getApp()));
+                jSONObject.put("clientid", TbadkCoreApplication.getInst().getImei());
+                arrayList.add(new BasicNameValuePair(TableDefine.DB_TABLE_USERINFO, new qv4().a(a[1], jSONObject.toString())));
+                arrayList.add(new BasicNameValuePair(FunAdSdk.PLATFORM_SIG, c(arrayList, TbConfig.PassConfig.ENC_KEY)));
+                NetWork netWork = new NetWork(TbConfig.PassConfig.LOGIN_BDUSS_URL);
+                netWork.getNetContext().getRequest().mIsNeedAddCommenParam = false;
+                netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
+                netWork.setPostData(arrayList);
+                netWork.getNetContext().getRequest().mRequestGzip = true;
+                netWork.getNetContext().getRequest().mIsBaiduServer = false;
+                String postNetData = netWork.postNetData();
+                if (!netWork.getNetContext().getResponse().isRequestSuccess() || qd.isEmpty(postNetData)) {
+                    return null;
+                }
+                JSONObject jSONObject2 = new JSONObject(postNetData);
+                if (!"0".equals(jSONObject2.optString("errno"))) {
+                    return null;
+                }
+                AccountLoginCoreHelper.a aVar2 = new AccountLoginCoreHelper.a();
+                aVar2.a = jSONObject2.optString("bduss");
+                aVar2.b = jSONObject2.optString("ptoken");
+                jSONObject2.optString("uname");
+                return aVar2;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return null;
+            }
+        }
+        return (AccountLoginCoreHelper.a) invokeL.objValue;
     }
 }

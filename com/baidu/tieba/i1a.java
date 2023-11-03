@@ -1,288 +1,255 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
-import android.os.Process;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.pb.pb.adapter.PbReplyLoadMoreAdapter;
+import com.baidu.tieba.pb.pb.main.adapter.PbFirstFloorCommentAndPraiseAdapter;
+import com.baidu.tieba.pb.videopb.fragment.DetailInfoAndReplyFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.framework.network.grs.GrsBaseInfo;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class i1a {
+public class i1a extends h1a {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
+    public uw9 n;
+    public lw9 o;
+    public mw9 p;
+    public px9 q;
+    public PbReplyLoadMoreAdapter r;
+    public k1a s;
+    public j1a t;
+    public nw9 u;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947802032, "Lcom/baidu/tieba/i1a;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947802032, "Lcom/baidu/tieba/i1a;");
-        }
-    }
-
-    public static void a(ClogBuilder clogBuilder, int i) {
-        boolean z;
-        String str;
+    @Override // com.baidu.tieba.h1a
+    public void D(ds9 ds9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65537, null, clogBuilder, i) == null) {
-            clogBuilder.y(ClogBuilder.LogType.DEEP_LINK);
-            if (i == 1000) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                str = GrsBaseInfo.CountryCodeSource.APP;
-            } else {
-                str = "URL";
-            }
-            clogBuilder.j(str);
-            if (!z) {
-                clogBuilder.l(String.valueOf(i));
-            }
-            clogBuilder.v("DEEPLINK");
+        if (interceptable == null || interceptable.invokeL(1048579, this, ds9Var) == null) {
         }
     }
 
-    public static String b(HashMap hashMap) {
-        InterceptResult invokeL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, hashMap)) == null) {
-            if (hashMap != null) {
-                str = String.valueOf(hashMap.get("da_area"));
-            } else {
-                str = null;
-            }
-            if (TextUtils.isEmpty(str)) {
-                return "hotarea";
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void l(AdvertAppInfo advertAppInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, null, advertAppInfo) == null) {
-            m(advertAppInfo, 0, "");
-        }
-    }
-
-    public static String c() {
+    @Override // com.baidu.tieba.h1a
+    public ax9 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            try {
-                int myPid = Process.myPid();
-                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) TbadkCoreApplication.getInst().getContext().getSystemService("activity")).getRunningAppProcesses()) {
-                    if (runningAppProcessInfo.pid == myPid) {
-                        return runningAppProcessInfo.processName;
-                    }
-                }
-                return "GET_PROCESS_NAME_FAIL";
-            } catch (Exception unused) {
-                return "GET_PROCESS_NAME_FAIL";
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return null;
         }
-        return (String) invokeV.objValue;
+        return (ax9) invokeV.objValue;
     }
 
-    public static void d(String str, @NonNull String str2, int i, int i2, String str3, String str4, String str5, String str6, String str7, String str8) {
+    @Override // com.baidu.tieba.h1a
+    public tv9 g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), str3, str4, str5, str6, str7, str8}) == null) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.z(String.valueOf(i2)).q(String.valueOf(i)).v(str).j(str3).k(str4).l(str5).m(str6).n(str7).o(str8).p(str2);
-            jy0.e(clogBuilder);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return null;
         }
+        return (tv9) invokeV.objValue;
     }
 
-    public static void e(AdvertAppInfo advertAppInfo, int i) {
+    @Override // com.baidu.tieba.h1a
+    public PbFirstFloorCommentAndPraiseAdapter h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65541, null, advertAppInfo, i) == null) {
-            f(advertAppInfo, 0, "", i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return null;
         }
+        return (PbFirstFloorCommentAndPraiseAdapter) invokeV.objValue;
     }
 
-    public static void j(oea oeaVar, int i) {
+    @Override // com.baidu.tieba.h1a
+    public void o() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65546, null, oeaVar, i) == null) {
-            k(oeaVar, i, -999, -999);
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
         }
     }
 
-    public static void f(AdvertAppInfo advertAppInfo, int i, String str, int i2) {
-        int i3;
-        sd0 sd0Var;
+    @Override // com.baidu.tieba.h1a
+    public void q(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65542, null, new Object[]{advertAppInfo, Integer.valueOf(i), str, Integer.valueOf(i2)}) != null) || advertAppInfo == null) {
-            return;
-        }
-        if (TextUtils.isEmpty(str)) {
-            str = "hotarea";
-        }
-        boolean equals = "PB_BANNER".equals(advertAppInfo.j);
-        ClogBuilder clogBuilder = new ClogBuilder();
-        ClogBuilder y = clogBuilder.y(ClogBuilder.LogType.CLICK);
-        if (equals) {
-            i3 = -1;
-        } else {
-            i3 = advertAppInfo.position + 1;
-        }
-        ClogBuilder q = y.q(String.valueOf(i3));
-        if (equals) {
-            i = -1;
-        }
-        q.w(String.valueOf(i)).v(advertAppInfo.j).j(str).p(advertAppInfo.g);
-        if (advertAppInfo != null && (sd0Var = advertAppInfo.s) != null) {
-            clogBuilder.m(sd0Var.a());
-        }
-        jy0.e(clogBuilder);
-        a(clogBuilder, i2);
-        jy0.e(clogBuilder);
-    }
-
-    public static void g(AdvertAppInfo advertAppInfo, int i, HashMap hashMap, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{advertAppInfo, Integer.valueOf(i), hashMap, Integer.valueOf(i2)}) == null) {
-            f(advertAppInfo, i, b(hashMap), i2);
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
         }
     }
 
-    public static void h(AdvertAppInfo advertAppInfo, int i, int i2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public i1a(DetailInfoAndReplyFragment detailInfoAndReplyFragment, BdTypeRecyclerView bdTypeRecyclerView) {
+        super(detailInfoAndReplyFragment, bdTypeRecyclerView);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65544, null, advertAppInfo, i, i2) == null) {
-            if (i2 == 42) {
-                i(advertAppInfo, i, 10, -999, 133);
-            } else {
-                i(advertAppInfo, i, i2, -999, -999);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {detailInfoAndReplyFragment, bdTypeRecyclerView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((DetailInfoAndReplyFragment) objArr2[0], (BdTypeRecyclerView) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        I();
+    }
+
+    @Override // com.baidu.tieba.h1a
+    public void A(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
+            super.A(onClickListener);
+            this.q.e(onClickListener);
+            this.r.z(onClickListener);
+            this.u.e(onClickListener);
+        }
+    }
+
+    @Override // com.baidu.tieba.h1a
+    public void B(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
+            this.o.z(onClickListener);
+        }
+    }
+
+    @Override // com.baidu.tieba.h1a
+    public void C(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
+            this.p.z(onClickListener);
+        }
+    }
+
+    @Override // com.baidu.tieba.h1a
+    public void E(yt9 yt9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, yt9Var) == null) {
+            super.E(yt9Var);
+            this.q.k0(yt9Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.h1a
+    public void F(ds9 ds9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, ds9Var) == null) {
+            this.s.Q(ds9Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.h1a
+    public void G(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.s.p(str);
+        }
+    }
+
+    @Override // com.baidu.tieba.h1a
+    public void v(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, onClickListener) == null) {
+            super.v(onClickListener);
+            this.q.l(onClickListener);
+        }
+    }
+
+    @Override // com.baidu.tieba.h1a
+    public void w(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
+            px9 px9Var = this.q;
+            if (px9Var != null) {
+                px9Var.j0(z);
+            }
+            j1a j1aVar = this.t;
+            if (j1aVar != null) {
+                j1aVar.y(z);
+            }
+            k1a k1aVar = this.s;
+            if (k1aVar != null) {
+                k1aVar.P(z);
             }
         }
     }
 
-    public static void i(AdvertAppInfo advertAppInfo, int i, int i2, int i3, int i4) {
-        int i5;
-        int i6;
+    @Override // com.baidu.tieba.h1a
+    public void x(TbRichTextView.z zVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{advertAppInfo, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) && advertAppInfo != null && (i5 = advertAppInfo.c) != 1001 && i5 != -1001) {
-            boolean equals = "PB_BANNER".equals(advertAppInfo.j);
-            ClogBuilder clogBuilder = new ClogBuilder();
-            ClogBuilder k = clogBuilder.y(ClogBuilder.LogType.DISCARD).k(String.valueOf(i2));
-            if (equals) {
-                i6 = -1;
-            } else {
-                i6 = advertAppInfo.position + 1;
-            }
-            ClogBuilder q = k.q(String.valueOf(i6));
-            if (equals) {
-                i = -1;
-            }
-            q.w(String.valueOf(i)).v(advertAppInfo.j).p(advertAppInfo.g);
-            if (i3 != -999) {
-                clogBuilder.l(String.valueOf(i3));
-            }
-            if (i4 != -999) {
-                clogBuilder.m(String.valueOf(i4));
-            }
-            if (i2 == 31) {
-                if (TextUtils.isEmpty(a)) {
-                    a = c();
-                }
-                clogBuilder.o(a);
-            }
-            jy0.e(clogBuilder);
+        if (interceptable == null || interceptable.invokeL(1048594, this, zVar) == null) {
+            super.x(zVar);
+            this.q.o(zVar);
         }
     }
 
-    public static void k(oea oeaVar, int i, int i2, int i3) {
-        int i4;
+    @Override // com.baidu.tieba.h1a
+    public void y(View.OnLongClickListener onLongClickListener) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIII(65547, null, oeaVar, i, i2, i3) == null) && oeaVar != null && oeaVar.getAdvertAppInfo() != null && oeaVar.getAdvertAppInfo().c != 1001 && oeaVar.getAdvertAppInfo().c != -1001) {
-            AdvertAppInfo advertAppInfo = oeaVar.getAdvertAppInfo();
-            ClogBuilder clogBuilder = new ClogBuilder();
-            ClogBuilder k = clogBuilder.y(ClogBuilder.LogType.DISCARD).k(String.valueOf(i));
-            int i5 = -1;
-            if (oeaVar.h1) {
-                i4 = -1;
-            } else {
-                i4 = oeaVar.o1 + 1;
-            }
-            ClogBuilder q = k.q(String.valueOf(i4));
-            if (!oeaVar.h1) {
-                i5 = oeaVar.m1;
-            }
-            q.w(String.valueOf(i5)).v(oeaVar.F1()).r(oeaVar.j1).s(oeaVar.k1).t(oeaVar.i1).p(advertAppInfo.g);
-            if (i2 != -999) {
-                clogBuilder.l(String.valueOf(i2));
-            }
-            if (i3 != -999) {
-                clogBuilder.m(String.valueOf(i3));
-            }
-            jy0.e(clogBuilder);
+        if (interceptable == null || interceptable.invokeL(1048595, this, onLongClickListener) == null) {
+            super.y(onLongClickListener);
+            this.q.d(onLongClickListener);
         }
     }
 
-    public static void m(AdvertAppInfo advertAppInfo, int i, String str) {
-        int i2;
-        sd0 sd0Var;
+    public final void I() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLIL(65549, null, advertAppInfo, i, str) != null) || advertAppInfo == null) {
-            return;
-        }
-        if (TextUtils.isEmpty(str)) {
-            str = "hotarea";
-        }
-        boolean equals = "PB_BANNER".equals(advertAppInfo.j);
-        ClogBuilder clogBuilder = new ClogBuilder();
-        ClogBuilder y = clogBuilder.y(ClogBuilder.LogType.CLICK);
-        if (equals) {
-            i2 = -1;
-        } else {
-            i2 = advertAppInfo.position + 1;
-        }
-        ClogBuilder q = y.q(String.valueOf(i2));
-        if (equals) {
-            i = -1;
-        }
-        q.w(String.valueOf(i)).v(advertAppInfo.j).j(str).p(advertAppInfo.g);
-        if (advertAppInfo != null && (sd0Var = advertAppInfo.s) != null) {
-            clogBuilder.m(sd0Var.a());
-        }
-        jy0.e(clogBuilder);
-    }
-
-    public static void n(AdvertAppInfo advertAppInfo, int i, String str, String str2, HashMap hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65550, null, new Object[]{advertAppInfo, Integer.valueOf(i), str, str2, hashMap}) == null) {
-            m(advertAppInfo, i, b(hashMap));
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.s = new k1a(this.a.e0(), ura.W0);
+            this.o = new lw9(this.a.e0(), ls9.c, this.a.getUniqueId());
+            this.p = new mw9(this.a.e0(), ms9.a);
+            this.n = new uw9(this.a.e0(), ps9.k1);
+            px9 px9Var = new px9(this.a.e0(), ura.X0);
+            this.q = px9Var;
+            px9Var.l0(this.a.e0());
+            this.q.g0(this.a.e0().d4());
+            this.r = new PbReplyLoadMoreAdapter(this.a.e0(), ura.e1);
+            this.t = new j1a(this.a.getContext(), ys9.b, this.a.e0());
+            this.u = new nw9(this.a.e0(), ns9.c);
+            this.d.add(this.s);
+            this.d.add(this.t);
+            this.d.add(this.n);
+            this.d.add(this.o);
+            this.d.add(this.p);
+            this.d.add(this.q);
+            this.d.add(this.r);
+            this.d.add(this.u);
+            this.b.addAdapters(this.d);
         }
     }
 
-    public static void o(AdvertAppInfo advertAppInfo) {
-        ov4 ov4Var;
+    @Override // com.baidu.tieba.h1a
+    public void m() {
+        BdTypeRecyclerView bdTypeRecyclerView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65551, null, advertAppInfo) == null) && advertAppInfo != null && (ov4Var = advertAppInfo.i) != null && !ov4Var.h) {
-            ov4Var.h = true;
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(ClogBuilder.LogType.SHOW).q(String.valueOf(advertAppInfo.position + 1)).w(String.valueOf(-1)).v(advertAppInfo.j).p(advertAppInfo.g);
-            jy0.e(clogBuilder);
-            zy8.b(zy8.a(advertAppInfo));
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (bdTypeRecyclerView = this.b) != null && bdTypeRecyclerView.getAdapter() != null) {
+            this.b.getListAdapter().notifyDataSetChanged();
+        }
+    }
+
+    @Override // com.baidu.tieba.h1a
+    public void n() {
+        k1a k1aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (k1aVar = this.s) != null) {
+            k1aVar.notifyDataSetChanged();
+        }
+    }
+
+    @Override // com.baidu.tieba.h1a
+    public void r(ds9 ds9Var, boolean z, String str, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{ds9Var, Boolean.valueOf(z), str, Boolean.valueOf(z2)}) == null) {
+            this.q.s(ds9Var);
+            this.q.setFromCDN(z);
+            this.q.p(str);
+            this.q.c(z2);
+            this.q.i0(0.5f);
         }
     }
 }

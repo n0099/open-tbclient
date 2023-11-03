@@ -6,10 +6,10 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g99;
-import com.baidu.tieba.h99;
-import com.baidu.tieba.he5;
-import com.baidu.tieba.ie5;
+import com.baidu.tieba.df5;
+import com.baidu.tieba.ef5;
+import com.baidu.tieba.lm9;
+import com.baidu.tieba.mm9;
 import com.baidu.tieba.nearby.model.NearbyFriendsModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class NearbyFriendsActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public g99 a;
+    public lm9 a;
     public NearbyFriendsModel b;
     public CustomMessageListener c;
     public CustomMessageListener d;
@@ -93,13 +93,13 @@ public class NearbyFriendsActivity extends BaseFragmentActivity {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null) {
-                ie5 ie5Var = null;
-                if (customResponsedMessage.getData() instanceof ie5) {
-                    ie5Var = (ie5) customResponsedMessage.getData();
+                ef5 ef5Var = null;
+                if (customResponsedMessage.getData() instanceof ef5) {
+                    ef5Var = (ef5) customResponsedMessage.getData();
                 }
-                if (ie5Var != null && ie5Var.b() == 1) {
+                if (ef5Var != null && ef5Var.b() == 1) {
                     NearbyFriendsActivity nearbyFriendsActivity = this.a;
-                    new he5(nearbyFriendsActivity, nearbyFriendsActivity.findViewById(R.id.obfuscated_res_0x7f09193f), ie5Var).m();
+                    new df5(nearbyFriendsActivity, nearbyFriendsActivity.findViewById(R.id.obfuscated_res_0x7f091986), ef5Var).m();
                 }
             }
         }
@@ -119,27 +119,9 @@ public class NearbyFriendsActivity extends BaseFragmentActivity {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onDestroy() {
+    public final void n1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.onDestroy();
-            this.a.onDestroy();
-            this.b.onDestroy();
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onNetRefreshButtonClicked() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.d();
-        }
-    }
-
-    public final void q1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             a aVar = new a(this, 2921651);
             this.c = aVar;
             registerListener(aVar);
@@ -149,10 +131,28 @@ public class NearbyFriendsActivity extends BaseFragmentActivity {
         }
     }
 
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.onDestroy();
+            this.a.onDestroy();
+            this.b.onDestroy();
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity
+    public void onNetRefreshButtonClicked() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a.d();
+        }
+    }
+
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             this.a.i(i);
         }
     }
@@ -160,15 +160,15 @@ public class NearbyFriendsActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0048);
-            q1();
-            h99 h99Var = new h99(this);
-            this.a = h99Var;
-            NearbyFriendsModel nearbyFriendsModel = new NearbyFriendsModel(h99Var, getUniqueId());
+            setContentView(R.layout.obfuscated_res_0x7f0d004a);
+            n1();
+            mm9 mm9Var = new mm9(this);
+            this.a = mm9Var;
+            NearbyFriendsModel nearbyFriendsModel = new NearbyFriendsModel(mm9Var, getUniqueId());
             this.b = nearbyFriendsModel;
-            nearbyFriendsModel.V(getIntent());
+            nearbyFriendsModel.W(getIntent());
             this.a.n(this.b);
             this.a.onCreate();
         }

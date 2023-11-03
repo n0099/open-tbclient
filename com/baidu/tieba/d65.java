@@ -1,57 +1,76 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Handler;
-import android.os.Message;
-import android.widget.TextView;
-import androidx.viewpager.widget.ViewPager;
-import com.baidu.adp.widget.IndicatorView;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.safe.BdCloseHelper;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.browser.BrowserHelper;
+import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.view.itemcard.download.ItemDownloadExtraData;
+import com.baidu.tbadk.core.view.itemcard.download.ItemFetchUrlHttpMsg;
+import com.baidu.tbadk.core.view.itemcard.download.ItemFetchUrlHttpResponsedMsg;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tbadk.util.WebviewHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.io.File;
+import java.net.CookieHandler;
+import java.net.CookieManager;
+import java.net.CookiePolicy;
+import java.net.HttpURLConnection;
+import java.net.URI;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.HashSet;
 /* loaded from: classes5.dex */
 public class d65 {
     public static /* synthetic */ Interceptable $ic;
+    public static d65 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public ViewPager a;
-    public IndicatorView b;
-    public TextView c;
-    public BdBaseViewPagerAdapter d;
-    public f65 e;
-    public boolean f;
-    public boolean g;
-    public int h;
-    public Context i;
-    public List<yh> j;
-    public ViewPager.OnPageChangeListener k;
-    public long l;
-    public final Handler.Callback m;
-    public final Handler n;
-    public ViewPager.OnPageChangeListener o;
+    public final HashSet<String> a;
+    public final HashMap<String, String> b;
 
     /* loaded from: classes5.dex */
-    public class a implements Handler.Callback {
+    public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ d65 a;
 
-        public a(d65 d65Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(d65 d65Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {d65Var};
+                Object[] objArr = {d65Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -60,97 +79,189 @@ public class d65 {
             this.a = d65Var;
         }
 
-        @Override // android.os.Handler.Callback
-        public boolean handleMessage(Message message) {
-            InterceptResult invokeL;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            ItemDownloadExtraData itemDownloadExtraData;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-                if (message.what != 1) {
-                    return false;
-                }
-                this.a.g();
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements ViewPager.OnPageChangeListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d65 a;
-
-        public b(d65 d65Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d65Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = d65Var;
-        }
-
-        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrollStateChanged(int i) {
-            int count;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (this.a.k != null) {
-                    this.a.k.onPageScrollStateChanged(i);
-                }
-                if (i == 1) {
-                    this.a.n();
-                } else if (i != 0 || (count = this.a.d.getCount()) < 2) {
-                } else {
-                    int currentItem = this.a.a.getCurrentItem();
-                    int i2 = count - 2;
-                    if (currentItem < 1) {
-                        this.a.a.setCurrentItem(i2, false);
-                    } else if (currentItem > i2) {
-                        this.a.a.setCurrentItem(1, false);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003508 && (httpResponsedMessage instanceof ItemFetchUrlHttpResponsedMsg) && (httpResponsedMessage.getOrginalMessage() instanceof ItemFetchUrlHttpMsg)) {
+                ItemFetchUrlHttpResponsedMsg itemFetchUrlHttpResponsedMsg = (ItemFetchUrlHttpResponsedMsg) httpResponsedMessage;
+                DownloadData downloadData = ((ItemFetchUrlHttpMsg) itemFetchUrlHttpResponsedMsg.getOrginalMessage()).getDownloadData();
+                String pkgName = ((ItemFetchUrlHttpMsg) itemFetchUrlHttpResponsedMsg.getOrginalMessage()).getPkgName();
+                BdUniqueId buttonTag = ((ItemFetchUrlHttpMsg) itemFetchUrlHttpResponsedMsg.getOrginalMessage()).getButtonTag();
+                if (downloadData != null) {
+                    if (itemFetchUrlHttpResponsedMsg.getError() != 0 || !itemFetchUrlHttpResponsedMsg.isSuccess() || qd.isEmpty(itemFetchUrlHttpResponsedMsg.getDownloadUrl())) {
+                        this.a.l(pkgName, downloadData.getUrl());
+                        if (nj5.m(downloadData)) {
+                            e65.a(downloadData, 300);
+                        }
+                    } else {
+                        downloadData.setUrl(itemFetchUrlHttpResponsedMsg.getDownloadUrl());
+                        this.a.l(pkgName, itemFetchUrlHttpResponsedMsg.getDownloadUrl());
+                        if (downloadData.getExtra() instanceof ItemDownloadExtraData) {
+                            itemDownloadExtraData = (ItemDownloadExtraData) downloadData.getExtra();
+                        } else {
+                            itemDownloadExtraData = new ItemDownloadExtraData(1);
+                            downloadData.setExtra(itemDownloadExtraData);
+                        }
+                        itemDownloadExtraData.shouzhuSource = itemFetchUrlHttpResponsedMsg.getSource();
+                        if (!qd.isEmpty(itemFetchUrlHttpResponsedMsg.getAppname())) {
+                            itemDownloadExtraData.appName = itemFetchUrlHttpResponsedMsg.getAppname();
+                        }
+                        f65.f().m(itemDownloadExtraData.pkgName, itemDownloadExtraData.shouzhuSource);
+                        if (nj5.m(downloadData)) {
+                            e65.a(downloadData, 300);
+                            if (itemFetchUrlHttpResponsedMsg.isBussinessApk() && !qd.isEmpty(itemFetchUrlHttpResponsedMsg.getRcvUrl())) {
+                                new c().execute(itemFetchUrlHttpResponsedMsg.getRcvUrl());
+                            }
+                        }
                     }
-                    this.a.m();
+                    if (downloadData.getExtra() instanceof ItemDownloadExtraData) {
+                        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921609, ((ItemDownloadExtraData) downloadData.getExtra()).shouzhuSource);
+                        customResponsedMessage.setOrginalMessage(new CustomMessage(2921609, buttonTag));
+                        MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
+                    }
                 }
-            }
-        }
-
-        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageSelected(int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && this.a.e != null && this.a.e.a(i) == i) {
-                if (this.a.b != null) {
-                    this.a.b.setPosition(this.a.e.c(i));
-                }
-                if (this.a.k != null) {
-                    this.a.k.onPageSelected(this.a.e.c(i));
-                }
-            }
-        }
-
-        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrolled(int i, float f, int i2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) && this.a.k != null) {
-                this.a.k.onPageScrolled(i, f, i2);
+                this.a.a.remove(pkgName);
             }
         }
     }
 
-    public d65(Context context, ViewPager viewPager, IndicatorView indicatorView, TextView textView) {
+    /* loaded from: classes5.dex */
+    public class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d65 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(d65 d65Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {d65Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = d65Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                Object data = customResponsedMessage.getData();
+                if (data instanceof Intent) {
+                    Intent intent = (Intent) data;
+                    String g = nj5.g(intent);
+                    if (!PackageChangedReceiver.ACTION_INSTALL.equals(intent.getAction()) && !"android.intent.action.PACKAGE_REPLACED".equals(intent.getAction())) {
+                        return;
+                    }
+                    this.a.k(g);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class c extends BdAsyncTask<String, Integer, Integer> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Integer doInBackground(String... strArr) {
+            InterceptResult invokeL;
+            HttpURLConnection httpURLConnection;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+                HttpURLConnection httpURLConnection2 = null;
+                if (strArr == null || strArr.length == 0) {
+                    return null;
+                }
+                try {
+                    httpURLConnection = (HttpURLConnection) new URL(strArr[0]).openConnection();
+                    try {
+                        try {
+                            httpURLConnection.setRequestMethod("GET");
+                            httpURLConnection.setConnectTimeout(y6.d().c().b());
+                            httpURLConnection.setReadTimeout(y6.d().b().b());
+                            httpURLConnection.addRequestProperty("User-Agent", WebviewHelper.getGlobalUserAgent());
+                            if (CookieHandler.getDefault() != null && CookieHandler.getDefault().get(URI.create(strArr[0]), new HashMap()) != null && !ListUtils.isEmpty(CookieHandler.getDefault().get(URI.create(strArr[0]), new HashMap()).get("Cookie"))) {
+                                str = CookieHandler.getDefault().get(URI.create(strArr[0]), new HashMap()).get("Cookie").get(0);
+                            } else {
+                                str = null;
+                            }
+                            StringBuilder sb = new StringBuilder();
+                            if (!qd.isEmpty(str)) {
+                                if (!str.contains("BAIDUCUID")) {
+                                    sb.append("BAIDUCUID=");
+                                    sb.append(TbadkCoreApplication.getInst().getCuidGalaxy2());
+                                    sb.append(ParamableElem.DIVIDE_PARAM);
+                                }
+                                if (!str.contains("BAIDUID")) {
+                                    sb.append("BAIDUID=");
+                                    sb.append(BrowserHelper.getBaiduId());
+                                    sb.append(ParamableElem.DIVIDE_PARAM);
+                                }
+                            }
+                            httpURLConnection.addRequestProperty("Cookie", sb.toString());
+                            httpURLConnection.getResponseCode();
+                        } catch (Exception e) {
+                            e = e;
+                            e.printStackTrace();
+                            BdCloseHelper.close(httpURLConnection);
+                            return null;
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        httpURLConnection2 = httpURLConnection;
+                        BdCloseHelper.close(httpURLConnection2);
+                        throw th;
+                    }
+                } catch (Exception e2) {
+                    e = e2;
+                    httpURLConnection = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    BdCloseHelper.close(httpURLConnection2);
+                    throw th;
+                }
+                BdCloseHelper.close(httpURLConnection);
+                return null;
+            }
+            return (Integer) invokeL.objValue;
+        }
+    }
+
+    public d65() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, viewPager, indicatorView, textView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -160,167 +271,116 @@ public class d65 {
                 return;
             }
         }
-        this.f = false;
-        this.g = true;
-        this.h = 2;
-        this.j = new ArrayList();
-        this.l = 5000L;
-        this.m = new a(this);
-        this.n = new Handler(this.m);
-        this.o = new b(this);
-        h(context, viewPager, indicatorView, textView);
+        this.a = new HashSet<>();
+        this.b = new HashMap<>();
+        j();
+        h();
+        i();
+        CookieHandler.setDefault(new CookieManager(null, CookiePolicy.ACCEPT_ALL));
     }
 
-    public void j(long j) {
+    public final void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            if (j < 0) {
-                j = 0;
-            }
-            this.l = j;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            MessageManager messageManager = MessageManager.getInstance();
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ITEM_FETCH_URL, TbConfig.SERVER_ADDRESS + "c/s/getCommercialPackage");
+            tbHttpMessageTask.setResponsedClass(ItemFetchUrlHttpResponsedMsg.class);
+            tbHttpMessageTask.setIsNeedAddCommenParam(true);
+            messageManager.registerTask(tbHttpMessageTask);
         }
     }
 
-    public void l(int i) {
+    public static d65 f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.h = i;
-            f65 f65Var = this.e;
-            if (f65Var != null) {
-                f65Var.h(i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (c == null) {
+                c = new d65();
             }
+            return c;
+        }
+        return (d65) invokeV.objValue;
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            MessageManager.getInstance().registerListener(new a(this, CmdConfigHttp.CMD_ITEM_FETCH_URL));
         }
     }
 
-    public final void g() {
-        int count;
+    public final void i() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a != null && this.d != null) {
-            j4 c = k4.c(this.i);
-            if ((c != null && c.isScroll()) || (count = this.d.getCount()) < 2) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            b bVar = new b(this, 2002504);
+            bVar.setPriority(-1);
+            MessageManager.getInstance().registerListener(bVar);
+        }
+    }
+
+    public void d(ItemData itemData, DownloadData downloadData, String str, BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(1048576, this, itemData, downloadData, str, bdUniqueId) == null) && downloadData != null && itemData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData)) {
+            String g = g(itemData.pkgName);
+            if (qd.isEmpty(g)) {
+                FileHelper.deleteFile(new File(TbadkCoreApplication.getInst().getApp().getCacheDir() + "/" + downloadData.getId() + "_" + downloadData.getName() + ".tmp"));
+                e(itemData, downloadData, str, bdUniqueId);
                 return;
             }
-            int currentItem = this.a.getCurrentItem();
-            int i = count - 2;
-            if (currentItem < 1) {
-                this.a.setCurrentItem(i, false);
-            } else if (currentItem > i) {
-                this.a.setCurrentItem(1, false);
-            } else {
-                this.a.setCurrentItem(currentItem + 1);
-            }
+            downloadData.setUrl(g);
+            nj5.m(downloadData);
         }
     }
 
-    public final void h(Context context, ViewPager viewPager, IndicatorView indicatorView, TextView textView) {
+    public void e(ItemData itemData, DownloadData downloadData, String str, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, viewPager, indicatorView, textView) == null) {
-            this.a = viewPager;
-            this.b = indicatorView;
-            this.c = textView;
-            this.i = context;
-            BdBaseViewPagerAdapter bdBaseViewPagerAdapter = new BdBaseViewPagerAdapter(context);
-            this.d = bdBaseViewPagerAdapter;
-            ViewPager viewPager2 = this.a;
-            if (viewPager2 != null) {
-                viewPager2.setAdapter(bdBaseViewPagerAdapter);
-                this.a.setOnPageChangeListener(this.o);
-            }
-        }
-    }
-
-    public void i(Context context, e65<?, ?> e65Var) {
-        BdBaseViewPagerAdapter bdBaseViewPagerAdapter;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, e65Var) == null) && (bdBaseViewPagerAdapter = this.d) != null) {
-            bdBaseViewPagerAdapter.g(context, e65Var);
-        }
-    }
-
-    public void k(List<yh> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, list) != null) || ListUtils.getCount(list) == 0) {
-            return;
-        }
-        this.j = list;
-        f65 f65Var = new f65(list, this.f, this.h);
-        this.e = f65Var;
-        f65Var.i(2);
-        this.e.g(1);
-        this.d.h(this.e.e());
-        this.d.notifyDataSetChanged();
-        this.a.setCurrentItem(this.e.d(), false);
-        if (this.e.b() <= 0) {
-            return;
-        }
-        if (this.e.b() > this.h) {
-            TextView textView = this.c;
-            if (textView != null) {
-                textView.setVisibility(0);
-                this.c.setOnClickListener(null);
-                IndicatorView indicatorView = this.b;
-                if (indicatorView != null) {
-                    indicatorView.setVisibility(8);
-                }
-            } else {
-                IndicatorView indicatorView2 = this.b;
-                if (indicatorView2 != null && !this.f) {
-                    indicatorView2.setVisibility(8);
-                }
-            }
-            IndicatorView indicatorView3 = this.b;
-            if (indicatorView3 != null && indicatorView3.getVisibility() == 0) {
-                int count = this.b.getCount();
-                int i = this.h;
-                if (count != i) {
-                    this.b.setCount(i);
-                }
-            }
-            m();
-        }
-        if (this.e.b() >= 2 && this.e.b() <= this.h) {
-            TextView textView2 = this.c;
-            if (textView2 != null) {
-                textView2.setVisibility(8);
-            }
-            IndicatorView indicatorView4 = this.b;
-            if (indicatorView4 != null) {
-                indicatorView4.setVisibility(0);
-                if (this.b.getCount() != this.e.b()) {
-                    this.b.setCount(this.e.b());
-                }
-            }
-            m();
-        }
-        if (this.e.b() < 2) {
-            TextView textView3 = this.c;
-            if (textView3 != null) {
-                textView3.setVisibility(8);
-            }
-            IndicatorView indicatorView5 = this.b;
-            if (indicatorView5 != null) {
-                indicatorView5.setVisibility(8);
-            }
-            n();
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (this.g) {
-                this.n.removeMessages(1);
-                this.n.sendEmptyMessageDelayed(1, this.l);
+        if ((interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, itemData, downloadData, str, bdUniqueId) == null) && itemData != null && downloadData != null) {
+            if (this.a.contains(itemData.pkgName)) {
+                BdUtilHelper.showToast(TbadkCoreApplication.getInst().getContext(), TbadkCoreApplication.getInst().getResources().getString(R.string.item_downloading_tip));
                 return;
             }
-            this.n.removeMessages(1);
+            this.a.add(itemData.pkgName);
+            MessageManager.getInstance().sendMessage(new ItemFetchUrlHttpMsg(downloadData, itemData, str, bdUniqueId));
         }
     }
 
-    public void n() {
+    public final String g(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.n.removeMessages(1);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            String str2 = "url_" + str;
+            if (this.b.containsKey(str2)) {
+                return this.b.get(str2);
+            }
+            String string = TbadkCoreApplication.getInst().getSharedPreferences("shouzhu_app_source_sp", 0).getString(str2, "");
+            this.b.put(str2, string);
+            return string;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            String str2 = "url_" + str;
+            this.b.remove(str2);
+            SharedPreferences.Editor edit = TbadkCoreApplication.getInst().getSharedPreferences("shouzhu_app_source_sp", 0).edit();
+            edit.remove(str2);
+            edit.commit();
+        }
+    }
+
+    public final void l(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
+            String str3 = "url_" + str;
+            if (StringHelper.equals(this.b.get(str3), str2)) {
+                return;
+            }
+            this.b.put(str3, str2);
+            SharedPreferences.Editor edit = TbadkCoreApplication.getInst().getSharedPreferences("shouzhu_app_source_sp", 0).edit();
+            edit.putString(str3, str2);
+            edit.commit();
         }
     }
 }

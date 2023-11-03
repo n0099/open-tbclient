@@ -86,7 +86,7 @@ public final class m extends a {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        KsToastView ksToastView = (KsToastView) findViewById(R.id.obfuscated_res_0x7f091439);
+        KsToastView ksToastView = (KsToastView) findViewById(R.id.obfuscated_res_0x7f091477);
         this.qh = ksToastView;
         ksToastView.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.reward.presenter.m.2
             @Override // android.view.View.OnClickListener

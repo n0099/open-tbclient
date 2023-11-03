@@ -2,10 +2,14 @@ package com.baidu.tieba.personExtra;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.LinearGradient;
 import android.graphics.Paint;
+import android.graphics.Shader;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -20,6 +24,7 @@ public class EditHeadsImageTopLayerView extends View {
     public int d;
     public float e;
     public float f;
+    public boolean g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public EditHeadsImageTopLayerView(Context context) {
@@ -45,18 +50,20 @@ public class EditHeadsImageTopLayerView extends View {
         this.d = 0;
         this.e = 0.42857143f;
         this.f = 1.0f;
+        this.g = false;
         a();
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             canvas.save();
             super.onDraw(canvas);
             canvas.restore();
             canvas.drawRect(0.0f, 0.0f, getWidth(), this.c, this.a);
             canvas.drawRect(0.0f, getHeight() - this.d, getWidth(), getHeight(), this.a);
+            b();
             canvas.drawRect(1.0f, this.c, getWidth() - 1, getHeight() - this.d, this.b);
         }
     }
@@ -86,6 +93,7 @@ public class EditHeadsImageTopLayerView extends View {
         this.d = 0;
         this.e = 0.42857143f;
         this.f = 1.0f;
+        this.g = false;
         a();
     }
 
@@ -114,6 +122,7 @@ public class EditHeadsImageTopLayerView extends View {
         this.d = 0;
         this.e = 0.42857143f;
         this.f = 1.0f;
+        this.g = false;
         a();
     }
 
@@ -131,10 +140,26 @@ public class EditHeadsImageTopLayerView extends View {
         }
     }
 
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.b == null) {
+            return;
+        }
+        int color = SkinManager.getColor(R.color.CAM_X0603);
+        int color2 = SkinManager.getColor(R.color.black_alpha70);
+        if (this.g) {
+            this.b.setStyle(Paint.Style.FILL);
+            this.b.setShader(new LinearGradient((getWidth() - 1) / 2, this.c, (getWidth() - 1) / 2, getHeight() - this.d, color, color2, Shader.TileMode.CLAMP));
+            return;
+        }
+        this.b.setStyle(Paint.Style.STROKE);
+        this.b.setColor(-1);
+    }
+
     @Override // android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             super.onLayout(z, i, i2, i3, i4);
             float width = this.f * getWidth();
             if (width > getHeight()) {
@@ -149,7 +174,7 @@ public class EditHeadsImageTopLayerView extends View {
 
     public void setLinePaintColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             Paint paint = this.b;
             if (paint != null) {
                 paint.setColor(i);
@@ -160,7 +185,7 @@ public class EditHeadsImageTopLayerView extends View {
 
     public void setLineWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             Paint paint = this.b;
             if (paint != null) {
                 paint.setStrokeWidth(i);
@@ -171,8 +196,15 @@ public class EditHeadsImageTopLayerView extends View {
 
     public void setmCutHeightScale(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
+        if (interceptable == null || interceptable.invokeF(1048583, this, f) == null) {
             this.f = f;
+        }
+    }
+
+    public void setLinePaintHasGradientBg() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.g = true;
         }
     }
 }

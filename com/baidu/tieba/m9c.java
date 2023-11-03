@@ -1,20 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.exifinterface.media.ExifInterface;
+import com.baidu.searchbox.ui.animview.praise.element.eruption.strategy.IEruptionStrategyGroup;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.internal.util.atomic.LinkedQueueNode;
+import java.util.Set;
+import kotlin.collections.SetsKt__SetsKt;
 /* loaded from: classes7.dex */
-public abstract class m9c<E> extends k9c<E> {
+public final class m9c {
     public static /* synthetic */ Interceptable $ic;
-    public static final long a;
+    public static final Set<String> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedQueueNode<E> producerNode;
 
     static {
         InterceptResult invokeClinit;
@@ -29,36 +28,6 @@ public abstract class m9c<E> extends k9c<E> {
                 return;
             }
         }
-        a = nac.a(m9c.class, "producerNode");
-    }
-
-    public m9c() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public final LinkedQueueNode<E> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return (LinkedQueueNode) nac.a.f(this, a);
-        }
-        return (LinkedQueueNode) invokeV.objValue;
-    }
-
-    public final void b(LinkedQueueNode<E> linkedQueueNode) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linkedQueueNode) == null) {
-            this.producerNode = linkedQueueNode;
-        }
+        a = SetsKt__SetsKt.setOf((Object[]) new String[]{"M", "L", IEruptionStrategyGroup.STRATEGY_MODIFIER_H, ExifInterface.GPS_MEASUREMENT_INTERRUPTED, "C", ExifInterface.LATITUDE_SOUTH, "Q", "R", ExifInterface.GPS_MEASUREMENT_IN_PROGRESS, "Z", "m", "l", "h", "v", "c", "s", "q", "r", "a", "z"});
     }
 }

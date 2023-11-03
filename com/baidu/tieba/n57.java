@@ -1,142 +1,94 @@
 package com.baidu.tieba;
 
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
-import android.view.View;
-import com.baidu.tbadk.core.util.ListUtils;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.PreLoadImageInfo;
+import com.baidu.tbadk.core.util.PreLoadImageProvider;
+import com.baidu.tieba.feed.log.FeedStat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.DownloadBar;
-import tbclient.FeedMaskLayer;
-import tbclient.FeedVideoAdComponent;
-import tbclient.MaskLayerText;
-import tbclient.VideoField;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public final class n57 {
+public class n57 extends v47 implements o67, w97, PreLoadImageProvider, eb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static final class a extends s57 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ MaskLayerText a;
+    @Override // com.baidu.tieba.za7
+    @NonNull
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "common_card" : (String) invokeV.objValue;
+    }
 
-        public a(MaskLayerText maskLayerText) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {maskLayerText};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = maskLayerText;
-        }
-
-        @Override // android.text.style.ClickableSpan
-        public void onClick(View widget) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, widget) == null) {
-                Intrinsics.checkNotNullParameter(widget, "widget");
-                p67.c(widget.getContext(), this.a.schema);
+    public n57() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static final SpannableString a(List<MaskLayerText> textList) {
-        InterceptResult invokeL;
-        boolean z;
+    @Override // com.baidu.tieba.w97
+    public void d(@NonNull Object obj) {
+        e57<?> e57Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, textList)) == null) {
-            Intrinsics.checkNotNullParameter(textList, "textList");
-            if (ListUtils.isEmpty(textList)) {
-                return new SpannableString("");
-            }
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            for (MaskLayerText maskLayerText : textList) {
-                if (maskLayerText != null) {
-                    String str = maskLayerText.text;
-                    boolean z2 = true;
-                    if (str != null && str.length() != 0) {
-                        z = false;
-                    } else {
-                        z = true;
-                    }
-                    if (!z) {
-                        String str2 = maskLayerText.schema;
-                        if (str2 != null && str2.length() != 0) {
-                            z2 = false;
-                        }
-                        if (z2) {
-                            spannableStringBuilder.append((CharSequence) maskLayerText.text);
-                        } else {
-                            SpannableString spannableString = new SpannableString(maskLayerText.text);
-                            spannableString.setSpan(new a(maskLayerText), 0, maskLayerText.text.length(), 17);
-                            spannableStringBuilder.append((CharSequence) spannableString);
-                        }
-                    }
-                }
-            }
-            return new SpannableString(spannableStringBuilder);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) && (e57Var = this.c) != null) {
+            e57Var.d(obj);
         }
-        return (SpannableString) invokeL.objValue;
     }
 
-    public static final void b(FeedVideoAdComponent feedVideoAdComponent, List<h77<?>> dataList, r47 videoSchemaData, k37 feedExtraData) {
+    @Override // com.baidu.tieba.eb7
+    public void e(@NonNull FeedStat.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65537, null, feedVideoAdComponent, dataList, videoSchemaData, feedExtraData) == null) {
-            Intrinsics.checkNotNullParameter(feedVideoAdComponent, "<this>");
-            Intrinsics.checkNotNullParameter(dataList, "dataList");
-            Intrinsics.checkNotNullParameter(videoSchemaData, "videoSchemaData");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            VideoField videoField = feedVideoAdComponent.video_info;
-            if (videoField != null) {
-                g27 b = o57.b(videoField, videoSchemaData, feedExtraData);
-                String str = "";
-                SpannableString spannableString = new SpannableString("");
-                FeedMaskLayer mask_layer = feedVideoAdComponent.mask_layer;
-                if (mask_layer != null) {
-                    Intrinsics.checkNotNullExpressionValue(mask_layer, "mask_layer");
-                    String str2 = mask_layer.topright_text;
-                    if (str2 != null) {
-                        Intrinsics.checkNotNullExpressionValue(str2, "mask.topright_text ?: \"\"");
-                        str = str2;
-                    }
-                    List<MaskLayerText> list = mask_layer.button_texts;
-                    Intrinsics.checkNotNullExpressionValue(list, "mask.button_texts");
-                    spannableString = a(list);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            for (za7<? extends Object> za7Var : this.c.c()) {
+                if (za7Var.b() instanceof eb7) {
+                    ((eb7) za7Var.b()).e(aVar);
                 }
-                b.m(spannableString);
-                e37 e37Var = new e37(null, null, null, null, null, null, 63, null);
-                DownloadBar download_bar = feedVideoAdComponent.download_bar;
-                if (download_bar != null) {
-                    Intrinsics.checkNotNullExpressionValue(download_bar, "download_bar");
-                    String str3 = download_bar.type;
-                    Intrinsics.checkNotNullExpressionValue(str3, "bar.type");
-                    String str4 = download_bar.icon;
-                    Intrinsics.checkNotNullExpressionValue(str4, "bar.icon");
-                    String str5 = download_bar.guide_text;
-                    Intrinsics.checkNotNullExpressionValue(str5, "bar.guide_text");
-                    String str6 = download_bar.button_text;
-                    Intrinsics.checkNotNullExpressionValue(str6, "bar.button_text");
-                    String str7 = download_bar.schema;
-                    Intrinsics.checkNotNullExpressionValue(str7, "bar.schema");
-                    e37Var = new e37(str3, str4, str5, str6, str7, feedExtraData.a());
-                }
-                dataList.add(new i77(new f27(b, str, spannableString, e37Var), "video_ad"));
             }
         }
+    }
+
+    @Override // com.baidu.tieba.o67
+    public void setPosition(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.c.t(i);
+            for (za7<? extends Object> za7Var : this.c.c()) {
+                if (za7Var.b() instanceof o67) {
+                    ((o67) za7Var.b()).setPosition(i);
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.util.PreLoadImageProvider
+    public ArrayList<PreLoadImageInfo> getImages() {
+        InterceptResult invokeV;
+        ArrayList<PreLoadImageInfo> images;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.c != null) {
+                ArrayList<PreLoadImageInfo> arrayList = new ArrayList<>();
+                for (za7<? extends Object> za7Var : this.c.c()) {
+                    if ((za7Var instanceof PreLoadImageProvider) && (images = ((PreLoadImageProvider) za7Var).getImages()) != null && images.size() > 0) {
+                        arrayList.addAll(images);
+                    }
+                }
+                return arrayList;
+            }
+            return null;
+        }
+        return (ArrayList) invokeV.objValue;
     }
 }

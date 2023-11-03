@@ -1,35 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.agc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
-import java.util.List;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class lfc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    public static agc.b a(jec jecVar, List<PayWayInfo> list, String str, IYYPayAmountView.ViewParams viewParams) {
-        InterceptResult invokeLLLL;
+    public lfc() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, jecVar, list, str, viewParams)) == null) {
-            agc.b bVar = new agc.b();
-            bVar.c = jecVar;
-            bVar.a = list;
-            bVar.b = str;
-            if (viewParams != null) {
-                bVar.d = viewParams.appCustomExpand;
-                bVar.f = viewParams.viewEventListener;
-                bVar.e = viewParams.clientInfoExpand;
-                bVar.h = viewParams.windowParams;
-                bVar.i = viewParams.showFaqPage;
-                bVar.j = viewParams.splitOrderPayScene;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return bVar;
         }
-        return (agc.b) invokeLLLL.objValue;
+        this.a = 0;
     }
 }

@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.frs.FrsTabItemData;
-import com.baidu.tieba.yh;
+import com.baidu.tieba.oi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class TransmitForumData implements yh, Parcelable {
+public class TransmitForumData implements oi, Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<TransmitForumData> CREATOR;
     public static final BdUniqueId ID_TRANSMIT_SELECT_DATA;
@@ -101,7 +101,7 @@ public class TransmitForumData implements yh, Parcelable {
         CREATOR = new a();
     }
 
-    @Override // com.baidu.tieba.yh
+    @Override // com.baidu.tieba.oi
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

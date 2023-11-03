@@ -41,7 +41,7 @@ public final class GoogleServices {
     public GoogleServices(Context context) {
         boolean z;
         Resources resources = context.getResources();
-        int identifier = resources.getIdentifier("google_app_measurement_enable", "integer", resources.getResourcePackageName(R.string.obfuscated_res_0x7f0f04a2));
+        int identifier = resources.getIdentifier("google_app_measurement_enable", "integer", resources.getResourcePackageName(R.string.obfuscated_res_0x7f0f04a4));
         if (identifier != 0) {
             int integer = resources.getInteger(identifier);
             if (integer != 0) {

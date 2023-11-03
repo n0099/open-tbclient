@@ -1,79 +1,25 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.player.event.ControlEvent;
+import com.baidu.searchbox.player.event.PlayerEvent;
+import com.baidu.searchbox.player.event.StatisticsEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes8.dex */
-public class ut0 implements CyberPlayerManager.OnPreparedListener, CyberPlayerManager.OnCompletionListener, CyberPlayerManager.OnErrorListener, CyberPlayerManager.OnInfoListener, CyberPlayerManager.OnSeekCompleteListener, CyberPlayerManager.OnBufferingUpdateListener, CyberPlayerManager.OnVideoSizeChangedListener, CyberPlayerManager.OnMediaSourceChangedListener {
+public class ut0 implements dt0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zt0 a;
-
-    public final int b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i != 701) {
-                if (i != 702) {
-                    if (i != 904) {
-                        if (i != 910) {
-                            if (i != 924) {
-                                if (i != 946) {
-                                    if (i != 5000) {
-                                        if (i != 10009) {
-                                            if (i != 10103) {
-                                                if (i != 936) {
-                                                    if (i != 937) {
-                                                        if (i != 955) {
-                                                            if (i != 956) {
-                                                                if (i != 11004) {
-                                                                    if (i != 11005) {
-                                                                        if (i != 12005) {
-                                                                            if (i != 12006) {
-                                                                                return i;
-                                                                            }
-                                                                            return 12006;
-                                                                        }
-                                                                        return 12005;
-                                                                    }
-                                                                    return 11005;
-                                                                }
-                                                                return 11004;
-                                                            }
-                                                            return 956;
-                                                        }
-                                                        return 955;
-                                                    }
-                                                    return 937;
-                                                }
-                                                return 936;
-                                            }
-                                            return 10103;
-                                        }
-                                        return 10009;
-                                    }
-                                    return 5000;
-                                }
-                                return 946;
-                            }
-                            return 924;
-                        }
-                        return 910;
-                    }
-                    return 904;
-                }
-                return 702;
-            }
-            return 701;
-        }
-        return invokeI.intValue;
-    }
+    public int a;
+    public int b;
 
     public ut0() {
         Interceptable interceptable = $ic;
@@ -85,100 +31,155 @@ public class ut0 implements CyberPlayerManager.OnPreparedListener, CyberPlayerMa
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 0;
+        this.b = 0;
     }
 
-    @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
-    public void onCompletion() {
-        zt0 zt0Var;
+    @Override // com.baidu.tieba.dt0
+    public void a(sv0 sv0Var) {
+        int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (zt0Var = this.a) != null) {
-            zt0Var.onCompletion();
-        }
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
-    public void onPrepared() {
-        zt0 zt0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (zt0Var = this.a) != null) {
-            zt0Var.onPrepared();
-        }
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnSeekCompleteListener
-    public void onSeekComplete() {
-        zt0 zt0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (zt0Var = this.a) != null) {
-            zt0Var.onSeekComplete();
-        }
-    }
-
-    public void a(@Nullable zt0 zt0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, zt0Var) == null) {
-            this.a = zt0Var;
-        }
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnBufferingUpdateListener
-    public void onBufferingUpdate(int i) {
-        zt0 zt0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (zt0Var = this.a) != null) {
-            zt0Var.onBufferingUpdate(i);
-        }
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
-    public boolean onError(int i, int i2, Object obj) {
-        InterceptResult invokeIIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048580, this, i, i2, obj)) == null) {
-            zt0 zt0Var = this.a;
-            if (zt0Var != null) {
-                return zt0Var.onError(i, i2, obj);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, sv0Var) == null) && sv0Var != null && !TextUtils.isEmpty(sv0Var.g)) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            if (!TextUtils.isEmpty(sv0Var.f)) {
+                clogBuilder.v(sv0Var.f);
             }
-            return false;
-        }
-        return invokeIIL.booleanValue;
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnInfoListener
-    public boolean onInfo(int i, int i2, Object obj) {
-        InterceptResult invokeIIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048581, this, i, i2, obj)) == null) {
-            if (this.a != null) {
-                return this.a.onInfo(b(i), i2, obj);
+            clogBuilder.p(sv0Var.g);
+            String c = sv0Var.a.c();
+            char c2 = 65535;
+            switch (c.hashCode()) {
+                case -1530009462:
+                    if (c.equals(ControlEvent.ACTION_SYNC_PROGRESS)) {
+                        c2 = 5;
+                        break;
+                    }
+                    break;
+                case 154871702:
+                    if (c.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
+                        c2 = 4;
+                        break;
+                    }
+                    break;
+                case 720027695:
+                    if (c.equals(ControlEvent.ACTION_PAUSE)) {
+                        c2 = 1;
+                        break;
+                    }
+                    break;
+                case 723345051:
+                    if (c.equals(ControlEvent.ACTION_START)) {
+                        c2 = 0;
+                        break;
+                    }
+                    break;
+                case 906917140:
+                    if (c.equals(ControlEvent.ACTION_RESUME)) {
+                        c2 = 2;
+                        break;
+                    }
+                    break;
+                case 2145795460:
+                    if (c.equals(StatisticsEvent.ACTION_PLAYER_STOP)) {
+                        c2 = 3;
+                        break;
+                    }
+                    break;
             }
-            return false;
-        }
-        return invokeIIL.booleanValue;
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnMediaSourceChangedListener
-    public boolean onMediaSourceChanged(int i, int i2, Object obj) {
-        InterceptResult invokeIIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048582, this, i, i2, obj)) == null) {
-            zt0 zt0Var = this.a;
-            if (zt0Var != null) {
-                return zt0Var.onMediaSourceChanged(i, i2, obj);
+            if (c2 != 0) {
+                if (c2 != 1) {
+                    if (c2 != 2) {
+                        if (c2 != 3 && c2 != 4) {
+                            if (c2 == 5) {
+                                int g = sv0Var.a.g(1);
+                                int g2 = sv0Var.a.g(2);
+                                if (g == 0 && g2 != 0 && (i = this.b) != 0 && i >= g2 - 2) {
+                                    clogBuilder.y(ClogBuilder.LogType.VIDEO_COMPLETED).l(String.valueOf(g2)).m(String.valueOf(g2)).n(sv0Var.e);
+                                    az0.e(clogBuilder);
+                                    ClogBuilder p = new ClogBuilder().y(ClogBuilder.LogType.VIDEO_START).k(sv0Var.b).m(sv0Var.d).p(sv0Var.g);
+                                    if (!TextUtils.isEmpty(sv0Var.f)) {
+                                        p.v(sv0Var.f);
+                                    }
+                                    az0.e(p);
+                                }
+                                this.b = g;
+                                return;
+                            }
+                            return;
+                        } else if (this.a < 1) {
+                            return;
+                        } else {
+                            try {
+                                if (this.b > Integer.parseInt(sv0Var.c)) {
+                                    clogBuilder.l(sv0Var.d);
+                                } else {
+                                    clogBuilder.l(sv0Var.c);
+                                }
+                            } catch (NumberFormatException unused) {
+                                clogBuilder.l(sv0Var.c);
+                            }
+                            clogBuilder.y(ClogBuilder.LogType.VIDEO_COMPLETED).m(sv0Var.d).n(sv0Var.e).o("0");
+                            this.a--;
+                            az0.e(clogBuilder);
+                            return;
+                        }
+                    }
+                    clogBuilder.y(ClogBuilder.LogType.VIDEO_RESUME).k(sv0Var.b).m(sv0Var.d);
+                    az0.e(clogBuilder);
+                    return;
+                }
+                boolean d = sv0Var.a.d(7);
+                clogBuilder.l(sv0Var.c).m(sv0Var.d).n(sv0Var.e);
+                if (d) {
+                    clogBuilder.y(ClogBuilder.LogType.VIDEO_PAUSE);
+                } else {
+                    clogBuilder.y(ClogBuilder.LogType.VIDEO_COMPLETED).o("1");
+                }
+                az0.e(clogBuilder);
+                return;
             }
-            return false;
+            clogBuilder.y(ClogBuilder.LogType.VIDEO_START).k(sv0Var.b).m(sv0Var.d);
+            this.b = 0;
+            this.a++;
+            az0.e(clogBuilder);
         }
-        return invokeIIL.booleanValue;
     }
 
-    @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnVideoSizeChangedListener
-    public void onVideoSizeChanged(int i, int i2, int i3, int i4) {
-        zt0 zt0Var;
+    @Override // com.baidu.tieba.dt0
+    public void b(sv0 sv0Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIII(1048585, this, i, i2, i3, i4) == null) && (zt0Var = this.a) != null) {
-            zt0Var.onVideoSizeChanged(i, i2, i3, i4);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sv0Var) == null) && sv0Var != null && sv0Var.a != null && !TextUtils.isEmpty(sv0Var.g)) {
+            String c = sv0Var.a.c();
+            char c2 = 65535;
+            int hashCode = c.hashCode();
+            if (hashCode != 154871702) {
+                if (hashCode != 1370689931) {
+                    if (hashCode == 2145795460 && c.equals(StatisticsEvent.ACTION_PLAYER_STOP)) {
+                        c2 = 1;
+                    }
+                } else if (c.equals(PlayerEvent.ACTION_ON_INFO)) {
+                    c2 = 0;
+                }
+            } else if (c.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
+                c2 = 2;
+            }
+            if (c2 != 0) {
+                if (c2 == 1 || c2 == 2) {
+                    tv0.b.b();
+                    return;
+                }
+                return;
+            }
+            yv0 a = tv0.b.a();
+            if (a != null) {
+                a.c(sv0Var.g);
+                a.e(sv0Var.b);
+                a.d(sv0Var.h);
+                a.b(sv0Var.d);
+                tv0.b.c(a);
+            }
         }
     }
 }

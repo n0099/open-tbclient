@@ -1,9 +1,5 @@
 package com.baidu.tieba;
-
-import com.baidu.searchbox.live.interfaces.net.NetResponse;
 /* loaded from: classes8.dex */
-public interface u70<T> {
-    void onNetResponse(NetResponse netResponse, T t);
-
-    T onParseResponseInBackground(NetResponse netResponse);
+public interface u70 {
+    void a(int i, Object obj, s70 s70Var);
 }

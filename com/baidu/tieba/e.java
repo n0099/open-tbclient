@@ -1,64 +1,160 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextPaint;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.TextView;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.common.security.DeviceIdBag;
+import com.baidu.searchbox.common.security.DeviceInfoManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class e extends ArrayAdapter {
+public class e extends bg1<pf0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e(Context context, int i, Object[] objArr) {
-        super(context, i, objArr);
+    /* loaded from: classes5.dex */
+    public class a implements pf0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.pf0
+        @Nullable
+        public boolean h() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public a(e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.pf0
+        @Nullable
+        public un0 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                DeviceIdBag androidId = DeviceInfoManager.INSTANCE.getAndroidId(gf0.b(), "fad", "fad");
+                return new un0(androidId.errorCode, androidId.deviceId, androidId.encodedDeviceId);
+            }
+            return (un0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.pf0
+        @Nullable
+        public un0 b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                DeviceIdBag osVersion = DeviceInfoManager.INSTANCE.getOsVersion("fad", "fad");
+                return new un0(osVersion.errorCode, osVersion.deviceId, osVersion.encodedDeviceId);
+            }
+            return (un0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.pf0
+        @Nullable
+        public un0 c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                DeviceIdBag oaid = DeviceInfoManager.INSTANCE.getOAID("fad", "fad");
+                return new un0(oaid.errorCode, oaid.deviceId, oaid.encodedDeviceId);
+            }
+            return (un0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.pf0
+        @Nullable
+        public un0 d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                DeviceIdBag model = DeviceInfoManager.INSTANCE.getModel("fad", "fad");
+                return new un0(model.errorCode, model.deviceId, model.encodedDeviceId);
+            }
+            return (un0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.pf0
+        @Nullable
+        public un0 e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                DeviceIdBag imei = DeviceInfoManager.INSTANCE.getIMEI(gf0.b(), "fad", "fad");
+                return new un0(imei.errorCode, imei.deviceId, imei.encodedDeviceId);
+            }
+            return (un0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.pf0
+        @Nullable
+        public un0 f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                DeviceIdBag macAddress = DeviceInfoManager.INSTANCE.getMacAddress(gf0.b(), "fad", "fad");
+                return new un0(macAddress.errorCode, macAddress.deviceId, macAddress.encodedDeviceId);
+            }
+            return (un0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.pf0
+        @Nullable
+        public un0 g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                DeviceIdBag manufacturer = DeviceInfoManager.INSTANCE.getManufacturer("fad", "fad");
+                return new un0(manufacturer.errorCode, manufacturer.deviceId, manufacturer.encodedDeviceId);
+            }
+            return (un0) invokeV.objValue;
+        }
+    }
+
+    public e() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr2 = {context, Integer.valueOf(i), objArr};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr3 = newInitContext.callArgs;
-                super((Context) objArr3[0], ((Integer) objArr3[1]).intValue(), (Object[]) objArr3[2]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // android.widget.ArrayAdapter, android.widget.BaseAdapter, android.widget.SpinnerAdapter
-    public View getDropDownView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        TextPaint paint;
-        boolean z;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bg1
+    /* renamed from: a */
+    public pf0 createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, view2, viewGroup)) == null) {
-            View dropDownView = super.getDropDownView(i, view2, viewGroup);
-            TextView textView = (TextView) dropDownView;
-            if (this.a == i) {
-                textView.setTextColor(-13158591);
-                paint = textView.getPaint();
-                z = true;
-            } else {
-                textView.setTextColor(-9605779);
-                paint = textView.getPaint();
-                z = false;
-            }
-            paint.setFakeBoldText(z);
-            return dropDownView;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
         }
-        return (View) invokeILL.objValue;
+        return (pf0) invokeV.objValue;
     }
 }

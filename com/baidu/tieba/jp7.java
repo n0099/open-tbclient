@@ -1,104 +1,112 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.data.BdToastData;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tbadk.core.util.BdToastHelper;
-import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes6.dex */
-public class jp7 extends o05 {
+public class jp7 implements uq7 {
     public static /* synthetic */ Interceptable $ic;
+    public static final AtomicReference<uq7> a;
+    public static final uq7 b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(jp7 jp7Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947891064, "Lcom/baidu/tieba/jp7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jp7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947891064, "Lcom/baidu/tieba/jp7;");
+                return;
             }
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                YunDialogManager.unMarkShowingDialogName("frsToast");
-            }
-        }
+        a = new AtomicReference<>(null);
+        b = new jp7();
     }
 
     public jp7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.o05
-    public void a(@NonNull Context context, @NonNull c05 c05Var) {
+    public static uq7 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, c05Var) == null) {
-            if (TbSingleton.getInstance().getFrsResponseData() == null) {
-                YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "Frs Toast展示失败：当前Frs数据为空");
-                YunDialogManager.unMarkShowingDialogName("frsToast");
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            uq7 uq7Var = a.get();
+            if (uq7Var == null) {
+                return b;
             }
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (!(currentActivity instanceof FrsActivity)) {
-                YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "Frs Toast展示失败：当前Activity非FrsActivity");
-                YunDialogManager.unMarkShowingDialogName("frsToast");
-                return;
-            }
-            String stringExtra = currentActivity.getIntent().getStringExtra(FrsActivityConfig.TOAST_DATA);
-            if (TextUtils.isEmpty(stringExtra)) {
-                YunDialogManager.unMarkShowingDialogName("frsToast");
-                return;
-            }
-            BdToastData bdToastData = new BdToastData();
-            try {
-                bdToastData.parserJson(new JSONObject(stringExtra));
-                BdToastHelper.toast(bdToastData);
-                currentActivity.getIntent().putExtra(FrsActivityConfig.TOAST_DATA, "");
-                SafeHandler.getInst().postDelayed(new a(this), 3000L);
-            } catch (JSONException e) {
-                YunDialogManager.unMarkShowingDialogName("frsToast");
-                BdLog.e(e);
-            }
+            return uq7Var;
         }
+        return (uq7) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.uq7
+    public bi<? extends hz4, ? extends TypeAdapter.ViewHolder> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, tbPageContext, bdUniqueId, z)) == null) {
+            BdLog.e("Frs extra project not loaded.");
+            return null;
+        }
+        return (bi) invokeLLZ.objValue;
+    }
+
+    @Override // com.baidu.tieba.uq7
+    public pp7<ICardInfo, ? extends TypeAdapter.ViewHolder> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, bdUniqueId, bdUniqueId2)) == null) {
+            BdLog.e("Frs extra project not loaded.");
+            return null;
+        }
+        return (pp7) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.uq7
+    public bi<? extends ThreadData, ? extends TypeAdapter.ViewHolder> d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, tbPageContext, bdUniqueId, bdUniqueId2)) == null) {
+            BdLog.e("Frs extra project not loaded.");
+            return null;
+        }
+        return (bi) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.uq7
+    public bi<? extends ThreadData, ? extends TypeAdapter.ViewHolder> c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{tbPageContext, bdUniqueId, bdUniqueId2, Boolean.valueOf(z)})) == null) {
+            BdLog.e("Frs extra project not loaded.");
+            return null;
+        }
+        return (bi) invokeCommon.objValue;
     }
 }

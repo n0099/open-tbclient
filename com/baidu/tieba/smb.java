@@ -1,79 +1,81 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
-import java.lang.reflect.Field;
-import org.json.JSONObject;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes8.dex */
-public class smb extends BaseAdRipper {
+public final class smb {
     public static /* synthetic */ Interceptable $ic;
+    public static smb c;
+    public static SQLiteOpenHelper d;
     public transient /* synthetic */ FieldHolder $fh;
+    public AtomicInteger a;
+    public SQLiteDatabase b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public smb(Ssp.Pid pid) {
-        super(pid);
+    public smb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new AtomicInteger();
     }
 
-    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
-    public RippedAd getRippedAdInternal(Object obj) {
-        InterceptResult invokeL;
+    public static synchronized smb a() {
+        InterceptResult invokeV;
+        smb smbVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (smb.class) {
+                if (c == null) {
+                    b(nmb.i().g());
+                }
+                smbVar = c;
             }
-            try {
-                Object obj2 = ((gnb) obj).a;
-                Field declaredField = obj2.getClass().getDeclaredField("a");
-                declaredField.setAccessible(true);
-                Object obj3 = declaredField.get(obj2);
-                if (obj3 == null) {
-                    return null;
+            return smbVar;
+        }
+        return (smb) invokeV.objValue;
+    }
+
+    public final synchronized SQLiteDatabase c() {
+        InterceptResult invokeV;
+        SQLiteDatabase sQLiteDatabase;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                if (this.a.incrementAndGet() == 1) {
+                    onb.a("***************新建立了 一个数据库的实例****************");
+                    this.b = d.getWritableDatabase();
                 }
-                Field declaredField2 = obj3.getClass().getSuperclass().getSuperclass().getDeclaredField("a");
-                declaredField2.setAccessible(true);
-                Object obj4 = declaredField2.get(obj3);
-                if (obj4 == null) {
-                    return null;
+                sQLiteDatabase = this.b;
+            }
+            return sQLiteDatabase;
+        }
+        return (SQLiteDatabase) invokeV.objValue;
+    }
+
+    public static synchronized void b(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
+            synchronized (smb.class) {
+                if (c == null) {
+                    c = new smb();
+                    d = new qmb(context);
                 }
-                Object field = ReflectionUtils.getField(obj4, "c", "c");
-                Field declaredField3 = field.getClass().getSuperclass().getDeclaredField("k");
-                declaredField3.setAccessible(true);
-                Object field2 = ReflectionUtils.getField(declaredField3.get(field), "e", "e", "c");
-                Field declaredField4 = field2.getClass().getSuperclass().getDeclaredField("d");
-                declaredField4.setAccessible(true);
-                Object obj5 = declaredField4.get(field2);
-                Field declaredField5 = obj5.getClass().getSuperclass().getDeclaredField("M");
-                declaredField5.setAccessible(true);
-                return pmb.a((JSONObject) declaredField5.get(obj5));
-            } catch (Exception e) {
-                LogPrinter.e(e);
-                return null;
             }
         }
-        return (RippedAd) invokeL.objValue;
     }
 }

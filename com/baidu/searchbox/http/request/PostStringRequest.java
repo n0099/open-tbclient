@@ -11,7 +11,7 @@ public class PostStringRequest extends HttpRequest<PostStringRequestBuilder> {
     public String content;
     public MediaType mediaType;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class PostStringRequestBuilder extends HttpRequestBuilder<PostStringRequestBuilder> {
         public String content;
         public MediaType mediaType;

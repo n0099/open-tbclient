@@ -1,77 +1,106 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.text.TextUtils;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.sapi2.SapiAccount;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes9.dex */
-public class yp9 extends lh<uq9, CardViewHolder<mr9>> {
+public class yp9 implements n75 {
     public static /* synthetic */ Interceptable $ic;
+    public static yp9 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public mr9 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yp9(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public yp9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = tbPageContext;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
-    /* renamed from: s */
-    public CardViewHolder<mr9> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public static synchronized yp9 d() {
+        InterceptResult invokeV;
+        yp9 yp9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            this.b = new mr9(this.a);
-            return new CardViewHolder<>(this.b);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (yp9.class) {
+                if (a == null) {
+                    a = new yp9();
+                }
+                yp9Var = a;
+            }
+            return yp9Var;
         }
-        return (CardViewHolder) invokeL.objValue;
+        return (yp9) invokeV.objValue;
     }
 
-    public void onScroll() {
-        mr9 mr9Var;
+    @Override // com.baidu.tieba.n75
+    public void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (mr9Var = this.b) != null) {
-            mr9Var.onScroll();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                SapiAccountManager.getInstance().logout();
+            } catch (Exception e) {
+                e.printStackTrace();
+                TbLog defaultLog = DefaultLog.getInstance();
+                defaultLog.e("PassManager", "sapi logout failed, exp=" + e);
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_param1", 6).param("obj_source", e.getMessage()));
+            }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, uq9 uq9Var, CardViewHolder<mr9> cardViewHolder) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.n75
+    public void b(AccountData accountData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, uq9Var, cardViewHolder})) == null) {
-            cardViewHolder.a().j(uq9Var);
-            return cardViewHolder.getView();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, accountData) == null) {
+            List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();
+            if (!TextUtils.isEmpty(accountData.getID()) && loginAccounts != null && loginAccounts.size() > 0) {
+                for (SapiAccount sapiAccount : loginAccounts) {
+                    if (accountData.getID().equals(sapiAccount.uid)) {
+                        SapiAccountManager.getInstance().validate(sapiAccount);
+                        return;
+                    }
+                }
+            }
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.n75
+    public void c(AccountData accountData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
+            if (accountData.getID().equals(TbadkCoreApplication.getCurrentAccount())) {
+                a();
+                return;
+            }
+            List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();
+            if (loginAccounts != null && loginAccounts.size() > 0) {
+                for (SapiAccount sapiAccount : loginAccounts) {
+                    if (accountData.getID().equals(sapiAccount.uid)) {
+                        SapiAccountManager.getInstance().removeLoginAccount(sapiAccount);
+                        return;
+                    }
+                }
+            }
+        }
     }
 }

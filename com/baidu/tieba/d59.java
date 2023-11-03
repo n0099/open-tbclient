@@ -1,61 +1,174 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.log.DefaultLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.editortools.view.CommonTabHost;
+import com.baidu.tbadk.core.atomData.AgreeMeActivityConfig;
+import com.baidu.tbadk.core.atomData.AtMeActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
+import com.baidu.tbadk.core.atomData.ReplyMeActivityConfig;
+import com.baidu.tieba.immessagecenter.msgtab.data.NotifyType;
+import com.baidu.tieba.redtip.PersonRedTipManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class d59 extends od5 {
+public final class d59 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d59(Context context) {
-        super(context, context.getString(R.string.editor_privilege), 12);
+    /* loaded from: classes5.dex */
+    public /* synthetic */ class a {
+        public static final /* synthetic */ int[] $EnumSwitchMapping$0;
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-908650652, "Lcom/baidu/tieba/d59$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-908650652, "Lcom/baidu/tieba/d59$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[NotifyType.values().length];
+            iArr[NotifyType.AT_ME.ordinal()] = 1;
+            iArr[NotifyType.AGREE_ME.ordinal()] = 2;
+            iArr[NotifyType.REPLY_ME.ordinal()] = 3;
+            iArr[NotifyType.FANS.ordinal()] = 4;
+            $EnumSwitchMapping$0 = iArr;
+        }
+    }
+
+    public d59() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.d = R.drawable.icon_pure_post_bubble24;
-        this.h = R.drawable.icon_pure_post_more_bubble64;
-        this.e = R.drawable.icon_mask_post_keyboard24_selection;
-        this.r = R.drawable.icon_pure_pic_vip64;
-        this.i = false;
-        this.j = true;
-        this.o = true;
-        CommonTabHost commonTabHost = new CommonTabHost(context);
-        this.m = commonTabHost;
-        commonTabHost.h(new c59());
-        this.n = 6;
-        this.p = new int[]{1};
     }
 
-    @Override // com.baidu.tieba.od5
-    public boolean a() {
-        InterceptResult invokeV;
+    public final void a(w39 w39Var) {
+        NotifyType notifyType;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            TiebaStatic.log(new StatisticItem("c15104").param("uid", TbadkCoreApplication.getCurrentAccount()));
-            return super.a();
+        if (interceptable == null || interceptable.invokeL(1048576, this, w39Var) == null) {
+            if (w39Var != null) {
+                notifyType = w39Var.c();
+            } else {
+                notifyType = null;
+            }
+            if (notifyType == null) {
+                i = -1;
+            } else {
+                i = a.$EnumSwitchMapping$0[notifyType.ordinal()];
+            }
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i == 4) {
+                            nq8.b().g(4, 0);
+                            PersonRedTipManager.getInstance().updateRedTipState(2, false, true);
+                            x95.p0().l();
+                            x95.p0().j0(0);
+                            DefaultLog.getInstance().i("MsgTabNotifyRemind", "clearNotifyRemind: [粉丝] 重置(内存/缓存)消息未读数为0，清理粉丝通知");
+                            return;
+                        }
+                        return;
+                    }
+                    nq8.b().g(2, 0);
+                    x95.p0().o();
+                    x95.p0().m0(0);
+                    DefaultLog.getInstance().i("MsgTabNotifyRemind", "clearNotifyRemind: [回复] 重置(内存/缓存)消息未读数为0，清理回复通知");
+                    return;
+                }
+                nq8.b().g(1, 0);
+                x95.p0().h();
+                x95.p0().f0(0);
+                DefaultLog.getInstance().i("MsgTabNotifyRemind", "clearNotifyRemind: [点赞] 重置(内存/缓存)消息未读数为0，清理点赞通知");
+                return;
+            }
+            nq8.b().g(3, 0);
+            x95.p0().j();
+            x95.p0().g0(0);
+            DefaultLog.getInstance().i("MsgTabNotifyRemind", "clearNotifyRemind: [@我] 重置(内存/缓存)消息未读数为0，清理@我通知");
         }
-        return invokeV.booleanValue;
+    }
+
+    public final void b(BaseFragment frag, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frag, i) == null) {
+            Intrinsics.checkNotNullParameter(frag, "frag");
+            AgreeMeActivityConfig agreeMeActivityConfig = new AgreeMeActivityConfig(frag.getContext());
+            BdUniqueId uniqueId = frag.getUniqueId();
+            if (uniqueId != null) {
+                agreeMeActivityConfig.setLastUniqueId(uniqueId.getId());
+            }
+            agreeMeActivityConfig.setAgreeNumber(i);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, agreeMeActivityConfig));
+        }
+    }
+
+    public final void c(BaseFragment frag, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, frag, i) == null) {
+            Intrinsics.checkNotNullParameter(frag, "frag");
+            AtMeActivityConfig atMeActivityConfig = new AtMeActivityConfig(frag.getContext());
+            BdUniqueId uniqueId = frag.getUniqueId();
+            if (uniqueId != null) {
+                atMeActivityConfig.setLastUniqueId(uniqueId.getId());
+            }
+            atMeActivityConfig.setAtNumber(i);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, atMeActivityConfig));
+        }
+    }
+
+    public final void d(BaseFragment frag) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, frag) == null) {
+            Intrinsics.checkNotNullParameter(frag, "frag");
+            PersonListActivityConfig personListActivityConfig = new PersonListActivityConfig(frag.getContext(), false, TbadkCoreApplication.getCurrentAccount(), 0);
+            BdUniqueId uniqueId = frag.getUniqueId();
+            if (uniqueId != null) {
+                personListActivityConfig.setLastUniqueId(uniqueId.getId());
+            }
+            personListActivityConfig.setFansNumber(x95.p0().y());
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, personListActivityConfig));
+        }
+    }
+
+    public final void e(BaseFragment frag) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, frag) == null) {
+            Intrinsics.checkNotNullParameter(frag, "frag");
+            ReplyMeActivityConfig replyMeActivityConfig = new ReplyMeActivityConfig(frag.getContext());
+            replyMeActivityConfig.setFrom(1);
+            BdUniqueId uniqueId = frag.getUniqueId();
+            if (uniqueId != null) {
+                replyMeActivityConfig.setLastUniqueId(uniqueId.getId());
+            }
+            replyMeActivityConfig.setReplyNumber(x95.p0().B());
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, replyMeActivityConfig));
+        }
     }
 }

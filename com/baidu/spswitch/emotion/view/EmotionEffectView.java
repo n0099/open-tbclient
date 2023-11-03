@@ -247,7 +247,7 @@ public final class EmotionEffectView extends FrameLayout {
         });
         this.retriever$delegate = LazyKt__LazyJVMKt.lazy(EmotionEffectView$retriever$2.INSTANCE);
         this.emotionHandler = new Handler(Looper.getMainLooper());
-        this.viewRemoveRunnable = new Runnable() { // from class: com.baidu.tieba.fj1
+        this.viewRemoveRunnable = new Runnable() { // from class: com.baidu.tieba.wj1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -255,7 +255,7 @@ public final class EmotionEffectView extends FrameLayout {
             public final void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    EmotionEffectView.m118viewRemoveRunnable$lambda0(EmotionEffectView.this);
+                    EmotionEffectView.m119viewRemoveRunnable$lambda0(EmotionEffectView.this);
                 }
             }
         };
@@ -342,7 +342,7 @@ public final class EmotionEffectView extends FrameLayout {
     }
 
     /* renamed from: playAfx$lambda-6  reason: not valid java name */
-    public static final void m114playAfx$lambda6(final EmotionEffectView this$0, String sourcePath, boolean z, final OnEmotionEffectListener onEmotionEffectListener) {
+    public static final void m115playAfx$lambda6(final EmotionEffectView this$0, String sourcePath, boolean z, final OnEmotionEffectListener onEmotionEffectListener) {
         float f;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{this$0, sourcePath, Boolean.valueOf(z), onEmotionEffectListener}) == null) {
@@ -359,7 +359,7 @@ public final class EmotionEffectView extends FrameLayout {
                 f = 0.0f;
             }
             alphaVideo.setDarkFilter(f);
-            alphaVideo.setOnVideoStartedListener(new OnVideoStartedListener() { // from class: com.baidu.tieba.dj1
+            alphaVideo.setOnVideoStartedListener(new OnVideoStartedListener() { // from class: com.baidu.tieba.uj1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -367,11 +367,11 @@ public final class EmotionEffectView extends FrameLayout {
                 public final void onVideoStarted() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        EmotionEffectView.m115playAfx$lambda6$lambda5$lambda2(EmotionEffectView.OnEmotionEffectListener.this);
+                        EmotionEffectView.m116playAfx$lambda6$lambda5$lambda2(EmotionEffectView.OnEmotionEffectListener.this);
                     }
                 }
             });
-            alphaVideo.setOnVideoEndedListener(new OnVideoEndedListener() { // from class: com.baidu.tieba.ej1
+            alphaVideo.setOnVideoEndedListener(new OnVideoEndedListener() { // from class: com.baidu.tieba.vj1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -379,11 +379,11 @@ public final class EmotionEffectView extends FrameLayout {
                 public final void onVideoEnded() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        EmotionEffectView.m116playAfx$lambda6$lambda5$lambda3(EmotionEffectView.this, alphaVideo, onEmotionEffectListener);
+                        EmotionEffectView.m117playAfx$lambda6$lambda5$lambda3(EmotionEffectView.this, alphaVideo, onEmotionEffectListener);
                     }
                 }
             });
-            alphaVideo.setOnVideoErrorListener(new OnVideoErrorListener() { // from class: com.baidu.tieba.gj1
+            alphaVideo.setOnVideoErrorListener(new OnVideoErrorListener() { // from class: com.baidu.tieba.xj1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -391,7 +391,7 @@ public final class EmotionEffectView extends FrameLayout {
                 public final boolean onError(ErrorInfo errorInfo) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, errorInfo)) == null) ? EmotionEffectView.m117playAfx$lambda6$lambda5$lambda4(EmotionEffectView.this, alphaVideo, onEmotionEffectListener, errorInfo) : invokeL.booleanValue;
+                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, errorInfo)) == null) ? EmotionEffectView.m118playAfx$lambda6$lambda5$lambda4(EmotionEffectView.this, alphaVideo, onEmotionEffectListener, errorInfo) : invokeL.booleanValue;
                 }
             });
             alphaVideo.play();
@@ -399,7 +399,7 @@ public final class EmotionEffectView extends FrameLayout {
     }
 
     /* renamed from: playAfx$lambda-6$lambda-5$lambda-2  reason: not valid java name */
-    public static final void m115playAfx$lambda6$lambda5$lambda2(OnEmotionEffectListener onEmotionEffectListener) {
+    public static final void m116playAfx$lambda6$lambda5$lambda2(OnEmotionEffectListener onEmotionEffectListener) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65545, null, onEmotionEffectListener) == null) && onEmotionEffectListener != null) {
             onEmotionEffectListener.onStart();
@@ -407,7 +407,7 @@ public final class EmotionEffectView extends FrameLayout {
     }
 
     /* renamed from: playAfx$lambda-6$lambda-5$lambda-3  reason: not valid java name */
-    public static final void m116playAfx$lambda6$lambda5$lambda3(EmotionEffectView this$0, AlphaVideo this_run, OnEmotionEffectListener onEmotionEffectListener) {
+    public static final void m117playAfx$lambda6$lambda5$lambda3(EmotionEffectView this$0, AlphaVideo this_run, OnEmotionEffectListener onEmotionEffectListener) {
         long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65546, null, this$0, this_run, onEmotionEffectListener) == null) {
@@ -432,7 +432,7 @@ public final class EmotionEffectView extends FrameLayout {
     }
 
     /* renamed from: playAfx$lambda-6$lambda-5$lambda-4  reason: not valid java name */
-    public static final boolean m117playAfx$lambda6$lambda5$lambda4(EmotionEffectView this$0, AlphaVideo this_run, OnEmotionEffectListener onEmotionEffectListener, ErrorInfo errorInfo) {
+    public static final boolean m118playAfx$lambda6$lambda5$lambda4(EmotionEffectView this$0, AlphaVideo this_run, OnEmotionEffectListener onEmotionEffectListener, ErrorInfo errorInfo) {
         InterceptResult invokeLLLL;
         long j;
         Interceptable interceptable = $ic;
@@ -487,7 +487,7 @@ public final class EmotionEffectView extends FrameLayout {
     }
 
     /* renamed from: viewRemoveRunnable$lambda-0  reason: not valid java name */
-    public static final void m118viewRemoveRunnable$lambda0(EmotionEffectView this$0) {
+    public static final void m119viewRemoveRunnable$lambda0(EmotionEffectView this$0) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65549, null, this$0) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -527,7 +527,7 @@ public final class EmotionEffectView extends FrameLayout {
             updateLayoutParams(sourcePath);
             setVisibility(0);
             this.emotionHandler.removeCallbacks(this.viewRemoveRunnable);
-            post(new Runnable() { // from class: com.baidu.tieba.hj1
+            post(new Runnable() { // from class: com.baidu.tieba.yj1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -535,7 +535,7 @@ public final class EmotionEffectView extends FrameLayout {
                 public final void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        EmotionEffectView.m114playAfx$lambda6(EmotionEffectView.this, sourcePath, z, onEmotionEffectListener);
+                        EmotionEffectView.m115playAfx$lambda6(EmotionEffectView.this, sourcePath, z, onEmotionEffectListener);
                     }
                 }
             });

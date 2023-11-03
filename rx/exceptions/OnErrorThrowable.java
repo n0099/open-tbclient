@@ -1,8 +1,8 @@
 package rx.exceptions;
 
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.tieba.abc;
-import com.baidu.tieba.t6c;
+import com.baidu.tieba.boc;
+import com.baidu.tieba.ujc;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -60,7 +60,7 @@ public final class OnErrorThrowable extends RuntimeException {
             if (obj instanceof Enum) {
                 return ((Enum) obj).name();
             }
-            String b = abc.c().b().b(obj);
+            String b = boc.c().b().b(obj);
             if (b != null) {
                 return b;
             }
@@ -82,7 +82,7 @@ public final class OnErrorThrowable extends RuntimeException {
         if (th == null) {
             th = new NullPointerException();
         }
-        Throwable b = t6c.b(th);
+        Throwable b = ujc.b(th);
         if (b instanceof OnNextValue) {
             return new OnErrorThrowable(th, ((OnNextValue) b).getValue());
         }
@@ -106,11 +106,11 @@ public final class OnErrorThrowable extends RuntimeException {
         if (th == null) {
             th = new NullPointerException();
         }
-        Throwable b = t6c.b(th);
+        Throwable b = ujc.b(th);
         if ((b instanceof OnNextValue) && ((OnNextValue) b).getValue() == obj) {
             return th;
         }
-        t6c.a(th, new OnNextValue(obj));
+        ujc.a(th, new OnNextValue(obj));
         return th;
     }
 

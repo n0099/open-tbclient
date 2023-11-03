@@ -1,371 +1,473 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteException;
-import android.database.sqlite.SQLiteStatement;
-import android.text.TextUtils;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.browser.BrowserHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im.data.ValidateItemData;
-import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import com.baidu.tieba.im.model.ModelHelper;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
+import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
+import com.baidu.tieba.aiapps.TbAiappsLaunchUtil;
+import com.baidu.tieba.bu;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.qs;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-/* loaded from: classes7.dex */
-public class rd8 {
+/* loaded from: classes8.dex */
+public class rd8 extends bi<nm6, ThreadCardViewHolder<nm6>> implements s16 {
     public static /* synthetic */ Interceptable $ic;
-    public static rd8 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public BdUniqueId a;
+    public TbPageContext<?> b;
+    public boolean c;
+    public NEGFeedBackView.NEGFeedbackEventCallback d;
+    public ob<ConstrainImageLayout> e;
+    public ob<TbImageView> f;
+    public xl6<nm6> g;
 
-    public rd8() {
+    @Override // com.baidu.tieba.s16
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class a implements pb<ConstrainImageLayout> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rd8 a;
+
+        public ConstrainImageLayout e(ConstrainImageLayout constrainImageLayout) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, constrainImageLayout)) == null) ? constrainImageLayout : (ConstrainImageLayout) invokeL.objValue;
+        }
+
+        public ConstrainImageLayout h(ConstrainImageLayout constrainImageLayout) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, constrainImageLayout)) == null) ? constrainImageLayout : (ConstrainImageLayout) invokeL.objValue;
+        }
+
+        public a(rd8 rd8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rd8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = rd8Var;
+        }
+
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // com.baidu.tieba.pb
+        public /* bridge */ /* synthetic */ ConstrainImageLayout a(ConstrainImageLayout constrainImageLayout) {
+            ConstrainImageLayout constrainImageLayout2 = constrainImageLayout;
+            e(constrainImageLayout2);
+            return constrainImageLayout2;
+        }
+
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // com.baidu.tieba.pb
+        public /* bridge */ /* synthetic */ ConstrainImageLayout c(ConstrainImageLayout constrainImageLayout) {
+            ConstrainImageLayout constrainImageLayout2 = constrainImageLayout;
+            h(constrainImageLayout2);
+            return constrainImageLayout2;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.pb
+        /* renamed from: f */
+        public void b(ConstrainImageLayout constrainImageLayout) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, constrainImageLayout) == null) {
+                constrainImageLayout.removeAllViews();
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.pb
+        /* renamed from: g */
+        public ConstrainImageLayout d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return new ConstrainImageLayout(this.a.b.getPageActivity());
+            }
+            return (ConstrainImageLayout) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements pb<TbImageView> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rd8 a;
+
+        public TbImageView e(TbImageView tbImageView) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, tbImageView)) == null) ? tbImageView : (TbImageView) invokeL.objValue;
+        }
+
+        public b(rd8 rd8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rd8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = rd8Var;
+        }
+
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // com.baidu.tieba.pb
+        public /* bridge */ /* synthetic */ TbImageView a(TbImageView tbImageView) {
+            TbImageView tbImageView2 = tbImageView;
+            e(tbImageView2);
+            return tbImageView2;
+        }
+
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // com.baidu.tieba.pb
+        public /* bridge */ /* synthetic */ TbImageView c(TbImageView tbImageView) {
+            TbImageView tbImageView2 = tbImageView;
+            h(tbImageView2);
+            return tbImageView2;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.pb
+        /* renamed from: f */
+        public void b(TbImageView tbImageView) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, tbImageView) == null) {
+                tbImageView.setOnClickListener(null);
+                tbImageView.setForegroundColor(0);
+            }
+        }
+
+        public TbImageView h(TbImageView tbImageView) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, tbImageView)) == null) {
+                tbImageView.setOnClickListener(null);
+                tbImageView.setForegroundColor(0);
+                return tbImageView;
+            }
+            return (TbImageView) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.pb
+        /* renamed from: g */
+        public TbImageView d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                TbImageView tbImageView = new TbImageView(this.a.b.getPageActivity());
+                tbImageView.setDrawBorder(true);
+                tbImageView.setBorderColor(SkinManager.getColor(R.color.common_color_10264));
+                tbImageView.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070198));
+                return tbImageView;
+            }
+            return (TbImageView) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class c implements qs.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c(rd8 rd8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rd8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.qs.b
+        public void a(bw4 bw4Var, View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, bw4Var, view2) == null) && bw4Var != null) {
+                if (view2.getId() == R.id.user_name) {
+                    bw4Var.objType = 3;
+                } else if (view2.getId() == R.id.user_avatar) {
+                    bw4Var.objType = 4;
+                } else {
+                    bw4Var.objType = 1;
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class d implements yi {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rd8 a;
+
+        public d(rd8 rd8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rd8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = rd8Var;
+        }
+
+        @Override // com.baidu.tieba.yi
+        public void b(View view2, oi oiVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+            nm6 nm6Var;
+            ThreadData threadData;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, oiVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || (nm6Var = (nm6) oiVar) == null || (threadData = nm6Var.a) == null || threadData.getSmartApp() == null) {
+                return;
+            }
+            this.a.E(nm6Var.a, view2);
+            TiebaStatic.log(nm6Var.q());
+            TiebaStatic.log(nm6Var.f());
+            this.a.z(nm6Var.a, nm6Var.h());
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class e extends xl6<nm6> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rd8 b;
+
+        public e(rd8 rd8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rd8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = rd8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.xl6
+        /* renamed from: d */
+        public boolean c(View view2, nm6 nm6Var, String str) {
+            InterceptResult invokeLLL;
+            ThreadData threadData;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, nm6Var, str)) == null) {
+                if (nm6Var != null && (threadData = nm6Var.a) != null && threadData.getSmartApp() != null) {
+                    this.b.E(nm6Var.a, view2);
+                    TiebaStatic.log(nm6Var.q());
+                    TiebaStatic.log(nm6Var.f());
+                    this.b.z(nm6Var.a, nm6Var.h());
+                    return true;
+                }
+                return false;
+            }
+            return invokeLLL.booleanValue;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rd8(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = true;
+        this.d = null;
+        this.e = new ob<>(new a(this), 6, 0);
+        this.f = new ob<>(new b(this), 12, 0);
+        this.g = new e(this);
+        this.b = tbPageContext;
+        y();
     }
 
-    public static rd8 c() {
-        InterceptResult invokeV;
+    public void D(NEGFeedBackView.NEGFeedbackEventCallback nEGFeedbackEventCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                a = new rd8();
-            }
-            return a;
+        if (interceptable == null || interceptable.invokeL(1048579, this, nEGFeedbackEventCallback) == null) {
+            this.d = nEGFeedbackEventCallback;
         }
-        return (rd8) invokeV.objValue;
     }
 
-    public boolean a(String str) {
+    public final void A(ThreadData threadData, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(1048576, this, threadData, i) == null) && threadData != null && threadData.getSmartApp() != null) {
+            String str = threadData.getSmartApp().id;
+            wpa.g().d(this.a, tpa.d(threadData.getTid(), "", str, null), tpa.j(threadData, "a002", "common_exp", i, str));
+        }
+    }
+
+    public final void z(ThreadData threadData, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(1048585, this, threadData, i) == null) && threadData != null && threadData.getSmartApp() != null) {
+            wpa.g().c(this.a, tpa.i(threadData, "a002", "common_click", 1, i, threadData.getSmartApp().id));
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: B */
+    public ThreadCardViewHolder<nm6> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
-        Boolean bool;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            try {
-                vd8.e().b("tb_group_news", "notice_id = ?", new String[]{str});
-                bool = Boolean.TRUE;
-            } catch (Exception e) {
-                TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.deleteByNoticeId", new Object[0]);
-                e.printStackTrace();
-                bool = Boolean.FALSE;
-            }
-            return bool.booleanValue();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup)) == null) {
+            bu.b bVar = new bu.b(this.b.getPageActivity());
+            qs qsVar = new qs(this.b.getPageActivity());
+            qsVar.o(this.a);
+            qsVar.u(false);
+            qsVar.B(false);
+            qsVar.c(1024);
+            qsVar.x(new c(this));
+            bVar.o(qsVar);
+            ot otVar = new ot(this.b.getPageActivity());
+            otVar.setFrom("index");
+            otVar.x(this.e);
+            otVar.u(this.f);
+            otVar.y(this.c);
+            bVar.n(otVar);
+            bVar.m(new yt(this.b.getPageActivity()));
+            ThreadCardViewHolder<nm6> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.j(BaseCardInfo.SupportType.FULL, viewGroup));
+            threadCardViewHolder.i(this.a);
+            setOnAdapterItemClickListener(new d(this));
+            return threadCardViewHolder;
         }
-        return invokeL.booleanValue;
+        return (ThreadCardViewHolder) invokeL.objValue;
     }
 
-    public LinkedList<GroupNewsPojo> b(long j, int i, int i2, String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: C */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, nm6 nm6Var, ThreadCardViewHolder<nm6> threadCardViewHolder) {
         InterceptResult invokeCommon;
-        Cursor g;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), str})) == null) {
-            if (i2 < 0) {
-                i2 = 0;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, nm6Var, threadCardViewHolder})) == null) {
+            if (nm6Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && nm6Var.a != null) {
+                nm6Var.A(nm6Var.position + 1);
+                nm6Var.a.statFloor = nm6Var.h();
+                threadCardViewHolder.r(false).setNegEventCallback(this.d);
+                threadCardViewHolder.e(nm6Var);
+                threadCardViewHolder.a().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
+                threadCardViewHolder.a().r(this.g);
+                pl6.b().a(nm6Var.s());
+                q16.c().i("page_recommend", "show_", nm6Var.s());
+                A(nm6Var.a, nm6Var.h());
+                return threadCardViewHolder.getView();
             }
-            LinkedList<GroupNewsPojo> linkedList = new LinkedList<>();
-            if (i <= 0) {
-                i = 20;
-            }
-            Cursor cursor = null;
-            try {
-                try {
-                    if (j <= 0) {
-                        if (TextUtils.isEmpty(str)) {
-                            g = vd8.e().g("select * from tb_group_news ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, null);
-                        } else {
-                            g = vd8.e().g(String.format("select * from tb_group_news WHERE cmd IN ( '%1$s' ) ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, str), null);
-                        }
-                    } else if (TextUtils.isEmpty(str)) {
-                        g = vd8.e().g("select * from tb_group_news WHERE time <=? ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, new String[]{String.valueOf(j)});
-                    } else {
-                        g = vd8.e().g("select * from tb_group_news WHERE time <=? AND cmd IN ( ? ) ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, new String[]{String.valueOf(j), str});
-                    }
-                    cursor = g;
-                    if (cursor != null) {
-                        while (cursor.moveToNext()) {
-                            GroupNewsPojo groupNewsPojo = new GroupNewsPojo();
-                            groupNewsPojo.setCmd(cursor.getString(cursor.getColumnIndex("cmd")));
-                            groupNewsPojo.setContent(cursor.getString(cursor.getColumnIndex("content")));
-                            groupNewsPojo.setContent_status(cursor.getInt(cursor.getColumnIndex("content_status")));
-                            groupNewsPojo.setExt(cursor.getString(cursor.getColumnIndex("ext")));
-                            groupNewsPojo.setGid(cursor.getString(cursor.getColumnIndex(TbEnum.ParamKey.GID)));
-                            groupNewsPojo.setNotice_id(cursor.getString(cursor.getColumnIndex("notice_id")));
-                            groupNewsPojo.setTime(cursor.getLong(cursor.getColumnIndex("time")));
-                            linkedList.add(groupNewsPojo);
-                        }
-                    }
-                } catch (Exception e) {
-                    TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.getAllByCmd", new Object[0]);
-                    e.printStackTrace();
-                }
-                bd.a(cursor);
-                return h(linkedList);
-            } catch (Throwable th) {
-                bd.a(cursor);
-                throw th;
-            }
+            return null;
         }
-        return (LinkedList) invokeCommon.objValue;
+        return (View) invokeCommon.objValue;
     }
 
-    public int d(String str, int i) {
-        InterceptResult invokeLI;
+    public final void E(ThreadData threadData, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) {
-            Cursor cursor = null;
-            int i2 = 0;
-            try {
-                try {
-                    try {
-                        cursor = vd8.e().g(String.format("select count(*) from tb_group_news WHERE cmd IN ( '%1$s' ) and content_status = %2$s", str, "" + i), null);
-                        i2 = cursor.moveToFirst() ? cursor.getInt(0) : -1;
-                    } catch (Exception e) {
-                        TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.getNewCountByCmd", new Object[0]);
-                        e.printStackTrace();
-                    }
-                } catch (SQLiteException e2) {
-                    TiebaStatic.printDBExceptionLog(e2, "GroupNewsDao.getNewCountByCmd", new Object[0]);
-                    e2.printStackTrace();
-                }
-                return i2;
-            } finally {
-                bd.a(cursor);
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, threadData, view2) == null) && threadData != null && threadData.getSmartApp() != null) {
+            String str = threadData.getSmartApp().id;
+            String str2 = threadData.getSmartApp().link;
+            String str3 = threadData.getSmartApp().h5_url;
+            Long l = threadData.getSmartApp().naws_app_id;
+            long parseLong = Long.parseLong(threadData.getTid());
+            String str4 = threadData.getSmartApp().name;
+            long fid = threadData.getFid();
+            SharedPrefHelper.getInstance().putLong("smart_app_tid", parseLong);
+            SharedPrefHelper.getInstance().putString("smart_app_name", str4);
+            SharedPrefHelper.getInstance().putString("smart_app_id", str);
+            if (StringUtils.isNull(str)) {
+                return;
             }
+            if (!TbAiappsLaunchUtil.launch(str, str2, "1191008600000000", threadData.getSmartApp().is_game)) {
+                if (StringUtils.isNull(str3)) {
+                    return;
+                }
+                BrowserHelper.startWebActivity(view2.getContext(), str3);
+            }
+            il6.a(threadData.getTid());
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK).param("fid", fid).param("tid", parseLong).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_name", str4).param("obj_id", l.longValue()).param("obj_source", "index_card").param("obj_param1", threadData.getSmartApp().is_game.intValue()));
         }
-        return invokeLI.intValue;
     }
 
-    public boolean g(String str, int i) {
-        InterceptResult invokeLI;
-        Cursor g;
+    public final void y() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i)) == null) {
-            Cursor cursor = null;
-            String str2 = null;
-            cursor = null;
-            if (i < 1000) {
-                i = 1000;
-            }
-            try {
-                try {
-                    vd8 e = vd8.e();
-                    g = e.g("SELECT * FROM tb_group_news ORDER BY notice_id DESC LIMIT " + i + ", 1", null);
-                } catch (Exception e2) {
-                    e = e2;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                if (g.moveToNext()) {
-                    str2 = g.getString(g.getColumnIndex("notice_id"));
-                }
-                bd.a(g);
-                if (str2 != null) {
-                    vd8.e().b("tb_group_news", "notice_id<?", new String[]{str2});
-                }
-                bd.a(g);
-                return true;
-            } catch (Exception e3) {
-                e = e3;
-                cursor = g;
-                e.printStackTrace();
-                TiebaStatic.printDBExceptionLog(e, "shrink", new Object[0]);
-                bd.a(cursor);
-                return false;
-            } catch (Throwable th2) {
-                th = th2;
-                cursor = g;
-                bd.a(cursor);
-                throw th;
-            }
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            nm6.e0 = "c13388";
+            nm6.f0 = "c13389";
         }
-        return invokeLI.booleanValue;
-    }
-
-    public int e(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, str, i)) == null) {
-            try {
-                if (!TextUtils.isEmpty(str)) {
-                    ContentValues contentValues = new ContentValues();
-                    contentValues.put("content_status", (Integer) 3);
-                    return vd8.e().i("tb_group_news", contentValues, "notice_id= ?", new String[]{str});
-                }
-            } catch (Exception e) {
-                TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.hideByNoticeIdSync", new Object[0]);
-                e.printStackTrace();
-            }
-            return 0;
-        }
-        return invokeLI.intValue;
-    }
-
-    public final long f(GroupNewsPojo groupNewsPojo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, groupNewsPojo)) == null) {
-            try {
-                try {
-                    StringBuffer stringBuffer = new StringBuffer();
-                    stringBuffer.append("INSERT INTO ");
-                    stringBuffer.append("tb_group_news");
-                    stringBuffer.append("(");
-                    stringBuffer.append("cmd");
-                    stringBuffer.append(",");
-                    stringBuffer.append("content");
-                    stringBuffer.append(",");
-                    stringBuffer.append("content_status");
-                    stringBuffer.append(",");
-                    stringBuffer.append("ext");
-                    stringBuffer.append(",");
-                    stringBuffer.append(TbEnum.ParamKey.GID);
-                    stringBuffer.append(",");
-                    stringBuffer.append("notice_id");
-                    stringBuffer.append(",");
-                    stringBuffer.append("time");
-                    stringBuffer.append(") VALUES(?,?,?,?,?,?,?)");
-                    SQLiteStatement a2 = vd8.e().a(stringBuffer.toString());
-                    if (a2 == null) {
-                        bd.c(a2);
-                        return -1L;
-                    }
-                    a2.clearBindings();
-                    td8.b(a2, 1, groupNewsPojo.getCmd());
-                    td8.b(a2, 2, groupNewsPojo.getContent());
-                    a2.bindLong(3, groupNewsPojo.getContent_status());
-                    td8.b(a2, 4, groupNewsPojo.getExt());
-                    td8.b(a2, 5, groupNewsPojo.getGid());
-                    td8.b(a2, 6, groupNewsPojo.getNotice_id());
-                    a2.bindLong(7, groupNewsPojo.getTime());
-                    long executeInsert = a2.executeInsert();
-                    bd.c(a2);
-                    return executeInsert;
-                } catch (Exception e) {
-                    TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.insertByStatement", new Object[0]);
-                    bd.c(null);
-                    return -1L;
-                }
-            } catch (Throwable th) {
-                bd.c(null);
-                throw th;
-            }
-        }
-        return invokeL.longValue;
-    }
-
-    public final LinkedList<GroupNewsPojo> h(LinkedList<GroupNewsPojo> linkedList) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, linkedList)) == null) {
-            LinkedList<GroupNewsPojo> linkedList2 = new LinkedList<>();
-            ArrayList arrayList = new ArrayList();
-            int size = linkedList.size();
-            for (int i = 0; i < size; i++) {
-                GroupNewsPojo groupNewsPojo = linkedList.get(i);
-                boolean z = false;
-                for (int i2 = 0; i2 < linkedList2.size(); i2++) {
-                    if (linkedList2.get(i2).getContent().equals(groupNewsPojo.getContent())) {
-                        z = true;
-                    }
-                }
-                if (z) {
-                    arrayList.add(groupNewsPojo.getNotice_id());
-                } else {
-                    linkedList2.add(groupNewsPojo);
-                }
-                int size2 = arrayList.size();
-                for (int i3 = 0; i3 < size2; i3++) {
-                    e((String) arrayList.get(i3), 3);
-                }
-            }
-            return linkedList2;
-        }
-        return (LinkedList) invokeL.objValue;
-    }
-
-    public Boolean i(LinkedList<GroupNewsPojo> linkedList) {
-        InterceptResult invokeL;
-        ValidateItemData validateItemData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, linkedList)) == null) {
-            Boolean bool = Boolean.FALSE;
-            if (linkedList != null && linkedList.size() != 0) {
-                try {
-                    try {
-                        vd8.e().h();
-                        Iterator<GroupNewsPojo> it = linkedList.iterator();
-                        LinkedList<GroupNewsPojo> linkedList2 = null;
-                        List<ValidateItemData> list = null;
-                        while (it.hasNext()) {
-                            GroupNewsPojo next = it.next();
-                            if (next.getCmd().equals("apply_join_group")) {
-                                if (linkedList2 == null) {
-                                    linkedList2 = b(0L, Integer.MAX_VALUE, 0, "apply_join_group");
-                                    if (ModelHelper.getInstance().getValidateModel() != null) {
-                                        list = ModelHelper.getInstance().getValidateModel().convertToValidateItemDataList(linkedList2);
-                                    }
-                                    if (list == null) {
-                                        list = new LinkedList<>();
-                                    }
-                                }
-                                if (list != null) {
-                                    if (ModelHelper.getInstance().getValidateModel() != null) {
-                                        validateItemData = ModelHelper.getInstance().getValidateModel().convertToValidateItemData(next);
-                                    } else {
-                                        validateItemData = null;
-                                    }
-                                    if (validateItemData != null) {
-                                        for (ValidateItemData validateItemData2 : list) {
-                                            if (validateItemData.getUserId() != null && validateItemData.getUserId().equals(validateItemData2.getUserId()) && validateItemData.getGroupId() != null && validateItemData.getGroupId().equals(validateItemData2.getGroupId())) {
-                                                a(validateItemData2.getNotice_id());
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                            ContentValues contentValues = new ContentValues();
-                            contentValues.put("cmd", next.getCmd());
-                            contentValues.put("content", next.getContent());
-                            contentValues.put("content_status", Integer.valueOf(next.getContent_status()));
-                            contentValues.put("ext", next.getExt());
-                            contentValues.put(TbEnum.ParamKey.GID, next.getGid());
-                            contentValues.put("notice_id", next.getNotice_id());
-                            contentValues.put("time", Long.valueOf(next.getTime()));
-                            if (vd8.e().i("tb_group_news", contentValues, "notice_id=?", new String[]{next.getNotice_id()}) == 0) {
-                                f(next);
-                            }
-                            bool = Boolean.valueOf(bool.booleanValue() & true);
-                        }
-                    } catch (Exception e) {
-                        TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.updateData", new Object[0]);
-                        e.printStackTrace();
-                        bool = Boolean.FALSE;
-                    }
-                    return bool;
-                } finally {
-                    vd8.e().c();
-                }
-            }
-            return Boolean.FALSE;
-        }
-        return (Boolean) invokeL.objValue;
     }
 }

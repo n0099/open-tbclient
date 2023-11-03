@@ -1,32 +1,31 @@
 package com.baidu.tieba;
 
-import android.webkit.WebView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.browser.TbWebView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.MemberPayStatistic;
+import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class bya extends vi6 {
+public class bya {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TbWebView d;
-    public final HashSet<String> e;
+    public TbPageContext<?> a;
+    public int b;
 
-    public abstract void i(WebView webView, String str);
-
-    public abstract void j(WebView webView, String str);
-
-    public bya(TbWebView webView) {
+    public bya(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {webView};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,80 +35,63 @@ public abstract class bya extends vi6 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(webView, "webView");
-        this.d = webView;
-        HashSet<String> hashSet = new HashSet<>();
-        this.e = hashSet;
-        hashSet.add("onPageStarted");
-        this.e.add("onPageFinished");
-        this.e.add("onAddView");
-        this.e.add("onDraftLoad");
-        this.d.n(this);
-        c(new oh6() { // from class: com.baidu.tieba.xxa
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
+        this.a = tbPageContext;
+    }
 
-            @Override // com.baidu.tieba.oh6
-            public final void a(WebView webView2, String str) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, webView2, str) == null) {
-                    bya.d(bya.this, webView2, str);
+    public final boolean a(DressItemData dressItemData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dressItemData)) == null) {
+            if (TbadkCoreApplication.getCurrentMemberType() == 1 && dressItemData.getFreeUserLevel() == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void b(DressItemData dressItemData, boolean z) {
+        String string;
+        String str;
+        int i;
+        String str2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dressItemData, z) != null) || dressItemData == null) {
+            return;
+        }
+        boolean a = lxa.a(dressItemData);
+        if (!a) {
+            a = a(dressItemData);
+        }
+        if (a) {
+            this.b = dressItemData.getPropsId();
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_BUBBLE_SET);
+            httpMessage.setExtra(Integer.valueOf(this.b));
+            httpMessage.addParam("bcode", String.valueOf(this.b));
+            MessageManager.getInstance().sendMessage(httpMessage);
+        } else if (dressItemData.getFreeUserLevel() == 100) {
+            if (dressItemData.getActivityFinish() == 0) {
+                lxa.b(this.a, 5, dressItemData.getActivityUrl());
+            }
+        } else {
+            if (dressItemData.getFreeUserLevel() == 101) {
+                str = this.a.getString(R.string.obfuscated_res_0x7f0f034c);
+                i = 9;
+            } else {
+                if (dressItemData.getFreeUserLevel() > 1) {
+                    string = String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0352), Integer.valueOf(dressItemData.getFreeUserLevel()));
+                } else {
+                    string = this.a.getString(R.string.obfuscated_res_0x7f0f034e);
                 }
+                str = string;
+                i = 0;
             }
-        });
-        b(new nh6() { // from class: com.baidu.tieba.vxa
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            @Override // com.baidu.tieba.nh6
-            public final void onPageFinished(WebView webView2, String str) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, webView2, str) == null) {
-                    bya.e(bya.this, webView2, str);
-                }
+            if (z) {
+                str2 = MemberPayStatistic.REFER_PAGE_POST_BUBBLE;
+            } else {
+                str2 = MemberPayStatistic.REFER_PAGE_ALL_BUBBLE;
             }
-        });
-    }
-
-    public static final void d(bya this$0, WebView webView, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, this$0, webView, str) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.j(webView, str);
-            this$0.f("onPageStarted");
-        }
-    }
-
-    public static final void e(bya this$0, WebView webView, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, this$0, webView, str) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.i(webView, str);
-            this$0.f("onPageFinished");
-        }
-    }
-
-    public final void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.e.remove(str);
-            if (this.e.isEmpty()) {
-                hh6.a().i(this.d, "writePageNa.pageReady", new JSONObject());
-            }
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            f("onAddView");
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            f("onDraftLoad");
+            lxa.d(this.a, 5, str, i, str2, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
         }
     }
 }

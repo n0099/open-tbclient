@@ -1,119 +1,125 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.webkit.URLUtil;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.util.Pair;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.download.model.Downloads;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import android.content.Context;
+import android.os.Build;
+import android.util.Pair;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.browser.log.HybridLog;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.IOException;
 /* loaded from: classes5.dex */
-public class ah6 {
+public abstract class ah6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final WebView a;
 
-    public static Set<sg6> a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public ah6(WebView webView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
-            HashSet hashSet = new HashSet();
-            if (jSONObject == null) {
-                return hashSet;
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject(PrefetchEvent.MODULE);
-            if (optJSONObject == null) {
-                return hashSet;
-            }
-            Iterator<String> keys = optJSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                JSONObject optJSONObject2 = optJSONObject.optJSONObject(next);
-                if (optJSONObject2 != null) {
-                    String str = null;
-                    JSONObject optJSONObject3 = optJSONObject2.optJSONObject("since");
-                    if (optJSONObject3 != null) {
-                        str = optJSONObject3.optString("android", "");
-                    }
-                    if (TextUtils.isEmpty(str)) {
-                        str = com.kuaishou.weapon.p0.q1.e;
-                    }
-                    sg6 sg6Var = new sg6(next, optJSONObject2.optString("method", "GET"), str);
-                    JSONObject optJSONObject4 = optJSONObject2.optJSONObject(Downloads.Impl.RequestHeaders.URI_SEGMENT);
-                    if (optJSONObject4 != null) {
-                        Iterator<String> keys2 = optJSONObject4.keys();
-                        while (keys2.hasNext()) {
-                            String next2 = keys2.next();
-                            if (!TextUtils.isEmpty(next2)) {
-                                sg6Var.a(next2, optJSONObject4.optString(next2));
-                            }
-                        }
-                    }
-                    hashSet.add(sg6Var);
-                }
-            }
-            return hashSet;
-        }
-        return (Set) invokeL.objValue;
-    }
-
-    public static void b(String str) {
-        JSONArray jSONArray;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            rg6.c().b();
-            try {
-                jSONArray = new JSONArray(str);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                jSONArray = null;
-            }
-            if (zh6.c(jSONArray)) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {webView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            for (int i = 0; i < jSONArray.length(); i++) {
-                try {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                    String optString = optJSONObject.optString("url", "");
-                    if (!TextUtils.isEmpty(optString)) {
-                        Set<sg6> a = a(optJSONObject);
-                        qg6 qg6Var = new qg6();
-                        if (!zh6.a(a)) {
-                            qg6Var.a = a;
-                            qg6Var.d = optString;
-                            rg6.c().a(optString, qg6Var);
-                        } else {
-                            rg6.c().a(optString, qg6Var);
-                        }
-                    }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+        }
+        this.a = webView;
+        webView.setDrawingCacheEnabled(false);
+        webView.setLayerType(2, null);
+        webView.setScrollBarStyle(0);
+        webView.requestFocusFromTouch();
+        if (Build.VERSION.SDK_INT >= 26) {
+            try {
+                webView.setRendererPriorityPolicy(2, false);
+            } catch (Exception e) {
+                if (TbadkCoreApplication.getInst().isDebugMode()) {
+                    throw e;
                 }
             }
         }
     }
 
-    @Nullable
-    public static List<Pair<String, Long>> c(@NonNull String str) {
-        InterceptResult invokeL;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            ji6 ji6Var = (ji6) ServiceManager.getService(ji6.a);
-            if (ji6Var != null && URLUtil.isNetworkUrl(str)) {
-                return ji6Var.a(str);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            WebSettings d = d();
+            d.setJavaScriptEnabled(true);
+            d.setCacheMode(-1);
+            if (Build.VERSION.SDK_INT >= 21) {
+                d.setMixedContentMode(0);
             }
-            return null;
+            d.setGeolocationEnabled(true);
+            d.setLoadsImagesAutomatically(true);
+            d.setBlockNetworkImage(false);
+            d.setBlockNetworkLoads(false);
+            d.setLoadWithOverviewMode(true);
+            d.setAllowFileAccess(true);
+            d.setUseWideViewPort(true);
+            d.setSupportZoom(true);
+            d.setBuiltInZoomControls(false);
+            d.setDisplayZoomControls(false);
+            d.setMediaPlaybackRequiresUserGesture(false);
+            d.setDomStorageEnabled(true);
+            try {
+                d.setAppCacheEnabled(true);
+                d.setAppCachePath(b(c(), "tb_web_cache").getPath());
+            } catch (IOException unused) {
+                d.setAppCachePath(c().getCacheDir().getPath());
+            }
+            String userAgentString = d().getUserAgentString();
+            Pair<Boolean, String> k = hg6.k(userAgentString);
+            if (((Boolean) k.first).booleanValue()) {
+                TbLog hybridLog = HybridLog.getInstance();
+                hybridLog.i("WebSetting", "更新UA信息：" + ((String) k.second) + " 原UA：" + userAgentString);
+                d.setUserAgentString((String) k.second);
+            }
+            d.setJavaScriptCanOpenWindowsAutomatically(true);
+            d.setTextZoom(100);
         }
-        return (List) invokeL.objValue;
+    }
+
+    public final File b(Context context, String str) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
+            File file = new File(context.getCacheDir(), str);
+            if (!file.exists() && !file.mkdirs()) {
+                throw new IOException(file.getAbsolutePath() + "文件夹创建失败！");
+            }
+            return file;
+        }
+        return (File) invokeLL.objValue;
+    }
+
+    public Context c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a.getContext();
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public WebSettings d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a.getSettings();
+        }
+        return (WebSettings) invokeV.objValue;
     }
 }

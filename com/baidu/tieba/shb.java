@@ -1,12 +1,9 @@
 package com.baidu.tieba;
-
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public interface shb {
-    public static final ServiceReference a = new ServiceReference("yaLog", "yaLogConfig");
+    void G0(boolean z);
 
-    void a(JSONObject jSONObject);
+    void d();
 
-    void b(JSONObject jSONObject, boolean z);
+    void f1(int i, String str);
 }

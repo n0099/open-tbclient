@@ -1,67 +1,84 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.common.internal.TransactionIdCreater;
-import java.io.UnsupportedEncodingException;
-import java.util.Locale;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.yalog.Logger;
+import com.baidu.yalog.LoggerManager;
+import java.io.File;
+import java.util.List;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public final class bvb {
+public class bvb extends LoggerManager.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(byte[] bArr) {
-        InterceptResult invokeL;
+    public bvb() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            if (bArr != null && bArr.length != 0) {
-                StringBuilder sb = new StringBuilder();
-                for (byte b : bArr) {
-                    String hexString = Integer.toHexString(b & 255);
-                    if (hexString.length() == 1) {
-                        sb.append(TransactionIdCreater.FILL_BYTE);
-                    }
-                    sb.append(hexString);
-                }
-                return sb.toString();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return "";
         }
-        return (String) invokeL.objValue;
     }
 
-    public static byte[] b(String str) {
+    @Override // com.baidu.yalog.LoggerManager.c
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            cvb.C();
+        }
+    }
+
+    @Override // com.baidu.yalog.LoggerManager.c
+    public List<String> a(long j, long j2, String str, String str2, boolean z, boolean z2, String str3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), str3})) == null) {
+            return cvb.q(j, j2, str, str2, z, z2, str3);
+        }
+        return (List) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.yalog.LoggerManager.c
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return AppRuntime.getAppContext().getApplicationInfo().dataDir + File.separator + ".yalog";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.yalog.LoggerManager.c
+    public Logger d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new byte[0];
-            }
-            try {
-                String upperCase = str.toUpperCase(Locale.ENGLISH);
-                int length = upperCase.length() / 2;
-                byte[] bArr = new byte[length];
-                try {
-                    byte[] bytes = upperCase.getBytes("UTF-8");
-                    for (int i = 0; i < length; i++) {
-                        StringBuilder sb = new StringBuilder();
-                        sb.append("0x");
-                        int i2 = i * 2;
-                        sb.append(new String(new byte[]{bytes[i2]}, "UTF-8"));
-                        bArr[i] = (byte) (((byte) (Byte.decode(sb.toString()).byteValue() << 4)) ^ Byte.decode("0x" + new String(new byte[]{bytes[i2 + 1]}, "UTF-8")).byteValue());
-                    }
-                    return bArr;
-                } catch (UnsupportedEncodingException | NumberFormatException e) {
-                    evb.c("HexUtil", "hex string 2 byte array exception : " + e.getMessage());
-                    return new byte[0];
-                }
-            } catch (Throwable th) {
-                evb.c("HexUtil", "hex string toUpperCase exception : " + th.getMessage());
-                return new byte[0];
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return new cvb(str);
         }
-        return (byte[]) invokeL.objValue;
+        return (Logger) invokeL.objValue;
+    }
+
+    @Override // com.baidu.yalog.LoggerManager.c
+    public List<String> e(long j, long j2, String str, String str2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2})) == null) {
+            return cvb.B(j, j2, str, str2);
+        }
+        return (List) invokeCommon.objValue;
     }
 }

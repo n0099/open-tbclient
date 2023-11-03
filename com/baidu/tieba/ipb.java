@@ -1,14 +1,17 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.gson.Gson;
+import java.lang.reflect.Type;
 /* loaded from: classes6.dex */
-public abstract class ipb<T> {
+public class ipb implements hpb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public T a;
 
     public ipb() {
         Interceptable interceptable = $ic;
@@ -24,5 +27,57 @@ public abstract class ipb<T> {
         }
     }
 
-    public abstract T a();
+    @Override // com.baidu.tieba.hpb
+    public String a(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            try {
+                if (znb.d().e() != null && znb.d().e().c() != null) {
+                    return znb.d().e().c().a(obj);
+                }
+                return new Gson().toJson(obj);
+            } catch (Exception e) {
+                csb.b(e.getMessage());
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.hpb
+    public <T> T b(String str, Class<T> cls) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cls)) == null) {
+            try {
+                if (znb.d().e() != null && znb.d().e().c() != null) {
+                    return (T) znb.d().e().c().b(str, cls);
+                }
+                return (T) new Gson().fromJson(str, (Class<Object>) cls);
+            } catch (Exception e) {
+                csb.b(e.getMessage());
+                return null;
+            }
+        }
+        return (T) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.hpb
+    public <T> T c(String str, Type type) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, type)) == null) {
+            try {
+                if (znb.d().e() != null && znb.d().e().c() != null) {
+                    return (T) znb.d().e().c().c(str, type);
+                }
+                return (T) new Gson().fromJson(str, type);
+            } catch (Exception e) {
+                csb.b(e.getMessage());
+                return null;
+            }
+        }
+        return (T) invokeLL.objValue;
+    }
 }

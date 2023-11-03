@@ -1,78 +1,56 @@
 package com.baidu.tieba;
 
-import android.animation.AnimatorInflater;
-import android.animation.ObjectAnimator;
-import android.animation.StateListAnimator;
-import android.content.Context;
-import android.content.res.TypedArray;
-import android.util.AttributeSet;
-import android.view.View;
-import android.view.ViewOutlineProvider;
-import androidx.annotation.RequiresApi;
-import androidx.constraintlayout.motion.widget.Key;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.InputFilter;
+import android.text.Spanned;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@RequiresApi(21)
-/* loaded from: classes8.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes9.dex */
 public class y60 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948281974, "Lcom/baidu/tieba/y60;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes9.dex */
+    public static class a implements InputFilter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948281974, "Lcom/baidu/tieba/y60;");
-                return;
-            }
-        }
-        a = new int[]{16843848};
-    }
-
-    public static void a(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, view2) == null) {
-            view2.setOutlineProvider(ViewOutlineProvider.BOUNDS);
-        }
-    }
-
-    public static void b(View view2, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(65538, null, view2, f) == null) {
-            int integer = view2.getResources().getInteger(R.integer.obfuscated_res_0x7f0a0013);
-            StateListAnimator stateListAnimator = new StateListAnimator();
-            long j = integer;
-            stateListAnimator.addState(new int[]{16842766, R.attr.obfuscated_res_0x7f0404bd, -2130969790}, ObjectAnimator.ofFloat(view2, Key.ELEVATION, 0.0f).setDuration(j));
-            stateListAnimator.addState(new int[]{16842766}, ObjectAnimator.ofFloat(view2, Key.ELEVATION, f).setDuration(j));
-            stateListAnimator.addState(new int[0], ObjectAnimator.ofFloat(view2, Key.ELEVATION, 0.0f).setDuration(0L));
-            view2.setStateListAnimator(stateListAnimator);
-        }
-    }
-
-    public static void c(View view2, AttributeSet attributeSet, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(65539, null, view2, attributeSet, i, i2) == null) {
-            Context context = view2.getContext();
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a, i, i2);
-            try {
-                if (obtainStyledAttributes.hasValue(0)) {
-                    view2.setStateListAnimator(AnimatorInflater.loadStateListAnimator(context, obtainStyledAttributes.getResourceId(0, 0)));
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-            } catch (Exception unused) {
-            } catch (Throwable th) {
-                obtainStyledAttributes.recycle();
-                throw th;
             }
-            obtainStyledAttributes.recycle();
         }
+
+        @Override // android.text.InputFilter
+        public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), spanned, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+                if (" ".contentEquals(charSequence)) {
+                    return "";
+                }
+                return charSequence;
+            }
+            return (CharSequence) invokeCommon.objValue;
+        }
+    }
+
+    public static InputFilter a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return new a();
+        }
+        return (InputFilter) invokeV.objValue;
     }
 }

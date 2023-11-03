@@ -1,29 +1,18 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.view.ThreadLinkView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class us extends wr<jv4> {
+public abstract class us extends ns<bw4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View f;
-    public ThreadLinkView g;
-    public TextView h;
-    public jv4 i;
+    public int f;
+    public int g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public us(Context context) {
@@ -43,60 +32,39 @@ public class us extends wr<jv4> {
                 return;
             }
         }
-        if (TbadkCoreApplication.getInst().getPersonalizeViewData().o != null && TbadkCoreApplication.getInst().getPersonalizeViewData().o.getParent() == null) {
-            this.f = TbadkCoreApplication.getInst().getPersonalizeViewData().o;
-        } else {
-            this.f = LayoutInflater.from(context).inflate(R.layout.card_link_layout, (ViewGroup) null, true);
-        }
-        this.g = (ThreadLinkView) this.f.findViewById(R.id.link_thread_root);
-        this.h = (TextView) this.f.findViewById(R.id.link_seg_title);
+        this.f = 0;
+        this.g = 0;
     }
 
-    @Override // com.baidu.tieba.wr
-    public View k() {
+    public int r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
+    }
+
+    public int s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.f;
         }
-        return (View) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.wr
-    public void q(BdUniqueId bdUniqueId) {
+    public void t(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
-            super.q(bdUniqueId);
-            this.g.setTag(bdUniqueId);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.g = i;
         }
     }
 
-    @Override // com.baidu.tieba.rs
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+    public void u(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            this.g.b();
-            jv4 jv4Var = this.i;
-            if (jv4Var != null && jv4Var.getThreadData() != null) {
-                mj6.l(this.h, this.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qs
-    /* renamed from: t */
-    public void onBindDataToView(jv4 jv4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jv4Var) == null) {
-            if (jv4Var != null && jv4Var.getThreadData() != null) {
-                this.i = jv4Var;
-                ThreadData threadData = jv4Var.getThreadData();
-                mj6.j(threadData, this.h);
-                this.g.setData(threadData);
-                return;
-            }
-            k().setVisibility(8);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.f = i;
         }
     }
 }

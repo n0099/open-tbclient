@@ -8,18 +8,18 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
-import com.baidu.tieba.kx;
-import com.baidu.tieba.mx;
+import com.baidu.tieba.by;
+import com.baidu.tieba.dy;
 import com.kuaishou.weapon.p0.h;
 /* loaded from: classes3.dex */
 public class DeviceUtil {
     public static final boolean DEBUG = AppConfig.isDebug();
 
     public static void generateOaid(Context context, final IDeviceCallback iDeviceCallback) {
-        kx f = kx.f(context);
+        by f = by.f(context);
         if (f != null) {
-            f.o(new mx<String>() { // from class: com.baidu.searchbox.datacollector.growth.utils.DeviceUtil.1
-                @Override // com.baidu.tieba.mx
+            f.o(new dy<String>() { // from class: com.baidu.searchbox.datacollector.growth.utils.DeviceUtil.1
+                @Override // com.baidu.tieba.dy
                 public void onError(int i, Throwable th, Bundle bundle) {
                     IDeviceCallback iDeviceCallback2 = IDeviceCallback.this;
                     if (iDeviceCallback2 != null) {
@@ -28,7 +28,7 @@ public class DeviceUtil {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.tieba.mx
+                @Override // com.baidu.tieba.dy
                 public void onResult(String str, Bundle bundle) {
                     IDeviceCallback iDeviceCallback2 = IDeviceCallback.this;
                     if (iDeviceCallback2 != null) {

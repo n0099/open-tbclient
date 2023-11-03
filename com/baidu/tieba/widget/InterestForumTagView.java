@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rs;
+import com.baidu.tieba.it;
 import com.baidu.tieba.view.SymbolEMTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class InterestForumTagView extends LinearLayout implements rs {
+public class InterestForumTagView extends LinearLayout implements it {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
@@ -97,7 +97,7 @@ public class InterestForumTagView extends LinearLayout implements rs {
             this.d = selectForumData;
             SymbolEMTextView symbolEMTextView = this.b;
             if (symbolEMTextView != null) {
-                symbolEMTextView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0ac7, selectForumData.forumName));
+                symbolEMTextView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0ad8, selectForumData.forumName));
             }
         }
     }
@@ -123,7 +123,7 @@ public class InterestForumTagView extends LinearLayout implements rs {
         }
     }
 
-    @Override // com.baidu.tieba.rs
+    @Override // com.baidu.tieba.it
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {

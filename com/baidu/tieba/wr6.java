@@ -1,11 +1,8 @@
 package com.baidu.tieba;
 
-import android.graphics.Matrix;
-import android.graphics.PointF;
-import android.graphics.RectF;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.CallSuper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c3;
+import com.baidu.tieba.s3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,30 +10,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class wr6 implements c3.a {
+public abstract class wr6 implements v0, s3.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zp6 a;
-    public vp6 b;
-    public PointF c;
-    public RectF d;
-    public Matrix e;
-    public float f;
-    public boolean g;
+    public pr6 a;
 
-    @Override // com.baidu.tieba.c3.a
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-        }
-    }
-
-    public wr6(zp6 item, vp6 drawingCache, PointF position, RectF rect, Matrix transform) {
+    public wr6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {item, drawingCache, position, rect, transform};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -46,109 +28,31 @@ public final class wr6 implements c3.a {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(item, "item");
-        Intrinsics.checkNotNullParameter(drawingCache, "drawingCache");
-        Intrinsics.checkNotNullParameter(position, "position");
-        Intrinsics.checkNotNullParameter(rect, "rect");
-        Intrinsics.checkNotNullParameter(transform, "transform");
-        this.a = item;
-        this.b = drawingCache;
-        this.c = position;
-        this.d = rect;
-        this.e = transform;
-        this.f = 1.0f;
+        this.a = pr6.i.a();
     }
 
-    public final float a() {
+    public final pr6 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
-        }
-        return invokeV.floatValue;
-    }
-
-    public final vp6 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (vp6) invokeV.objValue;
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final zp6 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.a;
         }
-        return (zp6) invokeV.objValue;
+        return (pr6) invokeV.objValue;
     }
 
-    public final PointF e() {
-        InterceptResult invokeV;
+    @CallSuper
+    public void reset() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return (PointF) invokeV.objValue;
-    }
-
-    public final RectF f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.d;
-        }
-        return (RectF) invokeV.objValue;
-    }
-
-    public final Matrix g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.e;
-        }
-        return (Matrix) invokeV.objValue;
-    }
-
-    public final void h(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048583, this, f) == null) {
-            this.f = f;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a = pr6.i.a();
         }
     }
 
-    public final void i(vp6 vp6Var) {
+    public final void b(pr6 pr6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, vp6Var) == null) {
-            Intrinsics.checkNotNullParameter(vp6Var, "<set-?>");
-            this.b = vp6Var;
-        }
-    }
-
-    public final void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.g = z;
-        }
-    }
-
-    public final void k(zp6 zp6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, zp6Var) == null) {
-            Intrinsics.checkNotNullParameter(zp6Var, "<set-?>");
-            this.a = zp6Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pr6Var) == null) {
+            Intrinsics.checkNotNullParameter(pr6Var, "<set-?>");
+            this.a = pr6Var;
         }
     }
 }

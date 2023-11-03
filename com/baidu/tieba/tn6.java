@@ -1,7 +1,12 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.m77;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.AgreeView;
+import com.baidu.tieba.t27;
+import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class tn6 implements m77 {
+public final class tn6 implements t27.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,37 +33,62 @@ public final class tn6 implements m77 {
         }
     }
 
-    @Override // com.baidu.tieba.l77
-    public String getKey() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.t27.s
+    public void b(ViewGroup view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return m77.a.b(this);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.l77
-    public Map<String, String> a(v27 v27Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, v27Var)) == null) {
-            return m77.a.a(this, v27Var);
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.m77
-    public String c(v27 businessInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            if (Intrinsics.areEqual(businessInfo.a().get("card_head_type"), "live_user")) {
-                return "live_user_head_click";
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            Intrinsics.checkNotNullParameter(view2, "view");
+            if (view2 instanceof AgreeView) {
+                ((AgreeView) view2).P(TbadkCoreApplication.getInst().getSkinType());
             }
-            return "";
         }
-        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.t27.e
+    public ViewGroup create(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            return new AgreeView(context);
+        }
+        return (ViewGroup) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.t27.e
+    public void j(ViewGroup view2, x57 feedAgreeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, feedAgreeData) == null) {
+            Intrinsics.checkNotNullParameter(view2, "view");
+            Intrinsics.checkNotNullParameter(feedAgreeData, "feedAgreeData");
+            if (view2 instanceof AgreeView) {
+                AgreeView agreeView = (AgreeView) view2;
+                agreeView.setAgreeAlone(true);
+                agreeView.z(false);
+                agreeView.setUseDynamicLikeResImmediately();
+                Map<String, String> a = feedAgreeData.b().a();
+                AgreeData agreeData = new AgreeData();
+                agreeData.agreeNum = feedAgreeData.a();
+                agreeData.hasAgree = feedAgreeData.c();
+                String str = a.get("thread_id");
+                String str2 = "";
+                if (str == null) {
+                    str = "";
+                }
+                agreeData.threadId = str;
+                String str3 = a.get("forum_id");
+                if (str3 == null) {
+                    str3 = "";
+                }
+                agreeData.forumId = str3;
+                String str4 = a.get("reply_id");
+                if (str4 != null) {
+                    str2 = str4;
+                }
+                agreeData.postId = str2;
+                agreeData.isInPost = true;
+                agreeView.setData(agreeData);
+            }
+        }
     }
 }

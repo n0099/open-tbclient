@@ -1,196 +1,134 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.DisplayMetrics;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.lang.reflect.Method;
-import java.nio.charset.StandardCharsets;
-import java.util.UUID;
 /* loaded from: classes6.dex */
-public class gm4 implements cm4<String> {
+public class gm4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
 
-    @Override // com.baidu.tieba.cm4
-    public boolean a() {
+    public static String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? "Android" : (String) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cm4
-    /* renamed from: h */
-    public void put(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-        }
-    }
-
-    public gm4(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = context.getApplicationContext();
-    }
-
-    public static byte[] g(byte[]... bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            int i = 0;
-            for (byte[] bArr2 : bArr) {
-                i += bArr2.length;
-            }
-            byte[] bArr3 = new byte[i];
-            int i2 = 0;
-            for (byte[] bArr4 : bArr) {
-                System.arraycopy(bArr4, 0, bArr3, i2, bArr4.length);
-                i2 += bArr4.length;
-            }
-            return bArr3;
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public final String b() {
+    public static int a() {
         InterceptResult invokeV;
-        byte[] g;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            byte[] bytes = d().getBytes(StandardCharsets.UTF_8);
-            byte[] bytes2 = "com.baidu.swan".getBytes(StandardCharsets.UTF_8);
-            if (Build.VERSION.SDK_INT < 23) {
-                g = g(bytes2, UUID.randomUUID().toString().getBytes(StandardCharsets.UTF_8), String.valueOf(System.nanoTime()).getBytes(StandardCharsets.UTF_8), bytes);
-            } else {
-                g = g(bytes2, bytes);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            DisplayMetrics c = c();
+            if (c != null) {
+                return c.densityDpi;
             }
-            return jm4.b(g, true);
+            return 0;
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    @SuppressLint({"DiscouragedPrivateApi"})
-    public final String e() {
+    public static int b() {
         InterceptResult invokeV;
-        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            try {
-                str = (String) Build.class.getField("SERIAL").get(null);
-                try {
-                    if (TextUtils.isEmpty(str) || TextUtils.equals(str, "unknown")) {
-                        Method declaredMethod = Build.class.getDeclaredMethod("getString", String.class);
-                        declaredMethod.setAccessible(true);
-                        str = (String) declaredMethod.invoke(null, "ro.serialno");
-                    }
-                    if (TextUtils.isEmpty(str) || TextUtils.equals(str, "unknown")) {
-                        str = f("ro.serialno");
-                    }
-                } catch (Exception unused) {
-                }
-            } catch (Exception unused2) {
-                str = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            DisplayMetrics c = c();
+            if (c != null) {
+                return c.heightPixels;
             }
-            if (TextUtils.isEmpty(str) || TextUtils.equals(str, "unknown")) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public static DisplayMetrics c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            Context appContext = AppRuntime.getAppContext();
+            if (appContext == null) {
                 return null;
             }
-            return str;
+            return appContext.getResources().getDisplayMetrics();
         }
-        return (String) invokeV.objValue;
+        return (DisplayMetrics) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cm4
-    /* renamed from: c */
-    public String get() {
+    public static int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return b();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            DisplayMetrics c = c();
+            if (c != null) {
+                return c.widthPixels;
+            }
+            return 0;
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    @SuppressLint({"HardwareIds"})
-    public final String d() {
+    public static String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String a = uq3.b.a(this.a);
-            if (TextUtils.isEmpty(a)) {
-                a = e();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            String str = Build.VERSION.RELEASE;
+            if (TextUtils.isEmpty(str)) {
+                return com.baidu.mobads.sdk.internal.cj.d;
             }
-            if (TextUtils.isEmpty(a)) {
-                a = UUID.randomUUID().toString();
-            }
-            if (a == null) {
-                return "";
-            }
-            return a;
+            return str.replace("_", "-");
         }
         return (String) invokeV.objValue;
     }
 
-    public final String f(String str) {
-        InterceptResult invokeL;
-        BufferedReader bufferedReader;
+    public static String e() {
+        InterceptResult invokeV;
+        NetworkInfo activeNetworkInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            BufferedReader bufferedReader2 = null;
-            try {
-                try {
-                    Runtime runtime = Runtime.getRuntime();
-                    bufferedReader = new BufferedReader(new InputStreamReader(runtime.exec("getprop " + str).getInputStream()), 256);
-                } catch (Throwable th) {
-                    th = th;
-                }
-            } catch (IOException unused) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            ConnectivityManager connectivityManager = (ConnectivityManager) AppRuntime.getAppContext().getSystemService("connectivity");
+            if (connectivityManager == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null || !activeNetworkInfo.isConnected()) {
+                return "no";
             }
-            try {
-                String readLine = bufferedReader.readLine();
-                im4.a(bufferedReader);
-                if (readLine == null) {
-                    return "";
-                }
-                return readLine;
-            } catch (IOException unused2) {
-                bufferedReader2 = bufferedReader;
-                im4.a(bufferedReader2);
-                im4.a(bufferedReader2);
-                return "";
-            } catch (Throwable th2) {
-                th = th2;
-                bufferedReader2 = bufferedReader;
-                im4.a(bufferedReader2);
-                throw th;
+            if (activeNetworkInfo.getType() == 1) {
+                return "WiFi";
             }
+            if (activeNetworkInfo.getType() != 0) {
+                return "unknown";
+            }
+            int subtype = activeNetworkInfo.getSubtype();
+            if (subtype != 20) {
+                switch (subtype) {
+                    case 1:
+                    case 2:
+                    case 4:
+                    case 7:
+                    case 11:
+                        return "2G";
+                    case 3:
+                    case 5:
+                    case 6:
+                    case 8:
+                    case 9:
+                    case 10:
+                    case 12:
+                    case 14:
+                    case 15:
+                        return "3G";
+                    case 13:
+                        return "4G";
+                    default:
+                        return "unknown";
+                }
+            }
+            return "5G";
         }
-        return (String) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 }

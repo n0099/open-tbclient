@@ -2,19 +2,12 @@ package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class d64 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public JSONObject d;
-    public e64 e;
 
     public d64() {
         Interceptable interceptable = $ic;
@@ -28,14 +21,5 @@ public class d64 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "{ videoPath=" + this.a + " , query=" + this.b + " , title=" + this.c + ", extra=" + this.d + ", videoEditorParams=" + this.e + " }";
-        }
-        return (String) invokeV.objValue;
     }
 }

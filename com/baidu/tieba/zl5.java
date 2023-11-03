@@ -1,11 +1,21 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.BaseFragment;
 /* loaded from: classes9.dex */
 public interface zl5 {
-    BdUniqueId getUniqueId();
+    void B(int i, int i2, Intent intent);
 
-    boolean j(am5 am5Var);
+    boolean E();
 
-    boolean o();
+    BaseFragment F();
+
+    void G(boolean z);
+
+    void setUniqueId(BdUniqueId bdUniqueId);
+
+    void setUserVisibleHint(boolean z);
+
+    long t();
 }

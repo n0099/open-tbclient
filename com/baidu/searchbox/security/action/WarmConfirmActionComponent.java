@@ -1,16 +1,16 @@
 package com.baidu.searchbox.security.action;
 
 import com.baidu.pyramid.annotation.Inject;
-import com.baidu.tieba.we1;
-import com.baidu.tieba.ye1;
+import com.baidu.tieba.nf1;
+import com.baidu.tieba.pf1;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class WarmConfirmActionComponent {
     @Inject(force = false)
-    public ye1<IWarmConfirmAction> mOnConfirmActionList;
+    public pf1<IWarmConfirmAction> mOnConfirmActionList;
 
     public void initmOnConfirmActionList() {
-        we1 b = we1.b();
+        nf1 b = nf1.b();
         this.mOnConfirmActionList = b;
         b.a(new IWarmConfirmAction_WarmConfirmActionComponent_ListProvider());
     }
@@ -20,9 +20,9 @@ public class WarmConfirmActionComponent {
     }
 
     public List<IWarmConfirmAction> getWarmConfirmActionList() {
-        ye1<IWarmConfirmAction> ye1Var = this.mOnConfirmActionList;
-        if (ye1Var != null) {
-            return ye1Var.getList();
+        pf1<IWarmConfirmAction> pf1Var = this.mOnConfirmActionList;
+        if (pf1Var != null) {
+            return pf1Var.getList();
         }
         return null;
     }

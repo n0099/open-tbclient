@@ -64,7 +64,7 @@ public class RelevanceItemListFragment extends BaseFragment {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof EvaluateRelevanceItemSearchMessage)) {
-                this.a.c2(((EvaluateRelevanceItemSearchMessage) customResponsedMessage).content);
+                this.a.u2(((EvaluateRelevanceItemSearchMessage) customResponsedMessage).content);
             }
         }
     }
@@ -85,32 +85,10 @@ public class RelevanceItemListFragment extends BaseFragment {
         this.e = new a(this, 2921529);
     }
 
-    public final void e2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            registerListener(this.e);
-        }
-    }
-
-    public void f2() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && isLoadingViewAttached()) {
-            hideLoadingView(this.a);
-        }
-    }
-
-    public void h2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            hideLoadingView(this.a);
-            showNoDataNoRefreshView(this.a, false);
-        }
-    }
-
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
             this.b.k();
         }
@@ -119,17 +97,54 @@ public class RelevanceItemListFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onNetRefreshButtonClicked() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             hideNetRefreshView(this.a);
             this.b.h();
             showLoadingView(this.a);
         }
     }
 
-    public void c2(String str) {
+    public final void w2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            registerListener(this.e);
+        }
+    }
+
+    public void x2() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && isLoadingViewAttached()) {
+            hideLoadingView(this.a);
+        }
+    }
+
+    public void z2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            hideLoadingView(this.a);
+            showNoDataNoRefreshView(this.a, false);
+        }
+    }
+
+    public void A2(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+            super.onCreate(bundle);
+        }
+    }
+
+    public void u2(String str) {
         RelevanceItemListController relevanceItemListController;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || (relevanceItemListController = this.b) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || (relevanceItemListController = this.b) == null) {
             return;
         }
         relevanceItemListController.g(str);
@@ -137,10 +152,10 @@ public class RelevanceItemListFragment extends BaseFragment {
         showLoadingView(this.a);
     }
 
-    public boolean d2(long j) {
+    public boolean v2(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
             if (ListUtils.getPosition(this.d, Long.valueOf(j)) >= 0) {
                 return true;
             }
@@ -149,33 +164,18 @@ public class RelevanceItemListFragment extends BaseFragment {
         return invokeJ.booleanValue;
     }
 
-    public void g2(String str) {
+    public void y2(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
             hideLoadingView(this.a);
             showNetRefreshView(this.a, str, false);
-        }
-    }
-
-    public void i2(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
-            super.onCreate(bundle);
         }
     }
 
     public final void initData() {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (getActivity() != null && getActivity().getIntent() != null) {
                 Serializable serializableExtra = getActivity().getIntent().getSerializableExtra(RelevanceItemSearchActivityConfig.SELECTED_IDS_KEY);
                 if (serializableExtra instanceof ArrayList) {
@@ -183,13 +183,13 @@ public class RelevanceItemListFragment extends BaseFragment {
                 }
             }
             this.b = new RelevanceItemListController(this, this.a, this.c, getUniqueId());
-            if (((RelevanceItemSearchActivity) getActivity()).G1() != null && ((RelevanceItemSearchActivity) getActivity()).G1().h() != null) {
-                str = ((RelevanceItemSearchActivity) getActivity()).G1().h().getText().toString();
+            if (((RelevanceItemSearchActivity) getActivity()).B1() != null && ((RelevanceItemSearchActivity) getActivity()).B1().h() != null) {
+                str = ((RelevanceItemSearchActivity) getActivity()).B1().h().getText().toString();
             } else {
                 str = "";
             }
             if (!TextUtils.isEmpty(str)) {
-                c2(str);
+                u2(str);
                 return;
             }
             showLoadingView(this.a);
@@ -201,12 +201,12 @@ public class RelevanceItemListFragment extends BaseFragment {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, layoutInflater, viewGroup, bundle)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
             if (this.a == null) {
-                this.a = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d033c, (ViewGroup) null);
+                this.a = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d034b, (ViewGroup) null);
             }
             initData();
-            e2();
+            w2();
             return this.a;
         }
         return (View) invokeLLL.objValue;

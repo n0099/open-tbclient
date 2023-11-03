@@ -582,7 +582,7 @@ public class Toolbar extends ViewGroup {
     }
 
     public Toolbar(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f04079d);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f04081e);
     }
 
     private void addSystemView(View view2, boolean z) {
@@ -797,7 +797,7 @@ public class Toolbar extends ViewGroup {
 
     private void ensureNavButtonView() {
         if (this.mNavButtonView == null) {
-            this.mNavButtonView = new AppCompatImageButton(getContext(), null, R.attr.obfuscated_res_0x7f04079c);
+            this.mNavButtonView = new AppCompatImageButton(getContext(), null, R.attr.obfuscated_res_0x7f04081d);
             LayoutParams generateDefaultLayoutParams = generateDefaultLayoutParams();
             generateDefaultLayoutParams.gravity = 8388611 | (this.mButtonGravity & 112);
             this.mNavButtonView.setLayoutParams(generateDefaultLayoutParams);
@@ -1167,7 +1167,7 @@ public class Toolbar extends ViewGroup {
 
     public void ensureCollapseButtonView() {
         if (this.mCollapseButtonView == null) {
-            AppCompatImageButton appCompatImageButton = new AppCompatImageButton(getContext(), null, R.attr.obfuscated_res_0x7f04079c);
+            AppCompatImageButton appCompatImageButton = new AppCompatImageButton(getContext(), null, R.attr.obfuscated_res_0x7f04081d);
             this.mCollapseButtonView = appCompatImageButton;
             appCompatImageButton.setImageDrawable(this.mCollapseIcon);
             this.mCollapseButtonView.setContentDescription(this.mCollapseDescription);

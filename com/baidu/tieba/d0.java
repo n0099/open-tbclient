@@ -1,34 +1,40 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.app.RecoverableSecurityException;
+import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.IntentSender;
 import android.net.Uri;
 import android.os.Build;
-import android.os.CancellationSignal;
+import android.os.ParcelFileDescriptor;
 import android.util.Log;
-import com.android.support.appcompat.storage.permission.GrantPermissionActivity;
+import com.android.support.appcompat.storage.MediaFileProcessor;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.List;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+@SuppressLint({"NewApi"})
 /* loaded from: classes5.dex */
 public class d0 {
     public static /* synthetic */ Interceptable $ic;
     public static volatile d0 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, b0> a;
+    public Context a;
 
-    public d0() {
+    public d0(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,122 +44,125 @@ public class d0 {
                 return;
             }
         }
-        this.a = new HashMap<>();
+        this.a = context.getApplicationContext();
     }
 
-    public static d0 b() {
-        InterceptResult invokeV;
+    public static d0 c(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             if (b == null) {
                 synchronized (d0.class) {
                     if (b == null) {
-                        b = new d0();
+                        b = new d0(context);
                     }
                 }
             }
             return b;
         }
-        return (d0) invokeV.objValue;
+        return (d0) invokeL.objValue;
     }
 
-    public static boolean e(Context context, String str) {
-        InterceptResult invokeLL;
+    @TargetApi(29)
+    public int a(Uri uri, String str, String[] strArr, b0 b0Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            if (Build.VERSION.SDK_INT < 23 || context.checkSelfPermission(str) == 0) {
-                return true;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, uri, str, strArr, b0Var)) == null) {
+            try {
+                return this.a.getContentResolver().delete(uri, str, strArr);
+            } catch (RecoverableSecurityException e) {
+                e0.b().g(this.a, e.getUserAction().getActionIntent().getIntentSender(), uri, null, str, strArr, b0Var, 1);
+                return 0;
             }
-            return false;
         }
-        return invokeLL.booleanValue;
+        return invokeLLLL.intValue;
     }
 
-    public void a(String str, b0 b0Var) {
+    public int b(Uri uri, String str, String[] strArr, String str2, b0 b0Var) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, b0Var) == null) {
-            if (this.a.containsKey(str)) {
-                this.a.remove(str);
-            }
-            this.a.put(str, b0Var);
-        }
-    }
-
-    public b0 c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (this.a.containsKey(str)) {
-                return this.a.get(str);
-            }
-            return null;
-        }
-        return (b0) invokeL.objValue;
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && this.a.containsKey(str)) {
-            this.a.remove(str);
-        }
-    }
-
-    public boolean d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
-            if (runningAppProcesses == null) {
-                return false;
-            }
-            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                if (runningAppProcessInfo.processName.equals(context.getPackageName()) && runningAppProcessInfo.importance == 100) {
-                    return true;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, str, strArr, str2, b0Var)) == null) {
+            if (Build.VERSION.SDK_INT >= 29) {
+                try {
+                } catch (RecoverableSecurityException e) {
+                    e = e;
                 }
+                try {
+                    return this.a.getContentResolver().delete(uri, str, strArr);
+                } catch (RecoverableSecurityException e2) {
+                    e = e2;
+                    e0.b().g(this.a, e.getUserAction().getActionIntent().getIntentSender(), uri, null, str, strArr, b0Var, 1);
+                    return 0;
+                }
+            } else if (!e0.e(this.a, "android.permission.WRITE_EXTERNAL_STORAGE")) {
+                b0Var.onFailed(1);
+                Log.e("MediaFileProcessor", "delete: " + str2 + " 删除失败, 需要申请存储权限");
+                return 0;
+            } else {
+                File file = new File(str2);
+                if (!file.exists()) {
+                    b0Var.onFailed(2);
+                    Log.e("MediaFileProcessor", file.getAbsolutePath() + " 删除文件不存在");
+                    return 0;
+                }
+                return f0.c(file);
             }
-            return false;
         }
-        return invokeL.booleanValue;
+        return invokeLLLLL.intValue;
     }
 
-    public void g(Context context, IntentSender intentSender, Uri uri, ContentValues contentValues, String str, String[] strArr, a0 a0Var, int i) {
+    public Uri d(InputStream inputStream, MediaFileProcessor.UriSource uriSource, ContentValues contentValues, String str) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, intentSender, uri, contentValues, str, strArr, a0Var, Integer.valueOf(i)}) == null) {
-            b0.a aVar = new b0.a();
-            aVar.h(uri);
-            aVar.i(contentValues);
-            aVar.j(str);
-            aVar.f(strArr);
-            aVar.e(a0Var);
-            aVar.g(System.currentTimeMillis());
-            i(context, aVar.b(), intentSender, i, a0Var);
-        }
-    }
-
-    public void h(Context context, IntentSender intentSender, Uri uri, String str, CancellationSignal cancellationSignal, a0 a0Var, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, intentSender, uri, str, cancellationSignal, a0Var, Integer.valueOf(i)}) == null) {
-            b0.a aVar = new b0.a();
-            aVar.h(uri);
-            aVar.d(str);
-            aVar.c(cancellationSignal);
-            aVar.e(a0Var);
-            aVar.g(System.currentTimeMillis());
-            i(context, aVar.b(), intentSender, i, a0Var);
-        }
-    }
-
-    public final void i(Context context, b0 b0Var, IntentSender intentSender, int i, a0 a0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{context, b0Var, intentSender, Integer.valueOf(i), a0Var}) == null) {
-            if (!d(context)) {
-                a0Var.onFailed(3);
-                Log.e("MediaFileProcessor", "showPermissionPage: 应用处于后台， 禁止申请弹窗");
-                return;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, inputStream, uriSource, contentValues, str)) == null) {
+            if (Build.VERSION.SDK_INT >= 29) {
+                Uri c = MediaFileProcessor.c(uriSource);
+                contentValues.put("is_pending", (Integer) 1);
+                ContentResolver contentResolver = this.a.getContentResolver();
+                Uri insert = contentResolver.insert(c, contentValues);
+                if (insert == null) {
+                    Log.e("MediaFileProcessor", " 添加" + str + "文件失败， uri返回为null");
+                    return null;
+                }
+                try {
+                    ParcelFileDescriptor openFileDescriptor = contentResolver.openFileDescriptor(insert, "w", null);
+                    f0.b(inputStream, openFileDescriptor.getFileDescriptor());
+                    if (openFileDescriptor != null) {
+                        openFileDescriptor.close();
+                    }
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e2) {
+                    e2.printStackTrace();
+                }
+                contentValues.clear();
+                contentValues.put("is_pending", (Integer) 0);
+                contentResolver.update(insert, contentValues, null, null);
+                return insert;
+            } else if (!e0.e(this.a, "android.permission.WRITE_EXTERNAL_STORAGE")) {
+                Log.e("MediaFileProcessor", "insert: " + str + " 添加失败, 需要申请存储权限");
+                return null;
+            } else {
+                File file = new File(str);
+                f0.a(inputStream, file);
+                return Uri.fromFile(file);
             }
-            String valueOf = String.valueOf(b0Var.j);
-            b().a(valueOf, b0Var);
-            GrantPermissionActivity.b(context, intentSender, i, valueOf);
         }
+        return (Uri) invokeLLLL.objValue;
+    }
+
+    @TargetApi(29)
+    public int e(Uri uri, ContentValues contentValues, String str, String[] strArr, b0 b0Var) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, uri, contentValues, str, strArr, b0Var)) == null) {
+            try {
+                return this.a.getContentResolver().update(uri, contentValues, str, strArr);
+            } catch (RecoverableSecurityException e) {
+                e0.b().g(this.a, e.getUserAction().getActionIntent().getIntentSender(), uri, contentValues, str, strArr, b0Var, 2);
+                return 0;
+            }
+        }
+        return invokeLLLLL.intValue;
     }
 }

@@ -1,109 +1,134 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+/* loaded from: classes8.dex */
 public class rj3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final rj3 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-459074640, "Lcom/baidu/tieba/rj3$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-459074640, "Lcom/baidu/tieba/rj3$b;");
-                    return;
-                }
+    public static boolean d(int i, int i2, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            if (z) {
+                return false;
             }
-            a = new rj3(null);
-        }
-    }
-
-    public rj3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+            float f = i;
+            if (f > 100.0f) {
+                float f2 = i2;
+                if (f2 > 100.0f) {
+                    float f3 = f / f2;
+                    return f3 > 2.5f || 1.0f / f3 > 2.5f;
+                }
+                return false;
             }
+            return false;
         }
-        this.a = 0;
+        return invokeCommon.booleanValue;
     }
 
-    public static rj3 b() {
-        InterceptResult invokeV;
+    public static BitmapFactory.Options a(Uri uri) {
+        InterceptResult invokeL;
+        InputStream openInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, uri)) == null) {
+            Context appContext = AppRuntime.getAppContext();
+            InputStream inputStream = null;
+            if (appContext == null || uri == null) {
+                return null;
+            }
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = true;
+            try {
+                try {
+                    openInputStream = appContext.getContentResolver().openInputStream(uri);
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (FileNotFoundException e) {
+                e = e;
+            }
+            try {
+                BitmapFactory.decodeStream(openInputStream, null, options);
+                jm4.d(openInputStream);
+            } catch (FileNotFoundException e2) {
+                e = e2;
+                inputStream = openInputStream;
+                e.printStackTrace();
+                jm4.d(inputStream);
+                return options;
+            } catch (Throwable th2) {
+                th = th2;
+                inputStream = openInputStream;
+                jm4.d(inputStream);
+                throw th;
+            }
+            return options;
         }
-        return (rj3) invokeV.objValue;
+        return (BitmapFactory.Options) invokeL.objValue;
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public static boolean b(Uri uri) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return c() ? 1 : 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, uri)) == null) {
+            BitmapFactory.Options a = a(uri);
+            if (a == null) {
+                return false;
+            }
+            String str = a.outMimeType;
+            if (TextUtils.isEmpty(str) || !str.equalsIgnoreCase("image/gif")) {
+                return false;
+            }
+            return true;
         }
-        return invokeV.intValue;
+        return invokeL.booleanValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    public static boolean c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.a != 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return b(yj3.p(str));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean e(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, uri)) == null) {
+            BitmapFactory.Options a = a(uri);
+            if (a != null && d(a.outWidth, a.outHeight, b(uri))) {
                 return true;
             }
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public void d() {
+    public static boolean f(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a = 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return e(yj3.p(str));
         }
-    }
-
-    public /* synthetic */ rj3(a aVar) {
-        this();
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.a = i;
-        }
+        return invokeL.booleanValue;
     }
 }

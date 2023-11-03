@@ -1,23 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
+import java.util.HashSet;
 /* loaded from: classes6.dex */
-public final class i3b extends px9 {
+public class i3b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.tx9
-    public String name() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "post_question_success" : (String) invokeV.objValue;
-    }
 
     public i3b() {
         Interceptable interceptable = $ic;
@@ -29,7 +21,10 @@ public final class i3b extends px9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        SharedPrefHelper.getInstance().getInt("nani_key_download_show_position", 3);
+        new HashSet();
     }
 }

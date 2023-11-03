@@ -12,7 +12,7 @@ import com.baidu.tbadk.CustomRecyclerView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ea8;
+import com.baidu.tieba.cn8;
 import com.baidu.tieba.im.base.core.slice.Slice;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +33,7 @@ public class DirectChatSlice extends Slice {
     @Nullable
     public ChatRoomDetail m;
     @Nullable
-    public ea8 n;
+    public cn8 n;
 
     /* loaded from: classes6.dex */
     public static class a {
@@ -62,19 +62,19 @@ public class DirectChatSlice extends Slice {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 a aVar = new a();
                 aVar.a = view2;
-                aVar.b = (CustomRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f0908de);
+                aVar.b = (CustomRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f0908ff);
                 return aVar;
             }
             return (a) invokeL.objValue;
         }
     }
 
-    public DirectChatSlice(@NonNull TbPageContext<?> tbPageContext, @NonNull ea8 ea8Var) {
+    public DirectChatSlice(@NonNull TbPageContext<?> tbPageContext, @NonNull cn8 cn8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, ea8Var};
+            Object[] objArr = {tbPageContext, cn8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -85,7 +85,7 @@ public class DirectChatSlice extends Slice {
             }
         }
         this.j = tbPageContext;
-        this.n = ea8Var;
+        this.n = cn8Var;
     }
 
     @Override // com.baidu.tieba.im.base.core.slice.Slice
@@ -108,7 +108,7 @@ public class DirectChatSlice extends Slice {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, layoutInflater, viewGroup, bundle)) == null) {
-            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d08cc, viewGroup, false);
+            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d08e1, viewGroup, false);
         }
         return (View) invokeLLL.objValue;
     }
@@ -117,11 +117,11 @@ public class DirectChatSlice extends Slice {
         ChatRoomDetail chatRoomDetail;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (chatRoomDetail = this.m) != null && chatRoomDetail.getQuickTalk() != null) {
-            this.l.K(this.m.getQuickTalk());
+            this.l.L(this.m.getQuickTalk());
             if (this.m.getBasicInfo() != null) {
-                this.l.F(this.m.getBasicInfo().getId());
-                this.l.D(this.m.getBasicInfo().getForumId());
-                this.l.G(this.m.getBasicInfo().getName());
+                this.l.G(this.m.getBasicInfo().getId());
+                this.l.E(this.m.getBasicInfo().getForumId());
+                this.l.H(this.m.getBasicInfo().getName());
             }
             this.l.notifyDataSetChanged();
         }

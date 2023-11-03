@@ -239,7 +239,7 @@ public final class LoadingDialog extends Dialog {
     }
 
     /* renamed from: setBottomText$lambda-3$lambda-2  reason: not valid java name */
-    public static final void m41setBottomText$lambda3$lambda2(LoadingDialog this$0) {
+    public static final void m42setBottomText$lambda3$lambda2(LoadingDialog this$0) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, this$0) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -266,7 +266,7 @@ public final class LoadingDialog extends Dialog {
     }
 
     /* renamed from: initView$lambda-1  reason: not valid java name */
-    public static final void m40initView$lambda1(LoadingDialog this$0, View view2) {
+    public static final void m41initView$lambda1(LoadingDialog this$0, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -282,18 +282,18 @@ public final class LoadingDialog extends Dialog {
         View view2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            this.mCloseBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f090742);
-            this.mBottomTv = (TextView) findViewById(R.id.obfuscated_res_0x7f090485);
-            this.mDotAnimTv = (TextView) findViewById(R.id.obfuscated_res_0x7f09093a);
-            this.mLoadingContainer = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091656);
+            this.mCloseBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f090761);
+            this.mBottomTv = (TextView) findViewById(R.id.obfuscated_res_0x7f0904a0);
+            this.mDotAnimTv = (TextView) findViewById(R.id.obfuscated_res_0x7f09095d);
+            this.mLoadingContainer = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091696);
             int i = this.loadingLayoutId;
             if (i == -1) {
-                i = R.layout.obfuscated_res_0x7f0d0208;
+                i = R.layout.obfuscated_res_0x7f0d020d;
             }
             LayoutInflater.from(getContext()).inflate(i, (ViewGroup) this.mLoadingContainer, true);
             FrameLayout frameLayout = this.mLoadingContainer;
             if (frameLayout != null) {
-                view2 = frameLayout.findViewById(R.id.obfuscated_res_0x7f091659);
+                view2 = frameLayout.findViewById(R.id.obfuscated_res_0x7f091699);
             } else {
                 view2 = null;
             }
@@ -308,7 +308,7 @@ public final class LoadingDialog extends Dialog {
             if (this.showCloseBtn) {
                 ImageView imageView = this.mCloseBtn;
                 Intrinsics.checkNotNull(imageView);
-                imageView.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f080f8c));
+                imageView.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f080fa0));
             } else {
                 ImageView imageView2 = this.mCloseBtn;
                 Intrinsics.checkNotNull(imageView2);
@@ -327,7 +327,7 @@ public final class LoadingDialog extends Dialog {
             }
             ImageView imageView3 = this.mCloseBtn;
             Intrinsics.checkNotNull(imageView3);
-            imageView3.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ti
+            imageView3.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.kj
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -335,7 +335,7 @@ public final class LoadingDialog extends Dialog {
                 public final void onClick(View view3) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
-                        LoadingDialog.m40initView$lambda1(LoadingDialog.this, view3);
+                        LoadingDialog.m41initView$lambda1(LoadingDialog.this, view3);
                     }
                 }
             });
@@ -378,8 +378,8 @@ public final class LoadingDialog extends Dialog {
             setCanceledOnTouchOutside(false);
             Window window2 = getWindow();
             Intrinsics.checkNotNull(window2);
-            window2.setBackgroundDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f8b));
-            setContentView(R.layout.obfuscated_res_0x7f0d05f5);
+            window2.setBackgroundDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f9f));
+            setContentView(R.layout.obfuscated_res_0x7f0d060a);
             initView();
         }
     }
@@ -414,7 +414,7 @@ public final class LoadingDialog extends Dialog {
             if (textView2 != null) {
                 if (z) {
                     textView2.setVisibility(0);
-                    textView2.removeCallbacks(new Runnable() { // from class: com.baidu.tieba.wi
+                    textView2.removeCallbacks(new Runnable() { // from class: com.baidu.tieba.nj
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -422,7 +422,7 @@ public final class LoadingDialog extends Dialog {
                         public final void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                LoadingDialog.m41setBottomText$lambda3$lambda2(LoadingDialog.this);
+                                LoadingDialog.m42setBottomText$lambda3$lambda2(LoadingDialog.this);
                             }
                         }
                     });

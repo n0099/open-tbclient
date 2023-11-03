@@ -43,7 +43,7 @@ public final class IntegerLiteralTypeConstructor implements TypeConstructor {
 
     @Override // kotlin.reflect.jvm.internal.impl.types.TypeConstructor
     /* renamed from: getDeclarationDescriptor */
-    public ClassifierDescriptor mo2106getDeclarationDescriptor() {
+    public ClassifierDescriptor mo2110getDeclarationDescriptor() {
         return null;
     }
 
@@ -237,7 +237,7 @@ public final class IntegerLiteralTypeConstructor implements TypeConstructor {
 
     @Override // kotlin.reflect.jvm.internal.impl.types.TypeConstructor
     /* renamed from: getSupertypes  reason: collision with other method in class */
-    public Collection<KotlinType> mo2107getSupertypes() {
+    public Collection<KotlinType> mo2111getSupertypes() {
         return getSupertypes();
     }
 

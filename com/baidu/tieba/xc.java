@@ -1,60 +1,32 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.zip.GZIPInputStream;
-import java.util.zip.GZIPOutputStream;
-/* loaded from: classes8.dex */
-public class xc {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes9.dex */
+public class xc extends gc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(InputStream inputStream, OutputStream outputStream) throws Exception {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xc(cd cdVar) {
+        super(cdVar);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, inputStream, outputStream) == null) {
-            GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(outputStream);
-            byte[] bArr = new byte[1024];
-            while (true) {
-                int read = inputStream.read(bArr, 0, 1024);
-                if (read != -1) {
-                    gZIPOutputStream.write(bArr, 0, read);
-                } else {
-                    gZIPOutputStream.flush();
-                    gZIPOutputStream.finish();
-                    gZIPOutputStream.close();
-                    return;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cdVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((cd) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    public static void b(byte[] bArr, OutputStream outputStream) throws Exception {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, bArr, outputStream) == null) && bArr != null && bArr.length != 0) {
-            GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(outputStream);
-            gZIPOutputStream.write(bArr, 0, bArr.length);
-            gZIPOutputStream.flush();
-            gZIPOutputStream.finish();
-            gZIPOutputStream.close();
-        }
-    }
-
-    public static void c(InputStream inputStream, OutputStream outputStream) throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, inputStream, outputStream) == null) {
-            GZIPInputStream gZIPInputStream = new GZIPInputStream(inputStream);
-            byte[] bArr = new byte[1024];
-            while (true) {
-                int read = gZIPInputStream.read(bArr, 0, 1024);
-                if (read != -1) {
-                    outputStream.write(bArr, 0, read);
-                } else {
-                    gZIPInputStream.close();
-                    return;
-                }
-            }
-        }
+        this.o = "pf";
     }
 }

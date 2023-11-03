@@ -1,13 +1,13 @@
 package com.yy.transvod.player.log;
 
 import android.util.Log;
-import com.baidu.tieba.s1c;
-import com.baidu.tieba.w2c;
+import com.baidu.tieba.tec;
+import com.baidu.tieba.xfc;
 import java.nio.charset.Charset;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes10.dex */
 public final class TLog {
-    public static w2c a;
+    public static xfc a;
     public static Charset b;
     public static AtomicInteger c;
 
@@ -27,9 +27,9 @@ public final class TLog {
         if (c.get() <= 3) {
             String f = f(obj.getClass().getSimpleName());
             String e = e(obj);
-            w2c w2cVar = a;
-            if (w2cVar != null) {
-                w2cVar.b(f, e + str);
+            xfc xfcVar = a;
+            if (xfcVar != null) {
+                xfcVar.b(f, e + str);
                 return;
             }
             Log.d(f, e + str);
@@ -39,9 +39,9 @@ public final class TLog {
     public static void c(Object obj, String str) {
         if (c.get() <= 6) {
             String e = e(obj);
-            w2c w2cVar = a;
-            if (w2cVar != null) {
-                w2cVar.a("[vod-java]", e + str);
+            xfc xfcVar = a;
+            if (xfcVar != null) {
+                xfcVar.a("[vod-java]", e + str);
                 return;
             }
             Log.e("[vod-java]", e + str);
@@ -50,9 +50,9 @@ public final class TLog {
 
     public static void d(String str, String str2) {
         if (c.get() <= 6) {
-            w2c w2cVar = a;
-            if (w2cVar != null) {
-                w2cVar.a("[vod-java]", str + str2);
+            xfc xfcVar = a;
+            if (xfcVar != null) {
+                xfcVar.a("[vod-java]", str + str2);
                 return;
             }
             Log.e("[vod-java]", str + str2);
@@ -62,9 +62,9 @@ public final class TLog {
     public static void g(Object obj, String str) {
         if (c.get() <= 4) {
             String e = e(obj);
-            w2c w2cVar = a;
-            if (w2cVar != null) {
-                w2cVar.d("[vod-java]", e + str);
+            xfc xfcVar = a;
+            if (xfcVar != null) {
+                xfcVar.d("[vod-java]", e + str);
                 return;
             }
             Log.i("[vod-java]", e + str);
@@ -73,9 +73,9 @@ public final class TLog {
 
     public static void h(String str, String str2) {
         if (c.get() <= 4) {
-            w2c w2cVar = a;
-            if (w2cVar != null) {
-                w2cVar.d("[vod-java]", str + str2);
+            xfc xfcVar = a;
+            if (xfcVar != null) {
+                xfcVar.d("[vod-java]", str + str2);
                 return;
             }
             Log.i("[vod-java]", str + str2);
@@ -85,9 +85,9 @@ public final class TLog {
     public static void l(Object obj, String str) {
         if (c.get() <= 5) {
             String e = e(obj);
-            w2c w2cVar = a;
-            if (w2cVar != null) {
-                w2cVar.c("[vod-java]", e + str);
+            xfc xfcVar = a;
+            if (xfcVar != null) {
+                xfcVar.c("[vod-java]", e + str);
                 return;
             }
             Log.w("[vod-java]", e + str);
@@ -96,9 +96,9 @@ public final class TLog {
 
     public static void m(String str, String str2) {
         if (c.get() <= 5) {
-            w2c w2cVar = a;
-            if (w2cVar != null) {
-                w2cVar.c("[vod-java]", str + str2);
+            xfc xfcVar = a;
+            if (xfcVar != null) {
+                xfcVar.c("[vod-java]", str + str2);
                 return;
             }
             Log.w("[vod-java]", str + str2);
@@ -108,9 +108,9 @@ public final class TLog {
     public static void b(String str, String str2) {
         if (c.get() <= 3) {
             String f = f(str);
-            w2c w2cVar = a;
-            if (w2cVar != null) {
-                w2cVar.b(f, str2);
+            xfc xfcVar = a;
+            if (xfcVar != null) {
+                xfcVar.b(f, str2);
             } else {
                 Log.d(f, str2);
             }
@@ -118,8 +118,8 @@ public final class TLog {
     }
 
     public static String e(Object obj) {
-        if (obj instanceof s1c) {
-            return ((s1c) obj).g();
+        if (obj instanceof tec) {
+            return ((tec) obj).g();
         }
         return "";
     }
@@ -130,7 +130,7 @@ public final class TLog {
     }
 
     public static void j(Object obj) {
-        a = (w2c) obj;
+        a = (xfc) obj;
     }
 
     public static String f(String str) {

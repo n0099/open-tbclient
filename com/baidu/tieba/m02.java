@@ -8,11 +8,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public class m02 extends wy1 {
+public class m02 extends nz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+    public float a;
 
     public m02() {
         Interceptable interceptable = $ic;
@@ -24,27 +23,28 @@ public class m02 extends wy1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = -1.0f;
     }
 
-    @Override // com.baidu.tieba.wy1
-    public void a(xy1 xy1Var, Canvas canvas) {
+    @Override // com.baidu.tieba.nz1
+    public void a(oz1 oz1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, xy1Var, canvas) == null) {
-            if (xy1Var.a() == 0) {
-                xy1Var.b(canvas.save());
+        if (interceptable == null || interceptable.invokeLL(1048576, this, oz1Var, canvas) == null) {
+            float f = this.a;
+            if (f >= 0.0f && f <= 1.0f) {
+                oz1Var.j = (int) (f * 255.0f);
             }
-            canvas.translate(this.a, this.b);
         }
     }
 
-    @Override // com.baidu.tieba.wy1
+    @Override // com.baidu.tieba.nz1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 1) {
-            this.a = gj3.g((float) jSONArray.optDouble(0));
-            this.b = gj3.g((float) jSONArray.optDouble(1));
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
+            this.a = (float) jSONArray.optDouble(0);
         }
     }
 }

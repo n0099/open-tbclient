@@ -1,46 +1,36 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.database.Cursor;
+import android.net.Uri;
+import com.baidu.tieba.g10;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import okhttp3.Interceptor;
-import okhttp3.Request;
-import okhttp3.Response;
-import okhttp3.internal.Version;
 /* loaded from: classes6.dex */
-public class j10 implements Interceptor {
+public class j10 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public j10() {
+    public static void a(Context context, g10.a aVar) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65536, null, context, aVar) == null) {
+            if (context == null) {
+                aVar.a(false, null);
+                return;
+            }
+            try {
+                Cursor query = context.getContentResolver().query(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), null, null, null, null);
+                if (query != null) {
+                    str = query.moveToNext() ? query.getString(query.getColumnIndex("value")) : null;
+                    query.close();
+                } else {
+                    str = null;
+                }
+                aVar.a(true, str);
+            } catch (Throwable unused) {
+                aVar.a(false, null);
             }
         }
-    }
-
-    @Override // okhttp3.Interceptor
-    public Response intercept(Interceptor.Chain chain) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chain)) == null) {
-            Request request = chain.request();
-            String str = request.headers().get("User-Agent");
-            if (!str.contains(Version.userAgent())) {
-                return chain.proceed(request);
-            }
-            return chain.proceed(request.newBuilder().header("User-Agent", "outback/1.0.0-" + str).build());
-        }
-        return (Response) invokeL.objValue;
     }
 }

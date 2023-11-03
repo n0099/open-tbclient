@@ -1,9 +1,15 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
+import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation;
+import com.baidu.tieba.dr2;
+import com.baidu.tieba.lb3;
+import com.baidu.tieba.tb3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,25 +17,97 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collection;
-import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class lx1 extends BasePendingOperation {
+public class lx1 extends gx1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final CopyOnWriteArrayList<String> f;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public ev1 a;
-    public p53 b;
-    public JSONObject c;
-    public String d;
-    public String e;
 
-    @Override // com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation
-    public String b() {
+    @Override // com.baidu.tieba.ku1
+    public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "request" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "DesktopShortcutApi" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements zk3<jb3<lb3.e>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ g63 b;
+        public final /* synthetic */ lx1 c;
+
+        public a(lx1 lx1Var, String str, g63 g63Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lx1Var, str, g63Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = lx1Var;
+            this.a = str;
+            this.b = g63Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.zk3
+        /* renamed from: b */
+        public void a(jb3<lb3.e> jb3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jb3Var) == null) {
+                if (!eb3.h(jb3Var)) {
+                    int b = jb3Var.b();
+                    this.c.d(this.a, new hy1(b, eb3.f(b)));
+                    return;
+                }
+                if (lx1.f) {
+                    Log.d("DesktopShortcutApi", "start add to desktop");
+                }
+                this.c.B(this.b.w(), this.b);
+                this.c.d(this.a, new hy1(0));
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements tb3.f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(lx1 lx1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lx1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.tb3.f
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeI(1048576, this, i) != null) {
+                return;
+            }
+            lx1.D(i);
+        }
     }
 
     static {
@@ -45,100 +123,84 @@ public class lx1 extends BasePendingOperation {
                 return;
             }
         }
-        CopyOnWriteArrayList<String> copyOnWriteArrayList = new CopyOnWriteArrayList<>();
-        f = copyOnWriteArrayList;
-        copyOnWriteArrayList.add("https://hmma.baidu.com/mini.gif");
-        f.add("https://dxp.baidu.com/mini");
-        f.add("https://mbd.baidu.com/smtapp/recordhandler/getrecordinfo");
-        f.add("https://eclick.baidu.com/se.jpg");
-        f.add("https://miniapp-ad.cdn.bcebos.com/miniapp_ad/config/cg.json");
+        f = rm1.a;
     }
 
-    public lx1(@NonNull ev1 ev1Var, @NonNull p53 p53Var, @NonNull JSONObject jSONObject, @NonNull String str, @NonNull String str2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lx1(@NonNull iu1 iu1Var) {
+        super(iu1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ev1Var, p53Var, jSONObject, str, str2};
+            Object[] objArr = {iu1Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((iu1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = ev1Var;
-        this.b = p53Var;
-        this.c = jSONObject;
-        this.d = str;
-        this.e = str2;
     }
 
-    public static Collection<String> e() {
-        InterceptResult invokeV;
+    public static void D(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return f;
-        }
-        return (Collection) invokeV.objValue;
-    }
-
-    @Override // com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return f(this.c.optString("url"));
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return String.format("%s : %s", this.b.getAppId(), this.c.optString("url"));
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation
-    public BasePendingOperation.OperationType d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return BasePendingOperation.OperationType.OPERATION_TYPE_REQUEST;
-        }
-        return (BasePendingOperation.OperationType) invokeV.objValue;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a.J(this.b, this.c, this.d, this.e);
+        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
+            jd3 jd3Var = new jd3();
+            f63 K = f63.K();
+            String appId = K.getAppId();
+            String n = zc3.n(K.k());
+            jd3Var.f = appId;
+            jd3Var.b = "api";
+            jd3Var.a = n;
+            jd3Var.e = "addshortcut";
+            dr2.a X = K.q().X();
+            if (X != null) {
+                jd3Var.c = X.U();
+            }
+            jd3Var.a("appid", appId);
+            jd3Var.a("resultstate", Integer.valueOf(i));
+            pc3.b(jd3Var);
         }
     }
 
-    public final boolean f(String str) {
+    public final void B(@NonNull Context context, @NonNull g63 g63Var) {
+        dr2.a Z;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, context, g63Var) != null) || (Z = g63Var.Z()) == null) {
+            return;
+        }
+        tb3.k(context, Z, new b(this));
+    }
+
+    public hy1 C(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            r("#addToDesktop", false);
+            if (f) {
+                Log.d("DesktopShortcutApi", "#addToDesktop params = " + str);
             }
-            int size = f.size();
-            for (int i = 0; i < size; i++) {
-                String str2 = f.get(i);
-                if (!TextUtils.isEmpty(str2) && str.startsWith(str2)) {
-                    return true;
+            Pair<hy1, JSONObject> t = t(str);
+            JSONObject jSONObject = (JSONObject) t.second;
+            if (((hy1) t.first).isSuccess() && jSONObject != null) {
+                String optString = jSONObject.optString("cb");
+                if (TextUtils.isEmpty(optString)) {
+                    return new hy1(202, "cb is empty");
                 }
+                g63 c0 = g63.c0();
+                Context i = i();
+                if (!(i instanceof Activity) && (i = c0.w()) == null) {
+                    return new hy1(1001, "the context is not an activity");
+                }
+                c0.f0().g(i, "scope_add_to_desktop", new a(this, optString, c0));
+                return hy1.f();
             }
-            return false;
+            return (hy1) t.first;
         }
-        return invokeL.booleanValue;
+        return (hy1) invokeL.objValue;
     }
 }

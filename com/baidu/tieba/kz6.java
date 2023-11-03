@@ -1,74 +1,36 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class kz6 extends BaseAdapter {
+public class kz6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public ArrayList<String> b;
+    public TbPageContext<?> a;
+    public View b;
+    public ViewGroup c;
+    public ImageView d;
+    public TextView e;
+    public TextView f;
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    /* loaded from: classes7.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TbImageView a;
-
-        public b(kz6 kz6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kz6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ b(kz6 kz6Var, a aVar) {
-            this(kz6Var);
-        }
-    }
-
-    public kz6(Context context, ArrayList<String> arrayList) {
+    public kz6(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, arrayList};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -78,68 +40,33 @@ public class kz6 extends BaseAdapter {
                 return;
             }
         }
-        this.a = context;
-        this.b = arrayList;
+        this.a = tbPageContext;
+        View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0743, (ViewGroup) null);
+        this.b = inflate;
+        this.c = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f091203);
+        this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0910d4);
+        this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090f9e);
+        this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090f9f);
+        this.e.setText(R.string.no_like_forum_hint_1);
+        this.f.setText(R.string.no_like_forum_hint_2);
     }
 
-    public void a(ArrayList<String> arrayList) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) {
-            this.b = arrayList;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            SkinManager.setImageResource(this.d, R.drawable.cp_mask_attention_a);
+            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0109);
+            TBSelector.makeDrawableSelector().setShape(0).defaultColor(R.color.CAM_X0206).tlRadius(BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.tbds21)).trRadius(BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.tbds21)).blRadius(BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.tbds21)).brRadius(BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.tbds21)).into(this.c);
         }
     }
 
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            ArrayList<String> arrayList = this.b;
-            if (arrayList == null || arrayList.size() <= 0 || i < 0 || i >= this.b.size()) {
-                return null;
-            }
-            return this.b.get(i);
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public View b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<String> arrayList = this.b;
-            if (arrayList == null) {
-                return 0;
-            }
-            return arrayList.size();
+            return this.b;
         }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
-            int equipmentWidth = (BdUtilHelper.getEquipmentWidth(this.a) - BdUtilHelper.getDimens(this.a, R.dimen.obfuscated_res_0x7f070399)) / 4;
-            if (view2 == null) {
-                b bVar = new b(this, null);
-                View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d02d3, (ViewGroup) null);
-                bVar.a = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091099);
-                inflate.setTag(bVar);
-                inflate.setLayoutParams(new AbsListView.LayoutParams(equipmentWidth, equipmentWidth));
-                view2 = inflate;
-            }
-            b bVar2 = (b) view2.getTag();
-            String obj = getItem(i).toString();
-            SkinManager.setBackgroundResource(bVar2.a, R.drawable.btn_choose_face_selector);
-            bVar2.a.startLoad(obj, 10, equipmentWidth, equipmentWidth, false);
-            if (i == getCount() - 1) {
-                viewGroup.invalidate();
-            }
-            return view2;
-        }
-        return (View) invokeILL.objValue;
+        return (View) invokeV.objValue;
     }
 }

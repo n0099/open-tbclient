@@ -243,8 +243,8 @@ public class SegAR extends c {
         return 1.0f;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:30:0x00a5  */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x00ad  */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x00a8  */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x00b0  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

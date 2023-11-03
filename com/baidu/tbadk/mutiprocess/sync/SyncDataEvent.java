@@ -20,6 +20,7 @@ public class SyncDataEvent extends SerializableEvent {
     public int praiseSwitch;
     public ProfileVirtualImageInfo profileVirtualImageInfo;
     public String sampleId;
+    public String spriteMemeInfo;
     public HashMap<String, Integer> switches;
     public int themeIsBlack;
     public String ubsABTest;

@@ -1,19 +1,101 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BdToken.completeTask.CompleteTaskReqMsg;
+import com.baidu.tieba.tbadkCore.writeModel.AttentionBarData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public class yo4 {
     public static /* synthetic */ Interceptable $ic;
+    public static yo4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final zo4 a;
+    public ko4 a;
+    public CustomMessageListener b;
+    public CustomMessageListener c;
+
+    /* loaded from: classes9.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yo4 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(yo4 yo4Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yo4Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = yo4Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.a != null && customResponsedMessage != null) {
+                Object data = customResponsedMessage.getData();
+                if ((data instanceof AttentionBarData) && ((AttentionBarData) data).isSuccess) {
+                    this.a.e();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(yo4 yo4Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yo4Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
 
     public yo4() {
         Interceptable interceptable = $ic;
@@ -28,47 +110,64 @@ public class yo4 {
                 return;
             }
         }
-        this.a = new zo4();
+        this.b = new a(this, 2001437);
+        this.c = new b(this, 2005016);
     }
 
-    public xo4 a(String str) {
-        InterceptResult invokeL;
-        String str2;
+    public void d(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String str3 = null;
-            if (ad.isEmpty(str)) {
-                return null;
-            }
-            Matcher matcher = Pattern.compile("\\$[0-9A-Za-z@_]{5,300}[#$]", 2).matcher(str);
-            if (!matcher.find()) {
-                return null;
-            }
-            String group = matcher.group();
-            Matcher matcher2 = Pattern.compile("\\$[0-9A-Za-z@_]{1,100}[!]", 2).matcher(str);
-            if (matcher2.find()) {
-                str2 = bp4.d(matcher2.group());
-            } else {
-                str2 = null;
-            }
-            if (str2 != null && str2.startsWith("Y")) {
-                ap4.a(str2);
-                str3 = b(group);
-            }
-            return new xo4(group, str3, str2);
+        if (interceptable == null || interceptable.invokeL(1048576, this, bdUniqueId) == null) {
+            this.b.setTag(bdUniqueId);
+            this.c.setTag(bdUniqueId);
+            MessageManager.getInstance().registerListener(this.b);
+            MessageManager.getInstance().registerListener(this.c);
         }
-        return (xo4) invokeL.objValue;
     }
 
-    public final String b(String str) {
-        InterceptResult invokeL;
+    public void f(ko4 ko4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            return this.a.a(bp4.f(str.replaceAll("\\$", "")));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ko4Var) == null) {
+            this.a = ko4Var;
         }
-        return (String) invokeL.objValue;
+    }
+
+    public static yo4 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (d == null) {
+                synchronized (yo4.class) {
+                    if (d == null) {
+                        d = new yo4();
+                    }
+                }
+            }
+            return d;
+        }
+        return (yo4) invokeV.objValue;
+    }
+
+    public final void e() {
+        ko4 ko4Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (ko4Var = this.a) == null || ko4Var.d() == 0 || this.a.q() == 0 || this.a.x() != 9) {
+            return;
+        }
+        try {
+            String valueOf = String.valueOf(this.a.d());
+            String valueOf2 = String.valueOf(this.a.q());
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put(valueOf, valueOf2);
+            CompleteTaskReqMsg completeTaskReqMsg = new CompleteTaskReqMsg(0);
+            completeTaskReqMsg.completeId = jSONObject.toString();
+            JSONObject a2 = mp4.a(null, this.a.d(), this.a.q(), this.a.E());
+            if (a2 != null) {
+                completeTaskReqMsg.setToken(a2.toString());
+            }
+            completeTaskReqMsg.setNetType(NetMessage.NetType.HTTP);
+            MessageManager.getInstance().sendMessage(completeTaskReqMsg);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

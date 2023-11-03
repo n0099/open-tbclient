@@ -1,137 +1,81 @@
 package com.baidu.tieba;
 
+import android.animation.Animator;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.f0c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.transvod.player.common.ConcurrentLinkedQueueX;
-import com.yy.transvod.player.log.TLog;
-import com.yy.transvod.player.mediacodec.MediaSample;
-import java.nio.ByteBuffer;
-import java.util.concurrent.atomic.AtomicLong;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes5.dex */
-public final class e0c {
+public class e0c implements Animator.AnimatorListener {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile e0c c;
     public transient /* synthetic */ FieldHolder $fh;
-    public AtomicLong a;
-    public ConcurrentLinkedQueueX<MediaSample> b;
+    public final /* synthetic */ f0c.a a;
+    public final /* synthetic */ View b;
+    public final /* synthetic */ ViewGroup c;
+    public final /* synthetic */ float d;
+    public final /* synthetic */ float e;
+    public final /* synthetic */ int[] f;
+    public final /* synthetic */ ViewGroup g;
+    public final /* synthetic */ f0c h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947681969, "Lcom/baidu/tieba/e0c;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947681969, "Lcom/baidu/tieba/e0c;");
-        }
-    }
-
-    public e0c() {
+    public e0c(f0c f0cVar, f0c.a aVar, View view2, ViewGroup viewGroup, float f, float f2, int[] iArr, ViewGroup viewGroup2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {f0cVar, aVar, view2, viewGroup, Float.valueOf(f), Float.valueOf(f2), iArr, viewGroup2};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new AtomicLong(0L);
-        this.b = new ConcurrentLinkedQueueX<>();
-        c(512L);
+        this.h = f0cVar;
+        this.a = aVar;
+        this.b = view2;
+        this.c = viewGroup;
+        this.d = f;
+        this.e = f2;
+        this.f = iArr;
+        this.g = viewGroup2;
     }
 
-    public static e0c f() {
-        InterceptResult invokeV;
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationCancel(Animator animator) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (e0c.class) {
-                    if (c == null) {
-                        c = new e0c();
-                    }
-                }
-            }
-            return c;
-        }
-        return (e0c) invokeV.objValue;
-    }
-
-    public MediaSample a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            MediaSample poll = this.b.poll();
-            if (poll == null) {
-                if (this.a.get() < 1024) {
-                    c(1024 - this.a.get());
-                    poll = this.b.poll();
-                } else {
-                    poll = MediaSample.a(this.a.getAndIncrement());
-                }
-            }
-            poll.d();
-            poll.a = str;
-            return poll;
-        }
-        return (MediaSample) invokeL.objValue;
-    }
-
-    public MediaSample b(String str, ByteBuffer byteBuffer) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, byteBuffer)) == null) {
-            MediaSample a = a(str);
-            a.i.k = byteBuffer;
-            return a;
-        }
-        return (MediaSample) invokeLL.objValue;
-    }
-
-    public final void c(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            for (int i = 0; i < j; i++) {
-                this.b.add(MediaSample.a(this.a.getAndIncrement()));
-            }
-            d();
+        if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
         }
     }
 
-    public void d() {
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationRepeat(Animator animator) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            int elementCount = this.b.getElementCount();
-            int i = (int) this.a.get();
-            TLog.g(this, String.format("MediaAllocator check capacity:%d, realCapacity:%d, sizeInQueue:%d, lostSize:%d", 1024L, Integer.valueOf(i), Integer.valueOf(elementCount), Integer.valueOf(i - elementCount)));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
         }
     }
 
-    public void e(MediaSample mediaSample) {
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationEnd(Animator animator) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, mediaSample) == null) {
-            mediaSample.d();
-            if (this.b.size() <= 1536.0d) {
-                if (!this.b.contains(mediaSample)) {
-                    this.b.add(mediaSample);
-                    return;
-                }
-                return;
-            }
-            this.a.decrementAndGet();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
+            this.h.a(this.b, this.c, this.d, this.e, this.f, this.g, this.a);
+        }
+    }
+
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationStart(Animator animator) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
+            LogPrinter.d("zoomOut onAnimationStart", new Object[0]);
+            this.h.getClass();
         }
     }
 }

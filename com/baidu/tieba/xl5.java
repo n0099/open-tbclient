@@ -1,9 +1,11 @@
 package com.baidu.tieba;
-/* loaded from: classes8.dex */
-public interface xl5 extends wl5 {
-    String getCacheTableName();
 
-    boolean isNeedUid();
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.TbPageContext;
+/* loaded from: classes9.dex */
+public interface xl5 extends ek5 {
+    public static final String b = "com.baidu.tieba.xl5";
 
-    boolean w();
+    @NonNull
+    yl5 a(@NonNull TbPageContext tbPageContext);
 }

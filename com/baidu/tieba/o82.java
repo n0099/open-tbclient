@@ -1,12 +1,9 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.pms.PMSDownloadType;
-import com.baidu.swan.apps.core.pms.PkgDownloadError;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,21 +11,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class o82 extends p82 {
+public class o82 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean D;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.t82
-    public int K() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return 3;
-        }
-        return invokeV.intValue;
-    }
+    public final List<s82> a;
+    public final Object b;
+    public final int c;
 
     static {
         InterceptResult invokeClinit;
@@ -43,145 +37,255 @@ public class o82 extends p82 {
                 return;
             }
         }
-        D = am1.a;
+        d = rm1.a;
     }
 
-    @Override // com.baidu.tieba.kd4
-    public void F() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.F();
-            if (this.n != null) {
-                u0();
-                H0("checkForUpdate", false);
-                f92.c(this.o);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.p82
-    public PMSDownloadType k0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return PMSDownloadType.ASYNC;
-        }
-        return (PMSDownloadType) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o82(String str) {
-        super(str);
+    @SuppressLint({"BDThrowableCheck"})
+    public o82(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.p82, com.baidu.tieba.kd4
-    public void C(je4 je4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, je4Var) == null) {
-            super.C(je4Var);
-            if (D) {
-                Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: onFetchError: " + je4Var.toString());
-            }
-            H0("checkForUpdate", false);
-            m0(je4Var.a);
-            if (f92.m(je4Var)) {
-                f92.c(this.o);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.p82, com.baidu.tieba.kd4
-    public void G(xi4 xi4Var) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xi4Var) == null) {
-            super.G(xi4Var);
-            if (xi4Var != null && xi4Var.f()) {
-                z = true;
+        if (i < 1) {
+            if (!d) {
+                i = 1;
             } else {
-                z = false;
-            }
-            H0("checkForUpdate", z);
-        }
-    }
-
-    @Override // com.baidu.tieba.kd4
-    public void H(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
-            super.H(str, i);
-            ue4 a = ue4.a(str);
-            if (a == null) {
-                return;
-            }
-            boolean b = wi4.b(a.c());
-            p22.i("SwanAppPkgAsyncDownloadCallback", "resetCore: " + b + ";statusCode:" + i);
-            if (b) {
-                f23 e = f23.e();
-                h23 h23Var = new h23(129);
-                h23Var.f(true);
-                e.h(h23Var);
+                throw new RuntimeException("MasterPool size can not less than 1");
             }
         }
+        this.c = i;
+        this.b = new Object();
+        this.a = new LinkedList();
     }
 
-    public final void H0(String str, boolean z) {
+    public void c(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(1048580, this, str, z) != null) || TextUtils.isEmpty(this.o)) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || TextUtils.isEmpty(str) || TextUtils.equals(str, "_default_id_")) {
             return;
         }
-        r82.f(str, this.o, z);
+        synchronized (this.b) {
+            ArrayList arrayList = new ArrayList();
+            for (s82 s82Var : this.a) {
+                if (TextUtils.equals(s82Var.h(), str)) {
+                    arrayList.add(s82Var);
+                }
+            }
+            b(arrayList);
+        }
     }
 
-    @Override // com.baidu.tieba.p82
-    public void v0() {
+    public void a(Collection<s82> collection) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.v0();
-            this.p.add(new UbcFlowEvent("na_start_update_db"));
-            ih3 F0 = F0();
-            this.p.add(new UbcFlowEvent("na_end_update_db"));
-            if (F0 == null) {
-                if (D) {
-                    Log.d("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: 异步更新-> DB 存储成功");
+        if (interceptable == null || interceptable.invokeL(1048576, this, collection) == null) {
+            int i = 0;
+            if (collection != null && collection.size() > 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (d) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("master pool clear, excludes size - ");
+                if (collection != null) {
+                    i = collection.size();
                 }
-                H0("updateReady", true);
-                A0("main_async_download", "0");
-                f92.c(this.o);
-            } else if (D) {
-                Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: 异步更新-> DB 存储失败");
+                sb.append(i);
+                Log.i("MasterPool", sb.toString());
+                if (collection != null) {
+                    for (s82 s82Var : collection) {
+                        if (s82Var.i() != null) {
+                            Log.i("MasterPool", "excludes  - " + s82Var.i().a());
+                        }
+                    }
+                }
+            }
+            synchronized (this.b) {
+                ArrayList arrayList = new ArrayList();
+                for (s82 s82Var2 : this.a) {
+                    if (z || (collection != null && !collection.contains(s82Var2))) {
+                        arrayList.add(s82Var2);
+                    }
+                }
+                b(arrayList);
             }
         }
     }
 
-    @Override // com.baidu.tieba.p82
-    public void w0(Throwable th) {
+    public final void b(Collection<s82> collection) {
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, th) == null) {
-            H0("updateFailed", false);
-            if (th instanceof PkgDownloadError) {
-                PkgDownloadError pkgDownloadError = (PkgDownloadError) th;
-                if (D) {
-                    Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: pkg:" + pkgDownloadError.getPackage() + ", message:" + pkgDownloadError.getMessage());
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, collection) == null) && collection.size() > 0) {
+            if (d) {
+                j = System.currentTimeMillis();
+            } else {
+                j = 0;
+            }
+            this.a.removeAll(collection);
+            if (d) {
+                Log.i("MasterPool", "remove no use master in pool, size - " + collection.size());
+            }
+            for (s82 s82Var : collection) {
+                if (s82Var.i() != null) {
+                    s82Var.i().destroy();
+                    if (d) {
+                        Log.i("MasterPool", "master destroy, id - " + s82Var.i().a() + ", isReady - " + s82Var.n() + ", is Default - " + s82Var.l() + ", is Prefetch - " + s82Var.j());
+                    }
                 }
-            } else if (D) {
-                Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: 未知错误：" + th.getMessage());
+            }
+            if (d) {
+                long currentTimeMillis = System.currentTimeMillis();
+                Log.i("MasterPool", "destroy masters cost - " + (currentTimeMillis - j) + "ms");
             }
         }
+    }
+
+    public void g(Collection<s82> collection) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, collection) == null) {
+            if (this.c >= 3) {
+                boolean z = true;
+                if (this.a.size() > 1) {
+                    if (collection != null && collection.size() > 0) {
+                        z = false;
+                    }
+                    synchronized (this.b) {
+                        ArrayList arrayList = new ArrayList();
+                        for (s82 s82Var : this.a) {
+                            if (!s82Var.l() && s82Var.j() && (z || !collection.contains(s82Var))) {
+                                arrayList.add(s82Var);
+                            }
+                        }
+                        if (d) {
+                            Log.d("MasterPool", "remove all prefetch event master, size - " + arrayList.size());
+                        }
+                        b(arrayList);
+                    }
+                    return;
+                }
+            }
+            if (d) {
+                Log.d("MasterPool", "no need to remove prefetch master");
+                Log.d("MasterPool", "max size - " + this.c);
+                Log.d("MasterPool", "current cache size - " + this.a.size());
+            }
+        }
+    }
+
+    public s82 d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            s82 s82Var = null;
+            if (TextUtils.isEmpty(str)) {
+                if (d) {
+                    Log.w("MasterPool", "appId can not be empty");
+                }
+                return null;
+            }
+            synchronized (this.b) {
+                if (TextUtils.equals(str, "_default_id_")) {
+                    if (d) {
+                        Log.i("MasterPool", "get default master manger for id - " + str);
+                    }
+                    return e();
+                }
+                int size = this.a.size() - 1;
+                int i = size;
+                while (true) {
+                    if (i < 0) {
+                        break;
+                    }
+                    s82 s82Var2 = this.a.get(i);
+                    if (TextUtils.equals(s82Var2.h(), str)) {
+                        if (d) {
+                            Log.i("MasterPool", "get master in pool for id - " + str);
+                        }
+                        s82Var = s82Var2;
+                    } else {
+                        i--;
+                    }
+                }
+                if (s82Var != null && i != size) {
+                    this.a.remove(i);
+                    this.a.add(s82Var);
+                }
+                if (d) {
+                    if (s82Var == null) {
+                        Log.i("MasterPool", "find no master for id - " + str);
+                    } else {
+                        Log.i("MasterPool", "hit a master cache for id - " + str);
+                    }
+                }
+                return s82Var;
+            }
+        }
+        return (s82) invokeL.objValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public final s82 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            for (s82 s82Var : this.a) {
+                if (s82Var.l()) {
+                    return s82Var;
+                }
+            }
+            if (!d) {
+                return null;
+            }
+            throw new RuntimeException("there must be one default master in pool, you should add default one first");
+        }
+        return (s82) invokeV.objValue;
+    }
+
+    public void f(s82 s82Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, s82Var) != null) || s82Var == null) {
+            return;
+        }
+        synchronized (this.b) {
+            if (!this.a.contains(s82Var)) {
+                this.a.add(s82Var);
+            }
+            h();
+        }
+    }
+
+    public final void h() {
+        int size;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || (size = this.a.size()) <= this.c) {
+            return;
+        }
+        if (d) {
+            Log.i("MasterPool", "resize, current - " + size + ", target - " + this.c);
+        }
+        ArrayList arrayList = new ArrayList();
+        boolean z = false;
+        for (int i = 0; i < size; i++) {
+            s82 s82Var = this.a.get(i);
+            if (s82Var.l() && !z) {
+                z = true;
+            } else {
+                arrayList.add(s82Var);
+                if (arrayList.size() >= size - this.c) {
+                    break;
+                }
+            }
+        }
+        b(arrayList);
     }
 }

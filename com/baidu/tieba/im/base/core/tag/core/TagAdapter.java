@@ -5,11 +5,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.da8;
-import com.baidu.tieba.ea8;
-import com.baidu.tieba.x98;
-import com.baidu.tieba.y98;
-import com.baidu.tieba.z98;
+import com.baidu.tieba.bn8;
+import com.baidu.tieba.cn8;
+import com.baidu.tieba.vm8;
+import com.baidu.tieba.wm8;
+import com.baidu.tieba.xm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,8 +19,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class TagAdapter extends RecyclerView.Adapter<BaseTagItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final x98 a;
-    public final z98 b;
+    public final vm8 a;
+    public final xm8 b;
     public final Context c;
     public RecyclerView d;
 
@@ -90,7 +90,7 @@ public class TagAdapter extends RecyclerView.Adapter<BaseTagItemViewHolder> {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements y98 {
+    public class b implements wm8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TagAdapter a;
@@ -117,7 +117,7 @@ public class TagAdapter extends RecyclerView.Adapter<BaseTagItemViewHolder> {
             this(tagAdapter);
         }
 
-        @Override // com.baidu.tieba.y98
+        @Override // com.baidu.tieba.wm8
         public void a(int i, int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && i >= 0 && i2 > 0) {
@@ -125,7 +125,7 @@ public class TagAdapter extends RecyclerView.Adapter<BaseTagItemViewHolder> {
             }
         }
 
-        @Override // com.baidu.tieba.y98
+        @Override // com.baidu.tieba.wm8
         public void b(int i, int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) && i >= 0 && i2 > 0) {
@@ -133,7 +133,7 @@ public class TagAdapter extends RecyclerView.Adapter<BaseTagItemViewHolder> {
             }
         }
 
-        @Override // com.baidu.tieba.y98
+        @Override // com.baidu.tieba.wm8
         public void c(int i, int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) && i >= 0 && i2 > 0) {
@@ -142,12 +142,12 @@ public class TagAdapter extends RecyclerView.Adapter<BaseTagItemViewHolder> {
         }
     }
 
-    public TagAdapter(x98 x98Var, z98 z98Var, Context context) {
+    public TagAdapter(vm8 vm8Var, xm8 xm8Var, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {x98Var, z98Var, context};
+            Object[] objArr = {vm8Var, xm8Var, context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -157,9 +157,9 @@ public class TagAdapter extends RecyclerView.Adapter<BaseTagItemViewHolder> {
                 return;
             }
         }
-        this.a = x98Var;
+        this.a = vm8Var;
         this.c = context;
-        this.b = z98Var;
+        this.b = xm8Var;
         this.b.l(new b(this, null));
         this.a.a(this.b);
     }
@@ -231,7 +231,7 @@ public class TagAdapter extends RecyclerView.Adapter<BaseTagItemViewHolder> {
     public void onViewRecycled(BaseTagItemViewHolder baseTagItemViewHolder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, baseTagItemViewHolder) == null) {
-            baseTagItemViewHolder.l();
+            baseTagItemViewHolder.m();
         }
     }
 
@@ -261,12 +261,12 @@ public class TagAdapter extends RecyclerView.Adapter<BaseTagItemViewHolder> {
         return (BaseTagItemViewHolder) invokeLI.objValue;
     }
 
-    public void q(ea8 ea8Var, da8 da8Var) {
-        x98 x98Var;
+    public void q(cn8 cn8Var, bn8 bn8Var) {
+        vm8 vm8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048590, this, ea8Var, da8Var) == null) && (x98Var = this.a) != null) {
-            x98Var.d(ea8Var);
-            this.a.c(da8Var);
+        if ((interceptable == null || interceptable.invokeLL(1048590, this, cn8Var, bn8Var) == null) && (vm8Var = this.a) != null) {
+            vm8Var.d(cn8Var);
+            this.a.c(bn8Var);
         }
     }
 }

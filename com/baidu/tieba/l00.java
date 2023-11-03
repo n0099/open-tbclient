@@ -1,91 +1,72 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.ServiceConnection;
-import android.os.IBinder;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.p00;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class l00 {
     public static /* synthetic */ Interceptable $ic;
+    public static final char[] a;
+    public static final char[] b;
+    public static final byte[] c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public class a implements ServiceConnection {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Class[] a;
-        public final /* synthetic */ p00.a b;
-
-        public a(Class[] clsArr, p00.a aVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947888925, "Lcom/baidu/tieba/l00;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {clsArr, aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = clsArr;
-            this.b = aVar;
-        }
-
-        @Override // android.content.ServiceConnection
-        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-                try {
-                    this.b.a(true, (String) this.a[0].getMethod("a", new Class[0]).invoke(this.a[0].getMethod("asInterface", IBinder.class).invoke(null, iBinder), new Object[0]));
-                } catch (Throwable unused) {
-                    this.b.a(false, null);
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947888925, "Lcom/baidu/tieba/l00;");
+                return;
             }
         }
-
-        @Override // android.content.ServiceConnection
-        public void onServiceDisconnected(ComponentName componentName) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            }
+        a = "0123456789ABCDEF".toCharArray();
+        b = "0123456789abcdef".toCharArray();
+        c = new byte[128];
+        for (int i = 0; i < 10; i++) {
+            byte[] bArr = c;
+            bArr[i + 48] = (byte) i;
+            byte b2 = (byte) (i + 10);
+            bArr[i + 65] = b2;
+            bArr[i + 97] = b2;
         }
     }
 
-    public static void a(Context context, p00.a aVar) {
+    public static char[] a(byte[] bArr, boolean z) {
+        InterceptResult invokeLZ;
+        char[] cArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, context, aVar) == null) {
-            if (context == null) {
-                aVar.a(false, null);
-                return;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, bArr, z)) == null) {
+            if (z) {
+                cArr = a;
+            } else {
+                cArr = b;
             }
-            Class[] clsArr = new Class[1];
-            try {
-                clsArr[0] = Class.forName("com.zui.deviceidservice.IDeviceidInterface$Stub");
-            } catch (Throwable unused) {
+            char[] cArr2 = new char[bArr.length * 2];
+            int i = 0;
+            for (byte b2 : bArr) {
+                int i2 = i + 1;
+                cArr2[i] = cArr[(b2 & 240) >>> 4];
+                i = i2 + 1;
+                cArr2[i2] = cArr[b2 & 15];
             }
-            if (clsArr[0] == null) {
-                aVar.a(false, null);
-                return;
-            }
-            try {
-                a aVar2 = new a(clsArr, aVar);
-                Intent intent = new Intent();
-                intent.setClassName("com.zui.deviceidservice", "com.zui.deviceidservice.DeviceidService");
-                context.bindService(intent, aVar2, 1);
-            } catch (Throwable unused2) {
-                aVar.a(false, null);
-            }
+            return cArr2;
         }
+        return (char[]) invokeLZ.objValue;
+    }
+
+    public static String b(byte[] bArr, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, bArr, z)) == null) {
+            return new String(a(bArr, z));
+        }
+        return (String) invokeLZ.objValue;
     }
 }

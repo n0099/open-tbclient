@@ -54,12 +54,12 @@ public final class d extends com.kwad.components.core.i.e implements View.OnClic
     }
 
     private void h(View view2) {
-        this.it = (KSCornerImageView) view2.findViewById(R.id.obfuscated_res_0x7f0912fe);
-        this.eQ = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0912ff);
-        this.iu = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091302);
-        this.iv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091303);
-        this.iw = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091300);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091301);
+        this.it = (KSCornerImageView) view2.findViewById(R.id.obfuscated_res_0x7f09133c);
+        this.eQ = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09133d);
+        this.iu = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091340);
+        this.iv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091341);
+        this.iw = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09133e);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09133f);
         this.ix = textView;
         com.kwad.sdk.b.kwai.a.a(this, this.it, this.eQ, this.iu, this.iv, this.iw, textView);
     }
@@ -75,7 +75,7 @@ public final class d extends com.kwad.components.core.i.e implements View.OnClic
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d04b5, viewGroup, false);
+        View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d04c8, viewGroup, false);
         h(inflate);
         dT();
         return inflate;

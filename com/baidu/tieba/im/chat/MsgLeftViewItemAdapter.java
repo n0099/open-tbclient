@@ -73,7 +73,7 @@ public class MsgLeftViewItemAdapter extends MsgCommonItemAdapter<MsgleftView> {
         this.o = false;
     }
 
-    public void G(int i) {
+    public void H(int i) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || this.k == i) {
             return;
@@ -83,35 +83,35 @@ public class MsgLeftViewItemAdapter extends MsgCommonItemAdapter<MsgleftView> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
-    /* renamed from: H */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: I */
     public MsgCommonItemAdapter.MsgViewHolder<MsgleftView> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup)) == null) {
             MsgleftView msgleftView = new MsgleftView(this.a);
             this.n = msgleftView;
-            msgleftView.G(this.o);
-            return new a(this, this.n.g(), this.n);
+            msgleftView.K(this.o);
+            return new a(this, this.n.x(), this.n);
         }
         return (MsgCommonItemAdapter.MsgViewHolder) invokeL.objValue;
     }
 
-    public void I(boolean z) {
+    public void J(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             this.o = z;
         }
     }
 
-    public void J(boolean z) {
+    public void K(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             this.m = z;
         }
     }
 
-    public void K(boolean z) {
+    public void L(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             this.l = z;
@@ -119,35 +119,35 @@ public class MsgLeftViewItemAdapter extends MsgCommonItemAdapter<MsgleftView> {
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.tieba.lh
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.tieba.bi
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
-        x(i, view2, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
+        y(i, view2, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view2;
     }
 
     @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter
-    public View x(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<MsgleftView> msgViewHolder) {
+    public View y(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<MsgleftView> msgViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
             super.onFillViewHolder(i, view2, viewGroup, chatMessage, msgViewHolder);
             MsgleftView a2 = msgViewHolder.a();
-            a2.G(this.o);
-            a2.U(this.g);
-            a2.O(this.l);
-            a2.J(this.h);
+            a2.K(this.o);
+            a2.Y(this.g);
+            a2.S(this.l);
+            a2.N(this.h);
             a2.setUpdateListener(this.j);
-            a2.T(this.i);
-            a2.L(this.m);
-            a2.F();
+            a2.X(this.i);
+            a2.P(this.m);
+            a2.J();
             chatMessage.getCacheData().setIs_left(1);
-            a2.P(this.b);
-            a2.Q(this.c);
-            a2.R(i);
-            a2.H(this.d);
-            a2.N(chatMessage.getCacheData().getLastMsgTime());
-            a2.S(viewGroup, chatMessage);
-            a2.I(viewGroup, chatMessage);
+            a2.T(this.b);
+            a2.U(this.c);
+            a2.V(i);
+            a2.L(this.d);
+            a2.R(chatMessage.getCacheData().getLastMsgTime());
+            a2.W(viewGroup, chatMessage);
+            a2.M(viewGroup, chatMessage);
             this.a.getLayoutMode().setNightMode(false);
             this.a.getLayoutMode().onModeChanged(view2);
             return view2;

@@ -20,8 +20,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kk6;
-import com.baidu.tieba.ps5;
+import com.baidu.tieba.gm6;
+import com.baidu.tieba.ju5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -187,9 +187,9 @@ public class MultiLinkCardView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, list, list2) == null) {
             new ArrayList();
-            ps5 ps5Var = new ps5();
-            List<kk6> a = ps5Var.a(list, list2);
-            boolean c = ps5Var.c();
+            ju5 ju5Var = new ju5();
+            List<gm6> a = ju5Var.a(list, list2);
+            boolean c = ju5Var.c();
             if (ListUtils.isEmpty(a)) {
                 return;
             }

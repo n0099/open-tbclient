@@ -23,13 +23,13 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.module.frs.Frs$From;
 import com.baidu.tbadk.widget.DeviderLineDecoration;
 import com.baidu.tieba.R;
+import com.baidu.tieba.er4;
+import com.baidu.tieba.f55;
 import com.baidu.tieba.frs.voiceroom.VoiceRoomListFragment;
 import com.baidu.tieba.frs.voiceroom.VoiceRoomStat;
 import com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper;
-import com.baidu.tieba.l45;
-import com.baidu.tieba.m45;
-import com.baidu.tieba.ms7;
-import com.baidu.tieba.nq4;
+import com.baidu.tieba.g55;
+import com.baidu.tieba.h58;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -50,13 +50,13 @@ public final class VoiceRoomListFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
-    public m45 b;
+    public g55 b;
     public final Lazy c;
 
     /* loaded from: classes6.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
-        public static final C0293a e;
+        public static final C0300a e;
         public transient /* synthetic */ FieldHolder $fh;
         public final View a;
         public final NavigationBar b;
@@ -76,7 +76,7 @@ public final class VoiceRoomListFragment extends BaseFragment {
                     return;
                 }
             }
-            e = new C0293a(null);
+            e = new C0300a(null);
         }
 
         public boolean equals(Object obj) {
@@ -112,15 +112,15 @@ public final class VoiceRoomListFragment extends BaseFragment {
 
         /* renamed from: com.baidu.tieba.frs.voiceroom.VoiceRoomListFragment$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static final class C0293a {
+        public static final class C0300a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public /* synthetic */ C0293a(DefaultConstructorMarker defaultConstructorMarker) {
+            public /* synthetic */ C0300a(DefaultConstructorMarker defaultConstructorMarker) {
                 this();
             }
 
-            public C0293a() {
+            public C0300a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -139,11 +139,11 @@ public final class VoiceRoomListFragment extends BaseFragment {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, root)) == null) {
                     Intrinsics.checkNotNullParameter(root, "root");
-                    View findViewById = root.findViewById(R.id.obfuscated_res_0x7f0918f2);
+                    View findViewById = root.findViewById(R.id.obfuscated_res_0x7f091939);
                     Intrinsics.checkNotNullExpressionValue(findViewById, "root.findViewById(R.id.nav_bar)");
                     View findViewById2 = root.findViewById(R.id.refresh_layout);
                     Intrinsics.checkNotNullExpressionValue(findViewById2, "root.findViewById(R.id.refresh_layout)");
-                    View findViewById3 = root.findViewById(R.id.obfuscated_res_0x7f0929c2);
+                    View findViewById3 = root.findViewById(R.id.obfuscated_res_0x7f092a21);
                     Intrinsics.checkNotNullExpressionValue(findViewById3, "root.findViewById(R.id.voice_room_list)");
                     return new a(root, (NavigationBar) findViewById, (BdSwipeRefreshLayout) findViewById2, (RecyclerView) findViewById3);
                 }
@@ -297,22 +297,22 @@ public final class VoiceRoomListFragment extends BaseFragment {
         }, null);
     }
 
-    public static final void d2(VoiceRoomListFragment this$0, boolean z) {
+    public static final void v2(VoiceRoomListFragment this$0, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65537, null, this$0, z) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.e2();
+            this$0.w2();
         }
     }
 
-    /* JADX DEBUG: Type inference failed for r2v2. Raw type applied. Possible types: androidx.lifecycle.Observer<T>, androidx.lifecycle.Observer<? super com.baidu.tieba.nq4<java.util.List<com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper>>> */
-    public final void f2(final VoiceRoomListAdapter voiceRoomListAdapter, final a aVar) {
+    /* JADX DEBUG: Type inference failed for r2v2. Raw type applied. Possible types: androidx.lifecycle.Observer<T>, androidx.lifecycle.Observer<? super com.baidu.tieba.er4<java.util.List<com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper>>> */
+    public final void x2(final VoiceRoomListAdapter voiceRoomListAdapter, final a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, voiceRoomListAdapter, aVar) == null) {
-            LiveData<nq4<List<VoiceRoomWrapper>>> d = c2().d();
+        if (interceptable == null || interceptable.invokeLL(1048583, this, voiceRoomListAdapter, aVar) == null) {
+            LiveData<er4<List<VoiceRoomWrapper>>> c = u2().c();
             LifecycleOwner viewLifecycleOwner = getViewLifecycleOwner();
             Intrinsics.checkNotNullExpressionValue(viewLifecycleOwner, "viewLifecycleOwner");
-            d.observe(viewLifecycleOwner, new Observer<T>(voiceRoomListAdapter, aVar, this) { // from class: com.baidu.tieba.frs.voiceroom.VoiceRoomListFragment$subscribeUi$$inlined$observe$1
+            c.observe(viewLifecycleOwner, new Observer<T>(voiceRoomListAdapter, aVar, this) { // from class: com.baidu.tieba.frs.voiceroom.VoiceRoomListFragment$subscribeUi$$inlined$observe$1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ VoiceRoomListAdapter a;
@@ -343,14 +343,14 @@ public final class VoiceRoomListFragment extends BaseFragment {
                 public final void onChanged(T t) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, t) == null) {
-                        nq4 nq4Var = (nq4) t;
-                        if (nq4Var instanceof nq4.c) {
-                            this.a.submitList((List) ((nq4.c) nq4Var).a());
+                        er4 er4Var = (er4) t;
+                        if (er4Var instanceof er4.c) {
+                            this.a.submitList((List) ((er4.c) er4Var).a());
                             this.b.b().setRefreshing(false);
-                        } else if (nq4Var instanceof nq4.a) {
-                            this.c.showToast(((nq4.a) nq4Var).a());
+                        } else if (er4Var instanceof er4.a) {
+                            this.c.showToast(((er4.a) er4Var).a());
                             this.b.b().setRefreshing(false);
-                        } else if (nq4Var instanceof nq4.b) {
+                        } else if (er4Var instanceof er4.b) {
                             this.b.b().setRefreshing(true);
                         }
                     }
@@ -359,56 +359,10 @@ public final class VoiceRoomListFragment extends BaseFragment {
         }
     }
 
-    public final VoiceRoomListViewModel c2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return (VoiceRoomListViewModel) this.c.getValue();
-        }
-        return (VoiceRoomListViewModel) invokeV.objValue;
-    }
-
-    public final void e2() {
-        Bundle arguments;
-        Frs$From f;
-        long d;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (arguments = getArguments()) != null) {
-            VoiceRoomListViewModel c2 = c2();
-            TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
-            Intrinsics.checkNotNullExpressionValue(pageContext, "pageContext");
-            f = ms7.f(arguments);
-            long callFrom = f.getCallFrom();
-            d = ms7.d(arguments);
-            c2.e(pageContext, callFrom, d);
-        }
-    }
-
-    @Override // androidx.fragment.app.Fragment
-    public void onStart() {
-        Frs$From f;
-        long d;
-        String e;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            super.onStart();
-            Bundle arguments = getArguments();
-            if (arguments != null) {
-                VoiceRoomStat voiceRoomStat = VoiceRoomStat.a;
-                VoiceRoomStat.StatType statType = VoiceRoomStat.StatType.PAGE_ENTER;
-                f = ms7.f(arguments);
-                d = ms7.d(arguments);
-                Long valueOf = Long.valueOf(d);
-                e = ms7.e(arguments);
-                voiceRoomStat.c(statType, f, null, null, valueOf, e);
-            }
-        }
-    }
-
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.onChangeSkinType(i);
             a aVar = this.a;
             if (aVar == null) {
@@ -418,9 +372,9 @@ public final class VoiceRoomListFragment extends BaseFragment {
             aVar.a().onChangeSkinType(getPageContext(), i);
             SkinManager.setBackgroundColor(aVar.a(), R.color.CAM_X0209);
             SkinManager.setBackgroundColor(aVar.b(), R.color.CAM_X0209);
-            m45 m45Var = this.b;
-            if (m45Var != null) {
-                m45Var.D(i);
+            g55 g55Var = this.b;
+            if (g55Var != null) {
+                g55Var.D(i);
             }
         }
     }
@@ -428,9 +382,9 @@ public final class VoiceRoomListFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            e2();
+            w2();
         }
     }
 
@@ -438,19 +392,65 @@ public final class VoiceRoomListFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, inflater, viewGroup, bundle)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, inflater, viewGroup, bundle)) == null) {
             Intrinsics.checkNotNullParameter(inflater, "inflater");
-            View inflate = inflater.inflate(R.layout.obfuscated_res_0x7f0d0342, viewGroup, false);
+            View inflate = inflater.inflate(R.layout.obfuscated_res_0x7f0d0351, viewGroup, false);
             Intrinsics.checkNotNullExpressionValue(inflate, "inflater.inflate(R.layou…m_list, container, false)");
             return inflate;
         }
         return (View) invokeLLL.objValue;
     }
 
+    @Override // androidx.fragment.app.Fragment
+    public void onStart() {
+        Frs$From f;
+        long d;
+        String e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.onStart();
+            Bundle arguments = getArguments();
+            if (arguments != null) {
+                VoiceRoomStat voiceRoomStat = VoiceRoomStat.a;
+                VoiceRoomStat.StatType statType = VoiceRoomStat.StatType.PAGE_ENTER;
+                f = h58.f(arguments);
+                d = h58.d(arguments);
+                Long valueOf = Long.valueOf(d);
+                e = h58.e(arguments);
+                voiceRoomStat.c(statType, f, null, null, valueOf, e);
+            }
+        }
+    }
+
+    public final VoiceRoomListViewModel u2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return (VoiceRoomListViewModel) this.c.getValue();
+        }
+        return (VoiceRoomListViewModel) invokeV.objValue;
+    }
+
+    public final void w2() {
+        Bundle arguments;
+        Frs$From f;
+        long d;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (arguments = getArguments()) != null) {
+            VoiceRoomListViewModel u2 = u2();
+            TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
+            Intrinsics.checkNotNullExpressionValue(pageContext, "pageContext");
+            f = h58.f(arguments);
+            long callFrom = f.getCallFrom();
+            d = h58.d(arguments);
+            u2.e(pageContext, callFrom, d);
+        }
+    }
+
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onViewCreated(View view2, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, view2, bundle) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048580, this, view2, bundle) == null) {
             Intrinsics.checkNotNullParameter(view2, "view");
             super.onViewCreated(view2, bundle);
             a a2 = a.e.a(view2);
@@ -466,19 +466,19 @@ public final class VoiceRoomListFragment extends BaseFragment {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
                 aVar2 = null;
             }
-            aVar2.a().setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0898));
-            m45 m45Var = new m45(getPageContext());
-            this.b = m45Var;
-            if (m45Var != null) {
-                m45Var.a(new l45.g() { // from class: com.baidu.tieba.is7
+            aVar2.a().setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f08a4));
+            g55 g55Var = new g55(getPageContext());
+            this.b = g55Var;
+            if (g55Var != null) {
+                g55Var.a(new f55.g() { // from class: com.baidu.tieba.d58
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
-                    @Override // com.baidu.tieba.l45.g
+                    @Override // com.baidu.tieba.f55.g
                     public final void e(boolean z) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) {
-                            VoiceRoomListFragment.d2(VoiceRoomListFragment.this, z);
+                            VoiceRoomListFragment.v2(VoiceRoomListFragment.this, z);
                         }
                     }
                 });
@@ -512,7 +512,7 @@ public final class VoiceRoomListFragment extends BaseFragment {
             } else {
                 aVar = aVar6;
             }
-            f2(voiceRoomListAdapter, aVar);
+            x2(voiceRoomListAdapter, aVar);
         }
     }
 }

@@ -32,15 +32,15 @@ import com.baidu.tbadk.core.util.svg.SvgMaskType;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ft4;
-import com.baidu.tieba.gs5;
-import com.baidu.tieba.gt4;
-import com.baidu.tieba.ht4;
-import com.baidu.tieba.hz4;
-import com.baidu.tieba.ik9;
-import com.baidu.tieba.ks5;
-import com.baidu.tieba.lr5;
+import com.baidu.tieba.au5;
+import com.baidu.tieba.eu5;
+import com.baidu.tieba.ft5;
+import com.baidu.tieba.nx9;
 import com.baidu.tieba.share.ImplicitShareMessage;
+import com.baidu.tieba.wt4;
+import com.baidu.tieba.xt4;
+import com.baidu.tieba.yt4;
+import com.baidu.tieba.zz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -65,9 +65,9 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
     public TextView k;
     public TextView l;
     public PermissionJudgePolicy m;
-    public ik9 n;
+    public nx9 n;
     public TbPageContext o;
-    public hz4 p;
+    public zz4 p;
     public Bitmap q;
     public View r;
     public ImageView s;
@@ -317,7 +317,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
     }
 
     /* loaded from: classes4.dex */
-    public class h extends gs5<ShareItem> {
+    public class h extends au5<ShareItem> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Bitmap a;
@@ -345,7 +345,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.gs5
+        @Override // com.baidu.tieba.au5
         /* renamed from: a */
         public ShareItem doInBackground() {
             InterceptResult invokeV;
@@ -358,7 +358,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
     }
 
     /* loaded from: classes4.dex */
-    public class i implements lr5<ShareItem> {
+    public class i implements ft5<ShareItem> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -384,7 +384,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.lr5
+        @Override // com.baidu.tieba.ft5
         /* renamed from: a */
         public void onReturnDataInUI(ShareItem shareItem) {
             Interceptable interceptable = $ic;
@@ -434,7 +434,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
             }
             statisticItem.param("obj_source", this.z);
             TiebaStatic.log(statisticItem);
-            ks5.b(new h(this, bitmap, i2), new i(this, i2));
+            eu5.b(new h(this, bitmap, i2), new i(this, i2));
         }
     }
 
@@ -504,15 +504,15 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         }
     }
 
-    public boolean h(TbPageContext tbPageContext, hz4 hz4Var) {
+    public boolean h(TbPageContext tbPageContext, zz4 zz4Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, hz4Var)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, zz4Var)) == null) {
             this.o = tbPageContext;
-            this.p = hz4Var;
+            this.p = zz4Var;
             l(this.c);
             if (this.a.getParams() != null && !ListUtils.isEmpty(this.a.getParams().getThread_list())) {
-                this.u.addView(new ft4(this.c, this.a).a());
+                this.u.addView(new wt4(this.c, this.a).a());
                 this.l.setText(this.a.getParams().getTitle());
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.THREAD_ACHIEVEMENT_DETAIL_SHARE);
                 statisticItem.param("obj_source", 1);
@@ -520,9 +520,9 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
                 this.z = 2;
             } else if (this.a.getParams() != null) {
                 if (this.a.getParams().getVideo_info() != null) {
-                    this.u.addView(new ht4(this.c, this.a).a());
+                    this.u.addView(new yt4(this.c, this.a).a());
                 } else {
-                    this.u.addView(new gt4(this.c, this.a).a());
+                    this.u.addView(new xt4(this.c, this.a).a());
                 }
                 this.l.setText(this.a.getParams().getTitle());
                 StatisticItem statisticItem2 = new StatisticItem("c10898");
@@ -658,7 +658,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
             return;
         }
         if (this.n == null) {
-            this.n = new ik9(this.o);
+            this.n = new nx9(this.o);
         }
         if (this.a.getParams() != null && !TextUtils.isEmpty(this.a.getParams().getUrl())) {
             this.n.b(this.a.getParams().getUrl(), BitmapHelper.Bitmap2Bytes(bitmap, 100));

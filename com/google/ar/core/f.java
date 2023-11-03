@@ -1,7 +1,7 @@
 package com.google.ar.core;
 
 import com.google.ar.core.ArCoreApk;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public enum f extends ArCoreApk.Availability {
     @Override // com.google.ar.core.ArCoreApk.Availability
     public final boolean isSupported() {

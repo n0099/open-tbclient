@@ -1,21 +1,27 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class oy0 extends my0 {
+public final class oy0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String b;
+    public final Context a;
+    public final String b;
+    public final int c;
+    public final String d;
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public oy0() {
+        this(null, null, 0, null, 15, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -23,90 +29,76 @@ public class oy0 extends my0 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                this((Context) objArr[0], (String) objArr[1], ((Integer) objArr[2]).intValue(), (String) objArr[3], ((Integer) objArr[4]).intValue(), (DefaultConstructorMarker) objArr[5]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = null;
     }
 
-    @Override // com.baidu.tieba.py0
-    public boolean isValid() {
-        InterceptResult invokeV;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (TextUtils.isEmpty(this.b)) {
-                return f();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (this != obj) {
+                if (obj instanceof oy0) {
+                    oy0 oy0Var = (oy0) obj;
+                    return Intrinsics.areEqual(this.a, oy0Var.a) && Intrinsics.areEqual(this.b, oy0Var.b) && this.c == oy0Var.c && Intrinsics.areEqual(this.d, oy0Var.d);
+                }
+                return false;
             }
             return true;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public final void e(StringBuilder sb, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, sb, str, str2) == null) {
-            if (sb.length() > 0) {
-                sb.append('&');
-            }
-            sb.append(str);
-            sb.append('=');
-            sb.append(str2);
-        }
-    }
-
-    public final boolean f() {
+    public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            xe0 d = pe0.d();
-            StringBuilder sb = new StringBuilder();
-            e(sb, "productId", d.t());
-            e(sb, HttpRequest.CLIENT_TYPE, "2");
-            e(sb, "_os_type", "2");
-            String h = hf0.c().h(false);
-            if (!TextUtils.isEmpty(h)) {
-                e(sb, HttpRequest.OS_VERSION, h);
-            }
-            e(sb, "_client_version", d.x());
-            e(sb, "_sdk_version", "5.12.0.110");
-            String e = hf0.c().e(false);
-            if (!TextUtils.isEmpty(e)) {
-                e(sb, "model", e);
-            }
-            e(sb, "cuid", d.g());
-            e(sb, "net_type", String.valueOf(new fo0().c()));
-            if (yb0.a) {
-                e(sb, "rd", d.y());
-                e(sb, "qa", d.z());
-                e(sb, "story_id", d.v());
-            }
-            String sb2 = sb.toString();
-            this.b = sb2;
-            return !TextUtils.isEmpty(sb2);
+            Context context = this.a;
+            int hashCode = (context != null ? context.hashCode() : 0) * 31;
+            String str = this.b;
+            int hashCode2 = (((hashCode + (str != null ? str.hashCode() : 0)) * 31) + this.c) * 31;
+            String str2 = this.d;
+            return hashCode2 + (str2 != null ? str2.hashCode() : 0);
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.my0, com.baidu.tieba.py0
-    @NonNull
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TextUtils.isEmpty(this.b)) {
-                f();
-            }
-            if (this.a.toString().contains(this.b)) {
-                return this.a.toString();
-            }
-            if (this.a.length() > 0) {
-                this.a.append('&');
-            }
-            this.a.append(this.b);
-            return this.a.toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "ActionInfo(context=" + this.a + ", text=" + this.b + ", sequence=" + this.c + ", cmd=" + this.d + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
+    }
+
+    public oy0(Context context, String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, Integer.valueOf(i), str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = context;
+        this.b = str;
+        this.c = i;
+        this.d = str2;
+    }
+
+    public /* synthetic */ oy0(Context context, String str, int i, String str2, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this((i2 & 1) != 0 ? null : context, (i2 & 2) != 0 ? null : str, (i2 & 4) != 0 ? -1 : i, (i2 & 8) != 0 ? null : str2);
     }
 }

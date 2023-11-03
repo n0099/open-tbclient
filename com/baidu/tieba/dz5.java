@@ -1,47 +1,41 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
-import android.util.SparseArray;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.DeleteThreadInfo;
-import com.baidu.tbadk.core.data.NegativeFeedBackData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.fz5;
-import com.baidu.tieba.iz5;
-import com.baidu.tieba.tbadkCore.model.ForumManageModel;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import org.json.JSONArray;
+import java.text.ParseException;
+import java.util.Calendar;
+import java.util.Date;
 /* loaded from: classes5.dex */
-public class dz5 {
+public class dz5 extends cz5 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public fz5 q;
 
     /* loaded from: classes5.dex */
-    public class a implements iz5.i {
+    public class a implements vy5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
-        public final /* synthetic */ gz5 b;
-        public final /* synthetic */ boolean c;
+        public final /* synthetic */ dz5 a;
 
-        public a(TbPageContext tbPageContext, gz5 gz5Var, boolean z) {
+        public a(dz5 dz5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tbPageContext, gz5Var, Boolean.valueOf(z)};
+                Object[] objArr = {dz5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -51,194 +45,272 @@ public class dz5 {
                     return;
                 }
             }
-            this.a = tbPageContext;
-            this.b = gz5Var;
-            this.c = z;
+            this.a = dz5Var;
         }
 
-        @Override // com.baidu.tieba.iz5.i
-        public void a(JSONArray jSONArray) {
+        @Override // com.baidu.tieba.vy5
+        public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
-                if (BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                    dz5.e(jSONArray, this.b.b(), this.b.c(), this.c);
-                } else {
-                    BdUtilHelper.showToast(this.a.getContext(), (int) R.string.obfuscated_res_0x7f0f0e4f);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    this.a.e.b.a(fz5.y.parse(this.a.q.o()));
+                } catch (ParseException e) {
+                    e.printStackTrace();
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements fz5.h {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
-        public final /* synthetic */ gz5 b;
-        public final /* synthetic */ boolean c;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dz5(ty5 ty5Var) {
+        super(ty5Var.A);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ty5Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.e = ty5Var;
+        B(ty5Var.A);
+    }
 
-        public b(TbPageContext tbPageContext, gz5 gz5Var, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tbPageContext, gz5Var, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
+            if (((String) view2.getTag()).equals("submit")) {
+                D();
+            }
+            f();
+        }
+    }
+
+    public final void A() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ty5 ty5Var = this.e;
+            if (ty5Var.f != null && ty5Var.g != null) {
+                Calendar calendar = ty5Var.e;
+                if (calendar == null || calendar.getTimeInMillis() < this.e.f.getTimeInMillis() || this.e.e.getTimeInMillis() > this.e.g.getTimeInMillis()) {
+                    ty5 ty5Var2 = this.e;
+                    ty5Var2.e = ty5Var2.f;
                     return;
                 }
+                return;
             }
-            this.a = tbPageContext;
-            this.b = gz5Var;
-            this.c = z;
+            ty5 ty5Var3 = this.e;
+            Calendar calendar2 = ty5Var3.f;
+            if (calendar2 != null) {
+                ty5Var3.e = calendar2;
+                return;
+            }
+            Calendar calendar3 = ty5Var3.g;
+            if (calendar3 != null) {
+                ty5Var3.e = calendar3;
+            }
         }
+    }
 
-        @Override // com.baidu.tieba.fz5.h
-        public void a(JSONArray jSONArray) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
-                if (BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                    dz5.e(jSONArray, this.b.b(), this.b.c(), this.c);
+    public final void B(Context context) {
+        String str;
+        String str2;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            s();
+            o();
+            n();
+            uy5 uy5Var = this.e.c;
+            if (uy5Var == null) {
+                LayoutInflater.from(context).inflate(R.layout.pickerview_time, this.b);
+                TextView textView = (TextView) i(R.id.obfuscated_res_0x7f092742);
+                RelativeLayout relativeLayout = (RelativeLayout) i(R.id.rv_topbar);
+                Button button = (Button) i(R.id.obfuscated_res_0x7f0904c5);
+                Button button2 = (Button) i(R.id.obfuscated_res_0x7f0904c0);
+                button.setTag("submit");
+                button2.setTag("cancel");
+                button.setOnClickListener(this);
+                button2.setOnClickListener(this);
+                if (TextUtils.isEmpty(this.e.B)) {
+                    str = context.getResources().getString(R.string.pickerview_submit);
                 } else {
-                    BdUtilHelper.showToast(this.a.getContext(), (int) R.string.obfuscated_res_0x7f0f0e4f);
+                    str = this.e.B;
                 }
+                button.setText(str);
+                if (TextUtils.isEmpty(this.e.C)) {
+                    str2 = context.getResources().getString(R.string.pickerview_cancel);
+                } else {
+                    str2 = this.e.C;
+                }
+                button2.setText(str2);
+                if (TextUtils.isEmpty(this.e.D)) {
+                    str3 = "";
+                } else {
+                    str3 = this.e.D;
+                }
+                textView.setText(str3);
+                button.setTextColor(this.e.E);
+                button2.setTextColor(this.e.F);
+                textView.setTextColor(this.e.G);
+                relativeLayout.setBackgroundColor(this.e.I);
+                button.setTextSize(this.e.J);
+                button2.setTextSize(this.e.J);
+                textView.setTextSize(this.e.K);
+            } else {
+                uy5Var.a(LayoutInflater.from(context).inflate(this.e.x, this.b));
             }
+            LinearLayout linearLayout = (LinearLayout) i(R.id.obfuscated_res_0x7f0925ce);
+            linearLayout.setBackgroundColor(this.e.H);
+            C(linearLayout);
         }
     }
 
-    public static void b(TbPageContext tbPageContext, gz5 gz5Var) {
-        boolean z;
+    public final void C(LinearLayout linearLayout) {
+        int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, tbPageContext, gz5Var) == null) && tbPageContext != null && tbPageContext.getPageActivity() != null && tbPageContext.getPageActivity().getWindow() != null) {
-            if (gz5Var.a() == 3) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, linearLayout) == null) {
+            ty5 ty5Var = this.e;
+            fz5 fz5Var = new fz5(linearLayout, ty5Var.d, ty5Var.z, ty5Var.L);
+            this.q = fz5Var;
+            if (this.e.b != null) {
+                fz5Var.G(new a(this));
             }
-            fz5 fz5Var = new fz5(tbPageContext, tbPageContext.getPageActivity().getWindow().getDecorView());
-            if (gz5Var != null) {
-                fz5Var.z(z);
+            this.q.C(this.e.k);
+            ty5 ty5Var2 = this.e;
+            int i2 = ty5Var2.h;
+            if (i2 != 0 && (i = ty5Var2.i) != 0 && i2 <= i) {
+                F();
             }
-            AntiData c = pc7.f().c();
-            SparseArray<String> sparseArray = new SparseArray<>();
-            if (c != null && c.getDelThreadInfoList() != null) {
-                List<DeleteThreadInfo> delThreadInfoList = c.getDelThreadInfoList();
-                for (int i = 0; i < delThreadInfoList.size(); i++) {
-                    if (!TextUtils.isEmpty(delThreadInfoList.get(i).text_info)) {
-                        sparseArray.put(delThreadInfoList.get(i).text_id, delThreadInfoList.get(i).text_info);
-                    }
+            ty5 ty5Var3 = this.e;
+            Calendar calendar = ty5Var3.f;
+            if (calendar != null && ty5Var3.g != null) {
+                if (calendar.getTimeInMillis() <= this.e.g.getTimeInMillis()) {
+                    E();
+                } else {
+                    throw new IllegalArgumentException("startDate can't be later than endDate");
                 }
-            }
-            JSONArray jSONArray = new JSONArray();
-            JSONArray jSONArray2 = new JSONArray();
-            List<ThreadData> g = pc7.f().g();
-            for (int i2 = 0; i2 < g.size(); i2++) {
-                if (g.get(i2) != null) {
-                    jSONArray.put(g.get(i2).getTid());
-                    if (z) {
-                        jSONArray2.put("1");
-                    } else if (!g.get(i2).isScoreThread() && !g.get(i2).isWorksInfo()) {
-                        jSONArray2.put("0");
+            } else {
+                ty5 ty5Var4 = this.e;
+                Calendar calendar2 = ty5Var4.f;
+                if (calendar2 != null) {
+                    if (calendar2.get(1) >= 1900) {
+                        E();
                     } else {
-                        jSONArray2.put("1");
+                        throw new IllegalArgumentException("The startDate can not as early as 1900");
                     }
-                }
-            }
-            NegativeFeedBackData negativeFeedBackData = new NegativeFeedBackData();
-            negativeFeedBackData.setFeedBackReasonMap(sparseArray);
-            if (gz5Var != null) {
-                negativeFeedBackData.setDeleteType(gz5Var.a());
-            }
-            negativeFeedBackData.setTidArray(jSONArray);
-            negativeFeedBackData.setMaskTidArray(jSONArray2);
-            negativeFeedBackData.setFid(pc7.f().d());
-            fz5Var.A(negativeFeedBackData);
-            fz5Var.B(new String[]{TbadkCoreApplication.getInst().getString(R.string.delete_thread_reason_1), TbadkCoreApplication.getInst().getString(R.string.delete_thread_reason_2), TbadkCoreApplication.getInst().getString(R.string.delete_thread_reason_3), TbadkCoreApplication.getInst().getString(R.string.delete_thread_reason_4), TbadkCoreApplication.getInst().getString(R.string.delete_thread_reason_5)});
-            fz5Var.D("1");
-            fz5Var.C(new b(tbPageContext, gz5Var, z));
-        }
-    }
-
-    public static void c(TbPageContext tbPageContext, gz5 gz5Var, hz5 hz5Var, UserData userData) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(65538, null, tbPageContext, gz5Var, hz5Var, userData) == null) && tbPageContext != null && tbPageContext.getPageActivity() != null && tbPageContext.getPageActivity().getWindow() != null) {
-            if (gz5Var.a() == 3) {
-                z = true;
-            } else {
-                z = false;
-            }
-            iz5 iz5Var = new iz5(tbPageContext, tbPageContext.getPageActivity().getWindow().getDecorView(), hz5Var, userData);
-            if (gz5Var != null) {
-                iz5Var.F(z);
-            }
-            AntiData c = pc7.f().c();
-            SparseArray<String> sparseArray = new SparseArray<>();
-            if (c != null && c.getDelThreadInfoList() != null) {
-                List<DeleteThreadInfo> delThreadInfoList = c.getDelThreadInfoList();
-                for (int i = 0; i < delThreadInfoList.size(); i++) {
-                    if (!TextUtils.isEmpty(delThreadInfoList.get(i).text_info)) {
-                        sparseArray.put(delThreadInfoList.get(i).text_id, delThreadInfoList.get(i).text_info);
-                    }
-                }
-            }
-            JSONArray jSONArray = new JSONArray();
-            JSONArray jSONArray2 = new JSONArray();
-            List<ThreadData> g = pc7.f().g();
-            for (int i2 = 0; i2 < g.size(); i2++) {
-                if (g.get(i2) != null) {
-                    jSONArray.put(g.get(i2).getTid());
-                    if (z) {
-                        jSONArray2.put("1");
-                    } else if (!g.get(i2).isScoreThread() && !g.get(i2).isWorksInfo()) {
-                        jSONArray2.put("0");
+                } else {
+                    Calendar calendar3 = ty5Var4.g;
+                    if (calendar3 != null) {
+                        if (calendar3.get(1) <= 2100) {
+                            E();
+                        } else {
+                            throw new IllegalArgumentException("The endDate should not be later than 2100");
+                        }
                     } else {
-                        jSONArray2.put("1");
+                        E();
                     }
                 }
             }
-            NegativeFeedBackData negativeFeedBackData = new NegativeFeedBackData();
-            negativeFeedBackData.setFeedBackReasonMap(sparseArray);
-            if (gz5Var != null) {
-                negativeFeedBackData.setDeleteType(gz5Var.a());
-            }
-            negativeFeedBackData.setTidArray(jSONArray);
-            negativeFeedBackData.setMaskTidArray(jSONArray2);
-            negativeFeedBackData.setFid(pc7.f().d());
-            iz5Var.G(negativeFeedBackData);
-            iz5Var.H(new String[]{TbadkCoreApplication.getInst().getString(R.string.delete_thread_new_reason_1), TbadkCoreApplication.getInst().getString(R.string.delete_thread_new_reason_2), TbadkCoreApplication.getInst().getString(R.string.delete_thread_new_reason_3), TbadkCoreApplication.getInst().getString(R.string.delete_thread_new_reason_4), TbadkCoreApplication.getInst().getString(R.string.delete_thread_new_reason_5)});
-            iz5Var.J("1");
-            iz5Var.I(new a(tbPageContext, gz5Var, z));
+            G();
+            fz5 fz5Var2 = this.q;
+            ty5 ty5Var5 = this.e;
+            fz5Var2.y(ty5Var5.l, ty5Var5.m, ty5Var5.n, ty5Var5.o, ty5Var5.p, ty5Var5.q);
+            fz5 fz5Var3 = this.q;
+            ty5 ty5Var6 = this.e;
+            fz5Var3.N(ty5Var6.r, ty5Var6.s, ty5Var6.t, ty5Var6.u, ty5Var6.v, ty5Var6.w);
+            u(this.e.S);
+            this.q.s(this.e.j);
+            this.q.u(this.e.O);
+            this.q.w(this.e.U);
+            this.q.A(this.e.Q);
+            this.q.M(this.e.M);
+            this.q.K(this.e.N);
+            this.q.p(this.e.f1163T);
         }
     }
 
-    public static void d(int i, TbPageContext tbPageContext, gz5 gz5Var, hz5 hz5Var, UserData userData) {
+    public void D() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), tbPageContext, gz5Var, hz5Var, userData}) == null) {
-            if (1 == i) {
-                c(tbPageContext, gz5Var, hz5Var, userData);
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.e.a != null) {
+            try {
+                Date parse = fz5.y.parse(this.q.o());
+                this.e.a.onTimeSelect(parse, this.m);
+                z95.e().e0(parse.getHours(), parse.getMinutes());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public final void E() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            fz5 fz5Var = this.q;
+            ty5 ty5Var = this.e;
+            fz5Var.E(ty5Var.f, ty5Var.g);
+            A();
+        }
+    }
+
+    public final void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.q.I(this.e.h);
+            this.q.x(this.e.i);
+        }
+    }
+
+    @Override // com.baidu.tieba.cz5
+    public boolean p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.e.R;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void G() {
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        int i5;
+        int i6;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            Calendar calendar = Calendar.getInstance();
+            Calendar calendar2 = this.e.e;
+            if (calendar2 == null) {
+                calendar.setTimeInMillis(System.currentTimeMillis());
+                i = calendar.get(1);
+                i2 = calendar.get(2);
+                i3 = calendar.get(5);
+                i4 = calendar.get(11);
+                i5 = calendar.get(12);
+                i6 = calendar.get(13);
             } else {
-                b(tbPageContext, gz5Var);
+                i = calendar2.get(1);
+                i2 = this.e.e.get(2);
+                i3 = this.e.e.get(5);
+                i4 = this.e.e.get(11);
+                i5 = this.e.e.get(12);
+                i6 = this.e.e.get(13);
             }
-        }
-    }
-
-    public static void e(JSONArray jSONArray, ForumManageModel forumManageModel, ThreadData threadData, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{jSONArray, forumManageModel, threadData, Boolean.valueOf(z)}) == null) && forumManageModel != null && threadData != null && threadData.getAuthor() != null) {
-            String userId = threadData.getAuthor().getUserId();
-            String id = threadData.getId();
-            String forum_name = threadData.getForum_name();
-            String valueOf = String.valueOf(threadData.getFid());
-            boolean isCurrentAccount = UtilHelper.isCurrentAccount(userId);
-            if (jSONArray != null) {
-                forumManageModel.i0(StringHelper.JsonArrayToString(jSONArray));
-            }
-            forumManageModel.j0(valueOf, forum_name, id, null, 0, 1, isCurrentAccount, threadData.getBaijiahaoData(), z);
+            int i7 = i4;
+            int i8 = i3;
+            int i9 = i2;
+            fz5 fz5Var = this.q;
+            fz5Var.D(i, i9, i8, i7, i5, i6);
         }
     }
 }

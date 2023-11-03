@@ -1,93 +1,112 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.RandomAccessFile;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class hga extends fga {
+public abstract class hga implements gb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hga(String str, int i, int i2, long j, String str2) {
-        super(str, i, i2, j, str2);
+    public hga() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Long) objArr2[3]).longValue(), (String) objArr2[4]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.fga
-    public void a() {
+    @Override // com.baidu.tieba.gb7
+    public Map<String, String> a(d57 businessInfo) {
+        InterceptResult invokeL;
+        String str;
+        String str2;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.g = true;
-        }
-    }
-
-    @Override // com.baidu.tieba.fga
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.fga
-    public iga g(ArrayList<Integer> arrayList, String str, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, arrayList, str, i)) == null) {
-            iga igaVar = new iga();
-            try {
-                RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.b), "r");
-                int i2 = 0;
-                int size = arrayList.size();
-                Iterator<Integer> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    int i3 = i2 + 1;
-                    iga h = h(randomAccessFile, it.next().intValue(), i, str);
-                    if (h == null) {
-                        return null;
-                    }
-                    d((int) (((i3 * 50.0f) / size) + 30.0f));
-                    if (!StringUtils.isNull(h.a)) {
-                        return h;
-                    }
-                    if (h.b != 0) {
-                        return h;
-                    }
-                    i2 = i3;
-                    igaVar = h;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            Map<String, String> a = businessInfo.a();
+            hashMap.put("page_type", "a002");
+            String str3 = a.get("thread_id");
+            String str4 = "";
+            if (str3 == null) {
+                str3 = "";
+            }
+            hashMap.put("obj_id", str3);
+            String str5 = a.get("recom_source");
+            if (str5 == null) {
+                str5 = "";
+            }
+            hashMap.put("list_strategy", str5);
+            q75 adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
+            boolean z2 = false;
+            if (adAdSense != null && (str2 = adAdSense.k) != null) {
+                if (str2.length() > 0) {
+                    z = true;
+                } else {
+                    z = false;
                 }
-            } catch (FileNotFoundException unused) {
+                if (z) {
+                    hashMap.put("ab_tag", str2);
+                }
             }
-            return igaVar;
+            CharSequence charSequence = (CharSequence) hashMap.get("ab_tag");
+            if ((charSequence == null || charSequence.length() == 0) ? true : true) {
+                String str6 = a.get("abtest_tag");
+                if (str6 == null) {
+                    str6 = "";
+                }
+                hashMap.put("ab_tag", str6);
+            }
+            String str7 = a.get("is_video_work");
+            String str8 = "0";
+            if (str7 == null) {
+                str7 = "0";
+            }
+            hashMap.put(TiebaStatic.Params.IS_ZP, str7);
+            String str9 = a.get(TiebaStatic.Params.GUA_TYPE);
+            if (str9 == null) {
+                str9 = "0";
+            }
+            hashMap.put(TiebaStatic.Params.GUA_TYPE, str9);
+            String str10 = a.get(TiebaStatic.Params.IS_SPECIAL_THREAD);
+            if (str10 == null) {
+                str10 = "0";
+            }
+            hashMap.put(TiebaStatic.Params.IS_SPECIAL_THREAD, str10);
+            String str11 = a.get(TiebaStatic.Params.RECOM_TYPE);
+            if (str11 != null) {
+                str4 = str11;
+            }
+            hashMap.put(TiebaStatic.Params.RECOM_TYPE, str4);
+            if (!PermissionUtil.isBrowseMode()) {
+                str = "0";
+            } else {
+                str = "1";
+            }
+            hashMap.put(TiebaStatic.Params.PURE_BROWSING, str);
+            String str12 = a.get("has_forum_head_pendants");
+            if (str12 != null) {
+                str8 = str12;
+            }
+            hashMap.put(TiebaStatic.Params.OBJ_PARAM3, str8);
+            return hashMap;
         }
-        return (iga) invokeLLI.objValue;
+        return (Map) invokeL.objValue;
     }
 }

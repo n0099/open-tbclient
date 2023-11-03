@@ -1,15 +1,64 @@
 package com.baidu.tieba;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-import kotlin.annotation.AnnotationRetention;
-import kotlin.annotation.AnnotationTarget;
-@Target({ElementType.FIELD})
-@kotlin.annotation.Target(allowedTargets = {AnnotationTarget.FIELD})
-@Retention(RetentionPolicy.RUNTIME)
-@kotlin.annotation.Retention(AnnotationRetention.RUNTIME)
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.module.frs.FrsService;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import tbclient.PeiwanInfo;
 /* loaded from: classes6.dex */
-public @interface hf8 {
+public class hf8 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static void a(ThreadData threadData) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65536, null, threadData) == null) && threadData != null && threadData.getPeiwanInfo() != null) {
+            PeiwanInfo peiwanInfo = threadData.getPeiwanInfo();
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_HOME_PEI_WAN_CARD_CLICK);
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.addParam("obj_locate", String.valueOf(threadData.floorPosition));
+            statisticItem.addParam(TiebaStatic.Params.OBJ_TO, peiwanInfo.room_id.longValue());
+            if (threadData.isFromNet) {
+                str = "1";
+            } else {
+                str = "0";
+            }
+            statisticItem.addParam("obj_param1", str);
+            statisticItem.eventStat();
+        }
+    }
+
+    public static boolean b(TbPageContext<?> tbPageContext, oi oiVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, tbPageContext, oiVar)) == null) {
+            if (oiVar instanceof fm6) {
+                fm6 fm6Var = (fm6) oiVar;
+                ThreadData threadData = fm6Var.a;
+                if (threadData != null && threadData.getVoiceRoomData() != null && !StringUtils.isNull(fm6Var.a.getVoiceRoomData().room_name) && fm6Var.a.getVoiceRoomData().room_id.longValue() > 0) {
+                    ((FrsService) ServiceManager.getService(FrsService.Companion.getServiceReference())).navToVoiceRoom(tbPageContext, fm6Var.a.getVoiceRoomData().room_id.longValue());
+                    return true;
+                }
+                ThreadData threadData2 = fm6Var.a;
+                if (threadData2 != null && threadData2.getPeiwanInfo() != null && !StringUtils.isNull(fm6Var.a.getPeiwanInfo().scheme)) {
+                    UrlManager.getInstance().dealOneLink(fm6Var.a.getPeiwanInfo().scheme);
+                    a(fm6Var.a);
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
 }

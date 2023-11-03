@@ -1,37 +1,37 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.h6c;
-import com.baidu.tieba.n6c;
-import com.baidu.tieba.o6c;
-import com.baidu.tieba.oac;
-import com.baidu.tieba.uac;
-import com.baidu.tieba.v6c;
+import com.baidu.tieba.ijc;
+import com.baidu.tieba.ojc;
+import com.baidu.tieba.pjc;
+import com.baidu.tieba.pnc;
+import com.baidu.tieba.vnc;
+import com.baidu.tieba.wjc;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes2.dex */
-public final class OnSubscribeAutoConnect<T> extends AtomicInteger implements h6c.a<T> {
-    public final v6c<? super o6c> connection;
+public final class OnSubscribeAutoConnect<T> extends AtomicInteger implements ijc.a<T> {
+    public final wjc<? super pjc> connection;
     public final int numberOfSubscribers;
-    public final oac<? extends T> source;
+    public final pnc<? extends T> source;
 
-    public OnSubscribeAutoConnect(oac<? extends T> oacVar, int i, v6c<? super o6c> v6cVar) {
+    public OnSubscribeAutoConnect(pnc<? extends T> pncVar, int i, wjc<? super pjc> wjcVar) {
         if (i > 0) {
-            this.source = oacVar;
+            this.source = pncVar;
             this.numberOfSubscribers = i;
-            this.connection = v6cVar;
+            this.connection = wjcVar;
             return;
         }
         throw new IllegalArgumentException("numberOfSubscribers > 0 required");
     }
 
-    public void call(n6c<? super T> n6cVar) {
-        this.source.O(uac.c(n6cVar));
+    public void call(ojc<? super T> ojcVar) {
+        this.source.O(vnc.c(ojcVar));
         if (incrementAndGet() == this.numberOfSubscribers) {
             this.source.P(this.connection);
         }
     }
 
-    @Override // com.baidu.tieba.v6c
+    @Override // com.baidu.tieba.wjc
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((n6c) ((n6c) obj));
+        call((ojc) ((ojc) obj));
     }
 }

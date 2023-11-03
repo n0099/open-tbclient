@@ -12,7 +12,7 @@ import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.R;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.kh;
+import com.baidu.tieba.ai;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -155,21 +155,21 @@ public class BdRoundedImageView extends AppCompatImageView {
             return;
         }
         int i2 = 0;
-        if (drawable instanceof kh) {
-            kh khVar = (kh) drawable;
-            khVar.g(this.h);
+        if (drawable instanceof ai) {
+            ai aiVar = (ai) drawable;
+            aiVar.g(this.h);
             if (!this.d && z) {
                 f = 0.0f;
             } else {
                 f = this.a;
             }
-            khVar.e(f);
+            aiVar.e(f);
             if (this.d || !z) {
                 i2 = this.b;
             }
-            khVar.d(i2);
-            khVar.c(this.c);
-            khVar.f(this.e);
+            aiVar.d(i2);
+            aiVar.c(this.c);
+            aiVar.f(this.e);
         } else if (drawable instanceof LayerDrawable) {
             LayerDrawable layerDrawable = (LayerDrawable) drawable;
             int numberOfLayers = layerDrawable.getNumberOfLayers();
@@ -224,12 +224,12 @@ public class BdRoundedImageView extends AppCompatImageView {
         }
         this.d = obtainStyledAttributes.getBoolean(5, false);
         this.e = obtainStyledAttributes.getBoolean(4, false);
-        B();
-        s();
+        C();
+        r();
         obtainStyledAttributes.recycle();
     }
 
-    public final void B() {
+    public final void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             b(this.f, false);
@@ -282,7 +282,7 @@ public class BdRoundedImageView extends AppCompatImageView {
         return (ImageView.ScaleType) invokeV.objValue;
     }
 
-    public final void s() {
+    public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             b(this.g, true);
@@ -293,8 +293,8 @@ public class BdRoundedImageView extends AppCompatImageView {
     public void setBackgroundDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, drawable) == null) {
-            this.g = kh.b(drawable);
-            s();
+            this.g = ai.b(drawable);
+            r();
             super.setBackgroundDrawable(this.g);
         }
     }
@@ -315,8 +315,8 @@ public class BdRoundedImageView extends AppCompatImageView {
             colorStateList = ColorStateList.valueOf(0);
         }
         this.c = colorStateList;
-        B();
-        s();
+        C();
+        r();
         if (this.b > 0) {
             invalidate();
         }
@@ -328,8 +328,8 @@ public class BdRoundedImageView extends AppCompatImageView {
             return;
         }
         this.b = i2;
-        B();
-        s();
+        C();
+        r();
         invalidate();
     }
 
@@ -339,8 +339,8 @@ public class BdRoundedImageView extends AppCompatImageView {
             return;
         }
         this.a = i2;
-        B();
-        s();
+        C();
+        r();
     }
 
     @Override // androidx.appcompat.widget.AppCompatImageView, android.widget.ImageView
@@ -348,8 +348,8 @@ public class BdRoundedImageView extends AppCompatImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, bitmap) == null) {
             if (bitmap != null && !bitmap.isRecycled()) {
-                this.f = new kh(bitmap);
-                B();
+                this.f = new ai(bitmap);
+                C();
             } else {
                 this.f = null;
             }
@@ -362,8 +362,8 @@ public class BdRoundedImageView extends AppCompatImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, drawable) == null) {
             if (drawable != null) {
-                this.f = kh.b(drawable);
-                B();
+                this.f = ai.b(drawable);
+                C();
             } else {
                 this.f = null;
             }
@@ -384,8 +384,8 @@ public class BdRoundedImageView extends AppCompatImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
             this.e = z;
-            B();
-            s();
+            C();
+            r();
             invalidate();
         }
     }
@@ -411,8 +411,8 @@ public class BdRoundedImageView extends AppCompatImageView {
                             super.setScaleType(scaleType);
                             break;
                     }
-                    B();
-                    s();
+                    C();
+                    r();
                     invalidate();
                     return;
                 }

@@ -12,9 +12,9 @@ import android.os.ParcelFileDescriptor;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a0;
 import com.baidu.tieba.b0;
-import com.baidu.tieba.d0;
+import com.baidu.tieba.c0;
+import com.baidu.tieba.e0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -27,7 +27,7 @@ public class GrantPermissionActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public b0 b;
+    public c0 b;
 
     public GrantPermissionActivity() {
         Interceptable interceptable = $ic;
@@ -64,105 +64,105 @@ public class GrantPermissionActivity extends Activity {
         }
         if (i == 1) {
             ContentResolver contentResolver = getContentResolver();
-            b0 b0Var = this.b;
-            int delete = contentResolver.delete(b0Var.a, b0Var.e, b0Var.f);
-            a0 a0Var = this.b.i;
-            if (a0Var != null) {
-                a0Var.onPermitted(Integer.valueOf(delete));
+            c0 c0Var = this.b;
+            int delete = contentResolver.delete(c0Var.a, c0Var.e, c0Var.f);
+            b0 b0Var = this.b.i;
+            if (b0Var != null) {
+                b0Var.onPermitted(Integer.valueOf(delete));
             }
         } else if (i == 2) {
             ContentResolver contentResolver2 = getContentResolver();
-            b0 b0Var2 = this.b;
-            int update = contentResolver2.update(b0Var2.a, b0Var2.g, b0Var2.e, b0Var2.f);
-            a0 a0Var2 = this.b.i;
-            if (a0Var2 != null) {
-                a0Var2.onPermitted(Integer.valueOf(update));
+            c0 c0Var2 = this.b;
+            int update = contentResolver2.update(c0Var2.a, c0Var2.g, c0Var2.e, c0Var2.f);
+            b0 b0Var2 = this.b.i;
+            if (b0Var2 != null) {
+                b0Var2.onPermitted(Integer.valueOf(update));
             }
         } else if (i == 3) {
             ContentResolver contentResolver3 = getContentResolver();
-            b0 b0Var3 = this.b;
-            ParcelFileDescriptor openFileDescriptor = contentResolver3.openFileDescriptor(b0Var3.a, b0Var3.b);
-            a0 a0Var3 = this.b.i;
-            if (a0Var3 != null) {
-                a0Var3.onPermitted(openFileDescriptor);
+            c0 c0Var3 = this.b;
+            ParcelFileDescriptor openFileDescriptor = contentResolver3.openFileDescriptor(c0Var3.a, c0Var3.b);
+            b0 b0Var3 = this.b.i;
+            if (b0Var3 != null) {
+                b0Var3.onPermitted(openFileDescriptor);
             }
         } else if (i == 4) {
             ContentResolver contentResolver4 = getContentResolver();
-            b0 b0Var4 = this.b;
-            ParcelFileDescriptor openFileDescriptor2 = contentResolver4.openFileDescriptor(b0Var4.a, b0Var4.b, b0Var4.h);
-            a0 a0Var4 = this.b.i;
-            if (a0Var4 != null) {
-                a0Var4.onPermitted(openFileDescriptor2);
+            c0 c0Var4 = this.b;
+            ParcelFileDescriptor openFileDescriptor2 = contentResolver4.openFileDescriptor(c0Var4.a, c0Var4.b, c0Var4.h);
+            b0 b0Var4 = this.b.i;
+            if (b0Var4 != null) {
+                b0Var4.onPermitted(openFileDescriptor2);
             }
         } else if (i == 5) {
             ContentResolver contentResolver5 = getContentResolver();
-            b0 b0Var5 = this.b;
-            AssetFileDescriptor openAssetFile = contentResolver5.openAssetFile(b0Var5.a, b0Var5.b, b0Var5.h);
-            a0 a0Var5 = this.b.i;
-            if (a0Var5 != null) {
-                a0Var5.onPermitted(openAssetFile);
+            c0 c0Var5 = this.b;
+            AssetFileDescriptor openAssetFile = contentResolver5.openAssetFile(c0Var5.a, c0Var5.b, c0Var5.h);
+            b0 b0Var5 = this.b.i;
+            if (b0Var5 != null) {
+                b0Var5.onPermitted(openAssetFile);
             }
         } else if (i == 6) {
             ContentResolver contentResolver6 = getContentResolver();
-            b0 b0Var6 = this.b;
-            AssetFileDescriptor openAssetFileDescriptor = contentResolver6.openAssetFileDescriptor(b0Var6.a, b0Var6.b);
-            a0 a0Var6 = this.b.i;
-            if (a0Var6 != null) {
-                a0Var6.onPermitted(openAssetFileDescriptor);
+            c0 c0Var6 = this.b;
+            AssetFileDescriptor openAssetFileDescriptor = contentResolver6.openAssetFileDescriptor(c0Var6.a, c0Var6.b);
+            b0 b0Var6 = this.b.i;
+            if (b0Var6 != null) {
+                b0Var6.onPermitted(openAssetFileDescriptor);
             }
         } else if (i == 7) {
             ContentResolver contentResolver7 = getContentResolver();
-            b0 b0Var7 = this.b;
-            AssetFileDescriptor openAssetFileDescriptor2 = contentResolver7.openAssetFileDescriptor(b0Var7.a, b0Var7.b, b0Var7.h);
-            a0 a0Var7 = this.b.i;
-            if (a0Var7 != null) {
-                a0Var7.onPermitted(openAssetFileDescriptor2);
+            c0 c0Var7 = this.b;
+            AssetFileDescriptor openAssetFileDescriptor2 = contentResolver7.openAssetFileDescriptor(c0Var7.a, c0Var7.b, c0Var7.h);
+            b0 b0Var7 = this.b.i;
+            if (b0Var7 != null) {
+                b0Var7.onPermitted(openAssetFileDescriptor2);
             }
         } else if (i == 8) {
             ContentResolver contentResolver8 = getContentResolver();
-            b0 b0Var8 = this.b;
-            ParcelFileDescriptor openFile = contentResolver8.openFile(b0Var8.a, b0Var8.b, b0Var8.h);
-            a0 a0Var8 = this.b.i;
-            if (a0Var8 != null) {
-                a0Var8.onPermitted(openFile);
+            c0 c0Var8 = this.b;
+            ParcelFileDescriptor openFile = contentResolver8.openFile(c0Var8.a, c0Var8.b, c0Var8.h);
+            b0 b0Var8 = this.b.i;
+            if (b0Var8 != null) {
+                b0Var8.onPermitted(openFile);
             }
         } else if (i == 9) {
             OutputStream openOutputStream = getContentResolver().openOutputStream(this.b.a);
-            a0 a0Var9 = this.b.i;
-            if (a0Var9 != null) {
-                a0Var9.onPermitted(openOutputStream);
+            b0 b0Var9 = this.b.i;
+            if (b0Var9 != null) {
+                b0Var9.onPermitted(openOutputStream);
             }
         } else if (i == 10) {
             ContentResolver contentResolver9 = getContentResolver();
-            b0 b0Var9 = this.b;
-            OutputStream openOutputStream2 = contentResolver9.openOutputStream(b0Var9.a, b0Var9.b);
-            a0 a0Var10 = this.b.i;
-            if (a0Var10 != null) {
-                a0Var10.onPermitted(openOutputStream2);
+            c0 c0Var9 = this.b;
+            OutputStream openOutputStream2 = contentResolver9.openOutputStream(c0Var9.a, c0Var9.b);
+            b0 b0Var10 = this.b.i;
+            if (b0Var10 != null) {
+                b0Var10.onPermitted(openOutputStream2);
             }
         } else if (i == 11) {
             ContentResolver contentResolver10 = getContentResolver();
-            b0 b0Var10 = this.b;
-            AssetFileDescriptor openTypedAssetFile = contentResolver10.openTypedAssetFile(b0Var10.a, b0Var10.c, b0Var10.d, b0Var10.h);
-            a0 a0Var11 = this.b.i;
-            if (a0Var11 != null) {
-                a0Var11.onPermitted(openTypedAssetFile);
+            c0 c0Var10 = this.b;
+            AssetFileDescriptor openTypedAssetFile = contentResolver10.openTypedAssetFile(c0Var10.a, c0Var10.c, c0Var10.d, c0Var10.h);
+            b0 b0Var11 = this.b.i;
+            if (b0Var11 != null) {
+                b0Var11.onPermitted(openTypedAssetFile);
             }
         } else if (i == 12) {
             ContentResolver contentResolver11 = getContentResolver();
-            b0 b0Var11 = this.b;
-            AssetFileDescriptor openTypedAssetFileDescriptor = contentResolver11.openTypedAssetFileDescriptor(b0Var11.a, b0Var11.c, b0Var11.d);
-            a0 a0Var12 = this.b.i;
-            if (a0Var12 != null) {
-                a0Var12.onPermitted(openTypedAssetFileDescriptor);
+            c0 c0Var11 = this.b;
+            AssetFileDescriptor openTypedAssetFileDescriptor = contentResolver11.openTypedAssetFileDescriptor(c0Var11.a, c0Var11.c, c0Var11.d);
+            b0 b0Var12 = this.b.i;
+            if (b0Var12 != null) {
+                b0Var12.onPermitted(openTypedAssetFileDescriptor);
             }
         } else if (i == 13) {
             ContentResolver contentResolver12 = getContentResolver();
-            b0 b0Var12 = this.b;
-            AssetFileDescriptor openTypedAssetFileDescriptor2 = contentResolver12.openTypedAssetFileDescriptor(b0Var12.a, b0Var12.c, b0Var12.d, b0Var12.h);
-            a0 a0Var13 = this.b.i;
-            if (a0Var13 != null) {
-                a0Var13.onPermitted(openTypedAssetFileDescriptor2);
+            c0 c0Var12 = this.b;
+            AssetFileDescriptor openTypedAssetFileDescriptor2 = contentResolver12.openTypedAssetFileDescriptor(c0Var12.a, c0Var12.c, c0Var12.d, c0Var12.h);
+            b0 b0Var13 = this.b.i;
+            if (b0Var13 != null) {
+                b0Var13.onPermitted(openTypedAssetFileDescriptor2);
             }
         }
     }
@@ -185,12 +185,12 @@ public class GrantPermissionActivity extends Activity {
 
     @Override // android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
-        a0 a0Var;
+        b0 b0Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
-            b0 b0Var = this.b;
-            if (b0Var == null) {
+            c0 c0Var = this.b;
+            if (c0Var == null) {
                 finish();
                 return;
             }
@@ -202,10 +202,10 @@ public class GrantPermissionActivity extends Activity {
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
-            } else if (i2 == 0 && (a0Var = b0Var.i) != null) {
-                a0Var.onRefused();
+            } else if (i2 == 0 && (b0Var = c0Var.i) != null) {
+                b0Var.onRefused();
             }
-            d0.b().f(String.valueOf(this.b.j));
+            e0.b().f(String.valueOf(this.b.j));
             finish();
         }
     }
@@ -215,10 +215,10 @@ public class GrantPermissionActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d003c);
+            setContentView(R.layout.obfuscated_res_0x7f0d003e);
             Intent intent = getIntent();
             this.a = intent.getIntExtra("request_code", -1);
-            b0 c = d0.b().c(intent.getStringExtra("request_time_stamp"));
+            c0 c = e0.b().c(intent.getStringExtra("request_time_stamp"));
             this.b = c;
             if (c != null) {
                 c();

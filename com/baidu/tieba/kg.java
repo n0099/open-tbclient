@@ -1,190 +1,61 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.os.Build;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.res.Resources;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nps.interfa.IResourcesFetcher;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-/* loaded from: classes6.dex */
-public class kg {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
+/* loaded from: classes7.dex */
+public class kg implements IResourcesFetcher {
     public static /* synthetic */ Interceptable $ic;
-    public static File a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448309201, "Lcom/baidu/tieba/kg;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public kg() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448309201, "Lcom/baidu/tieba/kg;");
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static void b(ClassLoader classLoader, File file) throws Throwable {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65537, null, classLoader, file) == null) {
-                lg.a(lg.b(classLoader, "pathList").get(classLoader), "nativeLibraryDirectories", new File[]{file});
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: Removed duplicated region for block: B:10:0x002c  */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public static void b(ClassLoader classLoader, File file) throws Throwable {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65537, null, classLoader, file) == null) {
-                Object obj = lg.b(classLoader, "pathList").get(classLoader);
-                List list = (List) lg.b(obj, "nativeLibraryDirectories").get(obj);
-                if (list == null) {
-                    list = new ArrayList(2);
-                }
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    if (file.equals((File) it.next()) || file.equals(kg.a)) {
-                        it.remove();
-                        break;
-                    }
-                    while (it.hasNext()) {
-                    }
-                }
-                list.add(0, file);
-                Collection collection = (List) lg.b(obj, "systemNativeLibraryDirectories").get(obj);
-                if (collection == null) {
-                    collection = new ArrayList(2);
-                }
-                Method c = lg.c(obj, "makePathElements", List.class, File.class, List.class);
-                ArrayList arrayList = new ArrayList();
-                list.addAll(collection);
-                Object[] objArr = {list, null, arrayList};
-                Field b = lg.b(obj, "nativeLibraryPathElements");
-                b.setAccessible(true);
-                b.set(obj, (Object[]) c.invoke(obj, objArr));
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: Removed duplicated region for block: B:10:0x002c  */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public static void b(ClassLoader classLoader, File file) throws Throwable {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65537, null, classLoader, file) == null) {
-                Object obj = lg.b(classLoader, "pathList").get(classLoader);
-                List list = (List) lg.b(obj, "nativeLibraryDirectories").get(obj);
-                if (list == null) {
-                    list = new ArrayList(2);
-                }
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    if (file.equals((File) it.next()) || file.equals(kg.a)) {
-                        it.remove();
-                        break;
-                    }
-                    while (it.hasNext()) {
-                    }
-                }
-                list.add(0, file);
-                Collection collection = (List) lg.b(obj, "systemNativeLibraryDirectories").get(obj);
-                if (collection == null) {
-                    collection = new ArrayList(2);
-                }
-                Method c = lg.c(obj, "makePathElements", List.class);
-                list.addAll(collection);
-                Object[] objArr = {list};
-                Field b = lg.b(obj, "nativeLibraryPathElements");
-                b.setAccessible(true);
-                b.set(obj, (Object[]) c.invoke(obj, objArr));
-            }
-        }
-    }
-
-    @TargetApi(23)
-    public static int b() {
+    @Override // com.baidu.nps.interfa.IResourcesFetcher
+    public Resources getBaseContextResources() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            try {
-                return Build.VERSION.PREVIEW_SDK_INT;
-            } catch (Throwable unused) {
-                return 1;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return BdBaseApplication.getInst().getResources();
         }
-        return invokeV.intValue;
+        return (Resources) invokeV.objValue;
     }
 
-    public static synchronized boolean c(ClassLoader classLoader, File file) throws Throwable {
-        InterceptResult invokeLL;
+    @Override // com.baidu.nps.interfa.IResourcesFetcher
+    public Resources getGlobalResources() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, classLoader, file)) == null) {
-            synchronized (kg.class) {
-                boolean z = false;
-                if (classLoader != null && file != null) {
-                    if (file.exists()) {
-                        int i = Build.VERSION.SDK_INT;
-                        if ((i == 25 && b() != 0) || i > 25) {
-                            z = true;
-                        }
-                        if (z) {
-                            c.b(classLoader, file);
-                        } else if (i >= 23) {
-                            b.b(classLoader, file);
-                        } else if (i >= 14) {
-                            a.b(classLoader, file);
-                        }
-                        a = file;
-                        return true;
-                    }
-                }
-                return false;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return BdBaseApplication.getInst().getResources();
         }
-        return invokeLL.booleanValue;
+        return (Resources) invokeV.objValue;
     }
 
-    public static synchronized boolean d(ClassLoader classLoader, String str) throws Throwable {
-        InterceptResult invokeLL;
-        boolean c2;
+    @Override // com.baidu.nps.interfa.IResourcesFetcher
+    public Resources[] getWrapperResources() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, classLoader, str)) == null) {
-            synchronized (kg.class) {
-                c2 = c(classLoader, new File(str));
-            }
-            return c2;
-        }
-        return invokeLL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new Resources[]{BdBaseApplication.getInst().getResources()} : (Resources[]) invokeV.objValue;
     }
 }

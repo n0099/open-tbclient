@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 /* loaded from: classes3.dex */
-public class h implements c.InterfaceC0107c {
+public class h implements c.InterfaceC0108c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ Context a;
@@ -45,7 +45,7 @@ public class h implements c.InterfaceC0107c {
         this.e = str3;
     }
 
-    @Override // com.baidu.mapsdkplatform.comapi.commonutils.a.c.InterfaceC0107c
+    @Override // com.baidu.mapsdkplatform.comapi.commonutils.a.c.InterfaceC0108c
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -59,7 +59,7 @@ public class h implements c.InterfaceC0107c {
         }
     }
 
-    @Override // com.baidu.mapsdkplatform.comapi.commonutils.a.c.InterfaceC0107c
+    @Override // com.baidu.mapsdkplatform.comapi.commonutils.a.c.InterfaceC0108c
     public void a(File file) {
         boolean a;
         boolean a2;

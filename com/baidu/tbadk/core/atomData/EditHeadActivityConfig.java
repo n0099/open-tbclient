@@ -24,22 +24,26 @@ public class EditHeadActivityConfig extends IntentConfig {
     public static final int ALA_PERSON_TYPE = 3;
     public static final int CHANNEL_AVATAR = 4;
     public static final int CHANNEL_COVER = 5;
+    public static final int CHANNEL_FORUM_BACKGROUND = 6;
     public static final String CUT_IMAGE_HEIGHT_SCALE = "cut_image_height_scale";
     public static final String EDITTYPE = "edit_type";
     public static String FILE_NAME = "file_name";
     public static final String FROMCODE = "request";
     public static final String FROM_ALA_LIVE_COVER_CUT = "fom_ala_live_cover";
     public static final String FROM_FLUTTER_IMAGEPICKER = "from_flutter_imagepicker";
+    public static final String FROM_FORUM_BACKGROUND = "from_forum_background";
     public static final String FROM_MISSON_SET_COVER = "from_misson_set_cover";
     public static final String FROM_PHOTO_LIVE = "from_photo_live";
     public static final String FROM_WHERE = "from_where";
     public static final int GROUP_PHOTO_WALL = 2;
     public static final int GROUP_TYPE = 1;
+    public static final String IMAGE_URL = "image_url";
     public static final String NEED_PASTE = "need_paste";
     public static final String NEED_UPLOAD = "need_upload";
     public static final int PERSON_TYPE = 0;
     public static String PHOTO_RESOURCE = "resourceid";
     public static String PIC_INFO = "pic_info";
+    public static final String SYSTEM_FORUM_BACKGROUND = "system_forum_background";
     public static final String UPLOAD_IMAGE_TYPE = "upload_image_type";
     public static final int UPLOAD_TYPE_NO = 0;
     public static final int UPLOAD_TYPE_RESET_PORTRAIT = 1;
@@ -271,11 +275,33 @@ public class EditHeadActivityConfig extends IntentConfig {
         return (EditHeadActivityConfig) invokeL.objValue;
     }
 
+    public EditHeadActivityConfig setImageUrl(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (!StringUtils.isNull(str)) {
+                getIntent().putExtra(IMAGE_URL, str);
+            }
+            return this;
+        }
+        return (EditHeadActivityConfig) invokeL.objValue;
+    }
+
     public EditHeadActivityConfig setNeedPaste(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
             getIntent().putExtra(NEED_PASTE, z);
+            return this;
+        }
+        return (EditHeadActivityConfig) invokeZ.objValue;
+    }
+
+    public EditHeadActivityConfig setSystemForumBg(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            getIntent().putExtra(SYSTEM_FORUM_BACKGROUND, z);
             return this;
         }
         return (EditHeadActivityConfig) invokeZ.objValue;
@@ -284,7 +310,7 @@ public class EditHeadActivityConfig extends IntentConfig {
     public EditHeadActivityConfig setUserGrowthTask(UserGrowthTaskListData userGrowthTaskListData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, userGrowthTaskListData)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, userGrowthTaskListData)) == null) {
             getIntent().putExtra(USER_GROWTH_TASK, userGrowthTaskListData);
             return this;
         }
@@ -294,7 +320,7 @@ public class EditHeadActivityConfig extends IntentConfig {
     public EditHeadActivityConfig setWaterMaskType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
             getIntent().putExtra(WATERMARK_TYPE, i);
             return this;
         }

@@ -39,7 +39,7 @@ public class FrsGameStrategyActivity extends BaseFragmentActivity {
         }
     }
 
-    public static void o1(Context context, String str, String str2) {
+    public static void m1(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65537, null, context, str, str2) == null) {
             Intent intent = new Intent(context, FrsGameStrategyActivity.class);

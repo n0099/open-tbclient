@@ -20,7 +20,7 @@ import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.live.recmore.ILiveRecMoreFeedView;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.n70;
+import com.baidu.tieba.e80;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
@@ -32,7 +32,7 @@ public final class LiveRecMoreFeedView implements ILiveRecMoreFeedView {
     public ILiveRecMoreFeedView.LiveSubTabPageListener mListener;
 
     public LiveRecMoreFeedView() {
-        n70 a = n70.a();
+        e80 a = e80.a();
         Intrinsics.checkExpressionValueIsNotNull(a, "BdUniqueId.gen()");
         this.bdUniqueId = a.b();
     }

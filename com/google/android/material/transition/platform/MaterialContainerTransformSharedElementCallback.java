@@ -23,7 +23,7 @@ import java.lang.ref.WeakReference;
 import java.util.List;
 import java.util.Map;
 @RequiresApi(21)
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class MaterialContainerTransformSharedElementCallback extends SharedElementCallback {
     @Nullable
     public static WeakReference<View> capturedSharedElement;
@@ -35,7 +35,7 @@ public class MaterialContainerTransformSharedElementCallback extends SharedEleme
     @Nullable
     public ShapeProvider shapeProvider = new ShapeableViewShapeProvider();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface ShapeProvider {
         @Nullable
         ShapeAppearanceModel provideShape(@NonNull View view2);
@@ -54,7 +54,7 @@ public class MaterialContainerTransformSharedElementCallback extends SharedEleme
         return this.transparentWindowBackgroundEnabled;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class ShapeableViewShapeProvider implements ShapeProvider {
         @Override // com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback.ShapeProvider
         @Nullable
@@ -151,7 +151,7 @@ public class MaterialContainerTransformSharedElementCallback extends SharedEleme
         ShapeAppearanceModel provideShape;
         View onCreateSnapshotView = super.onCreateSnapshotView(context, parcelable);
         if (onCreateSnapshotView != null && (weakReference = capturedSharedElement) != null && this.shapeProvider != null && (view2 = weakReference.get()) != null && (provideShape = this.shapeProvider.provideShape(view2)) != null) {
-            onCreateSnapshotView.setTag(R.id.obfuscated_res_0x7f091843, provideShape);
+            onCreateSnapshotView.setTag(R.id.obfuscated_res_0x7f091886, provideShape);
         }
         return onCreateSnapshotView;
     }
@@ -179,8 +179,8 @@ public class MaterialContainerTransformSharedElementCallback extends SharedEleme
 
     @Override // android.app.SharedElementCallback
     public void onSharedElementEnd(@NonNull List<String> list, @NonNull List<View> list2, @NonNull List<View> list3) {
-        if (!list2.isEmpty() && (list2.get(0).getTag(R.id.obfuscated_res_0x7f091843) instanceof View)) {
-            list2.get(0).setTag(R.id.obfuscated_res_0x7f091843, null);
+        if (!list2.isEmpty() && (list2.get(0).getTag(R.id.obfuscated_res_0x7f091886) instanceof View)) {
+            list2.get(0).setTag(R.id.obfuscated_res_0x7f091886, null);
         }
         if (!this.entering && !list2.isEmpty()) {
             this.returnEndBounds = TransitionUtils.getRelativeBoundsRect(list2.get(0));
@@ -191,7 +191,7 @@ public class MaterialContainerTransformSharedElementCallback extends SharedEleme
     @Override // android.app.SharedElementCallback
     public void onSharedElementStart(@NonNull List<String> list, @NonNull List<View> list2, @NonNull List<View> list3) {
         if (!list2.isEmpty() && !list3.isEmpty()) {
-            list2.get(0).setTag(R.id.obfuscated_res_0x7f091843, list3.get(0));
+            list2.get(0).setTag(R.id.obfuscated_res_0x7f091886, list3.get(0));
         }
         if (!this.entering && !list2.isEmpty() && this.returnEndBounds != null) {
             View view2 = list2.get(0);

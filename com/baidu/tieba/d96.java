@@ -1,76 +1,189 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.ala.data.SdkLiveInfoData;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ala.frsgamelive.view.AlaGameFrsLiveGameCardView;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class d96 extends lh<j96, AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder> {
+public class d96 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public s56 b;
+    public boolean a;
+    public List<String> b;
+    public List<SdkLiveInfoData> c;
+    public n96 d;
+    public List<oi> e;
+    public boolean f;
+    public String g;
+    public String h;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d96(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public d96(g86 g86Var, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {g86Var, str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        this.a = false;
+        this.f = false;
+        this.b = new ArrayList();
+        this.c = new ArrayList();
+        this.e = new ArrayList();
+        if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
+            this.f = true;
+        }
+        this.g = str;
+        this.h = str2;
+        a(g86Var);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
-    /* renamed from: s */
-    public AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public boolean a(g86 g86Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder(new AlaGameFrsLiveGameCardView(this.a));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, g86Var)) == null) {
+            if (g86Var == null) {
+                return false;
+            }
+            boolean e = e(g86Var.b);
+            this.a = g86Var.a;
+            return e;
         }
-        return (AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public void u(s56 s56Var) {
+    public void g(n96 n96Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, s56Var) == null) {
-            this.b = s56Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, n96Var) == null) {
+            this.d = n96Var;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, j96 j96Var, AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder alaGameFrsGameViewHolder) {
-        InterceptResult invokeCommon;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, j96Var, alaGameFrsGameViewHolder})) == null) {
-            alaGameFrsGameViewHolder.a.j(j96Var);
-            alaGameFrsGameViewHolder.a.u(this.b);
-            return alaGameFrsGameViewHolder.getView();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a = false;
+            List<String> list = this.b;
+            if (list != null) {
+                list.clear();
+            }
+            List<SdkLiveInfoData> list2 = this.c;
+            if (list2 != null) {
+                list2.clear();
+            }
+            List<oi> list3 = this.e;
+            if (list3 != null) {
+                list3.clear();
+            }
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final ArrayList<oi> c(List<SdkLiveInfoData> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
+            ArrayList<oi> arrayList = new ArrayList<>();
+            int size = list.size();
+            for (int i = 0; i < size; i += 2) {
+                c86 c86Var = new c86();
+                p76 p76Var = new p76();
+                p76Var.a = list.get(i);
+                p76Var.f = true;
+                p76Var.b = this.f;
+                p76Var.c = this.g;
+                p76Var.d = this.h;
+                int i2 = i + 1;
+                p76Var.e = i2;
+                c86Var.a = p76Var;
+                if (i2 < size) {
+                    p76 p76Var2 = new p76();
+                    p76Var2.a = list.get(i2);
+                    p76Var2.b = this.f;
+                    p76Var2.c = this.g;
+                    p76Var2.d = this.h;
+                    p76Var2.e = i + 2;
+                    c86Var.b = p76Var2;
+                    p76Var2.g = true;
+                } else {
+                    p76Var.f = false;
+                    p76Var.h = true;
+                }
+                arrayList.add(c86Var);
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    public List<oi> d() {
+        InterceptResult invokeV;
+        bm6 bm6Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (!ListUtils.isEmpty(this.e)) {
+                arrayList.addAll(this.e);
+            }
+            n96 n96Var = this.d;
+            if (n96Var != null && (bm6Var = n96Var.a) != null && !ListUtils.isEmpty(bm6Var.c())) {
+                arrayList.add(0, this.d);
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final boolean e(List<SdkLiveInfoData> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return false;
+            }
+            ArrayList arrayList = new ArrayList();
+            for (SdkLiveInfoData sdkLiveInfoData : list) {
+                if (sdkLiveInfoData != null) {
+                    String str = sdkLiveInfoData.liveId;
+                    if (!this.b.contains(str)) {
+                        arrayList.add(sdkLiveInfoData);
+                        this.b.add(str);
+                    }
+                }
+            }
+            if (ListUtils.isEmpty(arrayList)) {
+                return false;
+            }
+            this.c.addAll(arrayList);
+            ArrayList<oi> c = c(this.c);
+            this.e = c;
+            if (ListUtils.isEmpty(c)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

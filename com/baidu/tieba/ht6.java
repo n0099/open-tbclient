@@ -1,161 +1,119 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ItemData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ApkDetail;
-import tbclient.ManageInfo;
+import java.util.Arrays;
+import java.util.Map;
+import kotlin.Pair;
+import kotlin.collections.MapsKt__MapsKt;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class ht6 implements yh {
+public class ht6 implements dt6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId g;
     public transient /* synthetic */ FieldHolder $fh;
-    public ItemData a;
-    public int b;
-    public int c;
-    public boolean d;
-    public boolean e;
-    public boolean f;
+    public final dt6 a;
+    public final Map<Integer, dt6> b;
 
-    public static boolean e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? i == 3 || i == 4 : invokeI.booleanValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947835295, "Lcom/baidu/tieba/ht6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947835295, "Lcom/baidu/tieba/ht6;");
-                return;
-            }
-        }
-        g = BdUniqueId.gen();
-    }
-
-    public ht6() {
+    public ht6(dt6 defaultLayouter, Pair<Integer, ? extends dt6>... layouter) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {defaultLayouter, layouter};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = 0;
-        this.c = 0;
-        this.d = true;
-        this.e = false;
-        this.f = false;
+        Intrinsics.checkNotNullParameter(defaultLayouter, "defaultLayouter");
+        Intrinsics.checkNotNullParameter(layouter, "layouter");
+        this.a = defaultLayouter;
+        this.b = MapsKt__MapsKt.mutableMapOf((Pair[]) Arrays.copyOf(layouter, layouter.length));
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: a */
-    public ht6 clone() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.dt6
+    public void a(pr6 item, long j, pt6 displayer, jr6 config) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ht6 ht6Var = new ht6();
-            ht6Var.a = this.a;
-            ht6Var.b = this.b;
-            ht6Var.c = this.c;
-            ht6Var.d = this.d;
-            ht6Var.e = this.e;
-            ht6Var.f = this.f;
-            return ht6Var;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{item, Long.valueOf(j), displayer, config}) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(displayer, "displayer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            f(item).a(item, j, displayer, config);
         }
-        return (ht6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yh
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.dt6
+    public boolean d(pr6 item, long j, pt6 displayer, jr6 config) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return g;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{item, Long.valueOf(j), displayer, config})) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(displayer, "displayer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            return f(item).d(item, j, displayer, config);
         }
-        return (BdUniqueId) invokeV.objValue;
+        return invokeCommon.booleanValue;
     }
 
-    public static ht6 b(sb5 sb5Var) {
+    @Override // com.baidu.tieba.dt6
+    public void b(pr6 item) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            f(item).b(item);
+        }
+    }
+
+    public int e(pr6 item) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, sb5Var)) == null) {
-            ht6 ht6Var = new ht6();
-            ht6Var.a = sb5Var.b;
-            ht6Var.b = sb5Var.d;
-            ht6Var.c = sb5Var.e;
-            return ht6Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, item)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            return item.e().j();
         }
-        return (ht6) invokeL.objValue;
+        return invokeL.intValue;
     }
 
-    public static ht6 c(ManageInfo manageInfo) {
+    public final dt6 f(pr6 pr6Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, manageInfo)) == null) {
-            ht6 ht6Var = new ht6();
-            ItemData itemData = new ItemData();
-            ht6Var.a = itemData;
-            itemData.parseProto(manageInfo.item);
-            ht6Var.b = manageInfo.item_source.intValue();
-            return ht6Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, pr6Var)) == null) {
+            dt6 dt6Var = this.b.get(Integer.valueOf(e(pr6Var)));
+            if (dt6Var == null) {
+                return this.a;
+            }
+            return dt6Var;
         }
-        return (ht6) invokeL.objValue;
+        return (dt6) invokeL.objValue;
     }
 
-    public boolean d(ht6 ht6Var) {
-        InterceptResult invokeL;
-        boolean z;
-        boolean z2;
-        boolean z3;
-        ItemData itemData;
-        ApkDetail apkDetail;
-        ApkDetail apkDetail2;
-        ItemData itemData2;
+    @Override // com.baidu.tieba.dt6
+    public void c(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ht6Var)) == null) {
-            if (this.b == ht6Var.b && this.c == ht6Var.c) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            this.a.c(i, i2);
+            for (dt6 dt6Var : this.b.values()) {
+                dt6Var.c(i, i2);
             }
-            ItemData itemData3 = this.a;
-            if (itemData3 != null && (itemData2 = ht6Var.a) != null) {
-                z2 = itemData3.pkgName.equals(itemData2.pkgName);
-            } else {
-                z2 = false;
-            }
-            ItemData itemData4 = this.a;
-            if (itemData4 != null && (itemData = ht6Var.a) != null && (apkDetail = itemData4.apkDetail) != null && (apkDetail2 = itemData.apkDetail) != null) {
-                z3 = apkDetail.version_code.equals(apkDetail2.version_code);
-            } else {
-                z3 = false;
-            }
-            if (z && z2 && z3) {
-                return true;
-            }
-            return false;
         }
-        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.dt6
+    public void clear() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.clear();
+            for (dt6 dt6Var : this.b.values()) {
+                dt6Var.clear();
+            }
+        }
     }
 }

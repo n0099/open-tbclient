@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AdTagTextView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] b;
@@ -34,7 +34,7 @@ public class AdTagTextView extends LinearLayout {
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d0076 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d0078 : invokeV.intValue;
     }
 
     public void onChangeSkinType() {
@@ -43,7 +43,7 @@ public class AdTagTextView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class VerticalImageSpan extends ImageSpan {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -171,7 +171,7 @@ public class AdTagTextView extends LinearLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            Drawable drawable = SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0800e1);
+            Drawable drawable = SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0800e4);
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
             spannableStringBuilder.append((CharSequence) " ").append((CharSequence) c);
             drawable.setBounds(0, 0, UtilHelper.getDimenPixelSize(R.dimen.tbds83), UtilHelper.getDimenPixelSize(R.dimen.tbds47));

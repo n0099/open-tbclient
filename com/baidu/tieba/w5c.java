@@ -3,23 +3,29 @@ package com.baidu.tieba;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.TreeMap;
+import com.hihonor.push.framework.aidl.IMessageEntity;
+import com.hihonor.push.framework.aidl.entity.RequestHeader;
+import com.hihonor.push.sdk.common.data.ApiException;
 /* loaded from: classes8.dex */
-public class w5c implements s5c {
+public abstract class w5c<TResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte[] a;
-    public TreeMap<String, String> b;
+    public final String a;
+    public final IMessageEntity b;
+    public final g5c c;
+    public RequestHeader d;
+    public e6c<TResult> e;
 
-    public w5c() {
+    public abstract void a(ApiException apiException, Object obj);
+
+    public w5c(String str, IMessageEntity iMessageEntity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, iMessageEntity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,58 +35,20 @@ public class w5c implements s5c {
                 return;
             }
         }
-        this.b = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+        getClass().getSimpleName();
+        this.a = str;
+        this.b = iMessageEntity;
+        this.c = g5c.b(str);
     }
 
-    @Override // com.baidu.tieba.v5c
-    public Iterator<String> g() {
-        InterceptResult invokeV;
+    public final void b(ApiException apiException, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return Collections.unmodifiableSet(this.b.keySet()).iterator();
-        }
-        return (Iterator) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.v5c
-    public byte[] getContent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.v5c
-    public String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String str2 = this.b.get(str);
-            if (str2 == null) {
-                return "";
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, apiException, obj) == null) {
+            if (this.e != null) {
+                a(apiException, obj);
+                return;
             }
-            return str2;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.v5c
-    public boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return this.b.containsKey(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.s5c
-    public void put(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-            this.b.put(str, str2);
+            String str = "This Task has been canceled, uri:" + this.a;
         }
     }
 }

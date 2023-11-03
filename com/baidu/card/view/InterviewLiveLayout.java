@@ -33,11 +33,11 @@ import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bk6;
-import com.baidu.tieba.jv4;
-import com.baidu.tieba.ny4;
-import com.baidu.tieba.qs;
-import com.baidu.tieba.uu4;
+import com.baidu.tieba.bw4;
+import com.baidu.tieba.fz4;
+import com.baidu.tieba.ht;
+import com.baidu.tieba.lv4;
+import com.baidu.tieba.xl6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -45,13 +45,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes3.dex */
-public class InterviewLiveLayout extends FrameLayout implements qs<jv4> {
+public class InterviewLiveLayout extends FrameLayout implements ht<bw4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public boolean b;
-    public bk6<jv4> c;
-    public jv4 d;
+    public xl6<bw4> c;
+    public bw4 d;
     public TbImageView e;
     public LinearLayout f;
     public ImageView g;
@@ -299,10 +299,10 @@ public class InterviewLiveLayout extends FrameLayout implements qs<jv4> {
         }
     }
 
-    public void setSubClickListener(bk6<jv4> bk6Var) {
+    public void setSubClickListener(xl6<bw4> xl6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bk6Var) == null) {
-            this.c = bk6Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, xl6Var) == null) {
+            this.c = xl6Var;
         }
     }
 
@@ -323,16 +323,16 @@ public class InterviewLiveLayout extends FrameLayout implements qs<jv4> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qs
+    @Override // com.baidu.tieba.ht
     /* renamed from: j */
-    public void onBindDataToView(jv4 jv4Var) {
+    public void onBindDataToView(bw4 bw4Var) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jv4Var) == null) {
-            this.d = jv4Var;
-            if (jv4Var != null && this.e != null) {
-                ThreadData threadData = jv4Var.getThreadData();
-                ny4 taskInfoData = threadData.getTaskInfoData();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bw4Var) == null) {
+            this.d = bw4Var;
+            if (bw4Var != null && this.e != null) {
+                ThreadData threadData = bw4Var.getThreadData();
+                fz4 taskInfoData = threadData.getTaskInfoData();
                 if (taskInfoData == null) {
                     setVisibility(8);
                     return;
@@ -340,7 +340,7 @@ public class InterviewLiveLayout extends FrameLayout implements qs<jv4> {
                 this.j = threadData;
                 this.k = threadData.getFid();
                 this.l = taskInfoData.h();
-                if (uu4.c().g() && taskInfoData != null && !StringUtils.isNull(taskInfoData.m())) {
+                if (lv4.c().g() && taskInfoData != null && !StringUtils.isNull(taskInfoData.m())) {
                     this.i.clear();
                     this.i.add(taskInfoData.m());
                     setVisibility(0);

@@ -1,5 +1,5 @@
 package com.google.zxing.datamatrix.encoder;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class EdifactEncoder implements Encoder {
     @Override // com.google.zxing.datamatrix.encoder.Encoder
     public int getEncodingMode() {

@@ -1,45 +1,48 @@
 package com.baidu.tieba;
 
+import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Callable;
+import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
-public class isb implements Runnable {
+public class isb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ dtb a;
-    public final /* synthetic */ Callable b;
 
-    public isb(dtb dtbVar, Callable callable) {
+    public static float a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dtbVar, callable};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            long[] b = b();
+            if (b[0] <= 0) {
+                return 0.0f;
             }
+            return 1.0f - (((float) ((b[1] + b[2]) + b[3])) / ((float) b[0]));
         }
-        this.a = dtbVar;
-        this.b = callable;
+        return invokeV.floatValue;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
+    public static long[] b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            long[] jArr = new long[4];
             try {
-                this.a.b(this.b.call());
+                Method method = Class.forName("android.os.Process").getMethod("readProcLines", String.class, String[].class, long[].class);
+                long[] jArr2 = {30, -30};
+                Object[] objArr = {new String(HardwareInfoUtils.MEM_INFO_FILE), new String[]{"MemTotal:", "MemFree:", "Buffers:", "Cached:"}, jArr2};
+                if (method != null) {
+                    method.invoke(null, objArr);
+                    for (int i = 0; i < 4; i++) {
+                        jArr[i] = jArr2[i] / 1024;
+                    }
+                }
             } catch (Exception e) {
-                this.a.a(e);
+                e.printStackTrace();
             }
+            return jArr;
         }
+        return (long[]) invokeV.objValue;
     }
 }

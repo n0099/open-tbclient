@@ -1,20 +1,38 @@
 package com.baidu.tieba;
 
-import android.view.MotionEvent;
-import com.baidu.swan.videoplayer.media.video.view.MediaGestureMode;
+import android.graphics.Bitmap;
+import android.media.MediaPlayer;
+import android.view.View;
 /* loaded from: classes5.dex */
 public interface cn4 {
-    boolean a(MotionEvent motionEvent);
 
-    boolean b(MotionEvent motionEvent, MediaGestureMode mediaGestureMode);
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(b bVar);
 
-    boolean c(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2);
+        void b(b bVar, int i, int i2);
 
-    boolean d(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2);
+        void c(b bVar, int i, int i2, int i3);
+    }
 
-    boolean e(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2);
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(MediaPlayer mediaPlayer);
 
-    boolean onDoubleTap(MotionEvent motionEvent);
+        cn4 b();
+    }
 
-    boolean onDown(MotionEvent motionEvent);
+    void a(a aVar);
+
+    void b(a aVar);
+
+    Bitmap getBitmap();
+
+    View getView();
+
+    void release();
+
+    void setAspectRatio(int i);
+
+    void setVideoSize(int i, int i2);
 }

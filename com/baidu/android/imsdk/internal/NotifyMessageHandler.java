@@ -21,7 +21,7 @@ import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.ubc.CaseUbc;
 import com.baidu.android.imsdk.ubc.UBCConstants;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.tieba.j20;
+import com.baidu.tieba.a30;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -375,7 +375,7 @@ public abstract class NotifyMessageHandler {
                     handleRtcReport("notify", "exception :" + th.getMessage());
                     debugInfo.extInfo = "ClassNotFoundException BIMRtcManager";
                 }
-                j20.d().f(CaseUbc.generateUBCData(context, "-1", "", debugInfo), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+                a30.d().f(CaseUbc.generateUBCData(context, "-1", "", debugInfo), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
                 return;
             }
             LogUtils.i(TAG, "handleRtcNotifyMessage context == null || msgobj == null ");

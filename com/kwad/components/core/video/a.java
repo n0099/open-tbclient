@@ -25,7 +25,7 @@ import com.kwad.sdk.widget.KSRelativeLayout;
 @Deprecated
 /* loaded from: classes10.dex */
 public class a extends com.kwad.sdk.core.video.videoview.b implements View.OnClickListener {
-    public InterfaceC0630a JA;
+    public InterfaceC0636a JA;
     public final com.kwad.sdk.core.download.kwai.a JB;
     public boolean Jk;
     public boolean Jl;
@@ -56,7 +56,7 @@ public class a extends com.kwad.sdk.core.video.videoview.b implements View.OnCli
 
     /* renamed from: com.kwad.components.core.video.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public interface InterfaceC0630a {
+    public interface InterfaceC0636a {
         void a(int i, aa.a aVar);
     }
 
@@ -120,26 +120,26 @@ public class a extends com.kwad.sdk.core.video.videoview.b implements View.OnCli
     }
 
     private void aq(int i) {
-        InterfaceC0630a interfaceC0630a = this.JA;
-        if (interfaceC0630a != null) {
-            interfaceC0630a.a(i, this.Jp.getTouchCoords());
+        InterfaceC0636a interfaceC0636a = this.JA;
+        if (interfaceC0636a != null) {
+            interfaceC0636a.a(i, this.Jp.getTouchCoords());
         }
     }
 
     private void init() {
         ImageView imageView;
         int i;
-        LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d04ac, (ViewGroup) this, true);
-        this.Jp = (KSRelativeLayout) findViewById(R.id.obfuscated_res_0x7f09145b);
-        this.Jq = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0912c0);
-        this.jR = (TextView) findViewById(R.id.obfuscated_res_0x7f0912c2);
-        ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912c1);
+        LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d04bf, (ViewGroup) this, true);
+        this.Jp = (KSRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091499);
+        this.Jq = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0912fe);
+        this.jR = (TextView) findViewById(R.id.obfuscated_res_0x7f091300);
+        ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912ff);
         this.jQ = imageView2;
         imageView2.setOnClickListener(this);
-        this.Jt = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091454);
-        this.Ju = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09144f);
-        this.kk = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f09145a);
-        this.Jv = (ImageView) findViewById(R.id.obfuscated_res_0x7f091462);
+        this.Jt = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091492);
+        this.Ju = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09148d);
+        this.kk = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091498);
+        this.Jv = (ImageView) findViewById(R.id.obfuscated_res_0x7f0914a0);
         String url = com.kwad.sdk.core.response.a.a.aL(this.mAdInfo).getUrl();
         if (TextUtils.isEmpty(url)) {
             imageView = this.Jv;
@@ -175,7 +175,7 @@ public class a extends com.kwad.sdk.core.video.videoview.b implements View.OnCli
     }
 
     public final void aA(String str) {
-        ((TextView) findViewById(R.id.obfuscated_res_0x7f09128f)).setText(str);
+        ((TextView) findViewById(R.id.obfuscated_res_0x7f0912cd)).setText(str);
     }
 
     public final void az(boolean z) {
@@ -191,13 +191,13 @@ public class a extends com.kwad.sdk.core.video.videoview.b implements View.OnCli
 
     public void er() {
         if (com.kwad.sdk.core.response.a.a.am(this.mAdInfo)) {
-            this.Jx = (ImageView) findViewById(R.id.obfuscated_res_0x7f091440);
-            this.Jy = (TextView) findViewById(R.id.obfuscated_res_0x7f091294);
-            this.Jz = (TextView) findViewById(R.id.obfuscated_res_0x7f09128f);
+            this.Jx = (ImageView) findViewById(R.id.obfuscated_res_0x7f09147e);
+            this.Jy = (TextView) findViewById(R.id.obfuscated_res_0x7f0912d2);
+            this.Jz = (TextView) findViewById(R.id.obfuscated_res_0x7f0912cd);
             KSImageLoader.loadAppIcon(this.Jx, com.kwad.sdk.core.response.a.d.bU(this.mAdTemplate), this.mAdTemplate, 12);
             this.Jy.setText(com.kwad.sdk.core.response.a.a.bl(this.mAdInfo));
             this.Jz.setText(com.kwad.sdk.core.response.a.a.al(this.mAdInfo));
-            this.Jw = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09143f);
+            this.Jw = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09147d);
             this.Jx.setOnClickListener(this);
             this.Jy.setOnClickListener(this);
             this.Jz.setOnClickListener(this);
@@ -205,11 +205,11 @@ public class a extends com.kwad.sdk.core.video.videoview.b implements View.OnCli
             this.mApkDownloadHelper = cVar;
             cVar.b(this.JB);
         } else {
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0912ea);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091328);
             this.Jz = textView;
             textView.setText(com.kwad.sdk.core.response.a.a.al(this.mAdInfo));
             this.Jz.setOnClickListener(this);
-            this.Jw = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091441);
+            this.Jw = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09147f);
         }
         this.Jw.setOnClickListener(this);
         this.Jw.setVisibility(0);
@@ -368,8 +368,8 @@ public class a extends com.kwad.sdk.core.video.videoview.b implements View.OnCli
         oJ();
     }
 
-    public void setAdClickListener(InterfaceC0630a interfaceC0630a) {
-        this.JA = interfaceC0630a;
+    public void setAdClickListener(InterfaceC0636a interfaceC0636a) {
+        this.JA = interfaceC0636a;
     }
 
     public void setCanControlPlay(boolean z) {

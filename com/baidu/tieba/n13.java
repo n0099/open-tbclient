@@ -2,20 +2,31 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
+import android.util.Pair;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.tieba.ay1;
+import com.baidu.tieba.fh4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.heytap.mcssdk.PushService;
+import java.io.File;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
+import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -24,6 +35,108 @@ public class n13 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes7.dex */
+    public static class a implements ay1.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c23 a;
+
+        public a(c23 c23Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c23Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = c23Var;
+        }
+
+        @Override // com.baidu.tieba.ay1.a
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                n13.r(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c23 a;
+
+        public b(c23 c23Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c23Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = c23Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                n13.c(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class c implements s72<Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+
+        public c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.s72
+        /* renamed from: b */
+        public void a(Boolean bool) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
+                y13.b("download plugin result = " + bool);
+                z13.b(this.a);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -38,276 +151,484 @@ public class n13 {
                 return;
             }
         }
-        a = am1.a;
+        a = rm1.a;
     }
 
-    public static void j() {
-        y42 W;
+    public static Set<fh4.a> i(PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65546, null) == null) && (W = cr2.V().W()) != null && (W.m() instanceof z42)) {
-            cr2.V().getActivity().onBackPressed();
-        }
-    }
-
-    public static void a(Map<String, String> map, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65537, null, map, str) != null) || map == null) {
-            return;
-        }
-        String b = b(map, "dynamicLibPath", 3);
-        String b2 = b(map, "dynamicLibConfig", 3);
-        String b3 = b(map, "pluginPath", 4);
-        String b4 = b(map, "dependenciesPath", 6);
-        String b5 = b(map, "dependenciesConfig", 6);
-        if (!TextUtils.isEmpty(str) && a) {
-            h13.b(str + ", dynamicLibPath = " + b + "; dynamicLibConfig = " + b2 + "; pluginPath = " + b3 + "; dependenciesPath = " + b4 + "; dependenciesConfig = " + b5);
-        }
-    }
-
-    public static String b(Map<String, String> map, String str, int i) {
-        InterceptResult invokeLLI;
-        String str2;
-        SwanAppConfigData swanAppConfigData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, map, str, i)) == null) {
-            if (map == null || TextUtils.isEmpty(str)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, pMSAppInfo)) == null) {
+            if (pMSAppInfo == null) {
                 return null;
             }
-            p53 M = p53.M();
-            if (M != null) {
-                str2 = M.V().e(str, null);
-            } else {
-                str2 = null;
-            }
-            if (!TextUtils.isEmpty(str2)) {
-                map.put(str, str2);
-                return str2;
-            }
-            if (M != null) {
-                swanAppConfigData = M.R();
-            } else {
-                swanAppConfigData = null;
-            }
-            if (i == 3) {
-                w03.m(swanAppConfigData, false);
-                str2 = i(str, null);
-            } else if (i == 4) {
-                str2 = l(swanAppConfigData);
-            } else if (i == 6) {
-                u03.a(swanAppConfigData);
-                str2 = i(str, null);
-            }
-            map.put(str, str2);
-            return str2;
+            return j(pMSAppInfo.appId, pMSAppInfo.versionCode);
         }
-        return (String) invokeLLI.objValue;
+        return (Set) invokeL.objValue;
     }
 
-    public static void c(String str, String str2) {
-        p53 M;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && !TextUtils.isEmpty(str) && (M = p53.M()) != null) {
-            M.V().j(str, str2);
-        }
-    }
-
-    public static String i(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, str2)) == null) {
-            p53 M = p53.M();
-            if (M != null && !TextUtils.isEmpty(str)) {
-                return M.V().e(str, str2);
-            }
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String d(List<l13> list) {
+    public static List<hf4> q(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
-            int size = list.size();
-            StringBuilder sb = new StringBuilder();
-            sb.append("select * from (SELECT * from ");
-            sb.append("swan_plugin");
-            sb.append(" ORDER BY update_time) group by bundle_id having bundle_id in ");
-            sb.append("(");
-            for (int i = 0; i < size; i++) {
-                sb.append("'");
-                sb.append(list.get(i).a);
-                sb.append("'");
-                if (i == size - 1) {
-                    sb.append(SmallTailInfo.EMOTION_SUFFIX);
-                } else {
-                    sb.append(",");
-                }
-            }
-            sb.append(ParamableElem.DIVIDE_PARAM);
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String f(String str) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            qe4 g = g(str);
-            if (g != null && !TextUtils.isEmpty(g.r)) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                return g.r;
-            }
-            h13.b("get plugin appKey form db, but empty, plugin appId = " + str);
-            return null;
+            return de4.i().r("bundle_id = ? ", new String[]{str});
         }
-        return (String) invokeL.objValue;
+        return (List) invokeL.objValue;
     }
 
-    public static qe4 h(String str) {
-        InterceptResult invokeL;
-        SwanAppConfigData R;
-        List<qe4> list;
+    public static void r(c23 c23Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            if (!g32.d() && !o13.H() && !o13.D()) {
-                return g(str);
-            }
-            p53 M = p53.M();
-            if (M != null && (R = M.R()) != null && (list = R.l) != null) {
-                for (qe4 qe4Var : list) {
-                    if (TextUtils.equals(str, qe4Var.g)) {
-                        return qe4Var;
-                    }
-                }
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeL(65554, null, c23Var) == null) {
+            ExecutorUtilsExt.postOnElastic(new b(c23Var), "requestDynamicLib", 2);
         }
-        return (qe4) invokeL.objValue;
     }
 
-    public static String e(String str, String str2) {
-        InterceptResult invokeLL;
+    public static void s(c23 c23Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return null;
-            }
-            SwanAppConfigData b = b63.b(str);
-            if (b == null) {
-                h13.b("getDownloadKey, app.json is null");
-                return null;
-            }
-            SwanAppConfigData.m mVar = b.d;
-            if (mVar == null) {
-                h13.b("getDownloadKey, sub pkg obj is null");
-                return null;
-            }
-            Map<String, String> map = mVar.a;
-            if (map == null) {
-                h13.b("getDownloadKey, sub pkg map is null");
-                return null;
-            }
-            return map.get(str2);
+        if (interceptable == null || interceptable.invokeL(65555, null, c23Var) == null) {
+            tx1.d().c(new ay1(new a(c23Var)));
         }
-        return (String) invokeLL.objValue;
     }
 
-    public static qe4 g(String str) {
+    public static void c(c23 c23Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, c23Var) == null) {
+            if (c23Var != null && c23Var.a()) {
+                String str = c23Var.a;
+                String str2 = c23Var.b;
+                long j = c23Var.c;
+                qd4.g(new jh4(str, str2, j, c23Var.d), new m13(str, str2, j, new c(str)));
+                return;
+            }
+            y13.b("plugin is invalid");
+        }
+    }
+
+    public static File g(@Nullable hf4 hf4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, hf4Var)) == null) {
+            if (hf4Var == null) {
                 return null;
             }
-            return w03.p(str, com.kuaishou.weapon.p0.q1.e, 0L);
+            File t = cp2.t(hf4Var.g, String.valueOf(hf4Var.i));
+            if (t == null || !t.exists()) {
+                return cp2.t(hf4Var.g, String.valueOf(vj3.c(hf4Var.j)));
+            }
+            return t;
         }
-        return (qe4) invokeL.objValue;
+        return (File) invokeL.objValue;
     }
 
-    public static List<qe4> k(String str, boolean z) {
-        InterceptResult invokeLZ;
+    public static boolean k(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65547, null, str, z)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            if (TextUtils.isEmpty(h(str)) && TextUtils.isEmpty(f(str))) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static File d(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (!str.startsWith("__dep__")) {
+                return null;
+            }
+            String[] split = str.split("/");
+            if (split.length < 2) {
+                return null;
+            }
+            String str2 = split[1];
+            int indexOf = str.indexOf(str2) + str2.length() + 1;
+            if (indexOf >= str.length()) {
+                return null;
+            }
+            String substring = str.substring(indexOf);
+            String i = e23.i("dependenciesPath", null);
+            if (TextUtils.isEmpty(i)) {
                 return null;
             }
             try {
-                JSONArray jSONArray = new JSONArray(str);
-                int length = jSONArray.length();
-                if (length == 0) {
+                String optString = new JSONObject(i).optString(str2);
+                if (TextUtils.isEmpty(optString)) {
                     return null;
                 }
-                ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < length; i++) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                    if (optJSONObject != null) {
-                        String optString = optJSONObject.optString("plugin_id");
-                        if (!TextUtils.isEmpty(optString)) {
-                            qe4 qe4Var = new qe4();
-                            qe4Var.g = optString;
-                            qe4Var.i = optJSONObject.optLong("version_code", 0L);
-                            qe4Var.j = optJSONObject.optString(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, com.kuaishou.weapon.p0.q1.e);
-                            qe4Var.p = optJSONObject.optString("token");
-                            qe4Var.q = optJSONObject.optString("domains");
-                            qe4Var.h = 4;
-                            qe4Var.r = optJSONObject.optString(GameGuideConfigInfo.KEY_APP_KEY);
-                            qe4Var.s = optJSONObject.optString("app_name");
-                            qe4Var.l = "";
-                            qe4Var.m = "";
-                            qe4Var.n = "";
-                            arrayList.add(qe4Var);
-                            if (z) {
-                                md4.i().m(qe4Var);
-                            }
-                        }
-                    }
-                }
-                return arrayList;
+                return new File(optString, substring + ".json");
             } catch (JSONException e) {
-                h13.b(Log.getStackTraceString(e));
+                y13.b(Log.getStackTraceString(e));
                 return null;
             }
         }
-        return (List) invokeLZ.objValue;
+        return (File) invokeL.objValue;
     }
 
-    public static String l(SwanAppConfigData swanAppConfigData) {
+    public static String h(@NonNull String str) {
         InterceptResult invokeL;
+        JSONObject optJSONObject;
+        JSONObject optJSONObject2;
+        JSONArray optJSONArray;
+        int length;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, swanAppConfigData)) == null) {
-            if (swanAppConfigData == null) {
-                h13.b("parse app.json is null");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            if (!str.startsWith("__dynamicLib__")) {
                 return null;
             }
-            List<l13> i = swanAppConfigData.i(4);
-            if (i != null && !i.isEmpty()) {
-                JSONObject jSONObject = new JSONObject();
-                for (l13 l13Var : i) {
-                    if (l13Var != null && l13Var.a()) {
-                        pi3.f(jSONObject, l13Var.a, l13Var.e);
+            String[] split = str.split("/");
+            if (split.length < 2) {
+                return null;
+            }
+            String str2 = split[1];
+            int indexOf = str.indexOf(str2) + str2.length() + 1;
+            if (indexOf >= str.length()) {
+                return null;
+            }
+            String substring = str.substring(indexOf);
+            String i = e23.i("dynamicLibConfig", null);
+            if (TextUtils.isEmpty(i)) {
+                return null;
+            }
+            try {
+                optJSONObject = new JSONObject(i).optJSONObject(str2);
+            } catch (JSONException e) {
+                y13.b(Log.getStackTraceString(e));
+            }
+            if (optJSONObject != null && (optJSONObject2 = optJSONObject.optJSONObject("config")) != null && (optJSONArray = optJSONObject2.optJSONArray(NotificationCompat.WearableExtender.KEY_PAGES)) != null && (length = optJSONArray.length()) != 0) {
+                for (int i2 = 0; i2 < length; i2++) {
+                    if (TextUtils.equals(substring, optJSONArray.optString(i2))) {
+                        return str;
                     }
                 }
-                String jSONObject2 = jSONObject.toString();
-                c("pluginPath", jSONObject2);
-                return jSONObject2;
+                return null;
             }
-            c("pluginPath", null);
-            h13.b("this swan app not apply on someone plugin");
             return null;
         }
         return (String) invokeL.objValue;
+    }
+
+    public static List<ze4> e(String str, long j) {
+        InterceptResult invokeLJ;
+        SwanAppConfigData.d dVar;
+        List<a23> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65541, null, str, j)) == null) {
+            SwanAppConfigData b2 = yq2.b(cp2.v(str, String.valueOf(j), false, null, null));
+            if (b2 == null || (dVar = b2.k) == null || (list = dVar.a) == null || list.isEmpty()) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            for (a23 a23Var : b2.k.a) {
+                ze4 ze4Var = new ze4();
+                ze4Var.a = a23Var.a;
+                ze4Var.b = a23Var.g;
+                ze4Var.c = a23Var.c;
+                ze4Var.e = a23Var.i;
+                ze4Var.d = a23Var.h;
+                arrayList.add(ze4Var);
+            }
+            return arrayList;
+        }
+        return (List) invokeLJ.objValue;
+    }
+
+    public static Set<fh4.a> j(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65546, null, str, j)) == null) {
+            List<ze4> l = rd4.b().l(str, j);
+            if (l != null && !l.isEmpty()) {
+                HashSet hashSet = new HashSet();
+                ArrayList arrayList = new ArrayList();
+                for (ze4 ze4Var : l) {
+                    if (!ze4Var.b && mj4.b(ze4Var.a, ze4Var.d, ze4Var.e, arrayList) == null) {
+                        fh4.a aVar = new fh4.a(ze4Var.a);
+                        aVar.f(ze4Var.d, ze4Var.e);
+                        hashSet.add(aVar);
+                    }
+                }
+                if (!arrayList.isEmpty()) {
+                    de4.i().g(arrayList);
+                }
+                return hashSet;
+            }
+            return null;
+        }
+        return (Set) invokeLJ.objValue;
+    }
+
+    public static String f(@NonNull String str) {
+        InterceptResult invokeL;
+        JSONObject optJSONObject;
+        JSONObject optJSONObject2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            if (!str.startsWith("__dep__")) {
+                return null;
+            }
+            String[] split = str.split("/");
+            if (split.length < 2) {
+                return null;
+            }
+            String str2 = split[1];
+            int indexOf = str.indexOf(str2) + str2.length() + 1;
+            if (indexOf >= str.length()) {
+                return null;
+            }
+            String substring = str.substring(indexOf);
+            String i = e23.i("dependenciesConfig", null);
+            if (TextUtils.isEmpty(i)) {
+                return null;
+            }
+            try {
+                optJSONObject = new JSONObject(i).optJSONObject(str2);
+            } catch (JSONException e) {
+                y13.b(Log.getStackTraceString(e));
+            }
+            if (optJSONObject == null) {
+                return null;
+            }
+            JSONArray optJSONArray = optJSONObject.optJSONArray(NotificationCompat.WearableExtender.KEY_PAGES);
+            if (l(substring, optJSONArray)) {
+                return str;
+            }
+            JSONObject optJSONObject3 = optJSONObject.optJSONObject("module");
+            if (optJSONObject3 == null || (optJSONObject2 = optJSONObject3.optJSONObject("paths")) == null) {
+                return null;
+            }
+            Iterator<String> keys = optJSONObject2.keys();
+            String str3 = null;
+            while (keys.hasNext()) {
+                String next = keys.next();
+                if (next != null) {
+                    if (substring.startsWith(next)) {
+                        if (str3 != null && next.length() <= str3.length()) {
+                        }
+                        str3 = next;
+                    }
+                }
+            }
+            if (str3 == null) {
+                return null;
+            }
+            String replaceFirst = substring.replaceFirst(str3, optJSONObject2.optString(str3));
+            if (l(replaceFirst, optJSONArray)) {
+                return str.replace(substring, replaceFirst);
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean l(String str, JSONArray jSONArray) {
+        InterceptResult invokeLL;
+        int length;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, str, jSONArray)) == null) {
+            if (jSONArray != null && (length = jSONArray.length()) != 0) {
+                for (int i = 0; i < length; i++) {
+                    if (TextUtils.equals(str, jSONArray.optString(i))) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void m(SwanAppConfigData swanAppConfigData, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65549, null, swanAppConfigData, z) == null) {
+            if (swanAppConfigData == null) {
+                if (a) {
+                    y13.b("parse app.json is null");
+                    return;
+                }
+                return;
+            }
+            List<c23> i = swanAppConfigData.i(3);
+            if (i != null && !i.isEmpty()) {
+                JSONObject jSONObject = new JSONObject();
+                JSONObject jSONObject2 = new JSONObject();
+                if (wg2.m()) {
+                    Iterator<c23> it = i.iterator();
+                    while (it.hasNext()) {
+                        c23 next = it.next();
+                        Pair<Boolean, File> i2 = wg2.i(next.a);
+                        if (((Boolean) i2.first).booleanValue()) {
+                            g32.k("SwanDynamicUtil", "优先使用 Debug 动态库: " + ((File) i2.second).getAbsolutePath());
+                            o(jSONObject, jSONObject2, (File) i2.second, next, -1L);
+                            it.remove();
+                        }
+                    }
+                }
+                n(i, jSONObject, jSONObject2, z);
+                String jSONObject3 = jSONObject.toString();
+                String jSONObject4 = jSONObject2.toString();
+                e23.c("dynamicLibPath", jSONObject3);
+                e23.c("dynamicLibConfig", jSONObject4);
+                return;
+            }
+            e23.c("dynamicLibPath", null);
+            e23.c("dynamicLibConfig", null);
+            if (a) {
+                y13.b("this swan app not apply on someone dynamic lib");
+            }
+        }
+    }
+
+    public static void n(@NonNull List<c23> list, @NonNull JSONObject jSONObject, @NonNull JSONObject jSONObject2, boolean z) {
+        c23 c23Var;
+        File file;
+        boolean z2;
+        boolean z3;
+        long j;
+        long j2;
+        long c2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65550, null, new Object[]{list, jSONObject, jSONObject2, Boolean.valueOf(z)}) == null) && list != null && list.size() != 0) {
+            List<hf4> w = de4.i().w(e23.d(list));
+            for (c23 c23Var2 : list) {
+                File file2 = null;
+                try {
+                    c23Var = (c23) c23Var2.clone();
+                } catch (CloneNotSupportedException e) {
+                    if (a) {
+                        y13.b(Log.getStackTraceString(e));
+                    }
+                    c23Var = c23Var2;
+                }
+                long j3 = 0;
+                if (w != null) {
+                    j = 0;
+                    boolean z4 = false;
+                    z3 = true;
+                    boolean z5 = false;
+                    for (hf4 hf4Var : w) {
+                        if (c23Var2.a.equals(hf4Var.g)) {
+                            y13.b("pluginName = " + c23Var2.a + " latestPlugin versionCode = " + hf4Var.i + " cur model versionCode = " + c23Var2.c);
+                            long j4 = c23Var2.c;
+                            if (j4 >= j3) {
+                                c2 = hf4Var.i;
+                            } else {
+                                c2 = vj3.c(hf4Var.j);
+                                j4 = vj3.c(c23Var2.b);
+                            }
+                            if (c2 > j4) {
+                                file2 = g(hf4Var);
+                                z5 = true;
+                            }
+                            if (z5) {
+                                c23Var.b = hf4Var.j;
+                                c23Var.c = hf4Var.i;
+                            }
+                            if (!hf4Var.c()) {
+                                y13.b("plugin is new, not yet expired");
+                                z3 = false;
+                            }
+                            j = Math.max(c2, j4);
+                            j3 = 0;
+                            z4 = true;
+                        }
+                    }
+                    file = file2;
+                    z2 = z4;
+                } else {
+                    file = null;
+                    z2 = false;
+                    z3 = true;
+                    j = 0;
+                }
+                if (!z2) {
+                    long j5 = c23Var2.c;
+                    if (j5 < 0) {
+                        j5 = vj3.c(c23Var2.b);
+                    }
+                    j2 = j5;
+                } else {
+                    j2 = j;
+                }
+                o(jSONObject, jSONObject2, file, c23Var2, j2);
+                if (z3 && z) {
+                    s(c23Var);
+                }
+            }
+        }
+    }
+
+    public static void o(JSONObject jSONObject, JSONObject jSONObject2, File file, c23 c23Var, long j) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65551, null, new Object[]{jSONObject, jSONObject2, file, c23Var, Long.valueOf(j)}) == null) && jSONObject != null && jSONObject2 != null && c23Var != null) {
+            if (file != null && file.exists()) {
+                str = file.getAbsolutePath();
+                if (a) {
+                    y13.b("apply path in workspace, name = " + c23Var.a);
+                }
+            } else {
+                str = c23Var.e;
+                if (a) {
+                    y13.b("apply path inner swan app, name = " + c23Var.a);
+                }
+            }
+            try {
+                jSONObject.put(c23Var.a, str);
+                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(c23Var.f)) {
+                    File file2 = new File(str, c23Var.f);
+                    if (file2.exists()) {
+                        String E = jm4.E(file2);
+                        if (a) {
+                            y13.b("pages info = " + E);
+                        }
+                        JSONObject jSONObject3 = new JSONObject();
+                        jSONObject3.put("config", new JSONObject(E));
+                        jSONObject3.put(PushService.APP_VERSION_CODE, j);
+                        jSONObject2.put(c23Var.a, jSONObject3);
+                    }
+                }
+            } catch (JSONException e) {
+                if (a) {
+                    y13.b(Log.getStackTraceString(e));
+                }
+            }
+        }
+    }
+
+    public static hf4 p(String str, String str2, long j) {
+        InterceptResult invokeCommon;
+        String[] strArr;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{str, str2, Long.valueOf(j)})) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            if (j >= 0) {
+                strArr = new String[]{str, String.valueOf(j)};
+                str3 = "bundle_id = ?  and version_code = ? ";
+            } else if (!TextUtils.isEmpty(str2)) {
+                String[] strArr2 = {str, str2};
+                str3 = "bundle_id = ?  and version_name = ? ";
+                strArr = strArr2;
+            } else {
+                strArr = new String[]{str};
+                str3 = "bundle_id = ? ";
+            }
+            List<hf4> r = de4.i().r(str3, strArr);
+            if (r == null || r.size() <= 0) {
+                return null;
+            }
+            return r.get(0);
+        }
+        return (hf4) invokeCommon.objValue;
     }
 }

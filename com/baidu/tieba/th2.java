@@ -1,130 +1,64 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.io.File;
 /* loaded from: classes8.dex */
-public class th2 implements Runnable {
+public class th2 extends sh2<nh2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final uh2 a;
-    public final Runnable b;
-    public String c;
-    public String[] d;
-    public AtomicBoolean e;
-    public List<th2> f;
 
-    public th2(uh2 uh2Var, Runnable runnable, String str, String[] strArr) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public th2() {
+        super(new nh2());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {uh2Var, runnable, str, strArr};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ph2) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = new AtomicBoolean(false);
-        this.f = Collections.synchronizedList(new ArrayList());
-        this.a = uh2Var;
-        this.b = runnable;
-        this.c = str;
-        this.d = strArr;
     }
 
-    public void a(th2 th2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, th2Var) == null) && !this.f.contains(th2Var)) {
-            this.f.add(th2Var);
-        }
-    }
-
-    public void g(th2 th2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, th2Var) == null) {
-            this.f.remove(th2Var);
-        }
-    }
-
-    public String[] b() {
+    @Override // com.baidu.tieba.sh2
+    public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return (String[]) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f.isEmpty();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e.get();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            ji3.k(this, this.c);
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.b.run();
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.e.set(true);
-        }
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            try {
-                h();
-            } finally {
-                this.a.g(this);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (r(h().extensionCorePath) && !super.k()) {
+                return false;
             }
+            return true;
         }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean r(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            g32.k("ExtCore-SwanAppPresetControl", "isExtensionFileAvailable extensionPath:" + str);
+            boolean z = false;
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            File file = new File(str, "extension.js");
+            if (file.exists() && file.length() > 0) {
+                z = true;
+            }
+            g32.k("ExtCore-SwanAppPresetControl", "isExtensionFileAvailable: " + z);
+            return z;
+        }
+        return invokeL.booleanValue;
     }
 }

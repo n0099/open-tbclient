@@ -1,21 +1,19 @@
 package com.baidu.tieba;
 
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import kotlin.collections.CollectionsKt__CollectionsKt;
+@Service
 /* loaded from: classes6.dex */
-public abstract class iha implements Comparable<iha> {
+public final class iha implements hl5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-
-    public abstract void b();
-
-    public abstract void c();
-
-    public abstract void d();
 
     public iha() {
         Interceptable interceptable = $ic;
@@ -31,15 +29,13 @@ public abstract class iha implements Comparable<iha> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(iha ihaVar) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.hl5
+    public List<LaunchTask> asyncList() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ihaVar)) == null) {
-            return this.a - ihaVar.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return CollectionsKt__CollectionsKt.mutableListOf(new jha());
         }
-        return invokeL.intValue;
+        return (List) invokeV.objValue;
     }
 }

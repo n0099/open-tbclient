@@ -1,173 +1,176 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Build;
+import android.os.Environment;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.win.opensdk.PBError;
-import com.win.opensdk.PBSplash;
-import com.win.opensdk.PBSplashListener;
+import java.io.File;
+import java.io.IOException;
+import java.io.RandomAccessFile;
 /* loaded from: classes8.dex */
-public class tnb extends ReporterPidLoader<PBSplash> {
+public final class tnb {
     public static /* synthetic */ Interceptable $ic;
+    public static String[] a;
+    public static File b;
+    public static RandomAccessFile c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public class a implements PBSplashListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public boolean b;
-        public final /* synthetic */ PBSplash c;
-        public final /* synthetic */ tnb d;
-
-        public a(tnb tnbVar, PBSplash pBSplash) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948188385, "Lcom/baidu/tieba/tnb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tnbVar, pBSplash};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.d = tnbVar;
-            this.c = pBSplash;
-        }
-
-        @Override // com.win.opensdk.PBListener
-        public void onClicked() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                LogPrinter.d();
-                this.d.onAdClicked((tnb) this.c, this.b, new String[0]);
-                this.b = true;
-            }
-        }
-
-        @Override // com.win.opensdk.PBSplashListener
-        public void onDisplayError(PBError pBError) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pBError) == null) {
-                LogPrinter.d();
-                this.d.onAdError(this.c, pBError.getCode(), pBError.getMsg());
-            }
-        }
-
-        @Override // com.win.opensdk.PBSplashListener
-        public void onDisplayed() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                LogPrinter.d();
-                this.d.onAdShow((tnb) this.c, this.a, new String[0]);
-                this.a = true;
-            }
-        }
-
-        @Override // com.win.opensdk.PBListener
-        public void onFail(PBError pBError) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, pBError) == null) {
-                LogPrinter.e("JySplashAd onError code: " + pBError.getCode() + ", message: " + pBError.getMsg(), new Object[0]);
-                this.d.onError(pBError.getCode(), pBError.getMsg());
-            }
-        }
-
-        @Override // com.win.opensdk.PBListener
-        public void onLoaded() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                LogPrinter.d();
-                this.d.onAdLoaded(this.c, new String[0]);
-            }
-        }
-
-        @Override // com.win.opensdk.PBSplashListener
-        public void onSkip() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                LogPrinter.d();
-                this.d.onAdClose(this.c);
-            }
-        }
-
-        @Override // com.win.opensdk.PBSplashListener
-        public void onTimeOver() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                LogPrinter.d();
-                this.d.onAdClose(this.c);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tnb(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.SPLASH), pid, true, false, true);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue(), ((Boolean) objArr2[4]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948188385, "Lcom/baidu/tieba/tnb;");
                 return;
             }
         }
+        a = new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"};
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, funAdSlot) == null) {
-            onLoadStart(funAdSlot);
-            PBSplash pBSplash = new PBSplash(context.getApplicationContext(), this.mPid.pid);
-            pBSplash.setLoadTimeOut(5000L);
-            pBSplash.setSplashListener(new a(this, pBSplash));
-            pBSplash.load();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            File file = new File(str);
+            b = file;
+            if (file.exists()) {
+                return true;
+            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
-        PBSplash pBSplash;
+    public static boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (pBSplash = (PBSplash) obj) != null) {
-            pBSplash.destroy();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            File file = new File(str);
+            b = file;
+            if (file.delete()) {
+                return true;
+            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
+    public static boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, activity, viewGroup, str, obj)) == null) {
-            PBSplash pBSplash = (PBSplash) obj;
-            onShowStart(pBSplash);
-            pBSplash.show(viewGroup);
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            String externalStorageState = Environment.getExternalStorageState();
+            if (Build.VERSION.SDK_INT >= 23) {
+                if (nmb.i().g().checkCallingOrSelfPermission(a[0]) != 0 || !externalStorageState.equals("mounted")) {
+                    return false;
+                }
+                return true;
+            }
+            return externalStorageState.equals("mounted");
         }
-        return invokeLLLL.booleanValue;
+        return invokeV.booleanValue;
+    }
+
+    public static synchronized boolean d(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3)) == null) {
+            synchronized (tnb.class) {
+                if (!c() || !f(str2, str3)) {
+                    return false;
+                }
+                try {
+                    b = new File(str2 + str3);
+                    RandomAccessFile randomAccessFile = new RandomAccessFile(b, "rwd");
+                    c = randomAccessFile;
+                    randomAccessFile.seek(b.length());
+                    c.write((str + "\r\n").getBytes("UTF-8"));
+                    c.close();
+                    return true;
+                } catch (Exception e) {
+                    wnb.e(e);
+                    return false;
+                }
+            }
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public static synchronized String e(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
+            synchronized (tnb.class) {
+                if (c()) {
+                    if (a(str + str2)) {
+                        try {
+                            b = new File(str + str2);
+                            c = new RandomAccessFile(b, "r");
+                            StringBuffer stringBuffer = new StringBuffer();
+                            while (true) {
+                                String readLine = c.readLine();
+                                if (readLine == null) {
+                                    break;
+                                }
+                                stringBuffer.append(new String(readLine.getBytes("ISO-8859-1"), "utf-8"));
+                                stringBuffer.append(",");
+                            }
+                            String stringBuffer2 = stringBuffer.toString();
+                            try {
+                                c.close();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            return stringBuffer2;
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
+                            try {
+                                c.close();
+                            } catch (IOException e3) {
+                                e3.printStackTrace();
+                            }
+                        }
+                    }
+                    return "";
+                }
+                return "";
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static boolean f(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
+            try {
+                b = new File(str);
+                if (!a(str)) {
+                    b.mkdirs();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                File file = new File(str + str2);
+                b = file;
+                if (file.exists()) {
+                    return true;
+                }
+                return b.createNewFile();
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
     }
 }

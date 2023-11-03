@@ -157,9 +157,9 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
             this.alpha = 255;
             this.number = -1;
             this.badgeTextColor = new TextAppearance(context, R.style.obfuscated_res_0x7f10021a).textColor.getDefaultColor();
-            this.contentDescriptionNumberless = context.getString(R.string.obfuscated_res_0x7f0f0cf7);
+            this.contentDescriptionNumberless = context.getString(R.string.obfuscated_res_0x7f0f0d09);
             this.contentDescriptionQuantityStrings = R.plurals.obfuscated;
-            this.contentDescriptionExceedsMaxBadgeNumberRes = R.string.obfuscated_res_0x7f0f0cf9;
+            this.contentDescriptionExceedsMaxBadgeNumberRes = R.string.obfuscated_res_0x7f0f0d0b;
         }
 
         public SavedState(@NonNull Parcel parcel) {
@@ -418,7 +418,7 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
         if (context == null) {
             return "";
         }
-        return context.getString(R.string.obfuscated_res_0x7f0f0cfa, Integer.valueOf(this.maxBadgeNumber), DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
+        return context.getString(R.string.obfuscated_res_0x7f0f0d0c, Integer.valueOf(this.maxBadgeNumber), DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
     }
 
     private void loadDefaultStateFromAttributes(Context context, AttributeSet attributeSet, @AttrRes int i, @StyleRes int i2) {

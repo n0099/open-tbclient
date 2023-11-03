@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.nadcore.widget.NadRoundProgressBar;
-import com.baidu.tieba.eg0;
+import com.baidu.tieba.vg0;
 import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
 import kotlin.Metadata;
 import kotlin.jvm.JvmOverloads;
@@ -38,8 +38,8 @@ public final class NadCarouselDownloadView extends NadMiniVideoDownloadView {
         this(context, (i2 & 2) != 0 ? null : attributeSet, (i2 & 4) != 0 ? 0 : i);
     }
 
-    @Override // com.baidu.nadcore.business.uitemplate.NadMiniVideoDownloadView, com.baidu.tieba.xg0
-    public void c(String str, eg0 data) {
+    @Override // com.baidu.nadcore.business.uitemplate.NadMiniVideoDownloadView, com.baidu.tieba.oh0
+    public void b(String str, vg0 data) {
         Intrinsics.checkNotNullParameter(data, "data");
         this.m = str;
         AdDownloadStatus adDownloadStatus = data.c;

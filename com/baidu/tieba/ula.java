@@ -1,67 +1,45 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.content.res.Configuration;
+import android.os.Looper;
+import android.os.MessageQueue;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.switchs.FunnySpriteSwitch;
-import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.no6;
-import com.baidu.tieba.sprite.FunnySpriteResDownloadUtil;
-import com.baidu.tieba.sprite.funnysprite.data.SpriteTipHttpResponseMessage;
-import com.baidu.tieba.sprite.homepage.HomeSpriteEdgeFloatManager;
-import com.baidu.tieba.sprite.tips.HomePageSpriteBottomTipView;
-import com.baidu.tieba.wz4;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.launch.stats.SpeedStatsManager;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.pageStayDuration.PageStayDurationItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class ula extends wz4 {
+public class ula {
     public static /* synthetic */ Interceptable $ic;
-    public static final a f;
-    public static long g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SpriteTipHttpResponseMessage c;
-    public final HomePageSpriteBottomTipView d;
-    public final no6.e e;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948216223, "Lcom/baidu/tieba/ula;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948216223, "Lcom/baidu/tieba/ula;");
-                return;
-            }
-        }
-        f = new a(null);
-    }
+    public wla a;
+    public vla b;
+    public xla c;
 
     /* loaded from: classes8.dex */
-    public static final class a {
+    public class a implements MessageQueue.IdleHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
+        public a(ula ulaVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ulaVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -72,146 +50,153 @@ public final class ula extends wz4 {
             }
         }
 
-        public final long a() {
+        @Override // android.os.MessageQueue.IdleHandler
+        public boolean queueIdle() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeV = interceptable.invokeV(1048576, this)) != null) {
-                return invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_LOAD_IDLE_END_STAMP_KEY);
+                return false;
             }
-            return ula.g;
+            return invokeV.booleanValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ula(Activity activity, SpriteTipHttpResponseMessage data, HomePageSpriteBottomTipView tipView, no6.e eVar) {
-        super(activity);
+    /* loaded from: classes8.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(ula ulaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ulaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_LOAD_HANDLER_END_STAMP_KEY);
+            }
+        }
+    }
+
+    public ula() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, data, tipView, eVar};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(activity, "activity");
-        Intrinsics.checkNotNullParameter(data, "data");
-        Intrinsics.checkNotNullParameter(tipView, "tipView");
-        this.c = data;
-        this.d = tipView;
-        this.e = eVar;
-    }
-
-    public /* synthetic */ ula(Activity activity, SpriteTipHttpResponseMessage spriteTipHttpResponseMessage, HomePageSpriteBottomTipView homePageSpriteBottomTipView, no6.e eVar, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(activity, spriteTipHttpResponseMessage, homePageSpriteBottomTipView, (i & 8) != 0 ? null : eVar);
-    }
-
-    @Override // com.baidu.tieba.wz4
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            no6.e eVar = this.e;
-            if (eVar != null) {
-                eVar.onDismiss();
-            }
-            this.d.e();
-        }
-    }
-
-    @Override // com.baidu.tieba.wz4
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.f();
-            no6.e eVar = this.e;
-            if (eVar != null) {
-                eVar.onDismiss();
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public final boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.c.isSuccess() && this.c.getScene() != 2 && HomeSpriteEdgeFloatManager.l.b()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static final void i(ula this$0) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, this$0) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            no6.e eVar = this$0.e;
-            if (eVar != null) {
-                eVar.onDismiss();
-            }
-            this$0.c();
-        }
-    }
-
-    @Override // com.baidu.tieba.wz4
-    public void d(wz4.a shouldShowCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shouldShowCallback) == null) {
-            Intrinsics.checkNotNullParameter(shouldShowCallback, "shouldShowCallback");
-            if (!bka.i.a().f() && !bka.i.a().i()) {
-                if (h()) {
-                    shouldShowCallback.callback(true);
-                    return;
-                }
-                TbLog defaultLog = DefaultLog.getInstance();
-                defaultLog.e("SpriteTip", "not show Tip switch:" + FunnySpriteSwitch.Companion.isOn() + " isAllResExist:" + FunnySpriteResDownloadUtil.k().invoke().booleanValue() + " canShowSpriteAndTip:" + HomeSpriteEdgeFloatManager.l.b());
-                shouldShowCallback.callback(false);
-                return;
-            }
-            if (h()) {
-                iaa.b.a().c(this.c);
-            }
-            DefaultLog.getInstance().e("SpriteTip", "not show Tip because home easter egg is showing");
-            shouldShowCallback.callback(false);
-        }
-    }
-
-    @Override // com.baidu.tieba.wz4
     public void e() {
+        wla wlaVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (wlaVar = this.a) != null) {
+            wlaVar.a(false);
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            vla vlaVar = this.b;
+            if (vlaVar != null) {
+                vlaVar.a();
+            }
+            MessageManager.getInstance().runTask(2921555, (Class) null);
+        }
+    }
+
+    public void a(@NonNull BaseFragmentActivity baseFragmentActivity, @NonNull ViewGroup viewGroup, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLI(1048576, this, baseFragmentActivity, viewGroup, i) != null) || baseFragmentActivity == null) {
+            return;
+        }
+        SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_LOAD_METHOD_START_STAMP_KEY);
+        b(baseFragmentActivity, viewGroup, i);
+        c();
+        SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_LOAD_METHOD_END_STAMP_KEY);
+    }
+
+    public final void b(@NonNull BaseFragmentActivity baseFragmentActivity, @NonNull ViewGroup viewGroup, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseFragmentActivity, viewGroup, i) == null) {
+            DefaultLog.getInstance().i("SplashAdDelegate", "开屏广告：initSplash");
+            ama amaVar = new ama(baseFragmentActivity, viewGroup, i);
+            this.a = amaVar;
+            bma bmaVar = new bma(amaVar);
+            this.c = bmaVar;
+            this.b = new ema(this.a, bmaVar);
+            viewGroup.setBackgroundResource(R.drawable.pic_splash_logo);
+            wpa.g().i(this.a.getUniqueId());
+            MessageManager.getInstance().runTask(2921668, (Class) null);
+            baseFragmentActivity.registerListener(new zla(this.a, this.c));
+        }
+    }
+
+    public final void c() {
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (2 == bka.i.a().b().a().c && 1 == bka.i.a().b().b().c && 6 == bka.i.a().b().c().c) {
-                DefaultLog.getInstance().i("SpriteTip", "show responseTip：直播tab不展示轻互动");
-                c();
-                return;
+            DefaultLog.getInstance().i("SplashAdDelegate", "开屏广告：loadSplash");
+            boolean p = js5.p();
+            StatisticItem param = StatisticItem.make(TbadkCoreStatisticKey.REQUEST_AD_TIME).param("obj_type", "a064").param("tid", p ? 1 : 0).param(TiebaStatic.Params.BEAR_CONFIG, p ? 1 : 0).param(TiebaStatic.Params.PLG_CONFIG, js5.v() ? 1 : 0);
+            int i2 = 2;
+            if (this.a.h()) {
+                i = 2;
+            } else {
+                i = 1;
             }
-            TbLog defaultLog = DefaultLog.getInstance();
-            defaultLog.i("SpriteTip", "show responseTip:" + this.c.getText());
-            g = System.currentTimeMillis();
-            String string = SharedPrefHelper.getInstance().getString("key_sprite_speech_version", "");
-            String version = this.c.getVersion();
-            if (!TextUtils.isEmpty(version) && !Intrinsics.areEqual(string, version)) {
-                SharedPrefHelper.getInstance().putString("key_sprite_speech_version", version);
+            StatisticItem param2 = param.param("obj_param1", i);
+            if (!this.a.h()) {
+                i2 = 1;
             }
-            this.d.setDataAndShow(this.c, new no6.e() { // from class: com.baidu.tieba.sla
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
+            param2.param(TiebaStatic.Params.OBJ_PARAM2, i2).param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param(TiebaStatic.Params.SPLASH_UNI, this.a.i()).eventStat();
+            Looper.myQueue().addIdleHandler(new a(this));
+            SafeHandler.getInst().post(new b(this));
+            this.b.b();
+        }
+    }
 
-                @Override // com.baidu.tieba.no6.e
-                public final void onDismiss() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        ula.i(ula.this);
-                    }
-                }
-            });
+    public void d(Configuration configuration) {
+        vla vlaVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, configuration) == null) && (vlaVar = this.b) != null) {
+            vlaVar.onConfigurationChanged(configuration);
+        }
+    }
+
+    public void f() {
+        wla wlaVar;
+        xla xlaVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (wlaVar = this.a) != null) {
+            wlaVar.a(true);
+            PageStayDurationItem pageStayDurationItem = this.a.getActivity().getPageStayDurationItem();
+            if (pageStayDurationItem != null) {
+                pageStayDurationItem.setAdSource(this.a.getAdSource());
+            }
+            if (this.a.f() && (xlaVar = this.c) != null) {
+                xlaVar.a();
+            }
         }
     }
 }

@@ -1,199 +1,271 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
+import android.content.Context;
+import android.os.Bundle;
+import android.widget.FrameLayout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.t53;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.res.ui.BdTimePicker;
+import com.baidu.tieba.l53;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.Date;
 /* loaded from: classes7.dex */
-public final class m53 implements ik3<t53.a> {
+public class m53 extends l53 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, ik3<t53.a>> a;
-    public final List<kk3<t53.a, Boolean>> b;
+    public BdTimePicker c;
+    public int d;
+    public int e;
+    public boolean f;
+    public boolean g;
+    public Date h;
+    public Date i;
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+        }
+    }
 
     /* loaded from: classes7.dex */
-    public class a implements ik3<String> {
+    public static class a extends l53.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ik3 a;
-        public final /* synthetic */ m53 b;
+        public Date e;
+        public Date f;
+        public Date g;
+        public String h;
+        public boolean i;
 
-        public a(m53 m53Var, ik3 ik3Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(Context context) {
+            super(context);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {m53Var, ik3Var};
+                Object[] objArr = {context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((Context) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = m53Var;
-            this.a = ik3Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ik3
-        /* renamed from: b */
-        public void a(String str) {
+        @Override // com.baidu.tieba.l53.a
+        public l53 a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && !TextUtils.isEmpty(str)) {
-                this.b.a.put(str, this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements ik3<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m53 a;
-
-        public b(m53 m53Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m53Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                m53 m53Var = (m53) super.a();
+                m53Var.j(this.h);
+                m53Var.h(this.i);
+                Date date = this.g;
+                if (date != null) {
+                    m53Var.k(date.getHours());
+                    m53Var.l(this.g.getMinutes());
                 }
+                Date date2 = this.e;
+                if (date2 != null) {
+                    m53Var.m(date2);
+                }
+                Date date3 = this.f;
+                if (date3 != null) {
+                    m53Var.i(date3);
+                }
+                return m53Var;
             }
-            this.a = m53Var;
+            return (l53) invokeV.objValue;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ik3
-        /* renamed from: b */
-        public void a(String str) {
+        @Override // com.baidu.tieba.l53.a
+        public l53 b(Context context) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.a.a.remove(str);
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+                return new m53(context);
             }
+            return (l53) invokeL.objValue;
+        }
+
+        public a l(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+                this.i = z;
+                return this;
+            }
+            return (a) invokeZ.objValue;
+        }
+
+        public a m(Date date) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, date)) == null) {
+                this.f = date;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a n(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+                this.h = str;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a o(Date date) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, date)) == null) {
+                this.g = date;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a p(Date date) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, date)) == null) {
+                this.e = date;
+                return this;
+            }
+            return (a) invokeL.objValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947923614, "Lcom/baidu/tieba/m53;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947923614, "Lcom/baidu/tieba/m53;");
-                return;
-            }
-        }
-        c = am1.a;
-    }
-
-    public m53() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m53(Context context) {
+        super(context, R.style.obfuscated_res_0x7f1001bc);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap();
-        this.b = new ArrayList();
+        this.f = false;
     }
 
-    public m53 c(kk3<t53.a, Boolean> kk3Var) {
-        InterceptResult invokeL;
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kk3Var)) == null) {
-            if (kk3Var != null) {
-                this.b.add(kk3Var);
-            }
-            return this;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c = new BdTimePicker(getContext());
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
+            layoutParams.gravity = 17;
+            this.c.setLayoutParams(layoutParams);
+            this.c.setScrollCycle(true);
+            this.c.setStartDate(this.h);
+            this.c.setmEndDate(this.i);
+            this.c.setHour(this.d);
+            this.c.setMinute(this.e);
+            this.c.l();
+            this.c.setDisabled(this.g);
         }
-        return (m53) invokeL.objValue;
     }
 
-    public m53 g(String... strArr) {
-        InterceptResult invokeL;
+    public int f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, strArr)) == null) {
-            if (strArr != null && strArr.length > 0) {
-                hk3.d(new b(this), strArr);
-            }
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c.getHour();
         }
-        return (m53) invokeL.objValue;
+        return invokeV.intValue;
     }
 
-    public final boolean d(t53.a aVar) {
-        InterceptResult invokeL;
+    public int g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar)) == null) {
-            if (aVar == null) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c.getMinute();
+        }
+        return invokeV.intValue;
+    }
+
+    public void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.g = z;
+        }
+    }
+
+    public void i(Date date) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, date) == null) {
+            this.i = date;
+        }
+    }
+
+    public void k(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    public void m(Date date) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, date) == null) {
+            this.h = date;
+        }
+    }
+
+    @Override // android.app.Dialog
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
+            if (this.f) {
+                getWindow().addFlags(4718592);
             }
-            for (kk3<t53.a, Boolean> kk3Var : this.b) {
-                if (kk3Var != null && !kk3Var.a(aVar).booleanValue()) {
-                    return false;
+            e();
+            b().j(this.c);
+        }
+    }
+
+    @Override // com.baidu.tieba.f53, android.app.Dialog
+    public void show() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            BdTimePicker bdTimePicker = this.c;
+            if (bdTimePicker != null) {
+                if (this.d != bdTimePicker.getHour()) {
+                    this.c.setHour(this.d);
+                }
+                if (this.e != this.c.getMinute()) {
+                    this.c.setMinute(this.e);
                 }
             }
-            return true;
+            super.show();
         }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ik3
-    /* renamed from: e */
-    public void a(t53.a aVar) {
-        ik3<t53.a> ik3Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            if (c) {
-                Log.i("EventHandler", "handle: " + aVar);
-            }
-            if (d(aVar) && (ik3Var = this.a.get(aVar.b)) != null) {
-                ik3Var.a(aVar);
-            }
-        }
-    }
-
-    public m53 f(ik3<t53.a> ik3Var, String... strArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, ik3Var, strArr)) == null) {
-            if (ik3Var != null && strArr != null && strArr.length > 0) {
-                hk3.d(new a(this, ik3Var), strArr);
-            }
-            return this;
-        }
-        return (m53) invokeLL.objValue;
     }
 }

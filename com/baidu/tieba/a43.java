@@ -1,25 +1,13 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
-import android.content.res.Resources;
-import android.content.res.TypedArray;
-import android.os.Build;
-import android.util.DisplayMetrics;
-import android.util.TypedValue;
+import android.graphics.Rect;
+import android.util.Log;
 import android.view.View;
-import android.view.ViewConfiguration;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.FrameLayout;
-import androidx.core.view.InputDeviceCompat;
+import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.ui.SystemBarTintManager;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,220 +15,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
-import java.lang.reflect.Method;
-@SuppressLint({"ObsoleteSdkInt"})
 /* loaded from: classes5.dex */
 public class a43 {
     public static /* synthetic */ Interceptable $ic;
-    public static String f;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final b a;
-    public boolean b;
-    public boolean c;
-    public View d;
-    public View e;
-
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final int a;
-        public final boolean b;
-        public final int c;
-        public final int d;
-        public final boolean e;
-        public final float f;
-
-        public b(Activity activity, boolean z, boolean z2) {
-            boolean z3;
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {activity, Boolean.valueOf(z), Boolean.valueOf(z2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            Resources resources = activity.getResources();
-            if (resources.getConfiguration().orientation == 1) {
-                z3 = true;
-            } else {
-                z3 = false;
-            }
-            this.e = z3;
-            this.f = g(activity);
-            this.a = b(resources, "status_bar_height");
-            a(activity);
-            this.c = d(activity);
-            this.d = f(activity);
-            this.b = this.c > 0;
-        }
-
-        public /* synthetic */ b(Activity activity, boolean z, boolean z2, a aVar) {
-            this(activity, z, z2);
-        }
-
-        @TargetApi(14)
-        public final int a(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                if (Build.VERSION.SDK_INT >= 14) {
-                    TypedValue typedValue = new TypedValue();
-                    context.getTheme().resolveAttribute(16843499, typedValue, true);
-                    return TypedValue.complexToDimensionPixelSize(typedValue.data, context.getResources().getDisplayMetrics());
-                }
-                return 0;
-            }
-            return invokeL.intValue;
-        }
-
-        public final float g(Activity activity) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, activity)) == null) {
-                DisplayMetrics displayMetrics = new DisplayMetrics();
-                if (Build.VERSION.SDK_INT >= 16) {
-                    activity.getWindowManager().getDefaultDisplay().getRealMetrics(displayMetrics);
-                } else {
-                    activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-                }
-                float f = displayMetrics.density;
-                return Math.min(displayMetrics.widthPixels / f, displayMetrics.heightPixels / f);
-            }
-            return invokeL.floatValue;
-        }
-
-        public final int b(Resources resources, String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, resources, str)) == null) {
-                int identifier = resources.getIdentifier(str, EMABTest.TYPE_DIMEN, "android");
-                if (identifier > 0) {
-                    return resources.getDimensionPixelSize(identifier);
-                }
-                return 0;
-            }
-            return invokeLL.intValue;
-        }
-
-        public int c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.c;
-            }
-            return invokeV.intValue;
-        }
-
-        public int e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return this.d;
-            }
-            return invokeV.intValue;
-        }
-
-        public int h() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                return this.a;
-            }
-            return invokeV.intValue;
-        }
-
-        public boolean j() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-                return this.b;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public boolean k() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-                if (this.f < 600.0f && !this.e) {
-                    return false;
-                }
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @TargetApi(14)
-        public final int d(Context context) {
-            InterceptResult invokeL;
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-                Resources resources = context.getResources();
-                if (Build.VERSION.SDK_INT >= 14 && i(context)) {
-                    if (this.e) {
-                        str = "navigation_bar_height";
-                    } else {
-                        str = "navigation_bar_height_landscape";
-                    }
-                    return b(resources, str);
-                }
-                return 0;
-            }
-            return invokeL.intValue;
-        }
-
-        @TargetApi(14)
-        public final int f(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
-                Resources resources = context.getResources();
-                if (Build.VERSION.SDK_INT >= 14 && i(context)) {
-                    return b(resources, "navigation_bar_width");
-                }
-                return 0;
-            }
-            return invokeL.intValue;
-        }
-
-        @TargetApi(14)
-        public final boolean i(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) {
-                Resources resources = context.getResources();
-                int identifier = resources.getIdentifier("config_showNavigationBar", "bool", "android");
-                if (identifier != 0) {
-                    boolean z = resources.getBoolean(identifier);
-                    if ("1".equals(a43.f)) {
-                        return false;
-                    }
-                    if ("0".equals(a43.f)) {
-                        return true;
-                    }
-                    return z;
-                }
-                return !ViewConfiguration.get(context).hasPermanentMenuKey();
-            }
-            return invokeL.booleanValue;
-        }
-    }
+    public int a;
+    public final View b;
+    public i43 c;
+    public Context d;
 
     static {
         InterceptResult invokeClinit;
@@ -255,24 +38,15 @@ public class a43 {
                 return;
             }
         }
-        if (Build.VERSION.SDK_INT >= 19) {
-            try {
-                Method declaredMethod = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP).getDeclaredMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class);
-                declaredMethod.setAccessible(true);
-                f = (String) declaredMethod.invoke(null, "qemu.hw.mainkeys");
-            } catch (Throwable unused) {
-                f = null;
-            }
-        }
+        e = rm1.a;
     }
 
-    @TargetApi(19)
-    public a43(Activity activity) {
+    public a43(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -282,85 +56,117 @@ public class a43 {
                 return;
             }
         }
-        Window window = activity.getWindow();
-        ViewGroup viewGroup = (ViewGroup) window.getDecorView();
-        if (Build.VERSION.SDK_INT >= 19) {
-            TypedArray obtainStyledAttributes = activity.obtainStyledAttributes(new int[]{SystemBarTintManager.windowTranslucentStatus, SystemBarTintManager.windowTranslucentNavigation});
-            try {
-                this.b = obtainStyledAttributes.getBoolean(0, false);
-                this.c = obtainStyledAttributes.getBoolean(1, false);
-                obtainStyledAttributes.recycle();
-                WindowManager.LayoutParams attributes = window.getAttributes();
-                if ((67108864 & attributes.flags) != 0) {
-                    this.b = true;
+        this.a = -1;
+        this.b = view2;
+        this.d = view2.getContext();
+    }
+
+    public final i43 a(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+            i43 i43Var = this.c;
+            if (i43Var != null) {
+                return i43Var;
+            }
+            if (view2 instanceof i43) {
+                i43 i43Var2 = (i43) view2;
+                this.c = i43Var2;
+                return i43Var2;
+            } else if (view2 instanceof ViewGroup) {
+                ViewGroup viewGroup = (ViewGroup) view2;
+                for (int i = 0; i < viewGroup.getChildCount(); i++) {
+                    i43 a = a(viewGroup.getChildAt(i));
+                    if (a != null) {
+                        this.c = a;
+                        return a;
+                    }
                 }
-                if ((attributes.flags & SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION) != 0) {
-                    this.c = true;
+                return null;
+            } else {
+                return null;
+            }
+        }
+        return (i43) invokeL.objValue;
+    }
+
+    public void b(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            Context context = this.d;
+            if (context instanceof Activity) {
+                Activity activity = (Activity) context;
+                if (h43.f(activity) && this.b.getFitsSystemWindows()) {
+                    Rect rect = new Rect();
+                    this.b.getWindowVisibleDisplayFrame(rect);
+                    i2 = rect.bottom - rect.top;
+                    if (e) {
+                        Log.d("SPSwitchRootLayout", "TranslucentStatus && FitsSystemWindows = true, height: " + i2);
+                    }
                 }
-            } catch (Throwable th) {
-                obtainStyledAttributes.recycle();
-                throw th;
+                if (h43.e(activity) && this.b.getFitsSystemWindows()) {
+                    Rect rect2 = new Rect();
+                    this.b.getWindowVisibleDisplayFrame(rect2);
+                    i2 = rect2.bottom - rect2.top;
+                    if (e) {
+                        Log.d("SPSwitchRootLayout", "systemUILayoutFullScreen && FitsSystemWindows = true, height: " + i2);
+                    }
+                }
             }
-        }
-        b bVar = new b(activity, this.b, this.c, null);
-        this.a = bVar;
-        if (!bVar.j()) {
-            this.c = false;
-        }
-        if (this.b) {
-            d(activity, viewGroup);
-        }
-        if (this.c) {
-            c(activity, viewGroup);
-        }
-    }
-
-    public void b(boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && this.b) {
-            View view2 = this.d;
-            if (z) {
-                i = 0;
+            if (e) {
+                Log.d("SPSwitchRootLayout", "onMeasure, width: " + i + " height: " + i2);
+            }
+            if (i2 < 0) {
+                return;
+            }
+            int i3 = this.a;
+            if (i3 < 0) {
+                if (e) {
+                    Log.d("SPSwitchRootLayout", "onMeasure, oldHeight < 0, oldHeight: " + this.a);
+                }
+                this.a = i2;
+                return;
+            }
+            int i4 = i3 - i2;
+            if (i4 == 0) {
+                if (e) {
+                    Log.d("SPSwitchRootLayout", "offset == 0, break;");
+                    return;
+                }
+                return;
+            }
+            this.a = i2;
+            i43 a = a(this.b);
+            if (a == null) {
+                if (e) {
+                    Log.d("SPSwitchRootLayout", "cannot find the valid panel layout, give up!");
+                    return;
+                }
+                return;
+            }
+            int visibility = ((LinearLayout) a).getVisibility();
+            if (e) {
+                Log.d("SPSwitchRootLayout", "panel visibility: " + visibility);
+            }
+            if (Math.abs(i4) < f43.g(this.b.getContext())) {
+                if (e) {
+                    Log.d("SPSwitchRootLayout", "layout change min, not caused by softinput/panel switch!");
+                }
+            } else if (Math.abs(i4) > f43.e(this.b.getContext())) {
+                if (e) {
+                    Log.d("SPSwitchRootLayout", "layout change max , but not caused by softinput/panel switch!");
+                }
+            } else if (i4 > 0) {
+                if (e) {
+                    Log.d("SPSwitchRootLayout", "offset > 0, offset : " + i4 + ", panel->handleHide...");
+                }
+                a.handleHide();
             } else {
-                i = 8;
+                if (e) {
+                    Log.d("SPSwitchRootLayout", "offset < 0, offset : " + i4 + ", panel->handleShow...");
+                }
+                a.handleShow();
             }
-            view2.setVisibility(i);
-        }
-    }
-
-    public final void c(Context context, ViewGroup viewGroup) {
-        FrameLayout.LayoutParams layoutParams;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, viewGroup) == null) {
-            this.e = new View(context);
-            if (this.a.k()) {
-                layoutParams = new FrameLayout.LayoutParams(-1, this.a.c());
-                layoutParams.gravity = 80;
-            } else {
-                layoutParams = new FrameLayout.LayoutParams(this.a.e(), -1);
-                layoutParams.gravity = 5;
-            }
-            this.e.setLayoutParams(layoutParams);
-            this.e.setBackgroundColor(-1728053248);
-            this.e.setVisibility(8);
-            viewGroup.addView(this.e);
-        }
-    }
-
-    public final void d(Context context, ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, viewGroup) == null) {
-            this.d = new View(context);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, this.a.h());
-            layoutParams.gravity = 48;
-            if (this.c && !this.a.k()) {
-                layoutParams.rightMargin = this.a.e();
-            }
-            this.d.setLayoutParams(layoutParams);
-            this.d.setBackgroundColor(-1728053248);
-            this.d.setVisibility(8);
-            viewGroup.addView(this.d);
         }
     }
 }

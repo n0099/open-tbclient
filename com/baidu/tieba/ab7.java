@@ -1,189 +1,96 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.log.DefaultLog;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.BawuTeamInfoActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.forumMember.member.FrsMemberTeamViewHolder;
+import com.baidu.tbadk.core.util.PreLoadImageInfo;
+import com.baidu.tbadk.core.util.PreLoadImageProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.BawuRoleInfoPub;
-import tbclient.MemberGroupInfo;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class ab7 extends yc7<bb7, FrsMemberTeamViewHolder> {
+public final class ab7<T> extends ja7<T> implements o67, w97, PreLoadImageProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View.OnClickListener l;
+    public final T c;
+    public final String d;
 
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ab7 a;
-
-        public a(ab7 ab7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ab7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ab7Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            bb7 bb7Var;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                String str = "";
-                if (view2.getTag() instanceof BawuRoleInfoPub) {
-                    BawuRoleInfoPub bawuRoleInfoPub = (BawuRoleInfoPub) view2.getTag();
-                    if (bawuRoleInfoPub == null) {
-                        return;
-                    }
-                    String str2 = bawuRoleInfoPub.target_scheme;
-                    if (!eh9.a(str2)) {
-                        this.a.c.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.a.mContext, "" + bawuRoleInfoPub.user_id, bawuRoleInfoPub.user_name)));
-                        return;
-                    }
-                    DefaultLog.getInstance().i("TargetSchemeInterceptHelper", "jump targetScheme: " + str2);
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f0925d6) {
-                    Object tag = view2.getTag();
-                    String[] strArr = null;
-                    if (tag instanceof Integer) {
-                        Integer num = (Integer) tag;
-                        if (this.a.getItem(num.intValue()) instanceof bb7) {
-                            bb7Var = (bb7) this.a.getItem(num.intValue());
-                            if (bb7Var == null && bb7Var.b() != null) {
-                                if (!StringUtils.isNull(bb7Var.b().member_group_type)) {
-                                    strArr = bb7Var.b().member_group_type.split("_");
-                                }
-                                if (strArr != null && strArr.length == 2) {
-                                    str = strArr[0];
-                                }
-                                if (!StringUtils.isNull(str) && str.equalsIgnoreCase("1")) {
-                                    this.a.c.sendMessage(new CustomMessage(2002001, new BawuTeamInfoActivityConfig(this.a.mContext, JavaTypesHelper.toLong(bb7Var.a(), 0L))));
-                                    return;
-                                }
-                                return;
-                            }
-                        }
-                    }
-                    bb7Var = null;
-                    if (bb7Var == null) {
-                    }
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ab7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext, bdUniqueId);
+    public ab7(@NonNull T t, @NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {t, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.l = new a(this);
+        this.c = t;
+        this.d = str;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
-    /* renamed from: K */
-    public FrsMemberTeamViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.za7
+    @NonNull
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            return new FrsMemberTeamViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d030d, (ViewGroup) null), this.l);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
         }
-        return (FrsMemberTeamViewHolder) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public View L(int i, View view2, ViewGroup viewGroup, bb7 bb7Var, FrsMemberTeamViewHolder frsMemberTeamViewHolder) {
-        InterceptResult invokeCommon;
-        MemberGroupInfo b;
-        List<BawuRoleInfoPub> list;
-        String[] strArr;
-        String str;
+    @Override // com.baidu.tieba.za7
+    @NonNull
+    public T b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, bb7Var, frsMemberTeamViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) bb7Var, (bb7) frsMemberTeamViewHolder);
-            if (bb7Var != null && bb7Var.b() != null && (list = (b = bb7Var.b()).member_group_list) != null && list.size() > 0 && !StringUtils.isNull(b.member_group_type)) {
-                frsMemberTeamViewHolder.a.setTag(Integer.valueOf(i));
-                if (!StringUtils.isNull(b.member_group_type)) {
-                    strArr = b.member_group_type.split("_");
-                } else {
-                    strArr = null;
-                }
-                if (strArr != null && strArr.length == 2) {
-                    str = strArr[1];
-                } else {
-                    str = "";
-                }
-                frsMemberTeamViewHolder.a.setText(str + "(" + b.member_group_num + SmallTailInfo.EMOTION_SUFFIX);
-                int i2 = 0;
-                for (BawuRoleInfoPub bawuRoleInfoPub : b.member_group_list) {
-                    if (i2 > 3) {
-                        break;
-                    } else if (bawuRoleInfoPub != null) {
-                        frsMemberTeamViewHolder.a(bawuRoleInfoPub, i2);
-                        i2++;
-                    }
-                }
-                frsMemberTeamViewHolder.c(this.f);
-                SkinManager.setBackgroundColor(frsMemberTeamViewHolder.n, R.color.CAM_X0201);
-                SkinManager.setViewTextColor(frsMemberTeamViewHolder.a, R.color.CAM_X0105, 1);
-                SkinManager.setViewTextColor(frsMemberTeamViewHolder.j, R.color.CAM_X0106, 1);
-                SkinManager.setViewTextColor(frsMemberTeamViewHolder.k, R.color.CAM_X0106, 1);
-                SkinManager.setViewTextColor(frsMemberTeamViewHolder.l, R.color.CAM_X0106, 1);
-                SkinManager.setViewTextColor(frsMemberTeamViewHolder.m, R.color.CAM_X0106, 1);
-                frsMemberTeamViewHolder.a.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (T) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.util.PreLoadImageProvider
+    public ArrayList<PreLoadImageInfo> getImages() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            T t = this.c;
+            if (t instanceof PreLoadImageProvider) {
+                return ((PreLoadImageProvider) t).getImages();
             }
-            return view2;
+            return null;
         }
-        return (View) invokeCommon.objValue;
+        return (ArrayList) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yc7, com.baidu.tieba.lh
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        L(i, view2, viewGroup, (bb7) obj, (FrsMemberTeamViewHolder) viewHolder);
-        return view2;
+    @Override // com.baidu.tieba.w97
+    public void d(@NonNull Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+            T t = this.c;
+            if (t instanceof w97) {
+                ((w97) t).d(obj);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.o67
+    public void setPosition(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            T t = this.c;
+            if (t instanceof o67) {
+                ((o67) t).setPosition(i);
+            }
+        }
     }
 }

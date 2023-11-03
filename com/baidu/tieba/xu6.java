@@ -1,205 +1,161 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
-public class xu6 {
+import tbclient.ApkDetail;
+import tbclient.ManageInfo;
+/* loaded from: classes9.dex */
+public class xu6 implements oi {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId g;
     public transient /* synthetic */ FieldHolder $fh;
-    public EmotionGroupType a;
+    public ItemData a;
     public int b;
     public int c;
-    public int d;
-    public int e;
-    public int f;
-    public vd5 g;
-    public int h;
-    public int i;
-    public int j;
+    public boolean d;
+    public boolean e;
+    public boolean f;
 
-    public void n(int i) {
+    public static boolean e(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? i == 3 || i == 4 : invokeI.booleanValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948312912, "Lcom/baidu/tieba/xu6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948312912, "Lcom/baidu/tieba/xu6;");
+                return;
+            }
         }
+        g = BdUniqueId.gen();
     }
 
     public xu6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = null;
+        this.b = 0;
+        this.c = 0;
+        this.d = true;
+        this.e = false;
+        this.f = false;
     }
 
-    public int a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: a */
+    public xu6 clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+            xu6 xu6Var = new xu6();
+            xu6Var.a = this.a;
+            xu6Var.b = this.b;
+            xu6Var.c = this.c;
+            xu6Var.d = this.d;
+            xu6Var.e = this.e;
+            xu6Var.f = this.f;
+            return xu6Var;
         }
-        return invokeV.intValue;
+        return (xu6) invokeV.objValue;
     }
 
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public EmotionGroupType c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (EmotionGroupType) invokeV.objValue;
-    }
-
-    public int d() {
+    @Override // com.baidu.tieba.oi
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.h;
+            return g;
         }
-        return invokeV.intValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public int e() {
-        InterceptResult invokeV;
+    public static xu6 b(mc5 mc5Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, mc5Var)) == null) {
+            xu6 xu6Var = new xu6();
+            xu6Var.a = mc5Var.b;
+            xu6Var.b = mc5Var.d;
+            xu6Var.c = mc5Var.e;
+            return xu6Var;
         }
-        return invokeV.intValue;
+        return (xu6) invokeL.objValue;
     }
 
-    public int f() {
-        InterceptResult invokeV;
+    public static xu6 c(ManageInfo manageInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.j;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, manageInfo)) == null) {
+            xu6 xu6Var = new xu6();
+            ItemData itemData = new ItemData();
+            xu6Var.a = itemData;
+            itemData.parseProto(manageInfo.item);
+            xu6Var.b = manageInfo.item_source.intValue();
+            return xu6Var;
         }
-        return invokeV.intValue;
+        return (xu6) invokeL.objValue;
     }
 
-    public int g() {
-        InterceptResult invokeV;
+    public boolean d(xu6 xu6Var) {
+        InterceptResult invokeL;
+        boolean z;
+        boolean z2;
+        boolean z3;
+        ItemData itemData;
+        ApkDetail apkDetail;
+        ApkDetail apkDetail2;
+        ItemData itemData2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xu6Var)) == null) {
+            if (this.b == xu6Var.b && this.c == xu6Var.c) {
+                z = true;
+            } else {
+                z = false;
+            }
+            ItemData itemData3 = this.a;
+            if (itemData3 != null && (itemData2 = xu6Var.a) != null) {
+                z2 = itemData3.pkgName.equals(itemData2.pkgName);
+            } else {
+                z2 = false;
+            }
+            ItemData itemData4 = this.a;
+            if (itemData4 != null && (itemData = xu6Var.a) != null && (apkDetail = itemData4.apkDetail) != null && (apkDetail2 = itemData.apkDetail) != null) {
+                z3 = apkDetail.version_code.equals(apkDetail2.version_code);
+            } else {
+                z3 = false;
+            }
+            if (z && z2 && z3) {
+                return true;
+            }
+            return false;
         }
-        return invokeV.intValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public vd5 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.g;
-        }
-        return (vd5) invokeV.objValue;
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void l(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public void m(EmotionGroupType emotionGroupType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, emotionGroupType) == null) {
-            this.a = emotionGroupType;
-        }
-    }
-
-    public void o(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.h = i;
-        }
-    }
-
-    public void p(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.i = i;
-        }
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.j = i;
-        }
-    }
-
-    public void r(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public void s(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public void t(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public void u(vd5 vd5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, vd5Var) == null) {
-            this.g = vd5Var;
-        }
+        return invokeL.booleanValue;
     }
 }

@@ -642,7 +642,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
      */
     /* JADX WARN: Code restructure failed: missing block: B:118:0x01fa, code lost:
         r2 = kotlin.Result.Companion;
-        r0 = kotlin.Result.m851constructorimpl(kotlin.ResultKt.createFailure(r0));
+        r0 = kotlin.Result.m855constructorimpl(kotlin.ResultKt.createFailure(r0));
      */
     /* JADX WARN: Removed duplicated region for block: B:104:0x01b1  */
     /* JADX WARN: Removed duplicated region for block: B:107:0x01df  */
@@ -730,11 +730,11 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
                             if (intentData3 != null) {
                                 intentData3.setModel(parseSchemeData);
                             }
-                            Result.m851constructorimpl(Unit.INSTANCE);
+                            Result.m855constructorimpl(Unit.INSTANCE);
                         } catch (Throwable th2) {
                             th = th2;
                             Result.Companion companion2 = Result.Companion;
-                            Result.m851constructorimpl(ResultKt.createFailure(th));
+                            Result.m855constructorimpl(ResultKt.createFailure(th));
                             str10 = str7;
                             str11 = str8;
                             str12 = str9;
@@ -758,7 +758,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
                         th = th3;
                         str9 = "";
                         Result.Companion companion22 = Result.Companion;
-                        Result.m851constructorimpl(ResultKt.createFailure(th));
+                        Result.m855constructorimpl(ResultKt.createFailure(th));
                         str10 = str7;
                         str11 = str8;
                         str12 = str9;
@@ -783,7 +783,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
                     str8 = "";
                     str9 = str8;
                     Result.Companion companion222 = Result.Companion;
-                    Result.m851constructorimpl(ResultKt.createFailure(th));
+                    Result.m855constructorimpl(ResultKt.createFailure(th));
                     str10 = str7;
                     str11 = str8;
                     str12 = str9;
@@ -867,8 +867,8 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
                                     if (!((schemeParam != null || schemeParam.length() == 0) ? true : true)) {
                                         buildLiveScheme = schemeParam;
                                     }
-                                    Object m851constructorimpl = Result.m851constructorimpl(intent.putExtra("scheme", buildLiveScheme));
-                                    Result.m850boximpl(m851constructorimpl);
+                                    Object m855constructorimpl = Result.m855constructorimpl(intent.putExtra("scheme", buildLiveScheme));
+                                    Result.m854boximpl(m855constructorimpl);
                                 }
                             } else {
                                 extLog = schemeData.getExtLog();
@@ -887,8 +887,8 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
                             }
                             if (!((schemeParam != null || schemeParam.length() == 0) ? true : true)) {
                             }
-                            Object m851constructorimpl2 = Result.m851constructorimpl(intent.putExtra("scheme", buildLiveScheme2));
-                            Result.m850boximpl(m851constructorimpl2);
+                            Object m855constructorimpl2 = Result.m855constructorimpl(intent.putExtra("scheme", buildLiveScheme2));
+                            Result.m854boximpl(m855constructorimpl2);
                         }
                     } else {
                         JSONObject ext2 = schemeData.getExt();
@@ -931,8 +931,8 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
                     }
                     if (!((schemeParam != null || schemeParam.length() == 0) ? true : true)) {
                     }
-                    Object m851constructorimpl22 = Result.m851constructorimpl(intent.putExtra("scheme", buildLiveScheme22));
-                    Result.m850boximpl(m851constructorimpl22);
+                    Object m855constructorimpl22 = Result.m855constructorimpl(intent.putExtra("scheme", buildLiveScheme22));
+                    Result.m854boximpl(m855constructorimpl22);
                 }
                 this.mIntentData = ListExtKt.parseLiveData(intent);
                 iMixActivityInterface = this.mixActivity;
@@ -949,7 +949,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
         str7 = "";
         str8 = str7;
         str9 = str8;
-        Result.m851constructorimpl(Unit.INSTANCE);
+        Result.m855constructorimpl(Unit.INSTANCE);
         str10 = str7;
         str11 = str8;
         str12 = str9;
@@ -982,8 +982,8 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
             }
             if (!((schemeParam != null || schemeParam.length() == 0) ? true : true)) {
             }
-            Object m851constructorimpl222 = Result.m851constructorimpl(intent.putExtra("scheme", buildLiveScheme222));
-            Result.m850boximpl(m851constructorimpl222);
+            Object m855constructorimpl222 = Result.m855constructorimpl(intent.putExtra("scheme", buildLiveScheme222));
+            Result.m854boximpl(m855constructorimpl222);
         }
         this.mIntentData = ListExtKt.parseLiveData(intent);
         iMixActivityInterface = this.mixActivity;

@@ -31,7 +31,7 @@ import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.uz4;
+import com.baidu.tieba.m05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,7 +53,7 @@ public class TBAlertBuilder {
     public AlertDialog dialog;
     public View.OnClickListener dismissClick;
     public boolean hasCreated;
-    public uz4 mTBAlertWidget;
+    public m05 mTBAlertWidget;
     public LinearLayout mainLayout;
     public boolean needTransparentBg;
     public boolean operateBtnAutoClose;
@@ -187,7 +187,7 @@ public class TBAlertBuilder {
         this.descMovementMethod = ScrollingMovementMethod.getInstance();
         this.activity = activity;
         this.builder = new AlertDialog.Builder(activity);
-        this.mTBAlertWidget = new uz4();
+        this.mTBAlertWidget = new m05();
     }
 
     public static void handleDialogBackground(@NonNull Dialog dialog) {
@@ -472,7 +472,7 @@ public class TBAlertBuilder {
                 TextView c2 = this.mTBAlertWidget.c(this.activity, this.descLightStyle);
                 c2.setText(this.descStr);
                 c2.setGravity(this.descGravity);
-                c2.setId(R.id.obfuscated_res_0x7f09088f);
+                c2.setId(R.id.obfuscated_res_0x7f0908b0);
                 c2.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), 0);
                 c2.setMaxHeight(UtilHelper.getDimenPixelSize(R.dimen.tbds868));
                 c2.setMovementMethod(this.descMovementMethod);
@@ -480,7 +480,7 @@ public class TBAlertBuilder {
                 View view3 = new View(this.activity);
                 view3.setVisibility(4);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, UtilHelper.getDimenPixelSize(R.dimen.tbds104));
-                layoutParams.addRule(8, R.id.obfuscated_res_0x7f09088f);
+                layoutParams.addRule(8, R.id.obfuscated_res_0x7f0908b0);
                 SkinManager.setBackgroundColorToTransparent(view3, R.color.CAM_X0205, GradientDrawable.Orientation.BOTTOM_TOP);
                 relativeLayout.addView(view3, layoutParams);
                 this.mainLayout.addView(relativeLayout);

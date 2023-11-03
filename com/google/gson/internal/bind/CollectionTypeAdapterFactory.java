@@ -13,11 +13,11 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.Collection;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class CollectionTypeAdapterFactory implements TypeAdapterFactory {
     public final ConstructorConstructor constructorConstructor;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Adapter<E> extends TypeAdapter<Collection<E>> {
         public final ObjectConstructor<? extends Collection<E>> constructor;
         public final TypeAdapter<E> elementTypeAdapter;

@@ -119,12 +119,12 @@ public final class DescriptorUtilsKt {
     }
 
     public static final ClassDescriptor getSuperClassNotAny(ClassDescriptor classDescriptor) {
-        for (KotlinType kotlinType : classDescriptor.getDefaultType().getConstructor().mo2107getSupertypes()) {
+        for (KotlinType kotlinType : classDescriptor.getDefaultType().getConstructor().mo2111getSupertypes()) {
             if (!KotlinBuiltIns.isAnyOrNullableAny(kotlinType)) {
-                ClassifierDescriptor mo2106getDeclarationDescriptor = kotlinType.getConstructor().mo2106getDeclarationDescriptor();
-                if (DescriptorUtils.isClassOrEnumClass(mo2106getDeclarationDescriptor)) {
-                    if (mo2106getDeclarationDescriptor != null) {
-                        return (ClassDescriptor) mo2106getDeclarationDescriptor;
+                ClassifierDescriptor mo2110getDeclarationDescriptor = kotlinType.getConstructor().mo2110getDeclarationDescriptor();
+                if (DescriptorUtils.isClassOrEnumClass(mo2110getDeclarationDescriptor)) {
+                    if (mo2110getDeclarationDescriptor != null) {
+                        return (ClassDescriptor) mo2110getDeclarationDescriptor;
                     }
                     throw new TypeCastException("null cannot be cast to non-null type org.jetbrains.kotlin.descriptors.ClassDescriptor");
                 }
@@ -167,11 +167,11 @@ public final class DescriptorUtilsKt {
     }
 
     public static final ClassDescriptor getAnnotationClass(AnnotationDescriptor annotationDescriptor) {
-        ClassifierDescriptor mo2106getDeclarationDescriptor = annotationDescriptor.getType().getConstructor().mo2106getDeclarationDescriptor();
-        if (!(mo2106getDeclarationDescriptor instanceof ClassDescriptor)) {
-            mo2106getDeclarationDescriptor = null;
+        ClassifierDescriptor mo2110getDeclarationDescriptor = annotationDescriptor.getType().getConstructor().mo2110getDeclarationDescriptor();
+        if (!(mo2110getDeclarationDescriptor instanceof ClassDescriptor)) {
+            mo2110getDeclarationDescriptor = null;
         }
-        return (ClassDescriptor) mo2106getDeclarationDescriptor;
+        return (ClassDescriptor) mo2110getDeclarationDescriptor;
     }
 
     public static final KotlinBuiltIns getBuiltIns(DeclarationDescriptor declarationDescriptor) {
@@ -307,10 +307,10 @@ public final class DescriptorUtilsKt {
         MemberScope memberScope = moduleDescriptor.getPackage(parent).getMemberScope();
         Name shortName = fqName.shortName();
         Intrinsics.checkExpressionValueIsNotNull(shortName, "topLevelClassFqName.shortName()");
-        ClassifierDescriptor mo2108getContributedClassifier = memberScope.mo2108getContributedClassifier(shortName, lookupLocation);
-        if (!(mo2108getContributedClassifier instanceof ClassDescriptor)) {
-            mo2108getContributedClassifier = null;
+        ClassifierDescriptor mo2112getContributedClassifier = memberScope.mo2112getContributedClassifier(shortName, lookupLocation);
+        if (!(mo2112getContributedClassifier instanceof ClassDescriptor)) {
+            mo2112getContributedClassifier = null;
         }
-        return (ClassDescriptor) mo2108getContributedClassifier;
+        return (ClassDescriptor) mo2112getContributedClassifier;
     }
 }

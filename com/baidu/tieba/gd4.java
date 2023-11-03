@@ -1,26 +1,47 @@
 package com.baidu.tieba;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.channels.ReadableByteChannel;
-import java.util.Map;
+import com.baidu.searchbox.http.AbstractHttpManager;
+import com.baidu.searchbox.http.request.HttpRequest;
+import com.baidu.searchbox.http.request.PostStringRequest;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface gd4<T> extends id4 {
-    void a(T t);
+public class gd4 extends PostStringRequest.PostStringRequestBuilder {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void c(T t);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gd4(AbstractHttpManager abstractHttpManager) {
+        super(abstractHttpManager);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {abstractHttpManager};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((AbstractHttpManager) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
 
-    String d(T t);
-
-    void e(T t, je4 je4Var);
-
-    void f(T t);
-
-    je4 h(T t, File file, long j, ReadableByteChannel readableByteChannel) throws IOException;
-
-    void i(T t);
-
-    void j(T t);
-
-    Map<String, Object> k();
+    @Override // com.baidu.searchbox.http.request.PostStringRequest.PostStringRequestBuilder, com.baidu.searchbox.http.request.HttpRequestBuilder
+    public HttpRequest build() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            yc4.b().j(this.httpUrl.toString(), this);
+            requestFrom(6);
+            return super.build();
+        }
+        return (HttpRequest) invokeV.objValue;
+    }
 }

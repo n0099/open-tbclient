@@ -3,7 +3,7 @@ package com.baidu.tieba.square.message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.waa;
+import com.baidu.tieba.boa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.GetForumSquare.GetForumSquareResIdl;
 public class ForumSquareHttpResponsedMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public waa mForumSquareRespData;
+    public boa mForumSquareRespData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumSquareHttpResponsedMessage() {
@@ -36,13 +36,13 @@ public class ForumSquareHttpResponsedMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public waa getData() {
+    public boa getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mForumSquareRespData;
         }
-        return (waa) invokeV.objValue;
+        return (boa) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -64,9 +64,9 @@ public class ForumSquareHttpResponsedMessage extends TbHttpResponsedMessage {
             if (getError() != 0 || getForumSquareResIdl.data == null) {
                 return;
             }
-            waa waaVar = new waa();
-            this.mForumSquareRespData = waaVar;
-            waaVar.a(getForumSquareResIdl.data);
+            boa boaVar = new boa();
+            this.mForumSquareRespData = boaVar;
+            boaVar.a(getForumSquareResIdl.data);
         }
     }
 }

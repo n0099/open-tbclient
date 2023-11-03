@@ -18,11 +18,11 @@ import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.slidingtag.NadRewardSlidingTagView;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h81;
-import com.baidu.tieba.hn0;
-import com.baidu.tieba.jk0;
-import com.baidu.tieba.kn0;
-import com.baidu.tieba.pm0;
+import com.baidu.tieba.al0;
+import com.baidu.tieba.bo0;
+import com.baidu.tieba.gn0;
+import com.baidu.tieba.y81;
+import com.baidu.tieba.yn0;
 /* loaded from: classes3.dex */
 public class NadRewardVideoAdOverContainer extends NadVideoAdOverContainer {
     public LinearLayout A;
@@ -95,24 +95,24 @@ public class NadRewardVideoAdOverContainer extends NadVideoAdOverContainer {
     }
 
     public final void L(@NonNull AdBaseModel adBaseModel) {
-        hn0 hn0Var;
-        if (adBaseModel instanceof pm0) {
-            hn0Var = ((pm0) adBaseModel).j();
+        yn0 yn0Var;
+        if (adBaseModel instanceof gn0) {
+            yn0Var = ((gn0) adBaseModel).j();
         } else {
-            hn0Var = null;
+            yn0Var = null;
         }
-        if (hn0Var == null) {
+        if (yn0Var == null) {
             this.y.setVisibility(8);
             return;
         }
         this.y.setVisibility(0);
-        this.y.G(hn0Var);
+        this.y.G(yn0Var);
         this.y.setOnClickListener(w(adBaseModel, ClogBuilder.Area.REWARD_SLIDING_TAG.type));
     }
 
     @Override // com.baidu.nadcore.business.uitemplate.NadVideoAdOverContainer
     public float q(Drawable drawable) {
-        return getResources().getDimension(jk0.a().n());
+        return getResources().getDimension(al0.a().n());
     }
 
     @Override // com.baidu.nadcore.business.uitemplate.NadVideoAdOverContainer
@@ -160,7 +160,7 @@ public class NadRewardVideoAdOverContainer extends NadVideoAdOverContainer {
     }
 
     @Override // com.baidu.nadcore.business.uitemplate.NadVideoAdOverContainer
-    public h81<View> l(@NonNull Context context, @NonNull ViewGroup viewGroup, @NonNull View view2) {
+    public y81<View> l(@NonNull Context context, @NonNull ViewGroup viewGroup, @NonNull View view2) {
         return new NadRewardEnhanceButtonView(context, viewGroup, view2);
     }
 
@@ -174,11 +174,11 @@ public class NadRewardVideoAdOverContainer extends NadVideoAdOverContainer {
 
     @Override // com.baidu.nadcore.business.uitemplate.NadVideoAdOverContainer
     public int getLayoutId() {
-        return jk0.a().u();
+        return al0.a().u();
     }
 
     @Nullable
-    public h81<View> getTransitionButtonView() {
+    public y81<View> getTransitionButtonView() {
         return this.j;
     }
 
@@ -187,18 +187,18 @@ public class NadRewardVideoAdOverContainer extends NadVideoAdOverContainer {
     }
 
     public final void K(@NonNull AdBaseModel adBaseModel) {
-        kn0 kn0Var;
-        if (adBaseModel instanceof pm0) {
-            kn0Var = ((pm0) adBaseModel).g().m();
+        bo0 bo0Var;
+        if (adBaseModel instanceof gn0) {
+            bo0Var = ((gn0) adBaseModel).g().m();
         } else {
-            kn0Var = null;
+            bo0Var = null;
         }
-        if (kn0Var == null) {
+        if (bo0Var == null) {
             this.A.setVisibility(8);
             return;
         }
-        M(getContext(), this.C, kn0Var.b);
-        M(getContext(), this.B, kn0Var.a);
+        M(getContext(), this.C, bo0Var.b);
+        M(getContext(), this.B, bo0Var.a);
         this.A.setVisibility(0);
         D(ClogBuilder.LogType.FREE_SHOW, "packet", adBaseModel);
         this.A.setOnClickListener(new a(adBaseModel));

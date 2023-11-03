@@ -1,114 +1,24 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
-import com.baidu.tbadk.data.IconPopData;
-import com.baidu.tbadk.util.PriorityOrganizer;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.stamp.SignPopStampDialogUtil;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tieba.ca;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class zm7 extends PriorityOrganizer.Task {
+public class zm7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsActivity a;
-    public FrsFragment b;
-    public boolean c;
+    public ca<byte[]> a;
 
-    /* loaded from: classes9.dex */
-    public class a implements SignPopStampDialogUtil.clickCallBack {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zm7 a;
-
-        public a(zm7 zm7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zm7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zm7Var;
-        }
-
-        @Override // com.baidu.tieba.stamp.SignPopStampDialogUtil.clickCallBack
-        public void closeBtn() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.finish();
-            }
-        }
-
-        @Override // com.baidu.tieba.stamp.SignPopStampDialogUtil.clickCallBack
-        public void jumpToIconCenterBtn() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.finish();
-            }
-        }
-
-        @Override // com.baidu.tieba.stamp.SignPopStampDialogUtil.clickCallBack
-        public void shareBtn() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.a.finish();
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class b implements DialogInterface.OnDismissListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(zm7 zm7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zm7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.content.DialogInterface.OnDismissListener
-        public void onDismiss(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                YunDialogManager.unMarkShowingDialogName("userIcon");
-            }
-        }
-    }
-
-    public zm7(FrsActivity frsActivity) {
+    public zm7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {frsActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -118,69 +28,42 @@ public class zm7 extends PriorityOrganizer.Task {
                 return;
             }
         }
-        this.c = false;
-        this.a = frsActivity;
+        b();
     }
 
-    public void a(boolean z) {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.c = z;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a == null) {
+            yz4.l();
+            this.a = yz4.i("tb.bawu_team_info");
         }
     }
 
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public boolean isDataReady() {
-        InterceptResult invokeV;
+    public byte[] a(String str) {
+        InterceptResult invokeL;
+        ca.b<byte[]> bVar;
+        byte[] bArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.c) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            ca<byte[]> caVar = this.a;
+            if (caVar != null && str != null) {
+                bVar = caVar.h(str);
+            } else {
+                bVar = null;
             }
-            FrsFragment frsFragment = this.b;
-            if (frsFragment != null && !frsFragment.f4()) {
-                return true;
+            if (bVar == null || (bArr = bVar.b) == null) {
+                return null;
             }
-            return false;
+            return bArr;
         }
-        return invokeV.booleanValue;
+        return (byte[]) invokeL.objValue;
     }
 
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public boolean isNeedExecute() {
-        InterceptResult invokeV;
+    public void c(String str, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (YunDialogManager.isShowingDialog()) {
-                return false;
-            }
-            IconPopData iconPopData = TbSingleton.getInstance().getIconPopData();
-            if (!PollingModel.checkIconPopHadShow() || iconPopData.getPic160() == null || iconPopData.getTitle() == null || !this.a.z1() || iconPopData.getUid().longValue() != TbadkCoreApplication.getCurrentAccountId()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public void onExecute() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (PollingModel.checkIconPopHadShow()) {
-                IconPopData iconPopData = TbSingleton.getInstance().getIconPopData();
-                SignPopStampDialogUtil signPopStampDialogUtil = new SignPopStampDialogUtil();
-                signPopStampDialogUtil.preShowPollingStampDialog(iconPopData);
-                signPopStampDialogUtil.setClickCallBack(new a(this));
-                signPopStampDialogUtil.setOnDismissListener(new b(this));
-                YunDialogManager.markShowingDialogName("userIcon");
-                if (!this.c) {
-                    this.b.p5(true);
-                    return;
-                }
-                return;
-            }
-            finish();
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr) == null) && !StringUtils.isNull(str)) {
+            b();
+            this.a.e(str, bArr, TbConfig.MILLS_7DAYS);
         }
     }
 }

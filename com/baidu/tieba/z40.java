@@ -1,625 +1,470 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import android.os.Message;
-import android.os.Process;
-import android.util.SparseIntArray;
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.live.LiveFeedPageSdk;
-import com.baidu.live.asynctask.BdAsyncTask;
-import com.baidu.live.asynctask.BdAsyncTaskParallelType;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidParameterException;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.Executor;
-import java.util.concurrent.SynchronousQueue;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 /* loaded from: classes9.dex */
-public class z40 implements Executor {
+public class z40 extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
-    public static final ThreadFactory k;
-    public static final BlockingQueue<Runnable> l;
-    public static final Executor m;
-    public static volatile z40 n;
+    public static volatile z40 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SparseIntArray a;
-    public final LinkedList<d> b;
-    public final LinkedList<d> c;
-    public final LinkedList<d> d;
-    public volatile int e;
-    public volatile int f;
-    public volatile int g;
-    public volatile int h;
-    public HandlerThread i;
-    public Handler j;
+    public ReentrantReadWriteLock a;
 
-    /* loaded from: classes9.dex */
-    public static class a implements ThreadFactory {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final AtomicInteger a;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new AtomicInteger(1);
-        }
-
-        @Override // java.util.concurrent.ThreadFactory
-        public Thread newThread(Runnable runnable) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                String str = "BdAsyncTask #" + String.valueOf(this.a.getAndIncrement());
-                g80.g(str);
-                return new Thread(runnable, str);
-            }
-            return (Thread) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class b extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ z40 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(z40 z40Var, Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {z40Var, looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = z40Var;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Object obj;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                super.handleMessage(message);
-                int i = message.what;
-                if (i == 1) {
-                    Object obj2 = message.obj;
-                    if (obj2 == null || !(obj2 instanceof d)) {
-                        return;
-                    }
-                    this.a.j((d) obj2);
-                } else if (i == 2 && (obj = message.obj) != null && (obj instanceof d)) {
-                    this.a.i((d) obj);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class c extends d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ z40 b;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(z40 z40Var, a50 a50Var) {
-            super(a50Var);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {z40Var, a50Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((a50) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = z40Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    try {
-                        if (e() == 4) {
-                            Process.setThreadPriority(-2);
-                        } else if (e() == 3) {
-                            Process.setThreadPriority(-1);
-                        } else if (e() == 2) {
-                            Process.setThreadPriority(0);
-                        } else {
-                            Process.setThreadPriority(10);
-                        }
-                    } catch (Exception e) {
-                        g80.d(e.getMessage());
-                    }
-                    j();
-                } finally {
-                    if (!h()) {
-                        this.b.j.sendMessageDelayed(this.b.j.obtainMessage(2, this), 1L);
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public static abstract class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public a50<?> a;
-
-        public d(a50<?> a50Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a50Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = null;
-            if (a50Var != null && a50Var.b() != null) {
-                this.a = a50Var;
-                return;
-            }
-            throw new InvalidParameterException("parameter is null");
-        }
-
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a();
-            }
-        }
-
-        public int b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.a.b().j() != null) {
-                    return this.a.b().j().a();
-                }
-                return 1;
-            }
-            return invokeV.intValue;
-        }
-
-        public int c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                if (this.a.b().j() != null) {
-                    return this.a.b().j().b();
-                }
-                return 0;
-            }
-            return invokeV.intValue;
-        }
-
-        public BdAsyncTaskParallelType d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                if (this.a.b().j() != null) {
-                    return this.a.b().j().c();
-                }
-                return BdAsyncTaskParallelType.MAX_PARALLEL;
-            }
-            return (BdAsyncTaskParallelType) invokeV.objValue;
-        }
-
-        public int e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return this.a.b().k();
-            }
-            return invokeV.intValue;
-        }
-
-        public BdAsyncTask<?, ?, ?> f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                return this.a.b();
-            }
-            return (BdAsyncTask) invokeV.objValue;
-        }
-
-        public boolean g() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                return this.a.isCancelled();
-            }
-            return invokeV.booleanValue;
-        }
-
-        public boolean h() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                return this.a.b().m();
-            }
-            return invokeV.booleanValue;
-        }
-
-        public boolean i() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-                return this.a.b().n();
-            }
-            return invokeV.booleanValue;
-        }
-
-        public void j() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-                try {
-                    this.a.run();
-                } catch (OutOfMemoryError e) {
-                    g80.e(e);
-                }
-            }
-        }
-
-        public void k(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-                this.a.b().y(z);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948309843, "Lcom/baidu/tieba/z40;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948309843, "Lcom/baidu/tieba/z40;");
-                return;
-            }
-        }
-        k = new a();
-        l = new SynchronousQueue();
-        m = new ThreadPoolExecutor(7, 256, 30L, TimeUnit.SECONDS, l, k, new ThreadPoolExecutor.DiscardPolicy());
-        n = null;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "mWaitingTasks = " + this.b.size() + " mRunningTasks = " + this.c.size() + " mTimeOutTasks = " + this.d.size();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public z40() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public z40(Context context) {
+        super(context, "blcp_track.db", (SQLiteDatabase.CursorFactory) null, 1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new SparseIntArray();
-        this.b = new LinkedList<>();
-        this.c = new LinkedList<>();
-        this.d = new LinkedList<>();
-        this.e = 0;
-        this.f = 0;
-        this.g = 0;
-        this.h = 0;
-        this.i = null;
-        this.j = null;
-        HandlerThread handlerThread = new HandlerThread("BdAsyncTaskExecutor");
-        this.i = handlerThread;
-        handlerThread.start();
-        this.j = new b(this, this.i.getLooper());
+        this.a = new ReentrantReadWriteLock(true);
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:12:0x001f, code lost:
-        r0.remove();
+    public static void d(Cursor cursor) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65537, null, cursor) == null) && cursor != null) {
+            try {
+                if (!cursor.isClosed()) {
+                    cursor.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static z40 j(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (b == null) {
+                synchronized (z40.class) {
+                    if (b == null) {
+                        b = new z40(context);
+                    }
+                }
+            }
+            return b;
+        }
+        return (z40) invokeL.objValue;
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sQLiteDatabase) == null) {
+            try {
+                sQLiteDatabase.execSQL("CREATE TABLE flow (_id INTEGER PRIMARY KEY AUTOINCREMENT,flowid TEXT,flowhandle TEXT,begintime LONG,endtime LONG,detail TEXT,state INTEGER,ext TEXT );");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public final boolean a(int i, int i2, SQLiteDatabase sQLiteDatabase) {
+        InterceptResult invokeIIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i, i2, sQLiteDatabase)) == null) {
+            this.a.writeLock().lock();
+            Cursor cursor = null;
+            boolean z = false;
+            try {
+                try {
+                    cursor = sQLiteDatabase.rawQuery("SELECT flowid FROM flow WHERE flowid = " + i + " AND flowhandle = " + i2, null);
+                    if (cursor != null) {
+                        if (cursor.getCount() > 0) {
+                            z = true;
+                        }
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                d(cursor);
+                this.a.writeLock().unlock();
+                if (m50.a) {
+                    n50.a("TrackDBHelper", "flow checkFlowExist:" + z);
+                }
+                return z;
+            } catch (Throwable th) {
+                d(cursor);
+                this.a.writeLock().unlock();
+                throw th;
+            }
+        }
+        return invokeIIL.booleanValue;
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, IGET, INVOKE, INVOKE, INVOKE, IGET, INVOKE, INVOKE] complete} */
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x0073, code lost:
+        if (r0 != null) goto L18;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x007c, code lost:
+        if (r0 == null) goto L15;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x007e, code lost:
+        r0.endTransaction();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x0081, code lost:
+        r7.a.writeLock().unlock();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x008a, code lost:
+        return;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public synchronized void h(BdAsyncTask<?, ?, ?> bdAsyncTask) {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bdAsyncTask) == null) {
-            synchronized (this) {
-                Iterator<d> it = this.b.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.writeLock().lock();
+            SQLiteDatabase sQLiteDatabase = null;
+            try {
+                try {
+                    sQLiteDatabase = getWritableDatabase();
+                    sQLiteDatabase.beginTransactionNonExclusive();
+                    int delete = sQLiteDatabase.delete("flow", "begintime < ? AND ? != ?", new String[]{String.valueOf(System.currentTimeMillis() - 604800000), "state", String.valueOf(1)});
+                    if (m50.a) {
+                        n50.a("TrackDBHelper", "clear expired flow cout:" + delete);
                     }
-                    d next = it.next();
-                    if (next != null && next.f() == bdAsyncTask) {
-                        break;
+                    if (delete > 0 && m50.a) {
+                        n50.a("TrackDBHelper", "删除过期数据count:" + delete);
                     }
+                    sQLiteDatabase.setTransactionSuccessful();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
+            } catch (Throwable th) {
+                if (sQLiteDatabase != null) {
+                    sQLiteDatabase.endTransaction();
+                }
+                this.a.writeLock().unlock();
+                throw th;
             }
         }
     }
 
-    public static z40 e() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, IGET, INVOKE, INVOKE, INVOKE, IGET, INVOKE, INVOKE] complete} */
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x00a1, code lost:
+        if (r0 != null) goto L24;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x00aa, code lost:
+        if (r0 == null) goto L21;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x00ac, code lost:
+        r0.endTransaction();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x00af, code lost:
+        r5.a.writeLock().unlock();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:28:0x00b8, code lost:
+        return;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void e(String str, List<String> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (n == null) {
-                synchronized (z40.class) {
-                    if (n == null) {
-                        n = new z40();
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, list) == null) && !TextUtils.isEmpty(str) && list != null && list.size() > 0) {
+            this.a.writeLock().lock();
+            SQLiteDatabase sQLiteDatabase = null;
+            try {
+                try {
+                    sQLiteDatabase = getWritableDatabase();
+                    sQLiteDatabase.beginTransactionNonExclusive();
+                    int size = list.size();
+                    ArrayList arrayList = new ArrayList();
+                    for (int i = 0; i < size; i++) {
+                        arrayList.add("?");
                     }
+                    int delete = sQLiteDatabase.delete("flow", "flowid = " + str + " AND flowhandle IN (" + TextUtils.join(",", arrayList) + SmallTailInfo.EMOTION_SUFFIX, (String[]) list.toArray(new String[list.size()]));
+                    sQLiteDatabase.setTransactionSuccessful();
+                    if (delete > 0 && m50.a) {
+                        n50.a("TrackDBHelper", "flow 删除：" + list.toString() + " success");
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
+            } catch (Throwable th) {
+                if (sQLiteDatabase != null) {
+                    sQLiteDatabase.endTransaction();
+                }
+                this.a.writeLock().unlock();
+                throw th;
             }
-            return n;
         }
-        return (z40) invokeV.objValue;
     }
 
-    public final boolean c(int i, d dVar) {
-        InterceptResult invokeIL;
+    /* JADX WARN: Removed duplicated region for block: B:17:0x0098 A[Catch: all -> 0x00c5, Exception -> 0x00c7, TRY_LEAVE, TryCatch #1 {Exception -> 0x00c7, blocks: (B:8:0x0058, B:10:0x0062, B:12:0x0068, B:13:0x0077, B:15:0x0094, B:17:0x0098), top: B:31:0x0058, outer: #0 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public List<i40> g(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, dVar)) == null) {
-            if (dVar == null) {
-                return false;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, str, i)) == null) {
+            ArrayList arrayList = new ArrayList();
+            ArrayList arrayList2 = new ArrayList();
+            if (TextUtils.isEmpty(str)) {
+                return arrayList2;
             }
-            BdAsyncTaskParallelType d2 = dVar.d();
-            if (d2 == BdAsyncTaskParallelType.SERIAL) {
-                if (i < 1) {
-                    return true;
+            String str2 = "SELECT * FROM flow WHERE flowid=\"" + str + "\" AND state = 1  limit " + i;
+            n50.a("TrackDBHelper", "flow getAllData querySql:" + str2);
+            this.a.readLock().lock();
+            Cursor cursor = null;
+            try {
+                try {
+                    cursor = getReadableDatabase().rawQuery(str2, null);
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-            } else if (d2 == BdAsyncTaskParallelType.TWO_PARALLEL) {
-                if (i < 2) {
-                    return true;
+                if (cursor != null && cursor.getCount() > 0) {
+                    cursor.moveToFirst();
+                    int columnIndex = cursor.getColumnIndex("flowhandle");
+                    int columnIndex2 = cursor.getColumnIndex("detail");
+                    do {
+                        arrayList2.add(new i40(str, cursor.getString(columnIndex), cursor.getString(columnIndex2)));
+                        arrayList.add(cursor.getString(columnIndex2));
+                    } while (cursor.moveToNext());
+                    if (m50.a) {
+                    }
+                    d(cursor);
+                    this.a.readLock().unlock();
+                    n50.a("TrackDBHelper", "flow uploadData SIZE:" + arrayList2.size());
+                    return arrayList2;
                 }
-            } else if (d2 == BdAsyncTaskParallelType.THREE_PARALLEL) {
-                if (i < 3) {
-                    return true;
+                if (m50.a) {
+                    n50.a("TrackDBHelper", "flow flowID:" + str + ", get data from db count:" + arrayList.size() + ",flow detail:" + arrayList.toString());
                 }
-            } else if (d2 == BdAsyncTaskParallelType.FOUR_PARALLEL) {
-                if (i < 4) {
-                    return true;
-                }
-            } else if (d2 != BdAsyncTaskParallelType.CUSTOM_PARALLEL || i < dVar.b()) {
-                return true;
+                d(cursor);
+                this.a.readLock().unlock();
+                n50.a("TrackDBHelper", "flow uploadData SIZE:" + arrayList2.size());
+                return arrayList2;
+            } catch (Throwable th) {
+                d(cursor);
+                this.a.readLock().unlock();
+                throw th;
             }
-            return false;
         }
-        return invokeIL.booleanValue;
+        return (List) invokeLI.objValue;
     }
 
-    public final synchronized void d(d dVar) {
+    public void f(e40 e40Var) {
+        SQLiteDatabase writableDatabase;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
-            synchronized (this) {
-                if (dVar == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, e40Var) == null) {
+            if (e40Var == null) {
+                if (m50.a) {
+                    n50.a("TrackDBHelper", "flowData is null");
                     return;
                 }
-                this.c.add(dVar);
-                this.b.remove(dVar);
-                m.execute(dVar);
-                this.j.sendMessageDelayed(this.j.obtainMessage(1, dVar), LiveFeedPageSdk.REFRESH_TIME);
-                int e = dVar.e();
-                if (e != 1) {
-                    if (e != 2) {
-                        if (e != 3) {
-                            if (e == 4) {
-                                this.e++;
-                                if (this.e >= 7) {
-                                    g80.d("SuperHight Task too much num = " + this.e);
-                                }
-                            }
-                        } else {
-                            this.f++;
-                        }
-                    } else {
-                        this.g++;
+                return;
+            }
+            this.a.writeLock().lock();
+            if (m50.a) {
+                n50.a("TrackDBHelper", "flow insert to db:" + e40Var.g());
+            }
+            SQLiteDatabase sQLiteDatabase = null;
+            try {
+                try {
+                    writableDatabase = getWritableDatabase();
+                } catch (SQLException e) {
+                    e = e;
+                }
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                writableDatabase.beginTransactionNonExclusive();
+                if (a(e40Var.a, e40Var.b, writableDatabase)) {
+                    ContentValues h = h(e40Var);
+                    int update = writableDatabase.update("flow", h, "flowid = " + e40Var.a + " AND flowhandle = " + e40Var.b, null);
+                    if (m50.a) {
+                        n50.a("TrackDBHelper", "endFlow update count:" + update);
                     }
+                }
+                writableDatabase.setTransactionSuccessful();
+                if (writableDatabase != null) {
+                    writableDatabase.endTransaction();
+                }
+            } catch (SQLException e2) {
+                e = e2;
+                sQLiteDatabase = writableDatabase;
+                e.printStackTrace();
+                if (sQLiteDatabase != null) {
+                    sQLiteDatabase.endTransaction();
+                }
+                this.a.writeLock().unlock();
+            } catch (Throwable th2) {
+                th = th2;
+                sQLiteDatabase = writableDatabase;
+                if (sQLiteDatabase != null) {
+                    sQLiteDatabase.endTransaction();
+                }
+                this.a.writeLock().unlock();
+                throw th;
+            }
+            this.a.writeLock().unlock();
+        }
+    }
+
+    public final ContentValues h(e40 e40Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, e40Var)) == null) {
+            ContentValues contentValues = new ContentValues();
+            if (e40Var != null) {
+                contentValues.put("flowid", Integer.valueOf(e40Var.a));
+                contentValues.put("flowhandle", Integer.valueOf(e40Var.b));
+                contentValues.put("begintime", Long.valueOf(e40Var.c));
+                contentValues.put("endtime", Long.valueOf(e40Var.d));
+                contentValues.put("detail", e40Var.f());
+                if (e40Var.d == 0) {
+                    contentValues.put("state", (Integer) 0);
                 } else {
-                    this.h++;
+                    contentValues.put("state", (Integer) 1);
                 }
-                int c2 = dVar.c();
-                if (c2 != 0) {
-                    this.a.put(c2, this.a.get(c2, 0) + 1);
-                }
+                contentValues.put("ext", "");
             }
+            return contentValues;
         }
+        return (ContentValues) invokeL.objValue;
     }
 
-    public final synchronized void g(d dVar) {
+    public int i(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
-            synchronized (this) {
-                if (dVar == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            String str2 = "SELECT COUNT(*) FROM flow WHERE flowid=\"" + str + "\" AND state = 1 ";
+            this.a.readLock().lock();
+            Cursor cursor = null;
+            int i = 0;
+            try {
+                try {
+                    cursor = getReadableDatabase().rawQuery(str2, null);
+                    if (cursor != null) {
+                        cursor.moveToFirst();
+                        i = cursor.getInt(0);
+                    }
+                    if (m50.a) {
+                        n50.a("TrackDBHelper", "flow getEndedFlowCount:" + i);
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                return i;
+            } finally {
+                d(cursor);
+                this.a.readLock().unlock();
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public void k(e40 e40Var) {
+        ContentValues h;
+        SQLiteDatabase writableDatabase;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, e40Var) == null) {
+            if (e40Var == null) {
+                if (m50.a) {
+                    n50.a("TrackDBHelper", "flow must not be null");
                     return;
                 }
-                if (dVar.i()) {
-                    this.d.remove(dVar);
-                } else {
-                    this.c.remove(dVar);
-                    this.j.removeMessages(1, dVar);
-                    int e = dVar.e();
-                    if (e != 1) {
-                        if (e != 2) {
-                            if (e != 3) {
-                                if (e == 4) {
-                                    this.e--;
-                                }
-                            } else {
-                                this.f--;
-                            }
-                        } else {
-                            this.g--;
-                        }
-                    } else {
-                        this.h--;
-                    }
-                    int c2 = dVar.c();
-                    if (c2 != 0) {
-                        int i = this.a.get(c2) - 1;
-                        if (i <= 0) {
-                            this.a.delete(c2);
-                        } else {
-                            this.a.put(c2, i);
-                        }
-                        if (i < 0) {
-                            g80.d("removeTask error < 0");
-                        }
-                    }
-                }
+                return;
             }
-        }
-    }
-
-    public synchronized void i(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, dVar) == null) {
-            synchronized (this) {
-                g(dVar);
-                for (int i = 0; i < this.b.size(); i++) {
-                    d dVar2 = this.b.get(i);
-                    if (dVar2 != null) {
-                        int c2 = dVar2.c();
-                        int e = dVar2.e();
-                        if (e != 1) {
-                            if (e != 2) {
-                                if (e != 3) {
-                                    if (e == 4 && c2 == 0) {
-                                        d(dVar2);
-                                        return;
-                                    }
-                                } else if (this.f + this.g + this.h >= 7) {
-                                    return;
-                                }
-                            } else if (this.f + this.g + this.h >= 6) {
-                                return;
-                            }
-                        } else if (this.f + this.g + this.h >= 5) {
-                            return;
-                        }
-                        if (c(this.a.get(c2), dVar2)) {
-                            d(dVar2);
-                            return;
-                        }
+            this.a.writeLock().lock();
+            SQLiteDatabase sQLiteDatabase = null;
+            try {
+                try {
+                    h = h(e40Var);
+                    writableDatabase = getWritableDatabase();
+                } catch (Exception e) {
+                    e = e;
+                }
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                writableDatabase.beginTransactionNonExclusive();
+                if (!a(e40Var.a, e40Var.b, writableDatabase)) {
+                    long insert = writableDatabase.insert("flow", null, h);
+                    if (m50.a) {
+                        n50.a("TrackDBHelper", "flow saveFlow,rowId:" + insert);
                     }
                 }
+                writableDatabase.setTransactionSuccessful();
+                if (writableDatabase != null) {
+                    writableDatabase.endTransaction();
+                }
+            } catch (Exception e2) {
+                e = e2;
+                sQLiteDatabase = writableDatabase;
+                e.printStackTrace();
+                if (sQLiteDatabase != null) {
+                    sQLiteDatabase.endTransaction();
+                }
+                this.a.writeLock().unlock();
+            } catch (Throwable th2) {
+                th = th2;
+                sQLiteDatabase = writableDatabase;
+                if (sQLiteDatabase != null) {
+                    sQLiteDatabase.endTransaction();
+                }
+                this.a.writeLock().unlock();
+                throw th;
             }
+            this.a.writeLock().unlock();
         }
     }
 
-    @Override // java.util.concurrent.Executor
-    public synchronized void execute(Runnable runnable) {
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) {
-            synchronized (this) {
-                if (!(runnable instanceof a50)) {
-                    return;
-                }
-                c cVar = new c(this, (a50) runnable);
-                if (cVar.h()) {
-                    new Thread(cVar).start();
-                    return;
-                }
-                f(cVar);
-                i(null);
-            }
-        }
-    }
-
-    public final synchronized void f(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
-            synchronized (this) {
-                if (dVar == null) {
-                    return;
-                }
-                int size = this.b.size();
-                int i = 0;
-                while (i < size && this.b.get(i).e() >= dVar.e()) {
+        if (interceptable == null || interceptable.invokeLII(1048585, this, sQLiteDatabase, i, i2) == null) {
+            try {
+                sQLiteDatabase.beginTransaction();
+                while (i < i2) {
                     i++;
                 }
-                this.b.add(i, dVar);
-            }
-        }
-    }
-
-    public final synchronized void j(d dVar) {
-        d poll;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, dVar) == null) {
-            synchronized (this) {
-                g(dVar);
-                if (!dVar.g()) {
-                    dVar.k(true);
-                    this.d.add(dVar);
-                    if (this.d.size() > 242 && (poll = this.d.poll()) != null) {
-                        poll.a();
-                    }
-                } else {
-                    g80.d("task TimeOut but it's cancelled()");
+                sQLiteDatabase.setTransactionSuccessful();
+                if (sQLiteDatabase == null) {
                 }
-                i(null);
+            } catch (Throwable th) {
+                try {
+                    th.printStackTrace();
+                } finally {
+                    if (sQLiteDatabase != null) {
+                        sQLiteDatabase.endTransaction();
+                    }
+                }
             }
         }
     }

@@ -1,83 +1,65 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.Closeable;
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.Charset;
 /* loaded from: classes7.dex */
-public class lc1 {
+public final class lc1 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
+    public static final Charset a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947937967, "Lcom/baidu/tieba/lc1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947937967, "Lcom/baidu/tieba/lc1;");
+                return;
+            }
+        }
+        a = Charset.forName("US-ASCII");
+        Charset.forName("UTF-8");
+    }
+
+    public static void a(Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, str2, str3)) == null) {
-            JSONObject b = b(str3);
+        if ((interceptable == null || interceptable.invokeL(65537, null, closeable) == null) && closeable != null) {
             try {
-                b.put("orderId", str);
-                b.put("payInfo", str2);
-            } catch (JSONException e) {
-                e.printStackTrace();
+                closeable.close();
+            } catch (RuntimeException e) {
+                throw e;
+            } catch (Exception unused) {
             }
-            return b.toString();
         }
-        return (String) invokeLLL.objValue;
     }
 
-    public static String d(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
+    public static void b(File file) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, str3)) == null) {
-            JSONObject b = b(str3);
-            try {
-                b.put("orderId", str);
-                b.put("payUrl", str2);
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if (interceptable == null || interceptable.invokeL(65538, null, file) == null) {
+            File[] listFiles = file.listFiles();
+            if (listFiles != null) {
+                for (File file2 : listFiles) {
+                    if (file2.isDirectory()) {
+                        b(file2);
+                    }
+                    if (!file2.delete()) {
+                        throw new IOException("failed to delete file: " + file2);
+                    }
+                }
+                return;
             }
-            return b.toString();
-        }
-        return (String) invokeLLL.objValue;
-    }
-
-    public static JSONObject b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("returnData", a);
-                jSONObject.put("msg", str);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public static String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return b(str).toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void e(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle) == null) {
-            if (bundle != null) {
-                a = bundle.getString("returnData");
-            } else {
-                a = "";
-            }
+            throw new IOException("not a readable directory: " + file);
         }
     }
 }

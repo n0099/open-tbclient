@@ -15,10 +15,10 @@ import androidx.annotation.Nullable;
 import com.baidu.nadcore.video.videoplayer.ui.full.BdThumbSeekBar;
 import com.baidu.nadcore.video.videoplayer.widget.BdTextProgressView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c11;
-import com.baidu.tieba.q21;
-import com.baidu.tieba.us0;
-import com.baidu.tieba.w01;
+import com.baidu.tieba.h31;
+import com.baidu.tieba.lt0;
+import com.baidu.tieba.n11;
+import com.baidu.tieba.t11;
 /* loaded from: classes3.dex */
 public class BdLayerSeekBar extends FrameLayout implements View.OnClickListener, BdThumbSeekBar.b {
     public final Context a;
@@ -26,7 +26,7 @@ public class BdLayerSeekBar extends FrameLayout implements View.OnClickListener,
     public BdTextProgressView c;
     public BdTextProgressView d;
     public boolean e;
-    public us0 f;
+    public lt0 f;
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
@@ -39,18 +39,18 @@ public class BdLayerSeekBar extends FrameLayout implements View.OnClickListener,
     @Override // com.baidu.nadcore.video.videoplayer.ui.full.BdThumbSeekBar.b
     public void b(BdThumbSeekBar bdThumbSeekBar) {
         this.e = false;
-        us0 us0Var = this.f;
-        if (us0Var != null) {
-            us0Var.b(bdThumbSeekBar);
+        lt0 lt0Var = this.f;
+        if (lt0Var != null) {
+            lt0Var.b(bdThumbSeekBar);
         }
     }
 
     @Override // com.baidu.nadcore.video.videoplayer.ui.full.BdThumbSeekBar.b
     public void c(BdThumbSeekBar bdThumbSeekBar) {
         this.e = true;
-        us0 us0Var = this.f;
-        if (us0Var != null) {
-            us0Var.c(bdThumbSeekBar);
+        lt0 lt0Var = this.f;
+        if (lt0Var != null) {
+            lt0Var.c(bdThumbSeekBar);
         }
     }
 
@@ -67,7 +67,7 @@ public class BdLayerSeekBar extends FrameLayout implements View.OnClickListener,
             bdThumbSeekBar.setMax(i);
         }
         if (this.d != null) {
-            String a = w01.a(i, false);
+            String a = n11.a(i, false);
             if (!TextUtils.isEmpty(a)) {
                 this.d.setPositionText(a);
             }
@@ -90,7 +90,7 @@ public class BdLayerSeekBar extends FrameLayout implements View.OnClickListener,
         if (bdThumbSeekBar2 != null && bdThumbSeekBar2.getMax() >= 3600.0f) {
             z = true;
         }
-        String a = w01.a(i, z);
+        String a = n11.a(i, z);
         if (this.c != null && !TextUtils.isEmpty(a)) {
             this.c.setPositionText(a);
         }
@@ -102,8 +102,8 @@ public class BdLayerSeekBar extends FrameLayout implements View.OnClickListener,
         this.c.setLayoutParams(layoutParams);
     }
 
-    public void setSeekBarHolderListener(us0 us0Var) {
-        this.f = us0Var;
+    public void setSeekBarHolderListener(lt0 lt0Var) {
+        this.f = lt0Var;
     }
 
     public void setSeekBarStyle(@NonNull BdThumbSeekBar.BdSeekBarStyle bdSeekBarStyle) {
@@ -135,7 +135,7 @@ public class BdLayerSeekBar extends FrameLayout implements View.OnClickListener,
         if (bdThumbSeekBar == null) {
             return;
         }
-        float b = c11.c.b(context);
+        float b = t11.c.b(context);
         Matrix matrix = new Matrix();
         float f = b / 3.0f;
         matrix.postScale(f, f);
@@ -148,9 +148,9 @@ public class BdLayerSeekBar extends FrameLayout implements View.OnClickListener,
     @Override // com.baidu.nadcore.video.videoplayer.ui.full.BdThumbSeekBar.b
     public void a(BdThumbSeekBar bdThumbSeekBar, int i, boolean z) {
         setPosition(i);
-        us0 us0Var = this.f;
-        if (us0Var != null) {
-            us0Var.a(bdThumbSeekBar, i, z);
+        lt0 lt0Var = this.f;
+        if (lt0Var != null) {
+            lt0Var.a(bdThumbSeekBar, i, z);
         }
     }
 
@@ -167,17 +167,17 @@ public class BdLayerSeekBar extends FrameLayout implements View.OnClickListener,
         LayoutInflater.from(this.a).inflate(R.layout.nad_bd_layer_seek_bar, this);
         this.c = (BdTextProgressView) findViewById(R.id.nad_main_progress_text);
         this.d = (BdTextProgressView) findViewById(R.id.nad_main_duration_text);
-        BdThumbSeekBar bdThumbSeekBar = (BdThumbSeekBar) findViewById(R.id.obfuscated_res_0x7f0916d7);
+        BdThumbSeekBar bdThumbSeekBar = (BdThumbSeekBar) findViewById(R.id.obfuscated_res_0x7f091717);
         this.b = bdThumbSeekBar;
         bdThumbSeekBar.setOnSeekBarChangeListener(this);
     }
 
     public void f() {
-        this.c.setTextSize(q21.b(10.0f));
-        this.d.setTextSize(q21.b(10.0f));
+        this.c.setTextSize(h31.b(10.0f));
+        this.d.setTextSize(h31.b(10.0f));
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.b.getLayoutParams();
-        layoutParams.leftMargin = q21.b(3.0f);
-        layoutParams.rightMargin = q21.b(3.0f);
+        layoutParams.leftMargin = h31.b(3.0f);
+        layoutParams.rightMargin = h31.b(3.0f);
         this.b.setLayoutParams(layoutParams);
     }
 
@@ -194,11 +194,11 @@ public class BdLayerSeekBar extends FrameLayout implements View.OnClickListener,
     }
 
     public void e() {
-        this.c.setTextSize(q21.b(12.0f));
-        this.d.setTextSize(q21.b(12.0f));
+        this.c.setTextSize(h31.b(12.0f));
+        this.d.setTextSize(h31.b(12.0f));
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.b.getLayoutParams();
-        layoutParams.leftMargin = q21.b(3.0f);
-        layoutParams.rightMargin = q21.b(1.0f);
+        layoutParams.leftMargin = h31.b(3.0f);
+        layoutParams.rightMargin = h31.b(1.0f);
         this.b.setLayoutParams(layoutParams);
     }
 }

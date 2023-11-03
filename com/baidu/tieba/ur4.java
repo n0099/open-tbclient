@@ -1,108 +1,53 @@
 package com.baidu.tieba;
 
-import android.webkit.JsPromptResult;
-import android.webkit.WebView;
-import com.baidu.adp.lib.util.AndroidUtils;
-import com.baidu.adp.lib.util.BdLog;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class ur4 implements gh6 {
+public class ur4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
+    public int b;
 
-    @Override // com.baidu.tieba.gh6
-    public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        fh6.a(this, webView, str, jSONObject);
-    }
-
-    @Override // com.baidu.tieba.gh6
-    public /* synthetic */ void onDestroy() {
-        fh6.b(this);
-    }
-
-    public ur4() {
+    public ur4(View view2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = view2;
+        this.b = i;
     }
 
-    @Override // com.baidu.tieba.gh6
-    public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLLLL;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            if (CommonTbJsBridge.GET_CLIPPER_INFORMATION.equals(str2)) {
-                jsPromptResult.confirm(c(webView).a());
-                return true;
-            } else if (CommonTbJsBridge.SET_CLIPPER_INFORMATION.equals(str2)) {
-                try {
-                    jsPromptResult.confirm(d(webView, new JSONObject(str3).optString("txt")).a());
-                    return true;
-                } catch (JSONException e) {
-                    BdLog.e(e);
-                    return false;
-                }
-            } else {
-                return false;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return invokeLLLLL.booleanValue;
+        return invokeV.intValue;
     }
 
-    public ifa c(WebView webView) {
-        InterceptResult invokeL;
+    public View b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webView)) == null) {
-            ifa ifaVar = new ifa();
-            String clipBoardContent = UtilHelper.getClipBoardContent();
-            int i = !ad.isEmpty(clipBoardContent) ? 1 : 0;
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("resultCode", i);
-                jSONObject.put("data", clipBoardContent);
-                ifaVar.o(jSONObject.toString());
-                return ifaVar;
-            } catch (JSONException e) {
-                BdLog.e(e);
-                return ifaVar;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return (ifa) invokeL.objValue;
-    }
-
-    public ifa d(WebView webView, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, str)) == null) {
-            ifa ifaVar = new ifa();
-            AndroidUtils.copyToClipboard(str);
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("resultCode", 1);
-                ifaVar.o(jSONObject.toString());
-                return ifaVar;
-            } catch (JSONException e) {
-                BdLog.e(e);
-                return ifaVar;
-            }
-        }
-        return (ifa) invokeLL.objValue;
+        return (View) invokeV.objValue;
     }
 }

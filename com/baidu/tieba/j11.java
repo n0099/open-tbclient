@@ -1,134 +1,123 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.os.Build;
-import android.provider.Settings;
-import android.text.TextUtils;
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.devices.RomUtils;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.internal.Ref;
 /* loaded from: classes6.dex */
-public class j11 {
+public final class j11 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(@NonNull Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
-            if (g(activity)) {
-                return c(activity);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947830335, "Lcom/baidu/tieba/j11;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return 0;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947830335, "Lcom/baidu/tieba/j11;");
+                return;
+            }
         }
-        return invokeL.intValue;
+        a = new a(null);
     }
 
-    public static int c(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            int identifier = context.getResources().getIdentifier("navigation_bar_height", EMABTest.TYPE_DIMEN, "android");
-            if (identifier > 0) {
-                return context.getResources().getDimensionPixelSize(identifier);
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
+    /* loaded from: classes6.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    @RequiresApi(api = 17)
-    public static int d(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (h(context)) {
-                return 0;
-            }
-            return a((Activity) context);
-        }
-        return invokeL.intValue;
-    }
+        /* renamed from: com.baidu.tieba.j11$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public static final class C0351a implements hk0 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ Ref.ObjectRef a;
+            public final /* synthetic */ Context b;
 
-    public static boolean g(@NonNull Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, activity)) == null) {
-            View findViewById = activity.findViewById(16908336);
-            if (findViewById == null || findViewById.getVisibility() != 0) {
-                return false;
+            @Override // com.baidu.tieba.hk0
+            public void a() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                }
             }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
 
-    @RequiresApi(api = 17)
-    public static boolean h(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            if (Settings.Global.getInt(context.getContentResolver(), b(), 0) == 0) {
-                return false;
+            public C0351a(Ref.ObjectRef objectRef, Context context) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {objectRef, context};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = objectRef;
+                this.b = context;
             }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
 
-    @NonNull
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            String str = Build.BRAND;
-            if (TextUtils.isEmpty(str) || str.equalsIgnoreCase("HUAWEI")) {
-                return "navigationbar_is_min";
+            /* JADX WARN: Type inference failed for: r1v0, types: [T, android.graphics.drawable.BitmapDrawable] */
+            @Override // com.baidu.tieba.hk0
+            public void b(Bitmap bitmap) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
+                    this.a.element = new BitmapDrawable(this.b.getResources(), bitmap);
+                }
             }
-            if (str.equalsIgnoreCase(RomUtils.ROM_XIAOMI)) {
-                return "force_fsg_nav_bar";
-            }
-            if (!str.equalsIgnoreCase("VIVO") && !str.equalsIgnoreCase("OPPO")) {
-                return "navigationbar_is_min";
-            }
-            return "navigation_gesture_on";
         }
-        return (String) invokeV.objValue;
-    }
 
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            int i = Build.VERSION.SDK_INT;
-            if (i != 29 && i != 30) {
-                return false;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            return true;
         }
-        return invokeV.booleanValue;
-    }
 
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            String d = pe0.c().a().d();
-            if (TextUtils.isEmpty(d)) {
-                return false;
-            }
-            if (!d.contains("MI 8") && !d.contains("MI 9")) {
-                return false;
-            }
-            return true;
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
         }
-        return invokeV.booleanValue;
+
+        @JvmStatic
+        public final Drawable a(Context context, String url) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, url)) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
+                Intrinsics.checkNotNullParameter(url, "url");
+                Ref.ObjectRef objectRef = new Ref.ObjectRef();
+                objectRef.element = null;
+                gk0.a().c(url, new C0351a(objectRef, context));
+                return (Drawable) objectRef.element;
+            }
+            return (Drawable) invokeLL.objValue;
+        }
     }
 }

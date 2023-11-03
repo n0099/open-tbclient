@@ -1,196 +1,172 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.abtest.group.AbsGroupUbsABTest;
+import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.ad.AbsDataRecorder;
+import com.baidu.tbadk.mvc.data.IResponseData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.AdMixFloor;
-import tbclient.FrsTabInfo;
+import com.squareup.wire.Message;
+import com.squareup.wire.Wire;
+import java.util.ArrayList;
+import java.util.HashMap;
+import org.json.JSONObject;
+import tbclient.StarTrends.DataRes;
+import tbclient.StarTrends.StarTrendsResIdl;
+import tbclient.ThreadInfo;
+import tbclient.User;
 /* loaded from: classes5.dex */
-public class ct7 {
+public class ct7 implements mn5, IResponseData {
     public static /* synthetic */ Interceptable $ic;
+    public static final Wire e;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public ArrayList<oi> a;
+    public HashMap<String, MetaData> b;
+    public boolean c;
+    public int d;
+
+    @Override // com.baidu.tieba.nn5
+    public String getCacheKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.mn5
+    public boolean initByByteArray(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bArr)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.mvc.data.IResponseData
+    public void initByJson(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
+        }
+    }
+
+    @Override // com.baidu.tbadk.mvc.data.IResponseData
+    public void initByProtobuf(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, message) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.mn5
+    public byte[] toCacheByteArray() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return null;
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947686371, "Lcom/baidu/tieba/ct7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947686371, "Lcom/baidu/tieba/ct7;");
+                return;
+            }
+        }
+        e = new Wire(new Class[0]);
+    }
 
     public ct7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return UbsABTestHelper.isFrsFunAdSdkTest();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (TbadkCoreApplication.getCurrentAccountInfo() != null && TbadkCoreApplication.getCurrentAccountInfo().getMemberCloseAdVipClose() == 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (!z) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static ct7 a(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65537, null, z)) == null) {
-            if (z && d()) {
-                return new ct7();
-            }
-            return null;
-        }
-        return (ct7) invokeZ.objValue;
-    }
-
-    public static boolean e(FrsTabInfo frsTabInfo, int i) {
-        InterceptResult invokeLI;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, frsTabInfo, i)) == null) {
-            if (TbadkCoreApplication.getCurrentAccountInfo() != null && TbadkCoreApplication.getCurrentAccountInfo().getMemberCloseAdVipClose() == 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                return false;
-            }
-            if ((frsTabInfo == null || 505 != frsTabInfo.tab_id.intValue() || 91 != frsTabInfo.tab_type.intValue()) && i != 2) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public void b(List<yh> list, boolean z, String str) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{list, Boolean.valueOf(z), str}) == null) {
-            int h = vs7.m().h();
-            if (z) {
-                i = vs7.m().i() - 1;
-                for (yh yhVar : list) {
-                    if (yhVar instanceof ThreadData) {
-                        if (((ThreadData) yhVar).getIs_top() != 1) {
-                            break;
-                        }
-                        i++;
-                    }
-                }
-            } else {
-                i = this.a;
-            }
-            this.a = c(i, h, list, str);
-        }
-    }
-
-    public final int c(int i, int i2, List<yh> list, String str) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), list, str})) == null) {
-            int i3 = 0;
-            if (list != null && list.size() != 0) {
-                if (i > list.size() - 1) {
-                    return 0;
-                }
-                int i4 = 0;
-                int i5 = 0;
-                while (true) {
-                    if (i4 >= list.size()) {
-                        break;
-                    }
-                    ThreadData threadData = new ThreadData();
-                    nea neaVar = new nea();
-                    neaVar.n(true);
-                    threadData.funAdData = neaVar;
-                    neaVar.m(str);
-                    list.add(i, threadData);
-                    if (i5 == 0) {
-                        i5 = i + 1;
-                    }
-                    i = i + i2 + 1;
-                    if (i > list.size() - 1) {
-                        i3 = (i - (list.size() - 1)) - 1;
-                        break;
-                    }
-                    i4++;
-                }
-                if (i5 > 0 && a16.i().p(AbsDataRecorder.Scene.FRS_NEW)) {
-                    a16.i().n(list, i5, 2);
-                }
-            }
-            return i3;
-        }
-        return invokeCommon.intValue;
-    }
-
-    public void g(List<yh> list, List<AdMixFloor> list2, boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{list, list2, Boolean.valueOf(z), str}) == null) {
-            if (((AdMixFloor) ListUtils.getItem(list2, 0)) == null) {
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            int i = 0;
-            for (int i2 = 0; z && i2 < list.size(); i2++) {
-                yh yhVar = list.get(i2);
-                if (yhVar instanceof ThreadData) {
-                    if (((ThreadData) yhVar).getIs_top() != 1) {
-                        break;
-                    }
-                    i++;
-                }
+        }
+        this.a = new ArrayList<>();
+        this.b = new HashMap<>();
+    }
+
+    public StarTrendsResIdl a(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
+            if (bArr == null) {
+                return null;
             }
-            int i3 = 0;
-            for (int i4 = 0; i4 < list2.size(); i4++) {
-                AdMixFloor adMixFloor = list2.get(i4);
-                if (adMixFloor.ad_type.intValue() != 1) {
-                    ThreadData threadData = new ThreadData();
-                    nea neaVar = new nea();
-                    neaVar.n(true);
-                    threadData.funAdData = neaVar;
-                    neaVar.m(str);
-                    ListUtils.add(list, (adMixFloor.floor_num.intValue() + i) - 1, threadData);
-                    if (i3 == 0) {
-                        i3 = adMixFloor.floor_num.intValue() + i;
-                    }
+            try {
+                StarTrendsResIdl starTrendsResIdl = (StarTrendsResIdl) e.parseFrom(bArr, StarTrendsResIdl.class);
+                if (starTrendsResIdl != null && starTrendsResIdl.data != null) {
+                    b(starTrendsResIdl.data);
                 }
-            }
-            if (i3 > 0 && a16.i().p(AbsDataRecorder.Scene.FRS_NEW)) {
-                a16.i().n(list, i3, 2);
+                return starTrendsResIdl;
+            } catch (Exception e2) {
+                BdLog.detailException(e2);
+                return null;
             }
         }
+        return (StarTrendsResIdl) invokeL.objValue;
+    }
+
+    public final void b(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) != null) || dataRes == null) {
+            return;
+        }
+        if (!ListUtils.isEmpty(dataRes.user_list)) {
+            for (User user : dataRes.user_list) {
+                if (user != null) {
+                    MetaData metaData = new MetaData();
+                    metaData.parserProtobuf(user);
+                    String userId = metaData.getUserId();
+                    if (userId != null && !"0".equals(userId)) {
+                        this.b.put(userId, metaData);
+                    }
+                }
+            }
+        }
+        if (!ListUtils.isEmpty(dataRes.thread_list)) {
+            for (ThreadInfo threadInfo : dataRes.thread_list) {
+                if (threadInfo != null) {
+                    ThreadData threadData = new ThreadData();
+                    threadData.setUserMap(this.b);
+                    threadData.parserProtobuf(threadInfo);
+                    threadData.parser_title();
+                    threadData.insertItemToTitleOrAbstractText();
+                    if (threadData.getType() == ThreadData.TYPE_NORMAL || threadData.getType() == ThreadData.TYPE_GOD_NORMAL || threadData.getType() == ThreadData.TYPE_SHARE_THREAD || threadData.getType() == ThreadData.TYPE_VIDEO || threadData.getType() == ThreadData.TYPE_VIDEO_GOD || threadData.getType() == ThreadData.TYPE_FRS_HOTTOPIC) {
+                        this.a.add(threadData);
+                    }
+                }
+            }
+        }
+        AbsGroupUbsABTest.setCardInfoUbsABTest(this.a);
+        boolean z = true;
+        if (dataRes.has_more.intValue() != 1) {
+            z = false;
+        }
+        this.c = z;
     }
 }

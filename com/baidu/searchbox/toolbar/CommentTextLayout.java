@@ -55,7 +55,7 @@ public class CommentTextLayout extends RelativeLayout implements IFontSizeViewLi
         ImageView imageView = new ImageView(getContext());
         this.mCommentIcon = imageView;
         imageView.setScaleType(ImageView.ScaleType.CENTER);
-        this.mCommentIcon.setImageResource(R.drawable.obfuscated_res_0x7f08052f);
+        this.mCommentIcon.setImageResource(R.drawable.obfuscated_res_0x7f080538);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(FontSizeHelper.getScaledSize(0, this.mItemSize, 2), FontSizeHelper.getScaledSize(0, this.mItemSize, 2));
         layoutParams.addRule(9);
         layoutParams.addRule(10);
@@ -63,7 +63,7 @@ public class CommentTextLayout extends RelativeLayout implements IFontSizeViewLi
         addView(this.mCommentIcon);
         TextView textView = new TextView(getContext());
         this.mCommentText = textView;
-        textView.setText(getResources().getText(R.string.obfuscated_res_0x7f0f04a8));
+        textView.setText(getResources().getText(R.string.obfuscated_res_0x7f0f04aa));
         this.mCommentText.setGravity(16);
         this.mCommentText.setTextSize(1, FontSizeHelper.getScaledSize(0, 14.0f, 2));
         this.mCommentText.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0601cb));
@@ -88,14 +88,14 @@ public class CommentTextLayout extends RelativeLayout implements IFontSizeViewLi
             return;
         }
         FontSizeViewExtKt.setScaledSizeRes(this.mCommentIcon, 0, R.dimen.obfuscated_res_0x7f070262, R.dimen.obfuscated_res_0x7f070262);
-        FontSizeImageViewExtKt.setScaledImageDrawableRes(this.mCommentIcon, 0, R.drawable.obfuscated_res_0x7f08052f);
+        FontSizeImageViewExtKt.setScaledImageDrawableRes(this.mCommentIcon, 0, R.drawable.obfuscated_res_0x7f080538);
         FontSizeTextViewExtKt.setScaledSizeRes(this.mCommentText, 0, R.dimen.obfuscated_res_0x7f0702e5);
         FontSizeViewExtKt.setScaledHeightRes(this.mCommentText, 0, R.dimen.obfuscated_res_0x7f070262);
         FontSizeViewExtKt.setScaledLeftMarginRes(this.mCommentText, 0, R.dimen.obfuscated_res_0x7f070255);
     }
 
     public void updateColor() {
-        this.mCommentIcon.setImageResource(R.drawable.obfuscated_res_0x7f08052f);
+        this.mCommentIcon.setImageResource(R.drawable.obfuscated_res_0x7f080538);
         this.mCommentText.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0601cb));
         onFontSizeChange();
     }

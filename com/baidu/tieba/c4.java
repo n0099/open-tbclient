@@ -1,120 +1,41 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.KVStorageFactory;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.badlogic.gdx.utils.reflect.ReflectionException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
 /* loaded from: classes5.dex */
-public class c4 {
+public final class c4 {
     public static /* synthetic */ Interceptable $ic;
-    public static SharedPreferences a;
-    public static c4 b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448299932, "Lcom/baidu/tieba/c4;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448299932, "Lcom/baidu/tieba/c4;");
-        }
-    }
-
-    public int a() {
-        InterceptResult invokeV;
+    public static d4 a(Class cls, Class... clsArr) throws ReflectionException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    public c4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, cls, clsArr)) == null) {
+            try {
+                return new d4(cls.getConstructor(clsArr));
+            } catch (NoSuchMethodException e) {
+                throw new ReflectionException("Constructor not found for class: " + cls.getName(), e);
+            } catch (SecurityException e2) {
+                throw new ReflectionException("Security violation occurred while getting constructor for class: '" + cls.getName() + "'.", e2);
             }
         }
+        return (d4) invokeLL.objValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public static d4 b(Class cls, Class... clsArr) throws ReflectionException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return a.getString("abtest_sap_data", "");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return a.getString("abtest_sap_version", "");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public Set<String> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return new HashSet(a.getStringSet("abtest_switch_keys", new HashSet()));
-        }
-        return (Set) invokeV.objValue;
-    }
-
-    public static c4 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (c4.class) {
-                if (b == null) {
-                    b = new c4();
-                    a = KVStorageFactory.getSharedPreferences("abtestCCS0527", 0);
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, clsArr)) == null) {
+            try {
+                return new d4(cls.getDeclaredConstructor(clsArr));
+            } catch (NoSuchMethodException e) {
+                throw new ReflectionException("Constructor not found for class: " + cls.getName(), e);
+            } catch (SecurityException e2) {
+                throw new ReflectionException("Security violation while getting constructor for class: " + cls.getName(), e2);
             }
-            return b;
         }
-        return (c4) invokeV.objValue;
-    }
-
-    public String e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            SharedPreferences sharedPreferences = a;
-            return sharedPreferences.getString("abtest_" + str, "");
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            SharedPreferences.Editor edit = a.edit();
-            edit.putString("abtest_client_sample_version", str);
-            edit.apply();
-        }
+        return (d4) invokeLL.objValue;
     }
 }

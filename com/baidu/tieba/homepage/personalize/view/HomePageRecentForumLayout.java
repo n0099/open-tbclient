@@ -36,19 +36,19 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.ViewCommonUtil;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ad;
-import com.baidu.tieba.boa;
+import com.baidu.tieba.c1b;
 import com.baidu.tieba.card.ala.secondfloor.CommonSpaceItemDecoration;
-import com.baidu.tieba.h58;
+import com.baidu.tieba.cfa;
+import com.baidu.tieba.ci8;
+import com.baidu.tieba.di8;
 import com.baidu.tieba.homepage.personalize.adapter.RecommendRecentForumListAdapter;
 import com.baidu.tieba.homepagecore.data.ForumSignInResultRespondedMessage;
-import com.baidu.tieba.i58;
-import com.baidu.tieba.o8a;
-import com.baidu.tieba.s18;
-import com.baidu.tieba.vo6;
-import com.baidu.tieba.wo6;
-import com.baidu.tieba.x1a;
-import com.baidu.tieba.zo6;
+import com.baidu.tieba.lq6;
+import com.baidu.tieba.mq6;
+import com.baidu.tieba.ne8;
+import com.baidu.tieba.pq6;
+import com.baidu.tieba.qd;
+import com.baidu.tieba.tla;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -66,10 +66,10 @@ public class HomePageRecentForumLayout extends RelativeLayout implements View.On
     public RecommendRecentForumListAdapter e;
     public ImageView f;
     public ImageView g;
-    public s18 h;
+    public ne8 h;
     public BdUniqueId i;
     public boolean j;
-    public x1a k;
+    public cfa k;
     public HttpMessageListener l;
     public BdResourceCallback<BdImage> m;
 
@@ -111,9 +111,9 @@ public class HomePageRecentForumLayout extends RelativeLayout implements View.On
                     this.a.j = false;
                 } else {
                     this.a.j = false;
-                    h58 data = ((ForumSignInResultRespondedMessage) httpResponsedMessage).getData();
+                    ci8 data = ((ForumSignInResultRespondedMessage) httpResponsedMessage).getData();
                     if (data != null) {
-                        this.a.k(data);
+                        this.a.l(data);
                     }
                 }
             }
@@ -163,7 +163,7 @@ public class HomePageRecentForumLayout extends RelativeLayout implements View.On
     }
 
     /* loaded from: classes6.dex */
-    public class c extends zo6<i58> {
+    public class c extends pq6<di8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HomePageRecentForumLayout b;
@@ -190,11 +190,11 @@ public class HomePageRecentForumLayout extends RelativeLayout implements View.On
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zo6
-        public void onEvent(@NonNull i58 i58Var) {
+        @Override // com.baidu.tieba.pq6
+        public void onEvent(@NonNull di8 di8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, i58Var) == null) {
-                this.b.i(i58Var);
+            if (interceptable == null || interceptable.invokeL(1048576, this, di8Var) == null) {
+                this.b.i(di8Var);
             }
         }
     }
@@ -265,11 +265,11 @@ public class HomePageRecentForumLayout extends RelativeLayout implements View.On
     }
 
     public final void g(boolean z) {
-        s18 s18Var;
+        ne8 ne8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            if (!z && (s18Var = this.h) != null && s18Var.c() != null && !ad.isEmpty(boa.g(this.h.c()))) {
-                BdImage bdImage = (BdImage) BdResourceLoader.getInstance().loadResource(boa.g(this.h.c()), 45, this.m, this.i);
+            if (!z && (ne8Var = this.h) != null && ne8Var.c() != null && !qd.isEmpty(c1b.g(this.h.c()))) {
+                BdImage bdImage = (BdImage) BdResourceLoader.getInstance().loadResource(c1b.g(this.h.c()), 45, this.m, this.i);
                 if (bdImage != null) {
                     setBackground(bdImage.getAsBitmapDrawable());
                     return;
@@ -291,13 +291,13 @@ public class HomePageRecentForumLayout extends RelativeLayout implements View.On
         }
     }
 
-    public void i(@NonNull i58 i58Var) {
+    public void i(@NonNull di8 di8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, i58Var) != null) || this.j) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, di8Var) != null) || this.j) {
             return;
         }
         this.j = true;
-        this.k.d(i58Var.a(), this.i);
+        this.k.d(di8Var.a(), this.i);
     }
 
     @Override // android.view.ViewGroup
@@ -317,18 +317,18 @@ public class HomePageRecentForumLayout extends RelativeLayout implements View.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bdUniqueId) == null) {
             this.i = bdUniqueId;
-            j();
+            k();
         }
     }
 
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0866, (ViewGroup) this, true);
-            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f092767);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f1b);
+            LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d087b, (ViewGroup) this, true);
+            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0927c6);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f53);
             this.g = (ImageView) findViewById(R.id.arrow_img);
-            BdRecyclerView bdRecyclerView = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f090c03);
+            BdRecyclerView bdRecyclerView = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f090c2f);
             this.d = bdRecyclerView;
             bdRecyclerView.setLayoutManager(new LinearLayoutManager(this.a.getPageActivity(), 0, false));
             RecommendRecentForumListAdapter recommendRecentForumListAdapter = new RecommendRecentForumListAdapter(this.a);
@@ -341,20 +341,20 @@ public class HomePageRecentForumLayout extends RelativeLayout implements View.On
         }
     }
 
-    public final void j() {
+    public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            wo6.b().b(new vo6(this.i, i58.class), new c(this, i58.class));
+            mq6.b().b(new lq6(this.i, di8.class), new c(this, di8.class));
             this.l.setTag(this.i);
             this.l.setSelfListener(true);
             MessageManager.getInstance().registerListener(this.l);
         }
     }
 
-    public final void k(h58 h58Var) {
+    public final void l(ci8 ci8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, h58Var) == null) && h58Var != null && this.h != null && !ListUtils.isEmpty(h58Var.a()) && !ListUtils.isEmpty(this.h.f())) {
-            this.k.c(this.h.f(), h58Var.a());
+        if ((interceptable == null || interceptable.invokeL(1048581, this, ci8Var) == null) && ci8Var != null && this.h != null && !ListUtils.isEmpty(ci8Var.a()) && !ListUtils.isEmpty(this.h.f())) {
+            this.k.c(this.h.f(), ci8Var.a());
             this.e.notifyDataSetChanged();
         }
     }
@@ -368,19 +368,19 @@ public class HomePageRecentForumLayout extends RelativeLayout implements View.On
         if (view2 == this.c || view2 == this.g) {
             TiebaStatic.log(new StatisticItem("c15536").addParam("uid", TbadkCoreApplication.getCurrentAccount()));
             UrlManager.getInstance().dealOneLink(this.a, new String[]{TbConfig.ONE_KEY_SIGN_PAGE_URL});
-            o8a.a().e(true);
+            tla.a().e(true);
         }
     }
 
-    public void setData(s18 s18Var) {
+    public void setData(ne8 ne8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, s18Var) == null) {
-            if (s18Var != null && this.e != null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ne8Var) == null) {
+            if (ne8Var != null && this.e != null) {
                 if (this.k == null) {
-                    this.k = new x1a();
+                    this.k = new cfa();
                 }
-                this.h = s18Var;
-                this.e.setData(s18Var.f());
+                this.h = ne8Var;
+                this.e.setData(ne8Var.f());
                 this.e.notifyDataSetChanged();
                 this.c.setVisibility(0);
                 this.g.setVisibility(0);
@@ -393,15 +393,15 @@ public class HomePageRecentForumLayout extends RelativeLayout implements View.On
                 if (this.d.getLayoutManager() instanceof LinearLayoutManager) {
                     LinearLayoutManager linearLayoutManager = (LinearLayoutManager) this.d.getLayoutManager();
                     if (this.h.g()) {
-                        if (s18Var.e() != Integer.MIN_VALUE && s18Var.d() != Integer.MIN_VALUE && !o8a.a().c()) {
-                            linearLayoutManager.scrollToPositionWithOffset(s18Var.e(), s18Var.d());
+                        if (ne8Var.e() != Integer.MIN_VALUE && ne8Var.d() != Integer.MIN_VALUE && !tla.a().c()) {
+                            linearLayoutManager.scrollToPositionWithOffset(ne8Var.e(), ne8Var.d());
                         }
                     } else {
                         linearLayoutManager.scrollToPosition(0);
-                        o8a.a().f(false);
+                        tla.a().f(false);
                     }
                 }
-                this.h.m(true);
+                this.h.n(true);
                 g(false);
                 h(TbadkApplication.getInst().getSkinType());
                 return;

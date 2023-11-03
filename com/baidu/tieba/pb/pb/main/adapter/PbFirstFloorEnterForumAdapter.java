@@ -21,20 +21,20 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.tieba.R;
-import com.baidu.tieba.af9;
-import com.baidu.tieba.lh;
-import com.baidu.tieba.om9;
-import com.baidu.tieba.sw4;
+import com.baidu.tieba.aqa;
+import com.baidu.tieba.bi;
+import com.baidu.tieba.fs9;
+import com.baidu.tieba.kx4;
+import com.baidu.tieba.po5;
 import com.baidu.tieba.tbadkCore.writeModel.AttentionBarData;
-import com.baidu.tieba.vca;
-import com.baidu.tieba.ym5;
+import com.baidu.tieba.tz9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class PbFirstFloorEnterForumAdapter extends lh<af9, PbFirstFloorEnterForumViewHolder> {
+public class PbFirstFloorEnterForumAdapter extends bi<fs9, PbFirstFloorEnterForumViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BaseFragment a;
@@ -50,7 +50,7 @@ public class PbFirstFloorEnterForumAdapter extends lh<af9, PbFirstFloorEnterForu
         public View b;
         public View c;
         public ImageView d;
-        public af9 e;
+        public fs9 e;
         public final /* synthetic */ PbFirstFloorEnterForumAdapter f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -90,23 +90,23 @@ public class PbFirstFloorEnterForumAdapter extends lh<af9, PbFirstFloorEnterForu
                 WebPManager.setPureDrawable(this.d, R.drawable.icon_pure_list_arrow16_right, R.color.CAM_X0107, null);
                 SkinManager.setBackgroundColor(this.b, R.color.CAM_X0203);
                 SkinManager.setBackgroundColor(this.c, R.color.CAM_X0203);
-                EMManager.from(this.a).setCorner(R.string.J_X05).setBackGroundRealColor(vca.a(SkinManager.getColor(R.color.CAM_X0341), 0.08f));
+                EMManager.from(this.a).setCorner(R.string.J_X05).setBackGroundRealColor(aqa.a(SkinManager.getColor(R.color.CAM_X0341), 0.08f));
                 this.a.g();
             }
         }
 
-        public void b(af9 af9Var) {
+        public void b(fs9 fs9Var) {
             int i;
             int i2;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, af9Var) == null) {
-                if (af9Var != null) {
-                    this.e = af9Var;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fs9Var) == null) {
+                if (fs9Var != null) {
+                    this.e = fs9Var;
                     if (!this.f.c) {
-                        this.f.c = af9Var.h;
+                        this.f.c = fs9Var.h;
                     }
                     View view2 = this.c;
-                    if (af9Var.e) {
+                    if (fs9Var.e) {
                         i = 0;
                     } else {
                         i = 8;
@@ -114,20 +114,20 @@ public class PbFirstFloorEnterForumAdapter extends lh<af9, PbFirstFloorEnterForu
                     view2.setVisibility(i);
                     if (getView() != null) {
                         View view3 = getView();
-                        if (af9Var.e) {
+                        if (fs9Var.e) {
                             i2 = BdUtilHelper.getDimens(this.f.mContext, R.dimen.tbds42);
                         } else {
                             i2 = 0;
                         }
                         view3.setPadding(0, 0, 0, i2);
                     }
-                    sw4 sw4Var = af9Var.j;
-                    if (sw4Var != null) {
-                        sw4Var.g(TbadkCoreApplication.getInst().getString(R.string.enter_forum));
+                    kx4 kx4Var = fs9Var.j;
+                    if (kx4Var != null) {
+                        kx4Var.g(TbadkCoreApplication.getInst().getString(R.string.enter_forum));
                         this.b.setVisibility(8);
                     }
-                    this.a.setData(af9Var.a, af9Var.b, af9Var.c, af9Var.d, af9Var.i, sw4Var);
-                    TiebaStatic.log(new StatisticItem("c15303").param("tid", af9Var.g).param("fid", af9Var.f).param("uid", TbadkCoreApplication.getCurrentAccountId()));
+                    this.a.setData(fs9Var.a, fs9Var.b, fs9Var.c, fs9Var.d, fs9Var.i, kx4Var);
+                    TiebaStatic.log(new StatisticItem("c15303").param("tid", fs9Var.g).param("fid", fs9Var.f).param("uid", TbadkCoreApplication.getCurrentAccountId()));
                 }
                 this.d.setVisibility(8);
                 if (!this.f.c) {
@@ -139,10 +139,10 @@ public class PbFirstFloorEnterForumAdapter extends lh<af9, PbFirstFloorEnterForu
 
         public final void c(String str) {
             TbPageTag l;
-            af9 af9Var;
+            fs9 fs9Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (l = ym5.l(this.f.a.getContext())) != null && (af9Var = this.e) != null) {
-                om9.a(str, af9Var.f, af9Var.g, TbadkCoreApplication.getCurrentAccount(), l.locatePage);
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (l = po5.l(this.f.a.getContext())) != null && (fs9Var = this.e) != null) {
+                tz9.a(str, fs9Var.f, fs9Var.g, TbadkCoreApplication.getCurrentAccount(), l.locatePage);
             }
         }
 
@@ -218,20 +218,33 @@ public class PbFirstFloorEnterForumAdapter extends lh<af9, PbFirstFloorEnterForu
         baseFragment.registerListener(aVar);
     }
 
+    public View A(int i, View view2, ViewGroup viewGroup, fs9 fs9Var, PbFirstFloorEnterForumViewHolder pbFirstFloorEnterForumViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, fs9Var, pbFirstFloorEnterForumViewHolder})) == null) {
+            if (fs9Var != null) {
+                pbFirstFloorEnterForumViewHolder.b(fs9Var);
+            }
+            pbFirstFloorEnterForumViewHolder.a();
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.lh
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, af9 af9Var, PbFirstFloorEnterForumViewHolder pbFirstFloorEnterForumViewHolder) {
-        z(i, view2, viewGroup, af9Var, pbFirstFloorEnterForumViewHolder);
+    @Override // com.baidu.tieba.bi
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, fs9 fs9Var, PbFirstFloorEnterForumViewHolder pbFirstFloorEnterForumViewHolder) {
+        A(i, view2, viewGroup, fs9Var, pbFirstFloorEnterForumViewHolder);
         return view2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
-    /* renamed from: y */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: z */
     public PbFirstFloorEnterForumViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
             FrameLayout frameLayout = new FrameLayout(this.mContext);
             frameLayout.setClipChildren(false);
             int dimens = BdUtilHelper.getDimens(this.mContext, R.dimen.M_W_X007);
@@ -274,18 +287,5 @@ public class PbFirstFloorEnterForumAdapter extends lh<af9, PbFirstFloorEnterForu
             return pbFirstFloorEnterForumViewHolder;
         }
         return (PbFirstFloorEnterForumViewHolder) invokeL.objValue;
-    }
-
-    public View z(int i, View view2, ViewGroup viewGroup, af9 af9Var, PbFirstFloorEnterForumViewHolder pbFirstFloorEnterForumViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, af9Var, pbFirstFloorEnterForumViewHolder})) == null) {
-            if (af9Var != null) {
-                pbFirstFloorEnterForumViewHolder.b(af9Var);
-            }
-            pbFirstFloorEnterForumViewHolder.a();
-            return view2;
-        }
-        return (View) invokeCommon.objValue;
     }
 }

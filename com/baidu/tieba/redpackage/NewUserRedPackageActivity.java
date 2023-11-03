@@ -20,24 +20,24 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jo4;
+import com.baidu.tieba.ap4;
 import com.baidu.tieba.view.RoundRelativeLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class NewUserRedPackageActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RoundRelativeLayout a;
     public NewUserRedPackageData b;
-    public jo4 c;
+    public ap4 c;
     public ImageView d;
     public ImageView e;
     public View.OnClickListener f;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -125,7 +125,7 @@ public class NewUserRedPackageActivity extends BaseActivity {
         }
     }
 
-    public final void R0() {
+    public final void N0() {
         BdImage bdImage;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || getIntent() == null) {
@@ -157,17 +157,17 @@ public class NewUserRedPackageActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0049);
+            setContentView(R.layout.obfuscated_res_0x7f0d004b);
             RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.round_corner_layout);
             this.a = roundRelativeLayout;
             roundRelativeLayout.setAllCornerRound(BdUtilHelper.getDimens(this, R.dimen.tbds31));
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910df);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f09111a);
             this.e = (ImageView) findViewById(R.id.img_btn_close);
             this.d.setOnClickListener(this.f);
             this.e.setOnClickListener(this.f);
-            R0();
+            N0();
             TiebaStatic.log(new StatisticItem("c13684").param("obj_type", 1));
-            this.c = new jo4();
+            this.c = new ap4();
         }
     }
 }

@@ -21,9 +21,9 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.databinding.FrsGroupCardLayoutBinding;
 import com.baidu.tieba.frs.view.FrsGroupCardLayout;
-import com.baidu.tieba.pq7;
-import com.baidu.tieba.rq7;
-import com.baidu.tieba.xh7;
+import com.baidu.tieba.k38;
+import com.baidu.tieba.m38;
+import com.baidu.tieba.ru7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -45,7 +45,7 @@ public final class FrsGroupCardLayout extends RelativeLayout {
     public GroupAdapter b;
     public int c;
     public GroupFeedCard d;
-    public xh7 e;
+    public ru7 e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     @JvmOverloads
@@ -181,7 +181,7 @@ public final class FrsGroupCardLayout extends RelativeLayout {
 
                 /* renamed from: invoke  reason: avoid collision after fix types in other method */
                 public final void invoke2(View v) {
-                    xh7 xh7Var;
+                    ru7 ru7Var;
                     String str;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v) == null) {
@@ -193,10 +193,10 @@ public final class FrsGroupCardLayout extends RelativeLayout {
                             UrlManager.getInstance().dealOneLink(((TbPageContextSupport) context).getPageContext(), new String[]{((FeedGroupInfo) tag).jump_url});
                         }
                         if (z) {
-                            rq7.a aVar = rq7.a;
-                            xh7Var = this.this$0.e;
-                            if (xh7Var != null) {
-                                str = xh7Var.e();
+                            m38.a aVar = m38.a;
+                            ru7Var = this.this$0.e;
+                            if (ru7Var != null) {
+                                str = ru7Var.e();
                             } else {
                                 str = null;
                             }
@@ -210,7 +210,7 @@ public final class FrsGroupCardLayout extends RelativeLayout {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
                 frsGroupCardLayoutBinding2 = null;
             }
-            frsGroupCardLayoutBinding2.h.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yr7
+            frsGroupCardLayoutBinding2.h.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.t48
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -228,7 +228,7 @@ public final class FrsGroupCardLayout extends RelativeLayout {
             } else {
                 groupAdapter = groupAdapter3;
             }
-            groupAdapter.o(new View.OnClickListener() { // from class: com.baidu.tieba.as7
+            groupAdapter.o(new View.OnClickListener() { // from class: com.baidu.tieba.v48
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -256,16 +256,16 @@ public final class FrsGroupCardLayout extends RelativeLayout {
             }
             EMManager.from(frsGroupCardLayoutBinding.j).setCardType(0).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0205);
             EMManager.from(frsGroupCardLayoutBinding.f).setTextColor(R.color.CAM_X0105).setTextSize(R.dimen.T_X05).setTextStyle(R.string.F_X02);
-            frsGroupCardLayoutBinding.h.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0806de));
+            frsGroupCardLayoutBinding.h.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0806e8));
             EMManager.from(frsGroupCardLayoutBinding.i).setTextColor(R.color.CAM_X0304).setTextSize(R.dimen.T_X08).setTextStyle(R.string.F_X01);
             WebPManager.setPureDrawable(frsGroupCardLayoutBinding.g, R.drawable.icon_pure_arrow12_right, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL_PRESS);
-            frsGroupCardLayoutBinding.c.setImageDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0806dc));
-            frsGroupCardLayoutBinding.d.setImageDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0806dd));
+            frsGroupCardLayoutBinding.c.setImageDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0806e6));
+            frsGroupCardLayoutBinding.d.setImageDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0806e7));
         }
     }
 
     @SuppressLint({"NotifyDataSetChanged"})
-    public final void setData(xh7 feedData) {
+    public final void setData(ru7 feedData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, feedData) == null) {
             Intrinsics.checkNotNullParameter(feedData, "feedData");
@@ -331,9 +331,9 @@ public final class FrsGroupCardLayout extends RelativeLayout {
                     groupAdapter2.setList(d.group_list);
                 }
                 this.d = d;
-                pq7.a.f(feedData.e());
+                k38.a.f(feedData.e());
             }
-            rq7.a.e(feedData.e());
+            m38.a.e(feedData.e());
             GroupAdapter groupAdapter3 = this.b;
             if (groupAdapter3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("rvAdapter");

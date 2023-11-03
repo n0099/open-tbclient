@@ -1,46 +1,56 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
+import android.os.Bundle;
+import androidx.fragment.app.FragmentActivity;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.framework.listener.NetMessageListener;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.browser.BrowserHelper;
-import com.baidu.tbadk.core.BDLayoutMode;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.frs.gamepaltform.GameRankHorizontalLayout;
-import com.baidu.tieba.frs.gamepaltform.GameRankListViewHolder;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.forum.model.FrsPageHttpResponseMessage;
+import com.baidu.tieba.forum.model.FrsPageRequestMessage;
+import com.baidu.tieba.forum.model.FrsThreadListHttpResponseMessage;
+import com.baidu.tieba.frs.loadmore.FrsLoadMoreModel;
+import com.baidu.tieba.im.db.pojo.GroupChatRoomPojo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class uj7 extends yc7<vt7, GameRankListViewHolder> implements io7 {
+public final class uj7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public go7 l;
+    public a a;
+    public BdUniqueId b;
+    public final NetMessageListener c;
 
     /* loaded from: classes8.dex */
-    public class a implements GameRankHorizontalLayout.b {
+    public interface a {
+        void a(jh7 jh7Var);
+
+        void onError(int i);
+    }
+
+    /* loaded from: classes8.dex */
+    public static final class b extends au5<List<? extends GroupChatRoomPojo>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uj7 a;
+        public final /* synthetic */ String a;
 
-        public a(uj7 uj7Var) {
+        public b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {uj7Var};
+                Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -50,30 +60,31 @@ public class uj7 extends yc7<vt7, GameRankListViewHolder> implements io7 {
                     return;
                 }
             }
-            this.a = uj7Var;
+            this.a = str;
         }
 
-        @Override // com.baidu.tieba.frs.gamepaltform.GameRankHorizontalLayout.b
-        public void a(ut7 ut7Var, int i) {
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX DEBUG: Return type fixed from 'java.util.List<com.baidu.tieba.im.db.pojo.GroupChatRoomPojo>' to match base method */
+        @Override // com.baidu.tieba.au5
+        public List<? extends GroupChatRoomPojo> doInBackground() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLI(1048576, this, ut7Var, i) != null) || ut7Var == null) {
-                return;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return oq8.j().i(TbadkCoreApplication.getCurrentAccount(), this.a);
             }
-            if (this.a.l != null) {
-                TiebaStatic.log(new StatisticItem("c12105").param("fid", this.a.l.c).param("obj_locate", i + 1));
-            }
-            if (!StringUtils.isNull(ut7Var.c())) {
-                BrowserHelper.startWebActivity(this.a.c.getPageActivity(), ut7Var.c());
-            }
+            return (List) invokeV.objValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public class b implements View.OnClickListener {
+    public static final class c extends NetMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ uj7 a;
 
-        public b(uj7 uj7Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(uj7 uj7Var) {
+            super(CmdConfigHttp.FRS_HTTP_CMD, 301001);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -83,103 +94,152 @@ public class uj7 extends yc7<vt7, GameRankListViewHolder> implements io7 {
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = uj7Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.adp.framework.listener.NetMessageListener
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            a a;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-                sharedPrefHelper.putString("game_rank_list_info", System.currentTimeMillis() + ",7");
-                SharedPrefHelper.getInstance().putInt("game_rank_list_show_times", 0);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921005));
+            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
+                return;
+            }
+            if (responsedMessage.getError() != 0) {
+                a a2 = this.a.a();
+                if (a2 != null) {
+                    a2.onError(responsedMessage.getError());
+                }
+            } else if ((responsedMessage instanceof FrsPageHttpResponseMessage) && (a = this.a.a()) != null) {
+                a.a(((FrsPageHttpResponseMessage) responsedMessage).getFrsPageData());
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public uj7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId, bdUniqueId2);
+    public uj7(FragmentActivity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
+            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.l = new go7();
+        Intrinsics.checkNotNullParameter(activity, "activity");
+        this.b = tg7.a(activity);
+        this.c = new c(this);
+        e();
+        f();
+        this.c.setTag(this.b);
+        this.c.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.c);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh
-    /* renamed from: I */
-    public GameRankListViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final void b(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            return new GameRankListViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d03cf, (ViewGroup) null));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            Intrinsics.checkNotNullParameter(bundle, "bundle");
+            final FrsPageRequestMessage a2 = bk7.a(bundle);
+            a2.setTag(this.b);
+            a2.setSortType(-1);
+            a2.setDefaultSortType(0);
+            a2.setPn(1);
+            a2.setRn(90);
+            a2.setRnNeed(30);
+            String g = m27.g(null, true);
+            Intrinsics.checkNotNullExpressionValue(g, "getAdFloorInfo(null, true)");
+            a2.setAdFloorInfo(g);
+            final String string = bundle.getString("name");
+            if (string == null) {
+                string = "";
+            }
+            eu5.c(new b(string), new ft5() { // from class: com.baidu.tieba.sj7
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // com.baidu.tieba.ft5
+                public final void onReturnDataInUI(Object obj) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
+                        uj7.c(FrsPageRequestMessage.this, string, (List) obj);
+                    }
+                }
+            });
         }
-        return (GameRankListViewHolder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yc7, com.baidu.tieba.lh
-    /* renamed from: J */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, vt7 vt7Var, GameRankListViewHolder gameRankListViewHolder) {
-        InterceptResult invokeCommon;
-        boolean z;
+    public static final void c(FrsPageRequestMessage requestMessage, String forumName, List list) {
+        String a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vt7Var, gameRankListViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) vt7Var, (vt7) gameRankListViewHolder);
-            if (vt7Var == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeLLL(65537, null, requestMessage, forumName, list) == null) {
+            Intrinsics.checkNotNullParameter(requestMessage, "$requestMessage");
+            Intrinsics.checkNotNullParameter(forumName, "$forumName");
+            if (list != null && (a2 = l19.a(list)) != null) {
+                requestMessage.setChatroomNewMsg(a2);
             }
-            SkinManager.setBackgroundColor(view2, R.color.CAM_X0201);
-            if (this.l != null) {
-                TiebaStatic.log(new StatisticItem("c12104").param("fid", this.l.c));
-            }
-            GameRankHorizontalLayout gameRankHorizontalLayout = gameRankListViewHolder.a;
-            if (gameRankHorizontalLayout != null) {
-                gameRankHorizontalLayout.setData(vt7Var);
-                gameRankListViewHolder.a.setOnCardClickListener(new a(this));
-            }
-            TextView textView = gameRankListViewHolder.b;
-            if (textView != null) {
-                textView.setOnClickListener(new b(this));
-            }
-            BDLayoutMode layoutMode = this.c.getLayoutMode();
-            if (this.f == 4) {
-                z = true;
-            } else {
-                z = false;
-            }
-            layoutMode.setNightMode(z);
-            this.c.getLayoutMode().onModeChanged(view2);
-            return view2;
+            MessageManager.getInstance().sendMessage(requestMessage);
+            mi7.a();
+            mi7.b(forumName);
         }
-        return (View) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.io7
-    public go7 i() {
+    public final a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.l;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (go7) invokeV.objValue;
+        return (a) invokeV.objValue;
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.c);
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.FRS_HTTP_CMD, cra.a(TbConfig.FRS_ADDRESS, 301001));
+            tbHttpMessageTask.setIsNeedAddCommenParam(false);
+            tbHttpMessageTask.setIsNeedCookie(UbsABTestHelper.isAddBaidIdCookie());
+            tbHttpMessageTask.setResponsedClass(FrsPageHttpResponseMessage.class);
+            tbHttpMessageTask.setPriority(4);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.FRS_LOAD_MORE_CMD, cra.a(FrsLoadMoreModel.LOAD_MORE_URL, 301002));
+            tbHttpMessageTask.setIsNeedLogin(false);
+            tbHttpMessageTask.setIsNeedTbs(false);
+            tbHttpMessageTask.setIsNeedAddCommenParam(false);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(false);
+            tbHttpMessageTask.setResponsedClass(FrsThreadListHttpResponseMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
+    }
+
+    public final void g(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
+            this.a = aVar;
+        }
     }
 }

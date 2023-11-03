@@ -24,9 +24,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fb;
-import com.baidu.tieba.k4;
-import com.baidu.tieba.vca;
+import com.baidu.tieba.a5;
+import com.baidu.tieba.aqa;
+import com.baidu.tieba.vb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -58,7 +58,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     public final BdResourceCallback<BdImage> p;
 
     /* loaded from: classes5.dex */
-    public class a extends fb {
+    public class a extends vb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FragmentTabIndicator a;
@@ -81,7 +81,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
             this.a = fragmentTabIndicator;
         }
 
-        @Override // com.baidu.tieba.fb
+        @Override // com.baidu.tieba.vb
         public void a(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(1048576, this, animation) != null) {
@@ -414,7 +414,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
             if (bdUniqueId != null) {
                 return bdUniqueId;
             }
-            BdPageContext<?> a2 = k4.a(getContext());
+            BdPageContext<?> a2 = a5.a(getContext());
             if (a2 != null) {
                 this.i = a2.getUniqueId();
             }
@@ -618,10 +618,10 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
                 ThemeColorInfo themeColorInfo = this.mThemeColorInfo;
                 if (themeColorInfo != null && themeColorInfo.day != null && themeColorInfo.night != null && themeColorInfo.dark != null) {
                     if (TbadkCoreApplication.getInst().getSkinType() == 4) {
-                        this.k.setTextColor(vca.f(this.mThemeColorInfo.dark.font_color));
+                        this.k.setTextColor(aqa.f(this.mThemeColorInfo.dark.font_color));
                         return;
                     } else {
-                        this.k.setTextColor(vca.f(this.mThemeColorInfo.day.font_color));
+                        this.k.setTextColor(aqa.f(this.mThemeColorInfo.day.font_color));
                         return;
                     }
                 }

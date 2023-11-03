@@ -1,68 +1,82 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import kotlin.jvm.JvmName;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import tbclient.ClickBackCard;
-import tbclient.ClickBackCardItem;
-@JvmName(name = "ClickBackCardBuilder")
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class ez4 {
+public class ez4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
 
-    public static final ClickBackCard a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public ez4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
-            if (jSONObject != null) {
-                ClickBackCard.Builder builder = new ClickBackCard.Builder();
-                builder.card_name = jSONObject.optString("card_name");
-                JSONArray optJSONArray = jSONObject.optJSONArray("card_list");
-                ArrayList arrayList = new ArrayList();
-                if (optJSONArray != null) {
-                    int length = optJSONArray.length();
-                    for (int i = 0; i < length; i++) {
-                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                        ClickBackCardItem.Builder builder2 = new ClickBackCardItem.Builder();
-                        builder2.text = optJSONObject.optString("text");
-                        builder2.jump_url = optJSONObject.optString(BigdayActivityConfig.JUMP_URL);
-                        builder2.business_id = Long.valueOf(optJSONObject.optLong("business_id"));
-                        builder2.business_type = optJSONObject.optString("business_type");
-                        ClickBackCardItem build = builder2.build(true);
-                        Intrinsics.checkNotNullExpressionValue(build, "builder1.build(true)");
-                        arrayList.add(build);
-                    }
-                    builder.card_list = arrayList;
-                }
-                return builder.build(true);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return null;
         }
-        return (ClickBackCard) invokeL.objValue;
+        this.a = null;
+        this.b = null;
+        this.c = null;
     }
 
-    public static final ClickBackCard b(String str) {
-        InterceptResult invokeL;
-        boolean z;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                return null;
-            }
-            return a(new JSONObject(str));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (ClickBackCard) invokeL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.c = str;
+        }
     }
 }

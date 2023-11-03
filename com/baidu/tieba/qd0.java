@@ -1,21 +1,68 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.os.Bundle;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class qd0 {
+public final class qd0 implements dk0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public JSONObject a;
-    public Map<String, String> b;
-    public Map<String, String> c;
+
+    @Override // com.baidu.tieba.dk0
+    public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.dk0
+    public void onActivityDestroyed(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.dk0
+    public void onActivityPaused(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.dk0
+    public void onActivityResumed(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.dk0
+    public void onActivitySaveInstanceState(@NonNull Activity activity, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.dk0
+    public void onActivityStarted(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.dk0
+    public void onActivityStopped(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
+        }
+    }
 
     public qd0() {
         Interceptable interceptable = $ic;
@@ -31,30 +78,19 @@ public class qd0 {
         }
     }
 
-    public static qd0 a(@NonNull HashMap<String, ?> hashMap) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.dk0
+    public void onBackgroundToForeground(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, hashMap)) == null) {
-            qd0 qd0Var = new qd0();
-            if (hashMap.get("cmd_map") instanceof String) {
-                JSONObject c = ux0.c((String) hashMap.get("cmd_map"));
-                qd0Var.a = c;
-                qd0Var.b = ux0.b(c);
-            }
-            if (hashMap.get("area_cmd") instanceof String) {
-                qd0Var.c = ux0.b(ux0.c((String) hashMap.get("area_cmd")));
-            }
-            if (hashMap.get("charge_map") instanceof String) {
-                ux0.b(ux0.c((String) hashMap.get("charge_map")));
-            }
-            if (hashMap.get("parallel_charge_urls") instanceof JSONObject) {
-                ux0.b((JSONObject) hashMap.get("parallel_charge_urls"));
-            }
-            if (hashMap.get("defer_charge_urls") instanceof JSONObject) {
-                ux0.b((JSONObject) hashMap.get("defer_charge_urls"));
-            }
-            return qd0Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, activity) == null) {
+            si0.a().b(new zi0(true));
         }
-        return (qd0) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.dk0
+    public void onForegroundToBackground(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity) == null) {
+            si0.a().b(new zi0(false));
+        }
     }
 }

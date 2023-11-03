@@ -376,7 +376,7 @@ public class MediaController implements Closeable {
             if (token != null) {
                 this.mPrimaryCallback = controllerCallback;
                 this.mPrimaryCallbackExecutor = executor;
-                SessionToken.createSessionToken(context, token, new SessionToken.OnSessionTokenCreatedListener() { // from class: com.baidu.tieba.n
+                SessionToken.createSessionToken(context, token, new SessionToken.OnSessionTokenCreatedListener() { // from class: com.baidu.tieba.o
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -972,7 +972,7 @@ public class MediaController implements Closeable {
             if (!this.mClosed) {
                 this.mImpl = createImpl(context, sessionToken, bundle);
             } else {
-                notifyAllControllerCallbacks(new ControllerCallbackRunnable() { // from class: com.baidu.tieba.o
+                notifyAllControllerCallbacks(new ControllerCallbackRunnable() { // from class: com.baidu.tieba.p
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

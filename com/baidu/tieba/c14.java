@@ -1,14 +1,7 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.util.Log;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
-import com.baidu.tieba.xf2;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.download.util.LocalFilesFilterKt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,41 +9,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class c14 extends bg2<k14, l14> {
+public class c14 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
-    public static volatile c14 e;
+    public static volatile boolean a;
+    public static volatile boolean b;
+    public static volatile List<hg2> c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a extends xf2.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.xf2.a
-        public int e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return 1;
-            }
-            return invokeV.intValue;
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+    public static String b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i != 2 ? i != 3 ? i != 4 ? i != 5 ? i != 6 ? LocalFilesFilterKt.FILTER_NAME_LOG : "debug" : "warn" : "error" : "info" : "debug" : (String) invokeI.objValue;
     }
 
     static {
@@ -66,28 +38,10 @@ public class c14 extends bg2<k14, l14> {
                 return;
             }
         }
-        d = am1.a;
+        c = new ArrayList();
     }
 
-    public static c14 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (e == null) {
-                synchronized (c14.class) {
-                    if (e == null) {
-                        e = new c14();
-                    }
-                }
-            }
-            return e;
-        }
-        return (c14) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c14() {
-        super(new k14(), new l14());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -95,46 +49,79 @@ public class c14 extends bg2<k14, l14> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((bh2) objArr[0], (eh2) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.bg2
-    public String b(int i) {
-        InterceptResult invokeI;
+    public static void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i == 1) {
-                return e14.b().getPath();
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            synchronized (c14.class) {
+                c = new ArrayList();
             }
-            return null;
+            b = false;
         }
-        return (String) invokeI.objValue;
     }
 
-    @Override // com.baidu.tieba.bg2
-    @Nullable
-    public ExtensionCore c() {
-        InterceptResult invokeV;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                return d();
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && a && !b) {
+            synchronized (c14.class) {
+                if (c != null) {
+                    for (int i = 0; i < c.size(); i++) {
+                        tr2.V().n("console", c.get(i));
+                    }
+                    c.clear();
+                    c = null;
+                }
             }
-            Bundle bundle = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), a.class, null).mResult;
-            bundle.setClassLoader(ExtensionCore.class.getClassLoader());
-            ExtensionCore extensionCore = (ExtensionCore) bundle.getParcelable("aiapps_extension_core");
-            if (d) {
-                Log.d("ExtCore-GamesManager", "getExtensionCore:" + ProcessUtils.getCurProcessName() + " extension core: " + extensionCore);
-                return extensionCore;
-            }
-            return extensionCore;
+            b = true;
         }
-        return (ExtensionCore) invokeV.objValue;
+    }
+
+    public static void d(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65541, null, i, str) == null) {
+            e(b(i), str);
+        }
+    }
+
+    public static void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) && a) {
+            f(w04.t(str, str2));
+        }
+    }
+
+    public static void g(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) && a) {
+            f(w04.v(str, str2));
+        }
+    }
+
+    public static void f(hg2 hg2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, hg2Var) == null) {
+            if (!b) {
+                synchronized (c14.class) {
+                    if (c != null) {
+                        c.add(hg2Var);
+                        return;
+                    }
+                }
+            }
+            tr2.V().n("console", hg2Var);
+        }
+    }
+
+    public static void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65545, null, z) == null) {
+            a = z;
+            g32.n(z);
+        }
     }
 }

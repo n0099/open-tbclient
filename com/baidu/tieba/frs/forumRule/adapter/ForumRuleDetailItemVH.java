@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jw5;
+import com.baidu.tieba.dy5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -51,11 +51,11 @@ public class ForumRuleDetailItemVH extends TypeAdapter.ViewHolder {
     public final void a(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            this.c = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090c1b);
-            TbRichTextView tbRichTextView = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f090c1a);
+            this.c = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090c48);
+            TbRichTextView tbRichTextView = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f090c47);
             this.d = tbRichTextView;
             tbRichTextView.setTextSize(TbadkApplication.getInst().getResources().getDimension(R.dimen.T_X07));
-            jw5 layoutStrategy = this.d.getLayoutStrategy();
+            dy5 layoutStrategy = this.d.getLayoutStrategy();
             layoutStrategy.p(TbadkApplication.getInst().getResources().getDimension(R.dimen.tbds28), 1.0f);
             this.d.setLayoutStrategy(layoutStrategy);
             onChangeSkinType();

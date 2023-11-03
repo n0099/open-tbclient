@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.plugin.capture.download.utils.LogUtils;
 import com.baidu.minivideo.plugin.capture.utils.FileUtils;
-import com.baidu.tieba.ea0;
+import com.baidu.tieba.va0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -124,7 +124,7 @@ public class DuFaceItem extends FaceItem {
             boolean z2 = false;
             try {
                 FileUtils.unzipFile(new File(str), getFilePath());
-                z = ea0.k1(getFilePath());
+                z = va0.k1(getFilePath());
                 if (!z) {
                     LogUtils.d("DuFaceData", getFilePath() + " not verify");
                     FileUtils.deleteDir(new File(getFilePath()));
